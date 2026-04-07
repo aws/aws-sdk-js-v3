@@ -67,10 +67,6 @@ import type {
   CancelPolicyGenerationCommandOutput,
 } from "./commands/CancelPolicyGenerationCommand";
 import type {
-  CancelPolicyPreviewJobCommandInput,
-  CancelPolicyPreviewJobCommandOutput,
-} from "./commands/CancelPolicyPreviewJobCommand";
-import type {
   CheckAccessNotGrantedCommandInput,
   CheckAccessNotGrantedCommandOutput,
 } from "./commands/CheckAccessNotGrantedCommand";
@@ -88,19 +84,11 @@ import type {
   CreateArchiveRuleCommandInput,
   CreateArchiveRuleCommandOutput,
 } from "./commands/CreateArchiveRuleCommand";
-import type {
-  CreatePolicyPreviewConfigurationCommandInput,
-  CreatePolicyPreviewConfigurationCommandOutput,
-} from "./commands/CreatePolicyPreviewConfigurationCommand";
 import type { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "./commands/DeleteAnalyzerCommand";
 import type {
   DeleteArchiveRuleCommandInput,
   DeleteArchiveRuleCommandOutput,
 } from "./commands/DeleteArchiveRuleCommand";
-import type {
-  DeletePolicyPreviewConfigurationCommandInput,
-  DeletePolicyPreviewConfigurationCommandOutput,
-} from "./commands/DeletePolicyPreviewConfigurationCommand";
 import type {
   GenerateFindingRecommendationCommandInput,
   GenerateFindingRecommendationCommandOutput,
@@ -127,14 +115,6 @@ import type {
   GetGeneratedPolicyCommandOutput,
 } from "./commands/GetGeneratedPolicyCommand";
 import type {
-  GetPolicyPreviewConfigurationCommandInput,
-  GetPolicyPreviewConfigurationCommandOutput,
-} from "./commands/GetPolicyPreviewConfigurationCommand";
-import type {
-  GetPolicyPreviewJobCommandInput,
-  GetPolicyPreviewJobCommandOutput,
-} from "./commands/GetPolicyPreviewJobCommand";
-import type {
   ListAccessPreviewFindingsCommandInput,
   ListAccessPreviewFindingsCommandOutput,
 } from "./commands/ListAccessPreviewFindingsCommand";
@@ -155,10 +135,6 @@ import type {
   ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
 import type {
-  ListPolicyPreviewJobsCommandInput,
-  ListPolicyPreviewJobsCommandOutput,
-} from "./commands/ListPolicyPreviewJobsCommand";
-import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -166,10 +142,6 @@ import type {
   StartPolicyGenerationCommandInput,
   StartPolicyGenerationCommandOutput,
 } from "./commands/StartPolicyGenerationCommand";
-import type {
-  StartPolicyPreviewJobCommandInput,
-  StartPolicyPreviewJobCommandOutput,
-} from "./commands/StartPolicyPreviewJobCommand";
 import type {
   StartResourceScanCommandInput,
   StartResourceScanCommandOutput,
@@ -200,17 +172,14 @@ export { __Client };
 export type ServiceInputTypes =
   | ApplyArchiveRuleCommandInput
   | CancelPolicyGenerationCommandInput
-  | CancelPolicyPreviewJobCommandInput
   | CheckAccessNotGrantedCommandInput
   | CheckNoNewAccessCommandInput
   | CheckNoPublicAccessCommandInput
   | CreateAccessPreviewCommandInput
   | CreateAnalyzerCommandInput
   | CreateArchiveRuleCommandInput
-  | CreatePolicyPreviewConfigurationCommandInput
   | DeleteAnalyzerCommandInput
   | DeleteArchiveRuleCommandInput
-  | DeletePolicyPreviewConfigurationCommandInput
   | GenerateFindingRecommendationCommandInput
   | GetAccessPreviewCommandInput
   | GetAnalyzedResourceCommandInput
@@ -221,8 +190,6 @@ export type ServiceInputTypes =
   | GetFindingV2CommandInput
   | GetFindingsStatisticsCommandInput
   | GetGeneratedPolicyCommandInput
-  | GetPolicyPreviewConfigurationCommandInput
-  | GetPolicyPreviewJobCommandInput
   | ListAccessPreviewFindingsCommandInput
   | ListAccessPreviewsCommandInput
   | ListAnalyzedResourcesCommandInput
@@ -231,10 +198,8 @@ export type ServiceInputTypes =
   | ListFindingsCommandInput
   | ListFindingsV2CommandInput
   | ListPolicyGenerationsCommandInput
-  | ListPolicyPreviewJobsCommandInput
   | ListTagsForResourceCommandInput
   | StartPolicyGenerationCommandInput
-  | StartPolicyPreviewJobCommandInput
   | StartResourceScanCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -249,17 +214,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | ApplyArchiveRuleCommandOutput
   | CancelPolicyGenerationCommandOutput
-  | CancelPolicyPreviewJobCommandOutput
   | CheckAccessNotGrantedCommandOutput
   | CheckNoNewAccessCommandOutput
   | CheckNoPublicAccessCommandOutput
   | CreateAccessPreviewCommandOutput
   | CreateAnalyzerCommandOutput
   | CreateArchiveRuleCommandOutput
-  | CreatePolicyPreviewConfigurationCommandOutput
   | DeleteAnalyzerCommandOutput
   | DeleteArchiveRuleCommandOutput
-  | DeletePolicyPreviewConfigurationCommandOutput
   | GenerateFindingRecommendationCommandOutput
   | GetAccessPreviewCommandOutput
   | GetAnalyzedResourceCommandOutput
@@ -270,8 +232,6 @@ export type ServiceOutputTypes =
   | GetFindingV2CommandOutput
   | GetFindingsStatisticsCommandOutput
   | GetGeneratedPolicyCommandOutput
-  | GetPolicyPreviewConfigurationCommandOutput
-  | GetPolicyPreviewJobCommandOutput
   | ListAccessPreviewFindingsCommandOutput
   | ListAccessPreviewsCommandOutput
   | ListAnalyzedResourcesCommandOutput
@@ -280,10 +240,8 @@ export type ServiceOutputTypes =
   | ListFindingsCommandOutput
   | ListFindingsV2CommandOutput
   | ListPolicyGenerationsCommandOutput
-  | ListPolicyPreviewJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartPolicyGenerationCommandOutput
-  | StartPolicyPreviewJobCommandOutput
   | StartResourceScanCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

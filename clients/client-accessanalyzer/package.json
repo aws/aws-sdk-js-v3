@@ -57,7 +57,6 @@
     "@smithy/util-middleware": "^4.2.13",
     "@smithy/util-retry": "^4.3.0",
     "@smithy/util-utf8": "^4.2.2",
-    "@smithy/util-waiter": "^4.2.15",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

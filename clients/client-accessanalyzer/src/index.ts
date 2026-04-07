@@ -13,7 +13,6 @@ export type { AccessAnalyzerExtensionConfiguration } from "./extensionConfigurat
 export * from "./commands";
 export * from "./schemas/schemas_0";
 export * from "./pagination";
-export * from "./waiters";
 
 export * from "./models/enums";
 export * from "./models/errors";

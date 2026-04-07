@@ -195,13 +195,6 @@ CancelPolicyGeneration
 </details>
 <details>
 <summary>
-CancelPolicyPreviewJob
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CancelPolicyPreviewJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CancelPolicyPreviewJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CancelPolicyPreviewJobCommandOutput/)
-</details>
-<details>
-<summary>
 CheckAccessNotGranted
 </summary>
 
@@ -244,13 +237,6 @@ CreateArchiveRule
 </details>
 <details>
 <summary>
-CreatePolicyPreviewConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CreatePolicyPreviewConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreatePolicyPreviewConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreatePolicyPreviewConfigurationCommandOutput/)
-</details>
-<details>
-<summary>
 DeleteAnalyzer
 </summary>
 
@@ -262,13 +248,6 @@ DeleteArchiveRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/DeleteArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteArchiveRuleCommandOutput/)
-</details>
-<details>
-<summary>
-DeletePolicyPreviewConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/DeletePolicyPreviewConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeletePolicyPreviewConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeletePolicyPreviewConfigurationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -342,20 +321,6 @@ GetGeneratedPolicy
 </details>
 <details>
 <summary>
-GetPolicyPreviewConfiguration
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetPolicyPreviewConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetPolicyPreviewConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetPolicyPreviewConfigurationCommandOutput/)
-</details>
-<details>
-<summary>
-GetPolicyPreviewJob
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/GetPolicyPreviewJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetPolicyPreviewJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/GetPolicyPreviewJobCommandOutput/)
-</details>
-<details>
-<summary>
 ListAccessPreviewFindings
 </summary>
 
@@ -412,13 +377,6 @@ ListPolicyGenerations
 </details>
 <details>
 <summary>
-ListPolicyPreviewJobs
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/ListPolicyPreviewJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListPolicyPreviewJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/ListPolicyPreviewJobsCommandOutput/)
-</details>
-<details>
-<summary>
 ListTagsForResource
 </summary>
 
@@ -430,13 +388,6 @@ StartPolicyGeneration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/StartPolicyGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartPolicyGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartPolicyGenerationCommandOutput/)
-</details>
-<details>
-<summary>
-StartPolicyPreviewJob
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/StartPolicyPreviewJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartPolicyPreviewJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/StartPolicyPreviewJobCommandOutput/)
 </details>
 <details>
 <summary>

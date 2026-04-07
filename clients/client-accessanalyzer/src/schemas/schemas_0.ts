@@ -46,12 +46,6 @@ const _CNPARh = "CheckNoPublicAccessResponse";
 const _CPG = "CancelPolicyGeneration";
 const _CPGR = "CancelPolicyGenerationRequest";
 const _CPGRa = "CancelPolicyGenerationResponse";
-const _CPPC = "CreatePolicyPreviewConfiguration";
-const _CPPCR = "CreatePolicyPreviewConfigurationRequest";
-const _CPPCRr = "CreatePolicyPreviewConfigurationResponse";
-const _CPPJ = "CancelPolicyPreviewJob";
-const _CPPJR = "CancelPolicyPreviewJobRequest";
-const _CPPJRa = "CancelPolicyPreviewJobResponse";
 const _CTD = "CloudTrailDetails";
 const _CTP = "CloudTrailProperties";
 const _Co = "Configuration";
@@ -59,9 +53,6 @@ const _DA = "DeleteAnalyzer";
 const _DAR = "DeleteAnalyzerRequest";
 const _DARR = "DeleteArchiveRuleRequest";
 const _DARe = "DeleteArchiveRule";
-const _DPPC = "DeletePolicyPreviewConfiguration";
-const _DPPCR = "DeletePolicyPreviewConfigurationRequest";
-const _DPPCRe = "DeletePolicyPreviewConfigurationResponse";
 const _DSC = "DynamodbStreamConfiguration";
 const _DTC = "DynamodbTableConfiguration";
 const _EAD = "ExternalAccessDetails";
@@ -115,12 +106,6 @@ const _GGPRe = "GetGeneratedPolicyResponse";
 const _GP = "GeneratedPolicy";
 const _GPL = "GeneratedPolicyList";
 const _GPP = "GeneratedPolicyProperties";
-const _GPPC = "GetPolicyPreviewConfiguration";
-const _GPPCR = "GetPolicyPreviewConfigurationRequest";
-const _GPPCRe = "GetPolicyPreviewConfigurationResponse";
-const _GPPJ = "GetPolicyPreviewJob";
-const _GPPJR = "GetPolicyPreviewJobRequest";
-const _GPPJRe = "GetPolicyPreviewJobResponse";
 const _GPR = "GeneratedPolicyResult";
 const _IAAR = "InternalAccessAnalysisRule";
 const _IAARC = "InternalAccessAnalysisRuleCriteria";
@@ -168,27 +153,16 @@ const _LL = "LocationList";
 const _LPG = "ListPolicyGenerations";
 const _LPGR = "ListPolicyGenerationsRequest";
 const _LPGRi = "ListPolicyGenerationsResponse";
-const _LPPJ = "ListPolicyPreviewJobs";
-const _LPPJR = "ListPolicyPreviewJobsRequest";
-const _LPPJRi = "ListPolicyPreviewJobsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _NOC = "NetworkOriginConfiguration";
 const _P = "Position";
-const _PC = "PolicyConfiguration";
-const _PCL = "PolicyConfigurationsList";
 const _PE = "PathElement";
 const _PEL = "PathElementList";
 const _PG = "PolicyGeneration";
 const _PGD = "PolicyGenerationDetails";
 const _PGL = "PolicyGenerationList";
-const _PPAR = "PolicyPreviewAnalysisReport";
-const _PPARo = "PolicyPreviewAnalysisReports";
-const _PPC = "PolicyPreviewConfiguration";
-const _PPCL = "PolicyPreviewConfigurationList";
-const _PPJD = "PolicyPreviewJobDetails";
-const _PPJP = "PolicyPreviewJobParameters";
 const _RA = "Retry-After";
 const _RDCSAM = "RdsDbClusterSnapshotAttributesMap";
 const _RDCSAV = "RdsDbClusterSnapshotAttributeValue";
@@ -219,9 +193,6 @@ const _SPABC = "S3PublicAccessBlockConfiguration";
 const _SPG = "StartPolicyGeneration";
 const _SPGR = "StartPolicyGenerationRequest";
 const _SPGRt = "StartPolicyGenerationResponse";
-const _SPPJ = "StartPolicyPreviewJob";
-const _SPPJR = "StartPolicyPreviewJobRequest";
-const _SPPJRt = "StartPolicyPreviewJobResponse";
 const _SQC = "SqsQueueConfiguration";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "StatusReason";
@@ -287,7 +258,6 @@ const _aR = "accessRole";
 const _aRl = "allRegions";
 const _aRn = "analysisRule";
 const _aRna = "analyzedResources";
-const _aRnal = "analysisReports";
 const _aRr = "archiveRules";
 const _aRrc = "archiveRule";
 const _aT = "accessType";
@@ -346,7 +316,6 @@ const _fS = "findingsStatistics";
 const _fSP = "fileSystemPolicy";
 const _fT = "findingType";
 const _fi = "finding";
-const _fil = "filters";
 const _fin = "findings";
 const _g = "groups";
 const _gP = "generatedPolicies";
@@ -378,9 +347,6 @@ const _ind = "index";
 const _jD = "jobDetails";
 const _jE = "jobError";
 const _jI = "jobId";
-const _jP = "jobParameters";
-const _jS = "jobStatus";
-const _jT = "jobType";
 const _k = "key";
 const _kK = "kmsKey";
 const _kKI = "kmsKeyId";
@@ -404,18 +370,14 @@ const _nT = "nextToken";
 const _ne = "neq";
 const _o = "operations";
 const _oB = "orderBy";
-const _oSU = "outputS3Uri";
 const _of = "offset";
 const _p = "principal";
 const _pA = "principalArn";
 const _pAB = "publicAccessBlock";
-const _pC = "policyConfigurations";
 const _pD = "policyDocument";
-const _pDL = "policyDocumentsList";
 const _pG = "policyGenerations";
 const _pGD = "policyGenerationDetails";
 const _pOA = "principalOwnerAccount";
-const _pPC = "policyPreviewConfigurations";
 const _pT = "policyType";
 const _pTr = "principalType";
 const _pUA = "policyUpdatedAt";
@@ -452,7 +414,6 @@ const _res = "resource";
 const _resu = "result";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.accessanalyzer";
 const _sA = "startedAt";
-const _sAu = "submittedAt";
 const _sB = "s3Bucket";
 const _sCPR = "serviceControlPolicyRestriction";
 const _sEDB = "s3ExpressDirectoryBucket";
@@ -468,7 +429,6 @@ const _sR = "statusReason";
 const _sT = "startTime";
 const _sTn = "snsTopic";
 const _sV = "sharedVia";
-const _sc = "scope";
 const _se = "server";
 const _so = "sources";
 const _sor = "sort";
@@ -483,7 +443,6 @@ const _tAE = "totalActiveErrors";
 const _tAF = "totalActiveFindings";
 const _tAFo = "totalArchivedFindings";
 const _tAP = "totalActivePublic";
-const _tI = "targetId";
 const _tK = "tagKeys";
 const _tP = "trailProperties";
 const _tPa = "tablePolicy";
@@ -676,16 +635,6 @@ export var CancelPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _CPG
   [],
   []
 ];
-export var CancelPolicyPreviewJobRequest$: StaticStructureSchema = [3, n0, _CPPJR,
-  0,
-  [_jI],
-  [[0, 1]], 1
-];
-export var CancelPolicyPreviewJobResponse$: StaticStructureSchema = [3, n0, _CPPJRa,
-  0,
-  [],
-  []
-];
 export var CheckAccessNotGrantedRequest$: StaticStructureSchema = [3, n0, _CANGR,
   0,
   [_pD, _acc, _pT],
@@ -751,16 +700,6 @@ export var CreateArchiveRuleRequest$: StaticStructureSchema = [3, n0, _CARR,
   [_aN, _rN, _f, _cTl],
   [[0, 1], 0, () => FilterCriteriaMap, [0, 4]], 3
 ];
-export var CreatePolicyPreviewConfigurationRequest$: StaticStructureSchema = [3, n0, _CPPCR,
-  0,
-  [_cTl, _sc],
-  [[0, 4], 0]
-];
-export var CreatePolicyPreviewConfigurationResponse$: StaticStructureSchema = [3, n0, _CPPCRr,
-  0,
-  [_st],
-  [0], 1
-];
 export var Criterion$: StaticStructureSchema = [3, n0, _C,
   0,
   [_eq, _ne, _cont, _exi],
@@ -775,16 +714,6 @@ export var DeleteArchiveRuleRequest$: StaticStructureSchema = [3, n0, _DARR,
   0,
   [_aN, _rN, _cTl],
   [[0, 1], [0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 2
-];
-export var DeletePolicyPreviewConfigurationRequest$: StaticStructureSchema = [3, n0, _DPPCR,
-  0,
-  [_cTl],
-  [[0, { [_hQ]: _cTl, [_iT]: 1 }]]
-];
-export var DeletePolicyPreviewConfigurationResponse$: StaticStructureSchema = [3, n0, _DPPCRe,
-  0,
-  [],
-  []
 ];
 export var DynamodbStreamConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
@@ -961,26 +890,6 @@ export var GetGeneratedPolicyResponse$: StaticStructureSchema = [3, n0, _GGPRe,
   [_jD, _gPR],
   [() => JobDetails$, () => GeneratedPolicyResult$], 2
 ];
-export var GetPolicyPreviewConfigurationRequest$: StaticStructureSchema = [3, n0, _GPPCR,
-  0,
-  [],
-  []
-];
-export var GetPolicyPreviewConfigurationResponse$: StaticStructureSchema = [3, n0, _GPPCRe,
-  0,
-  [_pPC],
-  [() => PolicyPreviewConfigurationList]
-];
-export var GetPolicyPreviewJobRequest$: StaticStructureSchema = [3, n0, _GPPJR,
-  0,
-  [_jI],
-  [[0, 1]], 1
-];
-export var GetPolicyPreviewJobResponse$: StaticStructureSchema = [3, n0, _GPPJRe,
-  0,
-  [_jI, _oSU, _jP, _jD],
-  [0, 0, () => PolicyPreviewJobParameters$, () => PolicyPreviewJobDetails$], 2
-];
 export var IamRoleConfiguration$: StaticStructureSchema = [3, n0, _IRC,
   0,
   [_tPr],
@@ -1131,16 +1040,6 @@ export var ListPolicyGenerationsResponse$: StaticStructureSchema = [3, n0, _LPGR
   [_pG, _nT],
   [() => PolicyGenerationList, 0], 1
 ];
-export var ListPolicyPreviewJobsRequest$: StaticStructureSchema = [3, n0, _LPPJR,
-  0,
-  [_fil, _mR, _nT],
-  [[128 | 0, 64], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
-];
-export var ListPolicyPreviewJobsResponse$: StaticStructureSchema = [3, n0, _LPPJRi,
-  0,
-  [_aRnal, _nT],
-  [() => PolicyPreviewAnalysisReports, 0], 1
-];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -1156,11 +1055,6 @@ export var Location$: StaticStructureSchema = [3, n0, _L,
   [_pa, _sp],
   [() => PathElementList, () => Span$], 2
 ];
-export var PolicyConfiguration$: StaticStructureSchema = [3, n0, _PC,
-  0,
-  [_jT, _tI, _pDL],
-  [0, 0, 64 | 0], 3
-];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
   [_jI, _pA, _st, _sO, _cO],
@@ -1170,26 +1064,6 @@ export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
   0,
   [_pA],
   [0], 1
-];
-export var PolicyPreviewAnalysisReport$: StaticStructureSchema = [3, n0, _PPAR,
-  0,
-  [_jI, _st, _sAu, _oSU, _sA, _cAo],
-  [0, 0, 5, 0, 5, 5], 4
-];
-export var PolicyPreviewConfiguration$: StaticStructureSchema = [3, n0, _PPC,
-  0,
-  [_sc, _st, _cA, _uA],
-  [0, 0, 5, 5], 3
-];
-export var PolicyPreviewJobDetails$: StaticStructureSchema = [3, n0, _PPJD,
-  0,
-  [_jS, _sAu, _sA, _cAo, _jE],
-  [0, 5, 5, 5, () => JobError$], 2
-];
-export var PolicyPreviewJobParameters$: StaticStructureSchema = [3, n0, _PPJP,
-  0,
-  [_sT, _eT, _pC],
-  [5, 5, () => PolicyConfigurationsList], 3
 ];
 export var Position$: StaticStructureSchema = [3, n0, _P,
   0,
@@ -1282,16 +1156,6 @@ export var StartPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _SPGR,
   [() => PolicyGenerationDetails$, () => CloudTrailDetails$, [0, 4]], 1
 ];
 export var StartPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _SPGRt,
-  0,
-  [_jI],
-  [0], 1
-];
-export var StartPolicyPreviewJobRequest$: StaticStructureSchema = [3, n0, _SPPJR,
-  0,
-  [_pC, _sT, _oSU, _eT, _cTl],
-  [() => PolicyConfigurationsList, 5, 0, 5, [0, 4]], 3
-];
-export var StartPolicyPreviewJobResponse$: StaticStructureSchema = [3, n0, _SPPJRt,
   0,
   [_jI],
   [0], 1
@@ -1496,18 +1360,8 @@ var LocationList: StaticListSchema = [1, n0, _LL,
 var PathElementList: StaticListSchema = [1, n0, _PEL,
   0, () => PathElement$
 ];
-var PolicyConfigurationsList: StaticListSchema = [1, n0, _PCL,
-  0, () => PolicyConfiguration$
-];
-var PolicyDocumentList = 64 | 0;
 var PolicyGenerationList: StaticListSchema = [1, n0, _PGL,
   0, () => PolicyGeneration$
-];
-var PolicyPreviewAnalysisReports: StaticListSchema = [1, n0, _PPARo,
-  0, () => PolicyPreviewAnalysisReport$
-];
-var PolicyPreviewConfigurationList: StaticListSchema = [1, n0, _PPCL,
-  0, () => PolicyPreviewConfiguration$
 ];
 var RdsDbClusterSnapshotAccountIdsList = 64 | 0;
 var RdsDbSnapshotAccountIdsList = 64 | 0;
@@ -1561,7 +1415,6 @@ var InternalAccessResourceTypeStatisticsMap: StaticMapSchema = [2, n0, _IARTSM,
 ];
 var KmsConstraintsMap = 128 | 0;
 var KmsKeyPoliciesMap = 128 | 0;
-var PolicyPreviewJobFiltersMap = 128 | 0;
 var PrincipalMap = 128 | 0;
 var RdsDbClusterSnapshotAttributesMap: StaticMapSchema = [2, n0, _RDCSAM,
   0, 0, () => RdsDbClusterSnapshotAttributeValue$
@@ -1635,9 +1488,6 @@ export var ApplyArchiveRule$: StaticOperationSchema = [9, n0, _AAR,
 export var CancelPolicyGeneration$: StaticOperationSchema = [9, n0, _CPG,
   { [_h]: ["PUT", "/policy/generation/{jobId}", 200] }, () => CancelPolicyGenerationRequest$, () => CancelPolicyGenerationResponse$
 ];
-export var CancelPolicyPreviewJob$: StaticOperationSchema = [9, n0, _CPPJ,
-  { [_h]: ["PUT", "/policy/preview/{jobId}", 200] }, () => CancelPolicyPreviewJobRequest$, () => CancelPolicyPreviewJobResponse$
-];
 export var CheckAccessNotGranted$: StaticOperationSchema = [9, n0, _CANG,
   { [_h]: ["POST", "/policy/check-access-not-granted", 200] }, () => CheckAccessNotGrantedRequest$, () => CheckAccessNotGrantedResponse$
 ];
@@ -1656,17 +1506,11 @@ export var CreateAnalyzer$: StaticOperationSchema = [9, n0, _CA,
 export var CreateArchiveRule$: StaticOperationSchema = [9, n0, _CARre,
   { [_h]: ["PUT", "/analyzer/{analyzerName}/archive-rule", 200] }, () => CreateArchiveRuleRequest$, () => __Unit
 ];
-export var CreatePolicyPreviewConfiguration$: StaticOperationSchema = [9, n0, _CPPC,
-  { [_h]: ["PUT", "/policy/preview-configuration", 200] }, () => CreatePolicyPreviewConfigurationRequest$, () => CreatePolicyPreviewConfigurationResponse$
-];
 export var DeleteAnalyzer$: StaticOperationSchema = [9, n0, _DA,
   { [_h]: ["DELETE", "/analyzer/{analyzerName}", 200] }, () => DeleteAnalyzerRequest$, () => __Unit
 ];
 export var DeleteArchiveRule$: StaticOperationSchema = [9, n0, _DARe,
   { [_h]: ["DELETE", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200] }, () => DeleteArchiveRuleRequest$, () => __Unit
-];
-export var DeletePolicyPreviewConfiguration$: StaticOperationSchema = [9, n0, _DPPC,
-  { [_h]: ["DELETE", "/policy/preview-configuration", 200] }, () => DeletePolicyPreviewConfigurationRequest$, () => DeletePolicyPreviewConfigurationResponse$
 ];
 export var GenerateFindingRecommendation$: StaticOperationSchema = [9, n0, _GFRen,
   { [_h]: ["POST", "/recommendation/{id}", 200] }, () => GenerateFindingRecommendationRequest$, () => __Unit
@@ -1698,12 +1542,6 @@ export var GetFindingV2$: StaticOperationSchema = [9, n0, _GFV,
 export var GetGeneratedPolicy$: StaticOperationSchema = [9, n0, _GGP,
   { [_h]: ["GET", "/policy/generation/{jobId}", 200] }, () => GetGeneratedPolicyRequest$, () => GetGeneratedPolicyResponse$
 ];
-export var GetPolicyPreviewConfiguration$: StaticOperationSchema = [9, n0, _GPPC,
-  { [_h]: ["GET", "/policy/preview-configuration", 200] }, () => GetPolicyPreviewConfigurationRequest$, () => GetPolicyPreviewConfigurationResponse$
-];
-export var GetPolicyPreviewJob$: StaticOperationSchema = [9, n0, _GPPJ,
-  { [_h]: ["GET", "/policy/preview/{jobId}", 200] }, () => GetPolicyPreviewJobRequest$, () => GetPolicyPreviewJobResponse$
-];
 export var ListAccessPreviewFindings$: StaticOperationSchema = [9, n0, _LAPF,
   { [_h]: ["POST", "/access-preview/{accessPreviewId}", 200] }, () => ListAccessPreviewFindingsRequest$, () => ListAccessPreviewFindingsResponse$
 ];
@@ -1728,17 +1566,11 @@ export var ListFindingsV2$: StaticOperationSchema = [9, n0, _LFV,
 export var ListPolicyGenerations$: StaticOperationSchema = [9, n0, _LPG,
   { [_h]: ["GET", "/policy/generation", 200] }, () => ListPolicyGenerationsRequest$, () => ListPolicyGenerationsResponse$
 ];
-export var ListPolicyPreviewJobs$: StaticOperationSchema = [9, n0, _LPPJ,
-  { [_h]: ["GET", "/policy/preview", 200] }, () => ListPolicyPreviewJobsRequest$, () => ListPolicyPreviewJobsResponse$
-];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var StartPolicyGeneration$: StaticOperationSchema = [9, n0, _SPG,
   { [_h]: ["PUT", "/policy/generation", 200] }, () => StartPolicyGenerationRequest$, () => StartPolicyGenerationResponse$
-];
-export var StartPolicyPreviewJob$: StaticOperationSchema = [9, n0, _SPPJ,
-  { [_h]: ["PUT", "/policy/preview", 200] }, () => StartPolicyPreviewJobRequest$, () => StartPolicyPreviewJobResponse$
 ];
 export var StartResourceScan$: StaticOperationSchema = [9, n0, _SRS,
   { [_h]: ["POST", "/resource/scan", 200] }, () => StartResourceScanRequest$, () => __Unit

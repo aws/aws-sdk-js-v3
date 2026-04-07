@@ -225,32 +225,6 @@ export type AclPermission = (typeof AclPermission)[keyof typeof AclPermission];
  * @public
  * @enum
  */
-export const PolicyPreviewScope = {
-  GLOBAL: "GLOBAL",
-} as const;
-/**
- * @public
- */
-export type PolicyPreviewScope = (typeof PolicyPreviewScope)[keyof typeof PolicyPreviewScope];
-
-/**
- * @public
- * @enum
- */
-export const PolicyPreviewStatus = {
-  ACTIVE: "ACTIVE",
-  FAILED: "FAILED",
-  PENDING_CREATION: "PENDING_CREATION",
-} as const;
-/**
- * @public
- */
-export type PolicyPreviewStatus = (typeof PolicyPreviewStatus)[keyof typeof PolicyPreviewStatus];
-
-/**
- * @public
- * @enum
- */
 export const AccessPreviewStatus = {
   COMPLETED: "COMPLETED",
   CREATING: "CREATING",
@@ -425,16 +399,7 @@ export type FindingType = (typeof FindingType)[keyof typeof FindingType];
  */
 export const JobErrorCode = {
   AUTHORIZATION_ERROR: "AUTHORIZATION_ERROR",
-  CANCELED_JOB_ERROR: "CANCELED_JOB_ERROR",
-  INSUFFICIENT_PERMISSIONS_ERROR: "INSUFFICIENT_PERMISSIONS_ERROR",
-  INVALID_ORGANIZATION_CONFIGURATION: "INVALID_ORGANIZATION_CONFIGURATION",
-  INVALID_POLICY_PREVIEW_CONFIGURATION: "INVALID_POLICY_PREVIEW_CONFIGURATION",
-  INVALID_SERVICE_LINKED_ROLE: "INVALID_SERVICE_LINKED_ROLE",
-  INVALID_TARGET_ERROR: "INVALID_TARGET_ERROR",
-  ORGANIZATION_ACCESS_DENIED_ERROR: "ORGANIZATION_ACCESS_DENIED_ERROR",
   RESOURCE_NOT_FOUND_ERROR: "RESOURCE_NOT_FOUND_ERROR",
-  S3_BUCKET_NOT_FOUND_ERROR: "S3_BUCKET_NOT_FOUND_ERROR",
-  S3_BUCKET_PERMISSION_ERROR: "S3_BUCKET_PERMISSION_ERROR",
   SERVICE_ERROR: "SERVICE_ERROR",
   SERVICE_QUOTA_EXCEEDED_ERROR: "SERVICE_QUOTA_EXCEEDED_ERROR",
 } as const;
@@ -462,34 +427,6 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  * @public
  * @enum
  */
-export const ImpactAnalysisJobStatus = {
-  CANCELED: "CANCELED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-} as const;
-/**
- * @public
- */
-export type ImpactAnalysisJobStatus = (typeof ImpactAnalysisJobStatus)[keyof typeof ImpactAnalysisJobStatus];
-
-/**
- * @public
- * @enum
- */
-export const ImpactAnalysisJobType = {
-  SCP: "SCP",
-} as const;
-/**
- * @public
- */
-export type ImpactAnalysisJobType = (typeof ImpactAnalysisJobType)[keyof typeof ImpactAnalysisJobType];
-
-/**
- * @public
- * @enum
- */
 export const FindingChangeType = {
   CHANGED: "CHANGED",
   NEW: "NEW",
@@ -512,19 +449,6 @@ export const OrderBy = {
  * @public
  */
 export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
-
-/**
- * @public
- * @enum
- */
-export const PolicyPreviewJobFilterName = {
-  JOB_STATUS: "jobStatus",
-  TARGET_ID: "targetId",
-} as const;
-/**
- * @public
- */
-export type PolicyPreviewJobFilterName = (typeof PolicyPreviewJobFilterName)[keyof typeof PolicyPreviewJobFilterName];
 
 /**
  * @public

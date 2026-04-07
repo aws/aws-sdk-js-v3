@@ -1,12 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type {
-  HttpHandlerOptions as __HttpHandlerOptions,
-  PaginationConfiguration,
-  Paginator,
-  WaiterConfiguration,
-} from "@smithy/types";
-import type { WaiterResult } from "@smithy/util-waiter";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AccessAnalyzerClient } from "./AccessAnalyzerClient";
 import {
@@ -19,11 +13,6 @@ import {
   type CancelPolicyGenerationCommandOutput,
   CancelPolicyGenerationCommand,
 } from "./commands/CancelPolicyGenerationCommand";
-import {
-  type CancelPolicyPreviewJobCommandInput,
-  type CancelPolicyPreviewJobCommandOutput,
-  CancelPolicyPreviewJobCommand,
-} from "./commands/CancelPolicyPreviewJobCommand";
 import {
   type CheckAccessNotGrantedCommandInput,
   type CheckAccessNotGrantedCommandOutput,
@@ -55,11 +44,6 @@ import {
   CreateArchiveRuleCommand,
 } from "./commands/CreateArchiveRuleCommand";
 import {
-  type CreatePolicyPreviewConfigurationCommandInput,
-  type CreatePolicyPreviewConfigurationCommandOutput,
-  CreatePolicyPreviewConfigurationCommand,
-} from "./commands/CreatePolicyPreviewConfigurationCommand";
-import {
   type DeleteAnalyzerCommandInput,
   type DeleteAnalyzerCommandOutput,
   DeleteAnalyzerCommand,
@@ -69,11 +53,6 @@ import {
   type DeleteArchiveRuleCommandOutput,
   DeleteArchiveRuleCommand,
 } from "./commands/DeleteArchiveRuleCommand";
-import {
-  type DeletePolicyPreviewConfigurationCommandInput,
-  type DeletePolicyPreviewConfigurationCommandOutput,
-  DeletePolicyPreviewConfigurationCommand,
-} from "./commands/DeletePolicyPreviewConfigurationCommand";
 import {
   type GenerateFindingRecommendationCommandInput,
   type GenerateFindingRecommendationCommandOutput,
@@ -125,16 +104,6 @@ import {
   GetGeneratedPolicyCommand,
 } from "./commands/GetGeneratedPolicyCommand";
 import {
-  type GetPolicyPreviewConfigurationCommandInput,
-  type GetPolicyPreviewConfigurationCommandOutput,
-  GetPolicyPreviewConfigurationCommand,
-} from "./commands/GetPolicyPreviewConfigurationCommand";
-import {
-  type GetPolicyPreviewJobCommandInput,
-  type GetPolicyPreviewJobCommandOutput,
-  GetPolicyPreviewJobCommand,
-} from "./commands/GetPolicyPreviewJobCommand";
-import {
   type ListAccessPreviewFindingsCommandInput,
   type ListAccessPreviewFindingsCommandOutput,
   ListAccessPreviewFindingsCommand,
@@ -175,11 +144,6 @@ import {
   ListPolicyGenerationsCommand,
 } from "./commands/ListPolicyGenerationsCommand";
 import {
-  type ListPolicyPreviewJobsCommandInput,
-  type ListPolicyPreviewJobsCommandOutput,
-  ListPolicyPreviewJobsCommand,
-} from "./commands/ListPolicyPreviewJobsCommand";
-import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -189,11 +153,6 @@ import {
   type StartPolicyGenerationCommandOutput,
   StartPolicyGenerationCommand,
 } from "./commands/StartPolicyGenerationCommand";
-import {
-  type StartPolicyPreviewJobCommandInput,
-  type StartPolicyPreviewJobCommandOutput,
-  StartPolicyPreviewJobCommand,
-} from "./commands/StartPolicyPreviewJobCommand";
 import {
   type StartResourceScanCommandInput,
   type StartResourceScanCommandOutput,
@@ -239,25 +198,19 @@ import { paginateListArchiveRules } from "./pagination/ListArchiveRulesPaginator
 import { paginateListFindings } from "./pagination/ListFindingsPaginator";
 import { paginateListFindingsV2 } from "./pagination/ListFindingsV2Paginator";
 import { paginateListPolicyGenerations } from "./pagination/ListPolicyGenerationsPaginator";
-import { paginateListPolicyPreviewJobs } from "./pagination/ListPolicyPreviewJobsPaginator";
 import { paginateValidatePolicy } from "./pagination/ValidatePolicyPaginator";
-import { waitUntilPolicyPreviewConfigurationActive } from "./waiters/waitForPolicyPreviewConfigurationActive";
-import { waitUntilPolicyPreviewJobCompleted } from "./waiters/waitForPolicyPreviewJobCompleted";
 
 const commands = {
   ApplyArchiveRuleCommand,
   CancelPolicyGenerationCommand,
-  CancelPolicyPreviewJobCommand,
   CheckAccessNotGrantedCommand,
   CheckNoNewAccessCommand,
   CheckNoPublicAccessCommand,
   CreateAccessPreviewCommand,
   CreateAnalyzerCommand,
   CreateArchiveRuleCommand,
-  CreatePolicyPreviewConfigurationCommand,
   DeleteAnalyzerCommand,
   DeleteArchiveRuleCommand,
-  DeletePolicyPreviewConfigurationCommand,
   GenerateFindingRecommendationCommand,
   GetAccessPreviewCommand,
   GetAnalyzedResourceCommand,
@@ -268,8 +221,6 @@ const commands = {
   GetFindingsStatisticsCommand,
   GetFindingV2Command,
   GetGeneratedPolicyCommand,
-  GetPolicyPreviewConfigurationCommand,
-  GetPolicyPreviewJobCommand,
   ListAccessPreviewFindingsCommand,
   ListAccessPreviewsCommand,
   ListAnalyzedResourcesCommand,
@@ -278,10 +229,8 @@ const commands = {
   ListFindingsCommand,
   ListFindingsV2Command,
   ListPolicyGenerationsCommand,
-  ListPolicyPreviewJobsCommand,
   ListTagsForResourceCommand,
   StartPolicyGenerationCommand,
-  StartPolicyPreviewJobCommand,
   StartResourceScanCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -301,12 +250,7 @@ const paginators = {
   paginateListFindings,
   paginateListFindingsV2,
   paginateListPolicyGenerations,
-  paginateListPolicyPreviewJobs,
   paginateValidatePolicy,
-};
-const waiters = {
-  waitUntilPolicyPreviewConfigurationActive,
-  waitUntilPolicyPreviewJobCompleted,
 };
 
 export interface AccessAnalyzer {
@@ -342,23 +286,6 @@ export interface AccessAnalyzer {
     args: CancelPolicyGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelPolicyGenerationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link CancelPolicyPreviewJobCommand}
-   */
-  cancelPolicyPreviewJob(
-    args: CancelPolicyPreviewJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelPolicyPreviewJobCommandOutput>;
-  cancelPolicyPreviewJob(
-    args: CancelPolicyPreviewJobCommandInput,
-    cb: (err: any, data?: CancelPolicyPreviewJobCommandOutput) => void
-  ): void;
-  cancelPolicyPreviewJob(
-    args: CancelPolicyPreviewJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelPolicyPreviewJobCommandOutput) => void
   ): void;
 
   /**
@@ -464,24 +391,6 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
-   * @see {@link CreatePolicyPreviewConfigurationCommand}
-   */
-  createPolicyPreviewConfiguration(): Promise<CreatePolicyPreviewConfigurationCommandOutput>;
-  createPolicyPreviewConfiguration(
-    args: CreatePolicyPreviewConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePolicyPreviewConfigurationCommandOutput>;
-  createPolicyPreviewConfiguration(
-    args: CreatePolicyPreviewConfigurationCommandInput,
-    cb: (err: any, data?: CreatePolicyPreviewConfigurationCommandOutput) => void
-  ): void;
-  createPolicyPreviewConfiguration(
-    args: CreatePolicyPreviewConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePolicyPreviewConfigurationCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link DeleteAnalyzerCommand}
    */
   deleteAnalyzer(
@@ -513,24 +422,6 @@ export interface AccessAnalyzer {
     args: DeleteArchiveRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteArchiveRuleCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeletePolicyPreviewConfigurationCommand}
-   */
-  deletePolicyPreviewConfiguration(): Promise<DeletePolicyPreviewConfigurationCommandOutput>;
-  deletePolicyPreviewConfiguration(
-    args: DeletePolicyPreviewConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePolicyPreviewConfigurationCommandOutput>;
-  deletePolicyPreviewConfiguration(
-    args: DeletePolicyPreviewConfigurationCommandInput,
-    cb: (err: any, data?: DeletePolicyPreviewConfigurationCommandOutput) => void
-  ): void;
-  deletePolicyPreviewConfiguration(
-    args: DeletePolicyPreviewConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePolicyPreviewConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -704,41 +595,6 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
-   * @see {@link GetPolicyPreviewConfigurationCommand}
-   */
-  getPolicyPreviewConfiguration(): Promise<GetPolicyPreviewConfigurationCommandOutput>;
-  getPolicyPreviewConfiguration(
-    args: GetPolicyPreviewConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPolicyPreviewConfigurationCommandOutput>;
-  getPolicyPreviewConfiguration(
-    args: GetPolicyPreviewConfigurationCommandInput,
-    cb: (err: any, data?: GetPolicyPreviewConfigurationCommandOutput) => void
-  ): void;
-  getPolicyPreviewConfiguration(
-    args: GetPolicyPreviewConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPolicyPreviewConfigurationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link GetPolicyPreviewJobCommand}
-   */
-  getPolicyPreviewJob(
-    args: GetPolicyPreviewJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPolicyPreviewJobCommandOutput>;
-  getPolicyPreviewJob(
-    args: GetPolicyPreviewJobCommandInput,
-    cb: (err: any, data?: GetPolicyPreviewJobCommandOutput) => void
-  ): void;
-  getPolicyPreviewJob(
-    args: GetPolicyPreviewJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPolicyPreviewJobCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link ListAccessPreviewFindingsCommand}
    */
   listAccessPreviewFindings(
@@ -877,24 +733,6 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
-   * @see {@link ListPolicyPreviewJobsCommand}
-   */
-  listPolicyPreviewJobs(): Promise<ListPolicyPreviewJobsCommandOutput>;
-  listPolicyPreviewJobs(
-    args: ListPolicyPreviewJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPolicyPreviewJobsCommandOutput>;
-  listPolicyPreviewJobs(
-    args: ListPolicyPreviewJobsCommandInput,
-    cb: (err: any, data?: ListPolicyPreviewJobsCommandOutput) => void
-  ): void;
-  listPolicyPreviewJobs(
-    args: ListPolicyPreviewJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPolicyPreviewJobsCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -926,23 +764,6 @@ export interface AccessAnalyzer {
     args: StartPolicyGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartPolicyGenerationCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link StartPolicyPreviewJobCommand}
-   */
-  startPolicyPreviewJob(
-    args: StartPolicyPreviewJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartPolicyPreviewJobCommandOutput>;
-  startPolicyPreviewJob(
-    args: StartPolicyPreviewJobCommandInput,
-    cb: (err: any, data?: StartPolicyPreviewJobCommandOutput) => void
-  ): void;
-  startPolicyPreviewJob(
-    args: StartPolicyPreviewJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartPolicyPreviewJobCommandOutput) => void
   ): void;
 
   /**
@@ -1175,17 +996,6 @@ export interface AccessAnalyzer {
   ): Paginator<ListPolicyGenerationsCommandOutput>;
 
   /**
-   * @see {@link ListPolicyPreviewJobsCommand}
-   * @param args - command input.
-   * @param paginationConfig - optional pagination config.
-   * @returns AsyncIterable of {@link ListPolicyPreviewJobsCommandOutput}.
-   */
-  paginateListPolicyPreviewJobs(
-    args?: ListPolicyPreviewJobsCommandInput,
-    paginationConfig?: Omit<PaginationConfiguration, "client">
-  ): Paginator<ListPolicyPreviewJobsCommandOutput>;
-
-  /**
    * @see {@link ValidatePolicyCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1195,26 +1005,6 @@ export interface AccessAnalyzer {
     args: ValidatePolicyCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ValidatePolicyCommandOutput>;
-
-  /**
-   * @see {@link GetPolicyPreviewConfigurationCommand}
-   * @param args - command input.
-   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
-   */
-  waitUntilPolicyPreviewConfigurationActive(
-    args: GetPolicyPreviewConfigurationCommandInput,
-    waiterConfig: number | Omit<WaiterConfiguration<AccessAnalyzer>, "client">
-  ): Promise<WaiterResult>;
-
-  /**
-   * @see {@link GetPolicyPreviewJobCommand}
-   * @param args - command input.
-   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
-   */
-  waitUntilPolicyPreviewJobCompleted(
-    args: GetPolicyPreviewJobCommandInput,
-    waiterConfig: number | Omit<WaiterConfiguration<AccessAnalyzer>, "client">
-  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1222,4 +1012,4 @@ export interface AccessAnalyzer {
  * @public
  */
 export class AccessAnalyzer extends AccessAnalyzerClient implements AccessAnalyzer {}
-createAggregatedClient(commands, AccessAnalyzer, { paginators, waiters });
+createAggregatedClient(commands, AccessAnalyzer, { paginators });
