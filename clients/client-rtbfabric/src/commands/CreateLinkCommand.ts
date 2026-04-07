@@ -64,6 +64,7 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  *       },
  *     },
  *   },
+ *   timeoutInMillis: Number("long"),
  * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
@@ -175,6 +176,15 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * //     ],
  * //     customerProvidedId: "STRING_VALUE",
  * //   },
+ * //   logSettings: { // LinkLogSettings
+ * //     applicationLogs: { // LinkApplicationLogConfiguration
+ * //       sampling: { // LinkApplicationLogSampling
+ * //         errorLog: Number("double"), // required
+ * //         filterLog: Number("double"), // required
+ * //       },
+ * //     },
+ * //   },
+ * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
  * //   linkId: "STRING_VALUE", // required
  * //   customerProvidedId: "STRING_VALUE",
  * // };
@@ -212,9 +222,9 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * <p>Base exception class for all service exceptions from RTBFabric service.</p>
  *
  *
- * @example Create a new link
+ * @example Create a standard link between gateways
  * ```javascript
- * // Creates a new link between RTB applications
+ * // Creates a new link between two RTB applications. Requires peerGatewayId to specify the target gateway.
  * const input = {
  *   gatewayId: "rtb-gw-12345678",
  *   logSettings: {

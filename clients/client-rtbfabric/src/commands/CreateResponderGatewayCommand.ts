@@ -47,6 +47,11 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  *   domainName: "STRING_VALUE",
  *   port: Number("int"), // required
  *   protocol: "HTTP" || "HTTPS", // required
+ *   listenerConfig: { // ListenerConfig
+ *     protocols: [ // ProtocolList // required
+ *       "HTTP" || "HTTPS",
+ *     ],
+ *   },
  *   trustStoreConfiguration: { // TrustStoreConfiguration
  *     certificateAuthorityCertificates: [ // CertificateAuthorityCertificates // required
  *       "STRING_VALUE",
@@ -73,12 +78,19 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   gatewayType: "EXTERNAL" || "INTERNAL",
  * };
  * const command = new CreateResponderGatewayCommand(input);
  * const response = await client.send(command);
  * // { // CreateResponderGatewayResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   listenerConfig: { // ListenerConfig
+ * //     protocols: [ // ProtocolList // required
+ * //       "HTTP" || "HTTPS",
+ * //     ],
+ * //   },
+ * //   externalInboundEndpoint: "STRING_VALUE",
  * // };
  *
  * ```

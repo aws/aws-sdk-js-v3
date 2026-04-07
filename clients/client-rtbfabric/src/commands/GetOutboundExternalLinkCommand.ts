@@ -47,6 +47,107 @@ export interface GetOutboundExternalLinkCommandOutput extends GetOutboundExterna
  * //   linkId: "STRING_VALUE", // required
  * //   status: "PENDING_CREATION" || "PENDING_REQUEST" || "REQUESTED" || "ACCEPTED" || "ACTIVE" || "REJECTED" || "FAILED" || "PENDING_DELETION" || "DELETED" || "PENDING_UPDATE" || "PENDING_ISOLATION" || "ISOLATED" || "PENDING_RESTORATION", // required
  * //   publicEndpoint: "STRING_VALUE", // required
+ * //   flowModules: [ // ModuleConfigurationList
+ * //     { // ModuleConfiguration
+ * //       version: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       dependsOn: [ // FlowModuleNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       moduleParameters: { // ModuleParameters Union: only one key present
+ * //         noBid: { // NoBidModuleParameters
+ * //           reason: "STRING_VALUE",
+ * //           reasonCode: Number("int"),
+ * //           passThroughPercentage: Number("float"),
+ * //         },
+ * //         openRtbAttribute: { // OpenRtbAttributeModuleParameters
+ * //           filterType: "INCLUDE" || "EXCLUDE", // required
+ * //           filterConfiguration: [ // FilterConfiguration // required
+ * //             { // Filter
+ * //               criteria: [ // FilterCriteria // required
+ * //                 { // FilterCriterion
+ * //                   path: "STRING_VALUE", // required
+ * //                   values: [ // ValueList // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           action: { // Action Union: only one key present
+ * //             noBid: { // NoBidAction
+ * //               noBidReasonCode: Number("int"),
+ * //             },
+ * //             headerTag: { // HeaderTagAction
+ * //               name: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //           holdbackPercentage: Number("float"), // required
+ * //         },
+ * //         rateLimiter: { // RateLimiterModuleParameters
+ * //           tps: Number("float"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   pendingFlowModules: [
+ * //     {
+ * //       version: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       dependsOn: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       moduleParameters: {//  Union: only one key present
+ * //         noBid: {
+ * //           reason: "STRING_VALUE",
+ * //           reasonCode: Number("int"),
+ * //           passThroughPercentage: Number("float"),
+ * //         },
+ * //         openRtbAttribute: {
+ * //           filterType: "INCLUDE" || "EXCLUDE", // required
+ * //           filterConfiguration: [ // required
+ * //             {
+ * //               criteria: [ // required
+ * //                 {
+ * //                   path: "STRING_VALUE", // required
+ * //                   values: [ // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           action: {//  Union: only one key present
+ * //             noBid: {
+ * //               noBidReasonCode: Number("int"),
+ * //             },
+ * //             headerTag: {
+ * //               name: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //           holdbackPercentage: Number("float"), // required
+ * //         },
+ * //         rateLimiter: {
+ * //           tps: Number("float"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   attributes: { // LinkAttributes
+ * //     responderErrorMasking: [ // ResponderErrorMasking
+ * //       { // ResponderErrorMaskingForHttpCode
+ * //         httpCode: "STRING_VALUE", // required
+ * //         action: "NO_BID" || "PASSTHROUGH", // required
+ * //         loggingTypes: [ // ResponderErrorMaskingLoggingTypes // required
+ * //           "NONE" || "METRIC" || "RESPONSE",
+ * //         ],
+ * //         responseLoggingPercentage: Number("float"),
+ * //       },
+ * //     ],
+ * //     customerProvidedId: "STRING_VALUE",
+ * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   tags: { // TagsMap
@@ -60,6 +161,7 @@ export interface GetOutboundExternalLinkCommandOutput extends GetOutboundExterna
  * //       },
  * //     },
  * //   },
+ * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
  * // };
  *
  * ```

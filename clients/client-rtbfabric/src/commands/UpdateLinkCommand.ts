@@ -47,6 +47,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  *       },
  *     },
  *   },
+ *   timeoutInMillis: Number("long"),
  * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);

@@ -62,6 +62,7 @@ const _ISE = "InternalServerException";
 const _LA = "LinkAttributes";
 const _LALC = "LinkApplicationLogConfiguration";
 const _LALS = "LinkApplicationLogSampling";
+const _LC = "ListenerConfig";
 const _LL = "LinkList";
 const _LLR = "ListLinksRequest";
 const _LLRS = "ListLinksResponseStructure";
@@ -126,7 +127,8 @@ const _cASCCC = "clusterApiServerCaCertificateChain";
 const _cASEU = "clusterApiServerEndpointUri";
 const _cN = "clusterName";
 const _cPI = "customerProvidedId";
-const _cT = "clientToken";
+const _cT = "connectivityType";
+const _cTl = "clientToken";
 const _cr = "criteria";
 const _d = "direction";
 const _dN = "domainName";
@@ -134,6 +136,7 @@ const _dO = "dependsOn";
 const _de = "description";
 const _e = "error";
 const _eE = "eksEndpoints";
+const _eIE = "externalInboundEndpoint";
 const _eL = "errorLog";
 const _eRN = "endpointsResourceName";
 const _eRNn = "endpointsResourceNamespace";
@@ -143,6 +146,7 @@ const _fM = "flowModules";
 const _fT = "filterType";
 const _gI = "gatewayId";
 const _gIa = "gatewayIds";
+const _gT = "gatewayType";
 const _h = "http";
 const _hC = "httpCode";
 const _hE = "httpError";
@@ -152,6 +156,7 @@ const _hRA = "httpResponderAllowed";
 const _hT = "headerTag";
 const _iLC = "inboundLinksCount";
 const _l = "links";
+const _lC = "listenerConfig";
 const _lI = "linkId";
 const _lS = "logSettings";
 const _lT = "loggingTypes";
@@ -172,6 +177,7 @@ const _pGI = "peerGatewayId";
 const _pTP = "passThroughPercentage";
 const _pa = "path";
 const _pr = "protocol";
+const _pro = "protocols";
 const _r = "reason";
 const _rA = "roleArn";
 const _rAe = "resourceArn";
@@ -186,6 +192,7 @@ const _sa = "sampling";
 const _se = "server";
 const _st = "status";
 const _t = "tags";
+const _tIM = "timeoutInMillis";
 const _tK = "tagKeys";
 const _tLC = "totalLinksCount";
 const _tSC = "trustStoreConfiguration";
@@ -279,13 +286,13 @@ export const errorTypeRegistries = [
 var Base64EncodedCertificateChain: StaticSimpleSchema = [0, n0, _BECC, 8, 0];
 export var AcceptLinkRequest$: StaticStructureSchema = [3, n0, _ALR,
   0,
-  [_gI, _lI, _lS, _a],
-  [[0, 1], [0, 1], () => LinkLogSettings$, () => LinkAttributes$], 3
+  [_gI, _lI, _lS, _a, _tIM],
+  [[0, 1], [0, 1], () => LinkLogSettings$, () => LinkAttributes$, 1], 3
 ];
 export var AcceptLinkResponse$: StaticStructureSchema = [3, n0, _ALRc,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0], 6
 ];
 export var AutoScalingGroupsConfiguration$: StaticStructureSchema = [3, n0, _ASGC,
   0,
@@ -294,7 +301,7 @@ export var AutoScalingGroupsConfiguration$: StaticStructureSchema = [3, n0, _ASG
 ];
 export var CreateInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _CIELR,
   0,
-  [_gI, _lS, _cT, _a, _t],
+  [_gI, _lS, _cTl, _a, _t],
   [[0, 1], () => LinkLogSettings$, [0, 4], () => LinkAttributes$, 128 | 0], 2
 ];
 export var CreateInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _CIELRr,
@@ -304,17 +311,17 @@ export var CreateInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateLinkRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_gI, _pGI, _lS, _a, _hRA, _t],
-  [[0, 1], 0, () => LinkLogSettings$, () => LinkAttributes$, 2, 128 | 0], 3
+  [_gI, _pGI, _lS, _a, _hRA, _t, _tIM],
+  [[0, 1], 0, () => LinkLogSettings$, () => LinkAttributes$, 2, 128 | 0, 1], 3
 ];
 export var CreateLinkResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _cPI],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 0], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _cPI],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, 0], 6
 ];
 export var CreateOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _COELR,
   0,
-  [_gI, _pE, _lS, _cT, _a, _t],
+  [_gI, _pE, _lS, _cTl, _a, _t],
   [[0, 1], 0, () => LinkLogSettings$, [0, 4], () => LinkAttributes$, 128 | 0], 3
 ];
 export var CreateOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _COELRr,
@@ -324,7 +331,7 @@ export var CreateOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _CRGR,
   0,
-  [_vI, _sI, _sGI, _cT, _de, _t],
+  [_vI, _sI, _sGI, _cTl, _de, _t],
   [0, 64 | 0, 64 | 0, [0, 4], 0, 128 | 0], 3
 ];
 export var CreateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _CRGRr,
@@ -334,13 +341,13 @@ export var CreateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _CRG
 ];
 export var CreateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _CRGRre,
   0,
-  [_vI, _sI, _sGI, _p, _pr, _dN, _tSC, _mEC, _cT, _de, _t],
-  [0, 64 | 0, 64 | 0, 1, 0, 0, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0, 128 | 0], 5
+  [_vI, _sI, _sGI, _p, _pr, _dN, _lC, _tSC, _mEC, _cTl, _de, _t, _gT],
+  [0, 64 | 0, 64 | 0, 1, 0, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0, 128 | 0, 0], 5
 ];
 export var CreateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _CRGRrea,
   0,
-  [_gI, _st],
-  [0, 0], 2
+  [_gI, _st, _lC, _eIE],
+  [0, 0, () => ListenerConfig$, 0], 2
 ];
 export var DeleteInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _DIELR,
   0,
@@ -414,8 +421,8 @@ export var GetInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GIEL
 ];
 export var GetInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _GIELRe,
   0,
-  [_gI, _lI, _st, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS],
-  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$], 4
+  [_gI, _lI, _st, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS, _cT],
+  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$, 0], 4
 ];
 export var GetLinkRequest$: StaticStructureSchema = [3, n0, _GLR,
   0,
@@ -424,8 +431,8 @@ export var GetLinkRequest$: StaticStructureSchema = [3, n0, _GLR,
 ];
 export var GetLinkResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _t, _lS],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 128 | 0, () => LinkLogSettings$], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _t, _hRA, _tIM],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, 128 | 0, 2, 1], 6
 ];
 export var GetOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GOELR,
   0,
@@ -434,8 +441,8 @@ export var GetOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GOE
 ];
 export var GetOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _GOELRe,
   0,
-  [_gI, _lI, _st, _pE, _cA, _uA, _t, _lS],
-  [0, 0, 0, 0, 4, 4, 128 | 0, () => LinkLogSettings$], 4
+  [_gI, _lI, _st, _pE, _fM, _pFM, _a, _cA, _uA, _t, _lS, _cT],
+  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$, 0], 4
 ];
 export var GetRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _GRGR,
   0,
@@ -454,8 +461,8 @@ export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
 ];
 export var GetResponderGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRete,
   0,
-  [_vI, _sI, _sGI, _st, _p, _pr, _gI, _de, _cA, _uA, _dN, _tSC, _mEC, _t, _aLC, _tLC, _iLC],
-  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1], 7
+  [_vI, _sI, _sGI, _st, _p, _pr, _gI, _de, _cA, _uA, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _iLC, _gT, _eIE],
+  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 0, 0], 7
 ];
 export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
   0,
@@ -482,6 +489,11 @@ export var LinkLogSettings$: StaticStructureSchema = [3, n0, _LLS,
   [_aL],
   [() => LinkApplicationLogConfiguration$], 1
 ];
+export var ListenerConfig$: StaticStructureSchema = [3, n0, _LC,
+  0,
+  [_pro],
+  [64 | 0], 1
+];
 export var ListLinksRequest$: StaticStructureSchema = [3, n0, _LLR,
   0,
   [_gI, _nT, _mR],
@@ -494,8 +506,8 @@ export var ListLinksResponse$: StaticStructureSchema = [3, n0, _LLRi,
 ];
 export var ListLinksResponseStructure$: StaticStructureSchema = [3, n0, _LLRS,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _t],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 128 | 0], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT, _t, _pE],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0, 128 | 0, 0], 6
 ];
 export var ListRequesterGatewaysRequest$: StaticStructureSchema = [3, n0, _LRGR,
   0,
@@ -559,8 +571,8 @@ export var RejectLinkRequest$: StaticStructureSchema = [3, n0, _RLR,
 ];
 export var RejectLinkResponse$: StaticStructureSchema = [3, n0, _RLRe,
   0,
-  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a],
-  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$], 6
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _lS, _cT],
+  [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, () => LinkLogSettings$, 0], 6
 ];
 export var ResponderErrorMaskingForHttpCode$: StaticStructureSchema = [3, n0, _REMFHC,
   0,
@@ -594,7 +606,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateLinkModuleFlowRequest$: StaticStructureSchema = [3, n0, _ULMFR,
   0,
-  [_gI, _lI, _mo, _cT],
+  [_gI, _lI, _mo, _cTl],
   [[0, 1], [0, 1], () => ModuleConfigurationList, [0, 4]], 3
 ];
 export var UpdateLinkModuleFlowResponse$: StaticStructureSchema = [3, n0, _ULMFRp,
@@ -604,8 +616,8 @@ export var UpdateLinkModuleFlowResponse$: StaticStructureSchema = [3, n0, _ULMFR
 ];
 export var UpdateLinkRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
-  [_gI, _lI, _lS],
-  [[0, 1], [0, 1], () => LinkLogSettings$], 2
+  [_gI, _lI, _lS, _tIM],
+  [[0, 1], [0, 1], () => LinkLogSettings$, 1], 2
 ];
 export var UpdateLinkResponse$: StaticStructureSchema = [3, n0, _ULRp,
   0,
@@ -614,7 +626,7 @@ export var UpdateLinkResponse$: StaticStructureSchema = [3, n0, _ULRp,
 ];
 export var UpdateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
-  [_gI, _cT, _de],
+  [_gI, _cTl, _de],
   [[0, 1], [0, 4], 0], 1
 ];
 export var UpdateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _URGRp,
@@ -624,8 +636,8 @@ export var UpdateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _URG
 ];
 export var UpdateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _URGRpd,
   0,
-  [_p, _pr, _gI, _dN, _tSC, _mEC, _cT, _de],
-  [1, 0, [0, 1], 0, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0], 3
+  [_p, _pr, _gI, _dN, _lC, _tSC, _mEC, _cTl, _de],
+  [1, 0, [0, 1], 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0], 3
 ];
 export var UpdateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _URGRpda,
   0,
@@ -651,6 +663,7 @@ var LinkList: StaticListSchema = [1, n0, _LL,
 var ModuleConfigurationList: StaticListSchema = [1, n0, _MCL,
   0, () => ModuleConfiguration$
 ];
+var ProtocolList = 64 | 0;
 var ResponderErrorMasking: StaticListSchema = [1, n0, _REM,
   0, () => ResponderErrorMaskingForHttpCode$
 ];

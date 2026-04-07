@@ -140,9 +140,12 @@ import { paginateListRequesterGateways } from "./pagination/ListRequesterGateway
 import { paginateListResponderGateways } from "./pagination/ListResponderGatewaysPaginator";
 import { RTBFabricClient } from "./RTBFabricClient";
 import { waitUntilInboundExternalLinkActive } from "./waiters/waitForInboundExternalLinkActive";
+import { waitUntilInboundExternalLinkDeleted } from "./waiters/waitForInboundExternalLinkDeleted";
 import { waitUntilLinkAccepted } from "./waiters/waitForLinkAccepted";
 import { waitUntilLinkActive } from "./waiters/waitForLinkActive";
+import { waitUntilLinkDeleted } from "./waiters/waitForLinkDeleted";
 import { waitUntilOutboundExternalLinkActive } from "./waiters/waitForOutboundExternalLinkActive";
+import { waitUntilOutboundExternalLinkDeleted } from "./waiters/waitForOutboundExternalLinkDeleted";
 import { waitUntilRequesterGatewayActive } from "./waiters/waitForRequesterGatewayActive";
 import { waitUntilRequesterGatewayDeleted } from "./waiters/waitForRequesterGatewayDeleted";
 import { waitUntilResponderGatewayActive } from "./waiters/waitForResponderGatewayActive";
@@ -184,9 +187,12 @@ const paginators = {
 };
 const waiters = {
   waitUntilInboundExternalLinkActive,
+  waitUntilInboundExternalLinkDeleted,
   waitUntilLinkAccepted,
   waitUntilLinkActive,
+  waitUntilLinkDeleted,
   waitUntilOutboundExternalLinkActive,
+  waitUntilOutboundExternalLinkDeleted,
   waitUntilRequesterGatewayActive,
   waitUntilRequesterGatewayDeleted,
   waitUntilResponderGatewayActive,
@@ -699,6 +705,16 @@ export interface RTBFabric {
   ): Promise<WaiterResult>;
 
   /**
+   * @see {@link GetInboundExternalLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInboundExternalLinkDeleted(
+    args: GetInboundExternalLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
    * @see {@link GetLinkCommand}
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
@@ -719,11 +735,31 @@ export interface RTBFabric {
   ): Promise<WaiterResult>;
 
   /**
+   * @see {@link GetLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLinkDeleted(
+    args: GetLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
    * @see {@link GetOutboundExternalLinkCommand}
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
    */
   waitUntilOutboundExternalLinkActive(
+    args: GetOutboundExternalLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetOutboundExternalLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutboundExternalLinkDeleted(
     args: GetOutboundExternalLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
   ): Promise<WaiterResult>;

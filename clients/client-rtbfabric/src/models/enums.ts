@@ -32,6 +32,21 @@ export type ResponderErrorMaskingLoggingType =
  * @public
  * @enum
  */
+export const ConnectivityType = {
+  DEFAULT: "DEFAULT",
+  EXTERNAL_INBOUND: "EXTERNAL_INBOUND",
+  PUBLIC_EGRESS: "PUBLIC_EGRESS",
+  PUBLIC_INGRESS: "PUBLIC_INGRESS",
+} as const;
+/**
+ * @public
+ */
+export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const LinkDirection = {
   REQUEST: "REQUEST",
   RESPONSE: "RESPONSE",
@@ -97,6 +112,19 @@ export const RequesterGatewayStatus = {
  * @public
  */
 export type RequesterGatewayStatus = (typeof RequesterGatewayStatus)[keyof typeof RequesterGatewayStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayType = {
+  EXTERNAL: "EXTERNAL",
+  INTERNAL: "INTERNAL",
+} as const;
+/**
+ * @public
+ */
+export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
 
 /**
  * @public

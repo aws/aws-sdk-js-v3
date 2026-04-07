@@ -161,6 +161,7 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  * //       },
  * //     },
  * //   },
+ * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
  * // };
  *
  * ```
@@ -202,7 +203,7 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  * /* response is
  * {
  *   createdAt: "2024-01-15T10:30:00Z",
- *   domainName: "rtb-gw-12345678.example.com",
+ *   domainName: "rtb-gw-12345678.123456789012.gateway.rtbfabric.us-east-1.amazonaws.com",
  *   gatewayId: "rtb-gw-12345678",
  *   linkId: "link-87654321",
  *   status: "ACTIVE",

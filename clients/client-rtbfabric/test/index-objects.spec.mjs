@@ -9,6 +9,7 @@ import {
   AutoScalingGroupsConfiguration$,
   ConflictException,
   ConflictException$,
+  ConnectivityType,
   CreateInboundExternalLink$,
   CreateInboundExternalLinkCommand,
   CreateInboundExternalLinkRequest$,
@@ -53,6 +54,7 @@ import {
   Filter$,
   FilterCriterion$,
   FilterType,
+  GatewayType,
   GetInboundExternalLink$,
   GetInboundExternalLinkCommand,
   GetInboundExternalLinkRequest$,
@@ -82,6 +84,7 @@ import {
   LinkDirection,
   LinkLogSettings$,
   LinkStatus,
+  ListenerConfig$,
   ListLinks$,
   ListLinksCommand,
   ListLinksRequest$,
@@ -156,17 +159,23 @@ import {
   ValidationException,
   ValidationException$,
   waitForInboundExternalLinkActive,
+  waitForInboundExternalLinkDeleted,
   waitForLinkAccepted,
   waitForLinkActive,
+  waitForLinkDeleted,
   waitForOutboundExternalLinkActive,
+  waitForOutboundExternalLinkDeleted,
   waitForRequesterGatewayActive,
   waitForRequesterGatewayDeleted,
   waitForResponderGatewayActive,
   waitForResponderGatewayDeleted,
   waitUntilInboundExternalLinkActive,
+  waitUntilInboundExternalLinkDeleted,
   waitUntilLinkAccepted,
   waitUntilLinkActive,
+  waitUntilLinkDeleted,
   waitUntilOutboundExternalLinkActive,
+  waitUntilOutboundExternalLinkDeleted,
   waitUntilRequesterGatewayActive,
   waitUntilRequesterGatewayDeleted,
   waitUntilResponderGatewayActive,
@@ -274,6 +283,7 @@ assert(typeof LinkApplicationLogConfiguration$ === "object");
 assert(typeof LinkApplicationLogSampling$ === "object");
 assert(typeof LinkAttributes$ === "object");
 assert(typeof LinkLogSettings$ === "object");
+assert(typeof ListenerConfig$ === "object");
 assert(typeof ListLinksRequest$ === "object");
 assert(typeof ListLinksResponse$ === "object");
 assert(typeof ListLinksResponseStructure$ === "object");
@@ -307,7 +317,9 @@ assert(typeof UpdateRequesterGatewayResponse$ === "object");
 assert(typeof UpdateResponderGatewayRequest$ === "object");
 assert(typeof UpdateResponderGatewayResponse$ === "object");
 // enums
+assert(typeof ConnectivityType === "object");
 assert(typeof FilterType === "object");
+assert(typeof GatewayType === "object");
 assert(typeof LinkDirection === "object");
 assert(typeof LinkStatus === "object");
 assert(typeof Protocol === "object");
@@ -333,17 +345,23 @@ assert(typeof ValidationException$ === "object");
 assert(RTBFabricServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForInboundExternalLinkActive === "function");
+assert(typeof waitForInboundExternalLinkDeleted === "function");
 assert(typeof waitForLinkAccepted === "function");
 assert(typeof waitForLinkActive === "function");
+assert(typeof waitForLinkDeleted === "function");
 assert(typeof waitForOutboundExternalLinkActive === "function");
+assert(typeof waitForOutboundExternalLinkDeleted === "function");
 assert(typeof waitForRequesterGatewayActive === "function");
 assert(typeof waitForRequesterGatewayDeleted === "function");
 assert(typeof waitForResponderGatewayActive === "function");
 assert(typeof waitForResponderGatewayDeleted === "function");
 assert(typeof waitUntilInboundExternalLinkActive === "function");
+assert(typeof waitUntilInboundExternalLinkDeleted === "function");
 assert(typeof waitUntilLinkAccepted === "function");
 assert(typeof waitUntilLinkActive === "function");
+assert(typeof waitUntilLinkDeleted === "function");
 assert(typeof waitUntilOutboundExternalLinkActive === "function");
+assert(typeof waitUntilOutboundExternalLinkDeleted === "function");
 assert(typeof waitUntilRequesterGatewayActive === "function");
 assert(typeof waitUntilRequesterGatewayDeleted === "function");
 assert(typeof waitUntilResponderGatewayActive === "function");

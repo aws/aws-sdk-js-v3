@@ -40,6 +40,11 @@ export interface UpdateResponderGatewayCommandOutput extends UpdateResponderGate
  *   domainName: "STRING_VALUE",
  *   port: Number("int"), // required
  *   protocol: "HTTP" || "HTTPS", // required
+ *   listenerConfig: { // ListenerConfig
+ *     protocols: [ // ProtocolList // required
+ *       "HTTP" || "HTTPS",
+ *     ],
+ *   },
  *   trustStoreConfiguration: { // TrustStoreConfiguration
  *     certificateAuthorityCertificates: [ // CertificateAuthorityCertificates // required
  *       "STRING_VALUE",

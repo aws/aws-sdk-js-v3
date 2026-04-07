@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type {
+  ConnectivityType,
   FilterType,
+  GatewayType,
   LinkDirection,
   LinkStatus,
   Protocol,
@@ -127,6 +129,12 @@ export interface AcceptLinkRequest {
    * @public
    */
   logSettings: LinkLogSettings | undefined;
+
+  /**
+   * <p>The timeout value in milliseconds.</p>
+   * @public
+   */
+  timeoutInMillis?: number | undefined;
 }
 
 /**
@@ -466,6 +474,18 @@ export interface AcceptLinkResponse {
   attributes?: LinkAttributes | undefined;
 
   /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -513,7 +533,7 @@ export interface CreateInboundExternalLinkRequest {
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * <p>Settings for the application logs.</p>
    * @public
    */
   logSettings: LinkLogSettings | undefined;
@@ -593,6 +613,12 @@ export interface CreateLinkRequest {
    * @public
    */
   logSettings: LinkLogSettings | undefined;
+
+  /**
+   * <p>The timeout value in milliseconds.</p>
+   * @public
+   */
+  timeoutInMillis?: number | undefined;
 }
 
 /**
@@ -654,6 +680,18 @@ export interface CreateLinkResponse {
   attributes?: LinkAttributes | undefined;
 
   /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -683,7 +721,7 @@ export interface CreateOutboundExternalLinkRequest {
   gatewayId: string | undefined;
 
   /**
-   * <p>Describes the attributes of a link.</p>
+   * <p>Attributes of the link.</p>
    * @public
    */
   attributes?: LinkAttributes | undefined;
@@ -695,7 +733,7 @@ export interface CreateOutboundExternalLinkRequest {
   publicEndpoint: string | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * <p>Settings for the application logs.</p>
    * @public
    */
   logSettings: LinkLogSettings | undefined;
@@ -792,6 +830,18 @@ export interface CreateRequesterGatewayResponse {
    * @public
    */
   status: RequesterGatewayStatus | undefined;
+}
+
+/**
+ * <p>Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.</p>
+ * @public
+ */
+export interface ListenerConfig {
+  /**
+   * <p>The protocol for connections from clients to the gateway</p>
+   * @public
+   */
+  protocols: Protocol[] | undefined;
 }
 
 /**
@@ -942,6 +992,12 @@ export interface CreateResponderGatewayRequest {
   protocol: Protocol | undefined;
 
   /**
+   * <p>Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.</p>
+   * @public
+   */
+  listenerConfig?: ListenerConfig | undefined;
+
+  /**
    * <p>The configuration of the trust store.</p>
    * @public
    */
@@ -970,6 +1026,12 @@ export interface CreateResponderGatewayRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of gateway. Valid values are <code>EXTERNAL</code> or <code>INTERNAL</code>.</p>
+   * @public
+   */
+  gatewayType?: GatewayType | undefined;
 }
 
 /**
@@ -987,6 +1049,18 @@ export interface CreateResponderGatewayResponse {
    * @public
    */
   status: ResponderGatewayStatus | undefined;
+
+  /**
+   * <p>The listener configuration for the responder gateway.</p>
+   * @public
+   */
+  listenerConfig?: ListenerConfig | undefined;
+
+  /**
+   * <p>The external inbound endpoint for the responder gateway.</p>
+   * @public
+   */
+  externalInboundEndpoint?: string | undefined;
 }
 
 /**
@@ -1223,6 +1297,18 @@ export interface GetLinkResponse {
   attributes?: LinkAttributes | undefined;
 
   /**
+   * <p>Settings for the application logs.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -1235,10 +1321,16 @@ export interface GetLinkResponse {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * <p>Boolean to specify if an HTTP responder is allowed.</p>
    * @public
    */
-  logSettings?: LinkLogSettings | undefined;
+  httpResponderAllowed?: boolean | undefined;
+
+  /**
+   * <p>The timeout value in milliseconds.</p>
+   * @public
+   */
+  timeoutInMillis?: number | undefined;
 }
 
 /**
@@ -1324,6 +1416,18 @@ export interface ListLinksResponseStructure {
   attributes?: LinkAttributes | undefined;
 
   /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -1334,6 +1438,12 @@ export interface ListLinksResponseStructure {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The public endpoint of the outbound link.</p>
+   * @public
+   */
+  publicEndpoint?: string | undefined;
 }
 
 /**
@@ -1429,6 +1539,18 @@ export interface RejectLinkResponse {
   attributes?: LinkAttributes | undefined;
 
   /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
+
+  /**
    * <p>The unique identifier of the link.</p>
    * @public
    */
@@ -1456,6 +1578,12 @@ export interface UpdateLinkRequest {
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The timeout value in milliseconds.</p>
+   * @public
+   */
+  timeoutInMillis?: number | undefined;
 }
 
 /**
@@ -1609,10 +1737,16 @@ export interface GetInboundExternalLinkResponse {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * <p>Settings for the application logs.</p>
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
 }
 
 /**
@@ -1661,6 +1795,24 @@ export interface GetOutboundExternalLinkResponse {
   publicEndpoint: string | undefined;
 
   /**
+   * <p>The configuration of flow modules.</p>
+   * @public
+   */
+  flowModules?: ModuleConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration of pending flow modules.</p>
+   * @public
+   */
+  pendingFlowModules?: ModuleConfiguration[] | undefined;
+
+  /**
+   * <p>Describes the attributes of a link.</p>
+   * @public
+   */
+  attributes?: LinkAttributes | undefined;
+
+  /**
    * <p>The timestamp of when the outbound external link was created.</p>
    * @public
    */
@@ -1679,10 +1831,16 @@ export interface GetOutboundExternalLinkResponse {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * <p>Settings for the application logs.</p>
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
+
+  /**
+   * <p>The connectivity type of the link.</p>
+   * @public
+   */
+  connectivityType?: ConnectivityType | undefined;
 }
 
 /**
@@ -1849,6 +2007,12 @@ export interface GetResponderGatewayResponse {
   protocol: Protocol | undefined;
 
   /**
+   * <p>The listener configuration for the responder gateway.</p>
+   * @public
+   */
+  listenerConfig?: ListenerConfig | undefined;
+
+  /**
    * <p>The configuration of the trust store.</p>
    * @public
    */
@@ -1889,6 +2053,18 @@ export interface GetResponderGatewayResponse {
    * @public
    */
   inboundLinksCount?: number | undefined;
+
+  /**
+   * <p>The type of gateway. Valid values are <code>EXTERNAL</code> or <code>INTERNAL</code>.</p>
+   * @public
+   */
+  gatewayType?: GatewayType | undefined;
+
+  /**
+   * <p>The external inbound endpoint for the responder gateway.</p>
+   * @public
+   */
+  externalInboundEndpoint?: string | undefined;
 }
 
 /**
@@ -2042,6 +2218,12 @@ export interface UpdateResponderGatewayRequest {
    * @public
    */
   protocol: Protocol | undefined;
+
+  /**
+   * <p>The listener configuration for the responder gateway.</p>
+   * @public
+   */
+  listenerConfig?: ListenerConfig | undefined;
 
   /**
    * <p>The configuration of the trust store.</p>

@@ -153,10 +153,20 @@ export interface ListLinksCommandOutput extends ListLinksResponse, __MetadataBea
  * //         ],
  * //         customerProvidedId: "STRING_VALUE",
  * //       },
+ * //       logSettings: { // LinkLogSettings
+ * //         applicationLogs: { // LinkApplicationLogConfiguration
+ * //           sampling: { // LinkApplicationLogSampling
+ * //             errorLog: Number("double"), // required
+ * //             filterLog: Number("double"), // required
+ * //           },
+ * //         },
+ * //       },
+ * //       connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
  * //       linkId: "STRING_VALUE", // required
  * //       tags: { // TagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       publicEndpoint: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

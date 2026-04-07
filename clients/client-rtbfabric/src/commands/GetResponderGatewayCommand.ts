@@ -56,6 +56,11 @@ export interface GetResponderGatewayCommandOutput extends GetResponderGatewayRes
  * //   domainName: "STRING_VALUE",
  * //   port: Number("int"), // required
  * //   protocol: "HTTP" || "HTTPS", // required
+ * //   listenerConfig: { // ListenerConfig
+ * //     protocols: [ // ProtocolList // required
+ * //       "HTTP" || "HTTPS",
+ * //     ],
+ * //   },
  * //   trustStoreConfiguration: { // TrustStoreConfiguration
  * //     certificateAuthorityCertificates: [ // CertificateAuthorityCertificates // required
  * //       "STRING_VALUE",
@@ -84,6 +89,8 @@ export interface GetResponderGatewayCommandOutput extends GetResponderGatewayRes
  * //   activeLinksCount: Number("int"),
  * //   totalLinksCount: Number("int"),
  * //   inboundLinksCount: Number("int"),
+ * //   gatewayType: "EXTERNAL" || "INTERNAL",
+ * //   externalInboundEndpoint: "STRING_VALUE",
  * // };
  *
  * ```

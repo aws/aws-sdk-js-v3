@@ -36,6 +36,9 @@ const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCom
     } catch (e) {}
   } catch (exception) {
     reason = exception;
+    if (exception.name && exception.name == "ResourceNotFoundException") {
+      return { state: WaiterState.SUCCESS, reason };
+    }
   }
   return { state: WaiterState.RETRY, reason };
 };

@@ -60,6 +60,7 @@ export interface AcceptLinkCommandOutput extends AcceptLinkResponse, __MetadataB
  *       },
  *     },
  *   },
+ *   timeoutInMillis: Number("long"),
  * };
  * const command = new AcceptLinkCommand(input);
  * const response = await client.send(command);
@@ -171,6 +172,15 @@ export interface AcceptLinkCommandOutput extends AcceptLinkResponse, __MetadataB
  * //     ],
  * //     customerProvidedId: "STRING_VALUE",
  * //   },
+ * //   logSettings: { // LinkLogSettings
+ * //     applicationLogs: { // LinkApplicationLogConfiguration
+ * //       sampling: { // LinkApplicationLogSampling
+ * //         errorLog: Number("double"), // required
+ * //         filterLog: Number("double"), // required
+ * //       },
+ * //     },
+ * //   },
+ * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
  * //   linkId: "STRING_VALUE", // required
  * // };
  *

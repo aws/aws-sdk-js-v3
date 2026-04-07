@@ -150,10 +150,6 @@ export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer 
  * //     ],
  * //     customerProvidedId: "STRING_VALUE",
  * //   },
- * //   linkId: "STRING_VALUE", // required
- * //   tags: { // TagsMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
  * //   logSettings: { // LinkLogSettings
  * //     applicationLogs: { // LinkApplicationLogConfiguration
  * //       sampling: { // LinkApplicationLogSampling
@@ -162,6 +158,13 @@ export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer 
  * //       },
  * //     },
  * //   },
+ * //   connectivityType: "DEFAULT" || "PUBLIC_INGRESS" || "PUBLIC_EGRESS" || "EXTERNAL_INBOUND",
+ * //   linkId: "STRING_VALUE", // required
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   httpResponderAllowed: true || false,
+ * //   timeoutInMillis: Number("long"),
  * // };
  *
  * ```
