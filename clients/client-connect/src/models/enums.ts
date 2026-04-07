@@ -158,6 +158,20 @@ export type ParticipantState = (typeof ParticipantState)[keyof typeof Participan
  * @public
  * @enum
  */
+export const VoiceEnhancementMode = {
+  NOISE_SUPPRESSION: "NOISE_SUPPRESSION",
+  NONE: "NONE",
+  VOICE_ISOLATION: "VOICE_ISOLATION",
+} as const;
+/**
+ * @public
+ */
+export type VoiceEnhancementMode = (typeof VoiceEnhancementMode)[keyof typeof VoiceEnhancementMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentStatusState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -1296,20 +1310,6 @@ export const PhoneType = {
  * @public
  */
 export type PhoneType = (typeof PhoneType)[keyof typeof PhoneType];
-
-/**
- * @public
- * @enum
- */
-export const VoiceEnhancementMode = {
-  NOISE_SUPPRESSION: "NOISE_SUPPRESSION",
-  NONE: "NONE",
-  VOICE_ISOLATION: "VOICE_ISOLATION",
-} as const;
-/**
- * @public
- */
-export type VoiceEnhancementMode = (typeof VoiceEnhancementMode)[keyof typeof VoiceEnhancementMode];
 
 /**
  * @public

@@ -3094,8 +3094,8 @@ export var AgentHierarchyGroups$: StaticStructureSchema = [3, n0, _AHGg,
 ];
 export var AgentInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
-  [_I, _ABAT, _PET, _CTAT, _APDIS, _HG, _DI, _Ca, _ACWD, _ACWST, _ACWET, _AIHD, _STt],
-  [0, 4, 4, 4, 1, () => HierarchyGroups$, () => DeviceInfo$, () => ParticipantCapabilities$, 1, 4, 4, 1, () => StateTransitions]
+  [_I, _ABAT, _PET, _CTAT, _APDIS, _HG, _DI, _Ca, _ACWD, _ACWST, _ACWET, _AIHD, _STt, _VEM],
+  [0, 4, 4, 4, 1, () => HierarchyGroups$, () => DeviceInfo$, () => ParticipantCapabilities$, 1, 4, 4, 1, () => StateTransitions, 0]
 ];
 export var AgentQualityMetrics$: StaticStructureSchema = [3, n0, _AQM,
   0,

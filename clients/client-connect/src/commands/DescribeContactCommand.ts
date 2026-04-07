@@ -138,6 +138,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //           StateEndTimestamp: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       VoiceEnhancementMode: "VOICE_ISOLATION" || "NOISE_SUPPRESSION" || "NONE",
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),

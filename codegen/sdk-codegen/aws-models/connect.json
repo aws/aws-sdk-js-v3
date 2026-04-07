@@ -600,6 +600,12 @@
           "traits": {
             "smithy.api#documentation": "<p>List of <code>StateTransition</code> for a supervisor.</p>"
           }
+        },
+        "VoiceEnhancementMode": {
+          "target": "com.amazonaws.connect#VoiceEnhancementMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The voice enhancement mode used by the agent as the call is ending. \n  Valid values: VOICE_ISOLATION | NOISE_SUPPRESSION | NONE. \n  A value of null indicates this mode has not yet been set for this user.</p>"
+          }
         }
       },
       "traits": {
