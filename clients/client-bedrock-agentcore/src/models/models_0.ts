@@ -3,6 +3,7 @@ import type { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy
 
 import type {
   AutomationStreamStatus,
+  BrowserActionStatus,
   BrowserEnterprisePolicyType,
   BrowserSessionStatus,
   CodeInterpreterSessionStatus,
@@ -12,11 +13,13 @@ import type {
   ExtractionJobStatus,
   LanguageRuntime,
   MemoryRecordStatus,
+  MouseButton,
   Oauth2FlowType,
   OperatorType,
   ProgrammingLanguage,
   ResourceContentType,
   Role,
+  ScreenshotFormat,
   SessionStatus,
   TaskStatus,
   ToolName,
@@ -1261,6 +1264,724 @@ export interface GetBrowserSessionResponse {
    * @public
    */
   lastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Arguments for a key press action.</p>
+ * @public
+ */
+export interface KeyPressArguments {
+  /**
+   * <p>The key name to press (for example, <code>enter</code>, <code>tab</code>, <code>escape</code>).</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The number of times to press the key. Valid range: 1–100. Defaults to 1.</p>
+   * @public
+   */
+  presses?: number | undefined;
+}
+
+/**
+ * <p>Arguments for a key shortcut action.</p>
+ * @public
+ */
+export interface KeyShortcutArguments {
+  /**
+   * <p>The key combination to press (for example, <code>["ctrl", "s"]</code>). Maximum 5 keys.</p>
+   * @public
+   */
+  keys: string[] | undefined;
+}
+
+/**
+ * <p>Arguments for a key type action.</p>
+ * @public
+ */
+export interface KeyTypeArguments {
+  /**
+   * <p>The text string to type. Maximum length: 10,000 characters.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>Arguments for a mouse click action.</p>
+ * @public
+ */
+export interface MouseClickArguments {
+  /**
+   * <p>The X coordinate on screen where the click occurs.</p>
+   * @public
+   */
+  x: number | undefined;
+
+  /**
+   * <p>The Y coordinate on screen where the click occurs.</p>
+   * @public
+   */
+  y: number | undefined;
+
+  /**
+   * <p>The mouse button to use. Defaults to <code>LEFT</code>.</p>
+   * @public
+   */
+  button?: MouseButton | undefined;
+
+  /**
+   * <p>The number of clicks to perform. Valid range: 1–10. Defaults to 1.</p>
+   * @public
+   */
+  clickCount?: number | undefined;
+}
+
+/**
+ * <p>Arguments for a mouse drag action.</p>
+ * @public
+ */
+export interface MouseDragArguments {
+  /**
+   * <p>The ending X coordinate for the drag.</p>
+   * @public
+   */
+  endX: number | undefined;
+
+  /**
+   * <p>The ending Y coordinate for the drag.</p>
+   * @public
+   */
+  endY: number | undefined;
+
+  /**
+   * <p>The starting X coordinate for the drag.</p>
+   * @public
+   */
+  startX: number | undefined;
+
+  /**
+   * <p>The starting Y coordinate for the drag.</p>
+   * @public
+   */
+  startY: number | undefined;
+
+  /**
+   * <p>The mouse button to use for the drag. Defaults to <code>LEFT</code>.</p>
+   * @public
+   */
+  button?: MouseButton | undefined;
+}
+
+/**
+ * <p>Arguments for a mouse move action.</p>
+ * @public
+ */
+export interface MouseMoveArguments {
+  /**
+   * <p>The target X coordinate on screen.</p>
+   * @public
+   */
+  x: number | undefined;
+
+  /**
+   * <p>The target Y coordinate on screen.</p>
+   * @public
+   */
+  y: number | undefined;
+}
+
+/**
+ * <p>Arguments for a mouse scroll action.</p>
+ * @public
+ */
+export interface MouseScrollArguments {
+  /**
+   * <p>The X coordinate on screen where the scroll occurs.</p>
+   * @public
+   */
+  x: number | undefined;
+
+  /**
+   * <p>The Y coordinate on screen where the scroll occurs.</p>
+   * @public
+   */
+  y: number | undefined;
+
+  /**
+   * <p>The horizontal scroll delta. Valid range: -1000 to 1000.</p>
+   * @public
+   */
+  deltaX?: number | undefined;
+
+  /**
+   * <p>The vertical scroll delta. Valid range: -1000 to 1000. Negative values scroll down.</p>
+   * @public
+   */
+  deltaY?: number | undefined;
+}
+
+/**
+ * <p>Arguments for a screenshot action.</p>
+ * @public
+ */
+export interface ScreenshotArguments {
+  /**
+   * <p>The image format for the screenshot. Defaults to <code>PNG</code>.</p>
+   * @public
+   */
+  format?: ScreenshotFormat | undefined;
+}
+
+/**
+ * <p>The browser action to perform. Exactly one member must be set per request.</p>
+ * @public
+ */
+export type BrowserAction =
+  | BrowserAction.KeyPressMember
+  | BrowserAction.KeyShortcutMember
+  | BrowserAction.KeyTypeMember
+  | BrowserAction.MouseClickMember
+  | BrowserAction.MouseDragMember
+  | BrowserAction.MouseMoveMember
+  | BrowserAction.MouseScrollMember
+  | BrowserAction.ScreenshotMember
+  | BrowserAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BrowserAction {
+  /**
+   * <p>Click at the specified coordinates.</p>
+   * @public
+   */
+  export interface MouseClickMember {
+    mouseClick: MouseClickArguments;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Move the cursor to the specified coordinates.</p>
+   * @public
+   */
+  export interface MouseMoveMember {
+    mouseClick?: never;
+    mouseMove: MouseMoveArguments;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Drag from a start position to an end position.</p>
+   * @public
+   */
+  export interface MouseDragMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag: MouseDragArguments;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Scroll at the specified position.</p>
+   * @public
+   */
+  export interface MouseScrollMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll: MouseScrollArguments;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Type a string of text.</p>
+   * @public
+   */
+  export interface KeyTypeMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType: KeyTypeArguments;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Press a key one or more times.</p>
+   * @public
+   */
+  export interface KeyPressMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress: KeyPressArguments;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Press a key combination.</p>
+   * @public
+   */
+  export interface KeyShortcutMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut: KeyShortcutArguments;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Capture a full-screen screenshot.</p>
+   * @public
+   */
+  export interface ScreenshotMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot: ScreenshotArguments;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    mouseClick: (value: MouseClickArguments) => T;
+    mouseMove: (value: MouseMoveArguments) => T;
+    mouseDrag: (value: MouseDragArguments) => T;
+    mouseScroll: (value: MouseScrollArguments) => T;
+    keyType: (value: KeyTypeArguments) => T;
+    keyPress: (value: KeyPressArguments) => T;
+    keyShortcut: (value: KeyShortcutArguments) => T;
+    screenshot: (value: ScreenshotArguments) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Request for the InvokeBrowser operation.</p>
+ * @public
+ */
+export interface InvokeBrowserRequest {
+  /**
+   * <p>The unique identifier of the browser associated with the session. This must match the identifier used when creating the session with <code>StartBrowserSession</code>.</p>
+   * @public
+   */
+  browserIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the browser session on which to perform the action. This must be an active session created with <code>StartBrowserSession</code>.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The browser action to perform. Exactly one member of the <code>BrowserAction</code> union must be set per request.</p>
+   * @public
+   */
+  action: BrowserAction | undefined;
+}
+
+/**
+ * <p>The result of a key press action.</p>
+ * @public
+ */
+export interface KeyPressResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a key shortcut action.</p>
+ * @public
+ */
+export interface KeyShortcutResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a key type action.</p>
+ * @public
+ */
+export interface KeyTypeResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a mouse click action.</p>
+ * @public
+ */
+export interface MouseClickResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a mouse drag action.</p>
+ * @public
+ */
+export interface MouseDragResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a mouse move action.</p>
+ * @public
+ */
+export interface MouseMoveResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a mouse scroll action.</p>
+ * @public
+ */
+export interface MouseScrollResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+}
+
+/**
+ * <p>The result of a screenshot action.</p>
+ * @public
+ */
+export interface ScreenshotResult {
+  /**
+   * <p>The status of the action execution.</p>
+   * @public
+   */
+  status: BrowserActionStatus | undefined;
+
+  /**
+   * <p>The error message. Present only when the action failed.</p>
+   * @public
+   */
+  error?: string | undefined;
+
+  /**
+   * <p>The base64-encoded image data. Present only when the action succeeded.</p>
+   * @public
+   */
+  data?: Uint8Array | undefined;
+}
+
+/**
+ * <p>The result of a browser action execution. Exactly one member is set, matching the action that was performed.</p>
+ * @public
+ */
+export type BrowserActionResult =
+  | BrowserActionResult.KeyPressMember
+  | BrowserActionResult.KeyShortcutMember
+  | BrowserActionResult.KeyTypeMember
+  | BrowserActionResult.MouseClickMember
+  | BrowserActionResult.MouseDragMember
+  | BrowserActionResult.MouseMoveMember
+  | BrowserActionResult.MouseScrollMember
+  | BrowserActionResult.ScreenshotMember
+  | BrowserActionResult.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BrowserActionResult {
+  /**
+   * <p>The result of a mouse click action.</p>
+   * @public
+   */
+  export interface MouseClickMember {
+    mouseClick: MouseClickResult;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a mouse move action.</p>
+   * @public
+   */
+  export interface MouseMoveMember {
+    mouseClick?: never;
+    mouseMove: MouseMoveResult;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a mouse drag action.</p>
+   * @public
+   */
+  export interface MouseDragMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag: MouseDragResult;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a mouse scroll action.</p>
+   * @public
+   */
+  export interface MouseScrollMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll: MouseScrollResult;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a key type action.</p>
+   * @public
+   */
+  export interface KeyTypeMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType: KeyTypeResult;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a key press action.</p>
+   * @public
+   */
+  export interface KeyPressMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress: KeyPressResult;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a key shortcut action.</p>
+   * @public
+   */
+  export interface KeyShortcutMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut: KeyShortcutResult;
+    screenshot?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a screenshot action.</p>
+   * @public
+   */
+  export interface ScreenshotMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot: ScreenshotResult;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    mouseClick?: never;
+    mouseMove?: never;
+    mouseDrag?: never;
+    mouseScroll?: never;
+    keyType?: never;
+    keyPress?: never;
+    keyShortcut?: never;
+    screenshot?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    mouseClick: (value: MouseClickResult) => T;
+    mouseMove: (value: MouseMoveResult) => T;
+    mouseDrag: (value: MouseDragResult) => T;
+    mouseScroll: (value: MouseScrollResult) => T;
+    keyType: (value: KeyTypeResult) => T;
+    keyPress: (value: KeyPressResult) => T;
+    keyShortcut: (value: KeyShortcutResult) => T;
+    screenshot: (value: ScreenshotResult) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Response for the InvokeBrowser operation.</p>
+ * @public
+ */
+export interface InvokeBrowserResponse {
+  /**
+   * <p>The result of the browser action. The member set in the result corresponds to the action that was performed.</p>
+   * @public
+   */
+  result: BrowserActionResult | undefined;
+
+  /**
+   * <p>The unique identifier of the browser session on which the action was performed.</p>
+   * @public
+   */
+  sessionId: string | undefined;
 }
 
 /**

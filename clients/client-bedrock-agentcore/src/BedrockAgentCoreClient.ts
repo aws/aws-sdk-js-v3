@@ -130,6 +130,7 @@ import type {
   InvokeAgentRuntimeCommandCommandInput,
   InvokeAgentRuntimeCommandCommandOutput,
 } from "./commands/InvokeAgentRuntimeCommandCommand";
+import type { InvokeBrowserCommandInput, InvokeBrowserCommandOutput } from "./commands/InvokeBrowserCommand";
 import type {
   InvokeCodeInterpreterCommandInput,
   InvokeCodeInterpreterCommandOutput,
@@ -224,6 +225,7 @@ export type ServiceInputTypes =
   | GetWorkloadAccessTokenForUserIdCommandInput
   | InvokeAgentRuntimeCommandCommandInput
   | InvokeAgentRuntimeCommandInput
+  | InvokeBrowserCommandInput
   | InvokeCodeInterpreterCommandInput
   | ListActorsCommandInput
   | ListBrowserSessionsCommandInput
@@ -266,6 +268,7 @@ export type ServiceOutputTypes =
   | GetWorkloadAccessTokenForUserIdCommandOutput
   | InvokeAgentRuntimeCommandCommandOutput
   | InvokeAgentRuntimeCommandOutput
+  | InvokeBrowserCommandOutput
   | InvokeCodeInterpreterCommandOutput
   | ListActorsCommandOutput
   | ListBrowserSessionsCommandOutput

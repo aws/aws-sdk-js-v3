@@ -321,6 +321,13 @@ InvokeAgentRuntimeCommand
 </details>
 <details>
 <summary>
+InvokeBrowser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/InvokeBrowserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/InvokeBrowserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/InvokeBrowserCommandOutput/)
+</details>
+<details>
+<summary>
 InvokeCodeInterpreter
 </summary>
 

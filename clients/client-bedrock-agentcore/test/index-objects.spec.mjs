@@ -23,6 +23,9 @@ import {
   BedrockAgentCoreServiceException,
   Branch$,
   BranchFilter$,
+  BrowserAction$,
+  BrowserActionResult$,
+  BrowserActionStatus,
   BrowserEnterprisePolicy$,
   BrowserEnterprisePolicyType,
   BrowserExtension$,
@@ -140,10 +143,20 @@ import {
   InvokeAgentRuntimeCommandStreamOutput$,
   InvokeAgentRuntimeRequest$,
   InvokeAgentRuntimeResponse$,
+  InvokeBrowser$,
+  InvokeBrowserCommand,
+  InvokeBrowserRequest$,
+  InvokeBrowserResponse$,
   InvokeCodeInterpreter$,
   InvokeCodeInterpreterCommand,
   InvokeCodeInterpreterRequest$,
   InvokeCodeInterpreterResponse$,
+  KeyPressArguments$,
+  KeyPressResult$,
+  KeyShortcutArguments$,
+  KeyShortcutResult$,
+  KeyTypeArguments$,
+  KeyTypeResult$,
   LanguageRuntime,
   LeftExpression$,
   ListActors$,
@@ -186,6 +199,15 @@ import {
   MemoryRecordUpdateInput$,
   MessageMetadata$,
   MetadataValue$,
+  MouseButton,
+  MouseClickArguments$,
+  MouseClickResult$,
+  MouseDragArguments$,
+  MouseDragResult$,
+  MouseMoveArguments$,
+  MouseMoveResult$,
+  MouseScrollArguments$,
+  MouseScrollResult$,
   Oauth2FlowType,
   OperatorType,
   paginateListActors,
@@ -221,6 +243,9 @@ import {
   SaveBrowserSessionProfileCommand,
   SaveBrowserSessionProfileRequest$,
   SaveBrowserSessionProfileResponse$,
+  ScreenshotArguments$,
+  ScreenshotFormat,
+  ScreenshotResult$,
   SearchCriteria$,
   SecretsManagerLocation$,
   ServiceException,
@@ -323,6 +348,8 @@ assert(typeof InvokeAgentRuntimeCommand === "function");
 assert(typeof InvokeAgentRuntime$ === "object");
 assert(typeof InvokeAgentRuntimeCommandCommand === "function");
 assert(typeof InvokeAgentRuntimeCommand$ === "object");
+assert(typeof InvokeBrowserCommand === "function");
+assert(typeof InvokeBrowser$ === "object");
 assert(typeof InvokeCodeInterpreterCommand === "function");
 assert(typeof InvokeCodeInterpreter$ === "object");
 assert(typeof ListActorsCommand === "function");
@@ -370,6 +397,8 @@ assert(typeof BatchUpdateMemoryRecordsInput$ === "object");
 assert(typeof BatchUpdateMemoryRecordsOutput$ === "object");
 assert(typeof Branch$ === "object");
 assert(typeof BranchFilter$ === "object");
+assert(typeof BrowserAction$ === "object");
+assert(typeof BrowserActionResult$ === "object");
 assert(typeof BrowserEnterprisePolicy$ === "object");
 assert(typeof BrowserExtension$ === "object");
 assert(typeof BrowserProfileConfiguration$ === "object");
@@ -438,8 +467,16 @@ assert(typeof InvokeAgentRuntimeCommandResponse$ === "object");
 assert(typeof InvokeAgentRuntimeCommandStreamOutput$ === "object");
 assert(typeof InvokeAgentRuntimeRequest$ === "object");
 assert(typeof InvokeAgentRuntimeResponse$ === "object");
+assert(typeof InvokeBrowserRequest$ === "object");
+assert(typeof InvokeBrowserResponse$ === "object");
 assert(typeof InvokeCodeInterpreterRequest$ === "object");
 assert(typeof InvokeCodeInterpreterResponse$ === "object");
+assert(typeof KeyPressArguments$ === "object");
+assert(typeof KeyPressResult$ === "object");
+assert(typeof KeyShortcutArguments$ === "object");
+assert(typeof KeyShortcutResult$ === "object");
+assert(typeof KeyTypeArguments$ === "object");
+assert(typeof KeyTypeResult$ === "object");
 assert(typeof LeftExpression$ === "object");
 assert(typeof ListActorsInput$ === "object");
 assert(typeof ListActorsOutput$ === "object");
@@ -466,6 +503,14 @@ assert(typeof MemoryRecordSummary$ === "object");
 assert(typeof MemoryRecordUpdateInput$ === "object");
 assert(typeof MessageMetadata$ === "object");
 assert(typeof MetadataValue$ === "object");
+assert(typeof MouseClickArguments$ === "object");
+assert(typeof MouseClickResult$ === "object");
+assert(typeof MouseDragArguments$ === "object");
+assert(typeof MouseDragResult$ === "object");
+assert(typeof MouseMoveArguments$ === "object");
+assert(typeof MouseMoveResult$ === "object");
+assert(typeof MouseScrollArguments$ === "object");
+assert(typeof MouseScrollResult$ === "object");
 assert(typeof PayloadType$ === "object");
 assert(typeof Proxy$ === "object");
 assert(typeof ProxyBypass$ === "object");
@@ -480,6 +525,8 @@ assert(typeof RightExpression$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof SaveBrowserSessionProfileRequest$ === "object");
 assert(typeof SaveBrowserSessionProfileResponse$ === "object");
+assert(typeof ScreenshotArguments$ === "object");
+assert(typeof ScreenshotResult$ === "object");
 assert(typeof SearchCriteria$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SessionFilter$ === "object");
@@ -508,6 +555,7 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof ViewPort$ === "object");
 // enums
 assert(typeof AutomationStreamStatus === "object");
+assert(typeof BrowserActionStatus === "object");
 assert(typeof BrowserEnterprisePolicyType === "object");
 assert(typeof BrowserSessionStatus === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
@@ -517,11 +565,13 @@ assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordStatus === "object");
+assert(typeof MouseButton === "object");
 assert(typeof Oauth2FlowType === "object");
 assert(typeof OperatorType === "object");
 assert(typeof ProgrammingLanguage === "object");
 assert(typeof ResourceContentType === "object");
 assert(typeof Role === "object");
+assert(typeof ScreenshotFormat === "object");
 assert(typeof SessionStatus === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof ToolName === "object");

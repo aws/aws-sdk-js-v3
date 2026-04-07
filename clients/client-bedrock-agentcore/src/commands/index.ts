@@ -19,6 +19,7 @@ export * from "./GetWorkloadAccessTokenForJWTCommand";
 export * from "./GetWorkloadAccessTokenForUserIdCommand";
 export * from "./InvokeAgentRuntimeCommand";
 export * from "./InvokeAgentRuntimeCommandCommand";
+export * from "./InvokeBrowserCommand";
 export * from "./InvokeCodeInterpreterCommand";
 export * from "./ListActorsCommand";
 export * from "./ListBrowserSessionsCommand";

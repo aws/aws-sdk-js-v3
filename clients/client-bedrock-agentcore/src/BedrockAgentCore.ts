@@ -96,6 +96,11 @@ import {
   InvokeAgentRuntimeCommandCommand,
 } from "./commands/InvokeAgentRuntimeCommandCommand";
 import {
+  type InvokeBrowserCommandInput,
+  type InvokeBrowserCommandOutput,
+  InvokeBrowserCommand,
+} from "./commands/InvokeBrowserCommand";
+import {
   type InvokeCodeInterpreterCommandInput,
   type InvokeCodeInterpreterCommandOutput,
   InvokeCodeInterpreterCommand,
@@ -208,6 +213,7 @@ const commands = {
   GetWorkloadAccessTokenForUserIdCommand,
   InvokeAgentRuntimeCommand,
   InvokeAgentRuntimeCommandCommand,
+  InvokeBrowserCommand,
   InvokeCodeInterpreterCommand,
   ListActorsCommand,
   ListBrowserSessionsCommand,
@@ -574,6 +580,23 @@ export interface BedrockAgentCore {
     args: InvokeAgentRuntimeCommandCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeAgentRuntimeCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeBrowserCommand}
+   */
+  invokeBrowser(
+    args: InvokeBrowserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeBrowserCommandOutput>;
+  invokeBrowser(
+    args: InvokeBrowserCommandInput,
+    cb: (err: any, data?: InvokeBrowserCommandOutput) => void
+  ): void;
+  invokeBrowser(
+    args: InvokeBrowserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeBrowserCommandOutput) => void
   ): void;
 
   /**

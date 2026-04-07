@@ -72,6 +72,45 @@ export type AutomationStreamStatus = (typeof AutomationStreamStatus)[keyof typeo
  * @public
  * @enum
  */
+export const MouseButton = {
+  LEFT: "LEFT",
+  MIDDLE: "MIDDLE",
+  RIGHT: "RIGHT",
+} as const;
+/**
+ * @public
+ */
+export type MouseButton = (typeof MouseButton)[keyof typeof MouseButton];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScreenshotFormat = {
+  PNG: "PNG",
+} as const;
+/**
+ * @public
+ */
+export type ScreenshotFormat = (typeof ScreenshotFormat)[keyof typeof ScreenshotFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const BrowserActionStatus = {
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type BrowserActionStatus = (typeof BrowserActionStatus)[keyof typeof BrowserActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeInterpreterSessionStatus = {
   READY: "READY",
   TERMINATED: "TERMINATED",

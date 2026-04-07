@@ -9,6 +9,8 @@ const _ATT = "AccessTokenType";
 const _AUT = "AuthorizationUrlType";
 const _B = "Body";
 const _BA = "BasicAuth";
+const _BAR = "BrowserActionResult";
+const _BAr = "BrowserAction";
 const _BCMR = "BatchCreateMemoryRecords";
 const _BCMRI = "BatchCreateMemoryRecordsInput";
 const _BCMRO = "BatchCreateMemoryRecordsOutput";
@@ -123,6 +125,9 @@ const _IARCRn = "InvokeAgentRuntimeCommandResponse";
 const _IARCSO = "InvokeAgentRuntimeCommandStreamOutput";
 const _IARR = "InvokeAgentRuntimeRequest";
 const _IARRn = "InvokeAgentRuntimeResponse";
+const _IB = "InvokeBrowser";
+const _IBR = "InvokeBrowserRequest";
+const _IBRn = "InvokeBrowserResponse";
 const _ICB = "InputContentBlock";
 const _ICBL = "InputContentBlockList";
 const _ICI = "InvokeCodeInterpreter";
@@ -130,6 +135,12 @@ const _ICIR = "InvokeCodeInterpreterRequest";
 const _ICIRn = "InvokeCodeInterpreterResponse";
 const _IIE = "InvalidInputException";
 const _ISE = "InternalServerException";
+const _KPA = "KeyPressArguments";
+const _KPR = "KeyPressResult";
+const _KSA = "KeyShortcutArguments";
+const _KSR = "KeyShortcutResult";
+const _KTA = "KeyTypeArguments";
+const _KTR = "KeyTypeResult";
 const _LA = "ListActors";
 const _LAI = "ListActorsInput";
 const _LAO = "ListActorsOutput";
@@ -154,10 +165,16 @@ const _LSI = "ListSessionsInput";
 const _LSO = "ListSessionsOutput";
 const _LVS = "LiveViewStream";
 const _MC = "MemoryContent";
+const _MCA = "MouseClickArguments";
+const _MCR = "MouseClickResult";
+const _MDA = "MouseDragArguments";
+const _MDR = "MouseDragResult";
 const _ML = "MessagesList";
 const _MM = "MessageMetadata";
+const _MMA = "MouseMoveArguments";
 const _MMFE = "MemoryMetadataFilterExpression";
 const _MMFL = "MemoryMetadataFilterList";
+const _MMR = "MouseMoveResult";
 const _MMe = "MetadataMap";
 const _MPV = "Mcp-Protocol-Version";
 const _MR = "MemoryRecord";
@@ -171,7 +188,9 @@ const _MRS = "MemoryRecordSummary";
 const _MRSL = "MemoryRecordSummaryList";
 const _MRUI = "MemoryRecordUpdateInput";
 const _MRUIL = "MemoryRecordsUpdateInputList";
+const _MSA = "MouseScrollArguments";
 const _MSI = "Mcp-Session-Id";
+const _MSR = "MouseScrollResult";
 const _MV = "MetadataValue";
 const _P = "Proxies";
 const _PB = "ProxyBypass";
@@ -192,6 +211,7 @@ const _RMRO = "RetrieveMemoryRecordsOutput";
 const _RNFE = "ResourceNotFoundException";
 const _RS = "ResponseStream";
 const _S = "State";
+const _SA = "ScreenshotArguments";
 const _SBS = "StartBrowserSession";
 const _SBSP = "SaveBrowserSessionProfile";
 const _SBSPR = "SaveBrowserSessionProfileRequest";
@@ -217,6 +237,7 @@ const _SMEJI = "StartMemoryExtractionJobInput";
 const _SMEJO = "StartMemoryExtractionJobOutput";
 const _SML = "SecretsManagerLocation";
 const _SQEE = "ServiceQuotaExceededException";
+const _SR = "ScreenshotResult";
 const _SRS = "StopRuntimeSession";
 const _SRSR = "StopRuntimeSessionRequest";
 const _SRSRt = "StopRuntimeSessionResponse";
@@ -257,6 +278,7 @@ const _aSc = "actorSummaries";
 const _aT = "accessToken";
 const _aU = "authorizationUrl";
 const _ac = "accept";
+const _act = "action";
 const _ar = "arguments";
 const _b = "branch";
 const _bA = "basicAuth";
@@ -264,11 +286,13 @@ const _bI = "browserIdentifier";
 const _ba = "baggage";
 const _bl = "blob";
 const _bo = "body";
-const _bu = "bucket";
+const _bu = "button";
+const _buc = "bucket";
 const _by = "bypass";
 const _c = "client";
 const _cA = "createdAt";
-const _cC = "clearContext";
+const _cC = "clickCount";
+const _cCl = "clearContext";
 const _cD = "contentDelta";
 const _cE = "conflictException";
 const _cII = "codeInterpreterIdentifier";
@@ -289,6 +313,8 @@ const _cr = "credentials";
 const _d = "data";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
+const _dX = "deltaX";
+const _dY = "deltaY";
 const _de = "description";
 const _e = "error";
 const _eA = "evaluatorArn";
@@ -311,6 +337,8 @@ const _eT = "eventTimestamp";
 const _eTv = "evaluationTarget";
 const _eTx = "expectedTrajectory";
 const _eTxe = "executionTime";
+const _eX = "endX";
+const _eY = "endY";
 const _ev = "event";
 const _eve = "events";
 const _ex = "explanation";
@@ -320,6 +348,7 @@ const _fA = "forceAuthentication";
 const _fL = "fieldList";
 const _fR = "failedRecords";
 const _fRa = "failureReason";
+const _fo = "format";
 const _h = "height";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -336,6 +365,11 @@ const _iTn = "inputTokens";
 const _j = "jobs";
 const _jI = "jobId";
 const _jID = "jobID";
+const _k = "key";
+const _kP = "keyPress";
+const _kS = "keyShortcut";
+const _kT = "keyType";
+const _ke = "keys";
 const _l = "location";
 const _lUA = "lastUpdatedAt";
 const _lVS = "liveViewStream";
@@ -343,16 +377,20 @@ const _la = "label";
 const _lan = "language";
 const _le = "left";
 const _m = "message";
+const _mC = "mouseClick";
+const _mD = "mouseDrag";
 const _mF = "metadataFilters";
 const _mI = "memoryId";
 const _mIe = "messageIndex";
 const _mK = "metadataKey";
 const _mL = "messagesList";
+const _mM = "mouseMove";
 const _mPV = "mcpProtocolVersion";
 const _mR = "memoryRecord";
 const _mRI = "memoryRecordId";
 const _mRS = "memoryRecordSummaries";
 const _mRa = "maxResults";
+const _mS = "mouseScroll";
 const _mSI = "mcpSessionId";
 const _mSIe = "memoryStrategyId";
 const _mT = "mimeType";
@@ -373,8 +411,9 @@ const _pI = "profileIdentifier";
 const _pa = "path";
 const _pat = "paths";
 const _po = "port";
-const _pr = "proxies";
+const _pr = "presses";
 const _pre = "prefix";
+const _pro = "proxies";
 const _q = "qualifier";
 const _r = "reason";
 const _rCE = "runtimeClientError";
@@ -416,9 +455,12 @@ const _sTS = "sessionTimeoutSeconds";
 const _sU = "sessionUri";
 const _sUt = "streamUpdate";
 const _sV = "stringValue";
+const _sX = "startX";
+const _sY = "startY";
 const _s_ = "s3";
 const _sc = "scopes";
 const _sco = "score";
+const _scr = "screenshot";
 const _se = "server";
 const _sen = "sensitive";
 const _si = "size";
@@ -458,7 +500,10 @@ const _w = "width";
 const _wAT = "workloadAccessToken";
 const _wIT = "workloadIdentityToken";
 const _wN = "workloadName";
+const _x = "x";
+const _xabsi = "x-amzn-browser-session-id";
 const _xacisi = "x-amzn-code-interpreter-session-id";
+const _y = "y";
 const n0 = "com.amazonaws.bedrockagentcore";
 
 // smithy-typescript generated code
@@ -956,6 +1001,16 @@ export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   [_cTo, _rSI, _mSI, _mPV, _tI, _tP, _tS, _ba, _resp, _sCt],
   [[0, { [_hH]: _CT }], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [() => ResponseStream, 16], [1, 32]], 1
 ];
+export var InvokeBrowserRequest$: StaticStructureSchema = [3, n0, _IBR,
+  0,
+  [_bI, _sI, _act],
+  [[0, 1], [0, { [_hH]: _xabsi }], () => BrowserAction$], 3
+];
+export var InvokeBrowserResponse$: StaticStructureSchema = [3, n0, _IBRn,
+  0,
+  [_resu, _sI],
+  [() => BrowserActionResult$, [0, { [_hH]: _xabsi }]], 2
+];
 export var InvokeCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _ICIR,
   0,
   [_cII, _n, _sI, _tI, _tP, _ar],
@@ -965,6 +1020,36 @@ export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIR
   0,
   [_stre, _sI],
   [[() => CodeInterpreterStreamOutput$, 16], [0, { [_hH]: _xacisi }]], 1
+];
+export var KeyPressArguments$: StaticStructureSchema = [3, n0, _KPA,
+  0,
+  [_k, _pr],
+  [0, 1], 1
+];
+export var KeyPressResult$: StaticStructureSchema = [3, n0, _KPR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
+];
+export var KeyShortcutArguments$: StaticStructureSchema = [3, n0, _KSA,
+  0,
+  [_ke],
+  [64 | 0], 1
+];
+export var KeyShortcutResult$: StaticStructureSchema = [3, n0, _KSR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
+];
+export var KeyTypeArguments$: StaticStructureSchema = [3, n0, _KTA,
+  0,
+  [_te],
+  [0], 1
+];
+export var KeyTypeResult$: StaticStructureSchema = [3, n0, _KTR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
 ];
 export var ListActorsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -1081,6 +1166,46 @@ export var MessageMetadata$: StaticStructureSchema = [3, n0, _MM,
   [_eI, _mIe],
   [0, 1], 2
 ];
+export var MouseClickArguments$: StaticStructureSchema = [3, n0, _MCA,
+  0,
+  [_x, _y, _bu, _cC],
+  [1, 1, 0, 1], 2
+];
+export var MouseClickResult$: StaticStructureSchema = [3, n0, _MCR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
+];
+export var MouseDragArguments$: StaticStructureSchema = [3, n0, _MDA,
+  0,
+  [_eX, _eY, _sX, _sY, _bu],
+  [1, 1, 1, 1, 0], 4
+];
+export var MouseDragResult$: StaticStructureSchema = [3, n0, _MDR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
+];
+export var MouseMoveArguments$: StaticStructureSchema = [3, n0, _MMA,
+  0,
+  [_x, _y],
+  [1, 1], 2
+];
+export var MouseMoveResult$: StaticStructureSchema = [3, n0, _MMR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
+];
+export var MouseScrollArguments$: StaticStructureSchema = [3, n0, _MSA,
+  0,
+  [_x, _y, _dX, _dY],
+  [1, 1, 1, 1], 2
+];
+export var MouseScrollResult$: StaticStructureSchema = [3, n0, _MSR,
+  0,
+  [_sta, _e],
+  [0, 0], 1
+];
 export var ProxyBypass$: StaticStructureSchema = [3, n0, _PB,
   0,
   [_dP],
@@ -1088,7 +1213,7 @@ export var ProxyBypass$: StaticStructureSchema = [3, n0, _PB,
 ];
 export var ProxyConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_pr, _by],
+  [_pro, _by],
   [() => Proxies, () => ProxyBypass$], 1
 ];
 export var ResourceContent$: StaticStructureSchema = [3, n0, _RC,
@@ -1113,7 +1238,7 @@ export var RetrieveMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _RMRO,
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
-  [_bu, _pre, _vI],
+  [_buc, _pre, _vI],
   [0, 0, 0], 2
 ];
 export var SaveBrowserSessionProfileRequest$: StaticStructureSchema = [3, n0, _SBSPR,
@@ -1125,6 +1250,16 @@ export var SaveBrowserSessionProfileResponse$: StaticStructureSchema = [3, n0, _
   0,
   [_pI, _bI, _sI, _lUA],
   [0, 0, 0, 5], 4
+];
+export var ScreenshotArguments$: StaticStructureSchema = [3, n0, _SA,
+  0,
+  [_fo],
+  [0]
+];
+export var ScreenshotResult$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_sta, _e, _d],
+  [0, 0, 21], 1
 ];
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -1218,7 +1353,7 @@ export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
 ];
 export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
   0,
-  [_cod, _lan, _cC, _com, _pa, _pat, _co, _dPi, _tIa, _ru],
+  [_cod, _lan, _cCl, _com, _pa, _pat, _co, _dPi, _tIa, _ru],
   [0, 0, 2, 0, 0, 64 | 0, [() => InputContentBlockList, 0], 0, 0, 0]
 ];
 export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
@@ -1294,6 +1429,7 @@ var InputContentBlockList: StaticListSchema = [1, n0, _ICBL,
   0, [() => InputContentBlock$,
     0]
 ];
+var KeyList = 64 | 0;
 var MemoryMetadataFilterList: StaticListSchema = [1, n0, _MMFL,
   0, () => MemoryMetadataFilterExpression$
 ];
@@ -1347,6 +1483,16 @@ var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT,
 ];
 var MetadataMap: StaticMapSchema = [2, n0, _MMe,
   0, 0, () => MetadataValue$
+];
+export var BrowserAction$: StaticUnionSchema = [4, n0, _BAr,
+  0,
+  [_mC, _mM, _mD, _mS, _kT, _kP, _kS, _scr],
+  [() => MouseClickArguments$, () => MouseMoveArguments$, () => MouseDragArguments$, () => MouseScrollArguments$, () => KeyTypeArguments$, () => KeyPressArguments$, () => KeyShortcutArguments$, () => ScreenshotArguments$]
+];
+export var BrowserActionResult$: StaticUnionSchema = [4, n0, _BAR,
+  0,
+  [_mC, _mM, _mD, _mS, _kT, _kP, _kS, _scr],
+  [() => MouseClickResult$, () => MouseMoveResult$, () => MouseDragResult$, () => MouseScrollResult$, () => KeyTypeResult$, () => KeyPressResult$, () => KeyShortcutResult$, () => ScreenshotResult$]
 ];
 export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
   0,
@@ -1502,6 +1648,9 @@ export var InvokeAgentRuntime$: StaticOperationSchema = [9, n0, _IAR,
 ];
 export var InvokeAgentRuntimeCommand$: StaticOperationSchema = [9, n0, _IARC,
   { [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/commands", 200] }, () => InvokeAgentRuntimeCommandRequest$, () => InvokeAgentRuntimeCommandResponse$
+];
+export var InvokeBrowser$: StaticOperationSchema = [9, n0, _IB,
+  { [_ht]: ["POST", "/browsers/{browserIdentifier}/sessions/invoke", 200] }, () => InvokeBrowserRequest$, () => InvokeBrowserResponse$
 ];
 export var InvokeCodeInterpreter$: StaticOperationSchema = [9, n0, _ICI,
   { [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/tools/invoke", 200] }, () => InvokeCodeInterpreterRequest$, () => InvokeCodeInterpreterResponse$
