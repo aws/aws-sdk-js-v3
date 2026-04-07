@@ -347,6 +347,7 @@ const _URRn = "UntagResourceResponse";
 const _UTP = "UpdateTaintsPayload";
 const _VCR = "VpcConfigRequest";
 const _VCRp = "VpcConfigResponse";
+const _WPC = "WarmPoolConfig";
 const _ZSCR = "ZonalShiftConfigRequest";
 const _ZSCRo = "ZonalShiftConfigResponse";
 const _a = "arn";
@@ -507,6 +508,7 @@ const _la = "labels";
 const _li = "licenses";
 const _m = "message";
 const _mA = "modifiedAt";
+const _mGPC = "maxGroupPreparedCapacity";
 const _mI = "marketplaceInformation";
 const _mPNRC = "maxParallelNodesRepairedCount";
 const _mPNRP = "maxParallelNodesRepairedPercentage";
@@ -550,6 +552,7 @@ const _pERA = "podExecutionRoleArn";
 const _pI = "productId";
 const _pIA = "podIdentityAssociations";
 const _pIC = "podIdentityConfiguration";
+const _pS = "poolState";
 const _pU = "productUrl";
 const _pV = "platformVersion";
 const _pVl = "platformVersions";
@@ -574,6 +577,7 @@ const _rL = "removeLabels";
 const _rMP = "recommendedManagedPolicies";
 const _rNC = "remoteNetworkConfig";
 const _rNN = "remoteNodeNetworks";
+const _rOSI = "reuseOnScaleIn";
 const _rPN = "remotePodNetworks";
 const _rRM = "rbacRoleMappings";
 const _rRMe = "removeRoleMappings";
@@ -635,6 +639,7 @@ const _vIp = "vpcId";
 const _vS = "versionStatus";
 const _vZ = "validZones";
 const _va = "value";
+const _wPC = "warmPoolConfig";
 const _zSC = "zonalShiftConfig";
 const n0 = "com.amazonaws.eks";
 
@@ -1088,8 +1093,8 @@ export var CreateFargateProfileResponse$: StaticStructureSchema = [3, n0, _CFPRr
 ];
 export var CreateNodegroupRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
-  [_cN, _nN, _sub, _nR, _sCc, _dS, _iT, _aT, _rAe, _la, _ta, _t, _cRT, _lTa, _uC, _nRC, _cTa, _v, _rV],
-  [[0, 1], 0, 64 | 0, 0, () => NodegroupScalingConfig$, 1, 64 | 0, 0, () => RemoteAccessConfig$, 128 | 0, () => taintsList, 128 | 0, [0, 4], () => LaunchTemplateSpecification$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, 0, 0, 0], 4
+  [_cN, _nN, _sub, _nR, _sCc, _dS, _iT, _aT, _rAe, _la, _ta, _t, _cRT, _lTa, _uC, _nRC, _cTa, _v, _rV, _wPC],
+  [[0, 1], 0, 64 | 0, 0, () => NodegroupScalingConfig$, 1, 64 | 0, 0, () => RemoteAccessConfig$, 128 | 0, () => taintsList, 128 | 0, [0, 4], () => LaunchTemplateSpecification$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, 0, 0, 0, () => WarmPoolConfig$], 4
 ];
 export var CreateNodegroupResponse$: StaticStructureSchema = [3, n0, _CNRr,
   0,
@@ -1643,8 +1648,8 @@ export var MarketplaceInformation$: StaticStructureSchema = [3, n0, _MI,
 ];
 export var Nodegroup$: StaticStructureSchema = [3, n0, _N,
   0,
-  [_nN, _nAo, _cN, _v, _rV, _cA, _mA, _st, _cTa, _sCc, _iT, _sub, _rAe, _aT, _nR, _la, _ta, _re, _dS, _h, _uC, _nRC, _lTa, _t],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, () => NodegroupScalingConfig$, 64 | 0, 64 | 0, () => RemoteAccessConfig$, 0, 0, 128 | 0, () => taintsList, () => NodegroupResources$, 1, () => NodegroupHealth$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, () => LaunchTemplateSpecification$, 128 | 0]
+  [_nN, _nAo, _cN, _v, _rV, _cA, _mA, _st, _cTa, _sCc, _iT, _sub, _rAe, _aT, _nR, _la, _ta, _re, _dS, _h, _uC, _nRC, _lTa, _t, _wPC],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, () => NodegroupScalingConfig$, 64 | 0, 64 | 0, () => RemoteAccessConfig$, 0, 0, 128 | 0, () => taintsList, () => NodegroupResources$, 1, () => NodegroupHealth$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, () => LaunchTemplateSpecification$, 128 | 0, () => WarmPoolConfig$]
 ];
 export var NodegroupHealth$: StaticStructureSchema = [3, n0, _NH,
   0,
@@ -1888,8 +1893,8 @@ export var UpdateLabelsPayload$: StaticStructureSchema = [3, n0, _ULP,
 ];
 export var UpdateNodegroupConfigRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
-  [_cN, _nN, _la, _ta, _sCc, _uC, _nRC, _cRT],
-  [[0, 1], [0, 1], () => UpdateLabelsPayload$, () => UpdateTaintsPayload$, () => NodegroupScalingConfig$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, [0, 4]], 2
+  [_cN, _nN, _la, _ta, _sCc, _uC, _nRC, _wPC, _cRT],
+  [[0, 1], [0, 1], () => UpdateLabelsPayload$, () => UpdateTaintsPayload$, () => NodegroupScalingConfig$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, () => WarmPoolConfig$, [0, 4]], 2
 ];
 export var UpdateNodegroupConfigResponse$: StaticStructureSchema = [3, n0, _UNCRp,
   0,
@@ -1950,6 +1955,11 @@ export var VpcConfigResponse$: StaticStructureSchema = [3, n0, _VCRp,
   0,
   [_sIu, _sGI, _cSGI, _vIp, _ePA, _ePAn, _pAC],
   [64 | 0, 64 | 0, 0, 0, 2, 2, 64 | 0]
+];
+export var WarmPoolConfig$: StaticStructureSchema = [3, n0, _WPC,
+  0,
+  [_en, _mS, _mGPC, _pS, _rOSI],
+  [2, 1, 1, 0, 2]
 ];
 export var ZonalShiftConfigRequest$: StaticStructureSchema = [3, n0, _ZSCR,
   0,

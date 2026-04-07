@@ -118,6 +118,13 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *   capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  *   version: "STRING_VALUE",
  *   releaseVersion: "STRING_VALUE",
+ *   warmPoolConfig: { // WarmPoolConfig
+ *     enabled: true || false,
+ *     minSize: Number("int"),
+ *     maxGroupPreparedCapacity: Number("int"),
+ *     poolState: "STOPPED" || "RUNNING" || "HIBERNATED",
+ *     reuseOnScaleIn: true || false,
+ *   },
  * };
  * const command = new CreateNodegroupCommand(input);
  * const response = await client.send(command);
@@ -206,6 +213,13 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     },
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     warmPoolConfig: { // WarmPoolConfig
+ * //       enabled: true || false,
+ * //       minSize: Number("int"),
+ * //       maxGroupPreparedCapacity: Number("int"),
+ * //       poolState: "STOPPED" || "RUNNING" || "HIBERNATED",
+ * //       reuseOnScaleIn: true || false,
  * //     },
  * //   },
  * // };

@@ -128,6 +128,13 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     warmPoolConfig: { // WarmPoolConfig
+ * //       enabled: true || false,
+ * //       minSize: Number("int"),
+ * //       maxGroupPreparedCapacity: Number("int"),
+ * //       poolState: "STOPPED" || "RUNNING" || "HIBERNATED",
+ * //       reuseOnScaleIn: true || false,
+ * //     },
  * //   },
  * // };
  *

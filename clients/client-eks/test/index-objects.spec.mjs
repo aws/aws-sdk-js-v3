@@ -467,6 +467,8 @@ import {
   waitUntilFargateProfileDeleted,
   waitUntilNodegroupActive,
   waitUntilNodegroupDeleted,
+  WarmPoolConfig$,
+  WarmPoolState,
   ZonalShiftConfigRequest$,
   ZonalShiftConfigResponse$,
 } from "../dist-cjs/index.js";
@@ -840,6 +842,7 @@ assert(typeof UpgradePolicyRequest$ === "object");
 assert(typeof UpgradePolicyResponse$ === "object");
 assert(typeof VpcConfigRequest$ === "object");
 assert(typeof VpcConfigResponse$ === "object");
+assert(typeof WarmPoolConfig$ === "object");
 assert(typeof ZonalShiftConfigRequest$ === "object");
 assert(typeof ZonalShiftConfigResponse$ === "object");
 // enums
@@ -883,6 +886,7 @@ assert(typeof UpdateParamType === "object");
 assert(typeof UpdateStatus === "object");
 assert(typeof UpdateType === "object");
 assert(typeof VersionStatus === "object");
+assert(typeof WarmPoolState === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof EKSServiceException);
 assert(typeof AccessDeniedException$ === "object");

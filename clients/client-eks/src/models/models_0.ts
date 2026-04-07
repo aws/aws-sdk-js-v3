@@ -40,6 +40,7 @@ import type {
   UpdateStatus,
   UpdateType,
   VersionStatus,
+  WarmPoolState,
 } from "./enums";
 
 /**
@@ -3723,6 +3724,42 @@ export interface NodegroupUpdateConfig {
 }
 
 /**
+ * <p>The configuration for an Amazon EC2 Auto Scaling warm pool attached to an Amazon EKS managed node group. Warm pools maintain pre-initialized EC2 instances alongside your Auto Scaling group that have already completed the bootup initialization process and can be kept in a <code>Stopped</code>, <code>Running</code>, or <code>Hibernated</code> state.</p>
+ * @public
+ */
+export interface WarmPoolConfig {
+  /**
+   * <p>Specifies whether to attach warm pools on the managed node group. Set to <code>true</code> to enable the warm pool, or <code>false</code> to disable and remove it. If not specified during an update, the current value is preserved.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>The minimum number of instances to maintain in the warm pool. Default: <code>0</code>. Size your warm pool based on scaling patterns to balance cost and availability. Start with 10-20% of expected peak capacity.</p>
+   * @public
+   */
+  minSize?: number | undefined;
+
+  /**
+   * <p>The maximum total number of instances across the warm pool and Auto Scaling group combined. This value controls the total prepared capacity available for your node group.</p>
+   * @public
+   */
+  maxGroupPreparedCapacity?: number | undefined;
+
+  /**
+   * <p>The desired state for warm pool instances. Default: <code>Stopped</code>. Valid values are <code>Stopped</code> (most cost-effective with EBS storage costs only), <code>Running</code> (fastest transition time with full EC2 costs), and <code>Hibernated</code> (balance between cost and speed, only supported on specific instance types). Warm pool instances in the <code>Hibernated</code> state are not supported with Bottlerocket AMIs.</p>
+   * @public
+   */
+  poolState?: WarmPoolState | undefined;
+
+  /**
+   * <p>Indicates whether instances should return to the warm pool during scale-in events instead of being terminated. Default: <code>false</code>. Enable this to reduce costs by reusing instances. This feature is not supported for Bottlerocket AMIs.</p>
+   * @public
+   */
+  reuseOnScaleIn?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateNodegroupRequest {
@@ -3901,6 +3938,12 @@ export interface CreateNodegroupRequest {
    * @public
    */
   releaseVersion?: string | undefined;
+
+  /**
+   * <p>The warm pool configuration for the node group. Warm pools maintain pre-initialized EC2 instances that can quickly join your cluster during scale-out events, improving application scaling performance and reducing costs.</p>
+   * @public
+   */
+  warmPoolConfig?: WarmPoolConfig | undefined;
 }
 
 /**
@@ -4238,6 +4281,12 @@ export interface Nodegroup {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The warm pool configuration attached to the node group. Amazon EKS manages warm pools throughout the node group lifecycle using the <code>AWSServiceRoleForAmazonEKSNodegroup</code> service-linked role to create, update, and delete warm pool resources.</p>
+   * @public
+   */
+  warmPoolConfig?: WarmPoolConfig | undefined;
 }
 
 /**
@@ -7605,6 +7654,12 @@ export interface UpdateNodegroupConfigRequest {
    * @public
    */
   nodeRepairConfig?: NodeRepairConfig | undefined;
+
+  /**
+   * <p>The warm pool configuration to apply to the node group. You can use this to add a warm pool to an existing node group or modify the settings of an existing warm pool.</p>
+   * @public
+   */
+  warmPoolConfig?: WarmPoolConfig | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure

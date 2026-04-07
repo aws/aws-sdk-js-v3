@@ -199,6 +199,11 @@ export const UpdateParamType = {
   UPDATE_STRATEGY: "UpdateStrategy",
   UPGRADE_POLICY: "UpgradePolicy",
   VERSION: "Version",
+  WARM_POOL_ENABLED: "WarmPoolEnabled",
+  WARM_POOL_MAX_GROUP_PREPARED_CAPACITY: "WarmPoolMaxGroupPreparedCapacity",
+  WARM_POOL_MIN_SIZE: "WarmPoolMinSize",
+  WARM_POOL_REUSE_ON_SCALE_IN: "WarmPoolReuseOnScaleIn",
+  WARM_POOL_STATE: "WarmPoolState",
   ZONAL_SHIFT_CONFIG: "ZonalShiftConfig",
 } as const;
 /**
@@ -538,6 +543,20 @@ export const NodegroupUpdateStrategies = {
  * @public
  */
 export type NodegroupUpdateStrategies = (typeof NodegroupUpdateStrategies)[keyof typeof NodegroupUpdateStrategies];
+
+/**
+ * @public
+ * @enum
+ */
+export const WarmPoolState = {
+  HIBERNATED: "HIBERNATED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type WarmPoolState = (typeof WarmPoolState)[keyof typeof WarmPoolState];
 
 /**
  * @public
