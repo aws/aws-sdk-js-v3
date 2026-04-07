@@ -40,7 +40,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "Status": "__Status__",
   "Properties": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "CreationTime": 946702799.999,
   "CreatedBy": {
@@ -88,7 +89,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   Status: "__Status__",
   Properties: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   CreatedBy: {

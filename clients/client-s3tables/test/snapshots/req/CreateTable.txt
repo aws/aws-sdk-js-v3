@@ -2,14 +2,14 @@ PUT https://s3tables.us-east-1.amazonaws.com
 /tables/__tableBucketARN__/__namespace__
 
 content-type: application/json
-content-length: 1742
+content-length: 1780
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/s3tables#_.__ m/E,e
 host: s3tables.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 67beba5a99e684096db2b1b08ec8ae69a6fcf72b12ffa100dc2afcc892d3c39e
+x-amz-content-sha256: 5c18b2045a5120185ad69793fb61c0ecb9da97a19580aa48afe9751dff8b8c6a
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -153,7 +153,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_
       },
       "properties": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   },
@@ -166,6 +167,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_
   },
   "tags": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   }
 }

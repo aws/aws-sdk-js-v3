@@ -1,5 +1,5 @@
 GET https://restjson.us-east-1.amazonaws.com 
-/http-query-params-only?key1=__value__&key2=__value__
+/http-query-params-only?key1=__value__&key2=__value__&key3=__value__
 
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-json-protocol#_.__ m/E,e

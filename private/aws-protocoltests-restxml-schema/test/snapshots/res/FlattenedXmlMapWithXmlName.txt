@@ -44,6 +44,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             __value__
         </V>
     </KVP>
+    <KVP>
+        <K>
+            key3
+        </K>
+        <V>
+            __value__
+        </V>
+    </KVP>
 </FlattenedXmlMapWithXmlNameResponse>
 
 
@@ -51,7 +59,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 {
   myMap: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   $metadata: {
     httpStatusCode: (number) 200,

@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateTrainingJob
-content-length: 7954
+content-length: 8201
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 8f9d7dcd5dcf130466e2557c2f6c4307f2fc269a5dac24b7d50a538a0714e74b
+x-amz-content-sha256: 9c37e260feb9aeb33a645fdffd704b357878c29d6c95e0f95df9eae323a2ab9b
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -24,7 +24,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
   },
   "HyperParameters": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "AlgorithmSpecification": {
     "TrainingInputMode": "__TrainingInputMode__",
@@ -275,28 +276,32 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     "LocalPath": "__LocalPath__",
     "HookParameters": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "CollectionConfigurations": [
       {
         "CollectionName": "__CollectionName__",
         "CollectionParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       {
         "CollectionName": "__CollectionName__",
         "CollectionParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       {
         "CollectionName": "__CollectionName__",
         "CollectionParameters": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       }
     ]
@@ -311,7 +316,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -323,7 +329,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -335,7 +342,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],
@@ -354,7 +362,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     "ProfilingIntervalInMilliseconds": 0,
     "ProfilingParameters": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "DisableProfiler": false
   },
@@ -368,7 +377,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -380,7 +390,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -392,13 +403,15 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "VolumeSizeInGB": 0,
       "RuleParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],
   "Environment": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "RetryStrategy": {
     "MaximumRetryAttempts": 0

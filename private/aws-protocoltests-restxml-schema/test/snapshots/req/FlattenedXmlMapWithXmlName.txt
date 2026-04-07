@@ -2,14 +2,14 @@ POST https://restxml.us-east-1.amazonaws.com
 /FlattenedXmlMapWithXmlName
 
 content-type: application/xml
-content-length: 185
+content-length: 223
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-xml-protocol#_.__ m/E,e
 host: restxml.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: d23046885be98a88b02ab49f69112d665da893dc3992492093ecc7e45f51be28
+x-amz-content-sha256: ecd23a254391158fd026ffbfe6ed9fb67929332c035e23cf96ce0cfaa6b8c387
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -26,6 +26,14 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_r
     <KVP>
         <K>
             key2
+        </K>
+        <V>
+            __value__
+        </V>
+    </KVP>
+    <KVP>
+        <K>
+            key3
         </K>
         <V>
             __value__

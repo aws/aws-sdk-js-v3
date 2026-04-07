@@ -23,8 +23,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/core": "^3.23.13",
-    "@smithy/url-parser": "^4.2.12",
+    "@smithy/core": "^3.23.14",
+    "@smithy/url-parser": "^4.2.13",
     "tslib": "^2.6.2"
   },
   "files": [

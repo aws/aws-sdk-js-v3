@@ -41,7 +41,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "state": "__state__",
       "histogram": {
         "key1": 0,
-        "key2": 0
+        "key2": 0,
+        "key3": 0
       },
       "logSamples": [
         {
@@ -64,7 +65,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         },
@@ -74,7 +76,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         },
@@ -84,7 +87,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         }
@@ -113,7 +117,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "state": "__state__",
       "histogram": {
         "key1": 0,
-        "key2": 0
+        "key2": 0,
+        "key3": 0
       },
       "logSamples": [
         {
@@ -136,7 +141,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         },
@@ -146,7 +152,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         },
@@ -156,7 +163,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         }
@@ -185,7 +193,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "state": "__state__",
       "histogram": {
         "key1": 0,
-        "key2": 0
+        "key2": 0,
+        "key3": 0
       },
       "logSamples": [
         {
@@ -208,7 +217,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         },
@@ -218,7 +228,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         },
@@ -228,7 +239,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "tokenString": "__tokenString__",
           "enumerations": {
             "key1": 0,
-            "key2": 0
+            "key2": 0,
+            "key3": 0
           },
           "inferredTokenName": "__inferredTokenName__"
         }
@@ -265,7 +277,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       state: "__state__",
       histogram: {
         key1: (number) 0,
-        key2: (number) 0
+        key2: (number) 0,
+        key3: (number) 0
       },
       logSamples: [
         {
@@ -288,7 +301,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         },
@@ -298,7 +312,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         },
@@ -308,7 +323,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         }
@@ -337,7 +353,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       state: "__state__",
       histogram: {
         key1: (number) 0,
-        key2: (number) 0
+        key2: (number) 0,
+        key3: (number) 0
       },
       logSamples: [
         {
@@ -360,7 +377,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         },
@@ -370,7 +388,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         },
@@ -380,7 +399,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         }
@@ -409,7 +429,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       state: "__state__",
       histogram: {
         key1: (number) 0,
-        key2: (number) 0
+        key2: (number) 0,
+        key3: (number) 0
       },
       logSamples: [
         {
@@ -432,7 +453,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         },
@@ -442,7 +464,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         },
@@ -452,7 +475,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           tokenString: "__tokenString__",
           enumerations: {
             key1: (number) 0,
-            key2: (number) 0
+            key2: (number) 0,
+            key3: (number) 0
           },
           inferredTokenName: "__inferredTokenName__"
         }

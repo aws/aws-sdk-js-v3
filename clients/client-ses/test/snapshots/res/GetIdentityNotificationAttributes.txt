@@ -63,6 +63,34 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </HeadersInDeliveryNotificationsEnabled>
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                <BounceTopic>
+                    __BounceTopic__
+                </BounceTopic>
+                <ComplaintTopic>
+                    __ComplaintTopic__
+                </ComplaintTopic>
+                <DeliveryTopic>
+                    __DeliveryTopic__
+                </DeliveryTopic>
+                <ForwardingEnabled>
+                    false
+                </ForwardingEnabled>
+                <HeadersInBounceNotificationsEnabled>
+                    false
+                </HeadersInBounceNotificationsEnabled>
+                <HeadersInComplaintNotificationsEnabled>
+                    false
+                </HeadersInComplaintNotificationsEnabled>
+                <HeadersInDeliveryNotificationsEnabled>
+                    false
+                </HeadersInDeliveryNotificationsEnabled>
+            </value>
+        </entry>
     </NotificationAttributes>
 </GetIdentityNotificationAttributesResponse>
 
@@ -119,6 +147,34 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <entry>
             <key>
                 key2
+            </key>
+            <value>
+                <BounceTopic>
+                    __BounceTopic__
+                </BounceTopic>
+                <ComplaintTopic>
+                    __ComplaintTopic__
+                </ComplaintTopic>
+                <DeliveryTopic>
+                    __DeliveryTopic__
+                </DeliveryTopic>
+                <ForwardingEnabled>
+                    false
+                </ForwardingEnabled>
+                <HeadersInBounceNotificationsEnabled>
+                    false
+                </HeadersInBounceNotificationsEnabled>
+                <HeadersInComplaintNotificationsEnabled>
+                    false
+                </HeadersInComplaintNotificationsEnabled>
+                <HeadersInDeliveryNotificationsEnabled>
+                    false
+                </HeadersInDeliveryNotificationsEnabled>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key3
             </key>
             <value>
                 <BounceTopic>

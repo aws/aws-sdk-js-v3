@@ -3,14 +3,14 @@ POST https://jsonprotocol.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: JsonProtocol.KitchenSinkOperation
-content-length: 7728
+content-length: 10390
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/json-protocol#_.__ m/E,e
 host: jsonprotocol.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: c99cf66f6edae76e3fe092a9a9cc3ad2831b320af9e334e892c8ff96f8b486f0
+x-amz-content-sha256: 7b4cfc126fcfdd6f27b908f638a0f478890978473db69aa95ba4a3027d69f713
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -44,15 +44,18 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
   "ListOfMapsOfStrings": [
     {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     }
   ],
   "ListOfStrings": [
@@ -82,27 +85,43 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       "__member__",
       "__member__",
       "__member__"
+    ],
+    "key3": [
+      "__member__",
+      "__member__",
+      "__member__"
     ]
   },
   "MapOfMaps": {
     "key1": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "key2": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
+    },
+    "key3": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
     }
   },
   "MapOfStrings": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "MapOfStructs": {
     "key1": {
       "Value": "__Value__"
     },
     "key2": {
+      "Value": "__Value__"
+    },
+    "key3": {
       "Value": "__Value__"
     }
   },
@@ -154,27 +173,43 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -185,7 +220,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -245,27 +281,43 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -276,7 +328,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -336,27 +389,43 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -367,7 +436,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -412,15 +482,18 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       "ListOfMapsOfStrings": [
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       ],
       "ListOfStrings": [
@@ -442,21 +515,27 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       "Long": 0,
       "MapOfListsOfStrings": {
         "key1": [],
-        "key2": []
+        "key2": [],
+        "key3": []
       },
       "MapOfMaps": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -467,7 +546,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -510,15 +590,18 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       "ListOfMapsOfStrings": [
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       ],
       "ListOfStrings": [
@@ -540,21 +623,27 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       "Long": 0,
       "MapOfListsOfStrings": {
         "key1": [],
-        "key2": []
+        "key2": [],
+        "key3": []
       },
       "MapOfMaps": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -565,7 +654,116 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
+      },
+      "RecursiveStruct": {},
+      "SimpleStruct": {
+        "Value": "__Value__"
+      },
+      "String": "__String__",
+      "StructWithJsonName": {
+        "Value": "__Value__"
+      },
+      "Timestamp": 946702799.999,
+      "UnixTimestamp": 946702799.999
+    },
+    "key3": {
+      "Blob": "AQAAAQ==",
+      "Boolean": false,
+      "Double": 0,
+      "EmptyStruct": {},
+      "Float": 0,
+      "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+      "Integer": 0,
+      "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+      "JsonValue": "__JsonValue__",
+      "ListOfLists": [
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      ],
+      "ListOfMapsOfStrings": [
+        {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      ],
+      "ListOfStrings": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ListOfStructs": [
+        {
+          "Value": "__Value__"
+        },
+        {
+          "Value": "__Value__"
+        },
+        {
+          "Value": "__Value__"
+        }
+      ],
+      "Long": 0,
+      "MapOfListsOfStrings": {
+        "key1": [],
+        "key2": [],
+        "key3": []
+      },
+      "MapOfMaps": {
+        "key1": {},
+        "key2": {},
+        "key3": {}
+      },
+      "MapOfStrings": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "MapOfStructs": {
+        "key1": {
+          "Value": "__Value__"
+        },
+        "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
+          "Value": "__Value__"
+        }
+      },
+      "RecursiveList": [
+        {},
+        {},
+        {}
+      ],
+      "RecursiveMap": {
+        "key1": {},
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -609,15 +807,18 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
     "ListOfMapsOfStrings": [
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     ],
     "ListOfStrings": [
@@ -647,27 +848,43 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
         "__member__",
         "__member__",
         "__member__"
+      ],
+      "key3": [
+        "__member__",
+        "__member__",
+        "__member__"
       ]
     },
     "MapOfMaps": {
       "key1": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "key2": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "key3": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     "MapOfStrings": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "MapOfStructs": {
       "key1": {
         "Value": "__Value__"
       },
       "key2": {
+        "Value": "__Value__"
+      },
+      "key3": {
         "Value": "__Value__"
       }
     },
@@ -678,7 +895,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/a
     ],
     "RecursiveMap": {
       "key1": {},
-      "key2": {}
+      "key2": {},
+      "key3": {}
     },
     "RecursiveStruct": {},
     "SimpleStruct": {

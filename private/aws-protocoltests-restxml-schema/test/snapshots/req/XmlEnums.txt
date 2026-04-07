@@ -2,14 +2,14 @@ PUT https://restxml.us-east-1.amazonaws.com
 /XmlEnums
 
 content-type: application/xml
-content-length: 519
+content-length: 573
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-xml-protocol#_.__ m/E,e
 host: restxml.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: c47d701c91e6acb622ad7722623ad36a3eb38faf1dd7cd80eb61ed95e894981d
+x-amz-content-sha256: 910a2052361a2f0507cc541a112553a2b674b7861be8f1926690e54c278fe5a2
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -58,6 +58,14 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_r
         <entry>
             <key>
                 key2
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key3
             </key>
             <value>
                 __value__

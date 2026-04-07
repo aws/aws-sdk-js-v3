@@ -35,7 +35,8 @@ hello: __specificHeader__
 {
   "prefixHeaders": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   }
 }
 

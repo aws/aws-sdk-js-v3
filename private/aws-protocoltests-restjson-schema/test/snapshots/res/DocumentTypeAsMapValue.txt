@@ -52,6 +52,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         1,
         5
       ]
+    },
+    "key3": {
+      "doc_note": "this is a document",
+      "doc_date": 946702799.999,
+      "doc_blob": "AQAAAQ==",
+      "doc_list": [
+        -7,
+        -3,
+        0,
+        1,
+        5
+      ]
     }
   }
 }
@@ -73,6 +85,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ]
     },
     key2: {
+      doc_note: "this is a document",
+      doc_date: (number) 946702799.999,
+      doc_blob: "AQAAAQ==",
+      doc_list: [
+        (number) -7,
+        (number) -3,
+        (number) 0,
+        (number) 1,
+        (number) 5
+      ]
+    },
+    key3: {
       doc_note: "this is a document",
       doc_date: (number) 946702799.999,
       doc_blob: "AQAAAQ==",

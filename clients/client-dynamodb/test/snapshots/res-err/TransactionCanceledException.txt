@@ -50,11 +50,21 @@ content-type: application/x-amz-json-1.0
           ]
         },
         "key2": {
+          "BS": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key3": {
           "M": {
             "key1": {
               "NULL": false
             },
             "key2": {
+              "BOOL": false
+            },
+            "key3": {
               "S": "__S__"
             }
           }
@@ -73,11 +83,25 @@ content-type: application/x-amz-json-1.0
           ]
         },
         "key2": {
+          "M": {
+            "key1": {
+              "NULL": false
+            },
+            "key2": {
+              "BOOL": false
+            },
+            "key3": {
+              "S": "__S__"
+            }
+          }
+        },
+        "key3": {
           "L": [
             {
               "M": {
                 "key1": {},
-                "key2": {}
+                "key2": {},
+                "key3": {}
               }
             },
             {
@@ -104,11 +128,35 @@ content-type: application/x-amz-json-1.0
               "NULL": false
             },
             "key2": {
+              "BOOL": false
+            },
+            "key3": {
               "S": "__S__"
             }
           }
         },
         "key2": {
+          "L": [
+            {
+              "M": {
+                "key1": {},
+                "key2": {},
+                "key3": {}
+              }
+            },
+            {
+              "L": [
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              "NULL": false
+            }
+          ]
+        },
+        "key3": {
           "NULL": false
         }
       },
@@ -146,11 +194,21 @@ TransactionCanceledException: __Message__
           ]
         },
         key2: {
+          BS: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key3: {
           M: {
             key1: {
               NULL: (boolean) false
             },
             key2: {
+              BOOL: (boolean) false
+            },
+            key3: {
               S: "__S__"
             }
           }
@@ -169,11 +227,25 @@ TransactionCanceledException: __Message__
           ]
         },
         key2: {
+          M: {
+            key1: {
+              NULL: (boolean) false
+            },
+            key2: {
+              BOOL: (boolean) false
+            },
+            key3: {
+              S: "__S__"
+            }
+          }
+        },
+        key3: {
           L: [
             {
               M: {
                 key1: {},
-                key2: {}
+                key2: {},
+                key3: {}
               }
             },
             {
@@ -200,11 +272,35 @@ TransactionCanceledException: __Message__
               NULL: (boolean) false
             },
             key2: {
+              BOOL: (boolean) false
+            },
+            key3: {
               S: "__S__"
             }
           }
         },
         key2: {
+          L: [
+            {
+              M: {
+                key1: {},
+                key2: {},
+                key3: {}
+              }
+            },
+            {
+              L: [
+                {},
+                {},
+                {}
+              ]
+            },
+            {
+              NULL: (boolean) false
+            }
+          ]
+        },
+        key3: {
           NULL: (boolean) false
         }
       },

@@ -50,6 +50,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __value__
                     </InnerValue>
                 </entry>
+                <entry>
+                    <InnerKey>
+                        key3
+                    </InnerKey>
+                    <InnerValue>
+                        __value__
+                    </InnerValue>
+                </entry>
             </value>
         </entry>
         <entry>
@@ -73,6 +81,45 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __value__
                     </InnerValue>
                 </entry>
+                <entry>
+                    <InnerKey>
+                        key3
+                    </InnerKey>
+                    <InnerValue>
+                        __value__
+                    </InnerValue>
+                </entry>
+            </value>
+        </entry>
+        <entry>
+            <OuterKey>
+                key3
+            </OuterKey>
+            <value>
+                <entry>
+                    <InnerKey>
+                        key1
+                    </InnerKey>
+                    <InnerValue>
+                        __value__
+                    </InnerValue>
+                </entry>
+                <entry>
+                    <InnerKey>
+                        key2
+                    </InnerKey>
+                    <InnerValue>
+                        __value__
+                    </InnerValue>
+                </entry>
+                <entry>
+                    <InnerKey>
+                        key3
+                    </InnerKey>
+                    <InnerValue>
+                        __value__
+                    </InnerValue>
+                </entry>
             </value>
         </entry>
     </nestedXmlMapWithXmlNameMap>
@@ -84,11 +131,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   nestedXmlMapWithXmlNameMap: {
     key1: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     key2: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
+    },
+    key3: {
+      key1: "__value__",
+      key2: "__value__",
+      key3: "__value__"
     }
   },
   $metadata: {

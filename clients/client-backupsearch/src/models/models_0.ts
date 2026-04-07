@@ -334,7 +334,7 @@ export interface ListTagsForResourceResponse {
    * <p>List of tags returned by the operation.</p>
    * @public
    */
-  Tags?: Record<string, string> | undefined;
+  Tags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export interface SearchScope {
    * <p>These are one or more tags on the backup (recovery point).</p>
    * @public
    */
-  BackupResourceTags?: Record<string, string> | undefined;
+  BackupResourceTags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -743,7 +743,7 @@ export interface StartSearchJobInput {
    * <p>List of tags returned by the operation.</p>
    * @public
    */
-  Tags?: Record<string, string> | undefined;
+  Tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>Include alphanumeric characters to create a name for this search job.</p>
@@ -1056,7 +1056,7 @@ export interface StartSearchResultExportJobInput {
    * <p>Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /. </p>
    * @public
    */
-  Tags?: Record<string, string> | undefined;
+  Tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>This parameter specifies the role ARN used to start the search results export jobs.</p>
@@ -1096,7 +1096,7 @@ export interface TagResourceRequest {
    * <p>Required tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /. </p>
    * @public
    */
-  Tags: Record<string, string> | undefined;
+  Tags: Record<string, string | null> | undefined;
 }
 
 /**

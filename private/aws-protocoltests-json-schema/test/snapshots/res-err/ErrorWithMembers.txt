@@ -74,15 +74,18 @@ content-type: application/x-amz-json-1.1
     "ListOfMapsOfStrings": [
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     ],
     "ListOfStrings": [
@@ -112,27 +115,43 @@ content-type: application/x-amz-json-1.1
         "__member__",
         "__member__",
         "__member__"
+      ],
+      "key3": [
+        "__member__",
+        "__member__",
+        "__member__"
       ]
     },
     "MapOfMaps": {
       "key1": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "key2": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "key3": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     "MapOfStrings": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "MapOfStructs": {
       "key1": {
         "Value": "__Value__"
       },
       "key2": {
+        "Value": "__Value__"
+      },
+      "key3": {
         "Value": "__Value__"
       }
     },
@@ -184,27 +203,43 @@ content-type: application/x-amz-json-1.1
             "__member__",
             "__member__",
             "__member__"
+          ],
+          "key3": [
+            "__member__",
+            "__member__",
+            "__member__"
           ]
         },
         "MapOfMaps": {
           "key1": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "key2": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          "key3": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "MapOfStrings": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "MapOfStructs": {
           "key1": {
             "Value": "__Value__"
           },
           "key2": {
+            "Value": "__Value__"
+          },
+          "key3": {
             "Value": "__Value__"
           }
         },
@@ -215,7 +250,8 @@ content-type: application/x-amz-json-1.1
         ],
         "RecursiveMap": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
         },
         "RecursiveStruct": {},
         "SimpleStruct": {
@@ -275,27 +311,43 @@ content-type: application/x-amz-json-1.1
             "__member__",
             "__member__",
             "__member__"
+          ],
+          "key3": [
+            "__member__",
+            "__member__",
+            "__member__"
           ]
         },
         "MapOfMaps": {
           "key1": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "key2": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          "key3": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "MapOfStrings": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "MapOfStructs": {
           "key1": {
             "Value": "__Value__"
           },
           "key2": {
+            "Value": "__Value__"
+          },
+          "key3": {
             "Value": "__Value__"
           }
         },
@@ -306,7 +358,8 @@ content-type: application/x-amz-json-1.1
         ],
         "RecursiveMap": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
         },
         "RecursiveStruct": {},
         "SimpleStruct": {
@@ -366,27 +419,43 @@ content-type: application/x-amz-json-1.1
             "__member__",
             "__member__",
             "__member__"
+          ],
+          "key3": [
+            "__member__",
+            "__member__",
+            "__member__"
           ]
         },
         "MapOfMaps": {
           "key1": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           "key2": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          "key3": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "MapOfStrings": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "MapOfStructs": {
           "key1": {
             "Value": "__Value__"
           },
           "key2": {
+            "Value": "__Value__"
+          },
+          "key3": {
             "Value": "__Value__"
           }
         },
@@ -397,7 +466,8 @@ content-type: application/x-amz-json-1.1
         ],
         "RecursiveMap": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
         },
         "RecursiveStruct": {},
         "SimpleStruct": {
@@ -442,15 +512,18 @@ content-type: application/x-amz-json-1.1
         "ListOfMapsOfStrings": [
           {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         ],
         "ListOfStrings": [
@@ -472,21 +545,27 @@ content-type: application/x-amz-json-1.1
         "Long": 0,
         "MapOfListsOfStrings": {
           "key1": [],
-          "key2": []
+          "key2": [],
+          "key3": []
         },
         "MapOfMaps": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
         },
         "MapOfStrings": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "MapOfStructs": {
           "key1": {
             "Value": "__Value__"
           },
           "key2": {
+            "Value": "__Value__"
+          },
+          "key3": {
             "Value": "__Value__"
           }
         },
@@ -497,7 +576,8 @@ content-type: application/x-amz-json-1.1
         ],
         "RecursiveMap": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
         },
         "RecursiveStruct": {},
         "SimpleStruct": {
@@ -540,15 +620,18 @@ content-type: application/x-amz-json-1.1
         "ListOfMapsOfStrings": [
           {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           },
           {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         ],
         "ListOfStrings": [
@@ -570,21 +653,27 @@ content-type: application/x-amz-json-1.1
         "Long": 0,
         "MapOfListsOfStrings": {
           "key1": [],
-          "key2": []
+          "key2": [],
+          "key3": []
         },
         "MapOfMaps": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
         },
         "MapOfStrings": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "MapOfStructs": {
           "key1": {
             "Value": "__Value__"
           },
           "key2": {
+            "Value": "__Value__"
+          },
+          "key3": {
             "Value": "__Value__"
           }
         },
@@ -595,7 +684,116 @@ content-type: application/x-amz-json-1.1
         ],
         "RecursiveMap": {
           "key1": {},
-          "key2": {}
+          "key2": {},
+          "key3": {}
+        },
+        "RecursiveStruct": {},
+        "SimpleStruct": {
+          "Value": "__Value__"
+        },
+        "String": "__String__",
+        "StructWithJsonName": {
+          "Value": "__Value__"
+        },
+        "Timestamp": 946702799.999,
+        "UnixTimestamp": 946702799.999
+      },
+      "key3": {
+        "Blob": "AQAAAQ==",
+        "Boolean": false,
+        "Double": 0,
+        "EmptyStruct": {},
+        "Float": 0,
+        "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+        "Integer": 0,
+        "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+        "JsonValue": "__JsonValue__",
+        "ListOfLists": [
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        ],
+        "ListOfMapsOfStrings": [
+          {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        ],
+        "ListOfStrings": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ListOfStructs": [
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          }
+        ],
+        "Long": 0,
+        "MapOfListsOfStrings": {
+          "key1": [],
+          "key2": [],
+          "key3": []
+        },
+        "MapOfMaps": {
+          "key1": {},
+          "key2": {},
+          "key3": {}
+        },
+        "MapOfStrings": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "MapOfStructs": {
+          "key1": {
+            "Value": "__Value__"
+          },
+          "key2": {
+            "Value": "__Value__"
+          },
+          "key3": {
+            "Value": "__Value__"
+          }
+        },
+        "RecursiveList": [
+          {},
+          {},
+          {}
+        ],
+        "RecursiveMap": {
+          "key1": {},
+          "key2": {},
+          "key3": {}
         },
         "RecursiveStruct": {},
         "SimpleStruct": {
@@ -639,15 +837,18 @@ content-type: application/x-amz-json-1.1
       "ListOfMapsOfStrings": [
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       ],
       "ListOfStrings": [
@@ -677,27 +878,43 @@ content-type: application/x-amz-json-1.1
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -708,7 +925,8 @@ content-type: application/x-amz-json-1.1
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -739,7 +957,8 @@ content-type: application/x-amz-json-1.1
   ],
   "MapField": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "Message": "__Message__",
   "StringField": "__StringField__"
@@ -794,15 +1013,18 @@ __Code__: __Message__
     ListOfMapsOfStrings: [
       {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     ],
     ListOfStrings: [
@@ -832,27 +1054,43 @@ __Code__: __Message__
         "__member__",
         "__member__",
         "__member__"
+      ],
+      key3: [
+        "__member__",
+        "__member__",
+        "__member__"
       ]
     },
     MapOfMaps: {
       key1: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       key2: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
+      },
+      key3: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     MapOfStrings: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     MapOfStructs: {
       key1: {
         Value: "__Value__"
       },
       key2: {
+        Value: "__Value__"
+      },
+      key3: {
         Value: "__Value__"
       }
     },
@@ -904,27 +1142,43 @@ __Code__: __Message__
             "__member__",
             "__member__",
             "__member__"
+          ],
+          key3: [
+            "__member__",
+            "__member__",
+            "__member__"
           ]
         },
         MapOfMaps: {
           key1: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           key2: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
+          },
+          key3: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
           }
         },
         MapOfStrings: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         MapOfStructs: {
           key1: {
             Value: "__Value__"
           },
           key2: {
+            Value: "__Value__"
+          },
+          key3: {
             Value: "__Value__"
           }
         },
@@ -935,7 +1189,8 @@ __Code__: __Message__
         ],
         RecursiveMap: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
         },
         RecursiveStruct: {},
         SimpleStruct: {
@@ -995,27 +1250,43 @@ __Code__: __Message__
             "__member__",
             "__member__",
             "__member__"
+          ],
+          key3: [
+            "__member__",
+            "__member__",
+            "__member__"
           ]
         },
         MapOfMaps: {
           key1: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           key2: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
+          },
+          key3: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
           }
         },
         MapOfStrings: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         MapOfStructs: {
           key1: {
             Value: "__Value__"
           },
           key2: {
+            Value: "__Value__"
+          },
+          key3: {
             Value: "__Value__"
           }
         },
@@ -1026,7 +1297,8 @@ __Code__: __Message__
         ],
         RecursiveMap: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
         },
         RecursiveStruct: {},
         SimpleStruct: {
@@ -1086,27 +1358,43 @@ __Code__: __Message__
             "__member__",
             "__member__",
             "__member__"
+          ],
+          key3: [
+            "__member__",
+            "__member__",
+            "__member__"
           ]
         },
         MapOfMaps: {
           key1: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           key2: {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
+          },
+          key3: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
           }
         },
         MapOfStrings: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         MapOfStructs: {
           key1: {
             Value: "__Value__"
           },
           key2: {
+            Value: "__Value__"
+          },
+          key3: {
             Value: "__Value__"
           }
         },
@@ -1117,7 +1405,8 @@ __Code__: __Message__
         ],
         RecursiveMap: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
         },
         RecursiveStruct: {},
         SimpleStruct: {
@@ -1162,15 +1451,18 @@ __Code__: __Message__
         ListOfMapsOfStrings: [
           {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           }
         ],
         ListOfStrings: [
@@ -1192,21 +1484,27 @@ __Code__: __Message__
         Long: (number) 0,
         MapOfListsOfStrings: {
           key1: [],
-          key2: []
+          key2: [],
+          key3: []
         },
         MapOfMaps: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
         },
         MapOfStrings: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         MapOfStructs: {
           key1: {
             Value: "__Value__"
           },
           key2: {
+            Value: "__Value__"
+          },
+          key3: {
             Value: "__Value__"
           }
         },
@@ -1217,7 +1515,8 @@ __Code__: __Message__
         ],
         RecursiveMap: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
         },
         RecursiveStruct: {},
         SimpleStruct: {
@@ -1260,15 +1559,18 @@ __Code__: __Message__
         ListOfMapsOfStrings: [
           {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           },
           {
             key1: "__value__",
-            key2: "__value__"
+            key2: "__value__",
+            key3: "__value__"
           }
         ],
         ListOfStrings: [
@@ -1290,21 +1592,27 @@ __Code__: __Message__
         Long: (number) 0,
         MapOfListsOfStrings: {
           key1: [],
-          key2: []
+          key2: [],
+          key3: []
         },
         MapOfMaps: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
         },
         MapOfStrings: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         MapOfStructs: {
           key1: {
             Value: "__Value__"
           },
           key2: {
+            Value: "__Value__"
+          },
+          key3: {
             Value: "__Value__"
           }
         },
@@ -1315,7 +1623,116 @@ __Code__: __Message__
         ],
         RecursiveMap: {
           key1: {},
-          key2: {}
+          key2: {},
+          key3: {}
+        },
+        RecursiveStruct: {},
+        SimpleStruct: {
+          Value: "__Value__"
+        },
+        String: "__String__",
+        StructWithJsonName: {
+          Value: "__Value__"
+        },
+        Timestamp: (number) 946702799.999,
+        UnixTimestamp: (number) 946702799.999
+      },
+      key3: {
+        Blob: "AQAAAQ==",
+        Boolean: (boolean) false,
+        Double: (number) 0,
+        EmptyStruct: {},
+        Float: (number) 0,
+        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        Integer: (number) 0,
+        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+        JsonValue: "__JsonValue__",
+        ListOfLists: [
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        ],
+        ListOfMapsOfStrings: [
+          {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          },
+          {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          },
+          {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        ],
+        ListOfStrings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ListOfStructs: [
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          }
+        ],
+        Long: (number) 0,
+        MapOfListsOfStrings: {
+          key1: [],
+          key2: [],
+          key3: []
+        },
+        MapOfMaps: {
+          key1: {},
+          key2: {},
+          key3: {}
+        },
+        MapOfStrings: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        },
+        MapOfStructs: {
+          key1: {
+            Value: "__Value__"
+          },
+          key2: {
+            Value: "__Value__"
+          },
+          key3: {
+            Value: "__Value__"
+          }
+        },
+        RecursiveList: [
+          {},
+          {},
+          {}
+        ],
+        RecursiveMap: {
+          key1: {},
+          key2: {},
+          key3: {}
         },
         RecursiveStruct: {},
         SimpleStruct: {
@@ -1359,15 +1776,18 @@ __Code__: __Message__
       ListOfMapsOfStrings: [
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       ],
       ListOfStrings: [
@@ -1397,27 +1817,43 @@ __Code__: __Message__
           "__member__",
           "__member__",
           "__member__"
+        ],
+        key3: [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       MapOfMaps: {
         key1: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         key2: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
+        },
+        key3: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       MapOfStrings: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MapOfStructs: {
         key1: {
           Value: "__Value__"
         },
         key2: {
+          Value: "__Value__"
+        },
+        key3: {
           Value: "__Value__"
         }
       },
@@ -1428,7 +1864,8 @@ __Code__: __Message__
       ],
       RecursiveMap: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       RecursiveStruct: {},
       SimpleStruct: {
@@ -1459,7 +1896,8 @@ __Code__: __Message__
   ],
   MapField: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   StringField: "__StringField__",
   message: "__Message__"

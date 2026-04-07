@@ -199,16 +199,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredImageId": "__DesiredImageId__",
       "ActiveOperations": {
         "key1": 0,
-        "key2": 0
+        "key2": 0,
+        "key3": 0
       },
       "KubernetesConfig": {
         "CurrentLabels": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "DesiredLabels": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "CurrentTaints": [
           {
@@ -369,16 +372,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredImageId": "__DesiredImageId__",
       "ActiveOperations": {
         "key1": 0,
-        "key2": 0
+        "key2": 0,
+        "key3": 0
       },
       "KubernetesConfig": {
         "CurrentLabels": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "DesiredLabels": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "CurrentTaints": [
           {
@@ -539,16 +545,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredImageId": "__DesiredImageId__",
       "ActiveOperations": {
         "key1": 0,
-        "key2": 0
+        "key2": 0,
+        "key3": 0
       },
       "KubernetesConfig": {
         "CurrentLabels": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "DesiredLabels": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "CurrentTaints": [
           {
@@ -1008,16 +1017,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredImageId: "__DesiredImageId__",
       ActiveOperations: {
         key1: (number) 0,
-        key2: (number) 0
+        key2: (number) 0,
+        key3: (number) 0
       },
       KubernetesConfig: {
         CurrentLabels: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         DesiredLabels: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         CurrentTaints: [
           {
@@ -1178,16 +1190,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredImageId: "__DesiredImageId__",
       ActiveOperations: {
         key1: (number) 0,
-        key2: (number) 0
+        key2: (number) 0,
+        key3: (number) 0
       },
       KubernetesConfig: {
         CurrentLabels: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         DesiredLabels: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         CurrentTaints: [
           {
@@ -1348,16 +1363,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredImageId: "__DesiredImageId__",
       ActiveOperations: {
         key1: (number) 0,
-        key2: (number) 0
+        key2: (number) 0,
+        key3: (number) 0
       },
       KubernetesConfig: {
         CurrentLabels: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         DesiredLabels: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         CurrentTaints: [
           {

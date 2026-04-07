@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateAppImageConfig
-content-length: 1100
+content-length: 1138
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 0fa1adb2aed28e2d9def9de016ab41fd29d71d42c6f88c9cfb31d5cd7eeb1ee2
+x-amz-content-sha256: fb0087807f015b299b761ab0362125d70f0aad9326ad49212ab68855bc7707f2
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -70,7 +70,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       ],
       "ContainerEnvironmentVariables": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   },
@@ -93,7 +94,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       ],
       "ContainerEnvironmentVariables": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   }

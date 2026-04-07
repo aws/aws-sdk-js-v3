@@ -8644,7 +8644,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseBooleanMap
                      */
                     const se_SparseBooleanMap = (
-                      input: Record<string, boolean>,
+                      input: Record<string, boolean | null>,
                       context: __SerdeContext
                     ): any => {
                       return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -8661,7 +8661,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseNumberMap
                      */
                     const se_SparseNumberMap = (
-                      input: Record<string, number>,
+                      input: Record<string, number | null>,
                       context: __SerdeContext
                     ): any => {
                       return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -8678,7 +8678,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseSetMap
                      */
                     const se_SparseSetMap = (
-                      input: Record<string, string[]>,
+                      input: Record<string, string[] | null>,
                       context: __SerdeContext
                     ): any => {
                       return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -8695,7 +8695,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseStructMap
                      */
                     const se_SparseStructMap = (
-                      input: Record<string, GreetingStruct>,
+                      input: Record<string, GreetingStruct | null>,
                       context: __SerdeContext
                     ): any => {
                       return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -8967,7 +8967,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseShortList
                      */
                     const se_SparseShortList = (
-                      input: number[],
+                      input: (number | null)[],
                       context: __SerdeContext
                     ): any => {
                       return input;
@@ -8977,7 +8977,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseStringList
                      */
                     const se_SparseStringList = (
-                      input: string[],
+                      input: (string | null)[],
                       context: __SerdeContext
                     ): any => {
                       return input;
@@ -8987,7 +8987,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                      * serializeAws_restJson1SparseStringMap
                      */
                     const se_SparseStringMap = (
-                      input: Record<string, string>,
+                      input: Record<string, string | null>,
                       context: __SerdeContext
                     ): any => {
                       return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -9540,8 +9540,8 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseBooleanMap = (
                       output: any,
                       context: __SerdeContext
-                    ): Record<string, boolean> => {
-                      return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
+                    ): Record<string, boolean | null> => {
+                      return Object.entries(output).reduce((acc: Record<string, boolean | null>, [key, value]: [string, any]) => {
                         if (value === null) {
                           acc[key as string] = null as any;
                           return acc;
@@ -9549,7 +9549,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                         acc[key as string] = __expectBoolean(value) as any;
                         return acc;
 
-                      }, {} as Record<string, boolean>);}
+                      }, {} as Record<string, boolean | null>);}
 
                     /**
                      * deserializeAws_restJson1SparseNumberMap
@@ -9557,8 +9557,8 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseNumberMap = (
                       output: any,
                       context: __SerdeContext
-                    ): Record<string, number> => {
-                      return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
+                    ): Record<string, number | null> => {
+                      return Object.entries(output).reduce((acc: Record<string, number | null>, [key, value]: [string, any]) => {
                         if (value === null) {
                           acc[key as string] = null as any;
                           return acc;
@@ -9566,7 +9566,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                         acc[key as string] = __expectInt32(value) as any;
                         return acc;
 
-                      }, {} as Record<string, number>);}
+                      }, {} as Record<string, number | null>);}
 
                     /**
                      * deserializeAws_restJson1SparseSetMap
@@ -9574,8 +9574,8 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseSetMap = (
                       output: any,
                       context: __SerdeContext
-                    ): Record<string, string[]> => {
-                      return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
+                    ): Record<string, string[] | null> => {
+                      return Object.entries(output).reduce((acc: Record<string, string[] | null>, [key, value]: [string, any]) => {
                         if (value === null) {
                           acc[key as string] = null as any;
                           return acc;
@@ -9583,7 +9583,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                         acc[key as string] = de_StringSet(value, context);
                         return acc;
 
-                      }, {} as Record<string, string[]>);}
+                      }, {} as Record<string, string[] | null>);}
 
                     /**
                      * deserializeAws_restJson1SparseStructMap
@@ -9591,8 +9591,8 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseStructMap = (
                       output: any,
                       context: __SerdeContext
-                    ): Record<string, GreetingStruct> => {
-                      return Object.entries(output).reduce((acc: Record<string, GreetingStruct>, [key, value]: [string, any]) => {
+                    ): Record<string, GreetingStruct | null> => {
+                      return Object.entries(output).reduce((acc: Record<string, GreetingStruct | null>, [key, value]: [string, any]) => {
                         if (value === null) {
                           acc[key as string] = null as any;
                           return acc;
@@ -9600,7 +9600,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                         acc[key as string] = de_GreetingStruct(value, context);
                         return acc;
 
-                      }, {} as Record<string, GreetingStruct>);}
+                      }, {} as Record<string, GreetingStruct | null>);}
 
                     /**
                      * deserializeAws_restJson1StringPayloadEvent
@@ -9931,7 +9931,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseShortList = (
                       output: any,
                       context: __SerdeContext
-                    ): number[] => {
+                    ): (number | null)[] => {
                       const retVal = (output || []).map((entry: any) => {
                         if (entry === null) {
                           return null as any;
@@ -9947,7 +9947,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseStringList = (
                       output: any,
                       context: __SerdeContext
-                    ): string[] => {
+                    ): (string | null)[] => {
                       const retVal = (output || []).map((entry: any) => {
                         if (entry === null) {
                           return null as any;
@@ -9963,8 +9963,8 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                     const de_SparseStringMap = (
                       output: any,
                       context: __SerdeContext
-                    ): Record<string, string> => {
-                      return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+                    ): Record<string, string | null> => {
+                      return Object.entries(output).reduce((acc: Record<string, string | null>, [key, value]: [string, any]) => {
                         if (value === null) {
                           acc[key as string] = null as any;
                           return acc;
@@ -9972,7 +9972,7 @@ export const deserializeHttpEmptyPrefixHeadersRequest = async (
                         acc[key as string] = __expectString(value) as any;
                         return acc;
 
-                      }, {} as Record<string, string>);}
+                      }, {} as Record<string, string | null>);}
 
                     /**
                      * deserializeAws_restJson1StringList

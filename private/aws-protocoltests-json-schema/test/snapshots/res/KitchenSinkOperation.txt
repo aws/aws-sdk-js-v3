@@ -57,15 +57,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "ListOfMapsOfStrings": [
     {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     }
   ],
   "ListOfStrings": [
@@ -95,27 +98,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "__member__",
       "__member__",
       "__member__"
+    ],
+    "key3": [
+      "__member__",
+      "__member__",
+      "__member__"
     ]
   },
   "MapOfMaps": {
     "key1": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "key2": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
+    },
+    "key3": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
     }
   },
   "MapOfStrings": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "MapOfStructs": {
     "key1": {
       "Value": "__Value__"
     },
     "key2": {
+      "Value": "__Value__"
+    },
+    "key3": {
       "Value": "__Value__"
     }
   },
@@ -167,27 +186,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -198,7 +233,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -258,27 +294,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -289,7 +341,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -349,27 +402,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ],
+        "key3": [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       "MapOfMaps": {
         "key1": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "key2": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        "key3": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
         }
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -380,7 +449,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -425,15 +495,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ListOfMapsOfStrings": [
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       ],
       "ListOfStrings": [
@@ -455,21 +528,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "Long": 0,
       "MapOfListsOfStrings": {
         "key1": [],
-        "key2": []
+        "key2": [],
+        "key3": []
       },
       "MapOfMaps": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -480,7 +559,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -523,15 +603,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ListOfMapsOfStrings": [
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         }
       ],
       "ListOfStrings": [
@@ -553,21 +636,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "Long": 0,
       "MapOfListsOfStrings": {
         "key1": [],
-        "key2": []
+        "key2": [],
+        "key3": []
       },
       "MapOfMaps": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
       },
       "MapOfStrings": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "MapOfStructs": {
         "key1": {
           "Value": "__Value__"
         },
         "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
           "Value": "__Value__"
         }
       },
@@ -578,7 +667,116 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "RecursiveMap": {
         "key1": {},
-        "key2": {}
+        "key2": {},
+        "key3": {}
+      },
+      "RecursiveStruct": {},
+      "SimpleStruct": {
+        "Value": "__Value__"
+      },
+      "String": "__String__",
+      "StructWithJsonName": {
+        "Value": "__Value__"
+      },
+      "Timestamp": 946702799.999,
+      "UnixTimestamp": 946702799.999
+    },
+    "key3": {
+      "Blob": "AQAAAQ==",
+      "Boolean": false,
+      "Double": 0,
+      "EmptyStruct": {},
+      "Float": 0,
+      "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+      "Integer": 0,
+      "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+      "JsonValue": "__JsonValue__",
+      "ListOfLists": [
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      ],
+      "ListOfMapsOfStrings": [
+        {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        },
+        {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      ],
+      "ListOfStrings": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ListOfStructs": [
+        {
+          "Value": "__Value__"
+        },
+        {
+          "Value": "__Value__"
+        },
+        {
+          "Value": "__Value__"
+        }
+      ],
+      "Long": 0,
+      "MapOfListsOfStrings": {
+        "key1": [],
+        "key2": [],
+        "key3": []
+      },
+      "MapOfMaps": {
+        "key1": {},
+        "key2": {},
+        "key3": {}
+      },
+      "MapOfStrings": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "MapOfStructs": {
+        "key1": {
+          "Value": "__Value__"
+        },
+        "key2": {
+          "Value": "__Value__"
+        },
+        "key3": {
+          "Value": "__Value__"
+        }
+      },
+      "RecursiveList": [
+        {},
+        {},
+        {}
+      ],
+      "RecursiveMap": {
+        "key1": {},
+        "key2": {},
+        "key3": {}
       },
       "RecursiveStruct": {},
       "SimpleStruct": {
@@ -622,15 +820,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "ListOfMapsOfStrings": [
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     ],
     "ListOfStrings": [
@@ -660,27 +861,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      "key3": [
+        "__member__",
+        "__member__",
+        "__member__"
       ]
     },
     "MapOfMaps": {
       "key1": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "key2": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "key3": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     "MapOfStrings": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "MapOfStructs": {
       "key1": {
         "Value": "__Value__"
       },
       "key2": {
+        "Value": "__Value__"
+      },
+      "key3": {
         "Value": "__Value__"
       }
     },
@@ -691,7 +908,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     ],
     "RecursiveMap": {
       "key1": {},
-      "key2": {}
+      "key2": {},
+      "key3": {}
     },
     "RecursiveStruct": {},
     "SimpleStruct": {
@@ -770,15 +988,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ListOfMapsOfStrings: [
     {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     }
   ],
   ListOfStrings: [
@@ -808,27 +1029,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "__member__",
       "__member__",
       "__member__"
+    ],
+    key3: [
+      "__member__",
+      "__member__",
+      "__member__"
     ]
   },
   MapOfMaps: {
     key1: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     key2: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
+    },
+    key3: {
+      key1: "__value__",
+      key2: "__value__",
+      key3: "__value__"
     }
   },
   MapOfStrings: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   MapOfStructs: {
     key1: {
       Value: "__Value__"
     },
     key2: {
+      Value: "__Value__"
+    },
+    key3: {
       Value: "__Value__"
     }
   },
@@ -903,27 +1140,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ],
+        key3: [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       MapOfMaps: {
         key1: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         key2: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
+        },
+        key3: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       MapOfStrings: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MapOfStructs: {
         key1: {
           Value: "__Value__"
         },
         key2: {
+          Value: "__Value__"
+        },
+        key3: {
           Value: "__Value__"
         }
       },
@@ -934,7 +1187,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       RecursiveMap: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       RecursiveStruct: {},
       SimpleStruct: {
@@ -1017,27 +1271,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ],
+        key3: [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       MapOfMaps: {
         key1: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         key2: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
+        },
+        key3: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       MapOfStrings: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MapOfStructs: {
         key1: {
           Value: "__Value__"
         },
         key2: {
+          Value: "__Value__"
+        },
+        key3: {
           Value: "__Value__"
         }
       },
@@ -1048,7 +1318,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       RecursiveMap: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       RecursiveStruct: {},
       SimpleStruct: {
@@ -1131,27 +1402,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ],
+        key3: [
+          "__member__",
+          "__member__",
+          "__member__"
         ]
       },
       MapOfMaps: {
         key1: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         key2: {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
+        },
+        key3: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
         }
       },
       MapOfStrings: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MapOfStructs: {
         key1: {
           Value: "__Value__"
         },
         key2: {
+          Value: "__Value__"
+        },
+        key3: {
           Value: "__Value__"
         }
       },
@@ -1162,7 +1449,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       RecursiveMap: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       RecursiveStruct: {},
       SimpleStruct: {
@@ -1230,15 +1518,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ListOfMapsOfStrings: [
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       ],
       ListOfStrings: [
@@ -1260,21 +1551,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Long: (number) 0,
       MapOfListsOfStrings: {
         key1: [],
-        key2: []
+        key2: [],
+        key3: []
       },
       MapOfMaps: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       MapOfStrings: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MapOfStructs: {
         key1: {
           Value: "__Value__"
         },
         key2: {
+          Value: "__Value__"
+        },
+        key3: {
           Value: "__Value__"
         }
       },
@@ -1285,7 +1582,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       RecursiveMap: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       RecursiveStruct: {},
       SimpleStruct: {
@@ -1351,15 +1649,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ListOfMapsOfStrings: [
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         },
         {
           key1: "__value__",
-          key2: "__value__"
+          key2: "__value__",
+          key3: "__value__"
         }
       ],
       ListOfStrings: [
@@ -1381,21 +1682,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Long: (number) 0,
       MapOfListsOfStrings: {
         key1: [],
-        key2: []
+        key2: [],
+        key3: []
       },
       MapOfMaps: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
       },
       MapOfStrings: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       MapOfStructs: {
         key1: {
           Value: "__Value__"
         },
         key2: {
+          Value: "__Value__"
+        },
+        key3: {
           Value: "__Value__"
         }
       },
@@ -1406,7 +1713,139 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       RecursiveMap: {
         key1: {},
-        key2: {}
+        key2: {},
+        key3: {}
+      },
+      RecursiveStruct: {},
+      SimpleStruct: {
+        Value: "__Value__"
+      },
+      String: "__String__",
+      StructWithJsonName: {
+        Value: "__Value__"
+      },
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    key3: {
+      Blob: (Uint8Array) bytes[1, 0, 0, 1],
+      Boolean: (boolean) false,
+      Double: (number) 0,
+      EmptyStruct: {},
+      Float: (number) 0,
+      HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Integer: (number) 0,
+      Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      JsonValue: {
+        0: "_",
+        1: "_",
+        2: "J",
+        3: "s",
+        4: "o",
+        5: "n",
+        6: "V",
+        7: "a",
+        8: "l",
+        9: "u",
+        10: "e",
+        11: "_",
+        12: "_",
+        deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+        toString: (function) toString() {
+            return String(val);
+        },
+        toJSON: (function) toJSON() {
+            return String(val);
+        }
+      },
+      ListOfLists: [
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      ],
+      ListOfMapsOfStrings: [
+        {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        },
+        {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        },
+        {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      ],
+      ListOfStrings: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ListOfStructs: [
+        {
+          Value: "__Value__"
+        },
+        {
+          Value: "__Value__"
+        },
+        {
+          Value: "__Value__"
+        }
+      ],
+      Long: (number) 0,
+      MapOfListsOfStrings: {
+        key1: [],
+        key2: [],
+        key3: []
+      },
+      MapOfMaps: {
+        key1: {},
+        key2: {},
+        key3: {}
+      },
+      MapOfStrings: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
+      },
+      MapOfStructs: {
+        key1: {
+          Value: "__Value__"
+        },
+        key2: {
+          Value: "__Value__"
+        },
+        key3: {
+          Value: "__Value__"
+        }
+      },
+      RecursiveList: [
+        {},
+        {},
+        {}
+      ],
+      RecursiveMap: {
+        key1: {},
+        key2: {},
+        key3: {}
       },
       RecursiveStruct: {},
       SimpleStruct: {
@@ -1473,15 +1912,18 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     ListOfMapsOfStrings: [
       {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       }
     ],
     ListOfStrings: [
@@ -1511,27 +1953,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
+      ],
+      key3: [
+        "__member__",
+        "__member__",
+        "__member__"
       ]
     },
     MapOfMaps: {
       key1: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       key2: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
+      },
+      key3: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
       }
     },
     MapOfStrings: {
       key1: "__value__",
-      key2: "__value__"
+      key2: "__value__",
+      key3: "__value__"
     },
     MapOfStructs: {
       key1: {
         Value: "__Value__"
       },
       key2: {
+        Value: "__Value__"
+      },
+      key3: {
         Value: "__Value__"
       }
     },
@@ -1542,7 +2000,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     ],
     RecursiveMap: {
       key1: {},
-      key2: {}
+      key2: {},
+      key3: {}
     },
     RecursiveStruct: {},
     SimpleStruct: {

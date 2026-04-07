@@ -47,6 +47,14 @@ x-foo: __foo__
                 __value__
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
     </fooMap>
 </HttpPrefixHeadersInputOutput>
 

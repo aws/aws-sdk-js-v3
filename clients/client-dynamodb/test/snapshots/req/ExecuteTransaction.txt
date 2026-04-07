@@ -3,14 +3,14 @@ POST https://dynamodb.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.0
 x-amz-target: DynamoDB_20120810.ExecuteTransaction
-content-length: 906
+content-length: 980
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/dynamodb#_.__ m/E,P,e
 host: dynamodb.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: ebfea1d1d6bb840844c3561728209350719edbb56bf8e6f6eeaba156b95ac411
+x-amz-content-sha256: 7f479ba513bb0bb1c531a076f531513d7f3b91304bd6098b7e91d51fa4e2a9b2
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -32,6 +32,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "NULL": false
             },
             "key2": {
+              "BOOL": false
+            },
+            "key3": {
               "S": "__S__"
             }
           }
@@ -41,7 +44,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
             {
               "M": {
                 "key1": {},
-                "key2": {}
+                "key2": {},
+                "key3": {}
               }
             },
             {
@@ -68,6 +72,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
               "NULL": false
             },
             "key2": {
+              "BOOL": false
+            },
+            "key3": {
               "S": "__S__"
             }
           }
@@ -77,7 +84,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
             {
               "M": {
                 "key1": {},
-                "key2": {}
+                "key2": {},
+                "key3": {}
               }
             },
             {
@@ -106,7 +114,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_
             {
               "M": {
                 "key1": {},
-                "key2": {}
+                "key2": {},
+                "key3": {}
               }
             },
             {

@@ -1040,7 +1040,7 @@ const se_UnionInputOutput = (
  * serializeAws_json1_1SparseStringList
  */
 const se_SparseStringList = (
-  input: string[],
+  input: (string | null)[],
   context: __SerdeContext
 ): any => {
   return input;
@@ -1050,7 +1050,7 @@ const se_SparseStringList = (
  * serializeAws_json1_1SparseStringMap
  */
 const se_SparseStringMap = (
-  input: Record<string, string>,
+  input: Record<string, string | null>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -1377,7 +1377,7 @@ const de_UnionInputOutput = (
 const de_SparseStringList = (
   output: any,
   context: __SerdeContext
-): string[] => {
+): (string | null)[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       return null as any;
@@ -1393,8 +1393,8 @@ const de_SparseStringList = (
 const de_SparseStringMap = (
   output: any,
   context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+): Record<string, string | null> => {
+  return Object.entries(output).reduce((acc: Record<string, string | null>, [key, value]: [string, any]) => {
     if (value === null) {
       acc[key as string] = null as any;
       return acc;
@@ -1402,7 +1402,7 @@ const de_SparseStringMap = (
     acc[key as string] = __expectString(value) as any;
     return acc;
 
-  }, {} as Record<string, string>);}
+  }, {} as Record<string, string | null>);}
 
 // de_StringList omitted.
 

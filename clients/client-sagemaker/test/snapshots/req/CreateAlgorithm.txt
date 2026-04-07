@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateAlgorithm
-content-length: 19100
+content-length: 19271
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 2dba6eb2cfc89d47ada797a11fe0e146f24a94e038ea8e69313a5b082a606d27
+x-amz-content-sha256: 4a9646e8564c9ebce8c8421b64c74f53254e1d8da240c5b503f2c680fc70a817
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -226,7 +226,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "ProductId": "__ProductId__",
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "ModelInput": {
           "DataInputConfig": "__DataInputConfig__"
@@ -272,7 +273,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "ProductId": "__ProductId__",
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "ModelInput": {
           "DataInputConfig": "__DataInputConfig__"
@@ -318,7 +320,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "ProductId": "__ProductId__",
         "Environment": {
           "key1": "__value__",
-          "key2": "__value__"
+          "key2": "__value__",
+          "key3": "__value__"
         },
         "ModelInput": {
           "DataInputConfig": "__DataInputConfig__"
@@ -551,7 +554,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           },
           "HyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "TransformJobDefinition": {
@@ -583,7 +587,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "BatchStrategy": "__BatchStrategy__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         }
       },
@@ -773,7 +778,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           },
           "HyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "TransformJobDefinition": {
@@ -805,7 +811,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "BatchStrategy": "__BatchStrategy__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         }
       },
@@ -995,7 +1002,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           },
           "HyperParameters": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         },
         "TransformJobDefinition": {
@@ -1027,7 +1035,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "BatchStrategy": "__BatchStrategy__",
           "Environment": {
             "key1": "__value__",
-            "key2": "__value__"
+            "key2": "__value__",
+            "key3": "__value__"
           }
         }
       }

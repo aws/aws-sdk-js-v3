@@ -55,6 +55,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </DkimTokens>
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                <DkimEnabled>
+                    false
+                </DkimEnabled>
+                <DkimVerificationStatus>
+                    __DkimVerificationStatus__
+                </DkimVerificationStatus>
+                <DkimTokens>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                </DkimTokens>
+            </value>
+        </entry>
     </DkimAttributes>
 </GetIdentityDkimAttributesResponse>
 
@@ -107,6 +131,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <entry>
             <key>
                 key2
+            </key>
+            <value>
+                <DkimEnabled>
+                    false
+                </DkimEnabled>
+                <DkimVerificationStatus>
+                    __DkimVerificationStatus__
+                </DkimVerificationStatus>
+                <DkimTokens>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                </DkimTokens>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key3
             </key>
             <value>
                 <DkimEnabled>

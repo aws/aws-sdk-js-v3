@@ -33,6 +33,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </VerificationToken>
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                <VerificationStatus>
+                    __VerificationStatus__
+                </VerificationStatus>
+                <VerificationToken>
+                    __VerificationToken__
+                </VerificationToken>
+            </value>
+        </entry>
     </VerificationAttributes>
 </GetIdentityVerificationAttributesResponse>
 
@@ -74,6 +87,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <entry>
             <key>
                 key2
+            </key>
+            <value>
+                <VerificationStatus>
+                    __VerificationStatus__
+                </VerificationStatus>
+                <VerificationToken>
+                    __VerificationToken__
+                </VerificationToken>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key3
             </key>
             <value>
                 <VerificationStatus>

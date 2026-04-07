@@ -2,14 +2,14 @@ POST https://bedrock-runtime.us-east-1.amazonaws.com
 /model/__modelId__/converse-stream
 
 content-type: application/json
-content-length: 2065
+content-length: 2111
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/bedrock-runtime#_.__ m/E,e
 host: bedrock-runtime.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 6e3c8a1a060562883ea6fe06a2a61f61c80fd1f9e76bc97f8216a6672bd45e19
+x-amz-content-sha256: 5badea731f71e51e21ec723e514d5fea97792283569f7cccb118ac1a5295029b
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -204,6 +204,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_r
     },
     "key2": {
       "text": "__text__"
+    },
+    "key3": {
+      "text": "__text__"
     }
   },
   "additionalModelResponseFieldPaths": [
@@ -213,7 +216,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_r
   ],
   "requestMetadata": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "performanceConfig": {
     "latency": "__latency__"

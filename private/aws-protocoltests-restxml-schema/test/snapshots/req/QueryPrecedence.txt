@@ -1,5 +1,5 @@
 POST https://restxml.us-east-1.amazonaws.com 
-/Precedence?bar=__foo__&key1=__value__&key2=__value__
+/Precedence?bar=__foo__&key1=__value__&key2=__value__&key3=__value__
 
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/rest-xml-protocol#_.__ m/E,e

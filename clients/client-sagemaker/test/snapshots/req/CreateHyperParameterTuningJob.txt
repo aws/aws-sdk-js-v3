@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateHyperParameterTuningJob
-content-length: 25453
+content-length: 25605
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 0803426deffe80e06a42e974a70cfd35ca11621623cb75e8bde08e69a5a7a5e4
+x-amz-content-sha256: a0b3023b6a03497ea406ef1edd165c7e40a1285bc64c1470d3a9940c0d1f8926
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -247,7 +247,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     },
     "StaticHyperParameters": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     },
     "InputDataConfig": [
       {
@@ -467,7 +468,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     },
     "Environment": {
       "key1": "__value__",
-      "key2": "__value__"
+      "key2": "__value__",
+      "key3": "__value__"
     }
   },
   "TrainingJobDefinitions": [
@@ -591,7 +593,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       },
       "StaticHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "InputDataConfig": [
         {
@@ -811,7 +814,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       },
       "Environment": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -934,7 +938,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       },
       "StaticHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "InputDataConfig": [
         {
@@ -1154,7 +1159,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       },
       "Environment": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     },
     {
@@ -1277,7 +1283,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       },
       "StaticHyperParameters": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "InputDataConfig": [
         {
@@ -1497,7 +1504,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       },
       "Environment": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       }
     }
   ],

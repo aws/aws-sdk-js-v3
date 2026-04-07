@@ -62,7 +62,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "policy": "__policy__",
       "tags": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "disableExecuteApiEndpoint": false
     },
@@ -99,7 +100,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "policy": "__policy__",
       "tags": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "disableExecuteApiEndpoint": false
     },
@@ -136,7 +138,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "policy": "__policy__",
       "tags": {
         "key1": "__value__",
-        "key2": "__value__"
+        "key2": "__value__",
+        "key3": "__value__"
       },
       "disableExecuteApiEndpoint": false
     }
@@ -181,7 +184,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       policy: "__policy__",
       tags: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       disableExecuteApiEndpoint: (boolean) false
     },
@@ -218,7 +222,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       policy: "__policy__",
       tags: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       disableExecuteApiEndpoint: (boolean) false
     },
@@ -255,7 +260,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       policy: "__policy__",
       tags: {
         key1: "__value__",
-        key2: "__value__"
+        key2: "__value__",
+        key3: "__value__"
       },
       disableExecuteApiEndpoint: (boolean) false
     }

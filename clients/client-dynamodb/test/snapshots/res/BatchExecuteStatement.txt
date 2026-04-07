@@ -38,6 +38,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "NULL": false
           },
           "key2": {
+            "BOOL": false
+          },
+          "key3": {
             "S": "__S__"
           }
         }
@@ -49,7 +52,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             {
               "M": {
                 "key1": {},
-                "key2": {}
+                "key2": {},
+                "key3": {}
               }
             },
             {
@@ -65,6 +69,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         "key2": {
+          "NULL": false
+        },
+        "key3": {
           "BOOL": false
         }
       }
@@ -78,6 +85,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "BOOL": false
           },
           "key2": {
+            "S": "__S__"
+          },
+          "key3": {
             "N": "__N__"
           }
         }
@@ -88,6 +98,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "NULL": false
         },
         "key2": {
+          "BOOL": false
+        },
+        "key3": {
           "S": "__S__"
         }
       }
@@ -101,6 +114,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "S": "__S__"
           },
           "key2": {
+            "N": "__N__"
+          },
+          "key3": {
             "B": "AQAAAQ=="
           }
         }
@@ -111,6 +127,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "BOOL": false
         },
         "key2": {
+          "S": "__S__"
+        },
+        "key3": {
           "N": "__N__"
         }
       }
@@ -137,6 +156,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ReadCapacityUnits": 0,
           "WriteCapacityUnits": 0,
           "CapacityUnits": 0
+        },
+        "key3": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0,
+          "CapacityUnits": 0
         }
       },
       "GlobalSecondaryIndexes": {
@@ -146,6 +170,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "CapacityUnits": 0
         },
         "key2": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0,
+          "CapacityUnits": 0
+        },
+        "key3": {
           "ReadCapacityUnits": 0,
           "WriteCapacityUnits": 0,
           "CapacityUnits": 0
@@ -172,6 +201,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ReadCapacityUnits": 0,
           "WriteCapacityUnits": 0,
           "CapacityUnits": 0
+        },
+        "key3": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0,
+          "CapacityUnits": 0
         }
       },
       "GlobalSecondaryIndexes": {
@@ -181,6 +215,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "CapacityUnits": 0
         },
         "key2": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0,
+          "CapacityUnits": 0
+        },
+        "key3": {
           "ReadCapacityUnits": 0,
           "WriteCapacityUnits": 0,
           "CapacityUnits": 0
@@ -207,6 +246,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ReadCapacityUnits": 0,
           "WriteCapacityUnits": 0,
           "CapacityUnits": 0
+        },
+        "key3": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0,
+          "CapacityUnits": 0
         }
       },
       "GlobalSecondaryIndexes": {
@@ -216,6 +260,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "CapacityUnits": 0
         },
         "key2": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0,
+          "CapacityUnits": 0
+        },
+        "key3": {
           "ReadCapacityUnits": 0,
           "WriteCapacityUnits": 0,
           "CapacityUnits": 0
@@ -238,6 +287,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             NULL: (boolean) false
           },
           key2: {
+            BOOL: (boolean) false
+          },
+          key3: {
             S: "__S__"
           }
         }
@@ -249,7 +301,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             {
               M: {
                 key1: {},
-                key2: {}
+                key2: {},
+                key3: {}
               }
             },
             {
@@ -265,6 +318,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ]
         },
         key2: {
+          NULL: (boolean) false
+        },
+        key3: {
           BOOL: (boolean) false
         }
       }
@@ -278,6 +334,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             BOOL: (boolean) false
           },
           key2: {
+            S: "__S__"
+          },
+          key3: {
             N: "__N__"
           }
         }
@@ -288,6 +347,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           NULL: (boolean) false
         },
         key2: {
+          BOOL: (boolean) false
+        },
+        key3: {
           S: "__S__"
         }
       }
@@ -301,6 +363,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             S: "__S__"
           },
           key2: {
+            N: "__N__"
+          },
+          key3: {
             B: (Uint8Array) bytes[1, 0, 0, 1]
           }
         }
@@ -311,6 +376,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           BOOL: (boolean) false
         },
         key2: {
+          S: "__S__"
+        },
+        key3: {
           N: "__N__"
         }
       }
@@ -337,6 +405,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ReadCapacityUnits: (number) 0,
           WriteCapacityUnits: (number) 0,
           CapacityUnits: (number) 0
+        },
+        key3: {
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0,
+          CapacityUnits: (number) 0
         }
       },
       GlobalSecondaryIndexes: {
@@ -346,6 +419,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           CapacityUnits: (number) 0
         },
         key2: {
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0,
+          CapacityUnits: (number) 0
+        },
+        key3: {
           ReadCapacityUnits: (number) 0,
           WriteCapacityUnits: (number) 0,
           CapacityUnits: (number) 0
@@ -372,6 +450,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ReadCapacityUnits: (number) 0,
           WriteCapacityUnits: (number) 0,
           CapacityUnits: (number) 0
+        },
+        key3: {
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0,
+          CapacityUnits: (number) 0
         }
       },
       GlobalSecondaryIndexes: {
@@ -381,6 +464,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           CapacityUnits: (number) 0
         },
         key2: {
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0,
+          CapacityUnits: (number) 0
+        },
+        key3: {
           ReadCapacityUnits: (number) 0,
           WriteCapacityUnits: (number) 0,
           CapacityUnits: (number) 0
@@ -407,6 +495,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ReadCapacityUnits: (number) 0,
           WriteCapacityUnits: (number) 0,
           CapacityUnits: (number) 0
+        },
+        key3: {
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0,
+          CapacityUnits: (number) 0
         }
       },
       GlobalSecondaryIndexes: {
@@ -416,6 +509,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           CapacityUnits: (number) 0
         },
         key2: {
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0,
+          CapacityUnits: (number) 0
+        },
+        key3: {
           ReadCapacityUnits: (number) 0,
           WriteCapacityUnits: (number) 0,
           CapacityUnits: (number) 0

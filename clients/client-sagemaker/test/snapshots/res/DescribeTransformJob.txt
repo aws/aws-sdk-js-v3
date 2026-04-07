@@ -35,7 +35,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "BatchStrategy": "__BatchStrategy__",
   "Environment": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "TransformOutput": {
     "S3OutputPath": "__S3OutputPath__",
@@ -88,7 +89,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   BatchStrategy: "__BatchStrategy__",
   Environment: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   TransformOutput: {
     S3OutputPath: "__S3OutputPath__",
@@ -157,7 +159,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "BatchStrategy": "__BatchStrategy__",
   "Environment": {
     "key1": "__value__",
-    "key2": "__value__"
+    "key2": "__value__",
+    "key3": "__value__"
   },
   "TransformOutput": {
     "S3OutputPath": "__S3OutputPath__",
@@ -222,7 +225,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   BatchStrategy: "__BatchStrategy__",
   Environment: {
     key1: "__value__",
-    key2: "__value__"
+    key2: "__value__",
+    key3: "__value__"
   },
   TransformOutput: {
     S3OutputPath: "__S3OutputPath__",

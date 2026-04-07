@@ -346,7 +346,7 @@ export interface GetCaseResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -560,7 +560,7 @@ export interface AuditEvent {
    * <p>A list of Case Audit History event fields.</p>
    * @public
    */
-  fields: AuditEventField[] | undefined;
+  fields: (AuditEventField | null)[] | undefined;
 
   /**
    * <p>Information of the user which performed the audit.</p>
@@ -583,7 +583,7 @@ export interface GetCaseAuditEventsResponse {
    * <p>A list of case audits where each represents a particular edit of the case.</p>
    * @public
    */
-  auditEvents: AuditEvent[] | undefined;
+  auditEvents: (AuditEvent | null)[] | undefined;
 }
 
 /**
@@ -1465,7 +1465,7 @@ export interface SearchRelatedItemsResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>Represents the creator of the related item.</p>
@@ -1488,7 +1488,7 @@ export interface SearchRelatedItemsResponse {
    * <p>A list of items related to a case. </p>
    * @public
    */
-  relatedItems: SearchRelatedItemsResponseItem[] | undefined;
+  relatedItems: (SearchRelatedItemsResponseItem | null)[] | undefined;
 }
 
 /**
@@ -1647,7 +1647,7 @@ export interface UpdateRelatedItemResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>Represents the last user that updated the related item.</p>
@@ -1764,7 +1764,7 @@ export interface SearchCasesResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -1781,7 +1781,7 @@ export interface SearchCasesResponse {
    * <p>A list of case documents where each case contains the properties <code>CaseId</code> and <code>Fields</code> where each field is a complex union structure. </p>
    * @public
    */
-  cases: SearchCasesResponseItem[] | undefined;
+  cases: (SearchCasesResponseItem | null)[] | undefined;
 
   /**
    * <p>The total number of cases that matched the search criteria.</p>
@@ -2376,7 +2376,7 @@ export interface GetDomainResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -2522,7 +2522,7 @@ export interface SearchAllRelatedItemsResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -2539,7 +2539,7 @@ export interface SearchAllRelatedItemsResponse {
    * <p>A list of items related to a case.</p>
    * @public
    */
-  relatedItems: SearchAllRelatedItemsResponseItem[] | undefined;
+  relatedItems: (SearchAllRelatedItemsResponseItem | null)[] | undefined;
 }
 
 /**
@@ -2679,7 +2679,7 @@ export interface GetFieldResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>Denotes whether or not the resource has been deleted.</p>
@@ -3302,7 +3302,7 @@ export interface GetLayoutResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>Denotes whether or not the resource has been deleted.</p>
@@ -3440,7 +3440,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 }
 
 /**
@@ -3457,7 +3457,7 @@ export interface TagResourceRequest {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags: Record<string, string> | undefined;
+  tags: Record<string, string | null> | undefined;
 }
 
 /**
@@ -3673,7 +3673,7 @@ export interface GetTemplateResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 
   /**
    * <p>The status of the template.</p>
@@ -4617,7 +4617,7 @@ export interface GetCaseRuleResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string> | undefined;
+  tags?: Record<string, string | null> | undefined;
 }
 
 /**

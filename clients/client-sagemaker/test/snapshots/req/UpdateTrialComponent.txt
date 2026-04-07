@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateTrialComponent
-content-length: 759
+content-length: 898
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: e5dadcea3a3e7688ae694c3fdc09bb8cb8ae141894daf765ca96c7d36280f011
+x-amz-content-sha256: f7b7af30e4fbf33f9517df93ad01006fad471f9d8476ecea976c13e8fa7fa5d5
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -28,6 +28,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "StringValue": "__StringValue__"
     },
     "key2": {
+      "NumberValue": 0
+    },
+    "key3": {
       "StringValue": "__StringValue__"
     }
   },
@@ -44,6 +47,10 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     "key2": {
       "Value": "__Value__",
       "MediaType": "__MediaType__"
+    },
+    "key3": {
+      "Value": "__Value__",
+      "MediaType": "__MediaType__"
     }
   },
   "InputArtifactsToRemove": [
@@ -57,6 +64,10 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "MediaType": "__MediaType__"
     },
     "key2": {
+      "Value": "__Value__",
+      "MediaType": "__MediaType__"
+    },
+    "key3": {
       "Value": "__Value__",
       "MediaType": "__MediaType__"
     }

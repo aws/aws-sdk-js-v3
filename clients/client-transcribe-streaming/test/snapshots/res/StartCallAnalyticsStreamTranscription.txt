@@ -161,7 +161,7 @@ x-amzn-transcribe-pii-entity-types: __PiiEntityTypes__
 ============================================================
 
 [chunk (event-stream object view)]
-  [total-size] 502 [header-size] 83 [prelude-crc] 2607327615
+  [total-size] 663 [header-size] 83 [prelude-crc] 3115222316
 :event-type: CategoryEvent
 :message-type: event
 :content-type: application/json
@@ -205,11 +205,27 @@ x-amzn-transcribe-pii-entity-types: __PiiEntityTypes__
           "EndOffsetMillis": 0
         }
       ]
+    },
+    "key3": {
+      "TimestampRanges": [
+        {
+          "BeginOffsetMillis": 0,
+          "EndOffsetMillis": 0
+        },
+        {
+          "BeginOffsetMillis": 0,
+          "EndOffsetMillis": 0
+        },
+        {
+          "BeginOffsetMillis": 0,
+          "EndOffsetMillis": 0
+        }
+      ]
     }
   }
 }
 
-[message-crc] 2077194536
+[message-crc] 3323873107
 ============================================================
 
 [chunk (event-stream object view)]
@@ -422,6 +438,22 @@ Cg==
             ]
           },
           key2: {
+            TimestampRanges: [
+              {
+                BeginOffsetMillis: (number) 0,
+                EndOffsetMillis: (number) 0
+              },
+              {
+                BeginOffsetMillis: (number) 0,
+                EndOffsetMillis: (number) 0
+              },
+              {
+                BeginOffsetMillis: (number) 0,
+                EndOffsetMillis: (number) 0
+              }
+            ]
+          },
+          key3: {
             TimestampRanges: [
               {
                 BeginOffsetMillis: (number) 0,

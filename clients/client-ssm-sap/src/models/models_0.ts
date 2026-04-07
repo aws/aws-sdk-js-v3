@@ -1027,7 +1027,7 @@ export interface Operation {
    * <p>The properties of the operation.</p>
    * @public
    */
-  Properties?: Record<string, string> | undefined;
+  Properties?: Record<string, string | null> | undefined;
 
   /**
    * <p>The resource type of the operation.</p>

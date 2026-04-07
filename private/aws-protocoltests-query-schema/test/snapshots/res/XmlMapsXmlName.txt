@@ -49,6 +49,16 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </hi>
             </Setting>
         </entry>
+        <entry>
+            <Attribute>
+                key3
+            </Attribute>
+            <Setting>
+                <hi>
+                    __hi__
+                </hi>
+            </Setting>
+        </entry>
     </myMap>
 </XmlMapsXmlNameOutput>
 

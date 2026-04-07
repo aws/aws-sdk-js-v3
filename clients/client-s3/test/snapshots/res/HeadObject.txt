@@ -85,6 +85,14 @@ x-amz-object-lock-legal-hold: __ObjectLockLegalHoldStatus__
                 __value__
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
     </Metadata>
 </HeadObjectOutput>
 

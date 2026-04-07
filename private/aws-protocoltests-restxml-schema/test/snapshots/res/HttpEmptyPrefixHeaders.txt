@@ -50,6 +50,14 @@ hello: __specificHeader__
                 __value__
             </value>
         </entry>
+        <entry>
+            <key>
+                key3
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
     </prefixHeaders>
 </HttpEmptyPrefixHeadersOutput>
 

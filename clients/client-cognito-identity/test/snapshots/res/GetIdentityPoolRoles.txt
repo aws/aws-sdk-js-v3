@@ -82,6 +82,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           }
         ]
       }
+    },
+    "key3": {
+      "Type": "__Type__",
+      "AmbiguousRoleResolution": "__AmbiguousRoleResolution__",
+      "RulesConfiguration": {
+        "Rules": [
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          },
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          },
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          }
+        ]
+      }
     }
   }
 }
@@ -119,6 +145,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     key2: {
+      Type: "__Type__",
+      AmbiguousRoleResolution: "__AmbiguousRoleResolution__",
+      RulesConfiguration: {
+        Rules: [
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          },
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          },
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          }
+        ]
+      }
+    },
+    key3: {
       Type: "__Type__",
       AmbiguousRoleResolution: "__AmbiguousRoleResolution__",
       RulesConfiguration: {
