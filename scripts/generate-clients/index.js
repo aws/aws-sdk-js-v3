@@ -12,7 +12,7 @@ const {
   DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
-const { buildSmithyTypeScript } = require("./build-smithy-typescript");
+const { buildSmithyTypeScript, runWithSpecificSmithyTypeScriptVersion } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
 const { spawnProcess } = require("../utils/spawn-process");
 
@@ -20,6 +20,7 @@ const REPO_ROOT = path.join(__dirname, "..", "..");
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
+const start = Date.now();
 
 const {
   models,
@@ -33,6 +34,7 @@ const {
   commit,
   d: noSmithyCheckout,
   p: protocolTestsOnly,
+  x: pullRequest,
 } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
@@ -51,6 +53,9 @@ const {
   .alias("d", "noSmithyCheckout")
   .boolean("d")
   .describe("d", "use existing Smithy version instead of target hash")
+  .alias("x", "pullRequest")
+  .boolean("x")
+  .describe("x", "command was invoked by developer creating a pull request")
   .alias("p", "protocolTestsOnly")
   .boolean("p")
   .describe("p", "Generate protocol tests only")
@@ -129,7 +134,15 @@ const {
       await generateNestedClients();
     }
 
-    require("../runtime-dependency-version-check/runtime-dep-version-check");
+    if (!noSmithyCheckout && pullRequest) {
+      await runWithSpecificSmithyTypeScriptVersion(repo, commit, async () => {
+        process.argv.push("--set-smithy-version");
+        require("../runtime-dependency-version-check/runtime-dep-version-check");
+      });
+    } else {
+      require("../runtime-dependency-version-check/runtime-dep-version-check");
+    }
+
     await spawnProcess("yarn", ["install", "--no-immutable"], {
       cwd: REPO_ROOT,
       stdio: "inherit",
@@ -141,6 +154,11 @@ const {
       stdio: "inherit",
       env: { ...process.env },
     });
+
+    if (!noSmithyCheckout && pullRequest) {
+      const end = Date.now();
+      console.log(`Codegen completed in ${((end - start) / 1000) | 0}s. Run git commit.`);
+    }
   } catch (e) {
     console.log(e);
     process.exit(1);
