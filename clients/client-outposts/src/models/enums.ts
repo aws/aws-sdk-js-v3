@@ -18,6 +18,10 @@ export type AddressType = (typeof AddressType)[keyof typeof AddressType];
  */
 export const AssetType = {
   COMPUTE: "COMPUTE",
+  NETWORKING: "NETWORKING",
+  POWERSHELF: "POWERSHELF",
+  STORAGE: "STORAGE",
+  SWITCH: "SWITCH",
 } as const;
 /**
  * @public
@@ -30,6 +34,7 @@ export type AssetType = (typeof AssetType)[keyof typeof AssetType];
  */
 export const ComputeAssetState = {
   ACTIVE: "ACTIVE",
+  INSTALLING: "INSTALLING",
   ISOLATED: "ISOLATED",
   RETIRING: "RETIRING",
 } as const;
@@ -61,6 +66,7 @@ export type AWSServiceName = (typeof AWSServiceName)[keyof typeof AWSServiceName
  */
 export const AssetState = {
   ACTIVE: "ACTIVE",
+  INSTALLING: "INSTALLING",
   ISOLATED: "ISOLATED",
   RETIRING: "RETIRING",
 } as const;

@@ -21,6 +21,7 @@ const _ALs = "AssetLocation";
 const _ASF = "AwsServiceFilter";
 const _ASN = "AwsServiceName";
 const _AT = "AssetType";
+const _ATF = "AssetTypeFilter";
 const _ATd = "AddressType";
 const _AZ = "AvailabilityZone";
 const _AZF = "AvailabilityZoneFilter";
@@ -652,8 +653,8 @@ export var ListAssetInstancesOutput$: StaticStructureSchema = [3, n0, _LAIO,
 ];
 export var ListAssetsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
-  [_OI, _HIF, _MR, _NT, _SF],
-  [[0, 1], [64 | 0, { [_hQ]: _HIF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [64 | 0, { [_hQ]: _SF }]], 1
+  [_OI, _HIF, _MR, _NT, _SF, _ATF],
+  [[0, 1], [64 | 0, { [_hQ]: _HIF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [64 | 0, { [_hQ]: _SF }], [64 | 0, { [_hQ]: _ATF }]], 1
 ];
 export var ListAssetsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
@@ -866,6 +867,7 @@ var AssetInstanceList: StaticListSchema = [1, n0, _AILs,
 var AssetListDefinition: StaticListSchema = [1, n0, _ALD,
   0, () => AssetInfo$
 ];
+var AssetTypeList = 64 | 0;
 var AvailabilityZoneIdList = 64 | 0;
 var AvailabilityZoneList = 64 | 0;
 var AWSServiceNameList = 64 | 0;

@@ -418,6 +418,12 @@
           "traits": {
             "smithy.api#enumValue": "ISOLATED"
           }
+        },
+        "INSTALLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTALLING"
+          }
         }
       }
     },
@@ -429,6 +435,42 @@
           "traits": {
             "smithy.api#enumValue": "COMPUTE"
           }
+        },
+        "STORAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STORAGE"
+          }
+        },
+        "POWERSHELF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWERSHELF"
+          }
+        },
+        "SWITCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SWITCH"
+          }
+        },
+        "NETWORKING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORKING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#AssetTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#AssetType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 5
         }
       }
     },
@@ -1026,6 +1068,12 @@
           "traits": {
             "smithy.api#enumValue": "RETIRING"
           }
+        },
+        "INSTALLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTALLING"
+          }
         }
       }
     },
@@ -1041,7 +1089,7 @@
         "State": {
           "target": "com.amazonaws.outposts#ComputeAssetState",
           "traits": {
-            "smithy.api#documentation": "<p>The state.</p>\n         <ul>\n            <li>\n               <p>ACTIVE - The asset is available and can provide capacity for new compute\n          resources.</p>\n            </li>\n            <li>\n               <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new\n          compute resources. Existing compute resources on the asset are not affected.</p>\n            </li>\n            <li>\n               <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute\n          resources is reduced. Amazon Web Services sends notifications for resources that must be stopped before\n          the asset can be replaced.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The state.</p>\n         <ul>\n            <li>\n               <p>ACTIVE - The asset is available and can provide capacity for new compute\n          resources.</p>\n            </li>\n            <li>\n               <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new\n          compute resources. Existing compute resources on the asset are not affected.</p>\n            </li>\n            <li>\n               <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute\n          resources is reduced. Amazon Web Services sends notifications for resources that must be stopped before\n          the asset can be replaced.</p>\n            </li>\n            <li>\n               <p>INSTALLING - The asset is being installed and can't yet provide capacity for new compute\n          resources.</p>\n            </li>\n         </ul>"
           }
         },
         "InstanceFamilies": {
@@ -3044,6 +3092,13 @@
           "traits": {
             "smithy.api#documentation": "<p>Filters the results by state.</p>",
             "smithy.api#httpQuery": "StatusFilter"
+          }
+        },
+        "AssetTypeFilter": {
+          "target": "com.amazonaws.outposts#AssetTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by asset type.</p>\n         <ul>\n            <li>\n               <p>COMPUTE - Server asset used for customer compute </p>\n            </li>\n            <li>\n               <p>STORAGE - Server asset used by storage services </p>\n            </li>\n            <li>\n               <p>POWERSHELF - Powershelf assets </p>\n            </li>\n            <li>\n               <p>SWITCH - Switch assets </p>\n            </li>\n            <li>\n               <p>NETWORKING - Asset managed by Amazon Web Services for networking purposes </p>\n            </li>\n         </ul>",
+            "smithy.api#httpQuery": "AssetTypeFilter"
           }
         }
       },
@@ -6104,7 +6159,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 3
+          "max": 5
         }
       }
     },

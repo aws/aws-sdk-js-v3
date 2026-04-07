@@ -162,6 +162,10 @@ export interface ComputeAttributes {
    *           resources is reduced. Amazon Web Services sends notifications for resources that must be stopped before
    *           the asset can be replaced.</p>
    *             </li>
+   *             <li>
+   *                <p>INSTALLING - The asset is being installed and can't yet provide capacity for new compute
+   *           resources.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1836,6 +1840,29 @@ export interface ListAssetsInput {
    * @public
    */
   StatusFilter?: AssetState[] | undefined;
+
+  /**
+   * <p>Filters the results by asset type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>COMPUTE - Server asset used for customer compute </p>
+   *             </li>
+   *             <li>
+   *                <p>STORAGE - Server asset used by storage services </p>
+   *             </li>
+   *             <li>
+   *                <p>POWERSHELF - Powershelf assets </p>
+   *             </li>
+   *             <li>
+   *                <p>SWITCH - Switch assets </p>
+   *             </li>
+   *             <li>
+   *                <p>NETWORKING - Asset managed by Amazon Web Services for networking purposes </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AssetTypeFilter?: AssetType[] | undefined;
 }
 
 /**

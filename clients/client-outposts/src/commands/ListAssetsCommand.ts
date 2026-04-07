@@ -47,7 +47,10 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   StatusFilter: [ // StatusList
- *     "ACTIVE" || "RETIRING" || "ISOLATED",
+ *     "ACTIVE" || "RETIRING" || "ISOLATED" || "INSTALLING",
+ *   ],
+ *   AssetTypeFilter: [ // AssetTypeList
+ *     "COMPUTE" || "STORAGE" || "POWERSHELF" || "SWITCH" || "NETWORKING",
  *   ],
  * };
  * const command = new ListAssetsCommand(input);
@@ -57,10 +60,10 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * //     { // AssetInfo
  * //       AssetId: "STRING_VALUE",
  * //       RackId: "STRING_VALUE",
- * //       AssetType: "COMPUTE",
+ * //       AssetType: "COMPUTE" || "STORAGE" || "POWERSHELF" || "SWITCH" || "NETWORKING",
  * //       ComputeAttributes: { // ComputeAttributes
  * //         HostId: "STRING_VALUE",
- * //         State: "ACTIVE" || "ISOLATED" || "RETIRING",
+ * //         State: "ACTIVE" || "ISOLATED" || "RETIRING" || "INSTALLING",
  * //         InstanceFamilies: [ // InstanceFamilies
  * //           "STRING_VALUE",
  * //         ],
