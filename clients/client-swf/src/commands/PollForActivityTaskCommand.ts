@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getLongPollPlugin } from "@aws-sdk/core/client";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -128,7 +129,10 @@ export class PollForActivityTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getLongPollPlugin(config),
+    ];
   })
   .s("SimpleWorkflowService", "PollForActivityTask", {})
   .n("SWFClient", "PollForActivityTaskCommand")

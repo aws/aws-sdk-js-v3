@@ -53,7 +53,8 @@
     "setTokenFeature": "function, since <=3.930.0",
     "state": "object, since <=3.930.0",
     "validateSigningProperties": "function, since <=3.930.0",
-    "QueryShapeSerializer": "function, since 3.973.15"
+    "QueryShapeSerializer": "function, since 3.973.15",
+    "getLongPollPlugin": "function, since 3.973.26"
   },
   "@aws-sdk/crc64-nvme-crt": {
     "CrtCrc64Nvme": "function, since <=3.930.0"

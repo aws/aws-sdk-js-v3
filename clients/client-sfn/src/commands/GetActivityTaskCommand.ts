@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getLongPollPlugin } from "@aws-sdk/core/client";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -105,7 +106,10 @@ export class GetActivityTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getLongPollPlugin(config),
+    ];
   })
   .s("AWSStepFunctions", "GetActivityTask", {})
   .n("SFNClient", "GetActivityTaskCommand")
