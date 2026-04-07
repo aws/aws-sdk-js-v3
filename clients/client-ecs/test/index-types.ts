@@ -579,6 +579,7 @@ export type {
   RunTaskRequest,
   RunTaskResponse,
   RuntimePlatform,
+  S3FilesVolumeConfiguration,
   Scale,
   Secret,
   Service,

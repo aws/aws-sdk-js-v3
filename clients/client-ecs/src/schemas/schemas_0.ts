@@ -437,6 +437,7 @@ const _SDe = "ServiceDeployments";
 const _SE = "ServerException";
 const _SEe = "ServiceEvent";
 const _SEer = "ServiceEvents";
+const _SFVC = "S3FilesVolumeConfiguration";
 const _SL = "SecretList";
 const _SMEBSVC = "ServiceManagedEBSVolumeConfiguration";
 const _SNAE = "ServiceNotActiveException";
@@ -566,6 +567,7 @@ const _aN = "alarmNames";
 const _aNc = "acceleratorNames";
 const _aNt = "attributeName";
 const _aP = "appProtocol";
+const _aPA = "accessPointArn";
 const _aPAA = "awsPcaAuthorityArn";
 const _aPI = "assignPublicIp";
 const _aPIc = "accessPointId";
@@ -744,6 +746,7 @@ const _fES = "fargateEphemeralStorage";
 const _fESKKI = "fargateEphemeralStorageKmsKeyId";
 const _fND = "forceNewDeployment";
 const _fP = "familyPrefix";
+const _fSA = "fileSystemArn";
 const _fSI = "fileSystemId";
 const _fT = "failedTasks";
 const _fTi = "filesystemType";
@@ -1011,6 +1014,7 @@ const _sTt = "stopTimeout";
 const _sTto = "stopType";
 const _sU = "streamUrl";
 const _sV = "sourceVolume";
+const _sVC = "s3filesVolumeConfiguration";
 const _sc = "scale";
 const _sch = "scheme";
 const _sco = "scope";
@@ -2587,6 +2591,11 @@ export var RuntimePlatform$: StaticStructureSchema = [3, n0, _RP,
   [_cAp, _oSF],
   [0, 0]
 ];
+export var S3FilesVolumeConfiguration$: StaticStructureSchema = [3, n0, _SFVC,
+  0,
+  [_fSA, _rD, _tEP, _aPA],
+  [0, 0, 1, 0], 1
+];
 export var Scale$: StaticStructureSchema = [3, n0, _S,
   0,
   [_v, _un],
@@ -3009,8 +3018,8 @@ export var VersionInfo$: StaticStructureSchema = [3, n0, _VI,
 ];
 export var Volume$: StaticStructureSchema = [3, n0, _V,
   0,
-  [_n, _ho, _dVC, _eVC, _fWFSVC, _cAL],
-  [0, () => HostVolumeProperties$, () => DockerVolumeConfiguration$, () => EFSVolumeConfiguration$, () => FSxWindowsFileServerVolumeConfiguration$, 2]
+  [_n, _ho, _dVC, _eVC, _sVC, _fWFSVC, _cAL],
+  [0, () => HostVolumeProperties$, () => DockerVolumeConfiguration$, () => EFSVolumeConfiguration$, () => S3FilesVolumeConfiguration$, () => FSxWindowsFileServerVolumeConfiguration$, 2]
 ];
 export var VolumeFrom$: StaticStructureSchema = [3, n0, _VF,
   0,

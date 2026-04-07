@@ -490,6 +490,7 @@ import {
   RunTaskRequest$,
   RunTaskResponse$,
   RuntimePlatform$,
+  S3FilesVolumeConfiguration$,
   Scale$,
   ScaleUnit,
   SchedulingStrategy,
@@ -1086,6 +1087,7 @@ assert(typeof Rollback$ === "object");
 assert(typeof RunTaskRequest$ === "object");
 assert(typeof RunTaskResponse$ === "object");
 assert(typeof RuntimePlatform$ === "object");
+assert(typeof S3FilesVolumeConfiguration$ === "object");
 assert(typeof Scale$ === "object");
 assert(typeof Secret$ === "object");
 assert(typeof Service$ === "object");

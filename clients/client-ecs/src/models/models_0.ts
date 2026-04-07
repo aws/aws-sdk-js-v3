@@ -5304,12 +5304,42 @@ export interface FSxWindowsFileServerVolumeConfiguration {
 }
 
 /**
- * <p>The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a <code>name</code> and one of either <code>configuredAtLaunch</code>, <code>dockerVolumeConfiguration</code>, <code>efsVolumeConfiguration</code>, <code>fsxWindowsFileServerVolumeConfiguration</code>, or <code>host</code>. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a>.</p>
+ * <p>This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html">Amazon S3 Files volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <important> <p>Your task definition must include a Task IAM Role. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role"> IAM role for attaching your file system to AWS compute resources</a> for required permissions.</p> </important>
+ * @public
+ */
+export interface S3FilesVolumeConfiguration {
+  /**
+   * <p>The full ARN of the S3 Files file system to mount.</p>
+   * @public
+   */
+  fileSystemArn: string | undefined;
+
+  /**
+   * <p>The directory within the Amazon S3 Files file system to mount as the root directory. If this parameter is omitted, the root of the Amazon S3 Files file system will be used. Specifying <code>/</code> will have the same effect as omitting this parameter.</p> <important> <p>If a S3 Files access point is specified in the <code>accessPointArn</code>, the root directory parameter must either be omitted or set to <code>/</code> which will enforce the path set on the S3 Files access point.</p> </important>
+   * @public
+   */
+  rootDirectory?: string | undefined;
+
+  /**
+   * <p>The port to use for sending encrypted data between the ECS host and the S3 Files file system. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon S3 Files mount helper uses. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html">S3 Files mount helper</a>.</p>
+   * @public
+   */
+  transitEncryptionPort?: number | undefined;
+
+  /**
+   * <p>The full ARN of the S3 Files access point to use. If an access point is specified, the root directory value specified in the <code>S3FilesVolumeConfiguration</code> must either be omitted or set to <code>/</code> which will enforce the path set on the S3 Files access point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-access-points-creating.html">Creating S3 Files access points</a>.</p>
+   * @public
+   */
+  accessPointArn?: string | undefined;
+}
+
+/**
+ * <p>The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a <code>name</code> and one of either <code>configuredAtLaunch</code>, <code>dockerVolumeConfiguration</code>, <code>efsVolumeConfiguration</code>, <code>s3filesVolumeConfiguration</code>, <code>fsxWindowsFileServerVolumeConfiguration</code>, or <code>host</code>. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a>.</p>
  * @public
  */
 export interface Volume {
   /**
-   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p> <p>When using a volume configured at launch, the <code>name</code> is required and must also be specified as the volume name in the <code>ServiceVolumeConfiguration</code> or <code>TaskVolumeConfiguration</code> parameter when creating your service or standalone task.</p> <p>For all other types of volumes, this name is referenced in the <code>sourceVolume</code> parameter of the <code>mountPoints</code> object in the container definition.</p> <p>When a volume is using the <code>efsVolumeConfiguration</code>, the name is required.</p>
+   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p> <p>When using a volume configured at launch, the <code>name</code> is required and must also be specified as the volume name in the <code>ServiceVolumeConfiguration</code> or <code>TaskVolumeConfiguration</code> parameter when creating your service or standalone task.</p> <p>For all other types of volumes, this name is referenced in the <code>sourceVolume</code> parameter of the <code>mountPoints</code> object in the container definition.</p> <p>When a volume is using the <code>efsVolumeConfiguration</code>, the name is required.</p> <p>When a volume is using the <code>s3filesVolumeConfiguration</code>, the name is required.</p>
    * @public
    */
   name?: string | undefined;
@@ -5331,6 +5361,12 @@ export interface Volume {
    * @public
    */
   efsVolumeConfiguration?: EFSVolumeConfiguration | undefined;
+
+  /**
+   * <p>This parameter is specified when you use an Amazon S3 Files file system for task storage.</p>
+   * @public
+   */
+  s3filesVolumeConfiguration?: S3FilesVolumeConfiguration | undefined;
 
   /**
    * <p>This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.</p>
@@ -9295,40 +9331,4 @@ export interface DeleteTaskDefinitionsResponse {
    * @public
    */
   failures?: Failure[] | undefined;
-}
-
-/**
- *
- * @public
- */
-export interface ListTaskDefinitionsRequest {
-  /**
-   * <p>The full family name to filter the <code>ListTaskDefinitions</code> results with. Specifying a <code>familyPrefix</code> limits the listed task definitions to task definition revisions that belong to that family.</p>
-   * @public
-   */
-  familyPrefix?: string | undefined;
-
-  /**
-   * <p>The task definition status to filter the <code>ListTaskDefinitions</code> results with. By default, only <code>ACTIVE</code> task definitions are listed. By setting this parameter to <code>INACTIVE</code>, you can view task definitions that are <code>INACTIVE</code> as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the <code>status</code> value constant in each subsequent request.</p>
-   * @public
-   */
-  status?: TaskDefinitionStatus | undefined;
-
-  /**
-   * <p>The order to sort the results in. Valid values are <code>ASC</code> and <code>DESC</code>. By default, (<code>ASC</code>) task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to <code>DESC</code> reverses the sort order on family name and revision. This is so that the newest task definitions in a family are listed first.</p>
-   * @public
-   */
-  sort?: SortOrder | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a <code>ListTaskDefinitions</code> request indicating that more results are available to fulfill the request and further calls will be needed. If <code>maxResults</code> was provided, it is possible the number of results to be fewer than <code>maxResults</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of task definition results that <code>ListTaskDefinitions</code> returned in paginated output. When this parameter is used, <code>ListTaskDefinitions</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListTaskDefinitions</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListTaskDefinitions</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }

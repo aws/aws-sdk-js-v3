@@ -250,6 +250,12 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //             iam: "ENABLED" || "DISABLED",
  * //           },
  * //         },
+ * //         s3filesVolumeConfiguration: { // S3FilesVolumeConfiguration
+ * //           fileSystemArn: "STRING_VALUE", // required
+ * //           rootDirectory: "STRING_VALUE",
+ * //           transitEncryptionPort: Number("int"),
+ * //           accessPointArn: "STRING_VALUE",
+ * //         },
  * //         fsxWindowsFileServerVolumeConfiguration: { // FSxWindowsFileServerVolumeConfiguration
  * //           fileSystemId: "STRING_VALUE", // required
  * //           rootDirectory: "STRING_VALUE", // required

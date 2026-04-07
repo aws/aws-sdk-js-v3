@@ -242,6 +242,12 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *           iam: "ENABLED" || "DISABLED",
  *         },
  *       },
+ *       s3filesVolumeConfiguration: { // S3FilesVolumeConfiguration
+ *         fileSystemArn: "STRING_VALUE", // required
+ *         rootDirectory: "STRING_VALUE",
+ *         transitEncryptionPort: Number("int"),
+ *         accessPointArn: "STRING_VALUE",
+ *       },
  *       fsxWindowsFileServerVolumeConfiguration: { // FSxWindowsFileServerVolumeConfiguration
  *         fileSystemId: "STRING_VALUE", // required
  *         rootDirectory: "STRING_VALUE", // required
@@ -507,6 +513,12 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //             accessPointId: "STRING_VALUE",
  * //             iam: "ENABLED" || "DISABLED",
  * //           },
+ * //         },
+ * //         s3filesVolumeConfiguration: { // S3FilesVolumeConfiguration
+ * //           fileSystemArn: "STRING_VALUE", // required
+ * //           rootDirectory: "STRING_VALUE",
+ * //           transitEncryptionPort: Number("int"),
+ * //           accessPointArn: "STRING_VALUE",
  * //         },
  * //         fsxWindowsFileServerVolumeConfiguration: { // FSxWindowsFileServerVolumeConfiguration
  * //           fileSystemId: "STRING_VALUE", // required
