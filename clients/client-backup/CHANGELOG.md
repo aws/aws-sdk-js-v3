@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
+
+
+### Features
+
+* **client-backup:** Adding EKS specific backup vault notification types for AWS Backup. ([c5badfd](https://github.com/aws/aws-sdk-js-v3/commit/c5badfde9ad0899a64a6a506682506cf458cf838))
+
+
+
+
+
 # [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

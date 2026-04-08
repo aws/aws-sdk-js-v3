@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
+
+
+### Features
+
+* **client-backup:** Adding EKS specific backup vault notification types for AWS Backup. ([c5badfd](https://github.com/aws/aws-sdk-js-v3/commit/c5badfde9ad0899a64a6a506682506cf458cf838))
+* **client-drs:** This changes adds support for modifying the replication configuration to support data replication using IPv6. ([b2cd445](https://github.com/aws/aws-sdk-js-v3/commit/b2cd4452c436577d4d780fc3c51c04a042f5179d))
+* **client-ecr:** Add UnableToListUpstreamImageReferrersException in ListImageReferrers ([459df0b](https://github.com/aws/aws-sdk-js-v3/commit/459df0bc3e99151fcfaffa59608032f789225181))
+* **client-ivs-realtime:** Adds support for Amazon IVS real-time streaming redundant ingest. ([1a8caf9](https://github.com/aws/aws-sdk-js-v3/commit/1a8caf9ec958d6a72d41c18f0c6e426325ddd016))
+* **client-marketplace-discovery:** AWS Marketplace Discovery API provides an interface that enables programmatic access to the AWS Marketplace catalog, including searching and browsing listings, retrieving product details and fulfillment options, and accessing public and private offer pricing and terms. ([1523d99](https://github.com/aws/aws-sdk-js-v3/commit/1523d996c9baed4f0d56459be0460d8a11ce6bd6))
+* **client-medialive:** MediaLive is adding support for MediaConnect Router by supporting a new output type called MEDIACONNECT ROUTER. This new output type will provide seamless encrypted transport between your MediaLive channel and MediaConnect Router. ([9d257a3](https://github.com/aws/aws-sdk-js-v3/commit/9d257a3f456eb61ebd2e6e823e80797b31bfc182))
+* **client-outposts:** Add AWS Outposts APIs to view renewal pricing options and submit renewal requests for Outpost contracts ([ba6c2a7](https://github.com/aws/aws-sdk-js-v3/commit/ba6c2a7e3c2fc2ed15f44949bedc4a8f048cbaf2))
+* **clients:** update client endpoints as of 2026-04-08 ([88eb668](https://github.com/aws/aws-sdk-js-v3/commit/88eb6682733b52d243befa8ff9b6cd7972207542))
+
+
+
+
+
 # [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
 
 

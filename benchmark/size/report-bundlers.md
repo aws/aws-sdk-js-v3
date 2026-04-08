@@ -6,7 +6,7 @@
 | lib-dynamodb-single-command.ts            | unknown     | 154.1 kb        | 186.5 kb       | 153.8 kb        |
 | multi-protocols.ts                        | unknown     | 59.8 kb         | 70.9 kb        | 60.7 kb         |
 | multiple-barebones-micg-sdk-clients.ts    | unknown     | 152.8 kb        | 238.0 kb       | 187.1 kb        |
-| multiple-barebones-schema-sdk-clients.ts  | unknown     | 244.9 kb        | 351.8 kb       | 340.1 kb        |
+| multiple-barebones-schema-sdk-clients.ts  | unknown     | 244.9 kb        | 351.9 kb       | 340.2 kb        |
 | multiple-sdk-clients.ts                   | unknown     | 420.0 kb        | 576.7 kb       | 440.1 kb        |
 | private-multiple-clients-micg.ts          | unknown     | 417.9 kb        | 531.6 kb       | 437.1 kb        |
 | private-multiple-clients-schema.ts        | unknown     | 356.4 kb        | 477.8 kb       | 385.8 kb        |

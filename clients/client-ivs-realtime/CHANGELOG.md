@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
+
+
+### Features
+
+* **client-ivs-realtime:** Adds support for Amazon IVS real-time streaming redundant ingest. ([1a8caf9](https://github.com/aws/aws-sdk-js-v3/commit/1a8caf9ec958d6a72d41c18f0c6e426325ddd016))
+
+
+
+
+
 # [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

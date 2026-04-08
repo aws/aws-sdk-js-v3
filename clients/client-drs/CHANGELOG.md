@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
+
+
+### Features
+
+* **client-drs:** This changes adds support for modifying the replication configuration to support data replication using IPv6. ([b2cd445](https://github.com/aws/aws-sdk-js-v3/commit/b2cd4452c436577d4d780fc3c51c04a042f5179d))
+
+
+
+
+
 # [3.1026.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1025.0...v3.1026.0) (2026-04-07)
 
 **Note:** Version bump only for package @aws-sdk/client-drs
