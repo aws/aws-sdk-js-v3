@@ -41,6 +41,7 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  *   name: "STRING_VALUE",
  *   bandwidthThrottling: Number("long"),
  *   usePrivateIP: true || false,
+ *   internetProtocol: "STRING_VALUE",
  * };
  * const command = new UpdateFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);

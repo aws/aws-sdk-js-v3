@@ -82,6 +82,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput extends 
  * //         },
  * //       ],
  * //       autoReplicateNewDisks: true || false,
+ * //       internetProtocol: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

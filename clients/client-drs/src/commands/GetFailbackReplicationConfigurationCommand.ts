@@ -49,6 +49,7 @@ export interface GetFailbackReplicationConfigurationCommandOutput extends GetFai
  * //   name: "STRING_VALUE",
  * //   bandwidthThrottling: Number("long"),
  * //   usePrivateIP: true || false,
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

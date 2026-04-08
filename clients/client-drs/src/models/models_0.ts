@@ -10,6 +10,7 @@ import type {
   FailbackReplicationError,
   FailbackState,
   InitiatedBy,
+  InternetProtocol,
   JobLogEvent,
   JobStatus,
   JobType,
@@ -897,10 +898,7 @@ export interface SourceProperties {
  */
 export interface StagingArea {
   /**
-   * <p>Status of Source server extension. Possible values:
-   *             (a) NOT_EXTENDED - This is a source server that is replicating in the current account.
-   *             (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account.
-   *             (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
+   * <p>Status of Source server extension. Possible values: (a) NOT_EXTENDED - This is a source server that is replicating in the current account. (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account. (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
    * @public
    */
   status?: ExtensionStatus | undefined;
@@ -1228,7 +1226,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.</p>
    * @public
    */
-  associateDefaultSecurityGroup: boolean | undefined;
+  associateDefaultSecurityGroup?: boolean | undefined;
 
   /**
    * <p>The security group IDs that will be used by the replication server.</p>
@@ -1240,19 +1238,19 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>The instance type to be used for the replication server.</p>
    * @public
    */
-  replicationServerInstanceType: string | undefined;
+  replicationServerInstanceType?: string | undefined;
 
   /**
    * <p>Whether to use a dedicated Replication Server in the replication staging area.</p>
    * @public
    */
-  useDedicatedReplicationServer: boolean | undefined;
+  useDedicatedReplicationServer?: boolean | undefined;
 
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    * @public
    */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * <p>The type of EBS encryption to be used during replication.</p>
@@ -1276,13 +1274,13 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>The data plane routing mechanism that will be used for replication.</p>
    * @public
    */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | undefined;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
    * @public
    */
-  createPublicIP: boolean | undefined;
+  createPublicIP?: boolean | undefined;
 
   /**
    * <p>A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.</p>
@@ -1307,6 +1305,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -1414,6 +1418,12 @@ export interface ReplicationConfigurationTemplate {
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -1701,6 +1711,18 @@ export interface JobLogEventData {
    * @public
    */
   eventResourceData?: EventResourceData | undefined;
+
+  /**
+   * <p>Retries for this operation.</p>
+   * @public
+   */
+  attemptCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of retries that will be attempted if this operation failed.</p>
+   * @public
+   */
+  maxAttemptsCount?: number | undefined;
 }
 
 /**
@@ -2537,11 +2559,7 @@ export interface SourceNetwork {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Status of Source Network Replication. Possible values:
-   *             (a) STOPPED - Source Network is not replicating.
-   *             (b) IN_PROGRESS - Source Network is being replicated.
-   *             (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes.
-   *             (d) ERROR - Source Network replication has failed</p>
+   * <p>Status of Source Network Replication. Possible values: (a) STOPPED - Source Network is not replicating. (b) IN_PROGRESS - Source Network is being replicated. (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes. (d) ERROR - Source Network replication has failed</p>
    * @public
    */
   replicationStatus?: ReplicationStatus | undefined;
@@ -3130,6 +3148,12 @@ export interface GetFailbackReplicationConfigurationResponse {
    * @public
    */
   usePrivateIP?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -3242,6 +3266,12 @@ export interface UpdateFailbackReplicationConfigurationRequest {
    * @public
    */
   usePrivateIP?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -3343,6 +3373,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -3709,6 +3745,12 @@ export interface ReplicationConfiguration {
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**
@@ -3983,6 +4025,12 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    */
   autoReplicateNewDisks?: boolean | undefined;
+
+  /**
+   * <p>Which version of the Internet Protocol to use for replication of data. (IPv4 or IPv6)</p>
+   * @public
+   */
+  internetProtocol?: InternetProtocol | undefined;
 }
 
 /**

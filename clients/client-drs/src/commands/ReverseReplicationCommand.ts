@@ -27,10 +27,7 @@ export interface ReverseReplicationCommandInput extends ReverseReplicationReques
 export interface ReverseReplicationCommandOutput extends ReverseReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2.
- *             For recovery instances on target region - starts replication back to origin region.
- *             For failback instances on origin region - starts replication to target region to re-protect them.
- *         </p>
+ * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2. For recovery instances on target region - starts replication back to origin region. For failback instances on origin region - starts replication to target region to re-protect them. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

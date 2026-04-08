@@ -162,6 +162,7 @@ export type {
   FailbackReplicationError,
   FailbackState,
   InitiatedBy,
+  InternetProtocol,
   JobLogEvent,
   JobStatus,
   JobType,

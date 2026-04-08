@@ -136,6 +136,7 @@ import {
   InitiatedBy,
   InternalServerException,
   InternalServerException$,
+  InternetProtocol,
   Job$,
   JobLog$,
   JobLogEvent,
@@ -581,6 +582,7 @@ assert(typeof FailbackLaunchType === "object");
 assert(typeof FailbackReplicationError === "object");
 assert(typeof FailbackState === "object");
 assert(typeof InitiatedBy === "object");
+assert(typeof InternetProtocol === "object");
 assert(typeof JobLogEvent === "object");
 assert(typeof JobStatus === "object");
 assert(typeof JobType === "object");

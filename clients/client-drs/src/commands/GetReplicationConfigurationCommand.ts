@@ -80,6 +80,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * //     },
  * //   ],
  * //   autoReplicateNewDisks: true || false,
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

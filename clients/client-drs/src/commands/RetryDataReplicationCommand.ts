@@ -27,9 +27,7 @@ export interface RetryDataReplicationCommandInput extends RetryDataReplicationRe
 export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>WARNING: RetryDataReplication is deprecated.
- *               Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
- *         </p>
+ * <p>WARNING: RetryDataReplication is deprecated. Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state. </p>
  *
  * @deprecated WARNING: RetryDataReplication is deprecated.
  * @example

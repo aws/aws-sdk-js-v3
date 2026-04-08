@@ -82,6 +82,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * //             stackName: "STRING_VALUE",
  * //           },
  * //         },
+ * //         attemptCount: Number("long"),
+ * //         maxAttemptsCount: Number("long"),
  * //       },
  * //     },
  * //   ],

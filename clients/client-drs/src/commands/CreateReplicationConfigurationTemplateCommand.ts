@@ -41,18 +41,18 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  * const client = new DrsClient(config);
  * const input = { // CreateReplicationConfigurationTemplateRequest
  *   stagingAreaSubnetId: "STRING_VALUE", // required
- *   associateDefaultSecurityGroup: true || false, // required
+ *   associateDefaultSecurityGroup: true || false,
  *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs // required
  *     "STRING_VALUE",
  *   ],
- *   replicationServerInstanceType: "STRING_VALUE", // required
- *   useDedicatedReplicationServer: true || false, // required
- *   defaultLargeStagingDiskType: "STRING_VALUE", // required
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
  *   ebsEncryption: "STRING_VALUE", // required
  *   ebsEncryptionKeyArn: "STRING_VALUE",
  *   bandwidthThrottling: Number("long"), // required
- *   dataPlaneRouting: "STRING_VALUE", // required
- *   createPublicIP: true || false, // required
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
  *   stagingAreaTags: { // TagsMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -69,6 +69,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  *     "<keys>": "STRING_VALUE",
  *   },
  *   autoReplicateNewDisks: true || false,
+ *   internetProtocol: "STRING_VALUE",
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  * //     },
  * //   ],
  * //   autoReplicateNewDisks: true || false,
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

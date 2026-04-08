@@ -68,6 +68,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  *     },
  *   ],
  *   autoReplicateNewDisks: true || false,
+ *   internetProtocol: "STRING_VALUE",
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  * //     },
  * //   ],
  * //   autoReplicateNewDisks: true || false,
+ * //   internetProtocol: "STRING_VALUE",
  * // };
  *
  * ```

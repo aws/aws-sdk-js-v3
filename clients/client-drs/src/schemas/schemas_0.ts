@@ -241,8 +241,9 @@ const _VEFL = "ValidationExceptionFieldList";
 const _VTCM = "VolumeToConversionMap";
 const _VTPC = "VolumeToProductCodes";
 const _a = "arn";
-const _aC = "actionCode";
+const _aC = "attemptCount";
 const _aCDT = "apiCallDateTime";
+const _aCc = "actionCode";
 const _aDSG = "associateDefaultSecurityGroup";
 const _aI = "actionId";
 const _aID = "accountID";
@@ -328,7 +329,8 @@ const _iBD = "isBootDisk";
 const _iD = "isDrill";
 const _iDN = "internalDeviceName";
 const _iH = "identificationHints";
-const _iP = "isPrimary";
+const _iP = "internetProtocol";
+const _iPs = "isPrimary";
 const _in = "initiated";
 const _int = "interval";
 const _io = "iops";
@@ -358,6 +360,7 @@ const _lUDT = "lastUpdatedDateTime";
 const _lVID = "launchedVpcID";
 const _m = "message";
 const _mA = "macAddress";
+const _mAC = "maxAttemptsCount";
 const _mN = "modelName";
 const _mR = "maxResults";
 const _n = "name";
@@ -608,8 +611,8 @@ export var CreateLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
-  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _bT, _dPR, _cPIP, _sAT, _pP, _eEKA, _t, _aRND],
-  [0, 2, 64 | 0, 0, 2, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 0, [() => TagsMap, 0], 2], 12
+  [_sASI, _rSSGID, _eE, _bT, _sAT, _pP, _aDSG, _rSIT, _uDRS, _dLSDT, _eEKA, _dPR, _cPIP, _t, _aRND, _iP],
+  [0, 64 | 0, 0, 1, [() => TagsMap, 0], () => PITPolicy, 2, 0, 2, 0, 0, 0, 2, [() => TagsMap, 0], 2, 0], 6
 ];
 export var CreateSourceNetworkRequest$: StaticStructureSchema = [3, n0, _CSNR,
   0,
@@ -848,8 +851,8 @@ export var GetFailbackReplicationConfigurationRequest$: StaticStructureSchema = 
 ];
 export var GetFailbackReplicationConfigurationResponse$: StaticStructureSchema = [3, n0, _GFRCRe,
   0,
-  [_rIID, _n, _bT, _uPIP],
-  [0, 0, 1, 2], 1
+  [_rIID, _n, _bT, _uPIP, _iP],
+  [0, 0, 1, 2, 0], 1
 ];
 export var GetLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
@@ -888,12 +891,12 @@ export var JobLog$: StaticStructureSchema = [3, n0, _JL,
 ];
 export var JobLogEventData$: StaticStructureSchema = [3, n0, _JLED,
   0,
-  [_sSID, _cSID, _tIID, _rE, _cP, _eRD],
-  [0, 0, 0, 0, () => ConversionProperties$, () => EventResourceData$]
+  [_sSID, _cSID, _tIID, _rE, _cP, _eRD, _aC, _mAC],
+  [0, 0, 0, 0, () => ConversionProperties$, () => EventResourceData$, 1, 1]
 ];
 export var LaunchAction$: StaticStructureSchema = [3, n0, _LA,
   0,
-  [_aI, _aC, _ty, _n, _ac, _o, _aV, _op, _p, _d, _ca],
+  [_aI, _aCc, _ty, _n, _ac, _o, _aV, _op, _p, _d, _ca],
   [0, 0, 0, 0, 2, 1, 0, 2, () => LaunchActionParameters, 0, 0]
 ];
 export var LaunchActionParameter$: StaticStructureSchema = [3, n0, _LAP,
@@ -993,7 +996,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   0,
-  [_mA, _ip, _iP],
+  [_mA, _ip, _iPs],
   [0, 64 | 0, 2]
 ];
 export var OS$: StaticStructureSchema = [3, n0, _OS,
@@ -1023,12 +1026,12 @@ export var ProductCode$: StaticStructureSchema = [3, n0, _PC,
 ];
 export var PutLaunchActionRequest$: StaticStructureSchema = [3, n0, _PLAR,
   0,
-  [_rI, _aC, _o, _aI, _op, _ac, _n, _aV, _ca, _d, _p],
+  [_rI, _aCc, _o, _aI, _op, _ac, _n, _aV, _ca, _d, _p],
   [0, 0, 1, 0, 2, 2, 0, 0, 0, 0, () => LaunchActionParameters], 10
 ];
 export var PutLaunchActionResponse$: StaticStructureSchema = [3, n0, _PLARu,
   0,
-  [_rI, _aI, _aC, _ty, _n, _ac, _o, _aV, _op, _p, _d, _ca],
+  [_rI, _aI, _aCc, _ty, _n, _ac, _o, _aV, _op, _p, _d, _ca],
   [0, 0, 0, 0, 0, 2, 1, 0, 2, () => LaunchActionParameters, 0, 0]
 ];
 export var RecoveryInstance$: StaticStructureSchema = [3, n0, _RI,
@@ -1088,8 +1091,8 @@ export var RecoverySnapshot$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_sSID, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2]
+  [_sSID, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2, 0]
 ];
 export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, n0, _RCRD,
   0,
@@ -1098,8 +1101,8 @@ export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, 
 ];
 export var ReplicationConfigurationTemplate$: StaticStructureSchema = [3, n0, _RCT,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _t, _pP, _aRND],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], [() => TagsMap, 0], () => PITPolicy, 2], 1
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _t, _pP, _aRND, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], [() => TagsMap, 0], () => PITPolicy, 2, 0], 1
 ];
 export var RetryDataReplicationRequest$: StaticStructureSchema = [3, n0, _RDRR,
   0,
@@ -1258,8 +1261,8 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateFailbackReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _UFRCR,
   0,
-  [_rIID, _n, _bT, _uPIP],
-  [0, 0, 1, 2], 1
+  [_rIID, _n, _bT, _uPIP, _iP],
+  [0, 0, 1, 2, 0], 1
 ];
 export var UpdateLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _ULCR,
   0,
@@ -1278,13 +1281,13 @@ export var UpdateLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
 ];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
-  [_sSID, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2], 1
+  [_sSID, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2, 0], 1
 ];
 export var UpdateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _URCTR,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2], 1
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND, _iP],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2, 0], 1
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,

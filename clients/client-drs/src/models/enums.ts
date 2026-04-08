@@ -381,6 +381,19 @@ export type ReplicationConfigurationEbsEncryption =
  * @public
  * @enum
  */
+export const InternetProtocol = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+/**
+ * @public
+ */
+export type InternetProtocol = (typeof InternetProtocol)[keyof typeof InternetProtocol];
+
+/**
+ * @public
+ * @enum
+ */
 export const PITPolicyRuleUnits = {
   DAY: "DAY",
   HOUR: "HOUR",
