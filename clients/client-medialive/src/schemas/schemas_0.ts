@@ -254,6 +254,7 @@ const _CPIR = "CreatePartnerInputRequest";
 const _CPIRr = "CreatePartnerInputResponse";
 const _CR = "CaptionRectangle";
 const _CRI = "ConnectionRetryInterval";
+const _CRIo = "ConnectedRouterInputs";
 const _CS = "ContainerSettings";
 const _CSG = "ChannelSecurityGroups";
 const _CSM = "CreateSignalMap";
@@ -825,6 +826,12 @@ const _MCF = "MediaConnectFlows";
 const _MCFR = "MediaConnectFlowRequest";
 const _MCFe = "MediaConnectFlow";
 const _MCPD = "MonitorChangesPendingDeployment";
+const _MCRCS = "MediaConnectRouterContainerSettings";
+const _MCRGS = "MediaConnectRouterGroupSettings";
+const _MCROCM = "MediaConnectRouterOutputConnectionMap";
+const _MCRODS = "MediaConnectRouterOutputDestinationSettings";
+const _MCROS = "MediaConnectRouterOutputSettings";
+const _MCRS = "MediaConnectRouterSettings";
 const _MCS = "MaintenanceCreateSettings";
 const _MCSe = "MediaConnectSettings";
 const _MCSu = "MultiplexContainerSettings";
@@ -1031,7 +1038,9 @@ const _PSSAS = "PauseStateScheduleActionSettings";
 const _PTS = "PassThroughSettings";
 const _Pe = "Period";
 const _Pi = "Pid";
-const _Pip = "Pipelines";
+const _Pip = "Pipeline0";
+const _Pipe = "Pipeline1";
+const _Pipel = "Pipelines";
 const _Po = "Port";
 const _Pos = "Position";
 const _Pr = "Priority";
@@ -1607,6 +1616,7 @@ const _cOh = "channelsOut";
 const _cPG = "channelPlacementGroups";
 const _cPGI = "channelPlacementGroupId";
 const _cRI = "connectionRetryInterval";
+const _cRIo = "connectedRouterInputs";
 const _cS = "containerSettings";
 const _cSG = "channelSecurityGroups";
 const _cSN = "captionSelectorName";
@@ -1954,6 +1964,7 @@ const _lOIWRC = "__listOfInputWhitelistRuleCidr";
 const _lOMA = "__listOfMultiplexAlert";
 const _lOMCF = "__listOfMediaConnectFlow";
 const _lOMCFR = "__listOfMediaConnectFlowRequest";
+const _lOMCRODS = "__listOfMediaConnectRouterOutputDestinationSettings";
 const _lOMOD = "__listOfMultiplexOutputDestination";
 const _lOMPAD = "__listOfMediaPackageAdditionalDestinations";
 const _lOMPODS = "__listOfMediaPackageOutputDestinationSettings";
@@ -2011,6 +2022,9 @@ const _mBin = "minimumBitrate";
 const _mC = "metadataControl";
 const _mCF = "mediaConnectFlows";
 const _mCPD = "monitorChangesPendingDeployment";
+const _mCRGS = "mediaConnectRouterGroupSettings";
+const _mCROS = "mediaConnectRouterOutputSettings";
+const _mCRS = "mediaConnectRouterSettings";
 const _mCS = "mediaConnectSettings";
 const _mCa = "maxCll";
 const _mCan = "manifestCompression";
@@ -2172,7 +2186,9 @@ const _pSS = "pauseStateSettings";
 const _pTS = "passThroughSettings";
 const _pe = "period";
 const _pi = "pid";
-const _pip = "pipelines";
+const _pip = "pipeline0";
+const _pipe = "pipeline1";
+const _pipel = "pipelines";
 const _po = "port";
 const _pos = "position";
 const _pr = "priority";
@@ -4315,6 +4331,31 @@ export var MediaConnectFlowRequest$: StaticStructureSchema = [3, n0, _MCFR,
   [_FAlo],
   [[0, { [_jN]: _fAlo }]]
 ];
+export var MediaConnectRouterContainerSettings$: StaticStructureSchema = [3, n0, _MCRCS,
+  0,
+  [_MS],
+  [[() => M2tsSettings$, { [_jN]: _mS }]]
+];
+export var MediaConnectRouterGroupSettings$: StaticStructureSchema = [3, n0, _MCRGS,
+  0,
+  [_AZ],
+  [[64 | 0, { [_jN]: _aZ }]]
+];
+export var MediaConnectRouterOutputConnectionMap$: StaticStructureSchema = [3, n0, _MCROCM,
+  0,
+  [_Pip, _Pipe],
+  [[0, { [_jN]: _pip }], [0, { [_jN]: _pipe }]]
+];
+export var MediaConnectRouterOutputDestinationSettings$: StaticStructureSchema = [3, n0, _MCRODS,
+  0,
+  [_ETn, _SAe],
+  [[0, { [_jN]: _eTn }], [0, { [_jN]: _sAe }]]
+];
+export var MediaConnectRouterOutputSettings$: StaticStructureSchema = [3, n0, _MCROS,
+  0,
+  [_CS, _De, _CRIo],
+  [[() => MediaConnectRouterContainerSettings$, { [_jN]: _cS }], [() => OutputLocationRef$, { [_jN]: _de }], [() => MediaConnectRouterOutputConnectionMap$, { [_jN]: _cRIo }]], 2
+];
 export var MediaPackageAdditionalDestinations$: StaticStructureSchema = [3, n0, _MPAD,
   0,
   [_De],
@@ -4587,8 +4628,8 @@ export var Output$: StaticStructureSchema = [3, n0, _Ou,
 ];
 export var OutputDestination$: StaticStructureSchema = [3, n0, _ODu,
   0,
-  [_I, _MPSe, _MSul, _Se, _SSr, _LIN],
-  [[0, { [_jN]: _i }], [() => __listOfMediaPackageOutputDestinationSettings, { [_jN]: _mPSe }], [() => MultiplexProgramChannelDestinationSettings$, { [_jN]: _mSul }], [() => __listOfOutputDestinationSettings, { [_jN]: _set }], [() => __listOfSrtOutputDestinationSettings, { [_jN]: _sSr }], [64 | 0, { [_jN]: _lIN }]]
+  [_I, _MPSe, _MSul, _Se, _SSr, _LIN, _MCRS],
+  [[0, { [_jN]: _i }], [() => __listOfMediaPackageOutputDestinationSettings, { [_jN]: _mPSe }], [() => MultiplexProgramChannelDestinationSettings$, { [_jN]: _mSul }], [() => __listOfOutputDestinationSettings, { [_jN]: _set }], [() => __listOfSrtOutputDestinationSettings, { [_jN]: _sSr }], [64 | 0, { [_jN]: _lIN }], [() => __listOfMediaConnectRouterOutputDestinationSettings, { [_jN]: _mCRS }]]
 ];
 export var OutputDestinationSettings$: StaticStructureSchema = [3, n0, _ODS,
   0,
@@ -4602,8 +4643,8 @@ export var OutputGroup$: StaticStructureSchema = [3, n0, _OGu,
 ];
 export var OutputGroupSettings$: StaticStructureSchema = [3, n0, _OGS,
   0,
-  [_AGS, _FCGS, _HGS, _MPGS, _MSGS, _MGSu, _RGS, _UGS, _CIGS, _SGS],
-  [[() => ArchiveGroupSettings$, { [_jN]: _aGS }], [() => FrameCaptureGroupSettings$, { [_jN]: _fCGS }], [() => HlsGroupSettings$, { [_jN]: _hGS }], [() => MediaPackageGroupSettings$, { [_jN]: _mPGS }], [() => MsSmoothGroupSettings$, { [_jN]: _mSGS }], [() => MultiplexGroupSettings$, { [_jN]: _mGSu }], [() => RtmpGroupSettings$, { [_jN]: _rGS }], [() => UdpGroupSettings$, { [_jN]: _uGS }], [() => CmafIngestGroupSettings$, { [_jN]: _cIGS }], [() => SrtGroupSettings$, { [_jN]: _sGS }]]
+  [_AGS, _FCGS, _HGS, _MPGS, _MSGS, _MGSu, _RGS, _UGS, _CIGS, _SGS, _MCRGS],
+  [[() => ArchiveGroupSettings$, { [_jN]: _aGS }], [() => FrameCaptureGroupSettings$, { [_jN]: _fCGS }], [() => HlsGroupSettings$, { [_jN]: _hGS }], [() => MediaPackageGroupSettings$, { [_jN]: _mPGS }], [() => MsSmoothGroupSettings$, { [_jN]: _mSGS }], [() => MultiplexGroupSettings$, { [_jN]: _mGSu }], [() => RtmpGroupSettings$, { [_jN]: _rGS }], [() => UdpGroupSettings$, { [_jN]: _uGS }], [() => CmafIngestGroupSettings$, { [_jN]: _cIGS }], [() => SrtGroupSettings$, { [_jN]: _sGS }], [() => MediaConnectRouterGroupSettings$, { [_jN]: _mCRGS }]]
 ];
 export var OutputLocationRef$: StaticStructureSchema = [3, n0, _OLR,
   0,
@@ -4617,8 +4658,8 @@ export var OutputLockingSettings$: StaticStructureSchema = [3, n0, _OLS,
 ];
 export var OutputSettings$: StaticStructureSchema = [3, n0, _OSutp,
   0,
-  [_AOS, _FCOS, _HOS, _MPOS, _MSOS, _MOS, _ROS, _UOS, _CIOS, _SOS],
-  [[() => ArchiveOutputSettings$, { [_jN]: _aOS }], [() => FrameCaptureOutputSettings$, { [_jN]: _fCOS }], [() => HlsOutputSettings$, { [_jN]: _hOS }], [() => MediaPackageOutputSettings$, { [_jN]: _mPOS }], [() => MsSmoothOutputSettings$, { [_jN]: _mSOS }], [() => MultiplexOutputSettings$, { [_jN]: _mOS }], [() => RtmpOutputSettings$, { [_jN]: _rOS }], [() => UdpOutputSettings$, { [_jN]: _uOS }], [() => CmafIngestOutputSettings$, { [_jN]: _cIOS }], [() => SrtOutputSettings$, { [_jN]: _sOS }]]
+  [_AOS, _FCOS, _HOS, _MPOS, _MSOS, _MOS, _ROS, _UOS, _CIOS, _SOS, _MCROS],
+  [[() => ArchiveOutputSettings$, { [_jN]: _aOS }], [() => FrameCaptureOutputSettings$, { [_jN]: _fCOS }], [() => HlsOutputSettings$, { [_jN]: _hOS }], [() => MediaPackageOutputSettings$, { [_jN]: _mPOS }], [() => MsSmoothOutputSettings$, { [_jN]: _mSOS }], [() => MultiplexOutputSettings$, { [_jN]: _mOS }], [() => RtmpOutputSettings$, { [_jN]: _rOS }], [() => UdpOutputSettings$, { [_jN]: _uOS }], [() => CmafIngestOutputSettings$, { [_jN]: _cIOS }], [() => SrtOutputSettings$, { [_jN]: _sOS }], [() => MediaConnectRouterOutputSettings$, { [_jN]: _mCROS }]]
 ];
 export var PassThroughSettings$: StaticStructureSchema = [3, n0, _PTS,
   0,
@@ -4627,8 +4668,8 @@ export var PassThroughSettings$: StaticStructureSchema = [3, n0, _PTS,
 ];
 export var PauseStateScheduleActionSettings$: StaticStructureSchema = [3, n0, _PSSAS,
   0,
-  [_Pip],
-  [[() => __listOfPipelinePauseStateSettings, { [_jN]: _pip }]]
+  [_Pipel],
+  [[() => __listOfPipelinePauseStateSettings, { [_jN]: _pipel }]]
 ];
 export var PipelineDetail$: StaticStructureSchema = [3, n0, _PDip,
   0,
@@ -5232,8 +5273,8 @@ export var UpdateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CIha, _CIS, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RA, _CEV, _DRr, _ASn, _LCS, _CSG, _ISn],
-  [[0, 1], [() => CdiInputSpecification$, { [_jN]: _cIS }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => EncoderSettings$, { [_jN]: _eSn }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceUpdateSettings$, { [_jN]: _ma }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }], [2, { [_jN]: _dRr }], [() => AnywhereSettings$, { [_jN]: _aSn }], [() => LinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }], [() => InferenceSettings$, { [_jN]: _iSn }]], 1
+  [_CIha, _CIS, _Des, _ESn, _IA, _IS, _LL, _Ma, _N, _RA, _CEV, _DRr, _ASn, _LCS, _CSG, _ISn, _SRS],
+  [[0, 1], [() => CdiInputSpecification$, { [_jN]: _cIS }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => EncoderSettings$, { [_jN]: _eSn }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceUpdateSettings$, { [_jN]: _ma }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [() => ChannelEngineVersionRequest$, { [_jN]: _cEV }], [2, { [_jN]: _dRr }], [() => AnywhereSettings$, { [_jN]: _aSn }], [() => LinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }], [() => InferenceSettings$, { [_jN]: _iSn }], [() => SpecialRouterSettings$, { [_jN]: _sRS }]], 1
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -5674,6 +5715,10 @@ var __listOfMediaConnectFlow: StaticListSchema = [1, n0, _lOMCF,
 ];
 var __listOfMediaConnectFlowRequest: StaticListSchema = [1, n0, _lOMCFR,
   0, [() => MediaConnectFlowRequest$,
+    0]
+];
+var __listOfMediaConnectRouterOutputDestinationSettings: StaticListSchema = [1, n0, _lOMCRODS,
+  0, [() => MediaConnectRouterOutputDestinationSettings$,
     0]
 ];
 var __listOfMediaPackageAdditionalDestinations: StaticListSchema = [1, n0, _lOMPAD,

@@ -72,9 +72,6 @@ import type {
   AvailConfiguration,
   BatchFailedResultModel,
   BatchScheduleActionCreateRequest,
-  BatchScheduleActionCreateResult,
-  BatchScheduleActionDeleteRequest,
-  BatchScheduleActionDeleteResult,
   BatchSuccessfulResultModel,
   CaptionDescription,
   CdiInputSpecification,
@@ -158,6 +155,78 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * List of actions that have been created in the schedule.
+ * @public
+ */
+export interface BatchScheduleActionCreateResult {
+  /**
+   * List of actions that have been created in the schedule.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
+
+/**
+ * A list of schedule actions to delete.
+ * @public
+ */
+export interface BatchScheduleActionDeleteRequest {
+  /**
+   * A list of schedule actions to delete.
+   * @public
+   */
+  ActionNames: string[] | undefined;
+}
+
+/**
+ * List of actions that have been deleted from the schedule.
+ * @public
+ */
+export interface BatchScheduleActionDeleteResult {
+  /**
+   * List of actions that have been deleted from the schedule.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
+
+/**
+ * A request to start resources
+ * @public
+ */
+export interface BatchStartRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchStartResponse
+ * @public
+ */
+export interface BatchStartResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
 
 /**
  * A request to stop resources
@@ -8136,6 +8205,20 @@ export interface UpdateAccountConfigurationResponse {
 }
 
 /**
+ * When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output
+ * is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This
+ * setting object can only by used by that service.
+ * @public
+ */
+export interface SpecialRouterSettings {
+  /**
+   * This is the arn of the MediaConnect Router resource being associated with the MediaLive Input.
+   * @public
+   */
+  RouterArn?: string | undefined;
+}
+
+/**
  * A request to update a channel.
  * @public
  */
@@ -8235,6 +8318,14 @@ export interface UpdateChannelRequest {
    * @public
    */
   InferenceSettings?: InferenceSettings | undefined;
+
+  /**
+   * When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output
+   * is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This
+   * setting object can only by used by that service.
+   * @public
+   */
+  SpecialRouterSettings?: SpecialRouterSettings | undefined;
 }
 
 /**
@@ -8877,20 +8968,6 @@ export interface MulticastSettingsUpdateRequest {
    * @public
    */
   Sources?: MulticastSourceUpdateRequest[] | undefined;
-}
-
-/**
- * When using MediaConnect Router as the source of a MediaLive input there's a special handoff that occurs when a router output
- * is created. This group of settings is set on your behalf by the MediaConnect Router service using this set of settings. This
- * setting object can only by used by that service.
- * @public
- */
-export interface SpecialRouterSettings {
-  /**
-   * This is the arn of the MediaConnect Router resource being associated with the MediaLive Input.
-   * @public
-   */
-  RouterArn?: string | undefined;
 }
 
 /**

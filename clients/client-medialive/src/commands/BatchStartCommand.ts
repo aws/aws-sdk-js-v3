@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import type { BatchStartRequest, BatchStartResponse } from "../models/models_0";
+import type { BatchStartRequest, BatchStartResponse } from "../models/models_1";
 import { BatchStart$ } from "../schemas/schemas_0";
 
 /**

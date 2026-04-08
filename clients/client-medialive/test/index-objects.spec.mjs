@@ -794,6 +794,12 @@ import {
   MaintenanceUpdateSettings$,
   MediaConnectFlow$,
   MediaConnectFlowRequest$,
+  MediaConnectRouterContainerSettings$,
+  MediaConnectRouterGroupSettings$,
+  MediaConnectRouterOutputConnectionMap$,
+  MediaConnectRouterOutputDestinationSettings$,
+  MediaConnectRouterOutputEncryptionType,
+  MediaConnectRouterOutputSettings$,
   MediaLive,
   MediaLiveClient,
   MediaLiveServiceException,
@@ -1863,6 +1869,11 @@ assert(typeof MaintenanceStatus$ === "object");
 assert(typeof MaintenanceUpdateSettings$ === "object");
 assert(typeof MediaConnectFlow$ === "object");
 assert(typeof MediaConnectFlowRequest$ === "object");
+assert(typeof MediaConnectRouterContainerSettings$ === "object");
+assert(typeof MediaConnectRouterGroupSettings$ === "object");
+assert(typeof MediaConnectRouterOutputConnectionMap$ === "object");
+assert(typeof MediaConnectRouterOutputDestinationSettings$ === "object");
+assert(typeof MediaConnectRouterOutputSettings$ === "object");
 assert(typeof MediaPackageAdditionalDestinations$ === "object");
 assert(typeof MediaPackageGroupSettings$ === "object");
 assert(typeof MediaPackageOutputDestinationSettings$ === "object");
@@ -2342,6 +2353,7 @@ assert(typeof M3u8PcrControl === "object");
 assert(typeof M3u8Scte35Behavior === "object");
 assert(typeof M3u8TimedMetadataBehavior === "object");
 assert(typeof MaintenanceDay === "object");
+assert(typeof MediaConnectRouterOutputEncryptionType === "object");
 assert(typeof MotionGraphicsInsertion === "object");
 assert(typeof Mp2CodingMode === "object");
 assert(typeof Mpeg2AdaptiveQuantization === "object");

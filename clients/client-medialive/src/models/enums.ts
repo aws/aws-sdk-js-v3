@@ -1082,6 +1082,20 @@ export type ChannelClass = (typeof ChannelClass)[keyof typeof ChannelClass];
  * @public
  * @enum
  */
+export const MediaConnectRouterOutputEncryptionType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type MediaConnectRouterOutputEncryptionType =
+  (typeof MediaConnectRouterOutputEncryptionType)[keyof typeof MediaConnectRouterOutputEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConnectionMode = {
   CALLER: "CALLER",
   LISTENER: "LISTENER",

@@ -238,6 +238,7 @@ import type {
   M3u8Scte35Behavior,
   M3u8TimedMetadataBehavior,
   MaintenanceDay,
+  MediaConnectRouterOutputEncryptionType,
   Mp2CodingMode,
   Mpeg2AdaptiveQuantization,
   Mpeg2ColorMetadata,
@@ -2062,6 +2063,24 @@ export interface CdiInputSpecification {
 }
 
 /**
+ * MediaConnect Router Output Destination Settings
+ * @public
+ */
+export interface MediaConnectRouterOutputDestinationSettings {
+  /**
+   * Encryption configuration for MediaConnect router. When using SECRETS_MANAGER encryption, you must provide the ARN of the secret used to encrypt data in transit. When using AUTOMATIC encryption, a service-managed secret will be used instead.
+   * @public
+   */
+  EncryptionType?: MediaConnectRouterOutputEncryptionType | undefined;
+
+  /**
+   * ARN of the secret used to encrypt this input. Used only with the SECRETS_MANAGER encryption type.
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
  * MediaPackage Output Destination Settings
  * @public
  */
@@ -2222,6 +2241,12 @@ export interface OutputDestination {
    * @public
    */
   LogicalInterfaceNames?: string[] | undefined;
+
+  /**
+   * Destination settings for a MediaConnect Router output; one destination for each redundant encoder.
+   * @public
+   */
+  MediaConnectRouterSettings?: MediaConnectRouterOutputDestinationSettings[] | undefined;
 }
 
 /**
@@ -5870,6 +5895,60 @@ export interface HlsOutputSettings {
 }
 
 /**
+ * Map of MediaLive pipeline IDs to the ARNs of the MediaConnect Router Inputs to which this Output is connected.
+ * @public
+ */
+export interface MediaConnectRouterOutputConnectionMap {
+  /**
+   * The ARN of the MediaConnect Router Input connected to pipeline 0.
+   * @public
+   */
+  Pipeline0?: string | undefined;
+
+  /**
+   * The ARN of the MediaConnect Router Input connected to pipeline 1.
+   * @public
+   */
+  Pipeline1?: string | undefined;
+}
+
+/**
+ * Media Connect Router Container Settings
+ * @public
+ */
+export interface MediaConnectRouterContainerSettings {
+  /**
+   * M2ts Settings
+   * @public
+   */
+  M2tsSettings?: M2tsSettings | undefined;
+}
+
+/**
+ * Media Connect Router Output Settings
+ * @public
+ */
+export interface MediaConnectRouterOutputSettings {
+  /**
+   * Shows the MediaConnect Router Inputs that are connected to this output. This parameter is purely informative, and editing it will have no effect. To connect or disconnect MediaConnect Router Inputs, go to MediaConnect.
+   * @public
+   */
+  ConnectedRouterInputs?: MediaConnectRouterOutputConnectionMap | undefined;
+
+  /**
+   * Media Connect Router Container Settings
+   * @public
+   */
+  ContainerSettings: MediaConnectRouterContainerSettings | undefined;
+
+  /**
+   * Destination for this MediaConnect Router Output. The referenced OutputDestination must have MediaConnect Router settings configured.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+}
+
+/**
  * Media Package V2 Destination Settings
  * @public
  */
@@ -6248,6 +6327,12 @@ export interface OutputSettings {
    * @public
    */
   SrtOutputSettings?: SrtOutputSettings | undefined;
+
+  /**
+   * Media Connect Router Output Settings
+   * @public
+   */
+  MediaConnectRouterOutputSettings?: MediaConnectRouterOutputSettings | undefined;
 }
 
 /**
@@ -7012,6 +7097,18 @@ export interface HlsGroupSettings {
 }
 
 /**
+ * Media Connect Router Group Settings
+ * @public
+ */
+export interface MediaConnectRouterGroupSettings {
+  /**
+   * The names of the Availability Zones in which to write output to MediaConnect Router.
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+}
+
+/**
  * Media Package V2 Group Settings
  * @public
  */
@@ -7396,6 +7493,12 @@ export interface OutputGroupSettings {
    * @public
    */
   SrtGroupSettings?: SrtGroupSettings | undefined;
+
+  /**
+   * Media Connect Router Group Settings
+   * @public
+   */
+  MediaConnectRouterGroupSettings?: MediaConnectRouterGroupSettings | undefined;
 }
 
 /**
@@ -10218,76 +10321,4 @@ export interface BatchScheduleActionCreateRequest {
    * @public
    */
   ScheduleActions: ScheduleAction[] | undefined;
-}
-
-/**
- * List of actions that have been created in the schedule.
- * @public
- */
-export interface BatchScheduleActionCreateResult {
-  /**
-   * List of actions that have been created in the schedule.
-   * @public
-   */
-  ScheduleActions: ScheduleAction[] | undefined;
-}
-
-/**
- * A list of schedule actions to delete.
- * @public
- */
-export interface BatchScheduleActionDeleteRequest {
-  /**
-   * A list of schedule actions to delete.
-   * @public
-   */
-  ActionNames: string[] | undefined;
-}
-
-/**
- * List of actions that have been deleted from the schedule.
- * @public
- */
-export interface BatchScheduleActionDeleteResult {
-  /**
-   * List of actions that have been deleted from the schedule.
-   * @public
-   */
-  ScheduleActions: ScheduleAction[] | undefined;
-}
-
-/**
- * A request to start resources
- * @public
- */
-export interface BatchStartRequest {
-  /**
-   * List of channel IDs
-   * @public
-   */
-  ChannelIds?: string[] | undefined;
-
-  /**
-   * List of multiplex IDs
-   * @public
-   */
-  MultiplexIds?: string[] | undefined;
-}
-
-/**
- * Placeholder documentation for BatchStartResponse
- * @public
- */
-export interface BatchStartResponse {
-  /**
-   * List of failed operations
-   * @public
-   */
-  Failed?: BatchFailedResultModel[] | undefined;
-
-  /**
-   * List of successful operations
-   * @public
-   */
-  Successful?: BatchSuccessfulResultModel[] | undefined;
 }

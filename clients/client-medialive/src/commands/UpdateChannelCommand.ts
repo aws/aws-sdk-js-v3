@@ -77,6 +77,12 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *       LogicalInterfaceNames: [ // __listOf__string
  *         "STRING_VALUE",
  *       ],
+ *       MediaConnectRouterSettings: [ // __listOfMediaConnectRouterOutputDestinationSettings
+ *         { // MediaConnectRouterOutputDestinationSettings
+ *           EncryptionType: "AUTOMATIC" || "SECRETS_MANAGER",
+ *           SecretArn: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *   ],
  *   EncoderSettings: { // EncoderSettings
@@ -585,6 +591,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *           SrtGroupSettings: { // SrtGroupSettings
  *             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
  *           },
+ *           MediaConnectRouterGroupSettings: { // MediaConnectRouterGroupSettings
+ *             AvailabilityZones: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
  *         },
  *         Outputs: [ // __listOfOutput // required
  *           { // Output
@@ -892,6 +903,76 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *                 Destination: "<OutputLocationRef>", // required
  *                 EncryptionType: "AES128" || "AES192" || "AES256",
  *                 Latency: Number("int"),
+ *               },
+ *               MediaConnectRouterOutputSettings: { // MediaConnectRouterOutputSettings
+ *                 ConnectedRouterInputs: { // MediaConnectRouterOutputConnectionMap
+ *                   Pipeline0: "STRING_VALUE",
+ *                   Pipeline1: "STRING_VALUE",
+ *                 },
+ *                 ContainerSettings: { // MediaConnectRouterContainerSettings
+ *                   M2tsSettings: {
+ *                     AbsentInputAudioBehavior: "DROP" || "ENCODE_SILENCE",
+ *                     Arib: "DISABLED" || "ENABLED",
+ *                     AribCaptionsPid: "STRING_VALUE",
+ *                     AribCaptionsPidControl: "AUTO" || "USE_CONFIGURED",
+ *                     AudioBufferModel: "ATSC" || "DVB",
+ *                     AudioFramesPerPes: Number("int"),
+ *                     AudioPids: "STRING_VALUE",
+ *                     AudioStreamType: "ATSC" || "DVB",
+ *                     Bitrate: Number("int"),
+ *                     BufferModel: "MULTIPLEX" || "NONE",
+ *                     CcDescriptor: "DISABLED" || "ENABLED",
+ *                     DvbNitSettings: {
+ *                       NetworkId: Number("int"), // required
+ *                       NetworkName: "STRING_VALUE", // required
+ *                       RepInterval: Number("int"),
+ *                     },
+ *                     DvbSdtSettings: {
+ *                       OutputSdt: "SDT_FOLLOW" || "SDT_FOLLOW_IF_PRESENT" || "SDT_MANUAL" || "SDT_NONE",
+ *                       RepInterval: Number("int"),
+ *                       ServiceName: "STRING_VALUE",
+ *                       ServiceProviderName: "STRING_VALUE",
+ *                     },
+ *                     DvbSubPids: "STRING_VALUE",
+ *                     DvbTdtSettings: {
+ *                       RepInterval: Number("int"),
+ *                     },
+ *                     DvbTeletextPid: "STRING_VALUE",
+ *                     Ebif: "NONE" || "PASSTHROUGH",
+ *                     EbpAudioInterval: "VIDEO_AND_FIXED_INTERVALS" || "VIDEO_INTERVAL",
+ *                     EbpLookaheadMs: Number("int"),
+ *                     EbpPlacement: "VIDEO_AND_AUDIO_PIDS" || "VIDEO_PID",
+ *                     EcmPid: "STRING_VALUE",
+ *                     EsRateInPes: "EXCLUDE" || "INCLUDE",
+ *                     EtvPlatformPid: "STRING_VALUE",
+ *                     EtvSignalPid: "STRING_VALUE",
+ *                     FragmentTime: Number("double"),
+ *                     Klv: "NONE" || "PASSTHROUGH",
+ *                     KlvDataPids: "STRING_VALUE",
+ *                     NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ *                     NullPacketBitrate: Number("double"),
+ *                     PatInterval: Number("int"),
+ *                     PcrControl: "CONFIGURED_PCR_PERIOD" || "PCR_EVERY_PES_PACKET",
+ *                     PcrPeriod: Number("int"),
+ *                     PcrPid: "STRING_VALUE",
+ *                     PmtInterval: Number("int"),
+ *                     PmtPid: "STRING_VALUE",
+ *                     ProgramNum: Number("int"),
+ *                     RateMode: "CBR" || "VBR",
+ *                     Scte27Pids: "STRING_VALUE",
+ *                     Scte35Control: "NONE" || "PASSTHROUGH",
+ *                     Scte35Pid: "STRING_VALUE",
+ *                     SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
+ *                     SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
+ *                     SegmentationTime: Number("double"),
+ *                     TimedMetadataBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ *                     TimedMetadataPid: "STRING_VALUE",
+ *                     TransportStreamId: Number("int"),
+ *                     VideoPid: "STRING_VALUE",
+ *                     Scte35PrerollPullupMilliseconds: Number("double"),
+ *                   },
+ *                 },
+ *                 Destination: "<OutputLocationRef>", // required
  *               },
  *             },
  *             VideoDescriptionName: "STRING_VALUE",
@@ -1306,6 +1387,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   InferenceSettings: { // InferenceSettings
  *     FeedArn: "STRING_VALUE",
  *   },
+ *   SpecialRouterSettings: { // SpecialRouterSettings
+ *     RouterArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -1351,6 +1435,12 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //         ],
  * //         LogicalInterfaceNames: [ // __listOf__string
  * //           "STRING_VALUE",
+ * //         ],
+ * //         MediaConnectRouterSettings: [ // __listOfMediaConnectRouterOutputDestinationSettings
+ * //           { // MediaConnectRouterOutputDestinationSettings
+ * //             EncryptionType: "AUTOMATIC" || "SECRETS_MANAGER",
+ * //             SecretArn: "STRING_VALUE",
+ * //           },
  * //         ],
  * //       },
  * //     ],
@@ -1865,6 +1955,11 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //             SrtGroupSettings: { // SrtGroupSettings
  * //               InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
  * //             },
+ * //             MediaConnectRouterGroupSettings: { // MediaConnectRouterGroupSettings
+ * //               AvailabilityZones: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
  * //           },
  * //           Outputs: [ // __listOfOutput // required
  * //             { // Output
@@ -2172,6 +2267,76 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //                   Destination: "<OutputLocationRef>", // required
  * //                   EncryptionType: "AES128" || "AES192" || "AES256",
  * //                   Latency: Number("int"),
+ * //                 },
+ * //                 MediaConnectRouterOutputSettings: { // MediaConnectRouterOutputSettings
+ * //                   ConnectedRouterInputs: { // MediaConnectRouterOutputConnectionMap
+ * //                     Pipeline0: "STRING_VALUE",
+ * //                     Pipeline1: "STRING_VALUE",
+ * //                   },
+ * //                   ContainerSettings: { // MediaConnectRouterContainerSettings
+ * //                     M2tsSettings: {
+ * //                       AbsentInputAudioBehavior: "DROP" || "ENCODE_SILENCE",
+ * //                       Arib: "DISABLED" || "ENABLED",
+ * //                       AribCaptionsPid: "STRING_VALUE",
+ * //                       AribCaptionsPidControl: "AUTO" || "USE_CONFIGURED",
+ * //                       AudioBufferModel: "ATSC" || "DVB",
+ * //                       AudioFramesPerPes: Number("int"),
+ * //                       AudioPids: "STRING_VALUE",
+ * //                       AudioStreamType: "ATSC" || "DVB",
+ * //                       Bitrate: Number("int"),
+ * //                       BufferModel: "MULTIPLEX" || "NONE",
+ * //                       CcDescriptor: "DISABLED" || "ENABLED",
+ * //                       DvbNitSettings: {
+ * //                         NetworkId: Number("int"), // required
+ * //                         NetworkName: "STRING_VALUE", // required
+ * //                         RepInterval: Number("int"),
+ * //                       },
+ * //                       DvbSdtSettings: {
+ * //                         OutputSdt: "SDT_FOLLOW" || "SDT_FOLLOW_IF_PRESENT" || "SDT_MANUAL" || "SDT_NONE",
+ * //                         RepInterval: Number("int"),
+ * //                         ServiceName: "STRING_VALUE",
+ * //                         ServiceProviderName: "STRING_VALUE",
+ * //                       },
+ * //                       DvbSubPids: "STRING_VALUE",
+ * //                       DvbTdtSettings: {
+ * //                         RepInterval: Number("int"),
+ * //                       },
+ * //                       DvbTeletextPid: "STRING_VALUE",
+ * //                       Ebif: "NONE" || "PASSTHROUGH",
+ * //                       EbpAudioInterval: "VIDEO_AND_FIXED_INTERVALS" || "VIDEO_INTERVAL",
+ * //                       EbpLookaheadMs: Number("int"),
+ * //                       EbpPlacement: "VIDEO_AND_AUDIO_PIDS" || "VIDEO_PID",
+ * //                       EcmPid: "STRING_VALUE",
+ * //                       EsRateInPes: "EXCLUDE" || "INCLUDE",
+ * //                       EtvPlatformPid: "STRING_VALUE",
+ * //                       EtvSignalPid: "STRING_VALUE",
+ * //                       FragmentTime: Number("double"),
+ * //                       Klv: "NONE" || "PASSTHROUGH",
+ * //                       KlvDataPids: "STRING_VALUE",
+ * //                       NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                       NullPacketBitrate: Number("double"),
+ * //                       PatInterval: Number("int"),
+ * //                       PcrControl: "CONFIGURED_PCR_PERIOD" || "PCR_EVERY_PES_PACKET",
+ * //                       PcrPeriod: Number("int"),
+ * //                       PcrPid: "STRING_VALUE",
+ * //                       PmtInterval: Number("int"),
+ * //                       PmtPid: "STRING_VALUE",
+ * //                       ProgramNum: Number("int"),
+ * //                       RateMode: "CBR" || "VBR",
+ * //                       Scte27Pids: "STRING_VALUE",
+ * //                       Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                       Scte35Pid: "STRING_VALUE",
+ * //                       SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
+ * //                       SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
+ * //                       SegmentationTime: Number("double"),
+ * //                       TimedMetadataBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                       TimedMetadataPid: "STRING_VALUE",
+ * //                       TransportStreamId: Number("int"),
+ * //                       VideoPid: "STRING_VALUE",
+ * //                       Scte35PrerollPullupMilliseconds: Number("double"),
+ * //                     },
+ * //                   },
+ * //                   Destination: "<OutputLocationRef>", // required
  * //                 },
  * //               },
  * //               VideoDescriptionName: "STRING_VALUE",

@@ -86,6 +86,12 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           LogicalInterfaceNames: [ // __listOf__string
  * //             "STRING_VALUE",
  * //           ],
+ * //           MediaConnectRouterSettings: [ // __listOfMediaConnectRouterOutputDestinationSettings
+ * //             { // MediaConnectRouterOutputDestinationSettings
+ * //               EncryptionType: "AUTOMATIC" || "SECRETS_MANAGER",
+ * //               SecretArn: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       EgressEndpoints: [ // __listOfChannelEgressEndpoint
