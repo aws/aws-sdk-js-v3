@@ -54,6 +54,7 @@ export interface ListIngestConfigurationsCommandOutput extends ListIngestConfigu
  * //       participantId: "STRING_VALUE", // required
  * //       state: "STRING_VALUE", // required
  * //       userId: "STRING_VALUE",
+ * //       redundantIngest: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -176,6 +176,12 @@ export interface CreateIngestConfigurationRequest {
   insecureIngest?: boolean | undefined;
 
   /**
+   * <p>Indicates whether redundant ingest is enabled for the ingest configuration. Default: <code>false</code>.</p>
+   * @public
+   */
+  redundantIngest?: boolean | undefined;
+
+  /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
    *          (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
    *          in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
@@ -184,6 +190,24 @@ export interface CreateIngestConfigurationRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>An object representing a redundant ingest credential.</p>
+ * @public
+ */
+export interface RedundantIngestCredential {
+  /**
+   * <p>ID of the participant within the stage.</p>
+   * @public
+   */
+  participantId?: string | undefined;
+
+  /**
+   * <p>Ingest-key value.</p>
+   * @public
+   */
+  streamKey?: string | undefined;
 }
 
 /**
@@ -244,6 +268,20 @@ export interface IngestConfiguration {
    * @public
    */
   userId?: string | undefined;
+
+  /**
+   * <p>Indicates whether redundant ingest is enabled for the ingest configuration.</p>
+   * @public
+   */
+  redundantIngest?: boolean | undefined;
+
+  /**
+   * <p>A list of redundant ingest credentials, present only when <code>redundantIngest</code> is set to <code>true</code>.
+   *           See <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-rtmp-publishing.html#redundant-ingest">Redundant Ingest</a> in
+   * 	  <i>IVS RTMP Publishing</i> for details.</p>
+   * @public
+   */
+  redundantIngestCredentials?: RedundantIngestCredential[] | undefined;
 
   /**
    * <p>Application-provided attributes to to store in the IngestConfiguration and attach to a
@@ -1519,6 +1557,18 @@ export interface Participant {
    * @public
    */
   sourceSessionId?: string | undefined;
+
+  /**
+   * <p>Indicates whether redundant ingest is enabled for the participant.</p>
+   * @public
+   */
+  redundantIngest?: boolean | undefined;
+
+  /**
+   * <p>The participant’s ingest configuration.</p>
+   * @public
+   */
+  ingestConfigurationArn?: string | undefined;
 }
 
 /**
@@ -2013,6 +2063,12 @@ export interface IngestConfigurationSummary {
    * @public
    */
   userId?: string | undefined;
+
+  /**
+   * <p>Indicates whether redundant ingest is enabled for the ingest configuration.</p>
+   * @public
+   */
+  redundantIngest?: boolean | undefined;
 }
 
 /**
@@ -2470,8 +2526,7 @@ export interface ParticipantSummary {
   state?: ParticipantState | undefined;
 
   /**
-   * <p>ISO 8601 timestamp (returned as a string) when the participant first joined the stage
-   *          session.</p>
+   * <p>ISO 8601 timestamp (returned as a string) when the participant first joined the stage session.</p>
    * @public
    */
   firstJoinTime?: Date | undefined;
@@ -2511,6 +2566,18 @@ export interface ParticipantSummary {
    * @public
    */
   sourceSessionId?: string | undefined;
+
+  /**
+   * <p>Indicates whether redundant ingest is enabled for the participant.</p>
+   * @public
+   */
+  redundantIngest?: boolean | undefined;
+
+  /**
+   * <p>The participant’s ingest configuration.</p>
+   * @public
+   */
+  ingestConfigurationArn?: string | undefined;
 }
 
 /**
@@ -2924,43 +2991,43 @@ export interface StartParticipantReplicationRequest {
  */
 export interface StartParticipantReplicationResponse {
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control">Cache-Control</a> in the MDN Web Docs.</p>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
    * @public
    */
   xFrameOptions?: string | undefined;
@@ -3013,43 +3080,43 @@ export interface StopParticipantReplicationRequest {
  */
 export interface StopParticipantReplicationResponse {
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
    * @public
    */
   accessControlAllowOrigin?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
    * @public
    */
   accessControlExposeHeaders?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control">Cache-Control</a> in the MDN Web Docs.</p>
    * @public
    */
   cacheControl?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
    * @public
    */
   contentSecurityPolicy?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
    * @public
    */
   strictTransportSecurity?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
    * @public
    */
   xContentTypeOptions?: string | undefined;
 
   /**
-   * <p/>
+   * <p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
    * @public
    */
   xFrameOptions?: string | undefined;
@@ -3122,6 +3189,12 @@ export interface UpdateIngestConfigurationRequest {
    * @public
    */
   stageArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether redundant ingest is enabled for the ingest configuration. Default: <code>false</code>.</p>
+   * @public
+   */
+  redundantIngest?: boolean | undefined;
 }
 
 /**

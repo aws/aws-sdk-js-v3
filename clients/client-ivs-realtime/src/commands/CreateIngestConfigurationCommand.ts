@@ -45,6 +45,7 @@ export interface CreateIngestConfigurationCommandOutput extends CreateIngestConf
  *   },
  *   ingestProtocol: "RTMP" || "RTMPS", // required
  *   insecureIngest: true || false,
+ *   redundantIngest: true || false,
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -61,6 +62,13 @@ export interface CreateIngestConfigurationCommandOutput extends CreateIngestConf
  * //     participantId: "STRING_VALUE", // required
  * //     state: "STRING_VALUE", // required
  * //     userId: "STRING_VALUE",
+ * //     redundantIngest: true || false,
+ * //     redundantIngestCredentials: [ // RedundantIngestCredentials
+ * //       { // RedundantIngestCredential
+ * //         participantId: "STRING_VALUE",
+ * //         streamKey: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     attributes: { // ParticipantAttributes
  * //       "<keys>": "STRING_VALUE",
  * //     },

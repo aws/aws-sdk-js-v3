@@ -51,6 +51,13 @@ export interface GetIngestConfigurationCommandOutput extends GetIngestConfigurat
  * //     participantId: "STRING_VALUE", // required
  * //     state: "STRING_VALUE", // required
  * //     userId: "STRING_VALUE",
+ * //     redundantIngest: true || false,
+ * //     redundantIngestCredentials: [ // RedundantIngestCredentials
+ * //       { // RedundantIngestCredential
+ * //         participantId: "STRING_VALUE",
+ * //         streamKey: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     attributes: { // ParticipantAttributes
  * //       "<keys>": "STRING_VALUE",
  * //     },

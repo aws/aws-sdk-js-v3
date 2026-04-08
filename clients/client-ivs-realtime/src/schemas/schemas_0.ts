@@ -142,6 +142,8 @@ const _PTL = "ParticipantTokenList";
 const _PTS = "ParticipantTokenString";
 const _PV = "PendingVerification";
 const _RC = "RecordingConfiguration";
+const _RIC = "RedundantIngestCredential";
+const _RICe = "RedundantIngestCredentials";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Stage";
 const _SC = "StorageConfiguration";
@@ -245,6 +247,7 @@ const _hQ = "httpQuery";
 const _ht = "http";
 const _i = "id";
 const _iC = "ingestConfiguration";
+const _iCA = "ingestConfigurationArn";
 const _iCn = "ingestConfigurations";
 const _iI = "insecureIngest";
 const _iN = "ispName";
@@ -282,6 +285,8 @@ const _pu = "published";
 const _r = "reason";
 const _rA = "resourceArn";
 const _rC = "recordingConfiguration";
+const _rI = "redundantIngest";
+const _rIC = "redundantIngestCredentials";
 const _rM = "recordingMode";
 const _rP = "recordingPrefix";
 const _rPI = "remoteParticipantId";
@@ -458,8 +463,8 @@ export var CreateEncoderConfigurationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _CICR,
   0,
-  [_iP, _n, _sA, _uI, _at, _iI, _t],
-  [0, 0, 0, 0, 128 | 0, 2, 128 | 0], 1
+  [_iP, _n, _sA, _uI, _at, _iI, _rI, _t],
+  [0, 0, 0, 0, 128 | 0, 2, 2, 128 | 0], 1
 ];
 export var CreateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRr,
   0,
@@ -693,13 +698,13 @@ export var ImportPublicKeyResponse$: StaticStructureSchema = [3, n0, _IPKRm,
 ];
 export var IngestConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_a, _iP, _sK, _sA, _pI, _st, _n, _uI, _at, _t],
-  [0, 0, [() => StreamKey, 0], 0, 0, 0, 0, 0, 128 | 0, 128 | 0], 6
+  [_a, _iP, _sK, _sA, _pI, _st, _n, _uI, _rI, _rIC, _at, _t],
+  [0, 0, [() => StreamKey, 0], 0, 0, 0, 0, 0, 2, [() => RedundantIngestCredentials, 0], 128 | 0, 128 | 0], 6
 ];
 export var IngestConfigurationSummary$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_a, _iP, _sA, _pI, _st, _n, _uI],
-  [0, 0, 0, 0, 0, 0, 0], 5
+  [_a, _iP, _sA, _pI, _st, _n, _uI, _rI],
+  [0, 0, 0, 0, 0, 0, 0, 2], 5
 ];
 export var LayoutConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -818,8 +823,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var Participant$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pI, _uI, _st, _fJT, _at, _pu, _iN, _oN, _oV, _bN, _bV, _sV, _rSBN, _rSP, _rS, _pr, _rT, _rSe, _sSA, _sSI],
-  [0, 0, 0, 5, 128 | 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_pI, _uI, _st, _fJT, _at, _pu, _iN, _oN, _oV, _bN, _bV, _sV, _rSBN, _rSP, _rS, _pr, _rT, _rSe, _sSA, _sSI, _rI, _iCA],
+  [0, 0, 0, 5, 128 | 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0]
 ];
 export var ParticipantRecordingHlsConfiguration$: StaticStructureSchema = [3, n0, _PRHC,
   0,
@@ -833,8 +838,8 @@ export var ParticipantReplica$: StaticStructureSchema = [3, n0, _PR,
 ];
 export var ParticipantSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_pI, _uI, _st, _fJT, _pu, _rS, _rT, _rSe, _sSA, _sSI],
-  [0, 0, 0, 5, 2, 0, 0, 0, 0, 0]
+  [_pI, _uI, _st, _fJT, _pu, _rS, _rT, _rSe, _sSA, _sSI, _rI, _iCA],
+  [0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 2, 0]
 ];
 export var ParticipantThumbnailConfiguration$: StaticStructureSchema = [3, n0, _PTC,
   0,
@@ -870,6 +875,11 @@ export var RecordingConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_hC, _fo],
   [() => CompositionRecordingHlsConfiguration$, 0]
+];
+export var RedundantIngestCredential$: StaticStructureSchema = [3, n0, _RIC,
+  0,
+  [_pI, _sK],
+  [0, [() => StreamKey, 0]]
 ];
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
@@ -983,8 +993,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _UICR,
   0,
-  [_a, _sA],
-  [0, 0], 1
+  [_a, _sA, _rI],
+  [0, 0, 2], 1
 ];
 export var UpdateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _UICRp,
   0,
@@ -1048,6 +1058,10 @@ var ParticipantTokenList: StaticListSchema = [1, n0, _PTL,
 ];
 var PublicKeyList: StaticListSchema = [1, n0, _PKL,
   0, () => PublicKeySummary$
+];
+var RedundantIngestCredentials: StaticListSchema = [1, n0, _RICe,
+  0, [() => RedundantIngestCredential$,
+    0]
 ];
 var StageSessionList: StaticListSchema = [1, n0, _SSL,
   0, () => StageSessionSummary$

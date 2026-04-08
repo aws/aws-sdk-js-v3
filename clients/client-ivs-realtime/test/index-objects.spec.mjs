@@ -188,6 +188,7 @@ import {
   PublicKeySummary$,
   RecordingConfiguration$,
   RecordingConfigurationFormat,
+  RedundantIngestCredential$,
   ReplicationState,
   ReplicationType,
   ResourceNotFoundException,
@@ -419,6 +420,7 @@ assert(typeof PipConfiguration$ === "object");
 assert(typeof PublicKey$ === "object");
 assert(typeof PublicKeySummary$ === "object");
 assert(typeof RecordingConfiguration$ === "object");
+assert(typeof RedundantIngestCredential$ === "object");
 assert(typeof S3DestinationConfiguration$ === "object");
 assert(typeof S3Detail$ === "object");
 assert(typeof S3StorageConfiguration$ === "object");

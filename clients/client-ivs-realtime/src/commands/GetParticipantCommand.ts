@@ -67,6 +67,8 @@ export interface GetParticipantCommandOutput extends GetParticipantResponse, __M
  * //     replicationState: "STRING_VALUE",
  * //     sourceStageArn: "STRING_VALUE",
  * //     sourceSessionId: "STRING_VALUE",
+ * //     redundantIngest: true || false,
+ * //     ingestConfigurationArn: "STRING_VALUE",
  * //   },
  * // };
  *

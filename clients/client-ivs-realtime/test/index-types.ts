@@ -231,6 +231,7 @@ export type {
   PublicKey,
   PublicKeySummary,
   RecordingConfiguration,
+  RedundantIngestCredential,
   S3DestinationConfiguration,
   S3Detail,
   S3StorageConfiguration,

@@ -39,6 +39,7 @@ export interface UpdateIngestConfigurationCommandOutput extends UpdateIngestConf
  * const input = { // UpdateIngestConfigurationRequest
  *   arn: "STRING_VALUE", // required
  *   stageArn: "STRING_VALUE",
+ *   redundantIngest: true || false,
  * };
  * const command = new UpdateIngestConfigurationCommand(input);
  * const response = await client.send(command);
@@ -52,6 +53,13 @@ export interface UpdateIngestConfigurationCommandOutput extends UpdateIngestConf
  * //     participantId: "STRING_VALUE", // required
  * //     state: "STRING_VALUE", // required
  * //     userId: "STRING_VALUE",
+ * //     redundantIngest: true || false,
+ * //     redundantIngestCredentials: [ // RedundantIngestCredentials
+ * //       { // RedundantIngestCredential
+ * //         participantId: "STRING_VALUE",
+ * //         streamKey: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     attributes: { // ParticipantAttributes
  * //       "<keys>": "STRING_VALUE",
  * //     },
