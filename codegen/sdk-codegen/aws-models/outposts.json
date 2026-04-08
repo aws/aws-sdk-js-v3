@@ -474,6 +474,16 @@
         }
       }
     },
+    "com.amazonaws.outposts#AutoFillIdempotencyToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
     "com.amazonaws.outposts#AvailabilityZone": {
       "type": "string",
       "traits": {
@@ -1405,6 +1415,111 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.outposts#CreateRenewal": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#CreateRenewalInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#CreateRenewalOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a renewal contract for the specified Outpost.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/renewals",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#CreateRenewalInput": {
+      "type": "structure",
+      "members": {
+        "PaymentOption": {
+          "target": "com.amazonaws.outposts#PaymentOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment option.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PaymentTerm": {
+          "target": "com.amazonaws.outposts#PaymentTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment term.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutpostIdentifier": {
+          "target": "com.amazonaws.outposts#OutpostIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID or ARN of the Outpost.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.outposts#AutoFillIdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n      request.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#CreateRenewalOutput": {
+      "type": "structure",
+      "members": {
+        "PaymentOption": {
+          "target": "com.amazonaws.outposts#PaymentOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment option.</p>"
+          }
+        },
+        "PaymentTerm": {
+          "target": "com.amazonaws.outposts#PaymentTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment term.</p>"
+          }
+        },
+        "OutpostId": {
+          "target": "com.amazonaws.outposts#OutpostIdOnly",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Outpost.</p>"
+          }
+        },
+        "UpfrontPrice": {
+          "target": "com.amazonaws.outposts#NullableFloat",
+          "traits": {
+            "smithy.api#documentation": "<p>The upfront price of the renewal.</p>"
+          }
+        },
+        "MonthlyRecurringPrice": {
+          "target": "com.amazonaws.outposts#NullableFloat",
+          "traits": {
+            "smithy.api#documentation": "<p>The monthly recurring price of the renewal.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.outposts#CreateSite": {
       "type": "operation",
       "input": {
@@ -2168,7 +2283,19 @@
         "ContractEndDate": {
           "target": "com.amazonaws.outposts#String",
           "traits": {
-            "smithy.api#documentation": "<p>The date the current contract term ends for the specified Outpost. You must start the renewal or\n      decommission process at least 5 business days before the current term for your\n      Amazon Web Services Outposts ends. Failing to complete these steps at least 5 business days before the\n      current term ends might result in unanticipated charges.</p>"
+            "smithy.api#documentation": "<p>The date the current contract term ends for the specified Outpost. You must start the\n      renewal or decommission process at least 5 business days before the current term for your\n      Amazon Web Services Outposts ends. Failing to complete these steps at least 5 business days before the current term\n      ends might result in unanticipated charges.</p>"
+          }
+        },
+        "PaymentTerm": {
+          "target": "com.amazonaws.outposts#PaymentTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment term.</p>"
+          }
+        },
+        "PaymentOption": {
+          "target": "com.amazonaws.outposts#PaymentOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment option.</p>"
           }
         }
       },
@@ -2378,6 +2505,73 @@
         },
         "NextToken": {
           "target": "com.amazonaws.outposts#Token"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#GetRenewalPricing": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#GetRenewalPricingInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#GetRenewalPricingOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets all available renewal pricing options for the specified Outpost.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/outpost/{OutpostIdentifier}/renewal-pricing",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetRenewalPricingInput": {
+      "type": "structure",
+      "members": {
+        "OutpostIdentifier": {
+          "target": "com.amazonaws.outposts#OutpostIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID or ARN of the Outpost.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#GetRenewalPricingOutput": {
+      "type": "structure",
+      "members": {
+        "PricingResult": {
+          "target": "com.amazonaws.outposts#PricingResult",
+          "traits": {
+            "smithy.api#documentation": "<p>The result of the pricing request.</p>"
+          }
+        },
+        "PricingOptions": {
+          "target": "com.amazonaws.outposts#PricingOptionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The pricing options for the specified Outpost.</p>"
+          }
         }
       },
       "traits": {
@@ -3813,6 +4007,9 @@
     "com.amazonaws.outposts#NullableDouble": {
       "type": "double"
     },
+    "com.amazonaws.outposts#NullableFloat": {
+      "type": "float"
+    },
     "com.amazonaws.outposts#OpticalStandard": {
       "type": "enum",
       "members": {
@@ -4267,6 +4464,9 @@
           "target": "com.amazonaws.outposts#CreateOutpost"
         },
         {
+          "target": "com.amazonaws.outposts#CreateRenewal"
+        },
+        {
           "target": "com.amazonaws.outposts#CreateSite"
         },
         {
@@ -4298,6 +4498,9 @@
         },
         {
           "target": "com.amazonaws.outposts#GetOutpostSupportedInstanceTypes"
+        },
+        {
+          "target": "com.amazonaws.outposts#GetRenewalPricing"
         },
         {
           "target": "com.amazonaws.outposts#GetSite"
@@ -5488,8 +5691,62 @@
         }
       }
     },
+    "com.amazonaws.outposts#PricingOption": {
+      "type": "structure",
+      "members": {
+        "PricingType": {
+          "target": "com.amazonaws.outposts#QuotePricingType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of pricing model.</p>"
+          }
+        },
+        "SubscriptionPricingDetails": {
+          "target": "com.amazonaws.outposts#SubscriptionPricingDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The subscription pricing details for this pricing option.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A pricing option for the specified Outpost.</p>"
+      }
+    },
+    "com.amazonaws.outposts#PricingOptionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#PricingOption"
+      }
+    },
+    "com.amazonaws.outposts#PricingResult": {
+      "type": "enum",
+      "members": {
+        "PRICED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRICED"
+          }
+        },
+        "UNABLE_TO_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNABLE_TO_PRICE"
+          }
+        }
+      }
+    },
     "com.amazonaws.outposts#Quantity": {
       "type": "string"
+    },
+    "com.amazonaws.outposts#QuotePricingType": {
+      "type": "enum",
+      "members": {
+        "SUBSCRIPTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBSCRIPTION"
+          }
+        }
+      }
     },
     "com.amazonaws.outposts#RackElevation": {
       "type": "float",
@@ -6191,7 +6448,7 @@
         "SubscriptionStatus": {
           "target": "com.amazonaws.outposts#SubscriptionStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The status of subscription which can be one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>INACTIVE</b> - Subscription requests that are\n          inactive.</p>\n            </li>\n            <li>\n               <p>\n                  <b>ACTIVE</b> - Subscription requests that are in progress\n          and have an end date in the future.</p>\n            </li>\n            <li>\n               <p>\n                  <b>CANCELLED</b> - Subscription requests that are\n          cancelled.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The status of subscription which can be one of the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>INACTIVE</b> - Subscription requests that are\n          inactive.</p>\n            </li>\n            <li>\n               <p>\n                  <b>ACTIVE</b> - Subscription requests that are in progress\n          and have an end date in the future.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PENDING</b> - Subscription has been created but billing\n          has not yet commenced because the subscription begin date has not been reached.</p>\n            </li>\n            <li>\n               <p>\n                  <b>CANCELLED</b> - Subscription requests that are\n          cancelled.</p>\n            </li>\n         </ul>"
           }
         },
         "OrderIds": {
@@ -6235,6 +6492,38 @@
         "target": "com.amazonaws.outposts#Subscription"
       }
     },
+    "com.amazonaws.outposts#SubscriptionPricingDetails": {
+      "type": "structure",
+      "members": {
+        "PaymentOption": {
+          "target": "com.amazonaws.outposts#PaymentOption",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment option.</p>"
+          }
+        },
+        "PaymentTerm": {
+          "target": "com.amazonaws.outposts#PaymentTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment term.</p>"
+          }
+        },
+        "UpfrontPrice": {
+          "target": "com.amazonaws.outposts#NullableFloat",
+          "traits": {
+            "smithy.api#documentation": "<p>The upfront price.</p>"
+          }
+        },
+        "MonthlyRecurringPrice": {
+          "target": "com.amazonaws.outposts#NullableFloat",
+          "traits": {
+            "smithy.api#documentation": "<p>The monthly recurring price.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The pricing details for a subscription.</p>"
+      }
+    },
     "com.amazonaws.outposts#SubscriptionStatus": {
       "type": "enum",
       "members": {
@@ -6242,6 +6531,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
         },
         "INACTIVE": {

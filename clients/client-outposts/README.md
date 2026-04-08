@@ -213,6 +213,13 @@ CreateOutpost
 </details>
 <details>
 <summary>
+CreateRenewal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/CreateRenewalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/CreateRenewalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/CreateRenewalCommandOutput/)
+</details>
+<details>
+<summary>
 CreateSite
 </summary>
 
@@ -287,6 +294,13 @@ GetOutpostSupportedInstanceTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/GetOutpostSupportedInstanceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetOutpostSupportedInstanceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetOutpostSupportedInstanceTypesCommandOutput/)
+</details>
+<details>
+<summary>
+GetRenewalPricing
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/GetRenewalPricingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetRenewalPricingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetRenewalPricingCommandOutput/)
 </details>
 <details>
 <summary>

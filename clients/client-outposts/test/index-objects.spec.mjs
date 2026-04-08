@@ -40,6 +40,10 @@ import {
   CreateOutpostCommand,
   CreateOutpostInput$,
   CreateOutpostOutput$,
+  CreateRenewal$,
+  CreateRenewalCommand,
+  CreateRenewalInput$,
+  CreateRenewalOutput$,
   CreateSite$,
   CreateSiteCommand,
   CreateSiteInput$,
@@ -87,6 +91,10 @@ import {
   GetOutpostSupportedInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesInput$,
   GetOutpostSupportedInstanceTypesOutput$,
+  GetRenewalPricing$,
+  GetRenewalPricingCommand,
+  GetRenewalPricingInput$,
+  GetRenewalPricingOutput$,
   GetSite$,
   GetSiteAddress$,
   GetSiteAddressCommand,
@@ -169,6 +177,9 @@ import {
   PowerDrawKva,
   PowerFeedDrop,
   PowerPhase,
+  PricingOption$,
+  PricingResult,
+  QuotePricingType,
   RackPhysicalProperties$,
   ResourceType,
   ServiceQuotaExceededException,
@@ -189,6 +200,7 @@ import {
   StartOutpostDecommissionInput$,
   StartOutpostDecommissionOutput$,
   Subscription$,
+  SubscriptionPricingDetails$,
   SubscriptionStatus,
   SubscriptionType,
   SupportedHardwareType,
@@ -236,6 +248,8 @@ assert(typeof CreateOrderCommand === "function");
 assert(typeof CreateOrder$ === "object");
 assert(typeof CreateOutpostCommand === "function");
 assert(typeof CreateOutpost$ === "object");
+assert(typeof CreateRenewalCommand === "function");
+assert(typeof CreateRenewal$ === "object");
 assert(typeof CreateSiteCommand === "function");
 assert(typeof CreateSite$ === "object");
 assert(typeof DeleteOutpostCommand === "function");
@@ -258,6 +272,8 @@ assert(typeof GetOutpostInstanceTypesCommand === "function");
 assert(typeof GetOutpostInstanceTypes$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesCommand === "function");
 assert(typeof GetOutpostSupportedInstanceTypes$ === "object");
+assert(typeof GetRenewalPricingCommand === "function");
+assert(typeof GetRenewalPricing$ === "object");
 assert(typeof GetSiteCommand === "function");
 assert(typeof GetSite$ === "object");
 assert(typeof GetSiteAddressCommand === "function");
@@ -318,6 +334,8 @@ assert(typeof CreateOrderInput$ === "object");
 assert(typeof CreateOrderOutput$ === "object");
 assert(typeof CreateOutpostInput$ === "object");
 assert(typeof CreateOutpostOutput$ === "object");
+assert(typeof CreateRenewalInput$ === "object");
+assert(typeof CreateRenewalOutput$ === "object");
 assert(typeof CreateSiteInput$ === "object");
 assert(typeof CreateSiteOutput$ === "object");
 assert(typeof DeleteOutpostInput$ === "object");
@@ -341,6 +359,8 @@ assert(typeof GetOutpostInstanceTypesOutput$ === "object");
 assert(typeof GetOutpostOutput$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesInput$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesOutput$ === "object");
+assert(typeof GetRenewalPricingInput$ === "object");
+assert(typeof GetRenewalPricingOutput$ === "object");
 assert(typeof GetSiteAddressInput$ === "object");
 assert(typeof GetSiteAddressOutput$ === "object");
 assert(typeof GetSiteInput$ === "object");
@@ -372,6 +392,7 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Order$ === "object");
 assert(typeof OrderSummary$ === "object");
 assert(typeof Outpost$ === "object");
+assert(typeof PricingOption$ === "object");
 assert(typeof RackPhysicalProperties$ === "object");
 assert(typeof ShipmentInformation$ === "object");
 assert(typeof Site$ === "object");
@@ -382,6 +403,7 @@ assert(typeof StartConnectionResponse$ === "object");
 assert(typeof StartOutpostDecommissionInput$ === "object");
 assert(typeof StartOutpostDecommissionOutput$ === "object");
 assert(typeof Subscription$ === "object");
+assert(typeof SubscriptionPricingDetails$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -418,6 +440,8 @@ assert(typeof PowerConnector === "object");
 assert(typeof PowerDrawKva === "object");
 assert(typeof PowerFeedDrop === "object");
 assert(typeof PowerPhase === "object");
+assert(typeof PricingResult === "object");
+assert(typeof QuotePricingType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ShipmentCarrier === "object");
 assert(typeof SubscriptionStatus === "object");

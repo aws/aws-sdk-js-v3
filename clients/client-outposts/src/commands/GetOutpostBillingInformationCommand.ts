@@ -49,7 +49,7 @@ export interface GetOutpostBillingInformationCommandOutput extends GetOutpostBil
  * //     { // Subscription
  * //       SubscriptionId: "STRING_VALUE",
  * //       SubscriptionType: "ORIGINAL" || "RENEWAL" || "CAPACITY_INCREASE",
- * //       SubscriptionStatus: "ACTIVE" || "INACTIVE" || "CANCELLED",
+ * //       SubscriptionStatus: "ACTIVE" || "PENDING" || "INACTIVE" || "CANCELLED",
  * //       OrderIds: [ // OrderIdList
  * //         "STRING_VALUE",
  * //       ],
@@ -60,6 +60,8 @@ export interface GetOutpostBillingInformationCommandOutput extends GetOutpostBil
  * //     },
  * //   ],
  * //   ContractEndDate: "STRING_VALUE",
+ * //   PaymentTerm: "THREE_YEARS" || "ONE_YEAR" || "FIVE_YEARS",
+ * //   PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT",
  * // };
  *
  * ```

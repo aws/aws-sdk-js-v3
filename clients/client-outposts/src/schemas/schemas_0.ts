@@ -61,10 +61,13 @@ const _COr = "CreateOrder";
 const _COre = "CreateOutpost";
 const _CPK = "ClientPublicKey";
 const _CPN = "ContactPhoneNumber";
+const _CR = "CreateRenewal";
+const _CRI = "CreateRenewalInput";
+const _CRO = "CreateRenewalOutput";
 const _CS = "CreateSite";
 const _CSI = "CreateSiteInput";
 const _CSO = "CreateSiteOutput";
-const _CT = "CapacityTasks";
+const _CT = "ClientToken";
 const _CTA = "ClientTunnelAddress";
 const _CTF = "CapacityTaskFailure";
 const _CTI = "CapacityTaskId";
@@ -72,6 +75,7 @@ const _CTL = "CapacityTaskList";
 const _CTS = "CapacityTaskSummary";
 const _CTSF = "CapacityTaskStatusFilter";
 const _CTSa = "CapacityTaskStatus";
+const _CTa = "CapacityTasks";
 const _Co = "Count";
 const _D = "Description";
 const _DO = "DeleteOutpost";
@@ -115,6 +119,9 @@ const _GOSIT = "GetOutpostSupportedInstanceTypes";
 const _GOSITI = "GetOutpostSupportedInstanceTypesInput";
 const _GOSITO = "GetOutpostSupportedInstanceTypesOutput";
 const _GOe = "GetOutpost";
+const _GRP = "GetRenewalPricing";
+const _GRPI = "GetRenewalPricingInput";
+const _GRPO = "GetRenewalPricingOutput";
 const _GS = "GetSite";
 const _GSA = "GetSiteAddress";
 const _GSAI = "GetSiteAddressInput";
@@ -222,8 +229,13 @@ const _PK = "PowerKva";
 const _PLII = "PreviousLineItemId";
 const _PO = "PaymentOption";
 const _POI = "PreviousOrderId";
+const _POL = "PricingOptionList";
+const _POr = "PricingOptions";
+const _POri = "PricingOption";
 const _PP = "PowerPhase";
+const _PR = "PricingResult";
 const _PT = "PaymentTerm";
+const _PTr = "PricingType";
 const _Q = "Quantity";
 const _R = "Reason";
 const _RA = "ResourceArn";
@@ -254,6 +266,7 @@ const _SOD = "StartOutpostDecommission";
 const _SODI = "StartOutpostDecommissionInput";
 const _SODO = "StartOutpostDecommissionOutput";
 const _SOR = "StateOrRegion";
+const _SPD = "SubscriptionPricingDetails";
 const _SPK = "ServerPublicKey";
 const _SQEE = "ServiceQuotaExceededException";
 const _SS = "SupportedStorage";
@@ -476,6 +489,16 @@ export var CreateOutpostOutput$: StaticStructureSchema = [3, n0, _COOre,
   [_Ou],
   [() => Outpost$]
 ];
+export var CreateRenewalInput$: StaticStructureSchema = [3, n0, _CRI,
+  0,
+  [_PO, _PT, _OI, _CT],
+  [0, 0, 0, [0, 4]], 3
+];
+export var CreateRenewalOutput$: StaticStructureSchema = [3, n0, _CRO,
+  0,
+  [_PO, _PT, _OIu, _UP, _MRP],
+  [0, 0, 0, 1, 1]
+];
 export var CreateSiteInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_N, _D, _No, _Ta, _OA, _SA, _RPP],
@@ -558,8 +581,8 @@ export var GetOutpostBillingInformationInput$: StaticStructureSchema = [3, n0, _
 ];
 export var GetOutpostBillingInformationOutput$: StaticStructureSchema = [3, n0, _GOBIO,
   0,
-  [_NT, _Su, _CED],
-  [0, () => SubscriptionList, 0]
+  [_NT, _Su, _CED, _PT, _PO],
+  [0, () => SubscriptionList, 0, 0, 0]
 ];
 export var GetOutpostInput$: StaticStructureSchema = [3, n0, _GOIe,
   0,
@@ -590,6 +613,16 @@ export var GetOutpostSupportedInstanceTypesOutput$: StaticStructureSchema = [3, 
   0,
   [_ITn, _NT],
   [() => InstanceTypeListDefinition, 0]
+];
+export var GetRenewalPricingInput$: StaticStructureSchema = [3, n0, _GRPI,
+  0,
+  [_OI],
+  [[0, 1]], 1
+];
+export var GetRenewalPricingOutput$: StaticStructureSchema = [3, n0, _GRPO,
+  0,
+  [_PR, _POr],
+  [0, () => PricingOptionList]
 ];
 export var GetSiteAddressInput$: StaticStructureSchema = [3, n0, _GSAI,
   0,
@@ -678,7 +711,7 @@ export var ListCapacityTasksInput$: StaticStructureSchema = [3, n0, _LCTI,
 ];
 export var ListCapacityTasksOutput$: StaticStructureSchema = [3, n0, _LCTO,
   0,
-  [_CT, _NT],
+  [_CTa, _NT],
   [() => CapacityTaskList, 0]
 ];
 export var ListCatalogItemsInput$: StaticStructureSchema = [3, n0, _LCII,
@@ -746,6 +779,11 @@ export var Outpost$: StaticStructureSchema = [3, n0, _Ou,
   [_OIu, _OIw, _OAu, _SI, _N, _D, _LCS, _AZ, _AZI, _Ta, _SAi, _SHT],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 0]
 ];
+export var PricingOption$: StaticStructureSchema = [3, n0, _POri,
+  0,
+  [_PTr, _SPD],
+  [0, () => SubscriptionPricingDetails$]
+];
 export var RackPhysicalProperties$: StaticStructureSchema = [3, n0, _RPP,
   0,
   [_PDK, _PP, _PCo, _PFD, _UG, _UC, _FOCT, _OSp, _MSWL],
@@ -795,6 +833,11 @@ export var Subscription$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_SIu, _ST, _SSu, _OIrd, _BD, _ED, _MRP, _UP],
   [0, 0, 0, 64 | 0, 4, 4, 1, 1]
+];
+export var SubscriptionPricingDetails$: StaticStructureSchema = [3, n0, _SPD,
+  0,
+  [_PO, _PT, _UP, _MRP],
+  [0, 0, 1, 1]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -915,6 +958,9 @@ var OutpostInstanceTypeList = 64 | 0;
 var outpostListDefinition: StaticListSchema = [1, n0, _oLD,
   0, () => Outpost$
 ];
+var PricingOptionList: StaticListSchema = [1, n0, _POL,
+  0, () => PricingOption$
+];
 var RequestedInstancePools: StaticListSchema = [1, n0, _RIP,
   0, () => InstanceTypeCapacity$
 ];
@@ -942,6 +988,9 @@ export var CreateOrder$: StaticOperationSchema = [9, n0, _COr,
 ];
 export var CreateOutpost$: StaticOperationSchema = [9, n0, _COre,
   { [_h]: ["POST", "/outposts", 200] }, () => CreateOutpostInput$, () => CreateOutpostOutput$
+];
+export var CreateRenewal$: StaticOperationSchema = [9, n0, _CR,
+  { [_h]: ["POST", "/renewals", 200] }, () => CreateRenewalInput$, () => CreateRenewalOutput$
 ];
 export var CreateSite$: StaticOperationSchema = [9, n0, _CS,
   { [_h]: ["POST", "/sites", 200] }, () => CreateSiteInput$, () => CreateSiteOutput$
@@ -975,6 +1024,9 @@ export var GetOutpostInstanceTypes$: StaticOperationSchema = [9, n0, _GOIT,
 ];
 export var GetOutpostSupportedInstanceTypes$: StaticOperationSchema = [9, n0, _GOSIT,
   { [_h]: ["GET", "/outposts/{OutpostIdentifier}/supportedInstanceTypes", 200] }, () => GetOutpostSupportedInstanceTypesInput$, () => GetOutpostSupportedInstanceTypesOutput$
+];
+export var GetRenewalPricing$: StaticOperationSchema = [9, n0, _GRP,
+  { [_h]: ["GET", "/outpost/{OutpostIdentifier}/renewal-pricing", 200] }, () => GetRenewalPricingInput$, () => GetRenewalPricingOutput$
 ];
 export var GetSite$: StaticOperationSchema = [9, n0, _GS,
   { [_h]: ["GET", "/sites/{SiteId}", 200] }, () => GetSiteInput$, () => GetSiteOutput$

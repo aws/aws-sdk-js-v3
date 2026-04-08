@@ -23,6 +23,8 @@ import type {
   PowerDrawKva,
   PowerFeedDrop,
   PowerPhase,
+  PricingResult,
+  QuotePricingType,
   ShipmentCarrier,
   SubscriptionStatus,
   SubscriptionType,
@@ -893,6 +895,71 @@ export interface CreateOutpostOutput {
 }
 
 /**
+ * @public
+ */
+export interface CreateRenewalInput {
+  /**
+   * <p>The payment option.</p>
+   * @public
+   */
+  PaymentOption: PaymentOption | undefined;
+
+  /**
+   * <p>The payment term.</p>
+   * @public
+   */
+  PaymentTerm: PaymentTerm | undefined;
+
+  /**
+   * <p>The ID or ARN of the Outpost.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRenewalOutput {
+  /**
+   * <p>The payment option.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
+
+  /**
+   * <p>The payment term.</p>
+   * @public
+   */
+  PaymentTerm?: PaymentTerm | undefined;
+
+  /**
+   * <p>The ID of the Outpost.</p>
+   * @public
+   */
+  OutpostId?: string | undefined;
+
+  /**
+   * <p>The upfront price of the renewal.</p>
+   * @public
+   */
+  UpfrontPrice?: number | undefined;
+
+  /**
+   * <p>The monthly recurring price of the renewal.</p>
+   * @public
+   */
+  MonthlyRecurringPrice?: number | undefined;
+}
+
+/**
  * <p> Information about the physical and logistical details for racks at sites.
  *       For more information
  *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
@@ -1492,6 +1559,11 @@ export interface Subscription {
    *             </li>
    *             <li>
    *                <p>
+   *                   <b>PENDING</b> - Subscription has been created but billing
+   *           has not yet commenced because the subscription begin date has not been reached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <b>CANCELLED</b> - Subscription requests that are
    *           cancelled.</p>
    *             </li>
@@ -1548,13 +1620,25 @@ export interface GetOutpostBillingInformationOutput {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The date the current contract term ends for the specified Outpost. You must start the renewal or
-   *       decommission process at least 5 business days before the current term for your
-   *       Amazon Web Services Outposts ends. Failing to complete these steps at least 5 business days before the
-   *       current term ends might result in unanticipated charges.</p>
+   * <p>The date the current contract term ends for the specified Outpost. You must start the
+   *       renewal or decommission process at least 5 business days before the current term for your
+   *       Amazon Web Services Outposts ends. Failing to complete these steps at least 5 business days before the current term
+   *       ends might result in unanticipated charges.</p>
    * @public
    */
   ContractEndDate?: string | undefined;
+
+  /**
+   * <p>The payment term.</p>
+   * @public
+   */
+  PaymentTerm?: PaymentTerm | undefined;
+
+  /**
+   * <p>The payment option.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
 }
 
 /**
@@ -1678,6 +1762,82 @@ export interface GetOutpostSupportedInstanceTypesOutput {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRenewalPricingInput {
+  /**
+   * <p>The ID or ARN of the Outpost.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+}
+
+/**
+ * <p>The pricing details for a subscription.</p>
+ * @public
+ */
+export interface SubscriptionPricingDetails {
+  /**
+   * <p>The payment option.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
+
+  /**
+   * <p>The payment term.</p>
+   * @public
+   */
+  PaymentTerm?: PaymentTerm | undefined;
+
+  /**
+   * <p>The upfront price.</p>
+   * @public
+   */
+  UpfrontPrice?: number | undefined;
+
+  /**
+   * <p>The monthly recurring price.</p>
+   * @public
+   */
+  MonthlyRecurringPrice?: number | undefined;
+}
+
+/**
+ * <p>A pricing option for the specified Outpost.</p>
+ * @public
+ */
+export interface PricingOption {
+  /**
+   * <p>The type of pricing model.</p>
+   * @public
+   */
+  PricingType?: QuotePricingType | undefined;
+
+  /**
+   * <p>The subscription pricing details for this pricing option.</p>
+   * @public
+   */
+  SubscriptionPricingDetails?: SubscriptionPricingDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRenewalPricingOutput {
+  /**
+   * <p>The result of the pricing request.</p>
+   * @public
+   */
+  PricingResult?: PricingResult | undefined;
+
+  /**
+   * <p>The pricing options for the specified Outpost.</p>
+   * @public
+   */
+  PricingOptions?: PricingOption[] | undefined;
 }
 
 /**

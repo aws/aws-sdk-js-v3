@@ -473,6 +473,7 @@ export const SubscriptionStatus = {
   ACTIVE: "ACTIVE",
   CANCELLED: "CANCELLED",
   INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
 } as const;
 /**
  * @public
@@ -492,3 +493,28 @@ export const SubscriptionType = {
  * @public
  */
 export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuotePricingType = {
+  SUBSCRIPTION: "SUBSCRIPTION",
+} as const;
+/**
+ * @public
+ */
+export type QuotePricingType = (typeof QuotePricingType)[keyof typeof QuotePricingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PricingResult = {
+  PRICED: "PRICED",
+  UNABLE_TO_PRICE: "UNABLE_TO_PRICE",
+} as const;
+/**
+ * @public
+ */
+export type PricingResult = (typeof PricingResult)[keyof typeof PricingResult];

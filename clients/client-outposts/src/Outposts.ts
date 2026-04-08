@@ -23,6 +23,11 @@ import {
   CreateOutpostCommand,
 } from "./commands/CreateOutpostCommand";
 import {
+  type CreateRenewalCommandInput,
+  type CreateRenewalCommandOutput,
+  CreateRenewalCommand,
+} from "./commands/CreateRenewalCommand";
+import {
   type CreateSiteCommandInput,
   type CreateSiteCommandOutput,
   CreateSiteCommand,
@@ -73,6 +78,11 @@ import {
   type GetOutpostSupportedInstanceTypesCommandOutput,
   GetOutpostSupportedInstanceTypesCommand,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import {
+  type GetRenewalPricingCommandInput,
+  type GetRenewalPricingCommandOutput,
+  GetRenewalPricingCommand,
+} from "./commands/GetRenewalPricingCommand";
 import {
   type GetSiteAddressCommandInput,
   type GetSiteAddressCommandOutput,
@@ -185,6 +195,7 @@ const commands = {
   CancelOrderCommand,
   CreateOrderCommand,
   CreateOutpostCommand,
+  CreateRenewalCommand,
   CreateSiteCommand,
   DeleteOutpostCommand,
   DeleteSiteCommand,
@@ -196,6 +207,7 @@ const commands = {
   GetOutpostBillingInformationCommand,
   GetOutpostInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesCommand,
+  GetRenewalPricingCommand,
   GetSiteCommand,
   GetSiteAddressCommand,
   ListAssetInstancesCommand,
@@ -298,6 +310,23 @@ export interface Outposts {
     args: CreateOutpostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOutpostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRenewalCommand}
+   */
+  createRenewal(
+    args: CreateRenewalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRenewalCommandOutput>;
+  createRenewal(
+    args: CreateRenewalCommandInput,
+    cb: (err: any, data?: CreateRenewalCommandOutput) => void
+  ): void;
+  createRenewal(
+    args: CreateRenewalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRenewalCommandOutput) => void
   ): void;
 
   /**
@@ -485,6 +514,23 @@ export interface Outposts {
     args: GetOutpostSupportedInstanceTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOutpostSupportedInstanceTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRenewalPricingCommand}
+   */
+  getRenewalPricing(
+    args: GetRenewalPricingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRenewalPricingCommandOutput>;
+  getRenewalPricing(
+    args: GetRenewalPricingCommandInput,
+    cb: (err: any, data?: GetRenewalPricingCommandOutput) => void
+  ): void;
+  getRenewalPricing(
+    args: GetRenewalPricingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRenewalPricingCommandOutput) => void
   ): void;
 
   /**

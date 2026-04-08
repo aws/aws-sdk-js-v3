@@ -68,6 +68,7 @@ import type {
 import type { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
 import type { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import type { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import type { CreateRenewalCommandInput, CreateRenewalCommandOutput } from "./commands/CreateRenewalCommand";
 import type { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import type { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
 import type { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
@@ -88,6 +89,10 @@ import type {
   GetOutpostSupportedInstanceTypesCommandInput,
   GetOutpostSupportedInstanceTypesCommandOutput,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import type {
+  GetRenewalPricingCommandInput,
+  GetRenewalPricingCommandOutput,
+} from "./commands/GetRenewalPricingCommand";
 import type { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
 import type { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
 import type {
@@ -151,6 +156,7 @@ export type ServiceInputTypes =
   | CancelOrderCommandInput
   | CreateOrderCommandInput
   | CreateOutpostCommandInput
+  | CreateRenewalCommandInput
   | CreateSiteCommandInput
   | DeleteOutpostCommandInput
   | DeleteSiteCommandInput
@@ -162,6 +168,7 @@ export type ServiceInputTypes =
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
   | GetOutpostSupportedInstanceTypesCommandInput
+  | GetRenewalPricingCommandInput
   | GetSiteAddressCommandInput
   | GetSiteCommandInput
   | ListAssetInstancesCommandInput
@@ -191,6 +198,7 @@ export type ServiceOutputTypes =
   | CancelOrderCommandOutput
   | CreateOrderCommandOutput
   | CreateOutpostCommandOutput
+  | CreateRenewalCommandOutput
   | CreateSiteCommandOutput
   | DeleteOutpostCommandOutput
   | DeleteSiteCommandOutput
@@ -202,6 +210,7 @@ export type ServiceOutputTypes =
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
   | GetOutpostSupportedInstanceTypesCommandOutput
+  | GetRenewalPricingCommandOutput
   | GetSiteAddressCommandOutput
   | GetSiteCommandOutput
   | ListAssetInstancesCommandOutput
