@@ -736,6 +736,28 @@ export class LifecyclePolicyPreviewNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The referrer or referrers were unable to be listed using the pull through cache rule. This
+ *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
+ *             for the upstream registry.</p>
+ * @public
+ */
+export class UnableToListUpstreamImageReferrersException extends __BaseException {
+  readonly name = "UnableToListUpstreamImageReferrersException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToListUpstreamImageReferrersException, __BaseException>) {
+    super({
+      name: "UnableToListUpstreamImageReferrersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToListUpstreamImageReferrersException.prototype);
+  }
+}
+
+/**
  * <p>The specified image has already been pushed, and there were no changes to the manifest
  *             or image tag after the last push.</p>
  * @public

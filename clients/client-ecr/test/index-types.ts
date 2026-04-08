@@ -418,6 +418,7 @@ export type {
   UnableToDecryptSecretValueException,
   UnableToGetUpstreamImageException,
   UnableToGetUpstreamLayerException,
+  UnableToListUpstreamImageReferrersException,
   UnsupportedImageTypeException,
   UnsupportedUpstreamRegistryException,
   UploadNotFoundException,

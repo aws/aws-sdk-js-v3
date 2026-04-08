@@ -383,6 +383,8 @@ import {
   UnableToGetUpstreamImageException$,
   UnableToGetUpstreamLayerException,
   UnableToGetUpstreamLayerException$,
+  UnableToListUpstreamImageReferrersException,
+  UnableToListUpstreamImageReferrersException$,
   UnsupportedImageTypeException,
   UnsupportedImageTypeException$,
   UnsupportedUpstreamRegistryException,
@@ -830,6 +832,8 @@ assert(UnableToGetUpstreamImageException.prototype instanceof ECRServiceExceptio
 assert(typeof UnableToGetUpstreamImageException$ === "object");
 assert(UnableToGetUpstreamLayerException.prototype instanceof ECRServiceException);
 assert(typeof UnableToGetUpstreamLayerException$ === "object");
+assert(UnableToListUpstreamImageReferrersException.prototype instanceof ECRServiceException);
+assert(typeof UnableToListUpstreamImageReferrersException$ === "object");
 assert(UnsupportedImageTypeException.prototype instanceof ECRServiceException);
 assert(typeof UnsupportedImageTypeException$ === "object");
 assert(UnsupportedUpstreamRegistryException.prototype instanceof ECRServiceException);

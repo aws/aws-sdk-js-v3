@@ -301,6 +301,7 @@ const _UTASE = "UnableToAccessSecretException";
 const _UTDSVE = "UnableToDecryptSecretValueException";
 const _UTGUIE = "UnableToGetUpstreamImageException";
 const _UTGULE = "UnableToGetUpstreamLayerException";
+const _UTLUIRE = "UnableToListUpstreamImageReferrersException";
 const _UURE = "UnsupportedUpstreamRegistryException";
 const _V = "Value";
 const _VE = "ValidationException";
@@ -560,6 +561,7 @@ import {
   UnableToDecryptSecretValueException,
   UnableToGetUpstreamImageException,
   UnableToGetUpstreamLayerException,
+  UnableToListUpstreamImageReferrersException,
   UnsupportedImageTypeException,
   UnsupportedUpstreamRegistryException,
   UploadNotFoundException,
@@ -823,6 +825,12 @@ export var UnableToGetUpstreamLayerException$: StaticErrorSchema = [-3, n0, _UTG
   [0]
 ];
 n0_registry.registerError(UnableToGetUpstreamLayerException$, UnableToGetUpstreamLayerException);
+export var UnableToListUpstreamImageReferrersException$: StaticErrorSchema = [-3, n0, _UTLUIRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnableToListUpstreamImageReferrersException$, UnableToListUpstreamImageReferrersException);
 export var UnsupportedImageTypeException$: StaticErrorSchema = [-3, n0, _UITE,
   { [_e]: _c },
   [_m],

@@ -1565,7 +1565,9 @@ export interface DescribeImagesFilter {
   tagStatus?: TagStatus | undefined;
 
   /**
-   * <p>The image status with which to filter your <a>DescribeImages</a> results. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.</p>
+   * <p>The image status with which to filter your <a>DescribeImages</a> results.
+   *         Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.
+   *         If not specified, only images with <code>ACTIVE</code> status are returned.</p>
    * @public
    */
   imageStatus?: ImageStatusFilter | undefined;
@@ -3602,7 +3604,7 @@ export interface ListImageReferrersRequest {
    *             response element. The remaining results of the initial request can be seen by sending
    *             another <code>ListImageReferrers</code> request with the returned <code>nextToken</code> value.
    *             This value can be between 1 and 50. If this parameter is
-   *             not used, then <code>ListImageReferrers</code> returns up to 50 results and a
+   *             not used, then <code>ListImageReferrers</code> returns up to 20 results and a
    *                 <code>nextToken</code> value, if applicable.</p>
    * @public
    */
@@ -3684,7 +3686,9 @@ export interface ListImagesFilter {
   tagStatus?: TagStatus | undefined;
 
   /**
-   * <p>The image status with which to filter your <a>ListImages</a> results. Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.</p>
+   * <p>The image status with which to filter your <a>ListImages</a> results.
+   *         Valid values are <code>ACTIVE</code>, <code>ARCHIVED</code>, and <code>ACTIVATING</code>.
+   *         If not specified, only images with <code>ACTIVE</code> status are returned.</p>
    * @public
    */
   imageStatus?: ImageStatusFilter | undefined;
