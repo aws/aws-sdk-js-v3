@@ -1,6 +1,14 @@
 # Smithy AWS Typescript Codegen Changelog
 
-## 0.47.0 (2026-03-05)
+## 0.48.0 (2026-04-08)
+
+### Chores
+
+- Upgraded to smithy-typescript 0.48.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0480-2026-04-08))
+- Imported dependencies from core submodules instead of root ([#7896](https://github.com/aws/aws-sdk-js-v3/pull/7896))
+- Changed runtime imports to type imports ([#7897](https://github.com/aws/aws-sdk-js-v3/pull/7897))
+
+## 0.47.0 (2026-03-17)
 
 ### Features
 
