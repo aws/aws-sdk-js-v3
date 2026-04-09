@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Initial release for CRUDL in AgentCore Registry Service ([ec57632](https://github.com/aws/aws-sdk-js-v3/commit/ec576322f9476affa41bfe45ff9501ba3c2301b7))
+
+
+
+
+
 # [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

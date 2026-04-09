@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
+
+
+### Features
+
+* **client-redshift-data:** The BatchExecuteStatement API now supports named SQL parameters, enabling secure batch queries with parameterized values. This enhancement helps prevent SQL injection vulnerabilities and improves query reusability. ([de8f2af](https://github.com/aws/aws-sdk-js-v3/commit/de8f2afba6b945dcb804a55b6e9d944eaf213d50))
+
+
+
+
+
 # [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-data

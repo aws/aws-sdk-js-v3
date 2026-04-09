@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
+
+
+### Features
+
+* **client-bcm-dashboards:** Scheduled email reports of Billing and Cost Management Dashboards ([5e7231a](https://github.com/aws/aws-sdk-js-v3/commit/5e7231a11fb84317876381fabbb3468f5bd1a378))
+* **client-bedrock-agentcore-control:** Initial release for CRUDL in AgentCore Registry Service ([ec57632](https://github.com/aws/aws-sdk-js-v3/commit/ec576322f9476affa41bfe45ff9501ba3c2301b7))
+* **client-bedrock-agentcore:** Introducing support for SearchRegistryRecords API on AgentCoreRegistry ([6ac1ecc](https://github.com/aws/aws-sdk-js-v3/commit/6ac1ecc5ed727a2c9b92d587dd7b41ac3d5440ee))
+* **client-mediaconnect:** Adds support for MediaLive Channel-type Router Inputs. ([858c746](https://github.com/aws/aws-sdk-js-v3/commit/858c746dc2fcd16712905fabdbd09b1a364f7c77))
+* **client-redshift-data:** The BatchExecuteStatement API now supports named SQL parameters, enabling secure batch queries with parameterized values. This enhancement helps prevent SQL injection vulnerabilities and improves query reusability. ([de8f2af](https://github.com/aws/aws-sdk-js-v3/commit/de8f2afba6b945dcb804a55b6e9d944eaf213d50))
+* **client-sagemaker:** Release support for g7e instance types for SageMaker HyperPod ([c92e9e6](https://github.com/aws/aws-sdk-js-v3/commit/c92e9e66bd0109504f7f15ebd409a23cc8821ec4))
+
+
+
+
+
 # [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
 
 

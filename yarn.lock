@@ -91,16 +91,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-client-api-test@workspace:private/aws-client-api-test"
   dependencies:
-    "@aws-sdk/client-dynamodb": "workspace:3.1027.0"
-    "@aws-sdk/client-ec2": "workspace:3.1027.0"
-    "@aws-sdk/client-glacier": "workspace:3.1027.0"
-    "@aws-sdk/client-rds": "workspace:3.1027.0"
-    "@aws-sdk/client-route-53": "workspace:3.1027.0"
-    "@aws-sdk/client-s3": "workspace:3.1027.0"
-    "@aws-sdk/client-s3-control": "workspace:3.1027.0"
-    "@aws-sdk/client-sqs": "workspace:3.1027.0"
-    "@aws-sdk/client-sts": "workspace:3.1027.0"
-    "@aws-sdk/client-transcribe-streaming": "workspace:3.1027.0"
+    "@aws-sdk/client-dynamodb": "workspace:3.1028.0"
+    "@aws-sdk/client-ec2": "workspace:3.1028.0"
+    "@aws-sdk/client-glacier": "workspace:3.1028.0"
+    "@aws-sdk/client-rds": "workspace:3.1028.0"
+    "@aws-sdk/client-route-53": "workspace:3.1028.0"
+    "@aws-sdk/client-s3": "workspace:3.1028.0"
+    "@aws-sdk/client-s3-control": "workspace:3.1028.0"
+    "@aws-sdk/client-sqs": "workspace:3.1028.0"
+    "@aws-sdk/client-sts": "workspace:3.1028.0"
+    "@aws-sdk/client-transcribe-streaming": "workspace:3.1028.0"
     "@aws-sdk/core": "workspace:^3.973.27"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.30"
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.9"
@@ -137,7 +137,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-client-retry-test@workspace:private/aws-client-retry-test"
   dependencies:
-    "@aws-sdk/client-lambda": "workspace:3.1027.0"
+    "@aws-sdk/client-lambda": "workspace:3.1028.0"
     "@smithy/protocol-http": "npm:^5.3.13"
     "@smithy/types": "npm:^4.14.0"
     "@smithy/util-retry": "npm:^4.3.0"
@@ -202,14 +202,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-middleware-test@workspace:private/aws-middleware-test"
   dependencies:
-    "@aws-sdk/client-accessanalyzer": "workspace:3.1027.0"
-    "@aws-sdk/client-ec2": "workspace:3.1027.0"
-    "@aws-sdk/client-lambda": "workspace:3.1027.0"
-    "@aws-sdk/client-s3": "workspace:3.1027.0"
-    "@aws-sdk/client-s3-control": "workspace:3.1027.0"
-    "@aws-sdk/client-sagemaker": "workspace:3.1027.0"
-    "@aws-sdk/client-sagemaker-runtime": "workspace:3.1027.0"
-    "@aws-sdk/client-xray": "workspace:3.1027.0"
+    "@aws-sdk/client-accessanalyzer": "workspace:3.1028.0"
+    "@aws-sdk/client-ec2": "workspace:3.1028.0"
+    "@aws-sdk/client-lambda": "workspace:3.1028.0"
+    "@aws-sdk/client-s3": "workspace:3.1028.0"
+    "@aws-sdk/client-s3-control": "workspace:3.1028.0"
+    "@aws-sdk/client-sagemaker": "workspace:3.1028.0"
+    "@aws-sdk/client-sagemaker-runtime": "workspace:3.1028.0"
+    "@aws-sdk/client-xray": "workspace:3.1028.0"
     "@smithy/protocol-http": "npm:^5.3.13"
     "@smithy/types": "npm:^4.14.0"
     "@smithy/util-stream": "npm:^4.5.22"
@@ -606,7 +606,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/aws-protocoltests-json@workspace:3.1027.0, @aws-sdk/aws-protocoltests-json@workspace:private/aws-protocoltests-json":
+"@aws-sdk/aws-protocoltests-json@workspace:3.1028.0, @aws-sdk/aws-protocoltests-json@workspace:private/aws-protocoltests-json":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-protocoltests-json@workspace:private/aws-protocoltests-json"
   dependencies:
@@ -1425,11 +1425,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-util-test@workspace:private/aws-util-test"
   dependencies:
-    "@aws-sdk/aws-protocoltests-json": "workspace:3.1027.0"
-    "@aws-sdk/client-cognito-identity": "workspace:3.1027.0"
-    "@aws-sdk/client-s3": "workspace:3.1027.0"
-    "@aws-sdk/client-s3-control": "workspace:3.1027.0"
-    "@aws-sdk/client-sts": "workspace:3.1027.0"
+    "@aws-sdk/aws-protocoltests-json": "workspace:3.1028.0"
+    "@aws-sdk/client-cognito-identity": "workspace:3.1028.0"
+    "@aws-sdk/client-s3": "workspace:3.1028.0"
+    "@aws-sdk/client-s3-control": "workspace:3.1028.0"
+    "@aws-sdk/client-sts": "workspace:3.1028.0"
     "@smithy/protocol-http": "npm:^5.3.13"
     "@smithy/shared-ini-file-loader": "npm:^4.4.8"
     "@smithy/types": "npm:^4.14.0"
@@ -1501,7 +1501,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-accessanalyzer@workspace:3.1027.0, @aws-sdk/client-accessanalyzer@workspace:clients/client-accessanalyzer":
+"@aws-sdk/client-accessanalyzer@workspace:3.1028.0, @aws-sdk/client-accessanalyzer@workspace:clients/client-accessanalyzer":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-accessanalyzer@workspace:clients/client-accessanalyzer"
   dependencies:
@@ -4037,7 +4037,7 @@ __metadata:
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.29"
     "@aws-sdk/middleware-websocket": "workspace:^3.972.15"
     "@aws-sdk/region-config-resolver": "workspace:^3.972.11"
-    "@aws-sdk/token-providers": "workspace:3.1027.0"
+    "@aws-sdk/token-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-endpoints": "workspace:^3.996.6"
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.9"
@@ -4096,7 +4096,7 @@ __metadata:
     "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.10"
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.29"
     "@aws-sdk/region-config-resolver": "workspace:^3.972.11"
-    "@aws-sdk/token-providers": "workspace:3.1027.0"
+    "@aws-sdk/token-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-endpoints": "workspace:^3.996.6"
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.9"
@@ -5723,7 +5723,7 @@ __metadata:
     "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.10"
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.29"
     "@aws-sdk/region-config-resolver": "workspace:^3.972.11"
-    "@aws-sdk/token-providers": "workspace:3.1027.0"
+    "@aws-sdk/token-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-endpoints": "workspace:^3.996.6"
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.9"
@@ -6286,13 +6286,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-cognito-identity@workspace:3.1027.0, @aws-sdk/client-cognito-identity@workspace:clients/client-cognito-identity":
+"@aws-sdk/client-cognito-identity@workspace:3.1028.0, @aws-sdk/client-cognito-identity@workspace:clients/client-cognito-identity":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-cognito-identity@workspace:clients/client-cognito-identity"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/client-iam": "workspace:3.1027.0"
+    "@aws-sdk/client-iam": "workspace:3.1028.0"
     "@aws-sdk/core": "workspace:^3.973.27"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.30"
     "@aws-sdk/middleware-host-header": "workspace:^3.972.9"
@@ -8439,7 +8439,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-dynamodb@workspace:3.1027.0, @aws-sdk/client-dynamodb@workspace:clients/client-dynamodb":
+"@aws-sdk/client-dynamodb@workspace:3.1028.0, @aws-sdk/client-dynamodb@workspace:clients/client-dynamodb":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-dynamodb@workspace:clients/client-dynamodb"
   dependencies:
@@ -8601,7 +8601,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-ec2@workspace:3.1027.0, @aws-sdk/client-ec2@workspace:clients/client-ec2":
+"@aws-sdk/client-ec2@workspace:3.1028.0, @aws-sdk/client-ec2@workspace:clients/client-ec2":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-ec2@workspace:clients/client-ec2"
   dependencies:
@@ -9511,7 +9511,7 @@ __metadata:
     "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.10"
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.29"
     "@aws-sdk/region-config-resolver": "workspace:^3.972.11"
-    "@aws-sdk/signature-v4-crt": "workspace:3.1027.0"
+    "@aws-sdk/signature-v4-crt": "workspace:3.1028.0"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.16"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-endpoints": "workspace:^3.996.6"
@@ -10386,7 +10386,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-glacier@workspace:3.1027.0, @aws-sdk/client-glacier@workspace:clients/client-glacier":
+"@aws-sdk/client-glacier@workspace:3.1028.0, @aws-sdk/client-glacier@workspace:clients/client-glacier":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-glacier@workspace:clients/client-glacier"
   dependencies:
@@ -10913,7 +10913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-iam@workspace:3.1027.0, @aws-sdk/client-iam@workspace:clients/client-iam":
+"@aws-sdk/client-iam@workspace:3.1028.0, @aws-sdk/client-iam@workspace:clients/client-iam":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-iam@workspace:clients/client-iam"
   dependencies:
@@ -13009,7 +13009,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-lambda@workspace:3.1027.0, @aws-sdk/client-lambda@workspace:clients/client-lambda":
+"@aws-sdk/client-lambda@workspace:3.1028.0, @aws-sdk/client-lambda@workspace:clients/client-lambda":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-lambda@workspace:clients/client-lambda"
   dependencies:
@@ -17512,7 +17512,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-polly@workspace:3.1027.0, @aws-sdk/client-polly@workspace:clients/client-polly":
+"@aws-sdk/client-polly@workspace:3.1028.0, @aws-sdk/client-polly@workspace:clients/client-polly":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-polly@workspace:clients/client-polly"
   dependencies:
@@ -18044,7 +18044,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-rds@workspace:3.1027.0, @aws-sdk/client-rds@workspace:clients/client-rds":
+"@aws-sdk/client-rds@workspace:3.1028.0, @aws-sdk/client-rds@workspace:clients/client-rds":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-rds@workspace:clients/client-rds"
   dependencies:
@@ -18733,7 +18733,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-route-53@workspace:3.1027.0, @aws-sdk/client-route-53@workspace:clients/client-route-53":
+"@aws-sdk/client-route-53@workspace:3.1028.0, @aws-sdk/client-route-53@workspace:clients/client-route-53":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-route-53@workspace:clients/client-route-53"
   dependencies:
@@ -19207,7 +19207,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-s3-control@workspace:3.1027.0, @aws-sdk/client-s3-control@workspace:clients/client-s3-control":
+"@aws-sdk/client-s3-control@workspace:3.1028.0, @aws-sdk/client-s3-control@workspace:clients/client-s3-control":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-s3-control@workspace:clients/client-s3-control"
   dependencies:
@@ -19267,7 +19267,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-s3@workspace:3.1027.0, @aws-sdk/client-s3@workspace:clients/client-s3":
+"@aws-sdk/client-s3@workspace:3.1028.0, @aws-sdk/client-s3@workspace:clients/client-s3":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-s3@workspace:clients/client-s3"
   dependencies:
@@ -19287,7 +19287,7 @@ __metadata:
     "@aws-sdk/middleware-ssec": "workspace:^3.972.9"
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.29"
     "@aws-sdk/region-config-resolver": "workspace:^3.972.11"
-    "@aws-sdk/signature-v4-crt": "workspace:3.1027.0"
+    "@aws-sdk/signature-v4-crt": "workspace:3.1028.0"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.16"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-endpoints": "workspace:^3.996.6"
@@ -19868,7 +19868,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sagemaker-runtime@workspace:3.1027.0, @aws-sdk/client-sagemaker-runtime@workspace:clients/client-sagemaker-runtime":
+"@aws-sdk/client-sagemaker-runtime@workspace:3.1028.0, @aws-sdk/client-sagemaker-runtime@workspace:clients/client-sagemaker-runtime":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sagemaker-runtime@workspace:clients/client-sagemaker-runtime"
   dependencies:
@@ -19924,7 +19924,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sagemaker@workspace:3.1027.0, @aws-sdk/client-sagemaker@workspace:clients/client-sagemaker":
+"@aws-sdk/client-sagemaker@workspace:3.1028.0, @aws-sdk/client-sagemaker@workspace:clients/client-sagemaker":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sagemaker@workspace:clients/client-sagemaker"
   dependencies:
@@ -21343,7 +21343,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sqs@workspace:3.1027.0, @aws-sdk/client-sqs@workspace:clients/client-sqs":
+"@aws-sdk/client-sqs@workspace:3.1028.0, @aws-sdk/client-sqs@workspace:clients/client-sqs":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sqs@workspace:clients/client-sqs"
   dependencies:
@@ -21924,7 +21924,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sts@workspace:3.1027.0, @aws-sdk/client-sts@workspace:clients/client-sts":
+"@aws-sdk/client-sts@workspace:3.1028.0, @aws-sdk/client-sts@workspace:clients/client-sts":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sts@workspace:clients/client-sts"
   dependencies:
@@ -22606,7 +22606,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-transcribe-streaming@workspace:3.1027.0, @aws-sdk/client-transcribe-streaming@workspace:clients/client-transcribe-streaming":
+"@aws-sdk/client-transcribe-streaming@workspace:3.1028.0, @aws-sdk/client-transcribe-streaming@workspace:clients/client-transcribe-streaming":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-transcribe-streaming@workspace:clients/client-transcribe-streaming"
   dependencies:
@@ -23762,7 +23762,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-xray@workspace:3.1027.0, @aws-sdk/client-xray@workspace:clients/client-xray":
+"@aws-sdk/client-xray@workspace:3.1028.0, @aws-sdk/client-xray@workspace:clients/client-xray":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-xray@workspace:clients/client-xray"
   dependencies:
@@ -23834,7 +23834,7 @@ __metadata:
   resolution: "@aws-sdk/config@workspace:packages/config"
   dependencies:
     "@aws-sdk/core": "workspace:^3.973.27"
-    "@aws-sdk/credential-providers": "workspace:3.1027.0"
+    "@aws-sdk/credential-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@smithy/core": "npm:^3.23.14"
     "@smithy/fetch-http-handler": "npm:^5.3.16"
@@ -24067,7 +24067,7 @@ __metadata:
   dependencies:
     "@aws-sdk/core": "workspace:^3.973.27"
     "@aws-sdk/nested-clients": "workspace:^3.996.19"
-    "@aws-sdk/token-providers": "workspace:3.1027.0"
+    "@aws-sdk/token-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@smithy/property-provider": "npm:^4.2.13"
     "@smithy/shared-ini-file-loader": "npm:^4.4.8"
@@ -24102,11 +24102,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-providers@workspace:3.1027.0, @aws-sdk/credential-providers@workspace:packages/credential-providers":
+"@aws-sdk/credential-providers@workspace:3.1028.0, @aws-sdk/credential-providers@workspace:packages/credential-providers":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-providers@workspace:packages/credential-providers"
   dependencies:
-    "@aws-sdk/client-cognito-identity": "workspace:3.1027.0"
+    "@aws-sdk/client-cognito-identity": "workspace:3.1028.0"
     "@aws-sdk/core": "workspace:^3.973.27"
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.22"
     "@aws-sdk/credential-provider-env": "workspace:^3.972.25"
@@ -24196,7 +24196,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service"
   dependencies:
-    "@aws-sdk/credential-providers": "workspace:3.1027.0"
+    "@aws-sdk/credential-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@smithy/node-config-provider": "npm:^4.3.13"
     "@smithy/node-http-handler": "npm:^4.5.2"
@@ -24266,7 +24266,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-dynamodb@workspace:lib/lib-dynamodb"
   dependencies:
-    "@aws-sdk/client-dynamodb": "workspace:3.1027.0"
+    "@aws-sdk/client-dynamodb": "workspace:3.1028.0"
     "@aws-sdk/core": "workspace:^3.973.27"
     "@aws-sdk/util-dynamodb": "workspace:^3.996.2"
     "@smithy/core": "npm:^3.23.14"
@@ -24280,7 +24280,7 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
-    "@aws-sdk/client-dynamodb": "workspace:^3.1027.0"
+    "@aws-sdk/client-dynamodb": "workspace:^3.1028.0"
   languageName: unknown
   linkType: soft
 
@@ -24288,7 +24288,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-storage@workspace:lib/lib-storage"
   dependencies:
-    "@aws-sdk/client-s3": "workspace:3.1027.0"
+    "@aws-sdk/client-s3": "workspace:3.1028.0"
     "@smithy/middleware-endpoint": "npm:^4.4.29"
     "@smithy/protocol-http": "npm:^5.3.13"
     "@smithy/smithy-client": "npm:^4.12.9"
@@ -24305,7 +24305,7 @@ __metadata:
     typescript: "npm:~5.8.3"
     web-streams-polyfill: "npm:3.2.1"
   peerDependencies:
-    "@aws-sdk/client-s3": "workspace:^3.1027.0"
+    "@aws-sdk/client-s3": "workspace:^3.1028.0"
   languageName: unknown
   linkType: soft
 
@@ -24745,7 +24745,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-token@workspace:packages-internal/middleware-token"
   dependencies:
-    "@aws-sdk/token-providers": "workspace:3.1027.0"
+    "@aws-sdk/token-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@smithy/property-provider": "npm:^4.2.13"
     "@smithy/protocol-http": "npm:^5.3.13"
@@ -24860,7 +24860,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/polly-request-presigner@workspace:packages/polly-request-presigner"
   dependencies:
-    "@aws-sdk/client-polly": "workspace:3.1027.0"
+    "@aws-sdk/client-polly": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-format-url": "workspace:^3.972.9"
     "@smithy/protocol-http": "npm:^5.3.13"
@@ -24892,7 +24892,7 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/credential-providers": "workspace:3.1027.0"
+    "@aws-sdk/credential-providers": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-format-url": "workspace:^3.972.9"
     "@smithy/config-resolver": "npm:^4.4.14"
@@ -24932,7 +24932,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/s3-presigned-post@workspace:packages/s3-presigned-post"
   dependencies:
-    "@aws-sdk/client-s3": "workspace:3.1027.0"
+    "@aws-sdk/client-s3": "workspace:3.1028.0"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-format-url": "workspace:^3.972.9"
     "@smithy/middleware-endpoint": "npm:^4.4.29"
@@ -24955,7 +24955,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/s3-request-presigner@workspace:packages/s3-request-presigner"
   dependencies:
-    "@aws-sdk/client-s3": "workspace:3.1027.0"
+    "@aws-sdk/client-s3": "workspace:3.1028.0"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.16"
     "@aws-sdk/types": "workspace:^3.973.7"
     "@aws-sdk/util-format-url": "workspace:^3.972.9"
@@ -24992,7 +24992,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/signature-v4-crt@workspace:3.1027.0, @aws-sdk/signature-v4-crt@workspace:packages/signature-v4-crt":
+"@aws-sdk/signature-v4-crt@workspace:3.1028.0, @aws-sdk/signature-v4-crt@workspace:packages/signature-v4-crt":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/signature-v4-crt@workspace:packages/signature-v4-crt"
   dependencies:
@@ -25081,7 +25081,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/token-providers@workspace:3.1027.0, @aws-sdk/token-providers@workspace:packages/token-providers":
+"@aws-sdk/token-providers@workspace:3.1028.0, @aws-sdk/token-providers@workspace:packages/token-providers":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/token-providers@workspace:packages/token-providers"
   dependencies:
@@ -25177,7 +25177,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-dynamodb@workspace:packages-internal/util-dynamodb"
   dependencies:
-    "@aws-sdk/client-dynamodb": "workspace:3.1027.0"
+    "@aws-sdk/client-dynamodb": "workspace:3.1028.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
@@ -25185,7 +25185,7 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
-    "@aws-sdk/client-dynamodb": "workspace:^3.1027.0"
+    "@aws-sdk/client-dynamodb": "workspace:^3.1028.0"
   languageName: unknown
   linkType: soft
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Introducing support for SearchRegistryRecords API on AgentCoreRegistry ([6ac1ecc](https://github.com/aws/aws-sdk-js-v3/commit/6ac1ecc5ed727a2c9b92d587dd7b41ac3d5440ee))
+
+
+
+
+
 # [3.1027.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1026.0...v3.1027.0) (2026-04-08)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore
