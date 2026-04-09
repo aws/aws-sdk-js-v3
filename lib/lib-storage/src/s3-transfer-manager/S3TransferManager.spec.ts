@@ -26,12 +26,11 @@ describe("S3TransferManager Unit Tests", () => {
     it("Should create an instance of S3TransferManager with defaults given no parameters", () => {
       const tm = new S3TransferManager() as any;
 
-      expect(tm.s3ClientInstance).toBeInstanceOf(S3Client);
+      expect(tm.s3).toBeInstanceOf(S3Client);
       expect(tm.targetPartSizeBytes).toBe(8 * 1024 * 1024);
       expect(tm.multipartUploadThresholdBytes).toBe(16 * 1024 * 1024);
       expect(tm.requestChecksumCalculation).toBe("WHEN_SUPPORTED");
       expect(tm.responseChecksumValidation).toBe("WHEN_SUPPORTED");
-      expect(tm.checksumAlgorithm).toBe("CRC32");
       expect(tm.multipartDownloadType).toBe("PART");
       expect(tm.eventListeners).toEqual({
         transferInitiated: [],
@@ -49,20 +48,18 @@ describe("S3TransferManager Unit Tests", () => {
         transferFailed: [() => console.log("transferFailed")],
       };
       const tm = new S3TransferManager({
-        s3ClientInstance: client,
+        s3: client,
         targetPartSizeBytes: 8 * 1024 * 1024,
         requestChecksumCalculation: "WHEN_SUPPORTED",
         responseChecksumValidation: "WHEN_REQUIRED",
-        checksumAlgorithm: "CRC32",
         multipartDownloadType: "RANGE",
         eventListeners: eventListeners,
       }) as any;
 
-      expect(tm.s3ClientInstance).toBe(client);
+      expect(tm.s3).toBe(client);
       expect(tm.targetPartSizeBytes).toBe(8 * 1024 * 1024);
       expect(tm.requestChecksumCalculation).toBe("WHEN_SUPPORTED");
       expect(tm.responseChecksumValidation).toBe("WHEN_REQUIRED");
-      expect(tm.checksumAlgorithm).toBe("CRC32");
       expect(tm.multipartDownloadType).toBe("RANGE");
       expect(tm.eventListeners).toEqual(eventListeners);
     });
@@ -107,7 +104,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     beforeEach(async () => {
       tm = new S3TransferManager({
-        s3ClientInstance: client,
+        s3: client,
       });
     });
 
@@ -466,7 +463,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     beforeEach(async () => {
       tm = new S3TransferManager({
-        s3ClientInstance: client,
+        s3: client,
       });
     });
 
@@ -900,7 +897,7 @@ describe("S3TransferManager Unit Tests", () => {
       } as any;
 
       tm = new S3TransferManager({
-        s3ClientInstance: mockClient,
+        s3: mockClient,
       });
     });
 

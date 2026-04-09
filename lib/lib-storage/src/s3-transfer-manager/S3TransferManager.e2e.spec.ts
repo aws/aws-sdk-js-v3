@@ -43,11 +43,11 @@ describe(S3TransferManager.name, () => {
       region,
     });
     tmPart = new S3TransferManager({
-      s3ClientInstance: client,
+      s3: client,
       multipartDownloadType: "PART",
     });
     tmRange = new S3TransferManager({
-      s3ClientInstance: client,
+      s3: client,
       multipartDownloadType: "RANGE",
     });
   }, 120_000);
@@ -430,7 +430,7 @@ describe(S3TransferManager.name, () => {
       const expectedPartCount = 2;
 
       const tmCustom = new S3TransferManager({
-        s3ClientInstance: client,
+        s3: client,
         targetPartSizeBytes: customPartSize,
         multipartUploadThresholdBytes: 8 * 1024 * 1024,
       });
@@ -534,7 +534,7 @@ describe(S3TransferManager.name, () => {
       });
 
       const tmCustom = new S3TransferManager({
-        s3ClientInstance: clientWithChecksumCalc,
+        s3: clientWithChecksumCalc,
         targetPartSizeBytes: 8 * 1024 * 1024,
         multipartUploadThresholdBytes: 16 * 1024 * 1024,
       });

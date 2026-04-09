@@ -9,7 +9,7 @@ import type {
   PutObjectCommandOutput,
   S3Client,
 } from "@aws-sdk/client-s3";
-import type { HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions, Logger } from "@smithy/types";
 
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 
@@ -22,7 +22,7 @@ export interface S3TransferManagerConfig {
   /**
    * The low level S3 client that will be used to send requests to S3.
    */
-  s3ClientInstance?: S3Client;
+  s3?: S3Client;
   /**
    * The target part size to use in a multipart transfer. Does not apply to downloads if multipartDownloadType is PART.
    */
@@ -42,10 +42,6 @@ export interface S3TransferManagerConfig {
    */
   responseChecksumValidation?: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
   /**
-   * Checksum algorithm to use for upload.
-   */
-  checksumAlgorithm?: ChecksumAlgorithm;
-  /**
    * How the SDK should perform multipart download, either RANGE or PART.
    */
   multipartDownloadType?: "RANGE" | "PART";
@@ -62,6 +58,10 @@ export interface S3TransferManagerConfig {
    * Maximum number of parts that can be uploaded concurrenlty for multipart upload operations.
    */
   maxConcurrentUploads?: number;
+  /**
+   * Logger for S3 Transfer Manager operations.
+   */
+  logger?: Logger;
 }
 
 /**

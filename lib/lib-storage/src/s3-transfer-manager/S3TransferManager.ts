@@ -1,7 +1,8 @@
 import type {
   _Object as S3Object,
-  ChecksumAlgorithm,
+  AbortMultipartUploadCommandInput,
   CompletedPart,
+  CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommandInput,
   GetObjectCommandInput,
@@ -19,6 +20,7 @@ import {
   S3Client,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { type Logger, LogLevel } from "@aws-sdk/config/logger";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { byteLength } from "../byteLength";
@@ -51,39 +53,37 @@ import type {
 
 export class S3TransferManager implements IS3TransferManager {
   private static MIN_PART_SIZE = 5 * 1024 * 1024; // 5MB
-  private static DEFAULT_PART_SIZE = 8 * 1024 * 1024; // 8MB
-  private static MIN_UPLOAD_THRESHOLD = 16 * 1024 * 1024; // 16MB
 
-  private readonly s3ClientInstance: S3Client;
+  private readonly s3: S3Client;
   private readonly targetPartSizeBytes: number;
   private readonly multipartUploadThresholdBytes: number;
   private readonly requestChecksumCalculation: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
   private readonly responseChecksumValidation: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
-  private readonly checksumAlgorithm: ChecksumAlgorithm;
   private readonly multipartDownloadType: "PART" | "RANGE";
   private readonly eventListeners: TransferEventListeners;
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
   private readonly maxConcurrentRequests: number;
   private readonly maxConcurrentUploads: number;
+  private readonly logger: Logger;
 
   public constructor(config: S3TransferManagerConfig = {}) {
     this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
     this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
 
-    this.s3ClientInstance =
-      config.s3ClientInstance ??
+    this.s3 =
+      config.s3 ??
       new S3Client({
         requestChecksumCalculation: this.requestChecksumCalculation,
         responseChecksumValidation: this.responseChecksumValidation,
       });
 
-    this.targetPartSizeBytes = config.targetPartSizeBytes ?? S3TransferManager.DEFAULT_PART_SIZE;
-    this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? S3TransferManager.MIN_UPLOAD_THRESHOLD;
+    this.targetPartSizeBytes = config.targetPartSizeBytes ?? 8 * 1024 * 1024; // 8 MB
+    this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
 
-    this.checksumAlgorithm = config.checksumAlgorithm ?? "CRC32";
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
     this.maxConcurrentRequests = config.maxInMemoryParts ?? 8;
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 4;
+    this.logger = config.logger ?? new LogLevel("warn");
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
       bytesTransferred: config.eventListeners?.bytesTransferred ?? [],
@@ -287,9 +287,9 @@ export class S3TransferManager implements IS3TransferManager {
       let response: UploadResponse;
 
       if (totalContentLength < this.multipartUploadThresholdBytes) {
-        response = await this.uploadSingleObject(request, totalContentLength, transferOptions);
+        response = await this.uploadSinglePart(request, totalContentLength, transferOptions);
       } else {
-        response = await this.uploadMultipart(request, totalContentLength, transferOptions);
+        response = await this.uploadInParts(request, totalContentLength, transferOptions);
       }
 
       this.dispatchEvent(
@@ -497,7 +497,7 @@ export class S3TransferManager implements IS3TransferManager {
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
       try {
-        const initialPart = await this.s3ClientInstance.send(new GetObjectCommand(initialPartRequest), transferOptions);
+        const initialPart = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
         await internalEventHandler.afterInitialGetObject();
         const partSize = initialPart.ContentLength;
         const initialETag = initialPart.ETag ?? undefined;
@@ -532,7 +532,7 @@ export class S3TransferManager implements IS3TransferManager {
 
             partTasks.push(() => {
               this.checkAborted(transferOptions);
-              return this.s3ClientInstance
+              return this.s3
                 .send(new GetObjectCommand(getObjectRequest), transferOptions)
                 .then((response) => {
                   this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
@@ -582,7 +582,7 @@ export class S3TransferManager implements IS3TransferManager {
           ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
         };
 
-        const getObject = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+        const getObject = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
         totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : 0;
 
         this.dispatchTransferInitiatedEvent(request, totalSize);
@@ -621,14 +621,14 @@ export class S3TransferManager implements IS3TransferManager {
     let streamConsumedCallback: ((index: number) => void) | undefined;
     this.checkAborted(transferOptions);
 
-    const headResponse = await this.s3ClientInstance.send(
+    const headResponse = await this.s3.send(
       new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
       transferOptions
     );
 
     if (headResponse.ContentLength === 0) {
       const getObjectRequest = { ...request, ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }) };
-      const response = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const response = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
 
       this.dispatchTransferInitiatedEvent(request, 0);
       if (response.Body) streams.push(Promise.resolve(response.Body));
@@ -659,7 +659,7 @@ export class S3TransferManager implements IS3TransferManager {
         Range: `bytes=${left}-${right}`,
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
-      const initialRangeGet = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const initialRangeGet = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
       await internalEventHandler.afterInitialGetObject();
       this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
       initialETag = initialRangeGet.ETag ?? undefined;
@@ -711,7 +711,7 @@ export class S3TransferManager implements IS3TransferManager {
 
       rangeTasks.push(() => {
         this.checkAborted(transferOptions);
-        return this.s3ClientInstance
+        return this.s3
           .send(new GetObjectCommand(getObjectRequest), transferOptions)
           .then((response) => {
             this.validateRangeDownload(range, response.ContentRange);
@@ -1063,18 +1063,26 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private async uploadSingleObject(
+  private async uploadSinglePart(
     request: UploadRequest,
     contentLength: number,
     transferOptions?: TransferOptions
   ): Promise<PutObjectCommandOutput> {
     const putObjectRequest = { ...request };
-    if (this.requestChecksumCalculation === "WHEN_SUPPORTED") {
-      putObjectRequest.ChecksumAlgorithm = this.checksumAlgorithm;
+    const hasChecksumValue =
+      request.ContentMD5 ||
+      request.ChecksumCRC32 ||
+      request.ChecksumCRC32C ||
+      request.ChecksumCRC64NVME ||
+      request.ChecksumSHA1 ||
+      request.ChecksumSHA256;
+
+    if (!hasChecksumValue && this.requestChecksumCalculation === "WHEN_SUPPORTED" && !request.ChecksumAlgorithm) {
+      putObjectRequest.ChecksumAlgorithm = "CRC32";
     }
 
     this.checkAborted(transferOptions);
-    const response = await this.s3ClientInstance.send(new PutObjectCommand(putObjectRequest), transferOptions);
+    const response = await this.s3.send(new PutObjectCommand(putObjectRequest), transferOptions);
 
     this.dispatchEvent(
       Object.assign(new Event("bytesTransferred"), {
@@ -1095,7 +1103,7 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private async uploadMultipart(
+  private async uploadInParts(
     request: UploadRequest,
     contentLength: number,
     transferOptions?: TransferOptions
@@ -1107,19 +1115,21 @@ export class S3TransferManager implements IS3TransferManager {
     const createMpuRequest: CreateMultipartUploadCommandInput = { ...request };
 
     const hasFullObjectChecksum =
-      request.ChecksumCRC32 || request.ChecksumCRC32C || request.ChecksumSHA1 || request.ChecksumSHA256;
+      request.ContentMD5 ||
+      request.ChecksumCRC32 ||
+      request.ChecksumCRC32C ||
+      request.ChecksumCRC64NVME ||
+      request.ChecksumSHA1 ||
+      request.ChecksumSHA256;
 
     if (hasFullObjectChecksum) {
       createMpuRequest.ChecksumType = "FULL_OBJECT";
-      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? this.checksumAlgorithm;
+      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm;
     } else if (this.requestChecksumCalculation === "WHEN_SUPPORTED") {
-      createMpuRequest.ChecksumAlgorithm = this.checksumAlgorithm;
+      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm;
     }
 
-    const createMpuResponse = await this.s3ClientInstance.send(
-      new CreateMultipartUploadCommand(createMpuRequest),
-      transferOptions
-    );
+    const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
     const uploadId = createMpuResponse.UploadId!;
 
     const abortController = new AbortController();
@@ -1129,7 +1139,7 @@ export class S3TransferManager implements IS3TransferManager {
       const completedParts: CompletedPart[] = [];
       const dataFeeder = getChunk(request.Body, partSize);
       let bytesUploaded = 0;
-      const queueSize = this.maxConcurrentUploads;
+      const concurrencyLimit = this.maxConcurrentUploads;
 
       const uploadPart = async (dataFeeder: AsyncGenerator<any, void, undefined>) => {
         for await (const dataPart of dataFeeder) {
@@ -1147,11 +1157,26 @@ export class S3TransferManager implements IS3TransferManager {
             PartNumber: dataPart.partNumber,
             ContentLength: byteLength(dataPart.data),
             ...(this.requestChecksumCalculation === "WHEN_SUPPORTED" && {
-              ChecksumAlgorithm: this.checksumAlgorithm,
+              ChecksumAlgorithm: request.ChecksumAlgorithm,
             }),
           };
 
-          const partResponse = await this.s3ClientInstance.send(new UploadPartCommand(partRequest), transferOptions);
+          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), transferOptions);
+
+          const checksumAlgorithm = partRequest.ChecksumAlgorithm;
+          if (
+            checksumAlgorithm &&
+            !partResponse.ChecksumCRC32 &&
+            !partResponse.ChecksumCRC32C &&
+            !partResponse.ChecksumCRC64NVME &&
+            !partResponse.ChecksumSHA1 &&
+            !partResponse.ChecksumSHA256
+          ) {
+            throw new Error(
+              `Checksum was requested for part ${dataPart.partNumber} using ${checksumAlgorithm}, but no checksum was returned in the response. ` +
+                `If running in a browser, ensure your S3 bucket CORS configuration is enabled. `
+            );
+          }
 
           const completedPart: CompletedPart = {
             PartNumber: dataPart.partNumber,
@@ -1159,12 +1184,13 @@ export class S3TransferManager implements IS3TransferManager {
           };
           if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
           if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          if (partResponse.ChecksumCRC64NVME) completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
           if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
           if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
 
           completedParts.push(completedPart);
 
-          const partLength = byteLength(dataPart.data) || 0;
+          const partLength = byteLength(dataPart.data)!;
           bytesUploaded += partLength;
 
           this.dispatchEvent(
@@ -1179,9 +1205,9 @@ export class S3TransferManager implements IS3TransferManager {
         }
       };
 
-      const concurrentUploaders: Promise<void>[] = [];
-      for (let i = 0; i < queueSize; i++) {
-        concurrentUploaders.push(
+      const partUploads: Promise<void>[] = [];
+      for (let i = 0; i < concurrencyLimit; i++) {
+        partUploads.push(
           uploadPart(dataFeeder).catch((error) => {
             abortController.abort();
             throw error;
@@ -1189,7 +1215,7 @@ export class S3TransferManager implements IS3TransferManager {
         );
       }
 
-      await Promise.all(concurrentUploaders);
+      await Promise.all(partUploads);
 
       if (completedParts.length !== expectedPartsCount) {
         throw new Error(`Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`);
@@ -1198,39 +1224,42 @@ export class S3TransferManager implements IS3TransferManager {
       completedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
 
       this.checkAborted(transferOptions);
-      const completeRequest: any = {
-        ...request,
+      const { Body: _body, ...completeRequestFields } = request;
+      const completeRequest: CompleteMultipartUploadCommandInput = {
+        ...completeRequestFields,
         UploadId: uploadId,
         MultipartUpload: { Parts: completedParts },
         MpuObjectSize: contentLength,
       };
-      delete completeRequest.Body;
 
       if (hasFullObjectChecksum) {
         completeRequest.ChecksumType = "FULL_OBJECT";
         if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
         if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
         if (request.ChecksumSHA1) completeRequest.ChecksumSHA1 = request.ChecksumSHA1;
         if (request.ChecksumSHA256) completeRequest.ChecksumSHA256 = request.ChecksumSHA256;
       }
 
       try {
-        return await this.s3ClientInstance.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
-      } catch (completeError) {
-        console.warn(`CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeError as Error).message}`);
-        throw completeError;
+        return await this.s3.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+      } catch (completeMpuError) {
+        this.logger.warn(
+          `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`
+        );
+        throw completeMpuError;
       }
     } catch (error) {
-      const abortRequest: any = {
-        ...request,
+      const { Body: _abortBody, ...abortRequestFields } = request;
+      const abortRequest: AbortMultipartUploadCommandInput = {
+        ...abortRequestFields,
         UploadId: uploadId,
       };
-      delete abortRequest.Body;
 
       try {
-        await this.s3ClientInstance.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+        await this.s3.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
       } catch (abortError) {
-        console.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
+        this.logger.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
       }
       throw error;
     }
