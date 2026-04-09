@@ -43,10 +43,6 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  *     Standard: { // StandardRouterInputConfiguration
  *       NetworkInterfaceArn: "STRING_VALUE", // required
  *       ProtocolConfiguration: { // RouterInputProtocolConfiguration Union: only one key present
- *         Rtp: { // RtpRouterInputConfiguration
- *           Port: Number("int"), // required
- *           ForwardErrorCorrection: "ENABLED" || "DISABLED",
- *         },
  *         Rist: { // RistRouterInputConfiguration
  *           Port: Number("int"), // required
  *           RecoveryLatencyMilliseconds: Number("long"), // required
@@ -73,17 +69,32 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  *             },
  *           },
  *         },
+ *         Rtp: { // RtpRouterInputConfiguration
+ *           Port: Number("int"), // required
+ *           ForwardErrorCorrection: "ENABLED" || "DISABLED",
+ *         },
  *       },
  *       Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER",
+ *     },
+ *     MediaLiveChannel: { // MediaLiveChannelRouterInputConfiguration
+ *       MediaLiveChannelArn: "STRING_VALUE",
+ *       MediaLivePipelineId: "PIPELINE_0" || "PIPELINE_1",
+ *       MediaLiveChannelOutputName: "STRING_VALUE",
+ *       SourceTransitDecryption: { // MediaLiveTransitEncryption
+ *         EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ *         EncryptionKeyConfiguration: { // MediaLiveTransitEncryptionKeyConfiguration Union: only one key present
+ *           SecretsManager: {
+ *             SecretArn: "STRING_VALUE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *           },
+ *           Automatic: {},
+ *         },
+ *       },
  *     },
  *     Failover: { // FailoverRouterInputConfiguration
  *       NetworkInterfaceArn: "STRING_VALUE", // required
  *       ProtocolConfigurations: [ // FailoverRouterInputProtocolConfigurationList // required
  *         { // FailoverRouterInputProtocolConfiguration Union: only one key present
- *           Rtp: {
- *             Port: Number("int"), // required
- *             ForwardErrorCorrection: "ENABLED" || "DISABLED",
- *           },
  *           Rist: {
  *             Port: Number("int"), // required
  *             RecoveryLatencyMilliseconds: Number("long"), // required
@@ -92,10 +103,7 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  *             Port: Number("int"), // required
  *             MinimumLatencyMilliseconds: Number("long"), // required
  *             DecryptionConfiguration: {
- *               EncryptionKey: {
- *                 SecretArn: "STRING_VALUE", // required
- *                 RoleArn: "STRING_VALUE", // required
- *               },
+ *               EncryptionKey: "<SecretsManagerEncryptionKeyConfiguration>", // required
  *             },
  *           },
  *           SrtCaller: {
@@ -104,16 +112,28 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  *             MinimumLatencyMilliseconds: Number("long"), // required
  *             StreamId: "STRING_VALUE",
  *             DecryptionConfiguration: {
- *               EncryptionKey: {
- *                 SecretArn: "STRING_VALUE", // required
- *                 RoleArn: "STRING_VALUE", // required
- *               },
+ *               EncryptionKey: "<SecretsManagerEncryptionKeyConfiguration>", // required
  *             },
+ *           },
+ *           Rtp: {
+ *             Port: Number("int"), // required
+ *             ForwardErrorCorrection: "ENABLED" || "DISABLED",
  *           },
  *         },
  *       ],
  *       SourcePriorityMode: "NO_PRIORITY" || "PRIMARY_SECONDARY", // required
  *       PrimarySourceIndex: Number("int"),
+ *     },
+ *     MediaConnectFlow: { // MediaConnectFlowRouterInputConfiguration
+ *       FlowArn: "STRING_VALUE",
+ *       FlowOutputArn: "STRING_VALUE",
+ *       SourceTransitDecryption: { // FlowTransitEncryption
+ *         EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ *         EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ *           SecretsManager: "<SecretsManagerEncryptionKeyConfiguration>",
+ *           Automatic: {},
+ *         },
+ *       },
  *     },
  *     Merge: { // MergeRouterInputConfiguration
  *       NetworkInterfaceArn: "STRING_VALUE", // required
@@ -130,17 +150,6 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  *         },
  *       ],
  *       MergeRecoveryWindowMilliseconds: Number("long"), // required
- *     },
- *     MediaConnectFlow: { // MediaConnectFlowRouterInputConfiguration
- *       FlowArn: "STRING_VALUE",
- *       FlowOutputArn: "STRING_VALUE",
- *       SourceTransitDecryption: { // FlowTransitEncryption
- *         EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
- *         EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
- *           SecretsManager: "<SecretsManagerEncryptionKeyConfiguration>",
- *           Automatic: {},
- *         },
- *       },
  *     },
  *   },
  *   MaximumBitrate: Number("long"),
@@ -169,15 +178,11 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //     Arn: "STRING_VALUE", // required
  * //     Id: "STRING_VALUE", // required
  * //     State: "CREATING" || "STANDBY" || "STARTING" || "ACTIVE" || "STOPPING" || "DELETING" || "UPDATING" || "ERROR" || "RECOVERING" || "MIGRATING", // required
- * //     InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW", // required
+ * //     InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL", // required
  * //     Configuration: { // RouterInputConfiguration Union: only one key present
  * //       Standard: { // StandardRouterInputConfiguration
  * //         NetworkInterfaceArn: "STRING_VALUE", // required
  * //         ProtocolConfiguration: { // RouterInputProtocolConfiguration Union: only one key present
- * //           Rtp: { // RtpRouterInputConfiguration
- * //             Port: Number("int"), // required
- * //             ForwardErrorCorrection: "ENABLED" || "DISABLED",
- * //           },
  * //           Rist: { // RistRouterInputConfiguration
  * //             Port: Number("int"), // required
  * //             RecoveryLatencyMilliseconds: Number("long"), // required
@@ -204,17 +209,32 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //               },
  * //             },
  * //           },
+ * //           Rtp: { // RtpRouterInputConfiguration
+ * //             Port: Number("int"), // required
+ * //             ForwardErrorCorrection: "ENABLED" || "DISABLED",
+ * //           },
  * //         },
  * //         Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER",
+ * //       },
+ * //       MediaLiveChannel: { // MediaLiveChannelRouterInputConfiguration
+ * //         MediaLiveChannelArn: "STRING_VALUE",
+ * //         MediaLivePipelineId: "PIPELINE_0" || "PIPELINE_1",
+ * //         MediaLiveChannelOutputName: "STRING_VALUE",
+ * //         SourceTransitDecryption: { // MediaLiveTransitEncryption
+ * //           EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //           EncryptionKeyConfiguration: { // MediaLiveTransitEncryptionKeyConfiguration Union: only one key present
+ * //             SecretsManager: {
+ * //               SecretArn: "STRING_VALUE", // required
+ * //               RoleArn: "STRING_VALUE", // required
+ * //             },
+ * //             Automatic: {},
+ * //           },
+ * //         },
  * //       },
  * //       Failover: { // FailoverRouterInputConfiguration
  * //         NetworkInterfaceArn: "STRING_VALUE", // required
  * //         ProtocolConfigurations: [ // FailoverRouterInputProtocolConfigurationList // required
  * //           { // FailoverRouterInputProtocolConfiguration Union: only one key present
- * //             Rtp: {
- * //               Port: Number("int"), // required
- * //               ForwardErrorCorrection: "ENABLED" || "DISABLED",
- * //             },
  * //             Rist: {
  * //               Port: Number("int"), // required
  * //               RecoveryLatencyMilliseconds: Number("long"), // required
@@ -223,10 +243,7 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //               Port: Number("int"), // required
  * //               MinimumLatencyMilliseconds: Number("long"), // required
  * //               DecryptionConfiguration: {
- * //                 EncryptionKey: {
- * //                   SecretArn: "STRING_VALUE", // required
- * //                   RoleArn: "STRING_VALUE", // required
- * //                 },
+ * //                 EncryptionKey: "<SecretsManagerEncryptionKeyConfiguration>", // required
  * //               },
  * //             },
  * //             SrtCaller: {
@@ -235,16 +252,28 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //               MinimumLatencyMilliseconds: Number("long"), // required
  * //               StreamId: "STRING_VALUE",
  * //               DecryptionConfiguration: {
- * //                 EncryptionKey: {
- * //                   SecretArn: "STRING_VALUE", // required
- * //                   RoleArn: "STRING_VALUE", // required
- * //                 },
+ * //                 EncryptionKey: "<SecretsManagerEncryptionKeyConfiguration>", // required
  * //               },
+ * //             },
+ * //             Rtp: {
+ * //               Port: Number("int"), // required
+ * //               ForwardErrorCorrection: "ENABLED" || "DISABLED",
  * //             },
  * //           },
  * //         ],
  * //         SourcePriorityMode: "NO_PRIORITY" || "PRIMARY_SECONDARY", // required
  * //         PrimarySourceIndex: Number("int"),
+ * //       },
+ * //       MediaConnectFlow: { // MediaConnectFlowRouterInputConfiguration
+ * //         FlowArn: "STRING_VALUE",
+ * //         FlowOutputArn: "STRING_VALUE",
+ * //         SourceTransitDecryption: { // FlowTransitEncryption
+ * //           EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
+ * //           EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
+ * //             SecretsManager: "<SecretsManagerEncryptionKeyConfiguration>",
+ * //             Automatic: {},
+ * //           },
+ * //         },
  * //       },
  * //       Merge: { // MergeRouterInputConfiguration
  * //         NetworkInterfaceArn: "STRING_VALUE", // required
@@ -261,17 +290,6 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //           },
  * //         ],
  * //         MergeRecoveryWindowMilliseconds: Number("long"), // required
- * //       },
- * //       MediaConnectFlow: { // MediaConnectFlowRouterInputConfiguration
- * //         FlowArn: "STRING_VALUE",
- * //         FlowOutputArn: "STRING_VALUE",
- * //         SourceTransitDecryption: { // FlowTransitEncryption
- * //           EncryptionKeyType: "SECRETS_MANAGER" || "AUTOMATIC",
- * //           EncryptionKeyConfiguration: { // FlowTransitEncryptionKeyConfiguration Union: only one key present
- * //             SecretsManager: "<SecretsManagerEncryptionKeyConfiguration>",
- * //             Automatic: {},
- * //           },
- * //         },
  * //       },
  * //     },
  * //     RoutedOutputs: Number("int"), // required
@@ -303,6 +321,7 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //       Standard: { // StandardRouterInputStreamDetails
  * //         SourceIpAddress: "STRING_VALUE",
  * //       },
+ * //       MediaLiveChannel: {},
  * //       Failover: { // FailoverRouterInputStreamDetails
  * //         SourceIndexZeroStreamDetails: { // FailoverRouterInputIndexedStreamDetails
  * //           SourceIndex: Number("int"), // required
@@ -313,6 +332,7 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //           SourceIpAddress: "STRING_VALUE",
  * //         },
  * //       },
+ * //       MediaConnectFlow: {},
  * //       Merge: { // MergeRouterInputStreamDetails
  * //         SourceIndexZeroStreamDetails: { // MergeRouterInputIndexedStreamDetails
  * //           SourceIndex: Number("int"), // required
@@ -323,7 +343,6 @@ export interface UpdateRouterInputCommandOutput extends UpdateRouterInputRespons
  * //           SourceIpAddress: "STRING_VALUE",
  * //         },
  * //       },
- * //       MediaConnectFlow: {},
  * //     },
  * //     IpAddress: "STRING_VALUE",
  * //     MaintenanceType: "PREFERRED_DAY_TIME" || "DEFAULT", // required

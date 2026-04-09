@@ -23,6 +23,40 @@ import type {
 /**
  * @public
  */
+export interface RestartRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to restart.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestartRouterInputResponse {
+  /**
+   * <p>The ARN of the router input that was restarted.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input that was restarted.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the router input after the restart operation.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartRouterInputRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>

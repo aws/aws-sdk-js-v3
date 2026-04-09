@@ -41,13 +41,10 @@ export interface ListRouterInputsCommandOutput extends ListRouterInputsResponse,
  *   NextToken: "STRING_VALUE",
  *   Filters: [ // RouterInputFilterList
  *     { // RouterInputFilter Union: only one key present
- *       RegionNames: [ // StringList
+ *       NameContains: [ // StringList
  *         "STRING_VALUE",
  *       ],
- *       InputTypes: [ // RouterInputTypeList
- *         "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW",
- *       ],
- *       NameContains: [
+ *       RegionNames: [
  *         "STRING_VALUE",
  *       ],
  *       NetworkInterfaceArns: [ // RouterNetworkInterfaceArnList
@@ -55,6 +52,9 @@ export interface ListRouterInputsCommandOutput extends ListRouterInputsResponse,
  *       ],
  *       RoutingScopes: [ // RoutingScopeList
  *         "REGIONAL" || "GLOBAL",
+ *       ],
+ *       InputTypes: [ // RouterInputTypeList
+ *         "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL",
  *       ],
  *     },
  *   ],
@@ -67,7 +67,7 @@ export interface ListRouterInputsCommandOutput extends ListRouterInputsResponse,
  * //       Name: "STRING_VALUE", // required
  * //       Arn: "STRING_VALUE", // required
  * //       Id: "STRING_VALUE", // required
- * //       InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW", // required
+ * //       InputType: "STANDARD" || "FAILOVER" || "MERGE" || "MEDIACONNECT_FLOW" || "MEDIALIVE_CHANNEL", // required
  * //       State: "CREATING" || "STANDBY" || "STARTING" || "ACTIVE" || "STOPPING" || "DELETING" || "UPDATING" || "ERROR" || "RECOVERING" || "MIGRATING", // required
  * //       RoutedOutputs: Number("int"), // required
  * //       RegionName: "STRING_VALUE", // required

@@ -351,6 +351,11 @@ const _MDe = "MessageDetail";
 const _MI = "MulticastIp";
 const _MIe = "MediaInfo";
 const _ML = "MaxLatency";
+const _MLC = "MediaLiveChannel";
+const _MLCA = "MediaLiveChannelArn";
+const _MLCON = "MediaLiveChannelOutputName";
+const _MLCRIC = "MediaLiveChannelRouterInputConfiguration";
+const _MLCRISD = "MediaLiveChannelRouterInputStreamDetails";
 const _MLI = "MediaLiveInput";
 const _MLIA = "MediaLiveInputArn";
 const _MLIROC = "MediaLiveInputRouterOutputConfiguration";
@@ -919,6 +924,9 @@ const _mDa = "maintenanceDeadline";
 const _mI = "multicastIp";
 const _mIe = "mediaInfo";
 const _mL = "maxLatency";
+const _mLC = "mediaLiveChannel";
+const _mLCA = "mediaLiveChannelArn";
+const _mLCON = "mediaLiveChannelOutputName";
 const _mLI = "mediaLiveInput";
 const _mLIA = "mediaLiveInputArn";
 const _mLM = "minimumLatencyMilliseconds";
@@ -2058,6 +2066,16 @@ export var MediaConnectFlowRouterOutputStreamDetails$: StaticStructureSchema = [
   [],
   []
 ];
+export var MediaLiveChannelRouterInputConfiguration$: StaticStructureSchema = [3, n0, _MLCRIC,
+  0,
+  [_STD, _MLCA, _MLPI, _MLCON],
+  [[() => MediaLiveTransitEncryption$, { [_jN]: _sTD }], [0, { [_jN]: _mLCA }], [0, { [_jN]: _mLPI }], [0, { [_jN]: _mLCON }]], 1
+];
+export var MediaLiveChannelRouterInputStreamDetails$: StaticStructureSchema = [3, n0, _MLCRISD,
+  0,
+  [],
+  []
+];
 export var MediaLiveInputRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _MLIROC,
   0,
   [_DTE, _MLIA, _MLPI],
@@ -3008,8 +3026,8 @@ var StringList = 64 | 0;
 var __mapOfString = 128 | 0;
 export var FailoverRouterInputProtocolConfiguration$: StaticUnionSchema = [4, n0, _FRIPC,
   0,
-  [_Rt, _Ri, _SLr, _SC],
-  [[() => RtpRouterInputConfiguration$, { [_jN]: _rt }], [() => RistRouterInputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterInputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }]]
+  [_Ri, _SLr, _SC, _Rt],
+  [[() => RistRouterInputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterInputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }], [() => RtpRouterInputConfiguration$, { [_jN]: _rt }]]
 ];
 export var FlowTransitEncryptionKeyConfiguration$: StaticUnionSchema = [4, n0, _FTEKC,
   0,
@@ -3038,13 +3056,13 @@ export var MergeRouterInputProtocolConfiguration$: StaticUnionSchema = [4, n0, _
 ];
 export var RouterInputConfiguration$: StaticUnionSchema = [4, n0, _RIC,
   0,
-  [_Stan, _Fa, _Mer, _MCF],
-  [[() => StandardRouterInputConfiguration$, { [_jN]: _stan }], [() => FailoverRouterInputConfiguration$, { [_jN]: _fa }], [() => MergeRouterInputConfiguration$, { [_jN]: _mer }], [() => MediaConnectFlowRouterInputConfiguration$, { [_jN]: _mCF }]]
+  [_Stan, _MLC, _Fa, _MCF, _Mer],
+  [[() => StandardRouterInputConfiguration$, { [_jN]: _stan }], [() => MediaLiveChannelRouterInputConfiguration$, { [_jN]: _mLC }], [() => FailoverRouterInputConfiguration$, { [_jN]: _fa }], [() => MediaConnectFlowRouterInputConfiguration$, { [_jN]: _mCF }], [() => MergeRouterInputConfiguration$, { [_jN]: _mer }]]
 ];
 export var RouterInputFilter$: StaticUnionSchema = [4, n0, _RIF,
   0,
-  [_RNeg, _ITn, _NCa, _NIAe, _RSou],
-  [[64 | 0, { [_jN]: _rNeg }], [64 | 0, { [_jN]: _iTnp }], [64 | 0, { [_jN]: _nCa }], [64 | 0, { [_jN]: _nIAe }], [64 | 0, { [_jN]: _rSou }]]
+  [_NCa, _RNeg, _NIAe, _RSou, _ITn],
+  [[64 | 0, { [_jN]: _nCa }], [64 | 0, { [_jN]: _rNeg }], [64 | 0, { [_jN]: _nIAe }], [64 | 0, { [_jN]: _rSou }], [64 | 0, { [_jN]: _iTnp }]]
 ];
 export var RouterInputMetadata$: StaticUnionSchema = [4, n0, _RIMo,
   0,
@@ -3053,13 +3071,13 @@ export var RouterInputMetadata$: StaticUnionSchema = [4, n0, _RIMo,
 ];
 export var RouterInputProtocolConfiguration$: StaticUnionSchema = [4, n0, _RIPC,
   0,
-  [_Rt, _Ri, _SLr, _SC],
-  [[() => RtpRouterInputConfiguration$, { [_jN]: _rt }], [() => RistRouterInputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterInputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }]]
+  [_Ri, _SLr, _SC, _Rt],
+  [[() => RistRouterInputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterInputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }], [() => RtpRouterInputConfiguration$, { [_jN]: _rt }]]
 ];
 export var RouterInputStreamDetails$: StaticUnionSchema = [4, n0, _RISD,
   0,
-  [_Stan, _Fa, _Mer, _MCF],
-  [[() => StandardRouterInputStreamDetails$, { [_jN]: _stan }], [() => FailoverRouterInputStreamDetails$, { [_jN]: _fa }], [() => MergeRouterInputStreamDetails$, { [_jN]: _mer }], [() => MediaConnectFlowRouterInputStreamDetails$, { [_jN]: _mCF }]]
+  [_Stan, _MLC, _Fa, _MCF, _Mer],
+  [[() => StandardRouterInputStreamDetails$, { [_jN]: _stan }], [() => MediaLiveChannelRouterInputStreamDetails$, { [_jN]: _mLC }], [() => FailoverRouterInputStreamDetails$, { [_jN]: _fa }], [() => MediaConnectFlowRouterInputStreamDetails$, { [_jN]: _mCF }], [() => MergeRouterInputStreamDetails$, { [_jN]: _mer }]]
 ];
 export var RouterInputTransitEncryptionKeyConfiguration$: StaticUnionSchema = [4, n0, _RITEKC,
   0,
@@ -3083,13 +3101,13 @@ export var RouterOutputConfiguration$: StaticUnionSchema = [4, n0, _ROC,
 ];
 export var RouterOutputFilter$: StaticUnionSchema = [4, n0, _ROF,
   0,
-  [_RNeg, _OTut, _NCa, _NIAe, _RIAou, _RSou],
-  [[64 | 0, { [_jN]: _rNeg }], [64 | 0, { [_jN]: _oTut }], [64 | 0, { [_jN]: _nCa }], [64 | 0, { [_jN]: _nIAe }], [64 | 0, { [_jN]: _rIAou }], [64 | 0, { [_jN]: _rSou }]]
+  [_RNeg, _NIAe, _RSou, _OTut, _RIAou, _NCa],
+  [[64 | 0, { [_jN]: _rNeg }], [64 | 0, { [_jN]: _nIAe }], [64 | 0, { [_jN]: _rSou }], [64 | 0, { [_jN]: _oTut }], [64 | 0, { [_jN]: _rIAou }], [64 | 0, { [_jN]: _nCa }]]
 ];
 export var RouterOutputProtocolConfiguration$: StaticUnionSchema = [4, n0, _ROPC,
   0,
-  [_Rt, _Ri, _SLr, _SC],
-  [[() => RtpRouterOutputConfiguration$, { [_jN]: _rt }], [() => RistRouterOutputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }]]
+  [_Ri, _SLr, _SC, _Rt],
+  [[() => RistRouterOutputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }], [() => RtpRouterOutputConfiguration$, { [_jN]: _rt }]]
 ];
 export var RouterOutputStreamDetails$: StaticUnionSchema = [4, n0, _ROSD,
   0,

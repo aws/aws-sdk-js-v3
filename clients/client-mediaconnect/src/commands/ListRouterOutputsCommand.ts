@@ -44,20 +44,20 @@ export interface ListRouterOutputsCommandOutput extends ListRouterOutputsRespons
  *       RegionNames: [ // StringList
  *         "STRING_VALUE",
  *       ],
- *       OutputTypes: [ // RouterOutputTypeList
- *         "STANDARD" || "MEDIACONNECT_FLOW" || "MEDIALIVE_INPUT",
- *       ],
- *       NameContains: [
- *         "STRING_VALUE",
- *       ],
  *       NetworkInterfaceArns: [ // RouterNetworkInterfaceArnList
- *         "STRING_VALUE",
- *       ],
- *       RoutedInputArns: [ // RouterInputArnList
  *         "STRING_VALUE",
  *       ],
  *       RoutingScopes: [ // RoutingScopeList
  *         "REGIONAL" || "GLOBAL",
+ *       ],
+ *       OutputTypes: [ // RouterOutputTypeList
+ *         "STANDARD" || "MEDIACONNECT_FLOW" || "MEDIALIVE_INPUT",
+ *       ],
+ *       RoutedInputArns: [ // RouterInputArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       NameContains: [
+ *         "STRING_VALUE",
  *       ],
  *     },
  *   ],

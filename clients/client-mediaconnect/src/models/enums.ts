@@ -413,6 +413,33 @@ export type FailoverInputSourcePriorityMode =
  * @public
  * @enum
  */
+export const MediaLiveChannelPipelineId = {
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
+/**
+ * @public
+ */
+export type MediaLiveChannelPipelineId = (typeof MediaLiveChannelPipelineId)[keyof typeof MediaLiveChannelPipelineId];
+
+/**
+ * @public
+ * @enum
+ */
+export const MediaLiveTransitEncryptionKeyType = {
+  AUTOMATIC: "AUTOMATIC",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+} as const;
+/**
+ * @public
+ */
+export type MediaLiveTransitEncryptionKeyType =
+  (typeof MediaLiveTransitEncryptionKeyType)[keyof typeof MediaLiveTransitEncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RouterInputProtocol = {
   RIST: "RIST",
   RTP: "RTP",
@@ -431,6 +458,7 @@ export type RouterInputProtocol = (typeof RouterInputProtocol)[keyof typeof Rout
 export const RouterInputType = {
   FAILOVER: "FAILOVER",
   MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
+  MEDIALIVE_CHANNEL: "MEDIALIVE_CHANNEL",
   MERGE: "MERGE",
   STANDARD: "STANDARD",
 } as const;
@@ -574,20 +602,6 @@ export const RouterNetworkInterfaceState = {
  */
 export type RouterNetworkInterfaceState =
   (typeof RouterNetworkInterfaceState)[keyof typeof RouterNetworkInterfaceState];
-
-/**
- * @public
- * @enum
- */
-export const MediaLiveTransitEncryptionKeyType = {
-  AUTOMATIC: "AUTOMATIC",
-  SECRETS_MANAGER: "SECRETS_MANAGER",
-} as const;
-/**
- * @public
- */
-export type MediaLiveTransitEncryptionKeyType =
-  (typeof MediaLiveTransitEncryptionKeyType)[keyof typeof MediaLiveTransitEncryptionKeyType];
 
 /**
  * @public

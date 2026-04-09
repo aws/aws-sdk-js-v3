@@ -305,6 +305,9 @@ import {
   MediaConnectFlowRouterOutputConfiguration$,
   MediaConnectFlowRouterOutputStreamDetails$,
   MediaConnectServiceException,
+  MediaLiveChannelPipelineId,
+  MediaLiveChannelRouterInputConfiguration$,
+  MediaLiveChannelRouterInputStreamDetails$,
   MediaLiveInputPipelineId,
   MediaLiveInputRouterOutputConfiguration$,
   MediaLiveInputRouterOutputStreamDetails$,
@@ -940,6 +943,8 @@ assert(typeof MediaConnectFlowRouterInputConfiguration$ === "object");
 assert(typeof MediaConnectFlowRouterInputStreamDetails$ === "object");
 assert(typeof MediaConnectFlowRouterOutputConfiguration$ === "object");
 assert(typeof MediaConnectFlowRouterOutputStreamDetails$ === "object");
+assert(typeof MediaLiveChannelRouterInputConfiguration$ === "object");
+assert(typeof MediaLiveChannelRouterInputStreamDetails$ === "object");
 assert(typeof MediaLiveInputRouterOutputConfiguration$ === "object");
 assert(typeof MediaLiveInputRouterOutputStreamDetails$ === "object");
 assert(typeof MediaLiveTransitEncryption$ === "object");
@@ -1122,6 +1127,7 @@ assert(typeof KeyType === "object");
 assert(typeof MaintenanceDay === "object");
 assert(typeof MaintenanceScheduleType === "object");
 assert(typeof MaintenanceType === "object");
+assert(typeof MediaLiveChannelPipelineId === "object");
 assert(typeof MediaLiveInputPipelineId === "object");
 assert(typeof MediaLiveTransitEncryptionKeyType === "object");
 assert(typeof MediaStreamType === "object");

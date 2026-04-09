@@ -24,6 +24,7 @@ import type {
   MaintenanceDay,
   MaintenanceScheduleType,
   MaintenanceType,
+  MediaLiveChannelPipelineId,
   MediaLiveInputPipelineId,
   MediaLiveTransitEncryptionKeyType,
   MediaStreamType,
@@ -2986,26 +2987,14 @@ export type FailoverRouterInputProtocolConfiguration =
  */
 export namespace FailoverRouterInputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
-   * @public
-   */
-  export interface RtpMember {
-    Rtp: RtpRouterInputConfiguration;
-    Rist?: never;
-    SrtListener?: never;
-    SrtCaller?: never;
-    $unknown?: never;
-  }
-
-  /**
    * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
    * @public
    */
   export interface RistMember {
-    Rtp?: never;
     Rist: RistRouterInputConfiguration;
     SrtListener?: never;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown?: never;
   }
 
@@ -3014,10 +3003,10 @@ export namespace FailoverRouterInputProtocolConfiguration {
    * @public
    */
   export interface SrtListenerMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener: SrtListenerRouterInputConfiguration;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown?: never;
   }
 
@@ -3026,10 +3015,22 @@ export namespace FailoverRouterInputProtocolConfiguration {
    * @public
    */
   export interface SrtCallerMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener?: never;
     SrtCaller: SrtCallerRouterInputConfiguration;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp: RtpRouterInputConfiguration;
     $unknown?: never;
   }
 
@@ -3037,10 +3038,10 @@ export namespace FailoverRouterInputProtocolConfiguration {
    * @public
    */
   export interface $UnknownMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener?: never;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown: [string, any];
   }
 
@@ -3049,10 +3050,10 @@ export namespace FailoverRouterInputProtocolConfiguration {
    *
    */
   export interface Visitor<T> {
-    Rtp: (value: RtpRouterInputConfiguration) => T;
     Rist: (value: RistRouterInputConfiguration) => T;
     SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
     SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
+    Rtp: (value: RtpRouterInputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3109,6 +3110,107 @@ export interface MediaConnectFlowRouterInputConfiguration {
    * @public
    */
   SourceTransitDecryption: FlowTransitEncryption | undefined;
+}
+
+/**
+ * <p>Configuration settings for the MediaLive transit encryption key.</p>
+ * @public
+ */
+export type MediaLiveTransitEncryptionKeyConfiguration =
+  | MediaLiveTransitEncryptionKeyConfiguration.AutomaticMember
+  | MediaLiveTransitEncryptionKeyConfiguration.SecretsManagerMember
+  | MediaLiveTransitEncryptionKeyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MediaLiveTransitEncryptionKeyConfiguration {
+  /**
+   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
+   * @public
+   */
+  export interface SecretsManagerMember {
+    SecretsManager: SecretsManagerEncryptionKeyConfiguration;
+    Automatic?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
+   * @public
+   */
+  export interface AutomaticMember {
+    SecretsManager?: never;
+    Automatic: AutomaticEncryptionKeyConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecretsManager?: never;
+    Automatic?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    SecretsManager: (value: SecretsManagerEncryptionKeyConfiguration) => T;
+    Automatic: (value: AutomaticEncryptionKeyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.</p>
+ * @public
+ */
+export interface MediaLiveTransitEncryption {
+  /**
+   * <p>The type of encryption key to use for MediaLive transit encryption.</p>
+   * @public
+   */
+  EncryptionKeyType?: MediaLiveTransitEncryptionKeyType | undefined;
+
+  /**
+   * <p>The configuration details for the MediaLive encryption key.</p>
+   * @public
+   */
+  EncryptionKeyConfiguration: MediaLiveTransitEncryptionKeyConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p>
+ * @public
+ */
+export interface MediaLiveChannelRouterInputConfiguration {
+  /**
+   * <p>The ARN of the MediaLive channel to connect to this router input.</p>
+   * @public
+   */
+  MediaLiveChannelArn?: string | undefined;
+
+  /**
+   * <p>The index of the MediaLive pipeline to connect to this router input.</p>
+   * @public
+   */
+  MediaLivePipelineId?: MediaLiveChannelPipelineId | undefined;
+
+  /**
+   * <p>The name of the MediaLive channel output to connect to this router input.</p>
+   * @public
+   */
+  MediaLiveChannelOutputName?: string | undefined;
+
+  /**
+   * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.</p>
+   * @public
+   */
+  SourceTransitDecryption: MediaLiveTransitEncryption | undefined;
 }
 
 /**
@@ -3204,26 +3306,14 @@ export type RouterInputProtocolConfiguration =
  */
 export namespace RouterInputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
-   * @public
-   */
-  export interface RtpMember {
-    Rtp: RtpRouterInputConfiguration;
-    Rist?: never;
-    SrtListener?: never;
-    SrtCaller?: never;
-    $unknown?: never;
-  }
-
-  /**
    * <p>The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.</p>
    * @public
    */
   export interface RistMember {
-    Rtp?: never;
     Rist: RistRouterInputConfiguration;
     SrtListener?: never;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown?: never;
   }
 
@@ -3232,10 +3322,10 @@ export namespace RouterInputProtocolConfiguration {
    * @public
    */
   export interface SrtListenerMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener: SrtListenerRouterInputConfiguration;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown?: never;
   }
 
@@ -3244,10 +3334,22 @@ export namespace RouterInputProtocolConfiguration {
    * @public
    */
   export interface SrtCallerMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener?: never;
     SrtCaller: SrtCallerRouterInputConfiguration;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp: RtpRouterInputConfiguration;
     $unknown?: never;
   }
 
@@ -3255,10 +3357,10 @@ export namespace RouterInputProtocolConfiguration {
    * @public
    */
   export interface $UnknownMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener?: never;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown: [string, any];
   }
 
@@ -3267,10 +3369,10 @@ export namespace RouterInputProtocolConfiguration {
    *
    */
   export interface Visitor<T> {
-    Rtp: (value: RtpRouterInputConfiguration) => T;
     Rist: (value: RistRouterInputConfiguration) => T;
     SrtListener: (value: SrtListenerRouterInputConfiguration) => T;
     SrtCaller: (value: SrtCallerRouterInputConfiguration) => T;
+    Rtp: (value: RtpRouterInputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3306,6 +3408,7 @@ export interface StandardRouterInputConfiguration {
 export type RouterInputConfiguration =
   | RouterInputConfiguration.FailoverMember
   | RouterInputConfiguration.MediaConnectFlowMember
+  | RouterInputConfiguration.MediaLiveChannelMember
   | RouterInputConfiguration.MergeMember
   | RouterInputConfiguration.StandardMember
   | RouterInputConfiguration.$UnknownMember;
@@ -3320,9 +3423,23 @@ export namespace RouterInputConfiguration {
    */
   export interface StandardMember {
     Standard: StandardRouterInputConfiguration;
+    MediaLiveChannel?: never;
     Failover?: never;
-    Merge?: never;
     MediaConnectFlow?: never;
+    Merge?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for connecting a router input to a MediaLive channel output.</p>
+   * @public
+   */
+  export interface MediaLiveChannelMember {
+    Standard?: never;
+    MediaLiveChannel: MediaLiveChannelRouterInputConfiguration;
+    Failover?: never;
+    MediaConnectFlow?: never;
+    Merge?: never;
     $unknown?: never;
   }
 
@@ -3332,21 +3449,10 @@ export namespace RouterInputConfiguration {
    */
   export interface FailoverMember {
     Standard?: never;
+    MediaLiveChannel?: never;
     Failover: FailoverRouterInputConfiguration;
+    MediaConnectFlow?: never;
     Merge?: never;
-    MediaConnectFlow?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration settings for a merge router input that combines two input sources.</p>
-   * @public
-   */
-  export interface MergeMember {
-    Standard?: never;
-    Failover?: never;
-    Merge: MergeRouterInputConfiguration;
-    MediaConnectFlow?: never;
     $unknown?: never;
   }
 
@@ -3356,9 +3462,23 @@ export namespace RouterInputConfiguration {
    */
   export interface MediaConnectFlowMember {
     Standard?: never;
+    MediaLiveChannel?: never;
     Failover?: never;
-    Merge?: never;
     MediaConnectFlow: MediaConnectFlowRouterInputConfiguration;
+    Merge?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for a merge router input that combines two input sources.</p>
+   * @public
+   */
+  export interface MergeMember {
+    Standard?: never;
+    MediaLiveChannel?: never;
+    Failover?: never;
+    MediaConnectFlow?: never;
+    Merge: MergeRouterInputConfiguration;
     $unknown?: never;
   }
 
@@ -3367,9 +3487,10 @@ export namespace RouterInputConfiguration {
    */
   export interface $UnknownMember {
     Standard?: never;
+    MediaLiveChannel?: never;
     Failover?: never;
-    Merge?: never;
     MediaConnectFlow?: never;
+    Merge?: never;
     $unknown: [string, any];
   }
 
@@ -3379,9 +3500,10 @@ export namespace RouterInputConfiguration {
    */
   export interface Visitor<T> {
     Standard: (value: StandardRouterInputConfiguration) => T;
+    MediaLiveChannel: (value: MediaLiveChannelRouterInputConfiguration) => T;
     Failover: (value: FailoverRouterInputConfiguration) => T;
-    Merge: (value: MergeRouterInputConfiguration) => T;
     MediaConnectFlow: (value: MediaConnectFlowRouterInputConfiguration) => T;
+    Merge: (value: MergeRouterInputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3587,6 +3709,12 @@ export interface FailoverRouterInputStreamDetails {
 export interface MediaConnectFlowRouterInputStreamDetails {}
 
 /**
+ * <p>Configuration details for a MediaLive channel when used as a router input source.</p>
+ * @public
+ */
+export interface MediaLiveChannelRouterInputStreamDetails {}
+
+/**
  * <p>Configuration details for an indexed stream in a merge router input setup.</p>
  * @public
  */
@@ -3641,6 +3769,7 @@ export interface StandardRouterInputStreamDetails {
 export type RouterInputStreamDetails =
   | RouterInputStreamDetails.FailoverMember
   | RouterInputStreamDetails.MediaConnectFlowMember
+  | RouterInputStreamDetails.MediaLiveChannelMember
   | RouterInputStreamDetails.MergeMember
   | RouterInputStreamDetails.StandardMember
   | RouterInputStreamDetails.$UnknownMember;
@@ -3655,9 +3784,23 @@ export namespace RouterInputStreamDetails {
    */
   export interface StandardMember {
     Standard: StandardRouterInputStreamDetails;
+    MediaLiveChannel?: never;
     Failover?: never;
-    Merge?: never;
     MediaConnectFlow?: never;
+    Merge?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a MediaLive channel when used as a router input source.</p>
+   * @public
+   */
+  export interface MediaLiveChannelMember {
+    Standard?: never;
+    MediaLiveChannel: MediaLiveChannelRouterInputStreamDetails;
+    Failover?: never;
+    MediaConnectFlow?: never;
+    Merge?: never;
     $unknown?: never;
   }
 
@@ -3667,21 +3810,10 @@ export namespace RouterInputStreamDetails {
    */
   export interface FailoverMember {
     Standard?: never;
+    MediaLiveChannel?: never;
     Failover: FailoverRouterInputStreamDetails;
+    MediaConnectFlow?: never;
     Merge?: never;
-    MediaConnectFlow?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration details for a merge router input that combines two input sources.</p>
-   * @public
-   */
-  export interface MergeMember {
-    Standard?: never;
-    Failover?: never;
-    Merge: MergeRouterInputStreamDetails;
-    MediaConnectFlow?: never;
     $unknown?: never;
   }
 
@@ -3691,9 +3823,23 @@ export namespace RouterInputStreamDetails {
    */
   export interface MediaConnectFlowMember {
     Standard?: never;
+    MediaLiveChannel?: never;
     Failover?: never;
-    Merge?: never;
     MediaConnectFlow: MediaConnectFlowRouterInputStreamDetails;
+    Merge?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration details for a merge router input that combines two input sources.</p>
+   * @public
+   */
+  export interface MergeMember {
+    Standard?: never;
+    MediaLiveChannel?: never;
+    Failover?: never;
+    MediaConnectFlow?: never;
+    Merge: MergeRouterInputStreamDetails;
     $unknown?: never;
   }
 
@@ -3702,9 +3848,10 @@ export namespace RouterInputStreamDetails {
    */
   export interface $UnknownMember {
     Standard?: never;
+    MediaLiveChannel?: never;
     Failover?: never;
-    Merge?: never;
     MediaConnectFlow?: never;
+    Merge?: never;
     $unknown: [string, any];
   }
 
@@ -3714,9 +3861,10 @@ export namespace RouterInputStreamDetails {
    */
   export interface Visitor<T> {
     Standard: (value: StandardRouterInputStreamDetails) => T;
+    MediaLiveChannel: (value: MediaLiveChannelRouterInputStreamDetails) => T;
     Failover: (value: FailoverRouterInputStreamDetails) => T;
-    Merge: (value: MergeRouterInputStreamDetails) => T;
     MediaConnectFlow: (value: MediaConnectFlowRouterInputStreamDetails) => T;
+    Merge: (value: MergeRouterInputStreamDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4244,77 +4392,6 @@ export interface MediaConnectFlowRouterOutputConfiguration {
 }
 
 /**
- * <p>Configuration settings for the MediaLive transit encryption key.</p>
- * @public
- */
-export type MediaLiveTransitEncryptionKeyConfiguration =
-  | MediaLiveTransitEncryptionKeyConfiguration.AutomaticMember
-  | MediaLiveTransitEncryptionKeyConfiguration.SecretsManagerMember
-  | MediaLiveTransitEncryptionKeyConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MediaLiveTransitEncryptionKeyConfiguration {
-  /**
-   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
-   * @public
-   */
-  export interface SecretsManagerMember {
-    SecretsManager: SecretsManagerEncryptionKeyConfiguration;
-    Automatic?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.</p>
-   * @public
-   */
-  export interface AutomaticMember {
-    SecretsManager?: never;
-    Automatic: AutomaticEncryptionKeyConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    SecretsManager?: never;
-    Automatic?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    SecretsManager: (value: SecretsManagerEncryptionKeyConfiguration) => T;
-    Automatic: (value: AutomaticEncryptionKeyConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.</p>
- * @public
- */
-export interface MediaLiveTransitEncryption {
-  /**
-   * <p>The type of encryption key to use for MediaLive transit encryption.</p>
-   * @public
-   */
-  EncryptionKeyType?: MediaLiveTransitEncryptionKeyType | undefined;
-
-  /**
-   * <p>The configuration details for the MediaLive encryption key.</p>
-   * @public
-   */
-  EncryptionKeyConfiguration: MediaLiveTransitEncryptionKeyConfiguration | undefined;
-}
-
-/**
  * <p>Configuration settings for connecting a router output to a MediaLive input.</p>
  * @public
  */
@@ -4468,26 +4545,14 @@ export type RouterOutputProtocolConfiguration =
  */
 export namespace RouterOutputProtocolConfiguration {
   /**
-   * <p>The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.</p>
-   * @public
-   */
-  export interface RtpMember {
-    Rtp: RtpRouterOutputConfiguration;
-    Rist?: never;
-    SrtListener?: never;
-    SrtCaller?: never;
-    $unknown?: never;
-  }
-
-  /**
    * <p>The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.</p>
    * @public
    */
   export interface RistMember {
-    Rtp?: never;
     Rist: RistRouterOutputConfiguration;
     SrtListener?: never;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown?: never;
   }
 
@@ -4496,10 +4561,10 @@ export namespace RouterOutputProtocolConfiguration {
    * @public
    */
   export interface SrtListenerMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener: SrtListenerRouterOutputConfiguration;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown?: never;
   }
 
@@ -4508,10 +4573,22 @@ export namespace RouterOutputProtocolConfiguration {
    * @public
    */
   export interface SrtCallerMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener?: never;
     SrtCaller: SrtCallerRouterOutputConfiguration;
+    Rtp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.</p>
+   * @public
+   */
+  export interface RtpMember {
+    Rist?: never;
+    SrtListener?: never;
+    SrtCaller?: never;
+    Rtp: RtpRouterOutputConfiguration;
     $unknown?: never;
   }
 
@@ -4519,10 +4596,10 @@ export namespace RouterOutputProtocolConfiguration {
    * @public
    */
   export interface $UnknownMember {
-    Rtp?: never;
     Rist?: never;
     SrtListener?: never;
     SrtCaller?: never;
+    Rtp?: never;
     $unknown: [string, any];
   }
 
@@ -4531,10 +4608,10 @@ export namespace RouterOutputProtocolConfiguration {
    *
    */
   export interface Visitor<T> {
-    Rtp: (value: RtpRouterOutputConfiguration) => T;
     Rist: (value: RistRouterOutputConfiguration) => T;
     SrtListener: (value: SrtListenerRouterOutputConfiguration) => T;
     SrtCaller: (value: SrtCallerRouterOutputConfiguration) => T;
+    Rtp: (value: RtpRouterOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8298,41 +8375,28 @@ export type RouterInputFilter =
  */
 export namespace RouterInputFilter {
   /**
-   * <p>The AWS Regions of the router inputs to include in the filter.</p>
-   * @public
-   */
-  export interface RegionNamesMember {
-    RegionNames: string[];
-    InputTypes?: never;
-    NameContains?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The types of router inputs to include in the filter.</p>
-   * @public
-   */
-  export interface InputTypesMember {
-    RegionNames?: never;
-    InputTypes: RouterInputType[];
-    NameContains?: never;
-    NetworkInterfaceArns?: never;
-    RoutingScopes?: never;
-    $unknown?: never;
-  }
-
-  /**
    * <p>The names of the router inputs to include in the filter.</p>
    * @public
    */
   export interface NameContainsMember {
-    RegionNames?: never;
-    InputTypes?: never;
     NameContains: string[];
+    RegionNames?: never;
     NetworkInterfaceArns?: never;
     RoutingScopes?: never;
+    InputTypes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The AWS Regions of the router inputs to include in the filter.</p>
+   * @public
+   */
+  export interface RegionNamesMember {
+    NameContains?: never;
+    RegionNames: string[];
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    InputTypes?: never;
     $unknown?: never;
   }
 
@@ -8341,11 +8405,11 @@ export namespace RouterInputFilter {
    * @public
    */
   export interface NetworkInterfaceArnsMember {
-    RegionNames?: never;
-    InputTypes?: never;
     NameContains?: never;
+    RegionNames?: never;
     NetworkInterfaceArns: string[];
     RoutingScopes?: never;
+    InputTypes?: never;
     $unknown?: never;
   }
 
@@ -8354,11 +8418,24 @@ export namespace RouterInputFilter {
    * @public
    */
   export interface RoutingScopesMember {
-    RegionNames?: never;
-    InputTypes?: never;
     NameContains?: never;
+    RegionNames?: never;
     NetworkInterfaceArns?: never;
     RoutingScopes: RoutingScope[];
+    InputTypes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router inputs to include in the filter.</p>
+   * @public
+   */
+  export interface InputTypesMember {
+    NameContains?: never;
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    InputTypes: RouterInputType[];
     $unknown?: never;
   }
 
@@ -8366,11 +8443,11 @@ export namespace RouterInputFilter {
    * @public
    */
   export interface $UnknownMember {
-    RegionNames?: never;
-    InputTypes?: never;
     NameContains?: never;
+    RegionNames?: never;
     NetworkInterfaceArns?: never;
     RoutingScopes?: never;
+    InputTypes?: never;
     $unknown: [string, any];
   }
 
@@ -8379,11 +8456,11 @@ export namespace RouterInputFilter {
    *
    */
   export interface Visitor<T> {
-    RegionNames: (value: string[]) => T;
-    InputTypes: (value: RouterInputType[]) => T;
     NameContains: (value: string[]) => T;
+    RegionNames: (value: string[]) => T;
     NetworkInterfaceArns: (value: string[]) => T;
     RoutingScopes: (value: RoutingScope[]) => T;
+    InputTypes: (value: RouterInputType[]) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8560,39 +8637,11 @@ export namespace RouterOutputFilter {
    */
   export interface RegionNamesMember {
     RegionNames: string[];
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
     OutputTypes?: never;
+    RoutedInputArns?: never;
     NameContains?: never;
-    NetworkInterfaceArns?: never;
-    RoutedInputArns?: never;
-    RoutingScopes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The types of router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface OutputTypesMember {
-    RegionNames?: never;
-    OutputTypes: RouterOutputType[];
-    NameContains?: never;
-    NetworkInterfaceArns?: never;
-    RoutedInputArns?: never;
-    RoutingScopes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The names of the router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface NameContainsMember {
-    RegionNames?: never;
-    OutputTypes?: never;
-    NameContains: string[];
-    NetworkInterfaceArns?: never;
-    RoutedInputArns?: never;
-    RoutingScopes?: never;
     $unknown?: never;
   }
 
@@ -8602,25 +8651,11 @@ export namespace RouterOutputFilter {
    */
   export interface NetworkInterfaceArnsMember {
     RegionNames?: never;
-    OutputTypes?: never;
-    NameContains?: never;
     NetworkInterfaceArns: string[];
-    RoutedInputArns?: never;
     RoutingScopes?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The ARNs of the router inputs associated with the router outputs to include in the filter.</p>
-   * @public
-   */
-  export interface RoutedInputArnsMember {
-    RegionNames?: never;
     OutputTypes?: never;
+    RoutedInputArns?: never;
     NameContains?: never;
-    NetworkInterfaceArns?: never;
-    RoutedInputArns: string[];
-    RoutingScopes?: never;
     $unknown?: never;
   }
 
@@ -8630,11 +8665,53 @@ export namespace RouterOutputFilter {
    */
   export interface RoutingScopesMember {
     RegionNames?: never;
-    OutputTypes?: never;
-    NameContains?: never;
     NetworkInterfaceArns?: never;
-    RoutedInputArns?: never;
     RoutingScopes: RoutingScope[];
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface OutputTypesMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes: RouterOutputType[];
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ARNs of the router inputs associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RoutedInputArnsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns: string[];
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The names of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NameContainsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains: string[];
     $unknown?: never;
   }
 
@@ -8643,11 +8720,11 @@ export namespace RouterOutputFilter {
    */
   export interface $UnknownMember {
     RegionNames?: never;
-    OutputTypes?: never;
-    NameContains?: never;
     NetworkInterfaceArns?: never;
-    RoutedInputArns?: never;
     RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
     $unknown: [string, any];
   }
 
@@ -8657,11 +8734,11 @@ export namespace RouterOutputFilter {
    */
   export interface Visitor<T> {
     RegionNames: (value: string[]) => T;
-    OutputTypes: (value: RouterOutputType[]) => T;
-    NameContains: (value: string[]) => T;
     NetworkInterfaceArns: (value: string[]) => T;
-    RoutedInputArns: (value: string[]) => T;
     RoutingScopes: (value: RoutingScope[]) => T;
+    OutputTypes: (value: RouterOutputType[]) => T;
+    RoutedInputArns: (value: string[]) => T;
+    NameContains: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8782,38 +8859,4 @@ export interface PurchaseOfferingResponse {
    * @public
    */
   Reservation?: Reservation | undefined;
-}
-
-/**
- * @public
- */
-export interface RestartRouterInputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input that you want to restart.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RestartRouterInputResponse {
-  /**
-   * <p>The ARN of the router input that was restarted.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the router input that was restarted.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The current state of the router input after the restart operation.</p>
-   * @public
-   */
-  State: RouterInputState | undefined;
 }

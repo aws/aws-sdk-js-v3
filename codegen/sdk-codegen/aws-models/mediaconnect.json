@@ -2625,6 +2625,7 @@
             "mediaconnect:AssociateRouterNetworkInterface",
             "mediaconnect:UpdateFlowOutput",
             "mediaconnect:TagResource",
+            "medialive:UpdateChannel",
             "ec2:CreateNetworkInterface",
             "iam:PassRole"
           ]
@@ -3874,13 +3875,17 @@
             ],
             "minDelay": 3
           },
-          "FlowDeleted": {
-            "documentation": "Wait until a flow is deleted",
+          "FlowStandby": {
+            "documentation": "Wait until a flow is in standby mode",
             "acceptors": [
               {
                 "state": "success",
                 "matcher": {
-                  "errorType": "NotFoundException"
+                  "output": {
+                    "path": "Flow.Status",
+                    "expected": "STANDBY",
+                    "comparator": "stringEquals"
+                  }
                 }
               },
               {
@@ -3888,7 +3893,7 @@
                 "matcher": {
                   "output": {
                     "path": "Flow.Status",
-                    "expected": "DELETING",
+                    "expected": "STOPPING",
                     "comparator": "stringEquals"
                   }
                 }
@@ -3918,17 +3923,13 @@
             ],
             "minDelay": 3
           },
-          "FlowStandby": {
-            "documentation": "Wait until a flow is in standby mode",
+          "FlowDeleted": {
+            "documentation": "Wait until a flow is deleted",
             "acceptors": [
               {
                 "state": "success",
                 "matcher": {
-                  "output": {
-                    "path": "Flow.Status",
-                    "expected": "STANDBY",
-                    "comparator": "stringEquals"
-                  }
+                  "errorType": "NotFoundException"
                 }
               },
               {
@@ -3936,7 +3937,7 @@
                 "matcher": {
                   "output": {
                     "path": "Flow.Status",
-                    "expected": "STOPPING",
+                    "expected": "DELETING",
                     "comparator": "stringEquals"
                   }
                 }
@@ -5061,12 +5062,6 @@
     "com.amazonaws.mediaconnect#FailoverRouterInputProtocolConfiguration": {
       "type": "union",
       "members": {
-        "Rtp": {
-          "target": "com.amazonaws.mediaconnect#RtpRouterInputConfiguration",
-          "traits": {
-            "smithy.api#jsonName": "rtp"
-          }
-        },
         "Rist": {
           "target": "com.amazonaws.mediaconnect#RistRouterInputConfiguration",
           "traits": {
@@ -5083,6 +5078,12 @@
           "target": "com.amazonaws.mediaconnect#SrtCallerRouterInputConfiguration",
           "traits": {
             "smithy.api#jsonName": "srtCaller"
+          }
+        },
+        "Rtp": {
+          "target": "com.amazonaws.mediaconnect#RtpRouterInputConfiguration",
+          "traits": {
+            "smithy.api#jsonName": "rtp"
           }
         }
       },
@@ -6096,6 +6097,74 @@
         },
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
+          "InputActive": {
+            "documentation": "Wait until the Input is ACTIVE",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "RouterInput.State",
+                    "expected": "ACTIVE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "RouterInput.State",
+                    "expected": "STARTING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "RouterInput.State",
+                    "expected": "UPDATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "RouterInput.State",
+                    "expected": "MIGRATING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "ServiceUnavailableException"
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "RouterInput.State",
+                    "expected": "ERROR",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 3
+          },
           "InputStandby": {
             "documentation": "Wait until the Input is STANDBY",
             "acceptors": [
@@ -6183,74 +6252,6 @@
                 "state": "success",
                 "matcher": {
                   "errorType": "NotFoundException"
-                }
-              }
-            ],
-            "minDelay": 3
-          },
-          "InputActive": {
-            "documentation": "Wait until the Input is ACTIVE",
-            "acceptors": [
-              {
-                "state": "success",
-                "matcher": {
-                  "output": {
-                    "path": "RouterInput.State",
-                    "expected": "ACTIVE",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "output": {
-                    "path": "RouterInput.State",
-                    "expected": "STARTING",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "output": {
-                    "path": "RouterInput.State",
-                    "expected": "UPDATING",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "output": {
-                    "path": "RouterInput.State",
-                    "expected": "MIGRATING",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "InternalServerErrorException"
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "ServiceUnavailableException"
-                }
-              },
-              {
-                "state": "failure",
-                "matcher": {
-                  "output": {
-                    "path": "RouterInput.State",
-                    "expected": "ERROR",
-                    "comparator": "stringEquals"
-                  }
                 }
               }
             ],
@@ -6598,88 +6599,6 @@
         },
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
-          "OutputUnrouted": {
-            "documentation": "Wait until the Output is UNROUTED",
-            "acceptors": [
-              {
-                "state": "success",
-                "matcher": {
-                  "output": {
-                    "path": "RouterOutput.RoutedState",
-                    "expected": "UNROUTED",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "output": {
-                    "path": "RouterOutput.RoutedState",
-                    "expected": "ROUTING",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "InternalServerErrorException"
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "ServiceUnavailableException"
-                }
-              }
-            ],
-            "minDelay": 3
-          },
-          "OutputDeleted": {
-            "documentation": "Wait until the Output is deleted",
-            "acceptors": [
-              {
-                "state": "retry",
-                "matcher": {
-                  "output": {
-                    "path": "RouterOutput.State",
-                    "expected": "DELETING",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "InternalServerErrorException"
-                }
-              },
-              {
-                "state": "retry",
-                "matcher": {
-                  "errorType": "ServiceUnavailableException"
-                }
-              },
-              {
-                "state": "failure",
-                "matcher": {
-                  "output": {
-                    "path": "RouterOutput.State",
-                    "expected": "ERROR",
-                    "comparator": "stringEquals"
-                  }
-                }
-              },
-              {
-                "state": "success",
-                "matcher": {
-                  "errorType": "NotFoundException"
-                }
-              }
-            ],
-            "minDelay": 3
-          },
           "OutputActive": {
             "documentation": "Wait until the Output is ACTIVE",
             "acceptors": [
@@ -6748,6 +6667,88 @@
             ],
             "minDelay": 3
           },
+          "OutputDeleted": {
+            "documentation": "Wait until the Output is deleted",
+            "acceptors": [
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "RouterOutput.State",
+                    "expected": "DELETING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "ServiceUnavailableException"
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "RouterOutput.State",
+                    "expected": "ERROR",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "success",
+                "matcher": {
+                  "errorType": "NotFoundException"
+                }
+              }
+            ],
+            "minDelay": 3
+          },
+          "OutputRouted": {
+            "documentation": "Wait until the Output is ROUTED",
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "RouterOutput.RoutedState",
+                    "expected": "ROUTED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "output": {
+                    "path": "RouterOutput.RoutedState",
+                    "expected": "ROUTING",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "InternalServerErrorException"
+                }
+              },
+              {
+                "state": "retry",
+                "matcher": {
+                  "errorType": "ServiceUnavailableException"
+                }
+              }
+            ],
+            "minDelay": 3
+          },
           "OutputStandby": {
             "documentation": "Wait until the Output is STANDBY",
             "acceptors": [
@@ -6796,15 +6797,15 @@
             ],
             "minDelay": 3
           },
-          "OutputRouted": {
-            "documentation": "Wait until the Output is ROUTED",
+          "OutputUnrouted": {
+            "documentation": "Wait until the Output is UNROUTED",
             "acceptors": [
               {
                 "state": "success",
                 "matcher": {
                   "output": {
                     "path": "RouterOutput.RoutedState",
-                    "expected": "ROUTED",
+                    "expected": "UNROUTED",
                     "comparator": "stringEquals"
                   }
                 }
@@ -10059,14 +10060,75 @@
         "smithy.api#documentation": "<p>Configuration details for a MediaConnect flow when used as a router output destination.</p>"
       }
     },
+    "com.amazonaws.mediaconnect#MediaLiveChannelArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*):medialive:[a-z0-9-]+:[0-9]{12}:channel:[a-zA-Z0-9]+$"
+      }
+    },
+    "com.amazonaws.mediaconnect#MediaLiveChannelPipelineId": {
+      "type": "enum",
+      "members": {
+        "PIPELINE_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PIPELINE_0"
+          }
+        },
+        "PIPELINE_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PIPELINE_1"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediaconnect#MediaLiveChannelRouterInputConfiguration": {
+      "type": "structure",
+      "members": {
+        "MediaLiveChannelArn": {
+          "target": "com.amazonaws.mediaconnect#MediaLiveChannelArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the MediaLive channel to connect to this router input.</p>",
+            "smithy.api#jsonName": "mediaLiveChannelArn"
+          }
+        },
+        "MediaLivePipelineId": {
+          "target": "com.amazonaws.mediaconnect#MediaLiveChannelPipelineId",
+          "traits": {
+            "smithy.api#documentation": "<p>The index of the MediaLive pipeline to connect to this router input.</p>",
+            "smithy.api#jsonName": "mediaLivePipelineId"
+          }
+        },
+        "MediaLiveChannelOutputName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the MediaLive channel output to connect to this router input.</p>",
+            "smithy.api#jsonName": "mediaLiveChannelOutputName"
+          }
+        },
+        "SourceTransitDecryption": {
+          "target": "com.amazonaws.mediaconnect#MediaLiveTransitEncryption",
+          "traits": {
+            "smithy.api#jsonName": "sourceTransitDecryption",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration settings for connecting a router input to a MediaLive channel output.</p>"
+      }
+    },
+    "com.amazonaws.mediaconnect#MediaLiveChannelRouterInputStreamDetails": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration details for a MediaLive channel when used as a router input source.</p>"
+      }
+    },
     "com.amazonaws.mediaconnect#MediaLiveInputArn": {
       "type": "string",
       "traits": {
-        "aws.api#arnReference": {
-          "type": "AWS::MediaLive::Input",
-          "service": "Medialive",
-          "resource": "input"
-        },
         "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*):medialive:[a-z0-9-]+:[0-9]{12}:input:[a-zA-Z0-9]+$"
       }
     },
@@ -12654,7 +12716,7 @@
             "smithy.api#documentation": "<p>The destination port number for the RIST protocol in the router output configuration.</p>",
             "smithy.api#jsonName": "destinationPort",
             "smithy.api#range": {
-              "min": 0,
+              "min": 1024,
               "max": 65535
             },
             "smithy.api#required": {}
@@ -12897,22 +12959,28 @@
             "smithy.api#jsonName": "standard"
           }
         },
+        "MediaLiveChannel": {
+          "target": "com.amazonaws.mediaconnect#MediaLiveChannelRouterInputConfiguration",
+          "traits": {
+            "smithy.api#jsonName": "mediaLiveChannel"
+          }
+        },
         "Failover": {
           "target": "com.amazonaws.mediaconnect#FailoverRouterInputConfiguration",
           "traits": {
             "smithy.api#jsonName": "failover"
           }
         },
-        "Merge": {
-          "target": "com.amazonaws.mediaconnect#MergeRouterInputConfiguration",
-          "traits": {
-            "smithy.api#jsonName": "merge"
-          }
-        },
         "MediaConnectFlow": {
           "target": "com.amazonaws.mediaconnect#MediaConnectFlowRouterInputConfiguration",
           "traits": {
             "smithy.api#jsonName": "mediaConnectFlow"
+          }
+        },
+        "Merge": {
+          "target": "com.amazonaws.mediaconnect#MergeRouterInputConfiguration",
+          "traits": {
+            "smithy.api#jsonName": "merge"
           }
         }
       },
@@ -12923,25 +12991,18 @@
     "com.amazonaws.mediaconnect#RouterInputFilter": {
       "type": "union",
       "members": {
-        "RegionNames": {
-          "target": "com.amazonaws.mediaconnect#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS Regions of the router inputs to include in the filter.</p>",
-            "smithy.api#jsonName": "regionNames"
-          }
-        },
-        "InputTypes": {
-          "target": "com.amazonaws.mediaconnect#RouterInputTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The types of router inputs to include in the filter.</p>",
-            "smithy.api#jsonName": "inputTypes"
-          }
-        },
         "NameContains": {
           "target": "com.amazonaws.mediaconnect#StringList",
           "traits": {
             "smithy.api#documentation": "<p>The names of the router inputs to include in the filter.</p>",
             "smithy.api#jsonName": "nameContains"
+          }
+        },
+        "RegionNames": {
+          "target": "com.amazonaws.mediaconnect#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Regions of the router inputs to include in the filter.</p>",
+            "smithy.api#jsonName": "regionNames"
           }
         },
         "NetworkInterfaceArns": {
@@ -12956,6 +13017,13 @@
           "traits": {
             "smithy.api#documentation": "<p>Filter criteria to list router inputs based on their routing scope (REGIONAL or GLOBAL).</p>",
             "smithy.api#jsonName": "routingScopes"
+          }
+        },
+        "InputTypes": {
+          "target": "com.amazonaws.mediaconnect#RouterInputTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The types of router inputs to include in the filter.</p>",
+            "smithy.api#jsonName": "inputTypes"
           }
         }
       },
@@ -13051,12 +13119,6 @@
     "com.amazonaws.mediaconnect#RouterInputProtocolConfiguration": {
       "type": "union",
       "members": {
-        "Rtp": {
-          "target": "com.amazonaws.mediaconnect#RtpRouterInputConfiguration",
-          "traits": {
-            "smithy.api#jsonName": "rtp"
-          }
-        },
         "Rist": {
           "target": "com.amazonaws.mediaconnect#RistRouterInputConfiguration",
           "traits": {
@@ -13073,6 +13135,12 @@
           "target": "com.amazonaws.mediaconnect#SrtCallerRouterInputConfiguration",
           "traits": {
             "smithy.api#jsonName": "srtCaller"
+          }
+        },
+        "Rtp": {
+          "target": "com.amazonaws.mediaconnect#RtpRouterInputConfiguration",
+          "traits": {
+            "smithy.api#jsonName": "rtp"
           }
         }
       },
@@ -13269,22 +13337,28 @@
             "smithy.api#jsonName": "standard"
           }
         },
+        "MediaLiveChannel": {
+          "target": "com.amazonaws.mediaconnect#MediaLiveChannelRouterInputStreamDetails",
+          "traits": {
+            "smithy.api#jsonName": "mediaLiveChannel"
+          }
+        },
         "Failover": {
           "target": "com.amazonaws.mediaconnect#FailoverRouterInputStreamDetails",
           "traits": {
             "smithy.api#jsonName": "failover"
           }
         },
-        "Merge": {
-          "target": "com.amazonaws.mediaconnect#MergeRouterInputStreamDetails",
-          "traits": {
-            "smithy.api#jsonName": "merge"
-          }
-        },
         "MediaConnectFlow": {
           "target": "com.amazonaws.mediaconnect#MediaConnectFlowRouterInputStreamDetails",
           "traits": {
             "smithy.api#jsonName": "mediaConnectFlow"
+          }
+        },
+        "Merge": {
+          "target": "com.amazonaws.mediaconnect#MergeRouterInputStreamDetails",
+          "traits": {
+            "smithy.api#jsonName": "merge"
           }
         }
       },
@@ -13438,6 +13512,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "MEDIACONNECT_FLOW"
+          }
+        },
+        "MEDIALIVE_CHANNEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEDIALIVE_CHANNEL"
           }
         }
       }
@@ -14007,25 +14087,25 @@
             "smithy.api#jsonName": "regionNames"
           }
         },
-        "OutputTypes": {
-          "target": "com.amazonaws.mediaconnect#RouterOutputTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>The types of router outputs to include in the filter.</p>",
-            "smithy.api#jsonName": "outputTypes"
-          }
-        },
-        "NameContains": {
-          "target": "com.amazonaws.mediaconnect#StringList",
-          "traits": {
-            "smithy.api#documentation": "<p>The names of the router outputs to include in the filter.</p>",
-            "smithy.api#jsonName": "nameContains"
-          }
-        },
         "NetworkInterfaceArns": {
           "target": "com.amazonaws.mediaconnect#RouterNetworkInterfaceArnList",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router outputs to include in the filter.</p>",
             "smithy.api#jsonName": "networkInterfaceArns"
+          }
+        },
+        "RoutingScopes": {
+          "target": "com.amazonaws.mediaconnect#RoutingScopeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter criteria to list router outputs based on their routing scope.</p>",
+            "smithy.api#jsonName": "routingScopes"
+          }
+        },
+        "OutputTypes": {
+          "target": "com.amazonaws.mediaconnect#RouterOutputTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The types of router outputs to include in the filter.</p>",
+            "smithy.api#jsonName": "outputTypes"
           }
         },
         "RoutedInputArns": {
@@ -14035,11 +14115,11 @@
             "smithy.api#jsonName": "routedInputArns"
           }
         },
-        "RoutingScopes": {
-          "target": "com.amazonaws.mediaconnect#RoutingScopeList",
+        "NameContains": {
+          "target": "com.amazonaws.mediaconnect#StringList",
           "traits": {
-            "smithy.api#documentation": "<p>Filter criteria to list router outputs based on their routing scope.</p>",
-            "smithy.api#jsonName": "routingScopes"
+            "smithy.api#documentation": "<p>The names of the router outputs to include in the filter.</p>",
+            "smithy.api#jsonName": "nameContains"
           }
         }
       },
@@ -14121,12 +14201,6 @@
     "com.amazonaws.mediaconnect#RouterOutputProtocolConfiguration": {
       "type": "union",
       "members": {
-        "Rtp": {
-          "target": "com.amazonaws.mediaconnect#RtpRouterOutputConfiguration",
-          "traits": {
-            "smithy.api#jsonName": "rtp"
-          }
-        },
         "Rist": {
           "target": "com.amazonaws.mediaconnect#RistRouterOutputConfiguration",
           "traits": {
@@ -14143,6 +14217,12 @@
           "target": "com.amazonaws.mediaconnect#SrtCallerRouterOutputConfiguration",
           "traits": {
             "smithy.api#jsonName": "srtCaller"
+          }
+        },
+        "Rtp": {
+          "target": "com.amazonaws.mediaconnect#RtpRouterOutputConfiguration",
+          "traits": {
+            "smithy.api#jsonName": "rtp"
           }
         }
       },
@@ -14463,7 +14543,7 @@
             "smithy.api#documentation": "<p>The destination port number for the RTP protocol in the router output configuration.</p>",
             "smithy.api#jsonName": "destinationPort",
             "smithy.api#range": {
-              "min": 0,
+              "min": 1024,
               "max": 65531
             },
             "smithy.api#required": {}
@@ -14974,7 +15054,7 @@
             "smithy.api#documentation": "<p>The source port number for the SRT protocol in caller mode.</p>",
             "smithy.api#jsonName": "sourcePort",
             "smithy.api#range": {
-              "min": 0,
+              "min": 1024,
               "max": 65535
             },
             "smithy.api#required": {}
@@ -15028,7 +15108,7 @@
             "smithy.api#documentation": "<p>The destination port number for the SRT protocol in caller mode.</p>",
             "smithy.api#jsonName": "destinationPort",
             "smithy.api#range": {
-              "min": 0,
+              "min": 1024,
               "max": 65535
             },
             "smithy.api#required": {}
@@ -18338,6 +18418,7 @@
             "mediaconnect:UpdateRouterInput",
             "mediaconnect:AssociateRouterNetworkInterface",
             "mediaconnect:UpdateFlowOutput",
+            "medialive:UpdateChannel",
             "ec2:CreateNetworkInterface",
             "iam:PassRole"
           ]

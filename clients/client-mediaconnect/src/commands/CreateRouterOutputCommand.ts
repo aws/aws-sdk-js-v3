@@ -42,11 +42,6 @@ export interface CreateRouterOutputCommandOutput extends CreateRouterOutputRespo
  *     Standard: { // StandardRouterOutputConfiguration
  *       NetworkInterfaceArn: "STRING_VALUE", // required
  *       ProtocolConfiguration: { // RouterOutputProtocolConfiguration Union: only one key present
- *         Rtp: { // RtpRouterOutputConfiguration
- *           DestinationAddress: "STRING_VALUE", // required
- *           DestinationPort: Number("int"), // required
- *           ForwardErrorCorrection: "ENABLED" || "DISABLED",
- *         },
  *         Rist: { // RistRouterOutputConfiguration
  *           DestinationAddress: "STRING_VALUE", // required
  *           DestinationPort: Number("int"), // required
@@ -72,6 +67,11 @@ export interface CreateRouterOutputCommandOutput extends CreateRouterOutputRespo
  *               RoleArn: "STRING_VALUE", // required
  *             },
  *           },
+ *         },
+ *         Rtp: { // RtpRouterOutputConfiguration
+ *           DestinationAddress: "STRING_VALUE", // required
+ *           DestinationPort: Number("int"), // required
+ *           ForwardErrorCorrection: "ENABLED" || "DISABLED",
  *         },
  *       },
  *       Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER",
@@ -135,11 +135,6 @@ export interface CreateRouterOutputCommandOutput extends CreateRouterOutputRespo
  * //       Standard: { // StandardRouterOutputConfiguration
  * //         NetworkInterfaceArn: "STRING_VALUE", // required
  * //         ProtocolConfiguration: { // RouterOutputProtocolConfiguration Union: only one key present
- * //           Rtp: { // RtpRouterOutputConfiguration
- * //             DestinationAddress: "STRING_VALUE", // required
- * //             DestinationPort: Number("int"), // required
- * //             ForwardErrorCorrection: "ENABLED" || "DISABLED",
- * //           },
  * //           Rist: { // RistRouterOutputConfiguration
  * //             DestinationAddress: "STRING_VALUE", // required
  * //             DestinationPort: Number("int"), // required
@@ -165,6 +160,11 @@ export interface CreateRouterOutputCommandOutput extends CreateRouterOutputRespo
  * //                 RoleArn: "STRING_VALUE", // required
  * //               },
  * //             },
+ * //           },
+ * //           Rtp: { // RtpRouterOutputConfiguration
+ * //             DestinationAddress: "STRING_VALUE", // required
+ * //             DestinationPort: Number("int"), // required
+ * //             ForwardErrorCorrection: "ENABLED" || "DISABLED",
  * //           },
  * //         },
  * //         Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER",

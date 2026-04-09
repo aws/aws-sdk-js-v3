@@ -527,16 +527,16 @@ const paginators = {
 };
 const waiters = {
   waitUntilFlowActive,
-  waitUntilFlowDeleted,
   waitUntilFlowStandby,
+  waitUntilFlowDeleted,
+  waitUntilInputActive,
   waitUntilInputStandby,
   waitUntilInputDeleted,
-  waitUntilInputActive,
-  waitUntilOutputUnrouted,
-  waitUntilOutputDeleted,
   waitUntilOutputActive,
-  waitUntilOutputStandby,
+  waitUntilOutputDeleted,
   waitUntilOutputRouted,
+  waitUntilOutputStandby,
+  waitUntilOutputUnrouted,
 };
 
 export interface MediaConnect {
@@ -2069,7 +2069,7 @@ export interface MediaConnect {
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
    */
-  waitUntilFlowDeleted(
+  waitUntilFlowStandby(
     args: DescribeFlowCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult>;
@@ -2079,8 +2079,18 @@ export interface MediaConnect {
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
    */
-  waitUntilFlowStandby(
+  waitUntilFlowDeleted(
     args: DescribeFlowCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputActive(
+    args: GetRouterInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult>;
 
@@ -2105,21 +2115,11 @@ export interface MediaConnect {
   ): Promise<WaiterResult>;
 
   /**
-   * @see {@link GetRouterInputCommand}
-   * @param args - command input.
-   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
-   */
-  waitUntilInputActive(
-    args: GetRouterInputCommandInput,
-    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
-
-  /**
    * @see {@link GetRouterOutputCommand}
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
    */
-  waitUntilOutputUnrouted(
+  waitUntilOutputActive(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult>;
@@ -2139,7 +2139,7 @@ export interface MediaConnect {
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
    */
-  waitUntilOutputActive(
+  waitUntilOutputRouted(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult>;
@@ -2159,7 +2159,7 @@ export interface MediaConnect {
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
    */
-  waitUntilOutputRouted(
+  waitUntilOutputUnrouted(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult>;
