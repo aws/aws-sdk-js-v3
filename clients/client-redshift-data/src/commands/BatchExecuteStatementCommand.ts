@@ -46,6 +46,12 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *   Database: "STRING_VALUE",
  *   WithEvent: true || false,
  *   StatementName: "STRING_VALUE",
+ *   Parameters: [ // SqlParametersList
+ *     { // SqlParameter
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   WorkgroupName: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   ResultFormat: "STRING_VALUE",

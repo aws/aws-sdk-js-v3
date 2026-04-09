@@ -228,8 +228,8 @@ export const errorTypeRegistries = [
 ]
 export var BatchExecuteStatementInput$: StaticStructureSchema = [3, n0, _BESI,
   0,
-  [_S, _CI, _SA, _DU, _D, _WE, _SN, _WN, _CT, _RF, _SKAS, _SIe],
-  [64 | 0, 0, 0, 0, 0, 2, 0, 0, [0, 4], 0, 1, 0], 1
+  [_S, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe],
+  [64 | 0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0], 1
 ];
 export var BatchExecuteStatementOutput$: StaticStructureSchema = [3, n0, _BESO,
   0,

@@ -2,6 +2,24 @@
 import type { ResultFormatString, StatementStatusString, StatusString } from "./enums";
 
 /**
+ * <p>A parameter used in a SQL statement.</p>
+ * @public
+ */
+export interface SqlParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html">Data types</a> in the <i>Amazon Redshift Database Developer Guide</i>. </p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * @public
  */
 export interface BatchExecuteStatementInput {
@@ -46,6 +64,12 @@ export interface BatchExecuteStatementInput {
    * @public
    */
   StatementName?: string | undefined;
+
+  /**
+   * <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+   * @public
+   */
+  Parameters?: SqlParameter[] | undefined;
 
   /**
    * <p>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.</p>
@@ -201,7 +225,7 @@ export interface ColumnMetadata {
   nullable?: number | undefined;
 
   /**
-   * <p>The precision value of a decimal number column. </p>
+   * <p>The precision value of a decimal number column, or the column length for a non-numeric column. </p>
    * @public
    */
   precision?: number | undefined;
@@ -252,24 +276,6 @@ export interface DescribeStatementRequest {
    * @public
    */
   Id: string | undefined;
-}
-
-/**
- * <p>A parameter used in a SQL statement.</p>
- * @public
- */
-export interface SqlParameter {
-  /**
-   * <p>The name of the parameter.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The value of the parameter. Amazon Redshift implicitly converts to the proper data type. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html">Data types</a> in the <i>Amazon Redshift Database Developer Guide</i>. </p>
-   * @public
-   */
-  value: string | undefined;
 }
 
 /**
