@@ -11,7 +11,7 @@
  */
 
 import { execSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -29,6 +29,9 @@ function getChangedClients(sinceCommit) {
 
   if (!diffOutput) {
     console.info(`No output for: git log ${sinceCommit}..HEAD --format=%s`);
+    const dummyPath = join(rootDir, "clients", "dummy-tarball.tgz");
+    writeFileSync(dummyPath, "");
+    console.log(`No changed clients. Created dummy tarball at ${dummyPath}`);
     return [];
   }
 
