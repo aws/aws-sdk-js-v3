@@ -151,6 +151,11 @@ import {
   SaveBrowserSessionProfileCommand,
 } from "./commands/SaveBrowserSessionProfileCommand";
 import {
+  type SearchRegistryRecordsCommandInput,
+  type SearchRegistryRecordsCommandOutput,
+  SearchRegistryRecordsCommand,
+} from "./commands/SearchRegistryRecordsCommand";
+import {
   type StartBrowserSessionCommandInput,
   type StartBrowserSessionCommandOutput,
   StartBrowserSessionCommand,
@@ -224,6 +229,7 @@ const commands = {
   ListSessionsCommand,
   RetrieveMemoryRecordsCommand,
   SaveBrowserSessionProfileCommand,
+  SearchRegistryRecordsCommand,
   StartBrowserSessionCommand,
   StartCodeInterpreterSessionCommand,
   StartMemoryExtractionJobCommand,
@@ -767,6 +773,23 @@ export interface BedrockAgentCore {
     args: SaveBrowserSessionProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SaveBrowserSessionProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchRegistryRecordsCommand}
+   */
+  searchRegistryRecords(
+    args: SearchRegistryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRegistryRecordsCommandOutput>;
+  searchRegistryRecords(
+    args: SearchRegistryRecordsCommandInput,
+    cb: (err: any, data?: SearchRegistryRecordsCommandOutput) => void
+  ): void;
+  searchRegistryRecords(
+    args: SearchRegistryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRegistryRecordsCommandOutput) => void
   ): void;
 
   /**

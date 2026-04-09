@@ -1,6 +1,21 @@
 {
   "smithy": "2.0",
   "shapes": {
+    "com.amazonaws.bedrockagentcore#A2aDescriptor": {
+      "type": "structure",
+      "members": {
+        "agentCard": {
+          "target": "com.amazonaws.bedrockagentcore#AgentCardDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p> The agent card definition that describes the agent's capabilities and interface.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The A2A (Agent-to-Agent) descriptor configuration for a registry record.</p>"
+      }
+    },
     "com.amazonaws.bedrockagentcore#AccessDeniedException": {
       "type": "structure",
       "members": {
@@ -57,6 +72,47 @@
     },
     "com.amazonaws.bedrockagentcore#AgentCard": {
       "type": "document"
+    },
+    "com.amazonaws.bedrockagentcore#AgentCardDefinition": {
+      "type": "structure",
+      "members": {
+        "schemaVersion": {
+          "target": "com.amazonaws.bedrockagentcore#SchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p> The schema version of the agent card definition.</p>"
+          }
+        },
+        "inlineContent": {
+          "target": "com.amazonaws.bedrockagentcore#InlineContent",
+          "traits": {
+            "smithy.api#documentation": "<p> The inline content of the agent card definition.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The agent card definition for A2A descriptors, including the schema version and inline content that describes the agent's capabilities.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#AgentSkillsDescriptor": {
+      "type": "structure",
+      "members": {
+        "skillMd": {
+          "target": "com.amazonaws.bedrockagentcore#SkillMdDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p> The skill description in markdown format.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "skillDefinition": {
+          "target": "com.amazonaws.bedrockagentcore#SkillDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p> The structured skill definition with a schema version and content.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The agent skills descriptor configuration for a registry record.</p>"
+      }
     },
     "com.amazonaws.bedrockagentcore#AgenticResource": {
       "type": "resource",
@@ -119,6 +175,9 @@
         },
         {
           "target": "com.amazonaws.bedrockagentcore#MemoryResource"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordResource"
         }
       ],
       "traits": {
@@ -2196,6 +2255,20 @@
         "smithy.api#pattern": "^[a-zA-Z0-9\\-_]+$"
       }
     },
+    "com.amazonaws.bedrockagentcore#CustomDescriptor": {
+      "type": "structure",
+      "members": {
+        "inlineContent": {
+          "target": "com.amazonaws.bedrockagentcore#InlineContent",
+          "traits": {
+            "smithy.api#documentation": "<p> The inline content of the custom descriptor.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> A custom descriptor configuration for a registry record.</p>"
+      }
+    },
     "com.amazonaws.bedrockagentcore#CustomRequestKeyType": {
       "type": "string",
       "traits": {
@@ -2401,6 +2474,80 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcore#Description": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcore#DescriptorType": {
+      "type": "enum",
+      "members": {
+        "MCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MCP"
+          }
+        },
+        "A2A": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "A2A"
+          }
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOM"
+          }
+        },
+        "AGENT_SKILLS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AGENT_SKILLS"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The type of descriptor associated with a registry record.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#Descriptors": {
+      "type": "structure",
+      "members": {
+        "mcp": {
+          "target": "com.amazonaws.bedrockagentcore#McpDescriptor",
+          "traits": {
+            "smithy.api#documentation": "<p> The MCP (Model Context Protocol) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>MCP</code>.</p>"
+          }
+        },
+        "a2a": {
+          "target": "com.amazonaws.bedrockagentcore#A2aDescriptor",
+          "traits": {
+            "smithy.api#documentation": "<p> The A2A (Agent-to-Agent) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>A2A</code>.</p>"
+          }
+        },
+        "custom": {
+          "target": "com.amazonaws.bedrockagentcore#CustomDescriptor",
+          "traits": {
+            "smithy.api#documentation": "<p> The custom descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>CUSTOM</code>.</p>"
+          }
+        },
+        "agentSkills": {
+          "target": "com.amazonaws.bedrockagentcore#AgentSkillsDescriptor",
+          "traits": {
+            "smithy.api#documentation": "<p> The agent skills descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>AGENT_SKILLS</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Contains the descriptor configuration for a registry record. Only the field that matches the record's <code>descriptorType</code> is populated.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#Document": {
@@ -4140,6 +4287,15 @@
         }
       }
     },
+    "com.amazonaws.bedrockagentcore#InlineContent": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 409600
+        }
+      }
+    },
     "com.amazonaws.bedrockagentcore#InputContentBlock": {
       "type": "structure",
       "members": {
@@ -5863,6 +6019,28 @@
         }
       }
     },
+    "com.amazonaws.bedrockagentcore#McpDescriptor": {
+      "type": "structure",
+      "members": {
+        "server": {
+          "target": "com.amazonaws.bedrockagentcore#ServerDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p> The MCP server definition that describes the server configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tools": {
+          "target": "com.amazonaws.bedrockagentcore#ToolsDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p> The MCP tools definition that describes the available tools.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The MCP (Model Context Protocol) descriptor configuration for a registry record. Contains the server definition and tools definition.</p>"
+      }
+    },
     "com.amazonaws.bedrockagentcore#MemoryContent": {
       "type": "union",
       "members": {
@@ -6325,6 +6503,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.bedrockagentcore#MessageMetadata"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#MetadataFilterExpression": {
+      "type": "document",
+      "traits": {
+        "smithy.api#documentation": "<p> A JSON document that represents a structured metadata filter expression. Supports field-level operators (<code>$eq</code>, <code>$ne</code>, <code>$in</code>) and logical operators (<code>$and</code>, <code>$or</code>) on filterable fields (<code>name</code>, <code>descriptorType</code>, <code>version</code>).</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#MetadataKey": {
@@ -6850,6 +7034,208 @@
         "smithy.api#documentation": "<p>Union type representing different proxy authentication methods. Currently supports HTTP Basic Authentication (username and password).</p>"
       }
     },
+    "com.amazonaws.bedrockagentcore#RegistryArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:registry/[a-zA-Z0-9]{12,16}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcore#RegistryIdentifier"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:registry/)?[a-zA-Z0-9]{12,16}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:registry/[a-zA-Z0-9]{12,16}/record/[a-zA-Z0-9]{12}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 12,
+          "max": 12
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9]{12}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.\\/]*$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordResource": {
+      "type": "resource",
+      "operations": [
+        {
+          "target": "com.amazonaws.bedrockagentcore#SearchRegistryRecords"
+        }
+      ]
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordStatus": {
+      "type": "enum",
+      "members": {
+        "DRAFT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DRAFT"
+          }
+        },
+        "PENDING_APPROVAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_APPROVAL"
+          }
+        },
+        "APPROVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPROVED"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "DEPRECATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPRECATED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The status of a registry record in its lifecycle.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordSummary": {
+      "type": "structure",
+      "members": {
+        "registryArn": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the registry that this record belongs to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "recordArn": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordArn",
+          "traits": {
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) of the registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "recordId": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordId",
+          "traits": {
+            "smithy.api#documentation": "<p> The unique identifier of the registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordName",
+          "traits": {
+            "smithy.api#documentation": "<p> The name of the registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.bedrockagentcore#Description",
+          "traits": {
+            "smithy.api#documentation": "<p> A description of the registry record.</p>"
+          }
+        },
+        "descriptorType": {
+          "target": "com.amazonaws.bedrockagentcore#DescriptorType",
+          "traits": {
+            "smithy.api#documentation": "<p> The type of descriptor associated with this registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "descriptors": {
+          "target": "com.amazonaws.bedrockagentcore#Descriptors",
+          "traits": {
+            "smithy.api#documentation": "<p> The descriptor configurations for this registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordVersion",
+          "traits": {
+            "smithy.api#documentation": "<p> The version of the registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordStatus",
+          "traits": {
+            "smithy.api#documentation": "<p> The current status of the registry record.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.bedrockagentcore#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p> The date and time when the registry record was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.bedrockagentcore#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p> The date and time when the registry record was last updated.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Summary information about a registry record.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcore#RegistryRecordSummary"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#RegistryRecordVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9.-]+$"
+      }
+    },
     "com.amazonaws.bedrockagentcore#RequestIdentifier": {
       "type": "string",
       "traits": {
@@ -7352,6 +7738,15 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.bedrockagentcore#SchemaVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        }
+      }
+    },
     "com.amazonaws.bedrockagentcore#ScopeType": {
       "type": "string",
       "traits": {
@@ -7464,6 +7859,105 @@
         "smithy.api#documentation": "<p>Contains search criteria for retrieving memory records.</p>"
       }
     },
+    "com.amazonaws.bedrockagentcore#SearchRegistryRecords": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.bedrockagentcore#SearchRegistryRecordsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.bedrockagentcore#SearchRegistryRecordsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.bedrockagentcore#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcore#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcore#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcore#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcore#UnauthorizedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcore#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p> Searches for registry records using semantic, lexical, or hybrid queries. Returns metadata for matching records ordered by relevance within the specified registry.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/registry-records/search",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcore#SearchRegistryRecordsRequest": {
+      "type": "structure",
+      "members": {
+        "searchQuery": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p> The search query to find matching registry records.</p>",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 256
+            },
+            "smithy.api#required": {}
+          }
+        },
+        "registryIds": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryIdList",
+          "traits": {
+            "smithy.api#documentation": "<p> The list of registry identifiers to search within. Currently, you can specify exactly one registry identifier. You can provide either the full Amazon Web Services Resource Name (ARN) or the 12-character alphanumeric registry ID.</p>",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 1
+            },
+            "smithy.api#required": {}
+          }
+        },
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#default": 10,
+            "smithy.api#documentation": "<p> The maximum number of records to return in a single call. Valid values are 1 through 20. The default value is 10.</p>",
+            "smithy.api#range": {
+              "min": 1,
+              "max": 20
+            }
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.bedrockagentcore#MetadataFilterExpression",
+          "traits": {
+            "smithy.api#documentation": "<p> A metadata filter expression to narrow search results. Uses structured JSON operators including field-level operators (<code>$eq</code>, <code>$ne</code>, <code>$in</code>) and logical operators (<code>$and</code>, <code>$or</code>) on filterable fields (<code>name</code>, <code>descriptorType</code>, <code>version</code>). For example, to filter by descriptor type: <code>{\"descriptorType\": {\"$eq\": \"MCP\"}}</code>. To combine filters: <code>{\"$and\": [{\"descriptorType\": {\"$eq\": \"MCP\"}}, {\"name\": {\"$eq\": \"my-tool\"}}]}</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcore#SearchRegistryRecordsResponse": {
+      "type": "structure",
+      "members": {
+        "registryRecords": {
+          "target": "com.amazonaws.bedrockagentcore#RegistryRecordSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p> The list of registry records that match the search query, ordered by relevance.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.bedrockagentcore#SecretArn": {
       "type": "string",
       "traits": {
@@ -7489,6 +7983,26 @@
       "type": "string",
       "traits": {
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcore#ServerDefinition": {
+      "type": "structure",
+      "members": {
+        "schemaVersion": {
+          "target": "com.amazonaws.bedrockagentcore#SchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p> The schema version of the MCP server configuration. The schema version identifies the format of the server definition content.</p>"
+          }
+        },
+        "inlineContent": {
+          "target": "com.amazonaws.bedrockagentcore#InlineContent",
+          "traits": {
+            "smithy.api#documentation": "<p> The inline content of the server definition.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The MCP server definition with a schema version and inline content. The <code>schemaVersion</code> identifies the version of the MCP server configuration schema.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#ServiceException": {
@@ -7603,6 +8117,40 @@
           "min": 33,
           "max": 256
         }
+      }
+    },
+    "com.amazonaws.bedrockagentcore#SkillDefinition": {
+      "type": "structure",
+      "members": {
+        "schemaVersion": {
+          "target": "com.amazonaws.bedrockagentcore#SchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p> The schema version of the skill definition. If you don't specify a version, the service detects it automatically.</p>"
+          }
+        },
+        "inlineContent": {
+          "target": "com.amazonaws.bedrockagentcore#InlineContent",
+          "traits": {
+            "smithy.api#documentation": "<p> The inline content of the skill definition.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The structured skill definition with a schema version and inline content.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#SkillMdDefinition": {
+      "type": "structure",
+      "members": {
+        "inlineContent": {
+          "target": "com.amazonaws.bedrockagentcore#InlineContent",
+          "traits": {
+            "smithy.api#documentation": "<p> The inline markdown content of the skill definition.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The skill markdown definition for agent skills descriptors.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#Span": {
@@ -8706,6 +9254,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains structured content from a tool result.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#ToolsDefinition": {
+      "type": "structure",
+      "members": {
+        "protocolVersion": {
+          "target": "com.amazonaws.bedrockagentcore#SchemaVersion",
+          "traits": {
+            "smithy.api#documentation": "<p> The MCP protocol version that the tools conform to. This differs from the <code>schemaVersion</code> field in the server definition, which identifies the server configuration schema format.</p>"
+          }
+        },
+        "inlineContent": {
+          "target": "com.amazonaws.bedrockagentcore#InlineContent",
+          "traits": {
+            "smithy.api#documentation": "<p> The inline content of the tools definition.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> The MCP tools definition with a protocol version and inline content. The <code>protocolVersion</code> identifies the MCP protocol version that the tools conform to. This differs from <code>schemaVersion</code> in the server definition, which identifies the server configuration schema format.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#TraceId": {

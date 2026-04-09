@@ -1,7 +1,10 @@
 import {
+  A2aDescriptor$,
   AccessDeniedException,
   AccessDeniedException$,
   ActorSummary$,
+  AgentCardDefinition$,
+  AgentSkillsDescriptor$,
   AutomationStream$,
   AutomationStreamStatus,
   AutomationStreamUpdate$,
@@ -58,6 +61,7 @@ import {
   CreateEventCommand,
   CreateEventInput$,
   CreateEventOutput$,
+  CustomDescriptor$,
   DeleteEvent$,
   DeleteEventCommand,
   DeleteEventInput$,
@@ -66,6 +70,8 @@ import {
   DeleteMemoryRecordCommand,
   DeleteMemoryRecordInput$,
   DeleteMemoryRecordOutput$,
+  Descriptors$,
+  DescriptorType,
   DuplicateIdException,
   DuplicateIdException$,
   Evaluate$,
@@ -188,6 +194,7 @@ import {
   ListSessionsInput$,
   ListSessionsOutput$,
   LiveViewStream$,
+  McpDescriptor$,
   MemoryContent$,
   MemoryMetadataFilterExpression$,
   MemoryRecord$,
@@ -222,6 +229,8 @@ import {
   ProxyBypass$,
   ProxyConfiguration$,
   ProxyCredentials$,
+  RegistryRecordStatus,
+  RegistryRecordSummary$,
   ResourceContent$,
   ResourceContentType,
   ResourceLocation$,
@@ -247,7 +256,12 @@ import {
   ScreenshotFormat,
   ScreenshotResult$,
   SearchCriteria$,
+  SearchRegistryRecords$,
+  SearchRegistryRecordsCommand,
+  SearchRegistryRecordsRequest$,
+  SearchRegistryRecordsResponse$,
   SecretsManagerLocation$,
+  ServerDefinition$,
   ServiceException,
   ServiceException$,
   ServiceQuotaExceededException,
@@ -255,6 +269,8 @@ import {
   SessionFilter$,
   SessionStatus,
   SessionSummary$,
+  SkillDefinition$,
+  SkillMdDefinition$,
   SpanContext$,
   StartBrowserSession$,
   StartBrowserSessionCommand,
@@ -290,6 +306,7 @@ import {
   ToolArguments$,
   ToolName,
   ToolResultStructuredContent$,
+  ToolsDefinition$,
   UnauthorizedException,
   UnauthorizedException$,
   UpdateBrowserStream$,
@@ -370,6 +387,8 @@ assert(typeof RetrieveMemoryRecordsCommand === "function");
 assert(typeof RetrieveMemoryRecords$ === "object");
 assert(typeof SaveBrowserSessionProfileCommand === "function");
 assert(typeof SaveBrowserSessionProfile$ === "object");
+assert(typeof SearchRegistryRecordsCommand === "function");
+assert(typeof SearchRegistryRecords$ === "object");
 assert(typeof StartBrowserSessionCommand === "function");
 assert(typeof StartBrowserSession$ === "object");
 assert(typeof StartCodeInterpreterSessionCommand === "function");
@@ -385,7 +404,10 @@ assert(typeof StopRuntimeSession$ === "object");
 assert(typeof UpdateBrowserStreamCommand === "function");
 assert(typeof UpdateBrowserStream$ === "object");
 // structural schemas
+assert(typeof A2aDescriptor$ === "object");
 assert(typeof ActorSummary$ === "object");
+assert(typeof AgentCardDefinition$ === "object");
+assert(typeof AgentSkillsDescriptor$ === "object");
 assert(typeof AutomationStream$ === "object");
 assert(typeof AutomationStreamUpdate$ === "object");
 assert(typeof BasicAuth$ === "object");
@@ -420,10 +442,12 @@ assert(typeof Context$ === "object");
 assert(typeof Conversational$ === "object");
 assert(typeof CreateEventInput$ === "object");
 assert(typeof CreateEventOutput$ === "object");
+assert(typeof CustomDescriptor$ === "object");
 assert(typeof DeleteEventInput$ === "object");
 assert(typeof DeleteEventOutput$ === "object");
 assert(typeof DeleteMemoryRecordInput$ === "object");
 assert(typeof DeleteMemoryRecordOutput$ === "object");
+assert(typeof Descriptors$ === "object");
 assert(typeof EvaluateRequest$ === "object");
 assert(typeof EvaluateResponse$ === "object");
 assert(typeof EvaluationContent$ === "object");
@@ -493,6 +517,7 @@ assert(typeof ListMemoryRecordsOutput$ === "object");
 assert(typeof ListSessionsInput$ === "object");
 assert(typeof ListSessionsOutput$ === "object");
 assert(typeof LiveViewStream$ === "object");
+assert(typeof McpDescriptor$ === "object");
 assert(typeof MemoryContent$ === "object");
 assert(typeof MemoryMetadataFilterExpression$ === "object");
 assert(typeof MemoryRecord$ === "object");
@@ -516,6 +541,7 @@ assert(typeof Proxy$ === "object");
 assert(typeof ProxyBypass$ === "object");
 assert(typeof ProxyConfiguration$ === "object");
 assert(typeof ProxyCredentials$ === "object");
+assert(typeof RegistryRecordSummary$ === "object");
 assert(typeof ResourceContent$ === "object");
 assert(typeof ResourceLocation$ === "object");
 assert(typeof ResponseChunk$ === "object");
@@ -528,9 +554,14 @@ assert(typeof SaveBrowserSessionProfileResponse$ === "object");
 assert(typeof ScreenshotArguments$ === "object");
 assert(typeof ScreenshotResult$ === "object");
 assert(typeof SearchCriteria$ === "object");
+assert(typeof SearchRegistryRecordsRequest$ === "object");
+assert(typeof SearchRegistryRecordsResponse$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
+assert(typeof ServerDefinition$ === "object");
 assert(typeof SessionFilter$ === "object");
 assert(typeof SessionSummary$ === "object");
+assert(typeof SkillDefinition$ === "object");
+assert(typeof SkillMdDefinition$ === "object");
 assert(typeof SpanContext$ === "object");
 assert(typeof StartBrowserSessionRequest$ === "object");
 assert(typeof StartBrowserSessionResponse$ === "object");
@@ -548,6 +579,7 @@ assert(typeof StreamUpdate$ === "object");
 assert(typeof TokenUsage$ === "object");
 assert(typeof ToolArguments$ === "object");
 assert(typeof ToolResultStructuredContent$ === "object");
+assert(typeof ToolsDefinition$ === "object");
 assert(typeof UpdateBrowserStreamRequest$ === "object");
 assert(typeof UpdateBrowserStreamResponse$ === "object");
 assert(typeof UserIdentifier$ === "object");
@@ -561,6 +593,7 @@ assert(typeof BrowserSessionStatus === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
 assert(typeof CommandExecutionStatus === "object");
 assert(typeof ContentBlockType === "object");
+assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
 assert(typeof LanguageRuntime === "object");
@@ -569,6 +602,7 @@ assert(typeof MouseButton === "object");
 assert(typeof Oauth2FlowType === "object");
 assert(typeof OperatorType === "object");
 assert(typeof ProgrammingLanguage === "object");
+assert(typeof RegistryRecordStatus === "object");
 assert(typeof ResourceContentType === "object");
 assert(typeof Role === "object");
 assert(typeof ScreenshotFormat === "object");

@@ -398,6 +398,13 @@ SaveBrowserSessionProfile
 </details>
 <details>
 <summary>
+SearchRegistryRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/SearchRegistryRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/SearchRegistryRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/SearchRegistryRecordsCommandOutput/)
+</details>
+<details>
+<summary>
 StartBrowserSession
 </summary>
 

@@ -30,6 +30,7 @@ export * from "./ListMemoryRecordsCommand";
 export * from "./ListSessionsCommand";
 export * from "./RetrieveMemoryRecordsCommand";
 export * from "./SaveBrowserSessionProfileCommand";
+export * from "./SearchRegistryRecordsCommand";
 export * from "./StartBrowserSessionCommand";
 export * from "./StartCodeInterpreterSessionCommand";
 export * from "./StartMemoryExtractionJobCommand";

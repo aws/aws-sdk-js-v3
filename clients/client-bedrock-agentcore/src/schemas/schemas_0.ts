@@ -1,7 +1,10 @@
 const _A = "Accept";
+const _ACD = "AgentCardDefinition";
+const _AD = "A2aDescriptor";
 const _ADE = "AccessDeniedException";
 const _AKT = "ApiKeyType";
 const _AS = "ActorSummary";
+const _ASD = "AgentSkillsDescriptor";
 const _ASL = "ActorSummaryList";
 const _ASU = "AutomationStreamUpdate";
 const _ASu = "AutomationStream";
@@ -33,6 +36,7 @@ const _Br = "Branch";
 const _C = "Certificate";
 const _CB = "ContentBlock";
 const _CBL = "ContentBlockList";
+const _CD = "CustomDescriptor";
 const _CDE = "ContentDeltaEvent";
 const _CE = "ConflictException";
 const _CEI = "CreateEventInput";
@@ -55,7 +59,7 @@ const _Ce = "Certificates";
 const _Co = "Conversational";
 const _Con = "Content";
 const _Cont = "Context";
-const _D = "Document";
+const _D = "Description";
 const _DE = "DeleteEvent";
 const _DEI = "DeleteEventInput";
 const _DEO = "DeleteEventOutput";
@@ -63,6 +67,8 @@ const _DIE = "DuplicateIdException";
 const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
 const _DMRO = "DeleteMemoryRecordOutput";
+const _De = "Descriptors";
+const _Do = "Document";
 const _E = "Event";
 const _EC = "EvaluationContent";
 const _ECL = "EvaluationContentList";
@@ -167,6 +173,7 @@ const _LVS = "LiveViewStream";
 const _MC = "MemoryContent";
 const _MCA = "MouseClickArguments";
 const _MCR = "MouseClickResult";
+const _MD = "McpDescriptor";
 const _MDA = "MouseDragArguments";
 const _MDR = "MouseDragResult";
 const _ML = "MessagesList";
@@ -209,6 +216,8 @@ const _RMR = "RetrieveMemoryRecords";
 const _RMRI = "RetrieveMemoryRecordsInput";
 const _RMRO = "RetrieveMemoryRecordsOutput";
 const _RNFE = "ResourceNotFoundException";
+const _RRS = "RegistryRecordSummary";
+const _RRSL = "RegistryRecordSummaryList";
 const _RS = "ResponseStream";
 const _S = "State";
 const _SA = "ScreenshotArguments";
@@ -229,15 +238,21 @@ const _SCISRto = "StopCodeInterpreterSessionRequest";
 const _SCISRtop = "StopCodeInterpreterSessionResponse";
 const _SCISt = "StopCodeInterpreterSession";
 const _SCp = "SpanContext";
+const _SD = "ServerDefinition";
+const _SDk = "SkillDefinition";
 const _SE = "ServiceException";
 const _SF = "SessionFilter";
 const _SL = "S3Location";
+const _SMD = "SkillMdDefinition";
 const _SMEJ = "StartMemoryExtractionJob";
 const _SMEJI = "StartMemoryExtractionJobInput";
 const _SMEJO = "StartMemoryExtractionJobOutput";
 const _SML = "SecretsManagerLocation";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "ScreenshotResult";
+const _SRR = "SearchRegistryRecords";
+const _SRRR = "SearchRegistryRecordsRequest";
+const _SRRRe = "SearchRegistryRecordsResponse";
 const _SRS = "StopRuntimeSession";
 const _SRSR = "StopRuntimeSessionRequest";
 const _SRSRt = "StopRuntimeSessionResponse";
@@ -247,6 +262,7 @@ const _SSe = "SessionSummary";
 const _SU = "StreamUpdate";
 const _Sp = "Spans";
 const _TA = "ToolArguments";
+const _TD = "ToolsDefinition";
 const _TE = "ThrottledException";
 const _TEh = "ThrottlingException";
 const _TRSC = "ToolResultStructuredContent";
@@ -265,7 +281,7 @@ const _WITT = "WorkloadIdentityTokenType";
 const _XABARSI = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id";
 const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
-const _a = "assertions";
+const _a = "a2a";
 const _aC = "agentCard";
 const _aDE = "accessDeniedException";
 const _aI = "actorId";
@@ -275,11 +291,13 @@ const _aRA = "agentRuntimeArn";
 const _aS = "automationStream";
 const _aSU = "automationStreamUpdate";
 const _aSc = "actorSummaries";
+const _aSg = "agentSkills";
 const _aT = "accessToken";
 const _aU = "authorizationUrl";
 const _ac = "accept";
 const _act = "action";
 const _ar = "arguments";
+const _as = "assertions";
 const _b = "branch";
 const _bA = "basicAuth";
 const _bI = "browserIdentifier";
@@ -310,12 +328,15 @@ const _com = "command";
 const _con = "context";
 const _conv = "conversational";
 const _cr = "credentials";
+const _cu = "custom";
 const _d = "data";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
+const _dT = "descriptorType";
 const _dX = "deltaX";
 const _dY = "deltaY";
 const _de = "description";
+const _des = "descriptors";
 const _e = "error";
 const _eA = "evaluatorArn";
 const _eC = "exitCode";
@@ -348,6 +369,7 @@ const _fA = "forceAuthentication";
 const _fL = "fieldList";
 const _fR = "failedRecords";
 const _fRa = "failureReason";
+const _fi = "filters";
 const _fo = "format";
 const _h = "height";
 const _hE = "httpError";
@@ -355,6 +377,7 @@ const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _ht = "http";
 const _i = "items";
+const _iC = "inlineContent";
 const _iE = "isError";
 const _iP = "includePayloads";
 const _iPB = "includeParentBranches";
@@ -395,6 +418,7 @@ const _mSI = "mcpSessionId";
 const _mSIe = "memoryStrategyId";
 const _mT = "mimeType";
 const _mV = "metadataValue";
+const _mc = "mcp";
 const _me = "metadata";
 const _mes = "messages";
 const _n = "name";
@@ -408,6 +432,7 @@ const _p = "payload";
 const _pC = "profileConfiguration";
 const _pCr = "proxyConfiguration";
 const _pI = "profileIdentifier";
+const _pV = "protocolVersion";
 const _pa = "path";
 const _pat = "paths";
 const _po = "port";
@@ -416,12 +441,17 @@ const _pre = "prefix";
 const _pro = "proxies";
 const _q = "qualifier";
 const _r = "reason";
+const _rA = "registryArn";
+const _rAe = "recordArn";
 const _rCE = "runtimeClientError";
 const _rCPN = "resourceCredentialProviderName";
 const _rEI = "rootEventId";
 const _rI = "requestIdentifier";
+const _rIe = "recordId";
+const _rIeg = "registryIds";
 const _rNFE = "resourceNotFoundException";
 const _rORU = "resourceOauth2ReturnUrl";
+const _rR = "registryRecords";
 const _rSI = "runtimeSessionId";
 const _rUI = "runtimeUserId";
 const _re = "records";
@@ -437,12 +467,14 @@ const _sC = "structuredContent";
 const _sCe = "searchCriteria";
 const _sCp = "spanContext";
 const _sCt = "statusCode";
+const _sD = "skillDefinition";
 const _sE = "streamEndpoint";
 const _sI = "sessionId";
 const _sIp = "spanId";
 const _sIpa = "spanIds";
 const _sIt = "strategyId";
-const _sM = "secretsManager";
+const _sM = "skillMd";
+const _sMe = "secretsManager";
 const _sQ = "searchQuery";
 const _sQEE = "serviceQuotaExceededException";
 const _sR = "successfulRecords";
@@ -454,7 +486,8 @@ const _sSess = "sessionSpans";
 const _sTS = "sessionTimeoutSeconds";
 const _sU = "sessionUri";
 const _sUt = "streamUpdate";
-const _sV = "stringValue";
+const _sV = "schemaVersion";
+const _sVt = "stringValue";
 const _sX = "startX";
 const _sY = "startY";
 const _s_ = "s3";
@@ -485,6 +518,7 @@ const _tU = "tokenUsage";
 const _te = "text";
 const _ti = "timeout";
 const _tim = "timestamp";
+const _to = "tools";
 const _tr = "traceparent";
 const _tra = "tracestate";
 const _u = "uri";
@@ -496,6 +530,7 @@ const _v = "value";
 const _vE = "validationException";
 const _vI = "versionId";
 const _vP = "viewPort";
+const _ve = "version";
 const _w = "width";
 const _wAT = "workloadAccessToken";
 const _wIT = "workloadIdentityToken";
@@ -639,17 +674,33 @@ var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var AuthorizationUrlType: StaticSimpleSchema = [0, n0, _AUT, 8, 0];
 var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
-var Document: StaticSimpleSchema = [0, n0, _D, 8, 15];
+var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
+var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
 var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
 var ResponseStream: StaticSimpleSchema = [0, n0, _RS, { [_sen]: 1, [_st]: 1 }, 42];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var State: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var UserTokenType: StaticSimpleSchema = [0, n0, _UTT, 8, 0];
 var WorkloadIdentityTokenType: StaticSimpleSchema = [0, n0, _WITT, 8, 0];
+export var A2aDescriptor$: StaticStructureSchema = [3, n0, _AD,
+  0,
+  [_aC],
+  [() => AgentCardDefinition$], 1
+];
 export var ActorSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_aI],
   [0], 1
+];
+export var AgentCardDefinition$: StaticStructureSchema = [3, n0, _ACD,
+  0,
+  [_sV, _iC],
+  [0, 0]
+];
+export var AgentSkillsDescriptor$: StaticStructureSchema = [3, n0, _ASD,
+  0,
+  [_sM, _sD],
+  [() => SkillMdDefinition$, () => SkillDefinition$], 1
 ];
 export var AutomationStream$: StaticStructureSchema = [3, n0, _ASu,
   0,
@@ -791,6 +842,11 @@ export var CreateEventOutput$: StaticStructureSchema = [3, n0, _CEO,
   [_ev],
   [[() => Event$, 0]], 1
 ];
+export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_iC],
+  [0]
+];
 export var DeleteEventInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_mI, _sI, _eI, _aI],
@@ -811,6 +867,11 @@ export var DeleteMemoryRecordOutput$: StaticStructureSchema = [3, n0, _DMRO,
   [_mRI],
   [0], 1
 ];
+export var Descriptors$: StaticStructureSchema = [3, n0, _De,
+  0,
+  [_mc, _a, _cu, _aSg],
+  [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
+];
 export var EvaluateRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
   [_eIv, _eIva, _eTv, _eRI],
@@ -828,7 +889,7 @@ export var EvaluationExpectedTrajectory$: StaticStructureSchema = [3, n0, _EET,
 ];
 export var EvaluationReferenceInput$: StaticStructureSchema = [3, n0, _ERI,
   0,
-  [_con, _eRx, _a, _eTx],
+  [_con, _eRx, _as, _eTx],
   [() => Context$, () => EvaluationContent$, () => EvaluationContentList, () => EvaluationExpectedTrajectory$], 1
 ];
 export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
@@ -1126,6 +1187,11 @@ export var LiveViewStream$: StaticStructureSchema = [3, n0, _LVS,
   [_sE],
   [0]
 ];
+export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
+  0,
+  [_se, _to],
+  [() => ServerDefinition$, () => ToolsDefinition$], 2
+];
 export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMFE,
   0,
   [_le, _o, _ri],
@@ -1216,6 +1282,11 @@ export var ProxyConfiguration$: StaticStructureSchema = [3, n0, _PC,
   [_pro, _by],
   [() => Proxies, () => ProxyBypass$], 1
 ];
+export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
+  0,
+  [_rA, _rAe, _rIe, _n, _dT, _des, _ve, _sta, _cA, _uA, _de],
+  [0, 0, 0, 0, 0, () => Descriptors$, 0, 0, 5, 5, [() => Description, 0]], 10
+];
 export var ResourceContent$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_t, _u, _mT, _te, _bl],
@@ -1266,10 +1337,25 @@ export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   [_sQ, _mSIe, _tK, _mF],
   [[() => SensitiveString, 0], 0, 1, () => MemoryMetadataFilterList], 1
 ];
+export var SearchRegistryRecordsRequest$: StaticStructureSchema = [3, n0, _SRRR,
+  0,
+  [_sQ, _rIeg, _mRa, _fi],
+  [0, 64 | 0, 1, 15], 2
+];
+export var SearchRegistryRecordsResponse$: StaticStructureSchema = [3, n0, _SRRRe,
+  0,
+  [_rR],
+  [[() => RegistryRecordSummaryList, 0]], 1
+];
 export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
   [_sA],
   [0], 1
+];
+export var ServerDefinition$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_sV, _iC],
+  [0, 0]
 ];
 export var SessionFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
@@ -1280,6 +1366,16 @@ export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_sI, _aI, _cA],
   [0, 0, 4], 3
+];
+export var SkillDefinition$: StaticStructureSchema = [3, n0, _SDk,
+  0,
+  [_sV, _iC],
+  [0, 0]
+];
+export var SkillMdDefinition$: StaticStructureSchema = [3, n0, _SMD,
+  0,
+  [_iC],
+  [0]
 ];
 export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
   0,
@@ -1360,6 +1456,11 @@ export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
   0,
   [_tIa, _tSa, _std, _stde, _eC, _eTxe],
   [0, 0, 0, 0, 1, 1]
+];
+export var ToolsDefinition$: StaticStructureSchema = [3, n0, _TD,
+  0,
+  [_pV, _iC],
+  [0, 0]
 ];
 export var UpdateBrowserStreamRequest$: StaticStructureSchema = [3, n0, _UBSR,
   0,
@@ -1462,6 +1563,11 @@ var PayloadTypeList: StaticListSchema = [1, n0, _PTL,
 var Proxies: StaticListSchema = [1, n0, _P,
   0, () => Proxy$
 ];
+var RegistryIdList = 64 | 0;
+var RegistryRecordSummaryList: StaticListSchema = [1, n0, _RRSL,
+  0, [() => RegistryRecordSummary$,
+    0]
+];
 var ScopesListType = 64 | 0;
 var SessionSummaryList: StaticListSchema = [1, n0, _SSL,
   0, () => SessionSummary$
@@ -1496,7 +1602,7 @@ export var BrowserActionResult$: StaticUnionSchema = [4, n0, _BAR,
 ];
 export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
   0,
-  [_sM],
+  [_sMe],
   [() => SecretsManagerLocation$]
 ];
 export var CodeInterpreterStreamOutput$: StaticUnionSchema = [4, n0, _CISO,
@@ -1551,7 +1657,7 @@ export var MemoryContent$: StaticUnionSchema = [4, n0, _MC,
 ];
 export var MetadataValue$: StaticUnionSchema = [4, n0, _MV,
   0,
-  [_sV],
+  [_sVt],
   [0]
 ];
 export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
@@ -1681,6 +1787,9 @@ export var RetrieveMemoryRecords$: StaticOperationSchema = [9, n0, _RMR,
 ];
 export var SaveBrowserSessionProfile$: StaticOperationSchema = [9, n0, _SBSP,
   { [_ht]: ["PUT", "/browser-profiles/{profileIdentifier}/save", 200] }, () => SaveBrowserSessionProfileRequest$, () => SaveBrowserSessionProfileResponse$
+];
+export var SearchRegistryRecords$: StaticOperationSchema = [9, n0, _SRR,
+  { [_ht]: ["POST", "/registry-records/search", 200] }, () => SearchRegistryRecordsRequest$, () => SearchRegistryRecordsResponse$
 ];
 export var StartBrowserSession$: StaticOperationSchema = [9, n0, _SBS,
   { [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/start", 200] }, () => StartBrowserSessionRequest$, () => StartBrowserSessionResponse$

@@ -304,3 +304,34 @@ export const EventFilterCondition = {
  * @public
  */
 export type EventFilterCondition = (typeof EventFilterCondition)[keyof typeof EventFilterCondition];
+
+/**
+ * @public
+ * @enum
+ */
+export const DescriptorType = {
+  A2A: "A2A",
+  AGENT_SKILLS: "AGENT_SKILLS",
+  CUSTOM: "CUSTOM",
+  MCP: "MCP",
+} as const;
+/**
+ * @public
+ */
+export type DescriptorType = (typeof DescriptorType)[keyof typeof DescriptorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistryRecordStatus = {
+  APPROVED: "APPROVED",
+  DEPRECATED: "DEPRECATED",
+  DRAFT: "DRAFT",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type RegistryRecordStatus = (typeof RegistryRecordStatus)[keyof typeof RegistryRecordStatus];

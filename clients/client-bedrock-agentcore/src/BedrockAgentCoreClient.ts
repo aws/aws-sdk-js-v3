@@ -163,6 +163,10 @@ import type {
   SaveBrowserSessionProfileCommandOutput,
 } from "./commands/SaveBrowserSessionProfileCommand";
 import type {
+  SearchRegistryRecordsCommandInput,
+  SearchRegistryRecordsCommandOutput,
+} from "./commands/SearchRegistryRecordsCommand";
+import type {
   StartBrowserSessionCommandInput,
   StartBrowserSessionCommandOutput,
 } from "./commands/StartBrowserSessionCommand";
@@ -236,6 +240,7 @@ export type ServiceInputTypes =
   | ListSessionsCommandInput
   | RetrieveMemoryRecordsCommandInput
   | SaveBrowserSessionProfileCommandInput
+  | SearchRegistryRecordsCommandInput
   | StartBrowserSessionCommandInput
   | StartCodeInterpreterSessionCommandInput
   | StartMemoryExtractionJobCommandInput
@@ -279,6 +284,7 @@ export type ServiceOutputTypes =
   | ListSessionsCommandOutput
   | RetrieveMemoryRecordsCommandOutput
   | SaveBrowserSessionProfileCommandOutput
+  | SearchRegistryRecordsCommandOutput
   | StartBrowserSessionCommandOutput
   | StartCodeInterpreterSessionCommandOutput
   | StartMemoryExtractionJobCommandOutput
