@@ -10,7 +10,7 @@ host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 9e5d8fd40c19dab6ea23b16ef40be63b770e8fa3547f2a320859773339846f04
+x-amz-content-sha256: 412b76165bed2a74e76e8adbf6e251eb54925579bf534f3db1f5d1761e09f093
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -20,13 +20,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     {
       "InstanceCount": 0,
       "InstanceGroupName": "__InstanceGroupName__",
-      "InstanceType": "__InstanceType__",
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
         "OnCreate": "__OnCreate__"
       },
       "ExecutionRole": "__ExecutionRole__",
       "MinInstanceCount": 0,
+      "InstanceType": "__InstanceType__",
       "ThreadsPerCore": 0,
       "InstanceStorageConfigs": [
         {
@@ -136,13 +136,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     {
       "InstanceCount": 0,
       "InstanceGroupName": "__InstanceGroupName__",
-      "InstanceType": "__InstanceType__",
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
         "OnCreate": "__OnCreate__"
       },
       "ExecutionRole": "__ExecutionRole__",
       "MinInstanceCount": 0,
+      "InstanceType": "__InstanceType__",
       "ThreadsPerCore": 0,
       "InstanceStorageConfigs": [
         {
@@ -252,13 +252,13 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
     {
       "InstanceCount": 0,
       "InstanceGroupName": "__InstanceGroupName__",
-      "InstanceType": "__InstanceType__",
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
         "OnCreate": "__OnCreate__"
       },
       "ExecutionRole": "__ExecutionRole__",
       "MinInstanceCount": 0,
+      "InstanceType": "__InstanceType__",
       "ThreadsPerCore": 0,
       "InstanceStorageConfigs": [
         {

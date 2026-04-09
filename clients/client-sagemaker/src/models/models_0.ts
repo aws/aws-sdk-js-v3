@@ -6074,7 +6074,7 @@ export interface ClusterInstanceGroupSpecification {
    * <p>Specifies the instance type of the instance group.</p>
    * @public
    */
-  InstanceType: ClusterInstanceType | undefined;
+  InstanceType?: ClusterInstanceType | undefined;
 
   /**
    * <p>Specifies the LifeCycle configuration for the instance group.</p>

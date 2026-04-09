@@ -4218,8 +4218,8 @@ export var ClusterInstanceGroupDetails$: StaticStructureSchema = [3, n0, _CIGD,
 ];
 export var ClusterInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CIGS,
   0,
-  [_ICns, _IGN, _IT, _LCC, _ERx, _MIC, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _IIm, _KC, _SCl, _CRa],
-  [1, 0, 0, () => ClusterLifeCycleConfig$, 0, 1, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, () => ClusterKubernetesConfig$, () => ClusterSlurmConfig$, () => ClusterCapacityRequirements$], 5
+  [_ICns, _IGN, _LCC, _ERx, _MIC, _IT, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _IIm, _KC, _SCl, _CRa],
+  [1, 0, () => ClusterLifeCycleConfig$, 0, 1, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, () => ClusterKubernetesConfig$, () => ClusterSlurmConfig$, () => ClusterCapacityRequirements$], 4
 ];
 export var ClusterInstancePlacement$: StaticStructureSchema = [3, n0, _CIP,
   0,
