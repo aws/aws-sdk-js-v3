@@ -38,7 +38,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * const client = new BCMDashboardsClient(config);
  * const input = { // UpdateDashboardRequest
  *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   widgets: [ // WidgetList
  *     { // Widget

@@ -188,10 +188,31 @@ CreateDashboard
 </details>
 <details>
 <summary>
+CreateScheduledReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/CreateScheduledReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/CreateScheduledReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/CreateScheduledReportCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/DeleteDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/DeleteDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/DeleteDashboardCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteScheduledReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/DeleteScheduledReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/DeleteScheduledReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/DeleteScheduledReportCommandOutput/)
+</details>
+<details>
+<summary>
+ExecuteScheduledReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/ExecuteScheduledReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ExecuteScheduledReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ExecuteScheduledReportCommandOutput/)
 </details>
 <details>
 <summary>
@@ -209,10 +230,24 @@ GetResourcePolicy
 </details>
 <details>
 <summary>
+GetScheduledReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/GetScheduledReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/GetScheduledReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/GetScheduledReportCommandOutput/)
+</details>
+<details>
+<summary>
 ListDashboards
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/ListDashboardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListDashboardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListDashboardsCommandOutput/)
+</details>
+<details>
+<summary>
+ListScheduledReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/ListScheduledReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListScheduledReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/ListScheduledReportsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -241,4 +276,11 @@ UpdateDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/UpdateDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UpdateDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UpdateDashboardCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateScheduledReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-dashboards/command/UpdateScheduledReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UpdateScheduledReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-dashboards/Interface/UpdateScheduledReportCommandOutput/)
 </details>

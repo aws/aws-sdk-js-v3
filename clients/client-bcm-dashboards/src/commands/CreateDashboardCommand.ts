@@ -245,7 +245,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *  <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed service quotas. For example, attempting to create more than 20 widgets in a dashboard or exceeding the maximum number of dashboards per account.</p>
+ *  <p>The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>

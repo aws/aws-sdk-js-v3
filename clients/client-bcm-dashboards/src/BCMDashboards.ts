@@ -9,10 +9,25 @@ import {
   CreateDashboardCommand,
 } from "./commands/CreateDashboardCommand";
 import {
+  type CreateScheduledReportCommandInput,
+  type CreateScheduledReportCommandOutput,
+  CreateScheduledReportCommand,
+} from "./commands/CreateScheduledReportCommand";
+import {
   type DeleteDashboardCommandInput,
   type DeleteDashboardCommandOutput,
   DeleteDashboardCommand,
 } from "./commands/DeleteDashboardCommand";
+import {
+  type DeleteScheduledReportCommandInput,
+  type DeleteScheduledReportCommandOutput,
+  DeleteScheduledReportCommand,
+} from "./commands/DeleteScheduledReportCommand";
+import {
+  type ExecuteScheduledReportCommandInput,
+  type ExecuteScheduledReportCommandOutput,
+  ExecuteScheduledReportCommand,
+} from "./commands/ExecuteScheduledReportCommand";
 import {
   type GetDashboardCommandInput,
   type GetDashboardCommandOutput,
@@ -24,10 +39,20 @@ import {
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetScheduledReportCommandInput,
+  type GetScheduledReportCommandOutput,
+  GetScheduledReportCommand,
+} from "./commands/GetScheduledReportCommand";
+import {
   type ListDashboardsCommandInput,
   type ListDashboardsCommandOutput,
   ListDashboardsCommand,
 } from "./commands/ListDashboardsCommand";
+import {
+  type ListScheduledReportsCommandInput,
+  type ListScheduledReportsCommandOutput,
+  ListScheduledReportsCommand,
+} from "./commands/ListScheduledReportsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -48,21 +73,34 @@ import {
   type UpdateDashboardCommandOutput,
   UpdateDashboardCommand,
 } from "./commands/UpdateDashboardCommand";
+import {
+  type UpdateScheduledReportCommandInput,
+  type UpdateScheduledReportCommandOutput,
+  UpdateScheduledReportCommand,
+} from "./commands/UpdateScheduledReportCommand";
 import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
+import { paginateListScheduledReports } from "./pagination/ListScheduledReportsPaginator";
 
 const commands = {
   CreateDashboardCommand,
+  CreateScheduledReportCommand,
   DeleteDashboardCommand,
+  DeleteScheduledReportCommand,
+  ExecuteScheduledReportCommand,
   GetDashboardCommand,
   GetResourcePolicyCommand,
+  GetScheduledReportCommand,
   ListDashboardsCommand,
+  ListScheduledReportsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDashboardCommand,
+  UpdateScheduledReportCommand,
 };
 const paginators = {
   paginateListDashboards,
+  paginateListScheduledReports,
 };
 
 export interface BCMDashboards {
@@ -84,6 +122,23 @@ export interface BCMDashboards {
   ): void;
 
   /**
+   * @see {@link CreateScheduledReportCommand}
+   */
+  createScheduledReport(
+    args: CreateScheduledReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScheduledReportCommandOutput>;
+  createScheduledReport(
+    args: CreateScheduledReportCommandInput,
+    cb: (err: any, data?: CreateScheduledReportCommandOutput) => void
+  ): void;
+  createScheduledReport(
+    args: CreateScheduledReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateScheduledReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDashboardCommand}
    */
   deleteDashboard(
@@ -98,6 +153,40 @@ export interface BCMDashboards {
     args: DeleteDashboardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteScheduledReportCommand}
+   */
+  deleteScheduledReport(
+    args: DeleteScheduledReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScheduledReportCommandOutput>;
+  deleteScheduledReport(
+    args: DeleteScheduledReportCommandInput,
+    cb: (err: any, data?: DeleteScheduledReportCommandOutput) => void
+  ): void;
+  deleteScheduledReport(
+    args: DeleteScheduledReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteScheduledReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExecuteScheduledReportCommand}
+   */
+  executeScheduledReport(
+    args: ExecuteScheduledReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteScheduledReportCommandOutput>;
+  executeScheduledReport(
+    args: ExecuteScheduledReportCommandInput,
+    cb: (err: any, data?: ExecuteScheduledReportCommandOutput) => void
+  ): void;
+  executeScheduledReport(
+    args: ExecuteScheduledReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteScheduledReportCommandOutput) => void
   ): void;
 
   /**
@@ -135,6 +224,23 @@ export interface BCMDashboards {
   ): void;
 
   /**
+   * @see {@link GetScheduledReportCommand}
+   */
+  getScheduledReport(
+    args: GetScheduledReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetScheduledReportCommandOutput>;
+  getScheduledReport(
+    args: GetScheduledReportCommandInput,
+    cb: (err: any, data?: GetScheduledReportCommandOutput) => void
+  ): void;
+  getScheduledReport(
+    args: GetScheduledReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetScheduledReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDashboardsCommand}
    */
   listDashboards(): Promise<ListDashboardsCommandOutput>;
@@ -150,6 +256,24 @@ export interface BCMDashboards {
     args: ListDashboardsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListScheduledReportsCommand}
+   */
+  listScheduledReports(): Promise<ListScheduledReportsCommandOutput>;
+  listScheduledReports(
+    args: ListScheduledReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledReportsCommandOutput>;
+  listScheduledReports(
+    args: ListScheduledReportsCommandInput,
+    cb: (err: any, data?: ListScheduledReportsCommandOutput) => void
+  ): void;
+  listScheduledReports(
+    args: ListScheduledReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledReportsCommandOutput) => void
   ): void;
 
   /**
@@ -221,6 +345,23 @@ export interface BCMDashboards {
   ): void;
 
   /**
+   * @see {@link UpdateScheduledReportCommand}
+   */
+  updateScheduledReport(
+    args: UpdateScheduledReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScheduledReportCommandOutput>;
+  updateScheduledReport(
+    args: UpdateScheduledReportCommandInput,
+    cb: (err: any, data?: UpdateScheduledReportCommandOutput) => void
+  ): void;
+  updateScheduledReport(
+    args: UpdateScheduledReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledReportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDashboardsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -230,6 +371,17 @@ export interface BCMDashboards {
     args?: ListDashboardsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDashboardsCommandOutput>;
+
+  /**
+   * @see {@link ListScheduledReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduledReportsCommandOutput}.
+   */
+  paginateListScheduledReports(
+    args?: ListScheduledReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduledReportsCommandOutput>;
 }
 
 /**

@@ -136,6 +136,50 @@ export type DateTimeType = (typeof DateTimeType)[keyof typeof DateTimeType];
  * @public
  * @enum
  */
+export const ScheduleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthStatusCode = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+/**
+ * @public
+ */
+export type HealthStatusCode = (typeof HealthStatusCode)[keyof typeof HealthStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusReason = {
+  DASHBOARD_ACCESS_DENIED: "DASHBOARD_ACCESS_DENIED",
+  DASHBOARD_NOT_FOUND: "DASHBOARD_NOT_FOUND",
+  DATA_SOURCE_ACCESS_DENIED: "DATA_SOURCE_ACCESS_DENIED",
+  EXECUTION_ROLE_ASSUME_FAILED: "EXECUTION_ROLE_ASSUME_FAILED",
+  EXECUTION_ROLE_INSUFFICIENT_PERMISSIONS: "EXECUTION_ROLE_INSUFFICIENT_PERMISSIONS",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  WIDGET_ID_NOT_FOUND: "WIDGET_ID_NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const DashboardType = {
   CUSTOM: "CUSTOM",
 } as const;

@@ -44,7 +44,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed service quotas. For example, attempting to create more than 20 widgets in a dashboard or exceeding the maximum number of dashboards per account.</p>
+ * <p>The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -100,6 +100,26 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to create a resource that already exists or is being created.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
   }
 }
 

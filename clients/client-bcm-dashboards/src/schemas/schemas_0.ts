@@ -4,16 +4,26 @@ const _CCV = "CostCategoryValues";
 const _CD = "CreateDashboard";
 const _CDR = "CreateDashboardRequest";
 const _CDRr = "CreateDashboardResponse";
+const _CE = "ConflictException";
+const _CSR = "CreateScheduledReport";
+const _CSRR = "CreateScheduledReportRequest";
+const _CSRRr = "CreateScheduledReportResponse";
 const _DC = "DisplayConfig";
 const _DD = "DeleteDashboard";
 const _DDR = "DeleteDashboardRequest";
 const _DDRe = "DeleteDashboardResponse";
 const _DR = "DashboardReference";
 const _DRL = "DashboardReferenceList";
+const _DSR = "DeleteScheduledReport";
+const _DSRR = "DeleteScheduledReportRequest";
+const _DSRRe = "DeleteScheduledReportResponse";
 const _DTR = "DateTimeRange";
 const _DTV = "DateTimeValue";
 const _DV = "DimensionValues";
 const _E = "Expression";
+const _ESR = "ExecuteScheduledReport";
+const _ESRR = "ExecuteScheduledReportRequest";
+const _ESRRx = "ExecuteScheduledReportResponse";
 const _Ex = "Expressions";
 const _GD = "GroupDefinition";
 const _GDC = "GraphDisplayConfig";
@@ -25,10 +35,17 @@ const _GDr = "GroupDefinitions";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
+const _GSR = "GetScheduledReport";
+const _GSRR = "GetScheduledReportRequest";
+const _GSRRe = "GetScheduledReportResponse";
+const _HS = "HealthStatus";
 const _ISE = "InternalServerException";
 const _LD = "ListDashboards";
 const _LDR = "ListDashboardsRequest";
 const _LDRi = "ListDashboardsResponse";
+const _LSR = "ListScheduledReports";
+const _LSRR = "ListScheduledReportsRequest";
+const _LSRRi = "ListScheduledReportsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -38,9 +55,15 @@ const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceTag";
 const _RTL = "ResourceTagList";
 const _RUQ = "ReservationUtilizationQuery";
+const _SC = "ScheduleConfig";
+const _SP = "SchedulePeriod";
 const _SPCQ = "SavingsPlansCoverageQuery";
 const _SPUQ = "SavingsPlansUtilizationQuery";
 const _SQEE = "ServiceQuotaExceededException";
+const _SR = "ScheduledReport";
+const _SRI = "ScheduledReportInput";
+const _SRS = "ScheduledReportSummary";
+const _SRSL = "ScheduledReportSummaryList";
 const _TDCS = "TableDisplayConfigStruct";
 const _TE = "ThrottlingException";
 const _TR = "TagResource";
@@ -53,33 +76,48 @@ const _UDRp = "UpdateDashboardResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _USR = "UpdateScheduledReport";
+const _USRR = "UpdateScheduledReportRequest";
+const _USRRp = "UpdateScheduledReportResponse";
 const _VE = "ValidationException";
 const _W = "Widget";
 const _WC = "WidgetConfig";
 const _WCL = "WidgetConfigList";
 const _WL = "WidgetList";
+const _XACT = "X-Amzn-Client-Token";
 const _a = "arn";
 const _an = "and";
 const _c = "client";
 const _cA = "createdAt";
 const _cAU = "costAndUsage";
 const _cC = "costCategories";
+const _cT = "clientToken";
+const _cWDRO = "clearWidgetDateRangeOverride";
+const _cWI = "clearWidgetIds";
 const _co = "configs";
 const _d = "description";
+const _dA = "dashboardArn";
 const _dC = "displayConfig";
+const _dR = "dryRun";
 const _da = "dashboards";
 const _di = "dimensions";
 const _e = "error";
 const _eT = "endTime";
+const _eTx = "executionTriggered";
 const _f = "filter";
 const _g = "granularity";
 const _gB = "groupBy";
 const _gr = "graph";
 const _h = "height";
 const _hE = "httpError";
+const _hH = "httpHeader";
 const _hO = "horizontalOffset";
+const _hS = "healthStatus";
 const _i = "id";
+const _iT = "idempotencyToken";
 const _k = "key";
+const _lEA = "lastExecutionAt";
+const _lRA = "lastRefreshedAt";
 const _m = "message";
 const _mO = "matchOptions";
 const _mR = "maxResults";
@@ -96,10 +134,20 @@ const _rT = "resourceTags";
 const _rTK = "resourceTagKeys";
 const _rU = "reservationUtilization";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bcmdashboards";
+const _sC = "statusCode";
+const _sCc = "scheduleConfig";
+const _sE = "scheduleExpression";
+const _sETZ = "scheduleExpressionTimeZone";
+const _sP = "schedulePeriod";
 const _sPC = "savingsPlansCoverage";
 const _sPU = "savingsPlansUtilization";
+const _sR = "scheduledReport";
+const _sRERA = "scheduledReportExecutionRoleArn";
+const _sRc = "scheduledReports";
+const _sRt = "statusReasons";
 const _sT = "startTime";
 const _se = "server";
+const _st = "state";
 const _t = "type";
 const _tR = "timeRange";
 const _ta = "tags";
@@ -110,6 +158,8 @@ const _v = "values";
 const _vT = "visualType";
 const _va = "value";
 const _w = "widgets";
+const _wDRO = "widgetDateRangeOverride";
+const _wI = "widgetIds";
 const _wi = "width";
 const n0 = "com.amazonaws.bcmdashboards";
 
@@ -127,6 +177,7 @@ import type {
 import { BCMDashboardsServiceException } from "../models/BCMDashboardsServiceException";
 import {
   AccessDeniedException,
+  ConflictException,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -145,6 +196,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0], 1
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
@@ -204,6 +261,16 @@ export var CreateDashboardResponse$: StaticStructureSchema = [3, n0, _CDRr,
   [_a],
   [0], 1
 ];
+export var CreateScheduledReportRequest$: StaticStructureSchema = [3, n0, _CSRR,
+  0,
+  [_sR, _rT, _cT],
+  [() => ScheduledReportInput$, () => ResourceTagList, [0, { [_hH]: _XACT, [_iT]: 1 }]], 1
+];
+export var CreateScheduledReportResponse$: StaticStructureSchema = [3, n0, _CSRRr,
+  0,
+  [_a],
+  [0], 1
+];
 export var DashboardReference$: StaticStructureSchema = [3, n0, _DR,
   0,
   [_a, _n, _t, _cA, _uA, _d],
@@ -229,10 +296,30 @@ export var DeleteDashboardResponse$: StaticStructureSchema = [3, n0, _DDRe,
   [_a],
   [0], 1
 ];
+export var DeleteScheduledReportRequest$: StaticStructureSchema = [3, n0, _DSRR,
+  0,
+  [_a],
+  [0], 1
+];
+export var DeleteScheduledReportResponse$: StaticStructureSchema = [3, n0, _DSRRe,
+  0,
+  [_a],
+  [0], 1
+];
 export var DimensionValues$: StaticStructureSchema = [3, n0, _DV,
   0,
   [_k, _v, _mO],
   [0, 64 | 0, 64 | 0], 2
+];
+export var ExecuteScheduledReportRequest$: StaticStructureSchema = [3, n0, _ESRR,
+  0,
+  [_a, _cT, _dR],
+  [0, [0, { [_hH]: _XACT, [_iT]: 1 }], 2], 1
+];
+export var ExecuteScheduledReportResponse$: StaticStructureSchema = [3, n0, _ESRRx,
+  0,
+  [_hS, _eTx],
+  [() => HealthStatus$, 2]
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -259,6 +346,16 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_rA, _pD],
   [0, 0], 2
 ];
+export var GetScheduledReportRequest$: StaticStructureSchema = [3, n0, _GSRR,
+  0,
+  [_a],
+  [0], 1
+];
+export var GetScheduledReportResponse$: StaticStructureSchema = [3, n0, _GSRRe,
+  0,
+  [_sR],
+  [() => ScheduledReport$], 1
+];
 export var GraphDisplayConfig$: StaticStructureSchema = [3, n0, _GDC,
   0,
   [_vT],
@@ -269,6 +366,11 @@ export var GroupDefinition$: StaticStructureSchema = [3, n0, _GD,
   [_k, _t],
   [0, 0], 1
 ];
+export var HealthStatus$: StaticStructureSchema = [3, n0, _HS,
+  0,
+  [_sC, _lRA, _sRt],
+  [0, 4, 64 | 0], 1
+];
 export var ListDashboardsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_mR, _nT],
@@ -278,6 +380,16 @@ export var ListDashboardsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
   [_da, _nT],
   [() => DashboardReferenceList, 0], 1
+];
+export var ListScheduledReportsRequest$: StaticStructureSchema = [3, n0, _LSRR,
+  0,
+  [_nT, _mR],
+  [0, 1]
+];
+export var ListScheduledReportsResponse$: StaticStructureSchema = [3, n0, _LSRRi,
+  0,
+  [_sRc, _nT],
+  [() => ScheduledReportSummaryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -314,6 +426,31 @@ export var SavingsPlansUtilizationQuery$: StaticStructureSchema = [3, n0, _SPUQ,
   [_tR, _g, _f],
   [() => DateTimeRange$, 0, () => Expression$], 1
 ];
+export var ScheduleConfig$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_sE, _sETZ, _sP, _st],
+  [0, 0, () => SchedulePeriod$, 0]
+];
+export var ScheduledReport$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_n, _dA, _sRERA, _sCc, _a, _d, _wI, _wDRO, _cA, _uA, _lEA, _hS],
+  [0, 0, 0, () => ScheduleConfig$, 0, 0, 64 | 0, () => DateTimeRange$, 4, 4, 4, () => HealthStatus$], 4
+];
+export var ScheduledReportInput$: StaticStructureSchema = [3, n0, _SRI,
+  0,
+  [_n, _dA, _sRERA, _sCc, _d, _wI, _wDRO],
+  [0, 0, 0, () => ScheduleConfig$, 0, 64 | 0, () => DateTimeRange$], 4
+];
+export var ScheduledReportSummary$: StaticStructureSchema = [3, n0, _SRS,
+  0,
+  [_a, _n, _dA, _sE, _st, _hS, _sETZ, _wI],
+  [0, 0, 0, 0, 0, () => HealthStatus$, 0, 64 | 0], 6
+];
+export var SchedulePeriod$: StaticStructureSchema = [3, n0, _SP,
+  0,
+  [_sT, _eT],
+  [4, 4]
+];
 export var TableDisplayConfigStruct$: StaticStructureSchema = [3, n0, _TDCS,
   0,
   [],
@@ -347,9 +484,19 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDashboardRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_a, _n, _d, _w],
-  [0, 0, 0, () => WidgetList], 1
+  [0, 0, 0, () => WidgetList], 2
 ];
 export var UpdateDashboardResponse$: StaticStructureSchema = [3, n0, _UDRp,
+  0,
+  [_a],
+  [0], 1
+];
+export var UpdateScheduledReportRequest$: StaticStructureSchema = [3, n0, _USRR,
+  0,
+  [_a, _n, _d, _dA, _sRERA, _sCc, _wI, _wDRO, _cWI, _cWDRO],
+  [0, 0, 0, 0, 0, () => ScheduleConfig$, 64 | 0, () => DateTimeRange$, 2, 2], 1
+];
+export var UpdateScheduledReportResponse$: StaticStructureSchema = [3, n0, _USRRp,
   0,
   [_a],
   [0], 1
@@ -379,10 +526,15 @@ var ResourceTagKeyList = 64 | 0;
 var ResourceTagList: StaticListSchema = [1, n0, _RTL,
   0, () => ResourceTag$
 ];
+var ScheduledReportSummaryList: StaticListSchema = [1, n0, _SRSL,
+  0, () => ScheduledReportSummary$
+];
+var StatusReasonList = 64 | 0;
 var StringList = 64 | 0;
 var WidgetConfigList: StaticListSchema = [1, n0, _WCL,
   0, () => WidgetConfig$
 ];
+var WidgetIdList = 64 | 0;
 var WidgetList: StaticListSchema = [1, n0, _WL,
   0, () => Widget$
 ];
@@ -402,8 +554,17 @@ export var QueryParameters$: StaticUnionSchema = [4, n0, _QP,
 export var CreateDashboard$: StaticOperationSchema = [9, n0, _CD,
   0, () => CreateDashboardRequest$, () => CreateDashboardResponse$
 ];
+export var CreateScheduledReport$: StaticOperationSchema = [9, n0, _CSR,
+  0, () => CreateScheduledReportRequest$, () => CreateScheduledReportResponse$
+];
 export var DeleteDashboard$: StaticOperationSchema = [9, n0, _DD,
   0, () => DeleteDashboardRequest$, () => DeleteDashboardResponse$
+];
+export var DeleteScheduledReport$: StaticOperationSchema = [9, n0, _DSR,
+  0, () => DeleteScheduledReportRequest$, () => DeleteScheduledReportResponse$
+];
+export var ExecuteScheduledReport$: StaticOperationSchema = [9, n0, _ESR,
+  0, () => ExecuteScheduledReportRequest$, () => ExecuteScheduledReportResponse$
 ];
 export var GetDashboard$: StaticOperationSchema = [9, n0, _GDe,
   0, () => GetDashboardRequest$, () => GetDashboardResponse$
@@ -411,8 +572,14 @@ export var GetDashboard$: StaticOperationSchema = [9, n0, _GDe,
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   0, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
 ];
+export var GetScheduledReport$: StaticOperationSchema = [9, n0, _GSR,
+  0, () => GetScheduledReportRequest$, () => GetScheduledReportResponse$
+];
 export var ListDashboards$: StaticOperationSchema = [9, n0, _LD,
   0, () => ListDashboardsRequest$, () => ListDashboardsResponse$
+];
+export var ListScheduledReports$: StaticOperationSchema = [9, n0, _LSR,
+  0, () => ListScheduledReportsRequest$, () => ListScheduledReportsResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
@@ -425,4 +592,7 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateDashboard$: StaticOperationSchema = [9, n0, _UD,
   0, () => UpdateDashboardRequest$, () => UpdateDashboardResponse$
+];
+export var UpdateScheduledReport$: StaticOperationSchema = [9, n0, _USR,
+  0, () => UpdateScheduledReportRequest$, () => UpdateScheduledReportResponse$
 ];

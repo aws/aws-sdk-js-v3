@@ -62,13 +62,33 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
+import type {
+  CreateScheduledReportCommandInput,
+  CreateScheduledReportCommandOutput,
+} from "./commands/CreateScheduledReportCommand";
 import type { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
+import type {
+  DeleteScheduledReportCommandInput,
+  DeleteScheduledReportCommandOutput,
+} from "./commands/DeleteScheduledReportCommand";
+import type {
+  ExecuteScheduledReportCommandInput,
+  ExecuteScheduledReportCommandOutput,
+} from "./commands/ExecuteScheduledReportCommand";
 import type { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
 import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import type {
+  GetScheduledReportCommandInput,
+  GetScheduledReportCommandOutput,
+} from "./commands/GetScheduledReportCommand";
 import type { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import type {
+  ListScheduledReportsCommandInput,
+  ListScheduledReportsCommandOutput,
+} from "./commands/ListScheduledReportsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -76,6 +96,10 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
+import type {
+  UpdateScheduledReportCommandInput,
+  UpdateScheduledReportCommandOutput,
+} from "./commands/UpdateScheduledReportCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -92,28 +116,40 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateDashboardCommandInput
+  | CreateScheduledReportCommandInput
   | DeleteDashboardCommandInput
+  | DeleteScheduledReportCommandInput
+  | ExecuteScheduledReportCommandInput
   | GetDashboardCommandInput
   | GetResourcePolicyCommandInput
+  | GetScheduledReportCommandInput
   | ListDashboardsCommandInput
+  | ListScheduledReportsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateDashboardCommandInput;
+  | UpdateDashboardCommandInput
+  | UpdateScheduledReportCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateDashboardCommandOutput
+  | CreateScheduledReportCommandOutput
   | DeleteDashboardCommandOutput
+  | DeleteScheduledReportCommandOutput
+  | ExecuteScheduledReportCommandOutput
   | GetDashboardCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetScheduledReportCommandOutput
   | ListDashboardsCommandOutput
+  | ListScheduledReportsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateDashboardCommandOutput;
+  | UpdateDashboardCommandOutput
+  | UpdateScheduledReportCommandOutput;
 
 /**
  * @public

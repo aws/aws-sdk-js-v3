@@ -5,8 +5,11 @@ import type {
   Dimension,
   Granularity,
   GroupDefinitionType,
+  HealthStatusCode,
   MatchOption,
   MetricName,
+  ScheduleState,
+  StatusReason,
   VisualType,
 } from "./enums";
 
@@ -237,6 +240,136 @@ export interface CreateDashboardResponse {
 }
 
 /**
+ * <p>Defines the active time period for execution of the scheduled report.</p>
+ * @public
+ */
+export interface SchedulePeriod {
+  /**
+   * <p>The start time of the schedule period. If not specified, defaults to the time of the create or update request. The start time cannot be more than 5 minutes before the time of the request.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the schedule period. If not specified, defaults to 3 years from the time of the create or update request. The maximum allowed value is 3 years from the current time. Setting an end time beyond this limit returns a <code>ValidationException</code>.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
+ * <p>Defines the schedule for a scheduled report, including the cron expression, time zone, active period, and the schedule state.</p>
+ * @public
+ */
+export interface ScheduleConfig {
+  /**
+   * <p>The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: <code>cron(minutes hours day_of_month month day_of_week year)</code>.</p>
+   * @public
+   */
+  scheduleExpression?: string | undefined;
+
+  /**
+   * <p>The time zone for the schedule expression, for example, <code>UTC</code>.</p>
+   * @public
+   */
+  scheduleExpressionTimeZone?: string | undefined;
+
+  /**
+   * <p>The time period during which the schedule is active.</p>
+   * @public
+   */
+  schedulePeriod?: SchedulePeriod | undefined;
+
+  /**
+   * <p>The state of the schedule. <code>ENABLED</code> means the scheduled report runs according to its schedule expression. <code>DISABLED</code> means the scheduled report is paused and will not run until re-enabled.</p>
+   * @public
+   */
+  state?: ScheduleState | undefined;
+}
+
+/**
+ * <p>Defines the configuration for creating a new scheduled report, including the dashboard, schedule, execution role, and optional widget settings.</p>
+ * @public
+ */
+export interface ScheduledReportInput {
+  /**
+   * <p>The name of the scheduled report.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the dashboard to generate the scheduled report from.</p>
+   * @public
+   */
+  dashboardArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.</p>
+   * @public
+   */
+  scheduledReportExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>The schedule configuration that defines when and how often the report is generated. If the schedule state is not specified, it defaults to <code>ENABLED</code>.</p>
+   * @public
+   */
+  scheduleConfig: ScheduleConfig | undefined;
+
+  /**
+   * <p>A description of the scheduled report's purpose or contents.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The list of widget identifiers to include in the scheduled report. If not specified, all widgets in the dashboard are included.</p>
+   * @public
+   */
+  widgetIds?: string[] | undefined;
+
+  /**
+   * <p>The date range override to apply to widgets in the scheduled report.</p>
+   * @public
+   */
+  widgetDateRangeOverride?: DateTimeRange | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduledReportRequest {
+  /**
+   * <p>The configuration for the scheduled report, including the dashboard to report on, the schedule, and the execution role that the service will use to generate the dashboard snapshot.</p>
+   * @public
+   */
+  scheduledReport: ScheduledReportInput | undefined;
+
+  /**
+   * <p>The tags to apply to the scheduled report resource for organization and management.</p>
+   * @public
+   */
+  resourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduledReportResponse {
+  /**
+   * <p>The ARN of the newly created scheduled report.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteDashboardRequest {
@@ -256,6 +389,92 @@ export interface DeleteDashboardResponse {
    * @public
    */
   arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduledReportRequest {
+  /**
+   * <p>The ARN of the scheduled report to delete.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduledReportResponse {
+  /**
+   * <p>The ARN of the scheduled report that was deleted.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExecuteScheduledReportRequest {
+  /**
+   * <p>The ARN of the scheduled report to execute.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>When set to <code>true</code>, validates the scheduled report configuration without triggering an actual execution.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the health status information for a scheduled report, including the status code and any reasons for an unhealthy state.</p>
+ * @public
+ */
+export interface HealthStatus {
+  /**
+   * <p>The health status code. <code>HEALTHY</code> indicates the scheduled report is configured properly and has all required permissions to execute. <code>UNHEALTHY</code> indicates the scheduled report is unable to deliver the notification to the default Amazon EventBridge EventBus in your account and your action is needed. The reason for the unhealthy state is captured in the health status reasons.</p>
+   * @public
+   */
+  statusCode: HealthStatusCode | undefined;
+
+  /**
+   * <p>The timestamp when the health status was last refreshed.</p>
+   * @public
+   */
+  lastRefreshedAt?: Date | undefined;
+
+  /**
+   * <p>The list of reasons for the current health status. Only present when the status is <code>UNHEALTHY</code>.</p>
+   * @public
+   */
+  statusReasons?: StatusReason[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExecuteScheduledReportResponse {
+  /**
+   * <p>The health status of the scheduled report after the execution request.</p>
+   * @public
+   */
+  healthStatus?: HealthStatus | undefined;
+
+  /**
+   * <p>Indicates whether the execution was successfully triggered.</p>
+   * @public
+   */
+  executionTriggered?: boolean | undefined;
 }
 
 /**
@@ -295,6 +514,106 @@ export interface GetResourcePolicyResponse {
    * @public
    */
   policyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScheduledReportRequest {
+  /**
+   * <p>The ARN of the scheduled report to retrieve.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p>Contains the full configuration and metadata of a scheduled report.</p>
+ * @public
+ */
+export interface ScheduledReport {
+  /**
+   * <p>The ARN of the scheduled report.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the scheduled report.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the dashboard associated with the scheduled report.</p>
+   * @public
+   */
+  dashboardArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.</p>
+   * @public
+   */
+  scheduledReportExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>The schedule configuration that defines when and how often the report is generated.</p>
+   * @public
+   */
+  scheduleConfig: ScheduleConfig | undefined;
+
+  /**
+   * <p>A description of the scheduled report's purpose or contents.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The list of widget identifiers included in the scheduled report.</p>
+   * @public
+   */
+  widgetIds?: string[] | undefined;
+
+  /**
+   * <p>The date range override applied to widgets in the scheduled report.</p>
+   * @public
+   */
+  widgetDateRangeOverride?: DateTimeRange | undefined;
+
+  /**
+   * <p>The timestamp when the scheduled report was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the scheduled report was last modified.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the most recent execution of the scheduled report.</p>
+   * @public
+   */
+  lastExecutionAt?: Date | undefined;
+
+  /**
+   * <p>The health status of the scheduled report at last refresh time.</p>
+   * @public
+   */
+  healthStatus?: HealthStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScheduledReportResponse {
+  /**
+   * <p>The scheduled report configuration and metadata.</p>
+   * @public
+   */
+  scheduledReport: ScheduledReport | undefined;
 }
 
 /**
@@ -376,6 +695,94 @@ export interface ListDashboardsResponse {
 /**
  * @public
  */
+export interface ListScheduledReportsRequest {
+  /**
+   * <p>The token for the next page of results. Use the value returned in the previous response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Valid range is 1 to 100. The default value is 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information for a scheduled report.</p>
+ * @public
+ */
+export interface ScheduledReportSummary {
+  /**
+   * <p>The ARN of the scheduled report.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the scheduled report.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of the dashboard associated with the scheduled report.</p>
+   * @public
+   */
+  dashboardArn: string | undefined;
+
+  /**
+   * <p>The schedule expression that defines when the report runs.</p>
+   * @public
+   */
+  scheduleExpression: string | undefined;
+
+  /**
+   * <p>The state of the schedule: <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * @public
+   */
+  state: ScheduleState | undefined;
+
+  /**
+   * <p>The health status of the scheduled report as of its last refresh time.</p>
+   * @public
+   */
+  healthStatus: HealthStatus | undefined;
+
+  /**
+   * <p>The time zone for the schedule expression, for example, <code>UTC</code>.</p>
+   * @public
+   */
+  scheduleExpressionTimeZone?: string | undefined;
+
+  /**
+   * <p>The list of widget identifiers included in the scheduled report.</p>
+   * @public
+   */
+  widgetIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledReportsResponse {
+  /**
+   * <p>An array of scheduled report summaries, containing basic information about each scheduled report.</p>
+   * @public
+   */
+  scheduledReports: ScheduledReportSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. Not returned if there are no more results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The unique identifier for the resource.</p>
@@ -445,6 +852,82 @@ export interface UntagResourceResponse {}
 export interface UpdateDashboardResponse {
   /**
    * <p>The ARN of the updated dashboard.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledReportRequest {
+  /**
+   * <p>The ARN of the scheduled report to update.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The new name for the scheduled report.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The new description for the scheduled report.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ARN of the dashboard to associate with the scheduled report.</p>
+   * @public
+   */
+  dashboardArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the scheduled report uses to execute. Amazon Web Services Billing and Cost Management Dashboards will assume this IAM role while executing the scheduled report.</p>
+   * @public
+   */
+  scheduledReportExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The updated schedule configuration for the report.</p>
+   * @public
+   */
+  scheduleConfig?: ScheduleConfig | undefined;
+
+  /**
+   * <p>The list of widget identifiers to include in the scheduled report. If not specified, all widgets in the dashboard are included.</p>
+   * @public
+   */
+  widgetIds?: string[] | undefined;
+
+  /**
+   * <p>The date range override to apply to widgets in the scheduled report.</p>
+   * @public
+   */
+  widgetDateRangeOverride?: DateTimeRange | undefined;
+
+  /**
+   * Set to true to clear existing widgetIds.
+   * @public
+   */
+  clearWidgetIds?: boolean | undefined;
+
+  /**
+   * Set to true to clear existing widgetDateRangeOverride.
+   * @public
+   */
+  clearWidgetDateRangeOverride?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateScheduledReportResponse {
+  /**
+   * <p>The ARN of the updated scheduled report.</p>
    * @public
    */
   arn: string | undefined;
@@ -642,7 +1125,7 @@ export interface SavingsPlansUtilizationQuery {
   timeRange: DateTimeRange | undefined;
 
   /**
-   * <p>The time granularity of the retrieved data: HOURLY, DAILY, or MONTHLY.</p>
+   * <p>The time granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>
    * @public
    */
   granularity?: Granularity | undefined;
@@ -785,7 +1268,7 @@ export interface WidgetConfig {
  */
 export interface Widget {
   /**
-   * The unique identifier for the widget.
+   * <p>The unique identifier for the widget.</p>
    * @public
    */
   id?: string | undefined;
@@ -914,13 +1397,13 @@ export interface UpdateDashboardRequest {
   arn: string | undefined;
 
   /**
-   * <p>The new name for the dashboard. If not specified, the existing name is retained.</p>
+   * <p>The new name for the dashboard.</p>
    * @public
    */
-  name?: string | undefined;
+  name: string | undefined;
 
   /**
-   * <p>The new description for the dashboard. If not specified, the existing description is retained.</p>
+   * <p>The new description for the dashboard.</p>
    * @public
    */
   description?: string | undefined;
