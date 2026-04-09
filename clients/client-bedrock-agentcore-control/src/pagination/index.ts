@@ -17,4 +17,6 @@ export * from "./ListPoliciesPaginator";
 export * from "./ListPolicyEnginesPaginator";
 export * from "./ListPolicyGenerationAssetsPaginator";
 export * from "./ListPolicyGenerationsPaginator";
+export * from "./ListRegistriesPaginator";
+export * from "./ListRegistryRecordsPaginator";
 export * from "./ListWorkloadIdentitiesPaginator";

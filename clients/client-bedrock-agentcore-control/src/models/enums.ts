@@ -753,3 +753,108 @@ export const PolicyStatus = {
  * @public
  */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DescriptorType = {
+  A2A: "A2A",
+  AGENT_SKILLS: "AGENT_SKILLS",
+  CUSTOM: "CUSTOM",
+  MCP: "MCP",
+} as const;
+/**
+ * @public
+ */
+export type DescriptorType = (typeof DescriptorType)[keyof typeof DescriptorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistryRecordOAuthGrantType = {
+  CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+} as const;
+/**
+ * @public
+ */
+export type RegistryRecordOAuthGrantType =
+  (typeof RegistryRecordOAuthGrantType)[keyof typeof RegistryRecordOAuthGrantType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistryRecordCredentialProviderType = {
+  IAM: "IAM",
+  OAUTH: "OAUTH",
+} as const;
+/**
+ * @public
+ */
+export type RegistryRecordCredentialProviderType =
+  (typeof RegistryRecordCredentialProviderType)[keyof typeof RegistryRecordCredentialProviderType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SynchronizationType = {
+  URL: "URL",
+} as const;
+/**
+ * @public
+ */
+export type SynchronizationType = (typeof SynchronizationType)[keyof typeof SynchronizationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistryRecordStatus = {
+  APPROVED: "APPROVED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DEPRECATED: "DEPRECATED",
+  DRAFT: "DRAFT",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  REJECTED: "REJECTED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RegistryRecordStatus = (typeof RegistryRecordStatus)[keyof typeof RegistryRecordStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistryAuthorizerType = {
+  AWS_IAM: "AWS_IAM",
+  CUSTOM_JWT: "CUSTOM_JWT",
+} as const;
+/**
+ * @public
+ */
+export type RegistryAuthorizerType = (typeof RegistryAuthorizerType)[keyof typeof RegistryAuthorizerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegistryStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type RegistryStatus = (typeof RegistryStatus)[keyof typeof RegistryStatus];

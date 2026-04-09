@@ -102,6 +102,11 @@ import type {
   CreatePolicyEngineCommandInput,
   CreatePolicyEngineCommandOutput,
 } from "./commands/CreatePolicyEngineCommand";
+import type { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
+import type {
+  CreateRegistryRecordCommandInput,
+  CreateRegistryRecordCommandOutput,
+} from "./commands/CreateRegistryRecordCommand";
 import type {
   CreateWorkloadIdentityCommandInput,
   CreateWorkloadIdentityCommandOutput,
@@ -147,6 +152,11 @@ import type {
   DeletePolicyEngineCommandInput,
   DeletePolicyEngineCommandOutput,
 } from "./commands/DeletePolicyEngineCommand";
+import type { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
+import type {
+  DeleteRegistryRecordCommandInput,
+  DeleteRegistryRecordCommandOutput,
+} from "./commands/DeleteRegistryRecordCommand";
 import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -191,6 +201,11 @@ import type {
   GetPolicyGenerationCommandInput,
   GetPolicyGenerationCommandOutput,
 } from "./commands/GetPolicyGenerationCommand";
+import type { GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
+import type {
+  GetRegistryRecordCommandInput,
+  GetRegistryRecordCommandOutput,
+} from "./commands/GetRegistryRecordCommand";
 import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -253,6 +268,11 @@ import type {
   ListPolicyGenerationsCommandInput,
   ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
+import type { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
+import type {
+  ListRegistryRecordsCommandInput,
+  ListRegistryRecordsCommandOutput,
+} from "./commands/ListRegistryRecordsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -270,6 +290,10 @@ import type {
   StartPolicyGenerationCommandInput,
   StartPolicyGenerationCommandOutput,
 } from "./commands/StartPolicyGenerationCommand";
+import type {
+  SubmitRegistryRecordForApprovalCommandInput,
+  SubmitRegistryRecordForApprovalCommandOutput,
+} from "./commands/SubmitRegistryRecordForApprovalCommand";
 import type {
   SynchronizeGatewayTargetsCommandInput,
   SynchronizeGatewayTargetsCommandOutput,
@@ -308,6 +332,15 @@ import type {
   UpdatePolicyEngineCommandInput,
   UpdatePolicyEngineCommandOutput,
 } from "./commands/UpdatePolicyEngineCommand";
+import type { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
+import type {
+  UpdateRegistryRecordCommandInput,
+  UpdateRegistryRecordCommandOutput,
+} from "./commands/UpdateRegistryRecordCommand";
+import type {
+  UpdateRegistryRecordStatusCommandInput,
+  UpdateRegistryRecordStatusCommandOutput,
+} from "./commands/UpdateRegistryRecordStatusCommand";
 import type {
   UpdateWorkloadIdentityCommandInput,
   UpdateWorkloadIdentityCommandOutput,
@@ -341,6 +374,8 @@ export type ServiceInputTypes =
   | CreateOnlineEvaluationConfigCommandInput
   | CreatePolicyCommandInput
   | CreatePolicyEngineCommandInput
+  | CreateRegistryCommandInput
+  | CreateRegistryRecordCommandInput
   | CreateWorkloadIdentityCommandInput
   | DeleteAgentRuntimeCommandInput
   | DeleteAgentRuntimeEndpointCommandInput
@@ -356,6 +391,8 @@ export type ServiceInputTypes =
   | DeleteOnlineEvaluationConfigCommandInput
   | DeletePolicyCommandInput
   | DeletePolicyEngineCommandInput
+  | DeleteRegistryCommandInput
+  | DeleteRegistryRecordCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteWorkloadIdentityCommandInput
   | GetAgentRuntimeCommandInput
@@ -373,6 +410,8 @@ export type ServiceInputTypes =
   | GetPolicyCommandInput
   | GetPolicyEngineCommandInput
   | GetPolicyGenerationCommandInput
+  | GetRegistryCommandInput
+  | GetRegistryRecordCommandInput
   | GetResourcePolicyCommandInput
   | GetTokenVaultCommandInput
   | GetWorkloadIdentityCommandInput
@@ -393,11 +432,14 @@ export type ServiceInputTypes =
   | ListPolicyEnginesCommandInput
   | ListPolicyGenerationAssetsCommandInput
   | ListPolicyGenerationsCommandInput
+  | ListRegistriesCommandInput
+  | ListRegistryRecordsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkloadIdentitiesCommandInput
   | PutResourcePolicyCommandInput
   | SetTokenVaultCMKCommandInput
   | StartPolicyGenerationCommandInput
+  | SubmitRegistryRecordForApprovalCommandInput
   | SynchronizeGatewayTargetsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -412,6 +454,9 @@ export type ServiceInputTypes =
   | UpdateOnlineEvaluationConfigCommandInput
   | UpdatePolicyCommandInput
   | UpdatePolicyEngineCommandInput
+  | UpdateRegistryCommandInput
+  | UpdateRegistryRecordCommandInput
+  | UpdateRegistryRecordStatusCommandInput
   | UpdateWorkloadIdentityCommandInput;
 
 /**
@@ -432,6 +477,8 @@ export type ServiceOutputTypes =
   | CreateOnlineEvaluationConfigCommandOutput
   | CreatePolicyCommandOutput
   | CreatePolicyEngineCommandOutput
+  | CreateRegistryCommandOutput
+  | CreateRegistryRecordCommandOutput
   | CreateWorkloadIdentityCommandOutput
   | DeleteAgentRuntimeCommandOutput
   | DeleteAgentRuntimeEndpointCommandOutput
@@ -447,6 +494,8 @@ export type ServiceOutputTypes =
   | DeleteOnlineEvaluationConfigCommandOutput
   | DeletePolicyCommandOutput
   | DeletePolicyEngineCommandOutput
+  | DeleteRegistryCommandOutput
+  | DeleteRegistryRecordCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteWorkloadIdentityCommandOutput
   | GetAgentRuntimeCommandOutput
@@ -464,6 +513,8 @@ export type ServiceOutputTypes =
   | GetPolicyCommandOutput
   | GetPolicyEngineCommandOutput
   | GetPolicyGenerationCommandOutput
+  | GetRegistryCommandOutput
+  | GetRegistryRecordCommandOutput
   | GetResourcePolicyCommandOutput
   | GetTokenVaultCommandOutput
   | GetWorkloadIdentityCommandOutput
@@ -484,11 +535,14 @@ export type ServiceOutputTypes =
   | ListPolicyEnginesCommandOutput
   | ListPolicyGenerationAssetsCommandOutput
   | ListPolicyGenerationsCommandOutput
+  | ListRegistriesCommandOutput
+  | ListRegistryRecordsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkloadIdentitiesCommandOutput
   | PutResourcePolicyCommandOutput
   | SetTokenVaultCMKCommandOutput
   | StartPolicyGenerationCommandOutput
+  | SubmitRegistryRecordForApprovalCommandOutput
   | SynchronizeGatewayTargetsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -503,6 +557,9 @@ export type ServiceOutputTypes =
   | UpdateOnlineEvaluationConfigCommandOutput
   | UpdatePolicyCommandOutput
   | UpdatePolicyEngineCommandOutput
+  | UpdateRegistryCommandOutput
+  | UpdateRegistryRecordCommandOutput
+  | UpdateRegistryRecordStatusCommandOutput
   | UpdateWorkloadIdentityCommandOutput;
 
 /**

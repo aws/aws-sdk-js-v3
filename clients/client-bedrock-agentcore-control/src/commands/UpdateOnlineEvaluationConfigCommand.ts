@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateOnlineEvaluationConfigRequest, UpdateOnlineEvaluationConfigResponse } from "../models/models_0";
+import type { UpdateOnlineEvaluationConfigRequest, UpdateOnlineEvaluationConfigResponse } from "../models/models_1";
 import { UpdateOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**

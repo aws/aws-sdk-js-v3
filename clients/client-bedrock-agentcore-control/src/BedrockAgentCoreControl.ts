@@ -80,6 +80,16 @@ import {
   CreatePolicyEngineCommand,
 } from "./commands/CreatePolicyEngineCommand";
 import {
+  type CreateRegistryCommandInput,
+  type CreateRegistryCommandOutput,
+  CreateRegistryCommand,
+} from "./commands/CreateRegistryCommand";
+import {
+  type CreateRegistryRecordCommandInput,
+  type CreateRegistryRecordCommandOutput,
+  CreateRegistryRecordCommand,
+} from "./commands/CreateRegistryRecordCommand";
+import {
   type CreateWorkloadIdentityCommandInput,
   type CreateWorkloadIdentityCommandOutput,
   CreateWorkloadIdentityCommand,
@@ -154,6 +164,16 @@ import {
   type DeletePolicyEngineCommandOutput,
   DeletePolicyEngineCommand,
 } from "./commands/DeletePolicyEngineCommand";
+import {
+  type DeleteRegistryCommandInput,
+  type DeleteRegistryCommandOutput,
+  DeleteRegistryCommand,
+} from "./commands/DeleteRegistryCommand";
+import {
+  type DeleteRegistryRecordCommandInput,
+  type DeleteRegistryRecordCommandOutput,
+  DeleteRegistryRecordCommand,
+} from "./commands/DeleteRegistryRecordCommand";
 import {
   type DeleteResourcePolicyCommandInput,
   type DeleteResourcePolicyCommandOutput,
@@ -231,6 +251,16 @@ import {
   type GetPolicyGenerationCommandOutput,
   GetPolicyGenerationCommand,
 } from "./commands/GetPolicyGenerationCommand";
+import {
+  type GetRegistryCommandInput,
+  type GetRegistryCommandOutput,
+  GetRegistryCommand,
+} from "./commands/GetRegistryCommand";
+import {
+  type GetRegistryRecordCommandInput,
+  type GetRegistryRecordCommandOutput,
+  GetRegistryRecordCommand,
+} from "./commands/GetRegistryRecordCommand";
 import {
   type GetResourcePolicyCommandInput,
   type GetResourcePolicyCommandOutput,
@@ -332,6 +362,16 @@ import {
   ListPolicyGenerationsCommand,
 } from "./commands/ListPolicyGenerationsCommand";
 import {
+  type ListRegistriesCommandInput,
+  type ListRegistriesCommandOutput,
+  ListRegistriesCommand,
+} from "./commands/ListRegistriesCommand";
+import {
+  type ListRegistryRecordsCommandInput,
+  type ListRegistryRecordsCommandOutput,
+  ListRegistryRecordsCommand,
+} from "./commands/ListRegistryRecordsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -356,6 +396,11 @@ import {
   type StartPolicyGenerationCommandOutput,
   StartPolicyGenerationCommand,
 } from "./commands/StartPolicyGenerationCommand";
+import {
+  type SubmitRegistryRecordForApprovalCommandInput,
+  type SubmitRegistryRecordForApprovalCommandOutput,
+  SubmitRegistryRecordForApprovalCommand,
+} from "./commands/SubmitRegistryRecordForApprovalCommand";
 import {
   type SynchronizeGatewayTargetsCommandInput,
   type SynchronizeGatewayTargetsCommandOutput,
@@ -427,6 +472,21 @@ import {
   UpdatePolicyEngineCommand,
 } from "./commands/UpdatePolicyEngineCommand";
 import {
+  type UpdateRegistryCommandInput,
+  type UpdateRegistryCommandOutput,
+  UpdateRegistryCommand,
+} from "./commands/UpdateRegistryCommand";
+import {
+  type UpdateRegistryRecordCommandInput,
+  type UpdateRegistryRecordCommandOutput,
+  UpdateRegistryRecordCommand,
+} from "./commands/UpdateRegistryRecordCommand";
+import {
+  type UpdateRegistryRecordStatusCommandInput,
+  type UpdateRegistryRecordStatusCommandOutput,
+  UpdateRegistryRecordStatusCommand,
+} from "./commands/UpdateRegistryRecordStatusCommand";
+import {
   type UpdateWorkloadIdentityCommandInput,
   type UpdateWorkloadIdentityCommandOutput,
   UpdateWorkloadIdentityCommand,
@@ -448,6 +508,8 @@ import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
 import { paginateListPolicyEngines } from "./pagination/ListPolicyEnginesPaginator";
 import { paginateListPolicyGenerationAssets } from "./pagination/ListPolicyGenerationAssetsPaginator";
 import { paginateListPolicyGenerations } from "./pagination/ListPolicyGenerationsPaginator";
+import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";
+import { paginateListRegistryRecords } from "./pagination/ListRegistryRecordsPaginator";
 import { paginateListWorkloadIdentities } from "./pagination/ListWorkloadIdentitiesPaginator";
 import { waitUntilMemoryCreated } from "./waiters/waitForMemoryCreated";
 import { waitUntilPolicyActive } from "./waiters/waitForPolicyActive";
@@ -471,6 +533,8 @@ const commands = {
   CreateOnlineEvaluationConfigCommand,
   CreatePolicyCommand,
   CreatePolicyEngineCommand,
+  CreateRegistryCommand,
+  CreateRegistryRecordCommand,
   CreateWorkloadIdentityCommand,
   DeleteAgentRuntimeCommand,
   DeleteAgentRuntimeEndpointCommand,
@@ -486,6 +550,8 @@ const commands = {
   DeleteOnlineEvaluationConfigCommand,
   DeletePolicyCommand,
   DeletePolicyEngineCommand,
+  DeleteRegistryCommand,
+  DeleteRegistryRecordCommand,
   DeleteResourcePolicyCommand,
   DeleteWorkloadIdentityCommand,
   GetAgentRuntimeCommand,
@@ -503,6 +569,8 @@ const commands = {
   GetPolicyCommand,
   GetPolicyEngineCommand,
   GetPolicyGenerationCommand,
+  GetRegistryCommand,
+  GetRegistryRecordCommand,
   GetResourcePolicyCommand,
   GetTokenVaultCommand,
   GetWorkloadIdentityCommand,
@@ -523,11 +591,14 @@ const commands = {
   ListPolicyEnginesCommand,
   ListPolicyGenerationAssetsCommand,
   ListPolicyGenerationsCommand,
+  ListRegistriesCommand,
+  ListRegistryRecordsCommand,
   ListTagsForResourceCommand,
   ListWorkloadIdentitiesCommand,
   PutResourcePolicyCommand,
   SetTokenVaultCMKCommand,
   StartPolicyGenerationCommand,
+  SubmitRegistryRecordForApprovalCommand,
   SynchronizeGatewayTargetsCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -542,6 +613,9 @@ const commands = {
   UpdateOnlineEvaluationConfigCommand,
   UpdatePolicyCommand,
   UpdatePolicyEngineCommand,
+  UpdateRegistryCommand,
+  UpdateRegistryRecordCommand,
+  UpdateRegistryRecordStatusCommand,
   UpdateWorkloadIdentityCommand,
 };
 const paginators = {
@@ -562,6 +636,8 @@ const paginators = {
   paginateListPolicyEngines,
   paginateListPolicyGenerationAssets,
   paginateListPolicyGenerations,
+  paginateListRegistries,
+  paginateListRegistryRecords,
   paginateListWorkloadIdentities,
 };
 const waiters = {
@@ -810,6 +886,40 @@ export interface BedrockAgentCoreControl {
     args: CreatePolicyEngineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePolicyEngineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRegistryCommand}
+   */
+  createRegistry(
+    args: CreateRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistryCommandOutput>;
+  createRegistry(
+    args: CreateRegistryCommandInput,
+    cb: (err: any, data?: CreateRegistryCommandOutput) => void
+  ): void;
+  createRegistry(
+    args: CreateRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRegistryRecordCommand}
+   */
+  createRegistryRecord(
+    args: CreateRegistryRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRegistryRecordCommandOutput>;
+  createRegistryRecord(
+    args: CreateRegistryRecordCommandInput,
+    cb: (err: any, data?: CreateRegistryRecordCommandOutput) => void
+  ): void;
+  createRegistryRecord(
+    args: CreateRegistryRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRegistryRecordCommandOutput) => void
   ): void;
 
   /**
@@ -1065,6 +1175,40 @@ export interface BedrockAgentCoreControl {
     args: DeletePolicyEngineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePolicyEngineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRegistryCommand}
+   */
+  deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistryCommandOutput>;
+  deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): void;
+  deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRegistryRecordCommand}
+   */
+  deleteRegistryRecord(
+    args: DeleteRegistryRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistryRecordCommandOutput>;
+  deleteRegistryRecord(
+    args: DeleteRegistryRecordCommandInput,
+    cb: (err: any, data?: DeleteRegistryRecordCommandOutput) => void
+  ): void;
+  deleteRegistryRecord(
+    args: DeleteRegistryRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistryRecordCommandOutput) => void
   ): void;
 
   /**
@@ -1354,6 +1498,40 @@ export interface BedrockAgentCoreControl {
     args: GetPolicyGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPolicyGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRegistryCommand}
+   */
+  getRegistry(
+    args: GetRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRegistryCommandOutput>;
+  getRegistry(
+    args: GetRegistryCommandInput,
+    cb: (err: any, data?: GetRegistryCommandOutput) => void
+  ): void;
+  getRegistry(
+    args: GetRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRegistryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRegistryRecordCommand}
+   */
+  getRegistryRecord(
+    args: GetRegistryRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRegistryRecordCommandOutput>;
+  getRegistryRecord(
+    args: GetRegistryRecordCommandInput,
+    cb: (err: any, data?: GetRegistryRecordCommandOutput) => void
+  ): void;
+  getRegistryRecord(
+    args: GetRegistryRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRegistryRecordCommandOutput) => void
   ): void;
 
   /**
@@ -1709,6 +1887,41 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListRegistriesCommand}
+   */
+  listRegistries(): Promise<ListRegistriesCommandOutput>;
+  listRegistries(
+    args: ListRegistriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegistriesCommandOutput>;
+  listRegistries(
+    args: ListRegistriesCommandInput,
+    cb: (err: any, data?: ListRegistriesCommandOutput) => void
+  ): void;
+  listRegistries(
+    args: ListRegistriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegistriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRegistryRecordsCommand}
+   */
+  listRegistryRecords(
+    args: ListRegistryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegistryRecordsCommandOutput>;
+  listRegistryRecords(
+    args: ListRegistryRecordsCommandInput,
+    cb: (err: any, data?: ListRegistryRecordsCommandOutput) => void
+  ): void;
+  listRegistryRecords(
+    args: ListRegistryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegistryRecordsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1792,6 +2005,23 @@ export interface BedrockAgentCoreControl {
     args: StartPolicyGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartPolicyGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SubmitRegistryRecordForApprovalCommand}
+   */
+  submitRegistryRecordForApproval(
+    args: SubmitRegistryRecordForApprovalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubmitRegistryRecordForApprovalCommandOutput>;
+  submitRegistryRecordForApproval(
+    args: SubmitRegistryRecordForApprovalCommandInput,
+    cb: (err: any, data?: SubmitRegistryRecordForApprovalCommandOutput) => void
+  ): void;
+  submitRegistryRecordForApproval(
+    args: SubmitRegistryRecordForApprovalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubmitRegistryRecordForApprovalCommandOutput) => void
   ): void;
 
   /**
@@ -2033,6 +2263,57 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateRegistryCommand}
+   */
+  updateRegistry(
+    args: UpdateRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRegistryCommandOutput>;
+  updateRegistry(
+    args: UpdateRegistryCommandInput,
+    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): void;
+  updateRegistry(
+    args: UpdateRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRegistryRecordCommand}
+   */
+  updateRegistryRecord(
+    args: UpdateRegistryRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRegistryRecordCommandOutput>;
+  updateRegistryRecord(
+    args: UpdateRegistryRecordCommandInput,
+    cb: (err: any, data?: UpdateRegistryRecordCommandOutput) => void
+  ): void;
+  updateRegistryRecord(
+    args: UpdateRegistryRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRegistryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRegistryRecordStatusCommand}
+   */
+  updateRegistryRecordStatus(
+    args: UpdateRegistryRecordStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRegistryRecordStatusCommandOutput>;
+  updateRegistryRecordStatus(
+    args: UpdateRegistryRecordStatusCommandInput,
+    cb: (err: any, data?: UpdateRegistryRecordStatusCommandOutput) => void
+  ): void;
+  updateRegistryRecordStatus(
+    args: UpdateRegistryRecordStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRegistryRecordStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateWorkloadIdentityCommand}
    */
   updateWorkloadIdentity(
@@ -2235,6 +2516,28 @@ export interface BedrockAgentCoreControl {
     args: ListPolicyGenerationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPolicyGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ListRegistriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegistriesCommandOutput}.
+   */
+  paginateListRegistries(
+    args?: ListRegistriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegistriesCommandOutput>;
+
+  /**
+   * @see {@link ListRegistryRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegistryRecordsCommandOutput}.
+   */
+  paginateListRegistryRecords(
+    args: ListRegistryRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegistryRecordsCommandOutput>;
 
   /**
    * @see {@link ListWorkloadIdentitiesCommand}

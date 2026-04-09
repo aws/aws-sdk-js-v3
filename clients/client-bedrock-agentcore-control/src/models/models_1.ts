@@ -1,25 +1,248 @@
 // smithy-typescript generated code
 import type {
+  DescriptorType,
   FindingType,
+  OnlineEvaluationConfigStatus,
+  OnlineEvaluationExecutionStatus,
   PolicyEngineStatus,
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
+  RegistryAuthorizerType,
+  RegistryRecordCredentialProviderType,
+  RegistryRecordOAuthGrantType,
+  RegistryRecordStatus,
+  RegistryStatus,
   SchemaType,
+  SynchronizationType,
   TargetStatus,
 } from "./enums";
 import type {
+  A2aDescriptor,
+  AgentSkillsDescriptor,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   AuthorizationData,
+  AuthorizerConfiguration,
   CredentialProviderConfiguration,
+  DataSourceConfig,
+  EvaluatorReference,
   KmsConfiguration,
   ManagedResourceDetails,
   McpServerTargetConfiguration,
   MetadataConfiguration,
   PrivateEndpoint,
+  Rule,
   S3Configuration,
+  SkillDefinition,
+  SkillMdDefinition,
 } from "./models_0";
+
+/**
+ * <p> The summary information about an online evaluation configuration, including basic metadata and execution status. </p>
+ * @public
+ */
+export interface OnlineEvaluationConfigSummary {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The name of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigName: string | undefined;
+
+  /**
+   * <p> The description of the online evaluation configuration. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOnlineEvaluationConfigsResponse {
+  /**
+   * <p> The list of online evaluation configuration summaries containing basic information about each configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigs: OnlineEvaluationConfigSummary[] | undefined;
+
+  /**
+   * <p> The pagination token to use in a subsequent request to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOnlineEvaluationConfigRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> The unique identifier of the online evaluation configuration to update. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The updated description of the online evaluation configuration. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The updated evaluation rule containing sampling configuration, filters, and session settings. </p>
+   * @public
+   */
+  rule?: Rule | undefined;
+
+  /**
+   * <p> The updated data source configuration specifying CloudWatch log groups and service names to monitor. </p>
+   * @public
+   */
+  dataSourceConfig?: DataSourceConfig | undefined;
+
+  /**
+   * <p> The updated list of evaluators to apply during online evaluation. </p>
+   * @public
+   */
+  evaluators?: EvaluatorReference[] | undefined;
+
+  /**
+   * <p> The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
+   * @public
+   */
+  evaluationExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p> The updated execution status to enable or disable the online evaluation. </p>
+   * @public
+   */
+  executionStatus?: OnlineEvaluationExecutionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the updated online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the updated online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration update or execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePolicyEngineRequest {
+  /**
+   * <p>The customer-assigned immutable name for the policy engine. This name identifies the policy engine and cannot be changed after creation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose and scope (1-4,096 characters). This helps administrators understand the policy engine's role in the overall governance strategy. Document which Gateway this engine will be associated with, what types of tools or workflows it governs, and the team or service responsible for maintaining it. Clear descriptions are essential when managing multiple policy engines across different services or environments.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy engine.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Policy. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -315,10 +538,7 @@ export interface ListPolicyEnginesResponse {
 }
 
 /**
- * Wrapper for updating an optional Description field with PATCH semantics.
- * When present in an update request, the description is replaced with optionalValue.
- * When absent, the description is left unchanged.
- * To unset the description, include the wrapper with optionalValue not specified.
+ * <p>Wrapper for updating an optional Description field with PATCH semantics. When present in an update request, the description is replaced with optionalValue. When absent, the description is left unchanged. To unset the description, include the wrapper with optionalValue not specified.</p>
  * @public
  */
 export interface UpdatedDescription {
@@ -1456,6 +1676,1457 @@ export interface PutResourcePolicyResponse {
    * @public
    */
   policy: string | undefined;
+}
+
+/**
+ * <p>A custom descriptor for a registry record. Use this for resources such as APIs, Lambda functions, or servers that do not conform to a standard protocol like MCP or A2A.</p>
+ * @public
+ */
+export interface CustomDescriptor {
+  /**
+   * <p>The custom descriptor content as a valid JSON document. You can define any custom schema that describes your resource.</p>
+   * @public
+   */
+  inlineContent?: string | undefined;
+}
+
+/**
+ * <p>The server definition for an MCP descriptor. Contains the schema version and inline content for the MCP server configuration.</p>
+ * @public
+ */
+export interface ServerDefinition {
+  /**
+   * <p>The schema version of the server definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.</p>
+   * @public
+   */
+  schemaVersion?: string | undefined;
+
+  /**
+   * <p>The JSON content containing the MCP server definition, conforming to the MCP protocol specification.</p>
+   * @public
+   */
+  inlineContent?: string | undefined;
+}
+
+/**
+ * <p>The tools definition for an MCP descriptor. Contains the protocol version and inline content describing the available tools.</p>
+ * @public
+ */
+export interface ToolsDefinition {
+  /**
+   * <p>The protocol version of the tools definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.</p>
+   * @public
+   */
+  protocolVersion?: string | undefined;
+
+  /**
+   * <p>The JSON content containing the MCP tools definition, conforming to the MCP protocol specification.</p>
+   * @public
+   */
+  inlineContent?: string | undefined;
+}
+
+/**
+ * <p>The Model Context Protocol (MCP) descriptor for a registry record. Contains the server definition and tools definition for an MCP-compatible server. The schema is validated against the MCP protocol specification.</p>
+ * @public
+ */
+export interface McpDescriptor {
+  /**
+   * <p>The MCP server definition, containing the server configuration and schema as defined by the MCP protocol specification.</p>
+   * @public
+   */
+  server?: ServerDefinition | undefined;
+
+  /**
+   * <p>The MCP tools definition, containing the tools available on the MCP server as defined by the MCP protocol specification.</p>
+   * @public
+   */
+  tools?: ToolsDefinition | undefined;
+}
+
+/**
+ * <p>Contains descriptor-type-specific configurations for a registry record. Only the descriptor matching the record's <code>descriptorType</code> should be populated.</p>
+ * @public
+ */
+export interface Descriptors {
+  /**
+   * <p>The Model Context Protocol (MCP) descriptor configuration. Use this when the <code>descriptorType</code> is <code>MCP</code>.</p>
+   * @public
+   */
+  mcp?: McpDescriptor | undefined;
+
+  /**
+   * <p>The Agent-to-Agent (A2A) protocol descriptor configuration. Use this when the <code>descriptorType</code> is <code>A2A</code>.</p>
+   * @public
+   */
+  a2a?: A2aDescriptor | undefined;
+
+  /**
+   * <p>The custom descriptor configuration. Use this when the <code>descriptorType</code> is <code>CUSTOM</code>.</p>
+   * @public
+   */
+  custom?: CustomDescriptor | undefined;
+
+  /**
+   * <p>The agent skills descriptor configuration. Use this when the <code>descriptorType</code> is <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  agentSkills?: AgentSkillsDescriptor | undefined;
+}
+
+/**
+ * <p>IAM credential provider configuration for authenticating with an external source using SigV4 signing during synchronization.</p>
+ * @public
+ */
+export interface RegistryRecordIamCredentialProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for SigV4 signing.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The SigV4 signing service name (for example, <code>execute-api</code> or <code>bedrock-agentcore</code>).</p>
+   * @public
+   */
+  service?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services region for SigV4 signing (for example, <code>us-west-2</code>). If not specified, the region is extracted from the MCP server URL hostname, with fallback to the service's own region.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
+ * <p>OAuth credential provider configuration for authenticating with an external source during synchronization.</p>
+ * @public
+ */
+export interface RegistryRecordOAuthCredentialProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuth credential provider resource.</p>
+   * @public
+   */
+  providerArn: string | undefined;
+
+  /**
+   * <p>The OAuth grant type. Currently only <code>CLIENT_CREDENTIALS</code> is supported.</p>
+   * @public
+   */
+  grantType?: RegistryRecordOAuthGrantType | undefined;
+
+  /**
+   * <p>The OAuth scopes to request during authentication.</p>
+   * @public
+   */
+  scopes?: string[] | undefined;
+
+  /**
+   * <p>Additional custom parameters for the OAuth flow.</p>
+   * @public
+   */
+  customParameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Union of supported credential provider types for registry record synchronization.</p>
+ * @public
+ */
+export type RegistryRecordCredentialProviderUnion =
+  | RegistryRecordCredentialProviderUnion.IamCredentialProviderMember
+  | RegistryRecordCredentialProviderUnion.OauthCredentialProviderMember
+  | RegistryRecordCredentialProviderUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RegistryRecordCredentialProviderUnion {
+  /**
+   * <p>The OAuth credential provider configuration for authenticating with the external source.</p>
+   * @public
+   */
+  export interface OauthCredentialProviderMember {
+    oauthCredentialProvider: RegistryRecordOAuthCredentialProvider;
+    iamCredentialProvider?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The IAM credential provider configuration for authenticating with the external source using SigV4 signing.</p>
+   * @public
+   */
+  export interface IamCredentialProviderMember {
+    oauthCredentialProvider?: never;
+    iamCredentialProvider: RegistryRecordIamCredentialProvider;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    oauthCredentialProvider?: never;
+    iamCredentialProvider?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    oauthCredentialProvider: (value: RegistryRecordOAuthCredentialProvider) => T;
+    iamCredentialProvider: (value: RegistryRecordIamCredentialProvider) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A pairing of a credential provider type with its corresponding provider details for authenticating with external sources.</p>
+ * @public
+ */
+export interface RegistryRecordCredentialProviderConfiguration {
+  /**
+   * <p>The type of credential provider.</p> <ul> <li> <p> <code>OAUTH</code> - OAuth-based authentication.</p> </li> <li> <p> <code>IAM</code> - Amazon Web Services IAM-based authentication using SigV4 signing.</p> </li> </ul>
+   * @public
+   */
+  credentialProviderType: RegistryRecordCredentialProviderType | undefined;
+
+  /**
+   * <p>The credential provider configuration details. The structure depends on the <code>credentialProviderType</code>.</p>
+   * @public
+   */
+  credentialProvider: RegistryRecordCredentialProviderUnion | undefined;
+}
+
+/**
+ * <p>Configuration for synchronizing from a URL-based MCP server.</p>
+ * @public
+ */
+export interface FromUrlSynchronizationConfiguration {
+  /**
+   * <p>The HTTPS URL of the MCP server to synchronize from.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Optional list of credential provider configurations for authenticating with the MCP server. At most one credential provider configuration can be specified.</p>
+   * @public
+   */
+  credentialProviderConfigurations?: RegistryRecordCredentialProviderConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration for synchronizing registry record metadata from an external source.</p>
+ * @public
+ */
+export interface SynchronizationConfiguration {
+  /**
+   * <p>Configuration for synchronizing from a URL-based source.</p>
+   * @public
+   */
+  fromUrl?: FromUrlSynchronizationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistryRecordRequest {
+  /**
+   * <p>The identifier of the registry where the record will be created. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The name of the registry record.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the registry record.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The descriptor type of the registry record.</p> <ul> <li> <p> <code>MCP</code> - Model Context Protocol descriptor for MCP-compatible servers and tools.</p> </li> <li> <p> <code>A2A</code> - Agent-to-Agent protocol descriptor.</p> </li> <li> <p> <code>CUSTOM</code> - Custom descriptor type for resources such as APIs, Lambda functions, or servers not conforming to a standard protocol.</p> </li> <li> <p> <code>AGENT_SKILLS</code> - Agent skills descriptor for defining agent skill definitions.</p> </li> </ul>
+   * @public
+   */
+  descriptorType: DescriptorType | undefined;
+
+  /**
+   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. The structure of this field depends on the <code>descriptorType</code> you specify.</p>
+   * @public
+   */
+  descriptors?: Descriptors | undefined;
+
+  /**
+   * <p>The version of the registry record. Use this to track different versions of the record's content.</p>
+   * @public
+   */
+  recordVersion?: string | undefined;
+
+  /**
+   * <p>The type of synchronization to use for keeping the record metadata up to date from an external source. Possible values include <code>FROM_URL</code> and <code>NONE</code>.</p>
+   * @public
+   */
+  synchronizationType?: SynchronizationType | undefined;
+
+  /**
+   * <p>The configuration for synchronizing registry record metadata from an external source, such as a URL-based MCP server.</p>
+   * @public
+   */
+  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistryRecordResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The status of the registry record. Set to <code>CREATING</code> while the asynchronous workflow is in progress.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistryRecordRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistryRecordResponse {}
+
+/**
+ * @public
+ */
+export interface GetRegistryRecordRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRegistryRecordResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The name of the registry record.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the registry record.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType: DescriptorType | undefined;
+
+  /**
+   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. For details, see the <code>Descriptors</code> data type.</p>
+   * @public
+   */
+  descriptors: Descriptors | undefined;
+
+  /**
+   * <p>The version of the registry record.</p>
+   * @public
+   */
+  recordVersion?: string | undefined;
+
+  /**
+   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>. A record transitions from <code>CREATING</code> to <code>DRAFT</code>, then to <code>PENDING_APPROVAL</code> (via <code>SubmitRegistryRecordForApproval</code>), and finally to <code>APPROVED</code> upon approval.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The type of synchronization used for this record.</p>
+   * @public
+   */
+  synchronizationType?: SynchronizationType | undefined;
+
+  /**
+   * <p>The configuration for synchronizing registry record metadata from an external source.</p>
+   * @public
+   */
+  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistryRecordsRequest {
+  /**
+   * <p>The identifier of the registry to list records from. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter registry records by name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Filter registry records by their current status. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * @public
+   */
+  status?: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>Filter registry records by their descriptor type. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType?: DescriptorType | undefined;
+}
+
+/**
+ * <p>Contains summary information about a registry record.</p>
+ * @public
+ */
+export interface RegistryRecordSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The name of the registry record.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the registry record.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType: DescriptorType | undefined;
+
+  /**
+   * <p>The version of the registry record.</p>
+   * @public
+   */
+  recordVersion: string | undefined;
+
+  /**
+   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistryRecordsResponse {
+  /**
+   * <p>The list of registry record summaries. For details about the fields in each summary, see the <code>RegistryRecordSummary</code> data type.</p>
+   * @public
+   */
+  registryRecords: RegistryRecordSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitRegistryRecordForApprovalRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to submit for approval. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SubmitRegistryRecordForApprovalResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The resulting status of the registry record after submission.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The timestamp when the record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an A2A descriptor with PATCH semantics. When present, the A2A descriptor is replaced with the provided value. When absent, the A2A descriptor is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * @public
+ */
+export interface UpdatedA2aDescriptor {
+  /**
+   * <p>The updated A2A descriptor value.</p>
+   * @public
+   */
+  optionalValue?: A2aDescriptor | undefined;
+}
+
+/**
+ * <p>Wrapper for updating a skill definition with PATCH semantics.</p>
+ * @public
+ */
+export interface UpdatedSkillDefinition {
+  /**
+   * <p>The updated skill definition value.</p>
+   * @public
+   */
+  optionalValue?: SkillDefinition | undefined;
+}
+
+/**
+ * <p>Wrapper for updating a skill markdown definition with PATCH semantics.</p>
+ * @public
+ */
+export interface UpdatedSkillMdDefinition {
+  /**
+   * <p>The updated skill markdown definition value.</p>
+   * @public
+   */
+  optionalValue?: SkillMdDefinition | undefined;
+}
+
+/**
+ * <p>Individual agent skills descriptor fields that can be updated independently.</p>
+ * @public
+ */
+export interface UpdatedAgentSkillsDescriptorFields {
+  /**
+   * <p>The updated skill markdown definition.</p>
+   * @public
+   */
+  skillMd?: UpdatedSkillMdDefinition | undefined;
+
+  /**
+   * <p>The updated skill definition.</p>
+   * @public
+   */
+  skillDefinition?: UpdatedSkillDefinition | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an agent skills descriptor with PATCH semantics. When present with a value, individual fields can be updated independently. When present with a null value, the entire agent skills descriptor is unset. When absent, the agent skills descriptor is left unchanged.</p>
+ * @public
+ */
+export interface UpdatedAgentSkillsDescriptor {
+  /**
+   * <p>The updated agent skills descriptor fields.</p>
+   * @public
+   */
+  optionalValue?: UpdatedAgentSkillsDescriptorFields | undefined;
+}
+
+/**
+ * <p>Wrapper for updating a custom descriptor with PATCH semantics. When present, the custom descriptor is replaced with the provided value. When absent, the custom descriptor is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * @public
+ */
+export interface UpdatedCustomDescriptor {
+  /**
+   * <p>The updated custom descriptor value.</p>
+   * @public
+   */
+  optionalValue?: CustomDescriptor | undefined;
+}
+
+/**
+ * <p>Wrapper for updating a server definition with PATCH semantics. When present, the server definition is replaced with the provided value. When absent, the server definition is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * @public
+ */
+export interface UpdatedServerDefinition {
+  /**
+   * <p>The updated server definition value.</p>
+   * @public
+   */
+  optionalValue?: ServerDefinition | undefined;
+}
+
+/**
+ * <p>Wrapper for updating a tools definition with PATCH semantics. When present, the tools definition is replaced with the provided value. When absent, the tools definition is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * @public
+ */
+export interface UpdatedToolsDefinition {
+  /**
+   * <p>The updated tools definition value.</p>
+   * @public
+   */
+  optionalValue?: ToolsDefinition | undefined;
+}
+
+/**
+ * <p>Individual MCP descriptor fields that can be updated independently.</p>
+ * @public
+ */
+export interface UpdatedMcpDescriptorFields {
+  /**
+   * <p>The updated server definition for the MCP descriptor.</p>
+   * @public
+   */
+  server?: UpdatedServerDefinition | undefined;
+
+  /**
+   * <p>The updated tools definition for the MCP descriptor.</p>
+   * @public
+   */
+  tools?: UpdatedToolsDefinition | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an MCP descriptor with PATCH semantics. When present with a value, individual MCP fields can be updated independently. When present with a null value, the entire MCP descriptor is unset. When absent, the MCP descriptor is left unchanged.</p>
+ * @public
+ */
+export interface UpdatedMcpDescriptor {
+  /**
+   * <p>The updated MCP descriptor fields.</p>
+   * @public
+   */
+  optionalValue?: UpdatedMcpDescriptorFields | undefined;
+}
+
+/**
+ * <p>Contains per-descriptor-type wrappers for updating descriptors. Each descriptor type can be updated independently.</p>
+ * @public
+ */
+export interface UpdatedDescriptorsUnion {
+  /**
+   * <p>The updated MCP descriptor.</p>
+   * @public
+   */
+  mcp?: UpdatedMcpDescriptor | undefined;
+
+  /**
+   * <p>The updated A2A descriptor.</p>
+   * @public
+   */
+  a2a?: UpdatedA2aDescriptor | undefined;
+
+  /**
+   * <p>The updated custom descriptor.</p>
+   * @public
+   */
+  custom?: UpdatedCustomDescriptor | undefined;
+
+  /**
+   * <p>The updated agent skills descriptor.</p>
+   * @public
+   */
+  agentSkills?: UpdatedAgentSkillsDescriptor | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an optional descriptors field with PATCH semantics. When present with a value, individual descriptors can be updated. When present with a null value, all descriptors are unset. When absent, descriptors are left unchanged.</p>
+ * @public
+ */
+export interface UpdatedDescriptors {
+  /**
+   * <p>The updated descriptors value. Contains per-descriptor-type wrappers that are each independently updatable.</p>
+   * @public
+   */
+  optionalValue?: UpdatedDescriptorsUnion | undefined;
+}
+
+/**
+ * <p>Wrapper for updating the synchronization configuration with PATCH semantics. Must be matched with <code>UpdatedSynchronizationType</code>.</p>
+ * @public
+ */
+export interface UpdatedSynchronizationConfiguration {
+  /**
+   * <p>The updated synchronization configuration value.</p>
+   * @public
+   */
+  optionalValue?: SynchronizationConfiguration | undefined;
+}
+
+/**
+ * <p>Wrapper for updating the synchronization type with PATCH semantics. Must be matched with <code>UpdatedSynchronizationConfiguration</code>.</p>
+ * @public
+ */
+export interface UpdatedSynchronizationType {
+  /**
+   * <p>The updated synchronization type value.</p>
+   * @public
+   */
+  optionalValue?: SynchronizationType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryRecordRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to update. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The updated name for the registry record.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description for the registry record. To clear the description, include the <code>UpdatedDescription</code> wrapper with <code>optionalValue</code> not specified.</p>
+   * @public
+   */
+  description?: UpdatedDescription | undefined;
+
+  /**
+   * <p>The updated descriptor type for the registry record. Changing the descriptor type may require updating the <code>descriptors</code> field to match the new type's schema requirements.</p>
+   * @public
+   */
+  descriptorType?: DescriptorType | undefined;
+
+  /**
+   * <p>The updated descriptor-type-specific configuration containing the resource schema and metadata. Uses PATCH semantics where individual descriptor fields can be updated independently.</p>
+   * @public
+   */
+  descriptors?: UpdatedDescriptors | undefined;
+
+  /**
+   * <p>The version of the registry record for optimistic locking. If provided, it must match the current version of the record. The service automatically increments the version after a successful update.</p>
+   * @public
+   */
+  recordVersion?: string | undefined;
+
+  /**
+   * <p>The updated synchronization type for the registry record.</p>
+   * @public
+   */
+  synchronizationType?: UpdatedSynchronizationType | undefined;
+
+  /**
+   * <p>The updated synchronization configuration for the registry record.</p>
+   * @public
+   */
+  synchronizationConfiguration?: UpdatedSynchronizationConfiguration | undefined;
+
+  /**
+   * <p>Whether to trigger synchronization using the stored or provided configuration. When set to <code>true</code>, the service will synchronize the record metadata from the configured external source.</p>
+   * @public
+   */
+  triggerSynchronization?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryRecordResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the updated record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The name of the updated registry record.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the updated registry record.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The descriptor type of the updated registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType: DescriptorType | undefined;
+
+  /**
+   * <p>The descriptor-type-specific configuration of the updated registry record. For details, see the <code>Descriptors</code> data type.</p>
+   * @public
+   */
+  descriptors: Descriptors | undefined;
+
+  /**
+   * <p>The version of the updated registry record.</p>
+   * @public
+   */
+  recordVersion?: string | undefined;
+
+  /**
+   * <p>The current status of the updated registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the current status of the updated registry record.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The synchronization type of the updated registry record.</p>
+   * @public
+   */
+  synchronizationType?: SynchronizationType | undefined;
+
+  /**
+   * <p>The synchronization configuration of the updated registry record.</p>
+   * @public
+   */
+  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryRecordStatusRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to update the status for. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The target status for the registry record.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The reason for the status change, such as why the record was approved or rejected.</p>
+   * @public
+   */
+  statusReason: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryRecordStatusResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The resulting status of the registry record.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The reason for the status change.</p>
+   * @public
+   */
+  statusReason: string | undefined;
+
+  /**
+   * <p>The timestamp when the record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Configuration for the registry record approval workflow. Controls whether records added to the registry require explicit approval before becoming active.</p>
+ * @public
+ */
+export interface ApprovalConfiguration {
+  /**
+   * <p>Whether registry records are auto-approved. When set to <code>true</code>, records are automatically approved upon creation. When set to <code>false</code> (the default), records require explicit approval for security purposes.</p>
+   * @public
+   */
+  autoApproval?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistryRequest {
+  /**
+   * <p>The name of the registry. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the registry.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of authorizer to use for the registry. This controls the authorization method for the Search and Invoke APIs used by consumers, and does not affect the standard CRUDL APIs for registry and registry record management used by administrators.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType?: RegistryAuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the registry. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The approval configuration for registry records. Controls whether records require explicit approval before becoming active. See the <code>ApprovalConfiguration</code> data type for supported configuration options.</p>
+   * @public
+   */
+  approvalConfiguration?: ApprovalConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistryResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created registry.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistryRequest {
+  /**
+   * <p>The identifier of the registry to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistryResponse {
+  /**
+   * <p>The current status of the registry, set to <code>DELETING</code> when deletion is initiated. For a list of all possible registry statuses, see the <code>RegistryStatus</code> data type.</p>
+   * @public
+   */
+  status: RegistryStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRegistryRequest {
+  /**
+   * <p>The identifier of the registry to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRegistryResponse {
+  /**
+   * <p>The name of the registry.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the registry.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType?: RegistryAuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the registry. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The approval configuration for registry records. For details, see the <code>ApprovalConfiguration</code> data type.</p>
+   * @public
+   */
+  approvalConfiguration?: ApprovalConfiguration | undefined;
+
+  /**
+   * <p>The current status of the registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: RegistryStatus | undefined;
+
+  /**
+   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp when the registry was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistriesRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter registries by their current status. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status?: RegistryStatus | undefined;
+}
+
+/**
+ * <p>Contains summary information about a registry.</p>
+ * @public
+ */
+export interface RegistrySummary {
+  /**
+   * <p>The name of the registry.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the registry.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType?: RegistryAuthorizerType | undefined;
+
+  /**
+   * <p>The current status of the registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: RegistryStatus | undefined;
+
+  /**
+   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp when the registry was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistriesResponse {
+  /**
+   * <p>The list of registry summaries. For details about the fields in each summary, see the <code>RegistrySummary</code> data type.</p>
+   * @public
+   */
+  registries: RegistrySummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an optional approval configuration field with PATCH semantics. When present in an update request, the approval configuration is replaced with the provided value. When absent, the approval configuration is left unchanged.</p>
+ * @public
+ */
+export interface UpdatedApprovalConfiguration {
+  /**
+   * <p>The updated approval configuration value. Set to <code>null</code> to unset the approval configuration.</p>
+   * @public
+   */
+  optionalValue?: ApprovalConfiguration | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+ * @public
+ */
+export interface UpdatedAuthorizerConfiguration {
+  /**
+   * <p>The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.</p>
+   * @public
+   */
+  optionalValue?: AuthorizerConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryRequest {
+  /**
+   * <p>The identifier of the registry to update. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The updated name of the registry.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description of the registry. To clear the description, include the <code>UpdatedDescription</code> wrapper with <code>optionalValue</code> not specified.</p>
+   * @public
+   */
+  description?: UpdatedDescription | undefined;
+
+  /**
+   * <p>The updated authorizer configuration for the registry. Changing the authorizer configuration can break existing consumers of the registry who are using the authorization type prior to the update.</p>
+   * @public
+   */
+  authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The updated approval configuration for registry records. The updated configuration only affects new records that move to <code>PENDING_APPROVAL</code> status after the change. Existing records already in <code>PENDING_APPROVAL</code> status are not affected.</p>
+   * @public
+   */
+  approvalConfiguration?: UpdatedApprovalConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryResponse {
+  /**
+   * <p>The name of the updated registry.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the updated registry.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated registry.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The type of authorizer used by the updated registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * @public
+   */
+  authorizerType?: RegistryAuthorizerType | undefined;
+
+  /**
+   * <p>The authorizer configuration for the updated registry. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The approval configuration for the updated registry. For details, see the <code>ApprovalConfiguration</code> data type.</p>
+   * @public
+   */
+  approvalConfiguration?: ApprovalConfiguration | undefined;
+
+  /**
+   * <p>The current status of the updated registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: RegistryStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the updated registry.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp when the registry was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**

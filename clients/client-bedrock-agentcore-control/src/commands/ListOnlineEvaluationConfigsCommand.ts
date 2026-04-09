@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListOnlineEvaluationConfigsRequest, ListOnlineEvaluationConfigsResponse } from "../models/models_0";
+import type { ListOnlineEvaluationConfigsRequest } from "../models/models_0";
+import type { ListOnlineEvaluationConfigsResponse } from "../models/models_1";
 import { ListOnlineEvaluationConfigs$ } from "../schemas/schemas_0";
 
 /**

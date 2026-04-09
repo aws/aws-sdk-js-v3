@@ -1,12 +1,15 @@
 import {
+  A2aDescriptor$,
   AccessDeniedException,
   AccessDeniedException$,
+  AgentCardDefinition$,
   AgentManagedRuntimeType,
   AgentRuntime$,
   AgentRuntimeArtifact$,
   AgentRuntimeEndpoint$,
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
+  AgentSkillsDescriptor$,
   ApiGatewayTargetConfiguration$,
   ApiGatewayToolConfiguration$,
   ApiGatewayToolFilter$,
@@ -14,6 +17,7 @@ import {
   ApiKeyCredentialLocation,
   ApiKeyCredentialProviderItem$,
   ApiSchemaConfiguration$,
+  ApprovalConfiguration$,
   AtlassianOauth2ProviderConfigInput$,
   AtlassianOauth2ProviderConfigOutput$,
   AuthorizationData$,
@@ -115,6 +119,14 @@ import {
   CreatePolicyEngineResponse$,
   CreatePolicyRequest$,
   CreatePolicyResponse$,
+  CreateRegistry$,
+  CreateRegistryCommand,
+  CreateRegistryRecord$,
+  CreateRegistryRecordCommand,
+  CreateRegistryRecordRequest$,
+  CreateRegistryRecordResponse$,
+  CreateRegistryRequest$,
+  CreateRegistryResponse$,
   CreateWorkloadIdentity$,
   CreateWorkloadIdentityCommand,
   CreateWorkloadIdentityRequest$,
@@ -127,6 +139,7 @@ import {
   CustomConfigurationInput$,
   CustomConsolidationConfiguration$,
   CustomConsolidationConfigurationInput$,
+  CustomDescriptor$,
   CustomExtractionConfiguration$,
   CustomExtractionConfigurationInput$,
   CustomJWTAuthorizerConfiguration$,
@@ -195,6 +208,14 @@ import {
   DeletePolicyEngineResponse$,
   DeletePolicyRequest$,
   DeletePolicyResponse$,
+  DeleteRegistry$,
+  DeleteRegistryCommand,
+  DeleteRegistryRecord$,
+  DeleteRegistryRecordCommand,
+  DeleteRegistryRecordRequest$,
+  DeleteRegistryRecordResponse$,
+  DeleteRegistryRequest$,
+  DeleteRegistryResponse$,
   DeleteResourcePolicy$,
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
@@ -203,6 +224,8 @@ import {
   DeleteWorkloadIdentityCommand,
   DeleteWorkloadIdentityRequest$,
   DeleteWorkloadIdentityResponse$,
+  Descriptors$,
+  DescriptorType,
   EncryptionFailure,
   EncryptionFailure$,
   EndpointIpAddressType,
@@ -231,6 +254,7 @@ import {
   FilterValue$,
   Finding$,
   FindingType,
+  FromUrlSynchronizationConfiguration$,
   GatewayApiKeyCredentialProvider$,
   GatewayInterceptionPoint,
   GatewayInterceptorConfiguration$,
@@ -301,6 +325,14 @@ import {
   GetPolicyGenerationResponse$,
   GetPolicyRequest$,
   GetPolicyResponse$,
+  GetRegistry$,
+  GetRegistryCommand,
+  GetRegistryRecord$,
+  GetRegistryRecordCommand,
+  GetRegistryRecordRequest$,
+  GetRegistryRecordResponse$,
+  GetRegistryRequest$,
+  GetRegistryResponse$,
   GetResourcePolicy$,
   GetResourcePolicyCommand,
   GetResourcePolicyRequest$,
@@ -404,6 +436,14 @@ import {
   ListPolicyGenerationsCommand,
   ListPolicyGenerationsRequest$,
   ListPolicyGenerationsResponse$,
+  ListRegistries$,
+  ListRegistriesCommand,
+  ListRegistriesRequest$,
+  ListRegistriesResponse$,
+  ListRegistryRecords$,
+  ListRegistryRecordsCommand,
+  ListRegistryRecordsRequest$,
+  ListRegistryRecordsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -415,6 +455,7 @@ import {
   LlmAsAJudgeEvaluatorConfig$,
   ManagedLatticeResource$,
   ManagedResourceDetails$,
+  McpDescriptor$,
   MCPGatewayConfiguration$,
   McpLambdaTargetConfiguration$,
   McpServerTargetConfiguration$,
@@ -474,6 +515,8 @@ import {
   paginateListPolicyEngines,
   paginateListPolicyGenerationAssets,
   paginateListPolicyGenerations,
+  paginateListRegistries,
+  paginateListRegistryRecords,
   paginateListWorkloadIdentities,
   Policy$,
   PolicyDefinition$,
@@ -494,6 +537,17 @@ import {
   RatingScale$,
   RecordingConfig$,
   ReflectionConfiguration$,
+  RegistryAuthorizerType,
+  RegistryRecordCredentialProviderConfiguration$,
+  RegistryRecordCredentialProviderType,
+  RegistryRecordCredentialProviderUnion$,
+  RegistryRecordIamCredentialProvider$,
+  RegistryRecordOAuthCredentialProvider$,
+  RegistryRecordOAuthGrantType,
+  RegistryRecordStatus,
+  RegistryRecordSummary$,
+  RegistryStatus,
+  RegistrySummary$,
   RequestHeaderConfiguration$,
   Resource$,
   ResourceLimitExceededException,
@@ -524,6 +578,7 @@ import {
   SemanticOverrideConfigurationInput$,
   SemanticOverrideConsolidationConfigurationInput$,
   SemanticOverrideExtractionConfigurationInput$,
+  ServerDefinition$,
   ServerProtocol,
   ServiceException,
   ServiceException$,
@@ -535,6 +590,8 @@ import {
   SetTokenVaultCMKCommand,
   SetTokenVaultCMKRequest$,
   SetTokenVaultCMKResponse$,
+  SkillDefinition$,
+  SkillMdDefinition$,
   SlackOauth2ProviderConfigInput$,
   SlackOauth2ProviderConfigOutput$,
   StartPolicyGeneration$,
@@ -544,10 +601,16 @@ import {
   StrategyConfiguration$,
   StreamDeliveryResource$,
   StreamDeliveryResources$,
+  SubmitRegistryRecordForApproval$,
+  SubmitRegistryRecordForApprovalCommand,
+  SubmitRegistryRecordForApprovalRequest$,
+  SubmitRegistryRecordForApprovalResponse$,
   SummaryConsolidationOverride$,
   SummaryMemoryStrategyInput$,
   SummaryOverrideConfigurationInput$,
   SummaryOverrideConsolidationConfigurationInput$,
+  SynchronizationConfiguration$,
+  SynchronizationType,
   SynchronizeGatewayTargets$,
   SynchronizeGatewayTargetsCommand,
   SynchronizeGatewayTargetsRequest$,
@@ -569,6 +632,7 @@ import {
   TokenBasedTriggerInput$,
   ToolDefinition$,
   ToolSchema$,
+  ToolsDefinition$,
   TriggerCondition$,
   TriggerConditionInput$,
   UnauthorizedException,
@@ -589,7 +653,23 @@ import {
   UpdateApiKeyCredentialProviderCommand,
   UpdateApiKeyCredentialProviderRequest$,
   UpdateApiKeyCredentialProviderResponse$,
+  UpdatedA2aDescriptor$,
+  UpdatedAgentSkillsDescriptor$,
+  UpdatedAgentSkillsDescriptorFields$,
+  UpdatedApprovalConfiguration$,
+  UpdatedAuthorizerConfiguration$,
+  UpdatedCustomDescriptor$,
   UpdatedDescription$,
+  UpdatedDescriptors$,
+  UpdatedDescriptorsUnion$,
+  UpdatedMcpDescriptor$,
+  UpdatedMcpDescriptorFields$,
+  UpdatedServerDefinition$,
+  UpdatedSkillDefinition$,
+  UpdatedSkillMdDefinition$,
+  UpdatedSynchronizationConfiguration$,
+  UpdatedSynchronizationType$,
+  UpdatedToolsDefinition$,
   UpdateEvaluator$,
   UpdateEvaluatorCommand,
   UpdateEvaluatorRequest$,
@@ -622,6 +702,18 @@ import {
   UpdatePolicyEngineResponse$,
   UpdatePolicyRequest$,
   UpdatePolicyResponse$,
+  UpdateRegistry$,
+  UpdateRegistryCommand,
+  UpdateRegistryRecord$,
+  UpdateRegistryRecordCommand,
+  UpdateRegistryRecordRequest$,
+  UpdateRegistryRecordResponse$,
+  UpdateRegistryRecordStatus$,
+  UpdateRegistryRecordStatusCommand,
+  UpdateRegistryRecordStatusRequest$,
+  UpdateRegistryRecordStatusResponse$,
+  UpdateRegistryRequest$,
+  UpdateRegistryResponse$,
   UpdateWorkloadIdentity$,
   UpdateWorkloadIdentityCommand,
   UpdateWorkloadIdentityRequest$,
@@ -685,6 +777,10 @@ assert(typeof CreatePolicyCommand === "function");
 assert(typeof CreatePolicy$ === "object");
 assert(typeof CreatePolicyEngineCommand === "function");
 assert(typeof CreatePolicyEngine$ === "object");
+assert(typeof CreateRegistryCommand === "function");
+assert(typeof CreateRegistry$ === "object");
+assert(typeof CreateRegistryRecordCommand === "function");
+assert(typeof CreateRegistryRecord$ === "object");
 assert(typeof CreateWorkloadIdentityCommand === "function");
 assert(typeof CreateWorkloadIdentity$ === "object");
 assert(typeof DeleteAgentRuntimeCommand === "function");
@@ -715,6 +811,10 @@ assert(typeof DeletePolicyCommand === "function");
 assert(typeof DeletePolicy$ === "object");
 assert(typeof DeletePolicyEngineCommand === "function");
 assert(typeof DeletePolicyEngine$ === "object");
+assert(typeof DeleteRegistryCommand === "function");
+assert(typeof DeleteRegistry$ === "object");
+assert(typeof DeleteRegistryRecordCommand === "function");
+assert(typeof DeleteRegistryRecord$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DeleteWorkloadIdentityCommand === "function");
@@ -749,6 +849,10 @@ assert(typeof GetPolicyEngineCommand === "function");
 assert(typeof GetPolicyEngine$ === "object");
 assert(typeof GetPolicyGenerationCommand === "function");
 assert(typeof GetPolicyGeneration$ === "object");
+assert(typeof GetRegistryCommand === "function");
+assert(typeof GetRegistry$ === "object");
+assert(typeof GetRegistryRecordCommand === "function");
+assert(typeof GetRegistryRecord$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
 assert(typeof GetTokenVaultCommand === "function");
@@ -789,6 +893,10 @@ assert(typeof ListPolicyGenerationAssetsCommand === "function");
 assert(typeof ListPolicyGenerationAssets$ === "object");
 assert(typeof ListPolicyGenerationsCommand === "function");
 assert(typeof ListPolicyGenerations$ === "object");
+assert(typeof ListRegistriesCommand === "function");
+assert(typeof ListRegistries$ === "object");
+assert(typeof ListRegistryRecordsCommand === "function");
+assert(typeof ListRegistryRecords$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListWorkloadIdentitiesCommand === "function");
@@ -799,6 +907,8 @@ assert(typeof SetTokenVaultCMKCommand === "function");
 assert(typeof SetTokenVaultCMK$ === "object");
 assert(typeof StartPolicyGenerationCommand === "function");
 assert(typeof StartPolicyGeneration$ === "object");
+assert(typeof SubmitRegistryRecordForApprovalCommand === "function");
+assert(typeof SubmitRegistryRecordForApproval$ === "object");
 assert(typeof SynchronizeGatewayTargetsCommand === "function");
 assert(typeof SynchronizeGatewayTargets$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -827,18 +937,28 @@ assert(typeof UpdatePolicyCommand === "function");
 assert(typeof UpdatePolicy$ === "object");
 assert(typeof UpdatePolicyEngineCommand === "function");
 assert(typeof UpdatePolicyEngine$ === "object");
+assert(typeof UpdateRegistryCommand === "function");
+assert(typeof UpdateRegistry$ === "object");
+assert(typeof UpdateRegistryRecordCommand === "function");
+assert(typeof UpdateRegistryRecord$ === "object");
+assert(typeof UpdateRegistryRecordStatusCommand === "function");
+assert(typeof UpdateRegistryRecordStatus$ === "object");
 assert(typeof UpdateWorkloadIdentityCommand === "function");
 assert(typeof UpdateWorkloadIdentity$ === "object");
 // structural schemas
+assert(typeof A2aDescriptor$ === "object");
+assert(typeof AgentCardDefinition$ === "object");
 assert(typeof AgentRuntime$ === "object");
 assert(typeof AgentRuntimeArtifact$ === "object");
 assert(typeof AgentRuntimeEndpoint$ === "object");
+assert(typeof AgentSkillsDescriptor$ === "object");
 assert(typeof ApiGatewayTargetConfiguration$ === "object");
 assert(typeof ApiGatewayToolConfiguration$ === "object");
 assert(typeof ApiGatewayToolFilter$ === "object");
 assert(typeof ApiGatewayToolOverride$ === "object");
 assert(typeof ApiKeyCredentialProviderItem$ === "object");
 assert(typeof ApiSchemaConfiguration$ === "object");
+assert(typeof ApprovalConfiguration$ === "object");
 assert(typeof AtlassianOauth2ProviderConfigInput$ === "object");
 assert(typeof AtlassianOauth2ProviderConfigOutput$ === "object");
 assert(typeof AuthorizationData$ === "object");
@@ -895,6 +1015,10 @@ assert(typeof CreatePolicyEngineRequest$ === "object");
 assert(typeof CreatePolicyEngineResponse$ === "object");
 assert(typeof CreatePolicyRequest$ === "object");
 assert(typeof CreatePolicyResponse$ === "object");
+assert(typeof CreateRegistryRecordRequest$ === "object");
+assert(typeof CreateRegistryRecordResponse$ === "object");
+assert(typeof CreateRegistryRequest$ === "object");
+assert(typeof CreateRegistryResponse$ === "object");
 assert(typeof CreateWorkloadIdentityRequest$ === "object");
 assert(typeof CreateWorkloadIdentityResponse$ === "object");
 assert(typeof CredentialProvider$ === "object");
@@ -903,6 +1027,7 @@ assert(typeof CustomClaimValidationType$ === "object");
 assert(typeof CustomConfigurationInput$ === "object");
 assert(typeof CustomConsolidationConfiguration$ === "object");
 assert(typeof CustomConsolidationConfigurationInput$ === "object");
+assert(typeof CustomDescriptor$ === "object");
 assert(typeof CustomExtractionConfiguration$ === "object");
 assert(typeof CustomExtractionConfigurationInput$ === "object");
 assert(typeof CustomJWTAuthorizerConfiguration$ === "object");
@@ -941,10 +1066,15 @@ assert(typeof DeletePolicyEngineRequest$ === "object");
 assert(typeof DeletePolicyEngineResponse$ === "object");
 assert(typeof DeletePolicyRequest$ === "object");
 assert(typeof DeletePolicyResponse$ === "object");
+assert(typeof DeleteRegistryRecordRequest$ === "object");
+assert(typeof DeleteRegistryRecordResponse$ === "object");
+assert(typeof DeleteRegistryRequest$ === "object");
+assert(typeof DeleteRegistryResponse$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeleteWorkloadIdentityRequest$ === "object");
 assert(typeof DeleteWorkloadIdentityResponse$ === "object");
+assert(typeof Descriptors$ === "object");
 assert(typeof EpisodicConsolidationOverride$ === "object");
 assert(typeof EpisodicExtractionOverride$ === "object");
 assert(typeof EpisodicMemoryStrategyInput$ === "object");
@@ -964,6 +1094,7 @@ assert(typeof FilesystemConfiguration$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterValue$ === "object");
 assert(typeof Finding$ === "object");
+assert(typeof FromUrlSynchronizationConfiguration$ === "object");
 assert(typeof GatewayApiKeyCredentialProvider$ === "object");
 assert(typeof GatewayInterceptorConfiguration$ === "object");
 assert(typeof GatewayPolicyEngineConfiguration$ === "object");
@@ -1000,6 +1131,10 @@ assert(typeof GetPolicyGenerationRequest$ === "object");
 assert(typeof GetPolicyGenerationResponse$ === "object");
 assert(typeof GetPolicyRequest$ === "object");
 assert(typeof GetPolicyResponse$ === "object");
+assert(typeof GetRegistryRecordRequest$ === "object");
+assert(typeof GetRegistryRecordResponse$ === "object");
+assert(typeof GetRegistryRequest$ === "object");
+assert(typeof GetRegistryResponse$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
 assert(typeof GetTokenVaultRequest$ === "object");
@@ -1059,6 +1194,10 @@ assert(typeof ListPolicyGenerationAssetsRequest$ === "object");
 assert(typeof ListPolicyGenerationAssetsResponse$ === "object");
 assert(typeof ListPolicyGenerationsRequest$ === "object");
 assert(typeof ListPolicyGenerationsResponse$ === "object");
+assert(typeof ListRegistriesRequest$ === "object");
+assert(typeof ListRegistriesResponse$ === "object");
+assert(typeof ListRegistryRecordsRequest$ === "object");
+assert(typeof ListRegistryRecordsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListWorkloadIdentitiesRequest$ === "object");
@@ -1066,6 +1205,7 @@ assert(typeof ListWorkloadIdentitiesResponse$ === "object");
 assert(typeof LlmAsAJudgeEvaluatorConfig$ === "object");
 assert(typeof ManagedLatticeResource$ === "object");
 assert(typeof ManagedResourceDetails$ === "object");
+assert(typeof McpDescriptor$ === "object");
 assert(typeof MCPGatewayConfiguration$ === "object");
 assert(typeof McpLambdaTargetConfiguration$ === "object");
 assert(typeof McpServerTargetConfiguration$ === "object");
@@ -1112,6 +1252,12 @@ assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof RatingScale$ === "object");
 assert(typeof RecordingConfig$ === "object");
 assert(typeof ReflectionConfiguration$ === "object");
+assert(typeof RegistryRecordCredentialProviderConfiguration$ === "object");
+assert(typeof RegistryRecordCredentialProviderUnion$ === "object");
+assert(typeof RegistryRecordIamCredentialProvider$ === "object");
+assert(typeof RegistryRecordOAuthCredentialProvider$ === "object");
+assert(typeof RegistryRecordSummary$ === "object");
+assert(typeof RegistrySummary$ === "object");
 assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceLocation$ === "object");
@@ -1134,10 +1280,13 @@ assert(typeof SemanticMemoryStrategyInput$ === "object");
 assert(typeof SemanticOverrideConfigurationInput$ === "object");
 assert(typeof SemanticOverrideConsolidationConfigurationInput$ === "object");
 assert(typeof SemanticOverrideExtractionConfigurationInput$ === "object");
+assert(typeof ServerDefinition$ === "object");
 assert(typeof SessionConfig$ === "object");
 assert(typeof SessionStorageConfiguration$ === "object");
 assert(typeof SetTokenVaultCMKRequest$ === "object");
 assert(typeof SetTokenVaultCMKResponse$ === "object");
+assert(typeof SkillDefinition$ === "object");
+assert(typeof SkillMdDefinition$ === "object");
 assert(typeof SlackOauth2ProviderConfigInput$ === "object");
 assert(typeof SlackOauth2ProviderConfigOutput$ === "object");
 assert(typeof StartPolicyGenerationRequest$ === "object");
@@ -1145,10 +1294,13 @@ assert(typeof StartPolicyGenerationResponse$ === "object");
 assert(typeof StrategyConfiguration$ === "object");
 assert(typeof StreamDeliveryResource$ === "object");
 assert(typeof StreamDeliveryResources$ === "object");
+assert(typeof SubmitRegistryRecordForApprovalRequest$ === "object");
+assert(typeof SubmitRegistryRecordForApprovalResponse$ === "object");
 assert(typeof SummaryConsolidationOverride$ === "object");
 assert(typeof SummaryMemoryStrategyInput$ === "object");
 assert(typeof SummaryOverrideConfigurationInput$ === "object");
 assert(typeof SummaryOverrideConsolidationConfigurationInput$ === "object");
+assert(typeof SynchronizationConfiguration$ === "object");
 assert(typeof SynchronizeGatewayTargetsRequest$ === "object");
 assert(typeof SynchronizeGatewayTargetsResponse$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -1161,6 +1313,7 @@ assert(typeof TokenBasedTrigger$ === "object");
 assert(typeof TokenBasedTriggerInput$ === "object");
 assert(typeof ToolDefinition$ === "object");
 assert(typeof ToolSchema$ === "object");
+assert(typeof ToolsDefinition$ === "object");
 assert(typeof TriggerCondition$ === "object");
 assert(typeof TriggerConditionInput$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -1171,7 +1324,23 @@ assert(typeof UpdateAgentRuntimeRequest$ === "object");
 assert(typeof UpdateAgentRuntimeResponse$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderRequest$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderResponse$ === "object");
+assert(typeof UpdatedA2aDescriptor$ === "object");
+assert(typeof UpdatedAgentSkillsDescriptor$ === "object");
+assert(typeof UpdatedAgentSkillsDescriptorFields$ === "object");
+assert(typeof UpdatedApprovalConfiguration$ === "object");
+assert(typeof UpdatedAuthorizerConfiguration$ === "object");
+assert(typeof UpdatedCustomDescriptor$ === "object");
 assert(typeof UpdatedDescription$ === "object");
+assert(typeof UpdatedDescriptors$ === "object");
+assert(typeof UpdatedDescriptorsUnion$ === "object");
+assert(typeof UpdatedMcpDescriptor$ === "object");
+assert(typeof UpdatedMcpDescriptorFields$ === "object");
+assert(typeof UpdatedServerDefinition$ === "object");
+assert(typeof UpdatedSkillDefinition$ === "object");
+assert(typeof UpdatedSkillMdDefinition$ === "object");
+assert(typeof UpdatedSynchronizationConfiguration$ === "object");
+assert(typeof UpdatedSynchronizationType$ === "object");
+assert(typeof UpdatedToolsDefinition$ === "object");
 assert(typeof UpdateEvaluatorRequest$ === "object");
 assert(typeof UpdateEvaluatorResponse$ === "object");
 assert(typeof UpdateGatewayRequest$ === "object");
@@ -1188,6 +1357,12 @@ assert(typeof UpdatePolicyEngineRequest$ === "object");
 assert(typeof UpdatePolicyEngineResponse$ === "object");
 assert(typeof UpdatePolicyRequest$ === "object");
 assert(typeof UpdatePolicyResponse$ === "object");
+assert(typeof UpdateRegistryRecordRequest$ === "object");
+assert(typeof UpdateRegistryRecordResponse$ === "object");
+assert(typeof UpdateRegistryRecordStatusRequest$ === "object");
+assert(typeof UpdateRegistryRecordStatusResponse$ === "object");
+assert(typeof UpdateRegistryRequest$ === "object");
+assert(typeof UpdateRegistryResponse$ === "object");
 assert(typeof UpdateWorkloadIdentityRequest$ === "object");
 assert(typeof UpdateWorkloadIdentityResponse$ === "object");
 assert(typeof UserPreferenceConsolidationOverride$ === "object");
@@ -1217,6 +1392,7 @@ assert(typeof ContentLevel === "object");
 assert(typeof ContentType === "object");
 assert(typeof CredentialProviderType === "object");
 assert(typeof CredentialProviderVendorType === "object");
+assert(typeof DescriptorType === "object");
 assert(typeof EndpointIpAddressType === "object");
 assert(typeof EvaluatorLevel === "object");
 assert(typeof EvaluatorStatus === "object");
@@ -1243,11 +1419,17 @@ assert(typeof PolicyEngineStatus === "object");
 assert(typeof PolicyGenerationStatus === "object");
 assert(typeof PolicyStatus === "object");
 assert(typeof PolicyValidationMode === "object");
+assert(typeof RegistryAuthorizerType === "object");
+assert(typeof RegistryRecordCredentialProviderType === "object");
+assert(typeof RegistryRecordOAuthGrantType === "object");
+assert(typeof RegistryRecordStatus === "object");
+assert(typeof RegistryStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RestApiMethod === "object");
 assert(typeof SchemaType === "object");
 assert(typeof SearchType === "object");
 assert(typeof ServerProtocol === "object");
+assert(typeof SynchronizationType === "object");
 assert(typeof TargetStatus === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
@@ -1311,5 +1493,7 @@ assert(typeof paginateListPolicies === "function");
 assert(typeof paginateListPolicyEngines === "function");
 assert(typeof paginateListPolicyGenerationAssets === "function");
 assert(typeof paginateListPolicyGenerations === "function");
+assert(typeof paginateListRegistries === "function");
+assert(typeof paginateListRegistryRecords === "function");
 assert(typeof paginateListWorkloadIdentities === "function");
 console.log(`BedrockAgentCoreControl index test passed.`);
