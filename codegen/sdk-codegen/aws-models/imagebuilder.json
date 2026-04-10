@@ -1935,6 +1935,12 @@
             "smithy.api#documentation": "<p>The tags of the image pipeline.</p>"
           }
         },
+        "imageTags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to be applied to the images produced by this pipeline.</p>"
+          }
+        },
         "clientToken": {
           "target": "com.amazonaws.imagebuilder#ClientToken",
           "traits": {
@@ -6048,6 +6054,12 @@
           "target": "com.amazonaws.imagebuilder#ImageScanningConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Contains settings for vulnerability scans.</p>"
+          }
+        },
+        "imageTags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to be applied to the images produced by this pipeline.</p>"
           }
         },
         "executionRole": {
@@ -13142,6 +13154,12 @@
           "target": "com.amazonaws.imagebuilder#RoleNameOrArn",
           "traits": {
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants \n\t\t\tImage Builder access to perform workflow actions.</p>"
+          }
+        },
+        "imageTags": {
+          "target": "com.amazonaws.imagebuilder#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to be applied to the images produced by this pipeline.</p>"
           }
         }
       },

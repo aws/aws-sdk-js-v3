@@ -2234,6 +2234,12 @@ export interface CreateImagePipelineRequest {
   tags?: Record<string, string> | undefined;
 
   /**
+   * <p>The tags to be applied to the images produced by this pipeline.</p>
+   * @public
+   */
+  imageTags?: Record<string, string> | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier you provide to ensure
    *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
@@ -4456,6 +4462,12 @@ export interface ImagePipeline {
    * @public
    */
   imageScanningConfiguration?: ImageScanningConfiguration | undefined;
+
+  /**
+   * <p>The tags to be applied to the images produced by this pipeline.</p>
+   * @public
+   */
+  imageTags?: Record<string, string> | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
@@ -8906,6 +8918,12 @@ export interface UpdateImagePipelineRequest {
    * @public
    */
   executionRole?: string | undefined;
+
+  /**
+   * <p>The tags to be applied to the images produced by this pipeline.</p>
+   * @public
+   */
+  imageTags?: Record<string, string> | undefined;
 }
 
 /**

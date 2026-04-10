@@ -83,6 +83,9 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * //         ],
  * //       },
  * //     },
+ * //     imageTags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //     executionRole: "STRING_VALUE",
  * //     workflows: [ // WorkflowConfigurationList
  * //       { // WorkflowConfiguration

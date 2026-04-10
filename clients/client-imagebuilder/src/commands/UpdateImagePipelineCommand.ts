@@ -94,6 +94,9 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *     pipelineLogGroupName: "STRING_VALUE",
  *   },
  *   executionRole: "STRING_VALUE",
+ *   imageTags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateImagePipelineCommand(input);
  * const response = await client.send(command);

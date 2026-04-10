@@ -513,9 +513,10 @@ const _iSD = "inspectorScoreDetails";
 const _iSE = "imageScanningEnabled";
 const _iSL = "imageSummaryList";
 const _iSn = "inspectorScore";
-const _iT = "instanceTypes";
+const _iT = "imageTags";
 const _iTC = "imageTestsConfiguration";
 const _iTE = "imageTestsEnabled";
+const _iTn = "instanceTypes";
 const _iU = "imageUris";
 const _iVA = "imageVersionArn";
 const _iVL = "imageVersionList";
@@ -1000,8 +1001,8 @@ export var CreateDistributionConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var CreateImagePipelineRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_n, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _sta, _ta, _cT, _iSC, _w, _eR, _lC],
-  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => PipelineLoggingConfiguration$], 2
+  [_n, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _sta, _ta, _iT, _cT, _iSC, _w, _eR, _lC],
+  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, 128 | 0, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => PipelineLoggingConfiguration$], 2
 ];
 export var CreateImagePipelineResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -1030,7 +1031,7 @@ export var CreateImageResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _CICRr,
   0,
-  [_n, _iPN, _d, _iT, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT],
+  [_n, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT],
   [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, [0, 4]], 2
 ];
 export var CreateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRre,
@@ -1410,8 +1411,8 @@ export var ImagePackage$: StaticStructureSchema = [3, n0, _IP,
 ];
 export var ImagePipeline$: StaticStructureSchema = [3, n0, _IPm,
   0,
-  [_a, _n, _d, _p, _eIME, _iRA, _cRA, _iCA, _dCA, _iTC, _sc, _sta, _dC, _dU, _dLR, _lRS, _dNR, _ta, _iSC, _eR, _w, _lC, _cF],
-  [0, 0, 0, 0, 2, 0, 0, 0, 0, () => ImageTestsConfiguration$, () => Schedule$, 0, 0, 0, 0, 0, 0, 128 | 0, () => ImageScanningConfiguration$, 0, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 1]
+  [_a, _n, _d, _p, _eIME, _iRA, _cRA, _iCA, _dCA, _iTC, _sc, _sta, _dC, _dU, _dLR, _lRS, _dNR, _ta, _iSC, _iT, _eR, _w, _lC, _cF],
+  [0, 0, 0, 0, 2, 0, 0, 0, 0, () => ImageTestsConfiguration$, () => Schedule$, 0, 0, 0, 0, 0, 0, 128 | 0, () => ImageScanningConfiguration$, 128 | 0, 0, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 1]
 ];
 export var ImagePipelineAggregation$: StaticStructureSchema = [3, n0, _IPA,
   0,
@@ -1505,12 +1506,12 @@ export var ImportVmImageResponse$: StaticStructureSchema = [3, n0, _IVIRm,
 ];
 export var InfrastructureConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_a, _n, _d, _iT, _iPN, _sGI, _sI, _l, _kP, _tIOF, _sTA, _dC, _dU, _rT, _iMO, _ta, _pl],
+  [_a, _n, _d, _iTn, _iPN, _sGI, _sI, _l, _kP, _tIOF, _sTA, _dC, _dU, _rT, _iMO, _ta, _pl],
   [0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 0, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$]
 ];
 export var InfrastructureConfigurationSummary$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_a, _n, _d, _dC, _dU, _rT, _ta, _iT, _iPN, _pl],
+  [_a, _n, _d, _dC, _dU, _rT, _ta, _iTn, _iPN, _pl],
   [0, 0, 0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 0, () => Placement$]
 ];
 export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD,
@@ -2060,8 +2061,8 @@ export var UpdateDistributionConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var UpdateImagePipelineRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
-  [_iPA, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _sta, _cT, _iSC, _w, _lC, _eR],
-  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 0], 2
+  [_iPA, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _sta, _cT, _iSC, _w, _lC, _eR, _iT],
+  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 0, 128 | 0], 2
 ];
 export var UpdateImagePipelineResponse$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -2070,7 +2071,7 @@ export var UpdateImagePipelineResponse$: StaticStructureSchema = [3, n0, _UIPRp,
 ];
 export var UpdateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _UICR,
   0,
-  [_iCA, _iPN, _d, _iT, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _pl, _cT],
+  [_iCA, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _pl, _cT],
   [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, () => Placement$, [0, 4]], 2
 ];
 export var UpdateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _UICRp,

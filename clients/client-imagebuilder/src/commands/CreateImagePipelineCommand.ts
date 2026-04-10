@@ -61,6 +61,9 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   imageTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE", // required
  *   imageScanningConfiguration: { // ImageScanningConfiguration
  *     imageScanningEnabled: true || false,
