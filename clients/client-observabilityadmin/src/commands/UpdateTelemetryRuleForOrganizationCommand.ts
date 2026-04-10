@@ -132,6 +132,10 @@ export interface UpdateTelemetryRuleForOrganizationCommandOutput extends UpdateT
  *     },
  *     Scope: "STRING_VALUE",
  *     SelectionCriteria: "STRING_VALUE",
+ *     Regions: [ // Regions
+ *       "STRING_VALUE",
+ *     ],
+ *     AllRegions: true || false,
  *   },
  * };
  * const command = new UpdateTelemetryRuleForOrganizationCommand(input);

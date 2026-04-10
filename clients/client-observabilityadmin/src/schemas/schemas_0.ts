@@ -105,6 +105,8 @@ const _GTRFOI = "GetTelemetryRuleForOrganizationInput";
 const _GTRFOO = "GetTelemetryRuleForOrganizationOutput";
 const _GTRI = "GetTelemetryRuleInput";
 const _GTRO = "GetTelemetryRuleOutput";
+const _HR = "HomeRegion";
+const _IR = "IsReplicated";
 const _IS = "IntegrationSummary";
 const _ISE = "InternalServerException";
 const _ISEn = "InvalidStateException";
@@ -182,6 +184,8 @@ const _RIu = "RuleIdentifier";
 const _RN = "RuleName";
 const _RNFE = "ResourceNotFoundException";
 const _RNP = "RuleNamePrefix";
+const _RS = "RegionStatuses";
+const _RSe = "RegionStatus";
 const _RT = "ResourceType";
 const _RTe = "ResourceTypes";
 const _RTes = "ResourceTags";
@@ -204,7 +208,9 @@ const _SQEE = "ServiceQuotaExceededException";
 const _SR = "StatusReason";
 const _STE = "StartTelemetryEnrichment";
 const _STEFO = "StartTelemetryEvaluationForOrganization";
+const _STEFOI = "StartTelemetryEvaluationForOrganizationInput";
 const _STEFOt = "StopTelemetryEvaluationForOrganization";
+const _STEI = "StartTelemetryEvaluationInput";
 const _STEO = "StartTelemetryEnrichmentOutput";
 const _STEOt = "StopTelemetryEnrichmentOutput";
 const _STEt = "StartTelemetryEvaluation";
@@ -546,13 +552,13 @@ export var GetTelemetryEnrichmentStatusOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var GetTelemetryEvaluationStatusForOrganizationOutput$: StaticStructureSchema = [3, n0, _GTESFOO,
   0,
-  [_St, _FR],
-  [0, 0]
+  [_St, _FR, _HR, _RS],
+  [0, 0, 0, () => RegionStatuses]
 ];
 export var GetTelemetryEvaluationStatusOutput$: StaticStructureSchema = [3, n0, _GTESOe,
   0,
-  [_St, _FR],
-  [0, 0]
+  [_St, _FR, _HR, _RS],
+  [0, 0, 0, () => RegionStatuses]
 ];
 export var GetTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _GTPI,
   0,
@@ -571,8 +577,8 @@ export var GetTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3, n0
 ];
 export var GetTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GTRFOO,
   0,
-  [_RN, _RAu, _CTS, _LUTS, _TR],
-  [0, 0, 1, 1, () => TelemetryRule$]
+  [_RN, _RAu, _CTS, _LUTS, _TR, _HR, _IR, _RS],
+  [0, 0, 1, 1, () => TelemetryRule$, 0, 2, () => RegionStatuses]
 ];
 export var GetTelemetryRuleInput$: StaticStructureSchema = [3, n0, _GTRI,
   0,
@@ -581,8 +587,8 @@ export var GetTelemetryRuleInput$: StaticStructureSchema = [3, n0, _GTRI,
 ];
 export var GetTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _GTRO,
   0,
-  [_RN, _RAu, _CTS, _LUTS, _TR],
-  [0, 0, 1, 1, () => TelemetryRule$]
+  [_RN, _RAu, _CTS, _LUTS, _TR, _HR, _IR, _RS],
+  [0, 0, 1, 1, () => TelemetryRule$, 0, 2, () => RegionStatuses]
 ];
 export var IntegrationSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
@@ -714,6 +720,11 @@ export var _Record$: StaticStructureSchema = [3, n0, _Rec,
   [_Da, _Ty],
   [0, 0]
 ];
+export var RegionStatus$: StaticStructureSchema = [3, n0, _RSe,
+  0,
+  [_R, _St, _FR, _RAu],
+  [0, 0, 0, 0]
+];
 export var SingleHeader$: StaticStructureSchema = [3, n0, _SH,
   0,
   [_N],
@@ -733,6 +744,16 @@ export var StartTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STE
   0,
   [_St, _AREMVA],
   [0, 0]
+];
+export var StartTelemetryEvaluationForOrganizationInput$: StaticStructureSchema = [3, n0, _STEFOI,
+  0,
+  [_Re, _AR],
+  [64 | 0, 2]
+];
+export var StartTelemetryEvaluationInput$: StaticStructureSchema = [3, n0, _STEI,
+  0,
+  [_Re, _AR],
+  [64 | 0, 2]
 ];
 export var StopTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STEOt,
   0,
@@ -776,8 +797,8 @@ export var TelemetryPipelineSummary$: StaticStructureSchema = [3, n0, _TPS,
 ];
 export var TelemetryRule$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_TT, _RT, _TSTe, _DC, _Sc, _SCe],
-  [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0], 1
+  [_TT, _RT, _TSTe, _DC, _Sc, _SCe, _Re, _AR],
+  [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0, 64 | 0, 2], 1
 ];
 export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
   0,
@@ -900,6 +921,9 @@ var RedactedFields: StaticListSchema = [1, n0, _RF,
   0, () => FieldToMatch$
 ];
 var Regions = 64 | 0;
+var RegionStatuses: StaticListSchema = [1, n0, _RS,
+  0, () => RegionStatus$
+];
 var ResourceTypes = 64 | 0;
 var Sinks = 64 | 0;
 var Sources: StaticListSchema = [1, n0, _So,
@@ -1006,10 +1030,10 @@ export var StartTelemetryEnrichment$: StaticOperationSchema = [9, n0, _STE,
   { [_h]: ["POST", "/StartTelemetryEnrichment", 202] }, () => __Unit, () => StartTelemetryEnrichmentOutput$
 ];
 export var StartTelemetryEvaluation$: StaticOperationSchema = [9, n0, _STEt,
-  { [_h]: ["POST", "/StartTelemetryEvaluation", 200] }, () => __Unit, () => __Unit
+  { [_h]: ["POST", "/StartTelemetryEvaluation", 200] }, () => StartTelemetryEvaluationInput$, () => __Unit
 ];
 export var StartTelemetryEvaluationForOrganization$: StaticOperationSchema = [9, n0, _STEFO,
-  { [_h]: ["POST", "/StartTelemetryEvaluationForOrganization", 200] }, () => __Unit, () => __Unit
+  { [_h]: ["POST", "/StartTelemetryEvaluationForOrganization", 200] }, () => StartTelemetryEvaluationForOrganizationInput$, () => __Unit
 ];
 export var StopTelemetryEnrichment$: StaticOperationSchema = [9, n0, _STEto,
   { [_h]: ["POST", "/StopTelemetryEnrichment", 202] }, () => __Unit, () => StopTelemetryEnrichmentOutput$

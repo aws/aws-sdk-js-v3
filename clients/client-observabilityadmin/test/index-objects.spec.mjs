@@ -152,6 +152,7 @@ import {
   PipelineOutput$,
   PipelineOutputError$,
   RecordFormat,
+  RegionStatus$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
@@ -169,6 +170,8 @@ import {
   StartTelemetryEvaluationCommand,
   StartTelemetryEvaluationForOrganization$,
   StartTelemetryEvaluationForOrganizationCommand,
+  StartTelemetryEvaluationForOrganizationInput$,
+  StartTelemetryEvaluationInput$,
   Status,
   StopTelemetryEnrichment$,
   StopTelemetryEnrichmentCommand,
@@ -386,10 +389,13 @@ assert(typeof LogsEncryptionConfiguration$ === "object");
 assert(typeof PipelineOutput$ === "object");
 assert(typeof PipelineOutputError$ === "object");
 assert(typeof _Record$ === "object");
+assert(typeof RegionStatus$ === "object");
 assert(typeof SingleHeader$ === "object");
 assert(typeof Source$ === "object");
 assert(typeof SourceLogsConfiguration$ === "object");
 assert(typeof StartTelemetryEnrichmentOutput$ === "object");
+assert(typeof StartTelemetryEvaluationForOrganizationInput$ === "object");
+assert(typeof StartTelemetryEvaluationInput$ === "object");
 assert(typeof StopTelemetryEnrichmentOutput$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TelemetryConfiguration$ === "object");

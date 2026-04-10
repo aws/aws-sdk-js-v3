@@ -129,6 +129,10 @@ export interface UpdateTelemetryRuleCommandOutput extends UpdateTelemetryRuleOut
  *     },
  *     Scope: "STRING_VALUE",
  *     SelectionCriteria: "STRING_VALUE",
+ *     Regions: [ // Regions
+ *       "STRING_VALUE",
+ *     ],
+ *     AllRegions: true || false,
  *   },
  * };
  * const command = new UpdateTelemetryRuleCommand(input);

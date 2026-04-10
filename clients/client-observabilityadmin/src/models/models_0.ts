@@ -856,6 +856,18 @@ export interface TelemetryRule {
    * @public
    */
   SelectionCriteria?: string | undefined;
+
+  /**
+   * <p> An optional list of Amazon Web Services Regions where this telemetry rule should be replicated. When specified, the rule is created in the home region and automatically replicated to all listed regions. Mutually exclusive with <code>AllRegions</code>. </p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+
+  /**
+   * <p> If set to <code>true</code>, the telemetry rule is replicated to all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. When new regions become available, the rule automatically replicates to them. Mutually exclusive with <code>Regions</code>. </p>
+   * @public
+   */
+  AllRegions?: boolean | undefined;
 }
 
 /**
@@ -1126,6 +1138,36 @@ export interface GetTelemetryEnrichmentStatusOutput {
 }
 
 /**
+ * <p> Represents the status of a multi-region operation in a specific Amazon Web Services Region. This structure is used to report per-region progress for both telemetry evaluation and telemetry rule replication. </p>
+ * @public
+ */
+export interface RegionStatus {
+  /**
+   * <p> The Amazon Web Services Region code (for example, <code>eu-west-1</code> or <code>us-west-2</code>) that this status applies to. </p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p> The status of the operation in this region. For telemetry evaluation, valid values include <code>STARTING</code>, <code>RUNNING</code>, and <code>FAILED_START</code>. For telemetry rules, valid values include <code>PENDING</code>, <code>ACTIVE</code>, and <code>FAILED</code>. </p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p> The reason for a failure status in this region. This field is only populated when <code>Status</code> indicates a failure. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the telemetry rule in this spoke region. This field is only present for telemetry rule region statuses and is populated when the rule has been successfully created in the spoke region (status is <code>ACTIVE</code>). </p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetTelemetryEvaluationStatusOutput {
@@ -1140,6 +1182,18 @@ export interface GetTelemetryEvaluationStatusOutput {
    * @public
    */
   FailureReason?: string | undefined;
+
+  /**
+   * <p> The Amazon Web Services Region that is designated as the home region for multi-region telemetry evaluation. The home region is the single management point for all multi-region operations on this account. This field is only present when multi-region telemetry evaluation is active. </p>
+   * @public
+   */
+  HomeRegion?: string | undefined;
+
+  /**
+   * <p> A list of per-region telemetry evaluation statuses. Each entry indicates the evaluation status for a specific spoke region included in the multi-region configuration. This field is only present when multi-region telemetry evaluation is active. </p>
+   * @public
+   */
+  RegionStatuses?: RegionStatus[] | undefined;
 }
 
 /**
@@ -1157,6 +1211,18 @@ export interface GetTelemetryEvaluationStatusForOrganizationOutput {
    * @public
    */
   FailureReason?: string | undefined;
+
+  /**
+   * <p> The Amazon Web Services Region that is designated as the home region for multi-region telemetry evaluation for the organization. The home region is the single management point for all multi-region operations on this organization. This field is only present when multi-region telemetry evaluation is active. </p>
+   * @public
+   */
+  HomeRegion?: string | undefined;
+
+  /**
+   * <p> A list of per-region telemetry evaluation statuses for the organization. Each entry indicates the evaluation status for a specific spoke region included in the multi-region configuration. This field is only present when multi-region telemetry evaluation is active. </p>
+   * @public
+   */
+  RegionStatuses?: RegionStatus[] | undefined;
 }
 
 /**
@@ -1291,6 +1357,24 @@ export interface GetTelemetryRuleOutput {
    * @public
    */
   TelemetryRule?: TelemetryRule | undefined;
+
+  /**
+   * <p> The Amazon Web Services Region where the telemetry rule was originally created. For replicated rules in spoke regions, this indicates the region that manages the rule. For rules created without multi-region scope, this field is not present. </p>
+   * @public
+   */
+  HomeRegion?: string | undefined;
+
+  /**
+   * <p> Indicates whether this telemetry rule is a replica that was created in this region through multi-region fan-out from the home region. Replicated rules cannot be directly updated or deleted in the spoke region. To modify a replicated rule, make changes in the home region. </p>
+   * @public
+   */
+  IsReplicated?: boolean | undefined;
+
+  /**
+   * <p> A list of per-region replication statuses for the telemetry rule. Each entry indicates the replication status of the rule in a specific spoke region. This field is only present for rules created with multi-region scope. </p>
+   * @public
+   */
+  RegionStatuses?: RegionStatus[] | undefined;
 }
 
 /**
@@ -1337,6 +1421,24 @@ export interface GetTelemetryRuleForOrganizationOutput {
    * @public
    */
   TelemetryRule?: TelemetryRule | undefined;
+
+  /**
+   * <p> The Amazon Web Services Region where the organization telemetry rule was originally created. For replicated rules in spoke regions, this indicates the region that manages the rule. For rules created without multi-region scope, this field is not present. </p>
+   * @public
+   */
+  HomeRegion?: string | undefined;
+
+  /**
+   * <p> Indicates whether this organization telemetry rule is a replica that was created in this region through multi-region fan-out from the home region. Replicated rules cannot be directly updated or deleted in the spoke region. To modify a replicated rule, make changes in the home region. </p>
+   * @public
+   */
+  IsReplicated?: boolean | undefined;
+
+  /**
+   * <p> A list of per-region replication statuses for the organization telemetry rule. Each entry indicates the replication status of the rule in a specific spoke region. This field is only present for rules created with multi-region scope. </p>
+   * @public
+   */
+  RegionStatuses?: RegionStatus[] | undefined;
 }
 
 /**
@@ -1866,6 +1968,40 @@ export interface StartTelemetryEnrichmentOutput {
    * @public
    */
   AwsResourceExplorerManagedViewArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTelemetryEvaluationInput {
+  /**
+   * <p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+
+  /**
+   * <p> If set to <code>true</code>, telemetry evaluation starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with <code>Regions</code>. </p>
+   * @public
+   */
+  AllRegions?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTelemetryEvaluationForOrganizationInput {
+  /**
+   * <p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation for the organization. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions for the organization. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+
+  /**
+   * <p> If set to <code>true</code>, telemetry evaluation for the organization starts in all Amazon Web Services Regions where Amazon CloudWatch Observability Admin is available in the current partition. The current region becomes the home region for managing multi-region evaluation for the organization. When new regions become available, evaluation automatically expands to include them. Mutually exclusive with <code>Regions</code>. </p>
+   * @public
+   */
+  AllRegions?: boolean | undefined;
 }
 
 /**

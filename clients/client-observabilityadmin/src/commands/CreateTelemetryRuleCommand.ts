@@ -129,6 +129,10 @@ export interface CreateTelemetryRuleCommandOutput extends CreateTelemetryRuleOut
  *     },
  *     Scope: "STRING_VALUE",
  *     SelectionCriteria: "STRING_VALUE",
+ *     Regions: [ // Regions
+ *       "STRING_VALUE",
+ *     ],
+ *     AllRegions: true || false,
  *   },
  *   Tags: { // TagMapInput
  *     "<keys>": "STRING_VALUE",

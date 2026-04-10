@@ -46,6 +46,15 @@ export interface GetTelemetryEvaluationStatusCommandOutput extends GetTelemetryE
  * // { // GetTelemetryEvaluationStatusOutput
  * //   Status: "NOT_STARTED" || "STARTING" || "FAILED_START" || "RUNNING" || "STOPPING" || "FAILED_STOP" || "STOPPED",
  * //   FailureReason: "STRING_VALUE",
+ * //   HomeRegion: "STRING_VALUE",
+ * //   RegionStatuses: [ // RegionStatuses
+ * //     { // RegionStatus
+ * //       Region: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //       RuleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

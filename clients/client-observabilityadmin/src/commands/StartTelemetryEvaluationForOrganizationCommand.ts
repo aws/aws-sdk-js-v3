@@ -4,6 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
+import type { StartTelemetryEvaluationForOrganizationInput } from "../models/models_0";
 import type {
   ObservabilityAdminClientResolvedConfig,
   ServiceInputTypes,
@@ -21,7 +22,7 @@ export { $Command };
  *
  * The input for {@link StartTelemetryEvaluationForOrganizationCommand}.
  */
-export interface StartTelemetryEvaluationForOrganizationCommandInput {}
+export interface StartTelemetryEvaluationForOrganizationCommandInput extends StartTelemetryEvaluationForOrganizationInput {}
 /**
  * @public
  *
@@ -39,7 +40,12 @@ export interface StartTelemetryEvaluationForOrganizationCommandOutput extends __
  * // import type { ObservabilityAdminClientConfig } from "@aws-sdk/client-observabilityadmin";
  * const config = {}; // type is ObservabilityAdminClientConfig
  * const client = new ObservabilityAdminClient(config);
- * const input = {};
+ * const input = { // StartTelemetryEvaluationForOrganizationInput
+ *   Regions: [ // Regions
+ *     "STRING_VALUE",
+ *   ],
+ *   AllRegions: true || false,
+ * };
  * const command = new StartTelemetryEvaluationForOrganizationCommand(input);
  * const response = await client.send(command);
  * // {};
@@ -89,7 +95,7 @@ export class StartTelemetryEvaluationForOrganizationCommand extends $Command
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
+      input: StartTelemetryEvaluationForOrganizationInput;
       output: {};
     };
     sdk: {

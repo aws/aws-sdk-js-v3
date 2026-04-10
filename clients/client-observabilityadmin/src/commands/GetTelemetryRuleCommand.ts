@@ -137,7 +137,21 @@ export interface GetTelemetryRuleCommandOutput extends GetTelemetryRuleOutput, _
  * //     },
  * //     Scope: "STRING_VALUE",
  * //     SelectionCriteria: "STRING_VALUE",
+ * //     Regions: [ // Regions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllRegions: true || false,
  * //   },
+ * //   HomeRegion: "STRING_VALUE",
+ * //   IsReplicated: true || false,
+ * //   RegionStatuses: [ // RegionStatuses
+ * //     { // RegionStatus
+ * //       Region: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //       RuleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
