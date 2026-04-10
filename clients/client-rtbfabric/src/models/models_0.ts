@@ -493,6 +493,60 @@ export interface AcceptLinkResponse {
 }
 
 /**
+ * <p>The health check configuration for a managed endpoint. Defines how the service probes instances in the Auto Scaling group to determine their health status.</p>
+ * @public
+ */
+export interface HealthCheckConfig {
+  /**
+   * <p>The port to use for health check probes. Valid range is 80 to 65535.</p>
+   * @public
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The destination path for the health check request. Must start with <code>/</code>.</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The protocol to use for health check probes.</p>
+   * @public
+   */
+  protocol?: Protocol | undefined;
+
+  /**
+   * <p>The timeout for each health check probe, in milliseconds. Valid range is 100 to 5000.</p>
+   * @public
+   */
+  timeoutMs?: number | undefined;
+
+  /**
+   * <p>The interval between health check probes, in seconds. Valid range is 5 to 60.</p>
+   * @public
+   */
+  intervalSeconds?: number | undefined;
+
+  /**
+   * <p>The expected HTTP status code or status code pattern from healthy instances. Supports a single code (for example, <code>200</code>), a range (for example, <code>200-299</code>), or a comma-separated list (for example, <code>200,204</code>).</p>
+   * @public
+   */
+  statusCodeMatcher?: string | undefined;
+
+  /**
+   * <p>The number of consecutive successful health checks required before an instance is considered healthy. Valid range is 2 to 10.</p>
+   * @public
+   */
+  healthyThresholdCount?: number | undefined;
+
+  /**
+   * <p>The number of consecutive failed health checks required before an instance is considered unhealthy. Valid range is 2 to 10.</p>
+   * @public
+   */
+  unhealthyThresholdCount?: number | undefined;
+}
+
+/**
  * <p>Describes the configuration of an auto scaling group.</p>
  * @public
  */
@@ -508,6 +562,12 @@ export interface AutoScalingGroupsConfiguration {
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The health check configuration for the Auto Scaling group managed endpoint.</p>
+   * @public
+   */
+  healthCheckConfig?: HealthCheckConfig | undefined;
 }
 
 /**

@@ -57,6 +57,7 @@ const _GRGRe = "GetRequesterGatewayResponse";
 const _GRGRet = "GetResponderGatewayRequest";
 const _GRGRete = "GetResponderGatewayResponse";
 const _GRGe = "GetResponderGateway";
+const _HCC = "HealthCheckConfig";
 const _HTA = "HeaderTagAction";
 const _ISE = "InternalServerException";
 const _LA = "LinkAttributes";
@@ -149,12 +150,15 @@ const _gIa = "gatewayIds";
 const _gT = "gatewayType";
 const _h = "http";
 const _hC = "httpCode";
+const _hCC = "healthCheckConfig";
 const _hE = "httpError";
 const _hP = "holdbackPercentage";
 const _hQ = "httpQuery";
 const _hRA = "httpResponderAllowed";
 const _hT = "headerTag";
+const _hTC = "healthyThresholdCount";
 const _iLC = "inboundLinksCount";
+const _iS = "intervalSeconds";
 const _l = "links";
 const _lC = "listenerConfig";
 const _lI = "linkId";
@@ -186,6 +190,7 @@ const _rEM = "responderErrorMasking";
 const _rL = "rateLimiter";
 const _rLP = "responseLoggingPercentage";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rtbfabric";
+const _sCM = "statusCodeMatcher";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
 const _sa = "sampling";
@@ -195,9 +200,11 @@ const _t = "tags";
 const _tIM = "timeoutInMillis";
 const _tK = "tagKeys";
 const _tLC = "totalLinksCount";
+const _tM = "timeoutMs";
 const _tSC = "trustStoreConfiguration";
 const _tp = "tps";
 const _uA = "updatedAt";
+const _uTC = "unhealthyThresholdCount";
 const _v = "values";
 const _vI = "vpcId";
 const _va = "value";
@@ -296,8 +303,8 @@ export var AcceptLinkResponse$: StaticStructureSchema = [3, n0, _ALRc,
 ];
 export var AutoScalingGroupsConfiguration$: StaticStructureSchema = [3, n0, _ASGC,
   0,
-  [_aSGN, _rA],
-  [64 | 0, 0], 2
+  [_aSGN, _rA, _hCC],
+  [64 | 0, 0, () => HealthCheckConfig$], 2
 ];
 export var CreateInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _CIELR,
   0,
@@ -468,6 +475,11 @@ export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
   0,
   [_n, _va],
   [0, 0], 2
+];
+export var HealthCheckConfig$: StaticStructureSchema = [3, n0, _HCC,
+  0,
+  [_p, _pa, _pr, _tM, _iS, _sCM, _hTC, _uTC],
+  [1, 0, 0, 1, 1, 0, 1, 1], 2
 ];
 export var LinkApplicationLogConfiguration$: StaticStructureSchema = [3, n0, _LALC,
   0,

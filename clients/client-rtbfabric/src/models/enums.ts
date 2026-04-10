@@ -97,6 +97,19 @@ export type LinkStatus = (typeof LinkStatus)[keyof typeof LinkStatus];
  * @public
  * @enum
  */
+export const Protocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+} as const;
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ * @enum
+ */
 export const RequesterGatewayStatus = {
   ACTIVE: "ACTIVE",
   DELETED: "DELETED",
@@ -125,19 +138,6 @@ export const GatewayType = {
  * @public
  */
 export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  HTTP: "HTTP",
-  HTTPS: "HTTPS",
-} as const;
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public

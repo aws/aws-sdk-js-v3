@@ -131,6 +131,7 @@ export type {
   GetResponderGatewayRequest,
   GetResponderGatewayResponse,
   HeaderTagAction,
+  HealthCheckConfig,
   LinkApplicationLogConfiguration,
   LinkApplicationLogSampling,
   LinkAttributes,

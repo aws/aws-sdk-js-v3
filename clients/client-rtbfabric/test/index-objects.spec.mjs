@@ -76,6 +76,7 @@ import {
   GetResponderGatewayRequest$,
   GetResponderGatewayResponse$,
   HeaderTagAction$,
+  HealthCheckConfig$,
   InternalServerException,
   InternalServerException$,
   LinkApplicationLogConfiguration$,
@@ -279,6 +280,7 @@ assert(typeof GetRequesterGatewayResponse$ === "object");
 assert(typeof GetResponderGatewayRequest$ === "object");
 assert(typeof GetResponderGatewayResponse$ === "object");
 assert(typeof HeaderTagAction$ === "object");
+assert(typeof HealthCheckConfig$ === "object");
 assert(typeof LinkApplicationLogConfiguration$ === "object");
 assert(typeof LinkApplicationLogSampling$ === "object");
 assert(typeof LinkAttributes$ === "object");

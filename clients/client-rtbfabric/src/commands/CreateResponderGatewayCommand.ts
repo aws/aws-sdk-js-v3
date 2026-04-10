@@ -63,6 +63,16 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  *         "STRING_VALUE",
  *       ],
  *       roleArn: "STRING_VALUE", // required
+ *       healthCheckConfig: { // HealthCheckConfig
+ *         port: Number("int"), // required
+ *         path: "STRING_VALUE", // required
+ *         protocol: "HTTP" || "HTTPS",
+ *         timeoutMs: Number("int"),
+ *         intervalSeconds: Number("int"),
+ *         statusCodeMatcher: "STRING_VALUE",
+ *         healthyThresholdCount: Number("int"),
+ *         unhealthyThresholdCount: Number("int"),
+ *       },
  *     },
  *     eksEndpoints: { // EksEndpointsConfiguration
  *       endpointsResourceName: "STRING_VALUE", // required
