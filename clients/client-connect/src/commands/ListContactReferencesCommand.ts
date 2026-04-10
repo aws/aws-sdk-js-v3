@@ -43,7 +43,7 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   ReferenceTypes: [ // ReferenceTypes // required
- *     "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT",
+ *     "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE" || "EMAIL_MESSAGE_PLAIN_TEXT" || "EMAIL_MESSAGE_PLAIN_TEXT_REDACTED" || "EMAIL_MESSAGE_REDACTED",
  *   ],
  *   NextToken: "STRING_VALUE",
  * };
@@ -66,7 +66,15 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * //         Name: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //       },
+ * //       EmailMessageRedacted: {
+ * //         Name: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //       },
  * //       EmailMessagePlainText: {
+ * //         Name: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       EmailMessagePlainTextRedacted: {
  * //         Name: "STRING_VALUE",
  * //         Arn: "STRING_VALUE",
  * //       },

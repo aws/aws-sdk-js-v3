@@ -993,7 +993,9 @@ const _EIn = "EndpointInfo";
 const _EL = "ExportLocation";
 const _EM = "ErrorMessage";
 const _EMPT = "EmailMessagePlainText";
+const _EMPTR = "EmailMessagePlainTextRedacted";
 const _EMR = "EmailMessageReference";
+const _EMRm = "EmailMessageRedacted";
 const _EMm = "EmailMessage";
 const _EMv = "EvaluationMetadata";
 const _EMx = "ExclusiveMinimum";
@@ -9767,8 +9769,8 @@ export var RealTimeContactAnalysisTimeData$: StaticUnionSchema = [4, n0, _RTCATD
 ];
 export var ReferenceSummary$: StaticUnionSchema = [4, n0, _RSe,
   0,
-  [_Ur, _Attac, _EMm, _EMPT, _Stri, _Nu, _Da, _E],
-  [() => UrlReference$, () => AttachmentReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => StringReference$, () => NumberReference$, () => DateReference$, () => EmailReference$]
+  [_Ur, _Attac, _EMm, _EMRm, _EMPT, _EMPTR, _Stri, _Nu, _Da, _E],
+  [() => UrlReference$, () => AttachmentReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => StringReference$, () => NumberReference$, () => DateReference$, () => EmailReference$]
 ];
 export var ServiceQuotaExceededExceptionReason$: StaticUnionSchema = [4, n0, _SQEER,
   0,

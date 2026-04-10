@@ -1620,6 +1620,8 @@ export type ReferenceSummary =
   | ReferenceSummary.EmailMember
   | ReferenceSummary.EmailMessageMember
   | ReferenceSummary.EmailMessagePlainTextMember
+  | ReferenceSummary.EmailMessagePlainTextRedactedMember
+  | ReferenceSummary.EmailMessageRedactedMember
   | ReferenceSummary.NumberMember
   | ReferenceSummary.StringMember
   | ReferenceSummary.UrlMember
@@ -1637,7 +1639,9 @@ export namespace ReferenceSummary {
     Url: UrlReference;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number?: never;
     Date?: never;
@@ -1654,7 +1658,9 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment: AttachmentReference;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number?: never;
     Date?: never;
@@ -1670,7 +1676,27 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage: EmailMessageReference;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the referenceType is <code>EMAIL_MESSAGE</code>. Otherwise, null.</p>
+   * @public
+   */
+  export interface EmailMessageRedactedMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted: EmailMessageReference;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number?: never;
     Date?: never;
@@ -1686,7 +1712,27 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText: EmailMessageReference;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the referenceType is <code>EMAIL_MESSAGE</code>. Otherwise, null.</p>
+   * @public
+   */
+  export interface EmailMessagePlainTextRedactedMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted?: never;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted: EmailMessageReference;
     String?: never;
     Number?: never;
     Date?: never;
@@ -1703,7 +1749,9 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String: StringReference;
     Number?: never;
     Date?: never;
@@ -1720,7 +1768,9 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number: NumberReference;
     Date?: never;
@@ -1736,7 +1786,9 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number?: never;
     Date: DateReference;
@@ -1752,7 +1804,9 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number?: never;
     Date?: never;
@@ -1767,7 +1821,9 @@ export namespace ReferenceSummary {
     Url?: never;
     Attachment?: never;
     EmailMessage?: never;
+    EmailMessageRedacted?: never;
     EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
     String?: never;
     Number?: never;
     Date?: never;
@@ -1783,7 +1839,9 @@ export namespace ReferenceSummary {
     Url: (value: UrlReference) => T;
     Attachment: (value: AttachmentReference) => T;
     EmailMessage: (value: EmailMessageReference) => T;
+    EmailMessageRedacted: (value: EmailMessageReference) => T;
     EmailMessagePlainText: (value: EmailMessageReference) => T;
+    EmailMessagePlainTextRedacted: (value: EmailMessageReference) => T;
     String: (value: StringReference) => T;
     Number: (value: NumberReference) => T;
     Date: (value: DateReference) => T;
