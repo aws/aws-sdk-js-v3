@@ -59,6 +59,7 @@ import type {
   SortTrialsBy,
   SpaceSortKey,
   SpaceStatus,
+  StepStatus,
   StudioLifecycleConfigAppType,
   StudioLifecycleConfigSortKey,
   TagPropagation,
@@ -85,6 +86,7 @@ import type {
   AppSpecification,
   BatchDataCaptureConfig,
   BatchTransformInput,
+  CacheHitResult,
   CfnUpdateTemplateProvider,
   Channel,
   CheckpointConfig,
@@ -163,6 +165,7 @@ import type {
   FeatureParameter,
   HyperParameterTrainingJobSummary,
   InferenceComponentDeploymentConfig,
+  InstanceGroupHealthCheckConfiguration,
   MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
@@ -198,11 +201,12 @@ import type {
   HyperParameterTuningJobSearchEntity,
   MetricData,
   MonitoringAlertSummary,
-  Parameter,
+  PipelineExecutionStepMetadata,
   PipelineExperimentConfig,
   ReservedCapacitySummary,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
+  SelectiveExecutionResult,
   ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
   TemplateProviderDetail,
@@ -213,6 +217,136 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>An execution of a step in a pipeline.</p>
+ * @public
+ */
+export interface PipelineExecutionStep {
+  /**
+   * <p>The name of the step that is executed.</p>
+   * @public
+   */
+  StepName?: string | undefined;
+
+  /**
+   * <p>The display name of the step.</p>
+   * @public
+   */
+  StepDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the step.</p>
+   * @public
+   */
+  StepDescription?: string | undefined;
+
+  /**
+   * <p>The time that the step started executing.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time that the step stopped executing.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The status of the step execution.</p>
+   * @public
+   */
+  StepStatus?: StepStatus | undefined;
+
+  /**
+   * <p>If this pipeline execution step was cached, details on the cache hit.</p>
+   * @public
+   */
+  CacheHitResult?: CacheHitResult | undefined;
+
+  /**
+   * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Metadata to run the pipeline step.</p>
+   * @public
+   */
+  Metadata?: PipelineExecutionStepMetadata | undefined;
+
+  /**
+   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
+   * @public
+   */
+  AttemptCount?: number | undefined;
+
+  /**
+   * <p>The ARN from an execution of the current pipeline from which results are reused for this step.</p>
+   * @public
+   */
+  SelectiveExecutionResult?: SelectiveExecutionResult | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineExecutionStepsResponse {
+  /**
+   * <p>A list of <code>PipeLineExecutionStep</code> objects. Each <code>PipeLineExecutionStep</code> consists of StepName, StartTime, EndTime, StepStatus, and Metadata. Metadata is an object with properties for each job that contains relevant information about the job created by the step.</p>
+   * @public
+   */
+  PipelineExecutionSteps?: PipelineExecutionStep[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineParametersForExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of parameters to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Assigns a value to a named Pipeline parameter.</p>
+ * @public
+ */
+export interface Parameter {
+  /**
+   * <p>The name of the parameter to assign a value to. This parameter name must match a named parameter in the pipeline definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The literal value for the parameter.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
 
 /**
  * @public
@@ -4967,6 +5101,34 @@ export interface SendPipelineExecutionStepSuccessResponse {
    * @public
    */
   PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartClusterHealthCheckRequest {
+  /**
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of configurations containing instance group names, EC2 instance IDs, and deep health checks to perform.</p>
+   * @public
+   */
+  DeepHealthCheckConfigurations: InstanceGroupHealthCheckConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartClusterHealthCheckResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the deep health checks were initiated.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
 }
 
 /**

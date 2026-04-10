@@ -120,6 +120,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "MinCount": 0,
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceType": "__InstanceType__",
+      "InstanceRequirements": {
+        "CurrentInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "DesiredInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "InstanceTypeDetails": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        }
+      ],
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
         "OnCreate": "__OnCreate__"
@@ -293,6 +322,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "MinCount": 0,
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceType": "__InstanceType__",
+      "InstanceRequirements": {
+        "CurrentInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "DesiredInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "InstanceTypeDetails": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        }
+      ],
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
         "OnCreate": "__OnCreate__"
@@ -466,6 +524,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "MinCount": 0,
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceType": "__InstanceType__",
+      "InstanceRequirements": {
+        "CurrentInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "DesiredInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "InstanceTypeDetails": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentCount": 0,
+          "ThreadsPerCore": 0
+        }
+      ],
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
         "OnCreate": "__OnCreate__"
@@ -938,6 +1025,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MinCount: (number) 0,
       InstanceGroupName: "__InstanceGroupName__",
       InstanceType: "__InstanceType__",
+      InstanceRequirements: {
+        CurrentInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        DesiredInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      InstanceTypeDetails: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        }
+      ],
       LifeCycleConfig: {
         SourceS3Uri: "__SourceS3Uri__",
         OnCreate: "__OnCreate__"
@@ -1111,6 +1227,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MinCount: (number) 0,
       InstanceGroupName: "__InstanceGroupName__",
       InstanceType: "__InstanceType__",
+      InstanceRequirements: {
+        CurrentInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        DesiredInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      InstanceTypeDetails: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        }
+      ],
       LifeCycleConfig: {
         SourceS3Uri: "__SourceS3Uri__",
         OnCreate: "__OnCreate__"
@@ -1284,6 +1429,35 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       MinCount: (number) 0,
       InstanceGroupName: "__InstanceGroupName__",
       InstanceType: "__InstanceType__",
+      InstanceRequirements: {
+        CurrentInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        DesiredInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      InstanceTypeDetails: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentCount: (number) 0,
+          ThreadsPerCore: (number) 0
+        }
+      ],
       LifeCycleConfig: {
         SourceS3Uri: "__SourceS3Uri__",
         OnCreate: "__OnCreate__"

@@ -1838,6 +1838,8 @@ export type AwsManagedHumanLoopRequestSource =
  * @enum
  */
 export const BatchAddClusterNodesErrorCode = {
+  INCOMPATIBLE_AVAILABILITY_ZONES: "IncompatibleAvailabilityZones",
+  INCOMPATIBLE_INSTANCE_TYPES: "IncompatibleInstanceTypes",
   INSTANCE_GROUP_NOT_FOUND: "InstanceGroupNotFound",
   INVALID_INSTANCE_GROUP_STATUS: "InvalidInstanceGroupStatus",
 } as const;

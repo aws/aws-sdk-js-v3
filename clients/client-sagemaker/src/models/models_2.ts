@@ -21,6 +21,7 @@ import type {
   ClusterStatus,
   CompilationJobStatus,
   CustomizationTechnique,
+  DeepHealthCheckType,
   DetailedModelPackageStatus,
   DirectInternetAccess,
   DomainStatus,
@@ -76,7 +77,6 @@ import type {
   PartnerAppStatus,
   PartnerAppType,
   Peft,
-  PipelineStatus,
   ProblemType,
   ProcessingInstanceType,
   Processor,
@@ -154,7 +154,6 @@ import type {
   ContextSource,
   GitConfig,
   InferenceSpecification,
-  InputConfig,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -185,13 +184,11 @@ import type {
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
-  EFSFileSystem,
   EndpointInfo,
   ExperimentConfig,
   ExplainerConfig,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
-  FSxLustreFileSystem,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
@@ -206,6 +203,7 @@ import type {
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
+  InputConfig,
   InstanceMetadataServiceConfiguration,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -246,7 +244,6 @@ import type {
   OptimizationVpcConfig,
   OutputConfig,
   OwnershipSettings,
-  ParallelismConfiguration,
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
   ProductionVariant,
@@ -256,13 +253,48 @@ import type {
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RetryStrategy,
-  S3FileSystem,
   ShadowModeConfig,
   SourceAlgorithmSpecification,
   SpaceAppLifecycleManagement,
   SpaceCodeEditorAppSettings,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>A file system, created by you in Amazon EFS, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
+ * @public
+ */
+export interface EFSFileSystem {
+  /**
+   * <p>The ID of your Amazon EFS file system.</p>
+   * @public
+   */
+  FileSystemId: string | undefined;
+}
+
+/**
+ * <p>A custom file system in Amazon FSx for Lustre.</p>
+ * @public
+ */
+export interface FSxLustreFileSystem {
+  /**
+   * <p>Amazon FSx for Lustre file system ID.</p>
+   * @public
+   */
+  FileSystemId: string | undefined;
+}
+
+/**
+ * <p>A custom file system in Amazon S3. This is only supported in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface S3FileSystem {
+  /**
+   * <p>The Amazon S3 URI that specifies the location in S3 where files are stored, which is mounted within the Studio environment. For example: <code>s3://&lt;bucket-name&gt;/&lt;prefix&gt;/</code>.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
 
 /**
  * <p>A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
@@ -1876,6 +1908,30 @@ export interface DebugRuleEvaluationStatus {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>The configuration of deep health checks for an instance group.</p> <note> <p>Overlapping deep health check configurations will be merged into a single operation.</p> </note>
+ * @public
+ */
+export interface InstanceGroupHealthCheckConfiguration {
+  /**
+   * <p>The name of the instance group.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>A list of Amazon Elastic Compute Cloud (EC2) instance IDs on which to perform deep health checks.</p> <note> <p>Leave this field blank to perform deep health checks on the entire instance group.</p> </note>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>A list of deep health checks to be performed.</p>
+   * @public
+   */
+  DeepHealthChecks: DeepHealthCheckType[] | undefined;
 }
 
 /**
@@ -9504,138 +9560,4 @@ export interface DescribePipelineRequest {
    * @public
    */
   PipelineVersionId?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineArn?: string | undefined;
-
-  /**
-   * <p>The name of the pipeline.</p>
-   * @public
-   */
-  PipelineName?: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   * @public
-   */
-  PipelineDisplayName?: string | undefined;
-
-  /**
-   * <p>The JSON pipeline definition.</p>
-   * @public
-   */
-  PipelineDefinition?: string | undefined;
-
-  /**
-   * <p>The description of the pipeline.</p>
-   * @public
-   */
-  PipelineDescription?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   * @public
-   */
-  PipelineStatus?: PipelineStatus | undefined;
-
-  /**
-   * <p>The time when the pipeline was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time when the pipeline was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The time when the pipeline was last run.</p>
-   * @public
-   */
-  LastRunTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-
-  /**
-   * <p>Lists the parallelism configuration applied to the pipeline.</p>
-   * @public
-   */
-  ParallelismConfiguration?: ParallelismConfiguration | undefined;
-
-  /**
-   * <p>The display name of the pipeline version.</p>
-   * @public
-   */
-  PipelineVersionDisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the pipeline version.</p>
-   * @public
-   */
-  PipelineVersionDescription?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineDefinitionForExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineDefinitionForExecutionResponse {
-  /**
-   * <p>The JSON pipeline definition.</p>
-   * @public
-   */
-  PipelineDefinition?: string | undefined;
-
-  /**
-   * <p>The time when the pipeline was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn: string | undefined;
 }

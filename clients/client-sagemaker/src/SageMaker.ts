@@ -1538,6 +1538,11 @@ import {
   SendPipelineExecutionStepSuccessCommand,
 } from "./commands/SendPipelineExecutionStepSuccessCommand";
 import {
+  type StartClusterHealthCheckCommandInput,
+  type StartClusterHealthCheckCommandOutput,
+  StartClusterHealthCheckCommand,
+} from "./commands/StartClusterHealthCheckCommand";
+import {
   type StartEdgeDeploymentStageCommandInput,
   type StartEdgeDeploymentStageCommandOutput,
   StartEdgeDeploymentStageCommand,
@@ -2298,6 +2303,7 @@ const commands = {
   SearchTrainingPlanOfferingsCommand,
   SendPipelineExecutionStepFailureCommand,
   SendPipelineExecutionStepSuccessCommand,
+  StartClusterHealthCheckCommand,
   StartEdgeDeploymentStageCommand,
   StartInferenceExperimentCommand,
   StartMlflowTrackingServerCommand,
@@ -7864,6 +7870,23 @@ export interface SageMaker {
     args: SendPipelineExecutionStepSuccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendPipelineExecutionStepSuccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartClusterHealthCheckCommand}
+   */
+  startClusterHealthCheck(
+    args: StartClusterHealthCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartClusterHealthCheckCommandOutput>;
+  startClusterHealthCheck(
+    args: StartClusterHealthCheckCommandInput,
+    cb: (err: any, data?: StartClusterHealthCheckCommandOutput) => void
+  ): void;
+  startClusterHealthCheck(
+    args: StartClusterHealthCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartClusterHealthCheckCommandOutput) => void
   ): void;
 
   /**

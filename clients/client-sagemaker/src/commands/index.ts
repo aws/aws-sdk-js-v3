@@ -312,6 +312,7 @@ export * from "./SearchCommand";
 export * from "./SearchTrainingPlanOfferingsCommand";
 export * from "./SendPipelineExecutionStepFailureCommand";
 export * from "./SendPipelineExecutionStepSuccessCommand";
+export * from "./StartClusterHealthCheckCommand";
 export * from "./StartEdgeDeploymentStageCommand";
 export * from "./StartInferenceExperimentCommand";
 export * from "./StartMlflowTrackingServerCommand";

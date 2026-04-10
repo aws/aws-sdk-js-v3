@@ -1008,6 +1008,10 @@ import type {
   SendPipelineExecutionStepSuccessCommandOutput,
 } from "./commands/SendPipelineExecutionStepSuccessCommand";
 import type {
+  StartClusterHealthCheckCommandInput,
+  StartClusterHealthCheckCommandOutput,
+} from "./commands/StartClusterHealthCheckCommand";
+import type {
   StartEdgeDeploymentStageCommandInput,
   StartEdgeDeploymentStageCommandOutput,
 } from "./commands/StartEdgeDeploymentStageCommand";
@@ -1532,6 +1536,7 @@ export type ServiceInputTypes =
   | SearchTrainingPlanOfferingsCommandInput
   | SendPipelineExecutionStepFailureCommandInput
   | SendPipelineExecutionStepSuccessCommandInput
+  | StartClusterHealthCheckCommandInput
   | StartEdgeDeploymentStageCommandInput
   | StartInferenceExperimentCommandInput
   | StartMlflowTrackingServerCommandInput
@@ -1918,6 +1923,7 @@ export type ServiceOutputTypes =
   | SearchTrainingPlanOfferingsCommandOutput
   | SendPipelineExecutionStepFailureCommandOutput
   | SendPipelineExecutionStepSuccessCommandOutput
+  | StartClusterHealthCheckCommandOutput
   | StartEdgeDeploymentStageCommandOutput
   | StartInferenceExperimentCommandOutput
   | StartMlflowTrackingServerCommandOutput

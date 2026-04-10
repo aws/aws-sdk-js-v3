@@ -10,17 +10,47 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       "NodeLogicalId": "__NodeLogicalId__",
       "InstanceGroupName": "__InstanceGroupName__",
-      "Status": "__Status__"
+      "Status": "__Status__",
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       "NodeLogicalId": "__NodeLogicalId__",
       "InstanceGroupName": "__InstanceGroupName__",
-      "Status": "__Status__"
+      "Status": "__Status__",
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       "NodeLogicalId": "__NodeLogicalId__",
       "InstanceGroupName": "__InstanceGroupName__",
-      "Status": "__Status__"
+      "Status": "__Status__",
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     }
   ],
   "Failed": [
@@ -28,18 +58,48 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InstanceGroupName": "__InstanceGroupName__",
       "ErrorCode": "__ErrorCode__",
       "FailedCount": 0,
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       "Message": "__Message__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
       "ErrorCode": "__ErrorCode__",
       "FailedCount": 0,
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       "Message": "__Message__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
       "ErrorCode": "__ErrorCode__",
       "FailedCount": 0,
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       "Message": "__Message__"
     }
   ]
@@ -52,17 +112,47 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       NodeLogicalId: "__NodeLogicalId__",
       InstanceGroupName: "__InstanceGroupName__",
-      Status: "__Status__"
+      Status: "__Status__",
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       NodeLogicalId: "__NodeLogicalId__",
       InstanceGroupName: "__InstanceGroupName__",
-      Status: "__Status__"
+      Status: "__Status__",
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       NodeLogicalId: "__NodeLogicalId__",
       InstanceGroupName: "__InstanceGroupName__",
-      Status: "__Status__"
+      Status: "__Status__",
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     }
   ],
   Failed: [
@@ -70,18 +160,48 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InstanceGroupName: "__InstanceGroupName__",
       ErrorCode: "__ErrorCode__",
       FailedCount: (number) 0,
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       Message: "__Message__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
       ErrorCode: "__ErrorCode__",
       FailedCount: (number) 0,
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       Message: "__Message__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
       ErrorCode: "__ErrorCode__",
       FailedCount: (number) 0,
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       Message: "__Message__"
     }
   ],
@@ -107,17 +227,47 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       "NodeLogicalId": "__NodeLogicalId__",
       "InstanceGroupName": "__InstanceGroupName__",
-      "Status": "__Status__"
+      "Status": "__Status__",
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       "NodeLogicalId": "__NodeLogicalId__",
       "InstanceGroupName": "__InstanceGroupName__",
-      "Status": "__Status__"
+      "Status": "__Status__",
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       "NodeLogicalId": "__NodeLogicalId__",
       "InstanceGroupName": "__InstanceGroupName__",
-      "Status": "__Status__"
+      "Status": "__Status__",
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     }
   ],
   "Failed": [
@@ -125,18 +275,48 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "InstanceGroupName": "__InstanceGroupName__",
       "ErrorCode": "__ErrorCode__",
       "FailedCount": 0,
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       "Message": "__Message__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
       "ErrorCode": "__ErrorCode__",
       "FailedCount": 0,
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       "Message": "__Message__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
       "ErrorCode": "__ErrorCode__",
       "FailedCount": 0,
+      "AvailabilityZones": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       "Message": "__Message__"
     }
   ]
@@ -149,17 +329,47 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       NodeLogicalId: "__NodeLogicalId__",
       InstanceGroupName: "__InstanceGroupName__",
-      Status: "__Status__"
+      Status: "__Status__",
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       NodeLogicalId: "__NodeLogicalId__",
       InstanceGroupName: "__InstanceGroupName__",
-      Status: "__Status__"
+      Status: "__Status__",
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     },
     {
       NodeLogicalId: "__NodeLogicalId__",
       InstanceGroupName: "__InstanceGroupName__",
-      Status: "__Status__"
+      Status: "__Status__",
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
     }
   ],
   Failed: [
@@ -167,18 +377,48 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       InstanceGroupName: "__InstanceGroupName__",
       ErrorCode: "__ErrorCode__",
       FailedCount: (number) 0,
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       Message: "__Message__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
       ErrorCode: "__ErrorCode__",
       FailedCount: (number) 0,
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       Message: "__Message__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
       ErrorCode: "__ErrorCode__",
       FailedCount: (number) 0,
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
       Message: "__Message__"
     }
   ],

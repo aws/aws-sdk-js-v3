@@ -2372,6 +2372,13 @@ SendPipelineExecutionStepSuccess
 </details>
 <details>
 <summary>
+StartClusterHealthCheck
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/StartClusterHealthCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/StartClusterHealthCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/StartClusterHealthCheckCommandOutput/)
+</details>
+<details>
+<summary>
 StartEdgeDeploymentStage
 </summary>
 

@@ -56,8 +56,8 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     LaunchTime: new Date("TIMESTAMP"),
  * //     LastSoftwareUpdateTime: new Date("TIMESTAMP"),
  * //     LifeCycleConfig: { // ClusterLifeCycleConfig
- * //       SourceS3Uri: "STRING_VALUE", // required
- * //       OnCreate: "STRING_VALUE", // required
+ * //       SourceS3Uri: "STRING_VALUE",
+ * //       OnCreate: "STRING_VALUE",
  * //     },
  * //     OverrideVpcConfig: { // VpcConfig
  * //       SecurityGroupIds: [ // VpcSecurityGroupIds // required

@@ -219,10 +219,13 @@ import {
   ClusterInstanceGroupDetails$,
   ClusterInstanceGroupSpecification$,
   ClusterInstancePlacement$,
+  ClusterInstanceRequirementDetails$,
+  ClusterInstanceRequirements$,
   ClusterInstanceStatus,
   ClusterInstanceStatusDetails$,
   ClusterInstanceStorageConfig$,
   ClusterInstanceType,
+  ClusterInstanceTypeDetail$,
   ClusterKubernetesConfig$,
   ClusterKubernetesConfigDetails$,
   ClusterKubernetesConfigNodeDetails$,
@@ -1322,6 +1325,7 @@ import {
   InputConfig$,
   InputMode,
   InstanceGroup$,
+  InstanceGroupHealthCheckConfiguration$,
   InstanceGroupMetadata$,
   InstanceGroupScalingMetadata$,
   InstanceGroupStatus,
@@ -2251,6 +2255,10 @@ import {
   SplitType,
   StageStatus,
   Stairs$,
+  StartClusterHealthCheck$,
+  StartClusterHealthCheckCommand,
+  StartClusterHealthCheckRequest$,
+  StartClusterHealthCheckResponse$,
   StartEdgeDeploymentStage$,
   StartEdgeDeploymentStageCommand,
   StartEdgeDeploymentStageRequest$,
@@ -3295,6 +3303,8 @@ assert(typeof SendPipelineExecutionStepFailureCommand === "function");
 assert(typeof SendPipelineExecutionStepFailure$ === "object");
 assert(typeof SendPipelineExecutionStepSuccessCommand === "function");
 assert(typeof SendPipelineExecutionStepSuccess$ === "object");
+assert(typeof StartClusterHealthCheckCommand === "function");
+assert(typeof StartClusterHealthCheck$ === "object");
 assert(typeof StartEdgeDeploymentStageCommand === "function");
 assert(typeof StartEdgeDeploymentStage$ === "object");
 assert(typeof StartInferenceExperimentCommand === "function");
@@ -3571,8 +3581,11 @@ assert(typeof ClusterFsxOpenZfsConfig$ === "object");
 assert(typeof ClusterInstanceGroupDetails$ === "object");
 assert(typeof ClusterInstanceGroupSpecification$ === "object");
 assert(typeof ClusterInstancePlacement$ === "object");
+assert(typeof ClusterInstanceRequirementDetails$ === "object");
+assert(typeof ClusterInstanceRequirements$ === "object");
 assert(typeof ClusterInstanceStatusDetails$ === "object");
 assert(typeof ClusterInstanceStorageConfig$ === "object");
+assert(typeof ClusterInstanceTypeDetail$ === "object");
 assert(typeof ClusterKubernetesConfig$ === "object");
 assert(typeof ClusterKubernetesConfigDetails$ === "object");
 assert(typeof ClusterKubernetesConfigNodeDetails$ === "object");
@@ -4168,6 +4181,7 @@ assert(typeof InferenceSpecification$ === "object");
 assert(typeof InfraCheckConfig$ === "object");
 assert(typeof InputConfig$ === "object");
 assert(typeof InstanceGroup$ === "object");
+assert(typeof InstanceGroupHealthCheckConfiguration$ === "object");
 assert(typeof InstanceGroupMetadata$ === "object");
 assert(typeof InstanceGroupScalingMetadata$ === "object");
 assert(typeof InstanceMetadata$ === "object");
@@ -4658,6 +4672,8 @@ assert(typeof SpaceSharingSettings$ === "object");
 assert(typeof SpaceSharingSettingsSummary$ === "object");
 assert(typeof SpaceStorageSettings$ === "object");
 assert(typeof Stairs$ === "object");
+assert(typeof StartClusterHealthCheckRequest$ === "object");
+assert(typeof StartClusterHealthCheckResponse$ === "object");
 assert(typeof StartEdgeDeploymentStageRequest$ === "object");
 assert(typeof StartInferenceExperimentRequest$ === "object");
 assert(typeof StartInferenceExperimentResponse$ === "object");

@@ -97,6 +97,7 @@ import type {
   PartnerAppStatus,
   PartnerAppType,
   PipelineExecutionStatus,
+  PipelineStatus,
   ProcessingJobStatus,
   ProfilingStatus,
   ProjectStatus,
@@ -128,7 +129,6 @@ import type {
   SortQuotaBy,
   SortTrackingServerBy,
   SpaceStatus,
-  StepStatus,
   StudioLifecycleConfigAppType,
   TrackingServerStatus,
   TrainingJobStatus,
@@ -160,7 +160,6 @@ import type {
   BedrockCustomModelMetadata,
   BedrockModelImportMetadata,
   BedrockProvisionedModelThroughputMetadata,
-  CacheHitResult,
   CallbackStepMetadata,
   CfnTemplateProviderDetail,
   Channel,
@@ -261,6 +260,140 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  PipelineName?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   * @public
+   */
+  PipelineDisplayName?: string | undefined;
+
+  /**
+   * <p>The JSON pipeline definition.</p>
+   * @public
+   */
+  PipelineDefinition?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   * @public
+   */
+  PipelineDescription?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of the pipeline execution.</p>
+   * @public
+   */
+  PipelineStatus?: PipelineStatus | undefined;
+
+  /**
+   * <p>The time when the pipeline was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the pipeline was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The time when the pipeline was last run.</p>
+   * @public
+   */
+  LastRunTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>Lists the parallelism configuration applied to the pipeline.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineDefinitionForExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineDefinitionForExecutionResponse {
+  /**
+   * <p>The JSON pipeline definition.</p>
+   * @public
+   */
+  PipelineDefinition?: string | undefined;
+
+  /**
+   * <p>The time when the pipeline was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+}
 
 /**
  * <p> The MLflow configuration. </p>
@@ -11240,134 +11373,4 @@ export interface SelectiveExecutionResult {
    * @public
    */
   SourcePipelineExecutionArn?: string | undefined;
-}
-
-/**
- * <p>An execution of a step in a pipeline.</p>
- * @public
- */
-export interface PipelineExecutionStep {
-  /**
-   * <p>The name of the step that is executed.</p>
-   * @public
-   */
-  StepName?: string | undefined;
-
-  /**
-   * <p>The display name of the step.</p>
-   * @public
-   */
-  StepDisplayName?: string | undefined;
-
-  /**
-   * <p>The description of the step.</p>
-   * @public
-   */
-  StepDescription?: string | undefined;
-
-  /**
-   * <p>The time that the step started executing.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time that the step stopped executing.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The status of the step execution.</p>
-   * @public
-   */
-  StepStatus?: StepStatus | undefined;
-
-  /**
-   * <p>If this pipeline execution step was cached, details on the cache hit.</p>
-   * @public
-   */
-  CacheHitResult?: CacheHitResult | undefined;
-
-  /**
-   * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Metadata to run the pipeline step.</p>
-   * @public
-   */
-  Metadata?: PipelineExecutionStepMetadata | undefined;
-
-  /**
-   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
-   * @public
-   */
-  AttemptCount?: number | undefined;
-
-  /**
-   * <p>The ARN from an execution of the current pipeline from which results are reused for this step.</p>
-   * @public
-   */
-  SelectiveExecutionResult?: SelectiveExecutionResult | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPipelineExecutionStepsResponse {
-  /**
-   * <p>A list of <code>PipeLineExecutionStep</code> objects. Each <code>PipeLineExecutionStep</code> consists of StepName, StartTime, EndTime, StepStatus, and Metadata. Metadata is an object with properties for each job that contains relevant information about the job created by the step.</p>
-   * @public
-   */
-  PipelineExecutionSteps?: PipelineExecutionStep[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPipelineParametersForExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn: string | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of parameters to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Assigns a value to a named Pipeline parameter.</p>
- * @public
- */
-export interface Parameter {
-  /**
-   * <p>The name of the parameter to assign a value to. This parameter name must match a named parameter in the pipeline definition.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The literal value for the parameter.</p>
-   * @public
-   */
-  Value: string | undefined;
 }
