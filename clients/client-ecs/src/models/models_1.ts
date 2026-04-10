@@ -189,6 +189,8 @@ export interface RegisterTaskDefinitionRequest {
 
   /**
    * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+   *
+   * @deprecated (since 2023-04-15) This feature is no longer available.
    * @public
    */
   inferenceAccelerators?: InferenceAccelerator[] | undefined;
@@ -490,6 +492,8 @@ export interface ContainerOverride {
 
 /**
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to override the Elastic Inference accelerator specified in the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *
+ * @deprecated (since 2023-04-15) This feature is no longer available.
  * @public
  */
 export interface InferenceAcceleratorOverride {
@@ -525,6 +529,8 @@ export interface TaskOverride {
 
   /**
    * <p>The Elastic Inference accelerator override for the task.</p>
+   *
+   * @deprecated (since 2023-04-15) This feature is no longer available.
    * @public
    */
   inferenceAcceleratorOverrides?: InferenceAcceleratorOverride[] | undefined;
@@ -657,6 +663,8 @@ export interface Task {
 
   /**
    * <p>The Elastic Inference accelerator that's associated with the task.</p>
+   *
+   * @deprecated (since 2023-04-15) This feature is no longer available.
    * @public
    */
   inferenceAccelerators?: InferenceAccelerator[] | undefined;

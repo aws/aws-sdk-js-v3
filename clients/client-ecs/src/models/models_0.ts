@@ -4727,7 +4727,7 @@ export interface LinuxParameters {
   sharedMemorySize?: number | undefined;
 
   /**
-   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the <code>--tmpfs</code> option to docker run.</p> <note> <p>If you're using tasks that use the Fargate launch type, the <code>tmpfs</code> parameter isn't supported.</p> </note>
+   * <p>The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the <code>--tmpfs</code> option to docker run.</p>
    * @public
    */
   tmpfs?: Tmpfs[] | undefined;
@@ -5095,6 +5095,8 @@ export interface EphemeralStorage {
 
 /**
  * <p>Details on an Elastic Inference accelerator. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *
+ * @deprecated (since 2023-04-15) This feature is no longer available.
  * @public
  */
 export interface InferenceAccelerator {
@@ -5484,6 +5486,8 @@ export interface TaskDefinition {
 
   /**
    * <p>The Elastic Inference accelerator that's associated with the task.</p>
+   *
+   * @deprecated (since 2023-04-15) This feature is no longer available.
    * @public
    */
   inferenceAccelerators?: InferenceAccelerator[] | undefined;

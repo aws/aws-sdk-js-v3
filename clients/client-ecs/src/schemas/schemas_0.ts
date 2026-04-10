@@ -766,6 +766,7 @@ const _hCGPS = "healthCheckGracePeriodSeconds";
 const _hCP = "healthCheckPath";
 const _hCPe = "healthCheckPort";
 const _hD = "hookDetails";
+const _hE = "httpError";
 const _hL = "hardLimit";
 const _hP = "hostPath";
 const _hPR = "hostPortRange";
@@ -1152,7 +1153,7 @@ export var ECSServiceException$: StaticErrorSchema = [-3, _s, "ECSServiceExcepti
 _s_registry.registerError(ECSServiceException$, ECSServiceException);
 const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c },
+  { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
@@ -1444,7 +1445,7 @@ export var Container$: StaticStructureSchema = [3, n0, _Co,
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_n, _im, _rC, _cp, _me, _mR, _l, _pM, _es, _rPe, _eP, _com, _en, _eF, _mP, _vF, _lP, _sec, _dO, _sT, _sTt, _vC, _h, _u, _wD, _dN, _p, _rRF, _dS, _dSD, _eH, _dSO, _in, _pT, _dL, _ul, _lC, _hC, _sC, _rR, _fC, _cS],
-  [0, 0, [() => RepositoryCredentials$, 0], 1, 1, 1, 64 | 0, () => PortMappingList, 2, () => ContainerRestartPolicy$, 64 | 0, 64 | 0, () => EnvironmentVariables, () => EnvironmentFiles, () => MountPointList, () => VolumeFromList, () => LinuxParameters$, () => SecretList, () => ContainerDependencies, 1, 1, 0, 0, 0, 0, 2, 2, 2, 64 | 0, 64 | 0, () => HostEntryList, 64 | 0, 2, 2, 128 | 0, () => UlimitList, () => LogConfiguration$, () => HealthCheck$, () => SystemControls, () => ResourceRequirements, () => FirelensConfiguration$, 64 | 0]
+  [0, 0, [() => RepositoryCredentials$, 0], 1, 1, 1, 64 | 0, () => PortMappingList, 2, () => ContainerRestartPolicy$, 64 | 0, 64 | 0, [() => EnvironmentVariables, 0], () => EnvironmentFiles, () => MountPointList, () => VolumeFromList, () => LinuxParameters$, () => SecretList, () => ContainerDependencies, 1, 1, 0, 0, 0, 0, 2, 2, 2, 64 | 0, 64 | 0, () => HostEntryList, 64 | 0, 2, 2, 128 | 0, () => UlimitList, () => LogConfiguration$, () => HealthCheck$, () => SystemControls, () => ResourceRequirements, () => FirelensConfiguration$, 64 | 0]
 ];
 export var ContainerDependency$: StaticStructureSchema = [3, n0, _CDo,
   0,
@@ -1469,7 +1470,7 @@ export var ContainerInstanceHealthStatus$: StaticStructureSchema = [3, n0, _CIHS
 export var ContainerOverride$: StaticStructureSchema = [3, n0, _CO,
   0,
   [_n, _com, _en, _eF, _cp, _me, _mR, _rR],
-  [0, 64 | 0, () => EnvironmentVariables, () => EnvironmentFiles, 1, 1, 1, () => ResourceRequirements]
+  [0, 64 | 0, [() => EnvironmentVariables, 0], () => EnvironmentFiles, 1, 1, 1, () => ResourceRequirements]
 ];
 export var ContainerRestartPolicy$: StaticStructureSchema = [3, n0, _CRP,
   0,
@@ -1519,12 +1520,12 @@ export var CreatedAt$: StaticStructureSchema = [3, n0, _CA,
 export var CreateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _CEGSR,
   0,
   [_eRA, _iRA, _pC, _sN, _cl, _hCP, _tRA, _nC, _cp, _me, _sTc, _ta],
-  [0, 0, () => ExpressGatewayContainer$, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags], 3
+  [0, 0, [() => ExpressGatewayContainer$, 0], 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags], 3
 ];
 export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _CEGSRr,
   0,
   [_ser],
-  [() => ECSExpressGatewayService$]
+  [[() => ECSExpressGatewayService$, 0]]
 ];
 export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _CMIPC,
   0,
@@ -1569,7 +1570,7 @@ export var DaemonCircuitBreaker$: StaticStructureSchema = [3, n0, _DCB,
 export var DaemonContainerDefinition$: StaticStructureSchema = [3, n0, _DCD,
   0,
   [_im, _n, _me, _mR, _rC, _hC, _cp, _es, _eP, _com, _wD, _eF, _en, _sec, _rRF, _mP, _lC, _fC, _p, _u, _ul, _lP, _dO, _sT, _sTt, _sC, _in, _pT, _rPe],
-  [0, 0, 1, 1, [() => RepositoryCredentials$, 0], () => HealthCheck$, 1, 2, 64 | 0, 64 | 0, 0, () => EnvironmentFiles, () => EnvironmentVariables, () => SecretList, 2, () => MountPointList, () => LogConfiguration$, () => FirelensConfiguration$, 2, 0, () => UlimitList, () => DaemonLinuxParameters$, () => ContainerDependencies, 1, 1, () => SystemControls, 2, 2, () => ContainerRestartPolicy$], 1
+  [0, 0, 1, 1, [() => RepositoryCredentials$, 0], () => HealthCheck$, 1, 2, 64 | 0, 64 | 0, 0, () => EnvironmentFiles, [() => EnvironmentVariables, 0], () => SecretList, 2, () => MountPointList, () => LogConfiguration$, () => FirelensConfiguration$, 2, 0, () => UlimitList, () => DaemonLinuxParameters$, () => ContainerDependencies, 1, 1, () => SystemControls, 2, 2, () => ContainerRestartPolicy$], 1
 ];
 export var DaemonContainerImage$: StaticStructureSchema = [3, n0, _DCI,
   0,
@@ -1719,7 +1720,7 @@ export var DeleteExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, 
 export var DeleteExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _DEGSRe,
   0,
   [_ser],
-  [() => ECSExpressGatewayService$]
+  [[() => ECSExpressGatewayService$, 0]]
 ];
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -1884,7 +1885,7 @@ export var DescribeExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0
 export var DescribeExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _DEGSResc,
   0,
   [_ser],
-  [() => ECSExpressGatewayService$]
+  [[() => ECSExpressGatewayService$, 0]]
 ];
 export var DescribeServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
@@ -1944,7 +1945,7 @@ export var DescribeTasksRequest$: StaticStructureSchema = [3, n0, _DTR,
 export var DescribeTasksResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
   [_tas, _fa],
-  [() => Tasks, () => Failures]
+  [[() => Tasks, 0], () => Failures]
 ];
 export var Device$: StaticStructureSchema = [3, n0, _De,
   0,
@@ -1974,7 +1975,7 @@ export var EBSTagSpecification$: StaticStructureSchema = [3, n0, _EBSTS,
 export var ECSExpressGatewayService$: StaticStructureSchema = [3, n0, _ECSEGS,
   0,
   [_cl, _sN, _sAe, _iRA, _st, _cDu, _aCc, _ta, _cAr, _uA],
-  [0, 0, 0, 0, () => ExpressGatewayServiceStatus$, 0, () => ExpressGatewayServiceConfigurations, () => Tags, 4, 4]
+  [0, 0, 0, 0, () => ExpressGatewayServiceStatus$, 0, [() => ExpressGatewayServiceConfigurations, 0], () => Tags, 4, 4]
 ];
 export var ECSManagedResources$: StaticStructureSchema = [3, n0, _ECSMR,
   0,
@@ -2024,7 +2025,7 @@ export var ExecuteCommandResponse$: StaticStructureSchema = [3, n0, _ECRx,
 export var ExpressGatewayContainer$: StaticStructureSchema = [3, n0, _EGC,
   0,
   [_im, _cPon, _aLC, _rC, _com, _en, _sec],
-  [0, 1, () => ExpressGatewayServiceAwsLogsConfiguration$, () => ExpressGatewayRepositoryCredentials$, 64 | 0, () => EnvironmentVariables, () => SecretList], 1
+  [0, 1, () => ExpressGatewayServiceAwsLogsConfiguration$, () => ExpressGatewayRepositoryCredentials$, 64 | 0, [() => EnvironmentVariables, 0], () => SecretList], 1
 ];
 export var ExpressGatewayRepositoryCredentials$: StaticStructureSchema = [3, n0, _EGRC,
   0,
@@ -2044,7 +2045,7 @@ export var ExpressGatewayServiceAwsLogsConfiguration$: StaticStructureSchema = [
 export var ExpressGatewayServiceConfiguration$: StaticStructureSchema = [3, n0, _EGSC,
   0,
   [_sRAe, _eRA, _tRA, _cp, _me, _nC, _hCP, _pC, _sTc, _iP, _cAr],
-  [0, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, () => ExpressGatewayContainer$, () => ExpressGatewayScalingTarget$, () => IngressPathSummaries, 4]
+  [0, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, [() => ExpressGatewayContainer$, 0], () => ExpressGatewayScalingTarget$, () => IngressPathSummaries, 4]
 ];
 export var ExpressGatewayServiceNetworkConfiguration$: StaticStructureSchema = [3, n0, _EGSNC,
   0,
@@ -2579,12 +2580,12 @@ export var Rollback$: StaticStructureSchema = [3, n0, _Ro,
 export var RunTaskRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_tD, _cPS, _cl, _cou, _eECSMT, _eEC, _g, _lT, _nC, _ov, _pCl, _pS, _pV, _pTr, _rIe, _sB, _ta, _cT, _vCo],
-  [0, () => CapacityProviderStrategy, 0, 1, 2, 2, 0, 0, () => NetworkConfiguration$, () => TaskOverride$, () => PlacementConstraints, () => PlacementStrategies, 0, 0, 0, 0, () => Tags, [0, 4], () => TaskVolumeConfigurations], 1
+  [0, () => CapacityProviderStrategy, 0, 1, 2, 2, 0, 0, () => NetworkConfiguration$, [() => TaskOverride$, 0], () => PlacementConstraints, () => PlacementStrategies, 0, 0, 0, 0, () => Tags, [0, 4], () => TaskVolumeConfigurations], 1
 ];
 export var RunTaskResponse$: StaticStructureSchema = [3, n0, _RTRu,
   0,
   [_tas, _fa],
-  [() => Tasks, () => Failures]
+  [[() => Tasks, 0], () => Failures]
 ];
 export var RuntimePlatform$: StaticStructureSchema = [3, n0, _RP,
   0,
@@ -2734,12 +2735,12 @@ export var Setting$: StaticStructureSchema = [3, n0, _Set,
 export var StartTaskRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
   [_cIon, _tD, _cl, _eECSMT, _eEC, _g, _nC, _ov, _pTr, _rIe, _sB, _ta, _vCo],
-  [64 | 0, 0, 0, 2, 2, 0, () => NetworkConfiguration$, () => TaskOverride$, 0, 0, 0, () => Tags, () => TaskVolumeConfigurations], 2
+  [64 | 0, 0, 0, 2, 2, 0, () => NetworkConfiguration$, [() => TaskOverride$, 0], 0, 0, 0, () => Tags, () => TaskVolumeConfigurations], 2
 ];
 export var StartTaskResponse$: StaticStructureSchema = [3, n0, _STRt,
   0,
   [_tas, _fa],
-  [() => Tasks, () => Failures]
+  [[() => Tasks, 0], () => Failures]
 ];
 export var StopServiceDeploymentRequest$: StaticStructureSchema = [3, n0, _SSDR,
   0,
@@ -2759,7 +2760,7 @@ export var StopTaskRequest$: StaticStructureSchema = [3, n0, _STRto,
 export var StopTaskResponse$: StaticStructureSchema = [3, n0, _STRtop,
   0,
   [_task],
-  [() => Task$]
+  [[() => Task$, 0]]
 ];
 export var SubmitAttachmentStateChangesRequest$: StaticStructureSchema = [3, n0, _SASCR,
   0,
@@ -2814,7 +2815,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var Task$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_a, _at, _aZ, _cPN, _cA, _conn, _cAon, _cIA, _conta, _cp, _cAr, _dSe, _eEC, _eSA, _g, _hS, _iAn, _lS, _lT, _me, _ov, _pV, _pF, _pSA, _pSAu, _sA, _sB, _sCtop, _sAt, _sRt, _sAto, _ta, _tA, _tDAa, _ve, _eSp, _fES],
-  [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, () => TaskOverride$, 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$]
+  [() => Attachments, () => Attributes, 0, 0, 0, 0, 4, 0, () => Containers, 0, 4, 0, 2, 4, 0, 0, () => InferenceAccelerators, 0, 0, 0, [() => TaskOverride$, 0], 0, 0, 4, 4, 4, 0, 0, 4, 0, 4, () => Tags, 0, 0, 1, () => EphemeralStorage$, () => TaskEphemeralStorage$]
 ];
 export var TaskDefinition$: StaticStructureSchema = [3, n0, _TD,
   0,
@@ -2844,7 +2845,7 @@ export var TaskManagedEBSVolumeTerminationPolicy$: StaticStructureSchema = [3, n
 export var TaskOverride$: StaticStructureSchema = [3, n0, _TO,
   0,
   [_cO, _cp, _iAO, _eRA, _me, _tRA, _eSp],
-  [() => ContainerOverrides, 0, () => InferenceAcceleratorOverrides, 0, 0, 0, () => EphemeralStorage$]
+  [[() => ContainerOverrides, 0], 0, () => InferenceAcceleratorOverrides, 0, 0, 0, () => EphemeralStorage$]
 ];
 export var TaskSet$: StaticStructureSchema = [3, n0, _TS,
   0,
@@ -2949,17 +2950,17 @@ export var UpdateDaemonResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdatedExpressGatewayService$: StaticStructureSchema = [3, n0, _UEGS,
   0,
   [_sAe, _cl, _sN, _st, _tCa, _cAr, _uA],
-  [0, 0, 0, () => ExpressGatewayServiceStatus$, () => ExpressGatewayServiceConfiguration$, 4, 4]
+  [0, 0, 0, () => ExpressGatewayServiceStatus$, [() => ExpressGatewayServiceConfiguration$, 0], 4, 4]
 ];
 export var UpdateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _UEGSR,
   0,
   [_sAe, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc],
-  [0, 0, 0, () => ExpressGatewayContainer$, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$], 1
+  [0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$], 1
 ];
 export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _UEGSRp,
   0,
   [_ser],
-  [() => UpdatedExpressGatewayService$]
+  [[() => UpdatedExpressGatewayService$, 0]]
 ];
 export var UpdateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _UMIPC,
   0,
@@ -3090,7 +3091,8 @@ var ContainerInstances: StaticListSchema = [1, n0, _CIont,
   0, () => ContainerInstance$
 ];
 var ContainerOverrides: StaticListSchema = [1, n0, _COo,
-  0, () => ContainerOverride$
+  0, [() => ContainerOverride$,
+    0]
 ];
 var Containers: StaticListSchema = [1, n0, _Con,
   0, () => Container$
@@ -3158,14 +3160,15 @@ var EnvironmentFiles: StaticListSchema = [1, n0, _EFn,
   0, () => EnvironmentFile$
 ];
 var EnvironmentVariables: StaticListSchema = [1, n0, _EV,
-  0, () => KeyValuePair$
+  8, () => KeyValuePair$
 ];
 var ExcludedInstanceTypeSet: StaticListSchema = [1, n0, _EITS,
   0, [0,
     { [_xN]: _it }]
 ];
 var ExpressGatewayServiceConfigurations: StaticListSchema = [1, n0, _EGSCx,
-  0, () => ExpressGatewayServiceConfiguration$
+  0, [() => ExpressGatewayServiceConfiguration$,
+    0]
 ];
 var ExpressGatewayServiceIncludeList = 64 | 0;
 var Failures: StaticListSchema = [1, n0, _Fa,
@@ -3328,7 +3331,8 @@ var TaskDefinitionPlacementConstraints: StaticListSchema = [1, n0, _TDPCa,
 ];
 var TaskFieldList = 64 | 0;
 var Tasks: StaticListSchema = [1, n0, _Tas,
-  0, () => Task$
+  0, [() => Task$,
+    0]
 ];
 var TaskSetFieldList = 64 | 0;
 var TaskSets: StaticListSchema = [1, n0, _TSa,
