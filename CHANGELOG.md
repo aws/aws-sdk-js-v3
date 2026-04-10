@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1029.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1028.0...v3.1029.0) (2026-04-10)
+
+
+### Features
+
+* **client-connect:** Conversational Analytics for Email ([fd2820f](https://github.com/aws/aws-sdk-js-v3/commit/fd2820f8dd33c67471100f2c7ff9fadfbc1ffc7a))
+* **client-devops-agent:** Devops Agent now supports associate Splunk, Datadog and custom MCP server to an Agent Space. ([4450317](https://github.com/aws/aws-sdk-js-v3/commit/4450317588a78674b066acb06a2813686f6e45ff))
+* **client-ecs:** Minor updates to exceptions for completeness ([788ab4a](https://github.com/aws/aws-sdk-js-v3/commit/788ab4a6e9d756429b6597ecdcfaba971ef3cbc8))
+* **client-imagebuilder:** Image pipelines can now automatically apply tags to images they create. Set the imageTags property when creating or updating your pipelines to get started. ([5eb366f](https://github.com/aws/aws-sdk-js-v3/commit/5eb366f5edb132b2bf9a7556fdc72534132ce2bd))
+* **client-mediaconvert:** Adds support for MV-HEVC video output and clear lead for AV1 DRM output. ([812d3da](https://github.com/aws/aws-sdk-js-v3/commit/812d3dad9ee2a7c7e6b1c0de27e34cdbc50f2572))
+* **client-observabilityadmin:** CloudWatch Observability Admin adds support for multi-region telemetry evaluation and telemetry enablement rules. ([861e172](https://github.com/aws/aws-sdk-js-v3/commit/861e172aa8c12a7226c9d312a8b411124d424d21))
+* **client-rtbfabric:** Adds optional health check configuration for Responder Gateways with ASG Managed Endpoints. When provided, RTB Fabric continuously probes customers' instance IPs and routes traffic only to healthy ones, reducing errors during deployments, scaling events, and instance failures. ([3e89043](https://github.com/aws/aws-sdk-js-v3/commit/3e89043766f865865af301c1c3b525b294b9100f))
+* **client-sagemaker:** Support new SageMaker StartClusterHealthCheck API for on-demand DHC on Hyperpod EKS cluster. Support updated CreateCluster, UpdateCluster, DescribeCluster, BatchAddClusterNodes APIs for flexible instance group on HyperPod cluster ([dfcde03](https://github.com/aws/aws-sdk-js-v3/commit/dfcde032c387d7a6e2abe0fb9b09186f701f5620))
+
+
+
+
+
 # [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
 
 

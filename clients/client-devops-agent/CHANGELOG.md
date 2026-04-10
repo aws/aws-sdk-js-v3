@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1029.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1028.0...v3.1029.0) (2026-04-10)
+
+
+### Features
+
+* **client-devops-agent:** Devops Agent now supports associate Splunk, Datadog and custom MCP server to an Agent Space. ([4450317](https://github.com/aws/aws-sdk-js-v3/commit/4450317588a78674b066acb06a2813686f6e45ff))
+
+
+
+
+
 # [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent

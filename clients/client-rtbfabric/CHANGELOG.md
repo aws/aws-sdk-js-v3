@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1029.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1028.0...v3.1029.0) (2026-04-10)
+
+
+### Features
+
+* **client-rtbfabric:** Adds optional health check configuration for Responder Gateways with ASG Managed Endpoints. When provided, RTB Fabric continuously probes customers' instance IPs and routes traffic only to healthy ones, reducing errors during deployments, scaling events, and instance failures. ([3e89043](https://github.com/aws/aws-sdk-js-v3/commit/3e89043766f865865af301c1c3b525b294b9100f))
+
+
+
+
+
 # [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-rtbfabric

@@ -17,9 +17,9 @@
 | protocol-rest-xml.ts                      | unknown     | 43.8 kb         | 51.3 kb        | 45.3 kb         |
 | protocol-rpc-cbor.ts                      | unknown     | 43.8 kb         | 51.3 kb        | 45.3 kb         |
 | protocol-rpc-json-1-1.ts                  | unknown     | 33.5 kb         | 38.1 kb        | 34.6 kb         |
-| sdk-connect-aggregate.ts                  | unknown     | 383.7 kb        | 509.5 kb       | 403.4 kb        |
-| sdk-connect-single-command.ts             | unknown     | 130.9 kb        | 178.4 kb       | 297.5 kb        |
+| sdk-connect-aggregate.ts                  | unknown     | 383.7 kb        | 509.6 kb       | 403.5 kb        |
+| sdk-connect-single-command.ts             | unknown     | 130.9 kb        | 178.4 kb       | 297.6 kb        |
 | sdk-ec2-aggregate.ts                      | unknown     | 892.9 kb        | 1.164 mb       | 925.7 kb        |
 | sdk-s3-aggregate.ts                       | unknown     | 303.3 kb        | 411.7 kb       | 310.8 kb        |
 | sdk-s3-single-command.ts                  | unknown     | 204.8 kb        | 280.0 kb       | 263.5 kb        |
-| sdk-sagemaker-aggregate.ts                | unknown     | 381.0 kb        | 518.0 kb       | 403.0 kb        |
+| sdk-sagemaker-aggregate.ts                | unknown     | 382.1 kb        | 519.4 kb       | 404.2 kb        |

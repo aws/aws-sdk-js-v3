@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1029.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1028.0...v3.1029.0) (2026-04-10)
+
+
+### Features
+
+* **client-observabilityadmin:** CloudWatch Observability Admin adds support for multi-region telemetry evaluation and telemetry enablement rules. ([861e172](https://github.com/aws/aws-sdk-js-v3/commit/861e172aa8c12a7226c9d312a8b411124d424d21))
+
+
+
+
+
 # [3.1028.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1027.0...v3.1028.0) (2026-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin
