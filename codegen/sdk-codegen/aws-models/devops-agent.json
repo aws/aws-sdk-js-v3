@@ -5430,7 +5430,7 @@
           "target": "com.amazonaws.devopsagent#ApiKeyValue",
           "traits": {
             "smithy.api#documentation": "API key value for authenticating with the service.",
-            "smithy.api#pattern": "^[a-zA-Z0-9+/=._-]+(\\s[a-zA-Z0-9+/=._-]+)?$",
+            "smithy.api#pattern": "^[!-~]([ \\t]*[!-~])*$",
             "smithy.api#required": {}
           }
         },
@@ -5567,6 +5567,28 @@
       },
       "traits": {
         "smithy.api#documentation": "Bearer token configuration for MCP server (RFC 6750)."
+      }
+    },
+    "com.amazonaws.devopsagent#MCPServerConfiguration": {
+      "type": "structure",
+      "members": {
+        "tools": {
+          "target": "com.amazonaws.devopsagent#MCPToolsList",
+          "traits": {
+            "smithy.api#documentation": "List of MCP tools can be used with the association.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Configuration for Model Context Protocol (MCP) server integration."
+      }
+    },
+    "com.amazonaws.devopsagent#MCPServerDatadogConfiguration": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "Mixin for webhook update support."
       }
     },
     "com.amazonaws.devopsagent#MCPServerDetails": {
@@ -5791,6 +5813,13 @@
       },
       "traits": {
         "smithy.api#documentation": "OAuth client credentials configuration for MCP server."
+      }
+    },
+    "com.amazonaws.devopsagent#MCPServerSplunkConfiguration": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "Mixin for webhook update support."
       }
     },
     "com.amazonaws.devopsagent#MCPToolsList": {
@@ -7268,12 +7297,12 @@
     "com.amazonaws.devopsagent#ResourceConfigurationArn": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "Resource Configuration ARN.",
+        "smithy.api#documentation": "The ID or ARN of the Resource Configuration.",
         "smithy.api#length": {
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}$"
+        "smithy.api#pattern": "^(arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}|rcfg-[0-9a-z]{17})$"
       }
     },
     "com.amazonaws.devopsagent#ResourceGatewayArn": {
@@ -7374,7 +7403,7 @@
         "resourceConfigurationId": {
           "target": "com.amazonaws.devopsagent#ResourceConfigurationArn",
           "traits": {
-            "smithy.api#documentation": "The ARN of the Resource Configuration.",
+            "smithy.api#documentation": "The ID or ARN of the resource configuration.",
             "smithy.api#required": {}
           }
         },
@@ -8036,10 +8065,28 @@
             "smithy.api#documentation": "NewRelic instance integration configuration."
           }
         },
+        "mcpserverdatadog": {
+          "target": "com.amazonaws.devopsagent#MCPServerDatadogConfiguration",
+          "traits": {
+            "smithy.api#documentation": "Datadog MCP server integration configuration."
+          }
+        },
+        "mcpserver": {
+          "target": "com.amazonaws.devopsagent#MCPServerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "MCP (Model Context Protocol) server integration configuration."
+          }
+        },
         "gitlab": {
           "target": "com.amazonaws.devopsagent#GitLabConfiguration",
           "traits": {
             "smithy.api#documentation": "GitLab project integration configuration."
+          }
+        },
+        "mcpserversplunk": {
+          "target": "com.amazonaws.devopsagent#MCPServerSplunkConfiguration",
+          "traits": {
+            "smithy.api#documentation": "Splunk MCP server integration configuration."
           }
         },
         "eventChannel": {

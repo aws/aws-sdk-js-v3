@@ -153,11 +153,14 @@ const _MCPSAC = "MCPServerAuthorizationConfig";
 const _MCPSADC = "MCPServerAuthorizationDiscoveryConfig";
 const _MCPSAPIKC = "MCPServerAPIKeyConfig";
 const _MCPSBTC = "MCPServerBearerTokenConfig";
+const _MCPSC = "MCPServerConfiguration";
 const _MCPSD = "MCPServerDetails";
+const _MCPSDC = "MCPServerDatadogConfiguration";
 const _MCPSGC = "MCPServerGrafanaConfiguration";
 const _MCPSNRC = "MCPServerNewRelicConfiguration";
 const _MCPSOACCC = "MCPServerOAuthClientCredentialsConfig";
 const _MCPSOALOC = "MCPServerOAuth3LOConfig";
+const _MCPSSC = "MCPServerSplunkConfiguration";
 const _NRAKC = "NewRelicApiKeyConfig";
 const _NRSAC = "NewRelicServiceAuthorizationConfig";
 const _NRSD = "NewRelicServiceDetails";
@@ -1112,6 +1115,16 @@ export var MCPServerBearerTokenConfig$: StaticStructureSchema = [3, n0, _MCPSBTC
   [_tN, _tV, _aH],
   [0, [() => TokenValue, 0], 0], 2
 ];
+export var MCPServerConfiguration$: StaticStructureSchema = [3, n0, _MCPSC,
+  0,
+  [_to],
+  [64 | 0], 1
+];
+export var MCPServerDatadogConfiguration$: StaticStructureSchema = [3, n0, _MCPSDC,
+  0,
+  [],
+  []
+];
 export var MCPServerDetails$: StaticStructureSchema = [3, n0, _MCPSD,
   0,
   [_n, _en, _aC, _d],
@@ -1136,6 +1149,11 @@ export var MCPServerOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n
   0,
   [_cI, _cS, _eU, _cN, _eP, _sc],
   [[() => ClientId, 0], [() => ClientSecret, 0], 0, 0, [() => ExchangeParameters, 0], 64 | 0], 3
+];
+export var MCPServerSplunkConfiguration$: StaticStructureSchema = [3, n0, _MCPSSC,
+  0,
+  [],
+  []
 ];
 export var NewRelicApiKeyConfig$: StaticStructureSchema = [3, n0, _NRAKC,
   0,
@@ -1649,8 +1667,8 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _git, _eCv, _azur, _az, _mcpser, _pag],
-  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => GitLabConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0]]
+  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag],
+  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0]]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,

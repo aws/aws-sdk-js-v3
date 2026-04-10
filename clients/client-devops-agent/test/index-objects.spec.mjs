@@ -189,11 +189,14 @@ import {
   MCPServerAuthorizationDiscoveryConfig$,
   MCPServerAuthorizationMethod,
   MCPServerBearerTokenConfig$,
+  MCPServerConfiguration$,
+  MCPServerDatadogConfiguration$,
   MCPServerDetails$,
   MCPServerGrafanaConfiguration$,
   MCPServerNewRelicConfiguration$,
   MCPServerOAuth3LOConfig$,
   MCPServerOAuthClientCredentialsConfig$,
+  MCPServerSplunkConfiguration$,
   Message$,
   MonitorAccountType,
   NewRelicApiKeyConfig$,
@@ -534,11 +537,14 @@ assert(typeof MCPServerAPIKeyConfig$ === "object");
 assert(typeof MCPServerAuthorizationConfig$ === "object");
 assert(typeof MCPServerAuthorizationDiscoveryConfig$ === "object");
 assert(typeof MCPServerBearerTokenConfig$ === "object");
+assert(typeof MCPServerConfiguration$ === "object");
+assert(typeof MCPServerDatadogConfiguration$ === "object");
 assert(typeof MCPServerDetails$ === "object");
 assert(typeof MCPServerGrafanaConfiguration$ === "object");
 assert(typeof MCPServerNewRelicConfiguration$ === "object");
 assert(typeof MCPServerOAuth3LOConfig$ === "object");
 assert(typeof MCPServerOAuthClientCredentialsConfig$ === "object");
+assert(typeof MCPServerSplunkConfiguration$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof NewRelicApiKeyConfig$ === "object");
 assert(typeof NewRelicServiceAuthorizationConfig$ === "object");

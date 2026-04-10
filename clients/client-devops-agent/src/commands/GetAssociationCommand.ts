@@ -99,11 +99,18 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //         accountId: "STRING_VALUE", // required
  * //         endpoint: "STRING_VALUE", // required
  * //       },
+ * //       mcpserverdatadog: {},
+ * //       mcpserver: { // MCPServerConfiguration
+ * //         tools: [ // MCPToolsList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //       gitlab: { // GitLabConfiguration
  * //         projectId: "STRING_VALUE", // required
  * //         projectPath: "STRING_VALUE", // required
  * //         instanceIdentifier: "STRING_VALUE",
  * //       },
+ * //       mcpserversplunk: {},
  * //       eventChannel: {},
  * //       azure: { // AzureConfiguration
  * //         subscriptionId: "STRING_VALUE", // required
@@ -116,7 +123,7 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //       mcpservergrafana: { // MCPServerGrafanaConfiguration
  * //         endpoint: "STRING_VALUE", // required
  * //         organizationId: "STRING_VALUE",
- * //         tools: [ // MCPToolsList
+ * //         tools: [
  * //           "STRING_VALUE",
  * //         ],
  * //       },

@@ -789,6 +789,24 @@ export interface GitLabConfiguration {
 }
 
 /**
+ * Configuration for Model Context Protocol (MCP) server integration.
+ * @public
+ */
+export interface MCPServerConfiguration {
+  /**
+   * List of MCP tools can be used with the association.
+   * @public
+   */
+  tools: string[] | undefined;
+}
+
+/**
+ * Mixin for webhook update support.
+ * @public
+ */
+export interface MCPServerDatadogConfiguration {}
+
+/**
  * Configuration for Grafana MCP server integration, used with an AWS-hosted MCP server.
  * @public
  */
@@ -829,6 +847,12 @@ export interface MCPServerNewRelicConfiguration {
    */
   endpoint: string | undefined;
 }
+
+/**
+ * Mixin for webhook update support.
+ * @public
+ */
+export interface MCPServerSplunkConfiguration {}
 
 /**
  * Configuration for Pagerduty integration.
@@ -968,8 +992,11 @@ export type ServiceConfiguration =
   | ServiceConfiguration.EventChannelMember
   | ServiceConfiguration.GithubMember
   | ServiceConfiguration.GitlabMember
+  | ServiceConfiguration.McpserverMember
+  | ServiceConfiguration.McpserverdatadogMember
   | ServiceConfiguration.McpservergrafanaMember
   | ServiceConfiguration.McpservernewrelicMember
+  | ServiceConfiguration.McpserversplunkMember
   | ServiceConfiguration.PagerdutyMember
   | ServiceConfiguration.ServicenowMember
   | ServiceConfiguration.SlackMember
@@ -992,7 +1019,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1013,7 +1043,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1034,7 +1067,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1055,7 +1091,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1076,7 +1115,10 @@ export namespace ServiceConfiguration {
     dynatrace: DynatraceConfiguration;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1097,7 +1139,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow: ServiceNowConfiguration;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1118,7 +1163,58 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic: MCPServerNewRelicConfiguration;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Datadog MCP server integration configuration.
+   * @public
+   */
+  export interface McpserverdatadogMember {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog: MCPServerDatadogConfiguration;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * MCP (Model Context Protocol) server integration configuration.
+   * @public
+   */
+  export interface McpserverMember {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver: MCPServerConfiguration;
+    gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1139,7 +1235,34 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab: GitLabConfiguration;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Splunk MCP server integration configuration.
+   * @public
+   */
+  export interface McpserversplunkMember {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk: MCPServerSplunkConfiguration;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1160,7 +1283,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel: EventChannelConfiguration;
     azure?: never;
     azuredevops?: never;
@@ -1181,7 +1307,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure: AzureConfiguration;
     azuredevops?: never;
@@ -1202,7 +1331,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops: AzureDevOpsConfiguration;
@@ -1223,7 +1355,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1244,7 +1379,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1264,7 +1402,10 @@ export namespace ServiceConfiguration {
     dynatrace?: never;
     servicenow?: never;
     mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
     gitlab?: never;
+    mcpserversplunk?: never;
     eventChannel?: never;
     azure?: never;
     azuredevops?: never;
@@ -1285,7 +1426,10 @@ export namespace ServiceConfiguration {
     dynatrace: (value: DynatraceConfiguration) => T;
     servicenow: (value: ServiceNowConfiguration) => T;
     mcpservernewrelic: (value: MCPServerNewRelicConfiguration) => T;
+    mcpserverdatadog: (value: MCPServerDatadogConfiguration) => T;
+    mcpserver: (value: MCPServerConfiguration) => T;
     gitlab: (value: GitLabConfiguration) => T;
+    mcpserversplunk: (value: MCPServerSplunkConfiguration) => T;
     eventChannel: (value: EventChannelConfiguration) => T;
     azure: (value: AzureConfiguration) => T;
     azuredevops: (value: AzureDevOpsConfiguration) => T;
@@ -2524,7 +2668,7 @@ export interface CreateChatResponse {
  */
 export interface SelfManagedInput {
   /**
-   * The ARN of the Resource Configuration.
+   * The ID or ARN of the resource configuration.
    * @public
    */
   resourceConfigurationId: string | undefined;
