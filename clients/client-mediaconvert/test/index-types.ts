@@ -748,6 +748,8 @@ export type {
   MsSmoothAdditionalManifest,
   MsSmoothEncryptionSettings,
   MsSmoothGroupSettings,
+  MultiViewInput,
+  MultiViewSettings,
   MxfSettings,
   MxfXavcProfileSettings,
   NexGuardFileMarkerSettings,

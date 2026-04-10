@@ -573,6 +573,8 @@ const _MSx = "MxfSettings";
 const _MT = "MimeType";
 const _MTP = "MvTemporalPredictor";
 const _MTRS = "MinTopRenditionSize";
+const _MVI = "MultiViewInput";
+const _MVS = "MultiViewSettings";
 const _MX = "MccXml";
 const _MXPS = "MxfXavcProfileSettings";
 const _MYUV = "MaximumYUV";
@@ -1383,6 +1385,7 @@ const _lOJEV = "__listOfJobEngineVersion";
 const _lOJQF = "__listOfJobsQueryFilter";
 const _lOJT = "__listOfJobTemplate";
 const _lOMSAM = "__listOfMsSmoothAdditionalManifest";
+const _lOMVS = "__listOfMultiViewSettings";
 const _lOO = "__listOfOutput";
 const _lOOCM = "__listOfOutputChannelMapping";
 const _lOOD = "__listOfOutputDetail";
@@ -1468,6 +1471,7 @@ const _mSx = "mxfSettings";
 const _mT = "mimeType";
 const _mTP = "mvTemporalPredictor";
 const _mTRS = "minTopRenditionSize";
+const _mVS = "multiViewSettings";
 const _mX = "mccXml";
 const _mYUV = "maximumYUV";
 const _mYUVi = "minimumYUV";
@@ -2118,8 +2122,8 @@ export var ColorCorrector$: StaticStructureSchema = [3, n0, _CCo,
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_Du, _F, _T],
-  [[1, { [_jN]: _du }], [0, { [_jN]: _f }], [() => __listOfTrack, { [_jN]: _t }]]
+  [_Du, _F, _STt, _T],
+  [[1, { [_jN]: _du }], [0, { [_jN]: _f }], [0, { [_jN]: _sTt }], [() => __listOfTrack, { [_jN]: _t }]]
 ];
 export var ContainerSettings$: StaticStructureSchema = [3, n0, _CSon,
   0,
@@ -2548,8 +2552,8 @@ export var ImscDestinationSettings$: StaticStructureSchema = [3, n0, _IDS,
 ];
 export var Input$: StaticStructureSchema = [3, n0, _In,
   0,
-  [_AIF, _AIFS, _ASGu, _ASud, _CSap, _Cr, _DFe, _DSec, _DFen, _DVMX, _DASy, _FI, _FEil, _FSi, _IIm, _ICn, _IST, _Pos, _PNr, _PCs, _SIu, _TSa, _TSi, _TSim, _VG, _VO, _VSi],
-  [[0, { [_jN]: _aIF }], [() => AdvancedInputFilterSettings$, { [_jN]: _aIFS }], [() => __mapOfAudioSelectorGroup, { [_jN]: _aSG }], [() => __mapOfAudioSelector, { [_jN]: _aSu }], [() => __mapOfCaptionSelector, { [_jN]: _cSa }], [() => Rectangle$, { [_jN]: _cr }], [0, { [_jN]: _dFe }], [() => InputDecryptionSettings$, { [_jN]: _dSec }], [0, { [_jN]: _dFen }], [0, { [_jN]: _dVMX }], [() => __mapOfDynamicAudioSelector, { [_jN]: _dAS }], [0, { [_jN]: _fI }], [0, { [_jN]: _fEi }], [1, { [_jN]: _fSi }], [() => ImageInserter$, { [_jN]: _iIm }], [() => __listOfInputClipping, { [_jN]: _iCn }], [0, { [_jN]: _iST }], [() => Rectangle$, { [_jN]: _pos }], [1, { [_jN]: _pNr }], [0, { [_jN]: _pCs }], [64 | 0, { [_jN]: _sIu }], [() => InputTamsSettings$, { [_jN]: _tSa }], [0, { [_jN]: _tSi }], [0, { [_jN]: _tSim }], [() => InputVideoGenerator$, { [_jN]: _vG }], [() => __listOfVideoOverlay, { [_jN]: _vO }], [() => VideoSelector$, { [_jN]: _vSi }]]
+  [_AIF, _AIFS, _ASGu, _ASud, _CSap, _Cr, _DFe, _DSec, _DFen, _DVMX, _DASy, _FI, _FEil, _FSi, _IIm, _ICn, _IST, _MVS, _Pos, _PNr, _PCs, _SIu, _TSa, _TSi, _TSim, _VG, _VO, _VSi],
+  [[0, { [_jN]: _aIF }], [() => AdvancedInputFilterSettings$, { [_jN]: _aIFS }], [() => __mapOfAudioSelectorGroup, { [_jN]: _aSG }], [() => __mapOfAudioSelector, { [_jN]: _aSu }], [() => __mapOfCaptionSelector, { [_jN]: _cSa }], [() => Rectangle$, { [_jN]: _cr }], [0, { [_jN]: _dFe }], [() => InputDecryptionSettings$, { [_jN]: _dSec }], [0, { [_jN]: _dFen }], [0, { [_jN]: _dVMX }], [() => __mapOfDynamicAudioSelector, { [_jN]: _dAS }], [0, { [_jN]: _fI }], [0, { [_jN]: _fEi }], [1, { [_jN]: _fSi }], [() => ImageInserter$, { [_jN]: _iIm }], [() => __listOfInputClipping, { [_jN]: _iCn }], [0, { [_jN]: _iST }], [() => __listOfMultiViewSettings, { [_jN]: _mVS }], [() => Rectangle$, { [_jN]: _pos }], [1, { [_jN]: _pNr }], [0, { [_jN]: _pCs }], [64 | 0, { [_jN]: _sIu }], [() => InputTamsSettings$, { [_jN]: _tSa }], [0, { [_jN]: _tSi }], [0, { [_jN]: _tSim }], [() => InputVideoGenerator$, { [_jN]: _vG }], [() => __listOfVideoOverlay, { [_jN]: _vO }], [() => VideoSelector$, { [_jN]: _vSi }]]
 ];
 export var InputClipping$: StaticStructureSchema = [3, n0, _ICnp,
   0,
@@ -2568,8 +2572,8 @@ export var InputTamsSettings$: StaticStructureSchema = [3, n0, _ITS,
 ];
 export var InputTemplate$: StaticStructureSchema = [3, n0, _IT,
   0,
-  [_AIF, _AIFS, _ASGu, _ASud, _CSap, _Cr, _DFe, _DFen, _DVMX, _DASy, _FEil, _FSi, _IIm, _ICn, _IST, _Pos, _PNr, _PCs, _TSi, _TSim, _VO, _VSi],
-  [[0, { [_jN]: _aIF }], [() => AdvancedInputFilterSettings$, { [_jN]: _aIFS }], [() => __mapOfAudioSelectorGroup, { [_jN]: _aSG }], [() => __mapOfAudioSelector, { [_jN]: _aSu }], [() => __mapOfCaptionSelector, { [_jN]: _cSa }], [() => Rectangle$, { [_jN]: _cr }], [0, { [_jN]: _dFe }], [0, { [_jN]: _dFen }], [0, { [_jN]: _dVMX }], [() => __mapOfDynamicAudioSelector, { [_jN]: _dAS }], [0, { [_jN]: _fEi }], [1, { [_jN]: _fSi }], [() => ImageInserter$, { [_jN]: _iIm }], [() => __listOfInputClipping, { [_jN]: _iCn }], [0, { [_jN]: _iST }], [() => Rectangle$, { [_jN]: _pos }], [1, { [_jN]: _pNr }], [0, { [_jN]: _pCs }], [0, { [_jN]: _tSi }], [0, { [_jN]: _tSim }], [() => __listOfVideoOverlay, { [_jN]: _vO }], [() => VideoSelector$, { [_jN]: _vSi }]]
+  [_AIF, _AIFS, _ASGu, _ASud, _CSap, _Cr, _DFe, _DFen, _DVMX, _DASy, _FEil, _FSi, _IIm, _ICn, _IST, _MVS, _Pos, _PNr, _PCs, _TSi, _TSim, _VO, _VSi],
+  [[0, { [_jN]: _aIF }], [() => AdvancedInputFilterSettings$, { [_jN]: _aIFS }], [() => __mapOfAudioSelectorGroup, { [_jN]: _aSG }], [() => __mapOfAudioSelector, { [_jN]: _aSu }], [() => __mapOfCaptionSelector, { [_jN]: _cSa }], [() => Rectangle$, { [_jN]: _cr }], [0, { [_jN]: _dFe }], [0, { [_jN]: _dFen }], [0, { [_jN]: _dVMX }], [() => __mapOfDynamicAudioSelector, { [_jN]: _dAS }], [0, { [_jN]: _fEi }], [1, { [_jN]: _fSi }], [() => ImageInserter$, { [_jN]: _iIm }], [() => __listOfInputClipping, { [_jN]: _iCn }], [0, { [_jN]: _iST }], [() => __listOfMultiViewSettings, { [_jN]: _mVS }], [() => Rectangle$, { [_jN]: _pos }], [1, { [_jN]: _pNr }], [0, { [_jN]: _pCs }], [0, { [_jN]: _tSi }], [0, { [_jN]: _tSim }], [() => __listOfVideoOverlay, { [_jN]: _vO }], [() => VideoSelector$, { [_jN]: _vSi }]]
 ];
 export var InputVideoGenerator$: StaticStructureSchema = [3, n0, _IVG,
   0,
@@ -2770,6 +2774,16 @@ export var MsSmoothGroupSettings$: StaticStructureSchema = [3, n0, _MSGS,
   0,
   [_AM, _ADud, _De, _DSe, _E, _FL, _FLC, _ME],
   [[() => __listOfMsSmoothAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aDu }], [0, { [_jN]: _de }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => MsSmoothEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _fLC }], [0, { [_jN]: _mE }]]
+];
+export var MultiViewInput$: StaticStructureSchema = [3, n0, _MVI,
+  0,
+  [_FI],
+  [[0, { [_jN]: _fI }]]
+];
+export var MultiViewSettings$: StaticStructureSchema = [3, n0, _MVS,
+  0,
+  [_In],
+  [[() => MultiViewInput$, { [_jN]: _inpu }]]
 ];
 export var MxfSettings$: StaticStructureSchema = [3, n0, _MSx,
   0,
@@ -3355,6 +3369,10 @@ var __listOfJobTemplate: StaticListSchema = [1, n0, _lOJT,
 ];
 var __listOfMsSmoothAdditionalManifest: StaticListSchema = [1, n0, _lOMSAM,
   0, [() => MsSmoothAdditionalManifest$,
+    0]
+];
+var __listOfMultiViewSettings: StaticListSchema = [1, n0, _lOMVS,
+  0, [() => MultiViewSettings$,
     0]
 ];
 var __listOfOutput: StaticListSchema = [1, n0, _lOO,

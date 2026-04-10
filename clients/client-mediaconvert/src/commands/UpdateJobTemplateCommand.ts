@@ -231,6 +231,13 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *           },
  *         ],
  *         InputScanType: "AUTO" || "PSF",
+ *         MultiViewSettings: [ // __listOfMultiViewSettings
+ *           { // MultiViewSettings
+ *             Input: { // MultiViewInput
+ *               FileInput: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
  *         Position: {
  *           Height: Number("int"),
  *           Width: Number("int"),
@@ -1849,6 +1856,13 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  * //             },
  * //           ],
  * //           InputScanType: "AUTO" || "PSF",
+ * //           MultiViewSettings: [ // __listOfMultiViewSettings
+ * //             { // MultiViewSettings
+ * //               Input: { // MultiViewInput
+ * //                 FileInput: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
  * //           Position: {
  * //             Height: Number("int"),
  * //             Width: Number("int"),

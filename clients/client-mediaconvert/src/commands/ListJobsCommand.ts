@@ -290,6 +290,13 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //               },
  * //             ],
  * //             InputScanType: "AUTO" || "PSF",
+ * //             MultiViewSettings: [ // __listOfMultiViewSettings
+ * //               { // MultiViewSettings
+ * //                 Input: { // MultiViewInput
+ * //                   FileInput: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
  * //             Position: {
  * //               Height: Number("int"),
  * //               Width: Number("int"),

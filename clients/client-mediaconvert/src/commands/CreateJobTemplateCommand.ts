@@ -231,6 +231,13 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *           },
  *         ],
  *         InputScanType: "AUTO" || "PSF",
+ *         MultiViewSettings: [ // __listOfMultiViewSettings
+ *           { // MultiViewSettings
+ *             Input: { // MultiViewInput
+ *               FileInput: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
  *         Position: {
  *           Height: Number("int"),
  *           Width: Number("int"),
@@ -1852,6 +1859,13 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //             },
  * //           ],
  * //           InputScanType: "AUTO" || "PSF",
+ * //           MultiViewSettings: [ // __listOfMultiViewSettings
+ * //             { // MultiViewSettings
+ * //               Input: { // MultiViewInput
+ * //                 FileInput: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
  * //           Position: {
  * //             Height: Number("int"),
  * //             Width: Number("int"),

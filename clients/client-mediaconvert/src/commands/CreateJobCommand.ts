@@ -240,6 +240,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           },
  *         ],
  *         InputScanType: "AUTO" || "PSF",
+ *         MultiViewSettings: [ // __listOfMultiViewSettings
+ *           { // MultiViewSettings
+ *             Input: { // MultiViewInput
+ *               FileInput: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
  *         Position: {
  *           Height: Number("int"),
  *           Width: Number("int"),
@@ -1929,6 +1936,13 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * //             },
  * //           ],
  * //           InputScanType: "AUTO" || "PSF",
+ * //           MultiViewSettings: [ // __listOfMultiViewSettings
+ * //             { // MultiViewSettings
+ * //               Input: { // MultiViewInput
+ * //                 FileInput: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
  * //           Position: {
  * //             Height: Number("int"),
  * //             Width: Number("int"),

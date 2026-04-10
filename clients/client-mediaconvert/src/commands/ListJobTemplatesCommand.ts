@@ -245,6 +245,13 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //               },
  * //             ],
  * //             InputScanType: "AUTO" || "PSF",
+ * //             MultiViewSettings: [ // __listOfMultiViewSettings
+ * //               { // MultiViewSettings
+ * //                 Input: { // MultiViewInput
+ * //                   FileInput: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
  * //             Position: {
  * //               Height: Number("int"),
  * //               Width: Number("int"),

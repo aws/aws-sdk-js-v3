@@ -592,6 +592,8 @@ import {
   MsSmoothFragmentLengthControl,
   MsSmoothGroupSettings$,
   MsSmoothManifestEncoding,
+  MultiViewInput$,
+  MultiViewSettings$,
   MxfAfdSignaling,
   MxfProfile,
   MxfSettings$,
@@ -1083,6 +1085,8 @@ assert(typeof Mpeg2Settings$ === "object");
 assert(typeof MsSmoothAdditionalManifest$ === "object");
 assert(typeof MsSmoothEncryptionSettings$ === "object");
 assert(typeof MsSmoothGroupSettings$ === "object");
+assert(typeof MultiViewInput$ === "object");
+assert(typeof MultiViewSettings$ === "object");
 assert(typeof MxfSettings$ === "object");
 assert(typeof MxfXavcProfileSettings$ === "object");
 assert(typeof NexGuardFileMarkerSettings$ === "object");

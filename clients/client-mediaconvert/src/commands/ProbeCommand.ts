@@ -51,6 +51,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //       Container: { // Container
  * //         Duration: Number("double"),
  * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave" || "avi" || "mpegts",
+ * //         StartTimecode: "STRING_VALUE",
  * //         Tracks: [ // __listOfTrack
  * //           { // Track
  * //             AudioProperties: { // AudioProperties

@@ -286,6 +286,13 @@ export interface GetJobsQueryResultsCommandOutput extends GetJobsQueryResultsRes
  * //               },
  * //             ],
  * //             InputScanType: "AUTO" || "PSF",
+ * //             MultiViewSettings: [ // __listOfMultiViewSettings
+ * //               { // MultiViewSettings
+ * //                 Input: { // MultiViewInput
+ * //                   FileInput: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
  * //             Position: {
  * //               Height: Number("int"),
  * //               Width: Number("int"),
