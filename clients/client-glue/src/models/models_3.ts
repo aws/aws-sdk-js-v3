@@ -2309,7 +2309,7 @@ export interface CreateJobRequest {
    *          <p>For more information about the available Glue versions and corresponding
    *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
    *       guide.</p>
-   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 5.1.</p>
    * @public
    */
   GlueVersion?: string | undefined;
@@ -2638,7 +2638,7 @@ export interface Job {
    *          <p>For more information about the available Glue versions and corresponding
    *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
    *       guide.</p>
-   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 5.1.</p>
    * @public
    */
   GlueVersion?: string | undefined;
@@ -2871,7 +2871,7 @@ export interface JobUpdate {
    *          <p>For more information about the available Glue versions and corresponding
    *       Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer
    *       guide.</p>
-   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>If not provided in the update request, the Glue version retains the value from the existing job definition.</p>
    * @public
    */
   GlueVersion?: string | undefined;
