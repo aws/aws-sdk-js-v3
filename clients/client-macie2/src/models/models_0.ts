@@ -170,7 +170,7 @@ export interface AutomatedDiscoveryAccountUpdateError {
   accountId?: string | undefined;
 
   /**
-   * <p>The error code for the error that caused the request to fail for the account (accountId). Possible values are: ACCOUNT_NOT_FOUND, the account doesn’t exist or you're not the Amazon Macie administrator for the account; and, ACCOUNT_PAUSED, Macie isn’t enabled for the account in the current Amazon Web Services Region.</p>
+   * <p>The error code for the error that caused the request to fail for the account (accountId). Possible values are: ACCOUNT_NOT_FOUND, the account doesn't exist or you're not the Amazon Macie administrator for the account; and, ACCOUNT_PAUSED, Macie isn't enabled for the account in the current Amazon Web Services Region.</p>
    * @public
    */
   errorCode?: AutomatedDiscoveryAccountUpdateErrorCode | undefined;
@@ -2966,7 +2966,7 @@ export interface BatchUpdateAutomatedDiscoveryAccountsRequest {
  */
 export interface BatchUpdateAutomatedDiscoveryAccountsResponse {
   /**
-   * <p>An array of objects, one for each account whose status wasn’t changed. Each object identifies the account and explains why the status of automated sensitive data discovery wasn’t changed for the account. This value is null if the request succeeded for all specified accounts.</p>
+   * <p>An array of objects, one for each account whose status wasn't changed. Each object identifies the account and explains why the status of automated sensitive data discovery wasn't changed for the account. This value is null if the request succeeded for all specified accounts.</p>
    * @public
    */
   errors?: AutomatedDiscoveryAccountUpdateError[] | undefined;
@@ -3213,7 +3213,7 @@ export interface BucketStatisticsBySensitivity {
 }
 
 /**
- * <p>Specifies an S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket.</p>
+ * <p>Specifies an S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket. The bucket must be an existing general purpose bucket. It can be a bucket in your own account or a bucket that another account owns. If another account owns the bucket, you must specify both the unique identifier for the account and the name of the bucket.</p>
  * @public
  */
 export interface S3Destination {
@@ -3222,6 +3222,12 @@ export interface S3Destination {
    * @public
    */
   bucketName: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the Amazon Web Services account that owns the bucket. This must be the ID for the account that owns the specified bucket.</p>
+   * @public
+   */
+  expectedBucketOwner?: string | undefined;
 
   /**
    * <p>The path prefix to use in the path to the location in the bucket. This prefix specifies where to store classification results in the bucket.</p>

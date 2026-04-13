@@ -503,6 +503,7 @@ const _dUOU = "deniesUnencryptedObjectUploads";
 const _de = "deleted";
 const _det = "detections";
 const _e = "error";
+const _eBO = "expectedBucketOwner";
 const _eC = "errorCode";
 const _eCs = "estimatedCost";
 const _eEM = "eqExactMatch";
@@ -2016,8 +2017,8 @@ export var S3ClassificationScopeUpdate$: StaticStructureSchema = [3, n0, _SCSU,
 ];
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_bN, _kKA, _kP],
-  [[0, { [_jN]: _bN }], [0, { [_jN]: _kKA }], [0, { [_jN]: _kP }]], 2
+  [_bN, _kKA, _eBO, _kP],
+  [[0, { [_jN]: _bN }], [0, { [_jN]: _kKA }], [0, { [_jN]: _eBO }], [0, { [_jN]: _kP }]], 2
 ];
 export var S3JobDefinition$: StaticStructureSchema = [3, n0, _SJD,
   0,

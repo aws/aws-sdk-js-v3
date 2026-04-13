@@ -46,6 +46,7 @@ export interface GetClassificationExportConfigurationCommandOutput extends GetCl
  * //   configuration: { // ClassificationExportConfiguration
  * //     s3Destination: { // S3Destination
  * //       bucketName: "STRING_VALUE", // required
+ * //       expectedBucketOwner: "STRING_VALUE",
  * //       keyPrefix: "STRING_VALUE",
  * //       kmsKeyArn: "STRING_VALUE", // required
  * //     },
