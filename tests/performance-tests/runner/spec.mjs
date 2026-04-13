@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, "..", "dist-perf");
 
 const bundles = [
-  { name: "rollup", file: "rollup-sdk-s3-single-command.ts.umd.cjs" },
+  { name: "rollup", file: "rollup-sdk-s3-single-command.ts.js" },
   { name: "webpack", file: "webpack-sdk-s3-single-command.ts.js" },
   { name: "esbuild", file: "esbuild-sdk-s3-single-command.ts.js" },
 ];

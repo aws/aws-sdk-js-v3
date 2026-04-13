@@ -36,8 +36,7 @@ export class BundlerSizeBenchmarker {
   }
 
   async rollup() {
-    const baseName = `rollup-${this.application}`;
-    const outfile = path.resolve(DIST_DIR, `${baseName}.umd.cjs`);
+    const outfile = path.resolve(DIST_DIR, `rollup-${this.application}.js`);
     await build({
       logLevel: "silent",
       build: {
@@ -45,7 +44,8 @@ export class BundlerSizeBenchmarker {
         lib: {
           entry: path.resolve(APPLICATIONS_DIR, this.application),
           name: "dist",
-          fileName: baseName,
+          fileName: () => `rollup-${this.application}.js`,
+          formats: ["umd"],
         },
         minify: true,
         emptyOutDir: false,
