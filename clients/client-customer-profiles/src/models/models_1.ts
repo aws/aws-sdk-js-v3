@@ -15,6 +15,7 @@ import type {
   Conditions,
   DataStoreRequest,
   DataStoreResponse,
+  DomainObjectTypeField,
   EngagementPreferences,
   EventTriggerCondition,
   EventTriggerLimits,
@@ -29,6 +30,94 @@ import type {
   RuleBasedMatchingRequest,
   RuleBasedMatchingResponse,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface PutDomainObjectTypeRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The description of the domain object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * @public
+   */
+  Fields: Record<string, DomainObjectTypeField> | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDomainObjectTypeResponse {
+  /**
+   * <p>The unique name of the domain object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The description of the domain object type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>A map of field names to their corresponding domain object type field definitions.</p>
+   * @public
+   */
+  Fields?: Record<string, DomainObjectTypeField> | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain object type was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public

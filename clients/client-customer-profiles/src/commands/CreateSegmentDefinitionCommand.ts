@@ -174,6 +174,16 @@ export interface CreateSegmentDefinitionCommandOutput extends CreateSegmentDefin
  *     Include: "ALL" || "ANY" || "NONE",
  *   },
  *   SegmentSqlQuery: "STRING_VALUE",
+ *   SegmentSort: { // SegmentSort
+ *     Attributes: [ // SortAttributeList // required
+ *       { // SortAttribute
+ *         Name: "STRING_VALUE", // required
+ *         DataType: "STRING" || "NUMBER" || "DATE",
+ *         Order: "ASC" || "DESC", // required
+ *         Type: "PROFILE" || "CALCULATED",
+ *       },
+ *     ],
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

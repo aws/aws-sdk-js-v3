@@ -202,6 +202,7 @@ const _DSe = "DestinationSummary";
 const _DSo = "DomainStats";
 const _DT = "DimensionType";
 const _DTFN = "DatetimeTypeFieldName";
+const _DTa = "DataType";
 const _DU = "DestinationUri";
 const _DW = "DeleteWorkflow";
 const _DWR = "DeleteWorkflowRequest";
@@ -538,6 +539,7 @@ const _OTN = "ObjectTypeName";
 const _OTNb = "ObjectTypeNames";
 const _Ob = "Object";
 const _Op = "Operator";
+const _Or = "Order";
 const _P = "Province";
 const _PA = "ProfileAttributes";
 const _PAVR = "ProfileAttributeValuesRequest";
@@ -637,6 +639,8 @@ const _Recom = "Recommendation";
 const _Ru = "Rule";
 const _S = "Statistic";
 const _SA = "ShippingAddress";
+const _SAL = "SortAttributeList";
+const _SAo = "SortAttribute";
 const _SBN = "S3BucketName";
 const _SC = "StepsCompleted";
 const _SCP = "SourceConnectorProperties";
@@ -684,7 +688,7 @@ const _SRRto = "StopRecommenderRequest";
 const _SRRtop = "StopRecommenderResponse";
 const _SRt = "StartRecommender";
 const _SRto = "StopRecommender";
-const _SS = "StoppedSince";
+const _SS = "SegmentSort";
 const _SSL = "SourceSegmentList";
 const _SSP = "S3SourceProperties";
 const _SSPa = "SalesforceSourceProperties";
@@ -692,6 +696,7 @@ const _SSQ = "SegmentSqlQuery";
 const _SST = "ScheduleStartTime";
 const _SSo = "SourceSegments";
 const _SSou = "SourceSegment";
+const _SSt = "StoppedSince";
 const _ST = "StartTime";
 const _STP = "ScheduledTriggerProperties";
 const _STe = "SegmentType";
@@ -1147,8 +1152,8 @@ export var CreateRecommenderResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateSegmentDefinitionRequest$: StaticStructureSchema = [3, n0, _CSDR,
   0,
-  [_DN, _SDN, _DNi, _D, _SG, _SSQ, _Ta],
-  [[0, 1], [0, 1], 0, [() => sensitiveString1To4000, 0], [() => SegmentGroup$, 0], [() => sensitiveString1To50000, 0], 128 | 0], 3
+  [_DN, _SDN, _DNi, _D, _SG, _SSQ, _SS, _Ta],
+  [[0, 1], [0, 1], 0, [() => sensitiveString1To4000, 0], [() => SegmentGroup$, 0], [() => sensitiveString1To50000, 0], [() => SegmentSort$, 0], 128 | 0], 3
 ];
 export var CreateSegmentDefinitionResponse$: StaticStructureSchema = [3, n0, _CSDRr,
   0,
@@ -1407,7 +1412,7 @@ export var EventStreamDestinationDetails$: StaticStructureSchema = [3, n0, _ESDD
 ];
 export var EventStreamSummary$: StaticStructureSchema = [3, n0, _ESS,
   0,
-  [_DN, _ESN, _ESA, _St, _SS, _DSe, _Ta],
+  [_DN, _ESN, _ESA, _St, _SSt, _DSe, _Ta],
   [0, 0, 0, 0, 4, () => DestinationSummary$, 128 | 0], 4
 ];
 export var EventTriggerCondition$: StaticStructureSchema = [3, n0, _ETCv,
@@ -1547,7 +1552,7 @@ export var GetEventStreamRequest$: StaticStructureSchema = [3, n0, _GESR,
 ];
 export var GetEventStreamResponse$: StaticStructureSchema = [3, n0, _GESRe,
   0,
-  [_DN, _ESA, _CA, _St, _DDe, _SS, _Ta],
+  [_DN, _ESA, _CA, _St, _DDe, _SSt, _Ta],
   [0, 0, 4, 0, () => EventStreamDestinationDetails$, 4, 128 | 0], 5
 ];
 export var GetEventTriggerRequest$: StaticStructureSchema = [3, n0, _GETR,
@@ -1677,8 +1682,8 @@ export var GetSegmentDefinitionRequest$: StaticStructureSchema = [3, n0, _GSDR,
 ];
 export var GetSegmentDefinitionResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
-  [_SDA, _SDN, _DNi, _D, _SG, _CA, _Ta, _SSQ, _STe],
-  [[0, { [_jN]: _SDA }], [0, { [_jN]: _SDN }], [0, { [_jN]: _DNi }], [() => sensitiveString1To4000, { [_jN]: _D }], [() => SegmentGroup$, { [_jN]: _SG }], [4, { [_jN]: _CA }], [128 | 0, { [_jN]: _Ta }], [() => sensitiveString1To50000, { [_jN]: _SSQ }], [0, { [_jN]: _STe }]], 1
+  [_SDA, _SDN, _DNi, _D, _SG, _SS, _CA, _Ta, _SSQ, _STe],
+  [[0, { [_jN]: _SDA }], [0, { [_jN]: _SDN }], [0, { [_jN]: _DNi }], [() => sensitiveString1To4000, { [_jN]: _D }], [() => SegmentGroup$, { [_jN]: _SG }], [() => SegmentSort$, { [_jN]: _SS }], [4, { [_jN]: _CA }], [128 | 0, { [_jN]: _Ta }], [() => sensitiveString1To50000, { [_jN]: _SSQ }], [0, { [_jN]: _STe }]], 1
 ];
 export var GetSegmentEstimateRequest$: StaticStructureSchema = [3, n0, _GSER,
   0,
@@ -2360,10 +2365,20 @@ export var SegmentGroupStructure$: StaticStructureSchema = [3, n0, _SGS,
   [_Gr, _In],
   [[() => SegmentGroupList, 0], 0]
 ];
+export var SegmentSort$: StaticStructureSchema = [3, n0, _SS,
+  8,
+  [_At],
+  [[() => SortAttributeList, { [_jN]: _At }]], 1
+];
 export var ServiceNowSourceProperties$: StaticStructureSchema = [3, n0, _SNSP,
   0,
   [_Ob],
   [0], 1
+];
+export var SortAttribute$: StaticStructureSchema = [3, n0, _SAo,
+  0,
+  [_N, _Or, _DTa, _T],
+  [[0, { [_jN]: _N }], [0, { [_jN]: _Or }], [0, { [_jN]: _DTa }], [0, { [_jN]: _T }]], 2
 ];
 export var SourceConnectorProperties$: StaticStructureSchema = [3, n0, _SCP,
   0,
@@ -2749,6 +2764,10 @@ var SegmentDefinitionsList: StaticListSchema = [1, n0, _SDL,
 ];
 var SegmentGroupList: StaticListSchema = [1, n0, _SGL,
   0, [() => Group$,
+    0]
+];
+var SortAttributeList: StaticListSchema = [1, n0, _SAL,
+  0, [() => SortAttribute$,
     0]
 ];
 var SourceFields = 64 | 0;

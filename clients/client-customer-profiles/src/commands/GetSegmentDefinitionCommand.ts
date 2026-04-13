@@ -178,6 +178,16 @@ export interface GetSegmentDefinitionCommandOutput extends GetSegmentDefinitionR
  * //     ],
  * //     Include: "ALL" || "ANY" || "NONE",
  * //   },
+ * //   SegmentSort: { // SegmentSort
+ * //     Attributes: [ // SortAttributeList // required
+ * //       { // SortAttribute
+ * //         Name: "STRING_VALUE", // required
+ * //         DataType: "STRING" || "NUMBER" || "DATE",
+ * //         Order: "ASC" || "DESC", // required
+ * //         Type: "PROFILE" || "CALCULATED",
+ * //       },
+ * //     ],
+ * //   },
  * //   SegmentDefinitionArn: "STRING_VALUE", // required
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   Tags: { // TagMap

@@ -42,8 +42,11 @@ import type {
   SalesforceConnectorOperator,
   Scope,
   SegmentSnapshotStatus,
+  SegmentSortDataType,
+  SegmentSortOrder,
   SegmentType,
   ServiceNowConnectorOperator,
+  SortAttributeType,
   SourceConnectorType,
   StandardIdentifier,
   Statistic,
@@ -3712,6 +3715,48 @@ export interface SegmentGroup {
 }
 
 /**
+ * <p>Defines the characteristics and rules for sorting by a specific attribute.</p>
+ * @public
+ */
+export interface SortAttribute {
+  /**
+   * <p>The name of the attribute to sort by.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type of the sort attribute (e.g., string, number, date).</p>
+   * @public
+   */
+  DataType?: SegmentSortDataType | undefined;
+
+  /**
+   * <p>The sort order for the attribute (ascending or descending).</p>
+   * @public
+   */
+  Order: SegmentSortOrder | undefined;
+
+  /**
+   * <p>The type of attribute (e.g., profile, calculated).</p>
+   * @public
+   */
+  Type?: SortAttributeType | undefined;
+}
+
+/**
+ * <p>Defines how segments should be sorted and ordered in the results.</p>
+ * @public
+ */
+export interface SegmentSort {
+  /**
+   * <p>A list of attributes used to sort the segments and their ordering preferences.</p>
+   * @public
+   */
+  Attributes: SortAttribute[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateSegmentDefinitionRequest {
@@ -3751,6 +3796,12 @@ export interface CreateSegmentDefinitionRequest {
    * @public
    */
   SegmentSqlQuery?: string | undefined;
+
+  /**
+   * <p>The segment sort.</p>
+   * @public
+   */
+  SegmentSort?: SegmentSort | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -6327,6 +6378,12 @@ export interface GetSegmentDefinitionResponse {
    * @public
    */
   SegmentGroups?: SegmentGroup | undefined;
+
+  /**
+   * <p>The segment sort.</p>
+   * @public
+   */
+  SegmentSort?: SegmentSort | undefined;
 
   /**
    * <p>The arn of the segment definition.</p>
@@ -9219,92 +9276,4 @@ export interface MergeProfilesResponse {
    * @public
    */
   Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDomainObjectTypeRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique name of the domain object type.</p>
-   * @public
-   */
-  ObjectTypeName: string | undefined;
-
-  /**
-   * <p>The description of the domain object type.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
-   * @public
-   */
-  EncryptionKey?: string | undefined;
-
-  /**
-   * <p>A map of field names to their corresponding domain object type field definitions.</p>
-   * @public
-   */
-  Fields: Record<string, DomainObjectTypeField> | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDomainObjectTypeResponse {
-  /**
-   * <p>The unique name of the domain object type.</p>
-   * @public
-   */
-  ObjectTypeName?: string | undefined;
-
-  /**
-   * <p>The description of the domain object type.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The customer provided KMS key used to encrypt this type of domain object.</p>
-   * @public
-   */
-  EncryptionKey?: string | undefined;
-
-  /**
-   * <p>A map of field names to their corresponding domain object type field definitions.</p>
-   * @public
-   */
-  Fields?: Record<string, DomainObjectTypeField> | undefined;
-
-  /**
-   * <p>The timestamp of when the domain object type was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the domain object type was most recently edited.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
 }

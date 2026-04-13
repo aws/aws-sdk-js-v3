@@ -3060,6 +3060,12 @@
             "smithy.api#documentation": "<p>The segment SQL query.</p>"
           }
         },
+        "SegmentSort": {
+          "target": "com.amazonaws.customerprofiles#SegmentSort",
+          "traits": {
+            "smithy.api#documentation": "<p>The segment sort.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.customerprofiles#TagMap",
           "traits": {
@@ -3406,7 +3412,7 @@
     "com.amazonaws.customerprofiles#CustomAttributes": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.customerprofiles#typeName"
+        "target": "com.amazonaws.customerprofiles#string1To255"
       },
       "value": {
         "target": "com.amazonaws.customerprofiles#AttributeDimension"
@@ -9385,6 +9391,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The segment criteria associated with this definition.</p>",
             "smithy.api#jsonName": "SegmentGroups"
+          }
+        },
+        "SegmentSort": {
+          "target": "com.amazonaws.customerprofiles#SegmentSort",
+          "traits": {
+            "smithy.api#documentation": "<p>The segment sort.</p>",
+            "smithy.api#jsonName": "SegmentSort"
           }
         },
         "SegmentDefinitionArn": {
@@ -17170,6 +17183,63 @@
         }
       }
     },
+    "com.amazonaws.customerprofiles#SegmentSort": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.customerprofiles#SortAttributeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of attributes used to sort the segments and their ordering preferences.</p>",
+            "smithy.api#jsonName": "Attributes",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Defines how segments should be sorted and ordered in the results.</p>",
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.customerprofiles#SegmentSortDataType": {
+      "type": "enum",
+      "members": {
+        "STRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STRING"
+          }
+        },
+        "NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NUMBER"
+          }
+        },
+        "DATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DATE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.customerprofiles#SegmentSortOrder": {
+      "type": "enum",
+      "members": {
+        "ASC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASC"
+          }
+        },
+        "DESC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESC"
+          }
+        }
+      }
+    },
     "com.amazonaws.customerprofiles#SegmentType": {
       "type": "enum",
       "members": {
@@ -17331,6 +17401,74 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The properties that are applied when ServiceNow is being used as a source.</p>"
+      }
+    },
+    "com.amazonaws.customerprofiles#SortAttribute": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.customerprofiles#fieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attribute to sort by.</p>",
+            "smithy.api#jsonName": "Name",
+            "smithy.api#required": {}
+          }
+        },
+        "DataType": {
+          "target": "com.amazonaws.customerprofiles#SegmentSortDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of the sort attribute (e.g., string, number, date).</p>",
+            "smithy.api#jsonName": "DataType"
+          }
+        },
+        "Order": {
+          "target": "com.amazonaws.customerprofiles#SegmentSortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for the attribute (ascending or descending).</p>",
+            "smithy.api#jsonName": "Order",
+            "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.customerprofiles#SortAttributeType",
+          "traits": {
+            "smithy.api#default": "PROFILE",
+            "smithy.api#documentation": "<p>The type of attribute (e.g., profile, calculated).</p>",
+            "smithy.api#jsonName": "Type"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Defines the characteristics and rules for sorting by a specific attribute.</p>"
+      }
+    },
+    "com.amazonaws.customerprofiles#SortAttributeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.customerprofiles#SortAttribute"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.customerprofiles#SortAttributeType": {
+      "type": "enum",
+      "members": {
+        "PROFILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROFILE"
+          }
+        },
+        "CALCULATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CALCULATED"
+          }
+        }
       }
     },
     "com.amazonaws.customerprofiles#SourceConnectorProperties": {

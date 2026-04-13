@@ -538,9 +538,14 @@ import {
   SegmentGroup$,
   SegmentGroupStructure$,
   SegmentSnapshotStatus,
+  SegmentSort$,
+  SegmentSortDataType,
+  SegmentSortOrder,
   SegmentType,
   ServiceNowConnectorOperator,
   ServiceNowSourceProperties$,
+  SortAttribute$,
+  SortAttributeType,
   SourceConnectorProperties$,
   SourceConnectorType,
   SourceFlowConfig$,
@@ -1124,7 +1129,9 @@ assert(typeof SearchProfilesResponse$ === "object");
 assert(typeof SegmentDefinitionItem$ === "object");
 assert(typeof SegmentGroup$ === "object");
 assert(typeof SegmentGroupStructure$ === "object");
+assert(typeof SegmentSort$ === "object");
 assert(typeof ServiceNowSourceProperties$ === "object");
+assert(typeof SortAttribute$ === "object");
 assert(typeof SourceConnectorProperties$ === "object");
 assert(typeof SourceFlowConfig$ === "object");
 assert(typeof SourceSegment$ === "object");
@@ -1208,8 +1215,11 @@ assert(typeof S3ConnectorOperator === "object");
 assert(typeof SalesforceConnectorOperator === "object");
 assert(typeof Scope === "object");
 assert(typeof SegmentSnapshotStatus === "object");
+assert(typeof SegmentSortDataType === "object");
+assert(typeof SegmentSortOrder === "object");
 assert(typeof SegmentType === "object");
 assert(typeof ServiceNowConnectorOperator === "object");
+assert(typeof SortAttributeType === "object");
 assert(typeof SourceConnectorType === "object");
 assert(typeof StandardIdentifier === "object");
 assert(typeof Statistic === "object");

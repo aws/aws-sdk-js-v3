@@ -715,6 +715,46 @@ export type IncludeOptions = (typeof IncludeOptions)[keyof typeof IncludeOptions
  * @public
  * @enum
  */
+export const SegmentSortDataType = {
+  DATE: "DATE",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type SegmentSortDataType = (typeof SegmentSortDataType)[keyof typeof SegmentSortDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SegmentSortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type SegmentSortOrder = (typeof SegmentSortOrder)[keyof typeof SegmentSortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortAttributeType = {
+  CALCULATED: "CALCULATED",
+  PROFILE: "PROFILE",
+} as const;
+/**
+ * @public
+ */
+export type SortAttributeType = (typeof SortAttributeType)[keyof typeof SortAttributeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataFormat = {
   CSV: "CSV",
   JSONL: "JSONL",
