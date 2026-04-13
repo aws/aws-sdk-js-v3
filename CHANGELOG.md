@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces changes to SegmentDefinition APIs to support sorting by attributes. ([c5c5196](https://github.com/aws/aws-sdk-js-v3/commit/c5c519686e996c23b469194d19b3c43e11632ac3))
+* **client-deadline:** Adds GetMonitorSettings and UpdateMonitorSettings APIs to Deadline Cloud. Enables reading and writing monitor settings as key-value pairs (up to 64 keys per monitor). UpdateMonitorSettings supports upsert and delete (via empty value) semantics and is idempotent. ([c21faa8](https://github.com/aws/aws-sdk-js-v3/commit/c21faa8466eb33a2b316153e63d6d66eed1b0408))
+* **client-interconnect:** Initial release of AWS Interconnect -- a managed private connectivity service that enables you to create high-speed network connections between your AWS Virtual Private Clouds (VPCs) and your VPCs on other public clouds or your on-premise networks. ([209d363](https://github.com/aws/aws-sdk-js-v3/commit/209d36331a7a92d4b4f15ff50b7af3bc03f666d2))
+* **client-macie2:** This release adds an optional expectedBucketOwner field to the Macie S3 export configuration, allowing customers to verify bucket ownership before Macie writes results to the destination bucket. ([4ce1dad](https://github.com/aws/aws-sdk-js-v3/commit/4ce1dadc0876cb27bc843ba72be1592a16c7a039))
+* **client-securityhub:** Provide organizational unit scoping capability for GetFindingsV2, GetFindingStatisticsV2, GetResourcesV2, GetResourcesStatisticsV2 APIs. ([7dbb49e](https://github.com/aws/aws-sdk-js-v3/commit/7dbb49e26b7b543b5957a8e390b0c273ad0691af))
+* **clients:** update client endpoints as of 2026-04-13 ([c2fd223](https://github.com/aws/aws-sdk-js-v3/commit/c2fd223de3808dd9b6ad75111a880904980486fe))
+
+
+
+
+
 # [3.1029.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1028.0...v3.1029.0) (2026-04-10)
 
 

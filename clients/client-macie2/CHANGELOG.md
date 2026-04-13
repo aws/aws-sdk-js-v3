@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
+
+
+### Features
+
+* **client-macie2:** This release adds an optional expectedBucketOwner field to the Macie S3 export configuration, allowing customers to verify bucket ownership before Macie writes results to the destination bucket. ([4ce1dad](https://github.com/aws/aws-sdk-js-v3/commit/4ce1dadc0876cb27bc843ba72be1592a16c7a039))
+
+
+
+
+
 # [3.1029.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1028.0...v3.1029.0) (2026-04-10)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2
