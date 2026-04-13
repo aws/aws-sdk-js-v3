@@ -1295,7 +1295,7 @@ export interface StringFilter {
    *          </ul>
    *          <p>
    *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules V1.
-   *           <code>CONTAINS_WORD</code> operator is only supported in <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>, <code>GetResourcesV2</code>, and <code>GetResourceStatisticsV2</code> APIs.
+   *           <code>CONTAINS_WORD</code> operator is only supported in <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>, <code>GetResourcesV2</code>, and <code>GetResourcesStatisticsV2</code> APIs.
    *           For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub CSPM User Guide</i>.</p>
    * @public
    */

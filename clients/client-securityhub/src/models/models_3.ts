@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AllowedOperators,
+  AssociationStatus,
   AssociationType,
   AutoEnableStandards,
   ConfigurationPolicyAssociationStatus,
@@ -16,6 +17,7 @@ import type {
 import type { AutomationRulesActionV2, NoteUpdate } from "./models_0";
 import type {
   AwsSecurityFindingFilters,
+  FindingScopes,
   FindingsTrendsStringFilter,
   JiraCloudUpdateConfiguration,
   OcsfBooleanFilter,
@@ -27,6 +29,7 @@ import type {
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
+  ResourceScopes,
   ResourcesDateFilter,
   ResourcesMapFilter,
   ResourcesNumberFilter,
@@ -35,6 +38,113 @@ import type {
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * <p> An array that provides the enablement status and other details for each control that
+ *          applies to each enabled standard. </p>
+ * @public
+ */
+export interface StandardsControlAssociationSummary {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of a standard.
+   *       </p>
+   * @public
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   * <p>
+   *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
+   *          Amazon Web Services service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
+   *       </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p> The ARN of a control, such as
+   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
+   *          parameter doesn't mention a specific standard. </p>
+   * @public
+   */
+  SecurityControlArn: string | undefined;
+
+  /**
+   * <p>
+   *          The enablement status of a control in a specific standard.
+   *       </p>
+   * @public
+   */
+  AssociationStatus: AssociationStatus | undefined;
+
+  /**
+   * <p>
+   *          The requirement that underlies this control in the compliance framework related to the standard.
+   *       </p>
+   * @public
+   */
+  RelatedRequirements?: string[] | undefined;
+
+  /**
+   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The reason for updating a control's enablement status in a specified standard.</p>
+   * @public
+   */
+  UpdatedReason?: string | undefined;
+
+  /**
+   * <p>
+   *          The title of a control.
+   *       </p>
+   * @public
+   */
+  StandardsControlTitle?: string | undefined;
+
+  /**
+   * <p>
+   *          The description of a control. This typically summarizes how Security Hub CSPM evaluates the control and the
+   *          conditions under which it produces a failed finding. The parameter may reference a specific standard.
+   *       </p>
+   * @public
+   */
+  StandardsControlDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsResponse {
+  /**
+   * <p> An array that provides the enablement status and other details for each security
+   *          control that applies to each enabled standard. </p>
+   * @public
+   */
+  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource to retrieve tags for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
 
 /**
  * @public
@@ -1130,6 +1240,15 @@ export interface GetFindingsV2Request {
   Filters?: OcsfFindingFilters | undefined;
 
   /**
+   * <p>Limits the results to findings from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees findings from all accounts across the entire organization. Other accounts see only their own findings.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: FindingScopes | undefined;
+
+  /**
    * <p>The finding attributes used to sort the list of returned findings.</p>
    * @public
    */
@@ -1197,7 +1316,16 @@ export interface GetResourcesV2Request {
   Filters?: ResourcesFilters | undefined;
 
   /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * <p>Limits the results to resources from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees resources from all accounts across the entire organization. Other accounts see only their own resources.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: ResourceScopes | undefined;
+
+  /**
+   * <p>The resource attributes used to sort the list of returned resources.</p>
    * @public
    */
   SortCriteria?: SortCriterion[] | undefined;
@@ -1430,6 +1558,15 @@ export interface GetFindingStatisticsV2Request {
   GroupByRules: GroupByRule[] | undefined;
 
   /**
+   * <p>Limits the results to findings from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own findings.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: FindingScopes | undefined;
+
+  /**
    * <p>Orders the aggregation count in descending or ascending order.
    *          Descending order is the default.</p>
    * @public
@@ -1452,6 +1589,15 @@ export interface GetResourcesStatisticsV2Request {
    * @public
    */
   GroupByRules: ResourceGroupByRule[] | undefined;
+
+  /**
+   * <p>Limits the results to resources from specific organizational units or from the delegated administrator's organization.
+   *          Only the delegated administrator account can use this parameter. Other accounts receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator sees statistics from all accounts across the entire organization. Other accounts see only statistics for their own resources.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If multiple entries are specified, the entries are combined using OR logic.</p>
+   * @public
+   */
+  Scopes?: ResourceScopes | undefined;
 
   /**
    * <p>Sorts aggregated statistics.</p>

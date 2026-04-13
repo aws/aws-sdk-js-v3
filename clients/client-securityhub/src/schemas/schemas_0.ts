@@ -606,6 +606,8 @@ const _ANct = "ActionName";
 const _ANp = "ApplicationName";
 const _ANt = "AttributeName";
 const _AO = "AllowOrigins";
+const _AOS = "AwsOrganizationScope";
+const _AOSL = "AwsOrganizationScopeList";
 const _AOSSD = "AwsOpenSearchServiceDomain";
 const _AOSSDASOD = "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails";
 const _AOSSDCCD = "AwsOpenSearchServiceDomainClusterConfigDetails";
@@ -622,6 +624,7 @@ const _AOSSDVOD = "AwsOpenSearchServiceDomainVpcOptionsDetails";
 const _AOd = "AdditionalOccurrences";
 const _AOs = "AsnOrg";
 const _AOu = "AuthenticationOptions";
+const _AOw = "AwsOrganizations";
 const _AP = "AccessPolicy";
 const _APA = "AccessPointArn";
 const _API = "AssignPublicIp";
@@ -1742,7 +1745,8 @@ const _FS = "FirstSeen";
 const _FSA = "FirstSeenAt";
 const _FSFRA = "FirehoseSuccessFeedbackRoleArn";
 const _FSI = "FileSystemId";
-const _FSi = "FindingsSummary";
+const _FSi = "FindingScopes";
+const _FSin = "FindingsSummary";
 const _FT = "FindingType";
 const _FTCF = "FindingsTrendsCompositeFilter";
 const _FTCFL = "FindingsTrendsCompositeFilterList";
@@ -2416,6 +2420,7 @@ const _OIA = "OutsideIpAddress";
 const _OICC = "OpenIdConnectConfig";
 const _OIF = "OcsfIpFilter";
 const _OIFL = "OcsfIpFilterList";
+const _OIr = "OrganizationId";
 const _OIw = "OwnerId";
 const _OK = "OutputKey";
 const _OKT = "OriginKeepaliveTimeout";
@@ -2425,6 +2430,7 @@ const _OMF = "OcsfMapFilter";
 const _OMFL = "OcsfMapFilterList";
 const _ON = "OptionName";
 const _ONF = "OcsfNumberFilter";
+const _ONFE = "OrganizationNotFoundException";
 const _ONFL = "OcsfNumberFilterList";
 const _ONw = "OwnerName";
 const _OP = "OriginPath";
@@ -2442,6 +2448,7 @@ const _OST = "OperationStartTime";
 const _OSv = "OverallSeverity";
 const _OU = "OwnerUid";
 const _OUI = "OrganizationalUnitId";
+const _OUNFE = "OrganizationalUnitNotFoundException";
 const _OV = "OutputValue";
 const _OVl = "OldValue";
 const _Oc = "Occurrences";
@@ -2812,6 +2819,7 @@ const _RSen = "RenewalSummary";
 const _RSene = "RenewalStatus";
 const _RSep = "ReplicaStatus";
 const _RSes = "RestoreSummary";
+const _RSeso = "ResourceScopes";
 const _RSest = "RestoreStatus";
 const _RSo = "RouteSettings";
 const _RSou = "RouteSet";
@@ -3121,6 +3129,7 @@ const _Sa = "Sasl";
 const _Sam = "Sample";
 const _Sc = "Scope";
 const _Sch = "Scheme";
+const _Sco = "Scopes";
 const _Scr = "Scram";
 const _Se = "Severity";
 const _Sec = "Secrets";
@@ -3442,6 +3451,8 @@ import {
   InvalidAccessException,
   InvalidInputException,
   LimitExceededException,
+  OrganizationalUnitNotFoundException,
+  OrganizationNotFoundException,
   ResourceConflictException,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -3498,6 +3509,18 @@ export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   [0, 0]
 ];
 n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var OrganizationalUnitNotFoundException$: StaticErrorSchema = [-3, n0, _OUNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(OrganizationalUnitNotFoundException$, OrganizationalUnitNotFoundException);
+export var OrganizationNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(OrganizationNotFoundException$, OrganizationNotFoundException);
 export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _C],
@@ -5513,6 +5536,11 @@ export var AwsOpenSearchServiceDomainVpcOptionsDetails$: StaticStructureSchema =
   [_SGI, _SIub],
   [64 | 0, 64 | 0]
 ];
+export var AwsOrganizationScope$: StaticStructureSchema = [3, n0, _AOS,
+  0,
+  [_OIr, _OUI],
+  [0, 0]
+];
 export var AwsRdsDbClusterAssociatedRole$: StaticStructureSchema = [3, n0, _ARDCAR,
   0,
   [_RAo, _St],
@@ -6888,6 +6916,11 @@ export var FindingProviderSeverity$: StaticStructureSchema = [3, n0, _FPS,
   [_Lab, _Orig],
   [0, 0]
 ];
+export var FindingScopes$: StaticStructureSchema = [3, n0, _FSi,
+  0,
+  [_AOw],
+  [() => AwsOrganizationScopeList]
+];
 export var FindingsTrendsCompositeFilter$: StaticStructureSchema = [3, n0, _FTCF,
   0,
   [_SF, _NCF, _Oper],
@@ -7035,8 +7068,8 @@ export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFRe,
 ];
 export var GetFindingStatisticsV2Request$: StaticStructureSchema = [3, n0, _GFSVR,
   0,
-  [_GBR, _SOo, _MSR],
-  [() => GroupByRules, 0, 1], 1
+  [_GBR, _Sco, _SOo, _MSR],
+  [() => GroupByRules, () => FindingScopes$, 0, 1], 1
 ];
 export var GetFindingStatisticsV2Response$: StaticStructureSchema = [3, n0, _GFSVRe,
   0,
@@ -7055,8 +7088,8 @@ export var GetFindingsTrendsV2Response$: StaticStructureSchema = [3, n0, _GFTVRe
 ];
 export var GetFindingsV2Request$: StaticStructureSchema = [3, n0, _GFVR,
   0,
-  [_Filt, _SCor, _NTe, _MRa],
-  [() => OcsfFindingFilters$, () => SortCriteria, 0, 1]
+  [_Filt, _Sco, _SCor, _NTe, _MRa],
+  [() => OcsfFindingFilters$, () => FindingScopes$, () => SortCriteria, 0, 1]
 ];
 export var GetFindingsV2Response$: StaticStructureSchema = [3, n0, _GFVRe,
   0,
@@ -7115,8 +7148,8 @@ export var GetMembersResponse$: StaticStructureSchema = [3, n0, _GMRe,
 ];
 export var GetResourcesStatisticsV2Request$: StaticStructureSchema = [3, n0, _GRSVR,
   0,
-  [_GBR, _SOo, _MSR],
-  [() => ResourceGroupByRules, 0, 1], 1
+  [_GBR, _Sco, _SOo, _MSR],
+  [() => ResourceGroupByRules, () => ResourceScopes$, 0, 1], 1
 ];
 export var GetResourcesStatisticsV2Response$: StaticStructureSchema = [3, n0, _GRSVRe,
   0,
@@ -7135,8 +7168,8 @@ export var GetResourcesTrendsV2Response$: StaticStructureSchema = [3, n0, _GRTVR
 ];
 export var GetResourcesV2Request$: StaticStructureSchema = [3, n0, _GRVR,
   0,
-  [_Filt, _SCor, _NTe, _MRa],
-  [() => ResourcesFilters$, () => SortCriteria, 0, 1]
+  [_Filt, _Sco, _SCor, _NTe, _MRa],
+  [() => ResourcesFilters$, () => ResourceScopes$, () => SortCriteria, 0, 1]
 ];
 export var GetResourcesV2Response$: StaticStructureSchema = [3, n0, _GRVRe,
   0,
@@ -7655,13 +7688,18 @@ export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR,
 ];
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RResou,
   0,
-  [_RI, _AIc, _Reg, _RDCTD, _RCeso, _RGe, _RCesou, _RT, _RNes, _RCTD, _FSi, _RTe],
+  [_RI, _AIc, _Reg, _RDCTD, _RCeso, _RGe, _RCesou, _RT, _RNes, _RCTD, _FSin, _RTe],
   [0, 0, 0, 0, 15, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList], 5
 ];
 export var ResourcesCompositeFilter$: StaticStructureSchema = [3, n0, _RCF,
   0,
   [_SF, _DF, _NF, _MF, _NCF, _Oper],
   [() => ResourcesStringFilterList, () => ResourcesDateFilterList, () => ResourcesNumberFilterList, () => ResourcesMapFilterList, () => ResourcesCompositeFilterList, 0]
+];
+export var ResourceScopes$: StaticStructureSchema = [3, n0, _RSeso,
+  0,
+  [_AOw],
+  [() => AwsOrganizationScopeList]
 ];
 export var ResourcesCount$: StaticStructureSchema = [3, n0, _RCesour,
   0,
@@ -8637,6 +8675,9 @@ var AwsMountPointList: StaticListSchema = [1, n0, _AMPL,
 ];
 var AwsNetworkFirewallFirewallSubnetMappingsList: StaticListSchema = [1, n0, _ANFFSML,
   0, () => AwsNetworkFirewallFirewallSubnetMappingsDetails$
+];
+var AwsOrganizationScopeList: StaticListSchema = [1, n0, _AOSL,
+  0, () => AwsOrganizationScope$
 ];
 var AwsRdsDbClusterAssociatedRoles: StaticListSchema = [1, n0, _ARDCARw,
   0, () => AwsRdsDbClusterAssociatedRole$

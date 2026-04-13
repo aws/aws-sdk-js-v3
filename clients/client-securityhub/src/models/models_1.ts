@@ -4745,6 +4745,29 @@ export interface AwsOpenSearchServiceDomainDetails {
 }
 
 /**
+ * <p>Specifies an Organizations scope. Data from the specified organization or organizational unit is included in the response.</p>
+ *          <p>To scope to a specific organizational unit, provide <code>OrganizationalUnitId</code>. You can optionally include <code>OrganizationId</code>. If you omit <code>OrganizationId</code>, Security Hub uses the caller's organization ID.
+ *          To scope to the delegated administrator's entire organization, provide only <code>OrganizationId</code>.</p>
+ *          <p>The organization ID and organizational unit must belong to the delegated administrator's own organization.
+ *          Each request must use one scoping approach: either scope to the entire organization by providing an <code>AwsOrganizationScope</code> entry with only <code>OrganizationId</code>, or scope to specific organizational units by providing <code>AwsOrganizationScope</code> entries with <code>OrganizationalUnitId</code>. You can't combine both approaches in the same request.</p>
+ * @public
+ */
+export interface AwsOrganizationScope {
+  /**
+   * <p>The unique identifier (ID) of the organization (for example, <code>o-abcd1234567890</code>). The organization must be the delegated administrator's own organization.
+   *          If you omit this value and provide <code>OrganizationalUnitId</code>, Security Hub uses the caller's organization ID.</p>
+   * @public
+   */
+  OrganizationId?: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) of the organizational unit (OU) (for example, <code>ou-ab12-cd345678</code>). The OU must exist within the delegated administrator's own organization. When specified, the results include only data from accounts in this OU.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string | undefined;
+}
+
+/**
  * <p>An IAM role that is associated with the Amazon RDS DB cluster.</p>
  * @public
  */
@@ -11201,28 +11224,4 @@ export interface AwsWafRuleGroupDetails {
    * @public
    */
   Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
-}
-
-/**
- * <p>
- *          A custom header for custom request and response handling.
- *       </p>
- * @public
- */
-export interface AwsWafv2CustomHttpHeader {
-  /**
-   * <p>
-   *          The name of the custom header.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>
-   *          The value of the custom header.
-   *       </p>
-   * @public
-   */
-  Value?: string | undefined;
 }

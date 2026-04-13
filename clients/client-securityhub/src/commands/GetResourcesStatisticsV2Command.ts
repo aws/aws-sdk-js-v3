@@ -29,6 +29,7 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
 
 /**
  * <p>Retrieves statistical information about Amazon Web Services resources and their associated security findings.</p>
+ *          <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you aggregate resources from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,6 +146,14 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *       },
  *     },
  *   ],
+ *   Scopes: { // ResourceScopes
+ *     AwsOrganizations: [ // AwsOrganizationScopeList
+ *       { // AwsOrganizationScope
+ *         OrganizationId: "STRING_VALUE",
+ *         OrganizationalUnitId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
  *   SortOrder: "asc" || "desc",
  *   MaxStatisticResults: Number("int"),
  * };
@@ -182,6 +191,12 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *  <p>
  *          The request has failed due to an internal failure of the service.
  *       </p>
+ *
+ * @throws {@link OrganizationalUnitNotFoundException} (client fault)
+ *  <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>

@@ -409,6 +409,7 @@ import {
   AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails$,
   AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails$,
   AwsOpenSearchServiceDomainVpcOptionsDetails$,
+  AwsOrganizationScope$,
   AwsRdsDbClusterAssociatedRole$,
   AwsRdsDbClusterDetails$,
   AwsRdsDbClusterMember$,
@@ -802,6 +803,7 @@ import {
   FindingHistoryUpdateSourceType,
   FindingProviderFields$,
   FindingProviderSeverity$,
+  FindingScopes$,
   FindingsTrendsCompositeFilter$,
   FindingsTrendsFilters$,
   FindingsTrendsStringField,
@@ -1029,9 +1031,13 @@ import {
   OcsfNumberFilter$,
   OcsfStringField,
   OcsfStringFilter$,
+  OrganizationalUnitNotFoundException,
+  OrganizationalUnitNotFoundException$,
   OrganizationConfiguration$,
   OrganizationConfigurationConfigurationType,
   OrganizationConfigurationStatus,
+  OrganizationNotFoundException,
+  OrganizationNotFoundException$,
   Page$,
   paginateDescribeActionTargets,
   paginateDescribeProducts,
@@ -1099,6 +1105,7 @@ import {
   ResourceNotFoundException$,
   ResourceResult$,
   ResourcesCompositeFilter$,
+  ResourceScopes$,
   ResourcesCount$,
   ResourcesDateField,
   ResourcesDateFilter$,
@@ -1907,6 +1914,7 @@ assert(typeof AwsOpenSearchServiceDomainMasterUserOptionsDetails$ === "object");
 assert(typeof AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails$ === "object");
 assert(typeof AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails$ === "object");
 assert(typeof AwsOpenSearchServiceDomainVpcOptionsDetails$ === "object");
+assert(typeof AwsOrganizationScope$ === "object");
 assert(typeof AwsRdsDbClusterAssociatedRole$ === "object");
 assert(typeof AwsRdsDbClusterDetails$ === "object");
 assert(typeof AwsRdsDbClusterMember$ === "object");
@@ -2184,6 +2192,7 @@ assert(typeof FindingHistoryUpdate$ === "object");
 assert(typeof FindingHistoryUpdateSource$ === "object");
 assert(typeof FindingProviderFields$ === "object");
 assert(typeof FindingProviderSeverity$ === "object");
+assert(typeof FindingScopes$ === "object");
 assert(typeof FindingsTrendsCompositeFilter$ === "object");
 assert(typeof FindingsTrendsFilters$ === "object");
 assert(typeof FindingsTrendsStringFilter$ === "object");
@@ -2344,6 +2353,7 @@ assert(typeof ResourceFindingsSummary$ === "object");
 assert(typeof ResourceGroupByRule$ === "object");
 assert(typeof ResourceResult$ === "object");
 assert(typeof ResourcesCompositeFilter$ === "object");
+assert(typeof ResourceScopes$ === "object");
 assert(typeof ResourcesCount$ === "object");
 assert(typeof ResourcesDateFilter$ === "object");
 assert(typeof ResourceSeverityBreakdown$ === "object");
@@ -2556,6 +2566,10 @@ assert(InvalidInputException.prototype instanceof SecurityHubServiceException);
 assert(typeof InvalidInputException$ === "object");
 assert(LimitExceededException.prototype instanceof SecurityHubServiceException);
 assert(typeof LimitExceededException$ === "object");
+assert(OrganizationalUnitNotFoundException.prototype instanceof SecurityHubServiceException);
+assert(typeof OrganizationalUnitNotFoundException$ === "object");
+assert(OrganizationNotFoundException.prototype instanceof SecurityHubServiceException);
+assert(typeof OrganizationNotFoundException$ === "object");
 assert(ResourceConflictException.prototype instanceof SecurityHubServiceException);
 assert(typeof ResourceConflictException$ === "object");
 assert(ResourceInUseException.prototype instanceof SecurityHubServiceException);

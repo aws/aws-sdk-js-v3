@@ -147,6 +147,7 @@ import type {
   AwsNetworkFirewallFirewallPolicyDetails,
   AwsNetworkFirewallRuleGroupDetails,
   AwsOpenSearchServiceDomainDetails,
+  AwsOrganizationScope,
   AwsRdsDbClusterDetails,
   AwsRdsDbClusterSnapshotDetails,
   AwsRdsDbInstanceDetails,
@@ -172,7 +173,6 @@ import type {
   AwsWafRegionalWebAclDetails,
   AwsWafRuleDetails,
   AwsWafRuleGroupDetails,
-  AwsWafv2CustomHttpHeader,
   Compliance,
   DataClassificationDetails,
   Detection,
@@ -186,6 +186,30 @@ import type {
   ProcessDetails,
   Remediation,
 } from "./models_1";
+
+/**
+ * <p>
+ *          A custom header for custom request and response handling.
+ *       </p>
+ * @public
+ */
+export interface AwsWafv2CustomHttpHeader {
+  /**
+   * <p>
+   *          The name of the custom header.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *          The value of the custom header.
+   *       </p>
+   * @public
+   */
+  Value?: string | undefined;
+}
 
 /**
  * <p>
@@ -4994,7 +5018,7 @@ export interface BatchUpdateFindingsV2Request {
 
   /**
    * <p>The updated value for the normalized severity identifier.
-   *          The severity ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 99].
+   *          The severity ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 6, 99].
    *          When customer provides the updated severity ID, the string sibling severity will automatically be updated in the finding.</p>
    * @public
    */
@@ -5002,7 +5026,7 @@ export interface BatchUpdateFindingsV2Request {
 
   /**
    * <p>The updated value for the normalized status identifier.
-   *          The status ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 6, 99].
+   *          The status ID is an integer with the allowed enum values [0, 1, 2, 3, 4, 5, 99].
    *          When customer provides the updated status ID, the string sibling status will automatically be updated in the finding.</p>
    * @public
    */
@@ -7232,7 +7256,7 @@ export interface ProductV2 {
   ActivationUrl?: string | undefined;
 
   /**
-   * <p>The identifier for the AWS Marketplace product associated with this integration.</p>
+   * <p>The identifier for the Amazon Web Services Marketplace product associated with this integration.</p>
    * @public
    */
   MarketplaceProductId?: string | undefined;
@@ -7851,6 +7875,18 @@ export interface FindingHistoryRecord {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>Defines the data boundary for a findings query. Scopes determine which organizational units or organizations to retrieve data from.</p>
+ * @public
+ */
+export interface FindingScopes {
+  /**
+   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * @public
+   */
+  AwsOrganizations?: AwsOrganizationScope[] | undefined;
 }
 
 /**
@@ -9118,6 +9154,18 @@ export interface ResourcesStringFilter {
 }
 
 /**
+ * <p>Defines the data boundary for a resources query. Scopes determine which organizational units or organizations to retrieve data from.</p>
+ * @public
+ */
+export interface ResourceScopes {
+  /**
+   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * @public
+   */
+  AwsOrganizations?: AwsOrganizationScope[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetResourcesStatisticsV2Response {
@@ -9396,7 +9444,7 @@ export interface ResourceResult {
  */
 export interface GetResourcesV2Response {
   /**
-   * <p>Filters resources based on a set of criteria.</p>
+   * <p>An array of resources returned by the operation.</p>
    * @public
    */
   Resources: ResourceResult[] | undefined;
@@ -10148,111 +10196,4 @@ export interface ListStandardsControlAssociationsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p> An array that provides the enablement status and other details for each control that
- *          applies to each enabled standard. </p>
- * @public
- */
-export interface StandardsControlAssociationSummary {
-  /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of a standard.
-   *       </p>
-   * @public
-   */
-  StandardsArn: string | undefined;
-
-  /**
-   * <p>
-   *          A unique standard-agnostic identifier for a control. Values for this field typically consist of an
-   *          Amazon Web Services service and a number, such as APIGateway.5. This field doesn't reference a specific standard.
-   *       </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p> The ARN of a control, such as
-   *             <code>arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1</code>. This
-   *          parameter doesn't mention a specific standard. </p>
-   * @public
-   */
-  SecurityControlArn: string | undefined;
-
-  /**
-   * <p>
-   *          The enablement status of a control in a specific standard.
-   *       </p>
-   * @public
-   */
-  AssociationStatus: AssociationStatus | undefined;
-
-  /**
-   * <p>
-   *          The requirement that underlies this control in the compliance framework related to the standard.
-   *       </p>
-   * @public
-   */
-  RelatedRequirements?: string[] | undefined;
-
-  /**
-   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The reason for updating a control's enablement status in a specified standard.</p>
-   * @public
-   */
-  UpdatedReason?: string | undefined;
-
-  /**
-   * <p>
-   *          The title of a control.
-   *       </p>
-   * @public
-   */
-  StandardsControlTitle?: string | undefined;
-
-  /**
-   * <p>
-   *          The description of a control. This typically summarizes how Security Hub CSPM evaluates the control and the
-   *          conditions under which it produces a failed finding. The parameter may reference a specific standard.
-   *       </p>
-   * @public
-   */
-  StandardsControlDescription?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStandardsControlAssociationsResponse {
-  /**
-   * <p> An array that provides the enablement status and other details for each security
-   *          control that applies to each enabled standard. </p>
-   * @public
-   */
-  StandardsControlAssociationSummaries: StandardsControlAssociationSummary[] | undefined;
-
-  /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource to retrieve tags for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
 }

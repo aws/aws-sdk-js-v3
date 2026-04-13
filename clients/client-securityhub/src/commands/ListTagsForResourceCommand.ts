@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest } from "../models/models_2";
-import type { ListTagsForResourceResponse } from "../models/models_3";
+import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_3";
 import { ListTagsForResource$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 

@@ -298,6 +298,54 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ * @public
+ */
+export class OrganizationalUnitNotFoundException extends __BaseException {
+  readonly name = "OrganizationalUnitNotFoundException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationalUnitNotFoundException, __BaseException>) {
+    super({
+      name: "OrganizationalUnitNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationalUnitNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+ * @public
+ */
+export class OrganizationNotFoundException extends __BaseException {
+  readonly name = "OrganizationNotFoundException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  Code?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationNotFoundException, __BaseException>) {
+    super({
+      name: "OrganizationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
  * <p>
  *             The request was rejected because it conflicts with the resource's availability. For example, you tried
  *             to update a security control that's currently in the <code>UPDATING</code> state.

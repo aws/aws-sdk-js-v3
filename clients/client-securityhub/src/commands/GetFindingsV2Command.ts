@@ -28,8 +28,11 @@ export interface GetFindingsV2CommandInput extends GetFindingsV2Request {}
 export interface GetFindingsV2CommandOutput extends GetFindingsV2Response, __MetadataBearer {}
 
 /**
- * <p>Return a list of findings that match the specified criteria.
- *       <code>GetFindings</code> and <code>GetFindingsV2</code> both use <code>securityhub:GetFindings</code> in the <code>Action</code> element of an IAM policy statement.
+ * <p>Returns a list of findings that match the specified criteria.</p>
+ *          <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you retrieve findings from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
+ *          <p>You can use the <code>Filters</code> parameter to refine results based on finding attributes. You can use <code>Scopes</code> and <code>Filters</code> independently or together. When both are provided, <code>Scopes</code> narrows the data set first, and then <code>Filters</code> refines results within that scoped data set.</p>
+ *          <p>
+ *             <code>GetFindings</code> and <code>GetFindingsV2</code> both use <code>securityhub:GetFindings</code> in the <code>Action</code> element of an IAM policy statement.
  *          You must have permission to perform the <code>securityhub:GetFindings</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -174,6 +177,14 @@ export interface GetFindingsV2CommandOutput extends GetFindingsV2Response, __Met
  *     ],
  *     CompositeOperator: "AND" || "OR",
  *   },
+ *   Scopes: { // FindingScopes
+ *     AwsOrganizations: [ // AwsOrganizationScopeList
+ *       { // AwsOrganizationScope
+ *         OrganizationId: "STRING_VALUE",
+ *         OrganizationalUnitId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
  *   SortCriteria: [ // SortCriteria
  *     { // SortCriterion
  *       Field: "STRING_VALUE",
@@ -210,6 +221,12 @@ export interface GetFindingsV2CommandOutput extends GetFindingsV2Response, __Met
  *  <p>
  *          The request has failed due to an internal failure of the service.
  *       </p>
+ *
+ * @throws {@link OrganizationalUnitNotFoundException} (client fault)
+ *  <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>
