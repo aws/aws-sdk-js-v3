@@ -31,7 +31,7 @@
     "@smithy/core": "^3.23.14",
     "@smithy/protocol-http": "^5.3.13",
     "@smithy/types": "^4.14.0",
-    "@smithy/util-retry": "^4.3.0",
+    "@smithy/util-retry": "^4.3.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
