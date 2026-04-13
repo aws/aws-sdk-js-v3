@@ -28,7 +28,7 @@
     "@aws-sdk/types": "workspace:^3.973.7",
     "@smithy/types": "^4.14.0",
     "@smithy/url-parser": "^4.2.13",
-    "@smithy/util-endpoints": "^3.3.4",
+    "@smithy/util-endpoints": "^3.4.0",
     "tslib": "^2.6.2"
   },
   "engines": {
