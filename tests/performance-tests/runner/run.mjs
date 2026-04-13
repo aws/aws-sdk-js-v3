@@ -11,10 +11,18 @@ const APPLICATIONS_DIR = path.join(__dirname, "..", "applications");
 const DIST_DIR = path.join(__dirname, "..", "dist-perf");
 
 let lerna = { version: "unknown" };
-try {
-  lerna = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "lerna.json"), "utf-8"));
-} catch (e) {
-  console.warn("WARN: could not read lerna.json:", e.message);
+for (const candidate of [
+  path.join(__dirname, "..", "lerna.json"),
+  path.join(__dirname, "..", "..", "..", "lerna.json"),
+]) {
+  if (fs.existsSync(candidate)) {
+    try {
+      lerna = JSON.parse(fs.readFileSync(candidate, "utf-8"));
+    } catch (e) {
+      console.warn("WARN: could not read lerna.json:", e.message);
+    }
+    break;
+  }
 }
 
 let commitId = "unknown";
