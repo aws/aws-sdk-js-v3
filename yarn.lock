@@ -11228,6 +11228,59 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-interconnect@workspace:clients/client-interconnect":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-interconnect@workspace:clients/client-interconnect"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.973.27"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.30"
+    "@aws-sdk/middleware-host-header": "workspace:^3.972.9"
+    "@aws-sdk/middleware-logger": "workspace:^3.972.9"
+    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.10"
+    "@aws-sdk/middleware-user-agent": "workspace:^3.972.29"
+    "@aws-sdk/region-config-resolver": "workspace:^3.972.11"
+    "@aws-sdk/types": "workspace:^3.973.7"
+    "@aws-sdk/util-endpoints": "workspace:^3.996.6"
+    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.9"
+    "@aws-sdk/util-user-agent-node": "workspace:^3.973.15"
+    "@smithy/config-resolver": "npm:^4.4.14"
+    "@smithy/core": "npm:^3.23.14"
+    "@smithy/fetch-http-handler": "npm:^5.3.16"
+    "@smithy/hash-node": "npm:^4.2.13"
+    "@smithy/invalid-dependency": "npm:^4.2.13"
+    "@smithy/middleware-content-length": "npm:^4.2.13"
+    "@smithy/middleware-endpoint": "npm:^4.4.29"
+    "@smithy/middleware-retry": "npm:^4.5.0"
+    "@smithy/middleware-serde": "npm:^4.2.17"
+    "@smithy/middleware-stack": "npm:^4.2.13"
+    "@smithy/node-config-provider": "npm:^4.3.13"
+    "@smithy/node-http-handler": "npm:^4.5.2"
+    "@smithy/protocol-http": "npm:^5.3.13"
+    "@smithy/smithy-client": "npm:^4.12.9"
+    "@smithy/types": "npm:^4.14.0"
+    "@smithy/url-parser": "npm:^4.2.13"
+    "@smithy/util-base64": "npm:^4.3.2"
+    "@smithy/util-body-length-browser": "npm:^4.2.2"
+    "@smithy/util-body-length-node": "npm:^4.2.3"
+    "@smithy/util-defaults-mode-browser": "npm:^4.3.45"
+    "@smithy/util-defaults-mode-node": "npm:^4.2.49"
+    "@smithy/util-endpoints": "npm:^3.3.4"
+    "@smithy/util-middleware": "npm:^4.2.13"
+    "@smithy/util-retry": "npm:^4.3.0"
+    "@smithy/util-utf8": "npm:^4.2.2"
+    "@smithy/util-waiter": "npm:^4.2.15"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-internetmonitor@workspace:clients/client-internetmonitor":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-internetmonitor@workspace:clients/client-internetmonitor"
