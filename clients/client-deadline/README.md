@@ -573,6 +573,13 @@ GetMonitor
 </details>
 <details>
 <summary>
+GetMonitorSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/GetMonitorSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetMonitorSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/GetMonitorSettingsCommandOutput/)
+</details>
+<details>
+<summary>
 GetQueue
 </summary>
 
@@ -955,6 +962,13 @@ UpdateMonitor
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/UpdateMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateMonitorCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateMonitorSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/UpdateMonitorSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateMonitorSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/UpdateMonitorSettingsCommandOutput/)
 </details>
 <details>
 <summary>

@@ -1913,6 +1913,28 @@ export interface GetMonitorResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetMonitorSettingsRequest {
+  /**
+   * <p>The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>
+   * @public
+   */
+  monitorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMonitorSettingsResponse {
+  /**
+   * Monitor settings as key-value pairs.
+   * @public
+   */
+  settings: Record<string, string> | undefined;
+}
+
+/**
  * Shared pagination fields for List operation inputs (nextToken + maxResults).
  * @public
  */
@@ -2059,6 +2081,28 @@ export interface UpdateMonitorRequest {
  * @public
  */
 export interface UpdateMonitorResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateMonitorSettingsRequest {
+  /**
+   * <p>The unique identifier of the monitor to update settings for.</p>
+   * @public
+   */
+  monitorId: string | undefined;
+
+  /**
+   * Monitor settings as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.
+   * @public
+   */
+  settings: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMonitorSettingsResponse {}
 
 /**
  * <p>The details of a filtered search for parameters.</p>

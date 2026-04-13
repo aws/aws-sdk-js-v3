@@ -198,6 +198,10 @@ import type {
 } from "./commands/GetLicenseEndpointCommand";
 import type { GetLimitCommandInput, GetLimitCommandOutput } from "./commands/GetLimitCommand";
 import type { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
+import type {
+  GetMonitorSettingsCommandInput,
+  GetMonitorSettingsCommandOutput,
+} from "./commands/GetMonitorSettingsCommand";
 import type { GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
 import type {
   GetQueueEnvironmentCommandInput,
@@ -319,6 +323,10 @@ import type { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./comman
 import type { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import type { UpdateLimitCommandInput, UpdateLimitCommandOutput } from "./commands/UpdateLimitCommand";
 import type { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "./commands/UpdateMonitorCommand";
+import type {
+  UpdateMonitorSettingsCommandInput,
+  UpdateMonitorSettingsCommandOutput,
+} from "./commands/UpdateMonitorSettingsCommand";
 import type { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
 import type {
   UpdateQueueEnvironmentCommandInput,
@@ -415,6 +423,7 @@ export type ServiceInputTypes =
   | GetLicenseEndpointCommandInput
   | GetLimitCommandInput
   | GetMonitorCommandInput
+  | GetMonitorSettingsCommandInput
   | GetQueueCommandInput
   | GetQueueEnvironmentCommandInput
   | GetQueueFleetAssociationCommandInput
@@ -470,6 +479,7 @@ export type ServiceInputTypes =
   | UpdateJobCommandInput
   | UpdateLimitCommandInput
   | UpdateMonitorCommandInput
+  | UpdateMonitorSettingsCommandInput
   | UpdateQueueCommandInput
   | UpdateQueueEnvironmentCommandInput
   | UpdateQueueFleetAssociationCommandInput
@@ -541,6 +551,7 @@ export type ServiceOutputTypes =
   | GetLicenseEndpointCommandOutput
   | GetLimitCommandOutput
   | GetMonitorCommandOutput
+  | GetMonitorSettingsCommandOutput
   | GetQueueCommandOutput
   | GetQueueEnvironmentCommandOutput
   | GetQueueFleetAssociationCommandOutput
@@ -596,6 +607,7 @@ export type ServiceOutputTypes =
   | UpdateJobCommandOutput
   | UpdateLimitCommandOutput
   | UpdateMonitorCommandOutput
+  | UpdateMonitorSettingsCommandOutput
   | UpdateQueueCommandOutput
   | UpdateQueueEnvironmentCommandOutput
   | UpdateQueueFleetAssociationCommandOutput

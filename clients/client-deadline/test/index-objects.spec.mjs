@@ -324,6 +324,10 @@ import {
   GetMonitorCommand,
   GetMonitorRequest$,
   GetMonitorResponse$,
+  GetMonitorSettings$,
+  GetMonitorSettingsCommand,
+  GetMonitorSettingsRequest$,
+  GetMonitorSettingsResponse$,
   GetQueue$,
   GetQueueCommand,
   GetQueueEnvironment$,
@@ -698,6 +702,10 @@ import {
   UpdateMonitorCommand,
   UpdateMonitorRequest$,
   UpdateMonitorResponse$,
+  UpdateMonitorSettings$,
+  UpdateMonitorSettingsCommand,
+  UpdateMonitorSettingsRequest$,
+  UpdateMonitorSettingsResponse$,
   UpdateQueue$,
   UpdateQueueCommand,
   UpdateQueueEnvironment$,
@@ -898,6 +906,8 @@ assert(typeof GetLimitCommand === "function");
 assert(typeof GetLimit$ === "object");
 assert(typeof GetMonitorCommand === "function");
 assert(typeof GetMonitor$ === "object");
+assert(typeof GetMonitorSettingsCommand === "function");
+assert(typeof GetMonitorSettings$ === "object");
 assert(typeof GetQueueCommand === "function");
 assert(typeof GetQueue$ === "object");
 assert(typeof GetQueueEnvironmentCommand === "function");
@@ -1008,6 +1018,8 @@ assert(typeof UpdateLimitCommand === "function");
 assert(typeof UpdateLimit$ === "object");
 assert(typeof UpdateMonitorCommand === "function");
 assert(typeof UpdateMonitor$ === "object");
+assert(typeof UpdateMonitorSettingsCommand === "function");
+assert(typeof UpdateMonitorSettings$ === "object");
 assert(typeof UpdateQueueCommand === "function");
 assert(typeof UpdateQueue$ === "object");
 assert(typeof UpdateQueueEnvironmentCommand === "function");
@@ -1207,6 +1219,8 @@ assert(typeof GetLimitRequest$ === "object");
 assert(typeof GetLimitResponse$ === "object");
 assert(typeof GetMonitorRequest$ === "object");
 assert(typeof GetMonitorResponse$ === "object");
+assert(typeof GetMonitorSettingsRequest$ === "object");
+assert(typeof GetMonitorSettingsResponse$ === "object");
 assert(typeof GetQueueEnvironmentRequest$ === "object");
 assert(typeof GetQueueEnvironmentResponse$ === "object");
 assert(typeof GetQueueFleetAssociationRequest$ === "object");
@@ -1401,6 +1415,8 @@ assert(typeof UpdateLimitRequest$ === "object");
 assert(typeof UpdateLimitResponse$ === "object");
 assert(typeof UpdateMonitorRequest$ === "object");
 assert(typeof UpdateMonitorResponse$ === "object");
+assert(typeof UpdateMonitorSettingsRequest$ === "object");
+assert(typeof UpdateMonitorSettingsResponse$ === "object");
 assert(typeof UpdateQueueEnvironmentRequest$ === "object");
 assert(typeof UpdateQueueEnvironmentResponse$ === "object");
 assert(typeof UpdateQueueFleetAssociationRequest$ === "object");

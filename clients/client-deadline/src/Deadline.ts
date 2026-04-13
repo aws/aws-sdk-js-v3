@@ -264,6 +264,11 @@ import {
   type GetMonitorCommandOutput,
   GetMonitorCommand,
 } from "./commands/GetMonitorCommand";
+import {
+  type GetMonitorSettingsCommandInput,
+  type GetMonitorSettingsCommandOutput,
+  GetMonitorSettingsCommand,
+} from "./commands/GetMonitorSettingsCommand";
 import { type GetQueueCommandInput, type GetQueueCommandOutput, GetQueueCommand } from "./commands/GetQueueCommand";
 import {
   type GetQueueEnvironmentCommandInput,
@@ -504,6 +509,11 @@ import {
   UpdateMonitorCommand,
 } from "./commands/UpdateMonitorCommand";
 import {
+  type UpdateMonitorSettingsCommandInput,
+  type UpdateMonitorSettingsCommandOutput,
+  UpdateMonitorSettingsCommand,
+} from "./commands/UpdateMonitorSettingsCommand";
+import {
   type UpdateQueueCommandInput,
   type UpdateQueueCommandOutput,
   UpdateQueueCommand,
@@ -651,6 +661,7 @@ const commands = {
   GetLicenseEndpointCommand,
   GetLimitCommand,
   GetMonitorCommand,
+  GetMonitorSettingsCommand,
   GetQueueCommand,
   GetQueueEnvironmentCommand,
   GetQueueFleetAssociationCommand,
@@ -706,6 +717,7 @@ const commands = {
   UpdateJobCommand,
   UpdateLimitCommand,
   UpdateMonitorCommand,
+  UpdateMonitorSettingsCommand,
   UpdateQueueCommand,
   UpdateQueueEnvironmentCommand,
   UpdateQueueFleetAssociationCommand,
@@ -1715,6 +1727,23 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link GetMonitorSettingsCommand}
+   */
+  getMonitorSettings(
+    args: GetMonitorSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMonitorSettingsCommandOutput>;
+  getMonitorSettings(
+    args: GetMonitorSettingsCommandInput,
+    cb: (err: any, data?: GetMonitorSettingsCommandOutput) => void
+  ): void;
+  getMonitorSettings(
+    args: GetMonitorSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMonitorSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetQueueCommand}
    */
   getQueue(
@@ -2651,6 +2680,23 @@ export interface Deadline {
     args: UpdateMonitorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMonitorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMonitorSettingsCommand}
+   */
+  updateMonitorSettings(
+    args: UpdateMonitorSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMonitorSettingsCommandOutput>;
+  updateMonitorSettings(
+    args: UpdateMonitorSettingsCommandInput,
+    cb: (err: any, data?: UpdateMonitorSettingsCommandOutput) => void
+  ): void;
+  updateMonitorSettings(
+    args: UpdateMonitorSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMonitorSettingsCommandOutput) => void
   ): void;
 
   /**

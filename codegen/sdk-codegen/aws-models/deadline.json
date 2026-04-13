@@ -11765,6 +11765,88 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.deadline#GetMonitorSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#GetMonitorSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#GetMonitorSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#conditionKeys": [],
+        "aws.iam#iamAction": {
+          "name": "GetMonitorSettings",
+          "documentation": "Grants permission to get settings for a monitor"
+        },
+        "smithy.api#documentation": "<p>Gets the settings for a Deadline Cloud monitor.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Get monitor settings",
+            "input": {
+              "monitorId": "monitor-1234567890abcdef1234567890abcdef"
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2023-10-12/monitors/{monitorId}/settings",
+          "code": 200
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.deadline#GetMonitorSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "monitorId": {
+          "target": "com.amazonaws.deadline#MonitorId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#GetMonitorSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "settings": {
+          "target": "com.amazonaws.deadline#SettingsMap",
+          "traits": {
+            "smithy.api#documentation": "Monitor settings as key-value pairs.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.deadline#GetQueue": {
       "type": "operation",
       "input": {
@@ -18949,6 +19031,14 @@
       "list": {
         "target": "com.amazonaws.deadline#ListMonitors"
       },
+      "operations": [
+        {
+          "target": "com.amazonaws.deadline#GetMonitorSettings"
+        },
+        {
+          "target": "com.amazonaws.deadline#UpdateMonitorSettings"
+        }
+      ],
       "traits": {
         "aws.api#arn": {
           "template": "monitor/{monitorId}"
@@ -21682,6 +21772,39 @@
         "smithy.api#documentation": "<p>Specifies the fleet IDs or queue IDs to return statistics. You can specify only fleet IDs or queue IDS, not both.</p>"
       }
     },
+    "com.amazonaws.deadline#SettingKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]*$"
+      }
+    },
+    "com.amazonaws.deadline#SettingValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 8192
+        }
+      }
+    },
+    "com.amazonaws.deadline#SettingsMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.deadline#SettingKey"
+      },
+      "value": {
+        "target": "com.amazonaws.deadline#SettingValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 64
+        }
+      }
+    },
     "com.amazonaws.deadline#SortOrder": {
       "type": "enum",
       "members": {
@@ -24352,6 +24475,90 @@
       }
     },
     "com.amazonaws.deadline#UpdateMonitorResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.deadline#UpdateMonitorSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deadline#UpdateMonitorSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deadline#UpdateMonitorSettingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deadline#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deadline#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.deadline#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.iam#conditionKeys": [],
+        "aws.iam#iamAction": {
+          "name": "UpdateMonitorSettings",
+          "documentation": "Grants permission to update settings for a monitor"
+        },
+        "smithy.api#documentation": "<p>Updates the settings for a Deadline Cloud monitor. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "management."
+        },
+        "smithy.api#examples": [
+          {
+            "title": "Update monitor settings",
+            "input": {
+              "monitorId": "monitor-1234567890abcdef1234567890abcdef",
+              "settings": {
+                "idcApplicationArn": "arn:aws:sso::123456789012:application/ins-1234567890abcdef/apl-1234567890abcdef"
+              }
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/2023-10-12/monitors/{monitorId}/settings",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.deadline#UpdateMonitorSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "monitorId": {
+          "target": "com.amazonaws.deadline#MonitorId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the monitor to update settings for.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "settings": {
+          "target": "com.amazonaws.deadline#SettingsMap",
+          "traits": {
+            "smithy.api#documentation": "Monitor settings as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.deadline#UpdateMonitorSettingsResponse": {
       "type": "structure",
       "members": {},
       "traits": {

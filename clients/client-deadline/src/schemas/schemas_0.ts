@@ -279,6 +279,9 @@ const _GLRe = "GetLimitResponse";
 const _GM = "GetMonitor";
 const _GMR = "GetMonitorRequest";
 const _GMRe = "GetMonitorResponse";
+const _GMS = "GetMonitorSettings";
+const _GMSR = "GetMonitorSettingsRequest";
+const _GMSRe = "GetMonitorSettingsResponse";
 const _GQ = "GetQueue";
 const _GQE = "GetQueueEnvironment";
 const _GQER = "GetQueueEnvironmentRequest";
@@ -574,6 +577,9 @@ const _ULRp = "UpdateLimitResponse";
 const _UM = "UpdateMonitor";
 const _UMR = "UpdateMonitorRequest";
 const _UMRp = "UpdateMonitorResponse";
+const _UMS = "UpdateMonitorSettings";
+const _UMSR = "UpdateMonitorSettingsRequest";
+const _UMSRp = "UpdateMonitorSettingsResponse";
 const _UQ = "UpdateQueue";
 const _UQE = "UpdateQueueEnvironment";
 const _UQER = "UpdateQueueEnvironmentRequest";
@@ -909,6 +915,7 @@ const _sc = "schedule";
 const _se = "server";
 const _sel = "selections";
 const _ses = "sessions";
+const _set = "settings";
 const _st = "status";
 const _sta = "statistics";
 const _ste = "steps";
@@ -1927,6 +1934,16 @@ export var GetMonitorResponse$: StaticStructureSchema = [3, n0, _GMRe,
   [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _iCR, _uA, _uB],
   [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0], 9
 ];
+export var GetMonitorSettingsRequest$: StaticStructureSchema = [3, n0, _GMSR,
+  0,
+  [_mI],
+  [[0, 1]], 1
+];
+export var GetMonitorSettingsResponse$: StaticStructureSchema = [3, n0, _GMSRe,
+  0,
+  [_set],
+  [128 | 0], 1
+];
 export var GetQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _GQER,
   0,
   [_fI, _qI, _qEI],
@@ -2837,6 +2854,16 @@ export var UpdateMonitorResponse$: StaticStructureSchema = [3, n0, _UMRp,
   [],
   []
 ];
+export var UpdateMonitorSettingsRequest$: StaticStructureSchema = [3, n0, _UMSR,
+  0,
+  [_mI, _set],
+  [[0, 1], 128 | 0], 2
+];
+export var UpdateMonitorSettingsResponse$: StaticStructureSchema = [3, n0, _UMSRp,
+  0,
+  [],
+  []
+];
 export var UpdateQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _UQER,
   0,
   [_fI, _qI, _qEI, _cT, _pr, _tT, _te],
@@ -3284,6 +3311,7 @@ var JobParameters: StaticMapSchema = [2, n0, _JP,
 ];
 var LogOptions = 128 | 0;
 var LogParameters = 128 | 0;
+var SettingsMap = 128 | 0;
 var Tags = 128 | 0;
 var TaskParameters: StaticMapSchema = [2, n0, _TP,
   8, [0,
@@ -3551,6 +3579,9 @@ export var GetLimit$: StaticOperationSchema = [9, n0, _GL,
 export var GetMonitor$: StaticOperationSchema = [9, n0, _GM,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/monitors/{monitorId}", 200] }, () => GetMonitorRequest$, () => GetMonitorResponse$
 ];
+export var GetMonitorSettings$: StaticOperationSchema = [9, n0, _GMS,
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/monitors/{monitorId}/settings", 200] }, () => GetMonitorSettingsRequest$, () => GetMonitorSettingsResponse$
+];
 export var GetQueue$: StaticOperationSchema = [9, n0, _GQ,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200] }, () => GetQueueRequest$, () => GetQueueResponse$
 ];
@@ -3715,6 +3746,9 @@ export var UpdateLimit$: StaticOperationSchema = [9, n0, _UL,
 ];
 export var UpdateMonitor$: StaticOperationSchema = [9, n0, _UM,
   { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/monitors/{monitorId}", 200] }, () => UpdateMonitorRequest$, () => UpdateMonitorResponse$
+];
+export var UpdateMonitorSettings$: StaticOperationSchema = [9, n0, _UMS,
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/monitors/{monitorId}/settings", 200] }, () => UpdateMonitorSettingsRequest$, () => UpdateMonitorSettingsResponse$
 ];
 export var UpdateQueue$: StaticOperationSchema = [9, n0, _UQ,
   { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200] }, () => UpdateQueueRequest$, () => UpdateQueueResponse$
