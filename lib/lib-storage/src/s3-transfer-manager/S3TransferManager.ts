@@ -1068,18 +1068,7 @@ export class S3TransferManager implements IS3TransferManager {
     contentLength: number,
     transferOptions?: TransferOptions
   ): Promise<PutObjectCommandOutput> {
-    const putObjectRequest = { ...request };
-    const hasChecksumValue =
-      request.ContentMD5 ||
-      request.ChecksumCRC32 ||
-      request.ChecksumCRC32C ||
-      request.ChecksumCRC64NVME ||
-      request.ChecksumSHA1 ||
-      request.ChecksumSHA256;
-
-    if (!hasChecksumValue && this.requestChecksumCalculation === "WHEN_SUPPORTED" && !request.ChecksumAlgorithm) {
-      putObjectRequest.ChecksumAlgorithm = "CRC32";
-    }
+    const putObjectRequest: PutObjectCommandInput = { ...request };
 
     this.checkAborted(transferOptions);
     const response = await this.s3.send(new PutObjectCommand(putObjectRequest), transferOptions);
@@ -1124,11 +1113,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     if (hasFullObjectChecksum) {
       createMpuRequest.ChecksumType = "FULL_OBJECT";
-      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm;
-    } else if (this.requestChecksumCalculation === "WHEN_SUPPORTED") {
-      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm;
     }
-
     const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
     const uploadId = createMpuResponse.UploadId!;
 
@@ -1237,8 +1222,6 @@ export class S3TransferManager implements IS3TransferManager {
         if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
         if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
         if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
-        if (request.ChecksumSHA1) completeRequest.ChecksumSHA1 = request.ChecksumSHA1;
-        if (request.ChecksumSHA256) completeRequest.ChecksumSHA256 = request.ChecksumSHA256;
       }
 
       try {
