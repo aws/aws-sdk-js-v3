@@ -160,6 +160,8 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${modelsDirFile.absolutePath}${File.separator}${file.name}"))
+                    .withMember("transforms", Node.parse("""
+                                                        [{"name": "compileBddForAws"}]"""))
                     .withMember("plugins", Node.objectNode()
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
                                     .withMember("package", "@aws-sdk/client-" + sdkId.lowercase())
@@ -173,6 +175,7 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                                     .withMember("generateIndexTests", true)
                                     .withMember("generateSnapshotTests",
                                         generateSnapshotTests.contains(serviceTrait.sdkId))
+                                    .withMember("generateEndpointBdd", true)
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.lowercase(), projectionContents)
