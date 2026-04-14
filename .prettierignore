@@ -10,5 +10,5 @@ clients/**/test/index-types.ts
 clients/**/test/snapshots.integ.spec.ts
 private/**
 !private/aws-client-api-test/src/**/*
-packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
+packages/nested-clients/src/submodules/**/*.ts
 **/*.java

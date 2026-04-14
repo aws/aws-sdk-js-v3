@@ -1,0 +1,107 @@
+// smithy-typescript generated code
+import { BinaryDecisionDiagram } from "@smithy/util-endpoints";
+
+const t="ref",
+u="authSchemes",
+v="name",
+w="signingRegion";
+const a=-1,
+b=true,
+c="isSet",
+d="PartitionResult",
+e="booleanEquals",
+f="stringEquals",
+g="getAttr",
+h="sigv4",
+i={[t]:"Endpoint"},
+j={"fn":g,"argv":[{[t]:d},"name"]},
+k={[t]:d},
+l={[u]:[{[v]:h,[w]:"us-east-1"}]},
+m={[u]:[{[v]:h,[w]:"cn-north-1"}]},
+n={[u]:[{[v]:h,[w]:"us-gov-west-1"}]},
+o={[u]:[{[v]:h,[w]:"us-iso-east-1"}]},
+p={[u]:[{[v]:h,[w]:"us-isob-east-1"}]},
+q={[u]:[{[v]:h,[w]:"{PartitionResult#implicitGlobalRegion}"}]},
+s=[{[t]:"Region"}];
+const _data={
+  conditions: [
+    [c,[i]],
+    [c,s],
+    ["aws.partition",s,d],
+    [e,[{[t]:"UseFIPS"},b]],
+    [e,[{[t]:"UseDualStack"},b]],
+    [f,[j,"aws"]],
+    [f,[j,"aws-cn"]],
+    [f,[j,"aws-us-gov"]],
+    [e,[{fn:g,argv:[k,"supportsDualStack"]},b]],
+    [f,[j,"aws-iso"]],
+    [f,[j,"aws-iso-b"]],
+    [e,[{fn:g,argv:[k,"supportsFIPS"]},b]],
+    [f,[j,"aws-iso-e"]],
+    [f,[j,"aws-iso-f"]],
+    [f,[j,"aws-eusc"]]
+  ],
+  results: [
+    [a],
+    [a,"Invalid Configuration: FIPS and custom endpoint are not supported"],
+    [a,"Invalid Configuration: Dualstack and custom endpoint are not supported"],
+    [i,{}],
+    ["https://iam.global.api.aws",l],
+    ["https://iam-fips.global.api.aws",l],
+    ["https://iam.global.api.amazonwebservices.com.cn",m],
+    ["https://iam.cn-north-1.amazonaws.com.cn",m],
+    ["https://iam.us-gov.api.aws",n],
+    ["https://iam.us-gov.amazonaws.com",n],
+    ["https://iam.us-iso-east-1.c2s.ic.gov",o],
+    ["https://iam-fips.us-iso-east-1.c2s.ic.gov",o],
+    ["https://iam.us-isob-east-1.sc2s.sgov.gov",p],
+    ["https://iam-fips.us-isob-east-1.sc2s.sgov.gov",p],
+    ["https://iam.eu-isoe-west-1.cloud.adc-e.uk",{[u]:[{[v]:h,[w]:"eu-isoe-west-1"}]}],
+    ["https://iam.us-isof-south-1.csp.hci.ic.gov",{[u]:[{[v]:h,[w]:"us-isof-south-1"}]}],
+    ["https://iam.eusc-de-east-1.amazonaws.eu",{[u]:[{[v]:h,[w]:"eusc-de-east-1"}]}],
+    ["https://iam-fips.{PartitionResult#dualStackDnsSuffix}",q],
+    [a,"FIPS and DualStack are enabled, but this partition does not support one or both"],
+    ["https://iam-fips.{PartitionResult#dnsSuffix}",q],
+    [a,"FIPS is enabled but this partition does not support FIPS"],
+    ["https://iam.{PartitionResult#dualStackDnsSuffix}",q],
+    [a,"DualStack is enabled but this partition does not support DualStack"],
+    ["https://iam.{PartitionResult#dnsSuffix}",q],
+    [a,"Invalid Configuration: Missing Region"]
+  ]
+};
+
+const root = 2;
+const r = 100_000_000;
+const nodes = new Int32Array([
+  -1, 1, -1,
+  0, 27, 3,
+  1, 4, r + 24,
+  2, 5, r + 24,
+  3, 18, 6,
+  4, 14, 7,
+  6, r + 7, 8,
+  7, r + 9, 9,
+  9, r + 10, 10,
+  10, r + 12, 11,
+  12, r + 14, 12,
+  13, r + 15, 13,
+  14, r + 16, r + 23,
+  5, r + 4, 15,
+  6, r + 6, 16,
+  7, r + 8, 17,
+  8, r + 21, r + 22,
+  4, 23, 19,
+  7, r + 9, 20,
+  9, r + 11, 21,
+  10, r + 13, 22,
+  11, r + 19, r + 20,
+  5, r + 5, 24,
+  7, r + 8, 25,
+  8, 26, r + 18,
+  11, r + 17, r + 18,
+  3, r + 1, 28,
+  4, r + 2, r + 3,
+]);
+export const bdd = BinaryDecisionDiagram.from(
+  nodes, root, _data.conditions, _data.results
+);

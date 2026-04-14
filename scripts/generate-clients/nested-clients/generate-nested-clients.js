@@ -25,7 +25,6 @@ const { join, relative, normalize } = require("node:path");
 const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync, writeFileSync, readFileSync } = require("fs-extra");
 const { copyToClients } = require("../copy-to-clients");
 const { spawnProcess } = require("../../utils/spawn-process");
-const compressRuleset = require("../../endpoints-ruleset/compress");
 const {
   CODE_GEN_ROOT,
   CODE_GEN_SDK_ROOT,
@@ -50,9 +49,6 @@ async function generateNestedClients() {
       NESTED_SDK_CLIENTS_DIR,
       name
     );
-
-    // post-generation transforms
-    await compressRuleset(name, join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src", "endpoint", "ruleset.ts"));
 
     const srcFolder = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src");
     const srcContainer = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`);
@@ -132,13 +128,19 @@ function replacePackageJsonImport(file) {
  * not need the default chain.
  */
 function replaceCredentialDefaultProvider(file) {
-  writeFileSync(
-    file,
-    readFileSync(file, "utf-8")
-      .replace(`import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";`, ``)
-      .replace(`credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,`, ``)
-      .replace(`await credentialDefaultProvider(`, `await config!.credentialDefaultProvider!(`)
-  );
+  let content = readFileSync(file, "utf-8");
+
+  const replacements = [
+    [`import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";`, ``],
+    [`credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,`, ``],
+    [`await credentialDefaultProvider(`, `await config!.credentialDefaultProvider!(`],
+  ];
+
+  for (const [old, neu] of replacements) {
+    content = content.replace(old, neu);
+  }
+
+  writeFileSync(file, content);
 }
 
 if (process.argv.includes("--exec")) {
