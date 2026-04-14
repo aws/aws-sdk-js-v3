@@ -29,7 +29,8 @@ export class BundlerSizeBenchmarker {
         (err, stats) => {
           if (err) return reject(err);
           if (stats?.hasErrors()) return reject(new Error(stats.toString("errors-only")));
-          resolve({ bundler: "webpack", bytes: fs.statSync(outfile).size });
+          const totalBytes = Object.values(stats.compilation.assets).reduce((sum, a) => sum + a.size(), 0);
+          resolve({ bundler: "webpack", bytes: totalBytes });
         }
       );
     });
@@ -49,7 +50,7 @@ export class BundlerSizeBenchmarker {
         },
         minify: true,
         emptyOutDir: false,
-        rollupOptions: { external: [] },
+        rollupOptions: { external: [], output: { inlineDynamicImports: true } },
       },
     });
     return { bundler: "rollup", bytes: fs.statSync(outfile).size };
