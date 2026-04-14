@@ -1,10 +1,29 @@
 import { BedrockRuntime } from "@aws-sdk/client-bedrock-runtime";
+import { SignatureV4 } from "@smithy/signature-v4";
 import { toBase64 } from "@smithy/util-base64";
 import { toUtf8 } from "@smithy/util-utf8";
-import { describe, expect, test as it } from "vitest";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 describe("BedrockRuntime", () => {
-  const client = new BedrockRuntime({ region: "us-west-2", credentials: aws?.testCredentials });
+  const client = new BedrockRuntime({
+    region: "us-west-2",
+    credentials: aws?.testCredentials,
+  });
+
+  let signerCredentialProviderSpy: any;
+
+  beforeEach(async () => {
+    const wsSigv4: any = await client.config.signer();
+    const sigv4: SignatureV4 & any = wsSigv4.signer;
+
+    // artificially make the signer factory return the same observable instance.
+    (client.config as any).eventStreamPayloadHandler.messageSigner = async () => wsSigv4;
+
+    expect(wsSigv4.signer).toBeInstanceOf(SignatureV4);
+    signerCredentialProviderSpy = vi.spyOn(sigv4, "credentialProvider").mockImplementation(async () => {
+      return client.config.credentials();
+    });
+  });
 
   function s(data: any) {
     return Buffer.from(JSON.stringify(data));
@@ -265,5 +284,10 @@ describe("BedrockRuntime", () => {
     // Not asserting this strictly to leave room for model behavior changes.
     expect(responseChunks.length).toBeGreaterThanOrEqual(2);
     expect(responseChunks.some((c) => c === "usageEvent")).toBeTruthy();
+
+    // there are ~44 calls in this execution when the event signing stream does not use static credentials.
+    if (!process.env.AWS_SDK_TEST_CANARY) {
+      expect(signerCredentialProviderSpy).not.toHaveBeenCalled();
+    }
   });
 }, 60_000);

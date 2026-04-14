@@ -1,3 +1,4 @@
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { EventStreamCodec } from "@smithy/eventstream-codec";
 import type { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
 import { fromHex } from "@smithy/util-hex-encoding";
@@ -25,9 +26,11 @@ export class EventSigningTransformStream extends TransformStream<Uint8Array, Uin
     initialSignature: string,
     messageSigner: MessageSigner,
     eventStreamCodec: EventStreamCodec,
-    systemClockOffsetProvider: Provider<number>
+    systemClockOffsetProvider: Provider<number>,
+    credentials?: AwsCredentialIdentityProvider
   ) {
     let priorSignature = initialSignature;
+    const staticCredentials: Promise<AwsCredentialIdentity> | undefined = credentials?.();
     super({
       start() {},
       async transform(chunk, controller) {
@@ -46,6 +49,7 @@ export class EventSigningTransformStream extends TransformStream<Uint8Array, Uin
             },
             {
               signingDate: now,
+              eventStreamCredentials: await staticCredentials,
             }
           );
           priorSignature = signedMessage.signature;

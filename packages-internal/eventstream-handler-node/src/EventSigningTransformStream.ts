@@ -1,3 +1,4 @@
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { EventStreamCodec } from "@smithy/eventstream-codec";
 import type { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
 import { type TransformCallback, type TransformOptions, Transform } from "node:stream";
@@ -10,6 +11,7 @@ export interface EventSigningStreamOptions extends TransformOptions {
   messageSigner: MessageSigner;
   eventStreamCodec: EventStreamCodec;
   systemClockOffsetProvider: Provider<number>;
+  credentials?: AwsCredentialIdentityProvider;
 }
 
 /**
@@ -21,6 +23,7 @@ export class EventSigningTransformStream extends Transform {
   private messageSigner: MessageSigner;
   private eventStreamCodec: EventStreamCodec;
   private readonly systemClockOffsetProvider: Provider<number>;
+  private readonly staticCredentials?: Promise<AwsCredentialIdentity>;
 
   constructor(options: EventSigningStreamOptions) {
     super({
@@ -34,6 +37,7 @@ export class EventSigningTransformStream extends Transform {
     this.eventStreamCodec = options.eventStreamCodec;
     this.messageSigner = options.messageSigner;
     this.systemClockOffsetProvider = options.systemClockOffsetProvider;
+    this.staticCredentials = options.credentials?.();
   }
 
   async _transform(chunk: Uint8Array, encoding: string, callback: TransformCallback): Promise<void> {
@@ -52,6 +56,7 @@ export class EventSigningTransformStream extends Transform {
         },
         {
           signingDate: now,
+          eventStreamCredentials: await this.staticCredentials,
         }
       );
       this.priorSignature = signedMessage.signature;

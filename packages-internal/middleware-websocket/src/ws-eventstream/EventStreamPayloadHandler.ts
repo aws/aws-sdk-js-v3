@@ -1,3 +1,4 @@
+import type { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { EventStreamCodec } from "@smithy/eventstream-codec";
 import type {
   Decoder,
@@ -23,6 +24,7 @@ export interface EventStreamPayloadHandlerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
   systemClockOffset?: number;
+  credentials?: AwsCredentialIdentityProvider;
 }
 
 /**
@@ -32,11 +34,13 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly messageSigner: Provider<MessageSigner>;
   private readonly eventStreamCodec: EventStreamCodec;
   private readonly systemClockOffsetProvider: Provider<number>;
+  private readonly credentials?: AwsCredentialIdentityProvider;
 
   constructor(options: EventStreamPayloadHandlerOptions) {
     this.messageSigner = options.messageSigner;
     this.eventStreamCodec = new EventStreamCodec(options.utf8Encoder, options.utf8Decoder);
     this.systemClockOffsetProvider = async () => options.systemClockOffset ?? 0;
+    this.credentials = options.credentials;
   }
 
   public async handle<T extends MetadataBearer>(
@@ -65,7 +69,8 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       priorSignature,
       await this.messageSigner(),
       this.eventStreamCodec,
-      this.systemClockOffsetProvider
+      this.systemClockOffsetProvider,
+      this.credentials
     );
 
     payload.pipeThrough(signingStream).pipeThrough(placeHolderStream);

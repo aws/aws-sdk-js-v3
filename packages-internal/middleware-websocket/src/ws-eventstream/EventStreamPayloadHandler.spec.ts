@@ -133,6 +133,70 @@ describe(EventStreamPayloadHandler.name, () => {
     );
   });
 
+  it("should pass credentials through to event signer when provided", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=${priorSignature}`;
+    const mockCredentials = vi.fn().mockResolvedValue({ accessKeyId: "AKID", secretAccessKey: "SECRET" });
+
+    const mockRequest = {
+      body: new ReadableStream({
+        start(controller) {
+          controller.enqueue(new Uint8Array([0, 1, 2, 3]));
+          controller.close();
+        },
+      }),
+      headers: { authorization },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockSigner),
+      utf8Decoder: fromUtf8,
+      utf8Encoder: toUtf8,
+      credentials: mockCredentials,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(mockSigner.sign).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({ eventStreamCredentials: expect.objectContaining({ accessKeyId: "AKID" }) })
+    );
+  });
+
+  it("should not pass eventStreamCredentials when credentials are not provided", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=${priorSignature}`;
+
+    const mockRequest = {
+      body: new ReadableStream({
+        start(controller) {
+          controller.enqueue(new Uint8Array([0, 1, 2, 3]));
+          controller.close();
+        },
+      }),
+      headers: { authorization },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockSigner),
+      utf8Decoder: fromUtf8,
+      utf8Encoder: toUtf8,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(mockSigner.sign).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.not.objectContaining({ eventStreamCredentials: expect.anything() })
+    );
+  });
+
   it("should start piping regardless of whether the downstream resolves", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";

@@ -145,6 +145,56 @@ describe(EventStreamPayloadHandler.name, () => {
     });
   });
 
+  it("should pass credentials to EventSigningTransformStream when provided", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=${priorSignature}`;
+    const mockCredentials = vi.fn().mockResolvedValue({ accessKeyId: "AKID", secretAccessKey: "SECRET" });
+
+    const mockRequest = {
+      body: new PassThrough(),
+      headers: { authorization },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockMessageSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+      credentials: mockCredentials,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(EventSigningTransformStream).toHaveBeenCalledWith(expect.objectContaining({ credentials: mockCredentials }));
+  });
+
+  it("should not pass credentials to EventSigningTransformStream when not provided", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=${priorSignature}`;
+
+    const mockRequest = {
+      body: new PassThrough(),
+      headers: { authorization },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockMessageSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(EventSigningTransformStream).toHaveBeenCalledWith(
+      expect.not.objectContaining({ credentials: expect.anything() })
+    );
+  });
+
   it("should start piping regardless of whether the downstream resolves", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
