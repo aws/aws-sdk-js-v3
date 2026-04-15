@@ -41,7 +41,10 @@ describe(DynamoDBJsonCodec.name, () => {
         N: "123",
       },
       boolean: {
-        B: false,
+        BOOL: false,
+      },
+      blobby: {
+        B: new Uint8Array([0, 1, 2, 3, 4, 5, 6]),
       },
       stringSet: {
         SS: ["a", "b", "c"],
@@ -75,7 +78,10 @@ describe(DynamoDBJsonCodec.name, () => {
         N: "123",
       },
       boolean: {
-        B: false,
+        BOOL: false,
+      },
+      blobby: {
+        B: "AAECAwQFBg==",
       },
       stringSet: {
         SS: ["a", "b", "c"],
