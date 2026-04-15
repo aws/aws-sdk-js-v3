@@ -1,9 +1,5 @@
 // smithy-typescript generated code
-import type { HttpRequest} from "@smithy/protocol-http";
-import { type HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import type { Encoder as __Encoder } from "@smithy/types";
-import type { Endpoint,HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
@@ -32,6 +28,9 @@ import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
 import { EC2ProtocolClient } from "../../src/EC2ProtocolClient";
+import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { Readable } from "node:stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -138,7 +137,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
     return true;
   }
 
-  const localExpected = expected;
+  let localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -166,7 +165,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (let index = 0; index < expectedProperties.length; index++) {
+  for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;

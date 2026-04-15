@@ -28,10 +28,10 @@
     "@aws-sdk/core": "workspace:^3.973.27",
     "@aws-sdk/types": "workspace:^3.973.7",
     "@aws-sdk/util-endpoints": "workspace:^3.996.6",
-    "@smithy/core": "^3.23.14",
-    "@smithy/protocol-http": "^5.3.13",
-    "@smithy/types": "^4.14.0",
-    "@smithy/util-retry": "^4.3.1",
+    "@smithy/core": "^3.23.15",
+    "@smithy/protocol-http": "^5.3.14",
+    "@smithy/types": "^4.14.1",
+    "@smithy/util-retry": "^4.3.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

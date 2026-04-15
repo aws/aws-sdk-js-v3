@@ -1,10 +1,9 @@
 // smithy-typescript generated code
 import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core/protocols";
-import type {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse} from "@smithy/protocol-http";
 import {
   HttpRequest,
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
 import {
@@ -1109,7 +1108,7 @@ const se_ListWithXmlName = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (const entry of input) {
+  for (let entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1341,7 +1340,7 @@ const se_GreetingList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (const entry of input) {
+  for (let entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1377,7 +1376,7 @@ const se_StringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (const entry of input) {
+  for (let entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1394,7 +1393,7 @@ const de_ComplexError = (
   output: any,
   context: __SerdeContext
 ): ComplexError => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_TL] != null) {
     contents[_TL] = __expectString(output[_TL]);
   }
@@ -1411,7 +1410,7 @@ const de_ComplexNestedErrorData = (
   output: any,
   context: __SerdeContext
 ): ComplexNestedErrorData => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_F] != null) {
     contents[_F] = __expectString(output[_F]);
   }
@@ -1425,7 +1424,7 @@ const de_DatetimeOffsetsOutput = (
   output: any,
   context: __SerdeContext
 ): DatetimeOffsetsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_da] != null) {
     contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_da]));
   }
@@ -1439,7 +1438,7 @@ const de_EmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
-  const contents: any = {};
+  let contents: any = {};
   return contents;
 }
 
@@ -1450,7 +1449,7 @@ const de_FractionalSecondsOutput = (
   output: any,
   context: __SerdeContext
 ): FractionalSecondsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_da] != null) {
     contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_da]));
   }
@@ -1464,7 +1463,7 @@ const de_GreetingWithErrorsOutput = (
   output: any,
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_g] != null) {
     contents[_g] = __expectString(output[_g]);
   }
@@ -1478,7 +1477,7 @@ const de_IgnoresWrappingXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): IgnoresWrappingXmlNameOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
@@ -1492,7 +1491,7 @@ const de_InvalidGreeting = (
   output: any,
   context: __SerdeContext
 ): InvalidGreeting => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
@@ -1530,7 +1529,7 @@ const de_NoInputAndOutputOutput = (
   output: any,
   context: __SerdeContext
 ): NoInputAndOutputOutput => {
-  const contents: any = {};
+  let contents: any = {};
   return contents;
 }
 
@@ -1541,7 +1540,7 @@ const de_RecursiveXmlShapesOutput = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_n] != null) {
     contents[_n] = de_RecursiveXmlShapesOutputNested1(output[_n], context);
   }
@@ -1555,7 +1554,7 @@ const de_RecursiveXmlShapesOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested1 => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
@@ -1572,7 +1571,7 @@ const de_RecursiveXmlShapesOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested2 => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_b] != null) {
     contents[_b] = __expectString(output[_b]);
   }
@@ -1601,7 +1600,7 @@ const de_SimpleScalarXmlPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarXmlPropertiesOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_sV] != null) {
     contents[_sV] = __expectString(output[_sV]);
   }
@@ -1654,7 +1653,7 @@ const de_StructureListMember = (
   output: any,
   context: __SerdeContext
 ): StructureListMember => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_v] != null) {
     contents[_a] = __expectString(output[_v]);
   }
@@ -1671,7 +1670,7 @@ const de_XmlBlobsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlBlobsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_d] != null) {
     contents[_d] = context.base64Decoder(output[_d]);
   }
@@ -1685,7 +1684,7 @@ const de_XmlEnumsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlEnumsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_fE] != null) {
     contents[_fE] = __expectString(output[_fE]);
   }
@@ -1723,7 +1722,7 @@ const de_XmlIntEnumsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlIntEnumsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_iE] != null) {
     contents[_iE] = __strictParseInt32(output[_iE]) as number;
   }
@@ -1761,7 +1760,7 @@ const de_XmlListsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlListsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (String(output.stringList).trim() === "") {
     contents[_sL] = [];
   }
@@ -1868,7 +1867,7 @@ const de_XmlNamespaceNested = (
   output: any,
   context: __SerdeContext
 ): XmlNamespaceNested => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
@@ -1888,7 +1887,7 @@ const de_XmlNamespacesOutput = (
   output: any,
   context: __SerdeContext
 ): XmlNamespacesOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_n] != null) {
     contents[_n] = de_XmlNamespaceNested(output[_n], context);
   }
@@ -1902,7 +1901,7 @@ const de_XmlTimestampsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlTimestampsOutput => {
-  const contents: any = {};
+  let contents: any = {};
   if (output[_no] != null) {
     contents[_no] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_no]));
   }
