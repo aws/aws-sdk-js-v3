@@ -65,7 +65,7 @@ test-integration: bundles
 	make test-endpoints
 
 test-endpoints:
-	npx vitest run -c ./tests/endpoints-2.0/vitest.config.mts --bail 1
+	npx vitest run -c ./tests/endpoints-2.0/vitest.config.mts
 
 # run all e2e tests (real services).
 test-e2e: bundles
