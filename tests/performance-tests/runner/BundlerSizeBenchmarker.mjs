@@ -29,7 +29,8 @@ export class BundlerSizeBenchmarker {
         (err, stats) => {
           if (err) return reject(err);
           if (stats?.hasErrors()) return reject(new Error(stats.toString("errors-only")));
-          resolve({ bundler: "webpack", bytes: fs.statSync(outfile).size });
+          const totalBytes = Object.values(stats.compilation.assets).reduce((sum, a) => sum + a.size(), 0);
+          resolve({ bundler: "webpack", bytes: totalBytes });
         }
       );
     });
@@ -45,12 +46,11 @@ export class BundlerSizeBenchmarker {
           entry: path.resolve(APPLICATIONS_DIR, this.application),
           name: "dist",
           fileName: () => `rollup-${this.application}.js`,
-          formats: ["es"],
+          formats: ["umd"],
         },
         minify: true,
         emptyOutDir: false,
-        rollupOptions: { external: [] },
-        codeSplitting: false,
+        rollupOptions: { external: [], output: { inlineDynamicImports: true } },
       },
     });
     return { bundler: "rollup", bytes: fs.statSync(outfile).size };
