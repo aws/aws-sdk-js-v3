@@ -24,7 +24,11 @@ export interface S3TransferManagerConfig {
    */
   s3?: S3Client;
   /**
-   * The target part size to use in a multipart transfer. Does not apply to downloads if multipartDownloadType is PART.
+   * The desired part size to use in a multipart transfer. Defaults to 8 MB.
+   * Does not apply to the last part. The actual part size may be larger than
+   * the configured value if it would require more than 10,000 parts, which
+   * is the maximum number of parts S3 allows for multipart upload.
+   * Does not apply to downloads if multipartDownloadType is PART.
    */
   targetPartSizeBytes?: number;
   /**
@@ -50,12 +54,11 @@ export interface S3TransferManagerConfig {
    */
   eventListeners?: TransferEventListeners;
   /**
-   * Maximum number of parts that can be buffered in memory.
-   * Effective memory limit = maxInMemoryParts * partSize.
+   * Maximum number of concurrent HTTP requests for multipart download operations.
    */
-  maxInMemoryParts?: number;
+  maxConcurrentDownloads?: number;
   /**
-   * Maximum number of parts that can be uploaded concurrenlty for multipart upload operations.
+   * Maximum number of concurrent HTTP requests for multipart upload operations.
    */
   maxConcurrentUploads?: number;
   /**

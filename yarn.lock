@@ -10753,7 +10753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/config@workspace:packages/config":
+"@aws-sdk/config@workspace:^3.1030.0, @aws-sdk/config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/config@workspace:packages/config"
   dependencies:

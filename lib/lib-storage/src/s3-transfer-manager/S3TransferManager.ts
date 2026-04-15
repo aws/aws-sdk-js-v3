@@ -62,7 +62,7 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly multipartDownloadType: "PART" | "RANGE";
   private readonly eventListeners: TransferEventListeners;
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
-  private readonly maxConcurrentRequests: number;
+  private readonly maxConcurrentDownloads: number;
   private readonly maxConcurrentUploads: number;
   private readonly logger: Logger;
 
@@ -81,7 +81,7 @@ export class S3TransferManager implements IS3TransferManager {
     this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
 
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
-    this.maxConcurrentRequests = config.maxInMemoryParts ?? 8;
+    this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 8;
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 4;
     this.logger = config.logger ?? new LogLevel("warn");
     this.eventListeners = {
@@ -473,7 +473,7 @@ export class S3TransferManager implements IS3TransferManager {
 
   /**
    * Downloads object using part-based strategy with concurrent part requests.
-   * Only initiates up to maxConcurrentRequests in-flight at a time, with new
+   * Only initiates up to maxConcurrentDownloads requests in-flight, with new
    * requests triggered as previous ones complete.
    *
    * @internal
@@ -551,12 +551,12 @@ export class S3TransferManager implements IS3TransferManager {
             });
           }
 
-          // Lazily prefetch streams — only maxConcurrentRequests in-flight at a time.
+          // Lazily prefetch streams — only maxConcurrentDownloads requests in-flight.
           // New requests fire as previous ones complete, and joinStreams can start
           // consuming immediately without waiting for all parts to be fetched.
           const { promises: pendingStreams, onStreamConsumed } = this.createConcurrentTaskPool(
             partTasks,
-            this.maxConcurrentRequests
+            this.maxConcurrentDownloads
           );
           streams.push(...pendingStreams);
           requests.push(...partRequests);
@@ -605,7 +605,7 @@ export class S3TransferManager implements IS3TransferManager {
 
   /**
    * Downloads object using range-based strategy with lazy concurrent range requests.
-   * Only initiates up to maxConcurrentRequests in-flight at a time, with new
+   * Only initiates up to maxConcurrentDownloads requests in-flight, with new
    * requests triggered as previous ones complete — preventing idle connection timeouts.
    *
    * @internal
@@ -735,12 +735,12 @@ export class S3TransferManager implements IS3TransferManager {
     }
 
     if (rangeTasks.length > 0) {
-      // Lazily prefetch streams — only maxConcurrentRequests in-flight at a time.
+      // Lazily prefetch streams — only maxConcurrentDownloads requests in-flight.
       // New requests fire as previous ones complete, and joinStreams can start
       // consuming immediately without waiting for all ranges to be fetched.
       const { promises: pendingStreams, onStreamConsumed } = this.createConcurrentTaskPool(
         rangeTasks,
-        this.maxConcurrentRequests
+        this.maxConcurrentDownloads
       );
       streams.push(...pendingStreams);
       requests.push(...rangeRequests);
@@ -933,8 +933,8 @@ export class S3TransferManager implements IS3TransferManager {
    * the `onStreamConsumed` callback launches the next pending task, keeping at most `maxConcurrent`
    * requests in-flight at any time.
    *
-   * @param tasks - Array of deferred task functions, each returning a promises.
-   * @param maxConcurrent - Maximum number of tasks to run concurrently.
+   * @param tasks - Array of deferred task functions, each returning a promise.
+   * @param maxConcurrent - Maximum number of HTTP requests in-flight at any time.
    * @returns An object containing the array of promises (one per task) and an `onStreamConsumed` callback
    *          to signal that a stream has been consumed and the next task can be launched.
    *

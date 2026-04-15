@@ -803,18 +803,18 @@ describe("S3TransferManager Unit Tests", () => {
   });
 
   describe("createConcurrentTaskPool() concurrency", () => {
-    it("should default maxConcurrentRequests to 8 when maxInMemoryParts is not provided", () => {
+    it("should default maxConcurrentDownloads to 8 when not provided", () => {
       const tm = new S3TransferManager() as any;
-      expect(tm.maxConcurrentRequests).toBe(8);
+      expect(tm.maxConcurrentDownloads).toBe(8);
     });
 
-    it("should use user-provided maxInMemoryParts as maxConcurrentRequests", () => {
-      const tm = new S3TransferManager({ maxInMemoryParts: 3 }) as any;
-      expect(tm.maxConcurrentRequests).toBe(3);
+    it("should use user-provided maxConcurrentDownloads", () => {
+      const tm = new S3TransferManager({ maxConcurrentDownloads: 3 }) as any;
+      expect(tm.maxConcurrentDownloads).toBe(3);
     });
 
     it("should only launch up to maxConcurrent tasks initially", () => {
-      const tm = new S3TransferManager({ maxInMemoryParts: 3 }) as any;
+      const tm = new S3TransferManager({ maxConcurrentDownloads: 3 }) as any;
       let launched = 0;
       const tasks = Array.from({ length: 5 }, () => () => {
         launched++;
@@ -826,7 +826,7 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should launch next task when onStreamConsumed is called", async () => {
-      const tm = new S3TransferManager({ maxInMemoryParts: 2 }) as any;
+      const tm = new S3TransferManager({ maxConcurrentDownloads: 2 }) as any;
       let launched = 0;
       const resolvers: ((v: string) => void)[] = [];
       const tasks = Array.from({ length: 4 }, (_, i) => () => {
@@ -853,7 +853,7 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should stop launching after a task failure", async () => {
-      const tm = new S3TransferManager({ maxInMemoryParts: 2 }) as any;
+      const tm = new S3TransferManager({ maxConcurrentDownloads: 2 }) as any;
       let launched = 0;
       const tasks: (() => Promise<string>)[] = [
         () => {
