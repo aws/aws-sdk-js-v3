@@ -10,6 +10,9 @@ const _CNED = "ComplexNestedErrorData";
 const _DD = "DoubleDribble";
 const _DO = "DatetimeOffsets";
 const _DOO = "DatetimeOffsetsOutput";
+const _DQAXN = "DistinctQueryAndXmlName";
+const _DQN = "DistinctQueryName";
+const _DXN = "DistinctXmlName";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EIAEOI = "EmptyInputAndEmptyOutputInput";
 const _EIAEOO = "EmptyInputAndEmptyOutputOutput";
@@ -171,8 +174,10 @@ const _tL = "timestampList";
 const _uXN = "usesXmlName";
 const _v = "value";
 const _va = "values";
+const _xAQN = "xmlAndQueryName";
 const _xF = "xmlFlattened";
 const _xN = "xmlName";
+const _xNO = "xmlNameOnly";
 const _xNm = "xmlNamespace";
 const n0 = "aws.protocoltests.ec2";
 const n1 = "aws.protocoltests.shared";
@@ -308,10 +313,12 @@ export var RecursiveXmlShapesOutputNested2$: StaticStructureSchema = [3, n0, _RX
 ];
 export var SimpleInputParamsInput$: StaticStructureSchema = [3, n0, _SIPI,
   0,
-  [_F, _B, _Ba, _Bam, _FV, _Bo, _Q, _FE, _HQN, _HQAXN, _UXN],
+  [_F, _B, _Ba, _Bam, _FV, _Bo, _Q, _FE, _HQN, _HQAXN, _UXN, _DQN, _DQAXN, _DXN],
   [0, 0, 2, 1, 1, 1, 21, 0, [0, { [_eQN]: `HasQueryName`
    }], [0, { [_eQN]: `HasQueryAndXmlName`
-  , [_xN]: _hQAXN }], [0, { [_xN]: _uXN }]]
+  , [_xN]: _hQAXN }], [0, { [_xN]: _uXN }], [0, { [_eQN]: `QueryName`
+   }], [0, { [_eQN]: `queryAndXmlName`
+  , [_xN]: _xAQN }], [0, { [_xN]: _xNO }]]
 ];
 export var SimpleScalarXmlPropertiesOutput$: StaticStructureSchema = [3, n0, _SSXPO,
   0,

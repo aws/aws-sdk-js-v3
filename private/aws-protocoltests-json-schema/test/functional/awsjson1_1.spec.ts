@@ -1,5 +1,9 @@
 // smithy-typescript generated code
+import type { HttpRequest} from "@smithy/protocol-http";
+import { type HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import type { Encoder as __Encoder } from "@smithy/types";
+import type { Endpoint,HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
@@ -20,9 +24,6 @@ import { PutWithContentEncodingCommand } from "../../src/commands/PutWithContent
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { SparseNullsOperationCommand } from "../../src/commands/SparseNullsOperationCommand";
 import { JsonProtocolClient } from "../../src/JsonProtocolClient";
-import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Readable } from "node:stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -129,7 +130,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
     return true;
   }
 
-  let localExpected = expected;
+  const localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -157,7 +158,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (var index = 0; index < expectedProperties.length; index++) {
+  for (let index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
@@ -843,7 +844,7 @@ it("AwsJson11FooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithEr
       false,
       500,
       {
-        "x-amzn-errortype": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
+        "x-amzn-errortype": "aws.protocoltests.json#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
       }
     ),
   });
@@ -917,7 +918,7 @@ it("AwsJson11FooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "code": "aws.protocoltests.restjson#FooError"
+          "code": "aws.protocoltests.json#FooError"
       }`
     ),
   });
@@ -953,7 +954,7 @@ it("AwsJson11FooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async (
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "code": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+          "code": "aws.protocoltests.json#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
       }`
     ),
   });
@@ -1025,7 +1026,7 @@ it("AwsJson11FooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "__type": "aws.protocoltests.restjson#FooError"
+          "__type": "aws.protocoltests.json#FooError"
       }`
     ),
   });
@@ -1061,7 +1062,7 @@ it("AwsJson11FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", as
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "__type": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+          "__type": "aws.protocoltests.json#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
       }`
     ),
   });
@@ -1099,7 +1100,7 @@ it("AwsJson11FooErrorWithNestedTypeProperty:Error:GreetingWithErrors", async () 
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "__type": "aws.protocoltests.restjson#FooError",
+          "__type": "aws.protocoltests.json#FooError",
           "ErrorDetails": [
             {
                 "__type": "com.amazon.internal#ErrorDetails",

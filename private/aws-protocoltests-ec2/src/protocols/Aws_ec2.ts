@@ -1,9 +1,10 @@
 // smithy-typescript generated code
 import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core/protocols";
+import type {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse} from "@smithy/protocol-http";
 import {
   HttpRequest,
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
 } from "@smithy/protocol-http";
 import {
@@ -1108,7 +1109,7 @@ const se_ListWithXmlName = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1295,6 +1296,15 @@ const se_SimpleInputParamsInput = (
   if (input[_UXN] != null) {
     entries[_UXN] = input[_UXN];
   }
+  if (input[_DQN] != null) {
+    entries[_QN] = input[_DQN];
+  }
+  if (input[_DQAXN] != null) {
+    entries[_qAXN] = input[_DQAXN];
+  }
+  if (input[_DXN] != null) {
+    entries[_XNO] = input[_DXN];
+  }
   return entries
 }
 
@@ -1331,7 +1341,7 @@ const se_GreetingList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1367,7 +1377,7 @@ const se_StringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1384,7 +1394,7 @@ const de_ComplexError = (
   output: any,
   context: __SerdeContext
 ): ComplexError => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_TL] != null) {
     contents[_TL] = __expectString(output[_TL]);
   }
@@ -1401,7 +1411,7 @@ const de_ComplexNestedErrorData = (
   output: any,
   context: __SerdeContext
 ): ComplexNestedErrorData => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_F] != null) {
     contents[_F] = __expectString(output[_F]);
   }
@@ -1415,7 +1425,7 @@ const de_DatetimeOffsetsOutput = (
   output: any,
   context: __SerdeContext
 ): DatetimeOffsetsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_da] != null) {
     contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_da]));
   }
@@ -1429,7 +1439,7 @@ const de_EmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 }
 
@@ -1440,7 +1450,7 @@ const de_FractionalSecondsOutput = (
   output: any,
   context: __SerdeContext
 ): FractionalSecondsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_da] != null) {
     contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_da]));
   }
@@ -1454,7 +1464,7 @@ const de_GreetingWithErrorsOutput = (
   output: any,
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_g] != null) {
     contents[_g] = __expectString(output[_g]);
   }
@@ -1468,7 +1478,7 @@ const de_IgnoresWrappingXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): IgnoresWrappingXmlNameOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
@@ -1482,7 +1492,7 @@ const de_InvalidGreeting = (
   output: any,
   context: __SerdeContext
 ): InvalidGreeting => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
   }
@@ -1520,7 +1530,7 @@ const de_NoInputAndOutputOutput = (
   output: any,
   context: __SerdeContext
 ): NoInputAndOutputOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 }
 
@@ -1531,7 +1541,7 @@ const de_RecursiveXmlShapesOutput = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_n] != null) {
     contents[_n] = de_RecursiveXmlShapesOutputNested1(output[_n], context);
   }
@@ -1545,7 +1555,7 @@ const de_RecursiveXmlShapesOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested1 => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
@@ -1562,7 +1572,7 @@ const de_RecursiveXmlShapesOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested2 => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_b] != null) {
     contents[_b] = __expectString(output[_b]);
   }
@@ -1591,7 +1601,7 @@ const de_SimpleScalarXmlPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarXmlPropertiesOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_sV] != null) {
     contents[_sV] = __expectString(output[_sV]);
   }
@@ -1644,7 +1654,7 @@ const de_StructureListMember = (
   output: any,
   context: __SerdeContext
 ): StructureListMember => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_v] != null) {
     contents[_a] = __expectString(output[_v]);
   }
@@ -1661,7 +1671,7 @@ const de_XmlBlobsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlBlobsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_d] != null) {
     contents[_d] = context.base64Decoder(output[_d]);
   }
@@ -1675,7 +1685,7 @@ const de_XmlEnumsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlEnumsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_fE] != null) {
     contents[_fE] = __expectString(output[_fE]);
   }
@@ -1713,7 +1723,7 @@ const de_XmlIntEnumsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlIntEnumsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_iE] != null) {
     contents[_iE] = __strictParseInt32(output[_iE]) as number;
   }
@@ -1751,7 +1761,7 @@ const de_XmlListsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlListsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (String(output.stringList).trim() === "") {
     contents[_sL] = [];
   }
@@ -1858,7 +1868,7 @@ const de_XmlNamespaceNested = (
   output: any,
   context: __SerdeContext
 ): XmlNamespaceNested => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
   }
@@ -1878,7 +1888,7 @@ const de_XmlNamespacesOutput = (
   output: any,
   context: __SerdeContext
 ): XmlNamespacesOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_n] != null) {
     contents[_n] = de_XmlNamespaceNested(output[_n], context);
   }
@@ -1892,7 +1902,7 @@ const de_XmlTimestampsOutput = (
   output: any,
   context: __SerdeContext
 ): XmlTimestampsOutput => {
-  let contents: any = {};
+  const contents: any = {};
   if (output[_no] != null) {
     contents[_no] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_no]));
   }
@@ -2118,6 +2128,9 @@ const _CLA = "ComplexListArg";
 const _D = "Data";
 const _DD = "DoubleDribble";
 const _DO = "DatetimeOffsets";
+const _DQAXN = "DistinctQueryAndXmlName";
+const _DQN = "DistinctQueryName";
+const _DXN = "DistinctXmlName";
 const _E = "Encoding";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EM = "EpochMember";
@@ -2149,6 +2162,7 @@ const _PWCE = "PutWithContentEncoding";
 const _Q = "Qux";
 const _QITAF = "QueryIdempotencyTokenAutoFill";
 const _QL = "QueryLists";
+const _QN = "QueryName";
 const _QT = "QueryTimestamps";
 const _RA = "RecursiveArg";
 const _RXS = "RecursiveXmlShapes";
@@ -2166,6 +2180,7 @@ const _XEL = "XmlEmptyLists";
 const _XIE = "XmlIntEnums";
 const _XL = "XmlLists";
 const _XN = "XmlNamespaces";
+const _XNO = "XmlNameOnly";
 const _XT = "XmlTimestamps";
 const _a = "a";
 const _b = "bar";
@@ -2221,6 +2236,7 @@ const _nF = "normalFormat";
 const _nSL = "nestedStringList";
 const _no = "normal";
 const _o = "other";
+const _qAXN = "queryAndXmlName";
 const _r = "renamed";
 const _rLM = "renamedListMembers";
 const _rM = "recursiveMember";

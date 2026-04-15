@@ -122,6 +122,9 @@ export interface SimpleInputParamsInput {
   HasQueryName?: string | undefined;
   HasQueryAndXmlName?: string | undefined;
   UsesXmlName?: string | undefined;
+  DistinctQueryName?: string | undefined;
+  DistinctQueryAndXmlName?: string | undefined;
+  DistinctXmlName?: string | undefined;
 }
 
 /**
