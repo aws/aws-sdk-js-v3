@@ -24233,7 +24233,6 @@ __metadata:
   dependencies:
     "@aws-sdk/core": "workspace:^3.973.27"
     "@smithy/core": "npm:^3.23.14"
-    "@smithy/smithy-client": "npm:^4.12.9"
     "@smithy/types": "npm:^4.14.0"
     "@smithy/util-base64": "npm:^4.3.2"
     "@tsconfig/recommended": "npm:1.0.1"

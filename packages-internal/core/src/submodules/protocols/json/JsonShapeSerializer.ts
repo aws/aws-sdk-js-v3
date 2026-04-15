@@ -36,16 +36,6 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
     this.buffer = this._write(this.rootSchema, value);
   }
 
-  /**
-   * @internal
-   */
-  public writeDiscriminatedDocument(schema: Schema, value: unknown): void {
-    this.write(schema, value);
-    if (typeof this.buffer === "object") {
-      this.buffer.__type = NormalizedSchema.of(schema).getName(true);
-    }
-  }
-
   public flush(): string {
     const { rootSchema, useReplacer } = this;
     this.rootSchema = undefined;
@@ -63,7 +53,17 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
   }
 
   /**
-   * Order if-statements by order of likelihood.
+   * @internal
+   */
+  public writeDiscriminatedDocument(schema: Schema, value: unknown): void {
+    this.write(schema, value);
+    if (typeof this.buffer === "object") {
+      this.buffer.__type = NormalizedSchema.of(schema).getName(true);
+    }
+  }
+
+  /**
+   * Order if-statements by likelihood.
    */
   protected _write(schema: Schema, value: unknown, container?: NormalizedSchema): any {
     const isObject = value !== null && typeof value === "object";

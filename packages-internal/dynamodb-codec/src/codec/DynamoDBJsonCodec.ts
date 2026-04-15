@@ -1,6 +1,5 @@
 import { JsonCodec, JsonShapeDeserializer, JsonShapeSerializer } from "@aws-sdk/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import { _json } from "@smithy/smithy-client";
 import type { Schema } from "@smithy/types";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 
@@ -68,15 +67,19 @@ type SerializedAttributeValue = {
  */
 class DynamoDBJsonShapeSerializer extends JsonShapeSerializer {
   /**
+   * The input value is not safe to mutate. There may be frames between this serializer and when
+   * the request handler reads the object, in which mutations will derail the request.
    * @override
    */
   protected _write(schema: Schema, value: unknown, container?: NormalizedSchema): any {
     const ns = NormalizedSchema.of(schema);
+
     if (ns.isStructSchema() && ns.getName(true) === ATTRIBUTE_VALUE) {
       if (value && typeof value === "object") {
         const av = value as AttributeValueInput;
-        const out: SerializedAttributeValue = _json(av);
+        const out: SerializedAttributeValue = this.copyRemoveNulls(av);
         const base64Encode = this.serdeContext?.base64Encoder ?? toBase64;
+
         if (av.B instanceof Uint8Array) {
           out.B = base64Encode(av.B);
         }
@@ -84,7 +87,13 @@ class DynamoDBJsonShapeSerializer extends JsonShapeSerializer {
           out.BS = av.BS.map(base64Encode);
         }
         if (Array.isArray(av.L)) {
-          out.L = av.L.filter((v) => v != null).map((v) => this._write(ns, v, container));
+          const list = [];
+          for (const v of av.L) {
+            if (v != null) {
+              list.push(this._write(ns, v, container));
+            }
+          }
+          out.L = list;
         }
         if (av.M && typeof av.M === "object") {
           out.M = {};
@@ -99,6 +108,35 @@ class DynamoDBJsonShapeSerializer extends JsonShapeSerializer {
     }
     return super._write(ns, value, container);
   }
+
+  private copyRemoveNulls(v: any): any {
+    if (typeof v !== "object") {
+      return v;
+    }
+    if (v === null) {
+      return {};
+    }
+    if (Array.isArray(v)) {
+      const out: any = [];
+      for (const item of v) {
+        if (item != null) {
+          out.push(this.copyRemoveNulls(item));
+        }
+      }
+      return out;
+    }
+    const out: any = {};
+    for (const [k, _v] of Object.entries(v)) {
+      if (_v != null) {
+        if (["B", "BS", "L", "M"].includes(k)) {
+          // handled by mutating serializer.
+          continue;
+        }
+        out[k] = this.copyRemoveNulls(_v);
+      }
+    }
+    return out;
+  }
 }
 
 /**
@@ -106,15 +144,20 @@ class DynamoDBJsonShapeSerializer extends JsonShapeSerializer {
  */
 class DynamoDBJsonShapeDeserializer extends JsonShapeDeserializer {
   /**
+   * The incoming value is safe to mutate. It is always created by the parser
+   * right before entry to this function and not owned or referenceable by anyone else.
+   *
    * @override
    */
   protected _read(schema: Schema, value: unknown): any {
     const ns = NormalizedSchema.of(schema);
+
     if (ns.isStructSchema() && ns.getName(true) === ATTRIBUTE_VALUE) {
       if (value && typeof value === "object") {
         const av = value as SerializedAttributeValue;
-        const out: AttributeValueOutput = _json(av);
+        const out: AttributeValueOutput = av as any;
         const base64Decoder = this.serdeContext?.base64Decoder ?? fromBase64;
+
         if (typeof av.B === "string") {
           out.B = base64Decoder(av.B);
         }
@@ -125,9 +168,8 @@ class DynamoDBJsonShapeDeserializer extends JsonShapeDeserializer {
           out.L = av.L.map((v) => this._read(ns, v));
         }
         if (av.M && typeof av.M === "object") {
-          out.M = {};
           for (const [k, v] of Object.entries(av.M)) {
-            out.M[k] = this._read(ns, v);
+            out.M![k] = this._read(ns, v);
           }
         }
         return out;
