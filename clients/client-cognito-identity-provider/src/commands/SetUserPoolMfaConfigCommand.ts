@@ -79,6 +79,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *   WebAuthnConfiguration: { // WebAuthnConfigurationType
  *     RelyingPartyId: "STRING_VALUE",
  *     UserVerification: "required" || "preferred",
+ *     FactorConfiguration: "SINGLE_FACTOR" || "MULTI_FACTOR_WITH_USER_VERIFICATION",
  *   },
  * };
  * const command = new SetUserPoolMfaConfigCommand(input);
@@ -103,6 +104,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * //   WebAuthnConfiguration: { // WebAuthnConfigurationType
  * //     RelyingPartyId: "STRING_VALUE",
  * //     UserVerification: "required" || "preferred",
+ * //     FactorConfiguration: "SINGLE_FACTOR" || "MULTI_FACTOR_WITH_USER_VERIFICATION",
  * //   },
  * // };
  *

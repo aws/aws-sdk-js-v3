@@ -68,6 +68,9 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  *     Enabled: true || false,
  *     PreferredMfa: true || false,
  *   },
+ *   WebAuthnMfaSettings: { // WebAuthnMfaSettingsType
+ *     Enabled: true || false,
+ *   },
  *   AccessToken: "STRING_VALUE", // required
  * };
  * const command = new SetUserMFAPreferenceCommand(input);

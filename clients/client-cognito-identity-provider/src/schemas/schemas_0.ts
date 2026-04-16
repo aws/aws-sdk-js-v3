@@ -390,6 +390,7 @@ const _FAC = "ForceAliasCreation";
 const _FC = "FirehoseConfiguration";
 const _FCN = "FriendlyCredentialName";
 const _FCT = "FirehoseConfigurationType";
+const _FCa = "FactorConfiguration";
 const _FD = "FeedbackDate";
 const _FDN = "FriendlyDeviceName";
 const _FDR = "ForgetDeviceRequest";
@@ -886,6 +887,8 @@ const _WACMEe = "WebAuthnConfigurationMissingException";
 const _WACNFE = "WebAuthnChallengeNotFoundException";
 const _WACNSE = "WebAuthnCredentialNotSupportedException";
 const _WACT = "WebAuthnConfigurationType";
+const _WAMS = "WebAuthnMfaSettings";
+const _WAMST = "WebAuthnMfaSettingsType";
 const _WANEE = "WebAuthnNotEnabledException";
 const _WAONAE = "WebAuthnOriginNotAllowedException";
 const _WARPME = "WebAuthnRelyingPartyMismatchException";
@@ -1555,8 +1558,8 @@ export var AdminRespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0,
 ];
 export var AdminSetUserMFAPreferenceRequest$: StaticStructureSchema = [3, n0, _ASUMFAPR,
   0,
-  [_U, _UPI, _SMSMS, _STMS, _EMS],
-  [[() => UsernameType, 0], 0, () => SMSMfaSettingsType$, () => SoftwareTokenMfaSettingsType$, () => EmailMfaSettingsType$], 2
+  [_U, _UPI, _SMSMS, _STMS, _EMS, _WAMS],
+  [[() => UsernameType, 0], 0, () => SMSMfaSettingsType$, () => SoftwareTokenMfaSettingsType$, () => EmailMfaSettingsType$, () => WebAuthnMfaSettingsType$], 2
 ];
 export var AdminSetUserMFAPreferenceResponse$: StaticStructureSchema = [3, n0, _ASUMFAPRd,
   0,
@@ -2570,8 +2573,8 @@ export var SetUICustomizationResponse$: StaticStructureSchema = [3, n0, _SUICRe,
 ];
 export var SetUserMFAPreferenceRequest$: StaticStructureSchema = [3, n0, _SUMFAPR,
   0,
-  [_ATc, _SMSMS, _STMS, _EMS],
-  [[() => TokenModelType, 0], () => SMSMfaSettingsType$, () => SoftwareTokenMfaSettingsType$, () => EmailMfaSettingsType$], 1
+  [_ATc, _SMSMS, _STMS, _EMS, _WAMS],
+  [[() => TokenModelType, 0], () => SMSMfaSettingsType$, () => SoftwareTokenMfaSettingsType$, () => EmailMfaSettingsType$, () => WebAuthnMfaSettingsType$], 1
 ];
 export var SetUserMFAPreferenceResponse$: StaticStructureSchema = [3, n0, _SUMFAPRe,
   0,
@@ -2905,13 +2908,18 @@ export var VerifyUserAttributeResponse$: StaticStructureSchema = [3, n0, _VUARe,
 ];
 export var WebAuthnConfigurationType$: StaticStructureSchema = [3, n0, _WACT,
   0,
-  [_RPI, _UV],
-  [0, 0]
+  [_RPI, _UV, _FCa],
+  [0, 0, 0]
 ];
 export var WebAuthnCredentialDescription$: StaticStructureSchema = [3, n0, _WACD,
   0,
   [_CIr, _FCN, _RPI, _ATu, _CAr, _AAu],
   [0, 0, 0, 64 | 0, 4, 0], 5
+];
+export var WebAuthnMfaSettingsType$: StaticStructureSchema = [3, n0, _WAMST,
+  0,
+  [_E],
+  [2]
 ];
 var __Unit = "unit" as const;
 var AliasAttributesListType = 64 | 0;

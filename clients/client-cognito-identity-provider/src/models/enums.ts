@@ -728,6 +728,20 @@ export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
  * @public
  * @enum
  */
+export const WebAuthnFactorConfigurationType = {
+  MULTI_FACTOR_WITH_USER_VERIFICATION: "MULTI_FACTOR_WITH_USER_VERIFICATION",
+  SINGLE_FACTOR: "SINGLE_FACTOR",
+} as const;
+/**
+ * @public
+ */
+export type WebAuthnFactorConfigurationType =
+  (typeof WebAuthnFactorConfigurationType)[keyof typeof WebAuthnFactorConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const UserVerificationType = {
   PREFERRED: "preferred",
   REQUIRED: "required",

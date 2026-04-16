@@ -77,6 +77,9 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  *     Enabled: true || false,
  *     PreferredMfa: true || false,
  *   },
+ *   WebAuthnMfaSettings: { // WebAuthnMfaSettingsType
+ *     Enabled: true || false,
+ *   },
  *   Username: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
  * };

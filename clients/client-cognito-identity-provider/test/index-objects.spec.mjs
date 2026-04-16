@@ -729,6 +729,8 @@ import {
   WebAuthnCredentialDescription$,
   WebAuthnCredentialNotSupportedException,
   WebAuthnCredentialNotSupportedException$,
+  WebAuthnFactorConfigurationType,
+  WebAuthnMfaSettingsType$,
   WebAuthnNotEnabledException,
   WebAuthnNotEnabledException$,
   WebAuthnOriginNotAllowedException,
@@ -1301,6 +1303,7 @@ assert(typeof VerifyUserAttributeRequest$ === "object");
 assert(typeof VerifyUserAttributeResponse$ === "object");
 assert(typeof WebAuthnConfigurationType$ === "object");
 assert(typeof WebAuthnCredentialDescription$ === "object");
+assert(typeof WebAuthnMfaSettingsType$ === "object");
 // enums
 assert(typeof AccountTakeoverEventActionType === "object");
 assert(typeof AdvancedSecurityEnabledModeType === "object");
@@ -1353,6 +1356,7 @@ assert(typeof UserStatusType === "object");
 assert(typeof UserVerificationType === "object");
 assert(typeof VerifiedAttributeType === "object");
 assert(typeof VerifySoftwareTokenResponseType === "object");
+assert(typeof WebAuthnFactorConfigurationType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof AccessDeniedException$ === "object");

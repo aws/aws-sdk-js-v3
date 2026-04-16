@@ -52,6 +52,7 @@ import type {
   UserStatusType,
   UserVerificationType,
   VerifiedAttributeType,
+  WebAuthnFactorConfigurationType,
 } from "./enums";
 
 /**
@@ -3352,6 +3353,24 @@ export interface SoftwareTokenMfaSettingsType {
 }
 
 /**
+ * <p>A user's preference for using passkey, or WebAuthn, multi-factor authentication
+ *             (MFA). Turns passkey MFA on and off for the user. Unlike other MFA settings types,
+ *             this type doesn't include a <code>PreferredMfa</code> option because passkey MFA
+ *             applies only when passkey is the first authentication factor.</p>
+ * @public
+ */
+export interface WebAuthnMfaSettingsType {
+  /**
+   * <p>Specifies whether passkey MFA is activated for a user. When activated, the user's
+   *             passkey authentication requires user verification, and passkey sign-in is available
+   *             when MFA is required. The user must also have at least one other MFA method such as
+   *             SMS, TOTP, or email activated to prevent account lockout.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface AdminSetUserMFAPreferenceRequest {
@@ -3378,6 +3397,18 @@ export interface AdminSetUserMFAPreferenceRequest {
    * @public
    */
   EmailMfaSettings?: EmailMfaSettingsType | undefined;
+
+  /**
+   * <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user.
+   *             When activated, passkey authentication requires user verification, and passkey sign-in
+   *             is available when MFA is required. To activate this setting, the
+   *             <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code>
+   *             must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>.
+   *             To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  WebAuthnMfaSettings?: WebAuthnMfaSettingsType | undefined;
 
   /**
    * <p>The name of the user that you want to query or modify. The value of this parameter
@@ -8945,6 +8976,16 @@ export interface WebAuthnConfigurationType {
    * @public
    */
   UserVerification?: UserVerificationType | undefined;
+
+  /**
+   * <p>Sets whether passkeys can be used as multi-factor authentication (MFA). When set to
+   *             <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>, passkey authentication with user
+   *             verification satisfies MFA requirements. When set to <code>SINGLE_FACTOR</code> or not
+   *             set, passkeys are a single authentication factor. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  FactorConfiguration?: WebAuthnFactorConfigurationType | undefined;
 }
 
 /**
@@ -8989,10 +9030,10 @@ export interface GetUserPoolMfaConfigResponse {
   MfaConfiguration?: UserPoolMfaType | undefined;
 
   /**
-   * <p>Shows user pool configuration for sign-in with passkey authenticators like biometric
-   *             devices and security keys. Passkeys are not eligible MFA factors. They are instead an
-   *             eligible primary sign-in factor for <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>, or the
-   *                 <code>USER_AUTH</code> flow.</p>
+   * <p>Shows user pool configuration for sign-in with passkey authenticators such as
+   *             biometric devices and security keys. Includes relying-party configuration,
+   *             user-verification requirements, and whether passkeys can satisfy MFA
+   *             requirements.</p>
    * @public
    */
   WebAuthnConfiguration?: WebAuthnConfigurationType | undefined;
@@ -11177,6 +11218,18 @@ export interface SetUserMFAPreferenceRequest {
   EmailMfaSettings?: EmailMfaSettingsType | undefined;
 
   /**
+   * <p>User preferences for passkey MFA. Activates or deactivates passkey MFA for the user.
+   *             When activated, passkey authentication requires user verification, and passkey sign-in
+   *             is available when MFA is required. To activate this setting, the
+   *             <code>FactorConfiguration</code> of your user pool <code>WebAuthnConfiguration</code>
+   *             must be <code>MULTI_FACTOR_WITH_USER_VERIFICATION</code>.
+   *             To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  WebAuthnMfaSettings?: WebAuthnMfaSettingsType | undefined;
+
+  /**
    * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
    * <code>aws.cognito.signin.user.admin</code>.</p>
    * @public
@@ -11238,8 +11291,8 @@ export interface SetUserPoolMfaConfigRequest {
 
   /**
    * <p>The configuration of your user pool for passkey, or WebAuthn, authentication and
-   *             registration. You can set this configuration independent of the MFA configuration
-   *             options in this operation.</p>
+   *             registration. Includes relying-party configuration, user-verification requirements,
+   *             and whether passkeys can satisfy MFA requirements.</p>
    * @public
    */
   WebAuthnConfiguration?: WebAuthnConfigurationType | undefined;
@@ -11289,7 +11342,7 @@ export interface SetUserPoolMfaConfigResponse {
 
   /**
    * <p>The configuration of your user pool for passkey, or WebAuthn, sign-in with
-   *             authenticators like biometric and security-key devices. Includes relying-party
+   *             authenticators such as biometric and security-key devices. Includes relying-party
    *             configuration and settings for user-verification requirements.</p>
    * @public
    */
@@ -11992,40 +12045,4 @@ export interface UpdateManagedLoginBrandingResponse {
    * @public
    */
   ManagedLoginBranding?: ManagedLoginBrandingType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateResourceServerRequest {
-  /**
-   * <p>The ID of the user pool that contains the resource server that you want to
-   *             update.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>A unique resource server identifier for the resource server. The identifier can be an
-   *             API friendly name like <code>solar-system-data</code>. You can also set an API URL like
-   *                 <code>https://solar-system-data-api.example.com</code> as your identifier.</p>
-   *          <p>Amazon Cognito represents scopes in the access token in the format
-   *                 <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings
-   *             increase the size of your access tokens.</p>
-   * @public
-   */
-  Identifier: string | undefined;
-
-  /**
-   * <p>The updated name of the resource server.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An array of updated custom scope names and descriptions that you want to associate
-   *             with your resource server.</p>
-   * @public
-   */
-  Scopes?: ResourceServerScopeType[] | undefined;
 }

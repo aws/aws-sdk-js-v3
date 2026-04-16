@@ -22,6 +22,7 @@ import type {
   EmailConfigurationType,
   LambdaConfigType,
   RefreshTokenRotationType,
+  ResourceServerScopeType,
   ResourceServerType,
   SmsConfigurationType,
   TermsType,
@@ -32,6 +33,42 @@ import type {
   UserPoolPolicyType,
   VerificationMessageTemplateType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateResourceServerRequest {
+  /**
+   * <p>The ID of the user pool that contains the resource server that you want to
+   *             update.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>A unique resource server identifier for the resource server. The identifier can be an
+   *             API friendly name like <code>solar-system-data</code>. You can also set an API URL like
+   *                 <code>https://solar-system-data-api.example.com</code> as your identifier.</p>
+   *          <p>Amazon Cognito represents scopes in the access token in the format
+   *                 <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings
+   *             increase the size of your access tokens.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The updated name of the resource server.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An array of updated custom scope names and descriptions that you want to associate
+   *             with your resource server.</p>
+   * @public
+   */
+  Scopes?: ResourceServerScopeType[] | undefined;
+}
 
 /**
  * @public

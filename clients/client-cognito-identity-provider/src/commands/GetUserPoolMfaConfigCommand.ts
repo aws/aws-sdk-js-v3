@@ -103,6 +103,7 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * //   WebAuthnConfiguration: { // WebAuthnConfigurationType
  * //     RelyingPartyId: "STRING_VALUE",
  * //     UserVerification: "required" || "preferred",
+ * //     FactorConfiguration: "SINGLE_FACTOR" || "MULTI_FACTOR_WITH_USER_VERIFICATION",
  * //   },
  * // };
  *
