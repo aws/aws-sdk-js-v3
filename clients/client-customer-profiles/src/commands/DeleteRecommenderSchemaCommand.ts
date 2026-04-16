@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListUploadJobsRequest, ListUploadJobsResponse } from "../models/models_1";
-import { ListUploadJobs$ } from "../schemas/schemas_0";
+import type { DeleteRecommenderSchemaRequest, DeleteRecommenderSchemaResponse } from "../models/models_0";
+import { DeleteRecommenderSchema$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,54 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListUploadJobsCommand}.
+ * The input for {@link DeleteRecommenderSchemaCommand}.
  */
-export interface ListUploadJobsCommandInput extends ListUploadJobsRequest {}
+export interface DeleteRecommenderSchemaCommandInput extends DeleteRecommenderSchemaRequest {}
 /**
  * @public
  *
- * The output of {@link ListUploadJobsCommand}.
+ * The output of {@link DeleteRecommenderSchemaCommand}.
  */
-export interface ListUploadJobsCommandOutput extends ListUploadJobsResponse, __MetadataBearer {}
+export interface DeleteRecommenderSchemaCommandOutput extends DeleteRecommenderSchemaResponse, __MetadataBearer {}
 
 /**
- * <p>This API retrieves a list of upload jobs for the specified domain. </p>
+ * <p>Deletes a recommender schema from a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListUploadJobsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListUploadJobsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, DeleteRecommenderSchemaCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteRecommenderSchemaCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // ListUploadJobsRequest
+ * const input = { // DeleteRecommenderSchemaRequest
  *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   RecommenderSchemaName: "STRING_VALUE", // required
  * };
- * const command = new ListUploadJobsCommand(input);
+ * const command = new DeleteRecommenderSchemaCommand(input);
  * const response = await client.send(command);
- * // { // ListUploadJobsResponse
- * //   NextToken: "STRING_VALUE",
- * //   Items: [ // UploadJobsList
- * //     { // UploadJobItem
- * //       JobId: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
- * //       Status: "CREATED" || "IN_PROGRESS" || "PARTIALLY_SUCCEEDED" || "SUCCEEDED" || "FAILED" || "STOPPED",
- * //       StatusReason: "VALIDATION_FAILURE" || "INTERNAL_FAILURE",
- * //       CreatedAt: new Date("TIMESTAMP"),
- * //       CompletedAt: new Date("TIMESTAMP"),
- * //       DataExpiry: Number("int"),
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListUploadJobsCommandInput - {@link ListUploadJobsCommandInput}
- * @returns {@link ListUploadJobsCommandOutput}
- * @see {@link ListUploadJobsCommandInput} for command's `input` shape.
- * @see {@link ListUploadJobsCommandOutput} for command's `response` shape.
+ * @param DeleteRecommenderSchemaCommandInput - {@link DeleteRecommenderSchemaCommandInput}
+ * @returns {@link DeleteRecommenderSchemaCommandOutput}
+ * @see {@link DeleteRecommenderSchemaCommandInput} for command's `input` shape.
+ * @see {@link DeleteRecommenderSchemaCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,10 +77,10 @@ export interface ListUploadJobsCommandOutput extends ListUploadJobsResponse, __M
  *
  * @public
  */
-export class ListUploadJobsCommand extends $Command
+export class DeleteRecommenderSchemaCommand extends $Command
   .classBuilder<
-    ListUploadJobsCommandInput,
-    ListUploadJobsCommandOutput,
+    DeleteRecommenderSchemaCommandInput,
+    DeleteRecommenderSchemaCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +89,19 @@ export class ListUploadJobsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "ListUploadJobs", {})
-  .n("CustomerProfilesClient", "ListUploadJobsCommand")
-  .sc(ListUploadJobs$)
+  .s("CustomerProfiles_20200815", "DeleteRecommenderSchema", {})
+  .n("CustomerProfilesClient", "DeleteRecommenderSchemaCommand")
+  .sc(DeleteRecommenderSchema$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListUploadJobsRequest;
-      output: ListUploadJobsResponse;
+      input: DeleteRecommenderSchemaRequest;
+      output: {};
     };
     sdk: {
-      input: ListUploadJobsCommandInput;
-      output: ListUploadJobsCommandOutput;
+      input: DeleteRecommenderSchemaCommandInput;
+      output: DeleteRecommenderSchemaCommandOutput;
     };
   };
 }

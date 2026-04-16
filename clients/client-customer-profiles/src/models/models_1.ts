@@ -8,6 +8,10 @@ import type {
   ReadinessStatus,
   Scope,
   Statistic,
+  Status,
+  StatusReason,
+  UploadJobStatus,
+  WorkflowType,
 } from "./enums";
 import type {
   AdditionalSearchKey,
@@ -30,6 +34,399 @@ import type {
   RuleBasedMatchingRequest,
   RuleBasedMatchingResponse,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUploadJobsRequest {
+  /**
+   * <p>The unique name of the domain to list upload jobs for. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of upload jobs to return per page. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to retrieve the next page of results.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary information for an individual upload job. </p>
+ * @public
+ */
+export interface UploadJobItem {
+  /**
+   * <p>The unique identifier of the upload job. </p>
+   * @public
+   */
+  JobId?: string | undefined;
+
+  /**
+   * <p>The name of the upload job. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The current status of the upload job. </p>
+   * @public
+   */
+  Status?: UploadJobStatus | undefined;
+
+  /**
+   * <p>The reason for the current status of the upload job. </p>
+   * @public
+   */
+  StatusReason?: StatusReason | undefined;
+
+  /**
+   * <p>The timestamp when the upload job was created. </p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the upload job was completed. </p>
+   * @public
+   */
+  CompletedAt?: Date | undefined;
+
+  /**
+   * <p>The expiry duration for the profiles ingested with the upload job. </p>
+   * @public
+   */
+  DataExpiry?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUploadJobsResponse {
+  /**
+   * <p>The pagination token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of upload jobs for the specified domain. </p>
+   * @public
+   */
+  Items?: UploadJobItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   * @public
+   */
+  WorkflowType?: WorkflowType | undefined;
+
+  /**
+   * <p>Status of workflow execution.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+
+  /**
+   * <p>Retrieve workflows started after timestamp.</p>
+   * @public
+   */
+  QueryStartDate?: Date | undefined;
+
+  /**
+   * <p>Retrieve workflows ended after timestamp.</p>
+   * @public
+   */
+  QueryEndDate?: Date | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A workflow in list of workflows.</p>
+ * @public
+ */
+export interface ListWorkflowsItem {
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   * @public
+   */
+  WorkflowType: WorkflowType | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   * @public
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>Status of workflow execution.</p>
+   * @public
+   */
+  Status: Status | undefined;
+
+  /**
+   * <p>Description for workflow execution status.</p>
+   * @public
+   */
+  StatusDescription: string | undefined;
+
+  /**
+   * <p>Creation timestamp for workflow.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>Last updated timestamp for workflow.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsResponse {
+  /**
+   * <p>List containing workflow details.</p>
+   * @public
+   */
+  Items?: ListWorkflowsItem[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A duplicate customer profile that is to be merged into a main profile. </p>
+ * @public
+ */
+export interface FieldSourceProfileIds {
+  /**
+   * <p>A unique identifier for the account number field to be merged. </p>
+   * @public
+   */
+  AccountNumber?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the additional information field to be merged.</p>
+   * @public
+   */
+  AdditionalInformation?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the party type field to be merged.</p>
+   * @public
+   */
+  PartyType?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the business name field to be merged.</p>
+   * @public
+   */
+  BusinessName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the first name field to be merged.</p>
+   * @public
+   */
+  FirstName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the middle name field to be merged.</p>
+   * @public
+   */
+  MiddleName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the last name field to be merged.</p>
+   * @public
+   */
+  LastName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the birthdate field to be merged.</p>
+   * @public
+   */
+  BirthDate?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the gender field to be merged.</p>
+   * @public
+   */
+  Gender?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the phone number field to be merged.</p>
+   * @public
+   */
+  PhoneNumber?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the mobile phone number field to be merged.</p>
+   * @public
+   */
+  MobilePhoneNumber?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the home phone number field to be merged.</p>
+   * @public
+   */
+  HomePhoneNumber?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the business phone number field to be merged.</p>
+   * @public
+   */
+  BusinessPhoneNumber?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the email address field to be merged.</p>
+   * @public
+   */
+  EmailAddress?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the personal email address field to be merged.</p>
+   * @public
+   */
+  PersonalEmailAddress?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the party type field to be merged.</p>
+   * @public
+   */
+  BusinessEmailAddress?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the party type field to be merged.</p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the shipping address field to be merged.</p>
+   * @public
+   */
+  ShippingAddress?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the mailing address field to be merged.</p>
+   * @public
+   */
+  MailingAddress?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the billing type field to be merged.</p>
+   * @public
+   */
+  BillingAddress?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the attributes field to be merged.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier for the profile type field to be merged.</p>
+   * @public
+   */
+  ProfileType?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the engagement preferences field to be merged.</p>
+   * @public
+   */
+  EngagementPreferences?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeProfilesRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be taken.</p>
+   * @public
+   */
+  MainProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be merged into MainProfileId.</p>
+   * @public
+   */
+  ProfileIdsToBeMerged: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the fields in the profile that has the information you want to apply
+   *          to the merge. For example, say you want to merge EmailAddress from Profile1 into
+   *          MainProfile. This would be the identifier of the EmailAddress field in Profile1. </p>
+   * @public
+   */
+  FieldSourceProfileIds?: FieldSourceProfileIds | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MergeProfilesResponse {
+  /**
+   * <p>A message that indicates the merge request is complete.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
 
 /**
  * @public

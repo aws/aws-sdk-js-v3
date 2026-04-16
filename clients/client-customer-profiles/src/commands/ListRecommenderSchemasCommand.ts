@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListRecommenderFiltersRequest, ListRecommenderFiltersResponse } from "../models/models_0";
-import { ListRecommenderFilters$ } from "../schemas/schemas_0";
+import type { ListRecommenderSchemasRequest, ListRecommenderSchemasResponse } from "../models/models_0";
+import { ListRecommenderSchemas$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,57 +20,59 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRecommenderFiltersCommand}.
+ * The input for {@link ListRecommenderSchemasCommand}.
  */
-export interface ListRecommenderFiltersCommandInput extends ListRecommenderFiltersRequest {}
+export interface ListRecommenderSchemasCommandInput extends ListRecommenderSchemasRequest {}
 /**
  * @public
  *
- * The output of {@link ListRecommenderFiltersCommand}.
+ * The output of {@link ListRecommenderSchemasCommand}.
  */
-export interface ListRecommenderFiltersCommandOutput extends ListRecommenderFiltersResponse, __MetadataBearer {}
+export interface ListRecommenderSchemasCommandOutput extends ListRecommenderSchemasResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of recommender filters in the specified domain.</p>
+ * <p>Returns a list of recommender schemas in the specified domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListRecommenderFiltersCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListRecommenderFiltersCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, ListRecommenderSchemasCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, ListRecommenderSchemasCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // ListRecommenderFiltersRequest
+ * const input = { // ListRecommenderSchemasRequest
  *   DomainName: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListRecommenderFiltersCommand(input);
+ * const command = new ListRecommenderSchemasCommand(input);
  * const response = await client.send(command);
- * // { // ListRecommenderFiltersResponse
+ * // { // ListRecommenderSchemasResponse
  * //   NextToken: "STRING_VALUE",
- * //   RecommenderFilters: [ // RecommenderFilterSummaryList
- * //     { // RecommenderFilterSummary
- * //       RecommenderFilterName: "STRING_VALUE",
- * //       RecommenderSchemaName: "STRING_VALUE",
- * //       RecommenderFilterExpression: "STRING_VALUE",
- * //       CreatedAt: new Date("TIMESTAMP"),
- * //       Description: "STRING_VALUE",
- * //       Status: "ACTIVE" || "PENDING" || "IN_PROGRESS" || "FAILED" || "DELETING",
- * //       FailureReason: "STRING_VALUE",
- * //       Tags: { // TagMap
- * //         "<keys>": "STRING_VALUE",
+ * //   RecommenderSchemas: [ // RecommenderSchemaSummaryList
+ * //     { // RecommenderSchemaSummary
+ * //       RecommenderSchemaName: "STRING_VALUE", // required
+ * //       Fields: { // RecommenderSchemaFields // required
+ * //         "<keys>": [ // RecommenderSchemaFieldList
+ * //           { // RecommenderSchemaField
+ * //             TargetFieldName: "STRING_VALUE", // required
+ * //             ContentType: "STRING" || "NUMBER",
+ * //             FeatureType: "TEXTUAL" || "CATEGORICAL",
+ * //           },
+ * //         ],
  * //       },
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       Status: "ACTIVE" || "DELETING", // required
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListRecommenderFiltersCommandInput - {@link ListRecommenderFiltersCommandInput}
- * @returns {@link ListRecommenderFiltersCommandOutput}
- * @see {@link ListRecommenderFiltersCommandInput} for command's `input` shape.
- * @see {@link ListRecommenderFiltersCommandOutput} for command's `response` shape.
+ * @param ListRecommenderSchemasCommandInput - {@link ListRecommenderSchemasCommandInput}
+ * @returns {@link ListRecommenderSchemasCommandOutput}
+ * @see {@link ListRecommenderSchemasCommandInput} for command's `input` shape.
+ * @see {@link ListRecommenderSchemasCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -94,10 +96,10 @@ export interface ListRecommenderFiltersCommandOutput extends ListRecommenderFilt
  *
  * @public
  */
-export class ListRecommenderFiltersCommand extends $Command
+export class ListRecommenderSchemasCommand extends $Command
   .classBuilder<
-    ListRecommenderFiltersCommandInput,
-    ListRecommenderFiltersCommandOutput,
+    ListRecommenderSchemasCommandInput,
+    ListRecommenderSchemasCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -106,19 +108,19 @@ export class ListRecommenderFiltersCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "ListRecommenderFilters", {})
-  .n("CustomerProfilesClient", "ListRecommenderFiltersCommand")
-  .sc(ListRecommenderFilters$)
+  .s("CustomerProfiles_20200815", "ListRecommenderSchemas", {})
+  .n("CustomerProfilesClient", "ListRecommenderSchemasCommand")
+  .sc(ListRecommenderSchemas$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRecommenderFiltersRequest;
-      output: ListRecommenderFiltersResponse;
+      input: ListRecommenderSchemasRequest;
+      output: ListRecommenderSchemasResponse;
     };
     sdk: {
-      input: ListRecommenderFiltersCommandInput;
-      output: ListRecommenderFiltersCommandOutput;
+      input: ListRecommenderSchemasCommandInput;
+      output: ListRecommenderSchemasCommandOutput;
     };
   };
 }

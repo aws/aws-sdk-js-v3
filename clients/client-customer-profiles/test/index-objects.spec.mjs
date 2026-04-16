@@ -83,6 +83,10 @@ import {
   CreateRecommenderFilterResponse$,
   CreateRecommenderRequest$,
   CreateRecommenderResponse$,
+  CreateRecommenderSchema$,
+  CreateRecommenderSchemaCommand,
+  CreateRecommenderSchemaRequest$,
+  CreateRecommenderSchemaResponse$,
   CreateSegmentDefinition$,
   CreateSegmentDefinitionCommand,
   CreateSegmentDefinitionRequest$,
@@ -160,6 +164,10 @@ import {
   DeleteRecommenderFilterResponse$,
   DeleteRecommenderRequest$,
   DeleteRecommenderResponse$,
+  DeleteRecommenderSchema$,
+  DeleteRecommenderSchemaCommand,
+  DeleteRecommenderSchemaRequest$,
+  DeleteRecommenderSchemaResponse$,
   DeleteSegmentDefinition$,
   DeleteSegmentDefinitionCommand,
   DeleteSegmentDefinitionRequest$,
@@ -279,6 +287,10 @@ import {
   GetRecommenderFilterResponse$,
   GetRecommenderRequest$,
   GetRecommenderResponse$,
+  GetRecommenderSchema$,
+  GetRecommenderSchemaCommand,
+  GetRecommenderSchemaRequest$,
+  GetRecommenderSchemaResponse$,
   GetSegmentDefinition$,
   GetSegmentDefinitionCommand,
   GetSegmentDefinitionRequest$,
@@ -414,6 +426,10 @@ import {
   ListRecommenderRecipesRequest$,
   ListRecommenderRecipesResponse$,
   ListRecommenders$,
+  ListRecommenderSchemas$,
+  ListRecommenderSchemasCommand,
+  ListRecommenderSchemasRequest$,
+  ListRecommenderSchemasResponse$,
   ListRecommendersCommand,
   ListRecommendersRequest$,
   ListRecommendersResponse$,
@@ -466,6 +482,7 @@ import {
   paginateListRecommenderFilters,
   paginateListRecommenderRecipes,
   paginateListRecommenders,
+  paginateListRecommenderSchemas,
   paginateListRuleBasedMatches,
   paginateListSegmentDefinitions,
   paginateListUploadJobs,
@@ -513,6 +530,9 @@ import {
   RecommenderPromotionalFilter$,
   RecommenderRecipe$,
   RecommenderRecipeName,
+  RecommenderSchemaField$,
+  RecommenderSchemaStatus,
+  RecommenderSchemaSummary$,
   RecommenderStatus,
   RecommenderSummary$,
   RecommenderUpdate$,
@@ -655,6 +675,8 @@ assert(typeof CreateRecommenderCommand === "function");
 assert(typeof CreateRecommender$ === "object");
 assert(typeof CreateRecommenderFilterCommand === "function");
 assert(typeof CreateRecommenderFilter$ === "object");
+assert(typeof CreateRecommenderSchemaCommand === "function");
+assert(typeof CreateRecommenderSchema$ === "object");
 assert(typeof CreateSegmentDefinitionCommand === "function");
 assert(typeof CreateSegmentDefinition$ === "object");
 assert(typeof CreateSegmentEstimateCommand === "function");
@@ -689,6 +711,8 @@ assert(typeof DeleteRecommenderCommand === "function");
 assert(typeof DeleteRecommender$ === "object");
 assert(typeof DeleteRecommenderFilterCommand === "function");
 assert(typeof DeleteRecommenderFilter$ === "object");
+assert(typeof DeleteRecommenderSchemaCommand === "function");
+assert(typeof DeleteRecommenderSchema$ === "object");
 assert(typeof DeleteSegmentDefinitionCommand === "function");
 assert(typeof DeleteSegmentDefinition$ === "object");
 assert(typeof DeleteWorkflowCommand === "function");
@@ -731,6 +755,8 @@ assert(typeof GetRecommenderCommand === "function");
 assert(typeof GetRecommender$ === "object");
 assert(typeof GetRecommenderFilterCommand === "function");
 assert(typeof GetRecommenderFilter$ === "object");
+assert(typeof GetRecommenderSchemaCommand === "function");
+assert(typeof GetRecommenderSchema$ === "object");
 assert(typeof GetSegmentDefinitionCommand === "function");
 assert(typeof GetSegmentDefinition$ === "object");
 assert(typeof GetSegmentEstimateCommand === "function");
@@ -789,6 +815,8 @@ assert(typeof ListRecommenderRecipesCommand === "function");
 assert(typeof ListRecommenderRecipes$ === "object");
 assert(typeof ListRecommendersCommand === "function");
 assert(typeof ListRecommenders$ === "object");
+assert(typeof ListRecommenderSchemasCommand === "function");
+assert(typeof ListRecommenderSchemas$ === "object");
 assert(typeof ListRuleBasedMatchesCommand === "function");
 assert(typeof ListRuleBasedMatches$ === "object");
 assert(typeof ListSegmentDefinitionsCommand === "function");
@@ -885,6 +913,8 @@ assert(typeof CreateRecommenderFilterRequest$ === "object");
 assert(typeof CreateRecommenderFilterResponse$ === "object");
 assert(typeof CreateRecommenderRequest$ === "object");
 assert(typeof CreateRecommenderResponse$ === "object");
+assert(typeof CreateRecommenderSchemaRequest$ === "object");
+assert(typeof CreateRecommenderSchemaResponse$ === "object");
 assert(typeof CreateSegmentDefinitionRequest$ === "object");
 assert(typeof CreateSegmentDefinitionResponse$ === "object");
 assert(typeof CreateSegmentEstimateRequest$ === "object");
@@ -922,6 +952,8 @@ assert(typeof DeleteRecommenderFilterRequest$ === "object");
 assert(typeof DeleteRecommenderFilterResponse$ === "object");
 assert(typeof DeleteRecommenderRequest$ === "object");
 assert(typeof DeleteRecommenderResponse$ === "object");
+assert(typeof DeleteRecommenderSchemaRequest$ === "object");
+assert(typeof DeleteRecommenderSchemaResponse$ === "object");
 assert(typeof DeleteSegmentDefinitionRequest$ === "object");
 assert(typeof DeleteSegmentDefinitionResponse$ === "object");
 assert(typeof DeleteWorkflowRequest$ === "object");
@@ -991,6 +1023,8 @@ assert(typeof GetRecommenderFilterRequest$ === "object");
 assert(typeof GetRecommenderFilterResponse$ === "object");
 assert(typeof GetRecommenderRequest$ === "object");
 assert(typeof GetRecommenderResponse$ === "object");
+assert(typeof GetRecommenderSchemaRequest$ === "object");
+assert(typeof GetRecommenderSchemaResponse$ === "object");
 assert(typeof GetSegmentDefinitionRequest$ === "object");
 assert(typeof GetSegmentDefinitionResponse$ === "object");
 assert(typeof GetSegmentEstimateRequest$ === "object");
@@ -1062,6 +1096,8 @@ assert(typeof ListRecommenderFiltersRequest$ === "object");
 assert(typeof ListRecommenderFiltersResponse$ === "object");
 assert(typeof ListRecommenderRecipesRequest$ === "object");
 assert(typeof ListRecommenderRecipesResponse$ === "object");
+assert(typeof ListRecommenderSchemasRequest$ === "object");
+assert(typeof ListRecommenderSchemasResponse$ === "object");
 assert(typeof ListRecommendersRequest$ === "object");
 assert(typeof ListRecommendersResponse$ === "object");
 assert(typeof ListRuleBasedMatchesRequest$ === "object");
@@ -1114,6 +1150,8 @@ assert(typeof RecommenderFilter$ === "object");
 assert(typeof RecommenderFilterSummary$ === "object");
 assert(typeof RecommenderPromotionalFilter$ === "object");
 assert(typeof RecommenderRecipe$ === "object");
+assert(typeof RecommenderSchemaField$ === "object");
+assert(typeof RecommenderSchemaSummary$ === "object");
 assert(typeof RecommenderSummary$ === "object");
 assert(typeof RecommenderUpdate$ === "object");
 assert(typeof ResultsSummary$ === "object");
@@ -1209,6 +1247,7 @@ assert(typeof RangeUnit === "object");
 assert(typeof ReadinessStatus === "object");
 assert(typeof RecommenderFilterStatus === "object");
 assert(typeof RecommenderRecipeName === "object");
+assert(typeof RecommenderSchemaStatus === "object");
 assert(typeof RecommenderStatus === "object");
 assert(typeof RuleBasedMatchingStatus === "object");
 assert(typeof S3ConnectorOperator === "object");
@@ -1255,6 +1294,7 @@ assert(typeof paginateListEventTriggers === "function");
 assert(typeof paginateListObjectTypeAttributes === "function");
 assert(typeof paginateListRecommenderFilters === "function");
 assert(typeof paginateListRecommenderRecipes === "function");
+assert(typeof paginateListRecommenderSchemas === "function");
 assert(typeof paginateListRecommenders === "function");
 assert(typeof paginateListRuleBasedMatches === "function");
 assert(typeof paginateListSegmentDefinitions === "function");

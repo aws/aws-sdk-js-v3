@@ -63,6 +63,11 @@ import {
   CreateRecommenderFilterCommand,
 } from "./commands/CreateRecommenderFilterCommand";
 import {
+  type CreateRecommenderSchemaCommandInput,
+  type CreateRecommenderSchemaCommandOutput,
+  CreateRecommenderSchemaCommand,
+} from "./commands/CreateRecommenderSchemaCommand";
+import {
   type CreateSegmentDefinitionCommandInput,
   type CreateSegmentDefinitionCommandOutput,
   CreateSegmentDefinitionCommand,
@@ -147,6 +152,11 @@ import {
   type DeleteRecommenderFilterCommandOutput,
   DeleteRecommenderFilterCommand,
 } from "./commands/DeleteRecommenderFilterCommand";
+import {
+  type DeleteRecommenderSchemaCommandInput,
+  type DeleteRecommenderSchemaCommandOutput,
+  DeleteRecommenderSchemaCommand,
+} from "./commands/DeleteRecommenderSchemaCommand";
 import {
   type DeleteSegmentDefinitionCommandInput,
   type DeleteSegmentDefinitionCommandOutput,
@@ -248,6 +258,11 @@ import {
   type GetRecommenderFilterCommandOutput,
   GetRecommenderFilterCommand,
 } from "./commands/GetRecommenderFilterCommand";
+import {
+  type GetRecommenderSchemaCommandInput,
+  type GetRecommenderSchemaCommandOutput,
+  GetRecommenderSchemaCommand,
+} from "./commands/GetRecommenderSchemaCommand";
 import {
   type GetSegmentDefinitionCommandInput,
   type GetSegmentDefinitionCommandOutput,
@@ -389,6 +404,11 @@ import {
   ListRecommenderRecipesCommand,
 } from "./commands/ListRecommenderRecipesCommand";
 import {
+  type ListRecommenderSchemasCommandInput,
+  type ListRecommenderSchemasCommandOutput,
+  ListRecommenderSchemasCommand,
+} from "./commands/ListRecommenderSchemasCommand";
+import {
   type ListRecommendersCommandInput,
   type ListRecommendersCommandOutput,
   ListRecommendersCommand,
@@ -517,6 +537,7 @@ import { paginateListEventTriggers } from "./pagination/ListEventTriggersPaginat
 import { paginateListObjectTypeAttributes } from "./pagination/ListObjectTypeAttributesPaginator";
 import { paginateListRecommenderFilters } from "./pagination/ListRecommenderFiltersPaginator";
 import { paginateListRecommenderRecipes } from "./pagination/ListRecommenderRecipesPaginator";
+import { paginateListRecommenderSchemas } from "./pagination/ListRecommenderSchemasPaginator";
 import { paginateListRecommenders } from "./pagination/ListRecommendersPaginator";
 import { paginateListRuleBasedMatches } from "./pagination/ListRuleBasedMatchesPaginator";
 import { paginateListSegmentDefinitions } from "./pagination/ListSegmentDefinitionsPaginator";
@@ -535,6 +556,7 @@ const commands = {
   CreateProfileCommand,
   CreateRecommenderCommand,
   CreateRecommenderFilterCommand,
+  CreateRecommenderSchemaCommand,
   CreateSegmentDefinitionCommand,
   CreateSegmentEstimateCommand,
   CreateSegmentSnapshotCommand,
@@ -552,6 +574,7 @@ const commands = {
   DeleteProfileObjectTypeCommand,
   DeleteRecommenderCommand,
   DeleteRecommenderFilterCommand,
+  DeleteRecommenderSchemaCommand,
   DeleteSegmentDefinitionCommand,
   DeleteWorkflowCommand,
   DetectProfileObjectTypeCommand,
@@ -573,6 +596,7 @@ const commands = {
   GetProfileRecommendationsCommand,
   GetRecommenderCommand,
   GetRecommenderFilterCommand,
+  GetRecommenderSchemaCommand,
   GetSegmentDefinitionCommand,
   GetSegmentEstimateCommand,
   GetSegmentMembershipCommand,
@@ -602,6 +626,7 @@ const commands = {
   ListRecommenderFiltersCommand,
   ListRecommenderRecipesCommand,
   ListRecommendersCommand,
+  ListRecommenderSchemasCommand,
   ListRuleBasedMatchesCommand,
   ListSegmentDefinitionsCommand,
   ListTagsForResourceCommand,
@@ -636,6 +661,7 @@ const paginators = {
   paginateListRecommenderFilters,
   paginateListRecommenderRecipes,
   paginateListRecommenders,
+  paginateListRecommenderSchemas,
   paginateListRuleBasedMatches,
   paginateListSegmentDefinitions,
   paginateListUploadJobs,
@@ -844,6 +870,23 @@ export interface CustomerProfiles {
     args: CreateRecommenderFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRecommenderFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRecommenderSchemaCommand}
+   */
+  createRecommenderSchema(
+    args: CreateRecommenderSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecommenderSchemaCommandOutput>;
+  createRecommenderSchema(
+    args: CreateRecommenderSchemaCommandInput,
+    cb: (err: any, data?: CreateRecommenderSchemaCommandOutput) => void
+  ): void;
+  createRecommenderSchema(
+    args: CreateRecommenderSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecommenderSchemaCommandOutput) => void
   ): void;
 
   /**
@@ -1133,6 +1176,23 @@ export interface CustomerProfiles {
     args: DeleteRecommenderFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRecommenderFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecommenderSchemaCommand}
+   */
+  deleteRecommenderSchema(
+    args: DeleteRecommenderSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecommenderSchemaCommandOutput>;
+  deleteRecommenderSchema(
+    args: DeleteRecommenderSchemaCommandInput,
+    cb: (err: any, data?: DeleteRecommenderSchemaCommandOutput) => void
+  ): void;
+  deleteRecommenderSchema(
+    args: DeleteRecommenderSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecommenderSchemaCommandOutput) => void
   ): void;
 
   /**
@@ -1490,6 +1550,23 @@ export interface CustomerProfiles {
     args: GetRecommenderFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRecommenderFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecommenderSchemaCommand}
+   */
+  getRecommenderSchema(
+    args: GetRecommenderSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommenderSchemaCommandOutput>;
+  getRecommenderSchema(
+    args: GetRecommenderSchemaCommandInput,
+    cb: (err: any, data?: GetRecommenderSchemaCommandOutput) => void
+  ): void;
+  getRecommenderSchema(
+    args: GetRecommenderSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommenderSchemaCommandOutput) => void
   ): void;
 
   /**
@@ -1989,6 +2066,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListRecommenderSchemasCommand}
+   */
+  listRecommenderSchemas(
+    args: ListRecommenderSchemasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommenderSchemasCommandOutput>;
+  listRecommenderSchemas(
+    args: ListRecommenderSchemasCommandInput,
+    cb: (err: any, data?: ListRecommenderSchemasCommandOutput) => void
+  ): void;
+  listRecommenderSchemas(
+    args: ListRecommenderSchemasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommenderSchemasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRuleBasedMatchesCommand}
    */
   listRuleBasedMatches(
@@ -2477,6 +2571,17 @@ export interface CustomerProfiles {
     args: ListRecommendersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRecommendersCommandOutput>;
+
+  /**
+   * @see {@link ListRecommenderSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommenderSchemasCommandOutput}.
+   */
+  paginateListRecommenderSchemas(
+    args: ListRecommenderSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommenderSchemasCommandOutput>;
 
   /**
    * @see {@link ListRuleBasedMatchesCommand}

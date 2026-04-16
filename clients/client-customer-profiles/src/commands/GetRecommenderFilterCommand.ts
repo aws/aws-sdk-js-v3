@@ -49,6 +49,7 @@ export interface GetRecommenderFilterCommandOutput extends GetRecommenderFilterR
  * // { // GetRecommenderFilterResponse
  * //   RecommenderFilterName: "STRING_VALUE", // required
  * //   RecommenderFilterExpression: "STRING_VALUE", // required
+ * //   RecommenderSchemaName: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   Status: "ACTIVE" || "PENDING" || "IN_PROGRESS" || "FAILED" || "DELETING", // required
  * //   Description: "STRING_VALUE",

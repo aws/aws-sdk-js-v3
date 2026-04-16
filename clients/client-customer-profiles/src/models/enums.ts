@@ -672,6 +672,32 @@ export type RecommenderRecipeName = (typeof RecommenderRecipeName)[keyof typeof 
  * @public
  * @enum
  */
+export const FeatureType = {
+  CATEGORICAL: "CATEGORICAL",
+  TEXTUAL: "TEXTUAL",
+} as const;
+/**
+ * @public
+ */
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommenderSchemaStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+/**
+ * @public
+ */
+export type RecommenderSchemaStatus = (typeof RecommenderSchemaStatus)[keyof typeof RecommenderSchemaStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DateDimensionType = {
   AFTER: "AFTER",
   BEFORE: "BEFORE",
@@ -816,19 +842,6 @@ export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof Standa
  * @public
  * @enum
  */
-export const FeatureType = {
-  CATEGORICAL: "CATEGORICAL",
-  TEXTUAL: "TEXTUAL",
-} as const;
-/**
- * @public
- */
-export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
-
-/**
- * @public
- * @enum
- */
 export const EventStreamDestinationStatus = {
   HEALTHY: "HEALTHY",
   UNHEALTHY: "UNHEALTHY",
@@ -911,7 +924,14 @@ export const TrainingMetricName = {
   COVERAGE: "coverage",
   FRESHNESS: "freshness",
   HIT: "hit",
+  MEAN_RECIPROCAL_RANK_AT_25: "mean_reciprocal_rank_at_25",
+  NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN_AT_10: "normalized_discounted_cumulative_gain_at_10",
+  NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN_AT_25: "normalized_discounted_cumulative_gain_at_25",
+  NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN_AT_5: "normalized_discounted_cumulative_gain_at_5",
   POPULARITY: "popularity",
+  PRECISION_AT_10: "precision_at_10",
+  PRECISION_AT_25: "precision_at_25",
+  PRECISION_AT_5: "precision_at_5",
   RECALL: "recall",
   SIMILARITY: "similarity",
 } as const;

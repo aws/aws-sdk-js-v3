@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListUploadJobsRequest, ListUploadJobsResponse } from "../models/models_1";
-import { ListUploadJobs$ } from "../schemas/schemas_0";
+import type { GetRecommenderSchemaRequest, GetRecommenderSchemaResponse } from "../models/models_0";
+import { GetRecommenderSchema$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,54 +20,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListUploadJobsCommand}.
+ * The input for {@link GetRecommenderSchemaCommand}.
  */
-export interface ListUploadJobsCommandInput extends ListUploadJobsRequest {}
+export interface GetRecommenderSchemaCommandInput extends GetRecommenderSchemaRequest {}
 /**
  * @public
  *
- * The output of {@link ListUploadJobsCommand}.
+ * The output of {@link GetRecommenderSchemaCommand}.
  */
-export interface ListUploadJobsCommandOutput extends ListUploadJobsResponse, __MetadataBearer {}
+export interface GetRecommenderSchemaCommandOutput extends GetRecommenderSchemaResponse, __MetadataBearer {}
 
 /**
- * <p>This API retrieves a list of upload jobs for the specified domain. </p>
+ * <p>Retrieves information about a specific recommender schema in a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, ListUploadJobsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, ListUploadJobsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetRecommenderSchemaCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, GetRecommenderSchemaCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // ListUploadJobsRequest
+ * const input = { // GetRecommenderSchemaRequest
  *   DomainName: "STRING_VALUE", // required
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   RecommenderSchemaName: "STRING_VALUE", // required
  * };
- * const command = new ListUploadJobsCommand(input);
+ * const command = new GetRecommenderSchemaCommand(input);
  * const response = await client.send(command);
- * // { // ListUploadJobsResponse
- * //   NextToken: "STRING_VALUE",
- * //   Items: [ // UploadJobsList
- * //     { // UploadJobItem
- * //       JobId: "STRING_VALUE",
- * //       DisplayName: "STRING_VALUE",
- * //       Status: "CREATED" || "IN_PROGRESS" || "PARTIALLY_SUCCEEDED" || "SUCCEEDED" || "FAILED" || "STOPPED",
- * //       StatusReason: "VALIDATION_FAILURE" || "INTERNAL_FAILURE",
- * //       CreatedAt: new Date("TIMESTAMP"),
- * //       CompletedAt: new Date("TIMESTAMP"),
- * //       DataExpiry: Number("int"),
- * //     },
- * //   ],
+ * // { // GetRecommenderSchemaResponse
+ * //   RecommenderSchemaName: "STRING_VALUE", // required
+ * //   Fields: { // RecommenderSchemaFields // required
+ * //     "<keys>": [ // RecommenderSchemaFieldList
+ * //       { // RecommenderSchemaField
+ * //         TargetFieldName: "STRING_VALUE", // required
+ * //         ContentType: "STRING" || "NUMBER",
+ * //         FeatureType: "TEXTUAL" || "CATEGORICAL",
+ * //       },
+ * //     ],
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   Status: "ACTIVE" || "DELETING", // required
  * // };
  *
  * ```
  *
- * @param ListUploadJobsCommandInput - {@link ListUploadJobsCommandInput}
- * @returns {@link ListUploadJobsCommandOutput}
- * @see {@link ListUploadJobsCommandInput} for command's `input` shape.
- * @see {@link ListUploadJobsCommandOutput} for command's `response` shape.
+ * @param GetRecommenderSchemaCommandInput - {@link GetRecommenderSchemaCommandInput}
+ * @returns {@link GetRecommenderSchemaCommandOutput}
+ * @see {@link GetRecommenderSchemaCommandInput} for command's `input` shape.
+ * @see {@link GetRecommenderSchemaCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,10 +90,10 @@ export interface ListUploadJobsCommandOutput extends ListUploadJobsResponse, __M
  *
  * @public
  */
-export class ListUploadJobsCommand extends $Command
+export class GetRecommenderSchemaCommand extends $Command
   .classBuilder<
-    ListUploadJobsCommandInput,
-    ListUploadJobsCommandOutput,
+    GetRecommenderSchemaCommandInput,
+    GetRecommenderSchemaCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +102,19 @@ export class ListUploadJobsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "ListUploadJobs", {})
-  .n("CustomerProfilesClient", "ListUploadJobsCommand")
-  .sc(ListUploadJobs$)
+  .s("CustomerProfiles_20200815", "GetRecommenderSchema", {})
+  .n("CustomerProfilesClient", "GetRecommenderSchemaCommand")
+  .sc(GetRecommenderSchema$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListUploadJobsRequest;
-      output: ListUploadJobsResponse;
+      input: GetRecommenderSchemaRequest;
+      output: GetRecommenderSchemaResponse;
     };
     sdk: {
-      input: ListUploadJobsCommandInput;
-      output: ListUploadJobsCommandOutput;
+      input: GetRecommenderSchemaCommandInput;
+      output: GetRecommenderSchemaCommandOutput;
     };
   };
 }

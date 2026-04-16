@@ -58,6 +58,11 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *     InferenceConfig: { // InferenceConfig
  *       MinProvisionedTPS: Number("int"),
  *     },
+ *     IncludedColumns: { // IncludedColumns
+ *       "<keys>": [ // ColumnNamesList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateRecommenderCommand(input);

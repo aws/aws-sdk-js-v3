@@ -44,6 +44,7 @@ export interface CreateRecommenderFilterCommandOutput extends CreateRecommenderF
  *   DomainName: "STRING_VALUE", // required
  *   RecommenderFilterName: "STRING_VALUE", // required
  *   RecommenderFilterExpression: "STRING_VALUE", // required
+ *   RecommenderSchemaName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",

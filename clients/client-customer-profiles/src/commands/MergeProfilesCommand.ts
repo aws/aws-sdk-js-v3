@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_0";
+import type { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_1";
 import { MergeProfiles$ } from "../schemas/schemas_0";
 
 /**

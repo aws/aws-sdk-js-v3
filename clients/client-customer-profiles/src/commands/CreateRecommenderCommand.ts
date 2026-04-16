@@ -58,8 +58,14 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *     InferenceConfig: { // InferenceConfig
  *       MinProvisionedTPS: Number("int"),
  *     },
+ *     IncludedColumns: { // IncludedColumns
+ *       "<keys>": [ // ColumnNamesList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   Description: "STRING_VALUE",
+ *   RecommenderSchemaName: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

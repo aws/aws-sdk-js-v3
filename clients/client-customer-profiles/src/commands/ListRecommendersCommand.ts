@@ -53,6 +53,7 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //     { // RecommenderSummary
  * //       RecommenderName: "STRING_VALUE",
  * //       RecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now" || "personalized-ranking",
+ * //       RecommenderSchemaName: "STRING_VALUE",
  * //       RecommenderConfig: { // RecommenderConfig
  * //         EventsConfig: { // EventsConfig
  * //           EventParametersList: [ // EventParametersList // required
@@ -66,6 +67,11 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //         TrainingFrequency: Number("int"),
  * //         InferenceConfig: { // InferenceConfig
  * //           MinProvisionedTPS: Number("int"),
+ * //         },
+ * //         IncludedColumns: { // IncludedColumns
+ * //           "<keys>": [ // ColumnNamesList
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
@@ -90,6 +96,11 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //           TrainingFrequency: Number("int"),
  * //           InferenceConfig: {
  * //             MinProvisionedTPS: Number("int"),
+ * //           },
+ * //           IncludedColumns: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //         },
  * //         Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",

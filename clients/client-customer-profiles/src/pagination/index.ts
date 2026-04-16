@@ -9,6 +9,7 @@ export * from "./ListObjectTypeAttributesPaginator";
 export * from "./ListRecommenderFiltersPaginator";
 export * from "./ListRecommenderRecipesPaginator";
 export * from "./ListRecommendersPaginator";
+export * from "./ListRecommenderSchemasPaginator";
 export * from "./ListRuleBasedMatchesPaginator";
 export * from "./ListSegmentDefinitionsPaginator";
 export * from "./ListUploadJobsPaginator";

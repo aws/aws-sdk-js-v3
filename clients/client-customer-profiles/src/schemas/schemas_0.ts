@@ -102,6 +102,9 @@ const _CRFRr = "CreateRecommenderFilterResponse";
 const _CRM = "ConflictResolvingModel";
 const _CRR = "CreateRecommenderRequest";
 const _CRRr = "CreateRecommenderResponse";
+const _CRS = "CreateRecommenderSchema";
+const _CRSR = "CreateRecommenderSchemaRequest";
+const _CRSRr = "CreateRecommenderSchemaResponse";
 const _CRr = "CreatedRecords";
 const _CRre = "CreateRecommender";
 const _CS = "ConfidenceScore";
@@ -192,6 +195,9 @@ const _DRFR = "DeleteRecommenderFilterRequest";
 const _DRFRe = "DeleteRecommenderFilterResponse";
 const _DRR = "DeleteRecommenderRequest";
 const _DRRe = "DeleteRecommenderResponse";
+const _DRS = "DeleteRecommenderSchema";
+const _DRSR = "DeleteRecommenderSchemaRequest";
+const _DRSRe = "DeleteRecommenderSchemaResponse";
 const _DS = "DataStore";
 const _DSD = "DeleteSegmentDefinition";
 const _DSDR = "DeleteSegmentDefinitionRequest";
@@ -327,6 +333,9 @@ const _GRFR = "GetRecommenderFilterRequest";
 const _GRFRe = "GetRecommenderFilterResponse";
 const _GRR = "GetRecommenderRequest";
 const _GRRe = "GetRecommenderResponse";
+const _GRS = "GetRecommenderSchema";
+const _GRSR = "GetRecommenderSchemaRequest";
+const _GRSRe = "GetRecommenderSchemaResponse";
 const _GS = "GenderString";
 const _GSD = "GetSegmentDefinition";
 const _GSDR = "GetSegmentDefinitionRequest";
@@ -361,6 +370,7 @@ const _HPN = "HomePhoneNumber";
 const _I = "Id";
 const _IC = "IntegrationConfig";
 const _ICn = "InferenceConfig";
+const _ICnc = "IncludedColumns";
 const _ID = "IsDefault";
 const _IDP = "IsDataPartial";
 const _IDR = "IncludeDeletedRecords";
@@ -465,6 +475,9 @@ const _LRRR = "ListRecommenderRecipesRequest";
 const _LRRRi = "ListRecommenderRecipesResponse";
 const _LRRi = "ListRecommendersResponse";
 const _LRRis = "ListRecommenderRecipes";
+const _LRS = "ListRecommenderSchemas";
+const _LRSR = "ListRecommenderSchemasRequest";
+const _LRSRi = "ListRecommenderSchemasResponse";
 const _LRU = "LatestRecommenderUpdate";
 const _LSD = "ListSegmentDefinitions";
 const _LSDR = "ListSegmentDefinitionsRequest";
@@ -629,8 +642,16 @@ const _RRL = "RecommenderRecipesList";
 const _RRN = "RecommenderRecipeName";
 const _RRe = "RecommenderRecipe";
 const _RS = "ResultsSummary";
+const _RSA = "RecommenderSchemaArn";
+const _RSF = "RecommenderSchemaFields";
+const _RSFL = "RecommenderSchemaFieldList";
+const _RSFe = "RecommenderSchemaField";
 const _RSL = "RecommenderSummaryList";
-const _RSe = "RecommenderSummary";
+const _RSN = "RecommenderSchemaName";
+const _RSS = "RecommenderSchemaSummary";
+const _RSSL = "RecommenderSchemaSummaryList";
+const _RSe = "RecommenderSchemas";
+const _RSec = "RecommenderSummary";
 const _RU = "RecommenderUpdate";
 const _Re = "Readiness";
 const _Rec = "Recommendations";
@@ -723,6 +744,7 @@ const _T = "Type";
 const _TC = "TriggerConfig";
 const _TE = "ThrottlingException";
 const _TF = "TimestampFormat";
+const _TFN = "TargetFieldName";
 const _TFr = "TrainingFrequency";
 const _TI = "TemplateId";
 const _TM = "TrainingMetrics";
@@ -1132,8 +1154,8 @@ export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateRecommenderFilterRequest$: StaticStructureSchema = [3, n0, _CRFR,
   0,
-  [_DN, _RFN, _RFE, _D, _Ta],
-  [[0, 1], [0, 1], [() => RecommenderFilterExpression, 0], [() => sensitiveText, 0], 128 | 0], 3
+  [_DN, _RFN, _RFE, _RSN, _D, _Ta],
+  [[0, 1], [0, 1], [() => RecommenderFilterExpression, 0], 0, [() => sensitiveText, 0], 128 | 0], 3
 ];
 export var CreateRecommenderFilterResponse$: StaticStructureSchema = [3, n0, _CRFRr,
   0,
@@ -1142,13 +1164,23 @@ export var CreateRecommenderFilterResponse$: StaticStructureSchema = [3, n0, _CR
 ];
 export var CreateRecommenderRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_DN, _RN, _RRN, _RC, _D, _Ta],
-  [[0, 1], [0, 1], 0, () => RecommenderConfig$, [() => sensitiveText, 0], 128 | 0], 3
+  [_DN, _RN, _RRN, _RC, _D, _RSN, _Ta],
+  [[0, 1], [0, 1], 0, () => RecommenderConfig$, [() => sensitiveText, 0], 0, 128 | 0], 3
 ];
 export var CreateRecommenderResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_RAe, _Ta],
   [0, 128 | 0], 1
+];
+export var CreateRecommenderSchemaRequest$: StaticStructureSchema = [3, n0, _CRSR,
+  0,
+  [_DN, _RSN, _Fi, _Ta],
+  [[0, 1], [0, 1], () => RecommenderSchemaFields, 128 | 0], 3
+];
+export var CreateRecommenderSchemaResponse$: StaticStructureSchema = [3, n0, _CRSRr,
+  0,
+  [_RSA, _RSN, _Fi, _CA, _Sta, _Ta],
+  [0, 0, () => RecommenderSchemaFields, 4, 0, 128 | 0], 5
 ];
 export var CreateSegmentDefinitionRequest$: StaticStructureSchema = [3, n0, _CSDR,
   0,
@@ -1331,6 +1363,16 @@ export var DeleteRecommenderRequest$: StaticStructureSchema = [3, n0, _DRR,
   [[0, 1], [0, 1]], 2
 ];
 export var DeleteRecommenderResponse$: StaticStructureSchema = [3, n0, _DRRe,
+  0,
+  [],
+  []
+];
+export var DeleteRecommenderSchemaRequest$: StaticStructureSchema = [3, n0, _DRSR,
+  0,
+  [_DN, _RSN],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteRecommenderSchemaResponse$: StaticStructureSchema = [3, n0, _DRSRe,
   0,
   [],
   []
@@ -1662,8 +1704,8 @@ export var GetRecommenderFilterRequest$: StaticStructureSchema = [3, n0, _GRFR,
 ];
 export var GetRecommenderFilterResponse$: StaticStructureSchema = [3, n0, _GRFRe,
   0,
-  [_RFN, _RFE, _CA, _Sta, _Ta, _D, _FR],
-  [0, [() => RecommenderFilterExpression, 0], 4, 0, 128 | 0, [() => sensitiveText, 0], 0], 5
+  [_RFN, _RFE, _CA, _Sta, _Ta, _RSN, _D, _FR],
+  [0, [() => RecommenderFilterExpression, 0], 4, 0, 128 | 0, 0, [() => sensitiveText, 0], 0], 5
 ];
 export var GetRecommenderRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
@@ -1672,8 +1714,18 @@ export var GetRecommenderRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRecommenderResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_RN, _RRN, _RC, _D, _Sta, _LUA, _CA, _FR, _LRU, _TM, _Ta],
-  [0, 0, () => RecommenderConfig$, [() => sensitiveText, 0], 0, 4, 4, 0, () => RecommenderUpdate$, () => TrainingMetricsList, 128 | 0], 2
+  [_RN, _RRN, _RSN, _RC, _D, _Sta, _LUA, _CA, _FR, _LRU, _TM, _Ta],
+  [0, 0, 0, () => RecommenderConfig$, [() => sensitiveText, 0], 0, 4, 4, 0, () => RecommenderUpdate$, () => TrainingMetricsList, 128 | 0], 2
+];
+export var GetRecommenderSchemaRequest$: StaticStructureSchema = [3, n0, _GRSR,
+  0,
+  [_DN, _RSN],
+  [[0, 1], [0, 1]], 2
+];
+export var GetRecommenderSchemaResponse$: StaticStructureSchema = [3, n0, _GRSRe,
+  0,
+  [_RSN, _Fi, _CA, _Sta],
+  [0, () => RecommenderSchemaFields, 4, 0], 4
 ];
 export var GetSegmentDefinitionRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
@@ -2030,6 +2082,16 @@ export var ListRecommenderRecipesResponse$: StaticStructureSchema = [3, n0, _LRR
   [_NT, _RR],
   [0, () => RecommenderRecipesList]
 ];
+export var ListRecommenderSchemasRequest$: StaticStructureSchema = [3, n0, _LRSR,
+  0,
+  [_DN, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 1
+];
+export var ListRecommenderSchemasResponse$: StaticStructureSchema = [3, n0, _LRSRi,
+  0,
+  [_NT, _RSe],
+  [0, () => RecommenderSchemaSummaryList]
+];
 export var ListRecommendersRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_DN, _MR, _NT],
@@ -2267,8 +2329,8 @@ export var Recommendation$: StaticStructureSchema = [3, n0, _Recom,
 ];
 export var RecommenderConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_EC, _TFr, _ICn],
-  [() => EventsConfig$, 1, () => InferenceConfig$]
+  [_EC, _TFr, _ICn, _ICnc],
+  [() => EventsConfig$, 1, () => InferenceConfig$, [2, n0, _ICnc, 0, 0, 64 | 0]]
 ];
 export var RecommenderFilter$: StaticStructureSchema = [3, n0, _RFe,
   0,
@@ -2277,8 +2339,8 @@ export var RecommenderFilter$: StaticStructureSchema = [3, n0, _RFe,
 ];
 export var RecommenderFilterSummary$: StaticStructureSchema = [3, n0, _RFS,
   0,
-  [_RFN, _RFE, _CA, _D, _Sta, _FR, _Ta],
-  [0, [() => RecommenderFilterExpression, 0], 4, [() => sensitiveText, 0], 0, 0, 128 | 0]
+  [_RFN, _RSN, _RFE, _CA, _D, _Sta, _FR, _Ta],
+  [0, 0, [() => RecommenderFilterExpression, 0], 4, [() => sensitiveText, 0], 0, 0, 128 | 0]
 ];
 export var RecommenderPromotionalFilter$: StaticStructureSchema = [3, n0, _RPFe,
   0,
@@ -2290,10 +2352,20 @@ export var RecommenderRecipe$: StaticStructureSchema = [3, n0, _RRe,
   [_n, _d],
   [0, 0]
 ];
-export var RecommenderSummary$: StaticStructureSchema = [3, n0, _RSe,
+export var RecommenderSchemaField$: StaticStructureSchema = [3, n0, _RSFe,
   0,
-  [_RN, _RNe, _RC, _CA, _D, _Sta, _LUA, _Ta, _FR, _LRU],
-  [0, 0, () => RecommenderConfig$, 4, [() => sensitiveText, 0], 0, 4, 128 | 0, 0, () => RecommenderUpdate$]
+  [_TFN, _CTo, _FT],
+  [0, 0, 0], 1
+];
+export var RecommenderSchemaSummary$: StaticStructureSchema = [3, n0, _RSS,
+  0,
+  [_RSN, _Fi, _CA, _Sta],
+  [0, () => RecommenderSchemaFields, 4, 0], 4
+];
+export var RecommenderSummary$: StaticStructureSchema = [3, n0, _RSec,
+  0,
+  [_RN, _RNe, _RSN, _RC, _CA, _D, _Sta, _LUA, _Ta, _FR, _LRU],
+  [0, 0, 0, () => RecommenderConfig$, 4, [() => sensitiveText, 0], 0, 4, 128 | 0, 0, () => RecommenderUpdate$]
 ];
 export var RecommenderUpdate$: StaticStructureSchema = [3, n0, _RU,
   0,
@@ -2607,6 +2679,7 @@ var CalculatedAttributeValueList: StaticListSchema = [1, n0, _CAVL,
   0, () => CalculatedAttributeValue$
 ];
 var CandidateIdList = 64 | 0;
+var ColumnNamesList = 64 | 0;
 var DateValues = 64 | 0;
 var DetectedProfileObjectTypes: StaticListSchema = [1, n0, _DPOTe,
   0, [() => DetectedProfileObjectType$,
@@ -2753,6 +2826,12 @@ var RecommenderPromotionalFilters: StaticListSchema = [1, n0, _RPF,
 var RecommenderRecipesList: StaticListSchema = [1, n0, _RRL,
   0, () => RecommenderRecipe$
 ];
+var RecommenderSchemaFieldList: StaticListSchema = [1, n0, _RSFL,
+  0, () => RecommenderSchemaField$
+];
+var RecommenderSchemaSummaryList: StaticListSchema = [1, n0, _RSSL,
+  0, () => RecommenderSchemaSummary$
+];
 var RecommenderSummaryList: StaticListSchema = [1, n0, _RSL,
   0, [() => RecommenderSummary$,
     0]
@@ -2820,6 +2899,9 @@ var DomainObjectTypeFields: StaticMapSchema = [2, n0, _DOTFo,
 var FieldMap: StaticMapSchema = [2, n0, _FM,
   8, 0, () => ObjectTypeField$
 ];
+var IncludedColumns: StaticMapSchema = [2, n0, _ICnc,
+  0, 0, 64 | 0
+];
 var KeyMap: StaticMapSchema = [2, n0, _KM,
   8, 0, () => ObjectTypeKeyList
 ];
@@ -2833,6 +2915,9 @@ var RecommenderFilterValues: StaticMapSchema = [2, n0, _RFV,
     0]
   , [() => RecommenderFilterAttributeValue,
     0]
+];
+var RecommenderSchemaFields: StaticMapSchema = [2, n0, _RSF,
+  0, 0, () => RecommenderSchemaFieldList
 ];
 var TagMap = 128 | 0;
 var TaskPropertiesMap = 128 | 0;
@@ -2879,6 +2964,9 @@ export var CreateRecommender$: StaticOperationSchema = [9, n0, _CRre,
 ];
 export var CreateRecommenderFilter$: StaticOperationSchema = [9, n0, _CRF,
   { [_h]: ["POST", "/domains/{DomainName}/recommender-filters/{RecommenderFilterName}", 200] }, () => CreateRecommenderFilterRequest$, () => CreateRecommenderFilterResponse$
+];
+export var CreateRecommenderSchema$: StaticOperationSchema = [9, n0, _CRS,
+  { [_h]: ["POST", "/domains/{DomainName}/recommender-schemas/{RecommenderSchemaName}", 200] }, () => CreateRecommenderSchemaRequest$, () => CreateRecommenderSchemaResponse$
 ];
 export var CreateSegmentDefinition$: StaticOperationSchema = [9, n0, _CSD,
   { [_h]: ["POST", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}", 200] }, () => CreateSegmentDefinitionRequest$, () => CreateSegmentDefinitionResponse$
@@ -2930,6 +3018,9 @@ export var DeleteRecommender$: StaticOperationSchema = [9, n0, _DR,
 ];
 export var DeleteRecommenderFilter$: StaticOperationSchema = [9, n0, _DRF,
   { [_h]: ["DELETE", "/domains/{DomainName}/recommender-filters/{RecommenderFilterName}", 200] }, () => DeleteRecommenderFilterRequest$, () => DeleteRecommenderFilterResponse$
+];
+export var DeleteRecommenderSchema$: StaticOperationSchema = [9, n0, _DRS,
+  { [_h]: ["DELETE", "/domains/{DomainName}/recommender-schemas/{RecommenderSchemaName}", 200] }, () => DeleteRecommenderSchemaRequest$, () => DeleteRecommenderSchemaResponse$
 ];
 export var DeleteSegmentDefinition$: StaticOperationSchema = [9, n0, _DSD,
   { [_h]: ["DELETE", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}", 200] }, () => DeleteSegmentDefinitionRequest$, () => DeleteSegmentDefinitionResponse$
@@ -2993,6 +3084,9 @@ export var GetRecommender$: StaticOperationSchema = [9, n0, _GR,
 ];
 export var GetRecommenderFilter$: StaticOperationSchema = [9, n0, _GRF,
   { [_h]: ["GET", "/domains/{DomainName}/recommender-filters/{RecommenderFilterName}", 200] }, () => GetRecommenderFilterRequest$, () => GetRecommenderFilterResponse$
+];
+export var GetRecommenderSchema$: StaticOperationSchema = [9, n0, _GRS,
+  { [_h]: ["GET", "/domains/{DomainName}/recommender-schemas/{RecommenderSchemaName}", 200] }, () => GetRecommenderSchemaRequest$, () => GetRecommenderSchemaResponse$
 ];
 export var GetSegmentDefinition$: StaticOperationSchema = [9, n0, _GSD,
   { [_h]: ["GET", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}", 200] }, () => GetSegmentDefinitionRequest$, () => GetSegmentDefinitionResponse$
@@ -3080,6 +3174,9 @@ export var ListRecommenderRecipes$: StaticOperationSchema = [9, n0, _LRRis,
 ];
 export var ListRecommenders$: StaticOperationSchema = [9, n0, _LR,
   { [_h]: ["GET", "/domains/{DomainName}/recommenders", 200] }, () => ListRecommendersRequest$, () => ListRecommendersResponse$
+];
+export var ListRecommenderSchemas$: StaticOperationSchema = [9, n0, _LRS,
+  { [_h]: ["GET", "/domains/{DomainName}/recommender-schemas", 200] }, () => ListRecommenderSchemasRequest$, () => ListRecommenderSchemasResponse$
 ];
 export var ListRuleBasedMatches$: StaticOperationSchema = [9, n0, _LRBM,
   { [_h]: ["GET", "/domains/{DomainName}/profiles/ruleBasedMatches", 200] }, () => ListRuleBasedMatchesRequest$, () => ListRuleBasedMatchesResponse$

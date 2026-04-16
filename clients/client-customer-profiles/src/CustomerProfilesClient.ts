@@ -98,6 +98,10 @@ import type {
   CreateRecommenderFilterCommandOutput,
 } from "./commands/CreateRecommenderFilterCommand";
 import type {
+  CreateRecommenderSchemaCommandInput,
+  CreateRecommenderSchemaCommandOutput,
+} from "./commands/CreateRecommenderSchemaCommand";
+import type {
   CreateSegmentDefinitionCommandInput,
   CreateSegmentDefinitionCommandOutput,
 } from "./commands/CreateSegmentDefinitionCommand";
@@ -153,6 +157,10 @@ import type {
   DeleteRecommenderFilterCommandInput,
   DeleteRecommenderFilterCommandOutput,
 } from "./commands/DeleteRecommenderFilterCommand";
+import type {
+  DeleteRecommenderSchemaCommandInput,
+  DeleteRecommenderSchemaCommandOutput,
+} from "./commands/DeleteRecommenderSchemaCommand";
 import type {
   DeleteSegmentDefinitionCommandInput,
   DeleteSegmentDefinitionCommandOutput,
@@ -213,6 +221,10 @@ import type {
   GetRecommenderFilterCommandInput,
   GetRecommenderFilterCommandOutput,
 } from "./commands/GetRecommenderFilterCommand";
+import type {
+  GetRecommenderSchemaCommandInput,
+  GetRecommenderSchemaCommandOutput,
+} from "./commands/GetRecommenderSchemaCommand";
 import type {
   GetSegmentDefinitionCommandInput,
   GetSegmentDefinitionCommandOutput,
@@ -304,6 +316,10 @@ import type {
   ListRecommenderRecipesCommandInput,
   ListRecommenderRecipesCommandOutput,
 } from "./commands/ListRecommenderRecipesCommand";
+import type {
+  ListRecommenderSchemasCommandInput,
+  ListRecommenderSchemasCommandOutput,
+} from "./commands/ListRecommenderSchemasCommand";
 import type { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
 import type {
   ListRuleBasedMatchesCommandInput,
@@ -382,6 +398,7 @@ export type ServiceInputTypes =
   | CreateProfileCommandInput
   | CreateRecommenderCommandInput
   | CreateRecommenderFilterCommandInput
+  | CreateRecommenderSchemaCommandInput
   | CreateSegmentDefinitionCommandInput
   | CreateSegmentEstimateCommandInput
   | CreateSegmentSnapshotCommandInput
@@ -399,6 +416,7 @@ export type ServiceInputTypes =
   | DeleteProfileObjectTypeCommandInput
   | DeleteRecommenderCommandInput
   | DeleteRecommenderFilterCommandInput
+  | DeleteRecommenderSchemaCommandInput
   | DeleteSegmentDefinitionCommandInput
   | DeleteWorkflowCommandInput
   | DetectProfileObjectTypeCommandInput
@@ -420,6 +438,7 @@ export type ServiceInputTypes =
   | GetProfileRecommendationsCommandInput
   | GetRecommenderCommandInput
   | GetRecommenderFilterCommandInput
+  | GetRecommenderSchemaCommandInput
   | GetSegmentDefinitionCommandInput
   | GetSegmentEstimateCommandInput
   | GetSegmentMembershipCommandInput
@@ -448,6 +467,7 @@ export type ServiceInputTypes =
   | ListProfileObjectsCommandInput
   | ListRecommenderFiltersCommandInput
   | ListRecommenderRecipesCommandInput
+  | ListRecommenderSchemasCommandInput
   | ListRecommendersCommandInput
   | ListRuleBasedMatchesCommandInput
   | ListSegmentDefinitionsCommandInput
@@ -489,6 +509,7 @@ export type ServiceOutputTypes =
   | CreateProfileCommandOutput
   | CreateRecommenderCommandOutput
   | CreateRecommenderFilterCommandOutput
+  | CreateRecommenderSchemaCommandOutput
   | CreateSegmentDefinitionCommandOutput
   | CreateSegmentEstimateCommandOutput
   | CreateSegmentSnapshotCommandOutput
@@ -506,6 +527,7 @@ export type ServiceOutputTypes =
   | DeleteProfileObjectTypeCommandOutput
   | DeleteRecommenderCommandOutput
   | DeleteRecommenderFilterCommandOutput
+  | DeleteRecommenderSchemaCommandOutput
   | DeleteSegmentDefinitionCommandOutput
   | DeleteWorkflowCommandOutput
   | DetectProfileObjectTypeCommandOutput
@@ -527,6 +549,7 @@ export type ServiceOutputTypes =
   | GetProfileRecommendationsCommandOutput
   | GetRecommenderCommandOutput
   | GetRecommenderFilterCommandOutput
+  | GetRecommenderSchemaCommandOutput
   | GetSegmentDefinitionCommandOutput
   | GetSegmentEstimateCommandOutput
   | GetSegmentMembershipCommandOutput
@@ -555,6 +578,7 @@ export type ServiceOutputTypes =
   | ListProfileObjectsCommandOutput
   | ListRecommenderFiltersCommandOutput
   | ListRecommenderRecipesCommandOutput
+  | ListRecommenderSchemasCommandOutput
   | ListRecommendersCommandOutput
   | ListRuleBasedMatchesCommandOutput
   | ListSegmentDefinitionsCommandOutput
