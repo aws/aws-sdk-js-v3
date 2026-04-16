@@ -76,9 +76,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     if (!request.path.endsWith("/")) {
       request.path += "/";
     }
-    Object.assign(request.headers, {
-      "content-type": `application/x-www-form-urlencoded`,
-    });
+    request.headers["content-type"] = "application/x-www-form-urlencoded";
     if (deref(operationSchema.input) === "unit" || !request.body) {
       request.body = "";
     }
@@ -123,12 +121,9 @@ export class AwsQueryProtocol extends RpcProtocol {
       Object.assign(dataObject, await deserializer.read(ns, bytes, awsQueryResultKey));
     }
 
-    const output: Output = {
-      $metadata: this.deserializeMetadata(response),
-      ...dataObject,
-    };
+    dataObject.$metadata = this.deserializeMetadata(response);
 
-    return output;
+    return dataObject as Output;
   }
 
   /**

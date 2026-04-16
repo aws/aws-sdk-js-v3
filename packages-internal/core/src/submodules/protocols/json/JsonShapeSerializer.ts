@@ -80,6 +80,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
           nameMap = {};
         }
 
+        let outCount = 0;
         for (const [memberName, memberSchema] of ns.structIterator()) {
           const serializableValue = this._write(memberSchema, record[memberName], ns);
           if (serializableValue !== undefined) {
@@ -89,9 +90,10 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
               nameMap![memberName] = targetKey;
             }
             out[targetKey] = serializableValue;
+            outCount++;
           }
         }
-        if (ns.isUnionSchema() && Object.keys(out).length === 0) {
+        if (ns.isUnionSchema() && outCount === 0) {
           const { $unknown } = record;
           if (Array.isArray($unknown)) {
             const [k, v] = $unknown;

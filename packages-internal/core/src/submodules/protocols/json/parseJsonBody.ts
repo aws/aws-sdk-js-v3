@@ -34,26 +34,32 @@ export const parseJsonErrorBody = async (errorBody: any, context: SerdeFunctions
 /**
  * @internal
  */
+const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+/**
+ * @internal
+ */
+const sanitizeErrorCode = (rawValue: string | number): string => {
+  let cleanValue = rawValue;
+  if (typeof cleanValue === "number") {
+    cleanValue = cleanValue.toString();
+  }
+  if (cleanValue.indexOf(",") >= 0) {
+    cleanValue = cleanValue.split(",")[0];
+  }
+  if (cleanValue.indexOf(":") >= 0) {
+    cleanValue = cleanValue.split(":")[0];
+  }
+  if (cleanValue.indexOf("#") >= 0) {
+    cleanValue = cleanValue.split("#")[1];
+  }
+  return cleanValue;
+};
+
+/**
+ * @internal
+ */
 export const loadRestJsonErrorCode = (output: HttpResponse, data: any): string | undefined => {
-  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
-
-  const sanitizeErrorCode = (rawValue: string | number): string => {
-    let cleanValue = rawValue;
-    if (typeof cleanValue === "number") {
-      cleanValue = cleanValue.toString();
-    }
-    if (cleanValue.indexOf(",") >= 0) {
-      cleanValue = cleanValue.split(",")[0];
-    }
-    if (cleanValue.indexOf(":") >= 0) {
-      cleanValue = cleanValue.split(":")[0];
-    }
-    if (cleanValue.indexOf("#") >= 0) {
-      cleanValue = cleanValue.split("#")[1];
-    }
-    return cleanValue;
-  };
-
   const headerKey = findKey(output.headers, "x-amzn-errortype");
   if (headerKey !== undefined) {
     return sanitizeErrorCode(output.headers[headerKey]);

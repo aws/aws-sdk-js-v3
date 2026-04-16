@@ -144,9 +144,10 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
+    const errorDeserializer = this.codec.createDeserializer();
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().jsonName ?? name;
-      output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
+      output[name] = errorDeserializer.readObject(member, dataObject[target]);
     }
 
     throw this.mixin.decorateServiceException(
