@@ -97,6 +97,7 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  * //       ],
  * //     },
  * //   },
+ * //   projectCategory: "STRING_VALUE",
  * // };
  *
  * ```

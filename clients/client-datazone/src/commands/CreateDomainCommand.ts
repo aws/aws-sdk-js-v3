@@ -44,7 +44,7 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  *     userAssignment: "AUTOMATIC" || "MANUAL",
  *     idcInstanceArn: "STRING_VALUE",
  *   },
- *   domainExecutionRole: "STRING_VALUE", // required
+ *   domainExecutionRole: "STRING_VALUE",
  *   kmsKeyIdentifier: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",

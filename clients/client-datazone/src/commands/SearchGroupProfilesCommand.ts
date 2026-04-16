@@ -39,7 +39,7 @@ export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOut
  * const client = new DataZoneClient(config);
  * const input = { // SearchGroupProfilesInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   groupType: "SSO_GROUP" || "DATAZONE_SSO_GROUP", // required
+ *   groupType: "SSO_GROUP" || "DATAZONE_SSO_GROUP" || "IAM_ROLE_SESSION_GROUP", // required
  *   searchText: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -53,6 +53,8 @@ export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOut
  * //       id: "STRING_VALUE",
  * //       status: "ASSIGNED" || "NOT_ASSIGNED",
  * //       groupName: "STRING_VALUE",
+ * //       rolePrincipalArn: "STRING_VALUE",
+ * //       rolePrincipalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -5876,8 +5876,7 @@
         "domainExecutionRole": {
           "target": "com.amazonaws.datazone#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>"
           }
         },
         "kmsKeyIdentifier": {
@@ -7466,8 +7465,13 @@
         "groupIdentifier": {
           "target": "com.amazonaws.datazone#GroupIdentifier",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the group for which the group profile is created.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The identifier of the group for which the group profile is created.</p>"
+          }
+        },
+        "rolePrincipalArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role that will be associated with the group profile. This role defines the permissions that group members will assume when accessing Amazon DataZone resources.</p>"
           }
         },
         "clientToken": {
@@ -7507,6 +7511,18 @@
           "target": "com.amazonaws.datazone#GroupProfileName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the group for which group profile is created.</p>"
+          }
+        },
+        "rolePrincipalArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role principal. This role is associated with the group profile.</p>"
+          }
+        },
+        "rolePrincipalId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>"
           }
         }
       },
@@ -7749,6 +7765,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The user parameters of the project.</p>"
           }
+        },
+        "projectCategory": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the project. Set to 'ADMIN' designates this as an administrative project for the Amazon DataZone domain.</p>"
+          }
+        },
+        "projectExecutionRole": {
+          "target": "com.amazonaws.datazone#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The default project IAM role that is used to access project resources and run computes such as Glue and Sagemaker.</p>"
+          }
+        },
+        "membershipAssignments": {
+          "target": "com.amazonaws.datazone#ProjectMembershipAssignments",
+          "traits": {
+            "smithy.api#documentation": "<p>The members to be assigned to the project.</p>"
+          }
         }
       },
       "traits": {
@@ -7928,6 +7962,12 @@
           "target": "com.amazonaws.datazone#EnvironmentDeploymentDetails",
           "traits": {
             "smithy.api#documentation": "<p>The environment deployment details.</p>"
+          }
+        },
+        "projectCategory": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the project.</p>"
           }
         }
       },
@@ -9015,6 +9055,16 @@
           "target": "com.amazonaws.datazone#UserType",
           "traits": {
             "smithy.api#documentation": "<p>The user type of the user for which the user profile is created.</p>"
+          }
+        },
+        "sessionName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The session name for IAM role sessions.</p>",
+            "smithy.api#length": {
+              "min": 2,
+              "max": 64
+            }
           }
         },
         "clientToken": {
@@ -19052,6 +19102,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the group for which the specified group profile exists.</p>"
           }
+        },
+        "rolePrincipalArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role principal. This role is associated with the group profile.</p>"
+          }
+        },
+        "rolePrincipalId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>"
+          }
         }
       },
       "traits": {
@@ -19996,6 +20058,12 @@
           "target": "com.amazonaws.datazone#EnvironmentDeploymentDetails",
           "traits": {
             "smithy.api#documentation": "<p>The environment deployment status of a project.</p>"
+          }
+        },
+        "projectCategory": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the project.</p>"
           }
         }
       },
@@ -21144,6 +21212,17 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of the user profile.</p>",
             "smithy.api#httpQuery": "type"
+          }
+        },
+        "sessionName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The session name for IAM role sessions.</p>",
+            "smithy.api#httpQuery": "sessionName",
+            "smithy.api#length": {
+              "min": 2,
+              "max": 64
+            }
           }
         }
       },
@@ -22451,6 +22530,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The group name of a group profile.</p>"
           }
+        },
+        "rolePrincipalArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role principal. This role is associated with the group profile.</p>"
+          }
+        },
+        "rolePrincipalId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>"
+          }
         }
       },
       "traits": {
@@ -22480,6 +22571,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "DATAZONE_SSO_GROUP"
+          }
+        },
+        "IAM_ROLE_SESSION_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_ROLE_SESSION_GROUP"
           }
         }
       }
@@ -22623,6 +22720,18 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>The principal ID as part of the IAM user profile details.</p>"
+          }
+        },
+        "sessionName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The session name for IAM role sessions.</p>"
+          }
+        },
+        "groupProfileId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the group profile associated with the IAM user profile. This links the user to a specific group profile within the Amazon DataZone domain.</p>"
           }
         }
       },
@@ -26492,6 +26601,13 @@
             "smithy.api#httpQuery": "name"
           }
         },
+        "projectCategory": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A parameter to filter projects by their category.</p>",
+            "smithy.api#httpQuery": "projectCategory"
+          }
+        },
         "nextToken": {
           "target": "com.amazonaws.datazone#PaginationToken",
           "traits": {
@@ -29683,6 +29799,34 @@
         "target": "com.amazonaws.datazone#ProjectMember"
       }
     },
+    "com.amazonaws.datazone#ProjectMembershipAssignment": {
+      "type": "structure",
+      "members": {
+        "member": {
+          "target": "com.amazonaws.datazone#Member",
+          "traits": {
+            "smithy.api#documentation": "<p>The details about a project member.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "designation": {
+          "target": "com.amazonaws.datazone#UserDesignation",
+          "traits": {
+            "smithy.api#documentation": "<p>The designation of the project membership.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A map of user or group profiles to designations that need to be assigned in the project.</p>"
+      }
+    },
+    "com.amazonaws.datazone#ProjectMembershipAssignments": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#ProjectMembershipAssignment"
+      }
+    },
     "com.amazonaws.datazone#ProjectName": {
       "type": "string",
       "traits": {
@@ -29943,6 +30087,12 @@
           "target": "com.amazonaws.datazone#DomainUnitId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the domain unit.</p>"
+          }
+        },
+        "projectCategory": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the project.</p>"
           }
         }
       },
@@ -31942,7 +32092,7 @@
     "com.amazonaws.datazone#RoleArn": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$"
+        "smithy.api#pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$"
       }
     },
     "com.amazonaws.datazone#RowFilter": {
@@ -38852,6 +39002,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the group profile that is updated.</p>"
           }
+        },
+        "rolePrincipalArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role principal. This role is associated with the updated group profile.</p>"
+          }
+        },
+        "rolePrincipalId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the IAM role principal. This principal is associated with the updated group profile.</p>"
+          }
         }
       },
       "traits": {
@@ -39071,6 +39233,12 @@
           "target": "com.amazonaws.datazone#EnvironmentDeploymentDetails",
           "traits": {
             "smithy.api#documentation": "<p>The environment deployment details of the project.</p>"
+          }
+        },
+        "projectCategory": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The category of the project.</p>"
           }
         }
       },
@@ -40209,6 +40377,16 @@
             "smithy.api#documentation": "<p>The status of the user profile that are to be updated.</p>",
             "smithy.api#required": {}
           }
+        },
+        "sessionName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The session name for IAM role sessions.</p>",
+            "smithy.api#length": {
+              "min": 2,
+              "max": 64
+            }
+          }
         }
       },
       "traits": {
@@ -40551,6 +40729,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "SSO_USER"
+          }
+        },
+        "IAM_ROLE_SESSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_ROLE_SESSION"
           }
         }
       }

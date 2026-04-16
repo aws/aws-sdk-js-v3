@@ -41,6 +41,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  *   userIdentifier: "STRING_VALUE",
  *   groupIdentifier: "STRING_VALUE",
  *   name: "STRING_VALUE",
+ *   projectCategory: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -64,6 +65,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       domainUnitId: "STRING_VALUE",
+ * //       projectCategory: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

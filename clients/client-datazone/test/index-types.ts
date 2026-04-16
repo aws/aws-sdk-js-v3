@@ -1111,6 +1111,7 @@ export type {
   ProjectDeletionError,
   ProjectGrantFilter,
   ProjectMember,
+  ProjectMembershipAssignment,
   ProjectPolicyGrantPrincipal,
   ProjectProfileSummary,
   ProjectsForRule,

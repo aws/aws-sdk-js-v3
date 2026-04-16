@@ -793,6 +793,22 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  * @public
  * @enum
  */
+export const UserDesignation = {
+  PROJECT_CATALOG_CONSUMER: "PROJECT_CATALOG_CONSUMER",
+  PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
+  PROJECT_CATALOG_VIEWER: "PROJECT_CATALOG_VIEWER",
+  PROJECT_CONTRIBUTOR: "PROJECT_CONTRIBUTOR",
+  PROJECT_OWNER: "PROJECT_OWNER",
+} as const;
+/**
+ * @public
+ */
+export type UserDesignation = (typeof UserDesignation)[keyof typeof UserDesignation];
+
+/**
+ * @public
+ * @enum
+ */
 export const OverallDeploymentStatus = {
   FAILED_DEPLOYMENT: "FAILED_DEPLOYMENT",
   FAILED_VALIDATION: "FAILED_VALIDATION",
@@ -834,22 +850,6 @@ export const ResourceTagSource = {
  * @public
  */
 export type ResourceTagSource = (typeof ResourceTagSource)[keyof typeof ResourceTagSource];
-
-/**
- * @public
- * @enum
- */
-export const UserDesignation = {
-  PROJECT_CATALOG_CONSUMER: "PROJECT_CATALOG_CONSUMER",
-  PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
-  PROJECT_CATALOG_VIEWER: "PROJECT_CATALOG_VIEWER",
-  PROJECT_CONTRIBUTOR: "PROJECT_CONTRIBUTOR",
-  PROJECT_OWNER: "PROJECT_OWNER",
-} as const;
-/**
- * @public
- */
-export type UserDesignation = (typeof UserDesignation)[keyof typeof UserDesignation];
 
 /**
  * @public
@@ -973,6 +973,7 @@ export type SubscriptionGrantCreationMode =
  */
 export const UserType = {
   IAM_ROLE: "IAM_ROLE",
+  IAM_ROLE_SESSION: "IAM_ROLE_SESSION",
   IAM_USER: "IAM_USER",
   SSO_USER: "SSO_USER",
 } as const;
@@ -1441,6 +1442,7 @@ export type InventorySearchScope = (typeof InventorySearchScope)[keyof typeof In
  */
 export const GroupSearchType = {
   DATAZONE_SSO_GROUP: "DATAZONE_SSO_GROUP",
+  IAM_ROLE_SESSION_GROUP: "IAM_ROLE_SESSION_GROUP",
   SSO_GROUP: "SSO_GROUP",
 } as const;
 /**

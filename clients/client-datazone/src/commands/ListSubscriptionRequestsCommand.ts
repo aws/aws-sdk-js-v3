@@ -75,6 +75,8 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * //               iam: { // IamUserProfileDetails
  * //                 arn: "STRING_VALUE",
  * //                 principalId: "STRING_VALUE",
+ * //                 sessionName: "STRING_VALUE",
+ * //                 groupProfileId: "STRING_VALUE",
  * //               },
  * //               sso: { // SsoUserProfileDetails
  * //                 username: "STRING_VALUE",

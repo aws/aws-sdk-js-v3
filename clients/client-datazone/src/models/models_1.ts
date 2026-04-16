@@ -114,11 +114,28 @@ import type {
   SubscribedAsset,
   SubscribedListing,
   SubscribedPrincipal,
-  SubscriptionTargetForm,
   TermRelations,
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The details of the subscription target configuration.</p>
+ * @public
+ */
+export interface SubscriptionTargetForm {
+  /**
+   * <p>The form name included in the subscription target configuration.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The content of the subscription target configuration.</p>
+   * @public
+   */
+  content: string | undefined;
+}
 
 /**
  * @public
@@ -313,6 +330,12 @@ export interface CreateUserProfileInput {
    * @public
    */
   userType?: UserType | undefined;
+
+  /**
+   * <p>The session name for IAM role sessions.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
@@ -4522,6 +4545,18 @@ export interface GetGroupProfileOutput {
    * @public
    */
   groupName?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role principal. This role is associated with the group profile.</p>
+   * @public
+   */
+  rolePrincipalArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>
+   * @public
+   */
+  rolePrincipalId?: string | undefined;
 }
 
 /**
@@ -5055,6 +5090,12 @@ export interface GetProjectOutput {
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
+
+  /**
+   * <p>The category of the project.</p>
+   * @public
+   */
+  projectCategory?: string | undefined;
 }
 
 /**
@@ -5704,6 +5745,12 @@ export interface GetUserProfileInput {
    * @public
    */
   type?: UserProfileType | undefined;
+
+  /**
+   * <p>The session name for IAM role sessions.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
 }
 
 /**
@@ -8434,6 +8481,12 @@ export interface ListProjectsInput {
   name?: string | undefined;
 
   /**
+   * <p>A parameter to filter projects by their category.</p>
+   * @public
+   */
+  projectCategory?: string | undefined;
+
+  /**
    * <p>When the number of projects is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of projects, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list the next set of projects.</p>
    * @public
    */
@@ -8510,6 +8563,12 @@ export interface ProjectSummary {
    * @public
    */
   domainUnitId?: string | undefined;
+
+  /**
+   * <p>The category of the project.</p>
+   * @public
+   */
+  projectCategory?: string | undefined;
 }
 
 /**
@@ -11264,34 +11323,4 @@ export interface SearchGroupProfilesInput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>The details of a group profile.</p>
- * @public
- */
-export interface GroupProfileSummary {
-  /**
-   * <p>The ID of the Amazon DataZone domain of a group profile.</p>
-   * @public
-   */
-  domainId?: string | undefined;
-
-  /**
-   * <p>The ID of a group profile.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The status of a group profile.</p>
-   * @public
-   */
-  status?: GroupProfileStatus | undefined;
-
-  /**
-   * <p>The group name of a group profile.</p>
-   * @public
-   */
-  groupName?: string | undefined;
 }

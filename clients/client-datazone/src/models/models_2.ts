@@ -57,18 +57,59 @@ import type {
   SubscribedAsset,
   SubscribedListing,
   SubscribedPrincipal,
-  SubscriptionTargetForm,
   UserProfileDetails,
 } from "./models_0";
 import type {
   DataProductListingItem,
   Filter,
-  GroupProfileSummary,
   Import,
   RelationPattern,
   SearchInItem,
   SearchSort,
+  SubscriptionTargetForm,
 } from "./models_1";
+
+/**
+ * <p>The details of a group profile.</p>
+ * @public
+ */
+export interface GroupProfileSummary {
+  /**
+   * <p>The ID of the Amazon DataZone domain of a group profile.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of a group profile.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The status of a group profile.</p>
+   * @public
+   */
+  status?: GroupProfileStatus | undefined;
+
+  /**
+   * <p>The group name of a group profile.</p>
+   * @public
+   */
+  groupName?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role principal. This role is associated with the group profile.</p>
+   * @public
+   */
+  rolePrincipalArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>
+   * @public
+   */
+  rolePrincipalId?: string | undefined;
+}
 
 /**
  * @public
@@ -1313,6 +1354,18 @@ export interface UpdateGroupProfileOutput {
    * @public
    */
   groupName?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role principal. This role is associated with the updated group profile.</p>
+   * @public
+   */
+  rolePrincipalArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the IAM role principal. This principal is associated with the updated group profile.</p>
+   * @public
+   */
+  rolePrincipalId?: string | undefined;
 }
 
 /**
@@ -1473,6 +1526,12 @@ export interface UpdateProjectOutput {
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
+
+  /**
+   * <p>The category of the project.</p>
+   * @public
+   */
+  projectCategory?: string | undefined;
 }
 
 /**
@@ -2082,6 +2141,12 @@ export interface UpdateUserProfileInput {
    * @public
    */
   status: UserProfileStatus | undefined;
+
+  /**
+   * <p>The session name for IAM role sessions.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
 }
 
 /**

@@ -135,6 +135,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //       ],
  * //     },
  * //   },
+ * //   projectCategory: "STRING_VALUE",
  * // };
  *
  * ```

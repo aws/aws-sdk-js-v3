@@ -41,6 +41,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileOutput,
  *   userIdentifier: "STRING_VALUE", // required
  *   type: "IAM" || "SSO",
  *   status: "ASSIGNED" || "NOT_ASSIGNED" || "ACTIVATED" || "DEACTIVATED", // required
+ *   sessionName: "STRING_VALUE",
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
@@ -53,6 +54,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileOutput,
  * //     iam: { // IamUserProfileDetails
  * //       arn: "STRING_VALUE",
  * //       principalId: "STRING_VALUE",
+ * //       sessionName: "STRING_VALUE",
+ * //       groupProfileId: "STRING_VALUE",
  * //     },
  * //     sso: { // SsoUserProfileDetails
  * //       username: "STRING_VALUE",

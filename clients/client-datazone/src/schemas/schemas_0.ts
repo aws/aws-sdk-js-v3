@@ -735,6 +735,8 @@ const _PLE = "PostLineageEvent";
 const _PLEI = "PostLineageEventInput";
 const _PLEO = "PostLineageEventOutput";
 const _PM = "ProjectMember";
+const _PMA = "ProjectMembershipAssignment";
+const _PMAr = "ProjectMembershipAssignments";
 const _PMr = "ProjectMembers";
 const _PN = "ProjectName";
 const _PP = "ProvisioningProperties";
@@ -1246,6 +1248,7 @@ const _gL = "grantList";
 const _gLSE = "glueLineageSyncEnabled";
 const _gN = "groupName";
 const _gP = "globalParameters";
+const _gPI = "groupProfileId";
 const _gPl = "glueProperties";
 const _gRC = "glueRunConfiguration";
 const _gSGS = "glueSelfGrantStatus";
@@ -1344,6 +1347,7 @@ const _lUT = "lastUpdatedTime";
 const _lUTa = "lastUpdatedTimestamp";
 const _li = "like";
 const _m = "message";
+const _mA = "membershipAssignments";
 const _mAI = "managedAccountId";
 const _mAR = "manageAccessRole";
 const _mARA = "manageAccessRoleArn";
@@ -1409,11 +1413,13 @@ const _pC = "predictionChoice";
 const _pCR = "physicalConnectionRequirements";
 const _pCr = "predictionConfiguration";
 const _pCre = "predictionChoices";
-const _pCro = "provisioningConfigurations";
+const _pCro = "projectCategory";
+const _pCrov = "provisioningConfigurations";
 const _pD = "projectDesignation";
 const _pDUI = "parentDomainUnitIdentifier";
 const _pDUIa = "parentDomainUnitId";
 const _pE = "physicalEndpoints";
+const _pER = "projectExecutionRole";
 const _pGF = "projectGrantFilter";
 const _pI = "projectId";
 const _pIr = "projectIdentifier";
@@ -1468,6 +1474,8 @@ const _rN = "regionName";
 const _rNP = "regionNamePath";
 const _rOFO = "readOnlyFormsOutput";
 const _rP = "retainPermissions";
+const _rPA = "rolePrincipalArn";
+const _rPI = "rolePrincipalId";
 const _rPORF = "retainPermissionsOnRevokeFailure";
 const _rPe = "regionalParameters";
 const _rPed = "redshiftProperties";
@@ -1524,7 +1532,8 @@ const _sLu = "subscribedListing";
 const _sM = "selectionMode";
 const _sMA = "secretManagerArn";
 const _sMRC = "sageMakerRunConfiguration";
-const _sN = "schemaName";
+const _sN = "sessionName";
+const _sNc = "schemaName";
 const _sO = "sortOrder";
 const _sOt = "startOffset";
 const _sP = "subscribedPrincipals";
@@ -2211,8 +2220,8 @@ export var CreateDataSourceOutput$: StaticStructureSchema = [3, n0, _CDSO,
 ];
 export var CreateDomainInput$: StaticStructureSchema = [3, n0, _CDI,
   0,
-  [_n, _dER, _de, _sSO, _kKI, _ta, _dVo, _sRe, _cT],
-  [0, 0, 0, () => SingleSignOn$, 0, 128 | 0, 0, 0, [0, 4]], 2
+  [_n, _de, _sSO, _dER, _kKI, _ta, _dVo, _sRe, _cT],
+  [0, 0, () => SingleSignOn$, 0, 0, 128 | 0, 0, 0, [0, 4]], 1
 ];
 export var CreateDomainOutput$: StaticStructureSchema = [3, n0, _CDO,
   0,
@@ -2321,13 +2330,13 @@ export var CreateGlossaryTermOutput$: StaticStructureSchema = [3, n0, _CGTO,
 ];
 export var CreateGroupProfileInput$: StaticStructureSchema = [3, n0, _CGPI,
   0,
-  [_dI, _gIr, _cT],
-  [[0, 1], 0, [0, 4]], 2
+  [_dI, _gIr, _rPA, _cT],
+  [[0, 1], 0, 0, [0, 4]], 1
 ];
 export var CreateGroupProfileOutput$: StaticStructureSchema = [3, n0, _CGPO,
   0,
-  [_dIo, _id, _st, _gN],
-  [0, 0, 0, [() => GroupProfileName, 0]]
+  [_dIo, _id, _st, _gN, _rPA, _rPI],
+  [0, 0, 0, [() => GroupProfileName, 0], 0, 0]
 ];
 export var CreateListingChangeSetInput$: StaticStructureSchema = [3, n0, _CLCSI,
   0,
@@ -2346,8 +2355,8 @@ export var CreateProjectFromProjectProfilePolicyGrantDetail$: StaticStructureSch
 ];
 export var CreateProjectInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_dI, _n, _de, _rT, _gT, _dUI, _pPI, _uP],
-  [[0, 1], [() => ProjectName, 0], [() => Description, 0], 128 | 0, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0]], 2
+  [_dI, _n, _de, _rT, _gT, _dUI, _pPI, _uP, _pCro, _pER, _mA],
+  [[0, 1], [() => ProjectName, 0], [() => Description, 0], 128 | 0, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], 0, 0, () => ProjectMembershipAssignments], 2
 ];
 export var CreateProjectMembershipInput$: StaticStructureSchema = [3, n0, _CPMI,
   0,
@@ -2361,8 +2370,8 @@ export var CreateProjectMembershipOutput$: StaticStructureSchema = [3, n0, _CPMO
 ];
 export var CreateProjectOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
-  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _lUA, _rT, _gT, _dUI, _pPI, _uP, _eDD],
-  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, () => ResourceTags, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], () => EnvironmentDeploymentDetails$], 4
+  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _lUA, _rT, _gT, _dUI, _pPI, _uP, _eDD, _pCro],
+  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, () => ResourceTags, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], () => EnvironmentDeploymentDetails$, 0], 4
 ];
 export var CreateProjectPolicyGrantDetail$: StaticStructureSchema = [3, n0, _CPPGD,
   0,
@@ -2421,8 +2430,8 @@ export var CreateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _CST
 ];
 export var CreateUserProfileInput$: StaticStructureSchema = [3, n0, _CUPI,
   0,
-  [_dI, _uI, _uT, _cT],
-  [[0, 1], 0, 0, [0, 4]], 2
+  [_dI, _uI, _uT, _sN, _cT],
+  [[0, 1], 0, 0, 0, [0, 4]], 2
 ];
 export var CreateUserProfileOutput$: StaticStructureSchema = [3, n0, _CUPO,
   0,
@@ -2821,7 +2830,7 @@ export var EnvironmentActionSummary$: StaticStructureSchema = [3, n0, _EAS,
 ];
 export var EnvironmentBlueprintConfigurationItem$: StaticStructureSchema = [3, n0, _EBCI,
   0,
-  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCro],
+  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCrov],
   [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
 ];
 export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
@@ -3051,7 +3060,7 @@ export var GetEnvironmentBlueprintConfigurationInput$: StaticStructureSchema = [
 ];
 export var GetEnvironmentBlueprintConfigurationOutput$: StaticStructureSchema = [3, n0, _GEBCO,
   0,
-  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCro],
+  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCrov],
   [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
 ];
 export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
@@ -3131,8 +3140,8 @@ export var GetGroupProfileInput$: StaticStructureSchema = [3, n0, _GGPI,
 ];
 export var GetGroupProfileOutput$: StaticStructureSchema = [3, n0, _GGPO,
   0,
-  [_dIo, _id, _st, _gN],
-  [0, 0, 0, [() => GroupProfileName, 0]]
+  [_dIo, _id, _st, _gN, _rPA, _rPI],
+  [0, 0, 0, [() => GroupProfileName, 0], 0, 0]
 ];
 export var GetIamPortalLoginUrlInput$: StaticStructureSchema = [3, n0, _GIPLUI,
   0,
@@ -3201,8 +3210,8 @@ export var GetProjectInput$: StaticStructureSchema = [3, n0, _GPI,
 ];
 export var GetProjectOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _lUA, _rT, _gT, _dUI, _pPI, _uP, _eDD],
-  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, () => ResourceTags, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], () => EnvironmentDeploymentDetails$], 4
+  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _lUA, _rT, _gT, _dUI, _pPI, _uP, _eDD, _pCro],
+  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, () => ResourceTags, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], () => EnvironmentDeploymentDetails$, 0], 4
 ];
 export var GetProjectProfileInput$: StaticStructureSchema = [3, n0, _GPPI,
   0,
@@ -3276,8 +3285,8 @@ export var GetTimeSeriesDataPointOutput$: StaticStructureSchema = [3, n0, _GTSDP
 ];
 export var GetUserProfileInput$: StaticStructureSchema = [3, n0, _GUPI,
   0,
-  [_dI, _uI, _ty],
-  [[0, 1], [0, 1], [0, { [_hQ]: _ty }]], 2
+  [_dI, _uI, _ty, _sN],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _sN }]], 2
 ];
 export var GetUserProfileOutput$: StaticStructureSchema = [3, n0, _GUPO,
   0,
@@ -3376,8 +3385,8 @@ export var GroupDetails$: StaticStructureSchema = [3, n0, _GDr,
 ];
 export var GroupProfileSummary$: StaticStructureSchema = [3, n0, _GPS,
   0,
-  [_dIo, _id, _st, _gN],
-  [0, 0, 0, [() => GroupProfileName, 0]]
+  [_dIo, _id, _st, _gN, _rPA, _rPI],
+  [0, 0, 0, [() => GroupProfileName, 0], 0, 0]
 ];
 export var HyperPodPropertiesInput$: StaticStructureSchema = [3, n0, _HPPI,
   0,
@@ -3406,8 +3415,8 @@ export var IamPropertiesPatch$: StaticStructureSchema = [3, n0, _IPP,
 ];
 export var IamUserProfileDetails$: StaticStructureSchema = [3, n0, _IUPD,
   0,
-  [_ar, _pIri],
-  [0, 0]
+  [_ar, _pIri, _sN, _gPI],
+  [0, 0, 0, 0]
 ];
 export var Import$: StaticStructureSchema = [3, n0, _Im,
   0,
@@ -3776,8 +3785,8 @@ export var ListProjectProfilesOutput$: StaticStructureSchema = [3, n0, _LPPO,
 ];
 export var ListProjectsInput$: StaticStructureSchema = [3, n0, _LPI,
   0,
-  [_dI, _uI, _gIr, _n, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _gIr }], [() => ProjectName, { [_hQ]: _n }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
+  [_dI, _uI, _gIr, _n, _pCro, _nT, _mRa],
+  [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _gIr }], [() => ProjectName, { [_hQ]: _n }], [0, { [_hQ]: _pCro }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListProjectsOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
@@ -4034,6 +4043,11 @@ export var ProjectMember$: StaticStructureSchema = [3, n0, _PM,
   [_mD, _des],
   [() => MemberDetails$, 0], 2
 ];
+export var ProjectMembershipAssignment$: StaticStructureSchema = [3, n0, _PMA,
+  0,
+  [_me, _des],
+  [() => Member$, 0], 2
+];
 export var ProjectPolicyGrantPrincipal$: StaticStructureSchema = [3, n0, _PPGP,
   0,
   [_pD, _pIr, _pGF],
@@ -4051,8 +4065,8 @@ export var ProjectsForRule$: StaticStructureSchema = [3, n0, _PFR,
 ];
 export var ProjectSummary$: StaticStructureSchema = [3, n0, _PSr,
   0,
-  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _uA, _dUI],
-  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, 0], 4
+  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _uA, _dUI, _pCro],
+  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, 0, 0], 4
 ];
 export var PutDataExportConfigurationInput$: StaticStructureSchema = [3, n0, _PDECI,
   0,
@@ -4066,12 +4080,12 @@ export var PutDataExportConfigurationOutput$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutEnvironmentBlueprintConfigurationInput$: StaticStructureSchema = [3, n0, _PEBCI,
   0,
-  [_dI, _eBI, _eRn, _pRA, _mARA, _eRPB, _rPe, _gP, _pCro],
+  [_dI, _eBI, _eRn, _pRA, _mARA, _eRPB, _rPe, _gP, _pCrov],
   [[0, 1], [0, 1], 64 | 0, 0, 0, 0, [2, n0, _RPM, 0, 0, 128 | 0], 128 | 0, () => ProvisioningConfigurationList], 3
 ];
 export var PutEnvironmentBlueprintConfigurationOutput$: StaticStructureSchema = [3, n0, _PEBCO,
   0,
-  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCro],
+  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCrov],
   [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
 ];
 export var QueryGraphInput$: StaticStructureSchema = [3, n0, _QGI,
@@ -4176,7 +4190,7 @@ export var RejectSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _RS
 ];
 export var RelationalFilterConfiguration$: StaticStructureSchema = [3, n0, _RFC,
   0,
-  [_dNa, _sN, _fE],
+  [_dNa, _sNc, _fE],
   [0, 0, () => FilterExpressions], 1
 ];
 export var RelationPattern$: StaticStructureSchema = [3, n0, _RP,
@@ -4341,7 +4355,7 @@ export var SearchUserProfilesOutput$: StaticStructureSchema = [3, n0, _SUPO,
 ];
 export var SelfGrantStatusDetail$: StaticStructureSchema = [3, n0, _SGSD,
   0,
-  [_dNa, _st, _sN, _fC],
+  [_dNa, _st, _sNc, _fC],
   [0, 0, 0, 0], 2
 ];
 export var SingleSignOn$: StaticStructureSchema = [3, n0, _SSO,
@@ -4676,8 +4690,8 @@ export var UpdateGroupProfileInput$: StaticStructureSchema = [3, n0, _UGPI,
 ];
 export var UpdateGroupProfileOutput$: StaticStructureSchema = [3, n0, _UGPO,
   0,
-  [_dIo, _id, _st, _gN],
-  [0, 0, 0, [() => GroupProfileName, 0]]
+  [_dIo, _id, _st, _gN, _rPA, _rPI],
+  [0, 0, 0, [() => GroupProfileName, 0], 0, 0]
 ];
 export var UpdateProjectInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
@@ -4686,8 +4700,8 @@ export var UpdateProjectInput$: StaticStructureSchema = [3, n0, _UPI,
 ];
 export var UpdateProjectOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _lUA, _rT, _gT, _dUI, _pPI, _uP, _eDD],
-  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, () => ResourceTags, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], () => EnvironmentDeploymentDetails$], 4
+  [_dIo, _id, _n, _cB, _de, _pS, _fR, _cA, _lUA, _rT, _gT, _dUI, _pPI, _uP, _eDD, _pCro],
+  [0, 0, [() => ProjectName, 0], 0, [() => Description, 0], 0, () => FailureReasons, 5, 5, () => ResourceTags, 64 | 0, 0, 0, [() => EnvironmentConfigurationUserParametersList, 0], () => EnvironmentDeploymentDetails$, 0], 4
 ];
 export var UpdateProjectProfileInput$: StaticStructureSchema = [3, n0, _UPPI,
   0,
@@ -4751,8 +4765,8 @@ export var UpdateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _UST
 ];
 export var UpdateUserProfileInput$: StaticStructureSchema = [3, n0, _UUPI,
   0,
-  [_dI, _uI, _st, _ty],
-  [[0, 1], [0, 1], 0, 0], 3
+  [_dI, _uI, _st, _ty, _sN],
+  [[0, 1], [0, 1], 0, 0, 0], 3
 ];
 export var UpdateUserProfileOutput$: StaticStructureSchema = [3, n0, _UUPO,
   0,
@@ -5054,6 +5068,9 @@ var PredictionChoices = 64 | 1;
 var ProjectIds = 64 | 0;
 var ProjectMembers: StaticListSchema = [1, n0, _PMr,
   0, () => ProjectMember$
+];
+var ProjectMembershipAssignments: StaticListSchema = [1, n0, _PMAr,
+  0, () => ProjectMembershipAssignment$
 ];
 var ProjectProfileList = 64 | 0;
 var ProjectProfileSummaries: StaticListSchema = [1, n0, _PPSr,

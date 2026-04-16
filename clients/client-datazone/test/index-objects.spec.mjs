@@ -867,6 +867,7 @@ import {
   ProjectDesignation,
   ProjectGrantFilter$,
   ProjectMember$,
+  ProjectMembershipAssignment$,
   ProjectPolicyGrantPrincipal$,
   ProjectProfileSummary$,
   ProjectsForRule$,
@@ -2005,6 +2006,7 @@ assert(typeof PredictionConfiguration$ === "object");
 assert(typeof ProjectDeletionError$ === "object");
 assert(typeof ProjectGrantFilter$ === "object");
 assert(typeof ProjectMember$ === "object");
+assert(typeof ProjectMembershipAssignment$ === "object");
 assert(typeof ProjectPolicyGrantPrincipal$ === "object");
 assert(typeof ProjectProfileSummary$ === "object");
 assert(typeof ProjectsForRule$ === "object");

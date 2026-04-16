@@ -38,7 +38,8 @@ export interface CreateGroupProfileCommandOutput extends CreateGroupProfileOutpu
  * const client = new DataZoneClient(config);
  * const input = { // CreateGroupProfileInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   groupIdentifier: "STRING_VALUE", // required
+ *   groupIdentifier: "STRING_VALUE",
+ *   rolePrincipalArn: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateGroupProfileCommand(input);
@@ -48,6 +49,8 @@ export interface CreateGroupProfileCommandOutput extends CreateGroupProfileOutpu
  * //   id: "STRING_VALUE",
  * //   status: "ASSIGNED" || "NOT_ASSIGNED",
  * //   groupName: "STRING_VALUE",
+ * //   rolePrincipalArn: "STRING_VALUE",
+ * //   rolePrincipalId: "STRING_VALUE",
  * // };
  *
  * ```

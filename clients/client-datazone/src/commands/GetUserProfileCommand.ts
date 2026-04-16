@@ -40,6 +40,7 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  *   domainIdentifier: "STRING_VALUE", // required
  *   userIdentifier: "STRING_VALUE", // required
  *   type: "IAM" || "SSO",
+ *   sessionName: "STRING_VALUE",
  * };
  * const command = new GetUserProfileCommand(input);
  * const response = await client.send(command);
@@ -52,6 +53,8 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  * //     iam: { // IamUserProfileDetails
  * //       arn: "STRING_VALUE",
  * //       principalId: "STRING_VALUE",
+ * //       sessionName: "STRING_VALUE",
+ * //       groupProfileId: "STRING_VALUE",
  * //     },
  * //     sso: { // SsoUserProfileDetails
  * //       username: "STRING_VALUE",

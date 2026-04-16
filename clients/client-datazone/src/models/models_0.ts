@@ -634,6 +634,18 @@ export interface IamUserProfileDetails {
    * @public
    */
   principalId?: string | undefined;
+
+  /**
+   * <p>The session name for IAM role sessions.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
+
+  /**
+   * <p>The identifier of the group profile associated with the IAM user profile. This links the user to a specific group profile within the Amazon DataZone domain.</p>
+   * @public
+   */
+  groupProfileId?: string | undefined;
 }
 
 /**
@@ -8555,7 +8567,7 @@ export interface CreateDomainInput {
    * <p>The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the Amazon Web Services account that houses the Amazon DataZone domain.</p>
    * @public
    */
-  domainExecutionRole: string | undefined;
+  domainExecutionRole?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
@@ -9952,7 +9964,13 @@ export interface CreateGroupProfileInput {
    * <p>The identifier of the group for which the group profile is created.</p>
    * @public
    */
-  groupIdentifier: string | undefined;
+  groupIdentifier?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that will be associated with the group profile. This role defines the permissions that group members will assume when accessing Amazon DataZone resources.</p>
+   * @public
+   */
+  rolePrincipalArn?: string | undefined;
 
   /**
    * <p> A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
@@ -9988,6 +10006,18 @@ export interface CreateGroupProfileOutput {
    * @public
    */
   groupName?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role principal. This role is associated with the group profile.</p>
+   * @public
+   */
+  rolePrincipalArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>
+   * @public
+   */
+  rolePrincipalId?: string | undefined;
 }
 
 /**
@@ -10052,6 +10082,77 @@ export interface CreateListingChangeSetOutput {
    * @public
    */
   status: ListingStatus | undefined;
+}
+
+/**
+ * <p>The details about a project member.</p>
+ * @public
+ */
+export type Member =
+  | Member.GroupIdentifierMember
+  | Member.UserIdentifierMember
+  | Member.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Member {
+  /**
+   * <p>The user ID of a project member.</p>
+   * @public
+   */
+  export interface UserIdentifierMember {
+    userIdentifier: string;
+    groupIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ID of the group of a project member.</p>
+   * @public
+   */
+  export interface GroupIdentifierMember {
+    userIdentifier?: never;
+    groupIdentifier: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    userIdentifier?: never;
+    groupIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    userIdentifier: (value: string) => T;
+    groupIdentifier: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A map of user or group profiles to designations that need to be assigned in the project.</p>
+ * @public
+ */
+export interface ProjectMembershipAssignment {
+  /**
+   * <p>The details about a project member.</p>
+   * @public
+   */
+  member: Member | undefined;
+
+  /**
+   * <p>The designation of the project membership.</p>
+   * @public
+   */
+  designation: UserDesignation | undefined;
 }
 
 /**
@@ -10159,6 +10260,24 @@ export interface CreateProjectInput {
    * @public
    */
   userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
+
+  /**
+   * <p>The category of the project. Set to 'ADMIN' designates this as an administrative project for the Amazon DataZone domain.</p>
+   * @public
+   */
+  projectCategory?: string | undefined;
+
+  /**
+   * <p>The default project IAM role that is used to access project resources and run computes such as Glue and Sagemaker.</p>
+   * @public
+   */
+  projectExecutionRole?: string | undefined;
+
+  /**
+   * <p>The members to be assigned to the project.</p>
+   * @public
+   */
+  membershipAssignments?: ProjectMembershipAssignment[] | undefined;
 }
 
 /**
@@ -10314,59 +10433,12 @@ export interface CreateProjectOutput {
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
-}
 
-/**
- * <p>The details about a project member.</p>
- * @public
- */
-export type Member =
-  | Member.GroupIdentifierMember
-  | Member.UserIdentifierMember
-  | Member.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Member {
   /**
-   * <p>The user ID of a project member.</p>
+   * <p>The category of the project.</p>
    * @public
    */
-  export interface UserIdentifierMember {
-    userIdentifier: string;
-    groupIdentifier?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The ID of the group of a project member.</p>
-   * @public
-   */
-  export interface GroupIdentifierMember {
-    userIdentifier?: never;
-    groupIdentifier: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    userIdentifier?: never;
-    groupIdentifier?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    userIdentifier: (value: string) => T;
-    groupIdentifier: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
+  projectCategory?: string | undefined;
 }
 
 /**
@@ -11647,22 +11719,4 @@ export interface CreateSubscriptionRequestOutput {
    * @public
    */
   metadataForms?: FormOutput[] | undefined;
-}
-
-/**
- * <p>The details of the subscription target configuration.</p>
- * @public
- */
-export interface SubscriptionTargetForm {
-  /**
-   * <p>The form name included in the subscription target configuration.</p>
-   * @public
-   */
-  formName: string | undefined;
-
-  /**
-   * <p>The content of the subscription target configuration.</p>
-   * @public
-   */
-  content: string | undefined;
 }

@@ -56,6 +56,8 @@ export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutpu
  * //         iam: { // IamUserProfileDetails
  * //           arn: "STRING_VALUE",
  * //           principalId: "STRING_VALUE",
+ * //           sessionName: "STRING_VALUE",
+ * //           groupProfileId: "STRING_VALUE",
  * //         },
  * //         sso: { // SsoUserProfileDetails
  * //           username: "STRING_VALUE",

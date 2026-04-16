@@ -39,7 +39,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileOutput,
  * const input = { // CreateUserProfileInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   userIdentifier: "STRING_VALUE", // required
- *   userType: "IAM_USER" || "IAM_ROLE" || "SSO_USER",
+ *   userType: "IAM_USER" || "IAM_ROLE" || "SSO_USER" || "IAM_ROLE_SESSION",
+ *   sessionName: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateUserProfileCommand(input);
@@ -53,6 +54,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileOutput,
  * //     iam: { // IamUserProfileDetails
  * //       arn: "STRING_VALUE",
  * //       principalId: "STRING_VALUE",
+ * //       sessionName: "STRING_VALUE",
+ * //       groupProfileId: "STRING_VALUE",
  * //     },
  * //     sso: { // SsoUserProfileDetails
  * //       username: "STRING_VALUE",

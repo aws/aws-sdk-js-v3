@@ -48,6 +48,8 @@ export interface UpdateGroupProfileCommandOutput extends UpdateGroupProfileOutpu
  * //   id: "STRING_VALUE",
  * //   status: "ASSIGNED" || "NOT_ASSIGNED",
  * //   groupName: "STRING_VALUE",
+ * //   rolePrincipalArn: "STRING_VALUE",
+ * //   rolePrincipalId: "STRING_VALUE",
  * // };
  *
  * ```
