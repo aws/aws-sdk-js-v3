@@ -183,6 +183,9 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //       AvailabilityZones: [ // AvailabilityZones // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       AvailabilityZoneIds: [ // AvailabilityZoneIds
+ * //         "STRING_VALUE",
+ * //       ],
  * //       LoadBalancerNames: [ // LoadBalancerNames
  * //         "STRING_VALUE",
  * //       ],
@@ -196,6 +199,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //           InstanceId: "STRING_VALUE", // required
  * //           InstanceType: "STRING_VALUE",
  * //           AvailabilityZone: "STRING_VALUE", // required
+ * //           AvailabilityZoneId: "STRING_VALUE",
  * //           LifecycleState: "Pending" || "Pending:Wait" || "Pending:Proceed" || "Quarantined" || "InService" || "Terminating" || "Terminating:Wait" || "Terminating:Proceed" || "Terminating:Retained" || "Terminated" || "Detaching" || "Detached" || "EnteringStandby" || "Standby" || "ReplacingRootVolume" || "ReplacingRootVolume:Wait" || "ReplacingRootVolume:Proceed" || "RootVolumeReplaced" || "Warmed:Pending" || "Warmed:Pending:Wait" || "Warmed:Pending:Proceed" || "Warmed:Pending:Retained" || "Warmed:Terminating" || "Warmed:Terminating:Wait" || "Warmed:Terminating:Proceed" || "Warmed:Terminating:Retained" || "Warmed:Terminated" || "Warmed:Stopped" || "Warmed:Running" || "Warmed:Hibernated", // required
  * //           HealthStatus: "STRING_VALUE", // required
  * //           LaunchConfigurationName: "STRING_VALUE",
@@ -324,6 +328,11 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *     {
  *       AutoScalingGroupARN: "arn:aws:autoscaling:us-west-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
  *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       AvailabilityZoneIds: [
+ *         "usw2-az1",
+ *         "usw2-az2",
+ *         "usw2-az3"
+ *       ],
  *       AvailabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -338,6 +347,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *       Instances: [
  *         {
  *           AvailabilityZone: "us-west-2c",
+ *           AvailabilityZoneId: "usw2-az3",
  *           HealthStatus: "Healthy",
  *           InstanceId: "i-05b4f7d5be44822a6",
  *           InstanceType: "t3.micro",
@@ -347,6 +357,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *         },
  *         {
  *           AvailabilityZone: "us-west-2b",
+ *           AvailabilityZoneId: "usw2-az2",
  *           HealthStatus: "Healthy",
  *           InstanceId: "i-0c20ac468fa3049e8",
  *           InstanceType: "t3.micro",

@@ -786,6 +786,12 @@
             "smithy.api#required": {}
           }
         },
+        "AvailabilityZoneIds": {
+          "target": "com.amazonaws.autoscaling#AvailabilityZoneIds",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Availability Zone IDs where the Auto Scaling group can launch instances.\n        </p>"
+          }
+        },
         "LoadBalancerNames": {
           "target": "com.amazonaws.autoscaling#LoadBalancerNames",
           "traits": {
@@ -1087,6 +1093,12 @@
             "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Availability Zone for the instance.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AvailabilityZoneId": {
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Availability Zone ID where the instance is located.\n        </p>"
           }
         },
         "LifecycleState": {
@@ -2329,6 +2341,12 @@
         "smithy.api#documentation": "<p>\n            Describes an Availability Zone distribution.\n        </p>"
       }
     },
+    "com.amazonaws.autoscaling#AvailabilityZoneIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.autoscaling#XmlStringMaxLen255"
+      }
+    },
     "com.amazonaws.autoscaling#AvailabilityZoneIdsLimit1": {
       "type": "list",
       "member": {
@@ -3215,6 +3233,12 @@
           "target": "com.amazonaws.autoscaling#AvailabilityZones",
           "traits": {
             "smithy.api#documentation": "<p>A list of Availability Zones where instances in the Auto Scaling group can be created. Used\n            for launching into the default VPC subnet in each Availability Zone when not using the\n                <code>VPCZoneIdentifier</code> property, or for attaching a network interface when\n            an existing network interface ID is specified in a launch template.</p>"
+          }
+        },
+        "AvailabilityZoneIds": {
+          "target": "com.amazonaws.autoscaling#AvailabilityZoneIds",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            A list of Availability Zone IDs where the Auto Scaling group can launch instances. You cannot specify both AvailabilityZones and AvailabilityZoneIds in the same request.\n        </p>"
           }
         },
         "LoadBalancerNames": {
@@ -4183,6 +4207,7 @@
                   "DesiredCapacity": 2,
                   "DefaultCooldown": 300,
                   "AvailabilityZones": ["us-west-2a", "us-west-2b", "us-west-2c"],
+                  "AvailabilityZoneIds": ["usw2-az1", "usw2-az2", "usw2-az3"],
                   "LoadBalancerNames": [],
                   "TargetGroupARNs": [],
                   "HealthCheckType": "EC2",
@@ -4191,6 +4216,7 @@
                     {
                       "ProtectedFromScaleIn": false,
                       "AvailabilityZone": "us-west-2c",
+                      "AvailabilityZoneId": "usw2-az3",
                       "LaunchConfigurationName": "my-launch-config",
                       "InstanceId": "i-05b4f7d5be44822a6",
                       "InstanceType": "t3.micro",
@@ -4200,6 +4226,7 @@
                     {
                       "ProtectedFromScaleIn": false,
                       "AvailabilityZone": "us-west-2b",
+                      "AvailabilityZoneId": "usw2-az2",
                       "LaunchConfigurationName": "my-launch-config",
                       "InstanceId": "i-0c20ac468fa3049e8",
                       "InstanceType": "t3.micro",
@@ -4336,6 +4363,7 @@
                 {
                   "ProtectedFromScaleIn": false,
                   "AvailabilityZone": "us-west-2c",
+                  "AvailabilityZoneId": "usw2-az2",
                   "LaunchConfigurationName": "my-launch-config",
                   "InstanceId": "i-05b4f7d5be44822a6",
                   "InstanceType": "t3.micro",
@@ -6560,6 +6588,12 @@
             "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Availability Zone in which the instance is running.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AvailabilityZoneId": {
+          "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Availability Zone ID where the instance was launched.\n        </p>"
           }
         },
         "LifecycleState": {
@@ -11616,6 +11650,12 @@
           "target": "com.amazonaws.autoscaling#AvailabilityZones",
           "traits": {
             "smithy.api#documentation": "<p>One or more Availability Zones for the group.</p>"
+          }
+        },
+        "AvailabilityZoneIds": {
+          "target": "com.amazonaws.autoscaling#AvailabilityZoneIds",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            A list of Availability Zone IDs for the Auto Scaling group. You cannot specify both AvailabilityZones and AvailabilityZoneIds in the same request.\n        </p>"
           }
         },
         "HealthCheckType": {

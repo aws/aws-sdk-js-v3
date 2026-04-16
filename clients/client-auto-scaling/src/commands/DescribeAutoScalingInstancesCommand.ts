@@ -52,6 +52,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * //       InstanceType: "STRING_VALUE",
  * //       AutoScalingGroupName: "STRING_VALUE", // required
  * //       AvailabilityZone: "STRING_VALUE", // required
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       LifecycleState: "STRING_VALUE", // required
  * //       HealthStatus: "STRING_VALUE", // required
  * //       LaunchConfigurationName: "STRING_VALUE",
@@ -103,6 +104,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  *     {
  *       AutoScalingGroupName: "my-auto-scaling-group",
  *       AvailabilityZone: "us-west-2c",
+ *       AvailabilityZoneId: "usw2-az2",
  *       HealthStatus: "HEALTHY",
  *       InstanceId: "i-05b4f7d5be44822a6",
  *       InstanceType: "t3.micro",

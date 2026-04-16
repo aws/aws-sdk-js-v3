@@ -169,6 +169,9 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
+ *   AvailabilityZoneIds: [ // AvailabilityZoneIds
+ *     "STRING_VALUE",
+ *   ],
  *   LoadBalancerNames: [ // LoadBalancerNames
  *     "STRING_VALUE",
  *   ],

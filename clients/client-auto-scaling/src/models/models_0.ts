@@ -1996,6 +1996,14 @@ export interface CreateAutoScalingGroupType {
   AvailabilityZones?: string[] | undefined;
 
   /**
+   * <p>
+   *             A list of Availability Zone IDs where the Auto Scaling group can launch instances. You cannot specify both AvailabilityZones and AvailabilityZoneIds in the same request.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+
+  /**
    * <p>A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers,
    *             specify the <code>TargetGroupARNs</code> property instead.</p>
    * @public
@@ -3202,6 +3210,14 @@ export interface Instance {
   AvailabilityZone: string | undefined;
 
   /**
+   * <p>
+   *             The Availability Zone ID where the instance was launched.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
    * <p>A description of the current lifecycle state. The <code>Quarantined</code> state is
    *             not used. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html">Amazon EC2 Auto Scaling instance
    *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
@@ -3457,6 +3473,14 @@ export interface AutoScalingGroup {
   AvailabilityZones: string[] | undefined;
 
   /**
+   * <p>
+   *             The Availability Zone IDs where the Auto Scaling group can launch instances.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+
+  /**
    * <p>One or more load balancers associated with the group.</p>
    * @public
    */
@@ -3688,6 +3712,14 @@ export interface AutoScalingInstanceDetails {
    * @public
    */
   AvailabilityZone: string | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zone ID where the instance is located.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The lifecycle state for the instance. The <code>Quarantined</code> state is not used.
@@ -8362,6 +8394,14 @@ export interface UpdateAutoScalingGroupType {
    * @public
    */
   AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>
+   *             A list of Availability Zone IDs for the Auto Scaling group. You cannot specify both AvailabilityZones and AvailabilityZoneIds in the same request.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>A comma-separated value string of one or more health check types.</p>

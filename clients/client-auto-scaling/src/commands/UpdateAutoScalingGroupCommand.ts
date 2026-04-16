@@ -197,6 +197,9 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   AvailabilityZones: [ // AvailabilityZones
  *     "STRING_VALUE",
  *   ],
+ *   AvailabilityZoneIds: [ // AvailabilityZoneIds
+ *     "STRING_VALUE",
+ *   ],
  *   HealthCheckType: "STRING_VALUE",
  *   HealthCheckGracePeriod: Number("int"),
  *   PlacementGroup: "STRING_VALUE",

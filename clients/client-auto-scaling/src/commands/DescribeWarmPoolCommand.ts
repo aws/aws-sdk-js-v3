@@ -60,6 +60,7 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  * //       InstanceId: "STRING_VALUE", // required
  * //       InstanceType: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE", // required
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       LifecycleState: "Pending" || "Pending:Wait" || "Pending:Proceed" || "Quarantined" || "InService" || "Terminating" || "Terminating:Wait" || "Terminating:Proceed" || "Terminating:Retained" || "Terminated" || "Detaching" || "Detached" || "EnteringStandby" || "Standby" || "ReplacingRootVolume" || "ReplacingRootVolume:Wait" || "ReplacingRootVolume:Proceed" || "RootVolumeReplaced" || "Warmed:Pending" || "Warmed:Pending:Wait" || "Warmed:Pending:Proceed" || "Warmed:Pending:Retained" || "Warmed:Terminating" || "Warmed:Terminating:Wait" || "Warmed:Terminating:Proceed" || "Warmed:Terminating:Retained" || "Warmed:Terminated" || "Warmed:Stopped" || "Warmed:Running" || "Warmed:Hibernated", // required
  * //       HealthStatus: "STRING_VALUE", // required
  * //       LaunchConfigurationName: "STRING_VALUE",
