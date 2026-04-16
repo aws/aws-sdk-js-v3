@@ -7787,6 +7787,9 @@
           "target": "com.amazonaws.connectcases#ResourceNotFoundException"
         },
         {
+          "target": "com.amazonaws.connectcases#ServiceQuotaExceededException"
+        },
+        {
           "target": "com.amazonaws.connectcases#ThrottlingException"
         },
         {
