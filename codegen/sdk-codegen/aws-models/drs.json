@@ -187,7 +187,7 @@
           "min": 0,
           "max": 255
         },
-        "smithy.api#pattern": "^(us(-gov)?|ap|ca|cn|eu|sa|af|me|il)-(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-[0-9][a-z]$"
+        "smithy.api#pattern": "^(us(-gov)?|ap|ca|cn|eu|eusc|sa|af|me|il)-([a-z]{2}-)?(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-[0-9][a-z]$"
       }
     },
     "com.amazonaws.drs#AwsRegion": {
@@ -197,7 +197,7 @@
           "min": 0,
           "max": 255
         },
-        "smithy.api#pattern": "^(us(-gov)?|ap|ca|cn|eu|sa|af|me|il)-(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-[0-9]$"
+        "smithy.api#pattern": "^(us(-gov)?|ap|ca|cn|eu|eusc|sa|af|me|il)-([a-z]{2}-)?(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-[0-9]$"
       }
     },
     "com.amazonaws.drs#BoundedString": {
