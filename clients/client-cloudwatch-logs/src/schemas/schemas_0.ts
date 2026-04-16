@@ -3000,7 +3000,7 @@ export var GetLogGroupFields$: StaticOperationSchema = [9, n0, _GLGF,
   0, () => GetLogGroupFieldsRequest$, () => GetLogGroupFieldsResponse$
 ];
 export var GetLogObject$: StaticOperationSchema = [9, n0, _GLO,
-  { [_end]: ["streaming-"] }, () => GetLogObjectRequest$, () => GetLogObjectResponse$
+  { [_end]: ["stream-"] }, () => GetLogObjectRequest$, () => GetLogObjectResponse$
 ];
 export var GetLogRecord$: StaticOperationSchema = [9, n0, _GLR,
   0, () => GetLogRecordRequest$, () => GetLogRecordResponse$
@@ -3105,7 +3105,7 @@ export var PutTransformer$: StaticOperationSchema = [9, n0, _PTu,
   0, () => PutTransformerRequest$, () => __Unit
 ];
 export var StartLiveTail$: StaticOperationSchema = [9, n0, _SLT,
-  { [_end]: ["streaming-"] }, () => StartLiveTailRequest$, () => StartLiveTailResponse$
+  { [_end]: ["stream-"] }, () => StartLiveTailRequest$, () => StartLiveTailResponse$
 ];
 export var StartQuery$: StaticOperationSchema = [9, n0, _SQ,
   0, () => StartQueryRequest$, () => StartQueryResponse$
