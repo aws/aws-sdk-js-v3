@@ -26066,6 +26066,12 @@
             "smithy.api#enumValue": "OnPostChatAnalysisAvailable"
           }
         },
+        "OnEmailAnalysisAvailable": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OnEmailAnalysisAvailable"
+          }
+        },
         "OnZendeskTicketCreate": {
           "target": "smithy.api#Unit",
           "traits": {

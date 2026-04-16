@@ -1181,6 +1181,7 @@ export const EventSourceName = {
   OnCaseCreate: "OnCaseCreate",
   OnCaseUpdate: "OnCaseUpdate",
   OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
+  OnEmailAnalysisAvailable: "OnEmailAnalysisAvailable",
   OnMetricDataUpdate: "OnMetricDataUpdate",
   OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
   OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
