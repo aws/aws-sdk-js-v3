@@ -42,7 +42,8 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // RetrieveMemoryRecordsInput
  *   memoryId: "STRING_VALUE", // required
- *   namespace: "STRING_VALUE", // required
+ *   namespace: "STRING_VALUE",
+ *   namespacePath: "STRING_VALUE",
  *   searchCriteria: { // SearchCriteria
  *     searchQuery: "STRING_VALUE", // required
  *     memoryStrategyId: "STRING_VALUE",

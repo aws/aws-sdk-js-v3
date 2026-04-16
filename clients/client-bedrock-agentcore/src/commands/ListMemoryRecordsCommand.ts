@@ -42,7 +42,8 @@ export interface ListMemoryRecordsCommandOutput extends ListMemoryRecordsOutput,
  * const client = new BedrockAgentCoreClient(config);
  * const input = { // ListMemoryRecordsInput
  *   memoryId: "STRING_VALUE", // required
- *   namespace: "STRING_VALUE", // required
+ *   namespace: "STRING_VALUE",
+ *   namespacePath: "STRING_VALUE",
  *   memoryStrategyId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

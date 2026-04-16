@@ -5002,7 +5002,13 @@ export interface ListMemoryRecordsInput {
    * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix.</p>
    * @public
    */
-  namespace: string | undefined;
+  namespace?: string | undefined;
+
+  /**
+   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>
+   * @public
+   */
+  namespacePath?: string | undefined;
 
   /**
    * <p>The memory strategy identifier to filter memory records by. If specified, only memory records with this strategy ID are returned.</p>
@@ -5244,7 +5250,13 @@ export interface RetrieveMemoryRecordsInput {
    * <p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix.</p>
    * @public
    */
-  namespace: string | undefined;
+  namespace?: string | undefined;
+
+  /**
+   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>
+   * @public
+   */
+  namespacePath?: string | undefined;
 
   /**
    * <p>The search criteria to use for finding relevant memory records. This includes the search query, memory strategy ID, and other search parameters.</p>

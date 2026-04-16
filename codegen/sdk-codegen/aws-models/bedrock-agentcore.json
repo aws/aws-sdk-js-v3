@@ -5829,8 +5829,13 @@
         "namespace": {
           "target": "com.amazonaws.bedrockagentcore#Namespace",
           "traits": {
-            "smithy.api#documentation": "<p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix.</p>"
+          }
+        },
+        "namespacePath": {
+          "target": "com.amazonaws.bedrockagentcore#Namespace",
+          "traits": {
+            "smithy.api#documentation": "<p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>"
           }
         },
         "memoryStrategyId": {
@@ -7441,8 +7446,13 @@
         "namespace": {
           "target": "com.amazonaws.bedrockagentcore#Namespace",
           "traits": {
-            "smithy.api#documentation": "<p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix.</p>"
+          }
+        },
+        "namespacePath": {
+          "target": "com.amazonaws.bedrockagentcore#Namespace",
+          "traits": {
+            "smithy.api#documentation": "<p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>"
           }
         },
         "searchCriteria": {

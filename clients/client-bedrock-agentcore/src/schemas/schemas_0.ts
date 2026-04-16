@@ -422,6 +422,7 @@ const _mc = "mcp";
 const _me = "metadata";
 const _mes = "messages";
 const _n = "name";
+const _nP = "namespacePath";
 const _nT = "nextToken";
 const _na = "namespace";
 const _nam = "namespaces";
@@ -1164,8 +1165,8 @@ export var ListMemoryExtractionJobsOutput$: StaticStructureSchema = [3, n0, _LME
 ];
 export var ListMemoryRecordsInput$: StaticStructureSchema = [3, n0, _LMRI,
   0,
-  [_mI, _na, _mSIe, _mRa, _nT],
-  [[0, 1], 0, 0, 1, 0], 2
+  [_mI, _na, _nP, _mSIe, _mRa, _nT],
+  [[0, 1], 0, 0, 0, 1, 0], 1
 ];
 export var ListMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _LMRO,
   0,
@@ -1299,8 +1300,8 @@ export var ResponseChunk$: StaticStructureSchema = [3, n0, _RCe,
 ];
 export var RetrieveMemoryRecordsInput$: StaticStructureSchema = [3, n0, _RMRI,
   0,
-  [_mI, _na, _sCe, _nT, _mRa],
-  [[0, 1], 0, [() => SearchCriteria$, 0], 0, 1], 3
+  [_mI, _sCe, _na, _nP, _nT, _mRa],
+  [[0, 1], [() => SearchCriteria$, 0], 0, 0, 0, 1], 2
 ];
 export var RetrieveMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _RMRO,
   0,
