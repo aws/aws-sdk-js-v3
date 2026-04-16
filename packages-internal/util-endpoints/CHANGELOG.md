@@ -9,6 +9,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.7 (2026-04-16)
+### Chores
+* upgrade smithy to 1.69.0 ([#7932](https://github.com/aws/aws-sdk-js-v3/issues/7932)) ([560d987](https://github.com/aws/aws-sdk-js-v3/commit/560d9878471409e943a80ac2979e7fc8c2fff834))
+* **codegen:** sync for retry attempt count api ([#7927](https://github.com/aws/aws-sdk-js-v3/issues/7927)) ([b742fb8](https://github.com/aws/aws-sdk-js-v3/commit/b742fb8b7a0e9aa9700a73d10a48e14f6b4a65de))
+
+
+
 # 3.996.6 (2026-04-07)
 ### Chores
 * **codegen:** update for sparse types and retry 2.1 updates ([#7916](https://github.com/aws/aws-sdk-js-v3/issues/7916)) ([b19357a](https://github.com/aws/aws-sdk-js-v3/commit/b19357a7a6cac4cbe040a6ac429102cfbc378b1e))

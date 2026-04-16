@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
+
+
+### Features
+
+* **client-devops-agent:** Deprecate the userId from the Chat operations. This update also removes  support of AllowVendedLogDeliveryForResource API from AWS SDKs. ([39729e0](https://github.com/aws/aws-sdk-js-v3/commit/39729e01b4e7422870c8ac053ab3384944a45327))
+
+
+
+
+
 # [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent

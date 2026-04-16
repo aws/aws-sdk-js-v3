@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.1030.0",
+  "version": "3.1031.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -29,9 +29,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.973.27",
-    "@aws-sdk/nested-clients": "workspace:^3.996.19",
-    "@aws-sdk/types": "workspace:^3.973.7",
+    "@aws-sdk/core": "workspace:^3.974.0",
+    "@aws-sdk/nested-clients": "workspace:^3.996.20",
+    "@aws-sdk/types": "workspace:^3.973.8",
     "@smithy/property-provider": "^4.2.14",
     "@smithy/shared-ini-file-loader": "^4.4.9",
     "@smithy/types": "^4.14.1",

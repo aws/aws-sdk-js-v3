@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
+
+
+### Features
+
+* **client-mediaconvert:** Adds support for Elemental Inference powered smart crop feature, enabling video verticalization ([c82e5ca](https://github.com/aws/aws-sdk-js-v3/commit/c82e5cacc51ad70785880c92b57d8682ec1c8b50))
+
+
+
+
+
 # [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

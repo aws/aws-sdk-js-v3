@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Adds support for passkey-based multi-factor authentication in Cognito User Pools. Users can authenticate securely using FIDO2-compliant passkeys with user verification, enabling passwordless MFA flows while maintaining backward compatibility with password-based authentication ([4995e67](https://github.com/aws/aws-sdk-js-v3/commit/4995e67c6255b6c69beabdc74a2d4c4423b5ae3a))
+
+
+
+
+
 # [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

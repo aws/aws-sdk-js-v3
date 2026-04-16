@@ -13,6 +13,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.11 (2026-04-16)
+### Chores
+* **util-dns:** update dependencies.
+
+
+
 # 3.972.10 (2026-04-07)
 ### Chores
 * **util-dns:** update dependencies.

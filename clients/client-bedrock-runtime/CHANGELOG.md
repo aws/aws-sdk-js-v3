@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** use static credentials in event signing streams ([#7930](https://github.com/aws/aws-sdk-js-v3/issues/7930)) ([c5af293](https://github.com/aws/aws-sdk-js-v3/commit/c5af293d7181a30eb9cca7c1b8c524b638e9e6d0))
+
+
+
+
+
 # [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** use static credentials in event signing streams ([#7930](https://github.com/aws/aws-sdk-js-v3/issues/7930)) ([c5af293](https://github.com/aws/aws-sdk-js-v3/commit/c5af293d7181a30eb9cca7c1b8c524b638e9e6d0))
+* **tests:** resolve lerna.json from monorepo root and let rollup use UMD output format ([#7928](https://github.com/aws/aws-sdk-js-v3/issues/7928)) ([a1313f9](https://github.com/aws/aws-sdk-js-v3/commit/a1313f90debd2eb5535364b53812431491918d5a))
+
+
+### Features
+
+* **client-appstream:** Add content redirection to Update Stack ([1bde7c7](https://github.com/aws/aws-sdk-js-v3/commit/1bde7c7852c2f8f0e5df93a1530a74e20ef3c980))
+* **client-auto-scaling:** This release adds support for specifying Availability Zone IDs as an alternative to Availability Zone names when creating or updating Auto Scaling groups. ([40e2faa](https://github.com/aws/aws-sdk-js-v3/commit/40e2faa7ed1426a8da681d1f52031b7d1a033246))
+* **client-bedrock-agentcore:** Introducing NamespacePath in AgentCore Memory to support hierarchical prefix based memory record retrieval. ([91aeaed](https://github.com/aws/aws-sdk-js-v3/commit/91aeaedc493b90f434a359edd6fc349a6ebd4414))
+* **client-cloudwatch-logs:** Endpoint update for CloudWatch Logs Streaming APIs. ([6b28a14](https://github.com/aws/aws-sdk-js-v3/commit/6b28a1420ca6cbee8371c10c352865198006003e))
+* **client-cognito-identity-provider:** Adds support for passkey-based multi-factor authentication in Cognito User Pools. Users can authenticate securely using FIDO2-compliant passkeys with user verification, enabling passwordless MFA flows while maintaining backward compatibility with password-based authentication ([4995e67](https://github.com/aws/aws-sdk-js-v3/commit/4995e67c6255b6c69beabdc74a2d4c4423b5ae3a))
+* **client-connectcases:** Added error handling for service quota limits ([658cb4b](https://github.com/aws/aws-sdk-js-v3/commit/658cb4b35325c196530e8db7aacc5f566ec88e5a))
+* **client-connect:** This release updates the Amazon Connect Rules CRUD APIs to support a new EventSourceName - OnEmailAnalysisAvailable. Use this event source to trigger rules when conversational analytics results are available for email contacts. ([7abcd2c](https://github.com/aws/aws-sdk-js-v3/commit/7abcd2c7651274f072cea38b19b1945bbf5cdf75))
+* **client-customer-profiles:** Amazon Connect Customer Profiles adds RecommenderSchema CRUD APIs for custom ML training columns. CreateRecommender and CreateRecommenderFilter now accept optional RecommenderSchemaName. ([be0aa8b](https://github.com/aws/aws-sdk-js-v3/commit/be0aa8b03f745db8f65ecc42982c4f649d5eb66b))
+* **client-datazone:** Launching SMUS IAM domain SDK support ([60bff8a](https://github.com/aws/aws-sdk-js-v3/commit/60bff8a76295f8419822fa514c0e84cda8537bfd))
+* **client-devops-agent:** Deprecate the userId from the Chat operations. This update also removes  support of AllowVendedLogDeliveryForResource API from AWS SDKs. ([39729e0](https://github.com/aws/aws-sdk-js-v3/commit/39729e01b4e7422870c8ac053ab3384944a45327))
+* **client-drs:** Updating regex for identification of AWS Regions. ([9405d28](https://github.com/aws/aws-sdk-js-v3/commit/9405d28341da3e17ab2aa4437be676aabb815daa))
+* **client-dynamodb:** performance improvements in JSON serialization ([#7933](https://github.com/aws/aws-sdk-js-v3/issues/7933)) ([c647598](https://github.com/aws/aws-sdk-js-v3/commit/c647598de8e496634a193ad26467808341d320e0))
+* **client-mediaconvert:** Adds support for Elemental Inference powered smart crop feature, enabling video verticalization ([c82e5ca](https://github.com/aws/aws-sdk-js-v3/commit/c82e5cacc51ad70785880c92b57d8682ec1c8b50))
+* **client-rds:** Adds a new DescribeServerlessV2PlatformVersions API to describe platform version properties for Aurora Serverless v2. Also introduces a new valid maintenance action value for serverless platform version updates. ([b72b175](https://github.com/aws/aws-sdk-js-v3/commit/b72b175a5593462b09adf3cebb4ae8427b8d95bb))
+* **clients:** update client endpoints as of 2026-04-16 ([68ae10a](https://github.com/aws/aws-sdk-js-v3/commit/68ae10a11ed93f2d816d883bf00aa5f866b11d34))
+
+
+
+
+
 # [3.1030.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1029.0...v3.1030.0) (2026-04-13)
 
 

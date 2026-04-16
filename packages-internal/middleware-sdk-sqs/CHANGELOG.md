@@ -22,6 +22,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-04-16)
+### Chores
+* upgrade smithy to 1.69.0 ([#7932](https://github.com/aws/aws-sdk-js-v3/issues/7932)) ([560d987](https://github.com/aws/aws-sdk-js-v3/commit/560d9878471409e943a80ac2979e7fc8c2fff834))
+
+
+
 # 3.972.19 (2026-04-07)
 ### Chores
 * **clients:** add AWS retry customizations for DynamoDB, SQS, SFN, SWF ([#7922](https://github.com/aws/aws-sdk-js-v3/issues/7922)) ([4d9c592](https://github.com/aws/aws-sdk-js-v3/commit/4d9c592830725c8dbbfa84299345d70fdc82a574))
