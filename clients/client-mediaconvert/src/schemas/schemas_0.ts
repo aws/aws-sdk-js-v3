@@ -288,6 +288,8 @@ const _EDS = "EmbeddedDestinationSettings";
 const _EDSx = "ExtendedDataServices";
 const _EE = "EntropyEncoding";
 const _EI = "EpisodeId";
+const _EIC = "ElementalInferenceConfiguration";
+const _EIF = "ElementalInferenceFeed";
 const _EM = "EncryptionMethod";
 const _EMCCN = "EsamManifestConfirmConditionNotification";
 const _EMr = "ErrorMessage";
@@ -333,6 +335,7 @@ const _FIa = "FadeIn";
 const _FL = "FragmentLength";
 const _FLC = "FragmentLengthControl";
 const _FLi = "FilterList";
+const _FMS = "FeedManagementState";
 const _FN = "FramerateNumerator";
 const _FO = "FontOpacity";
 const _FOa = "FadeOut";
@@ -353,6 +356,8 @@ const _FT = "FragmentTime";
 const _FTVEO = "ForceTsVideoEbpOrder";
 const _FTi = "FinishTime";
 const _FU = "FileUrl";
+const _Fe = "Features";
+const _Fee = "Feeds";
 const _Fi = "Filter";
 const _Fo = "Fourcc";
 const _Fr = "Framerate";
@@ -522,6 +527,7 @@ const _MBRS = "MinBottomRenditionSize";
 const _MBT = "MinBufferTime";
 const _MC = "MetadataControl";
 const _MCCN = "ManifestConfirmConditionNotification";
+const _MCF = "MaximumConcurrentFeeds";
 const _MCLL = "MaxContentLightLevel";
 const _MCa = "ManifestCompression";
 const _MCat = "MatrixCoefficients";
@@ -1202,6 +1208,7 @@ const _eDS = "embeddedDestinationSettings";
 const _eDSx = "extendedDataServices";
 const _eE = "entropyEncoding";
 const _eI = "episodeId";
+const _eIC = "elementalInferenceConfiguration";
 const _eM = "encryptionMethod";
 const _eMr = "errorMessage";
 const _eOSM = "endOfStreamMarkers";
@@ -1242,6 +1249,7 @@ const _fIa = "fadeIn";
 const _fL = "fragmentLength";
 const _fLC = "fragmentLengthControl";
 const _fLi = "filterList";
+const _fMS = "feedManagementState";
 const _fN = "framerateNumerator";
 const _fO = "fontOpacity";
 const _fOa = "fadeOut";
@@ -1262,6 +1270,8 @@ const _fT = "fragmentTime";
 const _fTVEO = "forceTsVideoEbpOrder";
 const _fTi = "finishTime";
 const _fU = "fileUrl";
+const _fe = "features";
+const _fee = "feeds";
 const _fi = "filter";
 const _fo = "fourcc";
 const _fr = "framerate";
@@ -1371,6 +1381,7 @@ const _lOCD = "__listOfCaptionDescription";
 const _lOCDP = "__listOfCaptionDescriptionPreset";
 const _lODAM = "__listOfDashAdditionalManifest";
 const _lOE = "__listOfEndpoint";
+const _lOEIF = "__listOfElementalInferenceFeed";
 const _lOFIRS = "__listOfForceIncludeRenditionSize";
 const _lOHAM = "__listOfHlsAdditionalManifest";
 const _lOHCLM = "__listOfHlsCaptionLanguageMapping";
@@ -1421,6 +1432,7 @@ const _mBRS = "minBottomRenditionSize";
 const _mBT = "minBufferTime";
 const _mC = "metadataControl";
 const _mCCN = "manifestConfirmConditionNotification";
+const _mCF = "maximumConcurrentFeeds";
 const _mCLL = "maxContentLightLevel";
 const _mCa = "manifestCompression";
 const _mCat = "matrixCoefficients";
@@ -2162,8 +2174,8 @@ export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_N, _CJ, _Des, _PP, _RPS, _Sta, _Ta],
-  [[0, { [_jN]: _n }], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [0, { [_jN]: _pP }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]], 1
+  [_N, _CJ, _Des, _MCF, _PP, _RPS, _Sta, _Ta],
+  [[0, { [_jN]: _n }], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [1, { [_jN]: _mCF }], [0, { [_jN]: _pP }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]], 1
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
   0,
@@ -2324,6 +2336,16 @@ export var Eac3Settings$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_ACt, _B, _BM, _CM, _DF, _D, _DRCL, _DRCR, _LCf, _LF, _LRCML, _LRSML, _LRCMLt, _LRSMLt, _MC, _PCa, _PCh, _SR, _SD, _SEM, _SM],
   [[0, { [_jN]: _aCt }], [1, { [_jN]: _b }], [0, { [_jN]: _bM }], [0, { [_jN]: _cM }], [0, { [_jN]: _dF }], [1, { [_jN]: _d }], [0, { [_jN]: _dRCL }], [0, { [_jN]: _dRCR }], [0, { [_jN]: _lCf }], [0, { [_jN]: _lF }], [1, { [_jN]: _lRCML }], [1, { [_jN]: _lRSML }], [1, { [_jN]: _lRCMLt }], [1, { [_jN]: _lRSMLt }], [0, { [_jN]: _mC }], [0, { [_jN]: _pCa }], [0, { [_jN]: _pCh }], [1, { [_jN]: _sR }], [0, { [_jN]: _sD }], [0, { [_jN]: _sEM }], [0, { [_jN]: _sM }]]
+];
+export var ElementalInferenceConfiguration$: StaticStructureSchema = [3, n0, _EIC,
+  0,
+  [_Fe, _Fee],
+  [[64 | 0, { [_jN]: _fe }], [() => __listOfElementalInferenceFeed, { [_jN]: _fee }]]
+];
+export var ElementalInferenceFeed$: StaticStructureSchema = [3, n0, _EIF,
+  0,
+  [_A, _FMS],
+  [[0, { [_jN]: _a }], [0, { [_jN]: _fMS }]]
 ];
 export var EmbeddedDestinationSettings$: StaticStructureSchema = [3, n0, _EDS,
   0,
@@ -2587,8 +2609,8 @@ export var InsertableImage$: StaticStructureSchema = [3, n0, _IIns,
 ];
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_Ro, _Se, _AScc, _AScce, _A, _BTS, _CRT, _CA, _CPu, _EC, _EMr, _HD, _I, _JEVR, _JEVU, _JPC, _JT, _LSD, _Me, _OGD, _Pri, _Q, _QT, _RC, _SSh, _SRQ, _Sta, _SUI, _Timi, _UM, _Wa],
-  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _aScce }], [0, { [_jN]: _a }], [0, { [_jN]: _bTS }], [0, { [_jN]: _cRT }], [7, { [_jN]: _cA }], [0, { [_jN]: _cPu }], [1, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _id }], [0, { [_jN]: _jEVR }], [0, { [_jN]: _jEVU }], [1, { [_jN]: _jPC }], [0, { [_jN]: _jT }], [0, { [_jN]: _lSD }], [() => JobMessages$, { [_jN]: _me }], [() => __listOfOutputGroupDetail, { [_jN]: _oGD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => __listOfQueueTransition, { [_jN]: _qT }], [1, { [_jN]: _rC }], [0, { [_jN]: _sSh }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sta }], [0, { [_jN]: _sUI }], [() => Timing$, { [_jN]: _timi }], [128 | 0, { [_jN]: _uM }], [() => __listOfWarningGroup, { [_jN]: _wa }]], 2
+  [_Ro, _Se, _AScc, _AScce, _A, _BTS, _CRT, _CA, _CPu, _EIC, _EC, _EMr, _HD, _I, _JEVR, _JEVU, _JPC, _JT, _LSD, _Me, _OGD, _Pri, _Q, _QT, _RC, _SSh, _SRQ, _Sta, _SUI, _Timi, _UM, _Wa],
+  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _aScce }], [0, { [_jN]: _a }], [0, { [_jN]: _bTS }], [0, { [_jN]: _cRT }], [7, { [_jN]: _cA }], [0, { [_jN]: _cPu }], [() => ElementalInferenceConfiguration$, { [_jN]: _eIC }], [1, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _id }], [0, { [_jN]: _jEVR }], [0, { [_jN]: _jEVU }], [1, { [_jN]: _jPC }], [0, { [_jN]: _jT }], [0, { [_jN]: _lSD }], [() => JobMessages$, { [_jN]: _me }], [() => __listOfOutputGroupDetail, { [_jN]: _oGD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => __listOfQueueTransition, { [_jN]: _qT }], [1, { [_jN]: _rC }], [0, { [_jN]: _sSh }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sta }], [0, { [_jN]: _sUI }], [() => Timing$, { [_jN]: _timi }], [128 | 0, { [_jN]: _uM }], [() => __listOfWarningGroup, { [_jN]: _wa }]], 2
 ];
 export var JobEngineVersion$: StaticStructureSchema = [3, n0, _JEV,
   0,
@@ -2932,8 +2954,8 @@ export var PutPolicyResponse$: StaticStructureSchema = [3, n0, _PPRu,
 ];
 export var Queue$: StaticStructureSchema = [3, n0, _Q,
   0,
-  [_N, _A, _CJ, _CA, _Des, _LU, _PP, _PJC, _RPe, _SOer, _Sta, _SJC, _Ty],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _a }], [1, { [_jN]: _cJ }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _pP }], [1, { [_jN]: _pJC }], [() => ReservationPlan$, { [_jN]: _rPe }], [() => __listOfServiceOverride, { [_jN]: _sOer }], [0, { [_jN]: _sta }], [1, { [_jN]: _sJC }], [0, { [_jN]: _ty }]], 1
+  [_N, _A, _CJ, _CA, _Des, _LU, _MCF, _PP, _PJC, _RPe, _SOer, _Sta, _SJC, _Ty],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _a }], [1, { [_jN]: _cJ }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [1, { [_jN]: _mCF }], [0, { [_jN]: _pP }], [1, { [_jN]: _pJC }], [() => ReservationPlan$, { [_jN]: _rPe }], [() => __listOfServiceOverride, { [_jN]: _sOer }], [0, { [_jN]: _sta }], [1, { [_jN]: _sJC }], [0, { [_jN]: _ty }]], 1
 ];
 export var QueueTransition$: StaticStructureSchema = [3, n0, _QTu,
   0,
@@ -3127,8 +3149,8 @@ export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
-  [_N, _CJ, _Des, _RPS, _Sta],
-  [[0, 1], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }]], 1
+  [_N, _CJ, _Des, _MCF, _RPS, _Sta],
+  [[0, 1], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [1, { [_jN]: _mCF }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }]], 1
 ];
 export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
   0,
@@ -3307,6 +3329,11 @@ var __listOfColorConversion3DLUTSetting: StaticListSchema = [1, n0, _lOCCDLUTS,
 ];
 var __listOfDashAdditionalManifest: StaticListSchema = [1, n0, _lODAM,
   0, [() => DashAdditionalManifest$,
+    0]
+];
+var __listOfElementalInferenceFeature = 64 | 0;
+var __listOfElementalInferenceFeed: StaticListSchema = [1, n0, _lOEIF,
+  0, [() => ElementalInferenceFeed$,
     0]
 ];
 var __listOfEndpoint: StaticListSchema = [1, n0, _lOE,

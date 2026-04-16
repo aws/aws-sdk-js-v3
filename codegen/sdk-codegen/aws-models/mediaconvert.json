@@ -6374,14 +6374,14 @@
         "Tags": {
           "target": "com.amazonaws.mediaconvert#__mapOf__string",
           "traits": {
-            "smithy.api#documentation": "Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.",
+            "smithy.api#documentation": "Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key. Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.",
             "smithy.api#jsonName": "tags"
           }
         },
         "UserMetadata": {
           "target": "com.amazonaws.mediaconvert#__mapOf__string",
           "traits": {
-            "smithy.api#documentation": "Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.",
+            "smithy.api#documentation": "Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs. Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.",
             "smithy.api#jsonName": "userMetadata"
           }
         }
@@ -6699,6 +6699,13 @@
           "traits": {
             "smithy.api#documentation": "Optional. A description of the queue that you are creating.",
             "smithy.api#jsonName": "description"
+          }
+        },
+        "MaximumConcurrentFeeds": {
+          "target": "com.amazonaws.mediaconvert#__integerMin0",
+          "traits": {
+            "smithy.api#documentation": "Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.",
+            "smithy.api#jsonName": "maximumConcurrentFeeds"
           }
         },
         "Name": {
@@ -9845,6 +9852,96 @@
       },
       "traits": {
         "smithy.api#documentation": "When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels."
+      }
+    },
+    "com.amazonaws.mediaconvert#ElementalInferenceConfiguration": {
+      "type": "structure",
+      "members": {
+        "Features": {
+          "target": "com.amazonaws.mediaconvert#__listOfElementalInferenceFeature",
+          "traits": {
+            "smithy.api#documentation": "A list of Elemental Inference features used in this job.",
+            "smithy.api#jsonName": "features"
+          }
+        },
+        "Feeds": {
+          "target": "com.amazonaws.mediaconvert#__listOfElementalInferenceFeed",
+          "traits": {
+            "smithy.api#documentation": "A list of Elemental Inference feeds used by this job.",
+            "smithy.api#jsonName": "feeds"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The Elemental Inference configuration used in this job."
+      }
+    },
+    "com.amazonaws.mediaconvert#ElementalInferenceFeature": {
+      "type": "enum",
+      "members": {
+        "SMART_CROP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMART_CROP"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Elemental Inference feature."
+      }
+    },
+    "com.amazonaws.mediaconvert#ElementalInferenceFeed": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.mediaconvert#__string",
+          "traits": {
+            "smithy.api#documentation": "Feed ARN.",
+            "smithy.api#jsonName": "arn"
+          }
+        },
+        "FeedManagementState": {
+          "target": "com.amazonaws.mediaconvert#ElementalInferenceFeedManagementState",
+          "traits": {
+            "smithy.api#documentation": "Elemental Inference Feed management state.",
+            "smithy.api#jsonName": "feedManagementState"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Elemental Inference Feed."
+      }
+    },
+    "com.amazonaws.mediaconvert#ElementalInferenceFeedManagementState": {
+      "type": "enum",
+      "members": {
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
+          }
+        },
+        "ASSOCIATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATED"
+          }
+        },
+        "PENDING_DELETION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETION"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Elemental Inference Feed management state."
       }
     },
     "com.amazonaws.mediaconvert#EmbeddedConvert608To708": {
@@ -15618,6 +15715,13 @@
             "smithy.api#jsonName": "currentPhase"
           }
         },
+        "ElementalInferenceConfiguration": {
+          "target": "com.amazonaws.mediaconvert#ElementalInferenceConfiguration",
+          "traits": {
+            "smithy.api#documentation": "The Elemental Inference configuration used in this job.",
+            "smithy.api#jsonName": "elementalInferenceConfiguration"
+          }
+        },
         "ErrorCode": {
           "target": "com.amazonaws.mediaconvert#__integer",
           "traits": {
@@ -15906,7 +16010,7 @@
         "FollowSource": {
           "target": "com.amazonaws.mediaconvert#__integerMin1Max150",
           "traits": {
-            "smithy.api#documentation": "Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable \"Follow source\" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.",
+            "smithy.api#documentation": "Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable \"Follow source\" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.",
             "smithy.api#jsonName": "followSource"
           }
         },
@@ -16179,7 +16283,7 @@
         "FollowSource": {
           "target": "com.amazonaws.mediaconvert#__integerMin1Max150",
           "traits": {
-            "smithy.api#documentation": "Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable \"Follow source\" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.",
+            "smithy.api#documentation": "Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable \"Follow source\" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.",
             "smithy.api#jsonName": "followSource"
           }
         },
@@ -24012,6 +24116,13 @@
             "smithy.api#jsonName": "lastUpdated"
           }
         },
+        "MaximumConcurrentFeeds": {
+          "target": "com.amazonaws.mediaconvert#__integerMin0",
+          "traits": {
+            "smithy.api#documentation": "Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.",
+            "smithy.api#jsonName": "maximumConcurrentFeeds"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.mediaconvert#__string",
           "traits": {
@@ -24701,10 +24812,16 @@
           "traits": {
             "smithy.api#enumValue": "FILL"
           }
+        },
+        "SMART_CROP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMART_CROP"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html"
+        "smithy.api#documentation": "Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html Select Smart Cropping using Elemental Inference as your scaling behavior to have Elemental Inference automatically crop your video. Smart Crop requires a vertical output aspect ratio (1:1 is the widest aspect ratio supported)."
       }
     },
     "com.amazonaws.mediaconvert#SccDestinationFramerate": {
@@ -26679,6 +26796,13 @@
             "smithy.api#jsonName": "description"
           }
         },
+        "MaximumConcurrentFeeds": {
+          "target": "com.amazonaws.mediaconvert#__integerMin0",
+          "traits": {
+            "smithy.api#documentation": "Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.",
+            "smithy.api#jsonName": "maximumConcurrentFeeds"
+          }
+        },
         "Name": {
           "target": "com.amazonaws.mediaconvert#__string",
           "traits": {
@@ -27258,7 +27382,7 @@
         "ScalingBehavior": {
           "target": "com.amazonaws.mediaconvert#ScalingBehavior",
           "traits": {
-            "smithy.api#documentation": "Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html",
+            "smithy.api#documentation": "Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html Select Smart Cropping using Elemental Inference as your scaling behavior to have Elemental Inference automatically crop your video. Smart Crop requires a vertical output aspect ratio (1:1 is the widest aspect ratio supported).",
             "smithy.api#jsonName": "scalingBehavior"
           }
         },
@@ -29445,6 +29569,14 @@
     "com.amazonaws.mediaconvert#__integer": {
       "type": "integer"
     },
+    "com.amazonaws.mediaconvert#__integerMin0": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.mediaconvert#__integerMin0Max0": {
       "type": "integer",
       "traits": {
@@ -30469,6 +30601,18 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.mediaconvert#DashAdditionalManifest"
+      }
+    },
+    "com.amazonaws.mediaconvert#__listOfElementalInferenceFeature": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediaconvert#ElementalInferenceFeature"
+      }
+    },
+    "com.amazonaws.mediaconvert#__listOfElementalInferenceFeed": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediaconvert#ElementalInferenceFeed"
       }
     },
     "com.amazonaws.mediaconvert#__listOfEndpoint": {

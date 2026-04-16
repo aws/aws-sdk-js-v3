@@ -830,7 +830,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //             Y: Number("int"),
  * //           },
  * //           RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
- * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
+ * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL" || "SMART_CROP",
  * //           Sharpness: Number("int"),
  * //           TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
  * //           TimecodeTrack: "DISABLED" || "ENABLED",

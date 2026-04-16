@@ -39,6 +39,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * const input = { // UpdateQueueRequest
  *   ConcurrentJobs: Number("int"),
  *   Description: "STRING_VALUE",
+ *   MaximumConcurrentFeeds: Number("int"),
  *   Name: "STRING_VALUE", // required
  *   ReservationPlanSettings: { // ReservationPlanSettings
  *     Commitment: "ONE_YEAR", // required
@@ -56,6 +57,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     MaximumConcurrentFeeds: Number("int"),
  * //     Name: "STRING_VALUE", // required
  * //     PricingPlan: "ON_DEMAND" || "RESERVED",
  * //     ProgressingJobsCount: Number("int"),

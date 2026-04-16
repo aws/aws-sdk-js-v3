@@ -288,6 +288,10 @@ import {
   Eac3StereoDownmix,
   Eac3SurroundExMode,
   Eac3SurroundMode,
+  ElementalInferenceConfiguration$,
+  ElementalInferenceFeature,
+  ElementalInferenceFeed$,
+  ElementalInferenceFeedManagementState,
   EmbeddedConvert608To708,
   EmbeddedDestinationSettings$,
   EmbeddedSourceSettings$,
@@ -995,6 +999,8 @@ assert(typeof DvbTdtSettings$ === "object");
 assert(typeof DynamicAudioSelector$ === "object");
 assert(typeof Eac3AtmosSettings$ === "object");
 assert(typeof Eac3Settings$ === "object");
+assert(typeof ElementalInferenceConfiguration$ === "object");
+assert(typeof ElementalInferenceFeed$ === "object");
 assert(typeof EmbeddedDestinationSettings$ === "object");
 assert(typeof EmbeddedSourceSettings$ === "object");
 assert(typeof EncryptionContractConfiguration$ === "object");
@@ -1356,6 +1362,8 @@ assert(typeof Eac3PhaseControl === "object");
 assert(typeof Eac3StereoDownmix === "object");
 assert(typeof Eac3SurroundExMode === "object");
 assert(typeof Eac3SurroundMode === "object");
+assert(typeof ElementalInferenceFeature === "object");
+assert(typeof ElementalInferenceFeedManagementState === "object");
 assert(typeof EmbeddedConvert608To708 === "object");
 assert(typeof EmbeddedTerminateCaptions === "object");
 assert(typeof EmbeddedTimecodeOverride === "object");

@@ -39,6 +39,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * const input = { // CreateQueueRequest
  *   ConcurrentJobs: Number("int"),
  *   Description: "STRING_VALUE",
+ *   MaximumConcurrentFeeds: Number("int"),
  *   Name: "STRING_VALUE", // required
  *   PricingPlan: "ON_DEMAND" || "RESERVED",
  *   ReservationPlanSettings: { // ReservationPlanSettings
@@ -60,6 +61,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     MaximumConcurrentFeeds: Number("int"),
  * //     Name: "STRING_VALUE", // required
  * //     PricingPlan: "ON_DEMAND" || "RESERVED",
  * //     ProgressingJobsCount: Number("int"),

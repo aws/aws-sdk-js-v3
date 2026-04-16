@@ -172,6 +172,8 @@ import type {
   Eac3StereoDownmix,
   Eac3SurroundExMode,
   Eac3SurroundMode,
+  ElementalInferenceFeature,
+  ElementalInferenceFeedManagementState,
   EmbeddedConvert608To708,
   EmbeddedTerminateCaptions,
   EmbeddedTimecodeOverride,
@@ -2222,6 +2224,24 @@ export interface DashAdditionalManifest {
 }
 
 /**
+ * Elemental Inference Feed.
+ * @public
+ */
+export interface ElementalInferenceFeed {
+  /**
+   * Feed ARN.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Elemental Inference Feed management state.
+   * @public
+   */
+  FeedManagementState?: ElementalInferenceFeedManagementState | undefined;
+}
+
+/**
  * Describes an account-specific API endpoint.
  * @public
  */
@@ -3753,6 +3773,24 @@ export interface AccelerationSettings {
    * @public
    */
   Mode: AccelerationMode | undefined;
+}
+
+/**
+ * The Elemental Inference configuration used in this job.
+ * @public
+ */
+export interface ElementalInferenceConfiguration {
+  /**
+   * A list of Elemental Inference features used in this job.
+   * @public
+   */
+  Features?: ElementalInferenceFeature[] | undefined;
+
+  /**
+   * A list of Elemental Inference feeds used by this job.
+   * @public
+   */
+  Feeds?: ElementalInferenceFeed[] | undefined;
 }
 
 /**
@@ -8659,7 +8697,7 @@ export interface VideoDescription {
   RespondToAfd?: RespondToAfd | undefined;
 
   /**
-   * Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html
+   * Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html Select Smart Cropping using Elemental Inference as your scaling behavior to have Elemental Inference automatically crop your video. Smart Crop requires a vertical output aspect ratio (1:1 is the widest aspect ratio supported).
    * @public
    */
   ScalingBehavior?: ScalingBehavior | undefined;
@@ -8863,7 +8901,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9005,6 +9043,12 @@ export interface Job {
    * @public
    */
   CurrentPhase?: JobPhase | undefined;
+
+  /**
+   * The Elemental Inference configuration used in this job.
+   * @public
+   */
+  ElementalInferenceConfiguration?: ElementalInferenceConfiguration | undefined;
 
   /**
    * Error code for the job
@@ -9223,7 +9267,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9925,6 +9969,12 @@ export interface Queue {
   LastUpdated?: Date | undefined;
 
   /**
+   * Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+   * @public
+   */
+  MaximumConcurrentFeeds?: number | undefined;
+
+  /**
    * A name that you create for each queue. Each name must be unique within your account.
    * @public
    */
@@ -10082,13 +10132,13 @@ export interface CreateJobRequest {
   StatusUpdateInterval?: StatusUpdateInterval | undefined;
 
   /**
-   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
+   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key. Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
+   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs. Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
    * @public
    */
   UserMetadata?: Record<string, string> | undefined;
@@ -10266,6 +10316,12 @@ export interface CreateQueueRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+   * @public
+   */
+  MaximumConcurrentFeeds?: number | undefined;
 
   /**
    * The name of the queue that you are creating.
@@ -11210,6 +11266,12 @@ export interface UpdateQueueRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+   * @public
+   */
+  MaximumConcurrentFeeds?: number | undefined;
 
   /**
    * The name of the queue that you are modifying.

@@ -1557,6 +1557,34 @@ export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
  * @public
  * @enum
  */
+export const ElementalInferenceFeature = {
+  SMART_CROP: "SMART_CROP",
+} as const;
+/**
+ * @public
+ */
+export type ElementalInferenceFeature = (typeof ElementalInferenceFeature)[keyof typeof ElementalInferenceFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const ElementalInferenceFeedManagementState = {
+  ASSOCIATED: "ASSOCIATED",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
+/**
+ * @public
+ */
+export type ElementalInferenceFeedManagementState =
+  (typeof ElementalInferenceFeedManagementState)[keyof typeof ElementalInferenceFeedManagementState];
+
+/**
+ * @public
+ * @enum
+ */
 export const FrameMetricType = {
   MS_SSIM: "MS_SSIM",
   PSNR: "PSNR",
@@ -6232,6 +6260,7 @@ export const ScalingBehavior = {
   FILL: "FILL",
   FIT: "FIT",
   FIT_NO_UPSCALE: "FIT_NO_UPSCALE",
+  SMART_CROP: "SMART_CROP",
   STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
 } as const;
 /**

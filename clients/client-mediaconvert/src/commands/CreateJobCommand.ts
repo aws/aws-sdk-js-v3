@@ -1555,7 +1555,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *                 Y: Number("int"),
  *               },
  *               RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
- *               ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
+ *               ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL" || "SMART_CROP",
  *               Sharpness: Number("int"),
  *               TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
  *               TimecodeTrack: "DISABLED" || "ENABLED",
@@ -1703,6 +1703,17 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * //     ClientRequestToken: "STRING_VALUE",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     CurrentPhase: "PROBING" || "TRANSCODING" || "UPLOADING",
+ * //     ElementalInferenceConfiguration: { // ElementalInferenceConfiguration
+ * //       Features: [ // __listOfElementalInferenceFeature
+ * //         "SMART_CROP",
+ * //       ],
+ * //       Feeds: [ // __listOfElementalInferenceFeed
+ * //         { // ElementalInferenceFeed
+ * //           Arn: "STRING_VALUE",
+ * //           FeedManagementState: "CREATED" || "ASSOCIATED" || "PENDING_DELETION" || "DELETED",
+ * //         },
+ * //       ],
+ * //     },
  * //     ErrorCode: Number("int"),
  * //     ErrorMessage: "STRING_VALUE",
  * //     HopDestinations: [ // __listOfHopDestination
@@ -3251,7 +3262,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * //                   Y: Number("int"),
  * //                 },
  * //                 RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
- * //                 ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
+ * //                 ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL" || "SMART_CROP",
  * //                 Sharpness: Number("int"),
  * //                 TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
  * //                 TimecodeTrack: "DISABLED" || "ENABLED",

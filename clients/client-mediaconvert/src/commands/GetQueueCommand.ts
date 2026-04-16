@@ -48,6 +48,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     MaximumConcurrentFeeds: Number("int"),
  * //     Name: "STRING_VALUE", // required
  * //     PricingPlan: "ON_DEMAND" || "RESERVED",
  * //     ProgressingJobsCount: Number("int"),
