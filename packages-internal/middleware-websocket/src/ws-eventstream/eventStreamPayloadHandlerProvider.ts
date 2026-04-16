@@ -1,3 +1,4 @@
+import type { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { Decoder, Encoder, EventStreamPayloadHandlerProvider, MessageSigner, Provider } from "@smithy/types";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
@@ -10,4 +11,5 @@ export const eventStreamPayloadHandlerProvider: EventStreamPayloadHandlerProvide
   utf8Decoder: Decoder;
   messageSigner: Provider<MessageSigner>;
   systemClockOffset?: number;
+  credentials?: AwsCredentialIdentityProvider;
 }) => new EventStreamPayloadHandler(options);

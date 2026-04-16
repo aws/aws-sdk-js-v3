@@ -1,3 +1,4 @@
+import type { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type {
   Decoder,
   Encoder,
@@ -29,6 +30,7 @@ interface PreviouslyResolved {
   utf8Decoder: Decoder;
   signer: any; //Should be Provider<EventSigner>; But this would unblock the client
   eventStreamPayloadHandlerProvider: EventStreamPayloadHandlerProvider;
+  credentials?: AwsCredentialIdentityProvider;
 }
 
 export function resolveEventStreamConfig<T>(
