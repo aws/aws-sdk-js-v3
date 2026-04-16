@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-export * from "./AllowVendedLogDeliveryForResourceCommand";
 export * from "./AssociateServiceCommand";
 export * from "./CreateAgentSpaceCommand";
 export * from "./CreateBacklogTaskCommand";

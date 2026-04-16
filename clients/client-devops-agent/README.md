@@ -190,13 +190,6 @@ see LICENSE for more information.
 
 <details>
 <summary>
-AllowVendedLogDeliveryForResource
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/AllowVendedLogDeliveryForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/AllowVendedLogDeliveryForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/AllowVendedLogDeliveryForResourceCommandOutput/)
-</details>
-<details>
-<summary>
 AssociateService
 </summary>
 

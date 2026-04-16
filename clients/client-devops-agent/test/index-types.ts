@@ -2,9 +2,6 @@
 export type {
   DevOpsAgentClient,
   DevOpsAgent,
-  AllowVendedLogDeliveryForResourceCommand,
-  AllowVendedLogDeliveryForResourceCommandInput,
-  AllowVendedLogDeliveryForResourceCommandOutput,
   AssociateServiceCommand,
   AssociateServiceCommandInput,
   AssociateServiceCommandOutput,
@@ -168,8 +165,6 @@ export type {
   AdditionalServiceDetails,
   AdditionalServiceRegistrationStep,
   AgentSpace,
-  AllowVendedLogDeliveryForResourceInput,
-  AllowVendedLogDeliveryForResourceOutput,
   AssistantMessageBlock,
   AssociateServiceInput,
   AssociateServiceOutput,

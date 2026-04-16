@@ -38,7 +38,7 @@ export interface ListChatsCommandOutput extends ListChatsResponse, __MetadataBea
  * const client = new DevOpsAgentClient(config);
  * const input = { // ListChatsRequest
  *   agentSpaceId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

@@ -67,10 +67,6 @@ import {
   defaultDevOpsAgentHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import type {
-  AllowVendedLogDeliveryForResourceCommandInput,
-  AllowVendedLogDeliveryForResourceCommandOutput,
-} from "./commands/AllowVendedLogDeliveryForResourceCommand";
 import type { AssociateServiceCommandInput, AssociateServiceCommandOutput } from "./commands/AssociateServiceCommand";
 import type { CreateAgentSpaceCommandInput, CreateAgentSpaceCommandOutput } from "./commands/CreateAgentSpaceCommand";
 import type {
@@ -190,7 +186,6 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
-  | AllowVendedLogDeliveryForResourceCommandInput
   | AssociateServiceCommandInput
   | CreateAgentSpaceCommandInput
   | CreateBacklogTaskCommandInput
@@ -240,7 +235,6 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
-  | AllowVendedLogDeliveryForResourceCommandOutput
   | AssociateServiceCommandOutput
   | CreateAgentSpaceCommandOutput
   | CreateBacklogTaskCommandOutput

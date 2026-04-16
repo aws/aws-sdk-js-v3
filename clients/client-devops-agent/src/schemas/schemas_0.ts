@@ -13,9 +13,6 @@ const _ASL = "AgentSpaceList";
 const _ASO = "AssociateServiceOutput";
 const _ASRS = "AdditionalServiceRegistrationStep";
 const _ASs = "AssociateService";
-const _AVLDFR = "AllowVendedLogDeliveryForResource";
-const _AVLDFRI = "AllowVendedLogDeliveryForResourceInput";
-const _AVLDFRO = "AllowVendedLogDeliveryForResourceOutput";
 const _AWSC = "AWSConfiguration";
 const _CAS = "CreateAgentSpace";
 const _CASI = "CreateAgentSpaceInput";
@@ -328,7 +325,6 @@ const _co = "configuration";
 const _con = "content";
 const _cont = "context";
 const _d = "description";
-const _dSA = "deliverySourceArn";
 const _de = "delta";
 const _dy = "dynatrace";
 const _e = "error";
@@ -388,7 +384,6 @@ const _l = "locale";
 const _lEA = "lastEvaluatedAt";
 const _lM = "lastMessage";
 const _lSTI = "lastSuccessfulTaskId";
-const _lT = "logType";
 const _lTI = "lastTaskId";
 const _la = "last";
 const _li = "limit";
@@ -438,7 +433,6 @@ const _pag = "pagerduty";
 const _pr = "provider";
 const _r = "reference";
 const _rA = "resourceArn";
-const _rABA = "resourceArnBeingAuthorized";
 const _rC = "responseCreated";
 const _rCI = "resourceConfigurationId";
 const _rCe = "responseCompleted";
@@ -650,16 +644,6 @@ export var AgentSpace$: StaticStructureSchema = [3, n0, _AS,
   [_n, _cA, _uA, _aSI, _d, _l, _kKA],
   [0, 5, 5, 0, [() => Description, 0], 0, 0], 4
 ];
-export var AllowVendedLogDeliveryForResourceInput$: StaticStructureSchema = [3, n0, _AVLDFRI,
-  0,
-  [_rABA, _dSA, _lT],
-  [0, 0, 0], 2
-];
-export var AllowVendedLogDeliveryForResourceOutput$: StaticStructureSchema = [3, n0, _AVLDFRO,
-  0,
-  [_m],
-  [0]
-];
 export var AssociateServiceInput$: StaticStructureSchema = [3, n0, _ASI,
   0,
   [_aSI, _sI, _co],
@@ -718,7 +702,7 @@ export var CreateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _CBTRr,
 export var CreateChatRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_aSI, _uI, _uT],
-  [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _uT }]], 2
+  [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _uT }]], 1
 ];
 export var CreateChatResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -1003,7 +987,7 @@ export var ListBacklogTasksResponse$: StaticStructureSchema = [3, n0, _LBTRi,
 export var ListChatsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_aSI, _uI, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _uI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
+  [[0, 1], [0, { [_hQ]: _uI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListChatsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -1317,8 +1301,8 @@ export var SendMessageJsonDelta$: StaticStructureSchema = [3, n0, _SMJD,
 ];
 export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
-  [_aSI, _eI, _con, _uI, _cont],
-  [[0, 1], 0, 0, 0, () => SendMessageContext$], 4
+  [_aSI, _eI, _con, _cont, _uI],
+  [[0, 1], 0, 0, () => SendMessageContext$, 0], 3
 ];
 export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
   0,
@@ -1684,9 +1668,6 @@ export var UserMessageBlock$: StaticUnionSchema = [4, n0, _UMB,
   0,
   [_te, _tR],
   [0, 15]
-];
-export var AllowVendedLogDeliveryForResource$: StaticOperationSchema = [9, n0, _AVLDFR,
-  { [_en]: ["cp."], [_ht]: ["POST", "/allow-vended-log-delivery-for-resource", 200] }, () => AllowVendedLogDeliveryForResourceInput$, () => AllowVendedLogDeliveryForResourceOutput$
 ];
 export var AssociateService$: StaticOperationSchema = [9, n0, _ASs,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/agentspaces/{agentSpaceId}/associations", 201] }, () => AssociateServiceInput$, () => AssociateServiceOutput$

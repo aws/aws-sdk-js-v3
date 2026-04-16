@@ -3,11 +3,6 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
-  type AllowVendedLogDeliveryForResourceCommandInput,
-  type AllowVendedLogDeliveryForResourceCommandOutput,
-  AllowVendedLogDeliveryForResourceCommand,
-} from "./commands/AllowVendedLogDeliveryForResourceCommand";
-import {
   type AssociateServiceCommandInput,
   type AssociateServiceCommandOutput,
   AssociateServiceCommand,
@@ -229,7 +224,6 @@ import { paginateListJournalRecords } from "./pagination/ListJournalRecordsPagin
 import { paginateListServices } from "./pagination/ListServicesPaginator";
 
 const commands = {
-  AllowVendedLogDeliveryForResourceCommand,
   AssociateServiceCommand,
   CreateAgentSpaceCommand,
   CreateBacklogTaskCommand,
@@ -286,23 +280,6 @@ const paginators = {
 };
 
 export interface DevOpsAgent {
-  /**
-   * @see {@link AllowVendedLogDeliveryForResourceCommand}
-   */
-  allowVendedLogDeliveryForResource(
-    args: AllowVendedLogDeliveryForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AllowVendedLogDeliveryForResourceCommandOutput>;
-  allowVendedLogDeliveryForResource(
-    args: AllowVendedLogDeliveryForResourceCommandInput,
-    cb: (err: any, data?: AllowVendedLogDeliveryForResourceCommandOutput) => void
-  ): void;
-  allowVendedLogDeliveryForResource(
-    args: AllowVendedLogDeliveryForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AllowVendedLogDeliveryForResourceCommandOutput) => void
-  ): void;
-
   /**
    * @see {@link AssociateServiceCommand}
    */

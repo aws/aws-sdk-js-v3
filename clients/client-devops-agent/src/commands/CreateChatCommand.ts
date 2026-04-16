@@ -38,7 +38,7 @@ export interface CreateChatCommandOutput extends CreateChatResponse, __MetadataB
  * const client = new DevOpsAgentClient(config);
  * const input = { // CreateChatRequest
  *   agentSpaceId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE",
  *   userType: "IAM" || "IDC" || "IDP",
  * };
  * const command = new CreateChatCommand(input);

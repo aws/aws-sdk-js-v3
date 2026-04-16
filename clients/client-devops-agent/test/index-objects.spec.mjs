@@ -4,10 +4,6 @@ import {
   AdditionalServiceDetails$,
   AdditionalServiceRegistrationStep$,
   AgentSpace$,
-  AllowVendedLogDeliveryForResource$,
-  AllowVendedLogDeliveryForResourceCommand,
-  AllowVendedLogDeliveryForResourceInput$,
-  AllowVendedLogDeliveryForResourceOutput$,
   AssistantMessageBlock$,
   AssociateService$,
   AssociateServiceCommand,
@@ -346,8 +342,6 @@ import assert from "node:assert";
 assert(typeof DevOpsAgentClient === "function");
 assert(typeof DevOpsAgent === "function");
 // commands
-assert(typeof AllowVendedLogDeliveryForResourceCommand === "function");
-assert(typeof AllowVendedLogDeliveryForResource$ === "object");
 assert(typeof AssociateServiceCommand === "function");
 assert(typeof AssociateService$ === "object");
 assert(typeof CreateAgentSpaceCommand === "function");
@@ -440,8 +434,6 @@ assert(typeof ValidateAwsAssociations$ === "object");
 assert(typeof AdditionalServiceDetails$ === "object");
 assert(typeof AdditionalServiceRegistrationStep$ === "object");
 assert(typeof AgentSpace$ === "object");
-assert(typeof AllowVendedLogDeliveryForResourceInput$ === "object");
-assert(typeof AllowVendedLogDeliveryForResourceOutput$ === "object");
 assert(typeof AssistantMessageBlock$ === "object");
 assert(typeof AssociateServiceInput$ === "object");
 assert(typeof AssociateServiceOutput$ === "object");

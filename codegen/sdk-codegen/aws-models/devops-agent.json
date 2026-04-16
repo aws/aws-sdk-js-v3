@@ -299,71 +299,6 @@
         "smithy.api#documentation": "AgentSpace resource represents an isolated workspace for AI agents to operate within, managing configurations, associations, and access controls."
       }
     },
-    "com.amazonaws.devopsagent#AllowVendedLogDeliveryForResource": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.devopsagent#AllowVendedLogDeliveryForResourceInput"
-      },
-      "output": {
-        "target": "com.amazonaws.devopsagent#AllowVendedLogDeliveryForResourceOutput"
-      },
-      "traits": {
-        "smithy.api#documentation": "Authorize Ingestion Hub subscription operation.",
-        "smithy.api#endpoint": {
-          "hostPrefix": "cp."
-        },
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/allow-vended-log-delivery-for-resource",
-          "code": 200
-        }
-      }
-    },
-    "com.amazonaws.devopsagent#AllowVendedLogDeliveryForResourceInput": {
-      "type": "structure",
-      "members": {
-        "resourceArnBeingAuthorized": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the resource being authorized for vended log delivery.",
-            "smithy.api#required": {}
-          }
-        },
-        "deliverySourceArn": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "The ARN of the delivery source for vended log delivery.",
-            "smithy.api#pattern": "^arn:.*$",
-            "smithy.api#required": {}
-          }
-        },
-        "logType": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "The type of log to be delivered."
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "Input for authorizing vended log delivery for a resource.",
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.devopsagent#AllowVendedLogDeliveryForResourceOutput": {
-      "type": "structure",
-      "members": {
-        "message": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "A message describing the result of the authorization operation."
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "Output for the vended log delivery authorization operation.",
-        "smithy.api#output": {}
-      }
-    },
     "com.amazonaws.devopsagent#ApiKeyValue": {
       "type": "string",
       "traits": {
@@ -1112,9 +1047,12 @@
         "userId": {
           "target": "com.amazonaws.devopsagent#ResourceId",
           "traits": {
-            "smithy.api#documentation": "The user identifier for the chat",
-            "smithy.api#httpQuery": "userId",
-            "smithy.api#required": {}
+            "smithy.api#deprecated": {
+              "message": "userId is managed by the service and should not be provided by the caller",
+              "since": "2026-04-15"
+            },
+            "smithy.api#documentation": "The user identifier for the chat. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.",
+            "smithy.api#httpQuery": "userId"
           }
         },
         "userType": {
@@ -1707,9 +1645,6 @@
       "type": "service",
       "version": "2026-01-01",
       "operations": [
-        {
-          "target": "com.amazonaws.devopsagent#AllowVendedLogDeliveryForResource"
-        },
         {
           "target": "com.amazonaws.devopsagent#CreateBacklogTask"
         },
@@ -4441,9 +4376,12 @@
         "userId": {
           "target": "com.amazonaws.devopsagent#ResourceId",
           "traits": {
-            "smithy.api#documentation": "The user identifier to list chats for",
-            "smithy.api#httpQuery": "userId",
-            "smithy.api#required": {}
+            "smithy.api#deprecated": {
+              "message": "userId is managed by the service and should not be provided by the caller",
+              "since": "2026-04-15"
+            },
+            "smithy.api#documentation": "The user identifier to list chats for. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.",
+            "smithy.api#httpQuery": "userId"
           }
         },
         "maxResults": {
@@ -7731,8 +7669,11 @@
         "userId": {
           "target": "com.amazonaws.devopsagent#ResourceId",
           "traits": {
-            "smithy.api#documentation": "Required user identifier",
-            "smithy.api#required": {}
+            "smithy.api#deprecated": {
+              "message": "userId is managed by the service and should not be provided by the caller",
+              "since": "2026-04-15"
+            },
+            "smithy.api#documentation": "User identifier. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session."
           }
         }
       },

@@ -2262,42 +2262,6 @@ export interface UpdateOperatorAppIdpConfigOutput {
 }
 
 /**
- * Input for authorizing vended log delivery for a resource.
- * @public
- */
-export interface AllowVendedLogDeliveryForResourceInput {
-  /**
-   * The ARN of the resource being authorized for vended log delivery.
-   * @public
-   */
-  resourceArnBeingAuthorized: string | undefined;
-
-  /**
-   * The ARN of the delivery source for vended log delivery.
-   * @public
-   */
-  deliverySourceArn: string | undefined;
-
-  /**
-   * The type of log to be delivered.
-   * @public
-   */
-  logType?: string | undefined;
-}
-
-/**
- * Output for the vended log delivery authorization operation.
- * @public
- */
-export interface AllowVendedLogDeliveryForResourceOutput {
-  /**
-   * A message describing the result of the authorization operation.
-   * @public
-   */
-  message?: string | undefined;
-}
-
-/**
  * A block of content in an assistant message.
  * @public
  */
@@ -2632,10 +2596,12 @@ export interface CreateChatRequest {
   agentSpaceId: string | undefined;
 
   /**
-   * The user identifier for the chat
+   * The user identifier for the chat. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.
+   *
+   * @deprecated (since 2026-04-15) userId is managed by the service and should not be provided by the caller.
    * @public
    */
-  userId: string | undefined;
+  userId?: string | undefined;
 
   /**
    * The authentication type of the user
@@ -3427,10 +3393,12 @@ export interface ListChatsRequest {
   agentSpaceId: string | undefined;
 
   /**
-   * The user identifier to list chats for
+   * The user identifier to list chats for. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.
+   *
+   * @deprecated (since 2026-04-15) userId is managed by the service and should not be provided by the caller.
    * @public
    */
-  userId: string | undefined;
+  userId?: string | undefined;
 
   /**
    * Maximum number of results to return
@@ -4329,10 +4297,12 @@ export interface SendMessageRequest {
   context?: SendMessageContext | undefined;
 
   /**
-   * Required user identifier
+   * User identifier. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.
+   *
+   * @deprecated (since 2026-04-15) userId is managed by the service and should not be provided by the caller.
    * @public
    */
-  userId: string | undefined;
+  userId?: string | undefined;
 }
 
 /**
