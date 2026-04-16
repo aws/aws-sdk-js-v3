@@ -81,6 +81,17 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   StreamingExperienceSettings: { // StreamingExperienceSettings
  *     PreferredProtocol: "TCP" || "UDP",
  *   },
+ *   ContentRedirection: { // ContentRedirection
+ *     HostToClient: { // UrlRedirectionConfig
+ *       Enabled: true || false, // required
+ *       AllowedUrls: [ // UrlPatternList
+ *         "STRING_VALUE",
+ *       ],
+ *       DeniedUrls: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);

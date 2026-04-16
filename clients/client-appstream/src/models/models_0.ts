@@ -7056,6 +7056,12 @@ export interface UpdateStackRequest {
    * @public
    */
   StreamingExperienceSettings?: StreamingExperienceSettings | undefined;
+
+  /**
+   * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+   * @public
+   */
+  ContentRedirection?: ContentRedirection | undefined;
 }
 
 /**

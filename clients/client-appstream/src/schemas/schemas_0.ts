@@ -1845,8 +1845,8 @@ export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp
 ];
 export var UpdateStackRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES],
-  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$], 1
+  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR],
+  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$], 1
 ];
 export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp,
   0,
