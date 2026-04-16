@@ -843,7 +843,7 @@ it("AwsJson11FooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithEr
       false,
       500,
       {
-        "x-amzn-errortype": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
+        "x-amzn-errortype": "aws.protocoltests.json#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
       }
     ),
   });
@@ -917,7 +917,7 @@ it("AwsJson11FooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "code": "aws.protocoltests.restjson#FooError"
+          "code": "aws.protocoltests.json#FooError"
       }`
     ),
   });
@@ -953,7 +953,7 @@ it("AwsJson11FooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async (
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "code": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+          "code": "aws.protocoltests.json#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
       }`
     ),
   });
@@ -1025,7 +1025,7 @@ it("AwsJson11FooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "__type": "aws.protocoltests.restjson#FooError"
+          "__type": "aws.protocoltests.json#FooError"
       }`
     ),
   });
@@ -1061,7 +1061,7 @@ it("AwsJson11FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", as
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "__type": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+          "__type": "aws.protocoltests.json#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
       }`
     ),
   });
@@ -1099,7 +1099,7 @@ it("AwsJson11FooErrorWithNestedTypeProperty:Error:GreetingWithErrors", async () 
         "content-type": "application/x-amz-json-1.1",
       },
       `{
-          "__type": "aws.protocoltests.restjson#FooError",
+          "__type": "aws.protocoltests.json#FooError",
           "ErrorDetails": [
             {
                 "__type": "com.amazon.internal#ErrorDetails",

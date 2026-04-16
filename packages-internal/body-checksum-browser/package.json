@@ -25,8 +25,8 @@
     "@aws-sdk/sha256-tree-hash": "workspace:^3.972.10",
     "@aws-sdk/types": "workspace:^3.973.7",
     "@smithy/chunked-blob-reader": "^5.2.2",
-    "@smithy/protocol-http": "^5.3.13",
-    "@smithy/types": "^4.14.0",
+    "@smithy/protocol-http": "^5.3.14",
+    "@smithy/types": "^4.14.1",
     "@smithy/util-hex-encoding": "^4.2.2",
     "@smithy/util-utf8": "^4.2.2",
     "tslib": "^2.6.2"

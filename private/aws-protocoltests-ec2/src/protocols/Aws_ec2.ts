@@ -1295,6 +1295,15 @@ const se_SimpleInputParamsInput = (
   if (input[_UXN] != null) {
     entries[_UXN] = input[_UXN];
   }
+  if (input[_DQN] != null) {
+    entries[_QN] = input[_DQN];
+  }
+  if (input[_DQAXN] != null) {
+    entries[_qAXN] = input[_DQAXN];
+  }
+  if (input[_DXN] != null) {
+    entries[_XNO] = input[_DXN];
+  }
   return entries
 }
 
@@ -2118,6 +2127,9 @@ const _CLA = "ComplexListArg";
 const _D = "Data";
 const _DD = "DoubleDribble";
 const _DO = "DatetimeOffsets";
+const _DQAXN = "DistinctQueryAndXmlName";
+const _DQN = "DistinctQueryName";
+const _DXN = "DistinctXmlName";
 const _E = "Encoding";
 const _EIAEO = "EmptyInputAndEmptyOutput";
 const _EM = "EpochMember";
@@ -2149,6 +2161,7 @@ const _PWCE = "PutWithContentEncoding";
 const _Q = "Qux";
 const _QITAF = "QueryIdempotencyTokenAutoFill";
 const _QL = "QueryLists";
+const _QN = "QueryName";
 const _QT = "QueryTimestamps";
 const _RA = "RecursiveArg";
 const _RXS = "RecursiveXmlShapes";
@@ -2166,6 +2179,7 @@ const _XEL = "XmlEmptyLists";
 const _XIE = "XmlIntEnums";
 const _XL = "XmlLists";
 const _XN = "XmlNamespaces";
+const _XNO = "XmlNameOnly";
 const _XT = "XmlTimestamps";
 const _a = "a";
 const _b = "bar";
@@ -2221,6 +2235,7 @@ const _nF = "normalFormat";
 const _nSL = "nestedStringList";
 const _no = "normal";
 const _o = "other";
+const _qAXN = "queryAndXmlName";
 const _r = "renamed";
 const _rLM = "renamedListMembers";
 const _rM = "recursiveMember";

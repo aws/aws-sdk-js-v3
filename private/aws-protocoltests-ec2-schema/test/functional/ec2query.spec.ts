@@ -1738,6 +1738,49 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
 });
 
 /**
+ * ec2QueryName trait takes precedence when xmlName, default name, and ec2QueryName all have distinct values.
+ */
+it("Ec2QueryNameDistinctFromXmlNameAndMemberName:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SimpleInputParamsCommand(
+    {
+      DistinctQueryName: "value1",
+      DistinctQueryAndXmlName: "value2",
+      DistinctXmlName: "value3",
+    } as any,
+  );
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
+
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body, `Body was undefined.`).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&QueryName=value1&queryAndXmlName=value2&XmlNameOnly=value3`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Supports handling NaN float values.
  */
 it("Ec2QuerySupportsNaNFloatInputs:Request", async () => {

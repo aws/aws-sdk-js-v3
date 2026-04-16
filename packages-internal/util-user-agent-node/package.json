@@ -26,8 +26,8 @@
   "dependencies": {
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.29",
     "@aws-sdk/types": "workspace:^3.973.7",
-    "@smithy/node-config-provider": "^4.3.13",
-    "@smithy/types": "^4.14.0",
+    "@smithy/node-config-provider": "^4.3.14",
+    "@smithy/types": "^4.14.1",
     "@smithy/util-config-provider": "^4.2.2",
     "tslib": "^2.6.2"
   },

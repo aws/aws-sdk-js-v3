@@ -28,9 +28,9 @@
     "@aws-sdk/client-s3": "workspace:3.1030.0",
     "@aws-sdk/types": "workspace:^3.973.7",
     "@aws-sdk/util-format-url": "workspace:^3.972.9",
-    "@smithy/middleware-endpoint": "^4.4.29",
-    "@smithy/signature-v4": "^5.3.13",
-    "@smithy/types": "^4.14.0",
+    "@smithy/middleware-endpoint": "^4.4.30",
+    "@smithy/signature-v4": "^5.3.14",
+    "@smithy/types": "^4.14.1",
     "@smithy/util-hex-encoding": "^4.2.2",
     "@smithy/util-utf8": "^4.2.2",
     "tslib": "^2.6.2"

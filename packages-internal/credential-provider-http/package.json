@@ -30,13 +30,13 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.27",
     "@aws-sdk/types": "workspace:^3.973.7",
-    "@smithy/fetch-http-handler": "^5.3.16",
-    "@smithy/node-http-handler": "^4.5.2",
-    "@smithy/property-provider": "^4.2.13",
-    "@smithy/protocol-http": "^5.3.13",
-    "@smithy/smithy-client": "^4.12.9",
-    "@smithy/types": "^4.14.0",
-    "@smithy/util-stream": "^4.5.22",
+    "@smithy/fetch-http-handler": "^5.3.17",
+    "@smithy/node-http-handler": "^4.5.3",
+    "@smithy/property-provider": "^4.2.14",
+    "@smithy/protocol-http": "^5.3.14",
+    "@smithy/smithy-client": "^4.12.11",
+    "@smithy/types": "^4.14.1",
+    "@smithy/util-stream": "^4.5.23",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

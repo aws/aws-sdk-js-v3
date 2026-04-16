@@ -48,6 +48,9 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  *   HasQueryName: "STRING_VALUE",
  *   HasQueryAndXmlName: "STRING_VALUE",
  *   UsesXmlName: "STRING_VALUE",
+ *   DistinctQueryName: "STRING_VALUE",
+ *   DistinctQueryAndXmlName: "STRING_VALUE",
+ *   DistinctXmlName: "STRING_VALUE",
  * };
  * const command = new SimpleInputParamsCommand(input);
  * const response = await client.send(command);
