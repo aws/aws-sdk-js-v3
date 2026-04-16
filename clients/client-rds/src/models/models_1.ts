@@ -47,6 +47,89 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>Contains an Amazon Web Services Region name as the result of a successful call to the <code>DescribeSourceRegions</code> action.</p>
+ * @public
+ */
+export interface SourceRegion {
+  /**
+   * <p>The name of the source Amazon Web Services Region.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The endpoint for the source Amazon Web Services Region endpoint.</p>
+   * @public
+   */
+  Endpoint?: string | undefined;
+
+  /**
+   * <p>The status of the source Amazon Web Services Region.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Indicates whether the source Amazon Web Services Region supports replicating automated backups to the current Amazon Web Services Region.</p>
+   * @public
+   */
+  SupportsDBInstanceAutomatedBackupsReplication?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeSourceRegions</code> action.</p>
+ * @public
+ */
+export interface SourceRegionMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>SourceRegion</code> instances that contains each source Amazon Web Services Region that the current Amazon Web Services Region can get a read replica or a DB snapshot from.</p>
+   * @public
+   */
+  SourceRegions?: SourceRegion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTenantDatabasesMessage {
+  /**
+   * <p>The user-supplied DB instance identifier, which must match the identifier of an existing instance owned by the Amazon Web Services account. This parameter isn't case-sensitive.</p>
+   * @public
+   */
+  DBInstanceIdentifier?: string | undefined;
+
+  /**
+   * <p>The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn’t case-sensitive.</p>
+   * @public
+   */
+  TenantDBName?: string | undefined;
+
+  /**
+   * <p>A filter that specifies one or more database tenants to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>tenant-db-name</code> - Tenant database names. The results list only includes information about the tenant databases that match these tenant DB names.</p> </li> <li> <p> <code>tenant-database-resource-id</code> - Tenant database resource identifiers.</p> </li> <li> <p> <code>dbi-resource-id</code> - DB instance resource identifiers. The results list only includes information about the tenants contained within the DB instances identified by these resource identifiers.</p> </li> </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeTenantDatabases</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface TenantDatabasesMessage {

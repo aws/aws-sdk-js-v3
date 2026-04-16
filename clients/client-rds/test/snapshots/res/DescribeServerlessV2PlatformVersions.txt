@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ServerlessV2PlatformVersionsMessage xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ServerlessV2PlatformVersionsMessage xmlns="https://placeholder.amazonaws.com">
+    <Marker>
+        __Marker__
+    </Marker>
+    <ServerlessV2PlatformVersions>
+        <member>
+            <ServerlessV2PlatformVersion>
+                __ServerlessV2PlatformVersion__
+            </ServerlessV2PlatformVersion>
+            <ServerlessV2PlatformVersionDescription>
+                __ServerlessV2PlatformVersionDescription__
+            </ServerlessV2PlatformVersionDescription>
+            <Engine>
+                __Engine__
+            </Engine>
+            <ServerlessV2FeaturesSupport>
+                <MinCapacity>
+                    0
+                </MinCapacity>
+                <MaxCapacity>
+                    0
+                </MaxCapacity>
+            </ServerlessV2FeaturesSupport>
+            <Status>
+                __Status__
+            </Status>
+            <IsDefault>
+                false
+            </IsDefault>
+        </member>
+        <member>
+            <ServerlessV2PlatformVersion>
+                __ServerlessV2PlatformVersion__
+            </ServerlessV2PlatformVersion>
+            <ServerlessV2PlatformVersionDescription>
+                __ServerlessV2PlatformVersionDescription__
+            </ServerlessV2PlatformVersionDescription>
+            <Engine>
+                __Engine__
+            </Engine>
+            <ServerlessV2FeaturesSupport>
+                <MinCapacity>
+                    0
+                </MinCapacity>
+                <MaxCapacity>
+                    0
+                </MaxCapacity>
+            </ServerlessV2FeaturesSupport>
+            <Status>
+                __Status__
+            </Status>
+            <IsDefault>
+                false
+            </IsDefault>
+        </member>
+        <member>
+            <ServerlessV2PlatformVersion>
+                __ServerlessV2PlatformVersion__
+            </ServerlessV2PlatformVersion>
+            <ServerlessV2PlatformVersionDescription>
+                __ServerlessV2PlatformVersionDescription__
+            </ServerlessV2PlatformVersionDescription>
+            <Engine>
+                __Engine__
+            </Engine>
+            <ServerlessV2FeaturesSupport>
+                <MinCapacity>
+                    0
+                </MinCapacity>
+                <MaxCapacity>
+                    0
+                </MaxCapacity>
+            </ServerlessV2FeaturesSupport>
+            <Status>
+                __Status__
+            </Status>
+            <IsDefault>
+                false
+            </IsDefault>
+        </member>
+    </ServerlessV2PlatformVersions>
+</ServerlessV2PlatformVersionsMessage>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

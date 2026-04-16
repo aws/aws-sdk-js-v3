@@ -639,6 +639,8 @@ const _DRI = "DbiResourceId";
 const _DRL = "DoubleRangeList";
 const _DSR = "DescribeSourceRegions";
 const _DSRM = "DescribeSourceRegionsMessage";
+const _DSVPV = "DescribeServerlessV2PlatformVersions";
+const _DSVPVM = "DescribeServerlessV2PlatformVersionsMessage";
 const _DT = "DeleteTime";
 const _DTD = "DeleteTenantDatabase";
 const _DTDM = "DeleteTenantDatabaseMessage";
@@ -1397,6 +1399,11 @@ const _STw = "SwitchoverTimeout";
 const _SUAP = "SecondsUntilAutoPause";
 const _SVFS = "ServerlessV2FeaturesSupport";
 const _SVPV = "ServerlessV2PlatformVersion";
+const _SVPVD = "ServerlessV2PlatformVersionDescription";
+const _SVPVI = "ServerlessV2PlatformVersionInfo";
+const _SVPVL = "ServerlessV2PlatformVersionList";
+const _SVPVM = "ServerlessV2PlatformVersionsMessage";
+const _SVPVe = "ServerlessV2PlatformVersions";
 const _SVS = "StorageVolumeStatus";
 const _SVSC = "ServerlessV2ScalingConfiguration";
 const _SVSCI = "ServerlessV2ScalingConfigurationInfo";
@@ -3711,6 +3718,11 @@ export var DescribeReservedDBInstancesOfferingsMessage$: StaticStructureSchema =
   [_RDBIOI, _DBIC, _Du, _PD, _OT, _MAZ, _Fi, _MR, _Ma],
   [0, 0, 0, 0, 0, 2, [() => FilterList, 0], 1, 0]
 ];
+export var DescribeServerlessV2PlatformVersionsMessage$: StaticStructureSchema = [3, n0, _DSVPVM,
+  0,
+  [_SVPV, _E, _Fi, _DOe, _IA, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 2, 2, 1, 0]
+];
 export var DescribeSourceRegionsMessage$: StaticStructureSchema = [3, n0, _DSRM,
   0,
   [_RNe, _MR, _Ma, _Fi],
@@ -4501,6 +4513,16 @@ export var ServerlessV2FeaturesSupport$: StaticStructureSchema = [3, n0, _SVFS,
   [_MC, _MCa],
   [1, 1]
 ];
+export var ServerlessV2PlatformVersionInfo$: StaticStructureSchema = [3, n0, _SVPVI,
+  0,
+  [_SVPV, _SVPVD, _E, _SVFS, _St, _ID],
+  [0, 0, 0, () => ServerlessV2FeaturesSupport$, 0, 2]
+];
+export var ServerlessV2PlatformVersionsMessage$: StaticStructureSchema = [3, n0, _SVPVM,
+  0,
+  [_Ma, _SVPVe],
+  [0, () => ServerlessV2PlatformVersionList]
+];
 export var ServerlessV2ScalingConfiguration$: StaticStructureSchema = [3, n0, _SVSC,
   0,
   [_MC, _MCa, _SUAP],
@@ -5086,6 +5108,9 @@ var ReservedDBInstancesOfferingList: StaticListSchema = [1, n0, _RDBIOL,
   0, [() => ReservedDBInstancesOffering$,
     { [_xN]: _RDBIO }]
 ];
+var ServerlessV2PlatformVersionList: StaticListSchema = [1, n0, _SVPVL,
+  0, () => ServerlessV2PlatformVersionInfo$
+];
 var SourceIdsList: StaticListSchema = [1, n0, _SIL,
   0, [0,
     { [_xN]: _SIou }]
@@ -5457,6 +5482,9 @@ export var DescribeReservedDBInstances$: StaticOperationSchema = [9, n0, _DRDBI,
 ];
 export var DescribeReservedDBInstancesOfferings$: StaticOperationSchema = [9, n0, _DRDBIO,
   0, () => DescribeReservedDBInstancesOfferingsMessage$, () => ReservedDBInstancesOfferingMessage$
+];
+export var DescribeServerlessV2PlatformVersions$: StaticOperationSchema = [9, n0, _DSVPV,
+  0, () => DescribeServerlessV2PlatformVersionsMessage$, () => ServerlessV2PlatformVersionsMessage$
 ];
 export var DescribeSourceRegions$: StaticOperationSchema = [9, n0, _DSR,
   0, () => DescribeSourceRegionsMessage$, () => SourceRegionMessage$

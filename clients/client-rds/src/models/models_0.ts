@@ -369,7 +369,7 @@ export interface ApplyPendingMaintenanceActionMessage {
  */
 export interface PendingMaintenanceAction {
   /**
-   * <p>The type of pending maintenance action that is available for the resource. </p> <p>For more information about maintenance actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Maintaining a DB instance</a>.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
+   * <p>The type of pending maintenance action that is available for the resource. </p> <p>For more information about maintenance actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Maintaining a DB instance</a>.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>serverless-platform-version-update</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance actions for Amazon Aurora</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance actions for Amazon RDS</a>.</p>
    * @public
    */
   Action?: string | undefined;
@@ -11929,6 +11929,114 @@ export interface ReservedDBInstancesOfferingMessage {
  * <p/>
  * @public
  */
+export interface DescribeServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>A specific platform version to return details for.</p> <p>Example: <code>3</code> </p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The database engine to return platform version details for.</p> <p>Valid Values:</p> <ul> <li> <p> <code>aurora-mysql</code> </p> </li> <li> <p> <code>aurora-postgresql</code> </p> </li> </ul>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specifies whether to return only the default platform versions for each engine. The default platform version is the version used for new DB clusters.</p>
+   * @public
+   */
+  DefaultOnly?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to also include platform versions which are no longer in use.</p>
+   * @public
+   */
+  IncludeAll?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 20</p> <p>Constraints: Minimum 1, maximum 200.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * <p>This data type is used as a response element in the action <code>DescribeServerlessV2PlatformVersions</code>.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionInfo {
+  /**
+   * <p>The version number of the serverless platform.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The description of the serverless platform.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersionDescription?: string | undefined;
+
+  /**
+   * <p>The name of the database engine.</p>
+   * @public
+   */
+  Engine?: string | undefined;
+
+  /**
+   * <p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora Serverless v2 platform versions. You can retrieve the platform version of an existing DB cluster and check whether that version supports certain Aurora Serverless v2 features before you attempt to use those features.</p>
+   * @public
+   */
+  ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
+
+  /**
+   * <p>The status of the serverless platform. Valid statuses are the following:</p> <ul> <li> <p> <code>enabled</code> - The platform version is in use.</p> </li> <li> <p> <code>disabled</code> - The platform version is not in use.</p> </li> </ul>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>Indicates whether this platform version is the default version for the engine. The default platform version is the version used for new DB clusters.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeServerlessV2PlatformVersions</code> action.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>ServerlessV2PlatformVersionInfo</code> elements.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersions?: ServerlessV2PlatformVersionInfo[] | undefined;
+}
+
+/**
+ * <p/>
+ * @public
+ */
 export interface DescribeSourceRegionsMessage {
   /**
    * <p>The source Amazon Web Services Region name. For example, <code>us-east-1</code>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid Amazon Web Services Region name.</p> </li> </ul>
@@ -11953,87 +12061,4 @@ export interface DescribeSourceRegionsMessage {
    * @public
    */
   Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Contains an Amazon Web Services Region name as the result of a successful call to the <code>DescribeSourceRegions</code> action.</p>
- * @public
- */
-export interface SourceRegion {
-  /**
-   * <p>The name of the source Amazon Web Services Region.</p>
-   * @public
-   */
-  RegionName?: string | undefined;
-
-  /**
-   * <p>The endpoint for the source Amazon Web Services Region endpoint.</p>
-   * @public
-   */
-  Endpoint?: string | undefined;
-
-  /**
-   * <p>The status of the source Amazon Web Services Region.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>Indicates whether the source Amazon Web Services Region supports replicating automated backups to the current Amazon Web Services Region.</p>
-   * @public
-   */
-  SupportsDBInstanceAutomatedBackupsReplication?: boolean | undefined;
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeSourceRegions</code> action.</p>
- * @public
- */
-export interface SourceRegionMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A list of <code>SourceRegion</code> instances that contains each source Amazon Web Services Region that the current Amazon Web Services Region can get a read replica or a DB snapshot from.</p>
-   * @public
-   */
-  SourceRegions?: SourceRegion[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTenantDatabasesMessage {
-  /**
-   * <p>The user-supplied DB instance identifier, which must match the identifier of an existing instance owned by the Amazon Web Services account. This parameter isn't case-sensitive.</p>
-   * @public
-   */
-  DBInstanceIdentifier?: string | undefined;
-
-  /**
-   * <p>The user-supplied tenant database name, which must match the name of an existing tenant database on the specified DB instance owned by your Amazon Web Services account. This parameter isn’t case-sensitive.</p>
-   * @public
-   */
-  TenantDBName?: string | undefined;
-
-  /**
-   * <p>A filter that specifies one or more database tenants to describe.</p> <p>Supported filters:</p> <ul> <li> <p> <code>tenant-db-name</code> - Tenant database names. The results list only includes information about the tenant databases that match these tenant DB names.</p> </li> <li> <p> <code>tenant-database-resource-id</code> - Tenant database resource identifiers.</p> </li> <li> <p> <code>dbi-resource-id</code> - DB instance resource identifiers. The results list only includes information about the tenants contained within the DB instances identified by these resource identifiers.</p> </li> </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous <code>DescribeTenantDatabases</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
 }

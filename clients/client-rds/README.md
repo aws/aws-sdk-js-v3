@@ -867,6 +867,13 @@ DescribeReservedDBInstancesOfferings
 </details>
 <details>
 <summary>
+DescribeServerlessV2PlatformVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/DescribeServerlessV2PlatformVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeServerlessV2PlatformVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeServerlessV2PlatformVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeSourceRegions
 </summary>
 

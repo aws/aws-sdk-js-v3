@@ -38,6 +38,7 @@ export * from "./DescribeOrderableDBInstanceOptionsPaginator";
 export * from "./DescribePendingMaintenanceActionsPaginator";
 export * from "./DescribeReservedDBInstancesPaginator";
 export * from "./DescribeReservedDBInstancesOfferingsPaginator";
+export * from "./DescribeServerlessV2PlatformVersionsPaginator";
 export * from "./DescribeSourceRegionsPaginator";
 export * from "./DescribeTenantDatabasesPaginator";
 export * from "./DownloadDBLogFilePortionPaginator";

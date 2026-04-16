@@ -97,6 +97,7 @@ export * from "./DescribeOrderableDBInstanceOptionsCommand";
 export * from "./DescribePendingMaintenanceActionsCommand";
 export * from "./DescribeReservedDBInstancesCommand";
 export * from "./DescribeReservedDBInstancesOfferingsCommand";
+export * from "./DescribeServerlessV2PlatformVersionsCommand";
 export * from "./DescribeSourceRegionsCommand";
 export * from "./DescribeTenantDatabasesCommand";
 export * from "./DescribeValidDBInstanceModificationsCommand";

@@ -418,6 +418,10 @@ import type {
   DescribeReservedDBInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedDBInstancesOfferingsCommand";
 import type {
+  DescribeServerlessV2PlatformVersionsCommandInput,
+  DescribeServerlessV2PlatformVersionsCommandOutput,
+} from "./commands/DescribeServerlessV2PlatformVersionsCommand";
+import type {
   DescribeSourceRegionsCommandInput,
   DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand";
@@ -757,6 +761,7 @@ export type ServiceInputTypes =
   | DescribePendingMaintenanceActionsCommandInput
   | DescribeReservedDBInstancesCommandInput
   | DescribeReservedDBInstancesOfferingsCommandInput
+  | DescribeServerlessV2PlatformVersionsCommandInput
   | DescribeSourceRegionsCommandInput
   | DescribeTenantDatabasesCommandInput
   | DescribeValidDBInstanceModificationsCommandInput
@@ -925,6 +930,7 @@ export type ServiceOutputTypes =
   | DescribePendingMaintenanceActionsCommandOutput
   | DescribeReservedDBInstancesCommandOutput
   | DescribeReservedDBInstancesOfferingsCommandOutput
+  | DescribeServerlessV2PlatformVersionsCommandOutput
   | DescribeSourceRegionsCommandOutput
   | DescribeTenantDatabasesCommandOutput
   | DescribeValidDBInstanceModificationsCommandOutput

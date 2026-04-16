@@ -561,6 +561,9 @@ import {
   DescribeReservedDBInstancesOfferings$,
   DescribeReservedDBInstancesOfferingsCommand,
   DescribeReservedDBInstancesOfferingsMessage$,
+  DescribeServerlessV2PlatformVersions$,
+  DescribeServerlessV2PlatformVersionsCommand,
+  DescribeServerlessV2PlatformVersionsMessage$,
   DescribeSourceRegions$,
   DescribeSourceRegionsCommand,
   DescribeSourceRegionsMessage$,
@@ -880,6 +883,7 @@ import {
   paginateDescribePendingMaintenanceActions,
   paginateDescribeReservedDBInstances,
   paginateDescribeReservedDBInstancesOfferings,
+  paginateDescribeServerlessV2PlatformVersions,
   paginateDescribeSourceRegions,
   paginateDescribeTenantDatabases,
   paginateDownloadDBLogFilePortion,
@@ -1005,6 +1009,8 @@ import {
   ScalingConfiguration$,
   ScalingConfigurationInfo$,
   ServerlessV2FeaturesSupport$,
+  ServerlessV2PlatformVersionInfo$,
+  ServerlessV2PlatformVersionsMessage$,
   ServerlessV2ScalingConfiguration$,
   ServerlessV2ScalingConfigurationInfo$,
   SharedSnapshotQuotaExceededFault,
@@ -1346,6 +1352,8 @@ assert(typeof DescribeReservedDBInstancesCommand === "function");
 assert(typeof DescribeReservedDBInstances$ === "object");
 assert(typeof DescribeReservedDBInstancesOfferingsCommand === "function");
 assert(typeof DescribeReservedDBInstancesOfferings$ === "object");
+assert(typeof DescribeServerlessV2PlatformVersionsCommand === "function");
+assert(typeof DescribeServerlessV2PlatformVersions$ === "object");
 assert(typeof DescribeSourceRegionsCommand === "function");
 assert(typeof DescribeSourceRegions$ === "object");
 assert(typeof DescribeTenantDatabasesCommand === "function");
@@ -1700,6 +1708,7 @@ assert(typeof DescribeOrderableDBInstanceOptionsMessage$ === "object");
 assert(typeof DescribePendingMaintenanceActionsMessage$ === "object");
 assert(typeof DescribeReservedDBInstancesMessage$ === "object");
 assert(typeof DescribeReservedDBInstancesOfferingsMessage$ === "object");
+assert(typeof DescribeServerlessV2PlatformVersionsMessage$ === "object");
 assert(typeof DescribeSourceRegionsMessage$ === "object");
 assert(typeof DescribeTenantDatabasesMessage$ === "object");
 assert(typeof DescribeValidDBInstanceModificationsMessage$ === "object");
@@ -1858,6 +1867,8 @@ assert(typeof ScalarReferenceDetails$ === "object");
 assert(typeof ScalingConfiguration$ === "object");
 assert(typeof ScalingConfigurationInfo$ === "object");
 assert(typeof ServerlessV2FeaturesSupport$ === "object");
+assert(typeof ServerlessV2PlatformVersionInfo$ === "object");
+assert(typeof ServerlessV2PlatformVersionsMessage$ === "object");
 assert(typeof ServerlessV2ScalingConfiguration$ === "object");
 assert(typeof ServerlessV2ScalingConfigurationInfo$ === "object");
 assert(typeof SourceRegion$ === "object");
@@ -2295,6 +2306,7 @@ assert(typeof paginateDescribeOrderableDBInstanceOptions === "function");
 assert(typeof paginateDescribePendingMaintenanceActions === "function");
 assert(typeof paginateDescribeReservedDBInstances === "function");
 assert(typeof paginateDescribeReservedDBInstancesOfferings === "function");
+assert(typeof paginateDescribeServerlessV2PlatformVersions === "function");
 assert(typeof paginateDescribeSourceRegions === "function");
 assert(typeof paginateDescribeTenantDatabases === "function");
 assert(typeof paginateDownloadDBLogFilePortion === "function");

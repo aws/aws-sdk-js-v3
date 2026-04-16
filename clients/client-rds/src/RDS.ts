@@ -499,6 +499,11 @@ import {
   DescribeReservedDBInstancesOfferingsCommand,
 } from "./commands/DescribeReservedDBInstancesOfferingsCommand";
 import {
+  type DescribeServerlessV2PlatformVersionsCommandInput,
+  type DescribeServerlessV2PlatformVersionsCommandOutput,
+  DescribeServerlessV2PlatformVersionsCommand,
+} from "./commands/DescribeServerlessV2PlatformVersionsCommand";
+import {
   type DescribeSourceRegionsCommandInput,
   type DescribeSourceRegionsCommandOutput,
   DescribeSourceRegionsCommand,
@@ -865,6 +870,9 @@ import {
   paginateDescribeReservedDBInstancesOfferings,
 } from "./pagination/DescribeReservedDBInstancesOfferingsPaginator";
 import { paginateDescribeReservedDBInstances } from "./pagination/DescribeReservedDBInstancesPaginator";
+import {
+  paginateDescribeServerlessV2PlatformVersions,
+} from "./pagination/DescribeServerlessV2PlatformVersionsPaginator";
 import { paginateDescribeSourceRegions } from "./pagination/DescribeSourceRegionsPaginator";
 import { paginateDescribeTenantDatabases } from "./pagination/DescribeTenantDatabasesPaginator";
 import { paginateDownloadDBLogFilePortion } from "./pagination/DownloadDBLogFilePortionPaginator";
@@ -979,6 +987,7 @@ const commands = {
   DescribePendingMaintenanceActionsCommand,
   DescribeReservedDBInstancesCommand,
   DescribeReservedDBInstancesOfferingsCommand,
+  DescribeServerlessV2PlatformVersionsCommand,
   DescribeSourceRegionsCommand,
   DescribeTenantDatabasesCommand,
   DescribeValidDBInstanceModificationsCommand,
@@ -1084,6 +1093,7 @@ const paginators = {
   paginateDescribePendingMaintenanceActions,
   paginateDescribeReservedDBInstances,
   paginateDescribeReservedDBInstancesOfferings,
+  paginateDescribeServerlessV2PlatformVersions,
   paginateDescribeSourceRegions,
   paginateDescribeTenantDatabases,
   paginateDownloadDBLogFilePortion,
@@ -2801,6 +2811,24 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DescribeServerlessV2PlatformVersionsCommand}
+   */
+  describeServerlessV2PlatformVersions(): Promise<DescribeServerlessV2PlatformVersionsCommandOutput>;
+  describeServerlessV2PlatformVersions(
+    args: DescribeServerlessV2PlatformVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServerlessV2PlatformVersionsCommandOutput>;
+  describeServerlessV2PlatformVersions(
+    args: DescribeServerlessV2PlatformVersionsCommandInput,
+    cb: (err: any, data?: DescribeServerlessV2PlatformVersionsCommandOutput) => void
+  ): void;
+  describeServerlessV2PlatformVersions(
+    args: DescribeServerlessV2PlatformVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServerlessV2PlatformVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSourceRegionsCommand}
    */
   describeSourceRegions(): Promise<DescribeSourceRegionsCommandOutput>;
@@ -4326,6 +4354,17 @@ export interface RDS {
     args?: DescribeReservedDBInstancesOfferingsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeReservedDBInstancesOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeServerlessV2PlatformVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServerlessV2PlatformVersionsCommandOutput}.
+   */
+  paginateDescribeServerlessV2PlatformVersions(
+    args?: DescribeServerlessV2PlatformVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServerlessV2PlatformVersionsCommandOutput>;
 
   /**
    * @see {@link DescribeSourceRegionsCommand}

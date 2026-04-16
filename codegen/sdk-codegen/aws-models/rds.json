@@ -850,6 +850,9 @@
           "target": "com.amazonaws.rds#DescribeReservedDBInstancesOfferings"
         },
         {
+          "target": "com.amazonaws.rds#DescribeServerlessV2PlatformVersions"
+        },
+        {
           "target": "com.amazonaws.rds#DescribeSourceRegions"
         },
         {
@@ -19121,6 +19124,132 @@
         "smithy.api#input": {}
       }
     },
+    "com.amazonaws.rds#DescribeServerlessV2PlatformVersions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.rds#DescribeServerlessV2PlatformVersionsMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.rds#ServerlessV2PlatformVersionsMessage"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the properties of specific platform versions for Aurora Serverless v2.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To describe the serverless platform versions for the Aurora MySQL DB engine",
+            "documentation": "The following example displays details about each of the serverless platform versions for the specified DB engine.",
+            "input": {
+              "Engine": "aurora-mysql"
+            },
+            "output": {
+              "ServerlessV2PlatformVersions": [
+                {
+                  "Engine": "aurora-mysql",
+                  "IsDefault": true,
+                  "ServerlessV2FeaturesSupport": {
+                    "MaxCapacity": 256.0,
+                    "MinCapacity": 0.0
+                  },
+                  "ServerlessV2PlatformVersion": "4",
+                  "ServerlessV2PlatformVersionDescription": "Version 4 offering scaling up to 256 ACUs, and performance improvement up to 30% compared to version 3",
+                  "Status": "enabled"
+                },
+                {
+                  "Engine": "aurora-mysql",
+                  "IsDefault": false,
+                  "ServerlessV2FeaturesSupport": {
+                    "MaxCapacity": 256.0,
+                    "MinCapacity": 0.0
+                  },
+                  "ServerlessV2PlatformVersion": "3",
+                  "ServerlessV2PlatformVersionDescription": "Version 3 offering scaling up to 256 ACUs, and performance improvement up to 30% compared to version 2",
+                  "Status": "enabled"
+                },
+                {
+                  "Engine": "aurora-mysql",
+                  "IsDefault": false,
+                  "ServerlessV2FeaturesSupport": {
+                    "MaxCapacity": 256.0,
+                    "MinCapacity": 0.0
+                  },
+                  "ServerlessV2PlatformVersion": "2",
+                  "ServerlessV2PlatformVersionDescription": "Version 2 offering scaling up to 256 ACUs",
+                  "Status": "enabled"
+                },
+                {
+                  "Engine": "aurora-mysql",
+                  "IsDefault": false,
+                  "ServerlessV2FeaturesSupport": {
+                    "MaxCapacity": 128.0,
+                    "MinCapacity": 0.0
+                  },
+                  "ServerlessV2PlatformVersion": "1",
+                  "ServerlessV2PlatformVersionDescription": "Version 1 offering scaling up to 128 ACUs",
+                  "Status": "enabled"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "Marker",
+          "items": "ServerlessV2PlatformVersions",
+          "pageSize": "MaxRecords"
+        }
+      }
+    },
+    "com.amazonaws.rds#DescribeServerlessV2PlatformVersionsMessage": {
+      "type": "structure",
+      "members": {
+        "ServerlessV2PlatformVersion": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A specific platform version to return details for.</p> <p>Example: <code>3</code> </p>"
+          }
+        },
+        "Engine": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The database engine to return platform version details for.</p> <p>Valid Values:</p> <ul> <li> <p> <code>aurora-mysql</code> </p> </li> <li> <p> <code>aurora-postgresql</code> </p> </li> </ul>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.rds#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter isn't currently supported.</p>"
+          }
+        },
+        "DefaultOnly": {
+          "target": "com.amazonaws.rds#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to return only the default platform versions for each engine. The default platform version is the version used for new DB clusters.</p>"
+          }
+        },
+        "IncludeAll": {
+          "target": "com.amazonaws.rds#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to also include platform versions which are no longer in use.</p>"
+          }
+        },
+        "MaxRecords": {
+          "target": "com.amazonaws.rds#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of records to include in the response. If more than the <code>MaxRecords</code> value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 20</p> <p>Constraints: Minimum 1, maximum 200.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p/>",
+        "smithy.api#input": {}
+      }
+    },
     "com.amazonaws.rds#DescribeSourceRegions": {
       "type": "operation",
       "input": {
@@ -26258,7 +26387,7 @@
         "Action": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of pending maintenance action that is available for the resource. </p> <p>For more information about maintenance actions, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html\">Maintaining a DB instance</a>.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora\">Maintenance actions for Amazon Aurora</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds\">Maintenance actions for Amazon RDS</a>.</p>"
+            "smithy.api#documentation": "<p>The type of pending maintenance action that is available for the resource. </p> <p>For more information about maintenance actions, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html\">Maintaining a DB instance</a>.</p> <p>Valid Values:</p> <ul> <li> <p> <code>ca-certificate-rotation</code> </p> </li> <li> <p> <code>db-upgrade</code> </p> </li> <li> <p> <code>hardware-maintenance</code> </p> </li> <li> <p> <code>os-upgrade</code> </p> </li> <li> <p> <code>serverless-platform-version-update</code> </p> </li> <li> <p> <code>system-update</code> </p> </li> </ul> <p>For more information about these actions, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora\">Maintenance actions for Amazon Aurora</a> or <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds\">Maintenance actions for Amazon RDS</a>.</p>"
           }
         },
         "AutoAppliedAfterDate": {
@@ -31154,6 +31283,77 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora engine versions and platform versions. You can test the values of this attribute when deciding which Aurora version to use in a new or upgraded DB cluster. You can also retrieve the version of an existing DB cluster and check whether that version supports certain Aurora Serverless v2 features before you attempt to use those features. </p>"
+      }
+    },
+    "com.amazonaws.rds#ServerlessV2PlatformVersionInfo": {
+      "type": "structure",
+      "members": {
+        "ServerlessV2PlatformVersion": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the serverless platform.</p>"
+          }
+        },
+        "ServerlessV2PlatformVersionDescription": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the serverless platform.</p>"
+          }
+        },
+        "Engine": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database engine.</p>"
+          }
+        },
+        "ServerlessV2FeaturesSupport": {
+          "target": "com.amazonaws.rds#ServerlessV2FeaturesSupport",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora Serverless v2 platform versions. You can retrieve the platform version of an existing DB cluster and check whether that version supports certain Aurora Serverless v2 features before you attempt to use those features.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the serverless platform. Valid statuses are the following:</p> <ul> <li> <p> <code>enabled</code> - The platform version is in use.</p> </li> <li> <p> <code>disabled</code> - The platform version is not in use.</p> </li> </ul>"
+          }
+        },
+        "IsDefault": {
+          "target": "com.amazonaws.rds#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether this platform version is the default version for the engine. The default platform version is the version used for new DB clusters.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This data type is used as a response element in the action <code>DescribeServerlessV2PlatformVersions</code>.</p>"
+      }
+    },
+    "com.amazonaws.rds#ServerlessV2PlatformVersionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.rds#ServerlessV2PlatformVersionInfo"
+      }
+    },
+    "com.amazonaws.rds#ServerlessV2PlatformVersionsMessage": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.rds#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"
+          }
+        },
+        "ServerlessV2PlatformVersions": {
+          "target": "com.amazonaws.rds#ServerlessV2PlatformVersionList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <code>ServerlessV2PlatformVersionInfo</code> elements.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the result of a successful invocation of the <code>DescribeServerlessV2PlatformVersions</code> action.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.rds#ServerlessV2ScalingConfiguration": {
