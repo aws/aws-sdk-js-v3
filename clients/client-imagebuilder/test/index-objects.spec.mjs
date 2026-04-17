@@ -420,6 +420,7 @@ import {
   PutImageRecipePolicyCommand,
   PutImageRecipePolicyRequest$,
   PutImageRecipePolicyResponse$,
+  RegisterImageOptions$,
   Remediation$,
   RemediationRecommendation$,
   ResourceAlreadyExistsException,
@@ -493,6 +494,7 @@ import {
   UpdateLifecyclePolicyResponse$,
   VulnerabilityIdAggregation$,
   VulnerablePackage$,
+  WindowsConfiguration$,
   Workflow$,
   WorkflowConfiguration$,
   WorkflowExecutionMetadata$,
@@ -882,6 +884,7 @@ assert(typeof PutImagePolicyRequest$ === "object");
 assert(typeof PutImagePolicyResponse$ === "object");
 assert(typeof PutImageRecipePolicyRequest$ === "object");
 assert(typeof PutImageRecipePolicyResponse$ === "object");
+assert(typeof RegisterImageOptions$ === "object");
 assert(typeof Remediation$ === "object");
 assert(typeof RemediationRecommendation$ === "object");
 assert(typeof ResourceState$ === "object");
@@ -916,6 +919,7 @@ assert(typeof UpdateLifecyclePolicyRequest$ === "object");
 assert(typeof UpdateLifecyclePolicyResponse$ === "object");
 assert(typeof VulnerabilityIdAggregation$ === "object");
 assert(typeof VulnerablePackage$ === "object");
+assert(typeof WindowsConfiguration$ === "object");
 assert(typeof Workflow$ === "object");
 assert(typeof WorkflowConfiguration$ === "object");
 assert(typeof WorkflowExecutionMetadata$ === "object");

@@ -57,6 +57,13 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   registerImageOptions: { // RegisterImageOptions
+ *     secureBootEnabled: true || false,
+ *     uefiData: "STRING_VALUE",
+ *   },
+ *   windowsConfiguration: { // WindowsConfiguration
+ *     imageIndex: Number("long"), // required
+ *   },
  *   clientToken: "STRING_VALUE", // required
  * };
  * const command = new ImportDiskImageCommand(input);

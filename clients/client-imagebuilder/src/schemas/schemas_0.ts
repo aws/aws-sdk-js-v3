@@ -325,6 +325,7 @@ const _R = "Remediation";
 const _RAEE = "ResourceAlreadyExistsException";
 const _RDE = "ResourceDependencyException";
 const _RI = "RetryImage";
+const _RIO = "RegisterImageOptions";
 const _RIR = "RetryImageRequest";
 const _RIRe = "RetryImageResponse";
 const _RIUE = "ResourceInUseException";
@@ -376,8 +377,9 @@ const _VIA = "VulnerabilityIdAggregation";
 const _VP = "VulnerablePackage";
 const _VPL = "VulnerablePackageList";
 const _W = "Workflow";
-const _WC = "WorkflowConfiguration";
+const _WC = "WindowsConfiguration";
 const _WCL = "WorkflowConfigurationList";
+const _WCo = "WorkflowConfiguration";
 const _WEL = "WorkflowExecutionsList";
 const _WEM = "WorkflowExecutionMetadata";
 const _WP = "WorkflowParameter";
@@ -493,6 +495,7 @@ const _iCSL = "infrastructureConfigurationSummaryList";
 const _iCn = "infrastructureConfiguration";
 const _iD = "includeDeprecated";
 const _iI = "instanceImage";
+const _iIm = "imageIndex";
 const _iLGN = "imageLogGroupName";
 const _iMO = "instanceMetadataOptions";
 const _iOVO = "imageOsVersionOverride";
@@ -588,6 +591,7 @@ const _r = "region";
 const _rA = "resourceArn";
 const _rAL = "retainAtLeast";
 const _rI = "requestId";
+const _rIO = "registerImageOptions";
 const _rIS = "resourcesImpactedSummary";
 const _rIe = "resourceId";
 const _rL = "resourceLocation";
@@ -611,6 +615,7 @@ const _ret = "retried";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.imagebuilder";
 const _sA = "sharedAccounts";
 const _sB = "s3Bucket";
+const _sBE = "secureBootEnabled";
 const _sBN = "s3BucketName";
 const _sC = "severityCounts";
 const _sCn = "snapshotConfiguration";
@@ -671,6 +676,7 @@ const _u = "uri";
 const _uA = "updatedAt";
 const _uAB = "uninstallAfterBuild";
 const _uAp = "updateAt";
+const _uD = "uefiData";
 const _uDO = "userDataOverride";
 const _uG = "userGroups";
 const _uI = "userIds";
@@ -692,6 +698,7 @@ const _val = "values";
 const _w = "workflows";
 const _wA = "workflowArn";
 const _wBVA = "workflowBuildVersionArn";
+const _wC = "windowsConfiguration";
 const _wD = "workingDirectory";
 const _wE = "workflowExecutions";
 const _wEI = "workflowExecutionId";
@@ -1486,8 +1493,8 @@ export var ImportComponentResponse$: StaticStructureSchema = [3, n0, _ICRm,
 ];
 export var ImportDiskImageRequest$: StaticStructureSchema = [3, n0, _IDIR,
   0,
-  [_n, _sV, _p, _oV, _iCA, _u, _d, _eR, _lC, _ta, _cT],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => ImageLoggingConfiguration$, 128 | 0, [0, 4]], 6
+  [_n, _sV, _p, _oV, _iCA, _u, _d, _eR, _lC, _ta, _rIO, _wC, _cT],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => ImageLoggingConfiguration$, 128 | 0, () => RegisterImageOptions$, () => WindowsConfiguration$, [0, 4]], 6
 ];
 export var ImportDiskImageResponse$: StaticStructureSchema = [3, n0, _IDIRm,
   0,
@@ -1929,6 +1936,11 @@ export var PutImageRecipePolicyResponse$: StaticStructureSchema = [3, n0, _PIRPR
   [_rI, _iRA],
   [0, 0]
 ];
+export var RegisterImageOptions$: StaticStructureSchema = [3, n0, _RIO,
+  0,
+  [_sBE, _uD],
+  [2, 0]
+];
 export var Remediation$: StaticStructureSchema = [3, n0, _R,
   0,
   [_reco],
@@ -2099,12 +2111,17 @@ export var VulnerablePackage$: StaticStructureSchema = [3, n0, _VP,
   [_n, _v, _sLH, _ep, _rel, _ar, _pM, _fP, _fIV, _rem],
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 ];
+export var WindowsConfiguration$: StaticStructureSchema = [3, n0, _WC,
+  0,
+  [_iIm],
+  [1], 1
+];
 export var Workflow$: StaticStructureSchema = [3, n0, _W,
   0,
   [_a, _n, _v, _d, _cD, _t, _st, _o, _da, _kKI, _dC, _ta, _pa],
   [0, 0, 0, 0, 0, 0, () => WorkflowState$, 0, 0, 0, 0, 128 | 0, () => WorkflowParameterDetailList]
 ];
-export var WorkflowConfiguration$: StaticStructureSchema = [3, n0, _WC,
+export var WorkflowConfiguration$: StaticStructureSchema = [3, n0, _WCo,
   0,
   [_wA, _pa, _pG, _oF],
   [0, () => WorkflowParameterList, 0, 0], 1

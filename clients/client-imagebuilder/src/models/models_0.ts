@@ -5448,6 +5448,52 @@ export interface ImportComponentResponse {
 }
 
 /**
+ * <p>Controls Secure Boot and UEFI data settings for the resulting image
+ * 			during ISO imports. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot for Amazon EC2 instances</a> in
+ * 			the <i>
+ *                <i>Amazon EC2 User Guide</i>
+ *             </i>.</p>
+ * @public
+ */
+export interface RegisterImageOptions {
+  /**
+   * <p>Specifies whether Secure Boot is enabled for the output AMI.
+   * 			The default value is <code>true</code>. To disable Secure Boot
+   * 			for custom unsigned drivers, set this value to <code>false</code>.</p>
+   * @public
+   */
+  secureBootEnabled?: boolean | undefined;
+
+  /**
+   * <p>A Base64-encoded representation of the non-volatile UEFI variable store.
+   * 			You can specify this parameter only when
+   * 			<code>secureBootEnabled</code> is <code>true</code> or
+   * 			unspecified. You can inspect and modify the UEFI data by using
+   * 			the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool on GitHub</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-variables.html">UEFI
+   * 				variables for Amazon EC2 instances</a>.</p>
+   * @public
+   */
+  uefiData?: string | undefined;
+}
+
+/**
+ * <p>Windows-specific configuration settings for an ISO import, including
+ * 			the edition to install from a multi-edition Windows ISO file.</p>
+ * @public
+ */
+export interface WindowsConfiguration {
+  /**
+   * <p>The 1-based index that specifies which Windows edition to install
+   * 			from a multi-edition Windows ISO file. A Windows ISO can contain a
+   * 			<code>.wim</code> file with multiple image indexes, each representing
+   * 			a different edition.</p>
+   * @public
+   */
+  imageIndex: number | undefined;
+}
+
+/**
  * @public
  */
 export interface ImportDiskImageRequest {
@@ -5515,6 +5561,19 @@ export interface ImportDiskImageRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configures Secure Boot and UEFI settings for the
+   * 			imported image.</p>
+   * @public
+   */
+  registerImageOptions?: RegisterImageOptions | undefined;
+
+  /**
+   * <p>Specifies Windows settings for ISO imports.</p>
+   * @public
+   */
+  windowsConfiguration?: WindowsConfiguration | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure
