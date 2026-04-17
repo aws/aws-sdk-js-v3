@@ -93,7 +93,8 @@ export class SinglePassJsonShapeSerializer extends SerdeContextConfig implements
       }
     } else if (ns.isMapSchema() || ns.isDocumentSchema()) {
       b += "{";
-      for (const [k, v] of Object.entries(value)) {
+      for (const k in value) {
+        const v = (value as Record<string, unknown>)[k];
         if (v != null || sparse) {
           b += `"${k}":${this.writeValue(ns, v)}`;
           b += ",";

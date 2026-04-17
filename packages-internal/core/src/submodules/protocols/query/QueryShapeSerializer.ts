@@ -119,7 +119,8 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
         const memberSchema = ns.getValueSchema();
         const flat = ns.getMergedTraits().xmlFlattened;
         let i = 1;
-        for (const [k, v] of Object.entries(value)) {
+        for (const k in value) {
+          const v = (value as Record<string, unknown>)[k];
           if (v == null) {
             continue;
           }
