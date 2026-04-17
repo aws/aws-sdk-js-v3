@@ -6452,7 +6452,7 @@ export var ListTestCaseExecutionRecordsResponse$: StaticStructureSchema = [3, n0
 export var ListTestCaseExecutionsRequest$: StaticStructureSchema = [3, n0, _LTCER,
   0,
   [_II, _TCI, _TCN, _STtar, _ETnd, _St, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _tCI }], [0, { [_hQ]: _tCN }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eT }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+  [[0, 1], [0, { [_hQ]: _tCI }], [0, { [_hQ]: _tCN }], [1, { [_hQ]: _sT }], [1, { [_hQ]: _eT }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListTestCaseExecutionsResponse$: StaticStructureSchema = [3, n0, _LTCERi,
   0,
@@ -7827,7 +7827,7 @@ export var StartTaskContactResponse$: StaticStructureSchema = [3, n0, _STCRta,
 export var StartTestCaseExecutionRequest$: StaticStructureSchema = [3, n0, _STCER,
   0,
   [_II, _TCI, _CT],
-  [[0, 1], [0, 1], 0], 2
+  [[0, 1], [0, 1], [0, 4]], 2
 ];
 export var StartTestCaseExecutionResponse$: StaticStructureSchema = [3, n0, _STCERt,
   0,
@@ -7897,7 +7897,7 @@ export var StopContactStreamingResponse$: StaticStructureSchema = [3, n0, _SCSRt
 export var StopTestCaseExecutionRequest$: StaticStructureSchema = [3, n0, _STCERto,
   0,
   [_II, _TCEI, _TCI, _CT],
-  [[0, 1], [0, 1], [0, 1], 0], 3
+  [[0, 1], [0, 1], [0, 1], [0, 4]], 3
 ];
 export var StopTestCaseExecutionResponse$: StaticStructureSchema = [3, n0, _STCERtop,
   0,

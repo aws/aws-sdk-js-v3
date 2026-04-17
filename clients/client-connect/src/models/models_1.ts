@@ -4986,7 +4986,7 @@ export interface TestCase {
   EntryPoint?: TestCaseEntryPoint | undefined;
 
   /**
-   * <p>Defines the test attributes for precise data representation.</p>
+   * <p>Defines the test attributes for precise data representation. The value must be a valid JSON string.</p>
    * @public
    */
   InitializationData?: string | undefined;

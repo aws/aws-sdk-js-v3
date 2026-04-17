@@ -22869,6 +22869,14 @@
         }
       }
     },
+    "com.amazonaws.connect#EpochMilliseconds": {
+      "type": "long",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.connect#ErrorCode": {
       "type": "string"
     },
@@ -36704,14 +36712,14 @@
           }
         },
         "StartTime": {
-          "target": "com.amazonaws.connect#Timestamp",
+          "target": "com.amazonaws.connect#EpochMilliseconds",
           "traits": {
             "smithy.api#documentation": "<p>Filter executions that started after this time.</p>",
             "smithy.api#httpQuery": "startTime"
           }
         },
         "EndTime": {
-          "target": "com.amazonaws.connect#Timestamp",
+          "target": "com.amazonaws.connect#EpochMilliseconds",
           "traits": {
             "smithy.api#documentation": "<p>Filter executions that started before this time.</p>",
             "smithy.api#httpQuery": "endTime"
@@ -52708,7 +52716,8 @@
         "ClientToken": {
           "target": "com.amazonaws.connect#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -53323,7 +53332,8 @@
         "ClientToken": {
           "target": "com.amazonaws.connect#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {}
           }
         }
       },
@@ -54620,7 +54630,7 @@
         "InitializationData": {
           "target": "com.amazonaws.connect#TestCaseInitializationData",
           "traits": {
-            "smithy.api#documentation": "<p>Defines the test attributes for precise data representation.</p>"
+            "smithy.api#documentation": "<p>Defines the test attributes for precise data representation. The value must be a valid JSON string.</p>"
           }
         },
         "Description": {

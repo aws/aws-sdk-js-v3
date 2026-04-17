@@ -40,8 +40,8 @@ export interface ListTestCaseExecutionsCommandOutput extends ListTestCaseExecuti
  *   InstanceId: "STRING_VALUE", // required
  *   TestCaseId: "STRING_VALUE",
  *   TestCaseName: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
+ *   StartTime: Number("long"),
+ *   EndTime: Number("long"),
  *   Status: "INITIATED" || "PASSED" || "FAILED" || "IN_PROGRESS" || "STOPPED",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

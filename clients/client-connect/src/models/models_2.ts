@@ -5439,13 +5439,13 @@ export interface ListTestCaseExecutionsRequest {
    * <p>Filter executions that started after this time.</p>
    * @public
    */
-  StartTime?: Date | undefined;
+  StartTime?: number | undefined;
 
   /**
    * <p>Filter executions that started before this time.</p>
    * @public
    */
-  EndTime?: Date | undefined;
+  EndTime?: number | undefined;
 
   /**
    * <p>Filter executions by status.</p>
