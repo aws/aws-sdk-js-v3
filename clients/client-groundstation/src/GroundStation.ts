@@ -64,6 +64,11 @@ import {
   DescribeContactCommand,
 } from "./commands/DescribeContactCommand";
 import {
+  type DescribeContactVersionCommandInput,
+  type DescribeContactVersionCommandOutput,
+  DescribeContactVersionCommand,
+} from "./commands/DescribeContactVersionCommand";
+import {
   type DescribeEphemerisCommandInput,
   type DescribeEphemerisCommandOutput,
   DescribeEphemerisCommand,
@@ -100,6 +105,11 @@ import {
   GetSatelliteCommand,
 } from "./commands/GetSatelliteCommand";
 import {
+  type ListAntennasCommandInput,
+  type ListAntennasCommandOutput,
+  ListAntennasCommand,
+} from "./commands/ListAntennasCommand";
+import {
   type ListConfigsCommandInput,
   type ListConfigsCommandOutput,
   ListConfigsCommand,
@@ -110,6 +120,11 @@ import {
   ListContactsCommand,
 } from "./commands/ListContactsCommand";
 import {
+  type ListContactVersionsCommandInput,
+  type ListContactVersionsCommandOutput,
+  ListContactVersionsCommand,
+} from "./commands/ListContactVersionsCommand";
+import {
   type ListDataflowEndpointGroupsCommandInput,
   type ListDataflowEndpointGroupsCommandOutput,
   ListDataflowEndpointGroupsCommand,
@@ -119,6 +134,11 @@ import {
   type ListEphemeridesCommandOutput,
   ListEphemeridesCommand,
 } from "./commands/ListEphemeridesCommand";
+import {
+  type ListGroundStationReservationsCommandInput,
+  type ListGroundStationReservationsCommandOutput,
+  ListGroundStationReservationsCommand,
+} from "./commands/ListGroundStationReservationsCommand";
 import {
   type ListGroundStationsCommandInput,
   type ListGroundStationsCommandOutput,
@@ -170,6 +190,11 @@ import {
   UpdateConfigCommand,
 } from "./commands/UpdateConfigCommand";
 import {
+  type UpdateContactCommandInput,
+  type UpdateContactCommandOutput,
+  UpdateContactCommand,
+} from "./commands/UpdateContactCommand";
+import {
   type UpdateEphemerisCommandInput,
   type UpdateEphemerisCommandOutput,
   UpdateEphemerisCommand,
@@ -180,14 +205,18 @@ import {
   UpdateMissionProfileCommand,
 } from "./commands/UpdateMissionProfileCommand";
 import { GroundStationClient } from "./GroundStationClient";
+import { paginateListAntennas } from "./pagination/ListAntennasPaginator";
 import { paginateListConfigs } from "./pagination/ListConfigsPaginator";
 import { paginateListContacts } from "./pagination/ListContactsPaginator";
+import { paginateListContactVersions } from "./pagination/ListContactVersionsPaginator";
 import { paginateListDataflowEndpointGroups } from "./pagination/ListDataflowEndpointGroupsPaginator";
 import { paginateListEphemerides } from "./pagination/ListEphemeridesPaginator";
+import { paginateListGroundStationReservations } from "./pagination/ListGroundStationReservationsPaginator";
 import { paginateListGroundStations } from "./pagination/ListGroundStationsPaginator";
 import { paginateListMissionProfiles } from "./pagination/ListMissionProfilesPaginator";
 import { paginateListSatellites } from "./pagination/ListSatellitesPaginator";
 import { waitUntilContactScheduled } from "./waiters/waitForContactScheduled";
+import { waitUntilContactUpdated } from "./waiters/waitForContactUpdated";
 
 const commands = {
   CancelContactCommand,
@@ -201,6 +230,7 @@ const commands = {
   DeleteEphemerisCommand,
   DeleteMissionProfileCommand,
   DescribeContactCommand,
+  DescribeContactVersionCommand,
   DescribeEphemerisCommand,
   GetAgentConfigurationCommand,
   GetAgentTaskResponseUrlCommand,
@@ -209,10 +239,13 @@ const commands = {
   GetMinuteUsageCommand,
   GetMissionProfileCommand,
   GetSatelliteCommand,
+  ListAntennasCommand,
   ListConfigsCommand,
   ListContactsCommand,
+  ListContactVersionsCommand,
   ListDataflowEndpointGroupsCommand,
   ListEphemeridesCommand,
+  ListGroundStationReservationsCommand,
   ListGroundStationsCommand,
   ListMissionProfilesCommand,
   ListSatellitesCommand,
@@ -223,20 +256,25 @@ const commands = {
   UntagResourceCommand,
   UpdateAgentStatusCommand,
   UpdateConfigCommand,
+  UpdateContactCommand,
   UpdateEphemerisCommand,
   UpdateMissionProfileCommand,
 };
 const paginators = {
+  paginateListAntennas,
   paginateListConfigs,
   paginateListContacts,
+  paginateListContactVersions,
   paginateListDataflowEndpointGroups,
   paginateListEphemerides,
+  paginateListGroundStationReservations,
   paginateListGroundStations,
   paginateListMissionProfiles,
   paginateListSatellites,
 };
 const waiters = {
   waitUntilContactScheduled,
+  waitUntilContactUpdated,
 };
 
 export interface GroundStation {
@@ -428,6 +466,23 @@ export interface GroundStation {
   ): void;
 
   /**
+   * @see {@link DescribeContactVersionCommand}
+   */
+  describeContactVersion(
+    args: DescribeContactVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContactVersionCommandOutput>;
+  describeContactVersion(
+    args: DescribeContactVersionCommandInput,
+    cb: (err: any, data?: DescribeContactVersionCommandOutput) => void
+  ): void;
+  describeContactVersion(
+    args: DescribeContactVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContactVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeEphemerisCommand}
    */
   describeEphemeris(
@@ -564,6 +619,23 @@ export interface GroundStation {
   ): void;
 
   /**
+   * @see {@link ListAntennasCommand}
+   */
+  listAntennas(
+    args: ListAntennasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAntennasCommandOutput>;
+  listAntennas(
+    args: ListAntennasCommandInput,
+    cb: (err: any, data?: ListAntennasCommandOutput) => void
+  ): void;
+  listAntennas(
+    args: ListAntennasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAntennasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListConfigsCommand}
    */
   listConfigs(): Promise<ListConfigsCommandOutput>;
@@ -599,6 +671,23 @@ export interface GroundStation {
   ): void;
 
   /**
+   * @see {@link ListContactVersionsCommand}
+   */
+  listContactVersions(
+    args: ListContactVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactVersionsCommandOutput>;
+  listContactVersions(
+    args: ListContactVersionsCommandInput,
+    cb: (err: any, data?: ListContactVersionsCommandOutput) => void
+  ): void;
+  listContactVersions(
+    args: ListContactVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDataflowEndpointGroupsCommand}
    */
   listDataflowEndpointGroups(): Promise<ListDataflowEndpointGroupsCommandOutput>;
@@ -631,6 +720,23 @@ export interface GroundStation {
     args: ListEphemeridesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEphemeridesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroundStationReservationsCommand}
+   */
+  listGroundStationReservations(
+    args: ListGroundStationReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroundStationReservationsCommandOutput>;
+  listGroundStationReservations(
+    args: ListGroundStationReservationsCommandInput,
+    cb: (err: any, data?: ListGroundStationReservationsCommandOutput) => void
+  ): void;
+  listGroundStationReservations(
+    args: ListGroundStationReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroundStationReservationsCommandOutput) => void
   ): void;
 
   /**
@@ -807,6 +913,23 @@ export interface GroundStation {
   ): void;
 
   /**
+   * @see {@link UpdateContactCommand}
+   */
+  updateContact(
+    args: UpdateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactCommandOutput>;
+  updateContact(
+    args: UpdateContactCommandInput,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
+  updateContact(
+    args: UpdateContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEphemerisCommand}
    */
   updateEphemeris(
@@ -841,6 +964,17 @@ export interface GroundStation {
   ): void;
 
   /**
+   * @see {@link ListAntennasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAntennasCommandOutput}.
+   */
+  paginateListAntennas(
+    args: ListAntennasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAntennasCommandOutput>;
+
+  /**
    * @see {@link ListConfigsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -863,6 +997,17 @@ export interface GroundStation {
   ): Paginator<ListContactsCommandOutput>;
 
   /**
+   * @see {@link ListContactVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactVersionsCommandOutput}.
+   */
+  paginateListContactVersions(
+    args: ListContactVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactVersionsCommandOutput>;
+
+  /**
    * @see {@link ListDataflowEndpointGroupsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -883,6 +1028,17 @@ export interface GroundStation {
     args: ListEphemeridesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEphemeridesCommandOutput>;
+
+  /**
+   * @see {@link ListGroundStationReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroundStationReservationsCommandOutput}.
+   */
+  paginateListGroundStationReservations(
+    args: ListGroundStationReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroundStationReservationsCommandOutput>;
 
   /**
    * @see {@link ListGroundStationsCommand}
@@ -924,6 +1080,16 @@ export interface GroundStation {
    */
   waitUntilContactScheduled(
     args: DescribeContactCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GroundStation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeContactVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilContactUpdated(
+    args: DescribeContactVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GroundStation>, "client">
   ): Promise<WaiterResult>;
 }

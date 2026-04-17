@@ -88,6 +88,10 @@ import type {
 } from "./commands/DeleteMissionProfileCommand";
 import type { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
 import type {
+  DescribeContactVersionCommandInput,
+  DescribeContactVersionCommandOutput,
+} from "./commands/DescribeContactVersionCommand";
+import type {
   DescribeEphemerisCommandInput,
   DescribeEphemerisCommandOutput,
 } from "./commands/DescribeEphemerisCommand";
@@ -110,13 +114,22 @@ import type {
   GetMissionProfileCommandOutput,
 } from "./commands/GetMissionProfileCommand";
 import type { GetSatelliteCommandInput, GetSatelliteCommandOutput } from "./commands/GetSatelliteCommand";
+import type { ListAntennasCommandInput, ListAntennasCommandOutput } from "./commands/ListAntennasCommand";
 import type { ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
 import type { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
+import type {
+  ListContactVersionsCommandInput,
+  ListContactVersionsCommandOutput,
+} from "./commands/ListContactVersionsCommand";
 import type {
   ListDataflowEndpointGroupsCommandInput,
   ListDataflowEndpointGroupsCommandOutput,
 } from "./commands/ListDataflowEndpointGroupsCommand";
 import type { ListEphemeridesCommandInput, ListEphemeridesCommandOutput } from "./commands/ListEphemeridesCommand";
+import type {
+  ListGroundStationReservationsCommandInput,
+  ListGroundStationReservationsCommandOutput,
+} from "./commands/ListGroundStationReservationsCommand";
 import type {
   ListGroundStationsCommandInput,
   ListGroundStationsCommandOutput,
@@ -139,6 +152,7 @@ import type {
   UpdateAgentStatusCommandOutput,
 } from "./commands/UpdateAgentStatusCommand";
 import type { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "./commands/UpdateConfigCommand";
+import type { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
 import type { UpdateEphemerisCommandInput, UpdateEphemerisCommandOutput } from "./commands/UpdateEphemerisCommand";
 import type {
   UpdateMissionProfileCommandInput,
@@ -170,6 +184,7 @@ export type ServiceInputTypes =
   | DeleteEphemerisCommandInput
   | DeleteMissionProfileCommandInput
   | DescribeContactCommandInput
+  | DescribeContactVersionCommandInput
   | DescribeEphemerisCommandInput
   | GetAgentConfigurationCommandInput
   | GetAgentTaskResponseUrlCommandInput
@@ -178,10 +193,13 @@ export type ServiceInputTypes =
   | GetMinuteUsageCommandInput
   | GetMissionProfileCommandInput
   | GetSatelliteCommandInput
+  | ListAntennasCommandInput
   | ListConfigsCommandInput
+  | ListContactVersionsCommandInput
   | ListContactsCommandInput
   | ListDataflowEndpointGroupsCommandInput
   | ListEphemeridesCommandInput
+  | ListGroundStationReservationsCommandInput
   | ListGroundStationsCommandInput
   | ListMissionProfilesCommandInput
   | ListSatellitesCommandInput
@@ -192,6 +210,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAgentStatusCommandInput
   | UpdateConfigCommandInput
+  | UpdateContactCommandInput
   | UpdateEphemerisCommandInput
   | UpdateMissionProfileCommandInput;
 
@@ -210,6 +229,7 @@ export type ServiceOutputTypes =
   | DeleteEphemerisCommandOutput
   | DeleteMissionProfileCommandOutput
   | DescribeContactCommandOutput
+  | DescribeContactVersionCommandOutput
   | DescribeEphemerisCommandOutput
   | GetAgentConfigurationCommandOutput
   | GetAgentTaskResponseUrlCommandOutput
@@ -218,10 +238,13 @@ export type ServiceOutputTypes =
   | GetMinuteUsageCommandOutput
   | GetMissionProfileCommandOutput
   | GetSatelliteCommandOutput
+  | ListAntennasCommandOutput
   | ListConfigsCommandOutput
+  | ListContactVersionsCommandOutput
   | ListContactsCommandOutput
   | ListDataflowEndpointGroupsCommandOutput
   | ListEphemeridesCommandOutput
+  | ListGroundStationReservationsCommandOutput
   | ListGroundStationsCommandOutput
   | ListMissionProfilesCommandOutput
   | ListSatellitesCommandOutput
@@ -232,6 +255,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAgentStatusCommandOutput
   | UpdateConfigCommandOutput
+  | UpdateContactCommandOutput
   | UpdateEphemerisCommandOutput
   | UpdateMissionProfileCommandOutput;
 

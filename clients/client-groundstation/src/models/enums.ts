@@ -229,6 +229,56 @@ export type EphemerisType = (typeof EphemerisType)[keyof typeof EphemerisType];
  * @public
  * @enum
  */
+export const VersionFailureReasonCode = {
+  AZEL_EPHEMERIS_INVALID_STATUS: "AZEL_EPHEMERIS_INVALID_STATUS",
+  AZEL_EPHEMERIS_NOT_FOUND: "AZEL_EPHEMERIS_NOT_FOUND",
+  AZEL_EPHEMERIS_TIME_RANGE_INVALID: "AZEL_EPHEMERIS_TIME_RANGE_INVALID",
+  AZEL_EPHEMERIS_WRONG_GROUND_STATION: "AZEL_EPHEMERIS_WRONG_GROUND_STATION",
+  EPHEMERIS_NOT_ENABLED: "EPHEMERIS_NOT_ENABLED",
+  EPHEMERIS_NOT_FOUND: "EPHEMERIS_NOT_FOUND",
+  EPHEMERIS_TIME_RANGE_INVALID: "EPHEMERIS_TIME_RANGE_INVALID",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_SATELLITE_ARN: "INVALID_SATELLITE_ARN",
+  INVALID_UPDATE_CONTACT_REQUEST: "INVALID_UPDATE_CONTACT_REQUEST",
+  NOT_ONBOARDED_TO_AZEL_EPHEMERIS: "NOT_ONBOARDED_TO_AZEL_EPHEMERIS",
+  SATELLITE_DOES_NOT_MATCH_EPHEMERIS: "SATELLITE_DOES_NOT_MATCH_EPHEMERIS",
+} as const;
+/**
+ * @public
+ */
+export type VersionFailureReasonCode = (typeof VersionFailureReasonCode)[keyof typeof VersionFailureReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VersionStatus = {
+  /**
+   * <p>The version is the current active version of the contact.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The version update failed.</p>
+   */
+  FAILED_TO_UPDATE: "FAILED_TO_UPDATE",
+  /**
+   * <p>The version has been replaced by a newer version.</p>
+   */
+  SUPERSEDED: "SUPERSEDED",
+  /**
+   * <p>The version is being applied to the contact.</p>
+   */
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const EphemerisErrorCode = {
   AZ_EL_SEGMENTS_OUT_OF_ORDER: "AZ_EL_SEGMENTS_OUT_OF_ORDER",
   AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME: "AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME",
@@ -280,23 +330,23 @@ export type EphemerisErrorCode = (typeof EphemerisErrorCode)[keyof typeof Epheme
  */
 export const EphemerisInvalidReason = {
   /**
-   * Provided KMS key is invalid
+   * <p>Provided KMS key is invalid.</p>
    */
   KMS_KEY_INVALID: "KMS_KEY_INVALID",
   /**
-   * Provided spacecraft identifiers such as spacecraft NORAD Id are invalid
+   * <p>Provided spacecraft identifiers such as spacecraft NORAD ID are invalid.</p>
    */
   METADATA_INVALID: "METADATA_INVALID",
   /**
-   * Start, end, or expiration time(s) are invalid for the provided ephemeris
+   * <p>Start, end, or expiration time(s) are invalid for the provided ephemeris.</p>
    */
   TIME_RANGE_INVALID: "TIME_RANGE_INVALID",
   /**
-   * Provided ephemeris defines invalid spacecraft trajectory
+   * <p>Provided ephemeris defines invalid spacecraft trajectory.</p>
    */
   TRAJECTORY_INVALID: "TRAJECTORY_INVALID",
   /**
-   * Internal Service Error occurred while processing ephemeris
+   * <p>Internal service error occurred while processing ephemeris.</p>
    */
   VALIDATION_ERROR: "VALIDATION_ERROR",
 } as const;
@@ -334,3 +384,29 @@ export const EphemerisSource = {
  * @public
  */
 export type EphemerisSource = (typeof EphemerisSource)[keyof typeof EphemerisSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservationType = {
+  CONTACT: "CONTACT",
+  MAINTENANCE: "MAINTENANCE",
+} as const;
+/**
+ * @public
+ */
+export type ReservationType = (typeof ReservationType)[keyof typeof ReservationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceType = {
+  PLANNED: "PLANNED",
+  UNPLANNED: "UNPLANNED",
+} as const;
+/**
+ * @public
+ */
+export type MaintenanceType = (typeof MaintenanceType)[keyof typeof MaintenanceType];

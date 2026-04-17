@@ -83,6 +83,18 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * //         ephemerisId: "STRING_VALUE",
  * //         ephemerisType: "TLE" || "OEM" || "AZ_EL" || "SERVICE_MANAGED", // required
  * //       },
+ * //       version: { // ContactVersion
+ * //         versionId: Number("int"),
+ * //         created: new Date("TIMESTAMP"),
+ * //         activated: new Date("TIMESTAMP"),
+ * //         superseded: new Date("TIMESTAMP"),
+ * //         lastUpdated: new Date("TIMESTAMP"),
+ * //         status: "UPDATING" || "ACTIVE" || "SUPERSEDED" || "FAILED_TO_UPDATE",
+ * //         failureCodes: [ // VersionFailureReasonCodes
+ * //           "INTERNAL_ERROR" || "INVALID_SATELLITE_ARN" || "INVALID_UPDATE_CONTACT_REQUEST" || "EPHEMERIS_NOT_FOUND" || "EPHEMERIS_TIME_RANGE_INVALID" || "EPHEMERIS_NOT_ENABLED" || "SATELLITE_DOES_NOT_MATCH_EPHEMERIS" || "NOT_ONBOARDED_TO_AZEL_EPHEMERIS" || "AZEL_EPHEMERIS_NOT_FOUND" || "AZEL_EPHEMERIS_WRONG_GROUND_STATION" || "AZEL_EPHEMERIS_INVALID_STATUS" || "AZEL_EPHEMERIS_TIME_RANGE_INVALID",
+ * //         ],
+ * //         failureMessage: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

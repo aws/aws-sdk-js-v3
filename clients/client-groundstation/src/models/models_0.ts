@@ -17,8 +17,12 @@ import type {
   EphemerisStatus,
   EphemerisType,
   FrequencyUnits,
+  MaintenanceType,
   Polarization,
+  ReservationType,
   TelemetrySinkType,
+  VersionFailureReasonCode,
+  VersionStatus,
 } from "./enums";
 
 /**
@@ -403,6 +407,30 @@ export interface AntennaDownlinkDemodDecodeConfig {
    * @public
    */
   decodeConfig: DecodeConfig | undefined;
+}
+
+/**
+ * <p>An antenna at a ground station.</p>
+ * @public
+ */
+export interface AntennaListItem {
+  /**
+   * <p>Name of the ground station the antenna is associated with.</p>
+   * @public
+   */
+  groundStationName: string | undefined;
+
+  /**
+   * <p>Name of the antenna.</p>
+   * @public
+   */
+  antennaName: string | undefined;
+
+  /**
+   * <p>Region of the antenna.</p>
+   * @public
+   */
+  region: string | undefined;
 }
 
 /**
@@ -795,7 +823,7 @@ export interface AzElProgramTrackSettings {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>CancelContact</code> operation. </p>
  * @public
  */
 export interface CancelContactRequest {
@@ -807,7 +835,7 @@ export interface CancelContactRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Response containing the ID of a contact. </p>
  * @public
  */
 export interface ContactIdResponse {
@@ -816,10 +844,16 @@ export interface ContactIdResponse {
    * @public
    */
   contactId?: string | undefined;
+
+  /**
+   * <p>Version ID of a contact.</p>
+   * @public
+   */
+  versionId?: number | undefined;
 }
 
 /**
- * <p> </p>
+ * <p>Response containing the ARN, ID, and type of a <code>Config</code>. </p>
  * @public
  */
 export interface ConfigIdResponse {
@@ -1169,7 +1203,7 @@ export namespace ConfigTypeData {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>CreateConfig</code> operation. </p>
  * @public
  */
 export interface CreateConfigRequest {
@@ -1193,7 +1227,7 @@ export interface CreateConfigRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>DeleteConfig</code> operation. </p>
  * @public
  */
 export interface DeleteConfigRequest {
@@ -1211,7 +1245,7 @@ export interface DeleteConfigRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>GetConfig</code> operation. </p>
  * @public
  */
 export interface GetConfigRequest {
@@ -1229,7 +1263,7 @@ export interface GetConfigRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>GetConfig</code> operation. </p>
  * @public
  */
 export interface GetConfigResponse {
@@ -1271,7 +1305,7 @@ export interface GetConfigResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>ListConfigs</code> operation. </p>
  * @public
  */
 export interface ListConfigsRequest {
@@ -1319,7 +1353,7 @@ export interface ConfigListItem {
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>ListConfigs</code> operation. </p>
  * @public
  */
 export interface ListConfigsResponse {
@@ -1337,7 +1371,7 @@ export interface ListConfigsResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>UpdateConfig</code> operation. </p>
  * @public
  */
 export interface UpdateConfigRequest {
@@ -1730,7 +1764,7 @@ export namespace ConfigDetails {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>DescribeContact</code> operation. </p>
  * @public
  */
 export interface DescribeContactRequest {
@@ -1862,11 +1896,37 @@ export interface Elevation {
 }
 
 /**
+ * <p>Program track settings for <a>OEMEphemeris</a>.</p>
+ * @public
+ */
+export interface OemProgramTrackSettings {
+  /**
+   * <p>Unique identifier of the OEM ephemeris.</p>
+   * @public
+   */
+  ephemerisId: string | undefined;
+}
+
+/**
+ * <p>Program track settings for <a>TLEEphemeris</a>.</p>
+ * @public
+ */
+export interface TleProgramTrackSettings {
+  /**
+   * <p>Unique identifier of the TLE ephemeris.</p>
+   * @public
+   */
+  ephemerisId: string | undefined;
+}
+
+/**
  * <p>Program track settings for an antenna during a contact.</p>
  * @public
  */
 export type ProgramTrackSettings =
   | ProgramTrackSettings.AzElMember
+  | ProgramTrackSettings.OemMember
+  | ProgramTrackSettings.TleMember
   | ProgramTrackSettings.$UnknownMember;
 
 /**
@@ -1879,6 +1939,30 @@ export namespace ProgramTrackSettings {
    */
   export interface AzElMember {
     azEl: AzElProgramTrackSettings;
+    oem?: never;
+    tle?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Program track settings for <a>OEMEphemeris</a>.</p>
+   * @public
+   */
+  export interface OemMember {
+    azEl?: never;
+    oem: OemProgramTrackSettings;
+    tle?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Program track settings for <a>TLEEphemeris</a>.</p>
+   * @public
+   */
+  export interface TleMember {
+    azEl?: never;
+    oem?: never;
+    tle: TleProgramTrackSettings;
     $unknown?: never;
   }
 
@@ -1887,6 +1971,8 @@ export namespace ProgramTrackSettings {
    */
   export interface $UnknownMember {
     azEl?: never;
+    oem?: never;
+    tle?: never;
     $unknown: [string, any];
   }
 
@@ -1896,6 +1982,8 @@ export namespace ProgramTrackSettings {
    */
   export interface Visitor<T> {
     azEl: (value: AzElProgramTrackSettings) => T;
+    oem: (value: OemProgramTrackSettings) => T;
+    tle: (value: TleProgramTrackSettings) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1909,11 +1997,65 @@ export interface TrackingOverrides {
    * <p>Program track settings to override for antenna tracking during the contact.</p>
    * @public
    */
-  programTrackSettings: ProgramTrackSettings | undefined;
+  programTrackSettings?: ProgramTrackSettings | undefined;
 }
 
 /**
- * <p> </p>
+ * <p>Version information for a contact.</p>
+ * @public
+ */
+export interface ContactVersion {
+  /**
+   * <p>Version ID of a contact.</p>
+   * @public
+   */
+  versionId?: number | undefined;
+
+  /**
+   * <p>Time the contact version was created in UTC.</p>
+   * @public
+   */
+  created?: Date | undefined;
+
+  /**
+   * <p>Time the contact version was activated in UTC. A version is activated when it becomes the current active version of the contact.</p>
+   * @public
+   */
+  activated?: Date | undefined;
+
+  /**
+   * <p>Time the contact version was superseded in UTC. A version is superseded when a newer version becomes active.</p>
+   * @public
+   */
+  superseded?: Date | undefined;
+
+  /**
+   * <p>Time the contact version was last updated in UTC.</p>
+   * @public
+   */
+  lastUpdated?: Date | undefined;
+
+  /**
+   * <p>Status of the contact version.</p>
+   * @public
+   */
+  status?: VersionStatus | undefined;
+
+  /**
+   * <p>List of failure codes for the contact version.</p>
+   * @public
+   */
+  failureCodes?: VersionFailureReasonCode[] | undefined;
+
+  /**
+   * <p>Failure message for the contact version.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
+}
+
+/**
+ * <p>Output for the <code>DescribeContact</code> operation. </p>
  * @public
  */
 export interface DescribeContactResponse {
@@ -1948,13 +2090,13 @@ export interface DescribeContactResponse {
   endTime?: Date | undefined;
 
   /**
-   * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * <p>Start time in UTC of the pre-pass period, at which you receive a CloudWatch event indicating an upcoming pass.</p>
    * @public
    */
   prePassStartTime?: Date | undefined;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * <p>End time in UTC of the post-pass period, at which you receive a CloudWatch event indicating the pass has finished.</p>
    * @public
    */
   postPassEndTime?: Date | undefined;
@@ -1990,7 +2132,7 @@ export interface DescribeContactResponse {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Region of a contact.</p>
+   * <p>Region where the <code>ReserveContact</code> API was called to schedule this contact.</p>
    * @public
    */
   region?: string | undefined;
@@ -2002,13 +2144,13 @@ export interface DescribeContactResponse {
   dataflowList?: DataflowDetail[] | undefined;
 
   /**
-   * <p> Projected time in UTC your satellite will rise above the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. </p>
+   * <p> Projected time in UTC your satellite will rise above the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts.</p>
    * @public
    */
   visibilityStartTime?: Date | undefined;
 
   /**
-   * <p> Projected time in UTC your satellite will set below the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. </p>
+   * <p> Projected time in UTC your satellite will set below the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts.</p>
    * @public
    */
   visibilityEndTime?: Date | undefined;
@@ -2024,6 +2166,148 @@ export interface DescribeContactResponse {
    * @public
    */
   ephemeris?: EphemerisResponseData | undefined;
+
+  /**
+   * <p>Version information for a contact.</p>
+   * @public
+   */
+  version?: ContactVersion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactVersionRequest {
+  /**
+   * <p>UUID of a contact.</p>
+   * @public
+   */
+  contactId: string | undefined;
+
+  /**
+   * <p>Version ID of a contact.</p>
+   * @public
+   */
+  versionId: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactVersionResponse {
+  /**
+   * <p>UUID of a contact.</p>
+   * @public
+   */
+  contactId?: string | undefined;
+
+  /**
+   * <p>ARN of the contact's mission profile.</p>
+   * @public
+   */
+  missionProfileArn?: string | undefined;
+
+  /**
+   * <p>ARN of a satellite.</p>
+   * @public
+   */
+  satelliteArn?: string | undefined;
+
+  /**
+   * <p>Start time of a contact in UTC.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>End time of a contact in UTC.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>Start time in UTC of the pre-pass period, at which you receive a CloudWatch event indicating an upcoming pass.</p>
+   * @public
+   */
+  prePassStartTime?: Date | undefined;
+
+  /**
+   * <p>End time in UTC of the post-pass period, at which you receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
+   */
+  postPassEndTime?: Date | undefined;
+
+  /**
+   * <p>Ground station for a contact.</p>
+   * @public
+   */
+  groundStation?: string | undefined;
+
+  /**
+   * <p>Status of a contact.</p>
+   * @public
+   */
+  contactStatus?: ContactStatus | undefined;
+
+  /**
+   * <p>Error message for a contact.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>Maximum elevation angle of a contact.</p>
+   * @public
+   */
+  maximumElevation?: Elevation | undefined;
+
+  /**
+   * <p>Tags assigned to a contact.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Region where the <code>ReserveContact</code> API was called to schedule this contact.</p>
+   * @public
+   */
+  region?: string | undefined;
+
+  /**
+   * <p>List describing source and destination details for each dataflow edge.</p>
+   * @public
+   */
+  dataflowList?: DataflowDetail[] | undefined;
+
+  /**
+   * <p> Projected time in UTC your satellite will rise above the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts.</p>
+   * @public
+   */
+  visibilityStartTime?: Date | undefined;
+
+  /**
+   * <p> Projected time in UTC your satellite will set below the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts.</p>
+   * @public
+   */
+  visibilityEndTime?: Date | undefined;
+
+  /**
+   * <p>Tracking configuration overrides applied to this contact version. For the initial version, these are the overrides specified when the contact was reserved. For subsequent versions, these are the overrides associated with that specific version update.</p>
+   * @public
+   */
+  trackingOverrides?: TrackingOverrides | undefined;
+
+  /**
+   * <p>The ephemeris that determines antenna pointing directions for the contact.</p>
+   * @public
+   */
+  ephemeris?: EphemerisResponseData | undefined;
+
+  /**
+   * <p>Version information for a contact.</p>
+   * @public
+   */
+  version?: ContactVersion | undefined;
 }
 
 /**
@@ -2066,7 +2350,7 @@ export namespace EphemerisFilter {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>ListContacts</code> operation. </p>
  * @public
  */
 export interface ListContactsRequest {
@@ -2161,13 +2445,13 @@ export interface ContactData {
   endTime?: Date | undefined;
 
   /**
-   * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * <p>Start time in UTC of the pre-pass period, at which you receive a CloudWatch event indicating an upcoming pass.</p>
    * @public
    */
   prePassStartTime?: Date | undefined;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * <p>End time in UTC of the post-pass period, at which you receive a CloudWatch event indicating the pass has finished.</p>
    * @public
    */
   postPassEndTime?: Date | undefined;
@@ -2225,10 +2509,16 @@ export interface ContactData {
    * @public
    */
   ephemeris?: EphemerisResponseData | undefined;
+
+  /**
+   * <p>Version information for a contact.</p>
+   * @public
+   */
+  version?: ContactVersion | undefined;
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>ListContacts</code> operation. </p>
  * @public
  */
 export interface ListContactsResponse {
@@ -2246,7 +2536,47 @@ export interface ListContactsResponse {
 }
 
 /**
- * <p> </p>
+ * @public
+ */
+export interface ListContactVersionsRequest {
+  /**
+   * <p>UUID of a contact.</p>
+   * @public
+   */
+  contactId: string | undefined;
+
+  /**
+   * <p>Maximum number of contact versions returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Next token returned in the request of a previous <code>ListContactVersions</code> call. Used to get the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactVersionsResponse {
+  /**
+   * <p>Next token to be used in a subsequent <code>ListContactVersions</code> call to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>List of contact versions.</p>
+   * @public
+   */
+  contactVersionsList?: ContactVersion[] | undefined;
+}
+
+/**
+ * <p>Input for the <code>ReserveContact</code> operation. </p>
  * @public
  */
 export interface ReserveContactRequest {
@@ -2294,7 +2624,65 @@ export interface ReserveContactRequest {
 }
 
 /**
- * <p> </p>
+ * @public
+ */
+export interface UpdateContactRequest {
+  /**
+   * <p>UUID of a contact.</p>
+   * @public
+   */
+  contactId: string | undefined;
+
+  /**
+   * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters. It is generated by the client to ensure idempotent operations, allowing safe retries without unintended side effects.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Overrides the default tracking configuration on an antenna during a contact.</p>
+   * @public
+   */
+  trackingOverrides?: TrackingOverrides | undefined;
+
+  /**
+   * <p>ARN of a satellite.</p>
+   * @public
+   */
+  satelliteArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactResponse {
+  /**
+   * <p>UUID of a contact.</p>
+   * @public
+   */
+  contactId?: string | undefined;
+
+  /**
+   * <p>Version ID of a contact.</p>
+   * @public
+   */
+  versionId?: number | undefined;
+}
+
+/**
+ * <p>Details of a contact reservation.</p>
+ * @public
+ */
+export interface ContactReservationDetails {
+  /**
+   * <p>UUID of a contact.</p>
+   * @public
+   */
+  contactId?: string | undefined;
+}
+
+/**
+ * <p>Input for the <code>CreateDataflowEndpointGroup</code> operation. </p>
  * @public
  */
 export interface CreateDataflowEndpointGroupRequest {
@@ -2324,7 +2712,7 @@ export interface CreateDataflowEndpointGroupRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Response containing the ID of a dataflow endpoint group. </p>
  * @public
  */
 export interface DataflowEndpointGroupIdResponse {
@@ -2745,7 +3133,7 @@ export namespace KmsKey {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>CreateMissionProfile</code> operation. </p>
  * @public
  */
 export interface CreateMissionProfileRequest {
@@ -2756,19 +3144,19 @@ export interface CreateMissionProfileRequest {
   name: string | undefined;
 
   /**
-   * <p>Amount of time prior to contact start you’d like to receive a Ground Station Contact State Change event indicating an upcoming pass.</p>
+   * <p>Amount of time prior to contact start you'd like to receive a Ground Station Contact State Change event indicating an upcoming pass.</p>
    * @public
    */
   contactPrePassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you'd like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
    * @public
    */
   contactPostPassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   * <p>Smallest amount of time in seconds that you'd like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
    * @public
    */
   minimumViableContactDurationSeconds: number | undefined;
@@ -2811,7 +3199,7 @@ export interface CreateMissionProfileRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Response containing the ID of a mission profile. </p>
  * @public
  */
 export interface MissionProfileIdResponse {
@@ -2823,7 +3211,7 @@ export interface MissionProfileIdResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>DeleteDataflowEndpointGroup</code> operation. </p>
  * @public
  */
 export interface DeleteDataflowEndpointGroupRequest {
@@ -2835,7 +3223,7 @@ export interface DeleteDataflowEndpointGroupRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>GetDataflowEndpointGroup</code> operation. </p>
  * @public
  */
 export interface GetDataflowEndpointGroupRequest {
@@ -2847,7 +3235,7 @@ export interface GetDataflowEndpointGroupRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>GetDataflowEndpointGroup</code> operation. </p>
  * @public
  */
 export interface GetDataflowEndpointGroupResponse {
@@ -2889,7 +3277,7 @@ export interface GetDataflowEndpointGroupResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>ListDataflowEndpointGroups</code> operation. </p>
  * @public
  */
 export interface ListDataflowEndpointGroupsRequest {
@@ -2925,7 +3313,7 @@ export interface DataflowEndpointListItem {
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>ListDataflowEndpointGroups</code> operation. </p>
  * @public
  */
 export interface ListDataflowEndpointGroupsResponse {
@@ -2954,7 +3342,7 @@ export interface DeleteEphemerisRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>DeleteMissionProfile</code> operation. </p>
  * @public
  */
 export interface DeleteMissionProfileRequest {
@@ -3370,7 +3758,7 @@ export interface GetAgentTaskResponseUrlResponse {
 }
 
 /**
- * <p/>
+ * <p>Input for the <code>GetMinuteUsage</code> operation.</p>
  * @public
  */
 export interface GetMinuteUsageRequest {
@@ -3388,7 +3776,7 @@ export interface GetMinuteUsageRequest {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>GetMinuteUsage</code> operation.</p>
  * @public
  */
 export interface GetMinuteUsageResponse {
@@ -3424,7 +3812,7 @@ export interface GetMinuteUsageResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>GetMissionProfile</code> operation. </p>
  * @public
  */
 export interface GetMissionProfileRequest {
@@ -3436,7 +3824,7 @@ export interface GetMissionProfileRequest {
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>GetMissionProfile</code> operation. </p>
  * @public
  */
 export interface GetMissionProfileResponse {
@@ -3465,19 +3853,19 @@ export interface GetMissionProfileResponse {
   region?: string | undefined;
 
   /**
-   * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * <p>Amount of time prior to contact start you'd like to receive a CloudWatch event indicating an upcoming pass.</p>
    * @public
    */
   contactPrePassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you'd like to receive a CloudWatch event indicating the pass has finished.</p>
    * @public
    */
   contactPostPassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   * <p>Smallest amount of time in seconds that you'd like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
    * @public
    */
   minimumViableContactDurationSeconds?: number | undefined;
@@ -3520,7 +3908,7 @@ export interface GetMissionProfileResponse {
 }
 
 /**
- * <p/>
+ * <p>Input for the <code>GetSatellite</code> operation.</p>
  * @public
  */
 export interface GetSatelliteRequest {
@@ -3532,7 +3920,7 @@ export interface GetSatelliteRequest {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>GetSatellite</code> operation.</p>
  * @public
  */
 export interface GetSatelliteResponse {
@@ -3568,7 +3956,212 @@ export interface GetSatelliteResponse {
 }
 
 /**
- * <p/>
+ * @public
+ */
+export interface ListAntennasRequest {
+  /**
+   * <p>ID of a ground station.</p>
+   * @public
+   */
+  groundStationId: string | undefined;
+
+  /**
+   * <p>Maximum number of antennas returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Next token returned in the request of a previous <code>ListAntennas</code> call. Used to get the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAntennasResponse {
+  /**
+   * <p>List of antennas.</p>
+   * @public
+   */
+  antennaList: AntennaListItem[] | undefined;
+
+  /**
+   * <p>Next token to be used in a subsequent <code>ListAntennas</code> call to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroundStationReservationsRequest {
+  /**
+   * <p>ID of a ground station.</p>
+   * @public
+   */
+  groundStationId: string | undefined;
+
+  /**
+   * <p>Start time of the reservation window in UTC.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>End time of the reservation window in UTC.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>Types of reservations to filter by.</p>
+   * @public
+   */
+  reservationTypes?: ReservationType[] | undefined;
+
+  /**
+   * <p>Maximum number of ground station reservations returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Next token returned in the request of a previous <code>ListGroundStationReservations</code> call. Used to get the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details of a maintenance reservation.</p>
+ * @public
+ */
+export interface MaintenanceReservationDetails {
+  /**
+   * <p>Type of maintenance.</p>
+   * @public
+   */
+  maintenanceType: MaintenanceType | undefined;
+}
+
+/**
+ * <p>Details of a ground station reservation.</p>
+ * @public
+ */
+export type ReservationDetails =
+  | ReservationDetails.ContactMember
+  | ReservationDetails.MaintenanceMember
+  | ReservationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReservationDetails {
+  /**
+   * <p>Details of a maintenance reservation.</p>
+   * @public
+   */
+  export interface MaintenanceMember {
+    maintenance: MaintenanceReservationDetails;
+    contact?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details of a contact reservation.</p>
+   * @public
+   */
+  export interface ContactMember {
+    maintenance?: never;
+    contact: ContactReservationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    maintenance?: never;
+    contact?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    maintenance: (value: MaintenanceReservationDetails) => T;
+    contact: (value: ContactReservationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Item in a list of ground station reservations.</p>
+ * @public
+ */
+export interface GroundStationReservationListItem {
+  /**
+   * <p>Type of a ground station reservation.</p>
+   * @public
+   */
+  reservationType: ReservationType | undefined;
+
+  /**
+   * <p>ID of a ground station.</p>
+   * @public
+   */
+  groundStationId: string | undefined;
+
+  /**
+   * <p>Name of an antenna.</p>
+   * @public
+   */
+  antennaName: string | undefined;
+
+  /**
+   * <p>Start time of a ground station reservation in UTC.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>End time of a ground station reservation in UTC.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>Details of a ground station reservation.</p>
+   * @public
+   */
+  reservationDetails: ReservationDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroundStationReservationsResponse {
+  /**
+   * <p>List of ground station reservations.</p>
+   * @public
+   */
+  reservationList: GroundStationReservationListItem[] | undefined;
+
+  /**
+   * <p>Next token to be used in a subsequent <code>ListGroundStationReservations</code> call to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for the <code>ListGroundStations</code> operation.</p>
  * @public
  */
 export interface ListGroundStationsRequest {
@@ -3597,7 +4190,7 @@ export interface ListGroundStationsRequest {
  */
 export interface GroundStationData {
   /**
-   * <p>UUID of a ground station.</p>
+   * <p>ID of a ground station.</p>
    * @public
    */
   groundStationId?: string | undefined;
@@ -3616,7 +4209,7 @@ export interface GroundStationData {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>ListGroundStations</code> operation.</p>
  * @public
  */
 export interface ListGroundStationsResponse {
@@ -3634,7 +4227,7 @@ export interface ListGroundStationsResponse {
 }
 
 /**
- * <p/>
+ * <p>Input for the <code>ListTagsForResource</code> operation.</p>
  * @public
  */
 export interface ListTagsForResourceRequest {
@@ -3646,7 +4239,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>ListTagsForResource</code> operation.</p>
  * @public
  */
 export interface ListTagsForResourceResponse {
@@ -3658,7 +4251,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>ListMissionProfiles</code> operation. </p>
  * @public
  */
 export interface ListMissionProfilesRequest {
@@ -3706,7 +4299,7 @@ export interface MissionProfileListItem {
 }
 
 /**
- * <p> </p>
+ * <p>Output for the <code>ListMissionProfiles</code> operation. </p>
  * @public
  */
 export interface ListMissionProfilesResponse {
@@ -3724,7 +4317,7 @@ export interface ListMissionProfilesResponse {
 }
 
 /**
- * <p> </p>
+ * <p>Input for the <code>UpdateMissionProfile</code> operation. </p>
  * @public
  */
 export interface UpdateMissionProfileRequest {
@@ -3741,19 +4334,19 @@ export interface UpdateMissionProfileRequest {
   name?: string | undefined;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you'd like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
    * @public
    */
   contactPrePassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you'd like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
    * @public
    */
   contactPostPassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   * <p>Smallest amount of time in seconds that you'd like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
    * @public
    */
   minimumViableContactDurationSeconds?: number | undefined;
@@ -3790,7 +4383,7 @@ export interface UpdateMissionProfileRequest {
 }
 
 /**
- * <p/>
+ * <p>Input for the <code>ListSatellites</code> operation.</p>
  * @public
  */
 export interface ListSatellitesRequest {
@@ -3844,7 +4437,7 @@ export interface SatelliteListItem {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>ListSatellites</code> operation.</p>
  * @public
  */
 export interface ListSatellitesResponse {
@@ -3862,7 +4455,7 @@ export interface ListSatellitesResponse {
 }
 
 /**
- * <p/>
+ * <p>Input for the <code>TagResource</code> operation.</p>
  * @public
  */
 export interface TagResourceRequest {
@@ -3880,13 +4473,13 @@ export interface TagResourceRequest {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>TagResource</code> operation.</p>
  * @public
  */
 export interface TagResourceResponse {}
 
 /**
- * <p/>
+ * <p>Input for the <code>UntagResource</code> operation.</p>
  * @public
  */
 export interface UntagResourceRequest {
@@ -3904,7 +4497,7 @@ export interface UntagResourceRequest {
 }
 
 /**
- * <p/>
+ * <p>Output for the <code>UntagResource</code> operation.</p>
  * @public
  */
 export interface UntagResourceResponse {}

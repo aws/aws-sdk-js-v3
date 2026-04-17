@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import type { ContactIdResponse, ReserveContactRequest } from "../models/models_0";
-import { ReserveContact$ } from "../schemas/schemas_0";
+import type { UpdateContactRequest, UpdateContactResponse } from "../models/models_0";
+import { UpdateContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,35 +16,29 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ReserveContactCommand}.
+ * The input for {@link UpdateContactCommand}.
  */
-export interface ReserveContactCommandInput extends ReserveContactRequest {}
+export interface UpdateContactCommandInput extends UpdateContactRequest {}
 /**
  * @public
  *
- * The output of {@link ReserveContactCommand}.
+ * The output of {@link UpdateContactCommand}.
  */
-export interface ReserveContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
+export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
- * <p>Reserves a contact using specified parameters.</p>
+ * <p>Updates a specific contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, ReserveContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, ReserveContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, UpdateContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, UpdateContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
  * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
- * const input = { // ReserveContactRequest
- *   missionProfileArn: "STRING_VALUE", // required
- *   satelliteArn: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   groundStation: "STRING_VALUE", // required
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // UpdateContactRequest
+ *   contactId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  *   trackingOverrides: { // TrackingOverrides
  *     programTrackSettings: { // ProgramTrackSettings Union: only one key present
  *       azEl: { // AzElProgramTrackSettings
@@ -58,20 +52,21 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  *       },
  *     },
  *   },
+ *   satelliteArn: "STRING_VALUE",
  * };
- * const command = new ReserveContactCommand(input);
+ * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
- * // { // ContactIdResponse
+ * // { // UpdateContactResponse
  * //   contactId: "STRING_VALUE",
  * //   versionId: Number("int"),
  * // };
  *
  * ```
  *
- * @param ReserveContactCommandInput - {@link ReserveContactCommandInput}
- * @returns {@link ReserveContactCommandOutput}
- * @see {@link ReserveContactCommandInput} for command's `input` shape.
- * @see {@link ReserveContactCommandOutput} for command's `response` shape.
+ * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
+ * @returns {@link UpdateContactCommandOutput}
+ * @see {@link UpdateContactCommandInput} for command's `input` shape.
+ * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
@@ -92,10 +87,10 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  *
  * @public
  */
-export class ReserveContactCommand extends $Command
+export class UpdateContactCommand extends $Command
   .classBuilder<
-    ReserveContactCommandInput,
-    ReserveContactCommandOutput,
+    UpdateContactCommandInput,
+    UpdateContactCommandOutput,
     GroundStationClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,19 +99,19 @@ export class ReserveContactCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("GroundStation", "ReserveContact", {})
-  .n("GroundStationClient", "ReserveContactCommand")
-  .sc(ReserveContact$)
+  .s("GroundStation", "UpdateContact", {})
+  .n("GroundStationClient", "UpdateContactCommand")
+  .sc(UpdateContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ReserveContactRequest;
-      output: ContactIdResponse;
+      input: UpdateContactRequest;
+      output: UpdateContactResponse;
     };
     sdk: {
-      input: ReserveContactCommandInput;
-      output: ReserveContactCommandOutput;
+      input: UpdateContactCommandInput;
+      output: UpdateContactCommandOutput;
     };
   };
 }

@@ -10,6 +10,8 @@ const _AESD = "AzElSegmentsData";
 const _AESL = "AzElSegmentList";
 const _AESz = "AzElSegments";
 const _AGSAE = "AwsGroundStationAgentEndpoint";
+const _AL = "AntennaList";
+const _ALI = "AntennaListItem";
 const _AS = "AggregateStatus";
 const _AUC = "AntennaUplinkConfig";
 const _CC = "CancelContact";
@@ -35,11 +37,14 @@ const _CLI = "ConfigListItem";
 const _CLo = "ContactList";
 const _CMP = "CreateMissionProfile";
 const _CMPR = "CreateMissionProfileRequest";
+const _CRD = "ContactReservationDetails";
 const _CSD = "ComponentStatusData";
 const _CSL = "ComponentStatusList";
 const _CTD = "ConfigTypeData";
 const _CV = "ComponentVersion";
 const _CVL = "ComponentVersionList";
+const _CVLo = "ContactVersionsList";
+const _CVo = "ContactVersion";
 const _D = "Destination";
 const _DAGSAE = "DownlinkAwsGroundStationAgentEndpoint";
 const _DAGSAED = "DownlinkAwsGroundStationAgentEndpointDetails";
@@ -48,6 +53,9 @@ const _DCD = "DownlinkConnectionDetails";
 const _DCR = "DeleteConfigRequest";
 const _DCRe = "DescribeContactRequest";
 const _DCRes = "DescribeContactResponse";
+const _DCV = "DescribeContactVersion";
+const _DCVR = "DescribeContactVersionRequest";
+const _DCVRe = "DescribeContactVersionResponse";
 const _DCe = "DemodulationConfig";
 const _DCel = "DeleteConfig";
 const _DCes = "DescribeContact";
@@ -110,17 +118,25 @@ const _GS = "GetSatellite";
 const _GSD = "GroundStationData";
 const _GSL = "GroundStationList";
 const _GSR = "GetSatelliteRequest";
+const _GSRL = "GroundStationReservationList";
+const _GSRLI = "GroundStationReservationListItem";
 const _GSRe = "GetSatelliteResponse";
 const _IPE = "InvalidParameterException";
 const _IR = "IntegerRange";
 const _ISOTR = "ISO8601TimeRange";
 const _KDSD = "KinesisDataStreamData";
 const _KK = "KmsKey";
+const _LA = "ListAntennas";
+const _LAR = "ListAntennasRequest";
+const _LARi = "ListAntennasResponse";
 const _LC = "ListConfigs";
 const _LCR = "ListConfigsRequest";
 const _LCRi = "ListConfigsResponse";
 const _LCRis = "ListContactsRequest";
 const _LCRist = "ListContactsResponse";
+const _LCV = "ListContactVersions";
+const _LCVR = "ListContactVersionsRequest";
+const _LCVRi = "ListContactVersionsResponse";
 const _LCi = "ListContacts";
 const _LDEG = "ListDataflowEndpointGroups";
 const _LDEGR = "ListDataflowEndpointGroupsRequest";
@@ -130,7 +146,10 @@ const _LER = "ListEphemeridesRequest";
 const _LERi = "ListEphemeridesResponse";
 const _LGS = "ListGroundStations";
 const _LGSR = "ListGroundStationsRequest";
+const _LGSRR = "ListGroundStationReservationsRequest";
+const _LGSRRi = "ListGroundStationReservationsResponse";
 const _LGSRi = "ListGroundStationsResponse";
+const _LGSRis = "ListGroundStationReservations";
 const _LMP = "ListMissionProfiles";
 const _LMPR = "ListMissionProfilesRequest";
 const _LMPRi = "ListMissionProfilesResponse";
@@ -143,7 +162,9 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _MPIR = "MissionProfileIdResponse";
 const _MPL = "MissionProfileList";
 const _MPLI = "MissionProfileListItem";
+const _MRD = "MaintenanceReservationDetails";
 const _OEME = "OEMEphemeris";
+const _OPTS = "OemProgramTrackSettings";
 const _PTS = "ProgramTrackSettings";
 const _RA = "RegisterAgent";
 const _RAR = "RegisterAgentRequest";
@@ -151,6 +172,7 @@ const _RARe = "RegisterAgentResponse";
 const _RC = "ReserveContact";
 const _RCD = "RangedConnectionDetails";
 const _RCR = "ReserveContactRequest";
+const _RD = "ReservationDetails";
 const _RIUE = "ResourceInUseException";
 const _RLEE = "ResourceLimitExceededException";
 const _RNFE = "ResourceNotFoundException";
@@ -172,6 +194,7 @@ const _TLED = "TLEData";
 const _TLEDL = "TLEDataList";
 const _TLEE = "TLEEphemeris";
 const _TO = "TrackingOverrides";
+const _TPTS = "TleProgramTrackSettings";
 const _TR = "TimeRange";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
@@ -186,6 +209,9 @@ const _UASRp = "UpdateAgentStatusResponse";
 const _UC = "UpdateConfig";
 const _UCD = "UplinkConnectionDetails";
 const _UCR = "UpdateConfigRequest";
+const _UCRp = "UpdateContactRequest";
+const _UCRpd = "UpdateContactResponse";
+const _UCp = "UpdateContact";
 const _UDD = "UplinkDataflowDetails";
 const _UE = "UpdateEphemeris";
 const _UEC = "UplinkEchoConfig";
@@ -196,7 +222,7 @@ const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _USC = "UplinkSpectrumConfig";
-const _a = "address";
+const _a = "activated";
 const _aCC = "agentCpuCores";
 const _aCD = "agentConnectionDetails";
 const _aD = "agentDetails";
@@ -210,6 +236,8 @@ const _aESL = "azElSegmentList";
 const _aGSAE = "awsGroundStationAgentEndpoint";
 const _aI = "agentId";
 const _aIAPA = "agentIpAndPortAddress";
+const _aL = "antennaList";
+const _aN = "antennaName";
 const _aR = "auditResults";
 const _aS = "agentStatus";
 const _aSg = "aggregateStatus";
@@ -217,6 +245,7 @@ const _aU = "angleUnit";
 const _aUC = "antennaUplinkConfig";
 const _aUCA = "antennaUplinkConfigArn";
 const _aV = "agentVersion";
+const _ad = "address";
 const _au = "autotrack";
 const _az = "az";
 const _b = "bucket";
@@ -241,9 +270,13 @@ const _cPPDSo = "contactPostPassDurationSeconds";
 const _cS = "contactStatus";
 const _cSo = "componentStatuses";
 const _cT = "componentType";
+const _cTl = "clientToken";
 const _cTo = "configType";
 const _cTr = "creationTime";
 const _cV = "componentVersions";
+const _cVL = "contactVersionsList";
+const _co = "contact";
+const _cr = "created";
 const _d = "data";
 const _dAGSAE = "downlinkAwsGroundStationAgentEndpoint";
 const _dC = "demodulationConfig";
@@ -284,6 +317,8 @@ const _end = "endpoint";
 const _ep = "ephemeris";
 const _eph = "ephemerides";
 const _epo = "epoch";
+const _fC = "failureCodes";
+const _fM = "failureMessage";
 const _gS = "groundStation";
 const _gSI = "groundStationId";
 const _gSL = "groundStationList";
@@ -309,14 +344,17 @@ const _kDSD = "kinesisDataStreamData";
 const _kKA = "kmsKeyArn";
 const _kRA = "kinesisRoleArn";
 const _kT = "keyTemplate";
+const _lU = "lastUpdated";
 const _m = "message";
 const _mE = "maximumElevation";
 const _mPA = "missionProfileArn";
 const _mPI = "missionProfileId";
 const _mPL = "missionProfileList";
 const _mR = "maxResults";
+const _mT = "maintenanceType";
 const _mVCDS = "minimumViableContactDurationSeconds";
 const _ma = "maximum";
+const _mai = "maintenance";
 const _mi = "minimum";
 const _mo = "month";
 const _mt = "mtu";
@@ -343,7 +381,11 @@ const _r = "region";
 const _rA = "resourceArn";
 const _rAo = "roleArn";
 const _rCC = "reservedCpuCores";
+const _rD = "reservationDetails";
 const _rE = "referenceEpoch";
+const _rL = "reservationList";
+const _rT = "reservationType";
+const _rTe = "reservationTypes";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.groundstation";
 const _sA = "socketAddress";
 const _sAa = "satelliteArn";
@@ -366,6 +408,7 @@ const _sa = "satellites";
 const _se = "server";
 const _so = "source";
 const _st = "status";
+const _su = "superseded";
 const _t = "tags";
 const _tC = "trackingConfig";
 const _tCA = "trackingConfigArn";
@@ -393,6 +436,7 @@ const _uMS = "upcomingMinutesScheduled";
 const _un = "unit";
 const _v = "versions";
 const _vET = "visibilityEndTime";
+const _vI = "versionId";
 const _vST = "visibilityStartTime";
 const _vTR = "validTimeRange";
 const _va = "value";
@@ -496,6 +540,11 @@ export var AntennaDownlinkDemodDecodeConfig$: StaticStructureSchema = [3, n0, _A
   [_sC, _dC, _dCe],
   [() => SpectrumConfig$, () => DemodulationConfig$, () => DecodeConfig$], 3
 ];
+export var AntennaListItem$: StaticStructureSchema = [3, n0, _ALI,
+  0,
+  [_gSN, _aN, _r],
+  [0, 0, 0], 3
+];
 export var AntennaUplinkConfig$: StaticStructureSchema = [3, n0, _AUC,
   0,
   [_sC, _tE, _tD],
@@ -563,13 +612,23 @@ export var ConnectionDetails$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var ContactData$: StaticStructureSchema = [3, n0, _CDo,
   0,
-  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _r, _t, _vST, _vET, _ep],
-  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 0, 128 | 0, 4, 4, () => EphemerisResponseData$]
+  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _r, _t, _vST, _vET, _ep, _ve],
+  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 0, 128 | 0, 4, 4, () => EphemerisResponseData$, () => ContactVersion$]
 ];
 export var ContactIdResponse$: StaticStructureSchema = [3, n0, _CIRo,
   0,
+  [_cI, _vI],
+  [0, 1]
+];
+export var ContactReservationDetails$: StaticStructureSchema = [3, n0, _CRD,
+  0,
   [_cI],
   [0]
+];
+export var ContactVersion$: StaticStructureSchema = [3, n0, _CVo,
+  0,
+  [_vI, _cr, _a, _su, _lU, _st, _fC, _fM],
+  [1, 4, 4, 4, 4, 0, 64 | 0, 0]
 ];
 export var CreateConfigRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -608,7 +667,7 @@ export var DataflowDetail$: StaticStructureSchema = [3, n0, _DD,
 ];
 export var DataflowEndpoint$: StaticStructureSchema = [3, n0, _DEa,
   0,
-  [_n, _a, _st, _mt],
+  [_n, _ad, _st, _mt],
   [0, () => SocketAddress$, 0, 1]
 ];
 export var DataflowEndpointConfig$: StaticStructureSchema = [3, n0, _DEC,
@@ -663,8 +722,18 @@ export var DescribeContactRequest$: StaticStructureSchema = [3, n0, _DCRe,
 ];
 export var DescribeContactResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
-  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _t, _r, _dL, _vST, _vET, _tO, _ep],
-  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 128 | 0, 0, () => DataflowList, 4, 4, () => TrackingOverrides$, () => EphemerisResponseData$]
+  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _t, _r, _dL, _vST, _vET, _tO, _ep, _ve],
+  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 128 | 0, 0, () => DataflowList, 4, 4, () => TrackingOverrides$, () => EphemerisResponseData$, () => ContactVersion$]
+];
+export var DescribeContactVersionRequest$: StaticStructureSchema = [3, n0, _DCVR,
+  0,
+  [_cI, _vI],
+  [[0, 1], [1, 1]], 2
+];
+export var DescribeContactVersionResponse$: StaticStructureSchema = [3, n0, _DCVRe,
+  0,
+  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _t, _r, _dL, _vST, _vET, _tO, _ep, _ve],
+  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 128 | 0, 0, () => DataflowList, 4, 4, () => TrackingOverrides$, () => EphemerisResponseData$, () => ContactVersion$]
 ];
 export var DescribeEphemerisRequest$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -831,6 +900,11 @@ export var GroundStationData$: StaticStructureSchema = [3, n0, _GSD,
   [_gSI, _gSN, _r],
   [0, 0, 0]
 ];
+export var GroundStationReservationListItem$: StaticStructureSchema = [3, n0, _GSRLI,
+  0,
+  [_rT, _gSI, _aN, _sT, _eT, _rD],
+  [0, 0, 0, 4, 4, () => ReservationDetails$], 6
+];
 export var IntegerRange$: StaticStructureSchema = [3, n0, _IR,
   0,
   [_mi, _ma],
@@ -845,6 +919,16 @@ export var KinesisDataStreamData$: StaticStructureSchema = [3, n0, _KDSD,
   0,
   [_kRA, _kDSA],
   [0, 0], 2
+];
+export var ListAntennasRequest$: StaticStructureSchema = [3, n0, _LAR,
+  0,
+  [_gSI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAntennasResponse$: StaticStructureSchema = [3, n0, _LARi,
+  0,
+  [_aL, _nT],
+  [() => AntennaList, 0], 1
 ];
 export var ListConfigsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -866,6 +950,16 @@ export var ListContactsResponse$: StaticStructureSchema = [3, n0, _LCRist,
   [_nT, _cLo],
   [0, () => ContactList]
 ];
+export var ListContactVersionsRequest$: StaticStructureSchema = [3, n0, _LCVR,
+  0,
+  [_cI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListContactVersionsResponse$: StaticStructureSchema = [3, n0, _LCVRi,
+  0,
+  [_nT, _cVL],
+  [0, () => ContactVersionsList]
+];
 export var ListDataflowEndpointGroupsRequest$: StaticStructureSchema = [3, n0, _LDEGR,
   0,
   [_mR, _nT],
@@ -885,6 +979,16 @@ export var ListEphemeridesResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
   [_nT, _eph],
   [0, () => EphemeridesList]
+];
+export var ListGroundStationReservationsRequest$: StaticStructureSchema = [3, n0, _LGSRR,
+  0,
+  [_gSI, _sT, _eT, _rTe, _mR, _nT],
+  [[0, 1], [7, { [_hQ]: _sT }], [7, { [_hQ]: _eT }], [64 | 0, { [_hQ]: _rTe }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 3
+];
+export var ListGroundStationReservationsResponse$: StaticStructureSchema = [3, n0, _LGSRRi,
+  0,
+  [_rL, _nT],
+  [() => GroundStationReservationList, 0], 1
 ];
 export var ListGroundStationsRequest$: StaticStructureSchema = [3, n0, _LGSR,
   0,
@@ -926,6 +1030,11 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
+export var MaintenanceReservationDetails$: StaticStructureSchema = [3, n0, _MRD,
+  0,
+  [_mT],
+  [0], 1
+];
 export var MissionProfileIdResponse$: StaticStructureSchema = [3, n0, _MPIR,
   0,
   [_mPI],
@@ -940,6 +1049,11 @@ export var OEMEphemeris$: StaticStructureSchema = [3, n0, _OEME,
   0,
   [_sO, _oD],
   [() => S3Object$, 0]
+];
+export var OemProgramTrackSettings$: StaticStructureSchema = [3, n0, _OPTS,
+  0,
+  [_eI],
+  [0], 1
 ];
 export var RangedConnectionDetails$: StaticStructureSchema = [3, n0, _RCD,
   0,
@@ -1041,6 +1155,11 @@ export var TLEEphemeris$: StaticStructureSchema = [3, n0, _TLEE,
   [_sO, _tDl],
   [() => S3Object$, () => TLEDataList]
 ];
+export var TleProgramTrackSettings$: StaticStructureSchema = [3, n0, _TPTS,
+  0,
+  [_eI],
+  [0], 1
+];
 export var TrackingConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_au],
@@ -1049,7 +1168,7 @@ export var TrackingConfig$: StaticStructureSchema = [3, n0, _TC,
 export var TrackingOverrides$: StaticStructureSchema = [3, n0, _TO,
   0,
   [_pTS],
-  [() => ProgramTrackSettings$], 1
+  [() => ProgramTrackSettings$]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1075,6 +1194,16 @@ export var UpdateConfigRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cIo, _n, _cTo, _cD],
   [[0, 1], 0, [0, 1], () => ConfigTypeData$], 4
+];
+export var UpdateContactRequest$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_cI, _cTl, _tO, _sAa],
+  [[0, 1], [0, 4], () => TrackingOverrides$, 0], 1
+];
+export var UpdateContactResponse$: StaticStructureSchema = [3, n0, _UCRpd,
+  0,
+  [_cI, _vI],
+  [0, 1]
 ];
 export var UpdateEphemerisRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
@@ -1112,6 +1241,9 @@ export var UplinkSpectrumConfig$: StaticStructureSchema = [3, n0, _USC,
   [() => Frequency$, 0], 1
 ];
 var AgentCpuCoresList = 64 | 1;
+var AntennaList: StaticListSchema = [1, n0, _AL,
+  0, () => AntennaListItem$
+];
 var AzElSegmentList: StaticListSchema = [1, n0, _AESL,
   0, () => AzElSegment$
 ];
@@ -1128,6 +1260,9 @@ var ConfigList: StaticListSchema = [1, n0, _CL,
 ];
 var ContactList: StaticListSchema = [1, n0, _CLo,
   0, () => ContactData$
+];
+var ContactVersionsList: StaticListSchema = [1, n0, _CVLo,
+  0, () => ContactVersion$
 ];
 var CreateEndpointDetailsList: StaticListSchema = [1, n0, _CEDL,
   0, () => CreateEndpointDetails$
@@ -1156,10 +1291,14 @@ var GroundStationIdList = 64 | 0;
 var GroundStationList: StaticListSchema = [1, n0, _GSL,
   0, () => GroundStationData$
 ];
+var GroundStationReservationList: StaticListSchema = [1, n0, _GSRL,
+  0, () => GroundStationReservationListItem$
+];
 var IpAddressList = 64 | 0;
 var MissionProfileList: StaticListSchema = [1, n0, _MPL,
   0, () => MissionProfileListItem$
 ];
+var ReservationTypeFilterList = 64 | 0;
 var SatelliteList: StaticListSchema = [1, n0, _SL,
   0, () => SatelliteListItem$
 ];
@@ -1173,6 +1312,7 @@ var TimeAzElList: StaticListSchema = [1, n0, _TAEL,
 var TLEDataList: StaticListSchema = [1, n0, _TLEDL,
   0, () => TLEData$
 ];
+var VersionFailureReasonCodes = 64 | 0;
 var VersionStringList = 64 | 0;
 var SignatureMap = 128 | 2;
 var TagsMap = 128 | 0;
@@ -1223,8 +1363,13 @@ export var KmsKey$: StaticUnionSchema = [4, n0, _KK,
 ];
 export var ProgramTrackSettings$: StaticUnionSchema = [4, n0, _PTS,
   0,
-  [_aE],
-  [() => AzElProgramTrackSettings$]
+  [_aE, _o, _tl],
+  [() => AzElProgramTrackSettings$, () => OemProgramTrackSettings$, () => TleProgramTrackSettings$]
+];
+export var ReservationDetails$: StaticUnionSchema = [4, n0, _RD,
+  0,
+  [_mai, _co],
+  [() => MaintenanceReservationDetails$, () => ContactReservationDetails$]
 ];
 export var TelemetrySinkData$: StaticUnionSchema = [4, n0, _TSD,
   0,
@@ -1269,6 +1414,9 @@ export var DeleteMissionProfile$: StaticOperationSchema = [9, n0, _DMP,
 export var DescribeContact$: StaticOperationSchema = [9, n0, _DCes,
   { [_h]: ["GET", "/contact/{contactId}", 200] }, () => DescribeContactRequest$, () => DescribeContactResponse$
 ];
+export var DescribeContactVersion$: StaticOperationSchema = [9, n0, _DCV,
+  { [_h]: ["GET", "/contact/{contactId}/versions/{versionId}", 200] }, () => DescribeContactVersionRequest$, () => DescribeContactVersionResponse$
+];
 export var DescribeEphemeris$: StaticOperationSchema = [9, n0, _DEes,
   { [_h]: ["GET", "/ephemeris/{ephemerisId}", 200] }, () => DescribeEphemerisRequest$, () => DescribeEphemerisResponse$
 ];
@@ -1293,17 +1441,26 @@ export var GetMissionProfile$: StaticOperationSchema = [9, n0, _GMP,
 export var GetSatellite$: StaticOperationSchema = [9, n0, _GS,
   { [_h]: ["GET", "/satellite/{satelliteId}", 200] }, () => GetSatelliteRequest$, () => GetSatelliteResponse$
 ];
+export var ListAntennas$: StaticOperationSchema = [9, n0, _LA,
+  { [_h]: ["GET", "/groundstation/{groundStationId}/antenna", 200] }, () => ListAntennasRequest$, () => ListAntennasResponse$
+];
 export var ListConfigs$: StaticOperationSchema = [9, n0, _LC,
   { [_h]: ["GET", "/config", 200] }, () => ListConfigsRequest$, () => ListConfigsResponse$
 ];
 export var ListContacts$: StaticOperationSchema = [9, n0, _LCi,
   { [_h]: ["POST", "/contacts", 200] }, () => ListContactsRequest$, () => ListContactsResponse$
 ];
+export var ListContactVersions$: StaticOperationSchema = [9, n0, _LCV,
+  { [_h]: ["GET", "/contact/{contactId}/versions", 200] }, () => ListContactVersionsRequest$, () => ListContactVersionsResponse$
+];
 export var ListDataflowEndpointGroups$: StaticOperationSchema = [9, n0, _LDEG,
   { [_h]: ["GET", "/dataflowEndpointGroup", 200] }, () => ListDataflowEndpointGroupsRequest$, () => ListDataflowEndpointGroupsResponse$
 ];
 export var ListEphemerides$: StaticOperationSchema = [9, n0, _LE,
   { [_h]: ["POST", "/ephemerides", 200] }, () => ListEphemeridesRequest$, () => ListEphemeridesResponse$
+];
+export var ListGroundStationReservations$: StaticOperationSchema = [9, n0, _LGSRis,
+  { [_h]: ["GET", "/groundstation/{groundStationId}/reservation", 200] }, () => ListGroundStationReservationsRequest$, () => ListGroundStationReservationsResponse$
 ];
 export var ListGroundStations$: StaticOperationSchema = [9, n0, _LGS,
   { [_h]: ["GET", "/groundstation", 200] }, () => ListGroundStationsRequest$, () => ListGroundStationsResponse$
@@ -1334,6 +1491,9 @@ export var UpdateAgentStatus$: StaticOperationSchema = [9, n0, _UAS,
 ];
 export var UpdateConfig$: StaticOperationSchema = [9, n0, _UC,
   { [_h]: ["PUT", "/config/{configType}/{configId}", 200] }, () => UpdateConfigRequest$, () => ConfigIdResponse$
+];
+export var UpdateContact$: StaticOperationSchema = [9, n0, _UCp,
+  { [_h]: ["POST", "/contact/{contactId}/versions", 200] }, () => UpdateContactRequest$, () => UpdateContactResponse$
 ];
 export var UpdateEphemeris$: StaticOperationSchema = [9, n0, _UE,
   { [_h]: ["PUT", "/ephemeris/{ephemerisId}", 200] }, () => UpdateEphemerisRequest$, () => EphemerisIdResponse$

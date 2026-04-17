@@ -11,7 +11,7 @@ export class DependencyException extends __BaseException {
   readonly name = "DependencyException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p/>
+   * <p>Name of the parameter that caused the exception.</p>
    * @public
    */
   parameterName?: string | undefined;
@@ -38,7 +38,7 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
+   * <p>Name of the invalid parameter.</p>
    * @public
    */
   parameterName?: string | undefined;
@@ -85,7 +85,7 @@ export class ResourceLimitExceededException extends __BaseException {
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
+   * <p>Name of the parameter that exceeded the resource limit.</p>
    * @public
    */
   parameterName?: string | undefined;

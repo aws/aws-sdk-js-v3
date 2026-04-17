@@ -6,6 +6,7 @@ import {
   AntennaDemodDecodeDetails$,
   AntennaDownlinkConfig$,
   AntennaDownlinkDemodDecodeConfig$,
+  AntennaListItem$,
   AntennaUplinkConfig$,
   AuditResults,
   AwsGroundStationAgentEndpoint$,
@@ -31,7 +32,9 @@ import {
   ConnectionDetails$,
   ContactData$,
   ContactIdResponse$,
+  ContactReservationDetails$,
   ContactStatus,
+  ContactVersion$,
   CreateConfig$,
   CreateConfigCommand,
   CreateConfigRequest$,
@@ -75,6 +78,10 @@ import {
   DescribeContactCommand,
   DescribeContactRequest$,
   DescribeContactResponse$,
+  DescribeContactVersion$,
+  DescribeContactVersionCommand,
+  DescribeContactVersionRequest$,
+  DescribeContactVersionResponse$,
   DescribeEphemeris$,
   DescribeEphemerisCommand,
   DescribeEphemerisRequest$,
@@ -138,6 +145,7 @@ import {
   GroundStation,
   GroundStationClient,
   GroundStationData$,
+  GroundStationReservationListItem$,
   GroundStationServiceException,
   IntegerRange$,
   InvalidParameterException,
@@ -145,6 +153,10 @@ import {
   ISO8601TimeRange$,
   KinesisDataStreamData$,
   KmsKey$,
+  ListAntennas$,
+  ListAntennasCommand,
+  ListAntennasRequest$,
+  ListAntennasResponse$,
   ListConfigs$,
   ListConfigsCommand,
   ListConfigsRequest$,
@@ -153,6 +165,10 @@ import {
   ListContactsCommand,
   ListContactsRequest$,
   ListContactsResponse$,
+  ListContactVersions$,
+  ListContactVersionsCommand,
+  ListContactVersionsRequest$,
+  ListContactVersionsResponse$,
   ListDataflowEndpointGroups$,
   ListDataflowEndpointGroupsCommand,
   ListDataflowEndpointGroupsRequest$,
@@ -161,6 +177,10 @@ import {
   ListEphemeridesCommand,
   ListEphemeridesRequest$,
   ListEphemeridesResponse$,
+  ListGroundStationReservations$,
+  ListGroundStationReservationsCommand,
+  ListGroundStationReservationsRequest$,
+  ListGroundStationReservationsResponse$,
   ListGroundStations$,
   ListGroundStationsCommand,
   ListGroundStationsRequest$,
@@ -177,13 +197,19 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  MaintenanceReservationDetails$,
+  MaintenanceType,
   MissionProfileIdResponse$,
   MissionProfileListItem$,
   OEMEphemeris$,
+  OemProgramTrackSettings$,
+  paginateListAntennas,
   paginateListConfigs,
   paginateListContacts,
+  paginateListContactVersions,
   paginateListDataflowEndpointGroups,
   paginateListEphemerides,
+  paginateListGroundStationReservations,
   paginateListGroundStations,
   paginateListMissionProfiles,
   paginateListSatellites,
@@ -195,6 +221,8 @@ import {
   RegisterAgentCommand,
   RegisterAgentRequest$,
   RegisterAgentResponse$,
+  ReservationDetails$,
+  ReservationType,
   ReserveContact$,
   ReserveContactCommand,
   ReserveContactRequest$,
@@ -225,6 +253,7 @@ import {
   TimeRange$,
   TLEData$,
   TLEEphemeris$,
+  TleProgramTrackSettings$,
   TrackingConfig$,
   TrackingOverrides$,
   UntagResource$,
@@ -238,6 +267,10 @@ import {
   UpdateConfig$,
   UpdateConfigCommand,
   UpdateConfigRequest$,
+  UpdateContact$,
+  UpdateContactCommand,
+  UpdateContactRequest$,
+  UpdateContactResponse$,
   UpdateEphemeris$,
   UpdateEphemerisCommand,
   UpdateEphemerisRequest$,
@@ -250,8 +283,12 @@ import {
   UplinkDataflowDetails$,
   UplinkEchoConfig$,
   UplinkSpectrumConfig$,
+  VersionFailureReasonCode,
+  VersionStatus,
   waitForContactScheduled,
+  waitForContactUpdated,
   waitUntilContactScheduled,
+  waitUntilContactUpdated,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -280,6 +317,8 @@ assert(typeof DeleteMissionProfileCommand === "function");
 assert(typeof DeleteMissionProfile$ === "object");
 assert(typeof DescribeContactCommand === "function");
 assert(typeof DescribeContact$ === "object");
+assert(typeof DescribeContactVersionCommand === "function");
+assert(typeof DescribeContactVersion$ === "object");
 assert(typeof DescribeEphemerisCommand === "function");
 assert(typeof DescribeEphemeris$ === "object");
 assert(typeof GetAgentConfigurationCommand === "function");
@@ -296,14 +335,20 @@ assert(typeof GetMissionProfileCommand === "function");
 assert(typeof GetMissionProfile$ === "object");
 assert(typeof GetSatelliteCommand === "function");
 assert(typeof GetSatellite$ === "object");
+assert(typeof ListAntennasCommand === "function");
+assert(typeof ListAntennas$ === "object");
 assert(typeof ListConfigsCommand === "function");
 assert(typeof ListConfigs$ === "object");
 assert(typeof ListContactsCommand === "function");
 assert(typeof ListContacts$ === "object");
+assert(typeof ListContactVersionsCommand === "function");
+assert(typeof ListContactVersions$ === "object");
 assert(typeof ListDataflowEndpointGroupsCommand === "function");
 assert(typeof ListDataflowEndpointGroups$ === "object");
 assert(typeof ListEphemeridesCommand === "function");
 assert(typeof ListEphemerides$ === "object");
+assert(typeof ListGroundStationReservationsCommand === "function");
+assert(typeof ListGroundStationReservations$ === "object");
 assert(typeof ListGroundStationsCommand === "function");
 assert(typeof ListGroundStations$ === "object");
 assert(typeof ListMissionProfilesCommand === "function");
@@ -324,6 +369,8 @@ assert(typeof UpdateAgentStatusCommand === "function");
 assert(typeof UpdateAgentStatus$ === "object");
 assert(typeof UpdateConfigCommand === "function");
 assert(typeof UpdateConfig$ === "object");
+assert(typeof UpdateContactCommand === "function");
+assert(typeof UpdateContact$ === "object");
 assert(typeof UpdateEphemerisCommand === "function");
 assert(typeof UpdateEphemeris$ === "object");
 assert(typeof UpdateMissionProfileCommand === "function");
@@ -334,6 +381,7 @@ assert(typeof AggregateStatus$ === "object");
 assert(typeof AntennaDemodDecodeDetails$ === "object");
 assert(typeof AntennaDownlinkConfig$ === "object");
 assert(typeof AntennaDownlinkDemodDecodeConfig$ === "object");
+assert(typeof AntennaListItem$ === "object");
 assert(typeof AntennaUplinkConfig$ === "object");
 assert(typeof AwsGroundStationAgentEndpoint$ === "object");
 assert(typeof AzElEphemeris$ === "object");
@@ -352,6 +400,8 @@ assert(typeof ConfigTypeData$ === "object");
 assert(typeof ConnectionDetails$ === "object");
 assert(typeof ContactData$ === "object");
 assert(typeof ContactIdResponse$ === "object");
+assert(typeof ContactReservationDetails$ === "object");
+assert(typeof ContactVersion$ === "object");
 assert(typeof CreateConfigRequest$ === "object");
 assert(typeof CreateDataflowEndpointGroupRequest$ === "object");
 assert(typeof CreateDataflowEndpointGroupV2Request$ === "object");
@@ -372,6 +422,8 @@ assert(typeof DeleteMissionProfileRequest$ === "object");
 assert(typeof DemodulationConfig$ === "object");
 assert(typeof DescribeContactRequest$ === "object");
 assert(typeof DescribeContactResponse$ === "object");
+assert(typeof DescribeContactVersionRequest$ === "object");
+assert(typeof DescribeContactVersionResponse$ === "object");
 assert(typeof DescribeEphemerisRequest$ === "object");
 assert(typeof DescribeEphemerisResponse$ === "object");
 assert(typeof Destination$ === "object");
@@ -409,18 +461,25 @@ assert(typeof GetMissionProfileResponse$ === "object");
 assert(typeof GetSatelliteRequest$ === "object");
 assert(typeof GetSatelliteResponse$ === "object");
 assert(typeof GroundStationData$ === "object");
+assert(typeof GroundStationReservationListItem$ === "object");
 assert(typeof IntegerRange$ === "object");
 assert(typeof ISO8601TimeRange$ === "object");
 assert(typeof KinesisDataStreamData$ === "object");
 assert(typeof KmsKey$ === "object");
+assert(typeof ListAntennasRequest$ === "object");
+assert(typeof ListAntennasResponse$ === "object");
 assert(typeof ListConfigsRequest$ === "object");
 assert(typeof ListConfigsResponse$ === "object");
 assert(typeof ListContactsRequest$ === "object");
 assert(typeof ListContactsResponse$ === "object");
+assert(typeof ListContactVersionsRequest$ === "object");
+assert(typeof ListContactVersionsResponse$ === "object");
 assert(typeof ListDataflowEndpointGroupsRequest$ === "object");
 assert(typeof ListDataflowEndpointGroupsResponse$ === "object");
 assert(typeof ListEphemeridesRequest$ === "object");
 assert(typeof ListEphemeridesResponse$ === "object");
+assert(typeof ListGroundStationReservationsRequest$ === "object");
+assert(typeof ListGroundStationReservationsResponse$ === "object");
 assert(typeof ListGroundStationsRequest$ === "object");
 assert(typeof ListGroundStationsResponse$ === "object");
 assert(typeof ListMissionProfilesRequest$ === "object");
@@ -429,14 +488,17 @@ assert(typeof ListSatellitesRequest$ === "object");
 assert(typeof ListSatellitesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MaintenanceReservationDetails$ === "object");
 assert(typeof MissionProfileIdResponse$ === "object");
 assert(typeof MissionProfileListItem$ === "object");
 assert(typeof OEMEphemeris$ === "object");
+assert(typeof OemProgramTrackSettings$ === "object");
 assert(typeof ProgramTrackSettings$ === "object");
 assert(typeof RangedConnectionDetails$ === "object");
 assert(typeof RangedSocketAddress$ === "object");
 assert(typeof RegisterAgentRequest$ === "object");
 assert(typeof RegisterAgentResponse$ === "object");
+assert(typeof ReservationDetails$ === "object");
 assert(typeof ReserveContactRequest$ === "object");
 assert(typeof S3Object$ === "object");
 assert(typeof S3RecordingConfig$ === "object");
@@ -454,6 +516,7 @@ assert(typeof TimeAzEl$ === "object");
 assert(typeof TimeRange$ === "object");
 assert(typeof TLEData$ === "object");
 assert(typeof TLEEphemeris$ === "object");
+assert(typeof TleProgramTrackSettings$ === "object");
 assert(typeof TrackingConfig$ === "object");
 assert(typeof TrackingOverrides$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -461,6 +524,8 @@ assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAgentStatusRequest$ === "object");
 assert(typeof UpdateAgentStatusResponse$ === "object");
 assert(typeof UpdateConfigRequest$ === "object");
+assert(typeof UpdateContactRequest$ === "object");
+assert(typeof UpdateContactResponse$ === "object");
 assert(typeof UpdateEphemerisRequest$ === "object");
 assert(typeof UpdateMissionProfileRequest$ === "object");
 assert(typeof UplinkAwsGroundStationAgentEndpoint$ === "object");
@@ -487,8 +552,12 @@ assert(typeof EphemerisSource === "object");
 assert(typeof EphemerisStatus === "object");
 assert(typeof EphemerisType === "object");
 assert(typeof FrequencyUnits === "object");
+assert(typeof MaintenanceType === "object");
 assert(typeof Polarization === "object");
+assert(typeof ReservationType === "object");
 assert(typeof TelemetrySinkType === "object");
+assert(typeof VersionFailureReasonCode === "object");
+assert(typeof VersionStatus === "object");
 // errors
 assert(DependencyException.prototype instanceof GroundStationServiceException);
 assert(typeof DependencyException$ === "object");
@@ -505,12 +574,17 @@ assert(typeof ServiceQuotaExceededException$ === "object");
 assert(GroundStationServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForContactScheduled === "function");
+assert(typeof waitForContactUpdated === "function");
 assert(typeof waitUntilContactScheduled === "function");
+assert(typeof waitUntilContactUpdated === "function");
 // paginators
+assert(typeof paginateListAntennas === "function");
 assert(typeof paginateListConfigs === "function");
+assert(typeof paginateListContactVersions === "function");
 assert(typeof paginateListContacts === "function");
 assert(typeof paginateListDataflowEndpointGroups === "function");
 assert(typeof paginateListEphemerides === "function");
+assert(typeof paginateListGroundStationReservations === "function");
 assert(typeof paginateListGroundStations === "function");
 assert(typeof paginateListMissionProfiles === "function");
 assert(typeof paginateListSatellites === "function");

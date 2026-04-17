@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import type { DescribeContactRequest, DescribeContactResponse } from "../models/models_0";
-import { DescribeContact$ } from "../schemas/schemas_0";
+import type { DescribeContactVersionRequest, DescribeContactVersionResponse } from "../models/models_0";
+import { DescribeContactVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,32 +16,33 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeContactCommand}.
+ * The input for {@link DescribeContactVersionCommand}.
  */
-export interface DescribeContactCommandInput extends DescribeContactRequest {}
+export interface DescribeContactVersionCommandInput extends DescribeContactVersionRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeContactCommand}.
+ * The output of {@link DescribeContactVersionCommand}.
  */
-export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
+export interface DescribeContactVersionCommandOutput extends DescribeContactVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an existing contact.</p>
+ * <p>Describes a specific version of a contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GroundStationClient, DescribeContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
- * // const { GroundStationClient, DescribeContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * import { GroundStationClient, DescribeContactVersionCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, DescribeContactVersionCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * // import type { GroundStationClientConfig } from "@aws-sdk/client-groundstation";
  * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
- * const input = { // DescribeContactRequest
+ * const input = { // DescribeContactVersionRequest
  *   contactId: "STRING_VALUE", // required
+ *   versionId: Number("int"), // required
  * };
- * const command = new DescribeContactCommand(input);
+ * const command = new DescribeContactVersionCommand(input);
  * const response = await client.send(command);
- * // { // DescribeContactResponse
+ * // { // DescribeContactVersionResponse
  * //   contactId: "STRING_VALUE",
  * //   missionProfileArn: "STRING_VALUE",
  * //   satelliteArn: "STRING_VALUE",
@@ -294,10 +295,10 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *
  * ```
  *
- * @param DescribeContactCommandInput - {@link DescribeContactCommandInput}
- * @returns {@link DescribeContactCommandOutput}
- * @see {@link DescribeContactCommandInput} for command's `input` shape.
- * @see {@link DescribeContactCommandOutput} for command's `response` shape.
+ * @param DescribeContactVersionCommandInput - {@link DescribeContactVersionCommandInput}
+ * @returns {@link DescribeContactVersionCommandOutput}
+ * @see {@link DescribeContactVersionCommandInput} for command's `input` shape.
+ * @see {@link DescribeContactVersionCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
@@ -315,10 +316,10 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *
  * @public
  */
-export class DescribeContactCommand extends $Command
+export class DescribeContactVersionCommand extends $Command
   .classBuilder<
-    DescribeContactCommandInput,
-    DescribeContactCommandOutput,
+    DescribeContactVersionCommandInput,
+    DescribeContactVersionCommandOutput,
     GroundStationClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -327,19 +328,19 @@ export class DescribeContactCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("GroundStation", "DescribeContact", {})
-  .n("GroundStationClient", "DescribeContactCommand")
-  .sc(DescribeContact$)
+  .s("GroundStation", "DescribeContactVersion", {})
+  .n("GroundStationClient", "DescribeContactVersionCommand")
+  .sc(DescribeContactVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeContactRequest;
-      output: DescribeContactResponse;
+      input: DescribeContactVersionRequest;
+      output: DescribeContactVersionResponse;
     };
     sdk: {
-      input: DescribeContactCommandInput;
-      output: DescribeContactCommandOutput;
+      input: DescribeContactVersionCommandInput;
+      output: DescribeContactVersionCommandOutput;
     };
   };
 }

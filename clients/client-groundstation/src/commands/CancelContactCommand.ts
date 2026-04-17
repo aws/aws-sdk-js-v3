@@ -43,6 +43,7 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * const response = await client.send(command);
  * // { // ContactIdResponse
  * //   contactId: "STRING_VALUE",
+ * //   versionId: Number("int"),
  * // };
  *
  * ```
