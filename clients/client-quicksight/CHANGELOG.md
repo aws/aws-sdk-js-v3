@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Features
+
+* **client-quicksight:** Public release of dashboard customization summary, S3 Tables data source type, Athena cross-account connector, custom sorting for controls, and AI-powered analysis generation. ([da327c4](https://github.com/aws/aws-sdk-js-v3/commit/da327c4788535cdabd4e43f4bed0198e79d8d1c6))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

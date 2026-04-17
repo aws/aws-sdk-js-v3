@@ -32,6 +32,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.1 (2026-04-17)
+### Bug Fixes
+* **core:** reduce object allocations in protocol serde ([#7939](https://github.com/aws/aws-sdk-js-v3/issues/7939)) ([d0c9af0](https://github.com/aws/aws-sdk-js-v3/commit/d0c9af067e32d5e745bf08be5d932ba5e07ba3f2))
+
+
+
 # 3.974.0 (2026-04-16)
 ### Features
 * **client-dynamodb:** performance improvements in JSON serialization ([#7933](https://github.com/aws/aws-sdk-js-v3/issues/7933)) ([c647598](https://github.com/aws/aws-sdk-js-v3/commit/c647598de8e496634a193ad26467808341d320e0))

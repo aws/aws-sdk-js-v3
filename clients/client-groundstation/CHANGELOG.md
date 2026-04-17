@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Features
+
+* **client-groundstation:** Adds support for updating contacts, listing antennas, and listing ground station reservations. New API operations - UpdateContact, ListContactVersions, DescribeContactVersion, ListAntennas, and ListGroundStationReservations. ([360c381](https://github.com/aws/aws-sdk-js-v3/commit/360c381768bf161bdddf1fd8ee2eee9b1b57f882))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-groundstation

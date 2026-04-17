@@ -32,6 +32,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.1 (2026-04-17)
+### Chores
+* **dynamodb-codec:** update dependencies.
+
+
+
 # 3.973.0 (2026-04-16)
 ### Features
 * **client-dynamodb:** performance improvements in JSON serialization ([#7933](https://github.com/aws/aws-sdk-js-v3/issues/7933)) ([c647598](https://github.com/aws/aws-sdk-js-v3/commit/c647598de8e496634a193ad26467808341d320e0))

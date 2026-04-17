@@ -20,6 +20,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.18 (2026-04-17)
+### Chores
+* **signature-v4-multi-region:** update dependencies.
+
+
+
 # 3.996.17 (2026-04-16)
 ### Chores
 * upgrade smithy to 1.69.0 ([#7932](https://github.com/aws/aws-sdk-js-v3/issues/7932)) ([560d987](https://github.com/aws/aws-sdk-js-v3/commit/560d9878471409e943a80ac2979e7fc8c2fff834))

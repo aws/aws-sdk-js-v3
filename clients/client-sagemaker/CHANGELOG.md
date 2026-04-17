@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for providing NetworkInterface for efa enabled instances and Simplified cluster creation for Slurm-orchestrated clusters with optional Lifecycle Script (LCS) configuration. ([ffcb883](https://github.com/aws/aws-sdk-js-v3/commit/ffcb883d48003c58a619932f6eebd25463241475))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

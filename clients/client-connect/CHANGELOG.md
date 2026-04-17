@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Features
+
+* **client-connect:** Fixes in SDK for customers using TestCase APIs ([bd88a7e](https://github.com/aws/aws-sdk-js-v3/commit/bd88a7ec14468746f37cb688deb8ffe7bf8ec8d6))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 

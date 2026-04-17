@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Features
+
+* **client-cleanrooms:** This release adds support for configurable spark properties for Cleanrooms PySpark workloads. ([c5de550](https://github.com/aws/aws-sdk-js-v3/commit/c5de550663bff4133b3bf965a34d5f630dc31f0c))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Bug Fixes
+
+* **core:** reduce object allocations in protocol serde ([#7939](https://github.com/aws/aws-sdk-js-v3/issues/7939)) ([d0c9af0](https://github.com/aws/aws-sdk-js-v3/commit/d0c9af067e32d5e745bf08be5d932ba5e07ba3f2))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

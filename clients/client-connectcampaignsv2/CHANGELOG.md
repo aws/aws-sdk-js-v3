@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Features
+
+* **client-connectcampaignsv2:** This release adds support for campaign entry limits configuration and hourly refresh frequency in Amazon Connect Outbound Campaigns. ([4ee31ae](https://github.com/aws/aws-sdk-js-v3/commit/4ee31aed90b30b3a8bb506bde9bddc387f2affdf))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcampaignsv2

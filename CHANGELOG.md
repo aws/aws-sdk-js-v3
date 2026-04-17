@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
+
+
+### Bug Fixes
+
+* **core:** reduce object allocations in protocol serde ([#7939](https://github.com/aws/aws-sdk-js-v3/issues/7939)) ([d0c9af0](https://github.com/aws/aws-sdk-js-v3/commit/d0c9af067e32d5e745bf08be5d932ba5e07ba3f2))
+
+
+### Features
+
+* **client-cleanrooms:** This release adds support for configurable spark properties for Cleanrooms PySpark workloads. ([c5de550](https://github.com/aws/aws-sdk-js-v3/commit/c5de550663bff4133b3bf965a34d5f630dc31f0c))
+* **client-connectcampaignsv2:** This release adds support for campaign entry limits configuration and hourly refresh frequency in Amazon Connect Outbound Campaigns. ([4ee31ae](https://github.com/aws/aws-sdk-js-v3/commit/4ee31aed90b30b3a8bb506bde9bddc387f2affdf))
+* **client-connect:** Fixes in SDK for customers using TestCase APIs ([bd88a7e](https://github.com/aws/aws-sdk-js-v3/commit/bd88a7ec14468746f37cb688deb8ffe7bf8ec8d6))
+* **client-groundstation:** Adds support for updating contacts, listing antennas, and listing ground station reservations. New API operations - UpdateContact, ListContactVersions, DescribeContactVersion, ListAntennas, and ListGroundStationReservations. ([360c381](https://github.com/aws/aws-sdk-js-v3/commit/360c381768bf161bdddf1fd8ee2eee9b1b57f882))
+* **client-imagebuilder:** ImportDiskImage API adds registerImageOptions for Secure Boot control and custom UEFI data. It adds windowsConfiguration for selecting a specific edition from multi-image .wim files during ISO import. ([d211b30](https://github.com/aws/aws-sdk-js-v3/commit/d211b308a4e5de099a440e65d6f819ac8a40a434))
+* **client-quicksight:** Public release of dashboard customization summary, S3 Tables data source type, Athena cross-account connector, custom sorting for controls, and AI-powered analysis generation. ([da327c4](https://github.com/aws/aws-sdk-js-v3/commit/da327c4788535cdabd4e43f4bed0198e79d8d1c6))
+* **client-sagemaker:** Adds support for providing NetworkInterface for efa enabled instances and Simplified cluster creation for Slurm-orchestrated clusters with optional Lifecycle Script (LCS) configuration. ([ffcb883](https://github.com/aws/aws-sdk-js-v3/commit/ffcb883d48003c58a619932f6eebd25463241475))
+* **client-sts:** The STS client now supports configuring SigV4a through the auth scheme preference setting. SigV4a uses asymmetric cryptography, enabling customers using long-term IAM credentials to continue making STS API calls even when a region is isolated from the partition leader. ([c575546](https://github.com/aws/aws-sdk-js-v3/commit/c57554661350838482c9d19b414ef92207630f3b))
+* **clients:** update client endpoints as of 2026-04-17 ([1fd8c26](https://github.com/aws/aws-sdk-js-v3/commit/1fd8c265d2098688e887fe7ba6d1407ded39272e))
+
+
+
+
+
 # [3.1031.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1030.0...v3.1031.0) (2026-04-16)
 
 
