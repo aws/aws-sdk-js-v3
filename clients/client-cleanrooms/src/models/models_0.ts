@@ -2856,7 +2856,7 @@ export interface MemberChangeSpecification {
   accountId: string | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.</p> <note> <p>The following values are currently not supported: <code>CAN_QUERY</code>, <code>CAN_RECEIVE_RESULTS,</code> and <code>CAN_RUN_JOB</code>. </p> <p>Set the value of <code>memberAbilities</code> to <code>[]</code> to allow a member to contribute data.</p> </note>
+   * <p>The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.</p> <note> <p>The following values are currently not supported: <code>CAN_QUERY</code> and <code>CAN_RUN_JOB</code>. </p> <p>Set the value of <code>memberAbilities</code> to <code>[]</code> to allow a member to contribute data.</p> <p>Set the value of <code>memberAbilities</code> to <code>[CAN_RECEIVE_RESULTS]</code> to allow a member to contribute data and receive results.</p> </note>
    * @public
    */
   memberAbilities: MemberAbility[] | undefined;
@@ -7679,6 +7679,45 @@ export interface GetProtectedJobInput {
 }
 
 /**
+ * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>
+ * @public
+ */
+export type WorkerComputeConfigurationProperties =
+  | WorkerComputeConfigurationProperties.SparkMember
+  | WorkerComputeConfigurationProperties.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WorkerComputeConfigurationProperties {
+  /**
+   * <p>The Spark configuration properties for SQL and PySpark workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
+   * @public
+   */
+  export interface SparkMember {
+    spark: Record<string, string>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spark?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spark: (value: Record<string, string>) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The configuration of the compute resources for a PySpark job.</p>
  * @public
  */
@@ -7694,6 +7733,12 @@ export interface ProtectedJobWorkerComputeConfiguration {
    * @public
    */
   number: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
 }
 
 /**
@@ -8083,45 +8128,6 @@ export interface GetProtectedQueryInput {
    * @public
    */
   protectedQueryIdentifier: string | undefined;
-}
-
-/**
- * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>
- * @public
- */
-export type WorkerComputeConfigurationProperties =
-  | WorkerComputeConfigurationProperties.SparkMember
-  | WorkerComputeConfigurationProperties.$UnknownMember;
-
-/**
- * @public
- */
-export namespace WorkerComputeConfigurationProperties {
-  /**
-   * <p>The Spark configuration properties for SQL workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
-   * @public
-   */
-  export interface SparkMember {
-    spark: Record<string, string>;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    spark?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    spark: (value: Record<string, string>) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**

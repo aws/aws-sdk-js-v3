@@ -56,6 +56,11 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  *     worker: { // ProtectedJobWorkerComputeConfiguration
  *       type: "CR.1X" || "CR.4X", // required
  *       number: Number("int"), // required
+ *       properties: { // WorkerComputeConfigurationProperties Union: only one key present
+ *         spark: { // SparkProperties
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *   },
  * };
@@ -111,6 +116,11 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  * //       worker: { // ProtectedJobWorkerComputeConfiguration
  * //         type: "CR.1X" || "CR.4X", // required
  * //         number: Number("int"), // required
+ * //         properties: { // WorkerComputeConfigurationProperties Union: only one key present
+ * //           spark: { // SparkProperties
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   },

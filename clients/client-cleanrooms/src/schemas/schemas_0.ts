@@ -2250,8 +2250,8 @@ export var ProtectedJobSummary$: StaticStructureSchema = [3, n0, _PJSr,
 ];
 export var ProtectedJobWorkerComputeConfiguration$: StaticStructureSchema = [3, n0, _PJWCC,
   0,
-  [_t, _nu],
-  [0, 1], 2
+  [_t, _nu, _pr],
+  [0, 1, () => WorkerComputeConfigurationProperties$], 2
 ];
 export var ProtectedQuery$: StaticStructureSchema = [3, n0, _PQ,
   0,

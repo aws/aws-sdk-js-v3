@@ -93,6 +93,11 @@ export interface UpdateProtectedJobCommandOutput extends UpdateProtectedJobOutpu
  * //       worker: { // ProtectedJobWorkerComputeConfiguration
  * //         type: "CR.1X" || "CR.4X", // required
  * //         number: Number("int"), // required
+ * //         properties: { // WorkerComputeConfigurationProperties Union: only one key present
+ * //           spark: { // SparkProperties
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   },
