@@ -72,6 +72,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       LifeCycleConfig: { // ClusterLifeCycleConfig
  * //         SourceS3Uri: "STRING_VALUE",
  * //         OnCreate: "STRING_VALUE",
+ * //         OnInitComplete: "STRING_VALUE",
  * //       },
  * //       ExecutionRole: "STRING_VALUE",
  * //       ThreadsPerCore: Number("int"),
@@ -184,6 +185,9 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         PartitionNames: [ // ClusterPartitionNames
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       NetworkInterface: { // ClusterNetworkInterfaceDetails
+ * //         InterfaceType: "efa" || "efa-only",
  * //       },
  * //     },
  * //   ],

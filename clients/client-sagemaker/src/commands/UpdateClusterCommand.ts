@@ -52,6 +52,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       LifeCycleConfig: { // ClusterLifeCycleConfig
  *         SourceS3Uri: "STRING_VALUE",
  *         OnCreate: "STRING_VALUE",
+ *         OnInitComplete: "STRING_VALUE",
  *       },
  *       ExecutionRole: "STRING_VALUE", // required
  *       ThreadsPerCore: Number("int"),
@@ -128,6 +129,9 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       CapacityRequirements: { // ClusterCapacityRequirements
  *         Spot: {},
  *         OnDemand: {},
+ *       },
+ *       NetworkInterface: { // ClusterNetworkInterface
+ *         InterfaceType: "efa" || "efa-only",
  *       },
  *     },
  *   ],

@@ -2316,6 +2316,19 @@ export type ClusterKubernetesTaintEffect =
  * @public
  * @enum
  */
+export const ClusterInterfaceType = {
+  EFA: "efa",
+  EFA_ONLY: "efa-only",
+} as const;
+/**
+ * @public
+ */
+export type ClusterInterfaceType = (typeof ClusterInterfaceType)[keyof typeof ClusterInterfaceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeepHealthCheckType = {
   INSTANCE_CONNECTIVITY: "InstanceConnectivity",
   INSTANCE_STRESS: "InstanceStress",

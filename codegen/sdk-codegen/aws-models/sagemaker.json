@@ -9007,6 +9007,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Slurm configuration for the instance group.</p>"
           }
+        },
+        "NetworkInterface": {
+          "target": "com.amazonaws.sagemaker#ClusterNetworkInterfaceDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The network interface configuration for the instance group.</p>"
+          }
         }
       },
       "traits": {
@@ -9138,6 +9144,12 @@
           "target": "com.amazonaws.sagemaker#ClusterCapacityRequirements",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the capacity requirements for the instance group.</p>"
+          }
+        },
+        "NetworkInterface": {
+          "target": "com.amazonaws.sagemaker#ClusterNetworkInterface",
+          "traits": {
+            "smithy.api#documentation": "<p>The network interface configuration for the instance group.</p>"
           }
         }
       },
@@ -10133,6 +10145,23 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#ClusterInterfaceType": {
+      "type": "enum",
+      "members": {
+        "EFA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "efa"
+          }
+        },
+        "EFA_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "efa-only"
+          }
+        }
+      }
+    },
     "com.amazonaws.sagemaker#ClusterKubernetesConfig": {
       "type": "structure",
       "members": {
@@ -10349,6 +10378,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The file name of the entrypoint script of lifecycle scripts under <code>SourceS3Uri</code>. This entrypoint script runs during cluster creation.</p>"
           }
+        },
+        "OnInitComplete": {
+          "target": "com.amazonaws.sagemaker#ClusterLifeCycleConfigFileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The file name of the entrypoint script of lifecycle scripts under <code>SourceS3Uri</code>. This script runs on the node after the AMI-based initialization is complete.</p>"
+          }
         }
       },
       "traits": {
@@ -10419,6 +10454,34 @@
           "max": 256
         },
         "smithy.api#pattern": "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:cluster/[a-z0-9]{12})|([a-zA-Z0-9](-*[a-zA-Z0-9]){0,62})$"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterNetworkInterface": {
+      "type": "structure",
+      "members": {
+        "InterfaceType": {
+          "target": "com.amazonaws.sagemaker#ClusterInterfaceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of network interface for the instance group. Valid values:</p> <ul> <li> <p> <code>efa</code> – An EFA with ENA interface, which provides both the EFA device for low-latency, high-throughput communication and the ENA device for IP networking.</p> </li> <li> <p> <code>efa-only</code> – An EFA-only interface, which provides only the EFA device capabilities without the ENA device for traditional IP networking.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html\">Elastic Fabric Adapter</a>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The network interface configuration for a Amazon SageMaker HyperPod cluster instance group.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterNetworkInterfaceDetails": {
+      "type": "structure",
+      "members": {
+        "InterfaceType": {
+          "target": "com.amazonaws.sagemaker#ClusterInterfaceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of network interface for the instance group. Valid values are <code>efa</code> and <code>efa-only</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The network interface configuration details for a Amazon SageMaker HyperPod cluster instance group.</p>"
       }
     },
     "com.amazonaws.sagemaker#ClusterNodeDetails": {
@@ -10543,6 +10606,12 @@
           "target": "com.amazonaws.sagemaker#ClusterCapacityType",
           "traits": {
             "smithy.api#documentation": "<p>The capacity type of the node. Valid values are <code>OnDemand</code> and <code>Spot</code>. When set to <code>OnDemand</code>, the node is launched as an On-Demand instance. When set to <code>Spot</code>, the node is launched as a Spot instance. </p>"
+          }
+        },
+        "NetworkInterface": {
+          "target": "com.amazonaws.sagemaker#ClusterNetworkInterfaceDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>The network interface configuration for the cluster node.</p>"
           }
         }
       },
@@ -32885,6 +32954,7 @@
     "com.amazonaws.sagemaker#DomainId": {
       "type": "string",
       "traits": {
+        "smithy.api#documentation": "Types duplicated from IronmanApiServiceModel for federation.\nThese types are defined in other service directories and are not\navailable via IronmanApiServiceCommonModel.",
         "smithy.api#length": {
           "min": 0,
           "max": 63

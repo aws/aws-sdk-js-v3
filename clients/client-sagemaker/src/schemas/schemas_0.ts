@@ -519,12 +519,14 @@ const _CMr = "CreateModel";
 const _CN = "ChannelName";
 const _CND = "ClusterNodeDetails";
 const _CNE = "CandidateNameEquals";
-const _CNI = "CreateNotebookInstance";
+const _CNI = "ClusterNetworkInterface";
+const _CNID = "ClusterNetworkInterfaceDetails";
 const _CNII = "CreateNotebookInstanceInput";
 const _CNILC = "CreateNotebookInstanceLifecycleConfig";
 const _CNILCI = "CreateNotebookInstanceLifecycleConfigInput";
 const _CNILCO = "CreateNotebookInstanceLifecycleConfigOutput";
 const _CNIO = "CreateNotebookInstanceOutput";
+const _CNIr = "CreateNotebookInstance";
 const _CNS = "ClusterNodeSummary";
 const _CNSl = "ClusterNodeSummaries";
 const _CNa = "CandidateName";
@@ -1704,6 +1706,7 @@ const _ITIS = "InvocationsTimeoutInSeconds";
 const _ITN = "IotThingName";
 const _ITn = "InstanceType";
 const _ITnf = "InfrastructureType";
+const _ITnt = "InterfaceType";
 const _ITs = "IsTunable";
 const _IU = "ImageUri";
 const _IUIC = "InUseInstanceCount";
@@ -2386,6 +2389,7 @@ const _NIN = "NotebookInstanceName";
 const _NIS = "NotebookInstanceStatus";
 const _NISL = "NotebookInstanceSummaryList";
 const _NISo = "NotebookInstanceSummary";
+const _NIe = "NetworkInterface";
 const _NIo = "NodeIds";
 const _NIot = "NotebookInstances";
 const _NLI = "NodeLogicalId";
@@ -2431,6 +2435,7 @@ const _OET = "OptimizationEndTime";
 const _OEv = "OverrideEnvironment";
 const _OF = "OutputFormat";
 const _OFu = "OutputFilter";
+const _OIC = "OnInitComplete";
 const _OJA = "OptimizationJobArn";
 const _OJMS = "OptimizationJobModelSource";
 const _OJMSS = "OptimizationJobModelSourceS3";
@@ -4230,13 +4235,13 @@ export var ClusterFsxOpenZfsConfig$: StaticStructureSchema = [3, n0, _CFOZC,
 ];
 export var ClusterInstanceGroupDetails$: StaticStructureSchema = [3, n0, _CIGD,
   0,
-  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _CII, _DII, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl],
-  [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$]
+  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _CII, _DII, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
+  [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CIGS,
   0,
-  [_ICns, _IGN, _ERx, _MIC, _ITn, _IRn, _LCC, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _IIm, _KC, _SCl, _CRa],
-  [1, 0, 0, 1, 0, () => ClusterInstanceRequirements$, () => ClusterLifeCycleConfig$, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, () => ClusterKubernetesConfig$, () => ClusterSlurmConfig$, () => ClusterCapacityRequirements$], 3
+  [_ICns, _IGN, _ERx, _MIC, _ITn, _IRn, _LCC, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _IIm, _KC, _SCl, _CRa, _NIe],
+  [1, 0, 0, 1, 0, () => ClusterInstanceRequirements$, () => ClusterLifeCycleConfig$, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, () => ClusterKubernetesConfig$, () => ClusterSlurmConfig$, () => ClusterCapacityRequirements$, () => ClusterNetworkInterface$], 3
 ];
 export var ClusterInstancePlacement$: StaticStructureSchema = [3, n0, _CIP,
   0,
@@ -4285,18 +4290,28 @@ export var ClusterKubernetesTaint$: StaticStructureSchema = [3, n0, _CKT,
 ];
 export var ClusterLifeCycleConfig$: StaticStructureSchema = [3, n0, _CLCC,
   0,
-  [_SSU, _OCn],
-  [0, 0]
+  [_SSU, _OCn, _OIC],
+  [0, 0, 0]
 ];
 export var ClusterMetadata$: StaticStructureSchema = [3, n0, _CMl,
   0,
   [_FM, _ERAE, _SAE],
   [0, 64 | 0, 0]
 ];
+export var ClusterNetworkInterface$: StaticStructureSchema = [3, n0, _CNI,
+  0,
+  [_ITnt],
+  [0]
+];
+export var ClusterNetworkInterfaceDetails$: StaticStructureSchema = [3, n0, _CNID,
+  0,
+  [_ITnt],
+  [0]
+];
 export var ClusterNodeDetails$: StaticStructureSchema = [3, n0, _CND,
   0,
-  [_IGN, _II, _NLI, _ISns, _ITn, _LT, _LSUT, _LCC, _OVC, _TPC, _ISC, _PPI, _PPIr, _PDH, _Pl, _CII, _DII, _USI, _KC, _CTap],
-  [0, 0, 0, () => ClusterInstanceStatusDetails$, 0, 4, 4, () => ClusterLifeCycleConfig$, () => VpcConfig$, 1, () => ClusterInstanceStorageConfigs, 0, 0, 0, () => ClusterInstancePlacement$, 0, 0, () => UltraServerInfo$, () => ClusterKubernetesConfigNodeDetails$, 0]
+  [_IGN, _II, _NLI, _ISns, _ITn, _LT, _LSUT, _LCC, _OVC, _TPC, _ISC, _PPI, _PPIr, _PDH, _Pl, _CII, _DII, _USI, _KC, _CTap, _NIe],
+  [0, 0, 0, () => ClusterInstanceStatusDetails$, 0, 4, 4, () => ClusterLifeCycleConfig$, () => VpcConfig$, 1, () => ClusterInstanceStorageConfigs, 0, 0, 0, () => ClusterInstancePlacement$, 0, 0, () => UltraServerInfo$, () => ClusterKubernetesConfigNodeDetails$, 0, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterNodeSummary$: StaticStructureSchema = [3, n0, _CNS,
   0,
@@ -11739,7 +11754,7 @@ export var CreateModelQualityJobDefinition$: StaticOperationSchema = [9, n0, _CM
 export var CreateMonitoringSchedule$: StaticOperationSchema = [9, n0, _CMSr,
   0, () => CreateMonitoringScheduleRequest$, () => CreateMonitoringScheduleResponse$
 ];
-export var CreateNotebookInstance$: StaticOperationSchema = [9, n0, _CNI,
+export var CreateNotebookInstance$: StaticOperationSchema = [9, n0, _CNIr,
   0, () => CreateNotebookInstanceInput$, () => CreateNotebookInstanceOutput$
 ];
 export var CreateNotebookInstanceLifecycleConfig$: StaticOperationSchema = [9, n0, _CNILC,

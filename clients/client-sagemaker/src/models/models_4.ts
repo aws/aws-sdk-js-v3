@@ -84,12 +84,19 @@ import type {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AppSpecification,
+  AutoMLJobStepMetadata,
   BatchDataCaptureConfig,
   BatchTransformInput,
+  BedrockCustomModelDeploymentMetadata,
+  BedrockCustomModelMetadata,
+  BedrockModelImportMetadata,
+  BedrockProvisionedModelThroughputMetadata,
   CacheHitResult,
+  CallbackStepMetadata,
   CfnUpdateTemplateProvider,
   Channel,
   CheckpointConfig,
+  ClarifyCheckStepMetadata,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterOrchestrator,
@@ -98,6 +105,7 @@ import type {
   CodeEditorAppImageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
+  ConditionStepMetadata,
   ContainerDefinition,
   DeploymentConfiguration,
   InferenceSpecification,
@@ -192,31 +200,193 @@ import type {
   DeviceDeploymentSummary,
   DomainSettingsForUpdate,
   Edge,
+  EMRStepMetadata,
   Endpoint,
+  EndpointConfigStepMetadata,
+  EndpointStepMetadata,
   Experiment,
+  FailStepMetadata,
   FeatureGroup,
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
+  InferenceComponentMetadata,
+  LambdaStepMetadata,
+  LineageMetadata,
   MetricData,
+  ModelStepMetadata,
   MonitoringAlertSummary,
-  PipelineExecutionStepMetadata,
   PipelineExperimentConfig,
+  ProcessingJobStepMetadata,
+  QualityCheckStepMetadata,
+  RegisterModelStepMetadata,
   ReservedCapacitySummary,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
-  SelectiveExecutionResult,
   ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
   TemplateProviderDetail,
+  TrainingJobStepMetadata,
+  TransformJobStepMetadata,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
+  TuningJobStepMetaData,
   WarmPoolStatus,
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>Metadata for a step execution.</p>
+ * @public
+ */
+export interface PipelineExecutionStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
+   * @public
+   */
+  TrainingJob?: TrainingJobStepMetadata | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job that was run by this step execution.</p>
+   * @public
+   */
+  ProcessingJob?: ProcessingJobStepMetadata | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
+   * @public
+   */
+  TransformJob?: TransformJobStepMetadata | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   * @public
+   */
+  TuningJob?: TuningJobStepMetaData | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
+   * @public
+   */
+  Model?: ModelStepMetadata | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package that the model was registered to by this step execution.</p>
+   * @public
+   */
+  RegisterModel?: RegisterModelStepMetadata | undefined;
+
+  /**
+   * <p>The outcome of the condition evaluation that was run by this step execution.</p>
+   * @public
+   */
+  Condition?: ConditionStepMetadata | undefined;
+
+  /**
+   * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token, and a list of output parameters.</p>
+   * @public
+   */
+  Callback?: CallbackStepMetadata | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of output parameters.</p>
+   * @public
+   */
+  Lambda?: LambdaStepMetadata | undefined;
+
+  /**
+   * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
+   * @public
+   */
+  EMR?: EMRStepMetadata | undefined;
+
+  /**
+   * <p>The configurations and outcomes of the check step execution. This includes: </p> <ul> <li> <p>The type of the check conducted.</p> </li> <li> <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p> </li> <li> <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p> </li> <li> <p>The model package group name provided.</p> </li> <li> <p>The Amazon S3 URI of the violation report if violations detected.</p> </li> <li> <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p> </li> <li> <p>The Boolean flags indicating if the drift check is skipped.</p> </li> <li> <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.</p> </li> </ul>
+   * @public
+   */
+  QualityCheck?: QualityCheckStepMetadata | undefined;
+
+  /**
+   * <p>Container for the metadata for a Clarify check step. The configurations and outcomes of the check step execution. This includes: </p> <ul> <li> <p>The type of the check conducted,</p> </li> <li> <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p> </li> <li> <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p> </li> <li> <p>The model package group name provided.</p> </li> <li> <p>The Amazon S3 URI of the violation report if violations detected.</p> </li> <li> <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p> </li> <li> <p>The boolean flags indicating if the drift check is skipped.</p> </li> <li> <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.</p> </li> </ul>
+   * @public
+   */
+  ClarifyCheck?: ClarifyCheckStepMetadata | undefined;
+
+  /**
+   * <p>The configurations and outcomes of a Fail step execution.</p>
+   * @public
+   */
+  Fail?: FailStepMetadata | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AutoML job that was run by this step.</p>
+   * @public
+   */
+  AutoMLJob?: AutoMLJobStepMetadata | undefined;
+
+  /**
+   * <p>The endpoint that was invoked during this step execution.</p>
+   * @public
+   */
+  Endpoint?: EndpointStepMetadata | undefined;
+
+  /**
+   * <p>The endpoint configuration used to create an endpoint during this step execution.</p>
+   * @public
+   */
+  EndpointConfig?: EndpointConfigStepMetadata | undefined;
+
+  /**
+   * <p> The metadata of the Amazon Bedrock custom model used in the pipeline execution step. </p>
+   * @public
+   */
+  BedrockCustomModel?: BedrockCustomModelMetadata | undefined;
+
+  /**
+   * <p> The metadata of the Amazon Bedrock custom model deployment used in pipeline execution step. </p>
+   * @public
+   */
+  BedrockCustomModelDeployment?: BedrockCustomModelDeploymentMetadata | undefined;
+
+  /**
+   * <p> The metadata of the Amazon Bedrock provisioned model throughput used in the pipeline execution step. </p>
+   * @public
+   */
+  BedrockProvisionedModelThroughput?: BedrockProvisionedModelThroughputMetadata | undefined;
+
+  /**
+   * <p> The metadata of Amazon Bedrock model import used in pipeline execution step. </p>
+   * @public
+   */
+  BedrockModelImport?: BedrockModelImportMetadata | undefined;
+
+  /**
+   * <p> The metadata of the inference component used in pipeline execution step. </p>
+   * @public
+   */
+  InferenceComponent?: InferenceComponentMetadata | undefined;
+
+  /**
+   * <p> The metadata of the lineage used in pipeline execution step. </p>
+   * @public
+   */
+  Lineage?: LineageMetadata | undefined;
+}
+
+/**
+ * <p>The ARN from an execution of the current pipeline.</p>
+ * @public
+ */
+export interface SelectiveExecutionResult {
+  /**
+   * <p>The ARN from an execution of the current pipeline.</p>
+   * @public
+   */
+  SourcePipelineExecutionArn?: string | undefined;
+}
 
 /**
  * <p>An execution of a step in a pipeline.</p>

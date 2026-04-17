@@ -226,6 +226,7 @@ import {
   ClusterInstanceStorageConfig$,
   ClusterInstanceType,
   ClusterInstanceTypeDetail$,
+  ClusterInterfaceType,
   ClusterKubernetesConfig$,
   ClusterKubernetesConfigDetails$,
   ClusterKubernetesConfigNodeDetails$,
@@ -233,6 +234,8 @@ import {
   ClusterKubernetesTaintEffect,
   ClusterLifeCycleConfig$,
   ClusterMetadata$,
+  ClusterNetworkInterface$,
+  ClusterNetworkInterfaceDetails$,
   ClusterNodeDetails$,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
@@ -3592,6 +3595,8 @@ assert(typeof ClusterKubernetesConfigNodeDetails$ === "object");
 assert(typeof ClusterKubernetesTaint$ === "object");
 assert(typeof ClusterLifeCycleConfig$ === "object");
 assert(typeof ClusterMetadata$ === "object");
+assert(typeof ClusterNetworkInterface$ === "object");
+assert(typeof ClusterNetworkInterfaceDetails$ === "object");
 assert(typeof ClusterNodeDetails$ === "object");
 assert(typeof ClusterNodeSummary$ === "object");
 assert(typeof ClusterOnDemandOptions$ === "object");
@@ -4947,6 +4952,7 @@ assert(typeof ClusterConfigMode === "object");
 assert(typeof ClusterEventResourceType === "object");
 assert(typeof ClusterInstanceStatus === "object");
 assert(typeof ClusterInstanceType === "object");
+assert(typeof ClusterInterfaceType === "object");
 assert(typeof ClusterKubernetesTaintEffect === "object");
 assert(typeof ClusterNodeProvisioningMode === "object");
 assert(typeof ClusterNodeRecovery === "object");

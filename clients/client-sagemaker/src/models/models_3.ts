@@ -94,6 +94,7 @@ import type {
   OptimizationJobDeploymentInstanceType,
   OptimizationJobStatus,
   OrderKey,
+  PartnerAppAuthType,
   PartnerAppStatus,
   PartnerAppType,
   PipelineExecutionStatus,
@@ -153,18 +154,12 @@ import type {
   AssociationInfo,
   AssociationSummary,
   AutoMLCandidate,
-  AutoMLJobStepMetadata,
   AutoMLJobSummary,
+  AvailableUpgrade,
   BatchDataCaptureConfig,
-  BedrockCustomModelDeploymentMetadata,
-  BedrockCustomModelMetadata,
-  BedrockModelImportMetadata,
-  BedrockProvisionedModelThroughputMetadata,
-  CallbackStepMetadata,
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
-  ClarifyCheckStepMetadata,
   ClusterEventSummary,
   ClusterNodeSummary,
   ClusterSchedulerConfigSummary,
@@ -173,7 +168,6 @@ import type {
   CognitoConfig,
   CompilationJobSummary,
   ComputeQuotaSummary,
-  ConditionStepMetadata,
   ContextSummary,
   MetadataProperties,
   OutputDataConfig,
@@ -205,6 +199,8 @@ import type {
   OnlineStoreConfig,
   OwnershipSettings,
   ParallelismConfiguration,
+  PartnerAppConfig,
+  PartnerAppMaintenanceConfig,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -224,6 +220,7 @@ import type {
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   EndpointOutputConfiguration,
+  ErrorInfo,
   ExperimentSource,
   FeatureParameter,
   HyperParameterTrainingJobSummary,
@@ -260,6 +257,142 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribePartnerAppResponse {
+  /**
+   * <p>The ARN of the SageMaker Partner AI App that was described.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker Partner AI App.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of SageMaker Partner AI App. Must be one of the following: <code>lakera-guard</code>, <code>comet</code>, <code>deepchecks-llm-evaluation</code>, or <code>fiddler</code>.</p>
+   * @public
+   */
+  Type?: PartnerAppType | undefined;
+
+  /**
+   * <p>The status of the SageMaker Partner AI App.</p> <ul> <li> <p>Creating: SageMaker AI is creating the partner AI app. The partner AI app is not available during creation.</p> </li> <li> <p>Updating: SageMaker AI is updating the partner AI app. The partner AI app is not available when updating.</p> </li> <li> <p>Deleting: SageMaker AI is deleting the partner AI app. The partner AI app is not available during deletion.</p> </li> <li> <p>Available: The partner AI app is provisioned and accessible.</p> </li> <li> <p>Failed: The partner AI app is in a failed state and isn't available. SageMaker AI is investigating the issue. For further guidance, contact Amazon Web Services Support.</p> </li> <li> <p>UpdateFailed: The partner AI app couldn't be updated but is available.</p> </li> <li> <p>Deleted: The partner AI app is permanently deleted and not available.</p> </li> </ul>
+   * @public
+   */
+  Status?: PartnerAppStatus | undefined;
+
+  /**
+   * <p>The time that the SageMaker Partner AI App was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The time that the SageMaker Partner AI App was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated with the SageMaker Partner AI App.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS customer managed key used to encrypt the data at rest associated with SageMaker Partner AI Apps.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The URL of the SageMaker Partner AI App that the Application SDK uses to support in-app calls for the user.</p>
+   * @public
+   */
+  BaseUrl?: string | undefined;
+
+  /**
+   * <p>Maintenance configuration settings for the SageMaker Partner AI App.</p>
+   * @public
+   */
+  MaintenanceConfig?: PartnerAppMaintenanceConfig | undefined;
+
+  /**
+   * <p>The instance type and size of the cluster attached to the SageMaker Partner AI App.</p>
+   * @public
+   */
+  Tier?: string | undefined;
+
+  /**
+   * <p>The version of the SageMaker Partner AI App.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>Configuration settings for the SageMaker Partner AI App.</p>
+   * @public
+   */
+  ApplicationConfig?: PartnerAppConfig | undefined;
+
+  /**
+   * <p>The authorization type that users use to access the SageMaker Partner AI App.</p>
+   * @public
+   */
+  AuthType?: PartnerAppAuthType | undefined;
+
+  /**
+   * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App sets the Amazon Web Services IAM session name or the authenticated IAM user as the identity of the SageMaker Partner AI App user.</p>
+   * @public
+   */
+  EnableIamSessionBasedIdentity?: boolean | undefined;
+
+  /**
+   * <p>This is an error field object that contains the error code and the reason for an operation failure.</p>
+   * @public
+   */
+  Error?: ErrorInfo | undefined;
+
+  /**
+   * <p>Indicates whether the SageMaker Partner AI App is configured for automatic minor version upgrades during scheduled maintenance windows.</p>
+   * @public
+   */
+  EnableAutoMinorVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>The end-of-life date for the current version of the SageMaker Partner AI App.</p>
+   * @public
+   */
+  CurrentVersionEolDate?: Date | undefined;
+
+  /**
+   * <p>A map of available minor version upgrades for the SageMaker Partner AI App. The key is the semantic version number, and the value is a list of release notes for that version. A null value indicates no upgrades are available.</p>
+   * @public
+   */
+  AvailableUpgrade?: AvailableUpgrade | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline to describe.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version to describe.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+}
 
 /**
  * @public
@@ -11223,154 +11356,4 @@ export interface TuningJobStepMetaData {
    * @public
    */
   Arn?: string | undefined;
-}
-
-/**
- * <p>Metadata for a step execution.</p>
- * @public
- */
-export interface PipelineExecutionStepMetadata {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
-   * @public
-   */
-  TrainingJob?: TrainingJobStepMetadata | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the processing job that was run by this step execution.</p>
-   * @public
-   */
-  ProcessingJob?: ProcessingJobStepMetadata | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
-   * @public
-   */
-  TransformJob?: TransformJobStepMetadata | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
-   * @public
-   */
-  TuningJob?: TuningJobStepMetaData | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
-   * @public
-   */
-  Model?: ModelStepMetadata | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package that the model was registered to by this step execution.</p>
-   * @public
-   */
-  RegisterModel?: RegisterModelStepMetadata | undefined;
-
-  /**
-   * <p>The outcome of the condition evaluation that was run by this step execution.</p>
-   * @public
-   */
-  Condition?: ConditionStepMetadata | undefined;
-
-  /**
-   * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token, and a list of output parameters.</p>
-   * @public
-   */
-  Callback?: CallbackStepMetadata | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of output parameters.</p>
-   * @public
-   */
-  Lambda?: LambdaStepMetadata | undefined;
-
-  /**
-   * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
-   * @public
-   */
-  EMR?: EMRStepMetadata | undefined;
-
-  /**
-   * <p>The configurations and outcomes of the check step execution. This includes: </p> <ul> <li> <p>The type of the check conducted.</p> </li> <li> <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p> </li> <li> <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p> </li> <li> <p>The model package group name provided.</p> </li> <li> <p>The Amazon S3 URI of the violation report if violations detected.</p> </li> <li> <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p> </li> <li> <p>The Boolean flags indicating if the drift check is skipped.</p> </li> <li> <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.</p> </li> </ul>
-   * @public
-   */
-  QualityCheck?: QualityCheckStepMetadata | undefined;
-
-  /**
-   * <p>Container for the metadata for a Clarify check step. The configurations and outcomes of the check step execution. This includes: </p> <ul> <li> <p>The type of the check conducted,</p> </li> <li> <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p> </li> <li> <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p> </li> <li> <p>The model package group name provided.</p> </li> <li> <p>The Amazon S3 URI of the violation report if violations detected.</p> </li> <li> <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p> </li> <li> <p>The boolean flags indicating if the drift check is skipped.</p> </li> <li> <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.</p> </li> </ul>
-   * @public
-   */
-  ClarifyCheck?: ClarifyCheckStepMetadata | undefined;
-
-  /**
-   * <p>The configurations and outcomes of a Fail step execution.</p>
-   * @public
-   */
-  Fail?: FailStepMetadata | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AutoML job that was run by this step.</p>
-   * @public
-   */
-  AutoMLJob?: AutoMLJobStepMetadata | undefined;
-
-  /**
-   * <p>The endpoint that was invoked during this step execution.</p>
-   * @public
-   */
-  Endpoint?: EndpointStepMetadata | undefined;
-
-  /**
-   * <p>The endpoint configuration used to create an endpoint during this step execution.</p>
-   * @public
-   */
-  EndpointConfig?: EndpointConfigStepMetadata | undefined;
-
-  /**
-   * <p> The metadata of the Amazon Bedrock custom model used in the pipeline execution step. </p>
-   * @public
-   */
-  BedrockCustomModel?: BedrockCustomModelMetadata | undefined;
-
-  /**
-   * <p> The metadata of the Amazon Bedrock custom model deployment used in pipeline execution step. </p>
-   * @public
-   */
-  BedrockCustomModelDeployment?: BedrockCustomModelDeploymentMetadata | undefined;
-
-  /**
-   * <p> The metadata of the Amazon Bedrock provisioned model throughput used in the pipeline execution step. </p>
-   * @public
-   */
-  BedrockProvisionedModelThroughput?: BedrockProvisionedModelThroughputMetadata | undefined;
-
-  /**
-   * <p> The metadata of Amazon Bedrock model import used in pipeline execution step. </p>
-   * @public
-   */
-  BedrockModelImport?: BedrockModelImportMetadata | undefined;
-
-  /**
-   * <p> The metadata of the inference component used in pipeline execution step. </p>
-   * @public
-   */
-  InferenceComponent?: InferenceComponentMetadata | undefined;
-
-  /**
-   * <p> The metadata of the lineage used in pipeline execution step. </p>
-   * @public
-   */
-  Lineage?: LineageMetadata | undefined;
-}
-
-/**
- * <p>The ARN from an execution of the current pipeline.</p>
- * @public
- */
-export interface SelectiveExecutionResult {
-  /**
-   * <p>The ARN from an execution of the current pipeline.</p>
-   * @public
-   */
-  SourcePipelineExecutionArn?: string | undefined;
 }

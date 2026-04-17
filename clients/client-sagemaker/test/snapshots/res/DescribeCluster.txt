@@ -151,7 +151,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
-        "OnCreate": "__OnCreate__"
+        "OnCreate": "__OnCreate__",
+        "OnInitComplete": "__OnInitComplete__"
       },
       "ExecutionRole": "__ExecutionRole__",
       "ThreadsPerCore": 0,
@@ -314,6 +315,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ]
+      },
+      "NetworkInterface": {
+        "InterfaceType": "__InterfaceType__"
       }
     },
     {
@@ -353,7 +357,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
-        "OnCreate": "__OnCreate__"
+        "OnCreate": "__OnCreate__",
+        "OnInitComplete": "__OnInitComplete__"
       },
       "ExecutionRole": "__ExecutionRole__",
       "ThreadsPerCore": 0,
@@ -516,6 +521,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ]
+      },
+      "NetworkInterface": {
+        "InterfaceType": "__InterfaceType__"
       }
     },
     {
@@ -555,7 +563,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       "LifeCycleConfig": {
         "SourceS3Uri": "__SourceS3Uri__",
-        "OnCreate": "__OnCreate__"
+        "OnCreate": "__OnCreate__",
+        "OnInitComplete": "__OnInitComplete__"
       },
       "ExecutionRole": "__ExecutionRole__",
       "ThreadsPerCore": 0,
@@ -718,6 +727,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ]
+      },
+      "NetworkInterface": {
+        "InterfaceType": "__InterfaceType__"
       }
     }
   ],
@@ -1056,7 +1068,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       LifeCycleConfig: {
         SourceS3Uri: "__SourceS3Uri__",
-        OnCreate: "__OnCreate__"
+        OnCreate: "__OnCreate__",
+        OnInitComplete: "__OnInitComplete__"
       },
       ExecutionRole: "__ExecutionRole__",
       ThreadsPerCore: (number) 0,
@@ -1219,6 +1232,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ]
+      },
+      NetworkInterface: {
+        InterfaceType: "__InterfaceType__"
       }
     },
     {
@@ -1258,7 +1274,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       LifeCycleConfig: {
         SourceS3Uri: "__SourceS3Uri__",
-        OnCreate: "__OnCreate__"
+        OnCreate: "__OnCreate__",
+        OnInitComplete: "__OnInitComplete__"
       },
       ExecutionRole: "__ExecutionRole__",
       ThreadsPerCore: (number) 0,
@@ -1421,6 +1438,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ]
+      },
+      NetworkInterface: {
+        InterfaceType: "__InterfaceType__"
       }
     },
     {
@@ -1460,7 +1480,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       LifeCycleConfig: {
         SourceS3Uri: "__SourceS3Uri__",
-        OnCreate: "__OnCreate__"
+        OnCreate: "__OnCreate__",
+        OnInitComplete: "__OnInitComplete__"
       },
       ExecutionRole: "__ExecutionRole__",
       ThreadsPerCore: (number) 0,
@@ -1623,6 +1644,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__"
         ]
+      },
+      NetworkInterface: {
+        InterfaceType: "__InterfaceType__"
       }
     }
   ],

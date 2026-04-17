@@ -44,7 +44,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "LastSoftwareUpdateTime": 946702799.999,
     "LifeCycleConfig": {
       "SourceS3Uri": "__SourceS3Uri__",
-      "OnCreate": "__OnCreate__"
+      "OnCreate": "__OnCreate__",
+      "OnInitComplete": "__OnInitComplete__"
     },
     "OverrideVpcConfig": {
       "SecurityGroupIds": [
@@ -140,7 +141,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       ]
     },
-    "CapacityType": "__CapacityType__"
+    "CapacityType": "__CapacityType__",
+    "NetworkInterface": {
+      "InterfaceType": "__InterfaceType__"
+    }
   }
 }
 
@@ -160,7 +164,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
     LifeCycleConfig: {
       SourceS3Uri: "__SourceS3Uri__",
-      OnCreate: "__OnCreate__"
+      OnCreate: "__OnCreate__",
+      OnInitComplete: "__OnInitComplete__"
     },
     OverrideVpcConfig: {
       SecurityGroupIds: [
@@ -256,7 +261,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       ]
     },
-    CapacityType: "__CapacityType__"
+    CapacityType: "__CapacityType__",
+    NetworkInterface: {
+      InterfaceType: "__InterfaceType__"
+    }
   },
   $metadata: {
     httpStatusCode: (number) 200,

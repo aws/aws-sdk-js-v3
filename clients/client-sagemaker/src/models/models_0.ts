@@ -47,6 +47,7 @@ import type {
   ClusterEventResourceType,
   ClusterInstanceStatus,
   ClusterInstanceType,
+  ClusterInterfaceType,
   ClusterKubernetesTaintEffect,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
@@ -5900,6 +5901,24 @@ export interface ClusterLifeCycleConfig {
    * @public
    */
   OnCreate?: string | undefined;
+
+  /**
+   * <p>The file name of the entrypoint script of lifecycle scripts under <code>SourceS3Uri</code>. This script runs on the node after the AMI-based initialization is complete.</p>
+   * @public
+   */
+  OnInitComplete?: string | undefined;
+}
+
+/**
+ * <p>The network interface configuration details for a Amazon SageMaker HyperPod cluster instance group.</p>
+ * @public
+ */
+export interface ClusterNetworkInterfaceDetails {
+  /**
+   * <p>The type of network interface for the instance group. Valid values are <code>efa</code> and <code>efa-only</code>.</p>
+   * @public
+   */
+  InterfaceType?: ClusterInterfaceType | undefined;
 }
 
 /**
@@ -6098,6 +6117,12 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   SlurmConfig?: ClusterSlurmConfigDetails | undefined;
+
+  /**
+   * <p>The network interface configuration for the instance group.</p>
+   * @public
+   */
+  NetworkInterface?: ClusterNetworkInterfaceDetails | undefined;
 }
 
 /**
@@ -6128,6 +6153,18 @@ export interface ClusterKubernetesConfig {
    * @public
    */
   Taints?: ClusterKubernetesTaint[] | undefined;
+}
+
+/**
+ * <p>The network interface configuration for a Amazon SageMaker HyperPod cluster instance group.</p>
+ * @public
+ */
+export interface ClusterNetworkInterface {
+  /**
+   * <p>The type of network interface for the instance group. Valid values:</p> <ul> <li> <p> <code>efa</code> – An EFA with ENA interface, which provides both the EFA device for low-latency, high-throughput communication and the ENA device for IP networking.</p> </li> <li> <p> <code>efa-only</code> – An EFA-only interface, which provides only the EFA device capabilities without the ENA device for traditional IP networking.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a>.</p>
+   * @public
+   */
+  InterfaceType?: ClusterInterfaceType | undefined;
 }
 
 /**
@@ -6254,6 +6291,12 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   CapacityRequirements?: ClusterCapacityRequirements | undefined;
+
+  /**
+   * <p>The network interface configuration for the instance group.</p>
+   * @public
+   */
+  NetworkInterface?: ClusterNetworkInterface | undefined;
 }
 
 /**
@@ -6464,6 +6507,12 @@ export interface ClusterNodeDetails {
    * @public
    */
   CapacityType?: ClusterCapacityType | undefined;
+
+  /**
+   * <p>The network interface configuration for the cluster node.</p>
+   * @public
+   */
+  NetworkInterface?: ClusterNetworkInterfaceDetails | undefined;
 }
 
 /**
@@ -8403,46 +8452,6 @@ export interface CreateClusterSchedulerConfigRequest {
 
   /**
    * <p>Tags of the cluster policy.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateClusterSchedulerConfigResponse {
-  /**
-   * <p>ARN of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigArn: string | undefined;
-
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>Specifies details about the repository, including the URL where the repository is located, the default branch, and credentials to use to access the repository.</p>
-   * @public
-   */
-  GitConfig: GitConfig | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;

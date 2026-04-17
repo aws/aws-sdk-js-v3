@@ -73,9 +73,6 @@ import type {
   OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   OptimizationJobStatus,
-  PartnerAppAuthType,
-  PartnerAppStatus,
-  PartnerAppType,
   Peft,
   ProblemType,
   ProcessingInstanceType,
@@ -132,7 +129,6 @@ import type {
   AutoMLSecurityConfig,
   AutoRollbackConfig,
   Autotune,
-  AvailableUpgrade,
   BatchDataCaptureConfig,
   Channel,
   CheckpointConfig,
@@ -244,8 +240,6 @@ import type {
   OptimizationVpcConfig,
   OutputConfig,
   OwnershipSettings,
-  PartnerAppConfig,
-  PartnerAppMaintenanceConfig,
   ProductionVariant,
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
@@ -255,10 +249,39 @@ import type {
   RetryStrategy,
   ShadowModeConfig,
   SourceAlgorithmSpecification,
-  SpaceAppLifecycleManagement,
-  SpaceCodeEditorAppSettings,
+  SpaceIdleSettings,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio applications in a space.</p>
+ * @public
+ */
+export interface SpaceAppLifecycleManagement {
+  /**
+   * <p>Settings related to idle shutdown of Studio applications.</p>
+   * @public
+   */
+  IdleSettings?: SpaceIdleSettings | undefined;
+}
+
+/**
+ * <p>The application settings for a Code Editor space.</p>
+ * @public
+ */
+export interface SpaceCodeEditorAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
+   * @public
+   */
+  DefaultResourceSpec?: ResourceSpec | undefined;
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.</p>
+   * @public
+   */
+  AppLifecycleManagement?: SpaceAppLifecycleManagement | undefined;
+}
 
 /**
  * <p>A file system, created by you in Amazon EFS, that you assign to a user profile or space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</p>
@@ -9424,140 +9447,4 @@ export interface ErrorInfo {
    * @public
    */
   Reason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePartnerAppResponse {
-  /**
-   * <p>The ARN of the SageMaker Partner AI App that was described.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker Partner AI App.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of SageMaker Partner AI App. Must be one of the following: <code>lakera-guard</code>, <code>comet</code>, <code>deepchecks-llm-evaluation</code>, or <code>fiddler</code>.</p>
-   * @public
-   */
-  Type?: PartnerAppType | undefined;
-
-  /**
-   * <p>The status of the SageMaker Partner AI App.</p> <ul> <li> <p>Creating: SageMaker AI is creating the partner AI app. The partner AI app is not available during creation.</p> </li> <li> <p>Updating: SageMaker AI is updating the partner AI app. The partner AI app is not available when updating.</p> </li> <li> <p>Deleting: SageMaker AI is deleting the partner AI app. The partner AI app is not available during deletion.</p> </li> <li> <p>Available: The partner AI app is provisioned and accessible.</p> </li> <li> <p>Failed: The partner AI app is in a failed state and isn't available. SageMaker AI is investigating the issue. For further guidance, contact Amazon Web Services Support.</p> </li> <li> <p>UpdateFailed: The partner AI app couldn't be updated but is available.</p> </li> <li> <p>Deleted: The partner AI app is permanently deleted and not available.</p> </li> </ul>
-   * @public
-   */
-  Status?: PartnerAppStatus | undefined;
-
-  /**
-   * <p>The time that the SageMaker Partner AI App was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time that the SageMaker Partner AI App was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The ARN of the IAM role associated with the SageMaker Partner AI App.</p>
-   * @public
-   */
-  ExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services KMS customer managed key used to encrypt the data at rest associated with SageMaker Partner AI Apps.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The URL of the SageMaker Partner AI App that the Application SDK uses to support in-app calls for the user.</p>
-   * @public
-   */
-  BaseUrl?: string | undefined;
-
-  /**
-   * <p>Maintenance configuration settings for the SageMaker Partner AI App.</p>
-   * @public
-   */
-  MaintenanceConfig?: PartnerAppMaintenanceConfig | undefined;
-
-  /**
-   * <p>The instance type and size of the cluster attached to the SageMaker Partner AI App.</p>
-   * @public
-   */
-  Tier?: string | undefined;
-
-  /**
-   * <p>The version of the SageMaker Partner AI App.</p>
-   * @public
-   */
-  Version?: string | undefined;
-
-  /**
-   * <p>Configuration settings for the SageMaker Partner AI App.</p>
-   * @public
-   */
-  ApplicationConfig?: PartnerAppConfig | undefined;
-
-  /**
-   * <p>The authorization type that users use to access the SageMaker Partner AI App.</p>
-   * @public
-   */
-  AuthType?: PartnerAppAuthType | undefined;
-
-  /**
-   * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App sets the Amazon Web Services IAM session name or the authenticated IAM user as the identity of the SageMaker Partner AI App user.</p>
-   * @public
-   */
-  EnableIamSessionBasedIdentity?: boolean | undefined;
-
-  /**
-   * <p>This is an error field object that contains the error code and the reason for an operation failure.</p>
-   * @public
-   */
-  Error?: ErrorInfo | undefined;
-
-  /**
-   * <p>Indicates whether the SageMaker Partner AI App is configured for automatic minor version upgrades during scheduled maintenance windows.</p>
-   * @public
-   */
-  EnableAutoMinorVersionUpgrade?: boolean | undefined;
-
-  /**
-   * <p>The end-of-life date for the current version of the SageMaker Partner AI App.</p>
-   * @public
-   */
-  CurrentVersionEolDate?: Date | undefined;
-
-  /**
-   * <p>A map of available minor version upgrades for the SageMaker Partner AI App. The key is the semantic version number, and the value is a list of release notes for that version. A null value indicates no upgrades are available.</p>
-   * @public
-   */
-  AvailableUpgrade?: AvailableUpgrade | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the pipeline to describe.</p>
-   * @public
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The ID of the pipeline version to describe.</p>
-   * @public
-   */
-  PipelineVersionId?: number | undefined;
 }

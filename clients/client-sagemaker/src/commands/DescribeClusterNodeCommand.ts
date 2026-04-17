@@ -58,6 +58,7 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //     LifeCycleConfig: { // ClusterLifeCycleConfig
  * //       SourceS3Uri: "STRING_VALUE",
  * //       OnCreate: "STRING_VALUE",
+ * //       OnInitComplete: "STRING_VALUE",
  * //     },
  * //     OverrideVpcConfig: { // VpcConfig
  * //       SecurityGroupIds: [ // VpcSecurityGroupIds // required
@@ -122,6 +123,9 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //       ],
  * //     },
  * //     CapacityType: "Spot" || "OnDemand",
+ * //     NetworkInterface: { // ClusterNetworkInterfaceDetails
+ * //       InterfaceType: "efa" || "efa-only",
+ * //     },
  * //   },
  * // };
  *

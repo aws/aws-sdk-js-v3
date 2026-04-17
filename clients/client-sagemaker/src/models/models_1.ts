@@ -128,6 +128,7 @@ import type {
   ContinuousParameterRange,
   ConvergenceDetected,
   CustomImage,
+  GitConfig,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
   MetadataProperties,
@@ -142,6 +143,46 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateClusterSchedulerConfigResponse {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>Specifies details about the repository, including the URL where the repository is located, the default branch, and credentials to use to access the repository.</p>
+   * @public
+   */
+  GitConfig: GitConfig | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -8155,34 +8196,4 @@ export interface SpaceIdleSettings {
    * @public
    */
   IdleTimeoutInMinutes?: number | undefined;
-}
-
-/**
- * <p>Settings that are used to configure and manage the lifecycle of Amazon SageMaker Studio applications in a space.</p>
- * @public
- */
-export interface SpaceAppLifecycleManagement {
-  /**
-   * <p>Settings related to idle shutdown of Studio applications.</p>
-   * @public
-   */
-  IdleSettings?: SpaceIdleSettings | undefined;
-}
-
-/**
- * <p>The application settings for a Code Editor space.</p>
- * @public
- */
-export interface SpaceCodeEditorAppSettings {
-  /**
-   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
-   * @public
-   */
-  DefaultResourceSpec?: ResourceSpec | undefined;
-
-  /**
-   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.</p>
-   * @public
-   */
-  AppLifecycleManagement?: SpaceAppLifecycleManagement | undefined;
 }
