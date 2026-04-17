@@ -35,6 +35,7 @@
     "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.11",
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.31",
     "@aws-sdk/region-config-resolver": "workspace:^3.972.12",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.18",
     "@aws-sdk/types": "workspace:^3.973.8",
     "@aws-sdk/util-endpoints": "workspace:^3.996.7",
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.10",

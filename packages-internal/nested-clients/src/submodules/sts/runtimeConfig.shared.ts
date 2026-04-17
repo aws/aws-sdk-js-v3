@@ -1,6 +1,7 @@
 // smithy-typescript generated code
-import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
+import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsQueryProtocol } from "@aws-sdk/core/protocols";
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import type { IdentityProviderConfig } from "@smithy/types";
@@ -32,6 +33,11 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
         signer: new AwsSdkSigV4Signer(),
       },
       {
+        schemeId: "aws.auth#sigv4a",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4a"),
+        signer: new AwsSdkSigV4ASigner(),
+      },
+      {
         schemeId: "smithy.api#noAuth",
         identityProvider: (ipc: IdentityProviderConfig) =>
           ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
@@ -48,6 +54,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
       serviceTarget: "AWSSecurityTokenServiceV20110615",
     },
     serviceId: config?.serviceId ?? "STS",
+    signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

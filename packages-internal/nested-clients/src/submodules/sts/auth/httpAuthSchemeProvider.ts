@@ -1,29 +1,46 @@
 // smithy-typescript generated code
 import type {
+  AwsSdkSigV4AAuthInputConfig,
+  AwsSdkSigV4AAuthResolvedConfig,
+  AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
   AwsSdkSigV4PreviouslyResolved,
 } from "@aws-sdk/core/httpAuthSchemes";
-import { resolveAwsSdkSigV4Config } from "@aws-sdk/core/httpAuthSchemes";
+import { resolveAwsSdkSigV4AConfig, resolveAwsSdkSigV4Config } from "@aws-sdk/core/httpAuthSchemes";
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
+import { type EndpointParameterInstructions, resolveParams } from "@smithy/middleware-endpoint";
 import type {
   Client,
+  EndpointV2,
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
+  HttpAuthSchemeId,
   HttpAuthSchemeParameters,
   HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
+  Logger,
   Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import type { STSClientConfig } from "../STSClient";
-import { type STSClientResolvedConfig, STSClient } from "../STSClient";
+import type { EndpointParameters } from "../endpoint/EndpointParameters";
+import { defaultEndpointResolver } from "../endpoint/endpointResolver";
+import type { STSClientConfig, STSClientResolvedConfig } from "../STSClient";
+import { STSClient } from "../STSClient";
 
 /**
  * @internal
  */
-export interface STSHttpAuthSchemeParameters extends HttpAuthSchemeParameters {
+interface _STSHttpAuthSchemeParameters extends HttpAuthSchemeParameters {
+  region?: string;
+}
+
+/**
+ * @internal
+ */
+export interface STSHttpAuthSchemeParameters extends _STSHttpAuthSchemeParameters, EndpointParameters {
   region?: string;
 }
 
@@ -41,11 +58,71 @@ export interface STSHttpAuthSchemeParametersProvider
 /**
  * @internal
  */
-export const defaultSTSHttpAuthSchemeParametersProvider = async (
+interface EndpointRuleSetSmithyContext {
+  commandInstance?: {
+    constructor?: {
+      getEndpointParameterInstructions(): EndpointParameterInstructions;
+    };
+  };
+}
+/**
+ * @internal
+ */
+interface EndpointRuleSetHttpAuthSchemeParametersProvider<
+  TConfig extends object,
+  TContext extends HandlerExecutionContext,
+  TParameters extends HttpAuthSchemeParameters & EndpointParameters,
+  TInput extends object
+> extends HttpAuthSchemeParametersProvider<TConfig, TContext, TParameters, TInput> {}
+/**
+ * @internal
+ */
+const createEndpointRuleSetHttpAuthSchemeParametersProvider =
+  <
+    TConfig extends object,
+    TContext extends HandlerExecutionContext,
+    THttpAuthSchemeParameters extends HttpAuthSchemeParameters,
+    TEndpointParameters extends EndpointParameters,
+    TParameters extends THttpAuthSchemeParameters & TEndpointParameters,
+    TInput extends object
+  >(
+    defaultHttpAuthSchemeParametersProvider: HttpAuthSchemeParametersProvider<
+      TConfig,
+      TContext,
+      THttpAuthSchemeParameters,
+      TInput
+    >
+  ): EndpointRuleSetHttpAuthSchemeParametersProvider<
+    TConfig,
+    TContext,
+    THttpAuthSchemeParameters & TEndpointParameters,
+    TInput
+  > =>
+  async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
+    if (!input) {
+      throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
+    }
+    const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
+    const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
+      ?.getEndpointParameterInstructions;
+    if (!instructionsFn) {
+      throw new Error(`getEndpointParameterInstructions() is not defined on '${context.commandName!}'`);
+    }
+    const endpointParameters = await resolveParams(
+      input as Record<string, unknown>,
+      { getEndpointParameterInstructions: instructionsFn! },
+      config as Record<string, unknown>
+    );
+    return Object.assign(defaultParameters, endpointParameters) as TParameters;
+  };
+/**
+ * @internal
+ */
+const _defaultSTSHttpAuthSchemeParametersProvider = async (
   config: STSClientResolvedConfig,
   context: HandlerExecutionContext,
   input: object
-): Promise<STSHttpAuthSchemeParameters> => {
+): Promise<_STSHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
     region:
@@ -55,10 +132,34 @@ export const defaultSTSHttpAuthSchemeParametersProvider = async (
       })(),
   };
 };
+/**
+ * @internal
+ */
+export const defaultSTSHttpAuthSchemeParametersProvider: STSHttpAuthSchemeParametersProvider =
+  createEndpointRuleSetHttpAuthSchemeParametersProvider(_defaultSTSHttpAuthSchemeParametersProvider);
 
 function createAwsAuthSigv4HttpAuthOption(authParameters: STSHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
+    signingProperties: {
+      name: "sts",
+      region: authParameters.region,
+    },
+    propertiesExtractor: (config: Partial<STSClientConfig>, context) => ({
+      /**
+       * @internal
+       */
+      signingProperties: {
+        config,
+        context,
+      },
+    }),
+  };
+}
+
+function createAwsAuthSigv4aHttpAuthOption(authParameters: STSHttpAuthSchemeParameters): HttpAuthOption {
+  return {
+    schemeId: "aws.auth#sigv4a",
     signingProperties: {
       name: "sts",
       region: authParameters.region,
@@ -84,24 +185,116 @@ function createSmithyApiNoAuthHttpAuthOption(authParameters: STSHttpAuthSchemePa
 /**
  * @internal
  */
+interface _STSHttpAuthSchemeProvider extends HttpAuthSchemeProvider<STSHttpAuthSchemeParameters> {}
+
+/**
+ * @internal
+ */
 export interface STSHttpAuthSchemeProvider extends HttpAuthSchemeProvider<STSHttpAuthSchemeParameters> {}
 
 /**
  * @internal
  */
-export const defaultSTSHttpAuthSchemeProvider: STSHttpAuthSchemeProvider = (authParameters) => {
+interface EndpointRuleSetHttpAuthSchemeProvider<
+  EndpointParametersT extends EndpointParameters,
+  HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
+> extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> {}
+/**
+ * @internal
+ */
+interface DefaultEndpointResolver<EndpointParametersT extends EndpointParameters> {
+  (params: EndpointParametersT, context?: { logger?: Logger }): EndpointV2;
+}
+/**
+ * @internal
+ */
+const createEndpointRuleSetHttpAuthSchemeProvider = <
+  EndpointParametersT extends EndpointParameters,
+  HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
+>(
+  defaultEndpointResolver: DefaultEndpointResolver<EndpointParametersT>,
+  defaultHttpAuthSchemeResolver: HttpAuthSchemeProvider<HttpAuthSchemeParametersT>,
+  createHttpAuthOptionFunctions: Record<
+    HttpAuthSchemeId,
+    (authParameters: EndpointParametersT & HttpAuthSchemeParametersT) => HttpAuthOption
+  >
+): EndpointRuleSetHttpAuthSchemeProvider<EndpointParametersT, HttpAuthSchemeParametersT> => {
+  const endpointRuleSetHttpAuthSchemeProvider: EndpointRuleSetHttpAuthSchemeProvider<
+    EndpointParametersT,
+    HttpAuthSchemeParametersT
+  > = (authParameters) => {
+    const endpoint: EndpointV2 = defaultEndpointResolver(authParameters);
+    const authSchemes = endpoint.properties?.authSchemes;
+    if (!authSchemes) {
+      return defaultHttpAuthSchemeResolver(authParameters);
+    }
+    const options: HttpAuthOption[] = [];
+    for (const scheme of authSchemes) {
+      const { name: resolvedName, properties = {}, ...rest } = scheme;
+      const name = resolvedName.toLowerCase();
+      if (resolvedName !== name) {
+        console.warn(`HttpAuthScheme has been normalized with lowercasing: '${resolvedName}' to '${name}'`);
+      }
+      let schemeId;
+      if (name === "sigv4a") {
+        schemeId = "aws.auth#sigv4a";
+        const sigv4Present = authSchemes.find((s) => {
+          const name = s.name.toLowerCase();
+          return name !== "sigv4a" && name.startsWith("sigv4");
+        });
+        if (SignatureV4MultiRegion.sigv4aDependency() === "none" && sigv4Present) {
+          // sigv4a -> sigv4 fallback.
+          continue;
+        }
+      } else if (name.startsWith("sigv4")) {
+        schemeId = "aws.auth#sigv4";
+      } else {
+        throw new Error(`Unknown HttpAuthScheme found in '@smithy.rules#endpointRuleSet': '${name}'`);
+      }
+      const createOption = createHttpAuthOptionFunctions[schemeId];
+      if (!createOption) {
+        throw new Error(`Could not find HttpAuthOption create function for '${schemeId}'`);
+      }
+      const option = createOption(authParameters);
+      option.schemeId = schemeId;
+      option.signingProperties = { ...(option.signingProperties || {}), ...rest, ...properties };
+      options.push(option);
+    }
+    return options;
+  };
+
+  return endpointRuleSetHttpAuthSchemeProvider;
+};
+/**
+ * @internal
+ */
+const _defaultSTSHttpAuthSchemeProvider: _STSHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     case "AssumeRoleWithWebIdentity": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      options.push(createAwsAuthSigv4aHttpAuthOption(authParameters));
       break;
     }
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
+      options.push(createAwsAuthSigv4aHttpAuthOption(authParameters));
     }
   }
   return options;
 };
+/**
+ * @internal
+ */
+export const defaultSTSHttpAuthSchemeProvider: STSHttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
+  defaultEndpointResolver,
+  _defaultSTSHttpAuthSchemeProvider,
+  {
+    "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
+    "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
+    "smithy.api#noAuth": createSmithyApiNoAuthHttpAuthOption,
+  }
+);
 
 export interface StsAuthInputConfig {}
 
@@ -121,7 +314,10 @@ export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsA
 /**
  * @public
  */
-export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSigV4AuthInputConfig {
+export interface HttpAuthSchemeInputConfig
+  extends StsAuthInputConfig,
+    AwsSdkSigV4AuthInputConfig,
+    AwsSdkSigV4AAuthInputConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -146,7 +342,10 @@ export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSig
 /**
  * @internal
  */
-export interface HttpAuthSchemeResolvedConfig extends StsAuthResolvedConfig, AwsSdkSigV4AuthResolvedConfig {
+export interface HttpAuthSchemeResolvedConfig
+  extends StsAuthResolvedConfig,
+    AwsSdkSigV4AuthResolvedConfig,
+    AwsSdkSigV4AAuthResolvedConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -172,11 +371,12 @@ export interface HttpAuthSchemeResolvedConfig extends StsAuthResolvedConfig, Aws
  * @internal
  */
 export const resolveHttpAuthSchemeConfig = <T>(
-  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved & AwsSdkSigV4APreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveStsAuthConfig(config);
   const config_1 = resolveAwsSdkSigV4Config(config_0);
-  return Object.assign(config_1, {
+  const config_2 = resolveAwsSdkSigV4AConfig(config_1);
+  return Object.assign(config_2, {
     authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
   }) as T & HttpAuthSchemeResolvedConfig;
 };

@@ -27,9 +27,6 @@ const { solo } = yargs(process.argv.slice(2))
       const generateNestedClients = require("./nested-clients/generate-nested-clients");
       await generateNestedClients();
     }
-
-    const compress = require("../endpoints-ruleset/compress");
-    compress(solo);
   } catch (e) {
     console.error(e);
     process.exit(1);
