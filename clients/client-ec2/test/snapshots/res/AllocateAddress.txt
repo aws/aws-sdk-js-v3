@@ -57,14 +57,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   AllocationId: "__AllocationId__",
   PublicIpv4Pool: "__PublicIpv4Pool__",
   NetworkBorderGroup: "__NetworkBorderGroup__",
@@ -72,6 +64,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   CustomerOwnedIp: "__CustomerOwnedIp__",
   CustomerOwnedIpv4Pool: "__CustomerOwnedIpv4Pool__",
   CarrierIp: "__CarrierIp__",
-  PublicIp: "__PublicIp__"
+  PublicIp: "__PublicIp__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
 }
 

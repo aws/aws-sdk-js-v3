@@ -54,6 +54,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
+  CapacityManagerStatus: "__CapacityManagerStatus__",
+  OrganizationsAccess: (boolean) false,
+  DataExportCount: (number) 0,
+  IngestionStatus: "__IngestionStatus__",
+  IngestionStatusMessage: "__IngestionStatusMessage__",
+  EarliestDatapointTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LatestDatapointTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -61,13 +68,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
-  },
-  CapacityManagerStatus: "__CapacityManagerStatus__",
-  OrganizationsAccess: (boolean) false,
-  DataExportCount: (number) 0,
-  IngestionStatus: "__IngestionStatus__",
-  IngestionStatusMessage: "__IngestionStatusMessage__",
-  EarliestDatapointTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-  LatestDatapointTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  }
 }
 

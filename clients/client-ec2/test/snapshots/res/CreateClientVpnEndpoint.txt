@@ -47,6 +47,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
+  ClientVpnEndpointId: "__ClientVpnEndpointId__",
+  Status: {
+    Code: "__Code__",
+    Message: "__Message__"
+  },
+  DnsName: "__DnsName__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -54,12 +60,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
-  },
-  ClientVpnEndpointId: "__ClientVpnEndpointId__",
-  Status: {
-    Code: "__Code__",
-    Message: "__Message__"
-  },
-  DnsName: "__DnsName__"
+  }
 }
 

@@ -61,14 +61,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   IpamPolicyDocument: {
     IpamPolicyId: "__IpamPolicyId__",
     Locale: "__Locale__",
@@ -84,6 +76,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SourceIpamPoolId: "__SourceIpamPoolId__"
       }
     ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
   }
 }
 

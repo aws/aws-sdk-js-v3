@@ -185,14 +185,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   CurrencyCode: "__CurrencyCode__",
   IsValidExchange: (boolean) false,
   OutputReservedInstancesWillExpireAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -268,6 +260,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     }
   ],
-  ValidationFailureReason: "__ValidationFailureReason__"
+  ValidationFailureReason: "__ValidationFailureReason__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
 }
 

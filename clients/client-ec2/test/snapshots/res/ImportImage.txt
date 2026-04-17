@@ -228,14 +228,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   Architecture: "__Architecture__",
   Description: "__Description__",
   Encrypted: (boolean) false,
@@ -320,6 +312,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Value: "__Value__"
     }
   ],
-  UsageOperation: "__UsageOperation__"
+  UsageOperation: "__UsageOperation__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
 }
 

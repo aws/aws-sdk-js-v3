@@ -62,14 +62,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   ActiveVpnTunnelStatus: {
     Phase1EncryptionAlgorithm: "__Phase1EncryptionAlgorithm__",
     Phase2EncryptionAlgorithm: "__Phase2EncryptionAlgorithm__",
@@ -80,6 +72,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     IkeVersion: "__IkeVersion__",
     ProvisioningStatus: "__ProvisioningStatus__",
     ProvisioningStatusReason: "__ProvisioningStatusReason__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
   }
 }
 
