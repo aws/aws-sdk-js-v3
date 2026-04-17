@@ -71,10 +71,8 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     if (!request.path.endsWith("/")) {
       request.path += "/";
     }
-    Object.assign(request.headers, {
-      "content-type": `application/x-amz-json-${this.getJsonRpcVersion()}`,
-      "x-amz-target": `${this.serviceTarget}.${operationSchema.name}`,
-    });
+    request.headers["content-type"] = `application/x-amz-json-${this.getJsonRpcVersion()}`;
+    request.headers["x-amz-target"] = `${this.serviceTarget}.${operationSchema.name}`;
     if (this.awsQueryCompatible) {
       request.headers["x-amzn-query-mode"] = "true";
     }
@@ -125,9 +123,10 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     const exception = new ErrorCtor(message);
 
     const output = {} as any;
+    const errorDeserializer = this.codec.createDeserializer();
     for (const [name, member] of ns.structIterator()) {
       if (dataObject[name] != null) {
-        output[name] = this.codec.createDeserializer().readObject(member, dataObject[name]);
+        output[name] = errorDeserializer.readObject(member, dataObject[name]);
       }
     }
 

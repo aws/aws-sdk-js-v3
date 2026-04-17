@@ -44,6 +44,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
+  SecurityGroupIds: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -51,11 +56,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
-  },
-  SecurityGroupIds: [
-    "__member__",
-    "__member__",
-    "__member__"
-  ]
+  }
 }
 

@@ -53,14 +53,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   Event: {
     InstanceEventId: "__InstanceEventId__",
     Code: "__Code__",
@@ -68,6 +60,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
     NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
     NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
   }
 }
 

@@ -88,14 +88,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   SuccessfulFleetRequests: [
     {
       CurrentSpotFleetRequestState: "__CurrentSpotFleetRequestState__",
@@ -126,6 +118,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Error: {},
       SpotFleetRequestId: "__SpotFleetRequestId__"
     }
-  ]
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
 }
 

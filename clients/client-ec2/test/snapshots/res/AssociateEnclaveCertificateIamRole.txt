@@ -42,6 +42,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
+  CertificateS3BucketName: "__CertificateS3BucketName__",
+  CertificateS3ObjectKey: "__CertificateS3ObjectKey__",
+  EncryptionKmsKeyId: "__EncryptionKmsKeyId__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -49,9 +52,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     cfId: (undefined),
     attempts: (number) 1,
     totalRetryDelay: (number) 0
-  },
-  CertificateS3BucketName: "__CertificateS3BucketName__",
-  CertificateS3ObjectKey: "__CertificateS3ObjectKey__",
-  EncryptionKmsKeyId: "__EncryptionKmsKeyId__"
+  }
 }
 

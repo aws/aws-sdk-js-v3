@@ -156,12 +156,11 @@ export class ProtocolLib {
         error.message = msg;
       }
 
-      error.Error = {
-        ...error.Error,
-        Type: error.Error?.Type,
-        Code: error.Error?.Code,
-        Message: error.Error?.message ?? error.Error?.Message ?? msg,
-      };
+      const errorObj = error.Error ?? {};
+      errorObj.Type = error.Error?.Type;
+      errorObj.Code = error.Error?.Code;
+      errorObj.Message = error.Error?.message ?? error.Error?.Message ?? msg;
+      error.Error = errorObj;
 
       const reqId = error.$metadata.requestId;
       if (reqId) {
@@ -184,14 +183,16 @@ export class ProtocolLib {
 
     if (output !== undefined && queryErrorHeader != null) {
       const [Code, Type] = queryErrorHeader.split(";");
-      const entries = Object.entries(output);
+      const keys = Object.keys(output);
       const Error = {
         Code,
         Type,
       } as any;
-      Object.assign(output, Error);
-      for (const [k, v] of entries) {
-        Error[k === "message" ? "Message" : k] = v;
+      output.Code = Code;
+      output.Type = Type;
+      for (let i = 0; i < keys.length; i++) {
+        const k = keys[i];
+        Error[k === "message" ? "Message" : k] = output[k];
       }
       delete Error.__type;
       output.Error = Error;

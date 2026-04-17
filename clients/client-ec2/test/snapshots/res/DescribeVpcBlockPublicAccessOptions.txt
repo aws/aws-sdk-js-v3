@@ -59,14 +59,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   VpcBlockPublicAccessOptions: {
     AwsAccountId: "__AwsAccountId__",
     AwsRegion: "__AwsRegion__",
@@ -76,6 +68,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     LastUpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
     ManagedBy: "__ManagedBy__",
     ExclusionsAllowed: "__ExclusionsAllowed__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
   }
 }
 

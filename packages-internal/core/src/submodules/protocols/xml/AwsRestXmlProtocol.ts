@@ -149,10 +149,11 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
+    const errorDeserializer = this.codec.createDeserializer();
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().xmlName ?? name;
       const value = dataObject.Error?.[target] ?? dataObject[target];
-      output[name] = this.codec.createDeserializer().readSchema(member, value);
+      output[name] = errorDeserializer.readSchema(member, value);
     }
 
     throw this.mixin.decorateServiceException(

@@ -125,14 +125,6 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 --- [output object] ---
 {
-  $metadata: {
-    httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
-    extendedRequestId: (undefined),
-    cfId: (undefined),
-    attempts: (number) 1,
-    totalRetryDelay: (number) 0
-  },
   OwnerAlias: "__OwnerAlias__",
   OutpostArn: "__OutpostArn__",
   Tags: [
@@ -168,6 +160,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   VolumeSize: (number) 0,
   Encrypted: (boolean) false,
   KmsKeyId: "__KmsKeyId__",
-  DataEncryptionKeyId: "__DataEncryptionKeyId__"
+  DataEncryptionKeyId: "__DataEncryptionKeyId__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
 }
 
