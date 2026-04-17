@@ -392,6 +392,7 @@ const _CALOa = "CategoryAxisLabelOptions";
 const _CANO = "CustomActionNavigationOperation";
 const _CAP = "ContextualAccentPalette";
 const _CAR = "CreateAnalysisRequest";
+const _CARA = "ConsumerAccountRoleArn";
 const _CARr = "CreateAnalysisResponse";
 const _CAS = "CreateAccountSubscription";
 const _CASPO = "CustomActionSetParametersOperation";
@@ -485,6 +486,7 @@ const _CCSC = "ComboChartSortConfiguration";
 const _CCSL = "CascadingControlSourceList";
 const _CCSS = "ComboChartSeriesSettings";
 const _CCSl = "ClientCredentialsSource";
+const _CCSo = "ControlColumnSort";
 const _CCSr = "CreateColumnsStep";
 const _CCTO = "CastColumnTypeOperation";
 const _CCTOL = "CastColumnTypeOperationList";
@@ -663,8 +665,11 @@ const _CRSRr = "CreateRefreshScheduleResponse";
 const _CRi = "CircleRadius";
 const _CS = "ClientSecret";
 const _CSA = "CopySourceArn";
+const _CSC = "ControlSortConfiguration";
 const _CSCIB = "ConsumedSpiceCapacityInBytes";
 const _CSCL = "ColorScaleColorList";
+const _CSCLo = "ControlSortConfigurationList";
+const _CSCo = "ControlSortConfigurations";
 const _CSF = "CreateSharedFolders";
 const _CSI = "ComboSeriesItem";
 const _CSIL = "ComboSeriesItemList";
@@ -849,6 +854,8 @@ const _DCPRes = "DescribeCustomPermissionsRequest";
 const _DCPResc = "DescribeCustomPermissionsResponse";
 const _DCPe = "DeleteCustomPermissions";
 const _DCPes = "DescribeCustomPermissions";
+const _DCS = "DashboardCustomizationSummary";
+const _DCSC = "DashboardCustomizationSummaryConfigurations";
 const _DCVO = "DashboardCustomizationVisualOptions";
 const _DCW = "DefaultCellWidth";
 const _DCa = "DataColor";
@@ -1524,7 +1531,8 @@ const _G = "Gradient";
 const _GA = "GenerativeAuthoring";
 const _GAC = "GenerativeAuthoringConfigurations";
 const _GAR = "GeneratedAnswerResult";
-const _GAe = "GeneratedAnswer";
+const _GAe = "GenerateAnalyses";
+const _GAen = "GeneratedAnswer";
 const _GAi = "GithubAction";
 const _GB = "GroupBy";
 const _GBCN = "GroupByColumnNames";
@@ -2962,6 +2970,7 @@ const _STLe = "SessionTagList";
 const _STM = "SourceTableMap";
 const _STMe = "SemanticTableMap";
 const _STN = "SubTypeName";
+const _STP = "S3TablesParameters";
 const _STR = "SearchTopicsRequest";
 const _STRA = "SucceededTopicReviewedAnswer";
 const _STRAu = "SucceededTopicReviewedAnswers";
@@ -2995,6 +3004,7 @@ const _SV = "SharedView";
 const _SVC = "SharedViewConfigurations";
 const _SVFC = "SecondaryValueFontConfiguration";
 const _SVO = "SecondaryValueOptions";
+const _SVS = "SelectableValuesSort";
 const _SVSC = "SheetVisualScopingConfigurations";
 const _SVSCh = "SheetVisualScopingConfiguration";
 const _SVWUC = "StringValueWhenUnsetConfiguration";
@@ -3074,6 +3084,7 @@ const _TAo = "TopicArn";
 const _TAot = "TotalAggregation";
 const _TAr = "TrendArrows";
 const _TB = "TextBoxes";
+const _TBA = "TableBucketArn";
 const _TBC = "TotalBarColor";
 const _TBF = "TopBottomFilter";
 const _TBFP = "TimeBasedForecastProperties";
@@ -4435,8 +4446,8 @@ export var AssetOptions$: StaticStructureSchema = [3, n0, _AOs,
 ];
 export var AthenaParameters$: StaticStructureSchema = [3, n0, _APt,
   0,
-  [_WG, _RA, _ICC],
-  [0, 0, () => IdentityCenterConfiguration$]
+  [_WG, _RA, _CARA, _ICC],
+  [0, 0, 0, () => IdentityCenterConfiguration$]
 ];
 export var AttributeAggregationFunction$: StaticStructureSchema = [3, n0, _AAF,
   0,
@@ -4750,8 +4761,8 @@ export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var Capabilities$: StaticStructureSchema = [3, n0, _Cap,
   0,
-  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Sp, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _MSF],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Sp, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _MSF, _GAe],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CascadingControlConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
@@ -5047,6 +5058,11 @@ export var ContributionAnalysisTimeRanges$: StaticStructureSchema = [3, n0, _CAT
   0,
   [_SR, _ER],
   [() => TopicIRFilterOption$, () => TopicIRFilterOption$]
+];
+export var ControlSortConfiguration$: StaticStructureSchema = [3, n0, _CSC,
+  0,
+  [_SVS, _CCSo],
+  [() => SelectableValuesSort$, () => AggregationSortConfiguration$]
 ];
 export var Coordinate$: StaticStructureSchema = [3, n0, _Coo,
   0,
@@ -5407,6 +5423,11 @@ export var Dashboard$: StaticStructureSchema = [3, n0, _Da,
   0,
   [_DI, _A, _N, _Ve, _CT, _LPT, _LUT, _LE],
   [0, 0, 0, () => DashboardVersion$, 4, 4, 4, 64 | 0]
+];
+export var DashboardCustomizationSummaryConfigurations$: StaticStructureSchema = [3, n0, _DCSC,
+  0,
+  [_En],
+  [2], 1
 ];
 export var DashboardCustomizationVisualOptions$: StaticStructureSchema = [3, n0, _DCVO,
   0,
@@ -5875,13 +5896,13 @@ export var DefaultFilterControlOptions$: StaticStructureSchema = [3, n0, _DFCO,
 ];
 export var DefaultFilterDropDownControlOptions$: StaticStructureSchema = [3, n0, _DFDDCO,
   0,
-  [_DOi, _T, _SVe, _CMom],
-  [() => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, 0]
+  [_DOi, _T, _SVe, _CMom, _CSCo],
+  [() => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, 0, () => ControlSortConfigurationList]
 ];
 export var DefaultFilterListControlOptions$: StaticStructureSchema = [3, n0, _DFLCO,
   0,
-  [_DOi, _T, _SVe],
-  [() => ListControlDisplayOptions$, 0, () => FilterSelectableValues$]
+  [_DOi, _T, _SVe, _CSCo],
+  [() => ListControlDisplayOptions$, 0, () => FilterSelectableValues$, () => ControlSortConfigurationList]
 ];
 export var DefaultFormatting$: StaticStructureSchema = [3, n0, _DFe,
   0,
@@ -7050,8 +7071,8 @@ export var FilterDateTimePickerControl$: StaticStructureSchema = [3, n0, _FDTPC,
 ];
 export var FilterDropDownControl$: StaticStructureSchema = [3, n0, _FDDC,
   0,
-  [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC, _CMom],
-  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, 0], 3
+  [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC, _CMom, _CSCo],
+  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, 0, () => ControlSortConfigurationList], 3
 ];
 export var FilterGroup$: StaticStructureSchema = [3, n0, _FGil,
   0,
@@ -7065,8 +7086,8 @@ export var FilterListConfiguration$: StaticStructureSchema = [3, n0, _FLC,
 ];
 export var FilterListControl$: StaticStructureSchema = [3, n0, _FLCi,
   0,
-  [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC],
-  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$], 3
+  [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC, _CSCo],
+  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, () => ControlSortConfigurationList], 3
 ];
 export var FilterOperation$: StaticStructureSchema = [3, n0, _FO,
   0,
@@ -8750,13 +8771,13 @@ export var ParameterDeclaration$: StaticStructureSchema = [3, n0, _PDa,
 ];
 export var ParameterDropDownControl$: StaticStructureSchema = [3, n0, _PDDC,
   0,
-  [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC, _CMom],
-  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, 0], 3
+  [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC, _CMom, _CSCo],
+  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, 0, () => ControlSortConfigurationList], 3
 ];
 export var ParameterListControl$: StaticStructureSchema = [3, n0, _PLCa,
   0,
-  [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC],
-  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$], 3
+  [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC, _CSCo],
+  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, () => ControlSortConfigurationList], 3
 ];
 export var _Parameters$: StaticStructureSchema = [3, n0, _Par,
   0,
@@ -9060,7 +9081,7 @@ export var PutDataSetRefreshPropertiesResponse$: StaticStructureSchema = [3, n0,
 ];
 export var QAResult$: StaticStructureSchema = [3, n0, _QAR,
   0,
-  [_RTes, _DV, _GAe],
+  [_RTes, _DV, _GAen],
   [0, () => DashboardVisualResult$, [() => GeneratedAnswerResult$, 0]]
 ];
 export var QBusinessParameters$: StaticStructureSchema = [3, n0, _QBP,
@@ -9270,8 +9291,8 @@ export var RegisteredCustomerManagedKey$: StaticStructureSchema = [3, n0, _RCMK,
 ];
 export var RegisteredUserConsoleFeatureConfigurations$: StaticStructureSchema = [3, n0, _RUCFC,
   0,
-  [_SPta, _SV, _AQIQS, _Sch, _RSec, _TAhr],
-  [() => StatePersistenceConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightConsoleConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$]
+  [_SPta, _SV, _AQIQS, _Sch, _RSec, _TAhr, _DCS],
+  [() => StatePersistenceConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightConsoleConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$, () => DashboardCustomizationSummaryConfigurations$]
 ];
 export var RegisteredUserDashboardEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUDEC,
   0,
@@ -9280,8 +9301,8 @@ export var RegisteredUserDashboardEmbeddingConfiguration$: StaticStructureSchema
 ];
 export var RegisteredUserDashboardFeatureConfigurations$: StaticStructureSchema = [3, n0, _RUDFC,
   0,
-  [_SPta, _Boo, _SV, _AQIQS, _Sch, _RSec, _TAhr],
-  [() => StatePersistenceConfigurations$, () => BookmarksConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightDashboardConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$]
+  [_SPta, _Boo, _SV, _AQIQS, _Sch, _RSec, _TAhr, _DCS],
+  [() => StatePersistenceConfigurations$, () => BookmarksConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightDashboardConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$, () => DashboardCustomizationSummaryConfigurations$]
 ];
 export var RegisteredUserDashboardVisualEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUDVEC,
   0,
@@ -9422,6 +9443,11 @@ export var S3Source$: StaticStructureSchema = [3, n0, _SSo,
   0,
   [_DSAa, _ICnp, _USp],
   [0, () => InputColumnList, () => UploadSettings$], 2
+];
+export var S3TablesParameters$: StaticStructureSchema = [3, n0, _STP,
+  0,
+  [_TBA],
+  [0]
 ];
 export var SaaSTable$: StaticStructureSchema = [3, n0, _SST,
   0,
@@ -9637,6 +9663,11 @@ export var SectionStyle$: StaticStructureSchema = [3, n0, _SSec,
   0,
   [_He, _Pad],
   [0, () => Spacing$]
+];
+export var SelectableValuesSort$: StaticStructureSchema = [3, n0, _SVS,
+  0,
+  [_Dir],
+  [0], 1
 ];
 export var SelectedSheetsFilterScopeConfiguration$: StaticStructureSchema = [3, n0, _SSFSC,
   0,
@@ -11702,6 +11733,9 @@ var ContributionAnalysisFactorsList: StaticListSchema = [1, n0, _CAFL,
 var ContributorDimensionList: StaticListSchema = [1, n0, _CDL,
   0, () => ColumnIdentifier$
 ];
+var ControlSortConfigurationList: StaticListSchema = [1, n0, _CSCLo,
+  0, () => ControlSortConfiguration$
+];
 var CreateTopicReviewedAnswers: StaticListSchema = [1, n0, _CTRAr,
   0, [() => CreateTopicReviewedAnswer$,
     0]
@@ -12454,8 +12488,8 @@ export var ClientCredentialsDetails$: StaticUnionSchema = [4, n0, _CCD,
 ];
 export var DataSourceParameters$: StaticUnionSchema = [4, n0, _DSP,
   0,
-  [_AEP, _APt, _APu, _APSP, _AIAP, _JP, _MDP, _MSP, _OPr, _PSP, _PP, _RP, _RPe, _SPa, _SKBP, _SNP, _SPn, _SPp, _SSP, _TPe, _TPw, _AOSP, _EP, _DPa, _SPtar, _TPr, _BQP, _IPm, _CCP, _WCP, _CPo, _QBP],
-  [() => AmazonElasticsearchParameters$, () => AthenaParameters$, () => AuroraParameters$, () => AuroraPostgreSqlParameters$, () => AwsIotAnalyticsParameters$, () => JiraParameters$, () => MariaDbParameters$, () => MySqlParameters$, () => OracleParameters$, () => PostgreSqlParameters$, () => PrestoParameters$, () => RdsParameters$, () => RedshiftParameters$, () => S3Parameters$, () => S3KnowledgeBaseParameters$, () => ServiceNowParameters$, () => SnowflakeParameters$, () => SparkParameters$, () => SqlServerParameters$, () => TeradataParameters$, () => TwitterParameters$, () => AmazonOpenSearchParameters$, () => ExasolParameters$, () => DatabricksParameters$, () => StarburstParameters$, () => TrinoParameters$, () => BigQueryParameters$, () => ImpalaParameters$, () => CustomConnectionParameters$, () => WebCrawlerParameters$, () => ConfluenceParameters$, () => QBusinessParameters$]
+  [_AEP, _APt, _APu, _APSP, _AIAP, _JP, _MDP, _MSP, _OPr, _PSP, _PP, _RP, _RPe, _SPa, _STP, _SKBP, _SNP, _SPn, _SPp, _SSP, _TPe, _TPw, _AOSP, _EP, _DPa, _SPtar, _TPr, _BQP, _IPm, _CCP, _WCP, _CPo, _QBP],
+  [() => AmazonElasticsearchParameters$, () => AthenaParameters$, () => AuroraParameters$, () => AuroraPostgreSqlParameters$, () => AwsIotAnalyticsParameters$, () => JiraParameters$, () => MariaDbParameters$, () => MySqlParameters$, () => OracleParameters$, () => PostgreSqlParameters$, () => PrestoParameters$, () => RdsParameters$, () => RedshiftParameters$, () => S3Parameters$, () => S3TablesParameters$, () => S3KnowledgeBaseParameters$, () => ServiceNowParameters$, () => SnowflakeParameters$, () => SparkParameters$, () => SqlServerParameters$, () => TeradataParameters$, () => TwitterParameters$, () => AmazonOpenSearchParameters$, () => ExasolParameters$, () => DatabricksParameters$, () => StarburstParameters$, () => TrinoParameters$, () => BigQueryParameters$, () => ImpalaParameters$, () => CustomConnectionParameters$, () => WebCrawlerParameters$, () => ConfluenceParameters$, () => QBusinessParameters$]
 ];
 export var GeocodePreferenceValue$: StaticUnionSchema = [4, n0, _GPV,
   0,

@@ -270,6 +270,7 @@ export interface ListCustomPermissionsCommandOutput extends ListCustomPermission
  * //         SelfUpgradeUserRole: "DENY",
  * //         Extension: "DENY",
  * //         ManageSharedFolders: "DENY",
+ * //         GenerateAnalyses: "DENY",
  * //       },
  * //     },
  * //   ],

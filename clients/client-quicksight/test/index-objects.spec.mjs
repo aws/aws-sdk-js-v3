@@ -293,6 +293,8 @@ import {
   ContributionAnalysisFactor$,
   ContributionAnalysisSortType,
   ContributionAnalysisTimeRanges$,
+  ControlSortConfiguration$,
+  ControlSortDirection,
   Coordinate$,
   CreateAccountCustomization$,
   CreateAccountCustomizationCommand,
@@ -422,6 +424,7 @@ import {
   Dashboard$,
   DashboardBehavior,
   DashboardCustomizationStatus,
+  DashboardCustomizationSummaryConfigurations$,
   DashboardCustomizationVisualOptions$,
   DashboardError$,
   DashboardErrorType,
@@ -1717,6 +1720,7 @@ import {
   S3KnowledgeBaseParameters$,
   S3Parameters$,
   S3Source$,
+  S3TablesParameters$,
   SaaSTable$,
   SameSheetTargetVisualConfiguration$,
   SankeyDiagramAggregatedFieldWells$,
@@ -1780,6 +1784,7 @@ import {
   SectionPageBreakConfiguration$,
   SectionPageBreakStatus,
   SectionStyle$,
+  SelectableValuesSort$,
   SelectAllValueOptions,
   SelectedFieldOptions,
   SelectedSheetsFilterScopeConfiguration$,
@@ -3035,6 +3040,7 @@ assert(typeof ContextualAccentPalette$ === "object");
 assert(typeof ContributionAnalysisDefault$ === "object");
 assert(typeof ContributionAnalysisFactor$ === "object");
 assert(typeof ContributionAnalysisTimeRanges$ === "object");
+assert(typeof ControlSortConfiguration$ === "object");
 assert(typeof Coordinate$ === "object");
 assert(typeof CreateAccountCustomizationRequest$ === "object");
 assert(typeof CreateAccountCustomizationResponse$ === "object");
@@ -3107,6 +3113,7 @@ assert(typeof CustomPermissions$ === "object");
 assert(typeof CustomSql$ === "object");
 assert(typeof CustomValuesConfiguration$ === "object");
 assert(typeof Dashboard$ === "object");
+assert(typeof DashboardCustomizationSummaryConfigurations$ === "object");
 assert(typeof DashboardCustomizationVisualOptions$ === "object");
 assert(typeof DashboardError$ === "object");
 assert(typeof DashboardPublishOptions$ === "object");
@@ -3917,6 +3924,7 @@ assert(typeof S3BucketConfiguration$ === "object");
 assert(typeof S3KnowledgeBaseParameters$ === "object");
 assert(typeof S3Parameters$ === "object");
 assert(typeof S3Source$ === "object");
+assert(typeof S3TablesParameters$ === "object");
 assert(typeof SaaSTable$ === "object");
 assert(typeof SameSheetTargetVisualConfiguration$ === "object");
 assert(typeof SankeyDiagramAggregatedFieldWells$ === "object");
@@ -3960,6 +3968,7 @@ assert(typeof SectionBasedLayoutPaperCanvasSizeOptions$ === "object");
 assert(typeof SectionLayoutConfiguration$ === "object");
 assert(typeof SectionPageBreakConfiguration$ === "object");
 assert(typeof SectionStyle$ === "object");
+assert(typeof SelectableValuesSort$ === "object");
 assert(typeof SelectedSheetsFilterScopeConfiguration$ === "object");
 assert(typeof SelfUpgradeConfiguration$ === "object");
 assert(typeof SelfUpgradeRequestDetail$ === "object");
@@ -4383,6 +4392,7 @@ assert(typeof ConnectionAuthType === "object");
 assert(typeof ConstantType === "object");
 assert(typeof ContributionAnalysisDirection === "object");
 assert(typeof ContributionAnalysisSortType === "object");
+assert(typeof ControlSortDirection === "object");
 assert(typeof CrossDatasetTypes === "object");
 assert(typeof CustomContentImageScalingConfiguration === "object");
 assert(typeof CustomContentType === "object");

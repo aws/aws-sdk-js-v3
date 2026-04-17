@@ -15,6 +15,7 @@ import type {
   ColumnRole,
   CommitMode,
   ConnectionAuthType,
+  ControlSortDirection,
   CrossDatasetTypes,
   DashboardBehavior,
   DataLabelContent,
@@ -3087,6 +3088,50 @@ export interface DefaultDateTimePickerControlOptions {
 }
 
 /**
+ * <p>The sort configuration for selectable values in a control.</p>
+ * @public
+ */
+export interface SelectableValuesSort {
+  /**
+   * <p>The sort direction for the selectable values. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASC</code>: Sort in ascending order.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESC</code>: Sort in descending order.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>USER_DEFINED_ORDER</code>: Preserve the order in which the values were entered.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Direction: ControlSortDirection | undefined;
+}
+
+/**
+ * <p>The sort configuration for control values. This is a tagged union type. Specify either <code>SelectableValuesSort</code> or <code>ControlColumnSort</code>, but not both.</p>
+ * @public
+ */
+export interface ControlSortConfiguration {
+  /**
+   * <p>The sort configuration for user-specified values in the control. Use this option to sort values that are manually entered by users in a dropdown or list control.</p>
+   * @public
+   */
+  SelectableValuesSort?: SelectableValuesSort | undefined;
+
+  /**
+   * <p>The sort configuration for controls that are tied to a dataset column. Use this option to sort control values by an aggregate of a column.</p>
+   * @public
+   */
+  ControlColumnSort?: AggregationSortConfiguration | undefined;
+}
+
+/**
  * <p>The configuration of the <code>Select all</code> options in a list control.</p>
  * @public
  */
@@ -3173,6 +3218,12 @@ export interface DefaultFilterDropDownControlOptions {
    * @public
    */
   CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
@@ -3249,6 +3300,12 @@ export interface DefaultFilterListControlOptions {
    * @public
    */
   SelectableValues?: FilterSelectableValues | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
@@ -5017,6 +5074,12 @@ export interface FilterDropDownControl {
    * @public
    */
   CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
@@ -5075,6 +5138,12 @@ export interface FilterListControl {
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
@@ -6119,6 +6188,12 @@ export interface ParameterDropDownControl {
    * @public
    */
   CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
@@ -6167,6 +6242,12 @@ export interface ParameterListControl {
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
@@ -8419,52 +8500,4 @@ export interface DataPathType {
    * @public
    */
   PivotTableDataPathType?: PivotTableDataPathType | undefined;
-}
-
-/**
- * <p>The data path that needs to be sorted.</p>
- * @public
- */
-export interface DataPathValue {
-  /**
-   * <p>The field ID of the field that needs to be sorted.</p>
-   * @public
-   */
-  FieldId?: string | undefined;
-
-  /**
-   * <p>The actual value of the field that needs to be sorted.</p>
-   * @public
-   */
-  FieldValue?: string | undefined;
-
-  /**
-   * <p>The type configuration of the field.</p>
-   * @public
-   */
-  DataPathType?: DataPathType | undefined;
-}
-
-/**
- * <p>The color map that determines the color options for a particular element.</p>
- * @public
- */
-export interface DataPathColor {
-  /**
-   * <p>The element that the color needs to be applied to.</p>
-   * @public
-   */
-  Element: DataPathValue | undefined;
-
-  /**
-   * <p>The color that needs to be applied to the element.</p>
-   * @public
-   */
-  Color: string | undefined;
-
-  /**
-   * <p>The time granularity of the field that the color needs to be applied to.</p>
-   * @public
-   */
-  TimeGranularity?: TimeGranularity | undefined;
 }

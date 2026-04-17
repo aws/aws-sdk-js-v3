@@ -28,7 +28,6 @@ import type {
   ColumnDataSubType,
   ColumnDataType,
   ColumnOrderingType,
-  ColumnTagName,
   ComparisonMethodType,
   ConnectionAuthType,
   ConstantType,
@@ -85,9 +84,11 @@ import type {
   AmazonOpenSearchParameters,
   AnalysisDefaults,
   AssetOptions,
+  AxisDisplayOptions,
   CalculatedField,
   ChartAxisLabelOptions,
   ColumnConfiguration,
+  DataLabelOptions,
   DataPrepAggregationFunction,
   DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
@@ -97,6 +98,7 @@ import type {
   FilterGroup,
   ItemsLimitConfiguration,
   Layout,
+  LegendOptions,
   MeasureField,
   ParameterControl,
   ParameterDeclaration,
@@ -135,10 +137,141 @@ import type {
   ScatterPlotVisual,
   TableVisual,
   TreeMapVisual,
+  VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallVisual,
+  WaterfallChartColorConfiguration,
+  WaterfallChartFieldWells,
+  WaterfallChartOptions,
+  WaterfallChartSortConfiguration,
 } from "./models_1";
+
+/**
+ * <p>The configuration for a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartConfiguration {
+  /**
+   * <p>The field well configuration of a waterfall visual.</p>
+   * @public
+   */
+  FieldWells?: WaterfallChartFieldWells | undefined;
+
+  /**
+   * <p>The sort configuration of a waterfall visual.</p>
+   * @public
+   */
+  SortConfiguration?: WaterfallChartSortConfiguration | undefined;
+
+  /**
+   * <p>The options that determine the presentation of a waterfall visual.</p>
+   * @public
+   */
+  WaterfallChartOptions?: WaterfallChartOptions | undefined;
+
+  /**
+   * <p>The options that determine the presentation of the category axis label.</p>
+   * @public
+   */
+  CategoryAxisLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The options that determine the presentation of the category axis.</p>
+   * @public
+   */
+  CategoryAxisDisplayOptions?: AxisDisplayOptions | undefined;
+
+  /**
+   * <p>The options that determine the presentation of the y-axis label.</p>
+   * @public
+   */
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The options that determine the presentation of the y-axis.</p>
+   * @public
+   */
+  PrimaryYAxisDisplayOptions?: AxisDisplayOptions | undefined;
+
+  /**
+   * <p>The legend configuration of a waterfall visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions | undefined;
+
+  /**
+   * <p>The data label configuration of a waterfall visual.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions | undefined;
+
+  /**
+   * <p>The visual palette configuration of a waterfall visual.</p>
+   * @public
+   */
+  VisualPalette?: VisualPalette | undefined;
+
+  /**
+   * <p>The color configuration of a waterfall visual.</p>
+   * @public
+   */
+  ColorConfiguration?: WaterfallChartColorConfiguration | undefined;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
+
+/**
+ * <p>A waterfall chart.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+ * @public
+ */
+export interface WaterfallVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions | undefined;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
+
+  /**
+   * <p>The configuration for a waterfall visual.</p>
+   * @public
+   */
+  ChartConfiguration?: WaterfallChartConfiguration | undefined;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   * @public
+   */
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
+}
 
 /**
  * <p>The aggregated field wells of a word cloud.</p>
@@ -2339,6 +2472,12 @@ export interface AthenaParameters {
   RoleArn?: string | undefined;
 
   /**
+   * <p>Use <code>ConsumerAccountRoleArn</code> to perform cross-account Athena access. This is an IAM role ARN in the same AWS account as the Athena resources you want to access. Provide this along with <code>RoleArn</code> to enable role-chaining, where Amazon Quick Sight first assumes the <code>RoleArn</code> and then assumes the <code>ConsumerAccountRoleArn</code> to access Athena resources.</p>
+   * @public
+   */
+  ConsumerAccountRoleArn?: string | undefined;
+
+  /**
    * <p>An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.</p>
    *          <p>This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.</p>
    * @public
@@ -2827,6 +2966,18 @@ export interface S3Parameters {
 }
 
 /**
+ * <p>The parameters for S3 Tables.</p>
+ * @public
+ */
+export interface S3TablesParameters {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 Tables bucket.</p>
+   * @public
+   */
+  TableBucketArn?: string | undefined;
+}
+
+/**
  * <p>The parameters for ServiceNow.</p>
  * @public
  */
@@ -3180,6 +3331,7 @@ export type DataSourceParameters =
   | DataSourceParameters.RedshiftParametersMember
   | DataSourceParameters.S3KnowledgeBaseParametersMember
   | DataSourceParameters.S3ParametersMember
+  | DataSourceParameters.S3TablesParametersMember
   | DataSourceParameters.ServiceNowParametersMember
   | DataSourceParameters.SnowflakeParametersMember
   | DataSourceParameters.SparkParametersMember
@@ -3214,6 +3366,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3254,6 +3407,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3294,6 +3448,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3334,6 +3489,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3374,6 +3530,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3414,6 +3571,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3454,6 +3612,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3494,6 +3653,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3534,6 +3694,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3574,6 +3735,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3614,6 +3776,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3654,6 +3817,7 @@ export namespace DataSourceParameters {
     RdsParameters: RdsParameters;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3694,6 +3858,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters: RedshiftParameters;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3734,6 +3899,48 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters: S3Parameters;
+    S3TablesParameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for S3 Tables.</p>
+   * @public
+   */
+  export interface S3TablesParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3TablesParameters: S3TablesParameters;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3774,6 +3981,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters: S3KnowledgeBaseParameters;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3814,6 +4022,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters: ServiceNowParameters;
     SnowflakeParameters?: never;
@@ -3854,6 +4063,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters: SnowflakeParameters;
@@ -3894,6 +4104,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3934,6 +4145,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -3974,6 +4186,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4014,6 +4227,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4054,6 +4268,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4094,6 +4309,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4134,6 +4350,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4174,6 +4391,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4214,6 +4432,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4254,6 +4473,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4294,6 +4514,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4334,6 +4555,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4374,6 +4596,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4414,6 +4637,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4454,6 +4678,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4493,6 +4718,7 @@ export namespace DataSourceParameters {
     RdsParameters?: never;
     RedshiftParameters?: never;
     S3Parameters?: never;
+    S3TablesParameters?: never;
     S3KnowledgeBaseParameters?: never;
     ServiceNowParameters?: never;
     SnowflakeParameters?: never;
@@ -4533,6 +4759,7 @@ export namespace DataSourceParameters {
     RdsParameters: (value: RdsParameters) => T;
     RedshiftParameters: (value: RedshiftParameters) => T;
     S3Parameters: (value: S3Parameters) => T;
+    S3TablesParameters: (value: S3TablesParameters) => T;
     S3KnowledgeBaseParameters: (value: S3KnowledgeBaseParameters) => T;
     ServiceNowParameters: (value: ServiceNowParameters) => T;
     SnowflakeParameters: (value: SnowflakeParameters) => T;
@@ -8120,6 +8347,12 @@ export interface Capabilities {
    * @public
    */
   ManageSharedFolders?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to generate analysis using AI</p>
+   * @public
+   */
+  GenerateAnalyses?: CapabilityState | undefined;
 }
 
 /**
@@ -10882,67 +11115,4 @@ export interface NewDefaultValues {
    * @public
    */
   IntegerStaticValues?: number[] | undefined;
-}
-
-/**
- * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
- * @public
- */
-export interface OverrideDatasetParameterOperation {
-  /**
-   * <p>The name of the parameter to be overridden with different values.</p>
-   * @public
-   */
-  ParameterName: string | undefined;
-
-  /**
-   * <p>The new name for the parameter.</p>
-   * @public
-   */
-  NewParameterName?: string | undefined;
-
-  /**
-   * <p>The new default values for the parameter.</p>
-   * @public
-   */
-  NewDefaultValues?: NewDefaultValues | undefined;
-}
-
-/**
- * <p>A transform operation that tags a column with additional information.</p>
- * @public
- */
-export interface TagColumnOperation {
-  /**
-   * <p>The column that this operation acts on.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
-   *          <note>
-   *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
-   *          </note>
-   * @public
-   */
-  Tags: ColumnTag[] | undefined;
-}
-
-/**
- * <p>A transform operation that removes tags associated with a column.</p>
- * @public
- */
-export interface UntagColumnOperation {
-  /**
-   * <p>The column that this operation acts on.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The column tags to remove from this column.</p>
-   * @public
-   */
-  TagNames: ColumnTagName[] | undefined;
 }

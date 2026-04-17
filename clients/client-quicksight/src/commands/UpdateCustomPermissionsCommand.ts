@@ -260,6 +260,7 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     SelfUpgradeUserRole: "DENY",
  *     Extension: "DENY",
  *     ManageSharedFolders: "DENY",
+ *     GenerateAnalyses: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);

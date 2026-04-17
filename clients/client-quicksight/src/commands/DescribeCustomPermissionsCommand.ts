@@ -268,6 +268,7 @@ export interface DescribeCustomPermissionsCommandOutput extends DescribeCustomPe
  * //       SelfUpgradeUserRole: "DENY",
  * //       Extension: "DENY",
  * //       ManageSharedFolders: "DENY",
+ * //       GenerateAnalyses: "DENY",
  * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",

@@ -90,6 +90,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *           AthenaParameters: { // AthenaParameters
  *             WorkGroup: "STRING_VALUE",
  *             RoleArn: "STRING_VALUE",
+ *             ConsumerAccountRoleArn: "STRING_VALUE",
  *             IdentityCenterConfiguration: { // IdentityCenterConfiguration
  *               EnableIdentityPropagation: true || false,
  *             },
@@ -163,6 +164,9 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *               Key: "STRING_VALUE", // required
  *             },
  *             RoleArn: "STRING_VALUE",
+ *           },
+ *           S3TablesParameters: { // S3TablesParameters
+ *             TableBucketArn: "STRING_VALUE",
  *           },
  *           S3KnowledgeBaseParameters: { // S3KnowledgeBaseParameters
  *             RoleArn: "STRING_VALUE",

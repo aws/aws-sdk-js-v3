@@ -95,6 +95,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput extends Generate
  *         ThresholdAlerts: { // ThresholdAlertsConfigurations
  *           Enabled: true || false, // required
  *         },
+ *         DashboardCustomizationSummary: { // DashboardCustomizationSummaryConfigurations
+ *           Enabled: true || false, // required
+ *         },
  *       },
  *     },
  *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration
@@ -127,6 +130,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput extends Generate
  *           Enabled: true || false, // required
  *         },
  *         ThresholdAlerts: {
+ *           Enabled: true || false, // required
+ *         },
+ *         DashboardCustomizationSummary: {
  *           Enabled: true || false, // required
  *         },
  *       },

@@ -12,6 +12,7 @@ import type {
   ColumnDataRole,
   ColumnDataSubType,
   ColumnDataType,
+  ColumnTagName,
   ConstantType,
   DashboardErrorType,
   DashboardFilterAttribute,
@@ -55,7 +56,6 @@ import type {
   Role,
   RowLevelPermissionFormatVersion,
   RowLevelPermissionPolicy,
-  SelfUpgradeStatus,
   ServiceType,
   SharingModel,
   SnapshotJobStatus,
@@ -113,6 +113,7 @@ import type {
   ColumnGroupSchema,
   ColumnLevelPermissionRule,
   ColumnSchema,
+  ColumnTag,
   ComparativeOrder,
   CreateColumnsOperation,
   DashboardPublishOptions,
@@ -128,7 +129,7 @@ import type {
   FilterOperation,
   InputColumn,
   LinkSharingConfiguration,
-  OverrideDatasetParameterOperation,
+  NewDefaultValues,
   ProjectOperation,
   RenameColumnOperation,
   ResourcePermission,
@@ -139,12 +140,73 @@ import type {
   SslProperties,
   StaticFile,
   Tag,
-  TagColumnOperation,
   TooltipSheetDefinition,
-  UntagColumnOperation,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
+ * @public
+ */
+export interface OverrideDatasetParameterOperation {
+  /**
+   * <p>The name of the parameter to be overridden with different values.</p>
+   * @public
+   */
+  ParameterName: string | undefined;
+
+  /**
+   * <p>The new name for the parameter.</p>
+   * @public
+   */
+  NewParameterName?: string | undefined;
+
+  /**
+   * <p>The new default values for the parameter.</p>
+   * @public
+   */
+  NewDefaultValues?: NewDefaultValues | undefined;
+}
+
+/**
+ * <p>A transform operation that tags a column with additional information.</p>
+ * @public
+ */
+export interface TagColumnOperation {
+  /**
+   * <p>The column that this operation acts on.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+   *          <note>
+   *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
+   *          </note>
+   * @public
+   */
+  Tags: ColumnTag[] | undefined;
+}
+
+/**
+ * <p>A transform operation that removes tags associated with a column.</p>
+ * @public
+ */
+export interface UntagColumnOperation {
+  /**
+   * <p>The column that this operation acts on.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The column tags to remove from this column.</p>
+   * @public
+   */
+  TagNames: ColumnTagName[] | undefined;
+}
 
 /**
  * <p>A data transformation on a logical table. This is a variant type structure. For this
@@ -4450,6 +4512,18 @@ export interface Dashboard {
    * @public
    */
   LinkEntities?: string[] | undefined;
+}
+
+/**
+ * <p>The dashboard customization summary configuration for an embedded Quick Sight dashboard.</p>
+ * @public
+ */
+export interface DashboardCustomizationSummaryConfigurations {
+  /**
+   * <p>The enabled status of the dashboard customization summary configuration for an embedded Quick Sight dashboard.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
 }
 
 /**
@@ -9622,89 +9696,4 @@ export interface DescribeRoleCustomPermissionRequest {
    * @public
    */
   Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRoleCustomPermissionResponse {
-  /**
-   * <p>The name of the custom permission that is described.</p>
-   * @public
-   */
-  CustomPermissionsName?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSelfUpgradeConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick namespace that you want to describe the Quick self-upgrade configuration for.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * <p>The self-upgrade configuration for the Quick account.</p>
- * @public
- */
-export interface SelfUpgradeConfiguration {
-  /**
-   * <p>Status set for the self-upgrade configuration for the Quick account. It can contain the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO_APPROVAL</code>: All the self-upgrade requests will be auto approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN_APPROVAL</code>: All the self-upgrade requests will require admin approval.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SelfUpgradeStatus?: SelfUpgradeStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSelfUpgradeConfigurationResponse {
-  /**
-   * <p>The self-upgrade configuration for the Quick account.</p>
-   * @public
-   */
-  SelfUpgradeConfiguration?: SelfUpgradeConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
 }

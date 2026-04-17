@@ -40,7 +40,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   AwsAccountId: "STRING_VALUE", // required
  *   DataSourceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY" || "GOOGLESHEETS" || "GOOGLE_DRIVE" || "CONFLUENCE" || "SHAREPOINT" || "ONE_DRIVE" || "WEB_CRAWLER" || "S3_KNOWLEDGE_BASE" || "QBUSINESS", // required
+ *   Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "S3_TABLES" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY" || "GOOGLESHEETS" || "GOOGLE_DRIVE" || "CONFLUENCE" || "SHAREPOINT" || "ONE_DRIVE" || "WEB_CRAWLER" || "S3_KNOWLEDGE_BASE" || "QBUSINESS", // required
  *   DataSourceParameters: { // DataSourceParameters Union: only one key present
  *     AmazonElasticsearchParameters: { // AmazonElasticsearchParameters
  *       Domain: "STRING_VALUE", // required
@@ -48,6 +48,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *     AthenaParameters: { // AthenaParameters
  *       WorkGroup: "STRING_VALUE",
  *       RoleArn: "STRING_VALUE",
+ *       ConsumerAccountRoleArn: "STRING_VALUE",
  *       IdentityCenterConfiguration: { // IdentityCenterConfiguration
  *         EnableIdentityPropagation: true || false,
  *       },
@@ -121,6 +122,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *         Key: "STRING_VALUE", // required
  *       },
  *       RoleArn: "STRING_VALUE",
+ *     },
+ *     S3TablesParameters: { // S3TablesParameters
+ *       TableBucketArn: "STRING_VALUE",
  *     },
  *     S3KnowledgeBaseParameters: { // S3KnowledgeBaseParameters
  *       RoleArn: "STRING_VALUE",
@@ -238,6 +242,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *           AthenaParameters: {
  *             WorkGroup: "STRING_VALUE",
  *             RoleArn: "STRING_VALUE",
+ *             ConsumerAccountRoleArn: "STRING_VALUE",
  *             IdentityCenterConfiguration: {
  *               EnableIdentityPropagation: true || false,
  *             },
@@ -311,6 +316,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *               Key: "STRING_VALUE", // required
  *             },
  *             RoleArn: "STRING_VALUE",
+ *           },
+ *           S3TablesParameters: {
+ *             TableBucketArn: "STRING_VALUE",
  *           },
  *           S3KnowledgeBaseParameters: {
  *             RoleArn: "STRING_VALUE",

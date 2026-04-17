@@ -81,8 +81,7 @@ import type {
   CustomActionSetParametersOperation,
   CustomActionURLOperation,
   DataLabelOptions,
-  DataPathColor,
-  DataPathValue,
+  DataPathType,
   DecalSettings,
   DimensionField,
   FieldSort,
@@ -100,6 +99,54 @@ import type {
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The data path that needs to be sorted.</p>
+ * @public
+ */
+export interface DataPathValue {
+  /**
+   * <p>The field ID of the field that needs to be sorted.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+
+  /**
+   * <p>The actual value of the field that needs to be sorted.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>The type configuration of the field.</p>
+   * @public
+   */
+  DataPathType?: DataPathType | undefined;
+}
+
+/**
+ * <p>The color map that determines the color options for a particular element.</p>
+ * @public
+ */
+export interface DataPathColor {
+  /**
+   * <p>The element that the color needs to be applied to.</p>
+   * @public
+   */
+  Element: DataPathValue | undefined;
+
+  /**
+   * <p>The color that needs to be applied to the element.</p>
+   * @public
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>The time granularity of the field that the color needs to be applied to.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity | undefined;
+}
 
 /**
  * <p>The visual display options for the visual palette.</p>
@@ -8359,131 +8406,4 @@ export interface WaterfallChartOptions {
    * @public
    */
   TotalBarLabel?: string | undefined;
-}
-
-/**
- * <p>The configuration for a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartConfiguration {
-  /**
-   * <p>The field well configuration of a waterfall visual.</p>
-   * @public
-   */
-  FieldWells?: WaterfallChartFieldWells | undefined;
-
-  /**
-   * <p>The sort configuration of a waterfall visual.</p>
-   * @public
-   */
-  SortConfiguration?: WaterfallChartSortConfiguration | undefined;
-
-  /**
-   * <p>The options that determine the presentation of a waterfall visual.</p>
-   * @public
-   */
-  WaterfallChartOptions?: WaterfallChartOptions | undefined;
-
-  /**
-   * <p>The options that determine the presentation of the category axis label.</p>
-   * @public
-   */
-  CategoryAxisLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The options that determine the presentation of the category axis.</p>
-   * @public
-   */
-  CategoryAxisDisplayOptions?: AxisDisplayOptions | undefined;
-
-  /**
-   * <p>The options that determine the presentation of the y-axis label.</p>
-   * @public
-   */
-  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The options that determine the presentation of the y-axis.</p>
-   * @public
-   */
-  PrimaryYAxisDisplayOptions?: AxisDisplayOptions | undefined;
-
-  /**
-   * <p>The legend configuration of a waterfall visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions | undefined;
-
-  /**
-   * <p>The data label configuration of a waterfall visual.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions | undefined;
-
-  /**
-   * <p>The visual palette configuration of a waterfall visual.</p>
-   * @public
-   */
-  VisualPalette?: VisualPalette | undefined;
-
-  /**
-   * <p>The color configuration of a waterfall visual.</p>
-   * @public
-   */
-  ColorConfiguration?: WaterfallChartColorConfiguration | undefined;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions | undefined;
-}
-
-/**
- * <p>A waterfall chart.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- * @public
- */
-export interface WaterfallVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions | undefined;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions | undefined;
-
-  /**
-   * <p>The configuration for a waterfall visual.</p>
-   * @public
-   */
-  ChartConfiguration?: WaterfallChartConfiguration | undefined;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[] | undefined;
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[] | undefined;
-
-  /**
-   * <p>The alt text for the visual.</p>
-   * @public
-   */
-  VisualContentAltText?: string | undefined;
 }

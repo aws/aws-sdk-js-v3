@@ -4411,6 +4411,12 @@
             "smithy.api#documentation": "<p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>"
           }
         },
+        "ConsumerAccountRoleArn": {
+          "target": "com.amazonaws.quicksight#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Use <code>ConsumerAccountRoleArn</code> to perform cross-account Athena access. This is an IAM role ARN in the same AWS account as the Athena resources you want to access. Provide this along with <code>RoleArn</code> to enable role-chaining, where Amazon Quick Sight first assumes the <code>RoleArn</code> and then assumes the <code>ConsumerAccountRoleArn</code> to access Athena resources.</p>"
+          }
+        },
         "IdentityCenterConfiguration": {
           "target": "com.amazonaws.quicksight#IdentityCenterConfiguration",
           "traits": {
@@ -8312,6 +8318,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ability to create, update, delete and view shared folders (both restricted and unrestricted), ability to add any asset to shared folders, and ability to share the folders.</p>\n         <p>\n            <b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others share with them through folder membership.</p>"
           }
+        },
+        "GenerateAnalyses": {
+          "target": "com.amazonaws.quicksight#CapabilityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The ability to generate analysis using AI</p>"
+          }
         }
       },
       "traits": {
@@ -10843,6 +10855,61 @@
         "smithy.api#length": {
           "min": 1,
           "max": 4
+        }
+      }
+    },
+    "com.amazonaws.quicksight#ControlSortConfiguration": {
+      "type": "structure",
+      "members": {
+        "SelectableValuesSort": {
+          "target": "com.amazonaws.quicksight#SelectableValuesSort",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for user-specified values in the control. Use this option to sort values that are manually entered by users in a dropdown or list control.</p>"
+          }
+        },
+        "ControlColumnSort": {
+          "target": "com.amazonaws.quicksight#AggregationSortConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for controls that are tied to a dataset column. Use this option to sort control values by an aggregate of a column.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The sort configuration for control values. This is a tagged union type. Specify either <code>SelectableValuesSort</code> or <code>ControlColumnSort</code>, but not both.</p>"
+      }
+    },
+    "com.amazonaws.quicksight#ControlSortConfigurationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.quicksight#ControlSortConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
+    "com.amazonaws.quicksight#ControlSortDirection": {
+      "type": "enum",
+      "members": {
+        "ASC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASC"
+          }
+        },
+        "DESC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESC"
+          }
+        },
+        "USER_DEFINED_ORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER_DEFINED_ORDER"
+          }
         }
       }
     },
@@ -15177,6 +15244,22 @@
         }
       }
     },
+    "com.amazonaws.quicksight#DashboardCustomizationSummaryConfigurations": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.quicksight#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>The enabled status of the dashboard customization summary configuration for an embedded Quick Sight dashboard.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The dashboard customization summary configuration for an embedded Quick Sight dashboard.</p>"
+      }
+    },
     "com.amazonaws.quicksight#DashboardCustomizationVisualOptions": {
       "type": "structure",
       "members": {
@@ -17987,6 +18070,12 @@
             "smithy.api#documentation": "<p>The parameters for S3.</p>"
           }
         },
+        "S3TablesParameters": {
+          "target": "com.amazonaws.quicksight#S3TablesParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for S3 Tables.</p>"
+          }
+        },
         "S3KnowledgeBaseParameters": {
           "target": "com.amazonaws.quicksight#S3KnowledgeBaseParameters",
           "traits": {
@@ -18294,6 +18383,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "S3"
+          }
+        },
+        "S3_TABLES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3_TABLES"
           }
         },
         "SALESFORCE": {
@@ -19838,6 +19933,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The visibility configuration of the Apply button on a <code>FilterDropDownControl</code>.</p>"
           }
+        },
+        "ControlSortConfigurations": {
+          "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
+          }
         }
       },
       "traits": {
@@ -19863,6 +19964,12 @@
           "target": "com.amazonaws.quicksight#FilterSelectableValues",
           "traits": {
             "smithy.api#documentation": "<p>A list of selectable values that are used in a control.</p>"
+          }
+        },
+        "ControlSortConfigurations": {
+          "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
           }
         }
       },
@@ -30850,6 +30957,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The visibility configuration of the Apply button on a <code>FilterDropDownControl</code>.</p>"
           }
+        },
+        "ControlSortConfigurations": {
+          "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
+          }
         }
       },
       "traits": {
@@ -31001,6 +31114,12 @@
           "target": "com.amazonaws.quicksight#CascadingControlConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>"
+          }
+        },
+        "ControlSortConfigurations": {
+          "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
           }
         }
       },
@@ -46775,6 +46894,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The visibility configuration of the Apply button on a <code>ParameterDropDownControl</code>.</p>"
           }
+        },
+        "ControlSortConfigurations": {
+          "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
+          }
         }
       },
       "traits": {
@@ -46827,6 +46952,12 @@
           "target": "com.amazonaws.quicksight#CascadingControlConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>"
+          }
+        },
+        "ControlSortConfigurations": {
+          "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
           }
         }
       },
@@ -52653,6 +52784,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The threshold alerts configuration for an embedded Quick Sight dashboard.</p>"
           }
+        },
+        "DashboardCustomizationSummary": {
+          "target": "com.amazonaws.quicksight#DashboardCustomizationSummaryConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The dashboard customization summary configuration for an embedded Quick Sight console.</p>"
+          }
         }
       },
       "traits": {
@@ -52723,6 +52860,12 @@
           "target": "com.amazonaws.quicksight#ThresholdAlertsConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>The threshold alerts configuration for an Quick Sight embedded dashboard.</p>"
+          }
+        },
+        "DashboardCustomizationSummary": {
+          "target": "com.amazonaws.quicksight#DashboardCustomizationSummaryConfigurations",
+          "traits": {
+            "smithy.api#documentation": "<p>The dashboard customization summary configuration for an embedded Quick Sight dashboard.</p>"
           }
         }
       },
@@ -54026,6 +54169,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A physical table type for an S3 data source.</p>"
+      }
+    },
+    "com.amazonaws.quicksight#S3TableBucketArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:bucket/[a-zA-Z0-9-_]{3,63})$"
+      }
+    },
+    "com.amazonaws.quicksight#S3TablesParameters": {
+      "type": "structure",
+      "members": {
+        "TableBucketArn": {
+          "target": "com.amazonaws.quicksight#S3TableBucketArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the S3 Tables bucket.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The parameters for S3 Tables.</p>"
       }
     },
     "com.amazonaws.quicksight#S3Uri": {
@@ -55820,6 +55983,21 @@
             "smithy.api#enumValue": "ALL_VALUES"
           }
         }
+      }
+    },
+    "com.amazonaws.quicksight#SelectableValuesSort": {
+      "type": "structure",
+      "members": {
+        "Direction": {
+          "target": "com.amazonaws.quicksight#ControlSortDirection",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort direction for the selectable values. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ASC</code>: Sort in ascending order.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DESC</code>: Sort in descending order.</p>\n            </li>\n            <li>\n               <p>\n                  <code>USER_DEFINED_ORDER</code>: Preserve the order in which the values were entered.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The sort configuration for selectable values in a control.</p>"
       }
     },
     "com.amazonaws.quicksight#SelectedFieldList": {

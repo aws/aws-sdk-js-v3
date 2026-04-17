@@ -772,6 +772,20 @@ export type SheetControlDateTimePickerType =
  * @public
  * @enum
  */
+export const ControlSortDirection = {
+  ASC: "ASC",
+  DESC: "DESC",
+  USER_DEFINED_ORDER: "USER_DEFINED_ORDER",
+} as const;
+/**
+ * @public
+ */
+export type ControlSortDirection = (typeof ControlSortDirection)[keyof typeof ControlSortDirection];
+
+/**
+ * @public
+ * @enum
+ */
 export const SheetControlListType = {
   MULTI_SELECT: "MULTI_SELECT",
   SINGLE_SELECT: "SINGLE_SELECT",
@@ -3278,6 +3292,7 @@ export const DataSourceType = {
   REDSHIFT: "REDSHIFT",
   S3: "S3",
   S3_KNOWLEDGE_BASE: "S3_KNOWLEDGE_BASE",
+  S3_TABLES: "S3_TABLES",
   SALESFORCE: "SALESFORCE",
   SERVICENOW: "SERVICENOW",
   SHAREPOINT: "SHAREPOINT",

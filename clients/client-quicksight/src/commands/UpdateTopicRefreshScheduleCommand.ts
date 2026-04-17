@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateTopicRefreshScheduleRequest, UpdateTopicRefreshScheduleResponse } from "../models/models_4";
+import type { UpdateTopicRefreshScheduleRequest } from "../models/models_4";
+import type { UpdateTopicRefreshScheduleResponse } from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateTopicRefreshSchedule$ } from "../schemas/schemas_0";
 

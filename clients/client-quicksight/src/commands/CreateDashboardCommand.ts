@@ -258,6 +258,34 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                 ],
  *               },
+ *               ControlSortConfigurations: [ // ControlSortConfigurationList
+ *                 { // ControlSortConfiguration
+ *                   SelectableValuesSort: { // SelectableValuesSort
+ *                     Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
+ *                   },
+ *                   ControlColumnSort: { // AggregationSortConfiguration
+ *                     Column: {
+ *                       DataSetIdentifier: "STRING_VALUE", // required
+ *                       ColumnName: "STRING_VALUE", // required
+ *                     },
+ *                     SortDirection: "ASC" || "DESC", // required
+ *                     AggregationFunction: { // AggregationFunction
+ *                       NumericalAggregationFunction: { // NumericalAggregationFunction
+ *                         SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
+ *                         PercentileAggregation: { // PercentileAggregation
+ *                           PercentileValue: Number("double"),
+ *                         },
+ *                       },
+ *                       CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ *                       DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                       AttributeAggregationFunction: { // AttributeAggregationFunction
+ *                         SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                         ValueForMultipleValues: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 },
+ *               ],
  *             },
  *             Dropdown: { // ParameterDropDownControl
  *               ParameterControlId: "STRING_VALUE", // required
@@ -311,6 +339,31 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ],
  *               },
  *               CommitMode: "AUTO" || "MANUAL",
+ *               ControlSortConfigurations: [
+ *                 {
+ *                   SelectableValuesSort: {
+ *                     Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
+ *                   },
+ *                   ControlColumnSort: {
+ *                     Column: "<ColumnIdentifier>", // required
+ *                     SortDirection: "ASC" || "DESC", // required
+ *                     AggregationFunction: {
+ *                       NumericalAggregationFunction: {
+ *                         SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
+ *                         PercentileAggregation: {
+ *                           PercentileValue: Number("double"),
+ *                         },
+ *                       },
+ *                       CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ *                       DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                       AttributeAggregationFunction: {
+ *                         SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                         ValueForMultipleValues: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 },
+ *               ],
  *             },
  *             TextField: { // ParameterTextFieldControl
  *               ParameterControlId: "STRING_VALUE", // required
@@ -429,13 +482,35 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 SourceControls: [
  *                   {
  *                     SourceSheetControlId: "STRING_VALUE",
- *                     ColumnToMatch: {
- *                       DataSetIdentifier: "STRING_VALUE", // required
- *                       ColumnName: "STRING_VALUE", // required
- *                     },
+ *                     ColumnToMatch: "<ColumnIdentifier>",
  *                   },
  *                 ],
  *               },
+ *               ControlSortConfigurations: [
+ *                 {
+ *                   SelectableValuesSort: {
+ *                     Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
+ *                   },
+ *                   ControlColumnSort: {
+ *                     Column: "<ColumnIdentifier>", // required
+ *                     SortDirection: "ASC" || "DESC", // required
+ *                     AggregationFunction: {
+ *                       NumericalAggregationFunction: {
+ *                         SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
+ *                         PercentileAggregation: {
+ *                           PercentileValue: Number("double"),
+ *                         },
+ *                       },
+ *                       CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ *                       DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                       AttributeAggregationFunction: {
+ *                         SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                         ValueForMultipleValues: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 },
+ *               ],
  *             },
  *             Dropdown: { // FilterDropDownControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -463,6 +538,31 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ],
  *               },
  *               CommitMode: "AUTO" || "MANUAL",
+ *               ControlSortConfigurations: [
+ *                 {
+ *                   SelectableValuesSort: {
+ *                     Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
+ *                   },
+ *                   ControlColumnSort: {
+ *                     Column: "<ColumnIdentifier>", // required
+ *                     SortDirection: "ASC" || "DESC", // required
+ *                     AggregationFunction: {
+ *                       NumericalAggregationFunction: {
+ *                         SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
+ *                         PercentileAggregation: {
+ *                           PercentileValue: Number("double"),
+ *                         },
+ *                       },
+ *                       CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ *                       DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                       AttributeAggregationFunction: {
+ *                         SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                         ValueForMultipleValues: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 },
+ *               ],
  *             },
  *             TextField: { // FilterTextFieldControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -734,9 +834,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         NumericalMeasureField: { // NumericalMeasureField
  *                           FieldId: "STRING_VALUE", // required
  *                           Column: "<ColumnIdentifier>", // required
- *                           AggregationFunction: { // NumericalAggregationFunction
+ *                           AggregationFunction: {
  *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: { // PercentileAggregation
+ *                             PercentileAggregation: {
  *                               PercentileValue: Number("double"),
  *                             },
  *                           },
@@ -859,16 +959,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       ColumnSort: { // ColumnSort
  *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: { // AggregationFunction
- *                           NumericalAggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
+ *                         AggregationFunction: {
+ *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           AttributeAggregationFunction: { // AttributeAggregationFunction
+ *                           AttributeAggregationFunction: {
  *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
  *                             ValueForMultipleValues: "STRING_VALUE",
  *                           },
@@ -1115,20 +1210,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                               PercentileAggregation: {
- *                                 PercentileValue: Number("double"),
- *                               },
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                             AttributeAggregationFunction: {
- *                               SimpleAttributeAggregation: "UNIQUE_VALUE",
- *                               ValueForMultipleValues: "STRING_VALUE",
- *                             },
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
@@ -1408,12 +1490,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         NumericalMeasureField: {
  *                           FieldId: "STRING_VALUE", // required
  *                           Column: "<ColumnIdentifier>", // required
- *                           AggregationFunction: {
- *                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                             PercentileAggregation: {
- *                               PercentileValue: Number("double"),
- *                             },
- *                           },
+ *                           AggregationFunction: "<NumericalAggregationFunction>",
  *                           FormatConfiguration: "<NumberFormatConfiguration>",
  *                         },
  *                         CategoricalMeasureField: {
@@ -1448,20 +1525,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         Column: {
  *                           SortBy: "<ColumnIdentifier>", // required
  *                           Direction: "ASC" || "DESC", // required
- *                           AggregationFunction: {
- *                             NumericalAggregationFunction: {
- *                               SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- *                               PercentileAggregation: {
- *                                 PercentileValue: Number("double"),
- *                               },
- *                             },
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                             AttributeAggregationFunction: {
- *                               SimpleAttributeAggregation: "UNIQUE_VALUE",
- *                               ValueForMultipleValues: "STRING_VALUE",
- *                             },
- *                           },
+ *                           AggregationFunction: "<AggregationFunction>",
  *                         },
  *                         DataPath: { // DataPathSort
  *                           Direction: "ASC" || "DESC", // required
@@ -1667,15 +1731,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
- *                           Aggregation: {
- *                             NumericalAggregationFunction: "<NumericalAggregationFunction>",
- *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                             AttributeAggregationFunction: {
- *                               SimpleAttributeAggregation: "UNIQUE_VALUE",
- *                               ValueForMultipleValues: "STRING_VALUE",
- *                             },
- *                           },
+ *                           Aggregation: "<AggregationFunction>",
  *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
@@ -1915,15 +1971,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       ColumnSort: {
  *                         SortBy: "<ColumnIdentifier>", // required
  *                         Direction: "ASC" || "DESC", // required
- *                         AggregationFunction: {
- *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
- *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- *                           AttributeAggregationFunction: {
- *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
- *                             ValueForMultipleValues: "STRING_VALUE",
- *                           },
- *                         },
+ *                         AggregationFunction: "<AggregationFunction>",
  *                       },
  *                     },
  *                   ],
@@ -7140,6 +7188,18 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                         "STRING_VALUE",
  *                       ],
  *                     },
+ *                     ControlSortConfigurations: [
+ *                       {
+ *                         SelectableValuesSort: {
+ *                           Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
+ *                         },
+ *                         ControlColumnSort: {
+ *                           Column: "<ColumnIdentifier>", // required
+ *                           SortDirection: "ASC" || "DESC", // required
+ *                           AggregationFunction: "<AggregationFunction>",
+ *                         },
+ *                       },
+ *                     ],
  *                   },
  *                   DefaultDropdownOptions: { // DefaultFilterDropDownControlOptions
  *                     DisplayOptions: {
@@ -7152,6 +7212,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       Values: "<ParameterSelectableValueList>",
  *                     },
  *                     CommitMode: "AUTO" || "MANUAL",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultTextFieldOptions: { // DefaultTextFieldControlOptions
  *                     DisplayOptions: {
@@ -7234,6 +7295,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     SelectableValues: {
  *                       Values: "<ParameterSelectableValueList>",
  *                     },
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultDropdownOptions: {
  *                     DisplayOptions: {
@@ -7244,6 +7306,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
  *                     CommitMode: "AUTO" || "MANUAL",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: {
@@ -7315,6 +7378,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultDropdownOptions: {
  *                     DisplayOptions: {
@@ -7325,6 +7389,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
  *                     CommitMode: "AUTO" || "MANUAL",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: {
@@ -7384,12 +7449,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     DisplayOptions: "<ListControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultDropdownOptions: {
  *                     DisplayOptions: "<DropDownControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
  *                     CommitMode: "AUTO" || "MANUAL",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -7450,12 +7517,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     DisplayOptions: "<ListControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultDropdownOptions: {
  *                     DisplayOptions: "<DropDownControlDisplayOptions>",
  *                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *                     SelectableValues: "<FilterSelectableValues>",
  *                     CommitMode: "AUTO" || "MANUAL",
+ *                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  *                   },
  *                   DefaultTextFieldOptions: {
  *                     DisplayOptions: "<TextFieldControlDisplayOptions>",
@@ -7503,11 +7572,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *               Column: "<ColumnIdentifier>", // required
  *               Limit: Number("int"),
  *               AggregationSortConfigurations: [ // AggregationSortConfigurationList // required
- *                 { // AggregationSortConfiguration
- *                   Column: "<ColumnIdentifier>", // required
- *                   SortDirection: "ASC" || "DESC", // required
- *                   AggregationFunction: "<AggregationFunction>",
- *                 },
+ *                 "<AggregationSortConfiguration>",
  *               ],
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *               ParameterName: "STRING_VALUE",
