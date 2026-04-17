@@ -468,7 +468,7 @@ export interface CopyDBClusterSnapshotMessage {
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
+   * <p>The Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
    *       Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
    *          <p>If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify a
    *       value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
@@ -2217,7 +2217,7 @@ export interface CreateDBInstanceMessage {
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
    *       you are creating a DB instance with the same Amazon account that owns the KMS encryption key used
    *       to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the
-   *       KM encryption key.</p>
+   *       KMS encryption key.</p>
    *          <p>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
    *       see <a>CreateDBCluster</a>.</p>
    *          <p>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value for
@@ -2355,7 +2355,7 @@ export interface CreateDBInstanceMessage {
  */
 export interface DBParameterGroupStatus {
   /**
-   * <p>The name of the DP parameter group.</p>
+   * <p>The name of the DB parameter group.</p>
    * @public
    */
   DBParameterGroupName?: string | undefined;
@@ -3221,7 +3221,7 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p> A Boolean value; set to <b>true</b> to activate the
    *       subscription, set to <b>false</b> to create the subscription but not
-   *       active it.</p>
+   *       activate it.</p>
    * @public
    */
   Enabled?: boolean | undefined;
@@ -3287,7 +3287,7 @@ export interface CreateGlobalClusterMessage {
 
   /**
    * <p>The name for the new global database (up to 64 alpha-numeric
-   *       characters.</p>
+   *       characters).</p>
    * @public
    */
   DatabaseName?: string | undefined;
@@ -3415,7 +3415,7 @@ export interface GlobalCluster {
   GlobalClusterIdentifier?: string | undefined;
 
   /**
-   * <p>An immutable identifier for the global database that is unique within in all
+   * <p>An immutable identifier for the global database that is unique within all
    *       regions. This identifier is found in CloudTrail log entries whenever the KMS
    *       key for the DB cluster is accessed.</p>
    * @public
@@ -3540,7 +3540,7 @@ export interface DeleteDBClusterMessage {
    * <p> The DB cluster snapshot identifier of the new DB cluster snapshot created when
    *       <code>SkipFinalSnapshot</code> is set to <code>false</code>.</p>
    *          <note>
-   *             <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
+   *             <p> Specifying this parameter and also setting the <code>SkipFinalSnapshot</code> parameter
    *         to true results in an error.</p>
    *          </note>
    *          <p>Constraints:</p>
@@ -3766,7 +3766,7 @@ export interface DeleteDBInstanceMessage {
    * <p> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to
    *       <code>false</code>.</p>
    *          <note>
-   *             <p>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
+   *             <p>Specifying this parameter and also setting the SkipFinalSnapshot parameter to true
    *         results in an error.</p>
    *          </note>
    *          <p>Constraints:</p>
@@ -3994,7 +3994,7 @@ export interface DBClusterEndpoint {
  */
 export interface DBClusterEndpointMessage {
   /**
-   * <p> n optional pagination token provided by a previous
+   * <p>An optional pagination token provided by a previous
    *       <code>DescribeDBClusterEndpoints</code> request.
    *       If this parameter is specified, the response includes
    *       only records beyond the marker,
@@ -5995,14 +5995,14 @@ export interface FailoverGlobalClusterMessage {
    *       Allowing data loss triggers a global failover operation.</p>
    *          <p>If you don't specify <code>AllowDataLoss</code>, the global database cluster operation
    *       defaults to a switchover.</p>
-   *          <p>Constraints:Can't be specified together with the <code>Switchover</code> parameter.</p>
+   *          <p>Constraints: Can't be specified together with the <code>Switchover</code> parameter.</p>
    * @public
    */
   AllowDataLoss?: boolean | undefined;
 
   /**
    * <p>Specifies whether to switch over this global database cluster.</p>
-   *          <p>Constraints:Can't be specified together with the <code>AllowDataLoss</code> parameter.</p>
+   *          <p>Constraints: Can't be specified together with the <code>AllowDataLoss</code> parameter.</p>
    * @public
    */
   Switchover?: boolean | undefined;

@@ -29,7 +29,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
 /**
  * <p>Detaches a Neptune DB cluster from a Neptune global database. A secondary
  *       cluster becomes a normal standalone cluster with read-write capability
- *       instead of being read-only, and no longer receives data from a the
+ *       instead of being read-only, and no longer receives data from the
  *       primary cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
