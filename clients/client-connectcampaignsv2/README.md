@@ -216,6 +216,13 @@ DeleteCampaignCommunicationTime
 </details>
 <details>
 <summary>
+DeleteCampaignEntryLimits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/DeleteCampaignEntryLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignEntryLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/DeleteCampaignEntryLimitsCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteConnectInstanceConfig
 </summary>
 
@@ -395,6 +402,13 @@ UpdateCampaignCommunicationTime
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignCommunicationTimeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignCommunicationTimeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignCommunicationTimeCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCampaignEntryLimits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcampaignsv2/command/UpdateCampaignEntryLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignEntryLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcampaignsv2/Interface/UpdateCampaignEntryLimitsCommandOutput/)
 </details>
 <details>
 <summary>

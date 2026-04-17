@@ -43,6 +43,9 @@ import {
   DeleteCampaignCommunicationTime$,
   DeleteCampaignCommunicationTimeCommand,
   DeleteCampaignCommunicationTimeRequest$,
+  DeleteCampaignEntryLimits$,
+  DeleteCampaignEntryLimitsCommand,
+  DeleteCampaignEntryLimitsRequest$,
   DeleteCampaignRequest$,
   DeleteConnectInstanceConfig$,
   DeleteConnectInstanceConfigCommand,
@@ -63,6 +66,7 @@ import {
   EmailOutboundMode$,
   EncryptionConfig$,
   EncryptionType,
+  EntryLimitsConfig$,
   EventTrigger$,
   EventType,
   ExternalCampaignType,
@@ -206,6 +210,9 @@ import {
   UpdateCampaignCommunicationTime$,
   UpdateCampaignCommunicationTimeCommand,
   UpdateCampaignCommunicationTimeRequest$,
+  UpdateCampaignEntryLimits$,
+  UpdateCampaignEntryLimitsCommand,
+  UpdateCampaignEntryLimitsRequest$,
   UpdateCampaignFlowAssociation$,
   UpdateCampaignFlowAssociationCommand,
   UpdateCampaignFlowAssociationRequest$,
@@ -240,6 +247,8 @@ assert(typeof DeleteCampaignCommunicationLimitsCommand === "function");
 assert(typeof DeleteCampaignCommunicationLimits$ === "object");
 assert(typeof DeleteCampaignCommunicationTimeCommand === "function");
 assert(typeof DeleteCampaignCommunicationTime$ === "object");
+assert(typeof DeleteCampaignEntryLimitsCommand === "function");
+assert(typeof DeleteCampaignEntryLimits$ === "object");
 assert(typeof DeleteConnectInstanceConfigCommand === "function");
 assert(typeof DeleteConnectInstanceConfig$ === "object");
 assert(typeof DeleteConnectInstanceIntegrationCommand === "function");
@@ -292,6 +301,8 @@ assert(typeof UpdateCampaignCommunicationLimitsCommand === "function");
 assert(typeof UpdateCampaignCommunicationLimits$ === "object");
 assert(typeof UpdateCampaignCommunicationTimeCommand === "function");
 assert(typeof UpdateCampaignCommunicationTime$ === "object");
+assert(typeof UpdateCampaignEntryLimitsCommand === "function");
+assert(typeof UpdateCampaignEntryLimits$ === "object");
 assert(typeof UpdateCampaignFlowAssociationCommand === "function");
 assert(typeof UpdateCampaignFlowAssociation$ === "object");
 assert(typeof UpdateCampaignNameCommand === "function");
@@ -320,6 +331,7 @@ assert(typeof CustomerProfilesIntegrationSummary$ === "object");
 assert(typeof DeleteCampaignChannelSubtypeConfigRequest$ === "object");
 assert(typeof DeleteCampaignCommunicationLimitsRequest$ === "object");
 assert(typeof DeleteCampaignCommunicationTimeRequest$ === "object");
+assert(typeof DeleteCampaignEntryLimitsRequest$ === "object");
 assert(typeof DeleteCampaignRequest$ === "object");
 assert(typeof DeleteConnectInstanceConfigRequest$ === "object");
 assert(typeof DeleteConnectInstanceIntegrationRequest$ === "object");
@@ -331,6 +343,7 @@ assert(typeof EmailChannelSubtypeParameters$ === "object");
 assert(typeof EmailOutboundConfig$ === "object");
 assert(typeof EmailOutboundMode$ === "object");
 assert(typeof EncryptionConfig$ === "object");
+assert(typeof EntryLimitsConfig$ === "object");
 assert(typeof EventTrigger$ === "object");
 assert(typeof FailedCampaignStateResponse$ === "object");
 assert(typeof FailedProfileOutboundRequest$ === "object");
@@ -406,6 +419,7 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateCampaignChannelSubtypeConfigRequest$ === "object");
 assert(typeof UpdateCampaignCommunicationLimitsRequest$ === "object");
 assert(typeof UpdateCampaignCommunicationTimeRequest$ === "object");
+assert(typeof UpdateCampaignEntryLimitsRequest$ === "object");
 assert(typeof UpdateCampaignFlowAssociationRequest$ === "object");
 assert(typeof UpdateCampaignNameRequest$ === "object");
 assert(typeof UpdateCampaignScheduleRequest$ === "object");

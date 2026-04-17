@@ -76,6 +76,10 @@ import type {
   DeleteCampaignCommunicationTimeCommandOutput,
 } from "./commands/DeleteCampaignCommunicationTimeCommand";
 import type {
+  DeleteCampaignEntryLimitsCommandInput,
+  DeleteCampaignEntryLimitsCommandOutput,
+} from "./commands/DeleteCampaignEntryLimitsCommand";
+import type {
   DeleteConnectInstanceConfigCommandInput,
   DeleteConnectInstanceConfigCommandOutput,
 } from "./commands/DeleteConnectInstanceConfigCommand";
@@ -153,6 +157,10 @@ import type {
   UpdateCampaignCommunicationTimeCommandOutput,
 } from "./commands/UpdateCampaignCommunicationTimeCommand";
 import type {
+  UpdateCampaignEntryLimitsCommandInput,
+  UpdateCampaignEntryLimitsCommandOutput,
+} from "./commands/UpdateCampaignEntryLimitsCommand";
+import type {
   UpdateCampaignFlowAssociationCommandInput,
   UpdateCampaignFlowAssociationCommandOutput,
 } from "./commands/UpdateCampaignFlowAssociationCommand";
@@ -188,6 +196,7 @@ export type ServiceInputTypes =
   | DeleteCampaignCommandInput
   | DeleteCampaignCommunicationLimitsCommandInput
   | DeleteCampaignCommunicationTimeCommandInput
+  | DeleteCampaignEntryLimitsCommandInput
   | DeleteConnectInstanceConfigCommandInput
   | DeleteConnectInstanceIntegrationCommandInput
   | DeleteInstanceOnboardingJobCommandInput
@@ -214,6 +223,7 @@ export type ServiceInputTypes =
   | UpdateCampaignChannelSubtypeConfigCommandInput
   | UpdateCampaignCommunicationLimitsCommandInput
   | UpdateCampaignCommunicationTimeCommandInput
+  | UpdateCampaignEntryLimitsCommandInput
   | UpdateCampaignFlowAssociationCommandInput
   | UpdateCampaignNameCommandInput
   | UpdateCampaignScheduleCommandInput
@@ -228,6 +238,7 @@ export type ServiceOutputTypes =
   | DeleteCampaignCommandOutput
   | DeleteCampaignCommunicationLimitsCommandOutput
   | DeleteCampaignCommunicationTimeCommandOutput
+  | DeleteCampaignEntryLimitsCommandOutput
   | DeleteConnectInstanceConfigCommandOutput
   | DeleteConnectInstanceIntegrationCommandOutput
   | DeleteInstanceOnboardingJobCommandOutput
@@ -254,6 +265,7 @@ export type ServiceOutputTypes =
   | UpdateCampaignChannelSubtypeConfigCommandOutput
   | UpdateCampaignCommunicationLimitsCommandOutput
   | UpdateCampaignCommunicationTimeCommandOutput
+  | UpdateCampaignEntryLimitsCommandOutput
   | UpdateCampaignFlowAssociationCommandOutput
   | UpdateCampaignNameCommandOutput
   | UpdateCampaignScheduleCommandOutput

@@ -27,6 +27,8 @@ const _DCCSC = "DeleteCampaignChannelSubtypeConfig";
 const _DCCSCR = "DeleteCampaignChannelSubtypeConfigRequest";
 const _DCCT = "DeleteCampaignCommunicationTime";
 const _DCCTR = "DeleteCampaignCommunicationTimeRequest";
+const _DCEL = "DeleteCampaignEntryLimits";
+const _DCELR = "DeleteCampaignEntryLimitsRequest";
 const _DCIC = "DeleteConnectInstanceConfig";
 const _DCICR = "DeleteConnectInstanceConfigRequest";
 const _DCII = "DeleteConnectInstanceIntegration";
@@ -44,6 +46,7 @@ const _EC = "EncryptionConfig";
 const _ECSC = "EmailChannelSubtypeConfig";
 const _ECSP = "EmailChannelSubtypeParameters";
 const _EDN = "EmailDisplayName";
+const _ELC = "EntryLimitsConfig";
 const _EOC = "EmailOutboundConfig";
 const _EOM = "EmailOutboundMode";
 const _ET = "EventTrigger";
@@ -158,6 +161,8 @@ const _UCCSC = "UpdateCampaignChannelSubtypeConfig";
 const _UCCSCR = "UpdateCampaignChannelSubtypeConfigRequest";
 const _UCCT = "UpdateCampaignCommunicationTime";
 const _UCCTR = "UpdateCampaignCommunicationTimeRequest";
+const _UCEL = "UpdateCampaignEntryLimits";
+const _UCELR = "UpdateCampaignEntryLimitsRequest";
 const _UCFA = "UpdateCampaignFlowAssociation";
 const _UCFAR = "UpdateCampaignFlowAssociationRequest";
 const _UCN = "UpdateCampaignName";
@@ -221,6 +226,7 @@ const _e = "error";
 const _eAMD = "enableAnswerMachineDetection";
 const _eC = "encryptionConfig";
 const _eD = "endDate";
+const _eLC = "entryLimitsConfig";
 const _eT = "encryptionType";
 const _eTn = "endTime";
 const _eTv = "eventTrigger";
@@ -249,6 +255,8 @@ const _lTZC = "localTimeZoneConfig";
 const _lTZD = "localTimeZoneDetection";
 const _m = "message";
 const _mCPR = "maxCountPerRecipient";
+const _mEC = "maxEntryCount";
+const _mEI = "minEntryInterval";
 const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
@@ -402,8 +410,8 @@ export var AnswerMachineDetectionConfig$: StaticStructureSchema = [3, n0, _AMDC,
 ];
 export var Campaign$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_i, _a, _n, _cII, _cSC, _t, _so, _cCFA, _sc, _cTC, _cLO, _ta],
-  [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 4
+  [_i, _a, _n, _cII, _cSC, _t, _so, _cCFA, _sc, _eLC, _cTC, _cLO, _ta],
+  [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => EntryLimitsConfig$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 4
 ];
 export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -412,8 +420,8 @@ export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
 ];
 export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_i, _a, _n, _cII, _cS, _t, _sc, _cCFA],
-  [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, 0], 5
+  [_i, _a, _n, _cII, _cS, _t, _sc, _eLC, _cCFA],
+  [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, () => EntryLimitsConfig$, 0], 5
 ];
 export var ChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _CSC,
   0,
@@ -437,8 +445,8 @@ export var CommunicationTimeConfig$: StaticStructureSchema = [3, n0, _CTC,
 ];
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_n, _cII, _cSC, _t, _so, _cCFA, _sc, _cTC, _cLO, _ta],
-  [0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 2
+  [_n, _cII, _cSC, _t, _so, _cCFA, _sc, _eLC, _cTC, _cLO, _ta],
+  [0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => EntryLimitsConfig$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 2
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -474,6 +482,11 @@ export var DeleteCampaignCommunicationTimeRequest$: StaticStructureSchema = [3, 
   0,
   [_i, _co],
   [[0, 1], [0, { [_hQ]: _co }]], 2
+];
+export var DeleteCampaignEntryLimitsRequest$: StaticStructureSchema = [3, n0, _DCELR,
+  0,
+  [_i],
+  [[0, 1]], 1
 ];
 export var DeleteCampaignRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -524,6 +537,11 @@ export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_en, _eT, _kA],
   [2, 0, 0], 1
+];
+export var EntryLimitsConfig$: StaticStructureSchema = [3, n0, _ELC,
+  0,
+  [_mEC, _mEI],
+  [1, 0], 2
 ];
 export var EventTrigger$: StaticStructureSchema = [3, n0, _ET,
   0,
@@ -860,6 +878,11 @@ export var UpdateCampaignCommunicationTimeRequest$: StaticStructureSchema = [3, 
   [_i, _cTC],
   [[0, 1], () => CommunicationTimeConfig$], 2
 ];
+export var UpdateCampaignEntryLimitsRequest$: StaticStructureSchema = [3, n0, _UCELR,
+  0,
+  [_i, _eLC],
+  [[0, 1], () => EntryLimitsConfig$], 2
+];
 export var UpdateCampaignFlowAssociationRequest$: StaticStructureSchema = [3, n0, _UCFAR,
   0,
   [_i, _cCFA],
@@ -1024,6 +1047,9 @@ export var DeleteCampaignCommunicationLimits$: StaticOperationSchema = [9, n0, _
 export var DeleteCampaignCommunicationTime$: StaticOperationSchema = [9, n0, _DCCT,
   { [_h]: ["DELETE", "/v2/campaigns/{id}/communication-time", 200] }, () => DeleteCampaignCommunicationTimeRequest$, () => __Unit
 ];
+export var DeleteCampaignEntryLimits$: StaticOperationSchema = [9, n0, _DCEL,
+  { [_h]: ["DELETE", "/v2/campaigns/{id}/entry-limits", 200] }, () => DeleteCampaignEntryLimitsRequest$, () => __Unit
+];
 export var DeleteConnectInstanceConfig$: StaticOperationSchema = [9, n0, _DCIC,
   { [_h]: ["DELETE", "/v2/connect-instance/{connectInstanceId}/config", 200] }, () => DeleteConnectInstanceConfigRequest$, () => __Unit
 ];
@@ -1101,6 +1127,9 @@ export var UpdateCampaignCommunicationLimits$: StaticOperationSchema = [9, n0, _
 ];
 export var UpdateCampaignCommunicationTime$: StaticOperationSchema = [9, n0, _UCCT,
   { [_h]: ["POST", "/v2/campaigns/{id}/communication-time", 200] }, () => UpdateCampaignCommunicationTimeRequest$, () => __Unit
+];
+export var UpdateCampaignEntryLimits$: StaticOperationSchema = [9, n0, _UCEL,
+  { [_h]: ["POST", "/v2/campaigns/{id}/entry-limits", 200] }, () => UpdateCampaignEntryLimitsRequest$, () => __Unit
 ];
 export var UpdateCampaignFlowAssociation$: StaticOperationSchema = [9, n0, _UCFA,
   { [_h]: ["POST", "/v2/campaigns/{id}/flow", 200] }, () => UpdateCampaignFlowAssociationRequest$, () => __Unit

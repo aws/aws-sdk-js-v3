@@ -805,6 +805,24 @@ export interface CommunicationTimeConfig {
 }
 
 /**
+ * Campaign entry limits config
+ * @public
+ */
+export interface EntryLimitsConfig {
+  /**
+   * Maximum number of times a participant can enter the campaign. A value of 0 indicates unlimited entries. Values of 1 or greater specify the exact number of entries allowed.
+   * @public
+   */
+  maxEntryCount: number | undefined;
+
+  /**
+   * Minimum time interval that must pass before a participant can enter the campaign again.
+   * @public
+   */
+  minEntryInterval: string | undefined;
+}
+
+/**
  * Campaign schedule
  * @public
  */
@@ -941,6 +959,12 @@ export interface CreateCampaignRequest {
   schedule?: Schedule | undefined;
 
   /**
+   * Campaign entry limits config
+   * @public
+   */
+  entryLimitsConfig?: EntryLimitsConfig | undefined;
+
+  /**
    * Campaign communication time config
    * @public
    */
@@ -1047,6 +1071,18 @@ export interface DeleteCampaignCommunicationTimeRequest {
    * @public
    */
   config: CommunicationTimeConfigType | undefined;
+}
+
+/**
+ * The request for DeleteCampaignEntryLimits API.
+ * @public
+ */
+export interface DeleteCampaignEntryLimitsRequest {
+  /**
+   * Identifier representing a Campaign
+   * @public
+   */
+  id: string | undefined;
 }
 
 /**
@@ -1272,6 +1308,12 @@ export interface Campaign {
    * @public
    */
   schedule?: Schedule | undefined;
+
+  /**
+   * Campaign entry limits config
+   * @public
+   */
+  entryLimitsConfig?: EntryLimitsConfig | undefined;
 
   /**
    * Campaign communication time config
@@ -1656,6 +1698,12 @@ export interface CampaignSummary {
    * @public
    */
   schedule?: Schedule | undefined;
+
+  /**
+   * Campaign entry limits config
+   * @public
+   */
+  entryLimitsConfig?: EntryLimitsConfig | undefined;
 
   /**
    * Amazon Resource Names(ARN)
@@ -2592,6 +2640,24 @@ export interface UpdateCampaignCommunicationTimeRequest {
    * @public
    */
   communicationTimeConfig: CommunicationTimeConfig | undefined;
+}
+
+/**
+ * The request for UpdateCampaignEntryLimits API.
+ * @public
+ */
+export interface UpdateCampaignEntryLimitsRequest {
+  /**
+   * Identifier representing a Campaign
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * Campaign entry limits config
+   * @public
+   */
+  entryLimitsConfig: EntryLimitsConfig | undefined;
 }
 
 /**

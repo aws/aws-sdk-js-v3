@@ -28,6 +28,11 @@ import {
   DeleteCampaignCommunicationTimeCommand,
 } from "./commands/DeleteCampaignCommunicationTimeCommand";
 import {
+  type DeleteCampaignEntryLimitsCommandInput,
+  type DeleteCampaignEntryLimitsCommandOutput,
+  DeleteCampaignEntryLimitsCommand,
+} from "./commands/DeleteCampaignEntryLimitsCommand";
+import {
   type DeleteConnectInstanceConfigCommandInput,
   type DeleteConnectInstanceConfigCommandOutput,
   DeleteConnectInstanceConfigCommand,
@@ -158,6 +163,11 @@ import {
   UpdateCampaignCommunicationTimeCommand,
 } from "./commands/UpdateCampaignCommunicationTimeCommand";
 import {
+  type UpdateCampaignEntryLimitsCommandInput,
+  type UpdateCampaignEntryLimitsCommandOutput,
+  UpdateCampaignEntryLimitsCommand,
+} from "./commands/UpdateCampaignEntryLimitsCommand";
+import {
   type UpdateCampaignFlowAssociationCommandInput,
   type UpdateCampaignFlowAssociationCommandOutput,
   UpdateCampaignFlowAssociationCommand,
@@ -187,6 +197,7 @@ const commands = {
   DeleteCampaignChannelSubtypeConfigCommand,
   DeleteCampaignCommunicationLimitsCommand,
   DeleteCampaignCommunicationTimeCommand,
+  DeleteCampaignEntryLimitsCommand,
   DeleteConnectInstanceConfigCommand,
   DeleteConnectInstanceIntegrationCommand,
   DeleteInstanceOnboardingJobCommand,
@@ -213,6 +224,7 @@ const commands = {
   UpdateCampaignChannelSubtypeConfigCommand,
   UpdateCampaignCommunicationLimitsCommand,
   UpdateCampaignCommunicationTimeCommand,
+  UpdateCampaignEntryLimitsCommand,
   UpdateCampaignFlowAssociationCommand,
   UpdateCampaignNameCommand,
   UpdateCampaignScheduleCommand,
@@ -307,6 +319,23 @@ export interface ConnectCampaignsV2 {
     args: DeleteCampaignCommunicationTimeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCampaignCommunicationTimeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCampaignEntryLimitsCommand}
+   */
+  deleteCampaignEntryLimits(
+    args: DeleteCampaignEntryLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCampaignEntryLimitsCommandOutput>;
+  deleteCampaignEntryLimits(
+    args: DeleteCampaignEntryLimitsCommandInput,
+    cb: (err: any, data?: DeleteCampaignEntryLimitsCommandOutput) => void
+  ): void;
+  deleteCampaignEntryLimits(
+    args: DeleteCampaignEntryLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCampaignEntryLimitsCommandOutput) => void
   ): void;
 
   /**
@@ -750,6 +779,23 @@ export interface ConnectCampaignsV2 {
     args: UpdateCampaignCommunicationTimeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCampaignCommunicationTimeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCampaignEntryLimitsCommand}
+   */
+  updateCampaignEntryLimits(
+    args: UpdateCampaignEntryLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCampaignEntryLimitsCommandOutput>;
+  updateCampaignEntryLimits(
+    args: UpdateCampaignEntryLimitsCommandInput,
+    cb: (err: any, data?: UpdateCampaignEntryLimitsCommandOutput) => void
+  ): void;
+  updateCampaignEntryLimits(
+    args: UpdateCampaignEntryLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCampaignEntryLimitsCommandOutput) => void
   ): void;
 
   /**

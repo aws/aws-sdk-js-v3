@@ -69,6 +69,10 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * //         endTime: new Date("TIMESTAMP"), // required
  * //         refreshFrequency: "STRING_VALUE",
  * //       },
+ * //       entryLimitsConfig: { // EntryLimitsConfig
+ * //         maxEntryCount: Number("int"), // required
+ * //         minEntryInterval: "STRING_VALUE", // required
+ * //       },
  * //       connectCampaignFlowArn: "STRING_VALUE",
  * //     },
  * //   ],

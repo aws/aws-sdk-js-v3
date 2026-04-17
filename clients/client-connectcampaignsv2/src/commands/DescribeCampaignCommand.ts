@@ -128,6 +128,10 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //       endTime: new Date("TIMESTAMP"), // required
  * //       refreshFrequency: "STRING_VALUE",
  * //     },
+ * //     entryLimitsConfig: { // EntryLimitsConfig
+ * //       maxEntryCount: Number("int"), // required
+ * //       minEntryInterval: "STRING_VALUE", // required
+ * //     },
  * //     communicationTimeConfig: { // CommunicationTimeConfig
  * //       localTimeZoneConfig: { // LocalTimeZoneConfig
  * //         defaultTimeZone: "STRING_VALUE",
