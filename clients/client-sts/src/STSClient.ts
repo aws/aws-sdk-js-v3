@@ -370,6 +370,7 @@ export class STSClient extends __Client<
         identityProviderConfigProvider: async (config: STSClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({
             "aws.auth#sigv4": config.credentials,
+            "aws.auth#sigv4a": config.credentials,
           }),
       })
     );

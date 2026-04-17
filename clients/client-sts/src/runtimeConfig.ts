@@ -3,7 +3,12 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core/client";
-import { AwsSdkSigV4Signer, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
+import {
+  AwsSdkSigV4ASigner,
+  AwsSdkSigV4Signer,
+  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
+  NODE_SIGV4A_CONFIG_OPTIONS,
+} from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
 import {
@@ -56,6 +61,12 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
         signer: new AwsSdkSigV4Signer(),
       },
       {
+        schemeId: "aws.auth#sigv4a",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4a"),
+        signer: new AwsSdkSigV4ASigner(),
+      },
+      {
         schemeId: "smithy.api#noAuth",
         identityProvider: (ipc: IdentityProviderConfig) =>
           ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
@@ -78,6 +89,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
         config
       ),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
+    sigv4aSigningRegionSet: config?.sigv4aSigningRegionSet ?? loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, loaderConfig),
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
