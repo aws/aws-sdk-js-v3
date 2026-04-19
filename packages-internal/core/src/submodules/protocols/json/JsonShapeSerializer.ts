@@ -102,7 +102,8 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
         } else if (typeof record.__type === "string") {
           // This if-block is for backwards compatibility support and should not be copied
           // to other implementations.
-          for (const [k, v] of Object.entries(record)) {
+          for (const k in record) {
+            const v = record[k];
             const targetKey = jsonName ? nameMap![k] ?? k : k;
             if (!(targetKey in out)) {
               // we have no type information, so serialize with Document rules.
@@ -129,7 +130,8 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
         const mapMember = ns.getValueSchema();
         const out = {} as any;
         const sparse = !!ns.getMergedTraits().sparse;
-        for (const [_k, _v] of Object.entries(value)) {
+        for (const _k in value as Record<string, unknown>) {
+          const _v = (value as Record<string, unknown>)[_k];
           if (sparse || _v != null) {
             out[_k] = this._write(mapMember, _v);
           }
@@ -205,7 +207,8 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
     if (ns.isDocumentSchema()) {
       if (isObject) {
         const out = Array.isArray(value) ? [] : ({} as any);
-        for (const [k, v] of Object.entries(value)) {
+        for (const k in value as Record<string, unknown>) {
+          const v = (value as Record<string, unknown>)[k];
           if (v instanceof NumericValue) {
             this.useReplacer = true;
             out[k] = v;

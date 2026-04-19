@@ -80,7 +80,8 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
         } else if (typeof record.__type === "string") {
           // This if-block is for backwards compatibility support and should not be copied
           // to other implementations.
-          for (const [k, v] of Object.entries(record)) {
+          for (const k in record) {
+            const v = record[k];
             const t = jsonName ? nameMap![k] ?? k : k;
             if (!(t in out)) {
               // we have no type information, so copy as-is from JSON object.
@@ -101,8 +102,8 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       if (ns.isMapSchema()) {
         const mapMember = ns.getValueSchema();
         const out = {} as any;
-        for (const [_k, _v] of Object.entries(value)) {
-          out[_k] = this._read(mapMember, _v);
+        for (const _k in value) {
+          out[_k] = this._read(mapMember, (value as Record<string, unknown>)[_k]);
         }
         return out;
       }
@@ -166,7 +167,8 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
     if (ns.isDocumentSchema()) {
       if (isObject) {
         const out = Array.isArray(value) ? [] : ({} as any);
-        for (const [k, v] of Object.entries(value)) {
+        for (const k in value) {
+          const v = (value as Record<string, unknown>)[k];
           if (v instanceof NumericValue) {
             out[k] = v;
           } else {

@@ -248,7 +248,8 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
     };
 
     if (flat) {
-      for (const [key, val] of Object.entries(map as object)) {
+      for (const key in map) {
+        const val = map[key];
         if (sparse || val != null) {
           const entry = XmlNode.of(mapTraits.xmlName ?? mapMember.getMemberName());
           addKeyValue(entry, key, val);
@@ -265,7 +266,8 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
         container.addChildNode(mapNode);
       }
 
-      for (const [key, val] of Object.entries(map as object)) {
+      for (const key in map) {
+        const val = map[key];
         if (sparse || val != null) {
           const entry = XmlNode.of("entry");
           addKeyValue(entry, key, val);
