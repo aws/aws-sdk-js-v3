@@ -4,6 +4,7 @@ const _ADE = "AccessDeniedException";
 const _AES = "AdvancedEventSelector";
 const _AESd = "AdvancedEventSelectors";
 const _AFS = "AdvancedFieldSelector";
+const _AFU = "AllowFieldUpdates";
 const _AI = "AccountIdentifiers";
 const _AIc = "AccountIdentifier";
 const _AR = "AllRegions";
@@ -797,8 +798,8 @@ export var TelemetryPipelineSummary$: StaticStructureSchema = [3, n0, _TPS,
 ];
 export var TelemetryRule$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_TT, _RT, _TSTe, _DC, _Sc, _SCe, _Re, _AR],
-  [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0, 64 | 0, 2], 1
+  [_TT, _RT, _TSTe, _DC, _Sc, _SCe, _AFU, _Re, _AR],
+  [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0, 2, 64 | 0, 2], 1
 ];
 export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
   0,

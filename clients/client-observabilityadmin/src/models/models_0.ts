@@ -858,6 +858,12 @@ export interface TelemetryRule {
   SelectionCriteria?: string | undefined;
 
   /**
+   * <p> If set to <code>true</code>, Amazon CloudWatch Observability Admin detects and remediates configuration drift in telemetry resources that it manages. For example, if a VPC flow log's format, traffic type, or aggregation interval no longer matches the rule's destination configuration, the flow log is replaced with one that matches. Only Observability Admin-managed resources are updated; customer-created resources are never modified. Currently supported for <code>AWS::EC2::VPC</code> resources (VPC flow logs). </p>
+   * @public
+   */
+  AllowFieldUpdates?: boolean | undefined;
+
+  /**
    * <p> An optional list of Amazon Web Services Regions where this telemetry rule should be replicated. When specified, the rule is created in the home region and automatically replicated to all listed regions. Mutually exclusive with <code>AllRegions</code>. </p>
    * @public
    */

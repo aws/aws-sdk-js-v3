@@ -196,6 +196,7 @@ export const ResourceType = {
   AWS_LAMDBA_FUNCTION: "AWS::Lambda::Function",
   AWS_ROUTE53_RESOLVER_RESOLVER_ENDPOINT: "AWS::Route53Resolver::ResolverEndpoint",
   AWS_SECURITY_HUB: "AWS::SecurityHub::Hub",
+  AWS_SECURITY_HUB_HUBV2: "AWS::SecurityHub::HubV2",
   AWS_WAF_V2_WEB_ACL: "AWS::WAFv2::WebACL",
 } as const;
 /**
