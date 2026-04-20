@@ -23923,7 +23923,7 @@ __metadata:
     "@smithy/types": "npm:^4.14.1"
     "@smithy/util-base64": "npm:^4.3.2"
     "@smithy/util-middleware": "npm:^4.2.14"
-    "@smithy/util-retry": "npm:^4.3.2"
+    "@smithy/util-retry": "npm:^4.3.3"
     "@smithy/util-utf8": "npm:^4.2.2"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
