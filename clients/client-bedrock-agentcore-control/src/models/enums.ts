@@ -453,6 +453,19 @@ export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
  * @public
  * @enum
  */
+export const ListingMode = {
+  DEFAULT: "DEFAULT",
+  DYNAMIC: "DYNAMIC",
+} as const;
+/**
+ * @public
+ */
+export type ListingMode = (typeof ListingMode)[keyof typeof ListingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const TargetStatus = {
   CREATE_PENDING_AUTH: "CREATE_PENDING_AUTH",
   CREATING: "CREATING",

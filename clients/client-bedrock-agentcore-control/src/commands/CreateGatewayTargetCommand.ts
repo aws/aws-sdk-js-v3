@@ -107,6 +107,7 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  *           },
  *           inlinePayload: "STRING_VALUE",
  *         },
+ *         listingMode: "DEFAULT" || "DYNAMIC",
  *       },
  *       apiGateway: { // ApiGatewayTargetConfiguration
  *         restApiId: "STRING_VALUE", // required
@@ -266,6 +267,7 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //           },
  * //           inlinePayload: "STRING_VALUE",
  * //         },
+ * //         listingMode: "DEFAULT" || "DYNAMIC",
  * //       },
  * //       apiGateway: { // ApiGatewayTargetConfiguration
  * //         restApiId: "STRING_VALUE", // required

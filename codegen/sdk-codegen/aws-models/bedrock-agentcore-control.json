@@ -14310,6 +14310,23 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.bedrockagentcorecontrol#ListingMode": {
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
+          }
+        },
+        "DYNAMIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DYNAMIC"
+          }
+        }
+      }
+    },
     "com.amazonaws.bedrockagentcorecontrol#LlmAsAJudgeEvaluatorConfig": {
       "type": "structure",
       "members": {
@@ -14550,6 +14567,12 @@
           "target": "com.amazonaws.bedrockagentcorecontrol#McpToolSchemaConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. Dynamic tool discovery/synchronization will be disabled when target is configured with mcpToolSchema.</p>"
+          }
+        },
+        "listingMode": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ListingMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>"
           }
         }
       },

@@ -326,6 +326,7 @@ export type {
   GatewayStatus,
   InboundTokenClaimValueType,
   KeyType,
+  ListingMode,
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,

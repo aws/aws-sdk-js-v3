@@ -30,6 +30,7 @@ import type {
   GatewayStatus,
   InboundTokenClaimValueType,
   KeyType,
+  ListingMode,
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
@@ -4946,6 +4947,12 @@ export interface McpServerTargetConfiguration {
    * @public
    */
   mcpToolSchema?: McpToolSchemaConfiguration | undefined;
+
+  /**
+   * <p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>
+   * @public
+   */
+  listingMode?: ListingMode | undefined;
 }
 
 /**

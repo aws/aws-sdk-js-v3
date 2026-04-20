@@ -408,6 +408,7 @@ import {
   ListGatewayTargetsCommand,
   ListGatewayTargetsRequest$,
   ListGatewayTargetsResponse$,
+  ListingMode,
   ListMemories$,
   ListMemoriesCommand,
   ListMemoriesInput$,
@@ -1406,6 +1407,7 @@ assert(typeof GatewayProtocolType === "object");
 assert(typeof GatewayStatus === "object");
 assert(typeof InboundTokenClaimValueType === "object");
 assert(typeof KeyType === "object");
+assert(typeof ListingMode === "object");
 assert(typeof MemoryStatus === "object");
 assert(typeof MemoryStrategyStatus === "object");
 assert(typeof MemoryStrategyType === "object");

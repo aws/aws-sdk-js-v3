@@ -124,6 +124,7 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //               },
  * //               inlinePayload: "STRING_VALUE",
  * //             },
+ * //             listingMode: "DEFAULT" || "DYNAMIC",
  * //           },
  * //           apiGateway: { // ApiGatewayTargetConfiguration
  * //             restApiId: "STRING_VALUE", // required

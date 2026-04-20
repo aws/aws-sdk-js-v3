@@ -780,6 +780,7 @@ const _lCa = "lambdaConfig";
 const _lFM = "lockedForModification";
 const _lGN = "logGroupNames";
 const _lGNo = "logGroupName";
+const _lM = "listingMode";
 const _lMD = "lastModifiedDate";
 const _lOPC = "linkedinOauth2ProviderConfig";
 const _lSA = "lastSavedAt";
@@ -2314,8 +2315,8 @@ export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
 ];
 export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
   0,
-  [_end, _mTS],
-  [0, [() => McpToolSchemaConfiguration$, 0]], 1
+  [_end, _mTS, _lM],
+  [0, [() => McpToolSchemaConfiguration$, 0], 0], 1
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
