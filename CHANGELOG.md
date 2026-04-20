@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1033.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1032.0...v3.1033.0) (2026-04-20)
+
+
+### Bug Fixes
+
+* **core:** replace Object.entries with for-in loops in shape serde ([#7940](https://github.com/aws/aws-sdk-js-v3/issues/7940)) ([785e3b2](https://github.com/aws/aws-sdk-js-v3/commit/785e3b286aedcce993f889d20d8962e9f1b6189b))
+
+
+### Features
+
+* **client-application-signals:** Releasing Second phase of SLO Recommendations where you can create recommended SLOs out-of-the box using CreateSLO API ([266b97c](https://github.com/aws/aws-sdk-js-v3/commit/266b97c3f61cc2799fc79a8c237f5de76e8f42f4))
+* **client-bedrock-agentcore-control:** Supporting listingMode for AgentCore Gateway MCP server targets ([23d06d5](https://github.com/aws/aws-sdk-js-v3/commit/23d06d568faa80436834fbdfe75e18a1a21970a8))
+* **client-ec2:** Added Transit Gateway Integration into AWS Client VPN. ([7ea00cb](https://github.com/aws/aws-sdk-js-v3/commit/7ea00cb503a5656383b41e0989f8d5f6eb6cf85e))
+* **client-evs:** Amazon EVS now allows you to create connectors to your vCenter appliances and create Windows Server entitlements for virtual machines running in your EVS environments ([f4cdcf8](https://github.com/aws/aws-sdk-js-v3/commit/f4cdcf8d1b079bfa789ddc36cb5093e1940aa293))
+* **client-kafka:** Amazon MSK Replicator now supports data migration from external Apache Kafka clusters to Amazon MSK Express brokers. This release adds SaslScram authentication with TLS encryption, enhanced consumer offset synchronization, and customer log forwarding for troubleshooting. ([543ff57](https://github.com/aws/aws-sdk-js-v3/commit/543ff5712c5d6f184539bb96e853b21b8ce6f91e))
+* **client-location:** This release adds support for new Job APIs for bulk workloads. The initial job type supported is Address Validation. The new APIs added are StartJob, CancelJob, ListJobs, and GetJob. ([444f15c](https://github.com/aws/aws-sdk-js-v3/commit/444f15cef3d743ebef229c8db4171990a9b53fc4))
+* **client-observabilityadmin:** Enablement for Security Hub v2 via Observability Admin Telemetry Rule for account and organization level. ([f70978f](https://github.com/aws/aws-sdk-js-v3/commit/f70978fb30a073aaad8b3b7e60144ef2689b9b9e))
+* **clients:** update client endpoints as of 2026-04-20 ([d6a7886](https://github.com/aws/aws-sdk-js-v3/commit/d6a7886a68e4e65f74410e1068ec9f5cade83ca4))
+* **clients:** use binary decision diagrams for endpoint resolution ([#7931](https://github.com/aws/aws-sdk-js-v3/issues/7931)) ([ff1b2ba](https://github.com/aws/aws-sdk-js-v3/commit/ff1b2baed919216fa1ddf3d116d500d05f0e436b))
+
+
+
+
+
 # [3.1032.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1031.0...v3.1032.0) (2026-04-17)
 
 

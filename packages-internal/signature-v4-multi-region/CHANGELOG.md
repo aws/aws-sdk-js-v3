@@ -21,6 +21,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.19 (2026-04-20)
+### Chores
+* **signature-v4-multi-region:** update dependencies.
+
+
+
 # 3.996.18 (2026-04-17)
 ### Chores
 * **signature-v4-multi-region:** update dependencies.

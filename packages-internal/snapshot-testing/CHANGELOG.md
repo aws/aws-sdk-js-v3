@@ -12,6 +12,13 @@
 
 
 
+
+# 3.0.13 (2026-04-20)
+### Chores
+* **snapshot-testing:** update dependencies.
+
+
+
 # 3.0.12 (2026-04-17)
 ### Chores
 * **snapshot-testing:** update dependencies.

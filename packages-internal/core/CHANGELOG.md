@@ -33,6 +33,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.2 (2026-04-19)
+### Bug Fixes
+* **core:** replace Object.entries with for-in loops in shape serde ([#7940](https://github.com/aws/aws-sdk-js-v3/issues/7940)) ([785e3b2](https://github.com/aws/aws-sdk-js-v3/commit/785e3b286aedcce993f889d20d8962e9f1b6189b))
+
+
+
 # 3.974.1 (2026-04-17)
 ### Bug Fixes
 * **core:** reduce object allocations in protocol serde ([#7939](https://github.com/aws/aws-sdk-js-v3/issues/7939)) ([d0c9af0](https://github.com/aws/aws-sdk-js-v3/commit/d0c9af067e32d5e745bf08be5d932ba5e07ba3f2))
