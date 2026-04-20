@@ -42,6 +42,7 @@ const _CEha = "ChangeEvents";
 const _CI = "CalendarInterval";
 const _CN = "CanaryName";
 const _CO = "ComparisonOperator";
+const _CRS = "CreateRecommendedSlo";
 const _CSLO = "CreateServiceLevelObjective";
 const _CSLOI = "CreateServiceLevelObjectiveInput";
 const _CSLOO = "CreateServiceLevelObjectiveOutput";
@@ -414,8 +415,8 @@ export var ChangeEvent$: StaticStructureSchema = [3, n0, _CEh,
 ];
 export var CreateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _CSLOI,
   0,
-  [_N, _D, _SC, _RBSC, _G, _Ta, _BRCu],
-  [0, 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => TagList, () => BurnRateConfigurations], 1
+  [_N, _D, _SC, _RBSC, _G, _Ta, _BRCu, _CRS],
+  [0, 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => TagList, () => BurnRateConfigurations, 2], 1
 ];
 export var CreateServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _CSLOO,
   0,
@@ -715,7 +716,7 @@ export var ServiceLevelIndicator$: StaticStructureSchema = [3, n0, _SLI,
 export var ServiceLevelIndicatorConfig$: StaticStructureSchema = [3, n0, _SLIC,
   0,
   [_SMC, _MTe, _CO],
-  [() => ServiceLevelIndicatorMetricConfig$, 1, 0], 3
+  [() => ServiceLevelIndicatorMetricConfig$, 1, 0], 1
 ];
 export var ServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _SLIM,
   0,

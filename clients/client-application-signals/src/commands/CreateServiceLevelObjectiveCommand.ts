@@ -93,8 +93,8 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *         DependencyOperationName: "STRING_VALUE", // required
  *       },
  *     },
- *     MetricThreshold: Number("double"), // required
- *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
+ *     MetricThreshold: Number("double"),
+ *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
  *   },
  *   RequestBasedSliConfig: { // RequestBasedServiceLevelIndicatorConfig
  *     RequestBasedSliMetricConfig: { // RequestBasedServiceLevelIndicatorMetricConfig
@@ -219,6 +219,7 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *       LookBackWindowMinutes: Number("int"), // required
  *     },
  *   ],
+ *   CreateRecommendedSlo: true || false,
  * };
  * const command = new CreateServiceLevelObjectiveCommand(input);
  * const response = await client.send(command);

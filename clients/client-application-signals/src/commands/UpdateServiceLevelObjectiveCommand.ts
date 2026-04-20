@@ -93,8 +93,8 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *         DependencyOperationName: "STRING_VALUE", // required
  *       },
  *     },
- *     MetricThreshold: Number("double"), // required
- *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
+ *     MetricThreshold: Number("double"),
+ *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
  *   },
  *   RequestBasedSliConfig: { // RequestBasedServiceLevelIndicatorConfig
  *     RequestBasedSliMetricConfig: { // RequestBasedServiceLevelIndicatorMetricConfig
