@@ -39,9 +39,11 @@ export interface AssociateClientVpnTargetNetworkCommandOutput extends AssociateC
  * const client = new EC2Client(config);
  * const input = { // AssociateClientVpnTargetNetworkRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
- *   SubnetId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
  * };
  * const command = new AssociateClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);

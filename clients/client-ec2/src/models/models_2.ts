@@ -30,6 +30,8 @@ import type {
   MulticastSupportValue,
   PayerResponsibility,
   ProtocolValue,
+  SecondaryNetworkCidrBlockAssociationState,
+  SecondaryNetworkState,
   SecondaryNetworkType,
   SecondarySubnetCidrBlockAssociationState,
   SecondarySubnetState,
@@ -126,8 +128,143 @@ import type {
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
-  SecondaryNetwork,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateSecondaryNetworkRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28.</p>
+   * @public
+   */
+  Ipv4CidrBlock: string | undefined;
+
+  /**
+   * <p>The type of secondary network.</p>
+   * @public
+   */
+  NetworkType: SecondaryNetworkType | undefined;
+
+  /**
+   * <p>The tags to assign to the secondary network.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes an IPv4 CIDR block associated with a secondary network.</p>
+ * @public
+ */
+export interface SecondaryNetworkIpv4CidrBlockAssociation {
+  /**
+   * <p>The association ID for the IPv4 CIDR block.</p>
+   * @public
+   */
+  AssociationId?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The state of the CIDR block association.</p>
+   * @public
+   */
+  State?: SecondaryNetworkCidrBlockAssociationState | undefined;
+
+  /**
+   * <p>The reason for the current state of the CIDR block association.</p>
+   * @public
+   */
+  StateReason?: string | undefined;
+}
+
+/**
+ * <p>Describes a secondary network.</p>
+ * @public
+ */
+export interface SecondaryNetwork {
+  /**
+   * <p>The ID of the secondary network.</p>
+   * @public
+   */
+  SecondaryNetworkId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secondary network.</p>
+   * @public
+   */
+  SecondaryNetworkArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the secondary network.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The type of the secondary network.</p>
+   * @public
+   */
+  Type?: SecondaryNetworkType | undefined;
+
+  /**
+   * <p>The state of the secondary network.</p>
+   * @public
+   */
+  State?: SecondaryNetworkState | undefined;
+
+  /**
+   * <p>The reason for the current state of the secondary network.</p>
+   * @public
+   */
+  StateReason?: string | undefined;
+
+  /**
+   * <p>Information about the IPv4 CIDR blocks associated with the secondary network.</p>
+   * @public
+   */
+  Ipv4CidrBlockAssociations?: SecondaryNetworkIpv4CidrBlockAssociation[] | undefined;
+
+  /**
+   * <p>The tags assigned to the secondary network.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecondaryNetworkResult {
+  /**
+   * <p>Information about the secondary network.</p>
+   * @public
+   */
+  SecondaryNetwork?: SecondaryNetwork | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9459,66 +9596,6 @@ export interface DeleteTrafficMirrorFilterRequest {
    * @public
    */
   TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorFilterResult {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   * @public
-   */
-  TrafficMirrorFilterId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   * @public
-   */
-  TrafficMirrorFilterRuleId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorFilterRuleResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror rule.</p>
-   * @public
-   */
-  TrafficMirrorFilterRuleId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the Traffic Mirror session.</p>
-   * @public
-   */
-  TrafficMirrorSessionId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

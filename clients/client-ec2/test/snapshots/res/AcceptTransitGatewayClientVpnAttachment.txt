@@ -1,0 +1,73 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AcceptTransitGatewayClientVpnAttachmentResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AcceptTransitGatewayClientVpnAttachmentResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayClientVpnAttachment>
+        <transitGatewayAttachmentId>
+            __TransitGatewayAttachmentId__
+        </transitGatewayAttachmentId>
+        <transitGatewayId>
+            __TransitGatewayId__
+        </transitGatewayId>
+        <clientVpnEndpointId>
+            __ClientVpnEndpointId__
+        </clientVpnEndpointId>
+        <clientVpnOwnerId>
+            __ClientVpnOwnerId__
+        </clientVpnOwnerId>
+        <state>
+            __State__
+        </state>
+        <creationTime>
+            __CreationTime__
+        </creationTime>
+    </transitGatewayClientVpnAttachment>
+</AcceptTransitGatewayClientVpnAttachmentResult>
+
+
+--- [output object] ---
+{
+  TransitGatewayClientVpnAttachment: {
+    TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+    TransitGatewayId: "__TransitGatewayId__",
+    ClientVpnEndpointId: "__ClientVpnEndpointId__",
+    ClientVpnOwnerId: "__ClientVpnOwnerId__",
+    State: "__State__",
+    CreationTime: "__CreationTime__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

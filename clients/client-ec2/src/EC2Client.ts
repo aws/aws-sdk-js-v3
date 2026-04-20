@@ -74,6 +74,10 @@ import type {
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
 import type {
+  AcceptTransitGatewayClientVpnAttachmentCommandInput,
+  AcceptTransitGatewayClientVpnAttachmentCommandOutput,
+} from "./commands/AcceptTransitGatewayClientVpnAttachmentCommand";
+import type {
   AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
   AcceptTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/AcceptTransitGatewayMulticastDomainAssociationsCommand";
@@ -814,6 +818,10 @@ import type {
   DeleteTrafficMirrorTargetCommandInput,
   DeleteTrafficMirrorTargetCommandOutput,
 } from "./commands/DeleteTrafficMirrorTargetCommand";
+import type {
+  DeleteTransitGatewayClientVpnAttachmentCommandInput,
+  DeleteTransitGatewayClientVpnAttachmentCommandOutput,
+} from "./commands/DeleteTransitGatewayClientVpnAttachmentCommand";
 import type {
   DeleteTransitGatewayCommandInput,
   DeleteTransitGatewayCommandOutput,
@@ -2551,6 +2559,10 @@ import type {
   RejectCapacityReservationBillingOwnershipCommandOutput,
 } from "./commands/RejectCapacityReservationBillingOwnershipCommand";
 import type {
+  RejectTransitGatewayClientVpnAttachmentCommandInput,
+  RejectTransitGatewayClientVpnAttachmentCommandOutput,
+} from "./commands/RejectTransitGatewayClientVpnAttachmentCommand";
+import type {
   RejectTransitGatewayMulticastDomainAssociationsCommandInput,
   RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/RejectTransitGatewayMulticastDomainAssociationsCommand";
@@ -2781,6 +2793,7 @@ export type ServiceInputTypes =
   | AcceptAddressTransferCommandInput
   | AcceptCapacityReservationBillingOwnershipCommandInput
   | AcceptReservedInstancesExchangeQuoteCommandInput
+  | AcceptTransitGatewayClientVpnAttachmentCommandInput
   | AcceptTransitGatewayMulticastDomainAssociationsCommandInput
   | AcceptTransitGatewayPeeringAttachmentCommandInput
   | AcceptTransitGatewayVpcAttachmentCommandInput
@@ -3006,6 +3019,7 @@ export type ServiceInputTypes =
   | DeleteTrafficMirrorFilterRuleCommandInput
   | DeleteTrafficMirrorSessionCommandInput
   | DeleteTrafficMirrorTargetCommandInput
+  | DeleteTransitGatewayClientVpnAttachmentCommandInput
   | DeleteTransitGatewayCommandInput
   | DeleteTransitGatewayConnectCommandInput
   | DeleteTransitGatewayConnectPeerCommandInput
@@ -3476,6 +3490,7 @@ export type ServiceInputTypes =
   | RegisterTransitGatewayMulticastGroupMembersCommandInput
   | RegisterTransitGatewayMulticastGroupSourcesCommandInput
   | RejectCapacityReservationBillingOwnershipCommandInput
+  | RejectTransitGatewayClientVpnAttachmentCommandInput
   | RejectTransitGatewayMulticastDomainAssociationsCommandInput
   | RejectTransitGatewayPeeringAttachmentCommandInput
   | RejectTransitGatewayVpcAttachmentCommandInput
@@ -3544,6 +3559,7 @@ export type ServiceOutputTypes =
   | AcceptAddressTransferCommandOutput
   | AcceptCapacityReservationBillingOwnershipCommandOutput
   | AcceptReservedInstancesExchangeQuoteCommandOutput
+  | AcceptTransitGatewayClientVpnAttachmentCommandOutput
   | AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
   | AcceptTransitGatewayPeeringAttachmentCommandOutput
   | AcceptTransitGatewayVpcAttachmentCommandOutput
@@ -3769,6 +3785,7 @@ export type ServiceOutputTypes =
   | DeleteTrafficMirrorFilterRuleCommandOutput
   | DeleteTrafficMirrorSessionCommandOutput
   | DeleteTrafficMirrorTargetCommandOutput
+  | DeleteTransitGatewayClientVpnAttachmentCommandOutput
   | DeleteTransitGatewayCommandOutput
   | DeleteTransitGatewayConnectCommandOutput
   | DeleteTransitGatewayConnectPeerCommandOutput
@@ -4239,6 +4256,7 @@ export type ServiceOutputTypes =
   | RegisterTransitGatewayMulticastGroupMembersCommandOutput
   | RegisterTransitGatewayMulticastGroupSourcesCommandOutput
   | RejectCapacityReservationBillingOwnershipCommandOutput
+  | RejectTransitGatewayClientVpnAttachmentCommandOutput
   | RejectTransitGatewayMulticastDomainAssociationsCommandOutput
   | RejectTransitGatewayPeeringAttachmentCommandOutput
   | RejectTransitGatewayVpcAttachmentCommandOutput

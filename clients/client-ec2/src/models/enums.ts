@@ -196,7 +196,26 @@ export type AddressTransferStatus = (typeof AddressTransferStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const TransitGatewayAttachmentStatusType = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+  pending_acceptance: "pending-acceptance",
+  rejected: "rejected",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayAttachmentStatusType =
+  (typeof TransitGatewayAttachmentStatusType)[keyof typeof TransitGatewayAttachmentStatusType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TransitGatewayAttachmentResourceType = {
+  client_vpn: "client-vpn",
   connect: "connect",
   direct_connect_gateway: "direct-connect-gateway",
   network_function: "network-function",
@@ -2716,6 +2735,7 @@ export const ClientVpnEndpointStatusCode = {
   available: "available",
   deleted: "deleted",
   deleting: "deleting",
+  pending: "pending",
   pending_associate: "pending-associate",
 } as const;
 /**

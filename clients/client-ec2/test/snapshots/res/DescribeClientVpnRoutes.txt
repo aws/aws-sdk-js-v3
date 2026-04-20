@@ -56,6 +56,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <description>
                 __Description__
             </description>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -84,6 +87,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <description>
                 __Description__
             </description>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -112,6 +118,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <description>
                 __Description__
             </description>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
         </item>
     </routes>
     <nextToken>
@@ -133,7 +142,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Code: "__Code__",
         Message: "__Message__"
       },
-      Description: "__Description__"
+      Description: "__Description__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__"
     },
     {
       ClientVpnEndpointId: "__ClientVpnEndpointId__",
@@ -145,7 +155,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Code: "__Code__",
         Message: "__Message__"
       },
-      Description: "__Description__"
+      Description: "__Description__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__"
     },
     {
       ClientVpnEndpointId: "__ClientVpnEndpointId__",
@@ -157,7 +168,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Code: "__Code__",
         Message: "__Message__"
       },
-      Description: "__Description__"
+      Description: "__Description__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__"
     }
   ],
   NextToken: "__NextToken__",

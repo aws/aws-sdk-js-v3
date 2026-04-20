@@ -101,13 +101,22 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  *   DisconnectOnSessionTimeout: true || false,
  *   EndpointIpAddressType: "ipv4" || "ipv6" || "dual-stack",
  *   TrafficIpAddressType: "ipv4" || "ipv6" || "dual-stack",
+ *   TransitGatewayConfiguration: { // TransitGatewayConfigurationInputStructure
+ *     TransitGatewayId: "STRING_VALUE",
+ *     AvailabilityZones: [ // ClientVpnAvailabilityZoneSet
+ *       "STRING_VALUE",
+ *     ],
+ *     AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateClientVpnEndpointCommand(input);
  * const response = await client.send(command);
  * // { // CreateClientVpnEndpointResult
  * //   ClientVpnEndpointId: "STRING_VALUE",
  * //   Status: { // ClientVpnEndpointStatus
- * //     Code: "pending-associate" || "available" || "deleting" || "deleted",
+ * //     Code: "pending-associate" || "available" || "deleting" || "deleted" || "pending",
  * //     Message: "STRING_VALUE",
  * //   },
  * //   DnsName: "STRING_VALUE",

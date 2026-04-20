@@ -65,11 +65,11 @@ export interface GetTransitGatewayMeteringPolicyEntriesCommandOutput extends Get
  * //       UpdateEffectiveAt: new Date("TIMESTAMP"),
  * //       MeteringPolicyRule: { // TransitGatewayMeteringPolicyRule
  * //         SourceTransitGatewayAttachmentId: "STRING_VALUE",
- * //         SourceTransitGatewayAttachmentType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //         SourceTransitGatewayAttachmentType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //         SourceCidrBlock: "STRING_VALUE",
  * //         SourcePortRange: "STRING_VALUE",
  * //         DestinationTransitGatewayAttachmentId: "STRING_VALUE",
- * //         DestinationTransitGatewayAttachmentType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //         DestinationTransitGatewayAttachmentType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //         DestinationCidrBlock: "STRING_VALUE",
  * //         DestinationPortRange: "STRING_VALUE",
  * //         Protocol: "STRING_VALUE",

@@ -204,6 +204,13 @@ AcceptReservedInstancesExchangeQuote
 </details>
 <details>
 <summary>
+AcceptTransitGatewayClientVpnAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AcceptTransitGatewayClientVpnAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AcceptTransitGatewayClientVpnAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AcceptTransitGatewayClientVpnAttachmentCommandOutput/)
+</details>
+<details>
+<summary>
 AcceptTransitGatewayMulticastDomainAssociations
 </summary>
 
@@ -1783,6 +1790,13 @@ DeleteTransitGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteTransitGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteTransitGatewayClientVpnAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteTransitGatewayClientVpnAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayClientVpnAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteTransitGatewayClientVpnAttachmentCommandOutput/)
 </details>
 <details>
 <summary>
@@ -5066,6 +5080,13 @@ RejectCapacityReservationBillingOwnership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RejectCapacityReservationBillingOwnershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RejectCapacityReservationBillingOwnershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RejectCapacityReservationBillingOwnershipCommandOutput/)
+</details>
+<details>
+<summary>
+RejectTransitGatewayClientVpnAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RejectTransitGatewayClientVpnAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RejectTransitGatewayClientVpnAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RejectTransitGatewayClientVpnAttachmentCommandOutput/)
 </details>
 <details>
 <summary>

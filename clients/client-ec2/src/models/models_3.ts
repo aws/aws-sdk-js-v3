@@ -103,9 +103,9 @@ import type {
   CustomerGateway,
   FleetCapacityReservation,
   IamInstanceProfileAssociation,
-  InstanceEventWindow,
   OperatorResponse,
   Tag,
+  TransitGatewayClientVpnAttachment,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
@@ -142,6 +142,66 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteTrafficMirrorFilterResult {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   * @public
+   */
+  TrafficMirrorFilterRuleId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficMirrorFilterRuleResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror rule.</p>
+   * @public
+   */
+  TrafficMirrorFilterRuleId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   * @public
+   */
+  TrafficMirrorSessionId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -212,6 +272,34 @@ export interface DeleteTransitGatewayResult {
    * @public
    */
   TransitGateway?: TransitGateway | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayClientVpnAttachmentRequest {
+  /**
+   * <p>The ID of the Transit Gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayClientVpnAttachmentResult {
+  /**
+   * <p>Information about the Transit Gateway Client VPN attachment.</p>
+   * @public
+   */
+  TransitGatewayClientVpnAttachment?: TransitGatewayClientVpnAttachment | undefined;
 }
 
 /**
@@ -4842,6 +4930,36 @@ export interface ConnectionLogResponseOptions {
 }
 
 /**
+ * <p>Describes the Transit Gateway configuration for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface TransitGatewayConfigurationDescribeEndpointStructure {
+  /**
+   * <p>The ID of the Transit Gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the Transit Gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone names for the Transit Gateway association.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The Availability Zone IDs for the Transit Gateway association.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+}
+
+/**
  * <p>Describes a Client VPN endpoint.</p>
  * @public
  */
@@ -5019,6 +5137,12 @@ export interface ClientVpnEndpoint {
    * @public
    */
   TrafficIpAddressType?: TrafficIpAddressType | undefined;
+
+  /**
+   * <p>The Transit Gateway configuration for the Client VPN endpoint.</p>
+   * @public
+   */
+  TransitGatewayConfiguration?: TransitGatewayConfigurationDescribeEndpointStructure | undefined;
 }
 
 /**
@@ -5136,6 +5260,12 @@ export interface ClientVpnRoute {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The ID of the Transit Gateway attachment, if the route targets a Transit Gateway.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
 }
 
 /**
@@ -5250,6 +5380,18 @@ export interface TargetNetwork {
    * @public
    */
   SecurityGroups?: string[] | undefined;
+
+  /**
+   * <p>The Availability Zone names for the target network association, if the Client VPN endpoint uses a Transit Gateway.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The Availability Zone IDs for the target network association, if the Client VPN endpoint uses a Transit Gateway.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
 }
 
 /**
@@ -11000,228 +11142,6 @@ export interface DescribeInstanceConnectEndpointsResult {
   /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
    *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceCreditSpecificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The instance IDs.</p>
-   *          <p>Default: Describes all your instances.</p>
-   *          <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
- * @public
- */
-export interface InstanceCreditSpecification {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The credit option for CPU usage of the instance.</p>
-   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
-   *          </p>
-   * @public
-   */
-  CpuCredits?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceCreditSpecificationsResult {
-  /**
-   * <p>Information about the credit option for CPU usage of an instance.</p>
-   * @public
-   */
-  InstanceCreditSpecifications?: InstanceCreditSpecification[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceEventNotificationAttributesResult {
-  /**
-   * <p>Information about the registered tag keys.</p>
-   * @public
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute | undefined;
-}
-
-/**
- * <p>Describe instance event windows by InstanceEventWindow.</p>
- * @public
- */
-export interface DescribeInstanceEventWindowsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the event windows.</p>
-   * @public
-   */
-  InstanceEventWindowIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>dedicated-host-id</code> - The event windows associated with the specified
-   *                Dedicated Host ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event-window-name</code> - The event windows associated with the specified
-   *                names. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The event windows associated with the specified
-   *                instance ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-tag</code> - The event windows associated with the specified tag
-   *                and value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-tag-key</code> - The event windows associated with the specified
-   *                tag key, regardless of the value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-tag-value</code> - The event windows associated with the specified
-   *                tag value, regardless of the key.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the
-   *                event window. Use the tag key in the filter name and the tag value as the filter
-   *                value. For example, to find all resources that have a tag with the key
-   *                   <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code>
-   *                for the filter name and <code>CMX</code> for the filter value. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the event window. Use this
-   *                filter to find all event windows that have a tag with a specific key, regardless of
-   *                the tag value. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-value</code> - The value of a tag assigned to the event window. Use this
-   *                filter to find all event windows that have a tag with a specific value, regardless of
-   *                the tag key. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *          results, make another call with the returned <code>NextToken</code> value. This value can
-   *          be between 20 and 500. You cannot specify this parameter and the event window IDs parameter
-   *          in the same call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceEventWindowsResult {
-  /**
-   * <p>Information about the event windows.</p>
-   * @public
-   */
-  InstanceEventWindows?: InstanceEventWindow[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *          when there are no more results to return. </p>
    * @public
    */
   NextToken?: string | undefined;

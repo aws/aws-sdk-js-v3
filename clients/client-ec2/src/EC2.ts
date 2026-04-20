@@ -24,6 +24,11 @@ import {
   AcceptReservedInstancesExchangeQuoteCommand,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand";
 import {
+  type AcceptTransitGatewayClientVpnAttachmentCommandInput,
+  type AcceptTransitGatewayClientVpnAttachmentCommandOutput,
+  AcceptTransitGatewayClientVpnAttachmentCommand,
+} from "./commands/AcceptTransitGatewayClientVpnAttachmentCommand";
+import {
   type AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
   type AcceptTransitGatewayMulticastDomainAssociationsCommandOutput,
   AcceptTransitGatewayMulticastDomainAssociationsCommand,
@@ -1140,6 +1145,11 @@ import {
   type DeleteTrafficMirrorTargetCommandOutput,
   DeleteTrafficMirrorTargetCommand,
 } from "./commands/DeleteTrafficMirrorTargetCommand";
+import {
+  type DeleteTransitGatewayClientVpnAttachmentCommandInput,
+  type DeleteTransitGatewayClientVpnAttachmentCommandOutput,
+  DeleteTransitGatewayClientVpnAttachmentCommand,
+} from "./commands/DeleteTransitGatewayClientVpnAttachmentCommand";
 import {
   type DeleteTransitGatewayCommandInput,
   type DeleteTransitGatewayCommandOutput,
@@ -3487,6 +3497,11 @@ import {
   RejectCapacityReservationBillingOwnershipCommand,
 } from "./commands/RejectCapacityReservationBillingOwnershipCommand";
 import {
+  type RejectTransitGatewayClientVpnAttachmentCommandInput,
+  type RejectTransitGatewayClientVpnAttachmentCommandOutput,
+  RejectTransitGatewayClientVpnAttachmentCommand,
+} from "./commands/RejectTransitGatewayClientVpnAttachmentCommand";
+import {
   type RejectTransitGatewayMulticastDomainAssociationsCommandInput,
   type RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
   RejectTransitGatewayMulticastDomainAssociationsCommand,
@@ -4073,6 +4088,7 @@ const commands = {
   AcceptAddressTransferCommand,
   AcceptCapacityReservationBillingOwnershipCommand,
   AcceptReservedInstancesExchangeQuoteCommand,
+  AcceptTransitGatewayClientVpnAttachmentCommand,
   AcceptTransitGatewayMulticastDomainAssociationsCommand,
   AcceptTransitGatewayPeeringAttachmentCommand,
   AcceptTransitGatewayVpcAttachmentCommand,
@@ -4299,6 +4315,7 @@ const commands = {
   DeleteTrafficMirrorSessionCommand,
   DeleteTrafficMirrorTargetCommand,
   DeleteTransitGatewayCommand,
+  DeleteTransitGatewayClientVpnAttachmentCommand,
   DeleteTransitGatewayConnectCommand,
   DeleteTransitGatewayConnectPeerCommand,
   DeleteTransitGatewayMeteringPolicyCommand,
@@ -4768,6 +4785,7 @@ const commands = {
   RegisterTransitGatewayMulticastGroupMembersCommand,
   RegisterTransitGatewayMulticastGroupSourcesCommand,
   RejectCapacityReservationBillingOwnershipCommand,
+  RejectTransitGatewayClientVpnAttachmentCommand,
   RejectTransitGatewayMulticastDomainAssociationsCommand,
   RejectTransitGatewayPeeringAttachmentCommand,
   RejectTransitGatewayVpcAttachmentCommand,
@@ -5095,6 +5113,23 @@ export interface EC2 {
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcceptTransitGatewayClientVpnAttachmentCommand}
+   */
+  acceptTransitGatewayClientVpnAttachment(
+    args: AcceptTransitGatewayClientVpnAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptTransitGatewayClientVpnAttachmentCommandOutput>;
+  acceptTransitGatewayClientVpnAttachment(
+    args: AcceptTransitGatewayClientVpnAttachmentCommandInput,
+    cb: (err: any, data?: AcceptTransitGatewayClientVpnAttachmentCommandOutput) => void
+  ): void;
+  acceptTransitGatewayClientVpnAttachment(
+    args: AcceptTransitGatewayClientVpnAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptTransitGatewayClientVpnAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -8963,6 +8998,23 @@ export interface EC2 {
     args: DeleteTransitGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTransitGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTransitGatewayClientVpnAttachmentCommand}
+   */
+  deleteTransitGatewayClientVpnAttachment(
+    args: DeleteTransitGatewayClientVpnAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayClientVpnAttachmentCommandOutput>;
+  deleteTransitGatewayClientVpnAttachment(
+    args: DeleteTransitGatewayClientVpnAttachmentCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayClientVpnAttachmentCommandOutput) => void
+  ): void;
+  deleteTransitGatewayClientVpnAttachment(
+    args: DeleteTransitGatewayClientVpnAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayClientVpnAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -17132,6 +17184,23 @@ export interface EC2 {
     args: RejectCapacityReservationBillingOwnershipCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectCapacityReservationBillingOwnershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectTransitGatewayClientVpnAttachmentCommand}
+   */
+  rejectTransitGatewayClientVpnAttachment(
+    args: RejectTransitGatewayClientVpnAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectTransitGatewayClientVpnAttachmentCommandOutput>;
+  rejectTransitGatewayClientVpnAttachment(
+    args: RejectTransitGatewayClientVpnAttachmentCommandInput,
+    cb: (err: any, data?: RejectTransitGatewayClientVpnAttachmentCommandOutput) => void
+  ): void;
+  rejectTransitGatewayClientVpnAttachment(
+    args: RejectTransitGatewayClientVpnAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectTransitGatewayClientVpnAttachmentCommandOutput) => void
   ): void;
 
   /**

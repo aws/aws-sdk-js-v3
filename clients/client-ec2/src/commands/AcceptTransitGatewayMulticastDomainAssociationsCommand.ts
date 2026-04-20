@@ -54,7 +54,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput ex
  * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
  * //     TransitGatewayAttachmentId: "STRING_VALUE",
  * //     ResourceId: "STRING_VALUE",
- * //     ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //     ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //     ResourceOwnerId: "STRING_VALUE",
  * //     Subnets: [ // SubnetAssociationList
  * //       { // SubnetAssociation

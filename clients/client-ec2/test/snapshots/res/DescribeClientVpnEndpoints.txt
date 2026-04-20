@@ -274,6 +274,36 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <trafficIpAddressType>
                 __TrafficIpAddressType__
             </trafficIpAddressType>
+            <transitGatewayConfiguration>
+                <transitGatewayId>
+                    __TransitGatewayId__
+                </transitGatewayId>
+                <transitGatewayAttachmentId>
+                    __TransitGatewayAttachmentId__
+                </transitGatewayAttachmentId>
+                <availabilityZoneSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </availabilityZoneSet>
+                <availabilityZoneIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </availabilityZoneIdSet>
+            </transitGatewayConfiguration>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -520,6 +550,36 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <trafficIpAddressType>
                 __TrafficIpAddressType__
             </trafficIpAddressType>
+            <transitGatewayConfiguration>
+                <transitGatewayId>
+                    __TransitGatewayId__
+                </transitGatewayId>
+                <transitGatewayAttachmentId>
+                    __TransitGatewayAttachmentId__
+                </transitGatewayAttachmentId>
+                <availabilityZoneSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </availabilityZoneSet>
+                <availabilityZoneIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </availabilityZoneIdSet>
+            </transitGatewayConfiguration>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -766,6 +826,36 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <trafficIpAddressType>
                 __TrafficIpAddressType__
             </trafficIpAddressType>
+            <transitGatewayConfiguration>
+                <transitGatewayId>
+                    __TransitGatewayId__
+                </transitGatewayId>
+                <transitGatewayAttachmentId>
+                    __TransitGatewayAttachmentId__
+                </transitGatewayAttachmentId>
+                <availabilityZoneSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </availabilityZoneSet>
+                <availabilityZoneIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </availabilityZoneIdSet>
+            </transitGatewayConfiguration>
         </item>
     </clientVpnEndpoint>
     <nextToken>
@@ -897,7 +987,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       DisconnectOnSessionTimeout: (boolean) false,
       EndpointIpAddressType: "__EndpointIpAddressType__",
-      TrafficIpAddressType: "__TrafficIpAddressType__"
+      TrafficIpAddressType: "__TrafficIpAddressType__",
+      TransitGatewayConfiguration: {
+        TransitGatewayId: "__TransitGatewayId__",
+        TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+        AvailabilityZones: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AvailabilityZoneIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
     },
     {
       ClientVpnEndpointId: "__ClientVpnEndpointId__",
@@ -1019,7 +1123,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       DisconnectOnSessionTimeout: (boolean) false,
       EndpointIpAddressType: "__EndpointIpAddressType__",
-      TrafficIpAddressType: "__TrafficIpAddressType__"
+      TrafficIpAddressType: "__TrafficIpAddressType__",
+      TransitGatewayConfiguration: {
+        TransitGatewayId: "__TransitGatewayId__",
+        TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+        AvailabilityZones: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AvailabilityZoneIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
     },
     {
       ClientVpnEndpointId: "__ClientVpnEndpointId__",
@@ -1141,7 +1259,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       DisconnectOnSessionTimeout: (boolean) false,
       EndpointIpAddressType: "__EndpointIpAddressType__",
-      TrafficIpAddressType: "__TrafficIpAddressType__"
+      TrafficIpAddressType: "__TrafficIpAddressType__",
+      TransitGatewayConfiguration: {
+        TransitGatewayId: "__TransitGatewayId__",
+        TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+        AvailabilityZones: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AvailabilityZoneIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
     }
   ],
   NextToken: "__NextToken__",

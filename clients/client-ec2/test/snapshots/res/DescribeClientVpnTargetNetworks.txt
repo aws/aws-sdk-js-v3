@@ -61,6 +61,28 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __member__
                 </item>
             </securityGroups>
+            <availabilityZoneSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneSet>
+            <availabilityZoneIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneIdSet>
         </item>
         <item>
             <associationId>
@@ -94,6 +116,28 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __member__
                 </item>
             </securityGroups>
+            <availabilityZoneSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneSet>
+            <availabilityZoneIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneIdSet>
         </item>
         <item>
             <associationId>
@@ -127,6 +171,28 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __member__
                 </item>
             </securityGroups>
+            <availabilityZoneSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneSet>
+            <availabilityZoneIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneIdSet>
         </item>
     </clientVpnTargetNetworks>
     <nextToken>
@@ -151,18 +217,13 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
-    },
-    {
-      AssociationId: "__AssociationId__",
-      VpcId: "__VpcId__",
-      TargetNetworkId: "__TargetNetworkId__",
-      ClientVpnEndpointId: "__ClientVpnEndpointId__",
-      Status: {
-        Code: "__Code__",
-        Message: "__Message__"
-      },
-      SecurityGroups: [
+      ],
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZoneIds: [
         "__member__",
         "__member__",
         "__member__"
@@ -178,6 +239,41 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Message: "__Message__"
       },
       SecurityGroups: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZoneIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      AssociationId: "__AssociationId__",
+      VpcId: "__VpcId__",
+      TargetNetworkId: "__TargetNetworkId__",
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      SecurityGroups: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZoneIds: [
         "__member__",
         "__member__",
         "__member__"

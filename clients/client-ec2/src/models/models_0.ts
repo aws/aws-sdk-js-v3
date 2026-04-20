@@ -53,9 +53,6 @@ import type {
   Ipv6SupportValue,
   ListingState,
   ListingStatus,
-  MacModificationTaskState,
-  MacModificationTaskType,
-  MacSystemIntegrityProtectionSettingStatus,
   NatGatewayAddressStatus,
   OutputFormat,
   PrincipalType,
@@ -76,6 +73,7 @@ import type {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
+  TransitGatewayAttachmentStatusType,
   TransitGatewayMulitcastDomainAssociationState,
   TransportProtocol,
   TrustProviderType,
@@ -391,6 +389,76 @@ export interface AcceptReservedInstancesExchangeQuoteResult {
    * @public
    */
   ExchangeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcceptTransitGatewayClientVpnAttachmentRequest {
+  /**
+   * <p>The ID of the Transit Gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a Transit Gateway attachment for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface TransitGatewayClientVpnAttachment {
+  /**
+   * <p>The ID of the Transit Gateway attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the Transit Gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnOwnerId?: string | undefined;
+
+  /**
+   * <p>The state of the Transit Gateway attachment.</p>
+   * @public
+   */
+  State?: TransitGatewayAttachmentStatusType | undefined;
+
+  /**
+   * <p>The date and time the Transit Gateway attachment was created.</p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcceptTransitGatewayClientVpnAttachmentResult {
+  /**
+   * <p>Information about the Transit Gateway Client VPN attachment.</p>
+   * @public
+   */
+  TransitGatewayClientVpnAttachment?: TransitGatewayClientVpnAttachment | undefined;
 }
 
 /**
@@ -3823,10 +3891,10 @@ export interface AssociateClientVpnTargetNetworkRequest {
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * <p>The ID of the subnet to associate with the Client VPN endpoint.</p>
+   * <p>The ID of the subnet to associate with the Client VPN endpoint. Required for VPC-based endpoints. For Transit Gateway-based endpoints, use <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> instead.</p>
    * @public
    */
-  SubnetId: string | undefined;
+  SubnetId?: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -3840,6 +3908,18 @@ export interface AssociateClientVpnTargetNetworkRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>The Availability Zone name for the Transit Gateway association. Required if when associating an Availability Zone with a Client VPN endpoint that uses a Transit Gateway. You cannot specify both <code>SubnetId</code> and <code>AvailabilityZone</code>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID for the Transit Gateway association. Required if when associating an Availability Zone with a Client VPN endpoint that uses a Transit Gateway. You cannot specify both <code>AvailabilityZone</code> and <code>AvailabilityZoneId</code>.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -9484,6 +9564,30 @@ export interface ConnectionLogOptions {
 }
 
 /**
+ * <p>The Transit Gateway configuration for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface TransitGatewayConfigurationInputStructure {
+  /**
+   * <p>The ID of the Transit Gateway to associate with the Client VPN endpoint.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone names for the Transit Gateway association. You can specify up to the maximum number of Availability Zones supported by the Transit Gateway. You cannot specify both <code>AvailabilityZones</code> and <code>AvailabilityZoneIds</code>.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The Availability Zone IDs for the Transit Gateway association. You can specify up to the maximum number of Availability Zones supported by the Transit Gateway. You cannot specify both <code>AvailabilityZones</code> and <code>AvailabilityZoneIds</code>.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateClientVpnEndpointRequest {
@@ -9660,6 +9764,12 @@ export interface CreateClientVpnEndpointRequest {
    * @public
    */
   TrafficIpAddressType?: TrafficIpAddressType | undefined;
+
+  /**
+   * <p>The Transit Gateway configuration for the Client VPN endpoint. Use this parameter to associate the endpoint with a Transit Gateway instead of a VPC. You cannot specify both <code>TransitGatewayConfiguration</code> and <code>VpcId</code>/<code>SecurityGroupIds</code>.</p>
+   * @public
+   */
+  TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
 }
 
 /**
@@ -9689,6 +9799,10 @@ export interface ClientVpnEndpointStatus {
    *                <p>
    *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
    * 					connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The Client VPN endpoint has been created with a Transit Gateway configuration and is waiting for the Transit Gateway attachment to be accepted. The Client VPN endpoint cannot accept connections.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9760,9 +9874,10 @@ export interface CreateClientVpnRouteRequest {
    * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
    * 			an existing target network of the Client VPN endpoint.</p>
    *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
+   *          <p>This parameter is required for VPC-based Client VPN endpoints. For Transit Gateway-based endpoints, this parameter is not required.</p>
    * @public
    */
-  TargetVpcSubnetId: string | undefined;
+  TargetVpcSubnetId?: string | undefined;
 
   /**
    * <p>A brief description of the route.</p>
@@ -10619,202 +10734,4 @@ export interface CreateDefaultVpcResult {
    * @public
    */
   Vpc?: Vpc | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDelegateMacVolumeOwnershipTaskRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Amazon EC2 Mac instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Specifies the following credentials:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Internal disk administrative user</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>Username</b> - Only the default administrative user
-   *                      (<code>aws-managed-user</code>) is supported and it is used by default. You can't
-   *                      specify a different administrative user.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>Password</b> - If you did not change the default
-   *                      password for <code>aws-managed-user</code>, specify the default password, which is
-   *                      <i>blank</i>. Otherwise, specify your password.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon EBS root volume administrative user</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>Username</b> - If you did not change the default
-   *                      administrative user, specify <code>ec2-user</code>. Otherwise, specify the username
-   *                      for your administrative user.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>Password</b> - Specify the password for the
-   *                      administrative user.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>The credentials must be specified in the following JSON format:</p>
-   *          <p>
-   *             <code>\{
-   *   "internalDiskPassword":"<i>internal-disk-admin_password</i>",
-   *   "rootVolumeUsername":"<i>root-volume-admin_username</i>",
-   *   "rootVolumepassword":"<i>root-volume-admin_password</i>"
-   * \}</code>
-   *          </p>
-   * @public
-   */
-  MacCredentials: string | undefined;
-
-  /**
-   * <p>The tags to assign to the volume ownership delegation task.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * <p>Describes the configuration for a System Integrity Protection (SIP) modification task.</p>
- * @public
- */
-export interface MacSystemIntegrityProtectionConfiguration {
-  /**
-   * <p>Indicates whether Apple Internal was enabled or disabled by the task.</p>
-   * @public
-   */
-  AppleInternal?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates whether Base System was enabled or disabled by the task.</p>
-   * @public
-   */
-  BaseSystem?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates whether Debugging Restrictions was enabled or disabled by the task.</p>
-   * @public
-   */
-  DebuggingRestrictions?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates whether Dtrace Restrictions was enabled or disabled by the task.</p>
-   * @public
-   */
-  DTraceRestrictions?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates whether Filesystem Protections was enabled or disabled by the task.</p>
-   * @public
-   */
-  FilesystemProtections?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates whether Kext Signing was enabled or disabled by the task.</p>
-   * @public
-   */
-  KextSigning?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates whether NVRAM Protections was enabled or disabled by the task.</p>
-   * @public
-   */
-  NvramProtections?: MacSystemIntegrityProtectionSettingStatus | undefined;
-
-  /**
-   * <p>Indicates SIP was enabled or disabled by the task.</p>
-   * @public
-   */
-  Status?: MacSystemIntegrityProtectionSettingStatus | undefined;
-}
-
-/**
- * <p>Information about a System Integrity Protection (SIP) modification task or volume
- *          ownership delegation task for an Amazon EC2 Mac instance.</p>
- * @public
- */
-export interface MacModificationTask {
-  /**
-   * <p>The ID of the Amazon EC2 Mac instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The ID of task.</p>
-   * @public
-   */
-  MacModificationTaskId?: string | undefined;
-
-  /**
-   * <p>[SIP modification tasks only] Information about the SIP
-   *          configuration.</p>
-   * @public
-   */
-  MacSystemIntegrityProtectionConfig?: MacSystemIntegrityProtectionConfiguration | undefined;
-
-  /**
-   * <p>The date and time the task was created, in the UTC timezone
-   *          (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The tags assigned to the task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The state of the task.</p>
-   * @public
-   */
-  TaskState?: MacModificationTaskState | undefined;
-
-  /**
-   * <p>The type of task.</p>
-   * @public
-   */
-  TaskType?: MacModificationTaskType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDelegateMacVolumeOwnershipTaskResult {
-  /**
-   * <p>Information about the volume ownership delegation task.</p>
-   * @public
-   */
-  MacModificationTask?: MacModificationTask | undefined;
 }

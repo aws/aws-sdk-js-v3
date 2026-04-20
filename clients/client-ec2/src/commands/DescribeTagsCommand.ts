@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTagsRequest, DescribeTagsResult } from "../models/models_4";
+import type { DescribeTagsRequest } from "../models/models_4";
+import type { DescribeTagsResult } from "../models/models_5";
 import { DescribeTags$ } from "../schemas/schemas_0";
 
 /**

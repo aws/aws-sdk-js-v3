@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetCapacityReservationUsageRequest, GetCapacityReservationUsageResult } from "../models/models_5";
+import type { GetCapacityReservationUsageRequest } from "../models/models_5";
+import type { GetCapacityReservationUsageResult } from "../models/models_6";
 import { GetCapacityReservationUsage$ } from "../schemas/schemas_0";
 
 /**

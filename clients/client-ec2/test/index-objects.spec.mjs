@@ -19,6 +19,10 @@ import {
   AcceptReservedInstancesExchangeQuoteCommand,
   AcceptReservedInstancesExchangeQuoteRequest$,
   AcceptReservedInstancesExchangeQuoteResult$,
+  AcceptTransitGatewayClientVpnAttachment$,
+  AcceptTransitGatewayClientVpnAttachmentCommand,
+  AcceptTransitGatewayClientVpnAttachmentRequest$,
+  AcceptTransitGatewayClientVpnAttachmentResult$,
   AcceptTransitGatewayMulticastDomainAssociations$,
   AcceptTransitGatewayMulticastDomainAssociationsCommand,
   AcceptTransitGatewayMulticastDomainAssociationsRequest$,
@@ -1144,6 +1148,10 @@ import {
   DeleteTrafficMirrorTargetRequest$,
   DeleteTrafficMirrorTargetResult$,
   DeleteTransitGateway$,
+  DeleteTransitGatewayClientVpnAttachment$,
+  DeleteTransitGatewayClientVpnAttachmentCommand,
+  DeleteTransitGatewayClientVpnAttachmentRequest$,
+  DeleteTransitGatewayClientVpnAttachmentResult$,
   DeleteTransitGatewayCommand,
   DeleteTransitGatewayConnect$,
   DeleteTransitGatewayConnectCommand,
@@ -3839,6 +3847,10 @@ import {
   RejectCapacityReservationBillingOwnershipCommand,
   RejectCapacityReservationBillingOwnershipRequest$,
   RejectCapacityReservationBillingOwnershipResult$,
+  RejectTransitGatewayClientVpnAttachment$,
+  RejectTransitGatewayClientVpnAttachmentCommand,
+  RejectTransitGatewayClientVpnAttachmentRequest$,
+  RejectTransitGatewayClientVpnAttachmentResult$,
   RejectTransitGatewayMulticastDomainAssociations$,
   RejectTransitGatewayMulticastDomainAssociationsCommand,
   RejectTransitGatewayMulticastDomainAssociationsRequest$,
@@ -4272,6 +4284,10 @@ import {
   TransitGatewayAttachmentPropagation$,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
+  TransitGatewayAttachmentStatusType,
+  TransitGatewayClientVpnAttachment$,
+  TransitGatewayConfigurationDescribeEndpointStructure$,
+  TransitGatewayConfigurationInputStructure$,
   TransitGatewayConnect$,
   TransitGatewayConnectOptions$,
   TransitGatewayConnectPeer$,
@@ -4593,6 +4609,8 @@ assert(typeof AcceptCapacityReservationBillingOwnershipCommand === "function");
 assert(typeof AcceptCapacityReservationBillingOwnership$ === "object");
 assert(typeof AcceptReservedInstancesExchangeQuoteCommand === "function");
 assert(typeof AcceptReservedInstancesExchangeQuote$ === "object");
+assert(typeof AcceptTransitGatewayClientVpnAttachmentCommand === "function");
+assert(typeof AcceptTransitGatewayClientVpnAttachment$ === "object");
 assert(typeof AcceptTransitGatewayMulticastDomainAssociationsCommand === "function");
 assert(typeof AcceptTransitGatewayMulticastDomainAssociations$ === "object");
 assert(typeof AcceptTransitGatewayPeeringAttachmentCommand === "function");
@@ -5045,6 +5063,8 @@ assert(typeof DeleteTrafficMirrorTargetCommand === "function");
 assert(typeof DeleteTrafficMirrorTarget$ === "object");
 assert(typeof DeleteTransitGatewayCommand === "function");
 assert(typeof DeleteTransitGateway$ === "object");
+assert(typeof DeleteTransitGatewayClientVpnAttachmentCommand === "function");
+assert(typeof DeleteTransitGatewayClientVpnAttachment$ === "object");
 assert(typeof DeleteTransitGatewayConnectCommand === "function");
 assert(typeof DeleteTransitGatewayConnect$ === "object");
 assert(typeof DeleteTransitGatewayConnectPeerCommand === "function");
@@ -5983,6 +6003,8 @@ assert(typeof RegisterTransitGatewayMulticastGroupSourcesCommand === "function")
 assert(typeof RegisterTransitGatewayMulticastGroupSources$ === "object");
 assert(typeof RejectCapacityReservationBillingOwnershipCommand === "function");
 assert(typeof RejectCapacityReservationBillingOwnership$ === "object");
+assert(typeof RejectTransitGatewayClientVpnAttachmentCommand === "function");
+assert(typeof RejectTransitGatewayClientVpnAttachment$ === "object");
 assert(typeof RejectTransitGatewayMulticastDomainAssociationsCommand === "function");
 assert(typeof RejectTransitGatewayMulticastDomainAssociations$ === "object");
 assert(typeof RejectTransitGatewayPeeringAttachmentCommand === "function");
@@ -6114,6 +6136,8 @@ assert(typeof AcceptCapacityReservationBillingOwnershipRequest$ === "object");
 assert(typeof AcceptCapacityReservationBillingOwnershipResult$ === "object");
 assert(typeof AcceptReservedInstancesExchangeQuoteRequest$ === "object");
 assert(typeof AcceptReservedInstancesExchangeQuoteResult$ === "object");
+assert(typeof AcceptTransitGatewayClientVpnAttachmentRequest$ === "object");
+assert(typeof AcceptTransitGatewayClientVpnAttachmentResult$ === "object");
 assert(typeof AcceptTransitGatewayMulticastDomainAssociationsRequest$ === "object");
 assert(typeof AcceptTransitGatewayMulticastDomainAssociationsResult$ === "object");
 assert(typeof AcceptTransitGatewayPeeringAttachmentRequest$ === "object");
@@ -6703,6 +6727,8 @@ assert(typeof DeleteTrafficMirrorSessionRequest$ === "object");
 assert(typeof DeleteTrafficMirrorSessionResult$ === "object");
 assert(typeof DeleteTrafficMirrorTargetRequest$ === "object");
 assert(typeof DeleteTrafficMirrorTargetResult$ === "object");
+assert(typeof DeleteTransitGatewayClientVpnAttachmentRequest$ === "object");
+assert(typeof DeleteTransitGatewayClientVpnAttachmentResult$ === "object");
 assert(typeof DeleteTransitGatewayConnectPeerRequest$ === "object");
 assert(typeof DeleteTransitGatewayConnectPeerResult$ === "object");
 assert(typeof DeleteTransitGatewayConnectRequest$ === "object");
@@ -8080,6 +8106,8 @@ assert(typeof RegisterTransitGatewayMulticastGroupSourcesRequest$ === "object");
 assert(typeof RegisterTransitGatewayMulticastGroupSourcesResult$ === "object");
 assert(typeof RejectCapacityReservationBillingOwnershipRequest$ === "object");
 assert(typeof RejectCapacityReservationBillingOwnershipResult$ === "object");
+assert(typeof RejectTransitGatewayClientVpnAttachmentRequest$ === "object");
+assert(typeof RejectTransitGatewayClientVpnAttachmentResult$ === "object");
 assert(typeof RejectTransitGatewayMulticastDomainAssociationsRequest$ === "object");
 assert(typeof RejectTransitGatewayMulticastDomainAssociationsResult$ === "object");
 assert(typeof RejectTransitGatewayPeeringAttachmentRequest$ === "object");
@@ -8324,6 +8352,9 @@ assert(typeof TransitGatewayAttachment$ === "object");
 assert(typeof TransitGatewayAttachmentAssociation$ === "object");
 assert(typeof TransitGatewayAttachmentBgpConfiguration$ === "object");
 assert(typeof TransitGatewayAttachmentPropagation$ === "object");
+assert(typeof TransitGatewayClientVpnAttachment$ === "object");
+assert(typeof TransitGatewayConfigurationDescribeEndpointStructure$ === "object");
+assert(typeof TransitGatewayConfigurationInputStructure$ === "object");
 assert(typeof TransitGatewayConnect$ === "object");
 assert(typeof TransitGatewayConnectOptions$ === "object");
 assert(typeof TransitGatewayConnectPeer$ === "object");
@@ -8857,6 +8888,7 @@ assert(typeof TransferType === "object");
 assert(typeof TransitGatewayAssociationState === "object");
 assert(typeof TransitGatewayAttachmentResourceType === "object");
 assert(typeof TransitGatewayAttachmentState === "object");
+assert(typeof TransitGatewayAttachmentStatusType === "object");
 assert(typeof TransitGatewayConnectPeerState === "object");
 assert(typeof TransitGatewayMeteringPayerType === "object");
 assert(typeof TransitGatewayMeteringPolicyEntryState === "object");

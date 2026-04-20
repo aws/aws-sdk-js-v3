@@ -320,6 +320,9 @@ const _ASw = "AwsService";
 const _AT = "AddressTransfer";
 const _ATGAI = "AccepterTransitGatewayAttachmentId";
 const _ATGCB = "AddTransitGatewayCidrBlocks";
+const _ATGCVA = "AcceptTransitGatewayClientVpnAttachment";
+const _ATGCVAR = "AcceptTransitGatewayClientVpnAttachmentRequest";
+const _ATGCVARc = "AcceptTransitGatewayClientVpnAttachmentResult";
 const _ATGMD = "AssociateTransitGatewayMulticastDomain";
 const _ATGMDA = "AcceptTransitGatewayMulticastDomainAssociations";
 const _ATGMDAR = "AcceptTransitGatewayMulticastDomainAssociationsRequest";
@@ -1080,6 +1083,8 @@ const _CVATPDO = "CreateVerifiedAccessTrustProviderDeviceOptions";
 const _CVATPOO = "CreateVerifiedAccessTrustProviderOidcOptions";
 const _CVATPR = "CreateVerifiedAccessTrustProviderRequest";
 const _CVATPRr = "CreateVerifiedAccessTrustProviderResult";
+const _CVAZIS = "ClientVpnAvailabilityZoneIdSet";
+const _CVAZS = "ClientVpnAvailabilityZoneSet";
 const _CVBPAE = "CreateVpcBlockPublicAccessExclusion";
 const _CVBPAER = "CreateVpcBlockPublicAccessExclusionRequest";
 const _CVBPAERr = "CreateVpcBlockPublicAccessExclusionResult";
@@ -1117,6 +1122,7 @@ const _CVG = "CreateVpnGateway";
 const _CVGR = "CreateVpnGatewayRequest";
 const _CVGRr = "CreateVpnGatewayResult";
 const _CVL = "ConditionValueList";
+const _CVOI = "ClientVpnOwnerId";
 const _CVP = "CreateVolumePermission";
 const _CVPC = "CreateVpcPeeringConnection";
 const _CVPCR = "CreateVpcPeeringConnectionRequest";
@@ -2031,6 +2037,9 @@ const _DTGCR = "DeleteTransitGatewayConnectRequest";
 const _DTGCRe = "DeleteTransitGatewayConnectResult";
 const _DTGCRes = "DescribeTransitGatewayConnectsRequest";
 const _DTGCResc = "DescribeTransitGatewayConnectsResult";
+const _DTGCVA = "DeleteTransitGatewayClientVpnAttachment";
+const _DTGCVAR = "DeleteTransitGatewayClientVpnAttachmentRequest";
+const _DTGCVARe = "DeleteTransitGatewayClientVpnAttachmentResult";
 const _DTGCe = "DescribeTransitGatewayConnects";
 const _DTGMD = "DeleteTransitGatewayMulticastDomain";
 const _DTGMDR = "DeleteTransitGatewayMulticastDomainRequest";
@@ -4957,6 +4966,9 @@ const _RTAI = "RouteTableAssociationId";
 const _RTAL = "RouteTableAssociationList";
 const _RTAS = "RouteTableAssociationState";
 const _RTGCB = "RemoveTransitGatewayCidrBlocks";
+const _RTGCVA = "RejectTransitGatewayClientVpnAttachment";
+const _RTGCVAR = "RejectTransitGatewayClientVpnAttachmentRequest";
+const _RTGCVARe = "RejectTransitGatewayClientVpnAttachmentResult";
 const _RTGMDA = "RejectTransitGatewayMulticastDomainAssociations";
 const _RTGMDAR = "RejectTransitGatewayMulticastDomainAssociationsRequest";
 const _RTGMDARe = "RejectTransitGatewayMulticastDomainAssociationsResult";
@@ -5493,9 +5505,11 @@ const _TGAra = "TransitGatewayAttachment";
 const _TGAran = "TransitGatewayArn";
 const _TGArans = "TransitGatewayAssociation";
 const _TGAransi = "TransitGatewayAsn";
-const _TGC = "TransitGatewayConnect";
+const _TGC = "TransitGatewayConfiguration";
 const _TGCB = "TransitGatewayCidrBlocks";
 const _TGCBSL = "TransitGatewayCidrBlockStringList";
+const _TGCDES = "TransitGatewayConfigurationDescribeEndpointStructure";
+const _TGCIS = "TransitGatewayConfigurationInputStructure";
 const _TGCL = "TransitGatewayConnectList";
 const _TGCO = "TransitGatewayConnectOptions";
 const _TGCP = "TransitGatewayConnectPeer";
@@ -5506,8 +5520,10 @@ const _TGCPIr = "TransitGatewayConnectPeerIds";
 const _TGCPL = "TransitGatewayConnectPeerList";
 const _TGCPr = "TransitGatewayConnectPeers";
 const _TGCRBO = "TransitGatewayConnectRequestBgpOptions";
+const _TGCVA = "TransitGatewayClientVpnAttachment";
 const _TGCa = "TargetGroupsConfig";
-const _TGCr = "TransitGatewayConnects";
+const _TGCr = "TransitGatewayConnect";
+const _TGCra = "TransitGatewayConnects";
 const _TGI = "TransitGatewayId";
 const _TGISL = "TransitGatewayIdStringList";
 const _TGIr = "TransitGatewayIds";
@@ -6406,6 +6422,7 @@ const _cTre = "creationTime";
 const _cTrea = "creationTimestamp";
 const _cVE = "clientVpnEndpoint";
 const _cVEI = "clientVpnEndpointId";
+const _cVOI = "clientVpnOwnerId";
 const _cVP = "createVolumePermission";
 const _cVTN = "clientVpnTargetNetworks";
 const _cWL = "cloudWatchLogs";
@@ -7868,13 +7885,15 @@ const _tGAr = "transitGatewayAttachment";
 const _tGAra = "transitGatewayArn";
 const _tGAran = "transitGatewayAsn";
 const _tGArans = "transitGatewayAddress";
-const _tGC = "transitGatewayConnect";
+const _tGC = "transitGatewayConfiguration";
 const _tGCB = "transitGatewayCidrBlocks";
 const _tGCP = "transitGatewayConnectPeer";
 const _tGCPI = "transitGatewayConnectPeerId";
 const _tGCPS = "transitGatewayConnectPeerSet";
 const _tGCS = "transitGatewayConnectSet";
+const _tGCVA = "transitGatewayClientVpnAttachment";
 const _tGCa = "targetGroupsConfig";
+const _tGCr = "transitGatewayConnect";
 const _tGI = "transitGatewayId";
 const _tGMD = "transitGatewayMulticastDomain";
 const _tGMDA = "transitGatewayMulticastDomainArn";
@@ -8219,6 +8238,17 @@ export var AcceptReservedInstancesExchangeQuoteResult$: StaticStructureSchema = 
   [_EI],
   [[0, { [_eQN]: `ExchangeId`
   , [_xN]: _eI }]]
+];
+export var AcceptTransitGatewayClientVpnAttachmentRequest$: StaticStructureSchema = [3, n0, _ATGCVAR,
+  0,
+  [_TGAI, _DR],
+  [0, 2], 1
+];
+export var AcceptTransitGatewayClientVpnAttachmentResult$: StaticStructureSchema = [3, n0, _ATGCVARc,
+  0,
+  [_TGCVA],
+  [[() => TransitGatewayClientVpnAttachment$, { [_eQN]: `TransitGatewayClientVpnAttachment`
+  , [_xN]: _tGCVA }]]
 ];
 export var AcceptTransitGatewayMulticastDomainAssociationsRequest$: StaticStructureSchema = [3, n0, _ATGMDAR,
   0,
@@ -8667,8 +8697,8 @@ export var AssociateCapacityReservationBillingOwnerResult$: StaticStructureSchem
 ];
 export var AssociateClientVpnTargetNetworkRequest$: StaticStructureSchema = [3, n0, _ACVTNR,
   0,
-  [_CVEI, _SIu, _CT, _DR],
-  [0, 0, [0, 4], 2], 2
+  [_CVEI, _SIu, _CT, _DR, _AZ, _AZI],
+  [0, 0, [0, 4], 2, 0, 0], 1
 ];
 export var AssociateClientVpnTargetNetworkResult$: StaticStructureSchema = [3, n0, _ACVTNRs,
   0,
@@ -9834,7 +9864,7 @@ export var ClientVpnConnectionStatus$: StaticStructureSchema = [3, n0, _CVCS,
 ];
 export var ClientVpnEndpoint$: StaticStructureSchema = [3, n0, _CVE,
   0,
-  [_CVEI, _De, _Sta, _CTre, _DT, _DNn, _CCB, _DS, _STp, _VP, _TPr, _VPp, _ATNs, _SCA, _AO, _CLO, _T, _SGIe, _VI, _SSPU, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT],
+  [_CVEI, _De, _Sta, _CTre, _DT, _DNn, _CCB, _DS, _STp, _VP, _TPr, _VPp, _ATNs, _SCA, _AO, _CLO, _T, _SGIe, _VI, _SSPU, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
   [[0, { [_eQN]: `ClientVpnEndpointId`
   , [_xN]: _cVEI }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [() => ClientVpnEndpointStatus$, { [_eQN]: `Status`
@@ -9862,7 +9892,8 @@ export var ClientVpnEndpoint$: StaticStructureSchema = [3, n0, _CVE,
   , [_xN]: _cREO }], [2, { [_eQN]: `DisconnectOnSessionTimeout`
   , [_xN]: _dOST }], [0, { [_eQN]: `EndpointIpAddressType`
   , [_xN]: _eIAT }], [0, { [_eQN]: `TrafficIpAddressType`
-  , [_xN]: _tIAT }]]
+  , [_xN]: _tIAT }], [() => TransitGatewayConfigurationDescribeEndpointStructure$, { [_eQN]: `TransitGatewayConfiguration`
+  , [_xN]: _tGC }]]
 ];
 export var ClientVpnEndpointAttributeStatus$: StaticStructureSchema = [3, n0, _CVEAS,
   0,
@@ -9880,7 +9911,7 @@ export var ClientVpnEndpointStatus$: StaticStructureSchema = [3, n0, _CVES,
 ];
 export var ClientVpnRoute$: StaticStructureSchema = [3, n0, _CVR,
   0,
-  [_CVEI, _DCe, _TSar, _Ty, _O, _Sta, _De],
+  [_CVEI, _DCe, _TSar, _Ty, _O, _Sta, _De, _TGAI],
   [[0, { [_eQN]: `ClientVpnEndpointId`
   , [_xN]: _cVEI }], [0, { [_eQN]: `DestinationCidr`
   , [_xN]: _dC }], [0, { [_eQN]: `TargetSubnet`
@@ -9888,7 +9919,8 @@ export var ClientVpnRoute$: StaticStructureSchema = [3, n0, _CVR,
   , [_xN]: _ty }], [0, { [_eQN]: `Origin`
   , [_xN]: _o }], [() => ClientVpnRouteStatus$, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `Description`
-  , [_xN]: _de }]]
+  , [_xN]: _de }], [0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }]]
 ];
 export var ClientVpnRouteStatus$: StaticStructureSchema = [3, n0, _CVRS,
   0,
@@ -10164,8 +10196,8 @@ export var CreateCarrierGatewayResult$: StaticStructureSchema = [3, n0, _CCGRr,
 ];
 export var CreateClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _CCVER,
   0,
-  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPp, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT],
-  [0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, 0, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0], 3
+  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPp, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
+  [0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, 0, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0, [() => TransitGatewayConfigurationInputStructure$, 0]], 3
 ];
 export var CreateClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _CCVERr,
   0,
@@ -10178,7 +10210,7 @@ export var CreateClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _CCVE
 export var CreateClientVpnRouteRequest$: StaticStructureSchema = [3, n0, _CCVRR,
   0,
   [_CVEI, _DCB, _TVSI, _De, _CT, _DR],
-  [0, 0, 0, 0, [0, 4], 2], 3
+  [0, 0, 0, 0, [0, 4], 2], 2
 ];
 export var CreateClientVpnRouteResult$: StaticStructureSchema = [3, n0, _CCVRRr,
   0,
@@ -11037,9 +11069,9 @@ export var CreateTransitGatewayConnectRequestOptions$: StaticStructureSchema = [
 ];
 export var CreateTransitGatewayConnectResult$: StaticStructureSchema = [3, n0, _CTGCRr,
   0,
-  [_TGC],
+  [_TGCr],
   [[() => TransitGatewayConnect$, { [_eQN]: `TransitGatewayConnect`
-  , [_xN]: _tGC }]]
+  , [_xN]: _tGCr }]]
 ];
 export var CreateTransitGatewayMeteringPolicyEntryRequest$: StaticStructureSchema = [3, n0, _CTGMPER,
   0,
@@ -12185,6 +12217,17 @@ export var DeleteTrafficMirrorTargetResult$: StaticStructureSchema = [3, n0, _DT
   [[0, { [_eQN]: `TrafficMirrorTargetId`
   , [_xN]: _tMTI }]]
 ];
+export var DeleteTransitGatewayClientVpnAttachmentRequest$: StaticStructureSchema = [3, n0, _DTGCVAR,
+  0,
+  [_TGAI, _DR],
+  [0, 2], 1
+];
+export var DeleteTransitGatewayClientVpnAttachmentResult$: StaticStructureSchema = [3, n0, _DTGCVARe,
+  0,
+  [_TGCVA],
+  [[() => TransitGatewayClientVpnAttachment$, { [_eQN]: `TransitGatewayClientVpnAttachment`
+  , [_xN]: _tGCVA }]]
+];
 export var DeleteTransitGatewayConnectPeerRequest$: StaticStructureSchema = [3, n0, _DTGCPR,
   0,
   [_TGCPI, _DR],
@@ -12203,9 +12246,9 @@ export var DeleteTransitGatewayConnectRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteTransitGatewayConnectResult$: StaticStructureSchema = [3, n0, _DTGCRe,
   0,
-  [_TGC],
+  [_TGCr],
   [[() => TransitGatewayConnect$, { [_eQN]: `TransitGatewayConnect`
-  , [_xN]: _tGC }]]
+  , [_xN]: _tGCr }]]
 ];
 export var DeleteTransitGatewayMeteringPolicyEntryRequest$: StaticStructureSchema = [3, n0, _DTGMPER,
   0,
@@ -14488,7 +14531,7 @@ export var DescribeTransitGatewayConnectsRequest$: StaticStructureSchema = [3, n
 ];
 export var DescribeTransitGatewayConnectsResult$: StaticStructureSchema = [3, n0, _DTGCResc,
   0,
-  [_TGCr, _NTe],
+  [_TGCra, _NTe],
   [[() => TransitGatewayConnectList, { [_eQN]: `TransitGatewayConnectSet`
   , [_xN]: _tGCS }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
@@ -20005,8 +20048,8 @@ export var ModifyCapacityReservationResult$: StaticStructureSchema = [3, n0, _MC
 ];
 export var ModifyClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _MCVER,
   0,
-  [_CVEI, _SCA, _CLO, _DS, _VPp, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST],
-  [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2], 1
+  [_CVEI, _SCA, _CLO, _DS, _VPp, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _TGC],
+  [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, [() => TransitGatewayConfigurationInputStructure$, 0]], 1
 ];
 export var ModifyClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _MCVERo,
   0,
@@ -22013,6 +22056,17 @@ export var RejectCapacityReservationBillingOwnershipResult$: StaticStructureSche
   [[2, { [_eQN]: `Return`
   , [_xN]: _r }]]
 ];
+export var RejectTransitGatewayClientVpnAttachmentRequest$: StaticStructureSchema = [3, n0, _RTGCVAR,
+  0,
+  [_TGAI, _DR],
+  [0, 2], 1
+];
+export var RejectTransitGatewayClientVpnAttachmentResult$: StaticStructureSchema = [3, n0, _RTGCVARe,
+  0,
+  [_TGCVA],
+  [[() => TransitGatewayClientVpnAttachment$, { [_eQN]: `TransitGatewayClientVpnAttachment`
+  , [_xN]: _tGCVA }]]
+];
 export var RejectTransitGatewayMulticastDomainAssociationsRequest$: StaticStructureSchema = [3, n0, _RTGMDAR,
   0,
   [_TGMDI, _TGAI, _SI, _DR],
@@ -23948,14 +24002,16 @@ export var TargetGroupsConfig$: StaticStructureSchema = [3, n0, _TGCa,
 ];
 export var TargetNetwork$: StaticStructureSchema = [3, n0, _TNa,
   0,
-  [_AIs, _VI, _TNI, _CVEI, _Sta, _SGe],
+  [_AIs, _VI, _TNI, _CVEI, _Sta, _SGe, _AZv, _AZIv],
   [[0, { [_eQN]: `AssociationId`
   , [_xN]: _aIs }], [0, { [_eQN]: `VpcId`
   , [_xN]: _vI }], [0, { [_eQN]: `TargetNetworkId`
   , [_xN]: _tNI }], [0, { [_eQN]: `ClientVpnEndpointId`
   , [_xN]: _cVEI }], [() => AssociationStatus$, { [_eQN]: `Status`
   , [_xN]: _sta }], [() => ValueStringList, { [_eQN]: `SecurityGroups`
-  , [_xN]: _sGe }]]
+  , [_xN]: _sGe }], [() => ClientVpnAvailabilityZoneSet, { [_eQN]: `AvailabilityZoneSet`
+  , [_xN]: _aZS }], [() => ClientVpnAvailabilityZoneIdSet, { [_eQN]: `AvailabilityZoneIdSet`
+  , [_xN]: _aZIS }]]
 ];
 export var TargetReservationValue$: StaticStructureSchema = [3, n0, _TRV,
   0,
@@ -24150,7 +24206,32 @@ export var TransitGatewayAttachmentPropagation$: StaticStructureSchema = [3, n0,
   , [_xN]: _tGRTI }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
 ];
-export var TransitGatewayConnect$: StaticStructureSchema = [3, n0, _TGC,
+export var TransitGatewayClientVpnAttachment$: StaticStructureSchema = [3, n0, _TGCVA,
+  0,
+  [_TGAI, _TGI, _CVEI, _CVOI, _St, _CTre],
+  [[0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [0, { [_eQN]: `TransitGatewayId`
+  , [_xN]: _tGI }], [0, { [_eQN]: `ClientVpnEndpointId`
+  , [_xN]: _cVEI }], [0, { [_eQN]: `ClientVpnOwnerId`
+  , [_xN]: _cVOI }], [0, { [_eQN]: `State`
+  , [_xN]: _st }], [0, { [_eQN]: `CreationTime`
+  , [_xN]: _cTre }]]
+];
+export var TransitGatewayConfigurationDescribeEndpointStructure$: StaticStructureSchema = [3, n0, _TGCDES,
+  0,
+  [_TGI, _TGAI, _AZv, _AZIv],
+  [[0, { [_eQN]: `TransitGatewayId`
+  , [_xN]: _tGI }], [0, { [_eQN]: `TransitGatewayAttachmentId`
+  , [_xN]: _tGAI }], [() => ClientVpnAvailabilityZoneSet, { [_eQN]: `AvailabilityZoneSet`
+  , [_xN]: _aZS }], [() => ClientVpnAvailabilityZoneIdSet, { [_eQN]: `AvailabilityZoneIdSet`
+  , [_xN]: _aZIS }]]
+];
+export var TransitGatewayConfigurationInputStructure$: StaticStructureSchema = [3, n0, _TGCIS,
+  0,
+  [_TGI, _AZv, _AZIv],
+  [0, [() => ClientVpnAvailabilityZoneSet, { [_xN]: _AZ }], [() => ClientVpnAvailabilityZoneIdSet, { [_xN]: _AZI }]]
+];
+export var TransitGatewayConnect$: StaticStructureSchema = [3, n0, _TGCr,
   0,
   [_TGAI, _TTGAI, _TGI, _St, _CTre, _Opt, _T],
   [[0, { [_eQN]: `TransitGatewayAttachmentId`
@@ -25893,6 +25974,14 @@ var ClientVpnAuthenticationList: StaticListSchema = [1, n0, _CVAL,
 ];
 var ClientVpnAuthenticationRequestList: StaticListSchema = [1, n0, _CVARL,
   0, () => ClientVpnAuthenticationRequest$
+];
+var ClientVpnAvailabilityZoneIdSet: StaticListSchema = [1, n0, _CVAZIS,
+  0, [0,
+    { [_xN]: _it }]
+];
+var ClientVpnAvailabilityZoneSet: StaticListSchema = [1, n0, _CVAZS,
+  0, [0,
+    { [_xN]: _it }]
 ];
 var ClientVpnConnectionSet: StaticListSchema = [1, n0, _CVCSl,
   0, [() => ClientVpnConnection$,
@@ -28416,6 +28505,9 @@ export var AcceptCapacityReservationBillingOwnership$: StaticOperationSchema = [
 export var AcceptReservedInstancesExchangeQuote$: StaticOperationSchema = [9, n0, _ARIEQ,
   0, () => AcceptReservedInstancesExchangeQuoteRequest$, () => AcceptReservedInstancesExchangeQuoteResult$
 ];
+export var AcceptTransitGatewayClientVpnAttachment$: StaticOperationSchema = [9, n0, _ATGCVA,
+  0, () => AcceptTransitGatewayClientVpnAttachmentRequest$, () => AcceptTransitGatewayClientVpnAttachmentResult$
+];
 export var AcceptTransitGatewayMulticastDomainAssociations$: StaticOperationSchema = [9, n0, _ATGMDA,
   0, () => AcceptTransitGatewayMulticastDomainAssociationsRequest$, () => AcceptTransitGatewayMulticastDomainAssociationsResult$
 ];
@@ -29093,6 +29185,9 @@ export var DeleteTrafficMirrorTarget$: StaticOperationSchema = [9, n0, _DTMT,
 ];
 export var DeleteTransitGateway$: StaticOperationSchema = [9, n0, _DTG,
   0, () => DeleteTransitGatewayRequest$, () => DeleteTransitGatewayResult$
+];
+export var DeleteTransitGatewayClientVpnAttachment$: StaticOperationSchema = [9, n0, _DTGCVA,
+  0, () => DeleteTransitGatewayClientVpnAttachmentRequest$, () => DeleteTransitGatewayClientVpnAttachmentResult$
 ];
 export var DeleteTransitGatewayConnect$: StaticOperationSchema = [9, n0, _DTGC,
   0, () => DeleteTransitGatewayConnectRequest$, () => DeleteTransitGatewayConnectResult$
@@ -30500,6 +30595,9 @@ export var RegisterTransitGatewayMulticastGroupSources$: StaticOperationSchema =
 ];
 export var RejectCapacityReservationBillingOwnership$: StaticOperationSchema = [9, n0, _RCRBO,
   0, () => RejectCapacityReservationBillingOwnershipRequest$, () => RejectCapacityReservationBillingOwnershipResult$
+];
+export var RejectTransitGatewayClientVpnAttachment$: StaticOperationSchema = [9, n0, _RTGCVA,
+  0, () => RejectTransitGatewayClientVpnAttachmentRequest$, () => RejectTransitGatewayClientVpnAttachmentResult$
 ];
 export var RejectTransitGatewayMulticastDomainAssociations$: StaticOperationSchema = [9, n0, _RTGMDA,
   0, () => RejectTransitGatewayMulticastDomainAssociationsRequest$, () => RejectTransitGatewayMulticastDomainAssociationsResult$

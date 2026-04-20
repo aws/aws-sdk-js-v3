@@ -69,6 +69,12 @@ export interface DescribeClientVpnTargetNetworksCommandOutput extends DescribeCl
  * //       SecurityGroups: [ // ValueStringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       AvailabilityZones: [ // ClientVpnAvailabilityZoneSet
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -60,7 +60,7 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //       ClientVpnEndpointId: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       Status: { // ClientVpnEndpointStatus
- * //         Code: "pending-associate" || "available" || "deleting" || "deleted",
+ * //         Code: "pending-associate" || "available" || "deleting" || "deleted" || "pending",
  * //         Message: "STRING_VALUE",
  * //       },
  * //       CreationTime: "STRING_VALUE",
@@ -131,6 +131,16 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //       DisconnectOnSessionTimeout: true || false,
  * //       EndpointIpAddressType: "ipv4" || "ipv6" || "dual-stack",
  * //       TrafficIpAddressType: "ipv4" || "ipv6" || "dual-stack",
+ * //       TransitGatewayConfiguration: { // TransitGatewayConfigurationDescribeEndpointStructure
+ * //         TransitGatewayId: "STRING_VALUE",
+ * //         TransitGatewayAttachmentId: "STRING_VALUE",
+ * //         AvailabilityZones: [ // ClientVpnAvailabilityZoneSet
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

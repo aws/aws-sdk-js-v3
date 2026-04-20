@@ -52,7 +52,7 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput extends 
  * //   Propagation: { // TransitGatewayPropagation
  * //     TransitGatewayAttachmentId: "STRING_VALUE",
  * //     ResourceId: "STRING_VALUE",
- * //     ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //     ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //     TransitGatewayRouteTableId: "STRING_VALUE",
  * //     State: "enabling" || "enabled" || "disabling" || "disabled",
  * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",

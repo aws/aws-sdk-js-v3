@@ -45,7 +45,7 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * const response = await client.send(command);
  * // { // DeleteClientVpnEndpointResult
  * //   Status: { // ClientVpnEndpointStatus
- * //     Code: "pending-associate" || "available" || "deleting" || "deleted",
+ * //     Code: "pending-associate" || "available" || "deleting" || "deleted" || "pending",
  * //     Message: "STRING_VALUE",
  * //   },
  * // };

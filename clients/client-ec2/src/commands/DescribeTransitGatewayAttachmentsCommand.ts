@@ -65,7 +65,7 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput extends Describe
  * //       TransitGatewayId: "STRING_VALUE",
  * //       TransitGatewayOwnerId: "STRING_VALUE",
  * //       ResourceOwnerId: "STRING_VALUE",
- * //       ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //       ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //       ResourceId: "STRING_VALUE",
  * //       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
  * //       Association: { // TransitGatewayAttachmentAssociation

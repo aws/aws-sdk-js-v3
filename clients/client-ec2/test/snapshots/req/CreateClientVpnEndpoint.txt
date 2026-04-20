@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 2304
+content-length: 2724
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 4f572be89b1811b2f9405b5797a20f32a44de629e601d370ea98bad09244fa9e
+x-amz-content-sha256: 90b0c0e1292029faa47b72fa3a4b5849748f0bd687ed908e2e13724896380490
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -60,4 +60,11 @@ ClientLoginBannerOptions.BannerText=__BannerText__&
 ClientRouteEnforcementOptions.Enforced=false&
 DisconnectOnSessionTimeout=false&
 EndpointIpAddressType=__EndpointIpAddressType__&
-TrafficIpAddressType=__TrafficIpAddressType__
+TrafficIpAddressType=__TrafficIpAddressType__&
+TransitGatewayConfiguration.TransitGatewayId=__TransitGatewayId__&
+TransitGatewayConfiguration.AvailabilityZone.1=__member__&
+TransitGatewayConfiguration.AvailabilityZone.2=__member__&
+TransitGatewayConfiguration.AvailabilityZone.3=__member__&
+TransitGatewayConfiguration.AvailabilityZoneId.1=__member__&
+TransitGatewayConfiguration.AvailabilityZoneId.2=__member__&
+TransitGatewayConfiguration.AvailabilityZoneId.3=__member__

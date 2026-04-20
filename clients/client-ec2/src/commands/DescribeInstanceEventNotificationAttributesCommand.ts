@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import { DescribeInstanceEventNotificationAttributes$ } from "../schemas/schemas_0";
 
 /**

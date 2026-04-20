@@ -4,7 +4,6 @@ import type {
   AllowedImagesSettingsEnabledState,
   CapacityManagerMonitoredTagKeyStatus,
   CapacityManagerStatus,
-  CapacityReservationState,
   CapacityTenancy,
   ClientCertificateRevocationListStatusCode,
   Comparison,
@@ -30,6 +29,7 @@ import type {
   ReservationEndDateType,
   ReservationState,
   ReservationType,
+  ResourceType,
   RouteServerPropagationState,
   SecurityGroupVpcAssociationState,
   ServiceConnectivityType,
@@ -59,8 +59,6 @@ import type {
   AssociationStatus,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  InterruptibleCapacityAllocation,
-  InterruptionInfo,
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
   RouteServerAssociation,
@@ -87,6 +85,8 @@ import type {
   DnsEntry,
   ServiceConfiguration,
   ServiceTypeDetail,
+  TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
@@ -114,6 +114,294 @@ import type {
   ProductCode,
 } from "./models_3";
 import type { RegisteredInstance } from "./models_4";
+
+/**
+ * <p>Describes a tag.</p>
+ * @public
+ */
+export interface TagDescription {
+  /**
+   * <p>The tag key.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The tag value.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *          This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The tags.</p>
+   * @public
+   */
+  Tags?: TagDescription[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorFilterRulesRequest {
+  /**
+   * <p>Traffic filter rule IDs.</p>
+   * @public
+   */
+  TrafficMirrorFilterRuleIds?: string[] | undefined;
+
+  /**
+   * <p>Traffic filter ID.</p>
+   * @public
+   */
+  TrafficMirrorFilterId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Traffic mirror filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-rule-id</code>: The ID of the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-id</code>: The ID of the filter that this rule is associated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rule-number</code>: The number of the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rule-action</code>: The action taken on the filtered traffic. Possible actions are <code>accept</code> and <code>reject</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-direction</code>: The traffic direction. Possible directions are <code>ingress</code> and <code>egress</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>protocol</code>: The protocol, for example UDP, assigned to the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-cidr-block</code>: The source CIDR block assigned to the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>destination-cidr-block</code>: The destination CIDR block assigned to the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The description of the Traffic Mirror rule.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorFilterRulesResult {
+  /**
+   * <p>Traffic mirror rules.</p>
+   * @public
+   */
+  TrafficMirrorFilterRules?: TrafficMirrorFilterRule[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorFiltersRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The Traffic Mirror filter description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorFiltersResult {
+  /**
+   * <p>Information about one or more Traffic Mirror filters.</p>
+   * @public
+   */
+  TrafficMirrorFilters?: TrafficMirrorFilter[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorSessionsRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   * @public
+   */
+  TrafficMirrorSessionIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The Traffic Mirror session description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>packet-length</code>: The assigned number of packets to mirror. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>session-number</code>: The assigned session number. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-session-id</code>: The ID of the Traffic Mirror session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -6857,8 +7145,8 @@ export interface EnableIpamPolicyRequest {
   IpamPolicyId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Organizations target for which to enable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will apply to the current account.</p>
-   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
+   * <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
+   *          <p>The ID of the Amazon Web Services Organizations target for which to enable the IPAM policy. This parameter is required only when IPAM is integrated with Amazon Web Services Organizations. When IPAM is not integrated with Amazon Web Services Organizations, omit this parameter and the policy will apply to the current account.</p>
    * @public
    */
   OrganizationTargetId?: string | undefined;
@@ -8818,322 +9106,4 @@ export interface GetCapacityReservationUsageRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about the Capacity Reservation usage.</p>
- * @public
- */
-export interface InstanceUsage {
-  /**
-   * <p>The ID of the Amazon Web Services account that is making use of the Capacity
-   * 			Reservation.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The number of instances the Amazon Web Services account currently has in the Capacity
-   * 			Reservation.</p>
-   * @public
-   */
-  UsedInstanceCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityReservationUsageResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The remaining capacity. Indicates the number of instances that can be launched in the
-   * 			Capacity Reservation.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of
-   * 			the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>active</code> - The capacity is available for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time
-   * 		specified in your reservation request. The reserved capacity is no longer available for your use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cancelled</code> - The Capacity Reservation was canceled. The reserved capacity is no
-   * 		longer available for your use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
-   * 		provisioning is still pending.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - The Capacity Reservation request has failed. A request can fail due to
-   * 		request parameters that are not valid, capacity constraints, or instance limit constraints. You
-   * 		can view a failed request for 60 minutes.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations</i>) The
-   * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
-   * 		for delivery on the requested start date.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-pending</code> - (<i>Capacity Blocks</i>) The upfront
-   * 	    payment has not been processed yet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-failed</code> - (<i>Capacity Blocks</i>) The upfront
-   * 	    payment was not processed in the 12-hour time frame. Your Capacity Block was released.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations</i>)
-   * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
-   * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
-   * 		unable to deliver the requested capacity by the requested start date and time.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
-   * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
-   * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: CapacityReservationState | undefined;
-
-  /**
-   * <p>Information about the Capacity Reservation usage.</p>
-   * @public
-   */
-  InstanceUsages?: InstanceUsage[] | undefined;
-
-  /**
-   * <p>
-   * 			Indicates whether the Capacity Reservation is interruptible, meaning instances may be terminated when the owner reclaims capacity.
-   * 		</p>
-   * @public
-   */
-  Interruptible?: boolean | undefined;
-
-  /**
-   * <p>
-   * 			Information about the capacity allocated to the interruptible Capacity Reservation, including instance counts and allocation status.
-   * 		</p>
-   * @public
-   */
-  InterruptibleCapacityAllocation?: InterruptibleCapacityAllocation | undefined;
-
-  /**
-   * <p>
-   * 			Details about the interruption configuration and source reservation for interruptible Capacity Reservations.
-   * 		</p>
-   * @public
-   */
-  InterruptionInfo?: InterruptionInfo | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoipPoolUsageRequest {
-  /**
-   * <p>The ID of the address pool.</p>
-   * @public
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services account that is using the customer-owned IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.aws-service</code> - The Amazon Web Services service that is using the customer-owned IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes address usage for a customer-owned address pool.</p>
- * @public
- */
-export interface CoipAddressUsage {
-  /**
-   * <p>The allocation ID of the address.</p>
-   * @public
-   */
-  AllocationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services service.</p>
-   * @public
-   */
-  AwsService?: string | undefined;
-
-  /**
-   * <p>The customer-owned IP address.</p>
-   * @public
-   */
-  CoIp?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoipPoolUsageResult {
-  /**
-   * <p>The ID of the customer-owned address pool.</p>
-   * @public
-   */
-  CoipPoolId?: string | undefined;
-
-  /**
-   * <p>Information about the address usage.</p>
-   * @public
-   */
-  CoipAddressUsages?: CoipAddressUsage[] | undefined;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId?: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConsoleOutputRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>When enabled, retrieves the latest console output for the instance.</p>
-   *          <p>Default: disabled (<code>false</code>)</p>
-   * @public
-   */
-  Latest?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConsoleOutputResult {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The time at which the output was last updated.</p>
-   * @public
-   */
-  Timestamp?: Date | undefined;
-
-  /**
-   * <p>The console output, base64-encoded. If you are using a command line tool, the tool
-   *             decodes the output for you.</p>
-   * @public
-   */
-  Output?: string | undefined;
 }

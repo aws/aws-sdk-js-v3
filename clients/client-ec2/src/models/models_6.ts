@@ -8,6 +8,7 @@ import type {
   AutoPlacement,
   BootModeValues,
   CapacityReservationPreference,
+  CapacityReservationState,
   CurrencyCodeValues,
   DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
@@ -16,7 +17,6 @@ import type {
   EkPubKeyFormat,
   EkPubKeyType,
   EndDateType,
-  ExcessCapacityTerminationPolicy,
   FleetExcessCapacityTerminationPolicy,
   FpgaImageAttributeName,
   HostMaintenance,
@@ -68,11 +68,9 @@ import type {
   RouteServerRouteStatus,
   SelfServicePortal,
   ShutdownBehavior,
-  SnapshotAttributeName,
   SnapshotBlockPublicAccessState,
   SSEType,
   TargetCapacityUnitType,
-  TargetStorageTier,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayPropagationState,
@@ -94,6 +92,8 @@ import type {
   ConnectionLogOptions,
   EnaSrdSpecification,
   InstanceEventWindow,
+  InterruptibleCapacityAllocation,
+  InterruptionInfo,
   IpamPoolAllocation,
   OperatorResponse,
   RouteServerAssociation,
@@ -101,6 +101,7 @@ import type {
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
+  TransitGatewayConfigurationInputStructure,
   TransitGatewayPolicyTableAssociation,
   UnsuccessfulItem,
 } from "./models_0";
@@ -146,14 +147,326 @@ import type {
   SnapshotDetail,
   SnapshotTaskDetail,
 } from "./models_3";
-import type {
-  CreateVolumePermission,
-  InstanceMetadataOptionsResponse,
-  InstanceStatusEvent,
-  LaunchTemplateConfig,
-  ReservedInstancesConfiguration,
-} from "./models_4";
+import type { InstanceMetadataOptionsResponse, InstanceStatusEvent, ReservedInstancesConfiguration } from "./models_4";
 import type { RouteServerPropagation } from "./models_5";
+
+/**
+ * <p>Information about the Capacity Reservation usage.</p>
+ * @public
+ */
+export interface InstanceUsage {
+  /**
+   * <p>The ID of the Amazon Web Services account that is making use of the Capacity
+   * 			Reservation.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The number of instances the Amazon Web Services account currently has in the Capacity
+   * 			Reservation.</p>
+   * @public
+   */
+  UsedInstanceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityReservationUsageResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the
+   * 			Capacity Reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of
+   * 			the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The capacity is available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time
+   * 		specified in your reservation request. The reserved capacity is no longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelled</code> - The Capacity Reservation was canceled. The reserved capacity is no
+   * 		longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
+   * 		provisioning is still pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The Capacity Reservation request has failed. A request can fail due to
+   * 		request parameters that are not valid, capacity constraints, or instance limit constraints. You
+   * 		can view a failed request for 60 minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations</i>) The
+   * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
+   * 		for delivery on the requested start date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-pending</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment has not been processed yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment was not processed in the 12-hour time frame. Your Capacity Block was released.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations</i>)
+   * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
+   * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
+   * 		unable to deliver the requested capacity by the requested start date and time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
+   * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
+   * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: CapacityReservationState | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation usage.</p>
+   * @public
+   */
+  InstanceUsages?: InstanceUsage[] | undefined;
+
+  /**
+   * <p>
+   * 			Indicates whether the Capacity Reservation is interruptible, meaning instances may be terminated when the owner reclaims capacity.
+   * 		</p>
+   * @public
+   */
+  Interruptible?: boolean | undefined;
+
+  /**
+   * <p>
+   * 			Information about the capacity allocated to the interruptible Capacity Reservation, including instance counts and allocation status.
+   * 		</p>
+   * @public
+   */
+  InterruptibleCapacityAllocation?: InterruptibleCapacityAllocation | undefined;
+
+  /**
+   * <p>
+   * 			Details about the interruption configuration and source reservation for interruptible Capacity Reservations.
+   * 		</p>
+   * @public
+   */
+  InterruptionInfo?: InterruptionInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoipPoolUsageRequest {
+  /**
+   * <p>The ID of the address pool.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services account that is using the customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.aws-service</code> - The Amazon Web Services service that is using the customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes address usage for a customer-owned address pool.</p>
+ * @public
+ */
+export interface CoipAddressUsage {
+  /**
+   * <p>The allocation ID of the address.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service.</p>
+   * @public
+   */
+  AwsService?: string | undefined;
+
+  /**
+   * <p>The customer-owned IP address.</p>
+   * @public
+   */
+  CoIp?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoipPoolUsageResult {
+  /**
+   * <p>The ID of the customer-owned address pool.</p>
+   * @public
+   */
+  CoipPoolId?: string | undefined;
+
+  /**
+   * <p>Information about the address usage.</p>
+   * @public
+   */
+  CoipAddressUsages?: CoipAddressUsage[] | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConsoleOutputRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>When enabled, retrieves the latest console output for the instance.</p>
+   *          <p>Default: disabled (<code>false</code>)</p>
+   * @public
+   */
+  Latest?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConsoleOutputResult {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The time at which the output was last updated.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p>The console output, base64-encoded. If you are using a command line tool, the tool
+   *             decodes the output for you.</p>
+   * @public
+   */
+  Output?: string | undefined;
+}
 
 /**
  * @public
@@ -6853,6 +7166,12 @@ export interface ModifyClientVpnEndpointRequest {
    * @public
    */
   DisconnectOnSessionTimeout?: boolean | undefined;
+
+  /**
+   * <p>The Transit Gateway configuration for the Client VPN endpoint. This option is currently not supported.</p>
+   * @public
+   */
+  TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
 }
 
 /**
@@ -9719,271 +10038,4 @@ export interface ModifySecurityGroupRulesResult {
    * @public
    */
   Return?: boolean | undefined;
-}
-
-/**
- * <p>Describes modifications to the list of create volume permissions for a volume.</p>
- * @public
- */
-export interface CreateVolumePermissionModifications {
-  /**
-   * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
-   * @public
-   */
-  Add?: CreateVolumePermission[] | undefined;
-
-  /**
-   * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
-   * @public
-   */
-  Remove?: CreateVolumePermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifySnapshotAttributeRequest {
-  /**
-   * <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
-   * @public
-   */
-  Attribute?: SnapshotAttributeName | undefined;
-
-  /**
-   * <p>A JSON representation of the snapshot attribute modification.</p>
-   * @public
-   */
-  CreateVolumePermission?: CreateVolumePermissionModifications | undefined;
-
-  /**
-   * <p>The group to modify for the snapshot.</p>
-   * @public
-   */
-  GroupNames?: string[] | undefined;
-
-  /**
-   * <p>The type of operation to perform to the attribute.</p>
-   * @public
-   */
-  OperationType?: OperationType | undefined;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>The account ID to modify for the snapshot.</p>
-   * @public
-   */
-  UserIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifySnapshotTierRequest {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>The name of the storage tier. You must specify <code>archive</code>.</p>
-   * @public
-   */
-  StorageTier?: TargetStorageTier | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifySnapshotTierResult {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The date and time when the archive process was started.</p>
-   * @public
-   */
-  TieringStartTime?: Date | undefined;
-}
-
-/**
- * <p>Contains the parameters for ModifySpotFleetRequest.</p>
- * @public
- */
-export interface ModifySpotFleetRequestRequest {
-  /**
-   * <p>The launch template and overrides. You can only use this parameter if you specified a
-   *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
-   *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
-   *             parameter.</p>
-   * @public
-   */
-  LaunchTemplateConfigs?: LaunchTemplateConfig[] | undefined;
-
-  /**
-   * <p>The number of On-Demand Instances in the fleet.</p>
-   * @public
-   */
-  OnDemandTargetCapacity?: number | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  Context?: string | undefined;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId: string | undefined;
-
-  /**
-   * <p>The size of the fleet.</p>
-   * @public
-   */
-  TargetCapacity?: number | undefined;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the target capacity
-   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
-   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
-   * @public
-   */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | undefined;
-}
-
-/**
- * <p>Contains the output of ModifySpotFleetRequest.</p>
- * @public
- */
-export interface ModifySpotFleetRequestResponse {
-  /**
-   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
-   *             no response is returned, and instead an error message is returned.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifySubnetAttributeRequest {
-  /**
-   * <p>Specify <code>true</code> to indicate that network interfaces created in the
-   *             specified subnet should be assigned an IPv6 address. This includes a network interface
-   *             that's created when launching an instance into the subnet (the instance therefore
-   *             receives an IPv6 address). </p>
-   *          <p>If you enable the IPv6 addressing feature for your subnet, your network interface
-   *             or instance only receives an IPv6 address if it's created using version
-   *                 <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
-   * @public
-   */
-  AssignIpv6AddressOnCreation?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
-   *             specified subnet should be assigned a public IPv4 address.</p>
-   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
-   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
-   * @public
-   */
-  MapPublicIpOnLaunch?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to indicate that network interfaces  attached to instances created in the
-   *             specified subnet should be assigned a customer-owned IPv4 address.</p>
-   *          <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
-   * @public
-   */
-  MapCustomerOwnedIpOnLaunch?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
-   *          <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
-   * @public
-   */
-  CustomerOwnedIpv4Pool?: string | undefined;
-
-  /**
-   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
-   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
-   *          <p>You must first configure a NAT gateway in a public subnet (separate from the subnet
-   *            containing the IPv6-only workloads). For example, the subnet containing the NAT gateway
-   *            should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more
-   *            information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
-   * @public
-   */
-  EnableDns64?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an
-   *             instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance
-   *             DNS name must be based on the instance ID (resource-name).</p>
-   * @public
-   */
-  PrivateDnsHostnameTypeOnLaunch?: HostnameType | undefined;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
-   * @public
-   */
-  EnableResourceNameDnsARecordOnLaunch?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
-   * @public
-   */
-  EnableResourceNameDnsAAAARecordOnLaunch?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>
-   *             Indicates the device position for local network interfaces in this subnet. For example,
-   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
-   *             network interface (eth1). A local network interface cannot be the primary network
-   *             interface (eth0).
-   *         </p>
-   * @public
-   */
-  EnableLniAtDeviceIndex?: number | undefined;
-
-  /**
-   * <p>
-   *             Specify <code>true</code> to indicate that local network interfaces at the current
-   *             position should be disabled.
-   *         </p>
-   * @public
-   */
-  DisableLniAtDeviceIndex?: AttributeBooleanValue | undefined;
 }

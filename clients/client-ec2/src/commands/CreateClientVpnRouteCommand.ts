@@ -40,7 +40,7 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * const input = { // CreateClientVpnRouteRequest
  *   ClientVpnEndpointId: "STRING_VALUE", // required
  *   DestinationCidrBlock: "STRING_VALUE", // required
- *   TargetVpcSubnetId: "STRING_VALUE", // required
+ *   TargetVpcSubnetId: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,

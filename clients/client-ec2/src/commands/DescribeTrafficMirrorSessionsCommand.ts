@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTrafficMirrorSessionsRequest } from "../models/models_4";
-import type { DescribeTrafficMirrorSessionsResult } from "../models/models_5";
+import type { DescribeTrafficMirrorSessionsRequest, DescribeTrafficMirrorSessionsResult } from "../models/models_5";
 import { DescribeTrafficMirrorSessions$ } from "../schemas/schemas_0";
 
 /**

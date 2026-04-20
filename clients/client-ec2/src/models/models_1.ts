@@ -74,6 +74,8 @@ import type {
   LocalStorage,
   LocalStorageType,
   LogDestinationType,
+  MacModificationTaskState,
+  MacModificationTaskType,
   MacSystemIntegrityProtectionSettingStatus,
   MarketType,
   NatGatewayApplianceModifyState,
@@ -104,9 +106,6 @@ import type {
   RouteState,
   RuleAction,
   SecondaryInterfaceType,
-  SecondaryNetworkCidrBlockAssociationState,
-  SecondaryNetworkState,
-  SecondaryNetworkType,
   ShutdownBehavior,
   SnapshotLocationEnum,
   SpotAllocationStrategy,
@@ -131,7 +130,6 @@ import type {
   AddPrefixListEntry,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
-  MacModificationTask,
   NatGatewayAddress,
   OperatorResponse,
   PortRange,
@@ -141,6 +139,204 @@ import type {
   TagSpecification,
   UnsuccessfulItem,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateDelegateMacVolumeOwnershipTaskRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Amazon EC2 Mac instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Specifies the following credentials:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Internal disk administrative user</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Username</b> - Only the default administrative user
+   *                      (<code>aws-managed-user</code>) is supported and it is used by default. You can't
+   *                      specify a different administrative user.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Password</b> - If you did not change the default
+   *                      password for <code>aws-managed-user</code>, specify the default password, which is
+   *                      <i>blank</i>. Otherwise, specify your password.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon EBS root volume administrative user</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Username</b> - If you did not change the default
+   *                      administrative user, specify <code>ec2-user</code>. Otherwise, specify the username
+   *                      for your administrative user.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Password</b> - Specify the password for the
+   *                      administrative user.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>The credentials must be specified in the following JSON format:</p>
+   *          <p>
+   *             <code>\{
+   *   "internalDiskPassword":"<i>internal-disk-admin_password</i>",
+   *   "rootVolumeUsername":"<i>root-volume-admin_username</i>",
+   *   "rootVolumepassword":"<i>root-volume-admin_password</i>"
+   * \}</code>
+   *          </p>
+   * @public
+   */
+  MacCredentials: string | undefined;
+
+  /**
+   * <p>The tags to assign to the volume ownership delegation task.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration for a System Integrity Protection (SIP) modification task.</p>
+ * @public
+ */
+export interface MacSystemIntegrityProtectionConfiguration {
+  /**
+   * <p>Indicates whether Apple Internal was enabled or disabled by the task.</p>
+   * @public
+   */
+  AppleInternal?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates whether Base System was enabled or disabled by the task.</p>
+   * @public
+   */
+  BaseSystem?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates whether Debugging Restrictions was enabled or disabled by the task.</p>
+   * @public
+   */
+  DebuggingRestrictions?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates whether Dtrace Restrictions was enabled or disabled by the task.</p>
+   * @public
+   */
+  DTraceRestrictions?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates whether Filesystem Protections was enabled or disabled by the task.</p>
+   * @public
+   */
+  FilesystemProtections?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates whether Kext Signing was enabled or disabled by the task.</p>
+   * @public
+   */
+  KextSigning?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates whether NVRAM Protections was enabled or disabled by the task.</p>
+   * @public
+   */
+  NvramProtections?: MacSystemIntegrityProtectionSettingStatus | undefined;
+
+  /**
+   * <p>Indicates SIP was enabled or disabled by the task.</p>
+   * @public
+   */
+  Status?: MacSystemIntegrityProtectionSettingStatus | undefined;
+}
+
+/**
+ * <p>Information about a System Integrity Protection (SIP) modification task or volume
+ *          ownership delegation task for an Amazon EC2 Mac instance.</p>
+ * @public
+ */
+export interface MacModificationTask {
+  /**
+   * <p>The ID of the Amazon EC2 Mac instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The ID of task.</p>
+   * @public
+   */
+  MacModificationTaskId?: string | undefined;
+
+  /**
+   * <p>[SIP modification tasks only] Information about the SIP
+   *          configuration.</p>
+   * @public
+   */
+  MacSystemIntegrityProtectionConfig?: MacSystemIntegrityProtectionConfiguration | undefined;
+
+  /**
+   * <p>The date and time the task was created, in the UTC timezone
+   *          (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The tags assigned to the task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The state of the task.</p>
+   * @public
+   */
+  TaskState?: MacModificationTaskState | undefined;
+
+  /**
+   * <p>The type of task.</p>
+   * @public
+   */
+  TaskType?: MacModificationTaskType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDelegateMacVolumeOwnershipTaskResult {
+  /**
+   * <p>Information about the volume ownership delegation task.</p>
+   * @public
+   */
+  MacModificationTask?: MacModificationTask | undefined;
+}
 
 /**
  * <p>Describes a DHCP configuration option.</p>
@@ -14012,142 +14208,6 @@ export interface CreateRouteTableResult {
    * @public
    */
   RouteTable?: RouteTable | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSecondaryNetworkRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28.</p>
-   * @public
-   */
-  Ipv4CidrBlock: string | undefined;
-
-  /**
-   * <p>The type of secondary network.</p>
-   * @public
-   */
-  NetworkType: SecondaryNetworkType | undefined;
-
-  /**
-   * <p>The tags to assign to the secondary network.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * <p>Describes an IPv4 CIDR block associated with a secondary network.</p>
- * @public
- */
-export interface SecondaryNetworkIpv4CidrBlockAssociation {
-  /**
-   * <p>The association ID for the IPv4 CIDR block.</p>
-   * @public
-   */
-  AssociationId?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR block.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The state of the CIDR block association.</p>
-   * @public
-   */
-  State?: SecondaryNetworkCidrBlockAssociationState | undefined;
-
-  /**
-   * <p>The reason for the current state of the CIDR block association.</p>
-   * @public
-   */
-  StateReason?: string | undefined;
-}
-
-/**
- * <p>Describes a secondary network.</p>
- * @public
- */
-export interface SecondaryNetwork {
-  /**
-   * <p>The ID of the secondary network.</p>
-   * @public
-   */
-  SecondaryNetworkId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secondary network.</p>
-   * @public
-   */
-  SecondaryNetworkArn?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the secondary network.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The type of the secondary network.</p>
-   * @public
-   */
-  Type?: SecondaryNetworkType | undefined;
-
-  /**
-   * <p>The state of the secondary network.</p>
-   * @public
-   */
-  State?: SecondaryNetworkState | undefined;
-
-  /**
-   * <p>The reason for the current state of the secondary network.</p>
-   * @public
-   */
-  StateReason?: string | undefined;
-
-  /**
-   * <p>Information about the IPv4 CIDR blocks associated with the secondary network.</p>
-   * @public
-   */
-  Ipv4CidrBlockAssociations?: SecondaryNetworkIpv4CidrBlockAssociation[] | undefined;
-
-  /**
-   * <p>The tags assigned to the secondary network.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSecondaryNetworkResult {
-  /**
-   * <p>Information about the secondary network.</p>
-   * @public
-   */
-  SecondaryNetwork?: SecondaryNetwork | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>

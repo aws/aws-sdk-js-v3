@@ -65,6 +65,7 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  * //         Message: "STRING_VALUE",
  * //       },
  * //       Description: "STRING_VALUE",
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

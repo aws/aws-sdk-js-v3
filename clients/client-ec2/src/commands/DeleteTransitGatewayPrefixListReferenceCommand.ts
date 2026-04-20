@@ -55,7 +55,7 @@ export interface DeleteTransitGatewayPrefixListReferenceCommandOutput extends De
  * //     Blackhole: true || false,
  * //     TransitGatewayAttachment: { // TransitGatewayPrefixListAttachment
  * //       TransitGatewayAttachmentId: "STRING_VALUE",
- * //       ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //       ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function" || "client-vpn",
  * //       ResourceId: "STRING_VALUE",
  * //     },
  * //   },

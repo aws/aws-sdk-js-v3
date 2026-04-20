@@ -72,6 +72,15 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *     Enforced: true || false,
  *   },
  *   DisconnectOnSessionTimeout: true || false,
+ *   TransitGatewayConfiguration: { // TransitGatewayConfigurationInputStructure
+ *     TransitGatewayId: "STRING_VALUE",
+ *     AvailabilityZones: [ // ClientVpnAvailabilityZoneSet
+ *       "STRING_VALUE",
+ *     ],
+ *     AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new ModifyClientVpnEndpointCommand(input);
  * const response = await client.send(command);
