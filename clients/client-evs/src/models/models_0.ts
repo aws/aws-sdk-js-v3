@@ -3,6 +3,10 @@ import type {
   _InstanceType,
   CheckResult,
   CheckType,
+  ConnectorState,
+  ConnectorType,
+  EntitlementStatus,
+  EntitlementType,
   EnvironmentState,
   HostState,
   VcfVersion,
@@ -167,6 +171,136 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEntitlementRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the entitlement creation request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment to create the entitlement in.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>A unique ID for the connector associated with the entitlement.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+
+  /**
+   * <p>The type of entitlement to create.</p>
+   * @public
+   */
+  entitlementType: EntitlementType | undefined;
+
+  /**
+   * <p>The list of VMware vSphere virtual machine managed object IDs to create entitlements for.</p>
+   * @public
+   */
+  vmIds: string[] | undefined;
+}
+
+/**
+ * <p>An object that contains error details for an entitlement.</p>
+ * @public
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p>An object that represents a Windows Server License entitlement for a virtual machine in an Amazon EVS environment.</p>
+ * @public
+ */
+export interface VmEntitlement {
+  /**
+   * <p>The unique ID of the virtual machine.</p>
+   * @public
+   */
+  vmId?: string | undefined;
+
+  /**
+   * <p>The unique ID of the environment.</p>
+   * @public
+   */
+  environmentId?: string | undefined;
+
+  /**
+   * <p>The unique ID of the connector associated with the entitlement.</p>
+   * @public
+   */
+  connectorId?: string | undefined;
+
+  /**
+   * <p>The name of the virtual machine.</p>
+   * @public
+   */
+  vmName?: string | undefined;
+
+  /**
+   * <p>The type of entitlement.</p>
+   * @public
+   */
+  type?: EntitlementType | undefined;
+
+  /**
+   * <p>The status of the entitlement.</p>
+   * @public
+   */
+  status?: EntitlementStatus | undefined;
+
+  /**
+   * <p>The date and time that the entitlement was last synced.</p>
+   * @public
+   */
+  lastSyncedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the entitlement started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the entitlement stopped.</p>
+   * @public
+   */
+  stoppedAt?: Date | undefined;
+
+  /**
+   * <p>The error details associated with the entitlement, if applicable.</p>
+   * @public
+   */
+  errorDetail?: ErrorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEntitlementResponse {
+  /**
+   * <p>A list of the created entitlements.</p>
+   * @public
+   */
+  entitlements?: VmEntitlement[] | undefined;
 }
 
 /**
@@ -668,6 +802,154 @@ export interface CreateEnvironmentResponse {
 /**
  * @public
  */
+export interface CreateEnvironmentConnectorRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the connector creation request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment to create the connector in.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The type of connector to create.</p>
+   * @public
+   */
+  type: ConnectorType | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the VCF appliance that the connector targets.</p>
+   * @public
+   */
+  applianceFqdn: string | undefined;
+
+  /**
+   * <p>The ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p> <important> <p>Do not use credentials with Administrator privileges. We recommend using a service account with the minimum required permissions.</p> </important>
+   * @public
+   */
+  secretIdentifier: string | undefined;
+}
+
+/**
+ * <p>A check on a connector to identify connectivity health.</p>
+ * @public
+ */
+export interface ConnectorCheck {
+  /**
+   * <p>The check type.</p>
+   * @public
+   */
+  type?: CheckType | undefined;
+
+  /**
+   * <p>The check result.</p>
+   * @public
+   */
+  result?: CheckResult | undefined;
+
+  /**
+   * <p>The date and time of the last check attempt.</p>
+   * @public
+   */
+  lastCheckAttempt?: Date | undefined;
+
+  /**
+   * <p>The time when connector health began to be impaired.</p>
+   * @public
+   */
+  impairedSince?: Date | undefined;
+}
+
+/**
+ * <p>An object that represents a connector for an Amazon EVS environment. A connector establishes a vCenter connection using the credentials stored in Amazon Web Services Secrets Manager.</p>
+ * @public
+ */
+export interface Connector {
+  /**
+   * <p>The unique ID of the environment that the connector belongs to.</p>
+   * @public
+   */
+  environmentId?: string | undefined;
+
+  /**
+   * <p>The unique ID of the connector.</p>
+   * @public
+   */
+  connectorId?: string | undefined;
+
+  /**
+   * <p>The type of the connector.</p>
+   * @public
+   */
+  type?: ConnectorType | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>
+   * @public
+   */
+  applianceFqdn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>
+   * @public
+   */
+  secretArn?: string | undefined;
+
+  /**
+   * <p>The state of the connector.</p>
+   * @public
+   */
+  state?: ConnectorState | undefined;
+
+  /**
+   * <p>A detailed description of the connector state.</p>
+   * @public
+   */
+  stateDetails?: string | undefined;
+
+  /**
+   * <p>The status of the connector.</p>
+   * @public
+   */
+  status?: CheckResult | undefined;
+
+  /**
+   * <p>A list of checks that are run on the connector.</p>
+   * @public
+   */
+  checks?: ConnectorCheck[] | undefined;
+
+  /**
+   * <p>The date and time that the connector was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the connector was modified.</p>
+   * @public
+   */
+  modifiedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentConnectorResponse {
+  /**
+   * <p>A description of the created connector.</p>
+   * @public
+   */
+  connector?: Connector | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateEnvironmentHostRequest {
   /**
    * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the host creation request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
@@ -858,6 +1140,52 @@ export interface CreateEnvironmentHostResponse {
 /**
  * @public
  */
+export interface DeleteEntitlementRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the entitlement deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment that the entitlement belongs to.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>A unique ID for the connector associated with the entitlement.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+
+  /**
+   * <p>The type of entitlement to delete.</p>
+   * @public
+   */
+  entitlementType: EntitlementType | undefined;
+
+  /**
+   * <p>The list of VMware vSphere virtual machine managed object IDs to delete entitlements for.</p>
+   * @public
+   */
+  vmIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEntitlementResponse {
+  /**
+   * <p>A list of the deleted entitlements.</p>
+   * @public
+   */
+  entitlements?: VmEntitlement[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteEnvironmentRequest {
   /**
    * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the environment deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
@@ -881,6 +1209,46 @@ export interface DeleteEnvironmentResponse {
    * @public
    */
   environment?: Environment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEnvironmentConnectorRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the connector deletion request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment that the connector belongs to.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>A unique ID for the connector to be deleted.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEnvironmentConnectorResponse {
+  /**
+   * <p>A description of the deleted connector.</p>
+   * @public
+   */
+  connector?: Connector | undefined;
+
+  /**
+   * <p>A summary of the environment that the connector was deleted from.</p>
+   * @public
+   */
+  environmentSummary?: EnvironmentSummary | undefined;
 }
 
 /**
@@ -983,6 +1351,46 @@ export interface GetEnvironmentResponse {
    * @public
    */
   environment?: Environment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentConnectorsRequest {
+  /**
+   * <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A unique ID for the environment.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentConnectorsResponse {
+  /**
+   * <p>A unique pagination token for next page results. Make the call again using this token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of connectors in the environment.</p>
+   * @public
+   */
+  connectors?: Connector[] | undefined;
 }
 
 /**
@@ -1103,6 +1511,104 @@ export interface ListEnvironmentVlansResponse {
    * @public
    */
   environmentVlans?: Vlan[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVmEntitlementsRequest {
+  /**
+   * <p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A unique ID for the environment.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>A unique ID for the connector.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+
+  /**
+   * <p>The type of entitlement to list.</p>
+   * @public
+   */
+  entitlementType: EntitlementType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVmEntitlementsResponse {
+  /**
+   * <p>A unique pagination token for next page results. Make the call again using this token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of entitlements for virtual machines in the environment.</p>
+   * @public
+   */
+  entitlements?: VmEntitlement[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentConnectorRequest {
+  /**
+   * <note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the connector update request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A unique ID for the environment that the connector belongs to.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>A unique ID for the connector to update.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+
+  /**
+   * <p>The new fully qualified domain name (FQDN) of the VCF appliance that the connector connects to.</p>
+   * @public
+   */
+  applianceFqdn?: string | undefined;
+
+  /**
+   * <p>The new ARN or name of the Amazon Web Services Secrets Manager secret that stores the credentials for the VCF appliance.</p>
+   * @public
+   */
+  secretIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnvironmentConnectorResponse {
+  /**
+   * <p>A description of the updated connector.</p>
+   * @public
+   */
+  connector?: Connector | undefined;
 }
 
 /**

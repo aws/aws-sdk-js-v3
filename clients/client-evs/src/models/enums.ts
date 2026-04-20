@@ -34,6 +34,35 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const EntitlementType = {
+  WINDOWS_SERVER: "WINDOWS_SERVER",
+} as const;
+/**
+ * @public
+ */
+export type EntitlementType = (typeof EntitlementType)[keyof typeof EntitlementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EntitlementStatus = {
+  AT_RISK: "AT_RISK",
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  ENTITLEMENT_REMOVED: "ENTITLEMENT_REMOVED",
+} as const;
+/**
+ * @public
+ */
+export type EntitlementStatus = (typeof EntitlementStatus)[keyof typeof EntitlementStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const _InstanceType = {
   I4I_METAL: "i4i.metal",
 } as const;
@@ -78,6 +107,9 @@ export const CheckType = {
   KEY_COVERAGE: "KEY_COVERAGE",
   KEY_REUSE: "KEY_REUSE",
   REACHABILITY: "REACHABILITY",
+  VCENTER_REACHABILITY: "VCENTER_REACHABILITY",
+  VCENTER_VM_EVENT: "VCENTER_VM_EVENT",
+  VCENTER_VM_SYNC: "VCENTER_VM_SYNC",
 } as const;
 /**
  * @public
@@ -99,6 +131,36 @@ export const EnvironmentState = {
  * @public
  */
 export type EnvironmentState = (typeof EnvironmentState)[keyof typeof EnvironmentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorType = {
+  VCENTER: "VCENTER",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorType = (typeof ConnectorType)[keyof typeof ConnectorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorState = (typeof ConnectorState)[keyof typeof ConnectorState];
 
 /**
  * @public

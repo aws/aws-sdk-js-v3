@@ -8,20 +8,40 @@ import {
   AssociateEipToVlanCommand,
 } from "./commands/AssociateEipToVlanCommand";
 import {
+  type CreateEntitlementCommandInput,
+  type CreateEntitlementCommandOutput,
+  CreateEntitlementCommand,
+} from "./commands/CreateEntitlementCommand";
+import {
   type CreateEnvironmentCommandInput,
   type CreateEnvironmentCommandOutput,
   CreateEnvironmentCommand,
 } from "./commands/CreateEnvironmentCommand";
+import {
+  type CreateEnvironmentConnectorCommandInput,
+  type CreateEnvironmentConnectorCommandOutput,
+  CreateEnvironmentConnectorCommand,
+} from "./commands/CreateEnvironmentConnectorCommand";
 import {
   type CreateEnvironmentHostCommandInput,
   type CreateEnvironmentHostCommandOutput,
   CreateEnvironmentHostCommand,
 } from "./commands/CreateEnvironmentHostCommand";
 import {
+  type DeleteEntitlementCommandInput,
+  type DeleteEntitlementCommandOutput,
+  DeleteEntitlementCommand,
+} from "./commands/DeleteEntitlementCommand";
+import {
   type DeleteEnvironmentCommandInput,
   type DeleteEnvironmentCommandOutput,
   DeleteEnvironmentCommand,
 } from "./commands/DeleteEnvironmentCommand";
+import {
+  type DeleteEnvironmentConnectorCommandInput,
+  type DeleteEnvironmentConnectorCommandOutput,
+  DeleteEnvironmentConnectorCommand,
+} from "./commands/DeleteEnvironmentConnectorCommand";
 import {
   type DeleteEnvironmentHostCommandInput,
   type DeleteEnvironmentHostCommandOutput,
@@ -43,6 +63,11 @@ import {
   GetVersionsCommand,
 } from "./commands/GetVersionsCommand";
 import {
+  type ListEnvironmentConnectorsCommandInput,
+  type ListEnvironmentConnectorsCommandOutput,
+  ListEnvironmentConnectorsCommand,
+} from "./commands/ListEnvironmentConnectorsCommand";
+import {
   type ListEnvironmentHostsCommandInput,
   type ListEnvironmentHostsCommandOutput,
   ListEnvironmentHostsCommand,
@@ -63,6 +88,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListVmEntitlementsCommandInput,
+  type ListVmEntitlementsCommandOutput,
+  ListVmEntitlementsCommand,
+} from "./commands/ListVmEntitlementsCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -72,31 +102,47 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateEnvironmentConnectorCommandInput,
+  type UpdateEnvironmentConnectorCommandOutput,
+  UpdateEnvironmentConnectorCommand,
+} from "./commands/UpdateEnvironmentConnectorCommand";
 import { EvsClient } from "./EvsClient";
+import { paginateListEnvironmentConnectors } from "./pagination/ListEnvironmentConnectorsPaginator";
 import { paginateListEnvironmentHosts } from "./pagination/ListEnvironmentHostsPaginator";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
 import { paginateListEnvironmentVlans } from "./pagination/ListEnvironmentVlansPaginator";
+import { paginateListVmEntitlements } from "./pagination/ListVmEntitlementsPaginator";
 
 const commands = {
   AssociateEipToVlanCommand,
+  CreateEntitlementCommand,
   CreateEnvironmentCommand,
+  CreateEnvironmentConnectorCommand,
   CreateEnvironmentHostCommand,
+  DeleteEntitlementCommand,
   DeleteEnvironmentCommand,
+  DeleteEnvironmentConnectorCommand,
   DeleteEnvironmentHostCommand,
   DisassociateEipFromVlanCommand,
   GetEnvironmentCommand,
   GetVersionsCommand,
+  ListEnvironmentConnectorsCommand,
   ListEnvironmentHostsCommand,
   ListEnvironmentsCommand,
   ListEnvironmentVlansCommand,
   ListTagsForResourceCommand,
+  ListVmEntitlementsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateEnvironmentConnectorCommand,
 };
 const paginators = {
+  paginateListEnvironmentConnectors,
   paginateListEnvironmentHosts,
   paginateListEnvironments,
   paginateListEnvironmentVlans,
+  paginateListVmEntitlements,
 };
 
 export interface Evs {
@@ -118,6 +164,23 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link CreateEntitlementCommand}
+   */
+  createEntitlement(
+    args: CreateEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEntitlementCommandOutput>;
+  createEntitlement(
+    args: CreateEntitlementCommandInput,
+    cb: (err: any, data?: CreateEntitlementCommandOutput) => void
+  ): void;
+  createEntitlement(
+    args: CreateEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEntitlementCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEnvironmentCommand}
    */
   createEnvironment(
@@ -132,6 +195,23 @@ export interface Evs {
     args: CreateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEnvironmentConnectorCommand}
+   */
+  createEnvironmentConnector(
+    args: CreateEnvironmentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEnvironmentConnectorCommandOutput>;
+  createEnvironmentConnector(
+    args: CreateEnvironmentConnectorCommandInput,
+    cb: (err: any, data?: CreateEnvironmentConnectorCommandOutput) => void
+  ): void;
+  createEnvironmentConnector(
+    args: CreateEnvironmentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEnvironmentConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -152,6 +232,23 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link DeleteEntitlementCommand}
+   */
+  deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEntitlementCommandOutput>;
+  deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
+  ): void;
+  deleteEntitlement(
+    args: DeleteEntitlementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEnvironmentCommand}
    */
   deleteEnvironment(
@@ -166,6 +263,23 @@ export interface Evs {
     args: DeleteEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEnvironmentConnectorCommand}
+   */
+  deleteEnvironmentConnector(
+    args: DeleteEnvironmentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEnvironmentConnectorCommandOutput>;
+  deleteEnvironmentConnector(
+    args: DeleteEnvironmentConnectorCommandInput,
+    cb: (err: any, data?: DeleteEnvironmentConnectorCommandOutput) => void
+  ): void;
+  deleteEnvironmentConnector(
+    args: DeleteEnvironmentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEnvironmentConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -238,6 +352,23 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link ListEnvironmentConnectorsCommand}
+   */
+  listEnvironmentConnectors(
+    args: ListEnvironmentConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentConnectorsCommandOutput>;
+  listEnvironmentConnectors(
+    args: ListEnvironmentConnectorsCommandInput,
+    cb: (err: any, data?: ListEnvironmentConnectorsCommandOutput) => void
+  ): void;
+  listEnvironmentConnectors(
+    args: ListEnvironmentConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentConnectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEnvironmentHostsCommand}
    */
   listEnvironmentHosts(
@@ -307,6 +438,23 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link ListVmEntitlementsCommand}
+   */
+  listVmEntitlements(
+    args: ListVmEntitlementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVmEntitlementsCommandOutput>;
+  listVmEntitlements(
+    args: ListVmEntitlementsCommandInput,
+    cb: (err: any, data?: ListVmEntitlementsCommandOutput) => void
+  ): void;
+  listVmEntitlements(
+    args: ListVmEntitlementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVmEntitlementsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -341,6 +489,34 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link UpdateEnvironmentConnectorCommand}
+   */
+  updateEnvironmentConnector(
+    args: UpdateEnvironmentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEnvironmentConnectorCommandOutput>;
+  updateEnvironmentConnector(
+    args: UpdateEnvironmentConnectorCommandInput,
+    cb: (err: any, data?: UpdateEnvironmentConnectorCommandOutput) => void
+  ): void;
+  updateEnvironmentConnector(
+    args: UpdateEnvironmentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEnvironmentConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnvironmentConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentConnectorsCommandOutput}.
+   */
+  paginateListEnvironmentConnectors(
+    args: ListEnvironmentConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentConnectorsCommandOutput>;
+
+  /**
    * @see {@link ListEnvironmentHostsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -372,6 +548,17 @@ export interface Evs {
     args: ListEnvironmentVlansCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEnvironmentVlansCommandOutput>;
+
+  /**
+   * @see {@link ListVmEntitlementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVmEntitlementsCommandOutput}.
+   */
+  paginateListVmEntitlements(
+    args: ListVmEntitlementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVmEntitlementsCommandOutput>;
 }
 
 /**

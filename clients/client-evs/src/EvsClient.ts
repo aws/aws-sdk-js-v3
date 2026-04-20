@@ -66,17 +66,33 @@ import type {
   AssociateEipToVlanCommandOutput,
 } from "./commands/AssociateEipToVlanCommand";
 import type {
+  CreateEntitlementCommandInput,
+  CreateEntitlementCommandOutput,
+} from "./commands/CreateEntitlementCommand";
+import type {
   CreateEnvironmentCommandInput,
   CreateEnvironmentCommandOutput,
 } from "./commands/CreateEnvironmentCommand";
+import type {
+  CreateEnvironmentConnectorCommandInput,
+  CreateEnvironmentConnectorCommandOutput,
+} from "./commands/CreateEnvironmentConnectorCommand";
 import type {
   CreateEnvironmentHostCommandInput,
   CreateEnvironmentHostCommandOutput,
 } from "./commands/CreateEnvironmentHostCommand";
 import type {
+  DeleteEntitlementCommandInput,
+  DeleteEntitlementCommandOutput,
+} from "./commands/DeleteEntitlementCommand";
+import type {
   DeleteEnvironmentCommandInput,
   DeleteEnvironmentCommandOutput,
 } from "./commands/DeleteEnvironmentCommand";
+import type {
+  DeleteEnvironmentConnectorCommandInput,
+  DeleteEnvironmentConnectorCommandOutput,
+} from "./commands/DeleteEnvironmentConnectorCommand";
 import type {
   DeleteEnvironmentHostCommandInput,
   DeleteEnvironmentHostCommandOutput,
@@ -87,6 +103,10 @@ import type {
 } from "./commands/DisassociateEipFromVlanCommand";
 import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
 import type { GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
+import type {
+  ListEnvironmentConnectorsCommandInput,
+  ListEnvironmentConnectorsCommandOutput,
+} from "./commands/ListEnvironmentConnectorsCommand";
 import type {
   ListEnvironmentHostsCommandInput,
   ListEnvironmentHostsCommandOutput,
@@ -100,8 +120,16 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  ListVmEntitlementsCommandInput,
+  ListVmEntitlementsCommandOutput,
+} from "./commands/ListVmEntitlementsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateEnvironmentConnectorCommandInput,
+  UpdateEnvironmentConnectorCommandOutput,
+} from "./commands/UpdateEnvironmentConnectorCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -118,38 +146,52 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateEipToVlanCommandInput
+  | CreateEntitlementCommandInput
   | CreateEnvironmentCommandInput
+  | CreateEnvironmentConnectorCommandInput
   | CreateEnvironmentHostCommandInput
+  | DeleteEntitlementCommandInput
   | DeleteEnvironmentCommandInput
+  | DeleteEnvironmentConnectorCommandInput
   | DeleteEnvironmentHostCommandInput
   | DisassociateEipFromVlanCommandInput
   | GetEnvironmentCommandInput
   | GetVersionsCommandInput
+  | ListEnvironmentConnectorsCommandInput
   | ListEnvironmentHostsCommandInput
   | ListEnvironmentVlansCommandInput
   | ListEnvironmentsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVmEntitlementsCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateEnvironmentConnectorCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | AssociateEipToVlanCommandOutput
+  | CreateEntitlementCommandOutput
   | CreateEnvironmentCommandOutput
+  | CreateEnvironmentConnectorCommandOutput
   | CreateEnvironmentHostCommandOutput
+  | DeleteEntitlementCommandOutput
   | DeleteEnvironmentCommandOutput
+  | DeleteEnvironmentConnectorCommandOutput
   | DeleteEnvironmentHostCommandOutput
   | DisassociateEipFromVlanCommandOutput
   | GetEnvironmentCommandOutput
   | GetVersionsCommandOutput
+  | ListEnvironmentConnectorsCommandOutput
   | ListEnvironmentHostsCommandOutput
   | ListEnvironmentVlansCommandOutput
   | ListEnvironmentsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVmEntitlementsCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateEnvironmentConnectorCommandOutput;
 
 /**
  * @public

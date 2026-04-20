@@ -65,7 +65,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * //     environmentStatus: "PASSED" || "FAILED" || "UNKNOWN",
  * //     checks: [ // ChecksList
  * //       { // Check
- * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT",
+ * //         type: "KEY_REUSE" || "KEY_COVERAGE" || "REACHABILITY" || "HOST_COUNT" || "VCENTER_REACHABILITY" || "VCENTER_VM_SYNC" || "VCENTER_VM_EVENT",
  * //         result: "PASSED" || "FAILED" || "UNKNOWN",
  * //         impairedSince: new Date("TIMESTAMP"),
  * //       },
