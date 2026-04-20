@@ -5,6 +5,7 @@ export * from "./GetDevicePositionHistoryPaginator";
 export * from "./ListDevicePositionsPaginator";
 export * from "./ListGeofenceCollectionsPaginator";
 export * from "./ListGeofencesPaginator";
+export * from "./ListJobsPaginator";
 export * from "./ListKeysPaginator";
 export * from "./ListMapsPaginator";
 export * from "./ListPlaceIndexesPaginator";

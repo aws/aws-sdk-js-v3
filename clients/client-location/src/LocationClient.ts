@@ -91,6 +91,7 @@ import type {
   CalculateRouteMatrixCommandInput,
   CalculateRouteMatrixCommandOutput,
 } from "./commands/CalculateRouteMatrixCommand";
+import type { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import type {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
@@ -147,6 +148,7 @@ import type {
   GetDevicePositionHistoryCommandOutput,
 } from "./commands/GetDevicePositionHistoryCommand";
 import type { GetGeofenceCommandInput, GetGeofenceCommandOutput } from "./commands/GetGeofenceCommand";
+import type { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import type { GetMapGlyphsCommandInput, GetMapGlyphsCommandOutput } from "./commands/GetMapGlyphsCommand";
 import type { GetMapSpritesCommandInput, GetMapSpritesCommandOutput } from "./commands/GetMapSpritesCommand";
 import type {
@@ -164,6 +166,7 @@ import type {
   ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand";
 import type { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand";
+import type { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import type { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import type { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
 import type { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand";
@@ -193,6 +196,7 @@ import type {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand";
+import type { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -235,6 +239,7 @@ export type ServiceInputTypes =
   | BatchUpdateDevicePositionCommandInput
   | CalculateRouteCommandInput
   | CalculateRouteMatrixCommandInput
+  | CancelJobCommandInput
   | CreateGeofenceCollectionCommandInput
   | CreateKeyCommandInput
   | CreateMapCommandInput
@@ -258,6 +263,7 @@ export type ServiceInputTypes =
   | GetDevicePositionCommandInput
   | GetDevicePositionHistoryCommandInput
   | GetGeofenceCommandInput
+  | GetJobCommandInput
   | GetMapGlyphsCommandInput
   | GetMapSpritesCommandInput
   | GetMapStyleDescriptorCommandInput
@@ -266,6 +272,7 @@ export type ServiceInputTypes =
   | ListDevicePositionsCommandInput
   | ListGeofenceCollectionsCommandInput
   | ListGeofencesCommandInput
+  | ListJobsCommandInput
   | ListKeysCommandInput
   | ListMapsCommandInput
   | ListPlaceIndexesCommandInput
@@ -277,6 +284,7 @@ export type ServiceInputTypes =
   | SearchPlaceIndexForPositionCommandInput
   | SearchPlaceIndexForSuggestionsCommandInput
   | SearchPlaceIndexForTextCommandInput
+  | StartJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGeofenceCollectionCommandInput
@@ -300,6 +308,7 @@ export type ServiceOutputTypes =
   | BatchUpdateDevicePositionCommandOutput
   | CalculateRouteCommandOutput
   | CalculateRouteMatrixCommandOutput
+  | CancelJobCommandOutput
   | CreateGeofenceCollectionCommandOutput
   | CreateKeyCommandOutput
   | CreateMapCommandOutput
@@ -323,6 +332,7 @@ export type ServiceOutputTypes =
   | GetDevicePositionCommandOutput
   | GetDevicePositionHistoryCommandOutput
   | GetGeofenceCommandOutput
+  | GetJobCommandOutput
   | GetMapGlyphsCommandOutput
   | GetMapSpritesCommandOutput
   | GetMapStyleDescriptorCommandOutput
@@ -331,6 +341,7 @@ export type ServiceOutputTypes =
   | ListDevicePositionsCommandOutput
   | ListGeofenceCollectionsCommandOutput
   | ListGeofencesCommandOutput
+  | ListJobsCommandOutput
   | ListKeysCommandOutput
   | ListMapsCommandOutput
   | ListPlaceIndexesCommandOutput
@@ -342,6 +353,7 @@ export type ServiceOutputTypes =
   | SearchPlaceIndexForPositionCommandOutput
   | SearchPlaceIndexForSuggestionsCommandOutput
   | SearchPlaceIndexForTextCommandOutput
+  | StartJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGeofenceCollectionCommandOutput

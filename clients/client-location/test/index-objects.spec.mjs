@@ -54,6 +54,10 @@ import {
   CalculateRouteResponse$,
   CalculateRouteSummary$,
   CalculateRouteTruckModeOptions$,
+  CancelJob$,
+  CancelJobCommand,
+  CancelJobRequest$,
+  CancelJobResponse$,
   CellSignals$,
   Circle$,
   ConflictException,
@@ -157,6 +161,10 @@ import {
   GetGeofenceCommand,
   GetGeofenceRequest$,
   GetGeofenceResponse$,
+  GetJob$,
+  GetJobCommand,
+  GetJobRequest$,
+  GetJobResponse$,
   GetMapGlyphs$,
   GetMapGlyphsCommand,
   GetMapGlyphsRequest$,
@@ -180,6 +188,16 @@ import {
   InferredState$,
   InternalServerException,
   InternalServerException$,
+  JobAction,
+  JobActionOptions$,
+  JobError$,
+  JobErrorCode,
+  JobInputFormat,
+  JobInputOptions$,
+  JobOutputFormat,
+  JobOutputOptions$,
+  JobsFilter$,
+  JobStatus,
   Leg$,
   LegGeometry$,
   ListDevicePositions$,
@@ -197,6 +215,11 @@ import {
   ListGeofencesCommand,
   ListGeofencesRequest$,
   ListGeofencesResponse$,
+  ListJobs$,
+  ListJobsCommand,
+  ListJobsRequest$,
+  ListJobsResponse$,
+  ListJobsResponseEntry$,
   ListKeys$,
   ListKeysCommand,
   ListKeysRequest$,
@@ -243,6 +266,7 @@ import {
   paginateListDevicePositions,
   paginateListGeofenceCollections,
   paginateListGeofences,
+  paginateListJobs,
   paginateListKeys,
   paginateListMaps,
   paginateListPlaceIndexes,
@@ -280,6 +304,10 @@ import {
   SearchPlaceIndexForTextSummary$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  StartJob$,
+  StartJobCommand,
+  StartJobRequest$,
+  StartJobResponse$,
   Step$,
   TagResource$,
   TagResourceCommand,
@@ -319,6 +347,8 @@ import {
   UpdateTrackerCommand,
   UpdateTrackerRequest$,
   UpdateTrackerResponse$,
+  ValidateAddressActionOptions$,
+  ValidateAddressAdditionalFeature,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -326,6 +356,8 @@ import {
   VerifyDevicePositionCommand,
   VerifyDevicePositionRequest$,
   VerifyDevicePositionResponse$,
+  waitForJobCompleted,
+  waitUntilJobCompleted,
   WiFiAccessPoint$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -351,6 +383,8 @@ assert(typeof CalculateRouteCommand === "function");
 assert(typeof CalculateRoute$ === "object");
 assert(typeof CalculateRouteMatrixCommand === "function");
 assert(typeof CalculateRouteMatrix$ === "object");
+assert(typeof CancelJobCommand === "function");
+assert(typeof CancelJob$ === "object");
 assert(typeof CreateGeofenceCollectionCommand === "function");
 assert(typeof CreateGeofenceCollection$ === "object");
 assert(typeof CreateKeyCommand === "function");
@@ -397,6 +431,8 @@ assert(typeof GetDevicePositionHistoryCommand === "function");
 assert(typeof GetDevicePositionHistory$ === "object");
 assert(typeof GetGeofenceCommand === "function");
 assert(typeof GetGeofence$ === "object");
+assert(typeof GetJobCommand === "function");
+assert(typeof GetJob$ === "object");
 assert(typeof GetMapGlyphsCommand === "function");
 assert(typeof GetMapGlyphs$ === "object");
 assert(typeof GetMapSpritesCommand === "function");
@@ -413,6 +449,8 @@ assert(typeof ListGeofenceCollectionsCommand === "function");
 assert(typeof ListGeofenceCollections$ === "object");
 assert(typeof ListGeofencesCommand === "function");
 assert(typeof ListGeofences$ === "object");
+assert(typeof ListJobsCommand === "function");
+assert(typeof ListJobs$ === "object");
 assert(typeof ListKeysCommand === "function");
 assert(typeof ListKeys$ === "object");
 assert(typeof ListMapsCommand === "function");
@@ -435,6 +473,8 @@ assert(typeof SearchPlaceIndexForSuggestionsCommand === "function");
 assert(typeof SearchPlaceIndexForSuggestions$ === "object");
 assert(typeof SearchPlaceIndexForTextCommand === "function");
 assert(typeof SearchPlaceIndexForText$ === "object");
+assert(typeof StartJobCommand === "function");
+assert(typeof StartJob$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -489,6 +529,8 @@ assert(typeof CalculateRouteRequest$ === "object");
 assert(typeof CalculateRouteResponse$ === "object");
 assert(typeof CalculateRouteSummary$ === "object");
 assert(typeof CalculateRouteTruckModeOptions$ === "object");
+assert(typeof CancelJobRequest$ === "object");
+assert(typeof CancelJobResponse$ === "object");
 assert(typeof CellSignals$ === "object");
 assert(typeof Circle$ === "object");
 assert(typeof CreateGeofenceCollectionRequest$ === "object");
@@ -544,6 +586,8 @@ assert(typeof GetDevicePositionRequest$ === "object");
 assert(typeof GetDevicePositionResponse$ === "object");
 assert(typeof GetGeofenceRequest$ === "object");
 assert(typeof GetGeofenceResponse$ === "object");
+assert(typeof GetJobRequest$ === "object");
+assert(typeof GetJobResponse$ === "object");
 assert(typeof GetMapGlyphsRequest$ === "object");
 assert(typeof GetMapGlyphsResponse$ === "object");
 assert(typeof GetMapSpritesRequest$ === "object");
@@ -555,6 +599,11 @@ assert(typeof GetMapTileResponse$ === "object");
 assert(typeof GetPlaceRequest$ === "object");
 assert(typeof GetPlaceResponse$ === "object");
 assert(typeof InferredState$ === "object");
+assert(typeof JobActionOptions$ === "object");
+assert(typeof JobError$ === "object");
+assert(typeof JobInputOptions$ === "object");
+assert(typeof JobOutputOptions$ === "object");
+assert(typeof JobsFilter$ === "object");
 assert(typeof Leg$ === "object");
 assert(typeof LegGeometry$ === "object");
 assert(typeof ListDevicePositionsRequest$ === "object");
@@ -566,6 +615,9 @@ assert(typeof ListGeofenceCollectionsResponseEntry$ === "object");
 assert(typeof ListGeofenceResponseEntry$ === "object");
 assert(typeof ListGeofencesRequest$ === "object");
 assert(typeof ListGeofencesResponse$ === "object");
+assert(typeof ListJobsRequest$ === "object");
+assert(typeof ListJobsResponse$ === "object");
+assert(typeof ListJobsResponseEntry$ === "object");
 assert(typeof ListKeysRequest$ === "object");
 assert(typeof ListKeysResponse$ === "object");
 assert(typeof ListKeysResponseEntry$ === "object");
@@ -609,6 +661,8 @@ assert(typeof SearchPlaceIndexForSuggestionsSummary$ === "object");
 assert(typeof SearchPlaceIndexForTextRequest$ === "object");
 assert(typeof SearchPlaceIndexForTextResponse$ === "object");
 assert(typeof SearchPlaceIndexForTextSummary$ === "object");
+assert(typeof StartJobRequest$ === "object");
+assert(typeof StartJobResponse$ === "object");
 assert(typeof Step$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -630,10 +684,18 @@ assert(typeof UpdateRouteCalculatorRequest$ === "object");
 assert(typeof UpdateRouteCalculatorResponse$ === "object");
 assert(typeof UpdateTrackerRequest$ === "object");
 assert(typeof UpdateTrackerResponse$ === "object");
+assert(typeof ValidateAddressActionOptions$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VerifyDevicePositionRequest$ === "object");
 assert(typeof VerifyDevicePositionResponse$ === "object");
 assert(typeof WiFiAccessPoint$ === "object");
+// enums
+assert(typeof JobAction === "object");
+assert(typeof JobErrorCode === "object");
+assert(typeof JobInputFormat === "object");
+assert(typeof JobOutputFormat === "object");
+assert(typeof JobStatus === "object");
+assert(typeof ValidateAddressAdditionalFeature === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof LocationServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -650,12 +712,16 @@ assert(typeof ThrottlingException$ === "object");
 assert(ValidationException.prototype instanceof LocationServiceException);
 assert(typeof ValidationException$ === "object");
 assert(LocationServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForJobCompleted === "function");
+assert(typeof waitUntilJobCompleted === "function");
 // paginators
 assert(typeof paginateForecastGeofenceEvents === "function");
 assert(typeof paginateGetDevicePositionHistory === "function");
 assert(typeof paginateListDevicePositions === "function");
 assert(typeof paginateListGeofenceCollections === "function");
 assert(typeof paginateListGeofences === "function");
+assert(typeof paginateListJobs === "function");
 assert(typeof paginateListKeys === "function");
 assert(typeof paginateListMaps === "function");
 assert(typeof paginateListPlaceIndexes === "function");

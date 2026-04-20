@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   type AssociateTrackerConsumerCommandInput,
@@ -47,6 +53,7 @@ import {
   type CalculateRouteMatrixCommandOutput,
   CalculateRouteMatrixCommand,
 } from "./commands/CalculateRouteMatrixCommand";
+import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
   type CreateGeofenceCollectionCommandInput,
   type CreateGeofenceCollectionCommandOutput,
@@ -146,6 +153,7 @@ import {
   type GetGeofenceCommandOutput,
   GetGeofenceCommand,
 } from "./commands/GetGeofenceCommand";
+import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "./commands/GetJobCommand";
 import {
   type GetMapGlyphsCommandInput,
   type GetMapGlyphsCommandOutput,
@@ -182,6 +190,7 @@ import {
   type ListGeofencesCommandOutput,
   ListGeofencesCommand,
 } from "./commands/ListGeofencesCommand";
+import { type ListJobsCommandInput, type ListJobsCommandOutput, ListJobsCommand } from "./commands/ListJobsCommand";
 import { type ListKeysCommandInput, type ListKeysCommandOutput, ListKeysCommand } from "./commands/ListKeysCommand";
 import { type ListMapsCommandInput, type ListMapsCommandOutput, ListMapsCommand } from "./commands/ListMapsCommand";
 import {
@@ -229,6 +238,7 @@ import {
   type SearchPlaceIndexForTextCommandOutput,
   SearchPlaceIndexForTextCommand,
 } from "./commands/SearchPlaceIndexForTextCommand";
+import { type StartJobCommandInput, type StartJobCommandOutput, StartJobCommand } from "./commands/StartJobCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -272,12 +282,14 @@ import { paginateGetDevicePositionHistory } from "./pagination/GetDevicePosition
 import { paginateListDevicePositions } from "./pagination/ListDevicePositionsPaginator";
 import { paginateListGeofenceCollections } from "./pagination/ListGeofenceCollectionsPaginator";
 import { paginateListGeofences } from "./pagination/ListGeofencesPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
 import { paginateListKeys } from "./pagination/ListKeysPaginator";
 import { paginateListMaps } from "./pagination/ListMapsPaginator";
 import { paginateListPlaceIndexes } from "./pagination/ListPlaceIndexesPaginator";
 import { paginateListRouteCalculators } from "./pagination/ListRouteCalculatorsPaginator";
 import { paginateListTrackerConsumers } from "./pagination/ListTrackerConsumersPaginator";
 import { paginateListTrackers } from "./pagination/ListTrackersPaginator";
+import { waitUntilJobCompleted } from "./waiters/waitForJobCompleted";
 
 const commands = {
   AssociateTrackerConsumerCommand,
@@ -289,6 +301,7 @@ const commands = {
   BatchUpdateDevicePositionCommand,
   CalculateRouteCommand,
   CalculateRouteMatrixCommand,
+  CancelJobCommand,
   CreateGeofenceCollectionCommand,
   CreateKeyCommand,
   CreateMapCommand,
@@ -312,6 +325,7 @@ const commands = {
   GetDevicePositionCommand,
   GetDevicePositionHistoryCommand,
   GetGeofenceCommand,
+  GetJobCommand,
   GetMapGlyphsCommand,
   GetMapSpritesCommand,
   GetMapStyleDescriptorCommand,
@@ -320,6 +334,7 @@ const commands = {
   ListDevicePositionsCommand,
   ListGeofenceCollectionsCommand,
   ListGeofencesCommand,
+  ListJobsCommand,
   ListKeysCommand,
   ListMapsCommand,
   ListPlaceIndexesCommand,
@@ -331,6 +346,7 @@ const commands = {
   SearchPlaceIndexForPositionCommand,
   SearchPlaceIndexForSuggestionsCommand,
   SearchPlaceIndexForTextCommand,
+  StartJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateGeofenceCollectionCommand,
@@ -347,12 +363,16 @@ const paginators = {
   paginateListDevicePositions,
   paginateListGeofenceCollections,
   paginateListGeofences,
+  paginateListJobs,
   paginateListKeys,
   paginateListMaps,
   paginateListPlaceIndexes,
   paginateListRouteCalculators,
   paginateListTrackerConsumers,
   paginateListTrackers,
+};
+const waiters = {
+  waitUntilJobCompleted,
 };
 
 export interface Location {
@@ -507,6 +527,23 @@ export interface Location {
     args: CalculateRouteMatrixCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CalculateRouteMatrixCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelJobCommand}
+   */
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
   ): void;
 
   /**
@@ -901,6 +938,23 @@ export interface Location {
   ): void;
 
   /**
+   * @see {@link GetJobCommand}
+   */
+  getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
+  getJob(
+    args: GetJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMapGlyphsCommand}
    */
   getMapGlyphs(
@@ -1035,6 +1089,24 @@ export interface Location {
     args: ListGeofencesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListGeofencesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListJobsCommand}
+   */
+  listJobs(): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
   /**
@@ -1227,6 +1299,23 @@ export interface Location {
     args: SearchPlaceIndexForTextCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchPlaceIndexForTextCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartJobCommand}
+   */
+  startJob(
+    args: StartJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobCommandOutput>;
+  startJob(
+    args: StartJobCommandInput,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
+  startJob(
+    args: StartJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartJobCommandOutput) => void
   ): void;
 
   /**
@@ -1438,6 +1527,17 @@ export interface Location {
   ): Paginator<ListGeofencesCommandOutput>;
 
   /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
    * @see {@link ListKeysCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1502,6 +1602,16 @@ export interface Location {
     args?: ListTrackersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTrackersCommandOutput>;
+
+  /**
+   * @see {@link GetJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilJobCompleted(
+    args: GetJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Location>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1509,4 +1619,4 @@ export interface Location {
  * @public
  */
 export class Location extends LocationClient implements Location {}
-createAggregatedClient(commands, Location, { paginators });
+createAggregatedClient(commands, Location, { paginators, waiters });

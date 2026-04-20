@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LocationClient` and
-the commands you need, for example `ListKeysCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { LocationClient, ListKeysCommand } = require("@aws-sdk/client-location");
+const { LocationClient, ListJobsCommand } = require("@aws-sdk/client-location");
 ```
 
 ```ts
 // ES6+ example
-import { LocationClient, ListKeysCommand } from "@aws-sdk/client-location";
+import { LocationClient, ListJobsCommand } from "@aws-sdk/client-location";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new LocationClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListKeysCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new Location({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listKeys(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listKeys(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listKeys(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -241,6 +241,13 @@ CalculateRouteMatrix
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/CalculateRouteMatrixCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/CalculateRouteMatrixCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/CalculateRouteMatrixCommandOutput/)
+</details>
+<details>
+<summary>
+CancelJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/CancelJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/CancelJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/CancelJobCommandOutput/)
 </details>
 <details>
 <summary>
@@ -405,6 +412,13 @@ GetGeofence
 </details>
 <details>
 <summary>
+GetJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/GetJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/GetJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/GetJobCommandOutput/)
+</details>
+<details>
+<summary>
 GetMapGlyphs
 </summary>
 
@@ -458,6 +472,13 @@ ListGeofences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/ListGeofencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/ListGeofencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/ListGeofencesCommandOutput/)
+</details>
+<details>
+<summary>
+ListJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/ListJobsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -535,6 +556,13 @@ SearchPlaceIndexForText
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/SearchPlaceIndexForTextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/SearchPlaceIndexForTextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/SearchPlaceIndexForTextCommandOutput/)
+</details>
+<details>
+<summary>
+StartJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/StartJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/StartJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/StartJobCommandOutput/)
 </details>
 <details>
 <summary>

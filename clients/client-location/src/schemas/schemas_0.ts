@@ -8,10 +8,12 @@ const _AAl = "AllowActions";
 const _AAp = "AppleApp";
 const _ADE = "AccessDeniedException";
 const _AF = "AvoidFerries";
+const _AFd = "AdditionalFeatures";
 const _AK = "ApiKey";
 const _AKF = "ApiKeyFilter";
 const _AKR = "ApiKeyRestrictions";
 const _AN = "AddressNumber";
+const _AO = "ActionOptions";
 const _AR = "AllowResources";
 const _ARl = "AllowReferers";
 const _AT = "AvoidTolls";
@@ -19,6 +21,7 @@ const _ATC = "AssociateTrackerConsumer";
 const _ATCR = "AssociateTrackerConsumerRequest";
 const _ATCRs = "AssociateTrackerConsumerResponse";
 const _ATr = "ArrivalTime";
+const _Ac = "Action";
 const _B = "Blob";
 const _BB = "BoundingBox";
 const _BDDPH = "BatchDeleteDevicePositionHistory";
@@ -64,6 +67,7 @@ const _CA = "ConsumerArn";
 const _CAa = "CalculatorArn";
 const _CAo = "CollectionArn";
 const _CAon = "ConsumerArns";
+const _CAr = "CreatedAt";
 const _CC = "CountryCode3";
 const _CCL = "CountryCodeList";
 const _CCOE = "CountryCode3OrEmpty";
@@ -75,6 +79,9 @@ const _CGC = "CreateGeofenceCollection";
 const _CGCR = "CreateGeofenceCollectionRequest";
 const _CGCRr = "CreateGeofenceCollectionResponse";
 const _CI = "CellId";
+const _CJ = "CancelJob";
+const _CJR = "CancelJobRequest";
+const _CJRa = "CancelJobResponse";
 const _CK = "CreateKey";
 const _CKR = "CreateKeyRequest";
 const _CKRr = "CreateKeyResponse";
@@ -106,6 +113,7 @@ const _CT = "CreateTime";
 const _CTR = "CreateTrackerRequest";
 const _CTRr = "CreateTrackerResponse";
 const _CT_ = "Content-Type";
+const _CTl = "ClientToken";
 const _CTo = "ContentType";
 const _CTr = "CreateTracker";
 const _CU = "ConfigurationUpdate";
@@ -177,17 +185,19 @@ const _DU = "DistanceUnit";
 const _De = "Description";
 const _Di = "Dimensions";
 const _E = "Error";
+const _EA = "EndedAt";
 const _EBE = "EventBridgeEnabled";
 const _EC = "ErrorCount";
 const _EI = "EventId";
 const _EP = "EndPosition";
+const _ERA = "ExecutionRoleArn";
 const _ET = "ExpireTime";
 const _ETE = "EndTimeExclusive";
 const _ETv = "EventType";
 const _Ea = "Earfcn";
 const _En = "Entries";
 const _Er = "Errors";
-const _F = "Filter";
+const _F = "Format";
 const _FBB = "FilterBBox";
 const _FBT = "ForecastedBreachTime";
 const _FC = "FilterCountries";
@@ -207,6 +217,7 @@ const _FPCL = "FilterPlaceCategoryList";
 const _FS = "FontStack";
 const _FU = "ForceUpdate";
 const _FUR = "FontUnicodeRange";
+const _Fi = "Filter";
 const _G = "Geometry";
 const _GC = "GeofenceCount";
 const _GDP = "GetDevicePosition";
@@ -221,6 +232,9 @@ const _GGRe = "GetGeofenceResponse";
 const _GGe = "GetGeofence";
 const _GI = "GeofenceId";
 const _GIe = "GeofenceIds";
+const _GJ = "GetJob";
+const _GJR = "GetJobRequest";
+const _GJRe = "GetJobResponse";
 const _GMG = "GetMapGlyphs";
 const _GMGR = "GetMapGlyphsRequest";
 const _GMGRe = "GetMapGlyphsResponse";
@@ -247,9 +261,18 @@ const _IAp = "Ipv4Address";
 const _IDIG = "IsDeviceInGeofence";
 const _ILG = "IncludeLegGeometry";
 const _IN = "IndexName";
+const _IO = "InputOptions";
 const _IS = "InferredState";
 const _ISE = "InternalServerException";
 const _IU = "IntendedUse";
+const _JA = "JobArn";
+const _JAO = "JobActionOptions";
+const _JE = "JobError";
+const _JF = "JobsFilter";
+const _JI = "JobId";
+const _JIO = "JobInputOptions";
+const _JOO = "JobOutputOptions";
+const _JS = "JobStatus";
 const _K = "Key";
 const _KA = "KeyArn";
 const _KKEGQ = "KmsKeyEnableGeospatialQueries";
@@ -276,6 +299,11 @@ const _LGREL = "ListGeofenceResponseEntryList";
 const _LGRi = "ListGeofencesResponse";
 const _LGi = "ListGeofences";
 const _LI = "LocalId";
+const _LJ = "ListJobs";
+const _LJR = "ListJobsRequest";
+const _LJRE = "ListJobsResponseEntry";
+const _LJREL = "ListJobsResponseEntryList";
+const _LJRi = "ListJobsResponse";
 const _LK = "ListKeys";
 const _LKR = "ListKeysRequest";
 const _LKRE = "ListKeysResponseEntry";
@@ -318,6 +346,7 @@ const _La = "Language";
 const _Lab = "Label";
 const _Le = "Leg";
 const _Len = "Length";
+const _Lo = "Location";
 const _M = "Message";
 const _MA = "MapArn";
 const _MAa = "MacAddress";
@@ -328,17 +357,19 @@ const _MN = "MapName";
 const _MP = "MultiPolygon";
 const _MR = "MaxResults";
 const _Mc = "Mcc";
+const _Me = "Messages";
 const _Mn = "Mnc";
 const _Mu = "Municipality";
-const _N = "Neighborhood";
+const _N = "Name";
 const _NC = "NrCapable";
 const _ND = "NearestDistance";
 const _NE = "NoExpiry";
 const _NM = "NetworkMeasurements";
 const _NT = "NextToken";
-const _Na = "Name";
+const _Ne = "Neighborhood";
 const _O = "Offset";
 const _OF = "OptimizeFor";
+const _OO = "OutputOptions";
 const _P = "Package";
 const _PA = "PositionalAccuracy";
 const _PC = "PlaceCategory";
@@ -399,6 +430,9 @@ const _SFSRL = "SearchForSuggestionsResultList";
 const _SFTR = "SearchForTextResult";
 const _SFTRL = "SearchForTextResultList";
 const _SI = "SensitiveInteger";
+const _SJ = "StartJob";
+const _SJR = "StartJobRequest";
+const _SJRt = "StartJobResponse";
 const _SL = "StepList";
 const _SM = "SubMunicipality";
 const _SP = "StartPosition";
@@ -448,6 +482,7 @@ const _Tac = "Tac";
 const _Te = "Text";
 const _To = "Total";
 const _U = "Updates";
+const _UA = "UpdatedAt";
 const _UGC = "UpdateGeofenceCollection";
 const _UGCR = "UpdateGeofenceCollectionRequest";
 const _UGCRp = "UpdateGeofenceCollectionResponse";
@@ -473,6 +508,8 @@ const _UTRp = "UpdateTrackerResponse";
 const _UTn = "UnitType";
 const _UTp = "UpdateTracker";
 const _Un = "Unit";
+const _VA = "ValidateAddress";
+const _VAAO = "ValidateAddressActionOptions";
 const _VDP = "VerifyDevicePosition";
 const _VDPR = "VerifyDevicePositionRequest";
 const _VDPRe = "VerifyDevicePositionResponse";
@@ -775,6 +812,16 @@ export var CalculateRouteTruckModeOptions$: StaticStructureSchema = [3, n0, _CRT
   [_AF, _AT, _Di, _W],
   [[() => SensitiveBoolean, 0], [() => SensitiveBoolean, 0], [() => TruckDimensions$, 0], [() => TruckWeight$, 0]]
 ];
+export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
+  0,
+  [_JI],
+  [0], 1
+];
+export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa,
+  0,
+  [_JA, _JI, _St],
+  [0, 0, 0], 3
+];
 export var CellSignals$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_LCD],
@@ -1050,6 +1097,16 @@ export var GetGeofenceResponse$: StaticStructureSchema = [3, n0, _GGRe,
   [_GI, _G, _St, _CT, _UT, _GP],
   [0, [() => GeofenceGeometry$, 0], 0, [() => Timestamp, 0], [() => Timestamp, 0], [() => PropertyMap, 0]], 5
 ];
+export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
+  0,
+  [_JI],
+  [[0, 1]], 1
+];
+export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
+  0,
+  [_Ac, _CAr, _ERA, _IO, _JA, _JI, _OO, _St, _UA, _AO, _EA, _E, _N, _Ta],
+  [0, [() => Timestamp, 0], 0, () => JobInputOptions$, 0, 0, () => JobOutputOptions$, 0, [() => Timestamp, 0], () => JobActionOptions$, [() => Timestamp, 0], () => JobError$, 0, 128 | 0], 9
+];
 export var GetMapGlyphsRequest$: StaticStructureSchema = [3, n0, _GMGR,
   0,
   [_MN, _FS, _FUR, _K],
@@ -1104,6 +1161,31 @@ export var InferredState$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_PD, _Po, _A, _DD],
   [2, [() => Position, 0], [() => PositionalAccuracy$, 0], 1], 1
+];
+export var JobActionOptions$: StaticStructureSchema = [3, n0, _JAO,
+  0,
+  [_VA],
+  [() => ValidateAddressActionOptions$]
+];
+export var JobError$: StaticStructureSchema = [3, n0, _JE,
+  0,
+  [_C, _Me],
+  [0, 64 | 0], 1
+];
+export var JobInputOptions$: StaticStructureSchema = [3, n0, _JIO,
+  0,
+  [_Lo, _F],
+  [0, 0], 2
+];
+export var JobOutputOptions$: StaticStructureSchema = [3, n0, _JOO,
+  0,
+  [_F, _Lo],
+  [0, 0], 2
+];
+export var JobsFilter$: StaticStructureSchema = [3, n0, _JF,
+  0,
+  [_JS],
+  [0]
 ];
 export var Leg$: StaticStructureSchema = [3, n0, _Le,
   0,
@@ -1160,9 +1242,24 @@ export var ListGeofencesResponse$: StaticStructureSchema = [3, n0, _LGRi,
   [_En, _NT],
   [[() => ListGeofenceResponseEntryList, 0], 0], 1
 ];
+export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
+  0,
+  [_Fi, _MR, _NT],
+  [() => JobsFilter$, 1, 0]
+];
+export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
+  0,
+  [_En, _NT],
+  [[() => ListJobsResponseEntryList, 0], 0], 1
+];
+export var ListJobsResponseEntry$: StaticStructureSchema = [3, n0, _LJRE,
+  0,
+  [_Ac, _CAr, _ERA, _IO, _JI, _JA, _OO, _St, _UA, _AO, _EA, _E, _N],
+  [0, [() => Timestamp, 0], 0, () => JobInputOptions$, 0, 0, () => JobOutputOptions$, 0, [() => Timestamp, 0], () => JobActionOptions$, [() => Timestamp, 0], () => JobError$, 0], 9
+];
 export var ListKeysRequest$: StaticStructureSchema = [3, n0, _LKR,
   0,
-  [_MR, _NT, _F],
+  [_MR, _NT, _Fi],
   [1, 0, () => ApiKeyFilter$]
 ];
 export var ListKeysResponse$: StaticStructureSchema = [3, n0, _LKRi,
@@ -1282,7 +1379,7 @@ export var MapConfigurationUpdate$: StaticStructureSchema = [3, n0, _MCU,
 ];
 export var Place$: StaticStructureSchema = [3, n0, _Pl,
   0,
-  [_G, _Lab, _AN, _Str, _N, _Mu, _SR, _Reg, _Cou, _PCo, _I, _TZ, _UTn, _UN, _Ca, _SC, _SM],
+  [_G, _Lab, _AN, _Str, _Ne, _Mu, _SR, _Reg, _Cou, _PCo, _I, _TZ, _UTn, _UN, _Ca, _SC, _SM],
   [[() => PlaceGeometry$, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveBoolean, 0], [() => TimeZone$, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => PlaceCategoryList, 0], [() => PlaceSupplementalCategoryList, 0], [() => SensitiveString, 0]], 1
 ];
 export var PlaceGeometry$: StaticStructureSchema = [3, n0, _PG,
@@ -1375,6 +1472,16 @@ export var SearchPlaceIndexForTextSummary$: StaticStructureSchema = [3, n0, _SPI
   [_Te, _DS, _BP, _FBB, _FC, _MR, _RBBe, _La, _FCi],
   [[() => SensitiveString, 0], 0, [() => Position, 0], [() => BoundingBox, 0], [() => CountryCodeList, 0], 1, [() => BoundingBox, 0], 0, [() => FilterPlaceCategoryList, 0]], 2
 ];
+export var StartJobRequest$: StaticStructureSchema = [3, n0, _SJR,
+  0,
+  [_Ac, _ERA, _IO, _OO, _CTl, _AO, _N, _Ta],
+  [0, 0, () => JobInputOptions$, () => JobOutputOptions$, [0, 4], () => JobActionOptions$, 0, 128 | 0], 4
+];
+export var StartJobResponse$: StaticStructureSchema = [3, n0, _SJRt,
+  0,
+  [_CAr, _JA, _JI, _St],
+  [[() => Timestamp, 0], 0, 0, 0], 4
+];
 export var Step$: StaticStructureSchema = [3, n0, _Step,
   0,
   [_SP, _EP, _D, _DSu, _GO],
@@ -1392,7 +1499,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TimeZone$: StaticStructureSchema = [3, n0, _TZ,
   0,
-  [_Na, _O],
+  [_N, _O],
   [[() => SensitiveString, 0], [() => SensitiveInteger, 0]], 1
 ];
 export var TrackingFilterGeometry$: StaticStructureSchema = [3, n0, _TFG,
@@ -1480,9 +1587,14 @@ export var UpdateTrackerResponse$: StaticStructureSchema = [3, n0, _UTRp,
   [_TN, _TA, _UT],
   [0, 0, [() => Timestamp, 0]], 3
 ];
+export var ValidateAddressActionOptions$: StaticStructureSchema = [3, n0, _VAAO,
+  0,
+  [_AFd],
+  [64 | 0]
+];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_Na, _M],
+  [_N, _M],
   [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
 export var VerifyDevicePositionRequest$: StaticStructureSchema = [3, n0, _VDPR,
@@ -1563,6 +1675,7 @@ var ForecastedEventsList: StaticListSchema = [1, n0, _FEL,
 ];
 var GeoArnList = 64 | 0;
 var IdList = 64 | 0;
+var JobErrorMessagesList = 64 | 0;
 var LegList: StaticListSchema = [1, n0, _LL,
   0, [() => Leg$,
     0]
@@ -1589,6 +1702,10 @@ var ListGeofenceCollectionsResponseEntryList: StaticListSchema = [1, n0, _LGCREL
 ];
 var ListGeofenceResponseEntryList: StaticListSchema = [1, n0, _LGREL,
   0, [() => ListGeofenceResponseEntry$,
+    0]
+];
+var ListJobsResponseEntryList: StaticListSchema = [1, n0, _LJREL,
+  0, [() => ListJobsResponseEntry$,
     0]
 ];
 var ListKeysResponseEntryList: StaticListSchema = [1, n0, _LKREL,
@@ -1665,6 +1782,7 @@ var StepList: StaticListSchema = [1, n0, _SL,
     0]
 ];
 var TagKeys = 64 | 0;
+var ValidateAddressAdditionalFeatureList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, [() => ValidationExceptionField$,
     0]
@@ -1709,6 +1827,9 @@ export var CalculateRoute$: StaticOperationSchema = [9, n0, _CR,
 ];
 export var CalculateRouteMatrix$: StaticOperationSchema = [9, n0, _CRM,
   { [_en]: ["routes."], [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix", 200] }, () => CalculateRouteMatrixRequest$, () => CalculateRouteMatrixResponse$
+];
+export var CancelJob$: StaticOperationSchema = [9, n0, _CJ,
+  { [_en]: ["metadata."], [_h]: ["POST", "/metadata/v0/jobs/cancel-job", 200] }, () => CancelJobRequest$, () => CancelJobResponse$
 ];
 export var CreateGeofenceCollection$: StaticOperationSchema = [9, n0, _CGC,
   { [_en]: ["cp.geofencing."], [_h]: ["POST", "/geofencing/v0/collections", 200] }, () => CreateGeofenceCollectionRequest$, () => CreateGeofenceCollectionResponse$
@@ -1779,6 +1900,9 @@ export var GetDevicePositionHistory$: StaticOperationSchema = [9, n0, _GDPH,
 export var GetGeofence$: StaticOperationSchema = [9, n0, _GGe,
   { [_en]: ["geofencing."], [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200] }, () => GetGeofenceRequest$, () => GetGeofenceResponse$
 ];
+export var GetJob$: StaticOperationSchema = [9, n0, _GJ,
+  { [_en]: ["metadata."], [_h]: ["GET", "/metadata/v0/jobs/{JobId}", 200] }, () => GetJobRequest$, () => GetJobResponse$
+];
 export var GetMapGlyphs$: StaticOperationSchema = [9, n0, _GMG,
   { [_en]: ["maps."], [_h]: ["GET", "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}", 200] }, () => GetMapGlyphsRequest$, () => GetMapGlyphsResponse$
 ];
@@ -1802,6 +1926,9 @@ export var ListGeofenceCollections$: StaticOperationSchema = [9, n0, _LGC,
 ];
 export var ListGeofences$: StaticOperationSchema = [9, n0, _LGi,
   { [_en]: ["geofencing."], [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/list-geofences", 200] }, () => ListGeofencesRequest$, () => ListGeofencesResponse$
+];
+export var ListJobs$: StaticOperationSchema = [9, n0, _LJ,
+  { [_en]: ["metadata."], [_h]: ["POST", "/metadata/v0/jobs/list-jobs", 200] }, () => ListJobsRequest$, () => ListJobsResponse$
 ];
 export var ListKeys$: StaticOperationSchema = [9, n0, _LK,
   { [_en]: ["cp.metadata."], [_h]: ["POST", "/metadata/v0/list-keys", 200] }, () => ListKeysRequest$, () => ListKeysResponse$
@@ -1835,6 +1962,9 @@ export var SearchPlaceIndexForSuggestions$: StaticOperationSchema = [9, n0, _SPI
 ];
 export var SearchPlaceIndexForText$: StaticOperationSchema = [9, n0, _SPIFT,
   { [_en]: ["places."], [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/text", 200] }, () => SearchPlaceIndexForTextRequest$, () => SearchPlaceIndexForTextResponse$
+];
+export var StartJob$: StaticOperationSchema = [9, n0, _SJ,
+  { [_en]: ["metadata."], [_h]: ["POST", "/metadata/v0/jobs", 200] }, () => StartJobRequest$, () => StartJobResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_en]: ["cp.metadata."], [_h]: ["POST", "/tags/{ResourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$

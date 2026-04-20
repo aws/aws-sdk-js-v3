@@ -5,6 +5,11 @@ import type {
   DistanceUnit,
   ForecastedGeofenceEventType,
   IntendedUse,
+  JobAction,
+  JobErrorCode,
+  JobInputFormat,
+  JobOutputFormat,
+  JobStatus,
   OptimizationMode,
   PositionFiltering,
   PricingPlan,
@@ -12,6 +17,7 @@ import type {
   SpeedUnit,
   Status,
   TravelMode,
+  ValidateAddressAdditionalFeature,
   VehicleWeightUnit,
 } from "./enums";
 
@@ -21,13 +27,13 @@ import type {
  */
 export interface AndroidApp {
   /**
-   * <p>Unique package name for an Android app.</p>
+   * <p>Unique package name identifier for an Android app.</p> <p>Example: <code>com.mydomain.appname</code> </p>
    * @public
    */
   Package: string | undefined;
 
   /**
-   * <p>20 byte SHA-1 certificate fingerprint associated with the Android app signing certificate.</p>
+   * <p>20 byte SHA-1 certificate fingerprint associated with the Android app signing certificate.</p> <p>Example: <code>BB:0D:AC:74:D3:21:E1:43:67:71:9B:62:91:AF:A1:66:6E:44:5D:75</code> </p>
    * @public
    */
   CertificateFingerprint: string | undefined;
@@ -51,7 +57,7 @@ export interface ApiKeyFilter {
  */
 export interface AppleApp {
   /**
-   * <p>The unique identifier of the app across all Apple platforms (iOS, macOS, tvOS, watchOS, etc.)</p>
+   * <p>The unique identifier of the app across all Apple platforms (iOS, macOS, tvOS and watchOS).</p> <p>Example: <code>com.mydomain.appname</code> </p>
    * @public
    */
   BundleId: string | undefined;
@@ -1439,6 +1445,40 @@ export interface CalculateRouteMatrixResponse {
    * @public
    */
   Summary: CalculateRouteMatrixSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelJobRequest {
+  /**
+   * <p>The unique identifier of the job to cancel.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelJobResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the cancelled job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>Unique job identifier.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>Job status after cancellation request.</p>
+   * @public
+   */
+  Status: JobStatus | undefined;
 }
 
 /**
@@ -3154,6 +3194,184 @@ export interface GetDevicePositionHistoryResponse {
 /**
  * @public
  */
+export interface GetJobRequest {
+  /**
+   * <p>The unique identifier of the job to retrieve.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * <p>Options specific to address validation jobs.</p>
+ * @public
+ */
+export interface ValidateAddressActionOptions {
+  /**
+   * <p>A list of optional additional parameters that can be requested for each result.</p> <p>Values:</p> <ul> <li> <p> <code>Position</code> - Return the position coordinates of the address if available.</p> </li> <li> <p> <code>CountrySpecificAttributes</code> - Return additional information about the address specific to the country of origin.</p> </li> </ul>
+   * @public
+   */
+  AdditionalFeatures?: ValidateAddressAdditionalFeature[] | undefined;
+}
+
+/**
+ * <p>Additional options for configuring job action parameters.</p>
+ * @public
+ */
+export interface JobActionOptions {
+  /**
+   * <p>Options specific to address validation jobs.</p>
+   * @public
+   */
+  ValidateAddress?: ValidateAddressActionOptions | undefined;
+}
+
+/**
+ * <p>Error information for failed jobs.</p>
+ * @public
+ */
+export interface JobError {
+  /**
+   * <p>Error code indicating the type of error that occurred.</p>
+   * @public
+   */
+  Code: JobErrorCode | undefined;
+
+  /**
+   * <p>Error messages providing details about the failure.</p>
+   * @public
+   */
+  Messages?: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for input data location and format.</p> <note> <p>Input files have a limitation of 10gb per file, and 1gb per Parquet row-group within the file.</p> </note>
+ * @public
+ */
+export interface JobInputOptions {
+  /**
+   * <p>S3 ARN or URI where input files are stored.</p> <note> <p>The Amazon S3 bucket must be created in the same Amazon Web Services region where you plan to run your job.</p> </note>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>Input data format. Currently only <code>Parquet</code> is supported.</p> <note> <p>Input files have a limitation of 10gb per file, and 1gb per Parquet row-group within the file.</p> </note>
+   * @public
+   */
+  Format: JobInputFormat | undefined;
+}
+
+/**
+ * <p>Configuration for output data location and format.</p>
+ * @public
+ */
+export interface JobOutputOptions {
+  /**
+   * <p>Output data format. Currently only "Parquet" is supported.</p>
+   * @public
+   */
+  Format: JobOutputFormat | undefined;
+
+  /**
+   * <p>S3 ARN or URI where output files will be written.</p> <note> <p>The Amazon S3 bucket must exist in the same Amazon Web Services region where you plan to run your job.</p> </note>
+   * @public
+   */
+  Location: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobResponse {
+  /**
+   * <p>Action performed by the job.</p>
+   * @public
+   */
+  Action: JobAction | undefined;
+
+  /**
+   * <p>Additional options for configuring job action parameters.</p>
+   * @public
+   */
+  ActionOptions?: JobActionOptions | undefined;
+
+  /**
+   * <p>Job creation time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>Job completion time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>. Only returned for jobs in a terminal status: <code>Completed</code> | <code>Failed</code> | <code>Cancelled</code>.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>Error information if the job failed.</p>
+   * @public
+   */
+  Error?: JobError | undefined;
+
+  /**
+   * <p>IAM role used for permissions when running the job.</p>
+   * @public
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>Input configuration.</p>
+   * @public
+   */
+  InputOptions: JobInputOptions | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the specified job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>Unique job identifier.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>Job name (if provided during creation).</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Output configuration.</p>
+   * @public
+   */
+  OutputOptions: JobOutputOptions | undefined;
+
+  /**
+   * <p>Current job status.</p>
+   * @public
+   */
+  Status: JobStatus | undefined;
+
+  /**
+   * <p>Last update time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>Tags and corresponding values associated with the specified job.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetMapGlyphsRequest {
   /**
    * <p>The map resource associated with the glyph ﬁle.</p>
@@ -3553,6 +3771,224 @@ export interface InferredState {
    * @public
    */
   ProxyDetected: boolean | undefined;
+}
+
+/**
+ * <p>Criteria for filtering jobs.</p>
+ * @public
+ */
+export interface JobsFilter {
+  /**
+   * <p>Filter by job status.</p>
+   * @public
+   */
+  JobStatus?: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsRequest {
+  /**
+   * <p>An optional structure containing criteria by which to filter job results.</p>
+   * @public
+   */
+  Filter?: JobsFilter | undefined;
+
+  /**
+   * <p>Maximum number of jobs to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Job summary information returned in list operations.</p>
+ * @public
+ */
+export interface ListJobsResponseEntry {
+  /**
+   * <p>Action performed by the job.</p>
+   * @public
+   */
+  Action: JobAction | undefined;
+
+  /**
+   * <p>Additional options for configuring job action parameters.</p>
+   * @public
+   */
+  ActionOptions?: JobActionOptions | undefined;
+
+  /**
+   * <p>Job creation time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>IAM role used for job execution.</p>
+   * @public
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>Job completion time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>. Only returned for jobs in a terminal status: <code>Completed</code> | <code>Failed</code> | <code>Cancelled</code>.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>Error information if the job failed.</p>
+   * @public
+   */
+  Error?: JobError | undefined;
+
+  /**
+   * <p>Input configuration.</p>
+   * @public
+   */
+  InputOptions: JobInputOptions | undefined;
+
+  /**
+   * <p>Unique job identifier.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the job.</p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>Job name (if provided during creation).</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Output configuration.</p>
+   * @public
+   */
+  OutputOptions: JobOutputOptions | undefined;
+
+  /**
+   * <p>Current job status.</p>
+   * @public
+   */
+  Status: JobStatus | undefined;
+
+  /**
+   * <p>Last update time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsResponse {
+  /**
+   * <p>List of jobs in your Amazon Web Services account.</p>
+   * @public
+   */
+  Entries: ListJobsResponseEntry[] | undefined;
+
+  /**
+   * <p>Token for retrieving the next page (present if more results available).</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobRequest {
+  /**
+   * <p>A unique identifier for this request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The action to perform on the input data.</p>
+   * @public
+   */
+  Action: JobAction | undefined;
+
+  /**
+   * <p>Additional parameters that can be requested for each result.</p>
+   * @public
+   */
+  ActionOptions?: JobActionOptions | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Location Service assumes during job processing. Amazon Location Service uses this role to access the input and output locations specified for the job.</p> <note> <p>The IAM role must be created in the same Amazon Web Services account where you plan to run your job.</p> </note> <p>For more information about configuring IAM roles for Amazon Location jobs, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/configure-iam-role-policy-credentials.html">Configure IAM permissions</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   * @public
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>Configuration for input data location and format.</p> <note> <p>Input files have a limitation of 10gb per file, and 1gb per Parquet row-group within the file.</p> </note>
+   * @public
+   */
+  InputOptions: JobInputOptions | undefined;
+
+  /**
+   * <p>An optional name for the job resource.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Configuration for output data location and format.</p>
+   * @public
+   */
+  OutputOptions: JobOutputOptions | undefined;
+
+  /**
+   * <p>Tags and corresponding values to be associated with the job.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobResponse {
+  /**
+   * <p>Job creation time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the job resource. Used when you need to specify a resource across all Amazon Web Services.</p> <p>Format example: <code>arn:aws:geo:region:account-id:job/ExampleJob</code> </p>
+   * @public
+   */
+  JobArn: string | undefined;
+
+  /**
+   * <p>Unique job identifier.</p>
+   * @public
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>Initial job status (always "Pending" for new jobs).</p>
+   * @public
+   */
+  Status: JobStatus | undefined;
 }
 
 /**
