@@ -30,9 +30,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/middleware-endpoint": "^4.4.30",
+    "@smithy/middleware-endpoint": "^4.4.31",
     "@smithy/protocol-http": "^5.3.14",
-    "@smithy/smithy-client": "^4.12.11",
+    "@smithy/smithy-client": "^4.12.12",
     "@smithy/types": "^4.14.1",
     "buffer": "5.6.0",
     "events": "3.3.0",
