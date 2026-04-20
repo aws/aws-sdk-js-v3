@@ -49,8 +49,10 @@ export interface UpdateReplicationInfoCommandOutput extends UpdateReplicationInf
  *   },
  *   CurrentVersion: "STRING_VALUE", // required
  *   ReplicatorArn: "STRING_VALUE", // required
- *   SourceKafkaClusterArn: "STRING_VALUE", // required
- *   TargetKafkaClusterArn: "STRING_VALUE", // required
+ *   SourceKafkaClusterArn: "STRING_VALUE",
+ *   SourceKafkaClusterId: "STRING_VALUE",
+ *   TargetKafkaClusterArn: "STRING_VALUE",
+ *   TargetKafkaClusterId: "STRING_VALUE",
  *   TopicReplication: { // TopicReplicationUpdate
  *     CopyAccessControlListsForTopics: true || false, // required
  *     CopyTopicConfigurations: true || false, // required
@@ -61,6 +63,23 @@ export interface UpdateReplicationInfoCommandOutput extends UpdateReplicationInf
  *     TopicsToReplicate: [ // required
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   LogDelivery: { // LogDelivery
+ *     ReplicatorLogDelivery: { // ReplicatorLogDelivery
+ *       CloudWatchLogs: { // ReplicatorCloudWatchLogs
+ *         Enabled: true || false, // required
+ *         LogGroup: "STRING_VALUE",
+ *       },
+ *       Firehose: { // ReplicatorFirehose
+ *         Enabled: true || false, // required
+ *         DeliveryStream: "STRING_VALUE",
+ *       },
+ *       S3: { // ReplicatorS3
+ *         Enabled: true || false, // required
+ *         Bucket: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  * };
  * const command = new UpdateReplicationInfoCommand(input);

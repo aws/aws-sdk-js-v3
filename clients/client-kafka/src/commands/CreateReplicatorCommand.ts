@@ -43,6 +43,10 @@ export interface CreateReplicatorCommandOutput extends CreateReplicatorResponse,
  *       AmazonMskCluster: { // AmazonMskCluster
  *         MskClusterArn: "STRING_VALUE", // required
  *       },
+ *       ApacheKafkaCluster: { // ApacheKafkaCluster
+ *         ApacheKafkaClusterId: "STRING_VALUE", // required
+ *         BootstrapBrokerString: "STRING_VALUE", // required
+ *       },
  *       VpcConfig: { // KafkaClusterClientVpcConfig
  *         SecurityGroupIds: [ // __listOf__string
  *           "STRING_VALUE",
@@ -50,6 +54,16 @@ export interface CreateReplicatorCommandOutput extends CreateReplicatorResponse,
  *         SubnetIds: [ // required
  *           "STRING_VALUE",
  *         ],
+ *       },
+ *       ClientAuthentication: { // KafkaClusterClientAuthentication
+ *         SaslScram: { // KafkaClusterSaslScramAuthentication
+ *           Mechanism: "SHA256" || "SHA512", // required
+ *           SecretArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       EncryptionInTransit: { // KafkaClusterEncryptionInTransit
+ *         EncryptionType: "TLS", // required
+ *         RootCaCertificate: "STRING_VALUE",
  *       },
  *     },
  *   ],
@@ -64,10 +78,13 @@ export interface CreateReplicatorCommandOutput extends CreateReplicatorResponse,
  *         ],
  *         DetectAndCopyNewConsumerGroups: true || false,
  *         SynchroniseConsumerGroupOffsets: true || false,
+ *         ConsumerGroupOffsetSyncMode: "LEGACY" || "ENHANCED",
  *       },
- *       SourceKafkaClusterArn: "STRING_VALUE", // required
+ *       SourceKafkaClusterArn: "STRING_VALUE",
+ *       SourceKafkaClusterId: "STRING_VALUE",
  *       TargetCompressionType: "NONE" || "GZIP" || "SNAPPY" || "LZ4" || "ZSTD", // required
- *       TargetKafkaClusterArn: "STRING_VALUE", // required
+ *       TargetKafkaClusterArn: "STRING_VALUE",
+ *       TargetKafkaClusterId: "STRING_VALUE",
  *       TopicReplication: { // TopicReplication
  *         CopyAccessControlListsForTopics: true || false,
  *         CopyTopicConfigurations: true || false,
@@ -91,6 +108,23 @@ export interface CreateReplicatorCommandOutput extends CreateReplicatorResponse,
  *   ServiceExecutionRoleArn: "STRING_VALUE", // required
  *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   LogDelivery: { // LogDelivery
+ *     ReplicatorLogDelivery: { // ReplicatorLogDelivery
+ *       CloudWatchLogs: { // ReplicatorCloudWatchLogs
+ *         Enabled: true || false, // required
+ *         LogGroup: "STRING_VALUE",
+ *       },
+ *       Firehose: { // ReplicatorFirehose
+ *         Enabled: true || false, // required
+ *         DeliveryStream: "STRING_VALUE",
+ *       },
+ *       S3: { // ReplicatorS3
+ *         Enabled: true || false, // required
+ *         Bucket: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateReplicatorCommand(input);

@@ -5,8 +5,11 @@ import type {
   ClusterState,
   ClusterType,
   ConfigurationState,
+  ConsumerGroupOffsetSyncMode,
   CustomerActionStatus,
   EnhancedMonitoring,
+  KafkaClusterEncryptionInTransitType,
+  KafkaClusterSaslScramMechanism,
   KafkaVersionStatus,
   NetworkType,
   NodeType,
@@ -1450,6 +1453,72 @@ export interface AmazonMskCluster {
 }
 
 /**
+ * <p>Details of an Apache Kafka Cluster.</p>
+ * @public
+ */
+export interface ApacheKafkaCluster {
+  /**
+   * <p>The ID of the Apache Kafka cluster.</p>
+   * @public
+   */
+  ApacheKafkaClusterId: string | undefined;
+
+  /**
+   * <p>The bootstrap broker string of the Apache Kafka cluster.</p>
+   * @public
+   */
+  BootstrapBrokerString: string | undefined;
+}
+
+/**
+ * <p>Details for SASL/SCRAM client authentication.</p>
+ * @public
+ */
+export interface KafkaClusterSaslScramAuthentication {
+  /**
+   * <p>The SASL/SCRAM authentication mechanism.</p>
+   * @public
+   */
+  Mechanism: KafkaClusterSaslScramMechanism | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+}
+
+/**
+ * <p>Details of the client authentication used by the Apache Kafka cluster.</p>
+ * @public
+ */
+export interface KafkaClusterClientAuthentication {
+  /**
+   * <p>Details for SASL/SCRAM client authentication.</p>
+   * @public
+   */
+  SaslScram: KafkaClusterSaslScramAuthentication | undefined;
+}
+
+/**
+ * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
+ * @public
+ */
+export interface KafkaClusterEncryptionInTransit {
+  /**
+   * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
+   * @public
+   */
+  EncryptionType: KafkaClusterEncryptionInTransitType | undefined;
+
+  /**
+   * <p>The root CA certificate.</p>
+   * @public
+   */
+  RootCaCertificate?: string | undefined;
+}
+
+/**
  * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
  * @public
  */
@@ -1476,13 +1545,31 @@ export interface KafkaCluster {
    * <p>Details of an Amazon MSK Cluster.</p>
    * @public
    */
-  AmazonMskCluster: AmazonMskCluster | undefined;
+  AmazonMskCluster?: AmazonMskCluster | undefined;
+
+  /**
+   * <p>Details of an Apache Kafka Cluster.</p>
+   * @public
+   */
+  ApacheKafkaCluster?: ApacheKafkaCluster | undefined;
 
   /**
    * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
    * @public
    */
-  VpcConfig: KafkaClusterClientVpcConfig | undefined;
+  VpcConfig?: KafkaClusterClientVpcConfig | undefined;
+
+  /**
+   * <p>Details of the client authentication used by the Apache Kafka cluster.</p>
+   * @public
+   */
+  ClientAuthentication?: KafkaClusterClientAuthentication | undefined;
+
+  /**
+   * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
+   * @public
+   */
+  EncryptionInTransit?: KafkaClusterEncryptionInTransit | undefined;
 }
 
 /**
@@ -1497,6 +1584,12 @@ export interface KafkaClusterDescription {
   AmazonMskCluster?: AmazonMskCluster | undefined;
 
   /**
+   * <p>Details of an Apache Kafka Cluster.</p>
+   * @public
+   */
+  ApacheKafkaCluster?: ApacheKafkaCluster | undefined;
+
+  /**
    * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
    * @public
    */
@@ -1507,6 +1600,18 @@ export interface KafkaClusterDescription {
    * @public
    */
   VpcConfig?: KafkaClusterClientVpcConfig | undefined;
+
+  /**
+   * <p>Details of the client authentication used by the Apache Kafka cluster.</p>
+   * @public
+   */
+  ClientAuthentication?: KafkaClusterClientAuthentication | undefined;
+
+  /**
+   * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
+   * @public
+   */
+  EncryptionInTransit?: KafkaClusterEncryptionInTransit | undefined;
 }
 
 /**
@@ -1519,6 +1624,12 @@ export interface KafkaClusterSummary {
    * @public
    */
   AmazonMskCluster?: AmazonMskCluster | undefined;
+
+  /**
+   * <p>Details of an Apache Kafka Cluster.</p>
+   * @public
+   */
+  ApacheKafkaCluster?: ApacheKafkaCluster | undefined;
 
   /**
    * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
@@ -1701,6 +1812,12 @@ export interface ConsumerGroupReplication {
    * @public
    */
   SynchroniseConsumerGroupOffsets?: boolean | undefined;
+
+  /**
+   * <p>The consumer group offset synchronization mode. With LEGACY, offsets are synchronized when producers write to the source cluster. With ENHANCED, consumer offsets are synchronized regardless of producer location. ENHANCED requires a corresponding replicator that replicates data from the target cluster to the source cluster.</p>
+   * @public
+   */
+  ConsumerGroupOffsetSyncMode?: ConsumerGroupOffsetSyncMode | undefined;
 }
 
 /**
@@ -1790,7 +1907,13 @@ export interface ReplicationInfo {
    * <p>The ARN of the source Kafka cluster.</p>
    * @public
    */
-  SourceKafkaClusterArn: string | undefined;
+  SourceKafkaClusterArn?: string | undefined;
+
+  /**
+   * <p>The ID of the source Kafka cluster.</p>
+   * @public
+   */
+  SourceKafkaClusterId?: string | undefined;
 
   /**
    * <p>The compression type to use when producing records to target cluster.</p>
@@ -1802,7 +1925,13 @@ export interface ReplicationInfo {
    * <p>The ARN of the target Kafka cluster.</p>
    * @public
    */
-  TargetKafkaClusterArn: string | undefined;
+  TargetKafkaClusterArn?: string | undefined;
+
+  /**
+   * <p>The ID of the target Kafka cluster.</p>
+   * @public
+   */
+  TargetKafkaClusterId?: string | undefined;
 
   /**
    * <p>Configuration relating to topic replication.</p>
@@ -2622,6 +2751,102 @@ export interface CreateConfigurationResponse {
 }
 
 /**
+ * <p>Details about delivering logs to CloudWatch Logs.</p>
+ * @public
+ */
+export interface ReplicatorCloudWatchLogs {
+  /**
+   * <p>Whether log delivery to CloudWatch Logs is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The CloudWatch log group that is the destination for log delivery.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+}
+
+/**
+ * <p>Details about delivering logs to Firehose.</p>
+ * @public
+ */
+export interface ReplicatorFirehose {
+  /**
+   * <p>Whether log delivery to Firehose is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The Firehose delivery stream that is the destination for log delivery.</p>
+   * @public
+   */
+  DeliveryStream?: string | undefined;
+}
+
+/**
+ * <p>Details about delivering logs to S3.</p>
+ * @public
+ */
+export interface ReplicatorS3 {
+  /**
+   * <p>Whether log delivery to S3 is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The S3 bucket that is the destination for log delivery.</p>
+   * @public
+   */
+  Bucket?: string | undefined;
+
+  /**
+   * <p>The S3 prefix that is the destination for log delivery.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+}
+
+/**
+ * <p>Configuration for replicator log delivery.</p>
+ * @public
+ */
+export interface ReplicatorLogDelivery {
+  /**
+   * <p>Configuration for CloudWatch Logs delivery.</p>
+   * @public
+   */
+  CloudWatchLogs?: ReplicatorCloudWatchLogs | undefined;
+
+  /**
+   * <p>Configuration for Firehose delivery.</p>
+   * @public
+   */
+  Firehose?: ReplicatorFirehose | undefined;
+
+  /**
+   * <p>Configuration for S3 delivery.</p>
+   * @public
+   */
+  S3?: ReplicatorS3 | undefined;
+}
+
+/**
+ * <p>Configuration for log delivery to customer destinations.</p>
+ * @public
+ */
+export interface LogDelivery {
+  /**
+   * <p>Configuration for replicator log delivery.</p>
+   * @public
+   */
+  ReplicatorLogDelivery?: ReplicatorLogDelivery | undefined;
+}
+
+/**
  * <p>Creates a replicator using the specified configuration.</p>
  * @public
  */
@@ -2661,6 +2886,12 @@ export interface CreateReplicatorRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration for delivering replicator logs to customer destinations.</p>
+   * @public
+   */
+  LogDelivery?: LogDelivery | undefined;
 }
 
 /**
@@ -3327,6 +3558,12 @@ export interface DescribeReplicatorResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration for log delivery.</p>
+   * @public
+   */
+  LogDelivery?: LogDelivery | undefined;
 }
 
 /**
@@ -4782,19 +5019,37 @@ export interface UpdateReplicationInfoRequest {
    * <p>The ARN of the source Kafka cluster.</p>
    * @public
    */
-  SourceKafkaClusterArn: string | undefined;
+  SourceKafkaClusterArn?: string | undefined;
+
+  /**
+   * <p>The ID of the source Kafka cluster.</p>
+   * @public
+   */
+  SourceKafkaClusterId?: string | undefined;
 
   /**
    * <p>The ARN of the target Kafka cluster.</p>
    * @public
    */
-  TargetKafkaClusterArn: string | undefined;
+  TargetKafkaClusterArn?: string | undefined;
+
+  /**
+   * <p>The ID of the target Kafka cluster.</p>
+   * @public
+   */
+  TargetKafkaClusterId?: string | undefined;
 
   /**
    * <p>Updated topic replication information.</p>
    * @public
    */
   TopicReplication?: TopicReplicationUpdate | undefined;
+
+  /**
+   * <p>Configuration for delivering replicator logs to customer destinations.</p>
+   * @public
+   */
+  LogDelivery?: LogDelivery | undefined;
 }
 
 /**

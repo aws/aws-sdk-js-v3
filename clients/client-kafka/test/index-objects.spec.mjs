@@ -1,5 +1,6 @@
 import {
   AmazonMskCluster$,
+  ApacheKafkaCluster$,
   BadRequestException,
   BadRequestException$,
   BatchAssociateScramSecret$,
@@ -42,6 +43,7 @@ import {
   ConflictException,
   ConflictException$,
   ConnectivityInfo$,
+  ConsumerGroupOffsetSyncMode,
   ConsumerGroupReplication$,
   ConsumerGroupReplicationUpdate$,
   ControllerMovedException,
@@ -167,8 +169,13 @@ import {
   Kafka,
   KafkaClient,
   KafkaCluster$,
+  KafkaClusterClientAuthentication$,
   KafkaClusterClientVpcConfig$,
   KafkaClusterDescription$,
+  KafkaClusterEncryptionInTransit$,
+  KafkaClusterEncryptionInTransitType,
+  KafkaClusterSaslScramAuthentication$,
+  KafkaClusterSaslScramMechanism,
   KafkaClusterSummary$,
   KafkaRequestException,
   KafkaRequestException$,
@@ -233,6 +240,7 @@ import {
   ListVpcConnectionsCommand,
   ListVpcConnectionsRequest$,
   ListVpcConnectionsResponse$,
+  LogDelivery$,
   LoggingInfo$,
   MutableClusterInfo$,
   NetworkType,
@@ -290,6 +298,10 @@ import {
   ReplicationStateInfo$,
   ReplicationTopicNameConfiguration$,
   ReplicationTopicNameConfigurationType,
+  ReplicatorCloudWatchLogs$,
+  ReplicatorFirehose$,
+  ReplicatorLogDelivery$,
+  ReplicatorS3$,
   ReplicatorState,
   ReplicatorSummary$,
   S3$,
@@ -520,6 +532,7 @@ assert(typeof UpdateTopicCommand === "function");
 assert(typeof UpdateTopic$ === "object");
 // structural schemas
 assert(typeof AmazonMskCluster$ === "object");
+assert(typeof ApacheKafkaCluster$ === "object");
 assert(typeof BatchAssociateScramSecretRequest$ === "object");
 assert(typeof BatchAssociateScramSecretResponse$ === "object");
 assert(typeof BatchDisassociateScramSecretRequest$ === "object");
@@ -610,8 +623,11 @@ assert(typeof Iam$ === "object");
 assert(typeof JmxExporter$ === "object");
 assert(typeof JmxExporterInfo$ === "object");
 assert(typeof KafkaCluster$ === "object");
+assert(typeof KafkaClusterClientAuthentication$ === "object");
 assert(typeof KafkaClusterClientVpcConfig$ === "object");
 assert(typeof KafkaClusterDescription$ === "object");
+assert(typeof KafkaClusterEncryptionInTransit$ === "object");
+assert(typeof KafkaClusterSaslScramAuthentication$ === "object");
 assert(typeof KafkaClusterSummary$ === "object");
 assert(typeof KafkaVersion$ === "object");
 assert(typeof ListClientVpcConnectionsRequest$ === "object");
@@ -642,6 +658,7 @@ assert(typeof ListTopicsRequest$ === "object");
 assert(typeof ListTopicsResponse$ === "object");
 assert(typeof ListVpcConnectionsRequest$ === "object");
 assert(typeof ListVpcConnectionsResponse$ === "object");
+assert(typeof LogDelivery$ === "object");
 assert(typeof LoggingInfo$ === "object");
 assert(typeof MutableClusterInfo$ === "object");
 assert(typeof NodeExporter$ === "object");
@@ -668,6 +685,10 @@ assert(typeof ReplicationInfoSummary$ === "object");
 assert(typeof ReplicationStartingPosition$ === "object");
 assert(typeof ReplicationStateInfo$ === "object");
 assert(typeof ReplicationTopicNameConfiguration$ === "object");
+assert(typeof ReplicatorCloudWatchLogs$ === "object");
+assert(typeof ReplicatorFirehose$ === "object");
+assert(typeof ReplicatorLogDelivery$ === "object");
+assert(typeof ReplicatorS3$ === "object");
 assert(typeof ReplicatorSummary$ === "object");
 assert(typeof S3$ === "object");
 assert(typeof Sasl$ === "object");
@@ -732,8 +753,11 @@ assert(typeof ClientBroker === "object");
 assert(typeof ClusterState === "object");
 assert(typeof ClusterType === "object");
 assert(typeof ConfigurationState === "object");
+assert(typeof ConsumerGroupOffsetSyncMode === "object");
 assert(typeof CustomerActionStatus === "object");
 assert(typeof EnhancedMonitoring === "object");
+assert(typeof KafkaClusterEncryptionInTransitType === "object");
+assert(typeof KafkaClusterSaslScramMechanism === "object");
 assert(typeof KafkaVersionStatus === "object");
 assert(typeof NetworkType === "object");
 assert(typeof NodeType === "object");

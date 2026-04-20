@@ -55,6 +55,10 @@ export interface ListReplicatorsCommandOutput extends ListReplicatorsResponse, _
  * //           AmazonMskCluster: { // AmazonMskCluster
  * //             MskClusterArn: "STRING_VALUE", // required
  * //           },
+ * //           ApacheKafkaCluster: { // ApacheKafkaCluster
+ * //             ApacheKafkaClusterId: "STRING_VALUE", // required
+ * //             BootstrapBrokerString: "STRING_VALUE", // required
+ * //           },
  * //           KafkaClusterAlias: "STRING_VALUE",
  * //         },
  * //       ],

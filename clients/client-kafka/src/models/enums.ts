@@ -175,6 +175,33 @@ export type ConfigurationState = (typeof ConfigurationState)[keyof typeof Config
  * @public
  * @enum
  */
+export const KafkaClusterSaslScramMechanism = {
+  SHA256: "SHA256",
+  SHA512: "SHA512",
+} as const;
+/**
+ * @public
+ */
+export type KafkaClusterSaslScramMechanism =
+  (typeof KafkaClusterSaslScramMechanism)[keyof typeof KafkaClusterSaslScramMechanism];
+
+/**
+ * @public
+ * @enum
+ */
+export const KafkaClusterEncryptionInTransitType = {
+  TLS: "TLS",
+} as const;
+/**
+ * @public
+ */
+export type KafkaClusterEncryptionInTransitType =
+  (typeof KafkaClusterEncryptionInTransitType)[keyof typeof KafkaClusterEncryptionInTransitType];
+
+/**
+ * @public
+ * @enum
+ */
 export const KafkaVersionStatus = {
   ACTIVE: "ACTIVE",
   DEPRECATED: "DEPRECATED",
@@ -195,6 +222,20 @@ export const NodeType = {
  * @public
  */
 export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConsumerGroupOffsetSyncMode = {
+  ENHANCED: "ENHANCED",
+  LEGACY: "LEGACY",
+} as const;
+/**
+ * @public
+ */
+export type ConsumerGroupOffsetSyncMode =
+  (typeof ConsumerGroupOffsetSyncMode)[keyof typeof ConsumerGroupOffsetSyncMode];
 
 /**
  * @public

@@ -50,6 +50,10 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //       AmazonMskCluster: { // AmazonMskCluster
  * //         MskClusterArn: "STRING_VALUE", // required
  * //       },
+ * //       ApacheKafkaCluster: { // ApacheKafkaCluster
+ * //         ApacheKafkaClusterId: "STRING_VALUE", // required
+ * //         BootstrapBrokerString: "STRING_VALUE", // required
+ * //       },
  * //       KafkaClusterAlias: "STRING_VALUE",
  * //       VpcConfig: { // KafkaClusterClientVpcConfig
  * //         SecurityGroupIds: [ // __listOf__string
@@ -58,6 +62,16 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //         SubnetIds: [ // required
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       ClientAuthentication: { // KafkaClusterClientAuthentication
+ * //         SaslScram: { // KafkaClusterSaslScramAuthentication
+ * //           Mechanism: "SHA256" || "SHA512", // required
+ * //           SecretArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       EncryptionInTransit: { // KafkaClusterEncryptionInTransit
+ * //         EncryptionType: "TLS", // required
+ * //         RootCaCertificate: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -72,6 +86,7 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //         ],
  * //         DetectAndCopyNewConsumerGroups: true || false,
  * //         SynchroniseConsumerGroupOffsets: true || false,
+ * //         ConsumerGroupOffsetSyncMode: "LEGACY" || "ENHANCED",
  * //       },
  * //       SourceKafkaClusterAlias: "STRING_VALUE",
  * //       TargetCompressionType: "NONE" || "GZIP" || "SNAPPY" || "LZ4" || "ZSTD",
@@ -107,6 +122,23 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //   },
  * //   Tags: { // __mapOf__string
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LogDelivery: { // LogDelivery
+ * //     ReplicatorLogDelivery: { // ReplicatorLogDelivery
+ * //       CloudWatchLogs: { // ReplicatorCloudWatchLogs
+ * //         Enabled: true || false, // required
+ * //         LogGroup: "STRING_VALUE",
+ * //       },
+ * //       Firehose: { // ReplicatorFirehose
+ * //         Enabled: true || false, // required
+ * //         DeliveryStream: "STRING_VALUE",
+ * //       },
+ * //       S3: { // ReplicatorS3
+ * //         Enabled: true || false, // required
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

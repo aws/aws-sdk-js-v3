@@ -1,5 +1,7 @@
 const _A = "Authentication";
 const _AENII = "AttachedENIId";
+const _AKC = "ApacheKafkaCluster";
+const _AKCI = "ApacheKafkaClusterId";
 const _AMC = "AmazonMskCluster";
 const _AOA = "ActiveOperationArn";
 const _ATCT = "AddedToClusterTime";
@@ -56,6 +58,7 @@ const _CCVR = "CreateClusterV2Request";
 const _CCVRr = "CreateClusterV2Response";
 const _CCr = "CreateConfiguration";
 const _CE = "ConflictException";
+const _CGOSM = "ConsumerGroupOffsetSyncMode";
 const _CGR = "ConsumerGroupReplication";
 const _CGRU = "ConsumerGroupReplicationUpdate";
 const _CGTE = "ConsumerGroupsToExclude";
@@ -172,6 +175,7 @@ const _EMr = "ErrorMessage";
 const _ES = "ErrorString";
 const _ESI = "EbsStorageInfo";
 const _ET = "EndTime";
+const _ETn = "EncryptionType";
 const _En = "Enabled";
 const _F = "Firehose";
 const _FE = "ForbiddenException";
@@ -197,9 +201,12 @@ const _JEI = "JmxExporterInfo";
 const _KBNI = "KafkaBrokerNodeId";
 const _KC = "KafkaClusters";
 const _KCA = "KafkaClusterAlias";
+const _KCCA = "KafkaClusterClientAuthentication";
 const _KCCVC = "KafkaClusterClientVpcConfig";
 const _KCD = "KafkaClusterDescription";
+const _KCEIT = "KafkaClusterEncryptionInTransit";
 const _KCS = "KafkaClusterSummary";
+const _KCSSA = "KafkaClusterSaslScramAuthentication";
 const _KCSa = "KafkaClustersSummary";
 const _KCa = "KafkaCluster";
 const _KRE = "KafkaRequestException";
@@ -228,6 +235,7 @@ const _LCVCRi = "ListClientVpcConnectionsResponse";
 const _LCVR = "ListClustersV2Request";
 const _LCVRi = "ListClustersV2Response";
 const _LCi = "ListConfigurations";
+const _LD = "LogDelivery";
 const _LG = "LogGroup";
 const _LI = "LoggingInfo";
 const _LKV = "ListKafkaVersions";
@@ -256,6 +264,7 @@ const _M = "Message";
 const _MCA = "MskClusterArn";
 const _MCI = "MutableClusterInfo";
 const _MR = "MaxResults";
+const _Me = "Mechanism";
 const _N = "Name";
 const _NARN = "NodeARN";
 const _NCE = "NotControllerException";
@@ -297,24 +306,29 @@ const _RAe = "ResourceArn";
 const _RB = "RebootBroker";
 const _RBR = "RebootBrokerRequest";
 const _RBRe = "RebootBrokerResponse";
+const _RCC = "RootCaCertificate";
 const _RCVC = "RejectClientVpcConnection";
 const _RCVCR = "RejectClientVpcConnectionRequest";
 const _RCVCRe = "RejectClientVpcConnectionResponse";
+const _RCWL = "ReplicatorCloudWatchLogs";
 const _RD = "ReplicatorDescription";
 const _RF = "ReplicationFactor";
+const _RFe = "ReplicatorFirehose";
 const _RI = "ReplicationInfo";
 const _RID = "ReplicationInfoDescription";
 const _RIL = "ReplicationInfoList";
 const _RIPE = "ReassignmentInProgressException";
 const _RIS = "ReplicationInfoSummary";
 const _RISL = "ReplicationInfoSummaryList";
+const _RLD = "ReplicatorLogDelivery";
 const _RN = "ReplicatorName";
 const _RNF = "ReplicatorNameFilter";
 const _RRA = "ReplicatorResourceArn";
 const _RS = "ReplicatorState";
 const _RSI = "ReplicationStateInfo";
 const _RSP = "ReplicationStartingPosition";
-const _RSe = "ReplicatorSummary";
+const _RSe = "ReplicatorS3";
+const _RSep = "ReplicatorSummary";
 const _RTNC = "ReplicationTopicNameConfiguration";
 const _Re = "Revision";
 const _Rep = "Replicators";
@@ -336,12 +350,14 @@ const _SIte = "StepInfo";
 const _SIu = "SubnetIds";
 const _SKCA = "SourceKafkaClusterArn";
 const _SKCAo = "SourceKafkaClusterAlias";
+const _SKCI = "SourceKafkaClusterId";
 const _SM = "StorageMode";
 const _SN = "StepName";
 const _SP = "ServerProperties";
 const _SPt = "StartingPosition";
 const _SR = "ServerlessRequest";
 const _SS = "StepStatus";
+const _SSa = "SaslScram";
 const _SSe = "ServerlessSasl";
 const _ST = "StartTime";
 const _SUE = "ServiceUnavailableException";
@@ -364,6 +380,7 @@ const _TIT = "TargetInstanceType";
 const _TK = "TagKeys";
 const _TKCA = "TargetKafkaClusterArn";
 const _TKCAa = "TargetKafkaClusterAlias";
+const _TKCI = "TargetKafkaClusterId";
 const _TKV = "TargetKafkaVersion";
 const _TMRE = "TooManyRequestsException";
 const _TN = "TopicName";
@@ -454,6 +471,8 @@ const _ZNI = "ZookeeperNodeInfo";
 const _ZV = "ZookeeperVersion";
 const _a = "authentication";
 const _aENII = "attachedENIId";
+const _aKC = "apacheKafkaCluster";
+const _aKCI = "apacheKafkaClusterId";
 const _aMC = "amazonMskCluster";
 const _aOA = "activeOperationArn";
 const _aTCT = "addedToClusterTime";
@@ -491,6 +510,7 @@ const _cAo = "configurationArn";
 const _cB = "clientBroker";
 const _cBI = "createdBrokerIds";
 const _cBSI = "currentBrokerSoftwareInfo";
+const _cGOSM = "consumerGroupOffsetSyncMode";
 const _cGR = "consumerGroupReplication";
 const _cGTE = "consumerGroupsToExclude";
 const _cGTR = "consumerGroupsToReplicate";
@@ -538,6 +558,7 @@ const _eMr = "errorMessage";
 const _eS = "errorString";
 const _eSI = "ebsStorageInfo";
 const _eT = "endTime";
+const _eTn = "encryptionType";
 const _en = "endpoints";
 const _ena = "enabled";
 const _f = "firehose";
@@ -559,6 +580,7 @@ const _kCS = "kafkaClustersSummary";
 const _kV = "kafkaVersion";
 const _kVa = "kafkaVersions";
 const _l = "leader";
+const _lD = "logDelivery";
 const _lG = "logGroup";
 const _lI = "loggingInfo";
 const _lOBEBSVI = "__listOfBrokerEBSVolumeInfo";
@@ -589,6 +611,7 @@ const _lR = "latestRevision";
 const _m = "message";
 const _mCA = "mskClusterArn";
 const _mR = "maxResults";
+const _me = "mechanism";
 const _n = "name";
 const _nARN = "nodeARN";
 const _nE = "nodeExporter";
@@ -616,10 +639,12 @@ const _pr = "prometheus";
 const _pre = "prefix";
 const _r = "rebalancing";
 const _rA = "replicatorArn";
+const _rCC = "rootCaCertificate";
 const _rD = "replicatorDescription";
 const _rF = "replicationFactor";
 const _rIL = "replicationInfoList";
 const _rISL = "replicationInfoSummaryList";
+const _rLD = "replicatorLogDelivery";
 const _rN = "replicatorName";
 const _rNF = "replicatorNameFilter";
 const _rRA = "replicatorResourceArn";
@@ -642,11 +667,13 @@ const _sIte = "stepInfo";
 const _sIu = "subnetIds";
 const _sKCA = "sourceKafkaClusterArn";
 const _sKCAo = "sourceKafkaClusterAlias";
+const _sKCI = "sourceKafkaClusterId";
 const _sM = "storageMode";
 const _sN = "stepName";
 const _sP = "serverProperties";
 const _sPt = "startingPosition";
 const _sS = "stepStatus";
+const _sSa = "saslScram";
 const _sT = "startTime";
 const _sV = "sourceVersion";
 const _s_ = "s3";
@@ -667,6 +694,7 @@ const _tIT = "targetInstanceType";
 const _tK = "tagKeys";
 const _tKCA = "targetKafkaClusterArn";
 const _tKCAa = "targetKafkaClusterAlias";
+const _tKCI = "targetKafkaClusterId";
 const _tKV = "targetKafkaVersion";
 const _tN = "topicName";
 const _tNC = "topicNameConfiguration";
@@ -853,6 +881,11 @@ export var AmazonMskCluster$: StaticStructureSchema = [3, n0, _AMC,
   [_MCA],
   [[0, { [_jN]: _mCA }]], 1
 ];
+export var ApacheKafkaCluster$: StaticStructureSchema = [3, n0, _AKC,
+  0,
+  [_AKCI, _BBS],
+  [[0, { [_jN]: _aKCI }], [0, { [_jN]: _bBS }]], 2
+];
 export var BatchAssociateScramSecretRequest$: StaticStructureSchema = [3, n0, _BASSR,
   0,
   [_CA, _SAL],
@@ -990,8 +1023,8 @@ export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var ConsumerGroupReplication$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_CGTR, _CGTE, _DACNCG, _SCGO],
-  [[64 | 0, { [_jN]: _cGTR }], [64 | 0, { [_jN]: _cGTE }], [2, { [_jN]: _dACNCG }], [2, { [_jN]: _sCGO }]], 1
+  [_CGTR, _CGTE, _DACNCG, _SCGO, _CGOSM],
+  [[64 | 0, { [_jN]: _cGTR }], [64 | 0, { [_jN]: _cGTE }], [2, { [_jN]: _dACNCG }], [2, { [_jN]: _sCGO }], [0, { [_jN]: _cGOSM }]], 1
 ];
 export var ConsumerGroupReplicationUpdate$: StaticStructureSchema = [3, n0, _CGRU,
   0,
@@ -1035,8 +1068,8 @@ export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRrea
 ];
 export var CreateReplicatorRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_KC, _RIL, _RN, _SERA, _D, _Ta],
-  [[() => __listOfKafkaCluster, { [_jN]: _kC }], [() => __listOfReplicationInfo, { [_jN]: _rIL }], [0, { [_jN]: _rN }], [0, { [_jN]: _sERA }], [0, { [_jN]: _d }], [128 | 0, { [_jN]: _ta }]], 4
+  [_KC, _RIL, _RN, _SERA, _D, _Ta, _LD],
+  [[() => __listOfKafkaCluster, { [_jN]: _kC }], [() => __listOfReplicationInfo, { [_jN]: _rIL }], [0, { [_jN]: _rN }], [0, { [_jN]: _sERA }], [0, { [_jN]: _d }], [128 | 0, { [_jN]: _ta }], [() => LogDelivery$, { [_jN]: _lD }]], 4
 ];
 export var CreateReplicatorResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -1190,8 +1223,8 @@ export var DescribeReplicatorRequest$: StaticStructureSchema = [3, n0, _DRRes,
 ];
 export var DescribeReplicatorResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
-  [_CT, _CV, _IRR, _KC, _RIL, _RA, _RD, _RN, _RRA, _RS, _SERA, _SIt, _Ta],
-  [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterDescription, { [_jN]: _kC }], [() => __listOfReplicationInfoDescription, { [_jN]: _rIL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rD }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }], [0, { [_jN]: _sERA }], [() => ReplicationStateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }]]
+  [_CT, _CV, _IRR, _KC, _RIL, _RA, _RD, _RN, _RRA, _RS, _SERA, _SIt, _Ta, _LD],
+  [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterDescription, { [_jN]: _kC }], [() => __listOfReplicationInfoDescription, { [_jN]: _rIL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rD }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }], [0, { [_jN]: _sERA }], [() => ReplicationStateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => LogDelivery$, { [_jN]: _lD }]]
 ];
 export var DescribeTopicPartitionsRequest$: StaticStructureSchema = [3, n0, _DTPR,
   0,
@@ -1300,8 +1333,13 @@ export var JmxExporterInfo$: StaticStructureSchema = [3, n0, _JEI,
 ];
 export var KafkaCluster$: StaticStructureSchema = [3, n0, _KCa,
   0,
-  [_AMC, _VCp],
-  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }]], 2
+  [_AMC, _AKC, _VCp, _CAl, _EIT],
+  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [() => ApacheKafkaCluster$, { [_jN]: _aKC }], [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }], [() => KafkaClusterClientAuthentication$, { [_jN]: _cAl }], [() => KafkaClusterEncryptionInTransit$, { [_jN]: _eIT }]]
+];
+export var KafkaClusterClientAuthentication$: StaticStructureSchema = [3, n0, _KCCA,
+  0,
+  [_SSa],
+  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }]], 1
 ];
 export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [3, n0, _KCCVC,
   0,
@@ -1310,13 +1348,23 @@ export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [3, n0, _KCCVC,
 ];
 export var KafkaClusterDescription$: StaticStructureSchema = [3, n0, _KCD,
   0,
-  [_AMC, _KCA, _VCp],
-  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [0, { [_jN]: _kCA }], [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }]]
+  [_AMC, _AKC, _KCA, _VCp, _CAl, _EIT],
+  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [() => ApacheKafkaCluster$, { [_jN]: _aKC }], [0, { [_jN]: _kCA }], [() => KafkaClusterClientVpcConfig$, { [_jN]: _vCp }], [() => KafkaClusterClientAuthentication$, { [_jN]: _cAl }], [() => KafkaClusterEncryptionInTransit$, { [_jN]: _eIT }]]
+];
+export var KafkaClusterEncryptionInTransit$: StaticStructureSchema = [3, n0, _KCEIT,
+  0,
+  [_ETn, _RCC],
+  [[0, { [_jN]: _eTn }], [0, { [_jN]: _rCC }]], 1
+];
+export var KafkaClusterSaslScramAuthentication$: StaticStructureSchema = [3, n0, _KCSSA,
+  0,
+  [_Me, _SA],
+  [[0, { [_jN]: _me }], [0, { [_jN]: _sA }]], 2
 ];
 export var KafkaClusterSummary$: StaticStructureSchema = [3, n0, _KCS,
   0,
-  [_AMC, _KCA],
-  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [0, { [_jN]: _kCA }]]
+  [_AMC, _AKC, _KCA],
+  [[() => AmazonMskCluster$, { [_jN]: _aMC }], [() => ApacheKafkaCluster$, { [_jN]: _aKC }], [0, { [_jN]: _kCA }]]
 ];
 export var KafkaVersion$: StaticStructureSchema = [3, n0, _KV,
   0,
@@ -1463,6 +1511,11 @@ export var ListVpcConnectionsResponse$: StaticStructureSchema = [3, n0, _LVCRi,
   [_VCpc, _NTe],
   [[() => __listOfVpcConnection, { [_jN]: _vCpc }], [0, { [_jN]: _nTe }]]
 ];
+export var LogDelivery$: StaticStructureSchema = [3, n0, _LD,
+  0,
+  [_RLD],
+  [[() => ReplicatorLogDelivery$, { [_jN]: _rLD }]]
+];
 export var LoggingInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
   [_BL],
@@ -1565,8 +1618,8 @@ export var RejectClientVpcConnectionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ReplicationInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_CGR, _SKCA, _TCT, _TKCA, _TR],
-  [[() => ConsumerGroupReplication$, { [_jN]: _cGR }], [0, { [_jN]: _sKCA }], [0, { [_jN]: _tCT }], [0, { [_jN]: _tKCA }], [() => TopicReplication$, { [_jN]: _tR }]], 5
+  [_CGR, _TCT, _TR, _SKCA, _SKCI, _TKCA, _TKCI],
+  [[() => ConsumerGroupReplication$, { [_jN]: _cGR }], [0, { [_jN]: _tCT }], [() => TopicReplication$, { [_jN]: _tR }], [0, { [_jN]: _sKCA }], [0, { [_jN]: _sKCI }], [0, { [_jN]: _tKCA }], [0, { [_jN]: _tKCI }]], 3
 ];
 export var ReplicationInfoDescription$: StaticStructureSchema = [3, n0, _RID,
   0,
@@ -1593,7 +1646,27 @@ export var ReplicationTopicNameConfiguration$: StaticStructureSchema = [3, n0, _
   [_Ty],
   [[0, { [_jN]: _ty }]]
 ];
-export var ReplicatorSummary$: StaticStructureSchema = [3, n0, _RSe,
+export var ReplicatorCloudWatchLogs$: StaticStructureSchema = [3, n0, _RCWL,
+  0,
+  [_En, _LG],
+  [[2, { [_jN]: _ena }], [0, { [_jN]: _lG }]], 1
+];
+export var ReplicatorFirehose$: StaticStructureSchema = [3, n0, _RFe,
+  0,
+  [_En, _DS],
+  [[2, { [_jN]: _ena }], [0, { [_jN]: _dS }]], 1
+];
+export var ReplicatorLogDelivery$: StaticStructureSchema = [3, n0, _RLD,
+  0,
+  [_CWL, _F, _S],
+  [[() => ReplicatorCloudWatchLogs$, { [_jN]: _cWL }], [() => ReplicatorFirehose$, { [_jN]: _f }], [() => ReplicatorS3$, { [_jN]: _s_ }]]
+];
+export var ReplicatorS3$: StaticStructureSchema = [3, n0, _RSe,
+  0,
+  [_En, _B, _Pre],
+  [[2, { [_jN]: _ena }], [0, { [_jN]: _b }], [0, { [_jN]: _pre }]], 1
+];
+export var ReplicatorSummary$: StaticStructureSchema = [3, n0, _RSep,
   0,
   [_CT, _CV, _IRR, _KCSa, _RISL, _RA, _RN, _RRA, _RS],
   [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterSummary, { [_jN]: _kCS }], [() => __listOfReplicationInfoSummary, { [_jN]: _rISL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }]]
@@ -1785,8 +1858,8 @@ export var UpdateRebalancingResponse$: StaticStructureSchema = [3, n0, _URRpd,
 ];
 export var UpdateReplicationInfoRequest$: StaticStructureSchema = [3, n0, _URIR,
   0,
-  [_CV, _RA, _SKCA, _TKCA, _CGR, _TR],
-  [[0, { [_jN]: _cV }], [0, 1], [0, { [_jN]: _sKCA }], [0, { [_jN]: _tKCA }], [() => ConsumerGroupReplicationUpdate$, { [_jN]: _cGR }], [() => TopicReplicationUpdate$, { [_jN]: _tR }]], 4
+  [_CV, _RA, _CGR, _SKCA, _SKCI, _TKCA, _TKCI, _TR, _LD],
+  [[0, { [_jN]: _cV }], [0, 1], [() => ConsumerGroupReplicationUpdate$, { [_jN]: _cGR }], [0, { [_jN]: _sKCA }], [0, { [_jN]: _sKCI }], [0, { [_jN]: _tKCA }], [0, { [_jN]: _tKCI }], [() => TopicReplicationUpdate$, { [_jN]: _tR }], [() => LogDelivery$, { [_jN]: _lD }]], 2
 ];
 export var UpdateReplicationInfoResponse$: StaticStructureSchema = [3, n0, _URIRp,
   0,
