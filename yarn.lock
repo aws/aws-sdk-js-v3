@@ -13638,6 +13638,7 @@ __metadata:
     "@smithy/util-retry": "npm:^4.3.2"
     "@smithy/util-stream": "npm:^4.5.23"
     "@smithy/util-utf8": "npm:^4.2.2"
+    "@smithy/util-waiter": "npm:^4.2.16"
     "@tsconfig/node20": "npm:20.1.8"
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
