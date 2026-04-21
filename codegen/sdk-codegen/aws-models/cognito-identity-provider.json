@@ -12013,7 +12013,7 @@
     "com.amazonaws.cognitoidentityprovider#LanguageIdType": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^cognito:(default|english|french|spanish|german|bahasa-indonesia|italian|japanese|korean|portuguese-brazil|chinese-(simplified|traditional))$"
+        "smithy.api#pattern": "^cognito:(default|dutch|english|french|spanish|german|bahasa-indonesia|italian|japanese|korean|portuguese-brazil|chinese-(simplified|traditional))$"
       }
     },
     "com.amazonaws.cognitoidentityprovider#LimitExceededException": {
@@ -12053,7 +12053,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 12
+          "max": 13
         }
       }
     },
