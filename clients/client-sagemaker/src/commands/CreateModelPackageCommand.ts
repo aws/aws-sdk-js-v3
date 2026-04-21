@@ -74,6 +74,25 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *         Framework: "STRING_VALUE",
  *         FrameworkVersion: "STRING_VALUE",
  *         NearestModelName: "STRING_VALUE",
+ *         AdditionalModelDataSources: [ // AdditionalModelDataSources
+ *           { // AdditionalModelDataSource
+ *             ChannelName: "STRING_VALUE", // required
+ *             S3DataSource: {
+ *               S3Uri: "STRING_VALUE", // required
+ *               S3DataType: "S3Prefix" || "S3Object", // required
+ *               CompressionType: "None" || "Gzip", // required
+ *               ModelAccessConfig: {
+ *                 AcceptEula: true || false, // required
+ *               },
+ *               HubAccessConfig: {
+ *                 HubContentArn: "STRING_VALUE", // required
+ *               },
+ *               ManifestS3Uri: "STRING_VALUE",
+ *               ETag: "STRING_VALUE",
+ *               ManifestEtag: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
  *         AdditionalS3DataSource: { // AdditionalS3DataSource
  *           S3DataType: "S3Object" || "S3Prefix", // required
  *           S3Uri: "STRING_VALUE", // required
@@ -288,6 +307,12 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *           Framework: "STRING_VALUE",
  *           FrameworkVersion: "STRING_VALUE",
  *           NearestModelName: "STRING_VALUE",
+ *           AdditionalModelDataSources: [
+ *             {
+ *               ChannelName: "STRING_VALUE", // required
+ *               S3DataSource: "<S3ModelDataSource>", // required
+ *             },
+ *           ],
  *           AdditionalS3DataSource: {
  *             S3DataType: "S3Object" || "S3Prefix", // required
  *             S3Uri: "STRING_VALUE", // required

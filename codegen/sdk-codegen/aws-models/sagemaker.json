@@ -1,6 +1,1281 @@
 {
   "smithy": "2.0",
   "shapes": {
+    "com.amazonaws.sagemaker#AIBenchmarkEndpoint": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the SageMaker endpoint to benchmark.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TargetContainerHostname": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The hostname of the specific container to target within a multi-container endpoint.</p>"
+          }
+        },
+        "InferenceComponents": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkInferenceComponentList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of inference components to benchmark on the endpoint.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The SageMaker endpoint configuration for benchmarking.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkInferenceComponent": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the inference component.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An inference component to benchmark.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkInferenceComponentList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIBenchmarkInferenceComponent"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkJobArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:ai-benchmark-job/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkJobStatus": {
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopping"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopped"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkJobSummary": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIBenchmarkJobArn": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIBenchmarkJobStatus": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobStatus",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The status of the benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A timestamp that indicates when the benchmark job was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that indicates when the benchmark job completed.</p>"
+          }
+        },
+        "AIWorkloadConfigName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the AI workload configuration used by the benchmark job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about an AI benchmark job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkJobSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIBenchmarkJobSummary"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkNetworkConfig": {
+      "type": "structure",
+      "members": {
+        "VpcConfig": {
+          "target": "com.amazonaws.sagemaker#VpcConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC configuration, including security group IDs and subnet IDs.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The network configuration for an AI benchmark job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkOutputConfig": {
+      "type": "structure",
+      "members": {
+        "S3OutputLocation": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon S3 URI where benchmark results are stored.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output configuration for an AI benchmark job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkOutputResult": {
+      "type": "structure",
+      "members": {
+        "S3OutputLocation": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon S3 URI where benchmark results are stored.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CloudWatchLogs": {
+          "target": "com.amazonaws.sagemaker#AICloudWatchLogsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The CloudWatch log information for the benchmark job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output result of an AI benchmark job, including the Amazon S3 location and CloudWatch log information.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIBenchmarkTarget": {
+      "type": "union",
+      "members": {
+        "Endpoint": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>The SageMaker endpoint to benchmark.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The target for an AI benchmark job. This is a union type — specify one of the members.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AICapacityReservationConfig": {
+      "type": "structure",
+      "members": {
+        "CapacityReservationPreference": {
+          "target": "com.amazonaws.sagemaker#AICapacityReservationPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>The capacity reservation preference. The only valid value is <code>capacity-reservations-only</code>.</p>"
+          }
+        },
+        "MlReservationArns": {
+          "target": "com.amazonaws.sagemaker#AIMlReservationArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of ML reservation ARNs to use.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The capacity reservation configuration for an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AICapacityReservationPreference": {
+      "type": "enum",
+      "members": {
+        "CAPACITY_RESERVATIONS_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "capacity-reservations-only"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIChannelName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9\\.\\-_]+$"
+      }
+    },
+    "com.amazonaws.sagemaker#AICloudWatchLogs": {
+      "type": "structure",
+      "members": {
+        "LogGroupArn": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudWatch log group.</p>"
+          }
+        },
+        "LogStreamName": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the CloudWatch log stream.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>CloudWatch log information for an AI benchmark or recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AICloudWatchLogsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AICloudWatchLogs"
+      }
+    },
+    "com.amazonaws.sagemaker#AIDatasetConfig": {
+      "type": "union",
+      "members": {
+        "InputDataConfig": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadInputDataConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of input data channel configurations for the workload.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The dataset configuration for an AI workload. This is a union type — specify one of the members.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIEntityName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIInferenceSpecificationName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIMlReservationArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z0-9\\-]{1,14}/"
+      }
+    },
+    "com.amazonaws.sagemaker#AIMlReservationArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIMlReservationArn"
+      }
+    },
+    "com.amazonaws.sagemaker#AIModelSource": {
+      "type": "union",
+      "members": {
+        "S3": {
+          "target": "com.amazonaws.sagemaker#AIModelSourceS3",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 location of the model artifacts.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The source of the model for an AI recommendation job. This is a union type.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIModelSourceS3": {
+      "type": "structure",
+      "members": {
+        "S3Uri": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 URI of the model artifacts.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon S3 model source configuration.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendation": {
+      "type": "structure",
+      "members": {
+        "RecommendationDescription": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the recommendation.</p>"
+          }
+        },
+        "OptimizationDetails": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationOptimizationDetailList",
+          "traits": {
+            "smithy.api#documentation": "<p>The optimization techniques applied in this recommendation.</p>"
+          }
+        },
+        "ModelDetails": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationModelDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the model package associated with this recommendation.</p>"
+          }
+        },
+        "DeploymentConfiguration": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationDeploymentConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The deployment configuration for this recommendation, including the container image, instance type, instance count, and environment variables.</p>"
+          }
+        },
+        "AIBenchmarkJobArn": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the benchmark job associated with this recommendation.</p>"
+          }
+        },
+        "ExpectedPerformance": {
+          "target": "com.amazonaws.sagemaker#ExpectedPerformanceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The expected performance metrics for this recommendation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An optimization recommendation generated by an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationAllowOptimization": {
+      "type": "boolean"
+    },
+    "com.amazonaws.sagemaker#AIRecommendationComputeSpec": {
+      "type": "structure",
+      "members": {
+        "InstanceTypes": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInstanceTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of instance types to consider for recommendations. You can specify up to 3 instance types.</p>"
+          }
+        },
+        "CapacityReservationConfig": {
+          "target": "com.amazonaws.sagemaker#AICapacityReservationConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The capacity reservation configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The compute resource specification for an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationConstraint": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationMetric",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The performance metric. Valid values are <code>ttft-ms</code> (time to first token in milliseconds), <code>throughput</code>, and <code>cost</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A performance constraint for an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationConstraintList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationConstraint"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationCopyCountPerInstance": {
+      "type": "integer"
+    },
+    "com.amazonaws.sagemaker#AIRecommendationDeploymentConfiguration": {
+      "type": "structure",
+      "members": {
+        "S3": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationDeploymentS3ChannelList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 data channels for the deployment.</p>"
+          }
+        },
+        "ImageUri": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The URI of the container image for the deployment.</p>"
+          }
+        },
+        "InstanceType": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommended instance type for the deployment.</p>"
+          }
+        },
+        "InstanceCount": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInstanceCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommended number of instances for the deployment.</p>"
+          }
+        },
+        "CopyCountPerInstance": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationCopyCountPerInstance",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of model copies per instance.</p>"
+          }
+        },
+        "EnvironmentVariables": {
+          "target": "com.amazonaws.sagemaker#EnvironmentMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The environment variables for the deployment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The deployment configuration for a recommendation.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationDeploymentS3Channel": {
+      "type": "structure",
+      "members": {
+        "ChannelName": {
+          "target": "com.amazonaws.sagemaker#AIChannelName",
+          "traits": {
+            "smithy.api#documentation": "<p>A custom name for this Amazon S3 data channel.</p>"
+          }
+        },
+        "Uri": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 URI of the data for this channel.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An Amazon S3 data channel for a recommended deployment configuration, containing model artifacts or optimized model outputs.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationDeploymentS3ChannelList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationDeploymentS3Channel"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInferenceFramework": {
+      "type": "enum",
+      "members": {
+        "LMI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LMI"
+          }
+        },
+        "VLLM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VLLM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInferenceSpecification": {
+      "type": "structure",
+      "members": {
+        "Framework": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInferenceFramework",
+          "traits": {
+            "smithy.api#documentation": "<p>The inference framework. Valid values are <code>LMI</code> and <code>VLLM</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The inference framework for an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInstanceCount": {
+      "type": "integer"
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInstanceDetail": {
+      "type": "structure",
+      "members": {
+        "InstanceType": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommended instance type.</p>"
+          }
+        },
+        "InstanceCount": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInstanceCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommended number of instances.</p>"
+          }
+        },
+        "CopyCountPerInstance": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationCopyCountPerInstance",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of model copies per instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Instance details for a recommendation.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInstanceDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationInstanceDetail"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInstanceType": {
+      "type": "enum",
+      "members": {
+        "ML_G5_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.xlarge"
+          }
+        },
+        "ML_G5_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.2xlarge"
+          }
+        },
+        "ML_G5_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.4xlarge"
+          }
+        },
+        "ML_G5_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.8xlarge"
+          }
+        },
+        "ML_G5_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.12xlarge"
+          }
+        },
+        "ML_G5_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.16xlarge"
+          }
+        },
+        "ML_G5_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.24xlarge"
+          }
+        },
+        "ML_G5_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g5.48xlarge"
+          }
+        },
+        "ML_G6_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.xlarge"
+          }
+        },
+        "ML_G6_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.2xlarge"
+          }
+        },
+        "ML_G6_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.4xlarge"
+          }
+        },
+        "ML_G6_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.8xlarge"
+          }
+        },
+        "ML_G6_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.12xlarge"
+          }
+        },
+        "ML_G6_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.16xlarge"
+          }
+        },
+        "ML_G6_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.24xlarge"
+          }
+        },
+        "ML_G6_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6.48xlarge"
+          }
+        },
+        "ML_G6E_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.xlarge"
+          }
+        },
+        "ML_G6E_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.2xlarge"
+          }
+        },
+        "ML_G6E_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.4xlarge"
+          }
+        },
+        "ML_G6E_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.8xlarge"
+          }
+        },
+        "ML_G6E_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.12xlarge"
+          }
+        },
+        "ML_G6E_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.16xlarge"
+          }
+        },
+        "ML_G6E_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.24xlarge"
+          }
+        },
+        "ML_G6E_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g6e.48xlarge"
+          }
+        },
+        "ML_G7E_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.2xlarge"
+          }
+        },
+        "ML_G7E_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.4xlarge"
+          }
+        },
+        "ML_G7E_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.8xlarge"
+          }
+        },
+        "ML_G7E_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.12xlarge"
+          }
+        },
+        "ML_G7E_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.24xlarge"
+          }
+        },
+        "ML_G7E_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.48xlarge"
+          }
+        },
+        "ML_P3_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p3.2xlarge"
+          }
+        },
+        "ML_P3_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p3.8xlarge"
+          }
+        },
+        "ML_P3_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p3.16xlarge"
+          }
+        },
+        "ML_P4D_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p4d.24xlarge"
+          }
+        },
+        "ML_P4DE_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p4de.24xlarge"
+          }
+        },
+        "ML_P5_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p5.4xlarge"
+          }
+        },
+        "ML_P5_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p5.48xlarge"
+          }
+        },
+        "ML_P5E_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p5e.48xlarge"
+          }
+        },
+        "ML_P5EN_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p5en.48xlarge"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationInstanceTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationInstanceType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 3
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationJobArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:ai-recommendation-job/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationJobStatus": {
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopping"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopped"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationJobSummary": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIRecommendationJobArn": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIRecommendationJobStatus": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobStatus",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The status of the recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A timestamp that indicates when the recommendation job was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that indicates when the recommendation job completed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationJobSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationJobSummary"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendation"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationMetric": {
+      "type": "enum",
+      "members": {
+        "TTFT_MS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ttft-ms"
+          }
+        },
+        "THROUGHPUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "throughput"
+          }
+        },
+        "COST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cost"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationModelDetails": {
+      "type": "structure",
+      "members": {
+        "ModelPackageArn": {
+          "target": "com.amazonaws.sagemaker#ModelPackageArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the model package.</p>"
+          }
+        },
+        "InferenceSpecificationName": {
+          "target": "com.amazonaws.sagemaker#AIInferenceSpecificationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the inference specification within the model package.</p>"
+          }
+        },
+        "InstanceDetails": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInstanceDetailList",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance details for this recommendation, including instance type, count, and model copies per instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the model package in a recommendation.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationOptimizationConfigMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.sagemaker#String"
+      },
+      "value": {
+        "target": "com.amazonaws.sagemaker#String"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationOptimizationDetail": {
+      "type": "structure",
+      "members": {
+        "OptimizationType": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationOptimizationType",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The type of optimization. Valid values are <code>SpeculativeDecoding</code> and <code>KernelTuning</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OptimizationConfig": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationOptimizationConfigMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of configuration parameters for the optimization technique.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about an optimization technique applied in a recommendation.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationOptimizationDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationOptimizationDetail"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationOptimizationType": {
+      "type": "enum",
+      "members": {
+        "SPECULATIVE_DECODING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SpeculativeDecoding"
+          }
+        },
+        "KERNEL_TUNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KernelTuning"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationOutputConfig": {
+      "type": "structure",
+      "members": {
+        "S3OutputLocation": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 URI where recommendation results are stored.</p>"
+          }
+        },
+        "ModelPackageGroupIdentifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the model package group where the optimized model is registered as a new model package version.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output configuration for an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationOutputResult": {
+      "type": "structure",
+      "members": {
+        "S3OutputLocation": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon S3 URI where the recommendation job writes its output results.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ModelPackageGroupIdentifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the model package group where deployment-ready model packages are registered.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output configuration for an AI recommendation job, including the S3 location for results and the model package group for deployment.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationPerformanceMetric": {
+      "type": "structure",
+      "members": {
+        "Metric": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the performance metric.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Stat": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The statistical measure for the metric.</p>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The value of the metric.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Unit": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unit of the metric value.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An expected performance metric for a recommendation.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIRecommendationPerformanceTarget": {
+      "type": "structure",
+      "members": {
+        "Constraints": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationConstraintList",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>An array of performance constraints that define the optimization objectives.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The performance targets for an AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIResourceIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-]*/)?([a-zA-Z0-9]([a-zA-Z0-9\\-]){0,62})(?<!-)$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadConfigArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:ai-workload-config/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadConfigSummary": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI workload configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIWorkloadConfigArn": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AI workload configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A timestamp that indicates when the configuration was created.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about an AI workload configuration.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadConfigSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIWorkloadConfigSummary"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadConfigs": {
+      "type": "structure",
+      "members": {
+        "WorkloadSpec": {
+          "target": "com.amazonaws.sagemaker#WorkloadSpec",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The workload specification that defines benchmark parameters.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The benchmark tool configuration for an AI workload.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadDataSource": {
+      "type": "structure",
+      "members": {
+        "S3DataSource": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadS3DataSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 data source configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The data source for an AI workload input data channel.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadInputDataConfig": {
+      "type": "structure",
+      "members": {
+        "ChannelName": {
+          "target": "com.amazonaws.sagemaker#AIChannelName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The logical name for the data channel.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DataSource": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadDataSource",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The data source for this channel.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A channel of input data for an AI workload configuration. Each channel has a name and a data source.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadInputDataConfigList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIWorkloadInputDataConfig"
+      }
+    },
+    "com.amazonaws.sagemaker#AIWorkloadS3DataSource": {
+      "type": "structure",
+      "members": {
+        "S3Uri": {
+          "target": "com.amazonaws.sagemaker#S3Uri",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon S3 URI of the data.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon S3 data source for an AI workload.</p>"
+      }
+    },
     "com.amazonaws.sagemaker#AbsoluteBorrowLimitResourceList": {
       "type": "list",
       "member": {
@@ -12729,6 +14004,294 @@
         "smithy.api#pattern": "^[A-Z]{2}$"
       }
     },
+    "com.amazonaws.sagemaker#CreateAIBenchmarkJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#CreateAIBenchmarkJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#CreateAIBenchmarkJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a benchmark job that runs performance benchmarks against inference infrastructure using a predefined AI workload configuration. The benchmark job measures metrics such as latency, throughput, and cost for your generative AI inference endpoints.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIBenchmarkJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI benchmark job. The name must be unique within your Amazon Web Services account in the current Amazon Web Services Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BenchmarkTarget": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkTarget",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The target endpoint to benchmark. Specify a SageMaker endpoint by providing its name or Amazon Resource Name (ARN).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutputConfig": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkOutputConfig",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The output configuration for the benchmark job, including the Amazon S3 location where benchmark results are stored.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIWorkloadConfigIdentifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the AI workload configuration to use for this benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.sagemaker#RoleArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkConfig": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkNetworkConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The network configuration for the benchmark job, including VPC settings.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them. Each tag consists of a key and a value, both of which you define.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIBenchmarkJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobArn": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the created benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIRecommendationJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#CreateAIRecommendationJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#CreateAIRecommendationJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a recommendation job that generates intelligent optimization recommendations for generative AI inference deployments. The job analyzes your model, workload configuration, and performance targets to recommend optimal instance types, model optimization techniques (such as quantization and speculative decoding), and deployment configurations.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIRecommendationJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI recommendation job. The name must be unique within your Amazon Web Services account in the current Amazon Web Services Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ModelSource": {
+          "target": "com.amazonaws.sagemaker#AIModelSource",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The source of the model to optimize. Specify the Amazon S3 location of the model artifacts.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutputConfig": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationOutputConfig",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The output configuration for the recommendation job, including the Amazon S3 location for results and an optional model package group where the optimized model is registered.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIWorkloadConfigIdentifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the AI workload configuration to use for this recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PerformanceTarget": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationPerformanceTarget",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The performance targets for the recommendation job. Specify constraints on metrics such as time to first token (<code>ttft-ms</code>), <code>throughput</code>, or <code>cost</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.sagemaker#RoleArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InferenceSpecification": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInferenceSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>The inference framework configuration. Specify the framework (such as LMI or vLLM) for the recommendation job.</p>"
+          }
+        },
+        "OptimizeModel": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationAllowOptimization",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to allow model optimization techniques such as quantization, speculative decoding, and kernel tuning. The default is <code>true</code>.</p>"
+          }
+        },
+        "ComputeSpec": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationComputeSpec",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute resource specification for the recommendation job. You can specify up to 3 instance types to consider, and optionally provide capacity reservation configuration.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIRecommendationJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobArn": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the created recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIWorkloadConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#CreateAIWorkloadConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#CreateAIWorkloadConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceLimitExceeded"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a reusable AI workload configuration that defines datasets, data sources, and benchmark tool settings for consistent performance testing of generative AI inference deployments on Amazon SageMaker AI.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIWorkloadConfigRequest": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI workload configuration. The name must be unique within your Amazon Web Services account in the current Amazon Web Services Region.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DatasetConfig": {
+          "target": "com.amazonaws.sagemaker#AIDatasetConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The dataset configuration for the workload. Specify input data channels with their data sources for benchmark workloads.</p>"
+          }
+        },
+        "AIWorkloadConfigs": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The benchmark tool configuration and workload specification. Provide the specification as an inline YAML or JSON string.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html\">Tagging Amazon Web Services Resources</a> in the Amazon Web Services General Reference.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#CreateAIWorkloadConfigResponse": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigArn": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the created AI workload configuration.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.sagemaker#CreateAction": {
       "type": "operation",
       "input": {
@@ -20111,6 +21674,150 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#DeleteAIBenchmarkJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DeleteAIBenchmarkJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DeleteAIBenchmarkJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified AI benchmark job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIBenchmarkJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI benchmark job to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIBenchmarkJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobArn": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deleted benchmark job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIRecommendationJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DeleteAIRecommendationJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DeleteAIRecommendationJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIRecommendationJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI recommendation job to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIRecommendationJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobArn": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deleted recommendation job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIWorkloadConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DeleteAIWorkloadConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DeleteAIWorkloadConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceInUse"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified AI workload configuration. You cannot delete a configuration that is referenced by an active benchmark job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIWorkloadConfigRequest": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI workload configuration to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DeleteAIWorkloadConfigResponse": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigArn": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deleted AI workload configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.sagemaker#DeleteAction": {
       "type": "operation",
       "input": {
@@ -22681,6 +24388,383 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Information that SageMaker Neo automatically derived about the model.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIBenchmarkJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DescribeAIBenchmarkJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DescribeAIBenchmarkJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns details of an AI benchmark job, including its status, configuration, target endpoint, and timing information.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIBenchmarkJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI benchmark job to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIBenchmarkJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIBenchmarkJobArn": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AI benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIBenchmarkJobStatus": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobStatus",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The status of the AI benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FailureReason": {
+          "target": "com.amazonaws.sagemaker#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If the benchmark job failed, the reason it failed.</p>"
+          }
+        },
+        "BenchmarkTarget": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkTarget",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The target endpoint that was benchmarked.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutputConfig": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkOutputResult",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The output configuration for the benchmark job, including the Amazon S3 output location and CloudWatch log information.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIWorkloadConfigIdentifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the AI workload configuration used for this benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.sagemaker#RoleArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used by the benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkConfig": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkNetworkConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The network configuration for the benchmark job.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A timestamp that indicates when the benchmark job was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that indicates when the benchmark job started running.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that indicates when the benchmark job completed.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the benchmark job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIRecommendationJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DescribeAIRecommendationJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DescribeAIRecommendationJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns details of an AI recommendation job, including its status, model source, performance targets, optimization recommendations, and deployment configurations.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIRecommendationJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI recommendation job to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIRecommendationJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIRecommendationJobArn": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AI recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIRecommendationJobStatus": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobStatus",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The status of the AI recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FailureReason": {
+          "target": "com.amazonaws.sagemaker#FailureReason",
+          "traits": {
+            "smithy.api#documentation": "<p>If the recommendation job failed, the reason it failed.</p>"
+          }
+        },
+        "ModelSource": {
+          "target": "com.amazonaws.sagemaker#AIModelSource",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The source of the model that was analyzed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutputConfig": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationOutputResult",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The output configuration for the recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InferenceSpecification": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationInferenceSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>The inference framework configuration.</p>"
+          }
+        },
+        "AIWorkloadConfigIdentifier": {
+          "target": "com.amazonaws.sagemaker#AIResourceIdentifier",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the AI workload configuration used for this recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OptimizeModel": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationAllowOptimization",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether model optimization techniques were allowed.</p>"
+          }
+        },
+        "PerformanceTarget": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationPerformanceTarget",
+          "traits": {
+            "smithy.api#documentation": "<p>The performance targets specified for the recommendation job.</p>"
+          }
+        },
+        "Recommendations": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of optimization recommendations generated by the job. Each recommendation includes optimization details, deployment configuration, expected performance metrics, and the associated benchmark job ARN.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.sagemaker#RoleArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role used by the recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ComputeSpec": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationComputeSpec",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute resource specification for the recommendation job.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A timestamp that indicates when the recommendation job was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that indicates when the recommendation job started running.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp that indicates when the recommendation job completed.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the recommendation job.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIWorkloadConfig": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DescribeAIWorkloadConfigRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DescribeAIWorkloadConfigResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns details of an AI workload configuration, including the dataset configuration, benchmark tool settings, tags, and creation time.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIWorkloadConfigRequest": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI workload configuration to describe.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeAIWorkloadConfigResponse": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI workload configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AIWorkloadConfigArn": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AI workload configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DatasetConfig": {
+          "target": "com.amazonaws.sagemaker#AIDatasetConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The dataset configuration for the workload.</p>"
+          }
+        },
+        "AIWorkloadConfigs": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>The benchmark tool configuration and workload specification.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.sagemaker#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags associated with the AI workload configuration.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A timestamp that indicates when the AI workload configuration was created.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.sagemaker#DescribeAction": {
@@ -35147,6 +37231,12 @@
         "smithy.api#pattern": "^[\\S\\s]*$"
       }
     },
+    "com.amazonaws.sagemaker#ExpectedPerformanceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#AIRecommendationPerformanceMetric"
+      }
+    },
     "com.amazonaws.sagemaker#Experiment": {
       "type": "structure",
       "members": {
@@ -44131,6 +46221,351 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Action"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIBenchmarkJobs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#ListAIBenchmarkJobsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#ListAIBenchmarkJobsResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of AI benchmark jobs in your account. You can filter the results by name, status, and creation time, and sort the results. The response is paginated.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "AIBenchmarkJobs",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIBenchmarkJobsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.sagemaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of benchmark jobs to return in the response.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous call to <code>ListAIBenchmarkJobs</code> didn't return the full set of jobs, the call returns a token for getting the next set.</p>"
+          }
+        },
+        "NameContains": {
+          "target": "com.amazonaws.sagemaker#NameContains",
+          "traits": {
+            "smithy.api#documentation": "<p>A string in the job name. This filter returns only jobs whose name contains the specified string.</p>"
+          }
+        },
+        "StatusEquals": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only benchmark jobs with the specified status.</p>"
+          }
+        },
+        "CreationTimeAfter": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only jobs created after the specified time.</p>"
+          }
+        },
+        "CreationTimeBefore": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only jobs created before the specified time.</p>"
+          }
+        },
+        "SortBy": {
+          "target": "com.amazonaws.sagemaker#ListAIBenchmarkJobsSortBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The field to sort results by. The default is <code>CreationTime</code>.</p>"
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.sagemaker#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for results. The default is <code>Descending</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIBenchmarkJobsResponse": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobs": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobSummaryList",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>An array of <code>AIBenchmarkJobSummary</code> objects, one for each benchmark job that matches the specified filters.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of jobs, use it in the subsequent request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIBenchmarkJobsSortBy": {
+      "type": "enum",
+      "members": {
+        "NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Name"
+          }
+        },
+        "CREATION_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreationTime"
+          }
+        },
+        "STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Status"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIRecommendationJobs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#ListAIRecommendationJobsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#ListAIRecommendationJobsResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of AI recommendation jobs in your account. You can filter the results by name, status, and creation time, and sort the results. The response is paginated.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "AIRecommendationJobs",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIRecommendationJobsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.sagemaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of recommendation jobs to return in the response.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous call to <code>ListAIRecommendationJobs</code> didn't return the full set of jobs, the call returns a token for getting the next set.</p>"
+          }
+        },
+        "NameContains": {
+          "target": "com.amazonaws.sagemaker#NameContains",
+          "traits": {
+            "smithy.api#documentation": "<p>A string in the job name. This filter returns only jobs whose name contains the specified string.</p>"
+          }
+        },
+        "StatusEquals": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only recommendation jobs with the specified status.</p>"
+          }
+        },
+        "CreationTimeAfter": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only jobs created after the specified time.</p>"
+          }
+        },
+        "CreationTimeBefore": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only jobs created before the specified time.</p>"
+          }
+        },
+        "SortBy": {
+          "target": "com.amazonaws.sagemaker#ListAIRecommendationJobsSortBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The field to sort results by. The default is <code>CreationTime</code>.</p>"
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.sagemaker#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for results. The default is <code>Descending</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIRecommendationJobsResponse": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobs": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobSummaryList",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>An array of <code>AIRecommendationJobSummary</code> objects, one for each recommendation job that matches the specified filters.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of jobs, use it in the subsequent request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIRecommendationJobsSortBy": {
+      "type": "enum",
+      "members": {
+        "NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Name"
+          }
+        },
+        "CREATION_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreationTime"
+          }
+        },
+        "STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Status"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIWorkloadConfigs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#ListAIWorkloadConfigsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#ListAIWorkloadConfigsResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of AI workload configurations in your account. You can filter the results by name and creation time, and sort the results. The response is paginated.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "AIWorkloadConfigs",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIWorkloadConfigsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.sagemaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of AI workload configurations to return in the response.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the previous call to <code>ListAIWorkloadConfigs</code> didn't return the full set of configurations, the call returns a token for getting the next set of configurations.</p>"
+          }
+        },
+        "NameContains": {
+          "target": "com.amazonaws.sagemaker#NameContains",
+          "traits": {
+            "smithy.api#documentation": "<p>A string in the configuration name. This filter returns only configurations whose name contains the specified string.</p>"
+          }
+        },
+        "CreationTimeAfter": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only configurations created after the specified time.</p>"
+          }
+        },
+        "CreationTimeBefore": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A filter that returns only configurations created before the specified time.</p>"
+          }
+        },
+        "SortBy": {
+          "target": "com.amazonaws.sagemaker#ListAIWorkloadConfigsSortBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The field to sort results by. The default is <code>CreationTime</code>.</p>"
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.sagemaker#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for results. The default is <code>Descending</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIWorkloadConfigsResponse": {
+      "type": "structure",
+      "members": {
+        "AIWorkloadConfigs": {
+          "target": "com.amazonaws.sagemaker#AIWorkloadConfigSummaryList",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>An array of <code>AIWorkloadConfigSummary</code> objects, one for each AI workload configuration that matches the specified filters.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of configurations, use it in the subsequent request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ListAIWorkloadConfigsSortBy": {
+      "type": "enum",
+      "members": {
+        "NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Name"
+          }
+        },
+        "CREATION_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreationTime"
           }
         }
       }
@@ -55742,6 +58177,12 @@
             "smithy.api#documentation": "<p>The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model. You can find a list of benchmarked models by calling <code>ListModelMetadata</code>.</p>"
           }
         },
+        "AdditionalModelDataSources": {
+          "target": "com.amazonaws.sagemaker#AdditionalModelDataSources",
+          "traits": {
+            "smithy.api#documentation": "<p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModelPackage</code> action.</p>"
+          }
+        },
         "AdditionalS3DataSource": {
           "target": "com.amazonaws.sagemaker#AdditionalS3DataSource",
           "traits": {
@@ -58795,13 +61236,13 @@
         "DisableGlueTableCreation": {
           "target": "com.amazonaws.sagemaker#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when configuring an <code>OfflineStore</code>. If set to <code>False</code>, Feature Store will name the <code>OfflineStore</code> Glue table following <a href=\"https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html\">Athena's naming recommendations</a>.</p> <p>The default value is <code>False</code>.</p>"
+            "smithy.api#documentation": "<p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when configuring an <code>OfflineStore</code>. If set to <code>True</code> and <code>DataCatalogConfig</code> is provided, Feature Store associates the provided catalog configuration with the feature group without creating a table. In this case, you are responsible for creating and managing the Glue table. If set to <code>True</code> without <code>DataCatalogConfig</code>, no Glue table is created or associated with the feature group. The <code>Iceberg</code> table format is only supported when this is set to <code>False</code>.</p> <p>If set to <code>False</code> and <code>DataCatalogConfig</code> is provided, Feature Store creates the table using the specified names. If set to <code>False</code> without <code>DataCatalogConfig</code>, Feature Store auto-generates the table name following <a href=\"https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html\">Athena's naming recommendations</a>. This applies to both Glue and Apache Iceberg table formats.</p> <p>The default value is <code>False</code>.</p>"
           }
         },
         "DataCatalogConfig": {
           "target": "com.amazonaws.sagemaker#DataCatalogConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The meta data of the Glue table that is autogenerated when an <code>OfflineStore</code> is created. </p>"
+            "smithy.api#documentation": "<p>The meta data of the Glue table for the <code>OfflineStore</code>. If not provided, Feature Store auto-generates the table name, database, and catalog when the <code>OfflineStore</code> is created. You can optionally provide this configuration to specify custom values. This applies to both Glue and Apache Iceberg table formats.</p>"
           }
         },
         "TableFormat": {
@@ -59265,6 +61706,42 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ml.p5en.48xlarge"
+          }
+        },
+        "ML_G4DN_XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g4dn.xlarge"
+          }
+        },
+        "ML_G4DN_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g4dn.2xlarge"
+          }
+        },
+        "ML_G4DN_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g4dn.4xlarge"
+          }
+        },
+        "ML_G4DN_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g4dn.8xlarge"
+          }
+        },
+        "ML_G4DN_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g4dn.12xlarge"
+          }
+        },
+        "ML_G4DN_16XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g4dn.16xlarge"
           }
         },
         "ML_G5_XLARGE": {
@@ -69231,6 +71708,15 @@
           "target": "com.amazonaws.sagemaker#CreateAction"
         },
         {
+          "target": "com.amazonaws.sagemaker#CreateAIBenchmarkJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#CreateAIRecommendationJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#CreateAIWorkloadConfig"
+        },
+        {
           "target": "com.amazonaws.sagemaker#CreateAlgorithm"
         },
         {
@@ -69435,6 +71921,15 @@
           "target": "com.amazonaws.sagemaker#DeleteAction"
         },
         {
+          "target": "com.amazonaws.sagemaker#DeleteAIBenchmarkJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DeleteAIRecommendationJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DeleteAIWorkloadConfig"
+        },
+        {
           "target": "com.amazonaws.sagemaker#DeleteAlgorithm"
         },
         {
@@ -69610,6 +72105,15 @@
         },
         {
           "target": "com.amazonaws.sagemaker#DescribeAction"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DescribeAIBenchmarkJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DescribeAIRecommendationJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#DescribeAIWorkloadConfig"
         },
         {
           "target": "com.amazonaws.sagemaker#DescribeAlgorithm"
@@ -69859,6 +72363,15 @@
         },
         {
           "target": "com.amazonaws.sagemaker#ListActions"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ListAIBenchmarkJobs"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ListAIRecommendationJobs"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ListAIWorkloadConfigs"
         },
         {
           "target": "com.amazonaws.sagemaker#ListAlgorithms"
@@ -70162,6 +72675,12 @@
         },
         {
           "target": "com.amazonaws.sagemaker#StartSession"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#StopAIBenchmarkJob"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#StopAIRecommendationJob"
         },
         {
           "target": "com.amazonaws.sagemaker#StopAutoMLJob"
@@ -74363,6 +76882,104 @@
             "smithy.api#enumValue": "Succeeded"
           }
         }
+      }
+    },
+    "com.amazonaws.sagemaker#StopAIBenchmarkJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#StopAIBenchmarkJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#StopAIBenchmarkJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops a running AI benchmark job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#StopAIBenchmarkJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI benchmark job to stop.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#StopAIBenchmarkJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIBenchmarkJobArn": {
+          "target": "com.amazonaws.sagemaker#AIBenchmarkJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the stopped benchmark job.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.sagemaker#StopAIRecommendationJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#StopAIRecommendationJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#StopAIRecommendationJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops a running AI recommendation job.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#StopAIRecommendationJobRequest": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobName": {
+          "target": "com.amazonaws.sagemaker#AIEntityName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the AI recommendation job to stop.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#StopAIRecommendationJobResponse": {
+      "type": "structure",
+      "members": {
+        "AIRecommendationJobArn": {
+          "target": "com.amazonaws.sagemaker#AIRecommendationJobArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the stopped recommendation job.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.sagemaker#StopAutoMLJob": {
@@ -86233,6 +88850,20 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.sagemaker#Workforce"
+      }
+    },
+    "com.amazonaws.sagemaker#WorkloadSpec": {
+      "type": "union",
+      "members": {
+        "Inline": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An inline YAML or JSON string that defines benchmark parameters.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The workload specification for benchmark tool configuration. Provide an inline YAML or JSON string.</p>"
       }
     },
     "com.amazonaws.sagemaker#WorkspaceSettings": {

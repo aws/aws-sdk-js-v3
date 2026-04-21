@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateModelPackage
-content-length: 19181
+content-length: 31289
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 323328eca4ac4c8ff726b016c37b18e2592b5538ebeec4215b6bfbb91827cc8f
+x-amz-content-sha256: d6323f8ac38a3094a9a4a23669f75c710d5341186e47f9da578b43ea51431985
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -54,6 +54,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "Framework": "__Framework__",
         "FrameworkVersion": "__FrameworkVersion__",
         "NearestModelName": "__NearestModelName__",
+        "AdditionalModelDataSources": [
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          }
+        ],
         "AdditionalS3DataSource": {
           "S3DataType": "__S3DataType__",
           "S3Uri": "__S3Uri__",
@@ -101,6 +154,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "Framework": "__Framework__",
         "FrameworkVersion": "__FrameworkVersion__",
         "NearestModelName": "__NearestModelName__",
+        "AdditionalModelDataSources": [
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          }
+        ],
         "AdditionalS3DataSource": {
           "S3DataType": "__S3DataType__",
           "S3Uri": "__S3Uri__",
@@ -148,6 +254,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "Framework": "__Framework__",
         "FrameworkVersion": "__FrameworkVersion__",
         "NearestModelName": "__NearestModelName__",
+        "AdditionalModelDataSources": [
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          }
+        ],
         "AdditionalS3DataSource": {
           "S3DataType": "__S3DataType__",
           "S3Uri": "__S3Uri__",
@@ -477,6 +636,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -524,6 +736,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -571,6 +836,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -644,6 +962,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -691,6 +1062,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -738,6 +1162,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -811,6 +1288,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -858,6 +1388,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",
@@ -905,6 +1488,59 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "Framework": "__Framework__",
           "FrameworkVersion": "__FrameworkVersion__",
           "NearestModelName": "__NearestModelName__",
+          "AdditionalModelDataSources": [
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            {
+              "ChannelName": "__ChannelName__",
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            }
+          ],
           "AdditionalS3DataSource": {
             "S3DataType": "__S3DataType__",
             "S3Uri": "__S3Uri__",

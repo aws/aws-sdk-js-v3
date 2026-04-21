@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { SearchRequest, SearchResponse } from "../models/models_4";
+import type { SearchResponse } from "../models/models_4";
+import type { SearchRequest } from "../models/models_5";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { Search$ } from "../schemas/schemas_0";
 
@@ -1194,6 +1195,23 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Framework: "STRING_VALUE",
  * //               FrameworkVersion: "STRING_VALUE",
  * //               NearestModelName: "STRING_VALUE",
+ * //               AdditionalModelDataSources: [ // AdditionalModelDataSources
+ * //                 { // AdditionalModelDataSource
+ * //                   ChannelName: "STRING_VALUE", // required
+ * //                   S3DataSource: {
+ * //                     S3Uri: "STRING_VALUE", // required
+ * //                     S3DataType: "S3Prefix" || "S3Object", // required
+ * //                     CompressionType: "None" || "Gzip", // required
+ * //                     ModelAccessConfig: "<ModelAccessConfig>",
+ * //                     HubAccessConfig: {
+ * //                       HubContentArn: "STRING_VALUE", // required
+ * //                     },
+ * //                     ManifestS3Uri: "STRING_VALUE",
+ * //                     ETag: "STRING_VALUE",
+ * //                     ManifestEtag: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
  * //               AdditionalS3DataSource: { // AdditionalS3DataSource
  * //                 S3DataType: "S3Object" || "S3Prefix", // required
  * //                 S3Uri: "STRING_VALUE", // required
@@ -1388,6 +1406,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 Framework: "STRING_VALUE",
  * //                 FrameworkVersion: "STRING_VALUE",
  * //                 NearestModelName: "STRING_VALUE",
+ * //                 AdditionalModelDataSources: [
+ * //                   {
+ * //                     ChannelName: "STRING_VALUE", // required
+ * //                     S3DataSource: "<S3ModelDataSource>", // required
+ * //                   },
+ * //                 ],
  * //                 AdditionalS3DataSource: {
  * //                   S3DataType: "S3Object" || "S3Prefix", // required
  * //                   S3Uri: "STRING_VALUE", // required
@@ -1974,23 +1998,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Mode: "SingleModel" || "MultiModel",
  * //             ModelDataUrl: "STRING_VALUE",
  * //             ModelDataSource: "<ModelDataSource>",
- * //             AdditionalModelDataSources: [ // AdditionalModelDataSources
- * //               { // AdditionalModelDataSource
- * //                 ChannelName: "STRING_VALUE", // required
- * //                 S3DataSource: {
- * //                   S3Uri: "STRING_VALUE", // required
- * //                   S3DataType: "S3Prefix" || "S3Object", // required
- * //                   CompressionType: "None" || "Gzip", // required
- * //                   ModelAccessConfig: "<ModelAccessConfig>",
- * //                   HubAccessConfig: {
- * //                     HubContentArn: "STRING_VALUE", // required
- * //                   },
- * //                   ManifestS3Uri: "STRING_VALUE",
- * //                   ETag: "STRING_VALUE",
- * //                   ManifestEtag: "STRING_VALUE",
- * //                 },
- * //               },
- * //             ],
+ * //             AdditionalModelDataSources: "<AdditionalModelDataSources>",
  * //             Environment: "<EnvironmentMap>",
  * //             ModelPackageName: "STRING_VALUE",
  * //             InferenceSpecificationName: "STRING_VALUE",
@@ -2011,23 +2019,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Mode: "SingleModel" || "MultiModel",
  * //               ModelDataUrl: "STRING_VALUE",
  * //               ModelDataSource: "<ModelDataSource>",
- * //               AdditionalModelDataSources: [
- * //                 {
- * //                   ChannelName: "STRING_VALUE", // required
- * //                   S3DataSource: {
- * //                     S3Uri: "STRING_VALUE", // required
- * //                     S3DataType: "S3Prefix" || "S3Object", // required
- * //                     CompressionType: "None" || "Gzip", // required
- * //                     ModelAccessConfig: "<ModelAccessConfig>",
- * //                     HubAccessConfig: {
- * //                       HubContentArn: "STRING_VALUE", // required
- * //                     },
- * //                     ManifestS3Uri: "STRING_VALUE",
- * //                     ETag: "STRING_VALUE",
- * //                     ManifestEtag: "STRING_VALUE",
- * //                   },
- * //                 },
- * //               ],
+ * //               AdditionalModelDataSources: "<AdditionalModelDataSources>",
  * //               Environment: "<EnvironmentMap>",
  * //               ModelPackageName: "STRING_VALUE",
  * //               InferenceSpecificationName: "STRING_VALUE",

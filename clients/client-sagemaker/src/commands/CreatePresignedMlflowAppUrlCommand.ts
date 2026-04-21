@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreatePresignedMlflowAppUrlRequest, CreatePresignedMlflowAppUrlResponse } from "../models/models_1";
+import type { CreatePresignedMlflowAppUrlRequest, CreatePresignedMlflowAppUrlResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreatePresignedMlflowAppUrl$ } from "../schemas/schemas_0";
 

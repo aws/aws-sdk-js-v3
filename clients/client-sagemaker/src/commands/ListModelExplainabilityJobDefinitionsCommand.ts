@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   ListModelExplainabilityJobDefinitionsRequest,
   ListModelExplainabilityJobDefinitionsResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListModelExplainabilityJobDefinitions$ } from "../schemas/schemas_0";
 

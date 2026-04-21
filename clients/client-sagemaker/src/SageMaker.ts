@@ -55,6 +55,21 @@ import {
   CreateActionCommand,
 } from "./commands/CreateActionCommand";
 import {
+  type CreateAIBenchmarkJobCommandInput,
+  type CreateAIBenchmarkJobCommandOutput,
+  CreateAIBenchmarkJobCommand,
+} from "./commands/CreateAIBenchmarkJobCommand";
+import {
+  type CreateAIRecommendationJobCommandInput,
+  type CreateAIRecommendationJobCommandOutput,
+  CreateAIRecommendationJobCommand,
+} from "./commands/CreateAIRecommendationJobCommand";
+import {
+  type CreateAIWorkloadConfigCommandInput,
+  type CreateAIWorkloadConfigCommandOutput,
+  CreateAIWorkloadConfigCommand,
+} from "./commands/CreateAIWorkloadConfigCommand";
+import {
   type CreateAlgorithmCommandInput,
   type CreateAlgorithmCommandOutput,
   CreateAlgorithmCommand,
@@ -387,6 +402,21 @@ import {
   DeleteActionCommand,
 } from "./commands/DeleteActionCommand";
 import {
+  type DeleteAIBenchmarkJobCommandInput,
+  type DeleteAIBenchmarkJobCommandOutput,
+  DeleteAIBenchmarkJobCommand,
+} from "./commands/DeleteAIBenchmarkJobCommand";
+import {
+  type DeleteAIRecommendationJobCommandInput,
+  type DeleteAIRecommendationJobCommandOutput,
+  DeleteAIRecommendationJobCommand,
+} from "./commands/DeleteAIRecommendationJobCommand";
+import {
+  type DeleteAIWorkloadConfigCommandInput,
+  type DeleteAIWorkloadConfigCommandOutput,
+  DeleteAIWorkloadConfigCommand,
+} from "./commands/DeleteAIWorkloadConfigCommand";
+import {
   type DeleteAlgorithmCommandInput,
   type DeleteAlgorithmCommandOutput,
   DeleteAlgorithmCommand,
@@ -673,6 +703,21 @@ import {
   type DescribeActionCommandOutput,
   DescribeActionCommand,
 } from "./commands/DescribeActionCommand";
+import {
+  type DescribeAIBenchmarkJobCommandInput,
+  type DescribeAIBenchmarkJobCommandOutput,
+  DescribeAIBenchmarkJobCommand,
+} from "./commands/DescribeAIBenchmarkJobCommand";
+import {
+  type DescribeAIRecommendationJobCommandInput,
+  type DescribeAIRecommendationJobCommandOutput,
+  DescribeAIRecommendationJobCommand,
+} from "./commands/DescribeAIRecommendationJobCommand";
+import {
+  type DescribeAIWorkloadConfigCommandInput,
+  type DescribeAIWorkloadConfigCommandOutput,
+  DescribeAIWorkloadConfigCommand,
+} from "./commands/DescribeAIWorkloadConfigCommand";
 import {
   type DescribeAlgorithmCommandInput,
   type DescribeAlgorithmCommandOutput,
@@ -1088,6 +1133,21 @@ import {
   type ListActionsCommandOutput,
   ListActionsCommand,
 } from "./commands/ListActionsCommand";
+import {
+  type ListAIBenchmarkJobsCommandInput,
+  type ListAIBenchmarkJobsCommandOutput,
+  ListAIBenchmarkJobsCommand,
+} from "./commands/ListAIBenchmarkJobsCommand";
+import {
+  type ListAIRecommendationJobsCommandInput,
+  type ListAIRecommendationJobsCommandOutput,
+  ListAIRecommendationJobsCommand,
+} from "./commands/ListAIRecommendationJobsCommand";
+import {
+  type ListAIWorkloadConfigsCommandInput,
+  type ListAIWorkloadConfigsCommandOutput,
+  ListAIWorkloadConfigsCommand,
+} from "./commands/ListAIWorkloadConfigsCommand";
 import {
   type ListAlgorithmsCommandInput,
   type ListAlgorithmsCommandOutput,
@@ -1578,6 +1638,16 @@ import {
   StartSessionCommand,
 } from "./commands/StartSessionCommand";
 import {
+  type StopAIBenchmarkJobCommandInput,
+  type StopAIBenchmarkJobCommandOutput,
+  StopAIBenchmarkJobCommand,
+} from "./commands/StopAIBenchmarkJobCommand";
+import {
+  type StopAIRecommendationJobCommandInput,
+  type StopAIRecommendationJobCommandOutput,
+  StopAIRecommendationJobCommand,
+} from "./commands/StopAIRecommendationJobCommand";
+import {
   type StopAutoMLJobCommandInput,
   type StopAutoMLJobCommandOutput,
   StopAutoMLJobCommand,
@@ -1883,6 +1953,9 @@ import {
   paginateDescribeTrainingPlanExtensionHistory,
 } from "./pagination/DescribeTrainingPlanExtensionHistoryPaginator";
 import { paginateListActions } from "./pagination/ListActionsPaginator";
+import { paginateListAIBenchmarkJobs } from "./pagination/ListAIBenchmarkJobsPaginator";
+import { paginateListAIRecommendationJobs } from "./pagination/ListAIRecommendationJobsPaginator";
+import { paginateListAIWorkloadConfigs } from "./pagination/ListAIWorkloadConfigsPaginator";
 import { paginateListAlgorithms } from "./pagination/ListAlgorithmsPaginator";
 import { paginateListAliases } from "./pagination/ListAliasesPaginator";
 import { paginateListAppImageConfigs } from "./pagination/ListAppImageConfigsPaginator";
@@ -2000,6 +2073,9 @@ const commands = {
   BatchRebootClusterNodesCommand,
   BatchReplaceClusterNodesCommand,
   CreateActionCommand,
+  CreateAIBenchmarkJobCommand,
+  CreateAIRecommendationJobCommand,
+  CreateAIWorkloadConfigCommand,
   CreateAlgorithmCommand,
   CreateAppCommand,
   CreateAppImageConfigCommand,
@@ -2068,6 +2144,9 @@ const commands = {
   CreateWorkforceCommand,
   CreateWorkteamCommand,
   DeleteActionCommand,
+  DeleteAIBenchmarkJobCommand,
+  DeleteAIRecommendationJobCommand,
+  DeleteAIWorkloadConfigCommand,
   DeleteAlgorithmCommand,
   DeleteAppCommand,
   DeleteAppImageConfigCommand,
@@ -2127,6 +2206,9 @@ const commands = {
   DeleteWorkteamCommand,
   DeregisterDevicesCommand,
   DescribeActionCommand,
+  DescribeAIBenchmarkJobCommand,
+  DescribeAIRecommendationJobCommand,
+  DescribeAIWorkloadConfigCommand,
   DescribeAlgorithmCommand,
   DescribeAppCommand,
   DescribeAppImageConfigCommand,
@@ -2210,6 +2292,9 @@ const commands = {
   GetSearchSuggestionsCommand,
   ImportHubContentCommand,
   ListActionsCommand,
+  ListAIBenchmarkJobsCommand,
+  ListAIRecommendationJobsCommand,
+  ListAIWorkloadConfigsCommand,
   ListAlgorithmsCommand,
   ListAliasesCommand,
   ListAppImageConfigsCommand,
@@ -2311,6 +2396,8 @@ const commands = {
   StartNotebookInstanceCommand,
   StartPipelineExecutionCommand,
   StartSessionCommand,
+  StopAIBenchmarkJobCommand,
+  StopAIRecommendationJobCommand,
   StopAutoMLJobCommand,
   StopCompilationJobCommand,
   StopEdgeDeploymentStageCommand,
@@ -2377,6 +2464,9 @@ const paginators = {
   paginateCreateHubContentPresignedUrls,
   paginateDescribeTrainingPlanExtensionHistory,
   paginateListActions,
+  paginateListAIBenchmarkJobs,
+  paginateListAIRecommendationJobs,
+  paginateListAIWorkloadConfigs,
   paginateListAlgorithms,
   paginateListAliases,
   paginateListAppImageConfigs,
@@ -2646,6 +2736,57 @@ export interface SageMaker {
     args: CreateActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIBenchmarkJobCommand}
+   */
+  createAIBenchmarkJob(
+    args: CreateAIBenchmarkJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIBenchmarkJobCommandOutput>;
+  createAIBenchmarkJob(
+    args: CreateAIBenchmarkJobCommandInput,
+    cb: (err: any, data?: CreateAIBenchmarkJobCommandOutput) => void
+  ): void;
+  createAIBenchmarkJob(
+    args: CreateAIBenchmarkJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIBenchmarkJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIRecommendationJobCommand}
+   */
+  createAIRecommendationJob(
+    args: CreateAIRecommendationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIRecommendationJobCommandOutput>;
+  createAIRecommendationJob(
+    args: CreateAIRecommendationJobCommandInput,
+    cb: (err: any, data?: CreateAIRecommendationJobCommandOutput) => void
+  ): void;
+  createAIRecommendationJob(
+    args: CreateAIRecommendationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIRecommendationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAIWorkloadConfigCommand}
+   */
+  createAIWorkloadConfig(
+    args: CreateAIWorkloadConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAIWorkloadConfigCommandOutput>;
+  createAIWorkloadConfig(
+    args: CreateAIWorkloadConfigCommandInput,
+    cb: (err: any, data?: CreateAIWorkloadConfigCommandOutput) => void
+  ): void;
+  createAIWorkloadConfig(
+    args: CreateAIWorkloadConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAIWorkloadConfigCommandOutput) => void
   ): void;
 
   /**
@@ -3806,6 +3947,57 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteAIBenchmarkJobCommand}
+   */
+  deleteAIBenchmarkJob(
+    args: DeleteAIBenchmarkJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIBenchmarkJobCommandOutput>;
+  deleteAIBenchmarkJob(
+    args: DeleteAIBenchmarkJobCommandInput,
+    cb: (err: any, data?: DeleteAIBenchmarkJobCommandOutput) => void
+  ): void;
+  deleteAIBenchmarkJob(
+    args: DeleteAIBenchmarkJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIBenchmarkJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIRecommendationJobCommand}
+   */
+  deleteAIRecommendationJob(
+    args: DeleteAIRecommendationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIRecommendationJobCommandOutput>;
+  deleteAIRecommendationJob(
+    args: DeleteAIRecommendationJobCommandInput,
+    cb: (err: any, data?: DeleteAIRecommendationJobCommandOutput) => void
+  ): void;
+  deleteAIRecommendationJob(
+    args: DeleteAIRecommendationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIRecommendationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAIWorkloadConfigCommand}
+   */
+  deleteAIWorkloadConfig(
+    args: DeleteAIWorkloadConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAIWorkloadConfigCommandOutput>;
+  deleteAIWorkloadConfig(
+    args: DeleteAIWorkloadConfigCommandInput,
+    cb: (err: any, data?: DeleteAIWorkloadConfigCommandOutput) => void
+  ): void;
+  deleteAIWorkloadConfig(
+    args: DeleteAIWorkloadConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAIWorkloadConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAlgorithmCommand}
    */
   deleteAlgorithm(
@@ -4807,6 +4999,57 @@ export interface SageMaker {
     args: DescribeActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAIBenchmarkJobCommand}
+   */
+  describeAIBenchmarkJob(
+    args: DescribeAIBenchmarkJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAIBenchmarkJobCommandOutput>;
+  describeAIBenchmarkJob(
+    args: DescribeAIBenchmarkJobCommandInput,
+    cb: (err: any, data?: DescribeAIBenchmarkJobCommandOutput) => void
+  ): void;
+  describeAIBenchmarkJob(
+    args: DescribeAIBenchmarkJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAIBenchmarkJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAIRecommendationJobCommand}
+   */
+  describeAIRecommendationJob(
+    args: DescribeAIRecommendationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAIRecommendationJobCommandOutput>;
+  describeAIRecommendationJob(
+    args: DescribeAIRecommendationJobCommandInput,
+    cb: (err: any, data?: DescribeAIRecommendationJobCommandOutput) => void
+  ): void;
+  describeAIRecommendationJob(
+    args: DescribeAIRecommendationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAIRecommendationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAIWorkloadConfigCommand}
+   */
+  describeAIWorkloadConfig(
+    args: DescribeAIWorkloadConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAIWorkloadConfigCommandOutput>;
+  describeAIWorkloadConfig(
+    args: DescribeAIWorkloadConfigCommandInput,
+    cb: (err: any, data?: DescribeAIWorkloadConfigCommandOutput) => void
+  ): void;
+  describeAIWorkloadConfig(
+    args: DescribeAIWorkloadConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAIWorkloadConfigCommandOutput) => void
   ): void;
 
   /**
@@ -6222,6 +6465,60 @@ export interface SageMaker {
     args: ListActionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIBenchmarkJobsCommand}
+   */
+  listAIBenchmarkJobs(): Promise<ListAIBenchmarkJobsCommandOutput>;
+  listAIBenchmarkJobs(
+    args: ListAIBenchmarkJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIBenchmarkJobsCommandOutput>;
+  listAIBenchmarkJobs(
+    args: ListAIBenchmarkJobsCommandInput,
+    cb: (err: any, data?: ListAIBenchmarkJobsCommandOutput) => void
+  ): void;
+  listAIBenchmarkJobs(
+    args: ListAIBenchmarkJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIBenchmarkJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIRecommendationJobsCommand}
+   */
+  listAIRecommendationJobs(): Promise<ListAIRecommendationJobsCommandOutput>;
+  listAIRecommendationJobs(
+    args: ListAIRecommendationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIRecommendationJobsCommandOutput>;
+  listAIRecommendationJobs(
+    args: ListAIRecommendationJobsCommandInput,
+    cb: (err: any, data?: ListAIRecommendationJobsCommandOutput) => void
+  ): void;
+  listAIRecommendationJobs(
+    args: ListAIRecommendationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIRecommendationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAIWorkloadConfigsCommand}
+   */
+  listAIWorkloadConfigs(): Promise<ListAIWorkloadConfigsCommandOutput>;
+  listAIWorkloadConfigs(
+    args: ListAIWorkloadConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAIWorkloadConfigsCommandOutput>;
+  listAIWorkloadConfigs(
+    args: ListAIWorkloadConfigsCommandInput,
+    cb: (err: any, data?: ListAIWorkloadConfigsCommandOutput) => void
+  ): void;
+  listAIWorkloadConfigs(
+    args: ListAIWorkloadConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAIWorkloadConfigsCommandOutput) => void
   ): void;
 
   /**
@@ -8009,6 +8306,40 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link StopAIBenchmarkJobCommand}
+   */
+  stopAIBenchmarkJob(
+    args: StopAIBenchmarkJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAIBenchmarkJobCommandOutput>;
+  stopAIBenchmarkJob(
+    args: StopAIBenchmarkJobCommandInput,
+    cb: (err: any, data?: StopAIBenchmarkJobCommandOutput) => void
+  ): void;
+  stopAIBenchmarkJob(
+    args: StopAIBenchmarkJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAIBenchmarkJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopAIRecommendationJobCommand}
+   */
+  stopAIRecommendationJob(
+    args: StopAIRecommendationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAIRecommendationJobCommandOutput>;
+  stopAIRecommendationJob(
+    args: StopAIRecommendationJobCommandInput,
+    cb: (err: any, data?: StopAIRecommendationJobCommandOutput) => void
+  ): void;
+  stopAIRecommendationJob(
+    args: StopAIRecommendationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAIRecommendationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopAutoMLJobCommand}
    */
   stopAutoMLJob(
@@ -9077,6 +9408,39 @@ export interface SageMaker {
     args?: ListActionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListActionsCommandOutput>;
+
+  /**
+   * @see {@link ListAIBenchmarkJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAIBenchmarkJobsCommandOutput}.
+   */
+  paginateListAIBenchmarkJobs(
+    args?: ListAIBenchmarkJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAIBenchmarkJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAIRecommendationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAIRecommendationJobsCommandOutput}.
+   */
+  paginateListAIRecommendationJobs(
+    args?: ListAIRecommendationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAIRecommendationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAIWorkloadConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAIWorkloadConfigsCommandOutput}.
+   */
+  paginateListAIWorkloadConfigs(
+    args?: ListAIWorkloadConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAIWorkloadConfigsCommandOutput>;
 
   /**
    * @see {@link ListAlgorithmsCommand}

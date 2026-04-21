@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   DescribeModelQualityJobDefinitionRequest,
   DescribeModelQualityJobDefinitionResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeModelQualityJobDefinition$ } from "../schemas/schemas_0";
 

@@ -1,0 +1,69 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateAIBenchmarkJob
+content-length: 697
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 53ef346bd93afc7e454344a60df7de27022610f03dedc758ba34c01e618e2780
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "AIBenchmarkJobName": "__AIBenchmarkJobName__",
+  "BenchmarkTarget": {
+    "Endpoint": {
+      "Identifier": "__Identifier__",
+      "TargetContainerHostname": "__TargetContainerHostname__",
+      "InferenceComponents": [
+        {
+          "Identifier": "__Identifier__"
+        },
+        {
+          "Identifier": "__Identifier__"
+        },
+        {
+          "Identifier": "__Identifier__"
+        }
+      ]
+    }
+  },
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__"
+  },
+  "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
+  "RoleArn": "__RoleArn__",
+  "NetworkConfig": {
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}

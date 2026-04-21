@@ -23,6 +23,44 @@ import {
   AddTagsOutput$,
   AgentVersion$,
   AggregationTransformationValue,
+  AIBenchmarkEndpoint$,
+  AIBenchmarkInferenceComponent$,
+  AIBenchmarkJobStatus,
+  AIBenchmarkJobSummary$,
+  AIBenchmarkNetworkConfig$,
+  AIBenchmarkOutputConfig$,
+  AIBenchmarkOutputResult$,
+  AIBenchmarkTarget$,
+  AICapacityReservationConfig$,
+  AICapacityReservationPreference,
+  AICloudWatchLogs$,
+  AIDatasetConfig$,
+  AIModelSource$,
+  AIModelSourceS3$,
+  AIRecommendation$,
+  AIRecommendationComputeSpec$,
+  AIRecommendationConstraint$,
+  AIRecommendationDeploymentConfiguration$,
+  AIRecommendationDeploymentS3Channel$,
+  AIRecommendationInferenceFramework,
+  AIRecommendationInferenceSpecification$,
+  AIRecommendationInstanceDetail$,
+  AIRecommendationInstanceType,
+  AIRecommendationJobStatus,
+  AIRecommendationJobSummary$,
+  AIRecommendationMetric,
+  AIRecommendationModelDetails$,
+  AIRecommendationOptimizationDetail$,
+  AIRecommendationOptimizationType,
+  AIRecommendationOutputConfig$,
+  AIRecommendationOutputResult$,
+  AIRecommendationPerformanceMetric$,
+  AIRecommendationPerformanceTarget$,
+  AIWorkloadConfigs$,
+  AIWorkloadConfigSummary$,
+  AIWorkloadDataSource$,
+  AIWorkloadInputDataConfig$,
+  AIWorkloadS3DataSource$,
   Alarm$,
   AlarmDetails$,
   AlgorithmSortBy,
@@ -292,6 +330,18 @@ import {
   CreateActionCommand,
   CreateActionRequest$,
   CreateActionResponse$,
+  CreateAIBenchmarkJob$,
+  CreateAIBenchmarkJobCommand,
+  CreateAIBenchmarkJobRequest$,
+  CreateAIBenchmarkJobResponse$,
+  CreateAIRecommendationJob$,
+  CreateAIRecommendationJobCommand,
+  CreateAIRecommendationJobRequest$,
+  CreateAIRecommendationJobResponse$,
+  CreateAIWorkloadConfig$,
+  CreateAIWorkloadConfigCommand,
+  CreateAIWorkloadConfigRequest$,
+  CreateAIWorkloadConfigResponse$,
   CreateAlgorithm$,
   CreateAlgorithmCommand,
   CreateAlgorithmInput$,
@@ -588,6 +638,18 @@ import {
   DeleteActionCommand,
   DeleteActionRequest$,
   DeleteActionResponse$,
+  DeleteAIBenchmarkJob$,
+  DeleteAIBenchmarkJobCommand,
+  DeleteAIBenchmarkJobRequest$,
+  DeleteAIBenchmarkJobResponse$,
+  DeleteAIRecommendationJob$,
+  DeleteAIRecommendationJobCommand,
+  DeleteAIRecommendationJobRequest$,
+  DeleteAIRecommendationJobResponse$,
+  DeleteAIWorkloadConfig$,
+  DeleteAIWorkloadConfigCommand,
+  DeleteAIWorkloadConfigRequest$,
+  DeleteAIWorkloadConfigResponse$,
   DeleteAlgorithm$,
   DeleteAlgorithmCommand,
   DeleteAlgorithmInput$,
@@ -792,6 +854,18 @@ import {
   DescribeActionCommand,
   DescribeActionRequest$,
   DescribeActionResponse$,
+  DescribeAIBenchmarkJob$,
+  DescribeAIBenchmarkJobCommand,
+  DescribeAIBenchmarkJobRequest$,
+  DescribeAIBenchmarkJobResponse$,
+  DescribeAIRecommendationJob$,
+  DescribeAIRecommendationJobCommand,
+  DescribeAIRecommendationJobRequest$,
+  DescribeAIRecommendationJobResponse$,
+  DescribeAIWorkloadConfig$,
+  DescribeAIWorkloadConfigCommand,
+  DescribeAIWorkloadConfigRequest$,
+  DescribeAIWorkloadConfigResponse$,
   DescribeAlgorithm$,
   DescribeAlgorithmCommand,
   DescribeAlgorithmInput$,
@@ -1374,6 +1448,21 @@ import {
   ListActionsCommand,
   ListActionsRequest$,
   ListActionsResponse$,
+  ListAIBenchmarkJobs$,
+  ListAIBenchmarkJobsCommand,
+  ListAIBenchmarkJobsRequest$,
+  ListAIBenchmarkJobsResponse$,
+  ListAIBenchmarkJobsSortBy,
+  ListAIRecommendationJobs$,
+  ListAIRecommendationJobsCommand,
+  ListAIRecommendationJobsRequest$,
+  ListAIRecommendationJobsResponse$,
+  ListAIRecommendationJobsSortBy,
+  ListAIWorkloadConfigs$,
+  ListAIWorkloadConfigsCommand,
+  ListAIWorkloadConfigsRequest$,
+  ListAIWorkloadConfigsResponse$,
+  ListAIWorkloadConfigsSortBy,
   ListAlgorithms$,
   ListAlgorithmsCommand,
   ListAlgorithmsInput$,
@@ -1909,6 +1998,9 @@ import {
   paginateCreateHubContentPresignedUrls,
   paginateDescribeTrainingPlanExtensionHistory,
   paginateListActions,
+  paginateListAIBenchmarkJobs,
+  paginateListAIRecommendationJobs,
+  paginateListAIWorkloadConfigs,
   paginateListAlgorithms,
   paginateListAliases,
   paginateListAppImageConfigs,
@@ -2289,6 +2381,14 @@ import {
   StartSessionResponse$,
   Statistic,
   StepStatus,
+  StopAIBenchmarkJob$,
+  StopAIBenchmarkJobCommand,
+  StopAIBenchmarkJobRequest$,
+  StopAIBenchmarkJobResponse$,
+  StopAIRecommendationJob$,
+  StopAIRecommendationJobCommand,
+  StopAIRecommendationJobRequest$,
+  StopAIRecommendationJobResponse$,
   StopAutoMLJob$,
   StopAutoMLJobCommand,
   StopAutoMLJobRequest$,
@@ -2672,6 +2772,7 @@ import {
   WorkforceStatus,
   WorkforceVpcConfigRequest$,
   WorkforceVpcConfigResponse$,
+  WorkloadSpec$,
   WorkspaceSettings$,
   Workteam$,
 } from "../dist-cjs/index.js";
@@ -2700,6 +2801,12 @@ assert(typeof BatchReplaceClusterNodesCommand === "function");
 assert(typeof BatchReplaceClusterNodes$ === "object");
 assert(typeof CreateActionCommand === "function");
 assert(typeof CreateAction$ === "object");
+assert(typeof CreateAIBenchmarkJobCommand === "function");
+assert(typeof CreateAIBenchmarkJob$ === "object");
+assert(typeof CreateAIRecommendationJobCommand === "function");
+assert(typeof CreateAIRecommendationJob$ === "object");
+assert(typeof CreateAIWorkloadConfigCommand === "function");
+assert(typeof CreateAIWorkloadConfig$ === "object");
 assert(typeof CreateAlgorithmCommand === "function");
 assert(typeof CreateAlgorithm$ === "object");
 assert(typeof CreateAppCommand === "function");
@@ -2836,6 +2943,12 @@ assert(typeof CreateWorkteamCommand === "function");
 assert(typeof CreateWorkteam$ === "object");
 assert(typeof DeleteActionCommand === "function");
 assert(typeof DeleteAction$ === "object");
+assert(typeof DeleteAIBenchmarkJobCommand === "function");
+assert(typeof DeleteAIBenchmarkJob$ === "object");
+assert(typeof DeleteAIRecommendationJobCommand === "function");
+assert(typeof DeleteAIRecommendationJob$ === "object");
+assert(typeof DeleteAIWorkloadConfigCommand === "function");
+assert(typeof DeleteAIWorkloadConfig$ === "object");
 assert(typeof DeleteAlgorithmCommand === "function");
 assert(typeof DeleteAlgorithm$ === "object");
 assert(typeof DeleteAppCommand === "function");
@@ -2954,6 +3067,12 @@ assert(typeof DeregisterDevicesCommand === "function");
 assert(typeof DeregisterDevices$ === "object");
 assert(typeof DescribeActionCommand === "function");
 assert(typeof DescribeAction$ === "object");
+assert(typeof DescribeAIBenchmarkJobCommand === "function");
+assert(typeof DescribeAIBenchmarkJob$ === "object");
+assert(typeof DescribeAIRecommendationJobCommand === "function");
+assert(typeof DescribeAIRecommendationJob$ === "object");
+assert(typeof DescribeAIWorkloadConfigCommand === "function");
+assert(typeof DescribeAIWorkloadConfig$ === "object");
 assert(typeof DescribeAlgorithmCommand === "function");
 assert(typeof DescribeAlgorithm$ === "object");
 assert(typeof DescribeAppCommand === "function");
@@ -3120,6 +3239,12 @@ assert(typeof ImportHubContentCommand === "function");
 assert(typeof ImportHubContent$ === "object");
 assert(typeof ListActionsCommand === "function");
 assert(typeof ListActions$ === "object");
+assert(typeof ListAIBenchmarkJobsCommand === "function");
+assert(typeof ListAIBenchmarkJobs$ === "object");
+assert(typeof ListAIRecommendationJobsCommand === "function");
+assert(typeof ListAIRecommendationJobs$ === "object");
+assert(typeof ListAIWorkloadConfigsCommand === "function");
+assert(typeof ListAIWorkloadConfigs$ === "object");
 assert(typeof ListAlgorithmsCommand === "function");
 assert(typeof ListAlgorithms$ === "object");
 assert(typeof ListAliasesCommand === "function");
@@ -3322,6 +3447,10 @@ assert(typeof StartPipelineExecutionCommand === "function");
 assert(typeof StartPipelineExecution$ === "object");
 assert(typeof StartSessionCommand === "function");
 assert(typeof StartSession$ === "object");
+assert(typeof StopAIBenchmarkJobCommand === "function");
+assert(typeof StopAIBenchmarkJob$ === "object");
+assert(typeof StopAIRecommendationJobCommand === "function");
+assert(typeof StopAIRecommendationJob$ === "object");
 assert(typeof StopAutoMLJobCommand === "function");
 assert(typeof StopAutoMLJob$ === "object");
 assert(typeof StopCompilationJobCommand === "function");
@@ -3458,6 +3587,37 @@ assert(typeof AdditionalS3DataSource$ === "object");
 assert(typeof AddTagsInput$ === "object");
 assert(typeof AddTagsOutput$ === "object");
 assert(typeof AgentVersion$ === "object");
+assert(typeof AIBenchmarkEndpoint$ === "object");
+assert(typeof AIBenchmarkInferenceComponent$ === "object");
+assert(typeof AIBenchmarkJobSummary$ === "object");
+assert(typeof AIBenchmarkNetworkConfig$ === "object");
+assert(typeof AIBenchmarkOutputConfig$ === "object");
+assert(typeof AIBenchmarkOutputResult$ === "object");
+assert(typeof AIBenchmarkTarget$ === "object");
+assert(typeof AICapacityReservationConfig$ === "object");
+assert(typeof AICloudWatchLogs$ === "object");
+assert(typeof AIDatasetConfig$ === "object");
+assert(typeof AIModelSource$ === "object");
+assert(typeof AIModelSourceS3$ === "object");
+assert(typeof AIRecommendation$ === "object");
+assert(typeof AIRecommendationComputeSpec$ === "object");
+assert(typeof AIRecommendationConstraint$ === "object");
+assert(typeof AIRecommendationDeploymentConfiguration$ === "object");
+assert(typeof AIRecommendationDeploymentS3Channel$ === "object");
+assert(typeof AIRecommendationInferenceSpecification$ === "object");
+assert(typeof AIRecommendationInstanceDetail$ === "object");
+assert(typeof AIRecommendationJobSummary$ === "object");
+assert(typeof AIRecommendationModelDetails$ === "object");
+assert(typeof AIRecommendationOptimizationDetail$ === "object");
+assert(typeof AIRecommendationOutputConfig$ === "object");
+assert(typeof AIRecommendationOutputResult$ === "object");
+assert(typeof AIRecommendationPerformanceMetric$ === "object");
+assert(typeof AIRecommendationPerformanceTarget$ === "object");
+assert(typeof AIWorkloadConfigs$ === "object");
+assert(typeof AIWorkloadConfigSummary$ === "object");
+assert(typeof AIWorkloadDataSource$ === "object");
+assert(typeof AIWorkloadInputDataConfig$ === "object");
+assert(typeof AIWorkloadS3DataSource$ === "object");
 assert(typeof Alarm$ === "object");
 assert(typeof AlarmDetails$ === "object");
 assert(typeof AlgorithmSpecification$ === "object");
@@ -3634,6 +3794,12 @@ assert(typeof ContinuousParameterRangeSpecification$ === "object");
 assert(typeof ConvergenceDetected$ === "object");
 assert(typeof CreateActionRequest$ === "object");
 assert(typeof CreateActionResponse$ === "object");
+assert(typeof CreateAIBenchmarkJobRequest$ === "object");
+assert(typeof CreateAIBenchmarkJobResponse$ === "object");
+assert(typeof CreateAIRecommendationJobRequest$ === "object");
+assert(typeof CreateAIRecommendationJobResponse$ === "object");
+assert(typeof CreateAIWorkloadConfigRequest$ === "object");
+assert(typeof CreateAIWorkloadConfigResponse$ === "object");
 assert(typeof CreateAlgorithmInput$ === "object");
 assert(typeof CreateAlgorithmOutput$ === "object");
 assert(typeof CreateAppImageConfigRequest$ === "object");
@@ -3789,6 +3955,12 @@ assert(typeof DefaultSpaceSettings$ === "object");
 assert(typeof DefaultSpaceStorageSettings$ === "object");
 assert(typeof DeleteActionRequest$ === "object");
 assert(typeof DeleteActionResponse$ === "object");
+assert(typeof DeleteAIBenchmarkJobRequest$ === "object");
+assert(typeof DeleteAIBenchmarkJobResponse$ === "object");
+assert(typeof DeleteAIRecommendationJobRequest$ === "object");
+assert(typeof DeleteAIRecommendationJobResponse$ === "object");
+assert(typeof DeleteAIWorkloadConfigRequest$ === "object");
+assert(typeof DeleteAIWorkloadConfigResponse$ === "object");
 assert(typeof DeleteAlgorithmInput$ === "object");
 assert(typeof DeleteAppImageConfigRequest$ === "object");
 assert(typeof DeleteAppRequest$ === "object");
@@ -3875,6 +4047,12 @@ assert(typeof DeregisterDevicesRequest$ === "object");
 assert(typeof DerivedInformation$ === "object");
 assert(typeof DescribeActionRequest$ === "object");
 assert(typeof DescribeActionResponse$ === "object");
+assert(typeof DescribeAIBenchmarkJobRequest$ === "object");
+assert(typeof DescribeAIBenchmarkJobResponse$ === "object");
+assert(typeof DescribeAIRecommendationJobRequest$ === "object");
+assert(typeof DescribeAIRecommendationJobResponse$ === "object");
+assert(typeof DescribeAIWorkloadConfigRequest$ === "object");
+assert(typeof DescribeAIWorkloadConfigResponse$ === "object");
 assert(typeof DescribeAlgorithmInput$ === "object");
 assert(typeof DescribeAlgorithmOutput$ === "object");
 assert(typeof DescribeAppImageConfigRequest$ === "object");
@@ -4221,6 +4399,12 @@ assert(typeof LineageGroupSummary$ === "object");
 assert(typeof LineageMetadata$ === "object");
 assert(typeof ListActionsRequest$ === "object");
 assert(typeof ListActionsResponse$ === "object");
+assert(typeof ListAIBenchmarkJobsRequest$ === "object");
+assert(typeof ListAIBenchmarkJobsResponse$ === "object");
+assert(typeof ListAIRecommendationJobsRequest$ === "object");
+assert(typeof ListAIRecommendationJobsResponse$ === "object");
+assert(typeof ListAIWorkloadConfigsRequest$ === "object");
+assert(typeof ListAIWorkloadConfigsResponse$ === "object");
 assert(typeof ListAlgorithmsInput$ === "object");
 assert(typeof ListAlgorithmsOutput$ === "object");
 assert(typeof ListAliasesRequest$ === "object");
@@ -4690,6 +4874,10 @@ assert(typeof StartPipelineExecutionRequest$ === "object");
 assert(typeof StartPipelineExecutionResponse$ === "object");
 assert(typeof StartSessionRequest$ === "object");
 assert(typeof StartSessionResponse$ === "object");
+assert(typeof StopAIBenchmarkJobRequest$ === "object");
+assert(typeof StopAIBenchmarkJobResponse$ === "object");
+assert(typeof StopAIRecommendationJobRequest$ === "object");
+assert(typeof StopAIRecommendationJobResponse$ === "object");
 assert(typeof StopAutoMLJobRequest$ === "object");
 assert(typeof StopCompilationJobRequest$ === "object");
 assert(typeof StopEdgeDeploymentStageRequest$ === "object");
@@ -4885,6 +5073,7 @@ assert(typeof WorkerAccessConfiguration$ === "object");
 assert(typeof Workforce$ === "object");
 assert(typeof WorkforceVpcConfigRequest$ === "object");
 assert(typeof WorkforceVpcConfigResponse$ === "object");
+assert(typeof WorkloadSpec$ === "object");
 assert(typeof WorkspaceSettings$ === "object");
 assert(typeof Workteam$ === "object");
 // enums
@@ -4894,6 +5083,13 @@ assert(typeof ActivationState === "object");
 assert(typeof ActiveClusterOperationName === "object");
 assert(typeof AdditionalS3DataSourceDataType === "object");
 assert(typeof AggregationTransformationValue === "object");
+assert(typeof AIBenchmarkJobStatus === "object");
+assert(typeof AICapacityReservationPreference === "object");
+assert(typeof AIRecommendationInferenceFramework === "object");
+assert(typeof AIRecommendationInstanceType === "object");
+assert(typeof AIRecommendationJobStatus === "object");
+assert(typeof AIRecommendationMetric === "object");
+assert(typeof AIRecommendationOptimizationType === "object");
 assert(typeof AlgorithmSortBy === "object");
 assert(typeof AlgorithmStatus === "object");
 assert(typeof AppImageConfigSortKey === "object");
@@ -5045,6 +5241,9 @@ assert(typeof LabelingJobStatus === "object");
 assert(typeof LastUpdateStatusValue === "object");
 assert(typeof LifecycleManagement === "object");
 assert(typeof LineageType === "object");
+assert(typeof ListAIBenchmarkJobsSortBy === "object");
+assert(typeof ListAIRecommendationJobsSortBy === "object");
+assert(typeof ListAIWorkloadConfigsSortBy === "object");
 assert(typeof ListCompilationJobsSortBy === "object");
 assert(typeof ListDeviceFleetsSortBy === "object");
 assert(typeof ListEdgeDeploymentPlansSortBy === "object");
@@ -5274,6 +5473,9 @@ assert(typeof waitUntilTransformJobCompletedOrStopped === "function");
 // paginators
 assert(typeof paginateCreateHubContentPresignedUrls === "function");
 assert(typeof paginateDescribeTrainingPlanExtensionHistory === "function");
+assert(typeof paginateListAIBenchmarkJobs === "function");
+assert(typeof paginateListAIRecommendationJobs === "function");
+assert(typeof paginateListAIWorkloadConfigs === "function");
 assert(typeof paginateListActions === "function");
 assert(typeof paginateListAlgorithms === "function");
 assert(typeof paginateListAliases === "function");

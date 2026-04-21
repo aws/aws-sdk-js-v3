@@ -247,6 +247,32 @@ export type AssociationEdgeType = (typeof AssociationEdgeType)[keyof typeof Asso
  * @public
  * @enum
  */
+export const ModelCompressionType = {
+  Gzip: "Gzip",
+  None: "None",
+} as const;
+/**
+ * @public
+ */
+export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof ModelCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ModelDataType = {
+  S3Object: "S3Object",
+  S3Prefix: "S3Prefix",
+} as const;
+/**
+ * @public
+ */
+export type S3ModelDataType = (typeof S3ModelDataType)[keyof typeof S3ModelDataType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CompressionType = {
   GZIP: "Gzip",
   NONE: "None",
@@ -269,32 +295,6 @@ export const AdditionalS3DataSourceDataType = {
  */
 export type AdditionalS3DataSourceDataType =
   (typeof AdditionalS3DataSourceDataType)[keyof typeof AdditionalS3DataSourceDataType];
-
-/**
- * @public
- * @enum
- */
-export const ModelCompressionType = {
-  Gzip: "Gzip",
-  None: "None",
-} as const;
-/**
- * @public
- */
-export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof ModelCompressionType];
-
-/**
- * @public
- * @enum
- */
-export const S3ModelDataType = {
-  S3Object: "S3Object",
-  S3Prefix: "S3Prefix",
-} as const;
-/**
- * @public
- */
-export type S3ModelDataType = (typeof S3ModelDataType)[keyof typeof S3ModelDataType];
 
 /**
  * @public
@@ -714,6 +714,144 @@ export const AggregationTransformationValue = {
  */
 export type AggregationTransformationValue =
   (typeof AggregationTransformationValue)[keyof typeof AggregationTransformationValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIBenchmarkJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+/**
+ * @public
+ */
+export type AIBenchmarkJobStatus = (typeof AIBenchmarkJobStatus)[keyof typeof AIBenchmarkJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AICapacityReservationPreference = {
+  CAPACITY_RESERVATIONS_ONLY: "capacity-reservations-only",
+} as const;
+/**
+ * @public
+ */
+export type AICapacityReservationPreference =
+  (typeof AICapacityReservationPreference)[keyof typeof AICapacityReservationPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIRecommendationInstanceType = {
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
+  ML_G7E_12XLARGE: "ml.g7e.12xlarge",
+  ML_G7E_24XLARGE: "ml.g7e.24xlarge",
+  ML_G7E_2XLARGE: "ml.g7e.2xlarge",
+  ML_G7E_48XLARGE: "ml.g7e.48xlarge",
+  ML_G7E_4XLARGE: "ml.g7e.4xlarge",
+  ML_G7E_8XLARGE: "ml.g7e.8xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P5_4XLARGE: "ml.p5.4xlarge",
+} as const;
+/**
+ * @public
+ */
+export type AIRecommendationInstanceType =
+  (typeof AIRecommendationInstanceType)[keyof typeof AIRecommendationInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIRecommendationOptimizationType = {
+  KERNEL_TUNING: "KernelTuning",
+  SPECULATIVE_DECODING: "SpeculativeDecoding",
+} as const;
+/**
+ * @public
+ */
+export type AIRecommendationOptimizationType =
+  (typeof AIRecommendationOptimizationType)[keyof typeof AIRecommendationOptimizationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIRecommendationMetric = {
+  COST: "cost",
+  THROUGHPUT: "throughput",
+  TTFT_MS: "ttft-ms",
+} as const;
+/**
+ * @public
+ */
+export type AIRecommendationMetric = (typeof AIRecommendationMetric)[keyof typeof AIRecommendationMetric];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIRecommendationInferenceFramework = {
+  LMI: "LMI",
+  VLLM: "VLLM",
+} as const;
+/**
+ * @public
+ */
+export type AIRecommendationInferenceFramework =
+  (typeof AIRecommendationInferenceFramework)[keyof typeof AIRecommendationInferenceFramework];
+
+/**
+ * @public
+ * @enum
+ */
+export const AIRecommendationJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+/**
+ * @public
+ */
+export type AIRecommendationJobStatus = (typeof AIRecommendationJobStatus)[keyof typeof AIRecommendationJobStatus];
 
 /**
  * @public
@@ -3847,6 +3985,12 @@ export type RootAccess = (typeof RootAccess)[keyof typeof RootAccess];
  * @enum
  */
 export const OptimizationJobDeploymentInstanceType = {
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
   ML_G5_12XLARGE: "ml.g5.12xlarge",
   ML_G5_16XLARGE: "ml.g5.16xlarge",
   ML_G5_24XLARGE: "ml.g5.24xlarge",
@@ -5501,6 +5645,49 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListAIBenchmarkJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type ListAIBenchmarkJobsSortBy = (typeof ListAIBenchmarkJobsSortBy)[keyof typeof ListAIBenchmarkJobsSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListAIRecommendationJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type ListAIRecommendationJobsSortBy =
+  (typeof ListAIRecommendationJobsSortBy)[keyof typeof ListAIRecommendationJobsSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ListAIWorkloadConfigsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+/**
+ * @public
+ */
+export type ListAIWorkloadConfigsSortBy =
+  (typeof ListAIWorkloadConfigsSortBy)[keyof typeof ListAIWorkloadConfigsSortBy];
 
 /**
  * @public

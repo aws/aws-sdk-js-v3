@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
-} from "../models/models_3";
+} from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListNotebookInstanceLifecycleConfigs$ } from "../schemas/schemas_0";
 

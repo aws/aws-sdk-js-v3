@@ -92,6 +92,18 @@ import type {
   BatchReplaceClusterNodesCommandOutput,
 } from "./commands/BatchReplaceClusterNodesCommand";
 import type { CreateActionCommandInput, CreateActionCommandOutput } from "./commands/CreateActionCommand";
+import type {
+  CreateAIBenchmarkJobCommandInput,
+  CreateAIBenchmarkJobCommandOutput,
+} from "./commands/CreateAIBenchmarkJobCommand";
+import type {
+  CreateAIRecommendationJobCommandInput,
+  CreateAIRecommendationJobCommandOutput,
+} from "./commands/CreateAIRecommendationJobCommand";
+import type {
+  CreateAIWorkloadConfigCommandInput,
+  CreateAIWorkloadConfigCommandOutput,
+} from "./commands/CreateAIWorkloadConfigCommand";
 import type { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand";
 import type { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import type {
@@ -298,6 +310,18 @@ import type {
 import type { CreateWorkforceCommandInput, CreateWorkforceCommandOutput } from "./commands/CreateWorkforceCommand";
 import type { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "./commands/CreateWorkteamCommand";
 import type { DeleteActionCommandInput, DeleteActionCommandOutput } from "./commands/DeleteActionCommand";
+import type {
+  DeleteAIBenchmarkJobCommandInput,
+  DeleteAIBenchmarkJobCommandOutput,
+} from "./commands/DeleteAIBenchmarkJobCommand";
+import type {
+  DeleteAIRecommendationJobCommandInput,
+  DeleteAIRecommendationJobCommandOutput,
+} from "./commands/DeleteAIRecommendationJobCommand";
+import type {
+  DeleteAIWorkloadConfigCommandInput,
+  DeleteAIWorkloadConfigCommandOutput,
+} from "./commands/DeleteAIWorkloadConfigCommand";
 import type { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "./commands/DeleteAlgorithmCommand";
 import type { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import type {
@@ -465,6 +489,18 @@ import type {
   DeregisterDevicesCommandOutput,
 } from "./commands/DeregisterDevicesCommand";
 import type { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
+import type {
+  DescribeAIBenchmarkJobCommandInput,
+  DescribeAIBenchmarkJobCommandOutput,
+} from "./commands/DescribeAIBenchmarkJobCommand";
+import type {
+  DescribeAIRecommendationJobCommandInput,
+  DescribeAIRecommendationJobCommandOutput,
+} from "./commands/DescribeAIRecommendationJobCommand";
+import type {
+  DescribeAIWorkloadConfigCommandInput,
+  DescribeAIWorkloadConfigCommandOutput,
+} from "./commands/DescribeAIWorkloadConfigCommand";
 import type {
   DescribeAlgorithmCommandInput,
   DescribeAlgorithmCommandOutput,
@@ -746,6 +782,18 @@ import type {
 } from "./commands/GetSearchSuggestionsCommand";
 import type { ImportHubContentCommandInput, ImportHubContentCommandOutput } from "./commands/ImportHubContentCommand";
 import type { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import type {
+  ListAIBenchmarkJobsCommandInput,
+  ListAIBenchmarkJobsCommandOutput,
+} from "./commands/ListAIBenchmarkJobsCommand";
+import type {
+  ListAIRecommendationJobsCommandInput,
+  ListAIRecommendationJobsCommandOutput,
+} from "./commands/ListAIRecommendationJobsCommand";
+import type {
+  ListAIWorkloadConfigsCommandInput,
+  ListAIWorkloadConfigsCommandOutput,
+} from "./commands/ListAIWorkloadConfigsCommand";
 import type { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand";
 import type { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import type {
@@ -1036,6 +1084,14 @@ import type {
   StartPipelineExecutionCommandOutput,
 } from "./commands/StartPipelineExecutionCommand";
 import type { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
+import type {
+  StopAIBenchmarkJobCommandInput,
+  StopAIBenchmarkJobCommandOutput,
+} from "./commands/StopAIBenchmarkJobCommand";
+import type {
+  StopAIRecommendationJobCommandInput,
+  StopAIRecommendationJobCommandOutput,
+} from "./commands/StopAIRecommendationJobCommand";
 import type { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand";
 import type {
   StopCompilationJobCommandInput,
@@ -1232,6 +1288,9 @@ export type ServiceInputTypes =
   | BatchDescribeModelPackageCommandInput
   | BatchRebootClusterNodesCommandInput
   | BatchReplaceClusterNodesCommandInput
+  | CreateAIBenchmarkJobCommandInput
+  | CreateAIRecommendationJobCommandInput
+  | CreateAIWorkloadConfigCommandInput
   | CreateActionCommandInput
   | CreateAlgorithmCommandInput
   | CreateAppCommandInput
@@ -1300,6 +1359,9 @@ export type ServiceInputTypes =
   | CreateUserProfileCommandInput
   | CreateWorkforceCommandInput
   | CreateWorkteamCommandInput
+  | DeleteAIBenchmarkJobCommandInput
+  | DeleteAIRecommendationJobCommandInput
+  | DeleteAIWorkloadConfigCommandInput
   | DeleteActionCommandInput
   | DeleteAlgorithmCommandInput
   | DeleteAppCommandInput
@@ -1359,6 +1421,9 @@ export type ServiceInputTypes =
   | DeleteWorkforceCommandInput
   | DeleteWorkteamCommandInput
   | DeregisterDevicesCommandInput
+  | DescribeAIBenchmarkJobCommandInput
+  | DescribeAIRecommendationJobCommandInput
+  | DescribeAIWorkloadConfigCommandInput
   | DescribeActionCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeAppCommandInput
@@ -1442,6 +1507,9 @@ export type ServiceInputTypes =
   | GetScalingConfigurationRecommendationCommandInput
   | GetSearchSuggestionsCommandInput
   | ImportHubContentCommandInput
+  | ListAIBenchmarkJobsCommandInput
+  | ListAIRecommendationJobsCommandInput
+  | ListAIWorkloadConfigsCommandInput
   | ListActionsCommandInput
   | ListAlgorithmsCommandInput
   | ListAliasesCommandInput
@@ -1544,6 +1612,8 @@ export type ServiceInputTypes =
   | StartNotebookInstanceCommandInput
   | StartPipelineExecutionCommandInput
   | StartSessionCommandInput
+  | StopAIBenchmarkJobCommandInput
+  | StopAIRecommendationJobCommandInput
   | StopAutoMLJobCommandInput
   | StopCompilationJobCommandInput
   | StopEdgeDeploymentStageCommandInput
@@ -1619,6 +1689,9 @@ export type ServiceOutputTypes =
   | BatchDescribeModelPackageCommandOutput
   | BatchRebootClusterNodesCommandOutput
   | BatchReplaceClusterNodesCommandOutput
+  | CreateAIBenchmarkJobCommandOutput
+  | CreateAIRecommendationJobCommandOutput
+  | CreateAIWorkloadConfigCommandOutput
   | CreateActionCommandOutput
   | CreateAlgorithmCommandOutput
   | CreateAppCommandOutput
@@ -1687,6 +1760,9 @@ export type ServiceOutputTypes =
   | CreateUserProfileCommandOutput
   | CreateWorkforceCommandOutput
   | CreateWorkteamCommandOutput
+  | DeleteAIBenchmarkJobCommandOutput
+  | DeleteAIRecommendationJobCommandOutput
+  | DeleteAIWorkloadConfigCommandOutput
   | DeleteActionCommandOutput
   | DeleteAlgorithmCommandOutput
   | DeleteAppCommandOutput
@@ -1746,6 +1822,9 @@ export type ServiceOutputTypes =
   | DeleteWorkforceCommandOutput
   | DeleteWorkteamCommandOutput
   | DeregisterDevicesCommandOutput
+  | DescribeAIBenchmarkJobCommandOutput
+  | DescribeAIRecommendationJobCommandOutput
+  | DescribeAIWorkloadConfigCommandOutput
   | DescribeActionCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeAppCommandOutput
@@ -1829,6 +1908,9 @@ export type ServiceOutputTypes =
   | GetScalingConfigurationRecommendationCommandOutput
   | GetSearchSuggestionsCommandOutput
   | ImportHubContentCommandOutput
+  | ListAIBenchmarkJobsCommandOutput
+  | ListAIRecommendationJobsCommandOutput
+  | ListAIWorkloadConfigsCommandOutput
   | ListActionsCommandOutput
   | ListAlgorithmsCommandOutput
   | ListAliasesCommandOutput
@@ -1931,6 +2013,8 @@ export type ServiceOutputTypes =
   | StartNotebookInstanceCommandOutput
   | StartPipelineExecutionCommandOutput
   | StartSessionCommandOutput
+  | StopAIBenchmarkJobCommandOutput
+  | StopAIRecommendationJobCommandOutput
   | StopAutoMLJobCommandOutput
   | StopCompilationJobCommandOutput
   | StopEdgeDeploymentStageCommandOutput

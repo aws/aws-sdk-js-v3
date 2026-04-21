@@ -1,0 +1,852 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AIRecommendationJobName": "__AIRecommendationJobName__",
+  "AIRecommendationJobArn": "__AIRecommendationJobArn__",
+  "AIRecommendationJobStatus": "__AIRecommendationJobStatus__",
+  "ModelSource": {},
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "ModelPackageGroupIdentifier": "__ModelPackageGroupIdentifier__"
+  },
+  "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
+  "RoleArn": "__RoleArn__",
+  "CreationTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "InferenceSpecification": {},
+  "OptimizeModel": false,
+  "PerformanceTarget": {
+    "Constraints": [
+      {
+        "Metric": "__Metric__"
+      },
+      {
+        "Metric": "__Metric__"
+      },
+      {
+        "Metric": "__Metric__"
+      }
+    ]
+  },
+  "Recommendations": [
+    {},
+    {},
+    {}
+  ],
+  "ComputeSpec": {},
+  "StartTime": 946702799.999,
+  "EndTime": 946702799.999,
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  AIRecommendationJobName: "__AIRecommendationJobName__",
+  AIRecommendationJobArn: "__AIRecommendationJobArn__",
+  AIRecommendationJobStatus: "__AIRecommendationJobStatus__",
+  ModelSource: {},
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    ModelPackageGroupIdentifier: "__ModelPackageGroupIdentifier__"
+  },
+  AIWorkloadConfigIdentifier: "__AIWorkloadConfigIdentifier__",
+  RoleArn: "__RoleArn__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  InferenceSpecification: {},
+  OptimizeModel: (boolean) false,
+  PerformanceTarget: {
+    Constraints: [
+      {
+        Metric: "__Metric__"
+      },
+      {
+        Metric: "__Metric__"
+      },
+      {
+        Metric: "__Metric__"
+      }
+    ]
+  },
+  Recommendations: [
+    {},
+    {},
+    {}
+  ],
+  ComputeSpec: {},
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AIRecommendationJobName": "__AIRecommendationJobName__",
+  "AIRecommendationJobArn": "__AIRecommendationJobArn__",
+  "AIRecommendationJobStatus": "__AIRecommendationJobStatus__",
+  "ModelSource": {
+    "S3": {
+      "S3Uri": "__S3Uri__"
+    }
+  },
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "ModelPackageGroupIdentifier": "__ModelPackageGroupIdentifier__"
+  },
+  "AIWorkloadConfigIdentifier": "__AIWorkloadConfigIdentifier__",
+  "RoleArn": "__RoleArn__",
+  "CreationTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "InferenceSpecification": {
+    "Framework": "__Framework__"
+  },
+  "OptimizeModel": false,
+  "PerformanceTarget": {
+    "Constraints": [
+      {
+        "Metric": "__Metric__"
+      },
+      {
+        "Metric": "__Metric__"
+      },
+      {
+        "Metric": "__Metric__"
+      }
+    ]
+  },
+  "Recommendations": [
+    {
+      "RecommendationDescription": "__RecommendationDescription__",
+      "OptimizationDetails": [
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        },
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        },
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        }
+      ],
+      "ModelDetails": {
+        "ModelPackageArn": "__ModelPackageArn__",
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "InstanceDetails": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          }
+        ]
+      },
+      "DeploymentConfiguration": {
+        "S3": [
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          }
+        ],
+        "ImageUri": "__ImageUri__",
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "CopyCountPerInstance": 0,
+        "EnvironmentVariables": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "AIBenchmarkJobArn": "__AIBenchmarkJobArn__",
+      "ExpectedPerformance": [
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        },
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        },
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        }
+      ]
+    },
+    {
+      "RecommendationDescription": "__RecommendationDescription__",
+      "OptimizationDetails": [
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        },
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        },
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        }
+      ],
+      "ModelDetails": {
+        "ModelPackageArn": "__ModelPackageArn__",
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "InstanceDetails": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          }
+        ]
+      },
+      "DeploymentConfiguration": {
+        "S3": [
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          }
+        ],
+        "ImageUri": "__ImageUri__",
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "CopyCountPerInstance": 0,
+        "EnvironmentVariables": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "AIBenchmarkJobArn": "__AIBenchmarkJobArn__",
+      "ExpectedPerformance": [
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        },
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        },
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        }
+      ]
+    },
+    {
+      "RecommendationDescription": "__RecommendationDescription__",
+      "OptimizationDetails": [
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        },
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        },
+        {
+          "OptimizationType": "__OptimizationType__",
+          "OptimizationConfig": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          }
+        }
+      ],
+      "ModelDetails": {
+        "ModelPackageArn": "__ModelPackageArn__",
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "InstanceDetails": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "CopyCountPerInstance": 0
+          }
+        ]
+      },
+      "DeploymentConfiguration": {
+        "S3": [
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          },
+          {
+            "ChannelName": "__ChannelName__",
+            "Uri": "__Uri__"
+          }
+        ],
+        "ImageUri": "__ImageUri__",
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "CopyCountPerInstance": 0,
+        "EnvironmentVariables": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "AIBenchmarkJobArn": "__AIBenchmarkJobArn__",
+      "ExpectedPerformance": [
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        },
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        },
+        {
+          "Metric": "__Metric__",
+          "Value": "__Value__",
+          "Stat": "__Stat__",
+          "Unit": "__Unit__"
+        }
+      ]
+    }
+  ],
+  "ComputeSpec": {
+    "InstanceTypes": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "CapacityReservationConfig": {
+      "CapacityReservationPreference": "__CapacityReservationPreference__",
+      "MlReservationArns": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "StartTime": 946702799.999,
+  "EndTime": 946702799.999,
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  AIRecommendationJobName: "__AIRecommendationJobName__",
+  AIRecommendationJobArn: "__AIRecommendationJobArn__",
+  AIRecommendationJobStatus: "__AIRecommendationJobStatus__",
+  ModelSource: {
+    S3: {
+      S3Uri: "__S3Uri__"
+    }
+  },
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    ModelPackageGroupIdentifier: "__ModelPackageGroupIdentifier__"
+  },
+  AIWorkloadConfigIdentifier: "__AIWorkloadConfigIdentifier__",
+  RoleArn: "__RoleArn__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  InferenceSpecification: {
+    Framework: "__Framework__"
+  },
+  OptimizeModel: (boolean) false,
+  PerformanceTarget: {
+    Constraints: [
+      {
+        Metric: "__Metric__"
+      },
+      {
+        Metric: "__Metric__"
+      },
+      {
+        Metric: "__Metric__"
+      }
+    ]
+  },
+  Recommendations: [
+    {
+      RecommendationDescription: "__RecommendationDescription__",
+      OptimizationDetails: [
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        },
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        },
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        }
+      ],
+      ModelDetails: {
+        ModelPackageArn: "__ModelPackageArn__",
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        InstanceDetails: [
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          }
+        ]
+      },
+      DeploymentConfiguration: {
+        S3: [
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          },
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          },
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          }
+        ],
+        ImageUri: "__ImageUri__",
+        InstanceType: "__InstanceType__",
+        InstanceCount: (number) 0,
+        CopyCountPerInstance: (number) 0,
+        EnvironmentVariables: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      AIBenchmarkJobArn: "__AIBenchmarkJobArn__",
+      ExpectedPerformance: [
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        },
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        },
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        }
+      ]
+    },
+    {
+      RecommendationDescription: "__RecommendationDescription__",
+      OptimizationDetails: [
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        },
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        },
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        }
+      ],
+      ModelDetails: {
+        ModelPackageArn: "__ModelPackageArn__",
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        InstanceDetails: [
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          }
+        ]
+      },
+      DeploymentConfiguration: {
+        S3: [
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          },
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          },
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          }
+        ],
+        ImageUri: "__ImageUri__",
+        InstanceType: "__InstanceType__",
+        InstanceCount: (number) 0,
+        CopyCountPerInstance: (number) 0,
+        EnvironmentVariables: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      AIBenchmarkJobArn: "__AIBenchmarkJobArn__",
+      ExpectedPerformance: [
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        },
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        },
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        }
+      ]
+    },
+    {
+      RecommendationDescription: "__RecommendationDescription__",
+      OptimizationDetails: [
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        },
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        },
+        {
+          OptimizationType: "__OptimizationType__",
+          OptimizationConfig: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          }
+        }
+      ],
+      ModelDetails: {
+        ModelPackageArn: "__ModelPackageArn__",
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        InstanceDetails: [
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            CopyCountPerInstance: (number) 0
+          }
+        ]
+      },
+      DeploymentConfiguration: {
+        S3: [
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          },
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          },
+          {
+            ChannelName: "__ChannelName__",
+            Uri: "__Uri__"
+          }
+        ],
+        ImageUri: "__ImageUri__",
+        InstanceType: "__InstanceType__",
+        InstanceCount: (number) 0,
+        CopyCountPerInstance: (number) 0,
+        EnvironmentVariables: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      AIBenchmarkJobArn: "__AIBenchmarkJobArn__",
+      ExpectedPerformance: [
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        },
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        },
+        {
+          Metric: "__Metric__",
+          Value: "__Value__",
+          Stat: "__Stat__",
+          Unit: "__Unit__"
+        }
+      ]
+    }
+  ],
+  ComputeSpec: {
+    InstanceTypes: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    CapacityReservationConfig: {
+      CapacityReservationPreference: "__CapacityReservationPreference__",
+      MlReservationArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

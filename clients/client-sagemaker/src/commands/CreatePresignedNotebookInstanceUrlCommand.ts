@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   CreatePresignedNotebookInstanceUrlInput,
   CreatePresignedNotebookInstanceUrlOutput,
-} from "../models/models_1";
+} from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreatePresignedNotebookInstanceUrl$ } from "../schemas/schemas_0";
 

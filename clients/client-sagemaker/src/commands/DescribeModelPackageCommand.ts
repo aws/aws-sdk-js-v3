@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_2";
+import type { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeModelPackage$ } from "../schemas/schemas_0";
 
@@ -82,6 +82,25 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //         Framework: "STRING_VALUE",
  * //         FrameworkVersion: "STRING_VALUE",
  * //         NearestModelName: "STRING_VALUE",
+ * //         AdditionalModelDataSources: [ // AdditionalModelDataSources
+ * //           { // AdditionalModelDataSource
+ * //             ChannelName: "STRING_VALUE", // required
+ * //             S3DataSource: {
+ * //               S3Uri: "STRING_VALUE", // required
+ * //               S3DataType: "S3Prefix" || "S3Object", // required
+ * //               CompressionType: "None" || "Gzip", // required
+ * //               ModelAccessConfig: {
+ * //                 AcceptEula: true || false, // required
+ * //               },
+ * //               HubAccessConfig: {
+ * //                 HubContentArn: "STRING_VALUE", // required
+ * //               },
+ * //               ManifestS3Uri: "STRING_VALUE",
+ * //               ETag: "STRING_VALUE",
+ * //               ManifestEtag: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
  * //         AdditionalS3DataSource: { // AdditionalS3DataSource
  * //           S3DataType: "S3Object" || "S3Prefix", // required
  * //           S3Uri: "STRING_VALUE", // required
@@ -328,6 +347,12 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //           Framework: "STRING_VALUE",
  * //           FrameworkVersion: "STRING_VALUE",
  * //           NearestModelName: "STRING_VALUE",
+ * //           AdditionalModelDataSources: [
+ * //             {
+ * //               ChannelName: "STRING_VALUE", // required
+ * //               S3DataSource: "<S3ModelDataSource>", // required
+ * //             },
+ * //           ],
  * //           AdditionalS3DataSource: {
  * //             S3DataType: "S3Object" || "S3Prefix", // required
  * //             S3Uri: "STRING_VALUE", // required
