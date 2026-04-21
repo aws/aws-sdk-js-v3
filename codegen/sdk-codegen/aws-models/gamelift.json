@@ -11537,6 +11537,7 @@
         "smithy.api#xmlNamespace": {
           "uri": "http://gamelift.amazonaws.com/doc/"
         },
+        "smithy.protocols#rpcv2Cbor": {},
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
