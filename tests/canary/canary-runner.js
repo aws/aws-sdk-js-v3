@@ -69,6 +69,8 @@ export default defineConfig({
       "node_modules",
       // doesn't support OPTIONS preflight.
       "tests/clients/client-data-pipeline/**/*.e2e.spec.ts",
+      // is specifically a Node.js HTTP2 test.
+      "tests/clients/client-kinesis/test/Kinesis.e2e.spec.ts",
       // requires .wav file.
       "tests/clients/client-transcribe-streaming/test/index.e2e.spec.ts",
     ],
