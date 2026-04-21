@@ -21,8 +21,11 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.AuthTrait;
+import software.amazon.smithy.model.traits.ErrorTrait;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
+import software.amazon.smithy.model.traits.RetryableTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
@@ -49,6 +52,8 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
     private static final Logger LOGGER = Logger.getLogger(AddSTSAuthCustomizations.class.getName());
     private static final ShapeId STS_SERVICE =
         ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615");
+    private static final ShapeId IDP_COMMUNICATION_ERROR_EXCEPTION =
+        ShapeId.from("com.amazonaws.sts#IDPCommunicationErrorException");
     private static final Set<ShapeId> OPTIONAL_AUTH_OPERATIONS = Set.of(
         ShapeId.from("com.amazonaws.sts#AssumeRoleWithWebIdentity"),
         ShapeId.from("com.amazonaws.sts#AssumeRoleWithSAML")
@@ -79,7 +84,9 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
 
     @Override
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
-        return backfillOptionalAuthOperations(model, settings);
+        model = backfillOptionalAuthOperations(model, settings);
+        model = addRetryableToIdpCommunicationError(model);
+        return model;
     }
 
     private Model backfillOptionalAuthOperations(Model model, TypeScriptSettings settings) {
@@ -92,6 +99,20 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                         .toBuilder()
                         .addTrait(new OptionalAuthTrait())
                         .addTrait(new AuthTrait(Collections.emptySet()))
+                        .build()
+                )
+                .build();
+        }
+        return model;
+    }
+
+    private Model addRetryableToIdpCommunicationError(Model model) {
+        StructureShape shape = model.expectShape(IDP_COMMUNICATION_ERROR_EXCEPTION, StructureShape.class);
+        if (shape.hasTrait(ErrorTrait.ID) && !shape.hasTrait(RetryableTrait.ID)) {
+            return model.toBuilder()
+                .addShape(
+                    shape.toBuilder()
+                        .addTrait(RetryableTrait.builder().build())
                         .build()
                 )
                 .build();

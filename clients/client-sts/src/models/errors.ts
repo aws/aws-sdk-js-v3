@@ -151,6 +151,7 @@ export class InvalidIdentityTokenException extends __BaseException {
 export class IDPCommunicationErrorException extends __BaseException {
   readonly name = "IDPCommunicationErrorException" as const;
   readonly $fault = "client" as const;
+  $retryable = {};
   /**
    * @internal
    */
