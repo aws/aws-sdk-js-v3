@@ -170,7 +170,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *     },
  *   },
  *   Rules: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL", // required
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN", // required
  *   Description: "STRING_VALUE",
  *   Capacity: Number("int"), // required
  *   Tags: [ // TagList
@@ -204,7 +204,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * //     RuleGroupName: "STRING_VALUE", // required
  * //     RuleGroupId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     Type: "STATELESS" || "STATEFUL",
+ * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * //     Capacity: Number("int"),
  * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Tags: [ // TagList

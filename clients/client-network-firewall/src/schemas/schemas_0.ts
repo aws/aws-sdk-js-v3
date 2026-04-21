@@ -83,6 +83,7 @@ const _CRG = "CreateRuleGroup";
 const _CRGR = "CreateRuleGroupRequest";
 const _CRGRr = "CreateRuleGroupResponse";
 const _CS = "CertificateSerial";
+const _CSDC = "ConsumedStatefulDomainCapacity";
 const _CSRC = "ConsumedStatelessRuleCapacity";
 const _CSRCo = "ConsumedStatefulRuleCapacity";
 const _CSSS = "ConfigurationSyncStateSummary";
@@ -1248,8 +1249,8 @@ export var FirewallPolicyMetadata$: StaticStructureSchema = [3, n0, _FPM,
 ];
 export var FirewallPolicyResponse$: StaticStructureSchema = [3, n0, _FPR,
   0,
-  [_FPN, _FPA, _FPI, _De, _FPS, _T, _CSRC, _CSRCo, _NOA, _EC, _LMT],
-  [0, 0, 0, 0, 0, () => TagList, 1, 1, 1, () => EncryptionConfiguration$, 4], 3
+  [_FPN, _FPA, _FPI, _De, _FPS, _T, _CSRC, _CSRCo, _CSDC, _NOA, _EC, _LMT],
+  [0, 0, 0, 0, 0, () => TagList, 1, 1, 1, 1, () => EncryptionConfiguration$, 4], 3
 ];
 export var FirewallStatus$: StaticStructureSchema = [3, n0, _FS,
   0,

@@ -128,6 +128,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * //     ],
  * //     ConsumedStatelessRuleCapacity: Number("int"),
  * //     ConsumedStatefulRuleCapacity: Number("int"),
+ * //     ConsumedStatefulDomainCapacity: Number("int"),
  * //     NumberOfAssociations: Number("int"),
  * //     EncryptionConfiguration: { // EncryptionConfiguration
  * //       KeyId: "STRING_VALUE",

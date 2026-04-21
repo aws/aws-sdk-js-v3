@@ -174,7 +174,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *     },
  *   },
  *   Rules: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL",
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,
  *   EncryptionConfiguration: { // EncryptionConfiguration
@@ -201,7 +201,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * //     RuleGroupName: "STRING_VALUE", // required
  * //     RuleGroupId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     Type: "STATELESS" || "STATEFUL",
+ * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * //     Capacity: Number("int"),
  * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Tags: [ // TagList

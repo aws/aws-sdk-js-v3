@@ -43,7 +43,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * const input = { // DescribeRuleGroupRequest
  *   RuleGroupName: "STRING_VALUE",
  *   RuleGroupArn: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL",
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  *   AnalyzeRuleGroup: true || false,
  * };
  * const command = new DescribeRuleGroupCommand(input);
@@ -179,7 +179,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * //     RuleGroupName: "STRING_VALUE", // required
  * //     RuleGroupId: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
- * //     Type: "STATELESS" || "STATEFUL",
+ * //     Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * //     Capacity: Number("int"),
  * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Tags: [ // TagList

@@ -46,7 +46,7 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * const input = { // DescribeRuleGroupMetadataRequest
  *   RuleGroupName: "STRING_VALUE",
  *   RuleGroupArn: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL",
+ *   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * };
  * const command = new DescribeRuleGroupMetadataCommand(input);
  * const response = await client.send(command);
@@ -54,7 +54,7 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * //   RuleGroupArn: "STRING_VALUE", // required
  * //   RuleGroupName: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE",
- * //   Type: "STATELESS" || "STATEFUL",
+ * //   Type: "STATELESS" || "STATEFUL" || "STATEFUL_DOMAIN",
  * //   Capacity: Number("int"),
  * //   StatefulRuleOptions: { // StatefulRuleOptions
  * //     RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",

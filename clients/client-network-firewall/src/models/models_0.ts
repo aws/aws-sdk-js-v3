@@ -1878,6 +1878,12 @@ export interface FirewallPolicyResponse {
   ConsumedStatefulRuleCapacity?: number | undefined;
 
   /**
+   * <p>The total number of domain name specifications across all domain list rule groups in the firewall policy that use the <code>stateful-domain-rulegroup</code> resource type.</p>
+   * @public
+   */
+  ConsumedStatefulDomainCapacity?: number | undefined;
+
+  /**
    * <p>The number of firewalls that are associated with this firewall policy.</p>
    * @public
    */

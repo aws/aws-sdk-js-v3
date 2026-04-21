@@ -399,6 +399,7 @@ export type SummaryRuleOption = (typeof SummaryRuleOption)[keyof typeof SummaryR
  */
 export const RuleGroupType = {
   STATEFUL: "STATEFUL",
+  STATEFUL_DOMAIN: "STATEFUL_DOMAIN",
   STATELESS: "STATELESS",
 } as const;
 /**
