@@ -62,6 +62,45 @@ const params = { /** input parameters */ };
 const command = new GetEnrollmentStatusCommand(params);
 ```
 
+#### Supported Message Protocols
+
+This client supports multiple protocols.
+
+The default for this client is **AWS JSON (RPC) 1.0**.
+
+We have selected this default based on our evaluation of the
+performance characteristics of this protocol format in JavaScript. You don't need to change it,
+but you have the option to do so, for example to support existing integrations or tests.
+Selecting a non-default protocol changes the format
+of the data sent over the network, but does not affect how you interact with the
+client using JavaScript objects.
+
+Install the `@aws-sdk/config` package to access alternate protocols.
+
+See [AWS Protocols](https://smithy.io/2.0/aws/protocols/index.html) for more information.
+
+##### AWS JSON (RPC) 1.0
+
+This protocol uses JSON payloads.
+```js
+import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+
+const client = new ComputeOptimizerClient({
+  protocol: AwsJson1_0Protocol
+});
+```
+
+##### Smithy RPC v2 CBOR
+
+This protocol uses CBOR payloads.
+```js
+import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
+
+const client = new ComputeOptimizerClient({
+  protocol: AwsSmithyRpcV2CborProtocol
+});
+```
+
 #### Async/await
 
 We recommend using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)

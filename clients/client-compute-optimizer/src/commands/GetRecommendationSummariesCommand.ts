@@ -40,7 +40,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                <p>EC2Amazon EC2 Auto Scaling groups in an account that are <code>NotOptimized</code>, or
+ *                <p>EC2Auto Scaling groups in an account that are <code>NotOptimized</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
