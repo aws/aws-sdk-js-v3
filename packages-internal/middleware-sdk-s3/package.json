@@ -9,13 +9,13 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
-    "test": "yarn g:vitest run",
     "test:types": "tsc -p tsconfig.test.json",
-    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts && yarn test:types",
-    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "extract:docs": "api-extractor run --local",
+    "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts && yarn test:types",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "main": "./dist-cjs/index.js",
@@ -63,6 +63,13 @@
   "files": [
     "dist-*/**"
   ],
+  "browser": {
+    "./dist-es/toStream": "./dist-es/toStream.browser"
+  },
+  "react-native": {
+    "./dist-es/toStream": "./dist-es/toStream.browser",
+    "./dist-cjs/toStream": "./dist-cjs/toStream.browser"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-s3",
   "repository": {
     "type": "git",

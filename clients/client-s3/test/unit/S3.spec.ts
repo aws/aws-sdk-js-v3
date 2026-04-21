@@ -174,6 +174,7 @@ describe("Throw 200 response", () => {
         response,
       }),
     },
+    maxAttempts: 1,
   });
 
   const params = {
@@ -281,7 +282,7 @@ describe("regional endpoints", () => {
 });
 
 describe("signing", () => {
-  it("handler recieves properly encoded path with default signingEscapePath client config option", async () => {
+  it("handler receives properly encoded path with default signingEscapePath client config option", async () => {
     const requestHandler: HttpHandler = {
       handle: async (request, handlerOptions) => {
         expect(request.path).to.equal("/some%20file.txt");

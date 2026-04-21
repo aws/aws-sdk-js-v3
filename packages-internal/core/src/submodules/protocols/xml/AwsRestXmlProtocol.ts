@@ -51,7 +51,6 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     this.codec = new XmlCodec(settings);
     this.serializer = new HttpInterceptingShapeSerializer(this.codec.createSerializer(), settings);
     this.deserializer = new HttpInterceptingShapeDeserializer(this.codec.createDeserializer(), settings);
-    this.compositeErrorRegistry;
   }
 
   public getPayloadCodec(): XmlCodec {

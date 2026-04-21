@@ -1,3 +1,4 @@
+import { streamCollector } from "@smithy/node-http-handler";
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { toUtf8 } from "@smithy/util-utf8";
 import { Readable } from "node:stream";
@@ -10,6 +11,7 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
   const mockResponse = vi.fn();
   const mockConfig = {
     utf8Encoder: toUtf8,
+    streamCollector,
   };
 
   beforeEach(() => {
@@ -119,11 +121,10 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
     });
 
     /**
-     * This is an exception to the specification. We cannot afford to read
-     * a streaming body for its entire duration just to check for an extremely unlikely
-     * terminating XML tag if the stream is very long.
+     * The body is fully collected, so even a long Error XML body
+     * will be detected and the status code rewritten.
      */
-    it("should not throw if the Error tag is on an excessively long body", async () => {
+    it("should throw if the Error tag is on an excessively long body", async () => {
       const errorBody = `<?xml version="1.0" encoding="UTF-8"?>
 <Error xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
  ${"a".repeat(3000)}
@@ -144,7 +145,7 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
       });
       expect(HttpResponse.isInstance(response)).toBe(true);
       // @ts-ignore
-      expect(response.statusCode).toEqual(200);
+      expect(response.statusCode).toBeGreaterThanOrEqual(400);
     });
   });
 });
