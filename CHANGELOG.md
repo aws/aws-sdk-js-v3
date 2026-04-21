@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
+
+
+### Bug Fixes
+
+* **lockfile:** update yarn.lock for util-retry resolution version ([#7944](https://github.com/aws/aws-sdk-js-v3/issues/7944)) ([f83dd48](https://github.com/aws/aws-sdk-js-v3/commit/f83dd4822559eca40d1fcd13bf330259c588bc28))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Adding dutch language support for Cognito Managed Login and Terms on Console ([dca261d](https://github.com/aws/aws-sdk-js-v3/commit/dca261d2a204e45532eecdcb05de158e0f1a4598))
+* **client-comprehendmedical:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([d3de08b](https://github.com/aws/aws-sdk-js-v3/commit/d3de08b9ccbd465c43a21742743f6ce2fa073b30))
+* **client-compute-optimizer-automation:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([1dce21e](https://github.com/aws/aws-sdk-js-v3/commit/1dce21e2eb521a97160a3b3224eaf1e70e6fec26))
+* **client-compute-optimizer:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([bfd1554](https://github.com/aws/aws-sdk-js-v3/commit/bfd1554d917ab439f2755952d53827d520a24344))
+* **client-gamelift:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([c1e7383](https://github.com/aws/aws-sdk-js-v3/commit/c1e73830150125b9422cf3ae68ab36af643b6297))
+* **client-marketplace-entitlement-service:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([76ca21f](https://github.com/aws/aws-sdk-js-v3/commit/76ca21fc89587fc2e4a19c0f89f2dc46f364e8f2))
+* **client-network-firewall:** Support for new types of partner managed rulegroups for Network Firewall Service ([267a4f8](https://github.com/aws/aws-sdk-js-v3/commit/267a4f8ed42a1809a30af68137f25e34e4de5fca))
+* **client-sagemaker:** SageMaker AI now supports generative AI inference recommendations. Provide your model and workload, and SageMaker AI optimizes configurations, benchmarks them on real GPUs, and returns deployment-ready recommendations with validated metrics, accelerating the path to production from weeks to hours. ([d111c8b](https://github.com/aws/aws-sdk-js-v3/commit/d111c8b87ddc8803bb69110be1d701f1c9c838b5))
+* **client-snowball:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([dc2372c](https://github.com/aws/aws-sdk-js-v3/commit/dc2372c36ecfc12ca25670d663874668d9c69da7))
+
+
+
+
+
 # [3.1033.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1032.0...v3.1033.0) (2026-04-20)
 
 

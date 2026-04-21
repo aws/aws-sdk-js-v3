@@ -36,6 +36,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.34 (2026-04-21)
+### Chores
+* **credential-provider-node:** update dependencies.
+
+
+
 # 3.972.33 (2026-04-20)
 ### Chores
 * **credential-provider-node:** update dependencies.

@@ -34,6 +34,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.3 (2026-04-20)
+### Bug Fixes
+* **lockfile:** update yarn.lock for util-retry resolution version ([#7944](https://github.com/aws/aws-sdk-js-v3/issues/7944)) ([f83dd48](https://github.com/aws/aws-sdk-js-v3/commit/f83dd4822559eca40d1fcd13bf330259c588bc28))
+### Chores
+* **core/client:** retry behavior control flag ([#7943](https://github.com/aws/aws-sdk-js-v3/issues/7943)) ([f8a0e2e](https://github.com/aws/aws-sdk-js-v3/commit/f8a0e2ebdeae1aeeb4bd9127fb0527c73b2176fa))
+* **codegen:** sync for http2 session concurrency fixes ([#7942](https://github.com/aws/aws-sdk-js-v3/issues/7942)) ([273ad5b](https://github.com/aws/aws-sdk-js-v3/commit/273ad5be3adc5288e480655de1c5887a38540fe4))
+
+
+
 # 3.974.2 (2026-04-19)
 ### Bug Fixes
 * **core:** replace Object.entries with for-in loops in shape serde ([#7940](https://github.com/aws/aws-sdk-js-v3/issues/7940)) ([785e3b2](https://github.com/aws/aws-sdk-js-v3/commit/785e3b286aedcce993f889d20d8962e9f1b6189b))

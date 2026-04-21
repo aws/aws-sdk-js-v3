@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
+
+
+### Features
+
+* **client-network-firewall:** Support for new types of partner managed rulegroups for Network Firewall Service ([267a4f8](https://github.com/aws/aws-sdk-js-v3/commit/267a4f8ed42a1809a30af68137f25e34e4de5fca))
+
+
+
+
+
 # [3.1033.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1032.0...v3.1033.0) (2026-04-20)
 
 

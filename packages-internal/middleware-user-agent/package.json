@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-user-agent",
-  "version": "3.972.32",
+  "version": "3.972.33",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-user-agent",
@@ -25,9 +25,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.2",
+    "@aws-sdk/core": "workspace:^3.974.3",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@aws-sdk/util-endpoints": "workspace:^3.996.7",
+    "@aws-sdk/util-endpoints": "workspace:^3.996.8",
     "@smithy/core": "^3.23.16",
     "@smithy/protocol-http": "^5.3.14",
     "@smithy/types": "^4.14.1",
