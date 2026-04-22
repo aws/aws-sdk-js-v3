@@ -106,6 +106,11 @@ import {
   InvokeCodeInterpreterCommand,
 } from "./commands/InvokeCodeInterpreterCommand";
 import {
+  type InvokeHarnessCommandInput,
+  type InvokeHarnessCommandOutput,
+  InvokeHarnessCommand,
+} from "./commands/InvokeHarnessCommand";
+import {
   type ListActorsCommandInput,
   type ListActorsCommandOutput,
   ListActorsCommand,
@@ -220,6 +225,7 @@ const commands = {
   InvokeAgentRuntimeCommandCommand,
   InvokeBrowserCommand,
   InvokeCodeInterpreterCommand,
+  InvokeHarnessCommand,
   ListActorsCommand,
   ListBrowserSessionsCommand,
   ListCodeInterpreterSessionsCommand,
@@ -620,6 +626,23 @@ export interface BedrockAgentCore {
     args: InvokeCodeInterpreterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeCodeInterpreterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeHarnessCommand}
+   */
+  invokeHarness(
+    args: InvokeHarnessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeHarnessCommandOutput>;
+  invokeHarness(
+    args: InvokeHarnessCommandInput,
+    cb: (err: any, data?: InvokeHarnessCommandOutput) => void
+  ): void;
+  invokeHarness(
+    args: InvokeHarnessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeHarnessCommandOutput) => void
   ): void;
 
   /**

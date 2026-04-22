@@ -21,6 +21,7 @@ export * from "./InvokeAgentRuntimeCommand";
 export * from "./InvokeAgentRuntimeCommandCommand";
 export * from "./InvokeBrowserCommand";
 export * from "./InvokeCodeInterpreterCommand";
+export * from "./InvokeHarnessCommand";
 export * from "./ListActorsCommand";
 export * from "./ListBrowserSessionsCommand";
 export * from "./ListCodeInterpreterSessionsCommand";

@@ -135,6 +135,7 @@ import type {
   InvokeCodeInterpreterCommandInput,
   InvokeCodeInterpreterCommandOutput,
 } from "./commands/InvokeCodeInterpreterCommand";
+import type { InvokeHarnessCommandInput, InvokeHarnessCommandOutput } from "./commands/InvokeHarnessCommand";
 import type { ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
 import type {
   ListBrowserSessionsCommandInput,
@@ -231,6 +232,7 @@ export type ServiceInputTypes =
   | InvokeAgentRuntimeCommandInput
   | InvokeBrowserCommandInput
   | InvokeCodeInterpreterCommandInput
+  | InvokeHarnessCommandInput
   | ListActorsCommandInput
   | ListBrowserSessionsCommandInput
   | ListCodeInterpreterSessionsCommandInput
@@ -275,6 +277,7 @@ export type ServiceOutputTypes =
   | InvokeAgentRuntimeCommandOutput
   | InvokeBrowserCommandOutput
   | InvokeCodeInterpreterCommandOutput
+  | InvokeHarnessCommandOutput
   | ListActorsCommandOutput
   | ListBrowserSessionsCommandOutput
   | ListCodeInterpreterSessionsCommandOutput

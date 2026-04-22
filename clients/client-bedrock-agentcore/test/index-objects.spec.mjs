@@ -134,6 +134,47 @@ import {
   GetWorkloadAccessTokenForUserIdResponse$,
   GetWorkloadAccessTokenRequest$,
   GetWorkloadAccessTokenResponse$,
+  HarnessAgentCoreBrowserConfig$,
+  HarnessAgentCoreCodeInterpreterConfig$,
+  HarnessAgentCoreGatewayConfig$,
+  HarnessBedrockModelConfig$,
+  HarnessContentBlock$,
+  HarnessContentBlockDelta$,
+  HarnessContentBlockDeltaEvent$,
+  HarnessContentBlockStart$,
+  HarnessContentBlockStartEvent$,
+  HarnessContentBlockStopEvent$,
+  HarnessConversationRole,
+  HarnessGatewayOutboundAuth$,
+  HarnessGeminiModelConfig$,
+  HarnessInlineFunctionConfig$,
+  HarnessMessage$,
+  HarnessMessageStartEvent$,
+  HarnessMessageStopEvent$,
+  HarnessMetadataEvent$,
+  HarnessModelConfiguration$,
+  HarnessOpenAiModelConfig$,
+  HarnessReasoningContentBlock$,
+  HarnessReasoningContentBlockDelta$,
+  HarnessReasoningTextBlock$,
+  HarnessRemoteMcpConfig$,
+  HarnessSkill$,
+  HarnessStopReason,
+  HarnessStreamMetrics$,
+  HarnessSystemContentBlock$,
+  HarnessTokenUsage$,
+  HarnessTool$,
+  HarnessToolConfiguration$,
+  HarnessToolResultBlock$,
+  HarnessToolResultBlockDelta$,
+  HarnessToolResultBlockStart$,
+  HarnessToolResultContentBlock$,
+  HarnessToolType,
+  HarnessToolUseBlock$,
+  HarnessToolUseBlockDelta$,
+  HarnessToolUseBlockStart$,
+  HarnessToolUseStatus,
+  HarnessToolUseType,
   InputContentBlock$,
   InternalServerException,
   InternalServerException$,
@@ -157,6 +198,11 @@ import {
   InvokeCodeInterpreterCommand,
   InvokeCodeInterpreterRequest$,
   InvokeCodeInterpreterResponse$,
+  InvokeHarness$,
+  InvokeHarnessCommand,
+  InvokeHarnessRequest$,
+  InvokeHarnessResponse$,
+  InvokeHarnessStreamOutput$,
   KeyPressArguments$,
   KeyPressResult$,
   KeyShortcutArguments$,
@@ -216,6 +262,8 @@ import {
   MouseScrollArguments$,
   MouseScrollResult$,
   Oauth2FlowType,
+  OAuthCredentialProvider$,
+  OAuthGrantType,
   OperatorType,
   paginateListActors,
   paginateListEvents,
@@ -369,6 +417,8 @@ assert(typeof InvokeBrowserCommand === "function");
 assert(typeof InvokeBrowser$ === "object");
 assert(typeof InvokeCodeInterpreterCommand === "function");
 assert(typeof InvokeCodeInterpreter$ === "object");
+assert(typeof InvokeHarnessCommand === "function");
+assert(typeof InvokeHarness$ === "object");
 assert(typeof ListActorsCommand === "function");
 assert(typeof ListActors$ === "object");
 assert(typeof ListBrowserSessionsCommand === "function");
@@ -484,6 +534,42 @@ assert(typeof GetWorkloadAccessTokenForUserIdRequest$ === "object");
 assert(typeof GetWorkloadAccessTokenForUserIdResponse$ === "object");
 assert(typeof GetWorkloadAccessTokenRequest$ === "object");
 assert(typeof GetWorkloadAccessTokenResponse$ === "object");
+assert(typeof HarnessAgentCoreBrowserConfig$ === "object");
+assert(typeof HarnessAgentCoreCodeInterpreterConfig$ === "object");
+assert(typeof HarnessAgentCoreGatewayConfig$ === "object");
+assert(typeof HarnessBedrockModelConfig$ === "object");
+assert(typeof HarnessContentBlock$ === "object");
+assert(typeof HarnessContentBlockDelta$ === "object");
+assert(typeof HarnessContentBlockDeltaEvent$ === "object");
+assert(typeof HarnessContentBlockStart$ === "object");
+assert(typeof HarnessContentBlockStartEvent$ === "object");
+assert(typeof HarnessContentBlockStopEvent$ === "object");
+assert(typeof HarnessGatewayOutboundAuth$ === "object");
+assert(typeof HarnessGeminiModelConfig$ === "object");
+assert(typeof HarnessInlineFunctionConfig$ === "object");
+assert(typeof HarnessMessage$ === "object");
+assert(typeof HarnessMessageStartEvent$ === "object");
+assert(typeof HarnessMessageStopEvent$ === "object");
+assert(typeof HarnessMetadataEvent$ === "object");
+assert(typeof HarnessModelConfiguration$ === "object");
+assert(typeof HarnessOpenAiModelConfig$ === "object");
+assert(typeof HarnessReasoningContentBlock$ === "object");
+assert(typeof HarnessReasoningContentBlockDelta$ === "object");
+assert(typeof HarnessReasoningTextBlock$ === "object");
+assert(typeof HarnessRemoteMcpConfig$ === "object");
+assert(typeof HarnessSkill$ === "object");
+assert(typeof HarnessStreamMetrics$ === "object");
+assert(typeof HarnessSystemContentBlock$ === "object");
+assert(typeof HarnessTokenUsage$ === "object");
+assert(typeof HarnessTool$ === "object");
+assert(typeof HarnessToolConfiguration$ === "object");
+assert(typeof HarnessToolResultBlock$ === "object");
+assert(typeof HarnessToolResultBlockDelta$ === "object");
+assert(typeof HarnessToolResultBlockStart$ === "object");
+assert(typeof HarnessToolResultContentBlock$ === "object");
+assert(typeof HarnessToolUseBlock$ === "object");
+assert(typeof HarnessToolUseBlockDelta$ === "object");
+assert(typeof HarnessToolUseBlockStart$ === "object");
 assert(typeof InputContentBlock$ === "object");
 assert(typeof InvokeAgentRuntimeCommandRequest$ === "object");
 assert(typeof InvokeAgentRuntimeCommandRequestBody$ === "object");
@@ -495,6 +581,9 @@ assert(typeof InvokeBrowserRequest$ === "object");
 assert(typeof InvokeBrowserResponse$ === "object");
 assert(typeof InvokeCodeInterpreterRequest$ === "object");
 assert(typeof InvokeCodeInterpreterResponse$ === "object");
+assert(typeof InvokeHarnessRequest$ === "object");
+assert(typeof InvokeHarnessResponse$ === "object");
+assert(typeof InvokeHarnessStreamOutput$ === "object");
 assert(typeof KeyPressArguments$ === "object");
 assert(typeof KeyPressResult$ === "object");
 assert(typeof KeyShortcutArguments$ === "object");
@@ -536,6 +625,7 @@ assert(typeof MouseMoveArguments$ === "object");
 assert(typeof MouseMoveResult$ === "object");
 assert(typeof MouseScrollArguments$ === "object");
 assert(typeof MouseScrollResult$ === "object");
+assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof PayloadType$ === "object");
 assert(typeof Proxy$ === "object");
 assert(typeof ProxyBypass$ === "object");
@@ -596,10 +686,16 @@ assert(typeof ContentBlockType === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
+assert(typeof HarnessConversationRole === "object");
+assert(typeof HarnessStopReason === "object");
+assert(typeof HarnessToolType === "object");
+assert(typeof HarnessToolUseStatus === "object");
+assert(typeof HarnessToolUseType === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordStatus === "object");
 assert(typeof MouseButton === "object");
 assert(typeof Oauth2FlowType === "object");
+assert(typeof OAuthGrantType === "object");
 assert(typeof OperatorType === "object");
 assert(typeof ProgrammingLanguage === "object");
 assert(typeof RegistryRecordStatus === "object");

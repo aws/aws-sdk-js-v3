@@ -123,6 +123,52 @@ const _GWATFUIR = "GetWorkloadAccessTokenForUserIdRequest";
 const _GWATFUIRe = "GetWorkloadAccessTokenForUserIdResponse";
 const _GWATR = "GetWorkloadAccessTokenRequest";
 const _GWATRe = "GetWorkloadAccessTokenResponse";
+const _HACBC = "HarnessAgentCoreBrowserConfig";
+const _HACCIC = "HarnessAgentCoreCodeInterpreterConfig";
+const _HACGC = "HarnessAgentCoreGatewayConfig";
+const _HBMC = "HarnessBedrockModelConfig";
+const _HCB = "HarnessContentBlocks";
+const _HCBD = "HarnessContentBlockDelta";
+const _HCBDE = "HarnessContentBlockDeltaEvent";
+const _HCBS = "HarnessContentBlockStart";
+const _HCBSE = "HarnessContentBlockStartEvent";
+const _HCBSEa = "HarnessContentBlockStopEvent";
+const _HCBa = "HarnessContentBlock";
+const _HGMC = "HarnessGeminiModelConfig";
+const _HGOA = "HarnessGatewayOutboundAuth";
+const _HHM = "HttpHeadersMap";
+const _HIFC = "HarnessInlineFunctionConfig";
+const _HIFD = "HarnessInlineFunctionDescription";
+const _HM = "HarnessMessage";
+const _HMC = "HarnessModelConfiguration";
+const _HME = "HarnessMetadataEvent";
+const _HMSE = "HarnessMessageStartEvent";
+const _HMSEa = "HarnessMessageStopEvent";
+const _HMa = "HarnessMessages";
+const _HOAMC = "HarnessOpenAiModelConfig";
+const _HRCB = "HarnessReasoningContentBlock";
+const _HRCBD = "HarnessReasoningContentBlockDelta";
+const _HRMC = "HarnessRemoteMcpConfig";
+const _HRMU = "HarnessRemoteMcpUrl";
+const _HRTB = "HarnessReasoningTextBlock";
+const _HS = "HarnessSkills";
+const _HSCB = "HarnessSystemContentBlock";
+const _HSM = "HarnessStreamMetrics";
+const _HSP = "HarnessSystemPrompt";
+const _HSa = "HarnessSkill";
+const _HT = "HarnessTool";
+const _HTC = "HarnessToolConfiguration";
+const _HTRB = "HarnessToolResultBlock";
+const _HTRBD = "HarnessToolResultBlocksDelta";
+const _HTRBDa = "HarnessToolResultBlockDelta";
+const _HTRBS = "HarnessToolResultBlockStart";
+const _HTRCB = "HarnessToolResultContentBlocks";
+const _HTRCBa = "HarnessToolResultContentBlock";
+const _HTU = "HarnessTokenUsage";
+const _HTUB = "HarnessToolUseBlock";
+const _HTUBD = "HarnessToolUseBlockDelta";
+const _HTUBS = "HarnessToolUseBlockStart";
+const _HTa = "HarnessTools";
 const _IAR = "InvokeAgentRuntime";
 const _IARC = "InvokeAgentRuntimeCommand";
 const _IARCR = "InvokeAgentRuntimeCommandRequest";
@@ -139,6 +185,10 @@ const _ICBL = "InputContentBlockList";
 const _ICI = "InvokeCodeInterpreter";
 const _ICIR = "InvokeCodeInterpreterRequest";
 const _ICIRn = "InvokeCodeInterpreterResponse";
+const _IH = "InvokeHarness";
+const _IHR = "InvokeHarnessRequest";
+const _IHRn = "InvokeHarnessResponse";
+const _IHSO = "InvokeHarnessStreamOutput";
 const _IIE = "InvalidInputException";
 const _ISE = "InternalServerException";
 const _KPA = "KeyPressArguments";
@@ -199,6 +249,9 @@ const _MSA = "MouseScrollArguments";
 const _MSI = "Mcp-Session-Id";
 const _MSR = "MouseScrollResult";
 const _MV = "MetadataValue";
+const _OACP = "OAuthCredentialProvider";
+const _OACPV = "OAuthCustomParametersValue";
+const _OACPu = "OAuthCustomParameters";
 const _P = "Proxies";
 const _PB = "ProxyBypass";
 const _PC = "ProxyConfiguration";
@@ -242,6 +295,7 @@ const _SD = "ServerDefinition";
 const _SDk = "SkillDefinition";
 const _SE = "ServiceException";
 const _SF = "SessionFilter";
+const _SJ = "SensitiveJson";
 const _SL = "S3Location";
 const _SMD = "SkillMdDefinition";
 const _SMEJ = "StartMemoryExtractionJob";
@@ -259,6 +313,7 @@ const _SRSRt = "StopRuntimeSessionResponse";
 const _SS = "SensitiveString";
 const _SSL = "SessionSummaryList";
 const _SSe = "SessionSummary";
+const _ST = "SensitiveText";
 const _SU = "StreamUpdate";
 const _Sp = "Spans";
 const _TA = "ToolArguments";
@@ -283,24 +338,32 @@ const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
 const _a = "a2a";
 const _aC = "agentCard";
+const _aCB = "agentCoreBrowser";
+const _aCCI = "agentCoreCodeInterpreter";
+const _aCG = "agentCoreGateway";
 const _aDE = "accessDeniedException";
 const _aI = "actorId";
 const _aIc = "accountId";
+const _aIw = "awsIam";
 const _aK = "apiKey";
+const _aKA = "apiKeyArn";
 const _aRA = "agentRuntimeArn";
 const _aS = "automationStream";
 const _aSU = "automationStreamUpdate";
 const _aSc = "actorSummaries";
 const _aSg = "agentSkills";
 const _aT = "accessToken";
+const _aTl = "allowedTools";
 const _aU = "authorizationUrl";
 const _ac = "accept";
 const _act = "action";
 const _ar = "arguments";
 const _as = "assertions";
 const _b = "branch";
-const _bA = "basicAuth";
+const _bA = "browserArn";
+const _bAa = "basicAuth";
 const _bI = "browserIdentifier";
+const _bMC = "bedrockModelConfig";
 const _ba = "baggage";
 const _bl = "blob";
 const _bo = "body";
@@ -309,33 +372,43 @@ const _buc = "bucket";
 const _by = "bypass";
 const _c = "client";
 const _cA = "createdAt";
+const _cBD = "contentBlockDelta";
+const _cBI = "contentBlockIndex";
+const _cBS = "contentBlockStart";
+const _cBSo = "contentBlockStop";
 const _cC = "clickCount";
 const _cCl = "clearContext";
 const _cD = "contentDelta";
 const _cE = "conflictException";
+const _cIA = "codeInterpreterArn";
 const _cII = "codeInterpreterIdentifier";
 const _cP = "customParameters";
+const _cRIT = "cacheReadInputTokens";
 const _cS = "customState";
 const _cSo = "contentStart";
 const _cSon = "contentStop";
 const _cT = "clientToken";
 const _cTo = "contentType";
+const _cWIT = "cacheWriteInputTokens";
 const _ce = "certificates";
 const _ch = "chunk";
 const _co = "content";
 const _cod = "code";
 const _com = "command";
 const _con = "context";
+const _conf = "config";
 const _conv = "conversational";
 const _cr = "credentials";
 const _cu = "custom";
 const _d = "data";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
+const _dRU = "defaultReturnUrl";
 const _dT = "descriptorType";
 const _dX = "deltaX";
 const _dY = "deltaY";
 const _de = "description";
+const _del = "delta";
 const _des = "descriptors";
 const _e = "error";
 const _eA = "evaluatorArn";
@@ -371,29 +444,39 @@ const _fR = "failedRecords";
 const _fRa = "failureReason";
 const _fi = "filters";
 const _fo = "format";
-const _h = "height";
+const _gA = "gatewayArn";
+const _gMC = "geminiModelConfig";
+const _gT = "grantType";
+const _h = "headers";
+const _hA = "harnessArn";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
+const _he = "height";
 const _ht = "http";
-const _i = "items";
+const _i = "input";
 const _iC = "inlineContent";
 const _iE = "isError";
+const _iF = "inlineFunction";
 const _iP = "includePayloads";
 const _iPB = "includeParentBranches";
 const _iRIF = "ignoredReferenceInputFields";
+const _iS = "inputSchema";
 const _iSE = "internalServerException";
 const _iT = "idempotencyToken";
 const _iTn = "inputTokens";
+const _it = "items";
 const _j = "jobs";
 const _jI = "jobId";
 const _jID = "jobID";
+const _js = "json";
 const _k = "key";
 const _kP = "keyPress";
 const _kS = "keyShortcut";
 const _kT = "keyType";
 const _ke = "keys";
 const _l = "location";
+const _lM = "latencyMs";
 const _lUA = "lastUpdatedAt";
 const _lVS = "liveViewStream";
 const _la = "label";
@@ -404,7 +487,9 @@ const _mC = "mouseClick";
 const _mD = "mouseDrag";
 const _mF = "metadataFilters";
 const _mI = "memoryId";
+const _mIa = "maxIterations";
 const _mIe = "messageIndex";
+const _mIo = "modelId";
 const _mK = "metadataKey";
 const _mL = "messagesList";
 const _mM = "mouseMove";
@@ -416,20 +501,30 @@ const _mRa = "maxResults";
 const _mS = "mouseScroll";
 const _mSI = "mcpSessionId";
 const _mSIe = "memoryStrategyId";
+const _mSe = "messageStart";
+const _mSes = "messageStop";
 const _mT = "mimeType";
+const _mTa = "maxTokens";
 const _mV = "metadataValue";
 const _mc = "mcp";
 const _me = "metadata";
 const _mes = "messages";
+const _met = "metrics";
+const _mo = "model";
 const _n = "name";
 const _nP = "namespacePath";
 const _nT = "nextToken";
 const _na = "namespace";
 const _nam = "namespaces";
+const _no = "none";
 const _o = "operator";
+const _oA = "outboundAuth";
+const _oAMC = "openAiModelConfig";
 const _oF = "oauth2Flow";
 const _oT = "outputTokens";
+const _oa = "oauth";
 const _p = "payload";
+const _pA = "providerArn";
 const _pC = "profileConfiguration";
 const _pCr = "proxyConfiguration";
 const _pI = "profileIdentifier";
@@ -444,16 +539,20 @@ const _q = "qualifier";
 const _r = "reason";
 const _rA = "registryArn";
 const _rAe = "recordArn";
+const _rC = "reasoningContent";
 const _rCE = "runtimeClientError";
 const _rCPN = "resourceCredentialProviderName";
+const _rCe = "redactedContent";
 const _rEI = "rootEventId";
 const _rI = "requestIdentifier";
 const _rIe = "recordId";
 const _rIeg = "registryIds";
+const _rM = "remoteMcp";
 const _rNFE = "resourceNotFoundException";
 const _rORU = "resourceOauth2ReturnUrl";
 const _rR = "registryRecords";
 const _rSI = "runtimeSessionId";
+const _rT = "reasoningText";
 const _rUI = "runtimeUserId";
 const _re = "records";
 const _res = "resource";
@@ -476,10 +575,13 @@ const _sIpa = "spanIds";
 const _sIt = "strategyId";
 const _sM = "skillMd";
 const _sMe = "secretsManager";
+const _sN = "serverName";
+const _sP = "systemPrompt";
 const _sQ = "searchQuery";
 const _sQEE = "serviceQuotaExceededException";
 const _sR = "successfulRecords";
 const _sRA = "sessionReplayArtifact";
+const _sRt = "stopReason";
 const _sS = "streamStatus";
 const _sSe = "sessionStatus";
 const _sSes = "sessionSummaries";
@@ -498,8 +600,11 @@ const _scr = "screenshot";
 const _se = "server";
 const _sen = "sensitive";
 const _si = "size";
+const _sig = "signature";
+const _sk = "skills";
 const _st = "streaming";
 const _sta = "status";
+const _star = "start";
 const _std = "stdout";
 const _stde = "stderr";
 const _str = "streams";
@@ -511,12 +616,18 @@ const _tIa = "taskId";
 const _tIr = "traceIds";
 const _tK = "topK";
 const _tN = "toolNames";
-const _tP = "traceParent";
+const _tP = "topP";
+const _tPr = "traceParent";
+const _tR = "toolResult";
 const _tS = "traceState";
 const _tSa = "taskStatus";
+const _tSi = "timeoutSeconds";
 const _tT = "totalTokens";
 const _tU = "tokenUsage";
+const _tUI = "toolUseId";
+const _tUo = "toolUse";
 const _te = "text";
+const _tem = "temperature";
 const _ti = "timeout";
 const _tim = "timestamp";
 const _to = "tools";
@@ -527,6 +638,8 @@ const _uA = "updatedAt";
 const _uI = "userIdentifier";
 const _uIs = "userId";
 const _uT = "userToken";
+const _ur = "url";
+const _us = "usage";
 const _v = "value";
 const _vE = "validationException";
 const _vI = "versionId";
@@ -678,8 +791,13 @@ var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
 var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
+var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
+var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
+var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var ResponseStream: StaticSimpleSchema = [0, n0, _RS, { [_sen]: 1, [_st]: 1 }, 42];
+var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+var SensitiveText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 var State: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var UserTokenType: StaticSimpleSchema = [0, n0, _UTT, 8, 0];
 var WorkloadIdentityTokenType: StaticSimpleSchema = [0, n0, _WITT, 8, 0];
@@ -1033,6 +1151,126 @@ export var GetWorkloadAccessTokenResponse$: StaticStructureSchema = [3, n0, _GWA
   [_wAT],
   [[() => WorkloadIdentityTokenType, 0]], 1
 ];
+export var HarnessAgentCoreBrowserConfig$: StaticStructureSchema = [3, n0, _HACBC,
+  0,
+  [_bA],
+  [0]
+];
+export var HarnessAgentCoreCodeInterpreterConfig$: StaticStructureSchema = [3, n0, _HACCIC,
+  0,
+  [_cIA],
+  [0]
+];
+export var HarnessAgentCoreGatewayConfig$: StaticStructureSchema = [3, n0, _HACGC,
+  0,
+  [_gA, _oA],
+  [0, [() => HarnessGatewayOutboundAuth$, 0]], 1
+];
+export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
+  0,
+  [_mIo, _mTa, _tem, _tP],
+  [0, 1, 1, 1], 1
+];
+export var HarnessContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _HCBDE,
+  0,
+  [_cBI, _del],
+  [1, [() => HarnessContentBlockDelta$, 0]], 2
+];
+export var HarnessContentBlockStartEvent$: StaticStructureSchema = [3, n0, _HCBSE,
+  0,
+  [_cBI, _star],
+  [1, () => HarnessContentBlockStart$], 2
+];
+export var HarnessContentBlockStopEvent$: StaticStructureSchema = [3, n0, _HCBSEa,
+  0,
+  [_cBI],
+  [1], 1
+];
+export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
+  0,
+  [_mIo, _aKA, _mTa, _tem, _tP, _tK],
+  [0, 0, 1, 1, 1, 1], 2
+];
+export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
+  0,
+  [_de, _iS],
+  [[() => HarnessInlineFunctionDescription, 0], [() => SensitiveJson, 0]], 2
+];
+export var HarnessMessage$: StaticStructureSchema = [3, n0, _HM,
+  0,
+  [_ro, _co],
+  [0, [() => HarnessContentBlocks, 0]], 2
+];
+export var HarnessMessageStartEvent$: StaticStructureSchema = [3, n0, _HMSE,
+  0,
+  [_ro],
+  [0], 1
+];
+export var HarnessMessageStopEvent$: StaticStructureSchema = [3, n0, _HMSEa,
+  0,
+  [_sRt],
+  [0], 1
+];
+export var HarnessMetadataEvent$: StaticStructureSchema = [3, n0, _HME,
+  0,
+  [_us, _met],
+  [() => HarnessTokenUsage$, () => HarnessStreamMetrics$], 2
+];
+export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
+  0,
+  [_mIo, _aKA, _mTa, _tem, _tP],
+  [0, 0, 1, 1, 1], 2
+];
+export var HarnessReasoningTextBlock$: StaticStructureSchema = [3, n0, _HRTB,
+  8,
+  [_te, _sig],
+  [0, 0], 1
+];
+export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
+  0,
+  [_ur, _h],
+  [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
+];
+export var HarnessStreamMetrics$: StaticStructureSchema = [3, n0, _HSM,
+  0,
+  [_lM],
+  [1], 1
+];
+export var HarnessTokenUsage$: StaticStructureSchema = [3, n0, _HTU,
+  0,
+  [_iTn, _oT, _tT, _cRIT, _cWIT],
+  [1, 1, 1, 1, 1], 3
+];
+export var HarnessTool$: StaticStructureSchema = [3, n0, _HT,
+  0,
+  [_t, _n, _conf],
+  [0, 0, [() => HarnessToolConfiguration$, 0]], 1
+];
+export var HarnessToolResultBlock$: StaticStructureSchema = [3, n0, _HTRB,
+  0,
+  [_tUI, _co, _sta, _t],
+  [0, [() => HarnessToolResultContentBlocks, 0], 0, 0], 2
+];
+export var HarnessToolResultBlockStart$: StaticStructureSchema = [3, n0, _HTRBS,
+  0,
+  [_tUI, _sta],
+  [0, 0], 1
+];
+export var HarnessToolUseBlock$: StaticStructureSchema = [3, n0, _HTUB,
+  0,
+  [_n, _tUI, _i, _t, _sN],
+  [0, 0, [() => SensitiveJson, 0], 0, 0], 3
+];
+export var HarnessToolUseBlockDelta$: StaticStructureSchema = [3, n0, _HTUBD,
+  0,
+  [_i],
+  [[() => SensitiveText, 0]], 1
+];
+export var HarnessToolUseBlockStart$: StaticStructureSchema = [3, n0, _HTUBS,
+  0,
+  [_tUI, _n, _t, _sN],
+  [0, 0, 0, 0], 2
+];
 export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
   0,
   [_pa, _te, _bl],
@@ -1040,7 +1278,7 @@ export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
 ];
 export var InvokeAgentRuntimeCommandRequest$: StaticStructureSchema = [3, n0, _IARCR,
   0,
-  [_aRA, _bo, _cTo, _ac, _rSI, _tI, _tP, _tS, _ba, _q, _aIc],
+  [_aRA, _bo, _cTo, _ac, _rSI, _tI, _tPr, _tS, _ba, _q, _aIc],
   [[0, 1], [() => InvokeAgentRuntimeCommandRequestBody$, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0, _IARCRB,
@@ -1050,17 +1288,17 @@ export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0
 ];
 export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _IARCRn,
   0,
-  [_cTo, _stre, _rSI, _tI, _tP, _tS, _ba, _sCt],
+  [_cTo, _stre, _rSI, _tI, _tPr, _tS, _ba, _sCt],
   [[0, { [_hH]: _CT }], [() => InvokeAgentRuntimeCommandStreamOutput$, 16], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [1, 32]], 2
 ];
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
-  [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _q, _aIc],
+  [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
   [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   0,
-  [_cTo, _rSI, _mSI, _mPV, _tI, _tP, _tS, _ba, _resp, _sCt],
+  [_cTo, _rSI, _mSI, _mPV, _tI, _tPr, _tS, _ba, _resp, _sCt],
   [[0, { [_hH]: _CT }], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [() => ResponseStream, 16], [1, 32]], 1
 ];
 export var InvokeBrowserRequest$: StaticStructureSchema = [3, n0, _IBR,
@@ -1075,13 +1313,23 @@ export var InvokeBrowserResponse$: StaticStructureSchema = [3, n0, _IBRn,
 ];
 export var InvokeCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _ICIR,
   0,
-  [_cII, _n, _sI, _tI, _tP, _ar],
+  [_cII, _n, _sI, _tI, _tPr, _ar],
   [[0, 1], 0, [0, { [_hH]: _xacisi }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [() => ToolArguments$, 0]], 2
 ];
 export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIRn,
   0,
   [_stre, _sI],
   [[() => CodeInterpreterStreamOutput$, 16], [0, { [_hH]: _xacisi }]], 1
+];
+export var InvokeHarnessRequest$: StaticStructureSchema = [3, n0, _IHR,
+  0,
+  [_hA, _rSI, _mes, _mo, _sP, _to, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
+  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], () => HarnessModelConfiguration$, [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
+];
+export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
+  0,
+  [_stre],
+  [[() => InvokeHarnessStreamOutput$, 16]], 1
 ];
 export var KeyPressArguments$: StaticStructureSchema = [3, n0, _KPA,
   0,
@@ -1130,7 +1378,7 @@ export var ListBrowserSessionsRequest$: StaticStructureSchema = [3, n0, _LBSR,
 ];
 export var ListBrowserSessionsResponse$: StaticStructureSchema = [3, n0, _LBSRi,
   0,
-  [_i, _nT],
+  [_it, _nT],
   [() => BrowserSessionSummaries, 0], 1
 ];
 export var ListCodeInterpreterSessionsRequest$: StaticStructureSchema = [3, n0, _LCISR,
@@ -1140,7 +1388,7 @@ export var ListCodeInterpreterSessionsRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var ListCodeInterpreterSessionsResponse$: StaticStructureSchema = [3, n0, _LCISRi,
   0,
-  [_i, _nT],
+  [_it, _nT],
   [() => CodeInterpreterSessionSummaries, 0], 1
 ];
 export var ListEventsInput$: StaticStructureSchema = [3, n0, _LEI,
@@ -1273,6 +1521,11 @@ export var MouseScrollResult$: StaticStructureSchema = [3, n0, _MSR,
   [_sta, _e],
   [0, 0], 1
 ];
+export var OAuthCredentialProvider$: StaticStructureSchema = [3, n0, _OACP,
+  0,
+  [_pA, _sc, _cP, _gT, _dRU],
+  [0, 64 | 0, [() => OAuthCustomParameters, 0], 0, 0], 2
+];
 export var ProxyBypass$: StaticStructureSchema = [3, n0, _PB,
   0,
   [_dP],
@@ -1315,7 +1568,7 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
 ];
 export var SaveBrowserSessionProfileRequest$: StaticStructureSchema = [3, n0, _SBSPR,
   0,
-  [_pI, _bI, _sI, _tI, _tP, _cT],
+  [_pI, _bI, _sI, _tI, _tPr, _cT],
   [[0, 1], 0, 0, [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 4]], 3
 ];
 export var SaveBrowserSessionProfileResponse$: StaticStructureSchema = [3, n0, _SBSPRa,
@@ -1385,7 +1638,7 @@ export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
 ];
 export var StartBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSR,
   0,
-  [_bI, _tI, _tP, _n, _sTS, _vP, _ext, _pC, _pCr, _eP, _ce, _cT],
+  [_bI, _tI, _tPr, _n, _sTS, _vP, _ext, _pC, _pCr, _eP, _ce, _cT],
   [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, () => BrowserExtensions, () => BrowserProfileConfiguration$, () => ProxyConfiguration$, () => BrowserEnterprisePolicies, () => Certificates, [0, 4]], 1
 ];
 export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
@@ -1395,7 +1648,7 @@ export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
 ];
 export var StartCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _SCISR,
   0,
-  [_cII, _tI, _tP, _n, _sTS, _ce, _cT],
+  [_cII, _tI, _tPr, _n, _sTS, _ce, _cT],
   [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => Certificates, [0, 4]], 1
 ];
 export var StartCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _SCISRt,
@@ -1415,7 +1668,7 @@ export var StartMemoryExtractionJobOutput$: StaticStructureSchema = [3, n0, _SME
 ];
 export var StopBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSRto,
   0,
-  [_bI, _sI, _tI, _tP, _cT],
+  [_bI, _sI, _tI, _tPr, _cT],
   [[0, 1], [0, { [_hQ]: _sI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 4]], 2
 ];
 export var StopBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRtop,
@@ -1425,7 +1678,7 @@ export var StopBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRtop
 ];
 export var StopCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _SCISRto,
   0,
-  [_cII, _sI, _tI, _tP, _cT],
+  [_cII, _sI, _tI, _tPr, _cT],
   [[0, 1], [0, { [_hQ]: _sI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 4]], 2
 ];
 export var StopCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _SCISRtop,
@@ -1480,9 +1733,10 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var ViewPort$: StaticStructureSchema = [3, n0, _VP,
   0,
-  [_w, _h],
+  [_w, _he],
   [1, 1], 2
 ];
+var __Unit = "unit" as const;
 var ActorSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => ActorSummary$
 ];
@@ -1526,6 +1780,34 @@ var EventMetadataFilterList: StaticListSchema = [1, n0, _EMFL,
 var ExtractionJobMetadataList: StaticListSchema = [1, n0, _EJML,
   0, () => ExtractionJobMetadata$
 ];
+var HarnessAllowedTools = 64 | 0;
+var HarnessContentBlocks: StaticListSchema = [1, n0, _HCB,
+  0, [() => HarnessContentBlock$,
+    0]
+];
+var HarnessMessages: StaticListSchema = [1, n0, _HMa,
+  0, [() => HarnessMessage$,
+    0]
+];
+var HarnessSkills: StaticListSchema = [1, n0, _HS,
+  0, () => HarnessSkill$
+];
+var HarnessSystemPrompt: StaticListSchema = [1, n0, _HSP,
+  0, [() => HarnessSystemContentBlock$,
+    0]
+];
+var HarnessToolResultBlocksDelta: StaticListSchema = [1, n0, _HTRBD,
+  0, [() => HarnessToolResultBlockDelta$,
+    0]
+];
+var HarnessToolResultContentBlocks: StaticListSchema = [1, n0, _HTRCB,
+  0, [() => HarnessToolResultContentBlock$,
+    0]
+];
+var HarnessTools: StaticListSchema = [1, n0, _HTa,
+  0, [() => HarnessTool$,
+    0]
+];
 var IgnoredReferenceInputFields = 64 | 0;
 var InputContentBlockList: StaticListSchema = [1, n0, _ICBL,
   0, [() => InputContentBlock$,
@@ -1557,6 +1839,7 @@ var MessagesList: StaticListSchema = [1, n0, _ML,
   0, () => MessageMetadata$
 ];
 var NamespacesList = 64 | 0;
+var OAuthScopes = 64 | 0;
 var PayloadTypeList: StaticListSchema = [1, n0, _PTL,
   0, [() => PayloadType$,
     0]
@@ -1588,8 +1871,17 @@ var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT,
   , [() => CustomRequestValueType,
     0]
 ];
+var HttpHeadersMap: StaticMapSchema = [2, n0, _HHM,
+  8, 0, 0
+];
 var MetadataMap: StaticMapSchema = [2, n0, _MMe,
   0, 0, () => MetadataValue$
+];
+var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu,
+  0, [0,
+    0]
+  , [() => OAuthCustomParametersValue,
+    0]
 ];
 export var BrowserAction$: StaticUnionSchema = [4, n0, _BAr,
   0,
@@ -1641,10 +1933,75 @@ export var ExtractionJobMessages$: StaticUnionSchema = [4, n0, _EJMx,
   [_mL],
   [() => MessagesList]
 ];
+export var HarnessContentBlock$: StaticUnionSchema = [4, n0, _HCBa,
+  0,
+  [_te, _tUo, _tR, _rC],
+  [[() => SensitiveText, 0], [() => HarnessToolUseBlock$, 0], [() => HarnessToolResultBlock$, 0], [() => HarnessReasoningContentBlock$, 0]]
+];
+export var HarnessContentBlockDelta$: StaticUnionSchema = [4, n0, _HCBD,
+  0,
+  [_te, _tUo, _tR, _rC],
+  [[() => SensitiveText, 0], [() => HarnessToolUseBlockDelta$, 0], [() => HarnessToolResultBlocksDelta, 0], [() => HarnessReasoningContentBlockDelta$, 0]]
+];
+export var HarnessContentBlockStart$: StaticUnionSchema = [4, n0, _HCBS,
+  0,
+  [_tUo, _tR],
+  [() => HarnessToolUseBlockStart$, () => HarnessToolResultBlockStart$]
+];
+export var HarnessGatewayOutboundAuth$: StaticUnionSchema = [4, n0, _HGOA,
+  0,
+  [_aIw, _no, _oa],
+  [() => __Unit, () => __Unit, [() => OAuthCredentialProvider$, 0]]
+];
+export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMC,
+  0,
+  [_bMC, _oAMC, _gMC],
+  [() => HarnessBedrockModelConfig$, () => HarnessOpenAiModelConfig$, () => HarnessGeminiModelConfig$]
+];
+export var HarnessReasoningContentBlock$: StaticUnionSchema = [4, n0, _HRCB,
+  8,
+  [_rT, _rCe],
+  [[() => HarnessReasoningTextBlock$, 0], 21]
+];
+export var HarnessReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _HRCBD,
+  8,
+  [_te, _rCe, _sig],
+  [0, [() => Body, 0], 0]
+];
+export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSa,
+  0,
+  [_pa],
+  [0]
+];
+export var HarnessSystemContentBlock$: StaticUnionSchema = [4, n0, _HSCB,
+  0,
+  [_te],
+  [[() => SensitiveText, 0]]
+];
+export var HarnessToolConfiguration$: StaticUnionSchema = [4, n0, _HTC,
+  0,
+  [_rM, _aCB, _aCG, _iF, _aCCI],
+  [[() => HarnessRemoteMcpConfig$, 0], () => HarnessAgentCoreBrowserConfig$, [() => HarnessAgentCoreGatewayConfig$, 0], [() => HarnessInlineFunctionConfig$, 0], () => HarnessAgentCoreCodeInterpreterConfig$]
+];
+export var HarnessToolResultBlockDelta$: StaticUnionSchema = [4, n0, _HTRBDa,
+  0,
+  [_te, _js],
+  [[() => SensitiveText, 0], [() => SensitiveJson, 0]]
+];
+export var HarnessToolResultContentBlock$: StaticUnionSchema = [4, n0, _HTRCBa,
+  0,
+  [_te, _js],
+  [[() => SensitiveText, 0], [() => SensitiveJson, 0]]
+];
 export var InvokeAgentRuntimeCommandStreamOutput$: StaticUnionSchema = [4, n0, _IARCSO,
   { [_st]: 1 },
   [_ch, _aDE, _iSE, _rNFE, _sQEE, _tE, _vE, _rCE],
   [() => ResponseChunk$, [() => AccessDeniedException$, 0], [() => InternalServerException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => ValidationException$, 0], [() => RuntimeClientError$, 0]]
+];
+export var InvokeHarnessStreamOutput$: StaticUnionSchema = [4, n0, _IHSO,
+  { [_st]: 1 },
+  [_mSe, _cBS, _cBD, _cBSo, _mSes, _me, _iSE, _vE, _rCE],
+  [() => HarnessMessageStartEvent$, () => HarnessContentBlockStartEvent$, [() => HarnessContentBlockDeltaEvent$, 0], () => HarnessContentBlockStopEvent$, () => HarnessMessageStopEvent$, () => HarnessMetadataEvent$, [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => RuntimeClientError$, 0]]
 ];
 export var LeftExpression$: StaticUnionSchema = [4, n0, _LE,
   0,
@@ -1673,7 +2030,7 @@ export var Proxy$: StaticUnionSchema = [4, n0, _Pr,
 ];
 export var ProxyCredentials$: StaticUnionSchema = [4, n0, _PCr,
   0,
-  [_bA],
+  [_bAa],
   [() => BasicAuth$]
 ];
 export var ResourceLocation$: StaticUnionSchema = [4, n0, _RL,
@@ -1761,6 +2118,9 @@ export var InvokeBrowser$: StaticOperationSchema = [9, n0, _IB,
 ];
 export var InvokeCodeInterpreter$: StaticOperationSchema = [9, n0, _ICI,
   { [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/tools/invoke", 200] }, () => InvokeCodeInterpreterRequest$, () => InvokeCodeInterpreterResponse$
+];
+export var InvokeHarness$: StaticOperationSchema = [9, n0, _IH,
+  { [_ht]: ["POST", "/harnesses/invoke", 200] }, () => InvokeHarnessRequest$, () => InvokeHarnessResponse$
 ];
 export var ListActors$: StaticOperationSchema = [9, n0, _LA,
   { [_ht]: ["POST", "/memories/{memoryId}/actors", 200] }, () => ListActorsInput$, () => ListActorsOutput$

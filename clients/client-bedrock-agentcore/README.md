@@ -335,6 +335,13 @@ InvokeCodeInterpreter
 </details>
 <details>
 <summary>
+InvokeHarness
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/InvokeHarnessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/InvokeHarnessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/InvokeHarnessCommandOutput/)
+</details>
+<details>
+<summary>
 ListActors
 </summary>
 

@@ -243,6 +243,100 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  * @public
  * @enum
  */
+export const HarnessToolUseStatus = {
+  ERROR: "error",
+  SUCCESS: "success",
+} as const;
+/**
+ * @public
+ */
+export type HarnessToolUseStatus = (typeof HarnessToolUseStatus)[keyof typeof HarnessToolUseStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessToolUseType = {
+  MCP_TOOL_USE: "mcp_tool_use",
+  SERVER_TOOL_USE: "server_tool_use",
+  TOOL_USE: "tool_use",
+} as const;
+/**
+ * @public
+ */
+export type HarnessToolUseType = (typeof HarnessToolUseType)[keyof typeof HarnessToolUseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessConversationRole = {
+  ASSISTANT: "assistant",
+  USER: "user",
+} as const;
+/**
+ * @public
+ */
+export type HarnessConversationRole = (typeof HarnessConversationRole)[keyof typeof HarnessConversationRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const OAuthGrantType = {
+  AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
+  CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+} as const;
+/**
+ * @public
+ */
+export type OAuthGrantType = (typeof OAuthGrantType)[keyof typeof OAuthGrantType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessToolType = {
+  AGENTCORE_BROWSER: "agentcore_browser",
+  AGENTCORE_CODE_INTERPRETER: "agentcore_code_interpreter",
+  AGENTCORE_GATEWAY: "agentcore_gateway",
+  INLINE_FUNCTION: "inline_function",
+  REMOTE_MCP: "remote_mcp",
+} as const;
+/**
+ * @public
+ */
+export type HarnessToolType = (typeof HarnessToolType)[keyof typeof HarnessToolType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessStopReason = {
+  CONTENT_FILTERED: "content_filtered",
+  END_TURN: "end_turn",
+  INTERRUPTED: "interrupted",
+  MALFORMED_MODEL_OUTPUT: "malformed_model_output",
+  MALFORMED_TOOL_USE: "malformed_tool_use",
+  MAX_ITERATIONS_EXCEEDED: "max_iterations_exceeded",
+  MAX_OUTPUT_TOKENS_EXCEEDED: "max_output_tokens_exceeded",
+  MAX_TOKENS: "max_tokens",
+  MODEL_CONTEXT_WINDOW_EXCEEDED: "model_context_window_exceeded",
+  PARTIAL_TURN: "partial_turn",
+  STOP_SEQUENCE: "stop_sequence",
+  TIMEOUT_EXCEEDED: "timeout_exceeded",
+  TOOL_RESULT: "tool_result",
+  TOOL_USE: "tool_use",
+} as const;
+/**
+ * @public
+ */
+export type HarnessStopReason = (typeof HarnessStopReason)[keyof typeof HarnessStopReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const MemoryRecordStatus = {
   FAILED: "FAILED",
   SUCCEEDED: "SUCCEEDED",
