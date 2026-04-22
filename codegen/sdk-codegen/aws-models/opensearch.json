@@ -1003,6 +1003,9 @@
           "target": "com.amazonaws.opensearch#RevokeVpcEndpointAccess"
         },
         {
+          "target": "com.amazonaws.opensearch#RollbackServiceSoftwareUpdate"
+        },
+        {
           "target": "com.amazonaws.opensearch#StartDomainMaintenance"
         },
         {
@@ -14609,6 +14612,103 @@
         "smithy.api#documentation": "<p>The rollback state while disabling Auto-Tune for the domain.</p>"
       }
     },
+    "com.amazonaws.opensearch#RollbackServiceSoftwareOptions": {
+      "type": "structure",
+      "members": {
+        "CurrentVersion": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The current service software version on the domain.</p>"
+          }
+        },
+        "NewVersion": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The service software version that the domain will roll back to.</p>"
+          }
+        },
+        "RollbackAvailable": {
+          "target": "com.amazonaws.opensearch#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether a service software rollback is available for the domain.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the rollback status.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the rollback options for a service software update.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#RollbackServiceSoftwareUpdate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.opensearch#RollbackServiceSoftwareUpdateRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.opensearch#RollbackServiceSoftwareUpdateResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.opensearch#BaseException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#DisabledOperationException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#InternalException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Rolls back a service software update for a domain to the previous version. For more\n            information, see <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html\">Service\n                software updates in Amazon OpenSearch Service</a>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2021-01-01/opensearch/serviceSoftwareUpdate/rollback",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.opensearch#RollbackServiceSoftwareUpdateRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.opensearch#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the domain to roll back the service software update on.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Container for the request parameters to the\n                <code>RollbackServiceSoftwareUpdate</code> operation.</p>",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.opensearch#RollbackServiceSoftwareUpdateResponse": {
+      "type": "structure",
+      "members": {
+        "RollbackServiceSoftwareOptions": {
+          "target": "com.amazonaws.opensearch#RollbackServiceSoftwareOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The rollback options for the service software update.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about the rolled-back service software update.</p>",
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.opensearch#S3BucketName": {
       "type": "string",
       "traits": {
@@ -15177,6 +15277,12 @@
           "target": "com.amazonaws.opensearch#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Whether automatic service software updates are enabled for the domain.</p>"
+          }
+        },
+        "UseLatestServiceSoftwareForBlueGreen": {
+          "target": "com.amazonaws.opensearch#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether the domain should use the latest service software version during a\n        blue/green deployment. If enabled, the domain will automatically use the latest\n        available service software when a blue/green deployment is triggered.</p>"
           }
         }
       },

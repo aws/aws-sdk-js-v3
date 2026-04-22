@@ -187,6 +187,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   },
  *   SoftwareUpdateOptions: { // SoftwareUpdateOptions
  *     AutoSoftwareUpdateEnabled: true || false,
+ *     UseLatestServiceSoftwareForBlueGreen: true || false,
  *   },
  *   AIMLOptions: { // AIMLOptionsInput
  *     NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsInput
@@ -371,6 +372,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     },
  * //     SoftwareUpdateOptions: { // SoftwareUpdateOptions
  * //       AutoSoftwareUpdateEnabled: true || false,
+ * //       UseLatestServiceSoftwareForBlueGreen: true || false,
  * //     },
  * //     DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
  * //     ModifyingProperties: [ // ModifyingPropertiesList

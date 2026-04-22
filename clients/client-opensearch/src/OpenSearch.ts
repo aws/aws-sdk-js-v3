@@ -366,6 +366,11 @@ import {
   RevokeVpcEndpointAccessCommand,
 } from "./commands/RevokeVpcEndpointAccessCommand";
 import {
+  type RollbackServiceSoftwareUpdateCommandInput,
+  type RollbackServiceSoftwareUpdateCommandOutput,
+  RollbackServiceSoftwareUpdateCommand,
+} from "./commands/RollbackServiceSoftwareUpdateCommand";
+import {
   type StartDomainMaintenanceCommandInput,
   type StartDomainMaintenanceCommandOutput,
   StartDomainMaintenanceCommand,
@@ -518,6 +523,7 @@ const commands = {
   RejectInboundConnectionCommand,
   RemoveTagsCommand,
   RevokeVpcEndpointAccessCommand,
+  RollbackServiceSoftwareUpdateCommand,
   StartDomainMaintenanceCommand,
   StartServiceSoftwareUpdateCommand,
   UpdateApplicationCommand,
@@ -1835,6 +1841,23 @@ export interface OpenSearch {
     args: RevokeVpcEndpointAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RollbackServiceSoftwareUpdateCommand}
+   */
+  rollbackServiceSoftwareUpdate(
+    args: RollbackServiceSoftwareUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackServiceSoftwareUpdateCommandOutput>;
+  rollbackServiceSoftwareUpdate(
+    args: RollbackServiceSoftwareUpdateCommandInput,
+    cb: (err: any, data?: RollbackServiceSoftwareUpdateCommandOutput) => void
+  ): void;
+  rollbackServiceSoftwareUpdate(
+    args: RollbackServiceSoftwareUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackServiceSoftwareUpdateCommandOutput) => void
   ): void;
 
   /**

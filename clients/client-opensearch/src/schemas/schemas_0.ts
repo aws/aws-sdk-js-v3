@@ -581,6 +581,7 @@ const _R = "Region";
 const _RA = "RoleArn";
 const _RAEE = "ResourceAlreadyExistsException";
 const _RAZ = "RetrieveAZs";
+const _RAo = "RollbackAvailable";
 const _RC = "RecurringCharge";
 const _RCA = "RecurringChargeAmount";
 const _RCF = "RecurringChargeFrequency";
@@ -607,6 +608,10 @@ const _RNFE = "ResourceNotFoundException";
 const _ROD = "RollbackOnDisable";
 const _RP = "ReferencePath";
 const _RRFCU = "RequiresRestartForConfigurationUpdate";
+const _RSSO = "RollbackServiceSoftwareOptions";
+const _RSSU = "RollbackServiceSoftwareUpdate";
+const _RSSUR = "RollbackServiceSoftwareUpdateRequest";
+const _RSSURo = "RollbackServiceSoftwareUpdateResponse";
 const _RT = "RemoveTags";
 const _RTR = "RemoveTagsRequest";
 const _RVEA = "RevokeVpcEndpointAccess";
@@ -714,6 +719,7 @@ const _UI = "UpgradeId";
 const _UIR = "UpdateIndexRequest";
 const _UIRp = "UpdateIndexResponse";
 const _UIp = "UpdateIndex";
+const _ULSSFBG = "UseLatestServiceSoftwareForBlueGreen";
 const _UN = "UpgradeName";
 const _UOPW = "UseOffPeakWindow";
 const _UP = "UpgradeProcessing";
@@ -2266,6 +2272,21 @@ export var RevokeVpcEndpointAccessResponse$: StaticStructureSchema = [3, n0, _RV
   [],
   []
 ];
+export var RollbackServiceSoftwareOptions$: StaticStructureSchema = [3, n0, _RSSO,
+  0,
+  [_CVu, _NV, _RAo, _D],
+  [0, 0, 2, 0]
+];
+export var RollbackServiceSoftwareUpdateRequest$: StaticStructureSchema = [3, n0, _RSSUR,
+  0,
+  [_DN],
+  [0], 1
+];
+export var RollbackServiceSoftwareUpdateResponse$: StaticStructureSchema = [3, n0, _RSSURo,
+  0,
+  [_RSSO],
+  [() => RollbackServiceSoftwareOptions$]
+];
 export var S3GlueDataCatalog$: StaticStructureSchema = [3, n0, _SGDC,
   0,
   [_RA],
@@ -2328,8 +2349,8 @@ export var SnapshotOptionsStatus$: StaticStructureSchema = [3, n0, _SOS,
 ];
 export var SoftwareUpdateOptions$: StaticStructureSchema = [3, n0, _SUO,
   0,
-  [_ASUE],
-  [2]
+  [_ASUE, _ULSSFBG],
+  [2, 2]
 ];
 export var SoftwareUpdateOptionsStatus$: StaticStructureSchema = [3, n0, _SUOS,
   0,
@@ -2943,6 +2964,9 @@ export var RemoveTags$: StaticOperationSchema = [9, n0, _RT,
 ];
 export var RevokeVpcEndpointAccess$: StaticOperationSchema = [9, n0, _RVEA,
   { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess", 200] }, () => RevokeVpcEndpointAccessRequest$, () => RevokeVpcEndpointAccessResponse$
+];
+export var RollbackServiceSoftwareUpdate$: StaticOperationSchema = [9, n0, _RSSU,
+  { [_h]: ["POST", "/2021-01-01/opensearch/serviceSoftwareUpdate/rollback", 200] }, () => RollbackServiceSoftwareUpdateRequest$, () => RollbackServiceSoftwareUpdateResponse$
 ];
 export var StartDomainMaintenance$: StaticOperationSchema = [9, n0, _SDM,
   { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance", 200] }, () => StartDomainMaintenanceRequest$, () => StartDomainMaintenanceResponse$

@@ -283,6 +283,7 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //     SoftwareUpdateOptions: { // SoftwareUpdateOptionsStatus
  * //       Options: { // SoftwareUpdateOptions
  * //         AutoSoftwareUpdateEnabled: true || false,
+ * //         UseLatestServiceSoftwareForBlueGreen: true || false,
  * //       },
  * //       Status: "<OptionStatus>",
  * //     },

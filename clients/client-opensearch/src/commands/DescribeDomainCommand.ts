@@ -208,6 +208,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //     },
  * //     SoftwareUpdateOptions: { // SoftwareUpdateOptions
  * //       AutoSoftwareUpdateEnabled: true || false,
+ * //       UseLatestServiceSoftwareForBlueGreen: true || false,
  * //     },
  * //     DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
  * //     ModifyingProperties: [ // ModifyingPropertiesList

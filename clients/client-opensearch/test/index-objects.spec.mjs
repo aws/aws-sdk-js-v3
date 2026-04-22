@@ -509,6 +509,11 @@ import {
   RevokeVpcEndpointAccessResponse$,
   RolesKeyIdCOption,
   RollbackOnDisable,
+  RollbackServiceSoftwareOptions$,
+  RollbackServiceSoftwareUpdate$,
+  RollbackServiceSoftwareUpdateCommand,
+  RollbackServiceSoftwareUpdateRequest$,
+  RollbackServiceSoftwareUpdateResponse$,
   S3GlueDataCatalog$,
   S3VectorsEngine$,
   SAMLIdp$,
@@ -764,6 +769,8 @@ assert(typeof RemoveTagsCommand === "function");
 assert(typeof RemoveTags$ === "object");
 assert(typeof RevokeVpcEndpointAccessCommand === "function");
 assert(typeof RevokeVpcEndpointAccess$ === "object");
+assert(typeof RollbackServiceSoftwareUpdateCommand === "function");
+assert(typeof RollbackServiceSoftwareUpdate$ === "object");
 assert(typeof StartDomainMaintenanceCommand === "function");
 assert(typeof StartDomainMaintenance$ === "object");
 assert(typeof StartServiceSoftwareUpdateCommand === "function");
@@ -1053,6 +1060,9 @@ assert(typeof ReservedInstance$ === "object");
 assert(typeof ReservedInstanceOffering$ === "object");
 assert(typeof RevokeVpcEndpointAccessRequest$ === "object");
 assert(typeof RevokeVpcEndpointAccessResponse$ === "object");
+assert(typeof RollbackServiceSoftwareOptions$ === "object");
+assert(typeof RollbackServiceSoftwareUpdateRequest$ === "object");
+assert(typeof RollbackServiceSoftwareUpdateResponse$ === "object");
 assert(typeof S3GlueDataCatalog$ === "object");
 assert(typeof S3VectorsEngine$ === "object");
 assert(typeof SAMLIdp$ === "object");

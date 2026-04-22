@@ -710,6 +710,13 @@ RevokeVpcEndpointAccess
 </details>
 <details>
 <summary>
+RollbackServiceSoftwareUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/RollbackServiceSoftwareUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/RollbackServiceSoftwareUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/RollbackServiceSoftwareUpdateCommandOutput/)
+</details>
+<details>
+<summary>
 StartDomainMaintenance
 </summary>
 

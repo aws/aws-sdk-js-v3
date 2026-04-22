@@ -284,6 +284,10 @@ import type {
   RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
 import type {
+  RollbackServiceSoftwareUpdateCommandInput,
+  RollbackServiceSoftwareUpdateCommandOutput,
+} from "./commands/RollbackServiceSoftwareUpdateCommand";
+import type {
   StartDomainMaintenanceCommandInput,
   StartDomainMaintenanceCommandOutput,
 } from "./commands/StartDomainMaintenanceCommand";
@@ -409,6 +413,7 @@ export type ServiceInputTypes =
   | RejectInboundConnectionCommandInput
   | RemoveTagsCommandInput
   | RevokeVpcEndpointAccessCommandInput
+  | RollbackServiceSoftwareUpdateCommandInput
   | StartDomainMaintenanceCommandInput
   | StartServiceSoftwareUpdateCommandInput
   | UpdateApplicationCommandInput
@@ -501,6 +506,7 @@ export type ServiceOutputTypes =
   | RejectInboundConnectionCommandOutput
   | RemoveTagsCommandOutput
   | RevokeVpcEndpointAccessCommandOutput
+  | RollbackServiceSoftwareUpdateCommandOutput
   | StartDomainMaintenanceCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
   | UpdateApplicationCommandOutput

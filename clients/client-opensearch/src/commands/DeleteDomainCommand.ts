@@ -208,6 +208,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //     },
  * //     SoftwareUpdateOptions: { // SoftwareUpdateOptions
  * //       AutoSoftwareUpdateEnabled: true || false,
+ * //       UseLatestServiceSoftwareForBlueGreen: true || false,
  * //     },
  * //     DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
  * //     ModifyingProperties: [ // ModifyingPropertiesList

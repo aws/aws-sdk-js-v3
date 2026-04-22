@@ -3,6 +3,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   ActionType,
+  DataSourceStatus,
   DryRunMode,
   IndexStatus,
   IPAddressType,
@@ -13,10 +14,13 @@ import type {
 import type {
   AdvancedSecurityOptionsInput,
   AIMLOptionsInput,
+  AppConfig,
   AutoTuneOptions,
   ChangeProgressDetails,
   ClusterConfig,
   CognitoOptions,
+  DataSource,
+  DataSourceType,
   DeploymentStrategyOptions,
   DirectQueryDataSourceType,
   DomainConfig,
@@ -25,6 +29,7 @@ import type {
   DryRunResults,
   EBSOptions,
   EncryptionAtRestOptions,
+  IamIdentityCenterOptions,
   IdentityCenterOptionsInput,
   LogPublishingOption,
   NodeToNodeEncryptionOptions,
@@ -39,6 +44,120 @@ import type {
   VpcEndpoint,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateApplicationRequest {
+  /**
+   * <p>The unique identifier for the OpenSearch application to be updated.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The data sources to associate with the OpenSearch application.</p>
+   * @public
+   */
+  dataSources?: DataSource[] | undefined;
+
+  /**
+   * <p>The configuration settings to modify for the OpenSearch application.</p>
+   * @public
+   */
+  appConfigs?: AppConfig[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApplicationResponse {
+  /**
+   * <p>The unique identifier of the updated OpenSearch application.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The name of the updated OpenSearch application.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The data sources associated with the updated OpenSearch application.</p>
+   * @public
+   */
+  dataSources?: DataSource[] | undefined;
+
+  /**
+   * <p>The IAM Identity Center configuration for the updated OpenSearch application.</p>
+   * @public
+   */
+  iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
+
+  /**
+   * <p>The configuration settings for the updated OpenSearch application.</p>
+   * @public
+   */
+  appConfigs?: AppConfig[] | undefined;
+
+  /**
+   * <p>The timestamp when the OpenSearch application was originally created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the OpenSearch application was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>UpdateDataSource</code> operation.</p>
+ * @public
+ */
+export interface UpdateDataSourceRequest {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the data source to modify.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of data source.</p>
+   * @public
+   */
+  DataSourceType: DataSourceType | undefined;
+
+  /**
+   * <p>A new description of the data source.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The status of the data source update.</p>
+   * @public
+   */
+  Status?: DataSourceStatus | undefined;
+}
 
 /**
  * <p>The result of an <code>UpdateDataSource</code> operation.</p>

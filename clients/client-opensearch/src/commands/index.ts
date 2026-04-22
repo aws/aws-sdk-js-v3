@@ -74,6 +74,7 @@ export * from "./RegisterCapabilityCommand";
 export * from "./RejectInboundConnectionCommand";
 export * from "./RemoveTagsCommand";
 export * from "./RevokeVpcEndpointAccessCommand";
+export * from "./RollbackServiceSoftwareUpdateCommand";
 export * from "./StartDomainMaintenanceCommand";
 export * from "./StartServiceSoftwareUpdateCommand";
 export * from "./UpdateApplicationCommand";

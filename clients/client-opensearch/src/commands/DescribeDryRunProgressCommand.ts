@@ -222,6 +222,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //     },
  * //     SoftwareUpdateOptions: { // SoftwareUpdateOptions
  * //       AutoSoftwareUpdateEnabled: true || false,
+ * //       UseLatestServiceSoftwareForBlueGreen: true || false,
  * //     },
  * //     DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
  * //     ModifyingProperties: [ // ModifyingPropertiesList

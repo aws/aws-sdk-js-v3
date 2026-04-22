@@ -211,6 +211,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //       },
  * //       SoftwareUpdateOptions: { // SoftwareUpdateOptions
  * //         AutoSoftwareUpdateEnabled: true || false,
+ * //         UseLatestServiceSoftwareForBlueGreen: true || false,
  * //       },
  * //       DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
  * //       ModifyingProperties: [ // ModifyingPropertiesList

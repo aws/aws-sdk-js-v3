@@ -183,6 +183,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   },
  *   SoftwareUpdateOptions: { // SoftwareUpdateOptions
  *     AutoSoftwareUpdateEnabled: true || false,
+ *     UseLatestServiceSoftwareForBlueGreen: true || false,
  *   },
  *   AIMLOptions: { // AIMLOptionsInput
  *     NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsInput
@@ -443,6 +444,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //     SoftwareUpdateOptions: { // SoftwareUpdateOptionsStatus
  * //       Options: { // SoftwareUpdateOptions
  * //         AutoSoftwareUpdateEnabled: true || false,
+ * //         UseLatestServiceSoftwareForBlueGreen: true || false,
  * //       },
  * //       Status: "<OptionStatus>",
  * //     },
