@@ -345,6 +345,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //             Operator: { // OperatorResponse
  * //               Managed: true || false,
  * //               Principal: "STRING_VALUE",
+ * //               HiddenByDefault: true || false,
  * //             },
  * //             EbsCardIndex: Number("int"),
  * //           },
@@ -454,6 +455,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //           Operator: {
  * //             Managed: true || false,
  * //             Principal: "STRING_VALUE",
+ * //             HiddenByDefault: true || false,
  * //           },
  * //         },
  * //       ],

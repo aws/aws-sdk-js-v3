@@ -54,6 +54,7 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   IncludeManagedResources: true || false,
  * };
  * const command = new DescribeLaunchTemplatesCommand(input);
  * const response = await client.send(command);
@@ -75,6 +76,7 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //     },
  * //   ],

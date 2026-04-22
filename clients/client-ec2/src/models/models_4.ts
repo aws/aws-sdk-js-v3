@@ -730,6 +730,14 @@ export interface DescribeInstancesRequest {
   InstanceIds?: string[] | undefined;
 
   /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set
+   *             to <code>true</code>, the output includes resources that are managed by Amazon Web Services services,
+   *             even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3055,6 +3063,14 @@ export interface DescribeInstanceStatusRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set
+   *             to <code>true</code>, the output includes resources that are managed by Amazon Web Services services,
+   *             even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
@@ -6076,6 +6092,12 @@ export interface DescribeLaunchTemplatesRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
 }
 
 /**
@@ -6258,6 +6280,12 @@ export interface DescribeLaunchTemplateVersionsRequest {
    * @public
    */
   ResolveAlias?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
 }
 
 /**
@@ -8145,6 +8173,14 @@ export interface DescribeNetworkInterfacesRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set
+   *             to <code>true</code>, the output includes resources that are managed by Amazon Web Services services,
+   *             even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually

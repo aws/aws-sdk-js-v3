@@ -59,6 +59,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLau
  *     },
  *   ],
  *   ResolveAlias: true || false,
+ *   IncludeManagedResources: true || false,
  * };
  * const command = new DescribeLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
@@ -340,6 +341,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLau
  * //         Operator: { // OperatorResponse
  * //           Managed: true || false,
  * //           Principal: "STRING_VALUE",
+ * //           HiddenByDefault: true || false,
  * //         },
  * //         NetworkPerformanceOptions: { // LaunchTemplateNetworkPerformanceOptions
  * //           BandwidthWeighting: "default" || "vpc-1" || "ebs-1",
@@ -363,6 +365,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLau
  * //       Operator: {
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //     },
  * //   ],

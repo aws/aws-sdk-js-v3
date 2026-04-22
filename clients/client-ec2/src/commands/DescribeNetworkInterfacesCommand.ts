@@ -48,6 +48,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * const input = { // DescribeNetworkInterfacesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   IncludeManagedResources: true || false,
  *   DryRun: true || false,
  *   NetworkInterfaceIds: [ // NetworkInterfaceIdList
  *     "STRING_VALUE",
@@ -170,6 +171,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //       AssociatedSubnets: [ // AssociatedSubnetList
  * //         "STRING_VALUE",

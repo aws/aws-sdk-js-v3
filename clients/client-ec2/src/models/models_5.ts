@@ -61,6 +61,7 @@ import type {
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
+  OperatorResponse,
   RouteServerAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -1986,6 +1987,12 @@ export interface DescribeVolumesRequest {
   VolumeIds?: string[] | undefined;
 
   /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -2320,6 +2327,13 @@ export interface VolumeModification {
    * @public
    */
   EndTime?: Date | undefined;
+
+  /**
+   * <p>Describes whether the resource is managed by a service provider and, if so, describes
+   *             the service provider that manages it.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -2365,6 +2379,12 @@ export interface DescribeVolumeStatusRequest {
    * @public
    */
   VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
+   * @public
+   */
+  IncludeManagedResources?: boolean | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2694,6 +2714,12 @@ export interface VolumeStatusItem {
    * @public
    */
   AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The service provider that manages the resource.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**

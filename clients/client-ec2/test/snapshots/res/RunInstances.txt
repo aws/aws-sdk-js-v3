@@ -99,6 +99,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -135,6 +138,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -171,6 +177,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -564,6 +573,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
                 <item>
@@ -840,6 +852,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
                 <item>
@@ -1116,6 +1131,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
             </networkInterfaceSet>
@@ -1332,6 +1350,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <secondaryInterfaceSet>
                 <item>
@@ -1679,6 +1700,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -1715,6 +1739,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -1751,6 +1778,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -2144,6 +2174,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
                 <item>
@@ -2420,6 +2453,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
                 <item>
@@ -2696,6 +2732,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
             </networkInterfaceSet>
@@ -2912,6 +2951,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <secondaryInterfaceSet>
                 <item>
@@ -3259,6 +3301,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -3295,6 +3340,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -3331,6 +3379,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                             <principal>
                                 __Principal__
                             </principal>
+                            <hiddenByDefault>
+                                false
+                            </hiddenByDefault>
                         </operator>
                         <ebsCardIndex>
                             0
@@ -3724,6 +3775,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
                 <item>
@@ -4000,6 +4054,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
                 <item>
@@ -4276,6 +4333,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <principal>
                             __Principal__
                         </principal>
+                        <hiddenByDefault>
+                            false
+                        </hiddenByDefault>
                     </operator>
                 </item>
             </networkInterfaceSet>
@@ -4492,6 +4552,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <secondaryInterfaceSet>
                 <item>
@@ -4842,7 +4905,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -4858,7 +4922,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -4874,7 +4939,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -5059,7 +5125,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         },
         {
@@ -5191,7 +5258,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         },
         {
@@ -5323,7 +5391,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         }
       ],
@@ -5427,7 +5496,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       SecondaryInterfaces: [
         {
@@ -5582,7 +5652,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -5598,7 +5669,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -5614,7 +5686,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -5799,7 +5872,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         },
         {
@@ -5931,7 +6005,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         },
         {
@@ -6063,7 +6138,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         }
       ],
@@ -6167,7 +6243,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       SecondaryInterfaces: [
         {
@@ -6322,7 +6399,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -6338,7 +6416,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -6354,7 +6433,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             VolumeOwnerId: "__VolumeOwnerId__",
             Operator: {
               Managed: (boolean) false,
-              Principal: "__Principal__"
+              Principal: "__Principal__",
+              HiddenByDefault: (boolean) false
             },
             EbsCardIndex: (number) 0
           }
@@ -6539,7 +6619,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         },
         {
@@ -6671,7 +6752,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         },
         {
@@ -6803,7 +6885,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           },
           Operator: {
             Managed: (boolean) false,
-            Principal: "__Principal__"
+            Principal: "__Principal__",
+            HiddenByDefault: (boolean) false
           }
         }
       ],
@@ -6907,7 +6990,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       SecondaryInterfaces: [
         {

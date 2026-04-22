@@ -81,6 +81,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
         </item>
         <item>
@@ -135,6 +138,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
         </item>
         <item>
@@ -189,6 +195,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
         </item>
     </launchTemplates>
@@ -224,7 +233,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       }
     },
     {
@@ -250,7 +260,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       }
     },
     {
@@ -276,7 +287,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ],
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       }
     }
   ],

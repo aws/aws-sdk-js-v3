@@ -619,6 +619,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //       NetworkPerformanceOptions: { // LaunchTemplateNetworkPerformanceOptions
  * //         BandwidthWeighting: "default" || "vpc-1" || "ebs-1",
@@ -642,6 +643,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //     Operator: {
  * //       Managed: true || false,
  * //       Principal: "STRING_VALUE",
+ * //       HiddenByDefault: true || false,
  * //     },
  * //   },
  * //   Warning: { // ValidationWarning

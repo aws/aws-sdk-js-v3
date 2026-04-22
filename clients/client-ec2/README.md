@@ -4152,6 +4152,13 @@ GetManagedPrefixListEntries
 </details>
 <details>
 <summary>
+GetManagedResourceVisibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetManagedResourceVisibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetManagedResourceVisibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetManagedResourceVisibilityCommandOutput/)
+</details>
+<details>
+<summary>
 GetNetworkInsightsAccessScopeAnalysisFindings
 </summary>
 
@@ -4660,6 +4667,13 @@ ModifyManagedPrefixList
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyManagedPrefixListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyManagedPrefixListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyManagedPrefixListCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyManagedResourceVisibility
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyManagedResourceVisibilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyManagedResourceVisibilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyManagedResourceVisibilityCommandOutput/)
 </details>
 <details>
 <summary>

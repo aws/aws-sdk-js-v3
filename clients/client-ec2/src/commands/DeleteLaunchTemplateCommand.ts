@@ -61,6 +61,7 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * //     Operator: { // OperatorResponse
  * //       Managed: true || false,
  * //       Principal: "STRING_VALUE",
+ * //       HiddenByDefault: true || false,
  * //     },
  * //   },
  * // };

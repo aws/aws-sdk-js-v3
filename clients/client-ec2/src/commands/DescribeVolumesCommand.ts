@@ -52,6 +52,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *   VolumeIds: [ // VolumeIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   IncludeManagedResources: true || false,
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
@@ -88,6 +89,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //       VolumeInitializationRate: Number("int"),
  * //       VolumeId: "STRING_VALUE",

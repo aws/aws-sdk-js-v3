@@ -82,6 +82,7 @@ export interface CopyVolumesCommandOutput extends CopyVolumesResult, __MetadataB
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //       VolumeInitializationRate: Number("int"),
  * //       VolumeId: "STRING_VALUE",

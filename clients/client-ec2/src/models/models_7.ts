@@ -98,6 +98,7 @@ import type {
   ManagedPrefixList,
   OperatorRequest,
   Placement,
+  RouteServer,
 } from "./models_1";
 import type {
   DnsOptionsSpecification,
@@ -156,6 +157,156 @@ import type {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 import type { CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyRouteServerResult {
+  /**
+   * <p>Information about the modified route server.</p>
+   * @public
+   */
+  RouteServer?: RouteServer | undefined;
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ *          <p>You must specify exactly one of the following parameters, based on the rule type:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CidrIpv4</p>
+ *             </li>
+ *             <li>
+ *                <p>CidrIpv6</p>
+ *             </li>
+ *             <li>
+ *                <p>PrefixListId</p>
+ *             </li>
+ *             <li>
+ *                <p>ReferencedGroupId</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>
+ *                 Amazon Web Services <a href="https://en.wikipedia.org/wiki/Canonicalization">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block,
+ *               Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will
+ *               return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the
+ *               non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized
+ *               form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p>
+ *          </note>
+ *          <p>When you modify a rule, you cannot change the rule type. For example, if the rule
+ *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
+ *             address range.</p>
+ * @public
+ */
+export interface SecurityGroupRuleRequest {
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
+   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
+   *          <p>Use <code>-1</code> to specify all protocols.</p>
+   * @public
+   */
+  IpProtocol?: string | undefined;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
+   *             If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+
+  /**
+   * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
+   * @public
+   */
+  CidrIpv4?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
+   * @public
+   */
+  CidrIpv6?: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId?: string | undefined;
+
+  /**
+   * <p>The ID of the security group that is referenced in the security group rule.</p>
+   * @public
+   */
+  ReferencedGroupId?: string | undefined;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>Describes an update to a security group rule.</p>
+ * @public
+ */
+export interface SecurityGroupRuleUpdate {
+  /**
+   * <p>The ID of the security group rule.</p>
+   * @public
+   */
+  SecurityGroupRuleId: string | undefined;
+
+  /**
+   * <p>Information about the security group rule.</p>
+   * @public
+   */
+  SecurityGroupRule?: SecurityGroupRuleRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySecurityGroupRulesRequest {
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>Information about the security group properties to update.</p>
+   * @public
+   */
+  SecurityGroupRules: SecurityGroupRuleUpdate[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySecurityGroupRulesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
 
 /**
  * <p>Describes modifications to the list of create volume permissions for a volume.</p>

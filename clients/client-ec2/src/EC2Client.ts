@@ -2084,6 +2084,10 @@ import type {
   GetManagedPrefixListEntriesCommandOutput,
 } from "./commands/GetManagedPrefixListEntriesCommand";
 import type {
+  GetManagedResourceVisibilityCommandInput,
+  GetManagedResourceVisibilityCommandOutput,
+} from "./commands/GetManagedResourceVisibilityCommand";
+import type {
   GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
 } from "./commands/GetNetworkInsightsAccessScopeAnalysisFindingsCommand";
@@ -2336,6 +2340,10 @@ import type {
   ModifyManagedPrefixListCommandInput,
   ModifyManagedPrefixListCommandOutput,
 } from "./commands/ModifyManagedPrefixListCommand";
+import type {
+  ModifyManagedResourceVisibilityCommandInput,
+  ModifyManagedResourceVisibilityCommandOutput,
+} from "./commands/ModifyManagedResourceVisibilityCommand";
 import type {
   ModifyNetworkInterfaceAttributeCommandInput,
   ModifyNetworkInterfaceAttributeCommandOutput,
@@ -3357,6 +3365,7 @@ export type ServiceInputTypes =
   | GetLaunchTemplateDataCommandInput
   | GetManagedPrefixListAssociationsCommandInput
   | GetManagedPrefixListEntriesCommandInput
+  | GetManagedResourceVisibilityCommandInput
   | GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput
   | GetNetworkInsightsAccessScopeContentCommandInput
   | GetPasswordDataCommandInput
@@ -3430,6 +3439,7 @@ export type ServiceInputTypes =
   | ModifyLaunchTemplateCommandInput
   | ModifyLocalGatewayRouteCommandInput
   | ModifyManagedPrefixListCommandInput
+  | ModifyManagedResourceVisibilityCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyPrivateDnsNameOptionsCommandInput
   | ModifyPublicIpDnsNameOptionsCommandInput
@@ -4123,6 +4133,7 @@ export type ServiceOutputTypes =
   | GetLaunchTemplateDataCommandOutput
   | GetManagedPrefixListAssociationsCommandOutput
   | GetManagedPrefixListEntriesCommandOutput
+  | GetManagedResourceVisibilityCommandOutput
   | GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
   | GetNetworkInsightsAccessScopeContentCommandOutput
   | GetPasswordDataCommandOutput
@@ -4196,6 +4207,7 @@ export type ServiceOutputTypes =
   | ModifyLaunchTemplateCommandOutput
   | ModifyLocalGatewayRouteCommandOutput
   | ModifyManagedPrefixListCommandOutput
+  | ModifyManagedResourceVisibilityCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyPrivateDnsNameOptionsCommandOutput
   | ModifyPublicIpDnsNameOptionsCommandOutput

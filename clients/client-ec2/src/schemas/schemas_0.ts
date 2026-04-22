@@ -2308,6 +2308,7 @@ const _DVSR = "DescribeVolumeStatusRequest";
 const _DVSRe = "DescribeVolumeStatusResult";
 const _DVe = "DestinationVpc";
 const _DVef = "DefaultVersion";
+const _DVefa = "DefaultVisibility";
 const _DVel = "DeleteVolume";
 const _DVele = "DeleteVpc";
 const _DVes = "DescribeVolumes";
@@ -2845,6 +2846,9 @@ const _GMPLARe = "GetManagedPrefixListAssociationsResult";
 const _GMPLE = "GetManagedPrefixListEntries";
 const _GMPLER = "GetManagedPrefixListEntriesRequest";
 const _GMPLERe = "GetManagedPrefixListEntriesResult";
+const _GMRV = "GetManagedResourceVisibility";
+const _GMRVR = "GetManagedResourceVisibilityRequest";
+const _GMRVRe = "GetManagedResourceVisibilityResult";
 const _GN = "GroupName";
 const _GNIASAF = "GetNetworkInsightsAccessScopeAnalysisFindings";
 const _GNIASAFR = "GetNetworkInsightsAccessScopeAnalysisFindingsRequest";
@@ -2936,6 +2940,7 @@ const _Ge = "Geography";
 const _Gp = "Gpus";
 const _Gr = "Group";
 const _H = "Hosts";
+const _HBD = "HiddenByDefault";
 const _HCP = "HiveCompatiblePartitions";
 const _HE = "HttpEndpoint";
 const _HI = "HostIds";
@@ -3191,6 +3196,7 @@ const _IMORns = "InstanceMetadataOptionsRequest";
 const _IMORnst = "InstanceMetadataOptionsResponse";
 const _IMOn = "InstanceMetadataOptions";
 const _IMOns = "InstanceMarketOptions";
+const _IMR = "IncludeManagedResources";
 const _IMT = "InstanceMetadataTags";
 const _IMU = "ImportManifestUrl";
 const _IMm = "ImageMetadata";
@@ -3844,6 +3850,7 @@ const _MI = "MaximumIops";
 const _MIA = "ModifyImageAttribute";
 const _MIAR = "ModifyImageAttributeRequest";
 const _MIARo = "ModifyInstanceAttributeRequest";
+const _MIAV = "ModifyInstanceAttributeValue";
 const _MIAo = "ModifyInstanceAttribute";
 const _MIC = "MaxInstanceCount";
 const _MICE = "ModifyInstanceConnectEndpoint";
@@ -3922,6 +3929,9 @@ const _MMBR = "MemoryMiBRequest";
 const _MMPL = "ModifyManagedPrefixList";
 const _MMPLR = "ModifyManagedPrefixListRequest";
 const _MMPLRo = "ModifyManagedPrefixListResult";
+const _MMRV = "ModifyManagedResourceVisibility";
+const _MMRVR = "ModifyManagedResourceVisibilityRequest";
+const _MMRVRo = "ModifyManagedResourceVisibilityResult";
 const _MMT = "MacModificationTask";
 const _MMTI = "MacModificationTaskIds";
 const _MMTIL = "MacModificationTaskIdList";
@@ -3966,6 +3976,7 @@ const _MRIRo = "ModifyReservedInstancesResult";
 const _MRS = "ModifyRouteServer";
 const _MRSR = "ModifyRouteServerRequest";
 const _MRSRo = "ModifyRouteServerResult";
+const _MRVS = "ManagedResourceVisibilitySettings";
 const _MRo = "ModificationResults";
 const _MRu = "MultiRegion";
 const _MS = "ManagementState";
@@ -6044,6 +6055,7 @@ const _Va = "Values";
 const _Ve = "Versions";
 const _Ven = "Vendor";
 const _Ver = "Version";
+const _Vi = "Visibility";
 const _Vl = "Vlan";
 const _Vo = "Volumes";
 const _Vol = "Volume";
@@ -6542,6 +6554,7 @@ const _dVD = "deviceValidationDomain";
 const _dVN = "defaultVersionNumber";
 const _dVe = "desiredVersion";
 const _dVef = "defaultVersion";
+const _dVefa = "defaultVisibility";
 const _da = "data";
 const _de = "description";
 const _dea = "deadline";
@@ -6741,6 +6754,7 @@ const _gSro = "groupSource";
 const _gp = "gpus";
 const _gr = "groups";
 const _h = "hypervisor";
+const _hBD = "hiddenByDefault";
 const _hCP = "hiveCompatiblePartitions";
 const _hE = "httpEndpoint";
 const _hI = "hostId";
@@ -8127,6 +8141,7 @@ const _vTi = "virtualizationType";
 const _vU = "validUntil";
 const _ve = "version";
 const _ven = "vendor";
+const _vi = "visibility";
 const _vl = "vlan";
 const _vo = "volumes";
 const _vol = "volume";
@@ -8173,6 +8188,7 @@ var CopySnapshotRequestPSU: StaticSimpleSchema = [0, n0, _CSRPSU, 8, 0];
 var customerGatewayConfiguration: StaticSimpleSchema = [0, n0, _cGC, 8, 0];
 var EkPubKeyValue: StaticSimpleSchema = [0, n0, _EPKV, 8, 0];
 var ImportManifestUrl: StaticSimpleSchema = [0, n0, _IMU, 8, 0];
+var ModifyInstanceAttributeValue: StaticSimpleSchema = [0, n0, _MIAV, 8, 0];
 var PasswordData: StaticSimpleSchema = [0, n0, _PD, 8, 0];
 var preSharedKey: StaticSimpleSchema = [0, n0, _pSK, 8, 0];
 var ReportInstanceStatusRequestDescription: StaticSimpleSchema = [0, n0, _RISRD, 8, 0];
@@ -13454,8 +13470,8 @@ export var DescribeInstanceSqlHaStatesResult$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeInstancesRequest$: StaticStructureSchema = [3, n0, _DIRescr,
   0,
-  [_IIns, _DR, _Fi, _NTe, _MR],
-  [[() => InstanceIdStringList, { [_xN]: _II }], [2, { [_eQN]: `DryRun`
+  [_IIns, _IMR, _DR, _Fi, _NTe, _MR],
+  [[() => InstanceIdStringList, { [_xN]: _II }], 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => FilterList, { [_xN]: _Fil }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [1, { [_eQN]: `MaxResults`
   , [_xN]: _mR }]]
@@ -13469,8 +13485,8 @@ export var DescribeInstancesResult$: StaticStructureSchema = [3, n0, _DIRescri,
 ];
 export var DescribeInstanceStatusRequest$: StaticStructureSchema = [3, n0, _DISRes,
   0,
-  [_IIns, _MR, _NTe, _DR, _Fi, _IAI],
-  [[() => InstanceIdStringList, { [_xN]: _II }], 1, 0, [2, { [_eQN]: `DryRun`
+  [_IIns, _MR, _NTe, _IMR, _DR, _Fi, _IAI],
+  [[() => InstanceIdStringList, { [_xN]: _II }], 1, 0, 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => FilterList, { [_xN]: _Fil }], [2, { [_eQN]: `IncludeAllInstances`
   , [_xN]: _iAI }]]
 ];
@@ -13677,8 +13693,8 @@ export var DescribeKeyPairsResult$: StaticStructureSchema = [3, n0, _DKPResc,
 ];
 export var DescribeLaunchTemplatesRequest$: StaticStructureSchema = [3, n0, _DLTRes,
   0,
-  [_DR, _LTIa, _LTNa, _Fi, _NTe, _MR],
-  [2, [() => LaunchTemplateIdStringList, { [_xN]: _LTI }], [() => LaunchTemplateNameStringList, { [_xN]: _LTN }], [() => FilterList, { [_xN]: _Fil }], 0, 1]
+  [_DR, _LTIa, _LTNa, _Fi, _NTe, _MR, _IMR],
+  [2, [() => LaunchTemplateIdStringList, { [_xN]: _LTI }], [() => LaunchTemplateNameStringList, { [_xN]: _LTN }], [() => FilterList, { [_xN]: _Fil }], 0, 1, 2]
 ];
 export var DescribeLaunchTemplatesResult$: StaticStructureSchema = [3, n0, _DLTResc,
   0,
@@ -13689,8 +13705,8 @@ export var DescribeLaunchTemplatesResult$: StaticStructureSchema = [3, n0, _DLTR
 ];
 export var DescribeLaunchTemplateVersionsRequest$: StaticStructureSchema = [3, n0, _DLTVRes,
   0,
-  [_DR, _LTI, _LTN, _Ve, _MV, _MVa, _NTe, _MR, _Fi, _RAes],
-  [2, 0, 0, [() => VersionStringList, { [_xN]: _LTV }], 0, 0, 0, 1, [() => FilterList, { [_xN]: _Fil }], 2]
+  [_DR, _LTI, _LTN, _Ve, _MV, _MVa, _NTe, _MR, _Fi, _RAes, _IMR],
+  [2, 0, 0, [() => VersionStringList, { [_xN]: _LTV }], 0, 0, 0, 1, [() => FilterList, { [_xN]: _Fil }], 2, 2]
 ];
 export var DescribeLaunchTemplateVersionsResult$: StaticStructureSchema = [3, n0, _DLTVResc,
   0,
@@ -13942,8 +13958,8 @@ export var DescribeNetworkInterfacePermissionsResult$: StaticStructureSchema = [
 ];
 export var DescribeNetworkInterfacesRequest$: StaticStructureSchema = [3, n0, _DNIRe,
   0,
-  [_NTe, _MR, _DR, _NIIe, _Fi],
-  [0, 1, [2, { [_eQN]: `DryRun`
+  [_NTe, _MR, _IMR, _DR, _NIIe, _Fi],
+  [0, 1, 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => NetworkInterfaceIdList, { [_xN]: _NII }], [() => FilterList, { [_eQN]: `Filter`
   , [_xN]: _f }]]
 ];
@@ -14732,8 +14748,8 @@ export var DescribeVolumesModificationsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeVolumesRequest$: StaticStructureSchema = [3, n0, _DVRes,
   0,
-  [_VIol, _DR, _Fi, _NTe, _MR],
-  [[() => VolumeIdStringList, { [_xN]: _VIo }], [2, { [_eQN]: `DryRun`
+  [_VIol, _IMR, _DR, _Fi, _NTe, _MR],
+  [[() => VolumeIdStringList, { [_xN]: _VIo }], 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => FilterList, { [_xN]: _Fil }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [1, { [_eQN]: `MaxResults`
   , [_xN]: _mR }]]
@@ -14747,8 +14763,8 @@ export var DescribeVolumesResult$: StaticStructureSchema = [3, n0, _DVResc,
 ];
 export var DescribeVolumeStatusRequest$: StaticStructureSchema = [3, n0, _DVSR,
   0,
-  [_MR, _NTe, _VIol, _DR, _Fi],
-  [1, 0, [() => VolumeIdStringList, { [_xN]: _VIo }], [2, { [_eQN]: `DryRun`
+  [_MR, _NTe, _VIol, _IMR, _DR, _Fi],
+  [1, 0, [() => VolumeIdStringList, { [_xN]: _VIo }], 2, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [() => FilterList, { [_xN]: _Fil }]]
 ];
 export var DescribeVolumeStatusResult$: StaticStructureSchema = [3, n0, _DVSRe,
@@ -17157,6 +17173,17 @@ export var GetManagedPrefixListEntriesResult$: StaticStructureSchema = [3, n0, _
   [[() => PrefixListEntrySet, { [_eQN]: `EntrySet`
   , [_xN]: _eSnt }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
+];
+export var GetManagedResourceVisibilityRequest$: StaticStructureSchema = [3, n0, _GMRVR,
+  0,
+  [_DR],
+  [2]
+];
+export var GetManagedResourceVisibilityResult$: StaticStructureSchema = [3, n0, _GMRVRe,
+  0,
+  [_Vi],
+  [[() => ManagedResourceVisibilitySettings$, { [_eQN]: `Visibility`
+  , [_xN]: _vi }]]
 ];
 export var GetNetworkInsightsAccessScopeAnalysisFindingsRequest$: StaticStructureSchema = [3, n0, _GNIASAFR,
   0,
@@ -19926,6 +19953,12 @@ export var ManagedPrefixList$: StaticStructureSchema = [3, n0, _MPLa,
   , [_xN]: _iPLRTI }], [2, { [_eQN]: `IpamPrefixListResolverSyncEnabled`
   , [_xN]: _iPLRSE }]]
 ];
+export var ManagedResourceVisibilitySettings$: StaticStructureSchema = [3, n0, _MRVS,
+  0,
+  [_DVefa],
+  [[0, { [_eQN]: `DefaultVisibility`
+  , [_xN]: _dVefa }]]
+];
 export var MediaAcceleratorInfo$: StaticStructureSchema = [3, n0, _MAIe,
   0,
   [_Acc, _TMMIMB],
@@ -20140,7 +20173,7 @@ export var ModifyInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _MIA
   [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `Attribute`
-  , [_xN]: _att }], [0, { [_eQN]: `Value`
+  , [_xN]: _att }], [() => ModifyInstanceAttributeValue, { [_eQN]: `Value`
   , [_xN]: _v }], [() => InstanceBlockDeviceMappingSpecificationList, { [_eQN]: `BlockDeviceMapping`
   , [_xN]: _bDM }], [() => AttributeBooleanValue$, { [_eQN]: `DisableApiTermination`
   , [_xN]: _dAT }], [() => AttributeValue$, { [_eQN]: `InstanceType`
@@ -20406,6 +20439,17 @@ export var ModifyManagedPrefixListResult$: StaticStructureSchema = [3, n0, _MMPL
   [_PL],
   [[() => ManagedPrefixList$, { [_eQN]: `PrefixList`
   , [_xN]: _pL }]]
+];
+export var ModifyManagedResourceVisibilityRequest$: StaticStructureSchema = [3, n0, _MMRVR,
+  0,
+  [_DR, _DVefa],
+  [2, 0]
+];
+export var ModifyManagedResourceVisibilityResult$: StaticStructureSchema = [3, n0, _MMRVRo,
+  0,
+  [_Vi],
+  [[() => ManagedResourceVisibilitySettings$, { [_eQN]: `Visibility`
+  , [_xN]: _vi }]]
 ];
 export var ModifyNetworkInterfaceAttributeRequest$: StaticStructureSchema = [3, n0, _MNIAR,
   0,
@@ -21379,10 +21423,11 @@ export var OperatorRequest$: StaticStructureSchema = [3, n0, _ORpe,
 ];
 export var OperatorResponse$: StaticStructureSchema = [3, n0, _ORper,
   0,
-  [_Mana, _P],
+  [_Mana, _P, _HBD],
   [[2, { [_eQN]: `Managed`
   , [_xN]: _mana }], [0, { [_eQN]: `Principal`
-  , [_xN]: _p }]]
+  , [_xN]: _p }], [2, { [_eQN]: `HiddenByDefault`
+  , [_xN]: _hBD }]]
 ];
 export var OutpostLag$: StaticStructureSchema = [3, n0, _OLu,
   0,
@@ -25189,7 +25234,7 @@ export var VolumeDetail$: StaticStructureSchema = [3, n0, _VDo,
 ];
 export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   0,
-  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd],
+  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd, _Op],
   [[0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `ModificationState`
   , [_xN]: _mSod }], [0, { [_eQN]: `StatusMessage`
@@ -25206,7 +25251,8 @@ export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   , [_xN]: _oMAE }], [1, { [_eQN]: `Progress`
   , [_xN]: _pro }], [4, { [_eQN]: `StartTime`
   , [_xN]: _sT }], [4, { [_eQN]: `EndTime`
-  , [_xN]: _eTn }]]
+  , [_xN]: _eTn }], [() => OperatorResponse$, { [_eQN]: `Operator`
+  , [_xN]: _ope }]]
 ];
 export var VolumeRecycleBinInfo$: StaticStructureSchema = [3, n0, _VRBI,
   0,
@@ -25271,7 +25317,7 @@ export var VolumeStatusInfo$: StaticStructureSchema = [3, n0, _VSI,
 ];
 export var VolumeStatusItem$: StaticStructureSchema = [3, n0, _VSIo,
   0,
-  [_Acti, _AZ, _OA, _Ev, _VIo, _VSol, _ASttac, _ISD, _AZI],
+  [_Acti, _AZ, _OA, _Ev, _VIo, _VSol, _ASttac, _ISD, _AZI, _Op],
   [[() => VolumeStatusActionsList, { [_eQN]: `ActionsSet`
   , [_xN]: _aSct }], [0, { [_eQN]: `AvailabilityZone`
   , [_xN]: _aZ }], [0, { [_eQN]: `OutpostArn`
@@ -25281,7 +25327,8 @@ export var VolumeStatusItem$: StaticStructureSchema = [3, n0, _VSIo,
   , [_xN]: _vSol }], [() => VolumeStatusAttachmentStatusList, { [_eQN]: `AttachmentStatuses`
   , [_xN]: _aStta }], [() => InitializationStatusDetails$, { [_eQN]: `InitializationStatusDetails`
   , [_xN]: _iSD }], [0, { [_eQN]: `AvailabilityZoneId`
-  , [_xN]: _aZI }]]
+  , [_xN]: _aZI }], [() => OperatorResponse$, { [_eQN]: `Operator`
+  , [_xN]: _ope }]]
 ];
 export var Vpc$: StaticStructureSchema = [3, n0, _Vp,
   0,
@@ -30197,6 +30244,9 @@ export var GetManagedPrefixListAssociations$: StaticOperationSchema = [9, n0, _G
 export var GetManagedPrefixListEntries$: StaticOperationSchema = [9, n0, _GMPLE,
   0, () => GetManagedPrefixListEntriesRequest$, () => GetManagedPrefixListEntriesResult$
 ];
+export var GetManagedResourceVisibility$: StaticOperationSchema = [9, n0, _GMRV,
+  0, () => GetManagedResourceVisibilityRequest$, () => GetManagedResourceVisibilityResult$
+];
 export var GetNetworkInsightsAccessScopeAnalysisFindings$: StaticOperationSchema = [9, n0, _GNIASAF,
   0, () => GetNetworkInsightsAccessScopeAnalysisFindingsRequest$, () => GetNetworkInsightsAccessScopeAnalysisFindingsResult$
 ];
@@ -30415,6 +30465,9 @@ export var ModifyLocalGatewayRoute$: StaticOperationSchema = [9, n0, _MLGR,
 ];
 export var ModifyManagedPrefixList$: StaticOperationSchema = [9, n0, _MMPL,
   0, () => ModifyManagedPrefixListRequest$, () => ModifyManagedPrefixListResult$
+];
+export var ModifyManagedResourceVisibility$: StaticOperationSchema = [9, n0, _MMRV,
+  0, () => ModifyManagedResourceVisibilityRequest$, () => ModifyManagedResourceVisibilityResult$
 ];
 export var ModifyNetworkInterfaceAttribute$: StaticOperationSchema = [9, n0, _MNIA,
   0, () => ModifyNetworkInterfaceAttributeRequest$, () => __Unit

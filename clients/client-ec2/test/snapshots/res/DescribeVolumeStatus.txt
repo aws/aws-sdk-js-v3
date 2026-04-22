@@ -219,6 +219,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <availabilityZoneId>
                 __AvailabilityZoneId__
             </availabilityZoneId>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
+            </operator>
         </item>
         <item>
             <actionsSet>
@@ -407,6 +418,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <availabilityZoneId>
                 __AvailabilityZoneId__
             </availabilityZoneId>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
+            </operator>
         </item>
         <item>
             <actionsSet>
@@ -595,6 +617,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <availabilityZoneId>
                 __AvailabilityZoneId__
             </availabilityZoneId>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
+            </operator>
         </item>
     </volumeStatusSet>
 </DescribeVolumeStatusResult>
@@ -690,7 +723,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Progress: (number) 0,
         EstimatedTimeToCompleteInSeconds: (number) 0
       },
-      AvailabilityZoneId: "__AvailabilityZoneId__"
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
+      }
     },
     {
       Actions: [
@@ -778,7 +816,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Progress: (number) 0,
         EstimatedTimeToCompleteInSeconds: (number) 0
       },
-      AvailabilityZoneId: "__AvailabilityZoneId__"
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
+      }
     },
     {
       Actions: [
@@ -866,7 +909,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Progress: (number) 0,
         EstimatedTimeToCompleteInSeconds: (number) 0
       },
-      AvailabilityZoneId: "__AvailabilityZoneId__"
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
+      }
     }
   ],
   $metadata: {

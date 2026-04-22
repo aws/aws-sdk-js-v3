@@ -81,6 +81,7 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeManagedResources: true || false,
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
@@ -103,6 +104,7 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //       Events: [ // InstanceStatusEventList
  * //         { // InstanceStatusEvent

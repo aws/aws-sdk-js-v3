@@ -318,6 +318,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //     Operator: { // OperatorResponse
  * //       Managed: true || false,
  * //       Principal: "STRING_VALUE",
+ * //       HiddenByDefault: true || false,
  * //     },
  * //     NetworkPerformanceOptions: { // LaunchTemplateNetworkPerformanceOptions
  * //       BandwidthWeighting: "default" || "vpc-1" || "ebs-1",

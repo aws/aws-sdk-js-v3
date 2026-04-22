@@ -60,6 +60,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * //         Operator: { // OperatorResponse
  * //           Managed: true || false,
  * //           Principal: "STRING_VALUE",
+ * //           HiddenByDefault: true || false,
  * //         },
  * //         EbsCardIndex: Number("int"),
  * //       },

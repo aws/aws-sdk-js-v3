@@ -93,6 +93,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <volumeInitializationRate>
                 0
@@ -272,6 +275,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <volumeInitializationRate>
                 0
@@ -451,6 +457,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <volumeInitializationRate>
                 0
@@ -603,7 +612,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SseType: "__SseType__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       VolumeInitializationRate: (number) 0,
       VolumeId: "__VolumeId__",
@@ -676,7 +686,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SseType: "__SseType__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       VolumeInitializationRate: (number) 0,
       VolumeId: "__VolumeId__",
@@ -749,7 +760,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SseType: "__SseType__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       VolumeInitializationRate: (number) 0,
       VolumeId: "__VolumeId__",

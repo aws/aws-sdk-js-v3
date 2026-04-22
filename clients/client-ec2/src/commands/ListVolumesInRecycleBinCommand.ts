@@ -63,6 +63,7 @@ export interface ListVolumesInRecycleBinCommandOutput extends ListVolumesInRecyc
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //       CreateTime: new Date("TIMESTAMP"),
  * //       RecycleBinEnterTime: new Date("TIMESTAMP"),

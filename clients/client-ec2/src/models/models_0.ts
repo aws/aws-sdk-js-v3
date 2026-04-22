@@ -7999,6 +7999,13 @@ export interface OperatorResponse {
    * @public
    */
   Principal?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the resource is hidden by default based on the managed resource
+   *             visibility settings for the account.</p>
+   * @public
+   */
+  HiddenByDefault?: boolean | undefined;
 }
 
 /**

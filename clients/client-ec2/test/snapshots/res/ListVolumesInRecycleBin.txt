@@ -70,6 +70,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <createTime>
                 2000-01-01T04:59:59.999Z
@@ -122,6 +125,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <createTime>
                 2000-01-01T04:59:59.999Z
@@ -174,6 +180,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <createTime>
                 2000-01-01T04:59:59.999Z
@@ -209,7 +218,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SnapshotId: "__SnapshotId__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       RecycleBinEnterTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -229,7 +239,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SnapshotId: "__SnapshotId__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       RecycleBinEnterTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -249,7 +260,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SnapshotId: "__SnapshotId__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       RecycleBinEnterTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,

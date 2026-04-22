@@ -84,6 +84,7 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * //       Operator: { // OperatorResponse
  * //         Managed: true || false,
  * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
  * //       },
  * //     },
  * //   ],

@@ -88,6 +88,7 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * //     Operator: { // OperatorResponse
  * //       Managed: true || false,
  * //       Principal: "STRING_VALUE",
+ * //       HiddenByDefault: true || false,
  * //     },
  * //   },
  * // };

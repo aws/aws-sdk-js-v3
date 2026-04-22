@@ -2637,6 +2637,10 @@ import {
   GetManagedPrefixListEntriesCommand,
   GetManagedPrefixListEntriesRequest$,
   GetManagedPrefixListEntriesResult$,
+  GetManagedResourceVisibility$,
+  GetManagedResourceVisibilityCommand,
+  GetManagedResourceVisibilityRequest$,
+  GetManagedResourceVisibilityResult$,
   GetNetworkInsightsAccessScopeAnalysisFindings$,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest$,
@@ -3135,6 +3139,8 @@ import {
   MaintenanceDetails$,
   ManagedBy,
   ManagedPrefixList$,
+  ManagedResourceDefaultVisibility,
+  ManagedResourceVisibilitySettings$,
   MarketType,
   MediaAcceleratorInfo$,
   MediaDeviceInfo$,
@@ -3292,6 +3298,10 @@ import {
   ModifyManagedPrefixListCommand,
   ModifyManagedPrefixListRequest$,
   ModifyManagedPrefixListResult$,
+  ModifyManagedResourceVisibility$,
+  ModifyManagedResourceVisibilityCommand,
+  ModifyManagedResourceVisibilityRequest$,
+  ModifyManagedResourceVisibilityResult$,
   ModifyNetworkInterfaceAttribute$,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyNetworkInterfaceAttributeRequest$,
@@ -5737,6 +5747,8 @@ assert(typeof GetManagedPrefixListAssociationsCommand === "function");
 assert(typeof GetManagedPrefixListAssociations$ === "object");
 assert(typeof GetManagedPrefixListEntriesCommand === "function");
 assert(typeof GetManagedPrefixListEntries$ === "object");
+assert(typeof GetManagedResourceVisibilityCommand === "function");
+assert(typeof GetManagedResourceVisibility$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindingsCommand === "function");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindings$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeContentCommand === "function");
@@ -5883,6 +5895,8 @@ assert(typeof ModifyLocalGatewayRouteCommand === "function");
 assert(typeof ModifyLocalGatewayRoute$ === "object");
 assert(typeof ModifyManagedPrefixListCommand === "function");
 assert(typeof ModifyManagedPrefixList$ === "object");
+assert(typeof ModifyManagedResourceVisibilityCommand === "function");
+assert(typeof ModifyManagedResourceVisibility$ === "object");
 assert(typeof ModifyNetworkInterfaceAttributeCommand === "function");
 assert(typeof ModifyNetworkInterfaceAttribute$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsCommand === "function");
@@ -7487,6 +7501,8 @@ assert(typeof GetManagedPrefixListAssociationsRequest$ === "object");
 assert(typeof GetManagedPrefixListAssociationsResult$ === "object");
 assert(typeof GetManagedPrefixListEntriesRequest$ === "object");
 assert(typeof GetManagedPrefixListEntriesResult$ === "object");
+assert(typeof GetManagedResourceVisibilityRequest$ === "object");
+assert(typeof GetManagedResourceVisibilityResult$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindingsRequest$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeAnalysisFindingsResult$ === "object");
 assert(typeof GetNetworkInsightsAccessScopeContentRequest$ === "object");
@@ -7799,6 +7815,7 @@ assert(typeof MacSystemIntegrityProtectionConfiguration$ === "object");
 assert(typeof MacSystemIntegrityProtectionConfigurationRequest$ === "object");
 assert(typeof MaintenanceDetails$ === "object");
 assert(typeof ManagedPrefixList$ === "object");
+assert(typeof ManagedResourceVisibilitySettings$ === "object");
 assert(typeof MediaAcceleratorInfo$ === "object");
 assert(typeof MediaDeviceInfo$ === "object");
 assert(typeof MediaDeviceMemoryInfo$ === "object");
@@ -7878,6 +7895,8 @@ assert(typeof ModifyLocalGatewayRouteRequest$ === "object");
 assert(typeof ModifyLocalGatewayRouteResult$ === "object");
 assert(typeof ModifyManagedPrefixListRequest$ === "object");
 assert(typeof ModifyManagedPrefixListResult$ === "object");
+assert(typeof ModifyManagedResourceVisibilityRequest$ === "object");
+assert(typeof ModifyManagedResourceVisibilityResult$ === "object");
 assert(typeof ModifyNetworkInterfaceAttributeRequest$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsRequest$ === "object");
 assert(typeof ModifyPrivateDnsNameOptionsResult$ === "object");
@@ -8752,6 +8771,7 @@ assert(typeof MacModificationTaskState === "object");
 assert(typeof MacModificationTaskType === "object");
 assert(typeof MacSystemIntegrityProtectionSettingStatus === "object");
 assert(typeof ManagedBy === "object");
+assert(typeof ManagedResourceDefaultVisibility === "object");
 assert(typeof MarketType === "object");
 assert(typeof MembershipType === "object");
 assert(typeof MetadataDefaultHttpTokensState === "object");

@@ -406,6 +406,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <associatedSubnetSet>
                 <item>
@@ -799,6 +802,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <associatedSubnetSet>
                 <item>
@@ -1192,6 +1198,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <principal>
                     __Principal__
                 </principal>
+                <hiddenByDefault>
+                    false
+                </hiddenByDefault>
             </operator>
             <associatedSubnetSet>
                 <item>
@@ -1388,7 +1397,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Ipv6Address: "__Ipv6Address__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       AssociatedSubnets: [
         "__member__",
@@ -1567,7 +1577,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Ipv6Address: "__Ipv6Address__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       AssociatedSubnets: [
         "__member__",
@@ -1746,7 +1757,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       Ipv6Address: "__Ipv6Address__",
       Operator: {
         Managed: (boolean) false,
-        Principal: "__Principal__"
+        Principal: "__Principal__",
+        HiddenByDefault: (boolean) false
       },
       AssociatedSubnets: [
         "__member__",

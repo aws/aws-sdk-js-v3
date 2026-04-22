@@ -7690,6 +7690,20 @@ export type IpamManagementState = (typeof IpamManagementState)[keyof typeof Ipam
  * @public
  * @enum
  */
+export const ManagedResourceDefaultVisibility = {
+  hidden: "hidden",
+  visible: "visible",
+} as const;
+/**
+ * @public
+ */
+export type ManagedResourceDefaultVisibility =
+  (typeof ManagedResourceDefaultVisibility)[keyof typeof ManagedResourceDefaultVisibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const RouteServerRouteInstallationStatus = {
   INSTALLED: "installed",
   REJECTED: "rejected",

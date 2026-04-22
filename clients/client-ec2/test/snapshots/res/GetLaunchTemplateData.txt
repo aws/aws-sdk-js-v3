@@ -1232,6 +1232,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <principal>
                 __Principal__
             </principal>
+            <hiddenByDefault>
+                false
+            </hiddenByDefault>
         </operator>
         <networkPerformanceOptions>
             <bandwidthWeighting>
@@ -1944,7 +1947,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     DisableApiStop: (boolean) false,
     Operator: {
       Managed: (boolean) false,
-      Principal: "__Principal__"
+      Principal: "__Principal__",
+      HiddenByDefault: (boolean) false
     },
     NetworkPerformanceOptions: {
       BandwidthWeighting: "__BandwidthWeighting__"

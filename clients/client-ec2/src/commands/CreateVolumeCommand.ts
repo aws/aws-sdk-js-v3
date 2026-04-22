@@ -98,6 +98,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //   Operator: { // OperatorResponse
  * //     Managed: true || false,
  * //     Principal: "STRING_VALUE",
+ * //     HiddenByDefault: true || false,
  * //   },
  * //   VolumeInitializationRate: Number("int"),
  * //   VolumeId: "STRING_VALUE",

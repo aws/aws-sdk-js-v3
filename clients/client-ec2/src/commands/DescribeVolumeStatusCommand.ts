@@ -80,6 +80,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *   VolumeIds: [ // VolumeIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   IncludeManagedResources: true || false,
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
@@ -138,6 +139,11 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //         EstimatedTimeToCompleteInSeconds: Number("long"),
  * //       },
  * //       AvailabilityZoneId: "STRING_VALUE",
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //         HiddenByDefault: true || false,
+ * //       },
  * //     },
  * //   ],
  * // };

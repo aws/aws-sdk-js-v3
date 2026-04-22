@@ -72,6 +72,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *   InstanceIds: [ // InstanceIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   IncludeManagedResources: true || false,
  *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
@@ -115,6 +116,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //                 Operator: { // OperatorResponse
  * //                   Managed: true || false,
  * //                   Principal: "STRING_VALUE",
+ * //                   HiddenByDefault: true || false,
  * //                 },
  * //                 EbsCardIndex: Number("int"),
  * //               },
@@ -224,6 +226,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //               Operator: {
  * //                 Managed: true || false,
  * //                 Principal: "STRING_VALUE",
+ * //                 HiddenByDefault: true || false,
  * //               },
  * //             },
  * //           ],

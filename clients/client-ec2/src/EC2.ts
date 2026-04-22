@@ -2832,6 +2832,11 @@ import {
   GetManagedPrefixListEntriesCommand,
 } from "./commands/GetManagedPrefixListEntriesCommand";
 import {
+  type GetManagedResourceVisibilityCommandInput,
+  type GetManagedResourceVisibilityCommandOutput,
+  GetManagedResourceVisibilityCommand,
+} from "./commands/GetManagedResourceVisibilityCommand";
+import {
   type GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
   type GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
@@ -3196,6 +3201,11 @@ import {
   type ModifyManagedPrefixListCommandOutput,
   ModifyManagedPrefixListCommand,
 } from "./commands/ModifyManagedPrefixListCommand";
+import {
+  type ModifyManagedResourceVisibilityCommandInput,
+  type ModifyManagedResourceVisibilityCommandOutput,
+  ModifyManagedResourceVisibilityCommand,
+} from "./commands/ModifyManagedResourceVisibilityCommand";
 import {
   type ModifyNetworkInterfaceAttributeCommandInput,
   type ModifyNetworkInterfaceAttributeCommandOutput,
@@ -4652,6 +4662,7 @@ const commands = {
   GetLaunchTemplateDataCommand,
   GetManagedPrefixListAssociationsCommand,
   GetManagedPrefixListEntriesCommand,
+  GetManagedResourceVisibilityCommand,
   GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
   GetNetworkInsightsAccessScopeContentCommand,
   GetPasswordDataCommand,
@@ -4725,6 +4736,7 @@ const commands = {
   ModifyLaunchTemplateCommand,
   ModifyLocalGatewayRouteCommand,
   ModifyManagedPrefixListCommand,
+  ModifyManagedResourceVisibilityCommand,
   ModifyNetworkInterfaceAttributeCommand,
   ModifyPrivateDnsNameOptionsCommand,
   ModifyPublicIpDnsNameOptionsCommand,
@@ -14916,6 +14928,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetManagedResourceVisibilityCommand}
+   */
+  getManagedResourceVisibility(): Promise<GetManagedResourceVisibilityCommandOutput>;
+  getManagedResourceVisibility(
+    args: GetManagedResourceVisibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedResourceVisibilityCommandOutput>;
+  getManagedResourceVisibility(
+    args: GetManagedResourceVisibilityCommandInput,
+    cb: (err: any, data?: GetManagedResourceVisibilityCommandOutput) => void
+  ): void;
+  getManagedResourceVisibility(
+    args: GetManagedResourceVisibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedResourceVisibilityCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}
    */
   getNetworkInsightsAccessScopeAnalysisFindings(
@@ -16164,6 +16194,24 @@ export interface EC2 {
     args: ModifyManagedPrefixListCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyManagedPrefixListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyManagedResourceVisibilityCommand}
+   */
+  modifyManagedResourceVisibility(): Promise<ModifyManagedResourceVisibilityCommandOutput>;
+  modifyManagedResourceVisibility(
+    args: ModifyManagedResourceVisibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyManagedResourceVisibilityCommandOutput>;
+  modifyManagedResourceVisibility(
+    args: ModifyManagedResourceVisibilityCommandInput,
+    cb: (err: any, data?: ModifyManagedResourceVisibilityCommandOutput) => void
+  ): void;
+  modifyManagedResourceVisibility(
+    args: ModifyManagedResourceVisibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyManagedResourceVisibilityCommandOutput) => void
   ): void;
 
   /**
