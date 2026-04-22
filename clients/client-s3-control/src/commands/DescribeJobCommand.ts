@@ -147,7 +147,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         ObjectLockMode: "COMPLIANCE" || "GOVERNANCE",
  * //         ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  * //         BucketKeyEnabled: true || false,
- * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * //       },
  * //       S3PutObjectAcl: { // S3SetObjectAclOperation
  * //         AccessControlPolicy: { // S3AccessControlPolicy
@@ -197,7 +197,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //       },
  * //       S3ReplicateObject: {},
  * //       S3ComputeObjectChecksum: { // S3ComputeObjectChecksumOperation
- * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "CRC64NVME" || "MD5" || "SHA1" || "SHA256",
+ * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "CRC64NVME" || "MD5" || "SHA1" || "SHA256" || "SHA512" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * //         ChecksumType: "FULL_OBJECT" || "COMPOSITE",
  * //       },
  * //       S3UpdateObjectEncryption: { // S3UpdateObjectEncryptionOperation

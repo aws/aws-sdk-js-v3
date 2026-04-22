@@ -263,6 +263,10 @@ export const ComputeObjectChecksumAlgorithm = {
   MD5: "MD5",
   SHA1: "SHA1",
   SHA256: "SHA256",
+  SHA512: "SHA512",
+  XXHASH128: "XXHASH128",
+  XXHASH3: "XXHASH3",
+  XXHASH64: "XXHASH64",
 } as const;
 /**
  * @public
@@ -352,8 +356,13 @@ export const S3ChecksumAlgorithm = {
   CRC32: "CRC32",
   CRC32C: "CRC32C",
   CRC64NVME: "CRC64NVME",
+  MD5: "MD5",
   SHA1: "SHA1",
   SHA256: "SHA256",
+  SHA512: "SHA512",
+  XXHASH128: "XXHASH128",
+  XXHASH3: "XXHASH3",
+  XXHASH64: "XXHASH64",
 } as const;
 /**
  * @public

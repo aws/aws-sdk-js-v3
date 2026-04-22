@@ -9877,6 +9877,30 @@
           "traits": {
             "smithy.api#enumValue": "SHA256"
           }
+        },
+        "SHA512": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHA512"
+          }
+        },
+        "XXHASH64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XXHASH64"
+          }
+        },
+        "XXHASH3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XXHASH3"
+          }
+        },
+        "XXHASH128": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XXHASH128"
+          }
         }
       }
     },
@@ -20526,6 +20550,36 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "CRC64NVME"
+          }
+        },
+        "SHA512": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHA512"
+          }
+        },
+        "MD5": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MD5"
+          }
+        },
+        "XXHASH64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XXHASH64"
+          }
+        },
+        "XXHASH3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XXHASH3"
+          }
+        },
+        "XXHASH128": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XXHASH128"
           }
         }
       }
