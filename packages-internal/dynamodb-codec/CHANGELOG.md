@@ -35,6 +35,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.4 (2026-04-22)
+### Chores
+* **dynamodb-codec:** update dependencies.
+
+
+
 # 3.973.3 (2026-04-20)
 ### Chores
 * **codegen:** sync for http2 session concurrency fixes ([#7942](https://github.com/aws/aws-sdk-js-v3/issues/7942)) ([273ad5b](https://github.com/aws/aws-sdk-js-v3/commit/273ad5be3adc5288e480655de1c5887a38540fe4))

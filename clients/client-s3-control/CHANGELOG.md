@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Features
+
+* **client-s3-control:** This release adds support for five additional checksum algorithms for data integrity checking in Amazon S3 - MD5, SHA-512, XXHash3, XXHash64, and XXHash128. ([e8c4a76](https://github.com/aws/aws-sdk-js-v3/commit/e8c4a764a2fa04751e6ddb655907e1312f62fca4))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adds support for Amazon Bedrock AgentCore Harness data plane APIs, enabling customers to invoke managed agent loops and execute commands on live agent sessions with streaming responses. ([a465bad](https://github.com/aws/aws-sdk-js-v3/commit/a465bad856440f341eb49f5d6be50d5fc1c0a8b0))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

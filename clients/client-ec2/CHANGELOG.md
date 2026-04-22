@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Features
+
+* **client-ec2:** Managed resource visibility settings control whether resources that AWS services provision on your behalf within your AWS account appear in your Amazon console views and API list operations. ([698293a](https://github.com/aws/aws-sdk-js-v3/commit/698293af3f9151cc60a69347b140b2dc9dee7b41))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

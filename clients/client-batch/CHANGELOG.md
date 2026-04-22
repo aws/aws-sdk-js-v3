@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Features
+
+* **client-batch:** Support of S3Files volume type, container start and stop timeouts. ([802ac4b](https://github.com/aws/aws-sdk-js-v3/commit/802ac4b8c860541edc9cef18173e6125272fe381))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

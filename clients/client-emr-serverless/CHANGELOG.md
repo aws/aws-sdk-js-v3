@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Features
+
+* **client-emr-serverless:** This release adds support for Spark connect sessions starting with release label emr-7.13.0. ([966d493](https://github.com/aws/aws-sdk-js-v3/commit/966d49344c735b4e8e2e0dfbcc95edb6748d00ac))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

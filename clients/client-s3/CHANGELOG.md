@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Bug Fixes
+
+* **client-s3:** retry errors with 200 status code ([#7945](https://github.com/aws/aws-sdk-js-v3/issues/7945)) ([7d9d8d1](https://github.com/aws/aws-sdk-js-v3/commit/7d9d8d17c5d743f0c4ccf4bbe6f0c1d5b2264667))
+
+
+### Features
+
+* **client-s3:** This release adds five additional checksum algorithms for S3 data integrity (MD5, SHA-512, XXHash3, XXHash64, XXHash128) and support for S3 Inventory on directory buckets (S3 Express One Zone). ([41a6a59](https://github.com/aws/aws-sdk-js-v3/commit/41a6a5957c88b40e093129de256bb00ab56230fb))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

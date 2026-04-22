@@ -35,6 +35,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.4 (2026-04-22)
+### Bug Fixes
+* **client-s3:** retry errors with 200 status code ([#7945](https://github.com/aws/aws-sdk-js-v3/issues/7945)) ([7d9d8d1](https://github.com/aws/aws-sdk-js-v3/commit/7d9d8d17c5d743f0c4ccf4bbe6f0c1d5b2264667))
+* **client-sts:** override IDPCommunicationError to be retryable ([#7946](https://github.com/aws/aws-sdk-js-v3/issues/7946)) ([d75e129](https://github.com/aws/aws-sdk-js-v3/commit/d75e129a8c188d793e079d316815c2aa29902425))
+
+
+
 # 3.974.3 (2026-04-20)
 ### Bug Fixes
 * **lockfile:** update yarn.lock for util-retry resolution version ([#7944](https://github.com/aws/aws-sdk-js-v3/issues/7944)) ([f83dd48](https://github.com/aws/aws-sdk-js-v3/commit/f83dd4822559eca40d1fcd13bf330259c588bc28))

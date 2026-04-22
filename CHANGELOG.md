@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
+
+
+### Bug Fixes
+
+* **client-s3:** retry errors with 200 status code ([#7945](https://github.com/aws/aws-sdk-js-v3/issues/7945)) ([7d9d8d1](https://github.com/aws/aws-sdk-js-v3/commit/7d9d8d17c5d743f0c4ccf4bbe6f0c1d5b2264667))
+* **client-sts:** override IDPCommunicationError to be retryable ([#7946](https://github.com/aws/aws-sdk-js-v3/issues/7946)) ([d75e129](https://github.com/aws/aws-sdk-js-v3/commit/d75e129a8c188d793e079d316815c2aa29902425))
+
+
+### Features
+
+* **client-batch:** Support of S3Files volume type, container start and stop timeouts. ([802ac4b](https://github.com/aws/aws-sdk-js-v3/commit/802ac4b8c860541edc9cef18173e6125272fe381))
+* **client-bedrock-agentcore-control:** Adds support for Amazon Bedrock AgentCore Harness control plane APIs, enabling customers to create, manage, and configure managed agent loops with customizable models, tools, memory, and isolated execution environments. ([ace8fec](https://github.com/aws/aws-sdk-js-v3/commit/ace8fec531b6fce1f8407e12ea3a93c6cb0ae558))
+* **client-bedrock-agentcore:** Adds support for Amazon Bedrock AgentCore Harness data plane APIs, enabling customers to invoke managed agent loops and execute commands on live agent sessions with streaming responses. ([a465bad](https://github.com/aws/aws-sdk-js-v3/commit/a465bad856440f341eb49f5d6be50d5fc1c0a8b0))
+* **client-ec2:** Managed resource visibility settings control whether resources that AWS services provision on your behalf within your AWS account appear in your Amazon console views and API list operations. ([698293a](https://github.com/aws/aws-sdk-js-v3/commit/698293af3f9151cc60a69347b140b2dc9dee7b41))
+* **client-ecs:** GPU health monitoring and auto-repair for ECS Managed Instances ([0ffa109](https://github.com/aws/aws-sdk-js-v3/commit/0ffa1090394e3c0dbfff5c92025aca54ed6ed992))
+* **client-emr-serverless:** This release adds support for Spark connect sessions starting with release label emr-7.13.0. ([966d493](https://github.com/aws/aws-sdk-js-v3/commit/966d49344c735b4e8e2e0dfbcc95edb6748d00ac))
+* **client-iot-wireless:** Enable customers to optionally specify a desired confidence level for Cellular and WiFi position estimates. Customers can use this to trade off confidence level and radius of uncertainty based on their needs. ([9fcaea5](https://github.com/aws/aws-sdk-js-v3/commit/9fcaea59ffb0c04d4263af037a2450a5ac1200ba))
+* **client-ivs:** Adds support for Amazon IVS server-side ad insertion ([a4a29e9](https://github.com/aws/aws-sdk-js-v3/commit/a4a29e9ef7023637a43def2889010e2d59029cf0))
+* **client-lambda:** Add Ruby 4.0 (ruby4.0) support to AWS Lambda. ([ece8ce8](https://github.com/aws/aws-sdk-js-v3/commit/ece8ce801e1288224acca7635899888f70438152))
+* **client-opensearch:** Adds support for RollbackServiceSoftwareUpdate API ([e8b3794](https://github.com/aws/aws-sdk-js-v3/commit/e8b3794581fc5c6fd930e88eb6fe06e33f2e0666))
+* **client-osis:** Update the pipeline configuration body character limit for the CreatePipeline API call. ([d19d406](https://github.com/aws/aws-sdk-js-v3/commit/d19d4063fdd7b239ba429db9720622fd2cea3cba))
+* **client-s3-control:** This release adds support for five additional checksum algorithms for data integrity checking in Amazon S3 - MD5, SHA-512, XXHash3, XXHash64, and XXHash128. ([e8c4a76](https://github.com/aws/aws-sdk-js-v3/commit/e8c4a764a2fa04751e6ddb655907e1312f62fca4))
+* **client-s3:** This release adds five additional checksum algorithms for S3 data integrity (MD5, SHA-512, XXHash3, XXHash64, XXHash128) and support for S3 Inventory on directory buckets (S3 Express One Zone). ([41a6a59](https://github.com/aws/aws-sdk-js-v3/commit/41a6a5957c88b40e093129de256bb00ab56230fb))
+
+
+
+
+
 # [3.1034.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1033.0...v3.1034.0) (2026-04-21)
 
 

@@ -26,6 +26,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.2 (2026-04-21)
+### Bug Fixes
+* **client-sts:** override IDPCommunicationError to be retryable ([#7946](https://github.com/aws/aws-sdk-js-v3/issues/7946)) ([d75e129](https://github.com/aws/aws-sdk-js-v3/commit/d75e129a8c188d793e079d316815c2aa29902425))
+
+
+
 # 3.997.1 (2026-04-20)
 ### Chores
 * **codegen:** sync for http2 session concurrency fixes ([#7942](https://github.com/aws/aws-sdk-js-v3/issues/7942)) ([273ad5b](https://github.com/aws/aws-sdk-js-v3/commit/273ad5be3adc5288e480655de1c5887a38540fe4))
