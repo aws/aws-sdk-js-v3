@@ -1,3 +1,4 @@
+import type { ListAsyncInvokesCommandOutput } from "@aws-sdk/client-bedrock-runtime";
 import { BedrockRuntime } from "@aws-sdk/client-bedrock-runtime";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { toBase64, toUtf8 } from "@smithy/core/serde";
@@ -7,6 +8,9 @@ describe("BedrockRuntime", () => {
   const client = new BedrockRuntime({
     region: "us-west-2",
     credentials: aws?.testCredentials,
+    requestHandler: {
+      maxConcurrentStreams: 3,
+    },
   });
 
   let signerCredentialProviderSpy: any;
@@ -68,6 +72,7 @@ describe("BedrockRuntime", () => {
     const inputEnd = new Promise((r) => {
       resolve = r;
     });
+    const listAsyncInvokesOutputs: ListAsyncInvokesCommandOutput[] = [];
 
     const response = await client.invokeModelWithBidirectionalStream({
       modelId,
@@ -177,6 +182,15 @@ describe("BedrockRuntime", () => {
               },
             };
 
+            // At midpoint, fire parallel requests over the same client
+            // to verify HTTP/2 session concurrency doesn't interfere with the ongoing stream.
+            if (it === 10) {
+              const results = await Promise.all(
+                Array.from({ length: 8 }, () => client.listAsyncInvokes({ maxResults: 1 }))
+              );
+              listAsyncInvokesOutputs.push(...results);
+            }
+
             if (it % 15 === 3) {
               yields.push("contentEnd");
               yield {
@@ -264,6 +278,40 @@ describe("BedrockRuntime", () => {
       "promptEnd",
       "sessionEnd",
     ]);
+
+    // Verify parallel requests completed successfully during the bidirectional stream.
+    expect(listAsyncInvokesOutputs).toHaveLength(8);
+    for (const result of listAsyncInvokesOutputs) {
+      expect(result.$metadata.httpStatusCode).toBe(200);
+    }
+
+    const h2SessionState = (client.config.requestHandler as any).connectionManager?.debug?.();
+    if (h2SessionState) {
+      expect(h2SessionState).toMatchObject({
+        "https://bedrock-runtime.us-west-2.amazonaws.com/": {
+          sessions: [
+            {
+              active: expect.any(Number),
+              id: expect.any(Number),
+              maxConcurrent: 3,
+              totalRequests: 3,
+            },
+            {
+              active: expect.any(Number),
+              id: expect.any(Number),
+              maxConcurrent: 3,
+              totalRequests: 3,
+            },
+            {
+              active: expect.any(Number),
+              id: expect.any(Number),
+              maxConcurrent: 2,
+              totalRequests: 2,
+            },
+          ],
+        },
+      });
+    }
 
     // There are no other response fields currently.
     // Therefore, there is no difference in assertions for WebSocket and HTTP2.

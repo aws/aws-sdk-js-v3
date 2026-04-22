@@ -53,13 +53,49 @@ describe("TranscribeStream client", { retry: 4 }, () => {
 
           expect(result.TranscriptResultStream).toBeDefined();
           const transcripts: any[] = [];
+          let parallelRequestsDone = false;
           for await (const event of result.TranscriptResultStream!) {
             transcripts.push(event);
+
+            // After receiving the first event, fire parallel read requests over the same client
+            // to verify HTTP/2 session concurrency doesn't interfere with the ongoing stream.
+            if (!parallelRequestsDone && transcripts.length === 1 && i === 0) {
+              parallelRequestsDone = true;
+              const results = await Promise.allSettled(
+                Array.from({ length: 3 }, () => client.getMedicalScribeStream({ SessionId: "non-existent-session-id" }))
+              );
+              for (const r of results) {
+                // A rejected request with a service error still proves the HTTP/2 round-trip succeeded
+                // concurrently with the active stream.
+                expect(r.status === "rejected" ? r.reason?.name : r.status).toMatch(/InternalFailure/);
+              }
+            }
           }
 
           expect(transcripts.filter((event) => event["TranscriptEvent"]).length).toBeGreaterThan(0);
         })
       );
+
+      const h2SessionState = (client.config.requestHandler as any).connectionManager?.debug?.();
+      if (h2SessionState) {
+        expect(h2SessionState).toMatchObject({
+          "https://transcribestreaming.us-west-2.amazonaws.com/": {
+            sessions: [
+              {
+                active: expect.any(Number),
+                id: expect.any(Number),
+                maxConcurrent: 3,
+                totalRequests: expect.any(Number),
+              },
+            ],
+          },
+        });
+        expect(
+          h2SessionState["https://transcribestreaming.us-west-2.amazonaws.com/"].sessions
+            .map((s: any) => s.totalRequests)
+            .reduce((a: number, b: number) => a + b, 0)
+        ).toEqual(45);
+      }
     }
   );
 });
