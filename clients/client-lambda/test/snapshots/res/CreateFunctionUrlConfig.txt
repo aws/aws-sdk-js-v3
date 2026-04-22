@@ -1,0 +1,116 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "FunctionUrl": "__FunctionUrl__",
+  "FunctionArn": "__FunctionArn__",
+  "AuthType": "__AuthType__",
+  "CreationTime": "__CreationTime__",
+  "Cors": {},
+  "InvokeMode": "__InvokeMode__"
+}
+
+
+--- [output object] ---
+{
+  FunctionUrl: "__FunctionUrl__",
+  FunctionArn: "__FunctionArn__",
+  AuthType: "__AuthType__",
+  CreationTime: "__CreationTime__",
+  Cors: {},
+  InvokeMode: "__InvokeMode__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "FunctionUrl": "__FunctionUrl__",
+  "FunctionArn": "__FunctionArn__",
+  "AuthType": "__AuthType__",
+  "CreationTime": "__CreationTime__",
+  "Cors": {
+    "AllowCredentials": false,
+    "AllowHeaders": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "AllowMethods": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "AllowOrigins": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ExposeHeaders": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "MaxAge": 0
+  },
+  "InvokeMode": "__InvokeMode__"
+}
+
+
+--- [output object] ---
+{
+  FunctionUrl: "__FunctionUrl__",
+  FunctionArn: "__FunctionArn__",
+  AuthType: "__AuthType__",
+  CreationTime: "__CreationTime__",
+  Cors: {
+    AllowCredentials: (boolean) false,
+    AllowHeaders: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    AllowMethods: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    AllowOrigins: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    ExposeHeaders: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    MaxAge: (number) 0
+  },
+  InvokeMode: "__InvokeMode__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

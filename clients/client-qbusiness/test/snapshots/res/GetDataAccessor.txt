@@ -1,0 +1,839 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "displayName": "__displayName__",
+  "dataAccessorId": "__dataAccessorId__",
+  "dataAccessorArn": "__dataAccessorArn__",
+  "applicationId": "__applicationId__",
+  "idcApplicationArn": "__idcApplicationArn__",
+  "principal": "__principal__",
+  "actionConfigurations": [
+    {
+      "action": "__action__",
+      "filterConfiguration": {
+        "documentAttributeFilter": {
+          "andAllFilters": [
+            {},
+            {},
+            {}
+          ],
+          "orAllFilters": [
+            {},
+            {},
+            {}
+          ],
+          "notFilter": {
+            "andAllFilters": [
+              {},
+              {},
+              {}
+            ],
+            "orAllFilters": [
+              {},
+              {},
+              {}
+            ],
+            "notFilter": {},
+            "equalsTo": {
+              "name": "__name__",
+              "value": {
+                "longValue": 0
+              }
+            },
+            "containsAll": {
+              "name": "__name__",
+              "value": {
+                "stringValue": "__stringValue__"
+              }
+            },
+            "containsAny": {
+              "name": "__name__",
+              "value": {
+                "dateValue": 946702799.999
+              }
+            },
+            "greaterThan": {
+              "name": "__name__",
+              "value": {
+                "stringListValue": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            "greaterThanOrEquals": {
+              "name": "__name__",
+              "value": {
+                "stringListValue": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            "lessThan": {
+              "name": "__name__",
+              "value": {
+                "longValue": 0
+              }
+            },
+            "lessThanOrEquals": {
+              "name": "__name__",
+              "value": {
+                "longValue": 0
+              }
+            }
+          },
+          "equalsTo": {
+            "name": "__name__",
+            "value": {
+              "longValue": 0
+            }
+          },
+          "containsAll": {
+            "name": "__name__",
+            "value": {
+              "stringValue": "__stringValue__"
+            }
+          },
+          "containsAny": {
+            "name": "__name__",
+            "value": {
+              "dateValue": 946702799.999
+            }
+          },
+          "greaterThan": {
+            "name": "__name__",
+            "value": {
+              "stringListValue": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          "greaterThanOrEquals": {
+            "name": "__name__",
+            "value": {
+              "stringListValue": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          "lessThan": {
+            "name": "__name__",
+            "value": {
+              "longValue": 0
+            }
+          },
+          "lessThanOrEquals": {
+            "name": "__name__",
+            "value": {
+              "longValue": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "action": "__action__",
+      "filterConfiguration": {
+        "documentAttributeFilter": {
+          "andAllFilters": [
+            {},
+            {},
+            {}
+          ],
+          "orAllFilters": [
+            {},
+            {},
+            {}
+          ],
+          "notFilter": {
+            "andAllFilters": [
+              {},
+              {},
+              {}
+            ],
+            "orAllFilters": [
+              {},
+              {},
+              {}
+            ],
+            "notFilter": {},
+            "equalsTo": {
+              "name": "__name__",
+              "value": {
+                "dateValue": 946702799.999
+              }
+            },
+            "containsAll": {
+              "name": "__name__",
+              "value": {
+                "stringListValue": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            "containsAny": {
+              "name": "__name__",
+              "value": {
+                "stringValue": "__stringValue__"
+              }
+            },
+            "greaterThan": {
+              "name": "__name__",
+              "value": {
+                "longValue": 0
+              }
+            },
+            "greaterThanOrEquals": {
+              "name": "__name__",
+              "value": {
+                "longValue": 0
+              }
+            },
+            "lessThan": {
+              "name": "__name__",
+              "value": {
+                "dateValue": 946702799.999
+              }
+            },
+            "lessThanOrEquals": {
+              "name": "__name__",
+              "value": {
+                "dateValue": 946702799.999
+              }
+            }
+          },
+          "equalsTo": {
+            "name": "__name__",
+            "value": {
+              "dateValue": 946702799.999
+            }
+          },
+          "containsAll": {
+            "name": "__name__",
+            "value": {
+              "stringListValue": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          "containsAny": {
+            "name": "__name__",
+            "value": {
+              "stringValue": "__stringValue__"
+            }
+          },
+          "greaterThan": {
+            "name": "__name__",
+            "value": {
+              "longValue": 0
+            }
+          },
+          "greaterThanOrEquals": {
+            "name": "__name__",
+            "value": {
+              "longValue": 0
+            }
+          },
+          "lessThan": {
+            "name": "__name__",
+            "value": {
+              "dateValue": 946702799.999
+            }
+          },
+          "lessThanOrEquals": {
+            "name": "__name__",
+            "value": {
+              "dateValue": 946702799.999
+            }
+          }
+        }
+      }
+    },
+    {
+      "action": "__action__",
+      "filterConfiguration": {
+        "documentAttributeFilter": {
+          "andAllFilters": [
+            {},
+            {},
+            {}
+          ],
+          "orAllFilters": [
+            {},
+            {},
+            {}
+          ],
+          "notFilter": {
+            "andAllFilters": [
+              {},
+              {},
+              {}
+            ],
+            "orAllFilters": [
+              {},
+              {},
+              {}
+            ],
+            "notFilter": {},
+            "equalsTo": {
+              "name": "__name__",
+              "value": {
+                "stringValue": "__stringValue__"
+              }
+            },
+            "containsAll": {
+              "name": "__name__",
+              "value": {
+                "longValue": 0
+              }
+            },
+            "containsAny": {
+              "name": "__name__",
+              "value": {
+                "stringListValue": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            "greaterThan": {
+              "name": "__name__",
+              "value": {
+                "dateValue": 946702799.999
+              }
+            },
+            "greaterThanOrEquals": {
+              "name": "__name__",
+              "value": {
+                "dateValue": 946702799.999
+              }
+            },
+            "lessThan": {
+              "name": "__name__",
+              "value": {
+                "stringValue": "__stringValue__"
+              }
+            },
+            "lessThanOrEquals": {
+              "name": "__name__",
+              "value": {
+                "stringValue": "__stringValue__"
+              }
+            }
+          },
+          "equalsTo": {
+            "name": "__name__",
+            "value": {
+              "stringValue": "__stringValue__"
+            }
+          },
+          "containsAll": {
+            "name": "__name__",
+            "value": {
+              "longValue": 0
+            }
+          },
+          "containsAny": {
+            "name": "__name__",
+            "value": {
+              "stringListValue": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          "greaterThan": {
+            "name": "__name__",
+            "value": {
+              "dateValue": 946702799.999
+            }
+          },
+          "greaterThanOrEquals": {
+            "name": "__name__",
+            "value": {
+              "dateValue": 946702799.999
+            }
+          },
+          "lessThan": {
+            "name": "__name__",
+            "value": {
+              "stringValue": "__stringValue__"
+            }
+          },
+          "lessThanOrEquals": {
+            "name": "__name__",
+            "value": {
+              "stringValue": "__stringValue__"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "authenticationDetail": {
+    "authenticationType": "__authenticationType__",
+    "authenticationConfiguration": {
+      "idcTrustedTokenIssuerConfiguration": {
+        "idcTrustedTokenIssuerArn": "__idcTrustedTokenIssuerArn__"
+      }
+    },
+    "externalIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "createdAt": 946702799.999,
+  "updatedAt": 946702799.999
+}
+
+
+--- [output object] ---
+{
+  displayName: "__displayName__",
+  dataAccessorId: "__dataAccessorId__",
+  dataAccessorArn: "__dataAccessorArn__",
+  applicationId: "__applicationId__",
+  idcApplicationArn: "__idcApplicationArn__",
+  principal: "__principal__",
+  actionConfigurations: [
+    {
+      action: "__action__",
+      filterConfiguration: {
+        documentAttributeFilter: {
+          andAllFilters: [
+            {},
+            {},
+            {}
+          ],
+          orAllFilters: [
+            {},
+            {},
+            {}
+          ],
+          notFilter: {
+            andAllFilters: [
+              {},
+              {},
+              {}
+            ],
+            orAllFilters: [
+              {},
+              {},
+              {}
+            ],
+            notFilter: {},
+            equalsTo: {
+              name: "__name__",
+              value: {
+                longValue: (number) 0
+              }
+            },
+            containsAll: {
+              name: "__name__",
+              value: {
+                stringValue: "__stringValue__"
+              }
+            },
+            containsAny: {
+              name: "__name__",
+              value: {
+                dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+              }
+            },
+            greaterThan: {
+              name: "__name__",
+              value: {
+                stringListValue: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            greaterThanOrEquals: {
+              name: "__name__",
+              value: {
+                stringListValue: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            lessThan: {
+              name: "__name__",
+              value: {
+                longValue: (number) 0
+              }
+            },
+            lessThanOrEquals: {
+              name: "__name__",
+              value: {
+                longValue: (number) 0
+              }
+            }
+          },
+          equalsTo: {
+            name: "__name__",
+            value: {
+              longValue: (number) 0
+            }
+          },
+          containsAll: {
+            name: "__name__",
+            value: {
+              stringValue: "__stringValue__"
+            }
+          },
+          containsAny: {
+            name: "__name__",
+            value: {
+              dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+            }
+          },
+          greaterThan: {
+            name: "__name__",
+            value: {
+              stringListValue: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          greaterThanOrEquals: {
+            name: "__name__",
+            value: {
+              stringListValue: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          lessThan: {
+            name: "__name__",
+            value: {
+              longValue: (number) 0
+            }
+          },
+          lessThanOrEquals: {
+            name: "__name__",
+            value: {
+              longValue: (number) 0
+            }
+          }
+        }
+      }
+    },
+    {
+      action: "__action__",
+      filterConfiguration: {
+        documentAttributeFilter: {
+          andAllFilters: [
+            {},
+            {},
+            {}
+          ],
+          orAllFilters: [
+            {},
+            {},
+            {}
+          ],
+          notFilter: {
+            andAllFilters: [
+              {},
+              {},
+              {}
+            ],
+            orAllFilters: [
+              {},
+              {},
+              {}
+            ],
+            notFilter: {},
+            equalsTo: {
+              name: "__name__",
+              value: {
+                dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+              }
+            },
+            containsAll: {
+              name: "__name__",
+              value: {
+                stringListValue: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            containsAny: {
+              name: "__name__",
+              value: {
+                stringValue: "__stringValue__"
+              }
+            },
+            greaterThan: {
+              name: "__name__",
+              value: {
+                longValue: (number) 0
+              }
+            },
+            greaterThanOrEquals: {
+              name: "__name__",
+              value: {
+                longValue: (number) 0
+              }
+            },
+            lessThan: {
+              name: "__name__",
+              value: {
+                dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+              }
+            },
+            lessThanOrEquals: {
+              name: "__name__",
+              value: {
+                dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+              }
+            }
+          },
+          equalsTo: {
+            name: "__name__",
+            value: {
+              dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+            }
+          },
+          containsAll: {
+            name: "__name__",
+            value: {
+              stringListValue: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          containsAny: {
+            name: "__name__",
+            value: {
+              stringValue: "__stringValue__"
+            }
+          },
+          greaterThan: {
+            name: "__name__",
+            value: {
+              longValue: (number) 0
+            }
+          },
+          greaterThanOrEquals: {
+            name: "__name__",
+            value: {
+              longValue: (number) 0
+            }
+          },
+          lessThan: {
+            name: "__name__",
+            value: {
+              dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+            }
+          },
+          lessThanOrEquals: {
+            name: "__name__",
+            value: {
+              dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+            }
+          }
+        }
+      }
+    },
+    {
+      action: "__action__",
+      filterConfiguration: {
+        documentAttributeFilter: {
+          andAllFilters: [
+            {},
+            {},
+            {}
+          ],
+          orAllFilters: [
+            {},
+            {},
+            {}
+          ],
+          notFilter: {
+            andAllFilters: [
+              {},
+              {},
+              {}
+            ],
+            orAllFilters: [
+              {},
+              {},
+              {}
+            ],
+            notFilter: {},
+            equalsTo: {
+              name: "__name__",
+              value: {
+                stringValue: "__stringValue__"
+              }
+            },
+            containsAll: {
+              name: "__name__",
+              value: {
+                longValue: (number) 0
+              }
+            },
+            containsAny: {
+              name: "__name__",
+              value: {
+                stringListValue: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            },
+            greaterThan: {
+              name: "__name__",
+              value: {
+                dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+              }
+            },
+            greaterThanOrEquals: {
+              name: "__name__",
+              value: {
+                dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+              }
+            },
+            lessThan: {
+              name: "__name__",
+              value: {
+                stringValue: "__stringValue__"
+              }
+            },
+            lessThanOrEquals: {
+              name: "__name__",
+              value: {
+                stringValue: "__stringValue__"
+              }
+            }
+          },
+          equalsTo: {
+            name: "__name__",
+            value: {
+              stringValue: "__stringValue__"
+            }
+          },
+          containsAll: {
+            name: "__name__",
+            value: {
+              longValue: (number) 0
+            }
+          },
+          containsAny: {
+            name: "__name__",
+            value: {
+              stringListValue: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          },
+          greaterThan: {
+            name: "__name__",
+            value: {
+              dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+            }
+          },
+          greaterThanOrEquals: {
+            name: "__name__",
+            value: {
+              dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+            }
+          },
+          lessThan: {
+            name: "__name__",
+            value: {
+              stringValue: "__stringValue__"
+            }
+          },
+          lessThanOrEquals: {
+            name: "__name__",
+            value: {
+              stringValue: "__stringValue__"
+            }
+          }
+        }
+      }
+    }
+  ],
+  authenticationDetail: {
+    authenticationType: "__authenticationType__",
+    authenticationConfiguration: {
+      idcTrustedTokenIssuerConfiguration: {
+        idcTrustedTokenIssuerArn: "__idcTrustedTokenIssuerArn__"
+      }
+    },
+    externalIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

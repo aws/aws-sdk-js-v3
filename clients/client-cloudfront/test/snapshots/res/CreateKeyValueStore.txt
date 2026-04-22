@@ -1,0 +1,74 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+Location: __Location__
+
+[Uint8Array (xml)]
+<KeyValueStore xmlns="https://placeholder.amazonaws.com">
+    <Name>
+        __Name__
+    </Name>
+    <Id>
+        __Id__
+    </Id>
+    <Comment>
+        __Comment__
+    </Comment>
+    <ARN>
+        __ARN__
+    </ARN>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <Status>
+        __Status__
+    </Status>
+</KeyValueStore>
+
+
+--- [output object] ---
+{
+  KeyValueStore: {
+    Name: "__Name__",
+    Id: "__Id__",
+    Comment: "__Comment__",
+    ARN: "__ARN__",
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Status: "__Status__"
+  },
+  ETag: "__ETag__",
+  Location: "__Location__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

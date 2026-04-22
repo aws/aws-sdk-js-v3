@@ -1,0 +1,804 @@
+PATCH https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/chatcontrols
+
+content-type: application/json
+content-length: 9768
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: b8f8193e1c3ffb3fd9fca647b8df79ef36d1e9c7864e2e14005b0573be479bfc
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "clientToken": "1111abcd-uuid-uuid-uuid-000000001111",
+  "responseScope": "__responseScope__",
+  "orchestrationConfiguration": {
+    "control": "__control__"
+  },
+  "blockedPhrasesConfigurationUpdate": {
+    "blockedPhrasesToCreateOrUpdate": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "blockedPhrasesToDelete": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "systemMessageOverride": "__systemMessageOverride__"
+  },
+  "topicConfigurationsToCreateOrUpdate": [
+    {
+      "name": "__name__",
+      "rules": [
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        }
+      ],
+      "description": "__description__",
+      "exampleChatMessages": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "name": "__name__",
+      "rules": [
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "description": "__description__",
+      "exampleChatMessages": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "name": "__name__",
+      "rules": [
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        }
+      ],
+      "description": "__description__",
+      "exampleChatMessages": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "topicConfigurationsToDelete": [
+    {
+      "name": "__name__",
+      "rules": [
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "description": "__description__",
+      "exampleChatMessages": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "name": "__name__",
+      "rules": [
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        }
+      ],
+      "description": "__description__",
+      "exampleChatMessages": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "name": "__name__",
+      "rules": [
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentBlockerRule": {
+              "systemMessageOverride": "__systemMessageOverride__"
+            }
+          }
+        },
+        {
+          "ruleType": "__ruleType__",
+          "includedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "excludedUsersAndGroups": {
+            "userIds": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "userGroups": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ruleConfiguration": {
+            "contentRetrievalRule": {
+              "eligibleDataSources": [
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                },
+                {
+                  "indexId": "__indexId__",
+                  "dataSourceId": "__dataSourceId__"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "description": "__description__",
+      "exampleChatMessages": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "creatorModeConfiguration": {
+    "creatorModeControl": "__creatorModeControl__"
+  },
+  "hallucinationReductionConfiguration": {
+    "hallucinationReductionControl": "__hallucinationReductionControl__"
+  }
+}

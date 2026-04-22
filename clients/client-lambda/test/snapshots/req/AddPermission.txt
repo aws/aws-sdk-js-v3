@@ -1,0 +1,27 @@
+POST https://lambda.us-east-1.amazonaws.com 
+/2015-03-31/functions/__FunctionName__/policy?Qualifier=__Qualifier__
+
+content-type: application/json
+content-length: 335
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e
+host: lambda.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 167a95ec72bb2e8119dff961cbbd1faee5a7ade1774cb8a7db0be31be8022819
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "StatementId": "__StatementId__",
+  "Action": "__Action__",
+  "Principal": "__Principal__",
+  "SourceArn": "__SourceArn__",
+  "SourceAccount": "__SourceAccount__",
+  "EventSourceToken": "__EventSourceToken__",
+  "RevisionId": "__RevisionId__",
+  "PrincipalOrgID": "__PrincipalOrgID__",
+  "FunctionUrlAuthType": "__FunctionUrlAuthType__",
+  "InvokedViaFunctionUrl": false
+}

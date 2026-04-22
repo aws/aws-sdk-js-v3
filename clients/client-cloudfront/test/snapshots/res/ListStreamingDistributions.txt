@@ -1,0 +1,370 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StreamingDistributionList xmlns="https://placeholder.amazonaws.com">
+    <Marker>
+        __Marker__
+    </Marker>
+    <MaxItems>
+        0
+    </MaxItems>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Quantity>
+        0
+    </Quantity>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+    <Items>
+        <StreamingDistributionSummary>
+            <Id>
+                __Id__
+            </Id>
+            <ARN>
+                __ARN__
+            </ARN>
+            <Status>
+                __Status__
+            </Status>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <DomainName>
+                __DomainName__
+            </DomainName>
+            <S3Origin>
+                <DomainName>
+                    __DomainName__
+                </DomainName>
+                <OriginAccessIdentity>
+                    __OriginAccessIdentity__
+                </OriginAccessIdentity>
+            </S3Origin>
+            <Aliases>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                </Items>
+            </Aliases>
+            <TrustedSigners>
+                <Enabled>
+                    false
+                </Enabled>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                </Items>
+            </TrustedSigners>
+            <Comment>
+                __Comment__
+            </Comment>
+            <PriceClass>
+                __PriceClass__
+            </PriceClass>
+            <Enabled>
+                false
+            </Enabled>
+        </StreamingDistributionSummary>
+        <StreamingDistributionSummary>
+            <Id>
+                __Id__
+            </Id>
+            <ARN>
+                __ARN__
+            </ARN>
+            <Status>
+                __Status__
+            </Status>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <DomainName>
+                __DomainName__
+            </DomainName>
+            <S3Origin>
+                <DomainName>
+                    __DomainName__
+                </DomainName>
+                <OriginAccessIdentity>
+                    __OriginAccessIdentity__
+                </OriginAccessIdentity>
+            </S3Origin>
+            <Aliases>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                </Items>
+            </Aliases>
+            <TrustedSigners>
+                <Enabled>
+                    false
+                </Enabled>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                </Items>
+            </TrustedSigners>
+            <Comment>
+                __Comment__
+            </Comment>
+            <PriceClass>
+                __PriceClass__
+            </PriceClass>
+            <Enabled>
+                false
+            </Enabled>
+        </StreamingDistributionSummary>
+        <StreamingDistributionSummary>
+            <Id>
+                __Id__
+            </Id>
+            <ARN>
+                __ARN__
+            </ARN>
+            <Status>
+                __Status__
+            </Status>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <DomainName>
+                __DomainName__
+            </DomainName>
+            <S3Origin>
+                <DomainName>
+                    __DomainName__
+                </DomainName>
+                <OriginAccessIdentity>
+                    __OriginAccessIdentity__
+                </OriginAccessIdentity>
+            </S3Origin>
+            <Aliases>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                    <CNAME>
+                        __member__
+                    </CNAME>
+                </Items>
+            </Aliases>
+            <TrustedSigners>
+                <Enabled>
+                    false
+                </Enabled>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                    <AwsAccountNumber>
+                        __member__
+                    </AwsAccountNumber>
+                </Items>
+            </TrustedSigners>
+            <Comment>
+                __Comment__
+            </Comment>
+            <PriceClass>
+                __PriceClass__
+            </PriceClass>
+            <Enabled>
+                false
+            </Enabled>
+        </StreamingDistributionSummary>
+    </Items>
+</StreamingDistributionList>
+
+
+--- [output object] ---
+{
+  StreamingDistributionList: {
+    Marker: "__Marker__",
+    MaxItems: (number) 0,
+    IsTruncated: (boolean) false,
+    Quantity: (number) 0,
+    NextMarker: "__NextMarker__",
+    Items: [
+      {
+        Id: "__Id__",
+        ARN: "__ARN__",
+        Status: "__Status__",
+        LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DomainName: "__DomainName__",
+        S3Origin: {
+          DomainName: "__DomainName__",
+          OriginAccessIdentity: "__OriginAccessIdentity__"
+        },
+        Aliases: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        TrustedSigners: {
+          Enabled: (boolean) false,
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        Comment: "__Comment__",
+        PriceClass: "__PriceClass__",
+        Enabled: (boolean) false
+      },
+      {
+        Id: "__Id__",
+        ARN: "__ARN__",
+        Status: "__Status__",
+        LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DomainName: "__DomainName__",
+        S3Origin: {
+          DomainName: "__DomainName__",
+          OriginAccessIdentity: "__OriginAccessIdentity__"
+        },
+        Aliases: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        TrustedSigners: {
+          Enabled: (boolean) false,
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        Comment: "__Comment__",
+        PriceClass: "__PriceClass__",
+        Enabled: (boolean) false
+      },
+      {
+        Id: "__Id__",
+        ARN: "__ARN__",
+        Status: "__Status__",
+        LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DomainName: "__DomainName__",
+        S3Origin: {
+          DomainName: "__DomainName__",
+          OriginAccessIdentity: "__OriginAccessIdentity__"
+        },
+        Aliases: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        TrustedSigners: {
+          Enabled: (boolean) false,
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        Comment: "__Comment__",
+        PriceClass: "__PriceClass__",
+        Enabled: (boolean) false
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

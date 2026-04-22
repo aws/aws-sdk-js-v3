@@ -1,0 +1,159 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "history": [
+    {
+      "executionId": "__executionId__",
+      "startTime": 946702799.999,
+      "endTime": 946702799.999,
+      "status": "__status__",
+      "error": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      },
+      "dataSourceErrorCode": "__dataSourceErrorCode__",
+      "metrics": {
+        "documentsAdded": "__documentsAdded__",
+        "documentsModified": "__documentsModified__",
+        "documentsDeleted": "__documentsDeleted__",
+        "documentsFailed": "__documentsFailed__",
+        "documentsScanned": "__documentsScanned__"
+      }
+    },
+    {
+      "executionId": "__executionId__",
+      "startTime": 946702799.999,
+      "endTime": 946702799.999,
+      "status": "__status__",
+      "error": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      },
+      "dataSourceErrorCode": "__dataSourceErrorCode__",
+      "metrics": {
+        "documentsAdded": "__documentsAdded__",
+        "documentsModified": "__documentsModified__",
+        "documentsDeleted": "__documentsDeleted__",
+        "documentsFailed": "__documentsFailed__",
+        "documentsScanned": "__documentsScanned__"
+      }
+    },
+    {
+      "executionId": "__executionId__",
+      "startTime": 946702799.999,
+      "endTime": 946702799.999,
+      "status": "__status__",
+      "error": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      },
+      "dataSourceErrorCode": "__dataSourceErrorCode__",
+      "metrics": {
+        "documentsAdded": "__documentsAdded__",
+        "documentsModified": "__documentsModified__",
+        "documentsDeleted": "__documentsDeleted__",
+        "documentsFailed": "__documentsFailed__",
+        "documentsScanned": "__documentsScanned__"
+      }
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  history: [
+    {
+      executionId: "__executionId__",
+      startTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      endTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__",
+      error: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      },
+      dataSourceErrorCode: "__dataSourceErrorCode__",
+      metrics: {
+        documentsAdded: "__documentsAdded__",
+        documentsModified: "__documentsModified__",
+        documentsDeleted: "__documentsDeleted__",
+        documentsFailed: "__documentsFailed__",
+        documentsScanned: "__documentsScanned__"
+      }
+    },
+    {
+      executionId: "__executionId__",
+      startTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      endTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__",
+      error: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      },
+      dataSourceErrorCode: "__dataSourceErrorCode__",
+      metrics: {
+        documentsAdded: "__documentsAdded__",
+        documentsModified: "__documentsModified__",
+        documentsDeleted: "__documentsDeleted__",
+        documentsFailed: "__documentsFailed__",
+        documentsScanned: "__documentsScanned__"
+      }
+    },
+    {
+      executionId: "__executionId__",
+      startTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      endTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__",
+      error: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      },
+      dataSourceErrorCode: "__dataSourceErrorCode__",
+      metrics: {
+        documentsAdded: "__documentsAdded__",
+        documentsModified: "__documentsModified__",
+        documentsDeleted: "__documentsDeleted__",
+        documentsFailed: "__documentsFailed__",
+        documentsScanned: "__documentsScanned__"
+      }
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

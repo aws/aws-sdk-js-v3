@@ -1,0 +1,33 @@
+POST https://cloudfront.amazonaws.com 
+/2020-05-31/origin-access-control
+
+content-type: application/xml
+content-length: 416
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: c7ee9858fa425c6d9e5db7344662cecd20de6f30f5a09d04c5b251f060a96401
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<OriginAccessControlConfig xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <Name>
+        __Name__
+    </Name>
+    <SigningProtocol>
+        __SigningProtocol__
+    </SigningProtocol>
+    <SigningBehavior>
+        __SigningBehavior__
+    </SigningBehavior>
+    <OriginAccessControlOriginType>
+        __OriginAccessControlOriginType__
+    </OriginAccessControlOriginType>
+    <Description>
+        __Description__
+    </Description>
+</OriginAccessControlConfig>

@@ -1,0 +1,120 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<VpcOrigin xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <Arn>
+        __Arn__
+    </Arn>
+    <Status>
+        __Status__
+    </Status>
+    <CreatedTime>
+        2000-01-01T04:59:59.999Z
+    </CreatedTime>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <VpcOriginEndpointConfig>
+        <Name>
+            __Name__
+        </Name>
+        <Arn>
+            __Arn__
+        </Arn>
+        <HTTPPort>
+            0
+        </HTTPPort>
+        <HTTPSPort>
+            0
+        </HTTPSPort>
+        <OriginProtocolPolicy>
+            __OriginProtocolPolicy__
+        </OriginProtocolPolicy>
+        <OriginSslProtocols>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <SslProtocol>
+                    __member__
+                </SslProtocol>
+                <SslProtocol>
+                    __member__
+                </SslProtocol>
+                <SslProtocol>
+                    __member__
+                </SslProtocol>
+            </Items>
+        </OriginSslProtocols>
+    </VpcOriginEndpointConfig>
+    <AccountId>
+        123456789012
+    </AccountId>
+</VpcOrigin>
+
+
+--- [output object] ---
+{
+  VpcOrigin: {
+    Id: "__Id__",
+    Arn: "__Arn__",
+    Status: "__Status__",
+    CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    VpcOriginEndpointConfig: {
+      Name: "__Name__",
+      Arn: "__Arn__",
+      HTTPPort: (number) 0,
+      HTTPSPort: (number) 0,
+      OriginProtocolPolicy: "__OriginProtocolPolicy__",
+      OriginSslProtocols: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    AccountId: "123456789012"
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,305 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "applicationId": "__applicationId__",
+  "indexId": "__indexId__",
+  "dataSourceId": "__dataSourceId__",
+  "dataSourceArn": "__dataSourceArn__",
+  "displayName": "__displayName__",
+  "type": "__type__",
+  "configuration": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "vpcConfiguration": {
+    "subnetIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "securityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "createdAt": 946702799.999,
+  "updatedAt": 946702799.999,
+  "description": "__description__",
+  "status": "__status__",
+  "syncSchedule": "__syncSchedule__",
+  "roleArn": "__roleArn__",
+  "error": {
+    "errorMessage": "__errorMessage__",
+    "errorCode": "__errorCode__"
+  },
+  "documentEnrichmentConfiguration": {
+    "inlineConfigurations": [
+      {
+        "condition": {
+          "key": "__key__",
+          "operator": "__operator__",
+          "value": {
+            "longValue": 0
+          }
+        },
+        "target": {
+          "key": "__key__",
+          "value": {
+            "longValue": 0
+          },
+          "attributeValueOperator": "__attributeValueOperator__"
+        },
+        "documentContentOperator": "__documentContentOperator__"
+      },
+      {
+        "condition": {
+          "key": "__key__",
+          "operator": "__operator__",
+          "value": {
+            "dateValue": 946702799.999
+          }
+        },
+        "target": {
+          "key": "__key__",
+          "value": {
+            "dateValue": 946702799.999
+          },
+          "attributeValueOperator": "__attributeValueOperator__"
+        },
+        "documentContentOperator": "__documentContentOperator__"
+      },
+      {
+        "condition": {
+          "key": "__key__",
+          "operator": "__operator__",
+          "value": {
+            "stringValue": "__stringValue__"
+          }
+        },
+        "target": {
+          "key": "__key__",
+          "value": {
+            "stringValue": "__stringValue__"
+          },
+          "attributeValueOperator": "__attributeValueOperator__"
+        },
+        "documentContentOperator": "__documentContentOperator__"
+      }
+    ],
+    "preExtractionHookConfiguration": {
+      "invocationCondition": {
+        "key": "__key__",
+        "operator": "__operator__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      },
+      "lambdaArn": "__lambdaArn__",
+      "s3BucketName": "__s3BucketName__",
+      "roleArn": "__roleArn__"
+    },
+    "postExtractionHookConfiguration": {
+      "invocationCondition": {
+        "key": "__key__",
+        "operator": "__operator__",
+        "value": {
+          "longValue": 0
+        }
+      },
+      "lambdaArn": "__lambdaArn__",
+      "s3BucketName": "__s3BucketName__",
+      "roleArn": "__roleArn__"
+    }
+  },
+  "mediaExtractionConfiguration": {
+    "imageExtractionConfiguration": {
+      "imageExtractionStatus": "__imageExtractionStatus__"
+    },
+    "audioExtractionConfiguration": {
+      "audioExtractionStatus": "__audioExtractionStatus__"
+    },
+    "videoExtractionConfiguration": {
+      "videoExtractionStatus": "__videoExtractionStatus__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  applicationId: "__applicationId__",
+  indexId: "__indexId__",
+  dataSourceId: "__dataSourceId__",
+  dataSourceArn: "__dataSourceArn__",
+  displayName: "__displayName__",
+  type: "__type__",
+  configuration: {
+    doc_note: "this is a document",
+    doc_date: (number) 946702799.999,
+    doc_blob: "AQAAAQ==",
+    doc_list: [
+      (number) -7,
+      (number) -3,
+      (number) 0,
+      (number) 1,
+      (number) 5
+    ]
+  },
+  vpcConfiguration: {
+    subnetIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    securityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  description: "__description__",
+  status: "__status__",
+  syncSchedule: "__syncSchedule__",
+  roleArn: "__roleArn__",
+  error: {
+    errorMessage: "__errorMessage__",
+    errorCode: "__errorCode__"
+  },
+  documentEnrichmentConfiguration: {
+    inlineConfigurations: [
+      {
+        condition: {
+          key: "__key__",
+          operator: "__operator__",
+          value: {
+            longValue: (number) 0
+          }
+        },
+        target: {
+          key: "__key__",
+          value: {
+            longValue: (number) 0
+          },
+          attributeValueOperator: "__attributeValueOperator__"
+        },
+        documentContentOperator: "__documentContentOperator__"
+      },
+      {
+        condition: {
+          key: "__key__",
+          operator: "__operator__",
+          value: {
+            dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        },
+        target: {
+          key: "__key__",
+          value: {
+            dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          attributeValueOperator: "__attributeValueOperator__"
+        },
+        documentContentOperator: "__documentContentOperator__"
+      },
+      {
+        condition: {
+          key: "__key__",
+          operator: "__operator__",
+          value: {
+            stringValue: "__stringValue__"
+          }
+        },
+        target: {
+          key: "__key__",
+          value: {
+            stringValue: "__stringValue__"
+          },
+          attributeValueOperator: "__attributeValueOperator__"
+        },
+        documentContentOperator: "__documentContentOperator__"
+      }
+    ],
+    preExtractionHookConfiguration: {
+      invocationCondition: {
+        key: "__key__",
+        operator: "__operator__",
+        value: {
+          dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      },
+      lambdaArn: "__lambdaArn__",
+      s3BucketName: "__s3BucketName__",
+      roleArn: "__roleArn__"
+    },
+    postExtractionHookConfiguration: {
+      invocationCondition: {
+        key: "__key__",
+        operator: "__operator__",
+        value: {
+          longValue: (number) 0
+        }
+      },
+      lambdaArn: "__lambdaArn__",
+      s3BucketName: "__s3BucketName__",
+      roleArn: "__roleArn__"
+    }
+  },
+  mediaExtractionConfiguration: {
+    imageExtractionConfiguration: {
+      imageExtractionStatus: "__imageExtractionStatus__"
+    },
+    audioExtractionConfiguration: {
+      audioExtractionStatus: "__audioExtractionStatus__"
+    },
+    videoExtractionConfiguration: {
+      videoExtractionStatus: "__videoExtractionStatus__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

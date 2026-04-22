@@ -1,0 +1,194 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "jobId": "__jobId__",
+  "jobArn": "__jobArn__",
+  "jobStatus": "__jobStatus__",
+  "patientContext": {
+    "patientId": "__patientId__",
+    "dateOfBirth": "__dateOfBirth__",
+    "pronouns": "__pronouns__"
+  },
+  "insightsContext": {
+    "insightsType": "__insightsType__"
+  },
+  "encounterContext": {
+    "encounterReason": "__encounterReason__"
+  },
+  "userContext": {
+    "role": "__role__",
+    "userId": "__userId__",
+    "specialty": "__specialty__"
+  },
+  "inputDataConfig": {},
+  "outputDataConfig": {
+    "s3OutputPath": "__s3OutputPath__"
+  },
+  "creationTime": "2000-01-01T04:59:59.999Z",
+  "updatedTime": "2000-01-01T04:59:59.999Z",
+  "insightsOutput": {
+    "uri": "__uri__"
+  },
+  "statusDetails": "__statusDetails__"
+}
+
+
+--- [output object] ---
+{
+  jobId: "__jobId__",
+  jobArn: "__jobArn__",
+  jobStatus: "__jobStatus__",
+  patientContext: {
+    patientId: "__patientId__",
+    dateOfBirth: "__dateOfBirth__",
+    pronouns: "__pronouns__"
+  },
+  insightsContext: {
+    insightsType: "__insightsType__"
+  },
+  encounterContext: {
+    encounterReason: "__encounterReason__"
+  },
+  userContext: {
+    role: "__role__",
+    userId: "__userId__",
+    specialty: "__specialty__"
+  },
+  inputDataConfig: {},
+  outputDataConfig: {
+    s3OutputPath: "__s3OutputPath__"
+  },
+  creationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  insightsOutput: {
+    uri: "__uri__"
+  },
+  statusDetails: "__statusDetails__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "jobId": "__jobId__",
+  "jobArn": "__jobArn__",
+  "jobStatus": "__jobStatus__",
+  "patientContext": {
+    "patientId": "__patientId__",
+    "dateOfBirth": "__dateOfBirth__",
+    "pronouns": "__pronouns__"
+  },
+  "insightsContext": {
+    "insightsType": "__insightsType__"
+  },
+  "encounterContext": {
+    "encounterReason": "__encounterReason__"
+  },
+  "userContext": {
+    "role": "__role__",
+    "userId": "__userId__",
+    "specialty": "__specialty__"
+  },
+  "inputDataConfig": {
+    "fhirServer": {
+      "fhirEndpoint": "__fhirEndpoint__",
+      "oauthToken": "__oauthToken__"
+    },
+    "s3Sources": [
+      {
+        "uri": "__uri__"
+      },
+      {
+        "uri": "__uri__"
+      },
+      {
+        "uri": "__uri__"
+      }
+    ]
+  },
+  "outputDataConfig": {
+    "s3OutputPath": "__s3OutputPath__"
+  },
+  "creationTime": "2000-01-01T04:59:59.999Z",
+  "updatedTime": "2000-01-01T04:59:59.999Z",
+  "insightsOutput": {
+    "uri": "__uri__"
+  },
+  "statusDetails": "__statusDetails__"
+}
+
+
+--- [output object] ---
+{
+  jobId: "__jobId__",
+  jobArn: "__jobArn__",
+  jobStatus: "__jobStatus__",
+  patientContext: {
+    patientId: "__patientId__",
+    dateOfBirth: "__dateOfBirth__",
+    pronouns: "__pronouns__"
+  },
+  insightsContext: {
+    insightsType: "__insightsType__"
+  },
+  encounterContext: {
+    encounterReason: "__encounterReason__"
+  },
+  userContext: {
+    role: "__role__",
+    userId: "__userId__",
+    specialty: "__specialty__"
+  },
+  inputDataConfig: {
+    fhirServer: {
+      fhirEndpoint: "__fhirEndpoint__",
+      oauthToken: "__oauthToken__"
+    },
+    s3Sources: [
+      {
+        uri: "__uri__"
+      },
+      {
+        uri: "__uri__"
+      },
+      {
+        uri: "__uri__"
+      }
+    ]
+  },
+  outputDataConfig: {
+    s3OutputPath: "__s3OutputPath__"
+  },
+  creationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  insightsOutput: {
+    uri: "__uri__"
+  },
+  statusDetails: "__statusDetails__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

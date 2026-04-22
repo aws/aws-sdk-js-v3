@@ -1,0 +1,197 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListConnectionGroupsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListConnectionGroupsResult xmlns="https://placeholder.amazonaws.com">
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+    <ConnectionGroups>
+        <ConnectionGroupSummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <RoutingEndpoint>
+                __RoutingEndpoint__
+            </RoutingEndpoint>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <AnycastIpListId>
+                __AnycastIpListId__
+            </AnycastIpListId>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+            <IsDefault>
+                false
+            </IsDefault>
+        </ConnectionGroupSummary>
+        <ConnectionGroupSummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <RoutingEndpoint>
+                __RoutingEndpoint__
+            </RoutingEndpoint>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <AnycastIpListId>
+                __AnycastIpListId__
+            </AnycastIpListId>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+            <IsDefault>
+                false
+            </IsDefault>
+        </ConnectionGroupSummary>
+        <ConnectionGroupSummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <RoutingEndpoint>
+                __RoutingEndpoint__
+            </RoutingEndpoint>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <AnycastIpListId>
+                __AnycastIpListId__
+            </AnycastIpListId>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+            <IsDefault>
+                false
+            </IsDefault>
+        </ConnectionGroupSummary>
+    </ConnectionGroups>
+</ListConnectionGroupsResult>
+
+
+--- [output object] ---
+{
+  NextMarker: "__NextMarker__",
+  ConnectionGroups: [
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Arn: "__Arn__",
+      RoutingEndpoint: "__RoutingEndpoint__",
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      AnycastIpListId: "__AnycastIpListId__",
+      Enabled: (boolean) false,
+      Status: "__Status__",
+      IsDefault: (boolean) false
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Arn: "__Arn__",
+      RoutingEndpoint: "__RoutingEndpoint__",
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      AnycastIpListId: "__AnycastIpListId__",
+      Enabled: (boolean) false,
+      Status: "__Status__",
+      IsDefault: (boolean) false
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Arn: "__Arn__",
+      RoutingEndpoint: "__RoutingEndpoint__",
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      AnycastIpListId: "__AnycastIpListId__",
+      Enabled: (boolean) false,
+      Status: "__Status__",
+      IsDefault: (boolean) false
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

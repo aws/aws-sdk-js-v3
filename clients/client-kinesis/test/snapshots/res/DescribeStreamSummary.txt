@@ -1,0 +1,176 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamDescriptionSummary": {
+    "StreamName": "__StreamName__",
+    "StreamARN": "__StreamARN__",
+    "StreamStatus": "__StreamStatus__",
+    "RetentionPeriodHours": 0,
+    "StreamCreationTimestamp": 946702799.999,
+    "EnhancedMonitoring": [
+      {},
+      {},
+      {}
+    ],
+    "OpenShardCount": 0,
+    "StreamId": "__StreamId__",
+    "StreamModeDetails": {
+      "StreamMode": "__StreamMode__"
+    },
+    "EncryptionType": "__EncryptionType__",
+    "KeyId": "__KeyId__",
+    "ConsumerCount": 0,
+    "WarmThroughput": {},
+    "MaxRecordSizeInKiB": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  StreamDescriptionSummary: {
+    StreamName: "__StreamName__",
+    StreamARN: "__StreamARN__",
+    StreamStatus: "__StreamStatus__",
+    RetentionPeriodHours: (number) 0,
+    StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EnhancedMonitoring: [
+      {},
+      {},
+      {}
+    ],
+    OpenShardCount: (number) 0,
+    StreamId: "__StreamId__",
+    StreamModeDetails: {
+      StreamMode: "__StreamMode__"
+    },
+    EncryptionType: "__EncryptionType__",
+    KeyId: "__KeyId__",
+    ConsumerCount: (number) 0,
+    WarmThroughput: {},
+    MaxRecordSizeInKiB: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamDescriptionSummary": {
+    "StreamName": "__StreamName__",
+    "StreamARN": "__StreamARN__",
+    "StreamStatus": "__StreamStatus__",
+    "RetentionPeriodHours": 0,
+    "StreamCreationTimestamp": 946702799.999,
+    "EnhancedMonitoring": [
+      {
+        "ShardLevelMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "ShardLevelMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "ShardLevelMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ],
+    "OpenShardCount": 0,
+    "StreamId": "__StreamId__",
+    "StreamModeDetails": {
+      "StreamMode": "__StreamMode__"
+    },
+    "EncryptionType": "__EncryptionType__",
+    "KeyId": "__KeyId__",
+    "ConsumerCount": 0,
+    "WarmThroughput": {
+      "TargetMiBps": 0,
+      "CurrentMiBps": 0
+    },
+    "MaxRecordSizeInKiB": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  StreamDescriptionSummary: {
+    StreamName: "__StreamName__",
+    StreamARN: "__StreamARN__",
+    StreamStatus: "__StreamStatus__",
+    RetentionPeriodHours: (number) 0,
+    StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EnhancedMonitoring: [
+      {
+        ShardLevelMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        ShardLevelMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        ShardLevelMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ],
+    OpenShardCount: (number) 0,
+    StreamId: "__StreamId__",
+    StreamModeDetails: {
+      StreamMode: "__StreamMode__"
+    },
+    EncryptionType: "__EncryptionType__",
+    KeyId: "__KeyId__",
+    ConsumerCount: (number) 0,
+    WarmThroughput: {
+      TargetMiBps: (number) 0,
+      CurrentMiBps: (number) 0
+    },
+    MaxRecordSizeInKiB: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

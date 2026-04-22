@@ -1,0 +1,136 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  responseStream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amzn-medscribe-session-id: __sessionId__
+x-amzn-medscribe-domain-id: __domainId__
+x-amzn-medscribe-subscription-id: __subscriptionId__
+x-amzn-request-id: __requestId__
+x-amzn-medscribe-language-code: __languageCode__
+x-amzn-medscribe-sample-rate: 0
+x-amzn-medscribe-media-encoding: __mediaEncoding__
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 262 [header-size] 85 [prelude-crc] 977230871
+:event-type: transcriptEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "transcriptSegment": {
+    "segmentId": "__segmentId__",
+    "audioBeginOffset": 0,
+    "audioEndOffset": 0,
+    "isPartial": false,
+    "channelId": "__channelId__",
+    "content": "__content__"
+  }
+}
+
+[message-crc] 3437479796
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 135 [header-size] 94 [prelude-crc] 3929526040
+:event-type: internalFailureException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3630795945
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: validationException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1820325195
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  sessionId: "__sessionId__",
+  domainId: "__domainId__",
+  subscriptionId: "__subscriptionId__",
+  requestId: "__requestId__",
+  languageCode: "__languageCode__",
+  mediaSampleRateHertz: (number) 0,
+  mediaEncoding: "__mediaEncoding__",
+  responseStream: async_it[
+    {
+      transcriptEvent: {
+        transcriptSegment: {
+          segmentId: "__segmentId__",
+          audioBeginOffset: (number) 0,
+          audioEndOffset: (number) 0,
+          isPartial: (boolean) false,
+          channelId: "__channelId__",
+          content: "__content__"
+        }
+      }
+    },
+    {
+      internalFailureException: {
+        message: "__message__"
+      }
+    },
+    {
+      validationException: {
+        message: "__message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

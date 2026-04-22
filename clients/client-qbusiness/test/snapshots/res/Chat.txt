@@ -1,0 +1,1254 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  outputStream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 290 [header-size] 79 [prelude-crc] 4078709929
+:event-type: textEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "systemMessageType": "__systemMessageType__",
+  "conversationId": "__conversationId__",
+  "userMessageId": "__userMessageId__",
+  "systemMessageId": "__systemMessageId__",
+  "systemMessage": "__systemMessage__"
+}
+
+[message-crc] 4087543361
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 3599 [header-size] 83 [prelude-crc] 790243718
+:event-type: metadataEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "conversationId": "__conversationId__",
+  "userMessageId": "__userMessageId__",
+  "systemMessageId": "__systemMessageId__",
+  "sourceAttributions": [
+    {
+      "title": "__title__",
+      "snippet": "__snippet__",
+      "url": "__url__",
+      "citationNumber": 0,
+      "updatedAt": 946702799.999,
+      "textMessageSegments": [
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "videoSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__",
+              "startTimeMilliseconds": 0,
+              "endTimeMilliseconds": 0,
+              "videoExtractionType": "__videoExtractionType__"
+            }
+          }
+        },
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "imageSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__"
+            }
+          }
+        },
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "audioSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__",
+              "startTimeMilliseconds": 0,
+              "endTimeMilliseconds": 0,
+              "audioExtractionType": "__audioExtractionType__"
+            }
+          }
+        }
+      ],
+      "documentId": "__documentId__",
+      "indexId": "__indexId__",
+      "datasourceId": "__datasourceId__"
+    },
+    {
+      "title": "__title__",
+      "snippet": "__snippet__",
+      "url": "__url__",
+      "citationNumber": 0,
+      "updatedAt": 946702799.999,
+      "textMessageSegments": [
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "imageSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__"
+            }
+          }
+        },
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "audioSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__",
+              "startTimeMilliseconds": 0,
+              "endTimeMilliseconds": 0,
+              "audioExtractionType": "__audioExtractionType__"
+            }
+          }
+        },
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "videoSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__",
+              "startTimeMilliseconds": 0,
+              "endTimeMilliseconds": 0,
+              "videoExtractionType": "__videoExtractionType__"
+            }
+          }
+        }
+      ],
+      "documentId": "__documentId__",
+      "indexId": "__indexId__",
+      "datasourceId": "__datasourceId__"
+    },
+    {
+      "title": "__title__",
+      "snippet": "__snippet__",
+      "url": "__url__",
+      "citationNumber": 0,
+      "updatedAt": 946702799.999,
+      "textMessageSegments": [
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "audioSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__",
+              "startTimeMilliseconds": 0,
+              "endTimeMilliseconds": 0,
+              "audioExtractionType": "__audioExtractionType__"
+            }
+          }
+        },
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "videoSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__",
+              "startTimeMilliseconds": 0,
+              "endTimeMilliseconds": 0,
+              "videoExtractionType": "__videoExtractionType__"
+            }
+          }
+        },
+        {
+          "beginOffset": 0,
+          "endOffset": 0,
+          "snippetExcerpt": {
+            "text": "__text__"
+          },
+          "mediaId": "__mediaId__",
+          "mediaMimeType": "__mediaMimeType__",
+          "sourceDetails": {
+            "imageSourceDetails": {
+              "mediaId": "__mediaId__",
+              "mediaMimeType": "__mediaMimeType__"
+            }
+          }
+        }
+      ],
+      "documentId": "__documentId__",
+      "indexId": "__indexId__",
+      "datasourceId": "__datasourceId__"
+    },
+    null
+  ],
+  "finalTextMessage": "__finalTextMessage__"
+}
+
+[message-crc] 3425420813
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 3784 [header-size] 87 [prelude-crc] 1933760852
+:event-type: actionReviewEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "conversationId": "__conversationId__",
+  "userMessageId": "__userMessageId__",
+  "systemMessageId": "__systemMessageId__",
+  "pluginId": "__pluginId__",
+  "pluginType": "__pluginType__",
+  "payload": {
+    "key1": {
+      "displayName": "__displayName__",
+      "displayOrder": 0,
+      "displayDescription": "__displayDescription__",
+      "type": "__type__",
+      "value": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      },
+      "allowedValues": [
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "allowedFormat": "__allowedFormat__",
+      "arrayItemJsonSchema": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      },
+      "required": false
+    },
+    "key2": {
+      "displayName": "__displayName__",
+      "displayOrder": 0,
+      "displayDescription": "__displayDescription__",
+      "type": "__type__",
+      "value": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      },
+      "allowedValues": [
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "allowedFormat": "__allowedFormat__",
+      "arrayItemJsonSchema": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      },
+      "required": false
+    },
+    "key3": {
+      "displayName": "__displayName__",
+      "displayOrder": 0,
+      "displayDescription": "__displayDescription__",
+      "type": "__type__",
+      "value": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      },
+      "allowedValues": [
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        },
+        {
+          "value": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          },
+          "displayValue": {
+            "doc_note": "this is a document",
+            "doc_date": 946702799.999,
+            "doc_blob": "AQAAAQ==",
+            "doc_list": [
+              -7,
+              -3,
+              0,
+              1,
+              5
+            ]
+          }
+        }
+      ],
+      "allowedFormat": "__allowedFormat__",
+      "arrayItemJsonSchema": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      },
+      "required": false
+    }
+  },
+  "payloadFieldNameSeparator": "__payloadFieldNameSeparator__"
+}
+
+[message-crc] 3708806190
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 421 [header-size] 91 [prelude-crc] 3925906518
+:event-type: failedAttachmentEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "conversationId": "__conversationId__",
+  "userMessageId": "__userMessageId__",
+  "systemMessageId": "__systemMessageId__",
+  "attachment": {
+    "name": "__name__",
+    "status": "__status__",
+    "error": {
+      "errorMessage": "__errorMessage__",
+      "errorCode": "__errorCode__"
+    },
+    "attachmentId": "__attachmentId__",
+    "conversationId": "__conversationId__"
+  }
+}
+
+[message-crc] 1710695552
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 154 [header-size] 95 [prelude-crc] 88124605
+:event-type: authChallengeRequestEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "authorizationUrl": "__authorizationUrl__"
+}
+
+[message-crc] 3613110524
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  outputStream: async_it[
+    {
+      textEvent: {
+        systemMessageType: "__systemMessageType__",
+        conversationId: "__conversationId__",
+        userMessageId: "__userMessageId__",
+        systemMessageId: "__systemMessageId__",
+        systemMessage: "__systemMessage__"
+      }
+    },
+    {
+      metadataEvent: {
+        conversationId: "__conversationId__",
+        userMessageId: "__userMessageId__",
+        systemMessageId: "__systemMessageId__",
+        sourceAttributions: [
+          {
+            title: "__title__",
+            snippet: "__snippet__",
+            url: "__url__",
+            citationNumber: (number) 0,
+            updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            textMessageSegments: [
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  videoSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__",
+                    startTimeMilliseconds: (number) 0,
+                    endTimeMilliseconds: (number) 0,
+                    videoExtractionType: "__videoExtractionType__"
+                  }
+                }
+              },
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  imageSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__"
+                  }
+                }
+              },
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  audioSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__",
+                    startTimeMilliseconds: (number) 0,
+                    endTimeMilliseconds: (number) 0,
+                    audioExtractionType: "__audioExtractionType__"
+                  }
+                }
+              }
+            ],
+            documentId: "__documentId__",
+            indexId: "__indexId__",
+            datasourceId: "__datasourceId__"
+          },
+          {
+            title: "__title__",
+            snippet: "__snippet__",
+            url: "__url__",
+            citationNumber: (number) 0,
+            updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            textMessageSegments: [
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  imageSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__"
+                  }
+                }
+              },
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  audioSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__",
+                    startTimeMilliseconds: (number) 0,
+                    endTimeMilliseconds: (number) 0,
+                    audioExtractionType: "__audioExtractionType__"
+                  }
+                }
+              },
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  videoSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__",
+                    startTimeMilliseconds: (number) 0,
+                    endTimeMilliseconds: (number) 0,
+                    videoExtractionType: "__videoExtractionType__"
+                  }
+                }
+              }
+            ],
+            documentId: "__documentId__",
+            indexId: "__indexId__",
+            datasourceId: "__datasourceId__"
+          },
+          {
+            title: "__title__",
+            snippet: "__snippet__",
+            url: "__url__",
+            citationNumber: (number) 0,
+            updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            textMessageSegments: [
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  audioSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__",
+                    startTimeMilliseconds: (number) 0,
+                    endTimeMilliseconds: (number) 0,
+                    audioExtractionType: "__audioExtractionType__"
+                  }
+                }
+              },
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  videoSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__",
+                    startTimeMilliseconds: (number) 0,
+                    endTimeMilliseconds: (number) 0,
+                    videoExtractionType: "__videoExtractionType__"
+                  }
+                }
+              },
+              {
+                beginOffset: (number) 0,
+                endOffset: (number) 0,
+                snippetExcerpt: {
+                  text: "__text__"
+                },
+                mediaId: "__mediaId__",
+                mediaMimeType: "__mediaMimeType__",
+                sourceDetails: {
+                  imageSourceDetails: {
+                    mediaId: "__mediaId__",
+                    mediaMimeType: "__mediaMimeType__"
+                  }
+                }
+              }
+            ],
+            documentId: "__documentId__",
+            indexId: "__indexId__",
+            datasourceId: "__datasourceId__"
+          },
+          (null)
+        ],
+        finalTextMessage: "__finalTextMessage__"
+      }
+    },
+    {
+      actionReviewEvent: {
+        conversationId: "__conversationId__",
+        userMessageId: "__userMessageId__",
+        systemMessageId: "__systemMessageId__",
+        pluginId: "__pluginId__",
+        pluginType: "__pluginType__",
+        payload: {
+          key1: {
+            displayName: "__displayName__",
+            displayOrder: (number) 0,
+            displayDescription: "__displayDescription__",
+            type: "__type__",
+            value: {
+              doc_note: "this is a document",
+              doc_date: (number) 946702799.999,
+              doc_blob: "AQAAAQ==",
+              doc_list: [
+                (number) -7,
+                (number) -3,
+                (number) 0,
+                (number) 1,
+                (number) 5
+              ]
+            },
+            allowedValues: [
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              },
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              },
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              }
+            ],
+            allowedFormat: "__allowedFormat__",
+            arrayItemJsonSchema: {
+              doc_note: "this is a document",
+              doc_date: (number) 946702799.999,
+              doc_blob: "AQAAAQ==",
+              doc_list: [
+                (number) -7,
+                (number) -3,
+                (number) 0,
+                (number) 1,
+                (number) 5
+              ]
+            },
+            required: (boolean) false
+          },
+          key2: {
+            displayName: "__displayName__",
+            displayOrder: (number) 0,
+            displayDescription: "__displayDescription__",
+            type: "__type__",
+            value: {
+              doc_note: "this is a document",
+              doc_date: (number) 946702799.999,
+              doc_blob: "AQAAAQ==",
+              doc_list: [
+                (number) -7,
+                (number) -3,
+                (number) 0,
+                (number) 1,
+                (number) 5
+              ]
+            },
+            allowedValues: [
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              },
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              },
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              }
+            ],
+            allowedFormat: "__allowedFormat__",
+            arrayItemJsonSchema: {
+              doc_note: "this is a document",
+              doc_date: (number) 946702799.999,
+              doc_blob: "AQAAAQ==",
+              doc_list: [
+                (number) -7,
+                (number) -3,
+                (number) 0,
+                (number) 1,
+                (number) 5
+              ]
+            },
+            required: (boolean) false
+          },
+          key3: {
+            displayName: "__displayName__",
+            displayOrder: (number) 0,
+            displayDescription: "__displayDescription__",
+            type: "__type__",
+            value: {
+              doc_note: "this is a document",
+              doc_date: (number) 946702799.999,
+              doc_blob: "AQAAAQ==",
+              doc_list: [
+                (number) -7,
+                (number) -3,
+                (number) 0,
+                (number) 1,
+                (number) 5
+              ]
+            },
+            allowedValues: [
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              },
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              },
+              {
+                value: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                },
+                displayValue: {
+                  doc_note: "this is a document",
+                  doc_date: (number) 946702799.999,
+                  doc_blob: "AQAAAQ==",
+                  doc_list: [
+                    (number) -7,
+                    (number) -3,
+                    (number) 0,
+                    (number) 1,
+                    (number) 5
+                  ]
+                }
+              }
+            ],
+            allowedFormat: "__allowedFormat__",
+            arrayItemJsonSchema: {
+              doc_note: "this is a document",
+              doc_date: (number) 946702799.999,
+              doc_blob: "AQAAAQ==",
+              doc_list: [
+                (number) -7,
+                (number) -3,
+                (number) 0,
+                (number) 1,
+                (number) 5
+              ]
+            },
+            required: (boolean) false
+          }
+        },
+        payloadFieldNameSeparator: "__payloadFieldNameSeparator__"
+      }
+    },
+    {
+      failedAttachmentEvent: {
+        conversationId: "__conversationId__",
+        userMessageId: "__userMessageId__",
+        systemMessageId: "__systemMessageId__",
+        attachment: {
+          name: "__name__",
+          status: "__status__",
+          error: {
+            errorMessage: "__errorMessage__",
+            errorCode: "__errorCode__"
+          },
+          attachmentId: "__attachmentId__",
+          conversationId: "__conversationId__"
+        }
+      }
+    },
+    {
+      authChallengeRequestEvent: {
+        authorizationUrl: "__authorizationUrl__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

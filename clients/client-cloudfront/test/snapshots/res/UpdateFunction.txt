@@ -1,0 +1,106 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETtag: __ETag__
+
+[Uint8Array (xml)]
+<FunctionSummary xmlns="https://placeholder.amazonaws.com">
+    <Name>
+        __Name__
+    </Name>
+    <FunctionConfig>
+        <Comment>
+            __Comment__
+        </Comment>
+        <Runtime>
+            __Runtime__
+        </Runtime>
+        <KeyValueStoreAssociations>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <KeyValueStoreAssociation/>
+<KeyValueStoreAssociation/>
+<KeyValueStoreAssociation/>
+            </Items>
+        </KeyValueStoreAssociations>
+    </FunctionConfig>
+    <FunctionMetadata>
+        <FunctionARN>
+            __FunctionARN__
+        </FunctionARN>
+        <LastModifiedTime>
+            2000-01-01T04:59:59.999Z
+        </LastModifiedTime>
+        <Stage>
+            __Stage__
+        </Stage>
+        <CreatedTime>
+            2000-01-01T04:59:59.999Z
+        </CreatedTime>
+    </FunctionMetadata>
+    <Status>
+        __Status__
+    </Status>
+</FunctionSummary>
+
+
+--- [output object] ---
+{
+  FunctionSummary: {
+    Name: "__Name__",
+    FunctionConfig: {
+      Comment: "__Comment__",
+      Runtime: "__Runtime__",
+      KeyValueStoreAssociations: {
+        Quantity: (number) 0,
+        Items: [
+          {},
+          {},
+          {}
+        ]
+      }
+    },
+    FunctionMetadata: {
+      FunctionARN: "__FunctionARN__",
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Stage: "__Stage__",
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    Status: "__Status__"
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

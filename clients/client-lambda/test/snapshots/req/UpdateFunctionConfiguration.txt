@@ -1,0 +1,106 @@
+PUT https://lambda.us-east-1.amazonaws.com 
+/2015-03-31/functions/__FunctionName__/configuration
+
+content-type: application/json
+content-length: 1416
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e
+host: lambda.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 70ffa56635810eb4fb418b3b954e7c15c09a59873a49b6836229ceb2d2b34a16
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "Role": "__Role__",
+  "Handler": "__Handler__",
+  "Description": "__Description__",
+  "Timeout": 0,
+  "MemorySize": 0,
+  "VpcConfig": {
+    "SubnetIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Ipv6AllowedForDualStack": false
+  },
+  "Environment": {
+    "Variables": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
+    }
+  },
+  "Runtime": "__Runtime__",
+  "DeadLetterConfig": {
+    "TargetArn": "__TargetArn__"
+  },
+  "KMSKeyArn": "__KMSKeyArn__",
+  "TracingConfig": {
+    "Mode": "__Mode__"
+  },
+  "RevisionId": "__RevisionId__",
+  "Layers": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "FileSystemConfigs": [
+    {
+      "Arn": "__Arn__",
+      "LocalMountPath": "__LocalMountPath__"
+    },
+    {
+      "Arn": "__Arn__",
+      "LocalMountPath": "__LocalMountPath__"
+    },
+    {
+      "Arn": "__Arn__",
+      "LocalMountPath": "__LocalMountPath__"
+    }
+  ],
+  "ImageConfig": {
+    "EntryPoint": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Command": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "WorkingDirectory": "__WorkingDirectory__"
+  },
+  "EphemeralStorage": {
+    "Size": 0
+  },
+  "SnapStart": {
+    "ApplyOn": "__ApplyOn__"
+  },
+  "LoggingConfig": {
+    "LogFormat": "__LogFormat__",
+    "ApplicationLogLevel": "__ApplicationLogLevel__",
+    "SystemLogLevel": "__SystemLogLevel__",
+    "LogGroup": "__LogGroup__"
+  },
+  "CapacityProviderConfig": {
+    "LambdaManagedInstancesCapacityProviderConfig": {
+      "CapacityProviderArn": "__CapacityProviderArn__",
+      "PerExecutionEnvironmentMaxConcurrency": 0,
+      "ExecutionEnvironmentMemoryGiBPerVCpu": 0
+    }
+  },
+  "DurableConfig": {
+    "RetentionPeriodInDays": 0,
+    "ExecutionTimeout": 0
+  }
+}

@@ -1,0 +1,1630 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Events": [
+    {},
+    {},
+    {}
+  ],
+  "NextMarker": "__NextMarker__"
+}
+
+
+--- [output object] ---
+{
+  Events: [
+    {},
+    {},
+    {}
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Events": [
+    {
+      "EventType": "__EventType__",
+      "SubType": "__SubType__",
+      "EventId": 0,
+      "Id": "__Id__",
+      "Name": "__Name__",
+      "EventTimestamp": 946702799.999,
+      "ParentId": "__ParentId__",
+      "ExecutionStartedDetails": {
+        "Input": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "ExecutionTimeout": 0
+      },
+      "ExecutionSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ExecutionFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ExecutionTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ExecutionStoppedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ContextStartedDetails": {},
+      "ContextSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ContextFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "WaitStartedDetails": {
+        "Duration": 0,
+        "ScheduledEndTimestamp": 946702799.999
+      },
+      "WaitSucceededDetails": {
+        "Duration": 0
+      },
+      "WaitCancelledDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "StepStartedDetails": {},
+      "StepSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "RetryDetails": {
+          "CurrentAttempt": 0,
+          "NextAttemptDelaySeconds": 0
+        }
+      },
+      "StepFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        },
+        "RetryDetails": {
+          "CurrentAttempt": 0,
+          "NextAttemptDelaySeconds": 0
+        }
+      },
+      "ChainedInvokeStartedDetails": {
+        "FunctionName": "__FunctionName__",
+        "TenantId": "__TenantId__",
+        "Input": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "ExecutedVersion": "__ExecutedVersion__",
+        "DurableExecutionArn": "__DurableExecutionArn__"
+      },
+      "ChainedInvokeSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeStoppedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "CallbackStartedDetails": {
+        "CallbackId": "__CallbackId__",
+        "HeartbeatTimeout": 0,
+        "Timeout": 0
+      },
+      "CallbackSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "CallbackFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "CallbackTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "InvocationCompletedDetails": {
+        "StartTimestamp": 946702799.999,
+        "EndTimestamp": 946702799.999,
+        "RequestId": "__RequestId__",
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      }
+    },
+    {
+      "EventType": "__EventType__",
+      "SubType": "__SubType__",
+      "EventId": 0,
+      "Id": "__Id__",
+      "Name": "__Name__",
+      "EventTimestamp": 946702799.999,
+      "ParentId": "__ParentId__",
+      "ExecutionStartedDetails": {
+        "Input": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "ExecutionTimeout": 0
+      },
+      "ExecutionSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ExecutionFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ExecutionTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ExecutionStoppedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ContextStartedDetails": {},
+      "ContextSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ContextFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "WaitStartedDetails": {
+        "Duration": 0,
+        "ScheduledEndTimestamp": 946702799.999
+      },
+      "WaitSucceededDetails": {
+        "Duration": 0
+      },
+      "WaitCancelledDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "StepStartedDetails": {},
+      "StepSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "RetryDetails": {
+          "CurrentAttempt": 0,
+          "NextAttemptDelaySeconds": 0
+        }
+      },
+      "StepFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        },
+        "RetryDetails": {
+          "CurrentAttempt": 0,
+          "NextAttemptDelaySeconds": 0
+        }
+      },
+      "ChainedInvokeStartedDetails": {
+        "FunctionName": "__FunctionName__",
+        "TenantId": "__TenantId__",
+        "Input": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "ExecutedVersion": "__ExecutedVersion__",
+        "DurableExecutionArn": "__DurableExecutionArn__"
+      },
+      "ChainedInvokeSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeStoppedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "CallbackStartedDetails": {
+        "CallbackId": "__CallbackId__",
+        "HeartbeatTimeout": 0,
+        "Timeout": 0
+      },
+      "CallbackSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "CallbackFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "CallbackTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "InvocationCompletedDetails": {
+        "StartTimestamp": 946702799.999,
+        "EndTimestamp": 946702799.999,
+        "RequestId": "__RequestId__",
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      }
+    },
+    {
+      "EventType": "__EventType__",
+      "SubType": "__SubType__",
+      "EventId": 0,
+      "Id": "__Id__",
+      "Name": "__Name__",
+      "EventTimestamp": 946702799.999,
+      "ParentId": "__ParentId__",
+      "ExecutionStartedDetails": {
+        "Input": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "ExecutionTimeout": 0
+      },
+      "ExecutionSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ExecutionFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ExecutionTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ExecutionStoppedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ContextStartedDetails": {},
+      "ContextSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ContextFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "WaitStartedDetails": {
+        "Duration": 0,
+        "ScheduledEndTimestamp": 946702799.999
+      },
+      "WaitSucceededDetails": {
+        "Duration": 0
+      },
+      "WaitCancelledDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "StepStartedDetails": {},
+      "StepSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "RetryDetails": {
+          "CurrentAttempt": 0,
+          "NextAttemptDelaySeconds": 0
+        }
+      },
+      "StepFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        },
+        "RetryDetails": {
+          "CurrentAttempt": 0,
+          "NextAttemptDelaySeconds": 0
+        }
+      },
+      "ChainedInvokeStartedDetails": {
+        "FunctionName": "__FunctionName__",
+        "TenantId": "__TenantId__",
+        "Input": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        },
+        "ExecutedVersion": "__ExecutedVersion__",
+        "DurableExecutionArn": "__DurableExecutionArn__"
+      },
+      "ChainedInvokeSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "ChainedInvokeStoppedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "CallbackStartedDetails": {
+        "CallbackId": "__CallbackId__",
+        "HeartbeatTimeout": 0,
+        "Timeout": 0
+      },
+      "CallbackSucceededDetails": {
+        "Result": {
+          "Payload": "__Payload__",
+          "Truncated": false
+        }
+      },
+      "CallbackFailedDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "CallbackTimedOutDetails": {
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      },
+      "InvocationCompletedDetails": {
+        "StartTimestamp": 946702799.999,
+        "EndTimestamp": 946702799.999,
+        "RequestId": "__RequestId__",
+        "Error": {
+          "Payload": {
+            "ErrorMessage": "__ErrorMessage__",
+            "ErrorType": "__ErrorType__",
+            "ErrorData": "__ErrorData__",
+            "StackTrace": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Truncated": false
+        }
+      }
+    }
+  ],
+  "NextMarker": "__NextMarker__"
+}
+
+
+--- [output object] ---
+{
+  Events: [
+    {
+      EventType: "__EventType__",
+      SubType: "__SubType__",
+      EventId: (number) 0,
+      Id: "__Id__",
+      Name: "__Name__",
+      EventTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ParentId: "__ParentId__",
+      ExecutionStartedDetails: {
+        Input: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        ExecutionTimeout: (number) 0
+      },
+      ExecutionSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionStoppedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ContextStartedDetails: {},
+      ContextSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ContextFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      WaitStartedDetails: {
+        Duration: (number) 0,
+        ScheduledEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      WaitSucceededDetails: {
+        Duration: (number) 0
+      },
+      WaitCancelledDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      StepStartedDetails: {},
+      StepSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        RetryDetails: {
+          CurrentAttempt: (number) 0,
+          NextAttemptDelaySeconds: (number) 0
+        }
+      },
+      StepFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        },
+        RetryDetails: {
+          CurrentAttempt: (number) 0,
+          NextAttemptDelaySeconds: (number) 0
+        }
+      },
+      ChainedInvokeStartedDetails: {
+        FunctionName: "__FunctionName__",
+        TenantId: "__TenantId__",
+        Input: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        ExecutedVersion: "__ExecutedVersion__",
+        DurableExecutionArn: "__DurableExecutionArn__"
+      },
+      ChainedInvokeSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeStoppedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      CallbackStartedDetails: {
+        CallbackId: "__CallbackId__",
+        HeartbeatTimeout: (number) 0,
+        Timeout: (number) 0
+      },
+      CallbackSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      CallbackFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      CallbackTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      InvocationCompletedDetails: {
+        StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RequestId: "__RequestId__",
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      }
+    },
+    {
+      EventType: "__EventType__",
+      SubType: "__SubType__",
+      EventId: (number) 0,
+      Id: "__Id__",
+      Name: "__Name__",
+      EventTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ParentId: "__ParentId__",
+      ExecutionStartedDetails: {
+        Input: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        ExecutionTimeout: (number) 0
+      },
+      ExecutionSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionStoppedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ContextStartedDetails: {},
+      ContextSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ContextFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      WaitStartedDetails: {
+        Duration: (number) 0,
+        ScheduledEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      WaitSucceededDetails: {
+        Duration: (number) 0
+      },
+      WaitCancelledDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      StepStartedDetails: {},
+      StepSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        RetryDetails: {
+          CurrentAttempt: (number) 0,
+          NextAttemptDelaySeconds: (number) 0
+        }
+      },
+      StepFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        },
+        RetryDetails: {
+          CurrentAttempt: (number) 0,
+          NextAttemptDelaySeconds: (number) 0
+        }
+      },
+      ChainedInvokeStartedDetails: {
+        FunctionName: "__FunctionName__",
+        TenantId: "__TenantId__",
+        Input: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        ExecutedVersion: "__ExecutedVersion__",
+        DurableExecutionArn: "__DurableExecutionArn__"
+      },
+      ChainedInvokeSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeStoppedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      CallbackStartedDetails: {
+        CallbackId: "__CallbackId__",
+        HeartbeatTimeout: (number) 0,
+        Timeout: (number) 0
+      },
+      CallbackSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      CallbackFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      CallbackTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      InvocationCompletedDetails: {
+        StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RequestId: "__RequestId__",
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      }
+    },
+    {
+      EventType: "__EventType__",
+      SubType: "__SubType__",
+      EventId: (number) 0,
+      Id: "__Id__",
+      Name: "__Name__",
+      EventTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ParentId: "__ParentId__",
+      ExecutionStartedDetails: {
+        Input: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        ExecutionTimeout: (number) 0
+      },
+      ExecutionSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ExecutionStoppedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ContextStartedDetails: {},
+      ContextSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ContextFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      WaitStartedDetails: {
+        Duration: (number) 0,
+        ScheduledEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      WaitSucceededDetails: {
+        Duration: (number) 0
+      },
+      WaitCancelledDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      StepStartedDetails: {},
+      StepSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        RetryDetails: {
+          CurrentAttempt: (number) 0,
+          NextAttemptDelaySeconds: (number) 0
+        }
+      },
+      StepFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        },
+        RetryDetails: {
+          CurrentAttempt: (number) 0,
+          NextAttemptDelaySeconds: (number) 0
+        }
+      },
+      ChainedInvokeStartedDetails: {
+        FunctionName: "__FunctionName__",
+        TenantId: "__TenantId__",
+        Input: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        },
+        ExecutedVersion: "__ExecutedVersion__",
+        DurableExecutionArn: "__DurableExecutionArn__"
+      },
+      ChainedInvokeSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      ChainedInvokeStoppedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      CallbackStartedDetails: {
+        CallbackId: "__CallbackId__",
+        HeartbeatTimeout: (number) 0,
+        Timeout: (number) 0
+      },
+      CallbackSucceededDetails: {
+        Result: {
+          Payload: "__Payload__",
+          Truncated: (boolean) false
+        }
+      },
+      CallbackFailedDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      CallbackTimedOutDetails: {
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      },
+      InvocationCompletedDetails: {
+        StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RequestId: "__RequestId__",
+        Error: {
+          Payload: {
+            ErrorMessage: "__ErrorMessage__",
+            ErrorType: "__ErrorType__",
+            ErrorData: "__ErrorData__",
+            StackTrace: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Truncated: (boolean) false
+        }
+      }
+    }
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

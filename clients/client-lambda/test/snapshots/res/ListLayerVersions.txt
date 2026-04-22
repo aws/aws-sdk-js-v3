@@ -1,0 +1,153 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "NextMarker": "__NextMarker__",
+  "LayerVersions": [
+    {
+      "LayerVersionArn": "__LayerVersionArn__",
+      "Version": 0,
+      "Description": "__Description__",
+      "CreatedDate": "__CreatedDate__",
+      "CompatibleRuntimes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "LicenseInfo": "__LicenseInfo__",
+      "CompatibleArchitectures": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "LayerVersionArn": "__LayerVersionArn__",
+      "Version": 0,
+      "Description": "__Description__",
+      "CreatedDate": "__CreatedDate__",
+      "CompatibleRuntimes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "LicenseInfo": "__LicenseInfo__",
+      "CompatibleArchitectures": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "LayerVersionArn": "__LayerVersionArn__",
+      "Version": 0,
+      "Description": "__Description__",
+      "CreatedDate": "__CreatedDate__",
+      "CompatibleRuntimes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "LicenseInfo": "__LicenseInfo__",
+      "CompatibleArchitectures": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  NextMarker: "__NextMarker__",
+  LayerVersions: [
+    {
+      LayerVersionArn: "__LayerVersionArn__",
+      Version: (number) 0,
+      Description: "__Description__",
+      CreatedDate: "__CreatedDate__",
+      CompatibleRuntimes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      LicenseInfo: "__LicenseInfo__",
+      CompatibleArchitectures: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      LayerVersionArn: "__LayerVersionArn__",
+      Version: (number) 0,
+      Description: "__Description__",
+      CreatedDate: "__CreatedDate__",
+      CompatibleRuntimes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      LicenseInfo: "__LicenseInfo__",
+      CompatibleArchitectures: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      LayerVersionArn: "__LayerVersionArn__",
+      Version: (number) 0,
+      Description: "__Description__",
+      CreatedDate: "__CreatedDate__",
+      CompatibleRuntimes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      LicenseInfo: "__LicenseInfo__",
+      CompatibleArchitectures: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

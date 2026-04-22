@@ -1,0 +1,53 @@
+PUT https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/experiences/__webExperienceId__
+
+content-type: application/json
+content-length: 759
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f369f3ff256d5f909b025e8f2a2a72c50c0e0bf5b99c6ec6a40afe64f2345678
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "roleArn": "__roleArn__",
+  "authenticationConfiguration": {
+    "samlConfiguration": {
+      "metadataXML": "__metadataXML__",
+      "roleArn": "__roleArn__",
+      "userIdAttribute": "__userIdAttribute__",
+      "userGroupAttribute": "__userGroupAttribute__"
+    }
+  },
+  "title": "__title__",
+  "subtitle": "__subtitle__",
+  "welcomeMessage": "__welcomeMessage__",
+  "samplePromptsControlMode": "__samplePromptsControlMode__",
+  "identityProviderConfiguration": {
+    "samlConfiguration": {
+      "authenticationUrl": "__authenticationUrl__"
+    }
+  },
+  "origins": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "browserExtensionConfiguration": {
+    "enabledBrowserExtensions": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "customizationConfiguration": {
+    "customCSSUrl": "__customCSSUrl__",
+    "logoUrl": "__logoUrl__",
+    "fontUrl": "__fontUrl__",
+    "faviconUrl": "__faviconUrl__"
+  }
+}

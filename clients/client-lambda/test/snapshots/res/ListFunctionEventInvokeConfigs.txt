@@ -1,0 +1,135 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "FunctionEventInvokeConfigs": [
+    {
+      "LastModified": 946702799.999,
+      "FunctionArn": "__FunctionArn__",
+      "MaximumRetryAttempts": 0,
+      "MaximumEventAgeInSeconds": 0,
+      "DestinationConfig": {
+        "OnSuccess": {
+          "Destination": "__Destination__"
+        },
+        "OnFailure": {
+          "Destination": "__Destination__"
+        }
+      }
+    },
+    {
+      "LastModified": 946702799.999,
+      "FunctionArn": "__FunctionArn__",
+      "MaximumRetryAttempts": 0,
+      "MaximumEventAgeInSeconds": 0,
+      "DestinationConfig": {
+        "OnSuccess": {
+          "Destination": "__Destination__"
+        },
+        "OnFailure": {
+          "Destination": "__Destination__"
+        }
+      }
+    },
+    {
+      "LastModified": 946702799.999,
+      "FunctionArn": "__FunctionArn__",
+      "MaximumRetryAttempts": 0,
+      "MaximumEventAgeInSeconds": 0,
+      "DestinationConfig": {
+        "OnSuccess": {
+          "Destination": "__Destination__"
+        },
+        "OnFailure": {
+          "Destination": "__Destination__"
+        }
+      }
+    }
+  ],
+  "NextMarker": "__NextMarker__"
+}
+
+
+--- [output object] ---
+{
+  FunctionEventInvokeConfigs: [
+    {
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FunctionArn: "__FunctionArn__",
+      MaximumRetryAttempts: (number) 0,
+      MaximumEventAgeInSeconds: (number) 0,
+      DestinationConfig: {
+        OnSuccess: {
+          Destination: "__Destination__"
+        },
+        OnFailure: {
+          Destination: "__Destination__"
+        }
+      }
+    },
+    {
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FunctionArn: "__FunctionArn__",
+      MaximumRetryAttempts: (number) 0,
+      MaximumEventAgeInSeconds: (number) 0,
+      DestinationConfig: {
+        OnSuccess: {
+          Destination: "__Destination__"
+        },
+        OnFailure: {
+          Destination: "__Destination__"
+        }
+      }
+    },
+    {
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      FunctionArn: "__FunctionArn__",
+      MaximumRetryAttempts: (number) 0,
+      MaximumEventAgeInSeconds: (number) 0,
+      DestinationConfig: {
+        OnSuccess: {
+          Destination: "__Destination__"
+        },
+        OnFailure: {
+          Destination: "__Destination__"
+        }
+      }
+    }
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

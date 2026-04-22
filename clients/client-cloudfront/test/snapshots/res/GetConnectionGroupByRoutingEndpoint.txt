@@ -1,0 +1,106 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<ConnectionGroup xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <Name>
+        __Name__
+    </Name>
+    <Arn>
+        __Arn__
+    </Arn>
+    <CreatedTime>
+        2000-01-01T04:59:59.999Z
+    </CreatedTime>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <Tags>
+        <Items>
+            <Tag/>
+<Tag/>
+<Tag/>
+        </Items>
+    </Tags>
+    <Ipv6Enabled>
+        false
+    </Ipv6Enabled>
+    <RoutingEndpoint>
+        __RoutingEndpoint__
+    </RoutingEndpoint>
+    <AnycastIpListId>
+        __AnycastIpListId__
+    </AnycastIpListId>
+    <Status>
+        __Status__
+    </Status>
+    <Enabled>
+        false
+    </Enabled>
+    <IsDefault>
+        false
+    </IsDefault>
+</ConnectionGroup>
+
+
+--- [output object] ---
+{
+  ConnectionGroup: {
+    Id: "__Id__",
+    Name: "__Name__",
+    Arn: "__Arn__",
+    CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: {
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    },
+    Ipv6Enabled: (boolean) false,
+    RoutingEndpoint: "__RoutingEndpoint__",
+    AnycastIpListId: "__AnycastIpListId__",
+    Status: "__Status__",
+    Enabled: (boolean) false,
+    IsDefault: (boolean) false
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

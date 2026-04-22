@@ -1,0 +1,57 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "RequestedProvisionedConcurrentExecutions": 0,
+  "AvailableProvisionedConcurrentExecutions": 0,
+  "AllocatedProvisionedConcurrentExecutions": 0,
+  "Status": "__Status__",
+  "StatusReason": "__StatusReason__",
+  "LastModified": "__LastModified__"
+}
+
+
+--- [output object] ---
+{
+  RequestedProvisionedConcurrentExecutions: (number) 0,
+  AvailableProvisionedConcurrentExecutions: (number) 0,
+  AllocatedProvisionedConcurrentExecutions: (number) 0,
+  Status: "__Status__",
+  StatusReason: "__StatusReason__",
+  LastModified: "__LastModified__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

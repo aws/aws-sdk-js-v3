@@ -1,0 +1,158 @@
+POST https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/relevant-content
+
+content-type: application/json
+content-length: 1483
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: cc58eed3e32b82bfef20b32667a68ab44d410a4a95bfa41beb7f142cb1b5c4cf
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "queryText": "__queryText__",
+  "contentSource": {
+    "retriever": {
+      "retrieverId": "__retrieverId__"
+    }
+  },
+  "attributeFilter": {
+    "andAllFilters": [
+      {},
+      {},
+      {}
+    ],
+    "orAllFilters": [
+      {},
+      {},
+      {}
+    ],
+    "notFilter": {
+      "andAllFilters": [
+        {},
+        {},
+        {}
+      ],
+      "orAllFilters": [
+        {},
+        {},
+        {}
+      ],
+      "notFilter": {},
+      "equalsTo": {
+        "name": "__name__",
+        "value": {
+          "stringListValue": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "containsAll": {
+        "name": "__name__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      },
+      "containsAny": {
+        "name": "__name__",
+        "value": {
+          "longValue": 0
+        }
+      },
+      "greaterThan": {
+        "name": "__name__",
+        "value": {
+          "stringValue": "__stringValue__"
+        }
+      },
+      "greaterThanOrEquals": {
+        "name": "__name__",
+        "value": {
+          "stringValue": "__stringValue__"
+        }
+      },
+      "lessThan": {
+        "name": "__name__",
+        "value": {
+          "stringListValue": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "lessThanOrEquals": {
+        "name": "__name__",
+        "value": {
+          "stringListValue": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    "equalsTo": {
+      "name": "__name__",
+      "value": {
+        "stringListValue": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    "containsAll": {
+      "name": "__name__",
+      "value": {
+        "dateValue": 946702799.999
+      }
+    },
+    "containsAny": {
+      "name": "__name__",
+      "value": {
+        "longValue": 0
+      }
+    },
+    "greaterThan": {
+      "name": "__name__",
+      "value": {
+        "stringValue": "__stringValue__"
+      }
+    },
+    "greaterThanOrEquals": {
+      "name": "__name__",
+      "value": {
+        "stringValue": "__stringValue__"
+      }
+    },
+    "lessThan": {
+      "name": "__name__",
+      "value": {
+        "stringListValue": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    "lessThanOrEquals": {
+      "name": "__name__",
+      "value": {
+        "stringListValue": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  },
+  "maxResults": 0,
+  "nextToken": "__nextToken__"
+}

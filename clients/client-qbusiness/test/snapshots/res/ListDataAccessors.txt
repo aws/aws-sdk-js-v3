@@ -1,0 +1,183 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "dataAccessors": [
+    {
+      "displayName": "__displayName__",
+      "dataAccessorId": "__dataAccessorId__",
+      "dataAccessorArn": "__dataAccessorArn__",
+      "idcApplicationArn": "__idcApplicationArn__",
+      "principal": "__principal__",
+      "authenticationDetail": {
+        "authenticationType": "__authenticationType__",
+        "authenticationConfiguration": {
+          "idcTrustedTokenIssuerConfiguration": {
+            "idcTrustedTokenIssuerArn": "__idcTrustedTokenIssuerArn__"
+          }
+        },
+        "externalIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999
+    },
+    {
+      "displayName": "__displayName__",
+      "dataAccessorId": "__dataAccessorId__",
+      "dataAccessorArn": "__dataAccessorArn__",
+      "idcApplicationArn": "__idcApplicationArn__",
+      "principal": "__principal__",
+      "authenticationDetail": {
+        "authenticationType": "__authenticationType__",
+        "authenticationConfiguration": {
+          "idcTrustedTokenIssuerConfiguration": {
+            "idcTrustedTokenIssuerArn": "__idcTrustedTokenIssuerArn__"
+          }
+        },
+        "externalIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999
+    },
+    {
+      "displayName": "__displayName__",
+      "dataAccessorId": "__dataAccessorId__",
+      "dataAccessorArn": "__dataAccessorArn__",
+      "idcApplicationArn": "__idcApplicationArn__",
+      "principal": "__principal__",
+      "authenticationDetail": {
+        "authenticationType": "__authenticationType__",
+        "authenticationConfiguration": {
+          "idcTrustedTokenIssuerConfiguration": {
+            "idcTrustedTokenIssuerArn": "__idcTrustedTokenIssuerArn__"
+          }
+        },
+        "externalIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  dataAccessors: [
+    {
+      displayName: "__displayName__",
+      dataAccessorId: "__dataAccessorId__",
+      dataAccessorArn: "__dataAccessorArn__",
+      idcApplicationArn: "__idcApplicationArn__",
+      principal: "__principal__",
+      authenticationDetail: {
+        authenticationType: "__authenticationType__",
+        authenticationConfiguration: {
+          idcTrustedTokenIssuerConfiguration: {
+            idcTrustedTokenIssuerArn: "__idcTrustedTokenIssuerArn__"
+          }
+        },
+        externalIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      displayName: "__displayName__",
+      dataAccessorId: "__dataAccessorId__",
+      dataAccessorArn: "__dataAccessorArn__",
+      idcApplicationArn: "__idcApplicationArn__",
+      principal: "__principal__",
+      authenticationDetail: {
+        authenticationType: "__authenticationType__",
+        authenticationConfiguration: {
+          idcTrustedTokenIssuerConfiguration: {
+            idcTrustedTokenIssuerArn: "__idcTrustedTokenIssuerArn__"
+          }
+        },
+        externalIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      displayName: "__displayName__",
+      dataAccessorId: "__dataAccessorId__",
+      dataAccessorArn: "__dataAccessorArn__",
+      idcApplicationArn: "__idcApplicationArn__",
+      principal: "__principal__",
+      authenticationDetail: {
+        authenticationType: "__authenticationType__",
+        authenticationConfiguration: {
+          idcTrustedTokenIssuerConfiguration: {
+            idcTrustedTokenIssuerArn: "__idcTrustedTokenIssuerArn__"
+          }
+        },
+        externalIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

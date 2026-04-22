@@ -1,0 +1,134 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<PublicKeyList xmlns="https://placeholder.amazonaws.com">
+    <MaxItems>
+        0
+    </MaxItems>
+    <Quantity>
+        0
+    </Quantity>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+    <Items>
+        <PublicKeySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <EncodedKey>
+                __EncodedKey__
+            </EncodedKey>
+            <Comment>
+                __Comment__
+            </Comment>
+        </PublicKeySummary>
+        <PublicKeySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <EncodedKey>
+                __EncodedKey__
+            </EncodedKey>
+            <Comment>
+                __Comment__
+            </Comment>
+        </PublicKeySummary>
+        <PublicKeySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <EncodedKey>
+                __EncodedKey__
+            </EncodedKey>
+            <Comment>
+                __Comment__
+            </Comment>
+        </PublicKeySummary>
+    </Items>
+</PublicKeyList>
+
+
+--- [output object] ---
+{
+  PublicKeyList: {
+    MaxItems: (number) 0,
+    Quantity: (number) 0,
+    NextMarker: "__NextMarker__",
+    Items: [
+      {
+        Id: "__Id__",
+        Name: "__Name__",
+        CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EncodedKey: "__EncodedKey__",
+        Comment: "__Comment__"
+      },
+      {
+        Id: "__Id__",
+        Name: "__Name__",
+        CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EncodedKey: "__EncodedKey__",
+        Comment: "__Comment__"
+      },
+      {
+        Id: "__Id__",
+        Name: "__Name__",
+        CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EncodedKey: "__EncodedKey__",
+        Comment: "__Comment__"
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

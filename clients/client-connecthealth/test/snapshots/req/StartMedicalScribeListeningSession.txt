@@ -1,0 +1,130 @@
+POST https://streaming.health-agent.us-east-1.api.aws 
+/medical-scribe-stream/
+
+x-amzn-medscribe-session-id: __sessionId__
+x-amzn-medscribe-domain-id: __domainId__
+x-amzn-medscribe-subscription-id: __subscriptionId__
+x-amzn-medscribe-language-code: __languageCode__
+x-amzn-medscribe-sample-rate: 0
+x-amzn-medscribe-media-encoding: __mediaEncoding__
+content-type: application/vnd.amazon.eventstream
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/connecthealth#_.__ m/E,e
+host: streaming.health-agent.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/health-agent/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent;x-amzn-medscribe-domain-id;x-amzn-medscribe-language-code;x-amzn-medscribe-media-encoding;x-amzn-medscribe-sample-rate;x-amzn-medscribe-session-id;x-amzn-medscribe-subscription-id, Signature=***
+
+[async_iterable (PassThrough)]
+
+[chunk (event-stream object view)]
+  [total-size] 204 [header-size] 67 [prelude-crc] 2786249369
+    [total-size] 121 [header-size] 80 [prelude-crc] 4203416611
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 122,121,253,254,14,252,182,3,251,192,39,176,138,237,72,188,64,89,218,67,225,109,120,253,34,151,14,0,28,129,86,218 (binary)
+
+:event-type: audioEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "audioChunk": "AQAAAQ=="
+}
+
+  [message-crc] 471994575
+[message-crc] 126617646
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 207 [header-size] 67 [prelude-crc] 3786584137
+    [total-size] 124 [header-size] 89 [prelude-crc] 1270299639
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 131,36,254,29,196,179,14,100,141,163,202,211,68,4,142,2,161,170,43,82,159,163,61,100,225,25,228,22,104,60,109,35 (binary)
+
+:event-type: sessionControlEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "type": "__type__"
+}
+
+  [message-crc] 3418443643
+[message-crc] 2039257191
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 899 [header-size] 67 [prelude-crc] 4196759471
+    [total-size] 816 [header-size] 88 [prelude-crc] 656919687
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 115,195,174,206,119,178,212,78,20,128,25,129,68,239,183,237,51,18,37,143,116,189,3,186,183,57,18,216,0,43,40,174 (binary)
+
+:event-type: configurationEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "postStreamActionSettings": {
+    "outputS3Uri": "__outputS3Uri__",
+    "clinicalNoteGenerationSettings": {
+      "noteTemplateSettings": {
+        "customTemplate": {
+          "templateType": "__templateType__",
+          "templateInstructions": [
+            {
+              "sectionHeader": "__sectionHeader__",
+              "sectionInstruction": "__sectionInstruction__"
+            },
+            {
+              "sectionHeader": "__sectionHeader__",
+              "sectionInstruction": "__sectionInstruction__"
+            },
+            {
+              "sectionHeader": "__sectionHeader__",
+              "sectionInstruction": "__sectionInstruction__"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "channelDefinitions": [
+    {
+      "channelId": 0,
+      "participantRole": "__participantRole__"
+    },
+    {
+      "channelId": 0,
+      "participantRole": "__participantRole__"
+    },
+    {
+      "channelId": 0,
+      "participantRole": "__participantRole__"
+    }
+  ],
+  "encounterContext": {
+    "unstructuredContext": "__unstructuredContext__"
+  }
+}
+
+  [message-crc] 4103135865
+[message-crc] 2519068911
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 83 [header-size] 67 [prelude-crc] 4114905688
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 236,64,218,25,108,116,93,127,74,222,76,100,192,23,10,178,200,111,69,140,167,234,108,164,67,105,111,77,42,89,239,13 (binary)
+
+[empty]
+
+
+[message-crc] 1716054714
+============================================================
+
+

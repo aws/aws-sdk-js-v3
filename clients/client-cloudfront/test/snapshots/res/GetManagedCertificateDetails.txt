@@ -1,0 +1,110 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ManagedCertificateDetails xmlns="https://placeholder.amazonaws.com">
+    <CertificateArn>
+        __CertificateArn__
+    </CertificateArn>
+    <CertificateStatus>
+        __CertificateStatus__
+    </CertificateStatus>
+    <ValidationTokenHost>
+        __ValidationTokenHost__
+    </ValidationTokenHost>
+    <ValidationTokenDetails>
+        <member>
+            <Domain>
+                __Domain__
+            </Domain>
+            <RedirectTo>
+                __RedirectTo__
+            </RedirectTo>
+            <RedirectFrom>
+                __RedirectFrom__
+            </RedirectFrom>
+        </member>
+        <member>
+            <Domain>
+                __Domain__
+            </Domain>
+            <RedirectTo>
+                __RedirectTo__
+            </RedirectTo>
+            <RedirectFrom>
+                __RedirectFrom__
+            </RedirectFrom>
+        </member>
+        <member>
+            <Domain>
+                __Domain__
+            </Domain>
+            <RedirectTo>
+                __RedirectTo__
+            </RedirectTo>
+            <RedirectFrom>
+                __RedirectFrom__
+            </RedirectFrom>
+        </member>
+    </ValidationTokenDetails>
+</ManagedCertificateDetails>
+
+
+--- [output object] ---
+{
+  ManagedCertificateDetails: {
+    CertificateArn: "__CertificateArn__",
+    CertificateStatus: "__CertificateStatus__",
+    ValidationTokenHost: "__ValidationTokenHost__",
+    ValidationTokenDetails: [
+      {
+        Domain: "__Domain__",
+        RedirectTo: "__RedirectTo__",
+        RedirectFrom: "__RedirectFrom__"
+      },
+      {
+        Domain: "__Domain__",
+        RedirectTo: "__RedirectTo__",
+        RedirectFrom: "__RedirectFrom__"
+      },
+      {
+        Domain: "__Domain__",
+        RedirectTo: "__RedirectTo__",
+        RedirectFrom: "__RedirectFrom__"
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,53 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamName": "__StreamName__",
+  "CurrentShardCount": 0,
+  "TargetShardCount": 0,
+  "StreamARN": "__StreamARN__"
+}
+
+
+--- [output object] ---
+{
+  StreamName: "__StreamName__",
+  CurrentShardCount: (number) 0,
+  TargetShardCount: (number) 0,
+  StreamARN: "__StreamARN__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

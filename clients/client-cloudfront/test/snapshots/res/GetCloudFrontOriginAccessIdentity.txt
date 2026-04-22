@@ -1,0 +1,68 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<CloudFrontOriginAccessIdentity xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <S3CanonicalUserId>
+        __S3CanonicalUserId__
+    </S3CanonicalUserId>
+    <CloudFrontOriginAccessIdentityConfig>
+        <CallerReference>
+            __CallerReference__
+        </CallerReference>
+        <Comment>
+            __Comment__
+        </Comment>
+    </CloudFrontOriginAccessIdentityConfig>
+</CloudFrontOriginAccessIdentity>
+
+
+--- [output object] ---
+{
+  CloudFrontOriginAccessIdentity: {
+    Id: "__Id__",
+    S3CanonicalUserId: "__S3CanonicalUserId__",
+    CloudFrontOriginAccessIdentityConfig: {
+      CallerReference: "__CallerReference__",
+      Comment: "__Comment__"
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,190 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamNames": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "HasMoreStreams": false,
+  "NextToken": "__NextToken__",
+  "StreamSummaries": [
+    {
+      "StreamName": "__StreamName__",
+      "StreamARN": "__StreamARN__",
+      "StreamStatus": "__StreamStatus__",
+      "StreamModeDetails": {
+        "StreamMode": "__StreamMode__"
+      },
+      "StreamCreationTimestamp": 946702799.999
+    },
+    {
+      "StreamName": "__StreamName__",
+      "StreamARN": "__StreamARN__",
+      "StreamStatus": "__StreamStatus__",
+      "StreamModeDetails": {
+        "StreamMode": "__StreamMode__"
+      },
+      "StreamCreationTimestamp": 946702799.999
+    },
+    {
+      "StreamName": "__StreamName__",
+      "StreamARN": "__StreamARN__",
+      "StreamStatus": "__StreamStatus__",
+      "StreamModeDetails": {
+        "StreamMode": "__StreamMode__"
+      },
+      "StreamCreationTimestamp": 946702799.999
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  StreamNames: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  HasMoreStreams: (boolean) false,
+  NextToken: "__NextToken__",
+  StreamSummaries: [
+    {
+      StreamName: "__StreamName__",
+      StreamARN: "__StreamARN__",
+      StreamStatus: "__StreamStatus__",
+      StreamModeDetails: {
+        StreamMode: "__StreamMode__"
+      },
+      StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      StreamName: "__StreamName__",
+      StreamARN: "__StreamARN__",
+      StreamStatus: "__StreamStatus__",
+      StreamModeDetails: {
+        StreamMode: "__StreamMode__"
+      },
+      StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      StreamName: "__StreamName__",
+      StreamARN: "__StreamARN__",
+      StreamStatus: "__StreamStatus__",
+      StreamModeDetails: {
+        StreamMode: "__StreamMode__"
+      },
+      StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamNames": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "HasMoreStreams": false,
+  "NextToken": "__NextToken__",
+  "StreamSummaries": [
+    {
+      "StreamName": "__StreamName__",
+      "StreamARN": "__StreamARN__",
+      "StreamStatus": "__StreamStatus__",
+      "StreamModeDetails": {
+        "StreamMode": "__StreamMode__"
+      },
+      "StreamCreationTimestamp": 946702799.999
+    },
+    {
+      "StreamName": "__StreamName__",
+      "StreamARN": "__StreamARN__",
+      "StreamStatus": "__StreamStatus__",
+      "StreamModeDetails": {
+        "StreamMode": "__StreamMode__"
+      },
+      "StreamCreationTimestamp": 946702799.999
+    },
+    {
+      "StreamName": "__StreamName__",
+      "StreamARN": "__StreamARN__",
+      "StreamStatus": "__StreamStatus__",
+      "StreamModeDetails": {
+        "StreamMode": "__StreamMode__"
+      },
+      "StreamCreationTimestamp": 946702799.999
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  StreamNames: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  HasMoreStreams: (boolean) false,
+  NextToken: "__NextToken__",
+  StreamSummaries: [
+    {
+      StreamName: "__StreamName__",
+      StreamARN: "__StreamARN__",
+      StreamStatus: "__StreamStatus__",
+      StreamModeDetails: {
+        StreamMode: "__StreamMode__"
+      },
+      StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      StreamName: "__StreamName__",
+      StreamARN: "__StreamARN__",
+      StreamStatus: "__StreamStatus__",
+      StreamModeDetails: {
+        StreamMode: "__StreamMode__"
+      },
+      StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      StreamName: "__StreamName__",
+      StreamARN: "__StreamARN__",
+      StreamStatus: "__StreamStatus__",
+      StreamModeDetails: {
+        StreamMode: "__StreamMode__"
+      },
+      StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,164 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<OriginRequestPolicy xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <OriginRequestPolicyConfig>
+        <Name>
+            __Name__
+        </Name>
+        <HeadersConfig>
+            <HeaderBehavior>
+                __HeaderBehavior__
+            </HeaderBehavior>
+            <Headers>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </Headers>
+        </HeadersConfig>
+        <CookiesConfig>
+            <CookieBehavior>
+                __CookieBehavior__
+            </CookieBehavior>
+            <Cookies>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </Cookies>
+        </CookiesConfig>
+        <QueryStringsConfig>
+            <QueryStringBehavior>
+                __QueryStringBehavior__
+            </QueryStringBehavior>
+            <QueryStrings>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </QueryStrings>
+        </QueryStringsConfig>
+        <Comment>
+            __Comment__
+        </Comment>
+    </OriginRequestPolicyConfig>
+</OriginRequestPolicy>
+
+
+--- [output object] ---
+{
+  OriginRequestPolicy: {
+    Id: "__Id__",
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    OriginRequestPolicyConfig: {
+      Name: "__Name__",
+      HeadersConfig: {
+        HeaderBehavior: "__HeaderBehavior__",
+        Headers: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      CookiesConfig: {
+        CookieBehavior: "__CookieBehavior__",
+        Cookies: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      QueryStringsConfig: {
+        QueryStringBehavior: "__QueryStringBehavior__",
+        QueryStrings: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      Comment: "__Comment__"
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

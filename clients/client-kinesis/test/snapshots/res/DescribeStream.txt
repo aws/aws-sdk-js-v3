@@ -1,0 +1,318 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamDescription": {
+    "StreamName": "__StreamName__",
+    "StreamARN": "__StreamARN__",
+    "StreamStatus": "__StreamStatus__",
+    "Shards": [
+      {
+        "ShardId": "__ShardId__",
+        "HashKeyRange": {
+          "StartingHashKey": "__StartingHashKey__",
+          "EndingHashKey": "__EndingHashKey__"
+        },
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__",
+        "AdjacentParentShardId": "__AdjacentParentShardId__"
+      },
+      {
+        "ShardId": "__ShardId__",
+        "HashKeyRange": {
+          "StartingHashKey": "__StartingHashKey__",
+          "EndingHashKey": "__EndingHashKey__"
+        },
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__",
+        "AdjacentParentShardId": "__AdjacentParentShardId__"
+      },
+      {
+        "ShardId": "__ShardId__",
+        "HashKeyRange": {
+          "StartingHashKey": "__StartingHashKey__",
+          "EndingHashKey": "__EndingHashKey__"
+        },
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__",
+        "AdjacentParentShardId": "__AdjacentParentShardId__"
+      }
+    ],
+    "HasMoreShards": false,
+    "RetentionPeriodHours": 0,
+    "StreamCreationTimestamp": 946702799.999,
+    "EnhancedMonitoring": [
+      {},
+      {},
+      {}
+    ],
+    "StreamModeDetails": {
+      "StreamMode": "__StreamMode__"
+    },
+    "EncryptionType": "__EncryptionType__",
+    "KeyId": "__KeyId__"
+  }
+}
+
+
+--- [output object] ---
+{
+  StreamDescription: {
+    StreamName: "__StreamName__",
+    StreamARN: "__StreamARN__",
+    StreamStatus: "__StreamStatus__",
+    Shards: [
+      {
+        ShardId: "__ShardId__",
+        HashKeyRange: {
+          StartingHashKey: "__StartingHashKey__",
+          EndingHashKey: "__EndingHashKey__"
+        },
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__",
+        AdjacentParentShardId: "__AdjacentParentShardId__"
+      },
+      {
+        ShardId: "__ShardId__",
+        HashKeyRange: {
+          StartingHashKey: "__StartingHashKey__",
+          EndingHashKey: "__EndingHashKey__"
+        },
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__",
+        AdjacentParentShardId: "__AdjacentParentShardId__"
+      },
+      {
+        ShardId: "__ShardId__",
+        HashKeyRange: {
+          StartingHashKey: "__StartingHashKey__",
+          EndingHashKey: "__EndingHashKey__"
+        },
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__",
+        AdjacentParentShardId: "__AdjacentParentShardId__"
+      }
+    ],
+    HasMoreShards: (boolean) false,
+    RetentionPeriodHours: (number) 0,
+    StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EnhancedMonitoring: [
+      {},
+      {},
+      {}
+    ],
+    StreamModeDetails: {
+      StreamMode: "__StreamMode__"
+    },
+    EncryptionType: "__EncryptionType__",
+    KeyId: "__KeyId__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamDescription": {
+    "StreamName": "__StreamName__",
+    "StreamARN": "__StreamARN__",
+    "StreamStatus": "__StreamStatus__",
+    "Shards": [
+      {
+        "ShardId": "__ShardId__",
+        "HashKeyRange": {
+          "StartingHashKey": "__StartingHashKey__",
+          "EndingHashKey": "__EndingHashKey__"
+        },
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__",
+        "AdjacentParentShardId": "__AdjacentParentShardId__"
+      },
+      {
+        "ShardId": "__ShardId__",
+        "HashKeyRange": {
+          "StartingHashKey": "__StartingHashKey__",
+          "EndingHashKey": "__EndingHashKey__"
+        },
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__",
+        "AdjacentParentShardId": "__AdjacentParentShardId__"
+      },
+      {
+        "ShardId": "__ShardId__",
+        "HashKeyRange": {
+          "StartingHashKey": "__StartingHashKey__",
+          "EndingHashKey": "__EndingHashKey__"
+        },
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__",
+        "AdjacentParentShardId": "__AdjacentParentShardId__"
+      }
+    ],
+    "HasMoreShards": false,
+    "RetentionPeriodHours": 0,
+    "StreamCreationTimestamp": 946702799.999,
+    "EnhancedMonitoring": [
+      {
+        "ShardLevelMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "ShardLevelMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "ShardLevelMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ],
+    "StreamModeDetails": {
+      "StreamMode": "__StreamMode__"
+    },
+    "EncryptionType": "__EncryptionType__",
+    "KeyId": "__KeyId__"
+  }
+}
+
+
+--- [output object] ---
+{
+  StreamDescription: {
+    StreamName: "__StreamName__",
+    StreamARN: "__StreamARN__",
+    StreamStatus: "__StreamStatus__",
+    Shards: [
+      {
+        ShardId: "__ShardId__",
+        HashKeyRange: {
+          StartingHashKey: "__StartingHashKey__",
+          EndingHashKey: "__EndingHashKey__"
+        },
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__",
+        AdjacentParentShardId: "__AdjacentParentShardId__"
+      },
+      {
+        ShardId: "__ShardId__",
+        HashKeyRange: {
+          StartingHashKey: "__StartingHashKey__",
+          EndingHashKey: "__EndingHashKey__"
+        },
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__",
+        AdjacentParentShardId: "__AdjacentParentShardId__"
+      },
+      {
+        ShardId: "__ShardId__",
+        HashKeyRange: {
+          StartingHashKey: "__StartingHashKey__",
+          EndingHashKey: "__EndingHashKey__"
+        },
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__",
+        AdjacentParentShardId: "__AdjacentParentShardId__"
+      }
+    ],
+    HasMoreShards: (boolean) false,
+    RetentionPeriodHours: (number) 0,
+    StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EnhancedMonitoring: [
+      {
+        ShardLevelMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        ShardLevelMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        ShardLevelMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ],
+    StreamModeDetails: {
+      StreamMode: "__StreamMode__"
+    },
+    EncryptionType: "__EncryptionType__",
+    KeyId: "__KeyId__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,688 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<DistributionConfig xmlns="https://placeholder.amazonaws.com">
+    <CallerReference>
+        __CallerReference__
+    </CallerReference>
+    <Origins>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <Origin/>
+<Origin/>
+<Origin/>
+        </Items>
+    </Origins>
+    <DefaultCacheBehavior>
+        <TargetOriginId>
+            __TargetOriginId__
+        </TargetOriginId>
+        <ViewerProtocolPolicy>
+            __ViewerProtocolPolicy__
+        </ViewerProtocolPolicy>
+        <TrustedSigners>
+            <Enabled>
+                false
+            </Enabled>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <AwsAccountNumber>
+                    __member__
+                </AwsAccountNumber>
+                <AwsAccountNumber>
+                    __member__
+                </AwsAccountNumber>
+                <AwsAccountNumber>
+                    __member__
+                </AwsAccountNumber>
+            </Items>
+        </TrustedSigners>
+        <TrustedKeyGroups>
+            <Enabled>
+                false
+            </Enabled>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <KeyGroup>
+                    __member__
+                </KeyGroup>
+                <KeyGroup>
+                    __member__
+                </KeyGroup>
+                <KeyGroup>
+                    __member__
+                </KeyGroup>
+            </Items>
+        </TrustedKeyGroups>
+        <AllowedMethods>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Method>
+                    __member__
+                </Method>
+                <Method>
+                    __member__
+                </Method>
+                <Method>
+                    __member__
+                </Method>
+            </Items>
+            <CachedMethods>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Method>
+                        __member__
+                    </Method>
+                    <Method>
+                        __member__
+                    </Method>
+                    <Method>
+                        __member__
+                    </Method>
+                </Items>
+            </CachedMethods>
+        </AllowedMethods>
+        <SmoothStreaming>
+            false
+        </SmoothStreaming>
+        <Compress>
+            false
+        </Compress>
+        <LambdaFunctionAssociations>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <LambdaFunctionAssociation/>
+<LambdaFunctionAssociation/>
+<LambdaFunctionAssociation/>
+            </Items>
+        </LambdaFunctionAssociations>
+        <FunctionAssociations>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <FunctionAssociation/>
+<FunctionAssociation/>
+<FunctionAssociation/>
+            </Items>
+        </FunctionAssociations>
+        <FieldLevelEncryptionId>
+            __FieldLevelEncryptionId__
+        </FieldLevelEncryptionId>
+        <RealtimeLogConfigArn>
+            __RealtimeLogConfigArn__
+        </RealtimeLogConfigArn>
+        <CachePolicyId>
+            __CachePolicyId__
+        </CachePolicyId>
+        <OriginRequestPolicyId>
+            __OriginRequestPolicyId__
+        </OriginRequestPolicyId>
+        <ResponseHeadersPolicyId>
+            __ResponseHeadersPolicyId__
+        </ResponseHeadersPolicyId>
+        <GrpcConfig>
+            <Enabled>
+                false
+            </Enabled>
+        </GrpcConfig>
+        <ForwardedValues>
+            <QueryString>
+                false
+            </QueryString>
+            <Cookies>
+                <Forward>
+                    __Forward__
+                </Forward>
+                <WhitelistedNames>
+                    <Quantity>
+                        0
+                    </Quantity>
+                    <Items>
+                        <Name>
+                            __member__
+                        </Name>
+                        <Name>
+                            __member__
+                        </Name>
+                        <Name>
+                            __member__
+                        </Name>
+                    </Items>
+                </WhitelistedNames>
+            </Cookies>
+            <Headers>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </Headers>
+            <QueryStringCacheKeys>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </QueryStringCacheKeys>
+        </ForwardedValues>
+        <MinTTL>
+            0
+        </MinTTL>
+        <DefaultTTL>
+            0
+        </DefaultTTL>
+        <MaxTTL>
+            0
+        </MaxTTL>
+    </DefaultCacheBehavior>
+    <Comment>
+        __Comment__
+    </Comment>
+    <Enabled>
+        false
+    </Enabled>
+    <Aliases>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <CNAME>
+                __member__
+            </CNAME>
+            <CNAME>
+                __member__
+            </CNAME>
+            <CNAME>
+                __member__
+            </CNAME>
+        </Items>
+    </Aliases>
+    <DefaultRootObject>
+        __DefaultRootObject__
+    </DefaultRootObject>
+    <OriginGroups>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <OriginGroup/>
+<OriginGroup/>
+<OriginGroup/>
+        </Items>
+    </OriginGroups>
+    <CacheBehaviors>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <CacheBehavior/>
+<CacheBehavior/>
+<CacheBehavior/>
+        </Items>
+    </CacheBehaviors>
+    <CustomErrorResponses>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <CustomErrorResponse/>
+<CustomErrorResponse/>
+<CustomErrorResponse/>
+        </Items>
+    </CustomErrorResponses>
+    <Logging>
+        <Enabled>
+            false
+        </Enabled>
+        <IncludeCookies>
+            false
+        </IncludeCookies>
+        <Bucket>
+            __Bucket__
+        </Bucket>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </Logging>
+    <PriceClass>
+        __PriceClass__
+    </PriceClass>
+    <ViewerCertificate>
+        <CloudFrontDefaultCertificate>
+            false
+        </CloudFrontDefaultCertificate>
+        <IAMCertificateId>
+            __IAMCertificateId__
+        </IAMCertificateId>
+        <ACMCertificateArn>
+            __ACMCertificateArn__
+        </ACMCertificateArn>
+        <SSLSupportMethod>
+            __SSLSupportMethod__
+        </SSLSupportMethod>
+        <MinimumProtocolVersion>
+            __MinimumProtocolVersion__
+        </MinimumProtocolVersion>
+        <Certificate>
+            __Certificate__
+        </Certificate>
+        <CertificateSource>
+            __CertificateSource__
+        </CertificateSource>
+    </ViewerCertificate>
+    <Restrictions>
+        <GeoRestriction>
+            <RestrictionType>
+                __RestrictionType__
+            </RestrictionType>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Location>
+                    __member__
+                </Location>
+                <Location>
+                    __member__
+                </Location>
+                <Location>
+                    __member__
+                </Location>
+            </Items>
+        </GeoRestriction>
+    </Restrictions>
+    <WebACLId>
+        __WebACLId__
+    </WebACLId>
+    <HttpVersion>
+        __HttpVersion__
+    </HttpVersion>
+    <IsIPV6Enabled>
+        false
+    </IsIPV6Enabled>
+    <ContinuousDeploymentPolicyId>
+        __ContinuousDeploymentPolicyId__
+    </ContinuousDeploymentPolicyId>
+    <Staging>
+        false
+    </Staging>
+    <AnycastIpListId>
+        __AnycastIpListId__
+    </AnycastIpListId>
+    <TenantConfig>
+        <ParameterDefinitions>
+            <member>
+                <Name>
+                    __Name__
+                </Name>
+                <Definition>
+                    <StringSchema>
+                        <Required>
+                            false
+                        </Required>
+                        <Comment>
+                            __Comment__
+                        </Comment>
+                        <DefaultValue>
+                            __DefaultValue__
+                        </DefaultValue>
+                    </StringSchema>
+                </Definition>
+            </member>
+            <member>
+                <Name>
+                    __Name__
+                </Name>
+                <Definition>
+                    <StringSchema>
+                        <Required>
+                            false
+                        </Required>
+                        <Comment>
+                            __Comment__
+                        </Comment>
+                        <DefaultValue>
+                            __DefaultValue__
+                        </DefaultValue>
+                    </StringSchema>
+                </Definition>
+            </member>
+            <member>
+                <Name>
+                    __Name__
+                </Name>
+                <Definition>
+                    <StringSchema>
+                        <Required>
+                            false
+                        </Required>
+                        <Comment>
+                            __Comment__
+                        </Comment>
+                        <DefaultValue>
+                            __DefaultValue__
+                        </DefaultValue>
+                    </StringSchema>
+                </Definition>
+            </member>
+        </ParameterDefinitions>
+    </TenantConfig>
+    <ConnectionMode>
+        __ConnectionMode__
+    </ConnectionMode>
+    <ViewerMtlsConfig>
+        <Mode>
+            __Mode__
+        </Mode>
+        <TrustStoreConfig>
+            <TrustStoreId>
+                __TrustStoreId__
+            </TrustStoreId>
+            <AdvertiseTrustStoreCaNames>
+                false
+            </AdvertiseTrustStoreCaNames>
+            <IgnoreCertificateExpiry>
+                false
+            </IgnoreCertificateExpiry>
+        </TrustStoreConfig>
+    </ViewerMtlsConfig>
+    <ConnectionFunctionAssociation>
+        <Id>
+            __Id__
+        </Id>
+    </ConnectionFunctionAssociation>
+</DistributionConfig>
+
+
+--- [output object] ---
+{
+  DistributionConfig: {
+    CallerReference: "__CallerReference__",
+    Origins: {
+      Quantity: (number) 0,
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    },
+    DefaultCacheBehavior: {
+      TargetOriginId: "__TargetOriginId__",
+      ViewerProtocolPolicy: "__ViewerProtocolPolicy__",
+      TrustedSigners: {
+        Enabled: (boolean) false,
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      TrustedKeyGroups: {
+        Enabled: (boolean) false,
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      AllowedMethods: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        CachedMethods: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      SmoothStreaming: (boolean) false,
+      Compress: (boolean) false,
+      LambdaFunctionAssociations: {
+        Quantity: (number) 0,
+        Items: [
+          {},
+          {},
+          {}
+        ]
+      },
+      FunctionAssociations: {
+        Quantity: (number) 0,
+        Items: [
+          {},
+          {},
+          {}
+        ]
+      },
+      FieldLevelEncryptionId: "__FieldLevelEncryptionId__",
+      RealtimeLogConfigArn: "__RealtimeLogConfigArn__",
+      CachePolicyId: "__CachePolicyId__",
+      OriginRequestPolicyId: "__OriginRequestPolicyId__",
+      ResponseHeadersPolicyId: "__ResponseHeadersPolicyId__",
+      GrpcConfig: {
+        Enabled: (boolean) false
+      },
+      ForwardedValues: {
+        QueryString: (boolean) false,
+        Cookies: {
+          Forward: "__Forward__",
+          WhitelistedNames: {
+            Quantity: (number) 0,
+            Items: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        Headers: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        QueryStringCacheKeys: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      MinTTL: (number) 0,
+      DefaultTTL: (number) 0,
+      MaxTTL: (number) 0
+    },
+    Comment: "__Comment__",
+    Enabled: (boolean) false,
+    Aliases: {
+      Quantity: (number) 0,
+      Items: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    DefaultRootObject: "__DefaultRootObject__",
+    OriginGroups: {
+      Quantity: (number) 0,
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    },
+    CacheBehaviors: {
+      Quantity: (number) 0,
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    },
+    CustomErrorResponses: {
+      Quantity: (number) 0,
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    },
+    Logging: {
+      Enabled: (boolean) false,
+      IncludeCookies: (boolean) false,
+      Bucket: "__Bucket__",
+      Prefix: "__Prefix__"
+    },
+    PriceClass: "__PriceClass__",
+    ViewerCertificate: {
+      CloudFrontDefaultCertificate: (boolean) false,
+      IAMCertificateId: "__IAMCertificateId__",
+      ACMCertificateArn: "__ACMCertificateArn__",
+      SSLSupportMethod: "__SSLSupportMethod__",
+      MinimumProtocolVersion: "__MinimumProtocolVersion__",
+      Certificate: "__Certificate__",
+      CertificateSource: "__CertificateSource__"
+    },
+    Restrictions: {
+      GeoRestriction: {
+        RestrictionType: "__RestrictionType__",
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    WebACLId: "__WebACLId__",
+    HttpVersion: "__HttpVersion__",
+    IsIPV6Enabled: (boolean) false,
+    ContinuousDeploymentPolicyId: "__ContinuousDeploymentPolicyId__",
+    Staging: (boolean) false,
+    AnycastIpListId: "__AnycastIpListId__",
+    TenantConfig: {
+      ParameterDefinitions: [
+        {
+          Name: "__Name__",
+          Definition: {
+            StringSchema: {
+              Required: (boolean) false,
+              Comment: "__Comment__",
+              DefaultValue: "__DefaultValue__"
+            }
+          }
+        },
+        {
+          Name: "__Name__",
+          Definition: {
+            StringSchema: {
+              Required: (boolean) false,
+              Comment: "__Comment__",
+              DefaultValue: "__DefaultValue__"
+            }
+          }
+        },
+        {
+          Name: "__Name__",
+          Definition: {
+            StringSchema: {
+              Required: (boolean) false,
+              Comment: "__Comment__",
+              DefaultValue: "__DefaultValue__"
+            }
+          }
+        }
+      ]
+    },
+    ConnectionMode: "__ConnectionMode__",
+    ViewerMtlsConfig: {
+      Mode: "__Mode__",
+      TrustStoreConfig: {
+        TrustStoreId: "__TrustStoreId__",
+        AdvertiseTrustStoreCaNames: (boolean) false,
+        IgnoreCertificateExpiry: (boolean) false
+      }
+    },
+    ConnectionFunctionAssociation: {
+      Id: "__Id__"
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

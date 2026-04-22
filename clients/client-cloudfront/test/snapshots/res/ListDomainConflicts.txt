@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListDomainConflictsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListDomainConflictsResult xmlns="https://placeholder.amazonaws.com">
+    <DomainConflicts>
+        <DomainConflicts>
+            <Domain>
+                __Domain__
+            </Domain>
+            <ResourceType>
+                __ResourceType__
+            </ResourceType>
+            <ResourceId>
+                __ResourceId__
+            </ResourceId>
+            <AccountId>
+                123456789012
+            </AccountId>
+        </DomainConflicts>
+        <DomainConflicts>
+            <Domain>
+                __Domain__
+            </Domain>
+            <ResourceType>
+                __ResourceType__
+            </ResourceType>
+            <ResourceId>
+                __ResourceId__
+            </ResourceId>
+            <AccountId>
+                123456789012
+            </AccountId>
+        </DomainConflicts>
+        <DomainConflicts>
+            <Domain>
+                __Domain__
+            </Domain>
+            <ResourceType>
+                __ResourceType__
+            </ResourceType>
+            <ResourceId>
+                __ResourceId__
+            </ResourceId>
+            <AccountId>
+                123456789012
+            </AccountId>
+        </DomainConflicts>
+    </DomainConflicts>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListDomainConflictsResult>
+
+
+--- [output object] ---
+{
+  DomainConflicts: [
+    {
+      Domain: "__Domain__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__",
+      AccountId: "123456789012"
+    },
+    {
+      Domain: "__Domain__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__",
+      AccountId: "123456789012"
+    },
+    {
+      Domain: "__Domain__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__",
+      AccountId: "123456789012"
+    }
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

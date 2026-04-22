@@ -1,0 +1,104 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ConnectionFunctionSummary xmlns="https://placeholder.amazonaws.com">
+    <Name>
+        __Name__
+    </Name>
+    <Id>
+        __Id__
+    </Id>
+    <ConnectionFunctionConfig>
+        <Comment>
+            __Comment__
+        </Comment>
+        <Runtime>
+            __Runtime__
+        </Runtime>
+        <KeyValueStoreAssociations>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <KeyValueStoreAssociation/>
+<KeyValueStoreAssociation/>
+<KeyValueStoreAssociation/>
+            </Items>
+        </KeyValueStoreAssociations>
+    </ConnectionFunctionConfig>
+    <ConnectionFunctionArn>
+        __ConnectionFunctionArn__
+    </ConnectionFunctionArn>
+    <Status>
+        __Status__
+    </Status>
+    <Stage>
+        __Stage__
+    </Stage>
+    <CreatedTime>
+        2000-01-01T04:59:59.999Z
+    </CreatedTime>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+</ConnectionFunctionSummary>
+
+
+--- [output object] ---
+{
+  ConnectionFunctionSummary: {
+    Name: "__Name__",
+    Id: "__Id__",
+    ConnectionFunctionConfig: {
+      Comment: "__Comment__",
+      Runtime: "__Runtime__",
+      KeyValueStoreAssociations: {
+        Quantity: (number) 0,
+        Items: [
+          {},
+          {},
+          {}
+        ]
+      }
+    },
+    ConnectionFunctionArn: "__ConnectionFunctionArn__",
+    Status: "__Status__",
+    Stage: "__Stage__",
+    CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

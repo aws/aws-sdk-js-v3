@@ -1,0 +1,93 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "nextToken": "__nextToken__",
+  "indices": [
+    {
+      "displayName": "__displayName__",
+      "indexId": "__indexId__",
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999,
+      "status": "__status__"
+    },
+    {
+      "displayName": "__displayName__",
+      "indexId": "__indexId__",
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999,
+      "status": "__status__"
+    },
+    {
+      "displayName": "__displayName__",
+      "indexId": "__indexId__",
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999,
+      "status": "__status__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  nextToken: "__nextToken__",
+  indices: [
+    {
+      displayName: "__displayName__",
+      indexId: "__indexId__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__"
+    },
+    {
+      displayName: "__displayName__",
+      indexId: "__indexId__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__"
+    },
+    {
+      displayName: "__displayName__",
+      indexId: "__indexId__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

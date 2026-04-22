@@ -1,0 +1,38 @@
+POST https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/indices
+
+content-type: application/json
+content-length: 295
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 09eb7faf78643f0f1dcc88e02c33cb50d9feee5b3e7a6c2474bda7ccd6297d83
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "displayName": "__displayName__",
+  "description": "__description__",
+  "type": "__type__",
+  "tags": [
+    {
+      "key": "__key__",
+      "value": "__value__"
+    },
+    {
+      "key": "__key__",
+      "value": "__value__"
+    },
+    {
+      "key": "__key__",
+      "value": "__value__"
+    }
+  ],
+  "capacityConfiguration": {
+    "units": 0
+  },
+  "clientToken": "1111abcd-uuid-uuid-uuid-000000001111"
+}

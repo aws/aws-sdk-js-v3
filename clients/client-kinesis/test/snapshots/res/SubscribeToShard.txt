@@ -1,0 +1,646 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 1278 [header-size] 101 [prelude-crc] 879748756
+:event-type: SubscribeToShardEvent
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "Records": [
+    {
+      "SequenceNumber": "__SequenceNumber__",
+      "Data": "AQAAAQ==",
+      "PartitionKey": "__PartitionKey__",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "EncryptionType": "__EncryptionType__"
+    },
+    {
+      "SequenceNumber": "__SequenceNumber__",
+      "Data": "AQAAAQ==",
+      "PartitionKey": "__PartitionKey__",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "EncryptionType": "__EncryptionType__"
+    },
+    {
+      "SequenceNumber": "__SequenceNumber__",
+      "Data": "AQAAAQ==",
+      "PartitionKey": "__PartitionKey__",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "EncryptionType": "__EncryptionType__"
+    }
+  ],
+  "ContinuationSequenceNumber": "__ContinuationSequenceNumber__",
+  "MillisBehindLatest": 0,
+  "ChildShards": [
+    {
+      "ShardId": "__ShardId__",
+      "ParentShards": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "HashKeyRange": {
+        "StartingHashKey": "__StartingHashKey__",
+        "EndingHashKey": "__EndingHashKey__"
+      }
+    },
+    {
+      "ShardId": "__ShardId__",
+      "ParentShards": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "HashKeyRange": {
+        "StartingHashKey": "__StartingHashKey__",
+        "EndingHashKey": "__EndingHashKey__"
+      }
+    },
+    {
+      "ShardId": "__ShardId__",
+      "ParentShards": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "HashKeyRange": {
+        "StartingHashKey": "__StartingHashKey__",
+        "EndingHashKey": "__EndingHashKey__"
+      }
+    }
+  ]
+}
+
+[message-crc] 2015832336
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 123 [header-size] 105 [prelude-crc] 3746486091
+:event-type: ResourceNotFoundException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 3122291661
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 120 [header-size] 102 [prelude-crc] 139571210
+:event-type: ResourceInUseException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 2828997253
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 118 [header-size] 100 [prelude-crc] 1500475207
+:event-type: KMSDisabledException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 2475585225
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 122 [header-size] 104 [prelude-crc] 2502545005
+:event-type: KMSInvalidStateException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 3521750863
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 122 [header-size] 104 [prelude-crc] 2502545005
+:event-type: KMSAccessDeniedException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 4031518365
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 118 [header-size] 100 [prelude-crc] 1500475207
+:event-type: KMSNotFoundException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 1577738341
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 114 [header-size] 96 [prelude-crc] 2877427102
+:event-type: KMSOptInRequired
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 2886074759
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 120 [header-size] 102 [prelude-crc] 139571210
+:event-type: KMSThrottlingException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 900223794
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 122 [header-size] 104 [prelude-crc] 2502545005
+:event-type: InternalFailureException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{}
+
+[message-crc] 2043811444
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  EventStream: async_it[
+    {
+      SubscribeToShardEvent: {
+        Records: [
+          {
+            SequenceNumber: "__SequenceNumber__",
+            Data: (Uint8Array) bytes[1, 0, 0, 1],
+            PartitionKey: "__PartitionKey__",
+            ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EncryptionType: "__EncryptionType__"
+          },
+          {
+            SequenceNumber: "__SequenceNumber__",
+            Data: (Uint8Array) bytes[1, 0, 0, 1],
+            PartitionKey: "__PartitionKey__",
+            ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EncryptionType: "__EncryptionType__"
+          },
+          {
+            SequenceNumber: "__SequenceNumber__",
+            Data: (Uint8Array) bytes[1, 0, 0, 1],
+            PartitionKey: "__PartitionKey__",
+            ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EncryptionType: "__EncryptionType__"
+          }
+        ],
+        ContinuationSequenceNumber: "__ContinuationSequenceNumber__",
+        MillisBehindLatest: (number) 0,
+        ChildShards: [
+          {
+            ShardId: "__ShardId__",
+            ParentShards: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            HashKeyRange: {
+              StartingHashKey: "__StartingHashKey__",
+              EndingHashKey: "__EndingHashKey__"
+            }
+          },
+          {
+            ShardId: "__ShardId__",
+            ParentShards: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            HashKeyRange: {
+              StartingHashKey: "__StartingHashKey__",
+              EndingHashKey: "__EndingHashKey__"
+            }
+          },
+          {
+            ShardId: "__ShardId__",
+            ParentShards: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            HashKeyRange: {
+              StartingHashKey: "__StartingHashKey__",
+              EndingHashKey: "__EndingHashKey__"
+            }
+          }
+        ]
+      }
+    },
+    {
+      ResourceNotFoundException: {}
+    },
+    {
+      ResourceInUseException: {}
+    },
+    {
+      KMSDisabledException: {}
+    },
+    {
+      KMSInvalidStateException: {}
+    },
+    {
+      KMSAccessDeniedException: {}
+    },
+    {
+      KMSNotFoundException: {}
+    },
+    {
+      KMSOptInRequired: {}
+    },
+    {
+      KMSThrottlingException: {}
+    },
+    {
+      InternalFailureException: {}
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 1278 [header-size] 101 [prelude-crc] 879748756
+:event-type: SubscribeToShardEvent
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "Records": [
+    {
+      "SequenceNumber": "__SequenceNumber__",
+      "Data": "AQAAAQ==",
+      "PartitionKey": "__PartitionKey__",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "EncryptionType": "__EncryptionType__"
+    },
+    {
+      "SequenceNumber": "__SequenceNumber__",
+      "Data": "AQAAAQ==",
+      "PartitionKey": "__PartitionKey__",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "EncryptionType": "__EncryptionType__"
+    },
+    {
+      "SequenceNumber": "__SequenceNumber__",
+      "Data": "AQAAAQ==",
+      "PartitionKey": "__PartitionKey__",
+      "ApproximateArrivalTimestamp": 946702799.999,
+      "EncryptionType": "__EncryptionType__"
+    }
+  ],
+  "ContinuationSequenceNumber": "__ContinuationSequenceNumber__",
+  "MillisBehindLatest": 0,
+  "ChildShards": [
+    {
+      "ShardId": "__ShardId__",
+      "ParentShards": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "HashKeyRange": {
+        "StartingHashKey": "__StartingHashKey__",
+        "EndingHashKey": "__EndingHashKey__"
+      }
+    },
+    {
+      "ShardId": "__ShardId__",
+      "ParentShards": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "HashKeyRange": {
+        "StartingHashKey": "__StartingHashKey__",
+        "EndingHashKey": "__EndingHashKey__"
+      }
+    },
+    {
+      "ShardId": "__ShardId__",
+      "ParentShards": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "HashKeyRange": {
+        "StartingHashKey": "__StartingHashKey__",
+        "EndingHashKey": "__EndingHashKey__"
+      }
+    }
+  ]
+}
+
+[message-crc] 2015832336
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 146 [header-size] 105 [prelude-crc] 4203377381
+:event-type: ResourceNotFoundException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 4141791068
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 143 [header-size] 102 [prelude-crc] 4064623687
+:event-type: ResourceInUseException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3476851672
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 141 [header-size] 100 [prelude-crc] 1720389131
+:event-type: KMSDisabledException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3301242461
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 145 [header-size] 104 [prelude-crc] 3391961251
+:event-type: KMSInvalidStateException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 61963634
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 145 [header-size] 104 [prelude-crc] 3391961251
+:event-type: KMSAccessDeniedException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3479546393
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 141 [header-size] 100 [prelude-crc] 1720389131
+:event-type: KMSNotFoundException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3471845663
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 137 [header-size] 96 [prelude-crc] 2489740498
+:event-type: KMSOptInRequired
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3924143351
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 143 [header-size] 102 [prelude-crc] 4064623687
+:event-type: KMSThrottlingException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3830296589
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 145 [header-size] 104 [prelude-crc] 3391961251
+:event-type: InternalFailureException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1640040964
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  EventStream: async_it[
+    {
+      SubscribeToShardEvent: {
+        Records: [
+          {
+            SequenceNumber: "__SequenceNumber__",
+            Data: (Uint8Array) bytes[1, 0, 0, 1],
+            PartitionKey: "__PartitionKey__",
+            ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EncryptionType: "__EncryptionType__"
+          },
+          {
+            SequenceNumber: "__SequenceNumber__",
+            Data: (Uint8Array) bytes[1, 0, 0, 1],
+            PartitionKey: "__PartitionKey__",
+            ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EncryptionType: "__EncryptionType__"
+          },
+          {
+            SequenceNumber: "__SequenceNumber__",
+            Data: (Uint8Array) bytes[1, 0, 0, 1],
+            PartitionKey: "__PartitionKey__",
+            ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EncryptionType: "__EncryptionType__"
+          }
+        ],
+        ContinuationSequenceNumber: "__ContinuationSequenceNumber__",
+        MillisBehindLatest: (number) 0,
+        ChildShards: [
+          {
+            ShardId: "__ShardId__",
+            ParentShards: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            HashKeyRange: {
+              StartingHashKey: "__StartingHashKey__",
+              EndingHashKey: "__EndingHashKey__"
+            }
+          },
+          {
+            ShardId: "__ShardId__",
+            ParentShards: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            HashKeyRange: {
+              StartingHashKey: "__StartingHashKey__",
+              EndingHashKey: "__EndingHashKey__"
+            }
+          },
+          {
+            ShardId: "__ShardId__",
+            ParentShards: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            HashKeyRange: {
+              StartingHashKey: "__StartingHashKey__",
+              EndingHashKey: "__EndingHashKey__"
+            }
+          }
+        ]
+      }
+    },
+    {
+      ResourceNotFoundException: {
+        message: "__message__"
+      }
+    },
+    {
+      ResourceInUseException: {
+        message: "__message__"
+      }
+    },
+    {
+      KMSDisabledException: {
+        message: "__message__"
+      }
+    },
+    {
+      KMSInvalidStateException: {
+        message: "__message__"
+      }
+    },
+    {
+      KMSAccessDeniedException: {
+        message: "__message__"
+      }
+    },
+    {
+      KMSNotFoundException: {
+        message: "__message__"
+      }
+    },
+    {
+      KMSOptInRequired: {
+        message: "__message__"
+      }
+    },
+    {
+      KMSThrottlingException: {
+        message: "__message__"
+      }
+    },
+    {
+      InternalFailureException: {
+        message: "__message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

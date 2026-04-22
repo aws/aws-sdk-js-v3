@@ -1,0 +1,36 @@
+PUT https://cloudfront.amazonaws.com 
+/2020-05-31/key-group/__Id__
+
+if-match: __IfMatch__
+content-type: application/xml
+content-length: 292
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 0204e6319b72c84df720d1378e158c8b2c00c8398fe3d90e1db5f5cb9fb917b1
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;if-match;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<KeyGroupConfig xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <Name>
+        __Name__
+    </Name>
+    <Items>
+        <PublicKey>
+            __member__
+        </PublicKey>
+        <PublicKey>
+            __member__
+        </PublicKey>
+        <PublicKey>
+            __member__
+        </PublicKey>
+    </Items>
+    <Comment>
+        __Comment__
+    </Comment>
+</KeyGroupConfig>

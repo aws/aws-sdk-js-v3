@@ -1,0 +1,48 @@
+PUT https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/retrievers/__retrieverId__
+
+content-type: application/json
+content-length: 484
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 29d0ab4598e8786f62b030a94c3e52292c6aca558f1574f716cb7b47c8b994fa
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "configuration": {
+    "nativeIndexConfiguration": {
+      "indexId": "__indexId__",
+      "version": 0,
+      "boostingOverride": {
+        "key1": {
+          "stringConfiguration": {
+            "boostingLevel": "__boostingLevel__",
+            "attributeValueBoosting": {
+              "key1": "__value__",
+              "key2": "__value__",
+              "key3": "__value__"
+            }
+          }
+        },
+        "key2": {
+          "dateConfiguration": {
+            "boostingLevel": "__boostingLevel__",
+            "boostingDurationInSeconds": 0
+          }
+        },
+        "key3": {
+          "stringListConfiguration": {
+            "boostingLevel": "__boostingLevel__"
+          }
+        }
+      }
+    }
+  },
+  "displayName": "__displayName__",
+  "roleArn": "__roleArn__"
+}

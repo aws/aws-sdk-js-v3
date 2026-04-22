@@ -1,0 +1,304 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<ResponseHeadersPolicyConfig xmlns="https://placeholder.amazonaws.com">
+    <Name>
+        __Name__
+    </Name>
+    <Comment>
+        __Comment__
+    </Comment>
+    <CorsConfig>
+        <AccessControlAllowOrigins>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Origin>
+                    __member__
+                </Origin>
+                <Origin>
+                    __member__
+                </Origin>
+                <Origin>
+                    __member__
+                </Origin>
+            </Items>
+        </AccessControlAllowOrigins>
+        <AccessControlAllowHeaders>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Header>
+                    __member__
+                </Header>
+                <Header>
+                    __member__
+                </Header>
+                <Header>
+                    __member__
+                </Header>
+            </Items>
+        </AccessControlAllowHeaders>
+        <AccessControlAllowMethods>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Method>
+                    __member__
+                </Method>
+                <Method>
+                    __member__
+                </Method>
+                <Method>
+                    __member__
+                </Method>
+            </Items>
+        </AccessControlAllowMethods>
+        <AccessControlAllowCredentials>
+            false
+        </AccessControlAllowCredentials>
+        <OriginOverride>
+            false
+        </OriginOverride>
+        <AccessControlExposeHeaders>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Header>
+                    __member__
+                </Header>
+                <Header>
+                    __member__
+                </Header>
+                <Header>
+                    __member__
+                </Header>
+            </Items>
+        </AccessControlExposeHeaders>
+        <AccessControlMaxAgeSec>
+            0
+        </AccessControlMaxAgeSec>
+    </CorsConfig>
+    <SecurityHeadersConfig>
+        <XSSProtection>
+            <Override>
+                false
+            </Override>
+            <Protection>
+                false
+            </Protection>
+            <ModeBlock>
+                false
+            </ModeBlock>
+            <ReportUri>
+                __ReportUri__
+            </ReportUri>
+        </XSSProtection>
+        <FrameOptions>
+            <Override>
+                false
+            </Override>
+            <FrameOption>
+                __FrameOption__
+            </FrameOption>
+        </FrameOptions>
+        <ReferrerPolicy>
+            <Override>
+                false
+            </Override>
+            <ReferrerPolicy>
+                __ReferrerPolicy__
+            </ReferrerPolicy>
+        </ReferrerPolicy>
+        <ContentSecurityPolicy>
+            <Override>
+                false
+            </Override>
+            <ContentSecurityPolicy>
+                __ContentSecurityPolicy__
+            </ContentSecurityPolicy>
+        </ContentSecurityPolicy>
+        <ContentTypeOptions>
+            <Override>
+                false
+            </Override>
+        </ContentTypeOptions>
+        <StrictTransportSecurity>
+            <Override>
+                false
+            </Override>
+            <AccessControlMaxAgeSec>
+                0
+            </AccessControlMaxAgeSec>
+            <IncludeSubdomains>
+                false
+            </IncludeSubdomains>
+            <Preload>
+                false
+            </Preload>
+        </StrictTransportSecurity>
+    </SecurityHeadersConfig>
+    <ServerTimingHeadersConfig>
+        <Enabled>
+            false
+        </Enabled>
+        <SamplingRate>
+            0
+        </SamplingRate>
+    </ServerTimingHeadersConfig>
+    <CustomHeadersConfig>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <ResponseHeadersPolicyCustomHeader/>
+<ResponseHeadersPolicyCustomHeader/>
+<ResponseHeadersPolicyCustomHeader/>
+        </Items>
+    </CustomHeadersConfig>
+    <RemoveHeadersConfig>
+        <Quantity>
+            0
+        </Quantity>
+        <Items>
+            <ResponseHeadersPolicyRemoveHeader/>
+<ResponseHeadersPolicyRemoveHeader/>
+<ResponseHeadersPolicyRemoveHeader/>
+        </Items>
+    </RemoveHeadersConfig>
+</ResponseHeadersPolicyConfig>
+
+
+--- [output object] ---
+{
+  ResponseHeadersPolicyConfig: {
+    Name: "__Name__",
+    Comment: "__Comment__",
+    CorsConfig: {
+      AccessControlAllowOrigins: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      AccessControlAllowHeaders: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      AccessControlAllowMethods: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      AccessControlAllowCredentials: (boolean) false,
+      OriginOverride: (boolean) false,
+      AccessControlExposeHeaders: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      AccessControlMaxAgeSec: (number) 0
+    },
+    SecurityHeadersConfig: {
+      XSSProtection: {
+        Override: (boolean) false,
+        Protection: (boolean) false,
+        ModeBlock: (boolean) false,
+        ReportUri: "__ReportUri__"
+      },
+      FrameOptions: {
+        Override: (boolean) false,
+        FrameOption: "__FrameOption__"
+      },
+      ReferrerPolicy: {
+        Override: (boolean) false,
+        ReferrerPolicy: "__ReferrerPolicy__"
+      },
+      ContentSecurityPolicy: {
+        Override: (boolean) false,
+        ContentSecurityPolicy: "__ContentSecurityPolicy__"
+      },
+      ContentTypeOptions: {
+        Override: (boolean) false
+      },
+      StrictTransportSecurity: {
+        Override: (boolean) false,
+        AccessControlMaxAgeSec: (number) 0,
+        IncludeSubdomains: (boolean) false,
+        Preload: (boolean) false
+      }
+    },
+    ServerTimingHeadersConfig: {
+      Enabled: (boolean) false,
+      SamplingRate: (number) 0
+    },
+    CustomHeadersConfig: {
+      Quantity: (number) 0,
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    },
+    RemoveHeadersConfig: {
+      Quantity: (number) 0,
+      Items: [
+        {},
+        {},
+        {}
+      ]
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

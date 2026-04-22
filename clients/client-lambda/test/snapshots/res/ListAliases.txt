@@ -1,0 +1,135 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "NextMarker": "__NextMarker__",
+  "Aliases": [
+    {
+      "AliasArn": "__AliasArn__",
+      "Name": "__Name__",
+      "FunctionVersion": "__FunctionVersion__",
+      "Description": "__Description__",
+      "RoutingConfig": {
+        "AdditionalVersionWeights": {
+          "key1": 0,
+          "key2": 0,
+          "key3": 0
+        }
+      },
+      "RevisionId": "__RevisionId__"
+    },
+    {
+      "AliasArn": "__AliasArn__",
+      "Name": "__Name__",
+      "FunctionVersion": "__FunctionVersion__",
+      "Description": "__Description__",
+      "RoutingConfig": {
+        "AdditionalVersionWeights": {
+          "key1": 0,
+          "key2": 0,
+          "key3": 0
+        }
+      },
+      "RevisionId": "__RevisionId__"
+    },
+    {
+      "AliasArn": "__AliasArn__",
+      "Name": "__Name__",
+      "FunctionVersion": "__FunctionVersion__",
+      "Description": "__Description__",
+      "RoutingConfig": {
+        "AdditionalVersionWeights": {
+          "key1": 0,
+          "key2": 0,
+          "key3": 0
+        }
+      },
+      "RevisionId": "__RevisionId__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  NextMarker: "__NextMarker__",
+  Aliases: [
+    {
+      AliasArn: "__AliasArn__",
+      Name: "__Name__",
+      FunctionVersion: "__FunctionVersion__",
+      Description: "__Description__",
+      RoutingConfig: {
+        AdditionalVersionWeights: {
+          key1: (number) 0,
+          key2: (number) 0,
+          key3: (number) 0
+        }
+      },
+      RevisionId: "__RevisionId__"
+    },
+    {
+      AliasArn: "__AliasArn__",
+      Name: "__Name__",
+      FunctionVersion: "__FunctionVersion__",
+      Description: "__Description__",
+      RoutingConfig: {
+        AdditionalVersionWeights: {
+          key1: (number) 0,
+          key2: (number) 0,
+          key3: (number) 0
+        }
+      },
+      RevisionId: "__RevisionId__"
+    },
+    {
+      AliasArn: "__AliasArn__",
+      Name: "__Name__",
+      FunctionVersion: "__FunctionVersion__",
+      Description: "__Description__",
+      RoutingConfig: {
+        AdditionalVersionWeights: {
+          key1: (number) 0,
+          key2: (number) 0,
+          key3: (number) 0
+        }
+      },
+      RevisionId: "__RevisionId__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
