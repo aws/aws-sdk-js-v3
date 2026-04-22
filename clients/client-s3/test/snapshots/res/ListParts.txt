@@ -80,6 +80,21 @@ x-amz-request-charged: __RequestCharged__
         <ChecksumSHA256>
             __ChecksumSHA256__
         </ChecksumSHA256>
+        <ChecksumSHA512>
+            __ChecksumSHA512__
+        </ChecksumSHA512>
+        <ChecksumMD5>
+            __ChecksumMD5__
+        </ChecksumMD5>
+        <ChecksumXXHASH64>
+            __ChecksumXXHASH64__
+        </ChecksumXXHASH64>
+        <ChecksumXXHASH3>
+            __ChecksumXXHASH3__
+        </ChecksumXXHASH3>
+        <ChecksumXXHASH128>
+            __ChecksumXXHASH128__
+        </ChecksumXXHASH128>
     </Part>
     <Part>
         <PartNumber>
@@ -109,6 +124,21 @@ x-amz-request-charged: __RequestCharged__
         <ChecksumSHA256>
             __ChecksumSHA256__
         </ChecksumSHA256>
+        <ChecksumSHA512>
+            __ChecksumSHA512__
+        </ChecksumSHA512>
+        <ChecksumMD5>
+            __ChecksumMD5__
+        </ChecksumMD5>
+        <ChecksumXXHASH64>
+            __ChecksumXXHASH64__
+        </ChecksumXXHASH64>
+        <ChecksumXXHASH3>
+            __ChecksumXXHASH3__
+        </ChecksumXXHASH3>
+        <ChecksumXXHASH128>
+            __ChecksumXXHASH128__
+        </ChecksumXXHASH128>
     </Part>
     <Part>
         <PartNumber>
@@ -138,6 +168,21 @@ x-amz-request-charged: __RequestCharged__
         <ChecksumSHA256>
             __ChecksumSHA256__
         </ChecksumSHA256>
+        <ChecksumSHA512>
+            __ChecksumSHA512__
+        </ChecksumSHA512>
+        <ChecksumMD5>
+            __ChecksumMD5__
+        </ChecksumMD5>
+        <ChecksumXXHASH64>
+            __ChecksumXXHASH64__
+        </ChecksumXXHASH64>
+        <ChecksumXXHASH3>
+            __ChecksumXXHASH3__
+        </ChecksumXXHASH3>
+        <ChecksumXXHASH128>
+            __ChecksumXXHASH128__
+        </ChecksumXXHASH128>
     </Part>
     <Initiator>
         <ID>
@@ -189,7 +234,12 @@ x-amz-request-charged: __RequestCharged__
       ChecksumCRC32C: "__ChecksumCRC32C__",
       ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
       ChecksumSHA1: "__ChecksumSHA1__",
-      ChecksumSHA256: "__ChecksumSHA256__"
+      ChecksumSHA256: "__ChecksumSHA256__",
+      ChecksumSHA512: "__ChecksumSHA512__",
+      ChecksumMD5: "__ChecksumMD5__",
+      ChecksumXXHASH64: "__ChecksumXXHASH64__",
+      ChecksumXXHASH3: "__ChecksumXXHASH3__",
+      ChecksumXXHASH128: "__ChecksumXXHASH128__"
     },
     {
       PartNumber: (number) 0,
@@ -200,7 +250,12 @@ x-amz-request-charged: __RequestCharged__
       ChecksumCRC32C: "__ChecksumCRC32C__",
       ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
       ChecksumSHA1: "__ChecksumSHA1__",
-      ChecksumSHA256: "__ChecksumSHA256__"
+      ChecksumSHA256: "__ChecksumSHA256__",
+      ChecksumSHA512: "__ChecksumSHA512__",
+      ChecksumMD5: "__ChecksumMD5__",
+      ChecksumXXHASH64: "__ChecksumXXHASH64__",
+      ChecksumXXHASH3: "__ChecksumXXHASH3__",
+      ChecksumXXHASH128: "__ChecksumXXHASH128__"
     },
     {
       PartNumber: (number) 0,
@@ -211,7 +266,12 @@ x-amz-request-charged: __RequestCharged__
       ChecksumCRC32C: "__ChecksumCRC32C__",
       ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
       ChecksumSHA1: "__ChecksumSHA1__",
-      ChecksumSHA256: "__ChecksumSHA256__"
+      ChecksumSHA256: "__ChecksumSHA256__",
+      ChecksumSHA512: "__ChecksumSHA512__",
+      ChecksumMD5: "__ChecksumMD5__",
+      ChecksumXXHASH64: "__ChecksumXXHASH64__",
+      ChecksumXXHASH3: "__ChecksumXXHASH3__",
+      ChecksumXXHASH128: "__ChecksumXXHASH128__"
     }
   ],
   Initiator: {

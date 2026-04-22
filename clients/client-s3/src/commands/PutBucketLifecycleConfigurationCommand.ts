@@ -167,7 +167,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketL
  * const client = new S3Client(config);
  * const input = { // PutBucketLifecycleConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  *   LifecycleConfiguration: { // BucketLifecycleConfiguration
  *     Rules: [ // LifecycleRules // required
  *       { // LifecycleRule

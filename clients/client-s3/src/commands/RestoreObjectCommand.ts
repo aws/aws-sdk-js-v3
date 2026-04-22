@@ -321,7 +321,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *     },
  *   },
  *   RequestPayer: "requester",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new RestoreObjectCommand(input);

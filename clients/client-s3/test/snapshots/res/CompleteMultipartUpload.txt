@@ -61,6 +61,21 @@ x-amz-request-charged: __RequestCharged__
     <ChecksumSHA256>
         __ChecksumSHA256__
     </ChecksumSHA256>
+    <ChecksumSHA512>
+        __ChecksumSHA512__
+    </ChecksumSHA512>
+    <ChecksumMD5>
+        __ChecksumMD5__
+    </ChecksumMD5>
+    <ChecksumXXHASH64>
+        __ChecksumXXHASH64__
+    </ChecksumXXHASH64>
+    <ChecksumXXHASH3>
+        __ChecksumXXHASH3__
+    </ChecksumXXHASH3>
+    <ChecksumXXHASH128>
+        __ChecksumXXHASH128__
+    </ChecksumXXHASH128>
     <ChecksumType>
         __ChecksumType__
     </ChecksumType>
@@ -84,6 +99,11 @@ x-amz-request-charged: __RequestCharged__
   ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
   ChecksumSHA1: "__ChecksumSHA1__",
   ChecksumSHA256: "__ChecksumSHA256__",
+  ChecksumSHA512: "__ChecksumSHA512__",
+  ChecksumMD5: "__ChecksumMD5__",
+  ChecksumXXHASH64: "__ChecksumXXHASH64__",
+  ChecksumXXHASH3: "__ChecksumXXHASH3__",
+  ChecksumXXHASH128: "__ChecksumXXHASH128__",
   ChecksumType: "__ChecksumType__",
   $metadata: {
     httpStatusCode: (number) 200,

@@ -62,7 +62,7 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * const input = { // PutBucketRequestPaymentRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  *   RequestPaymentConfiguration: { // RequestPaymentConfiguration
  *     Payer: "Requester" || "BucketOwner", // required
  *   },

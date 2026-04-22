@@ -27,10 +27,7 @@ export interface PutBucketInventoryConfigurationCommandInput extends PutBucketIn
 export interface PutBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>This implementation of the <code>PUT</code> action adds an S3 Inventory configuration (identified by
+ * <p>This implementation of the <code>PUT</code> action adds an S3 Inventory configuration (identified by
  *       the inventory ID) to the bucket. You can have up to 1,000 inventory configurations per bucket. </p>
  *          <p>Amazon S3 inventory generates inventories of the objects in the bucket on a daily or weekly basis, and
  *       the results are published to a flat file. The bucket that is inventoried is called the
@@ -48,6 +45,14 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *           <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9"> Granting
  *           Permissions for Amazon S3 Inventory and Storage Class Analysis</a>.</p>
  *          </important>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+ *                </code>. Virtual-hosted-style requests aren't supported.
+ * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
@@ -58,12 +63,33 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *             report that includes all object metadata fields available and to specify the destination bucket to
  *             store the inventory. A user with read access to objects in the destination bucket can also access
  *             all object metadata fields that are available in the inventory report. </p>
- *                <p>To restrict access to an inventory report, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-10">Restricting access to an Amazon S3 Inventory report</a> in the
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - The
+ * 	                   <code>s3:PutInventoryConfiguration</code> permission is required in a policy. For more information
+ * 	                 about general purpose buckets permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
+ * 	                   Policies</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> - To grant access to
+ * 	                 this API operation, you must have the <code>s3express:PutInventoryConfiguration</code> permission in
+ * 	                 an IAM identity-based policy instead of a bucket policy.
+ * 	                 For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>To restrict access to an inventory report, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-s3-inventory">Restricting access to an Amazon S3 Inventory report</a> in the
  *               <i>Amazon S3 User Guide</i>. For more information about the metadata fields available
  *             in S3 Inventory, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html#storage-inventory-contents">Amazon S3 Inventory
  *               lists</a> in the <i>Amazon S3 User Guide</i>. For more information about
  *             permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions related to bucket subresource operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Identity and access management in
  *               Amazon S3</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>

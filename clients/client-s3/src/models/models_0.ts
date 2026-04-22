@@ -400,6 +400,46 @@ export interface CompleteMultipartUploadOutput {
   ChecksumSHA256?: string | undefined;
 
   /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
    * <p>The checksum type, which determines how part-level checksums are combined to create an object-level
    *       checksum for multipart objects. You can use this header as a data integrity check to verify that the
    *       checksum type that is received is the same checksum type that was specified during the
@@ -485,8 +525,8 @@ export interface CompletedPart {
 
   /**
    * <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This checksum is present if
-   *       the multipart upload request was created with the <code>CRC64NVME</code> checksum algorithm to the
-   *       uploaded object). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the multipart upload request was created with the <code>CRC64NVME</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *       the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
@@ -509,6 +549,51 @@ export interface CompletedPart {
    * @public
    */
   ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>SHA512</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>MD5</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH64</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH3</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH128</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
 
   /**
    * <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p>
@@ -642,6 +727,51 @@ export interface CompleteMultipartUploadRequest {
    * @public
    */
   ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 512-bit <code>SHA512</code>
+   *       digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 128-bit <code>MD5</code>
+   *       digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH64</code>
+   *       checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH3</code>
+   *       checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code>
+   *       checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
 
   /**
    * <p>This header specifies the checksum type of the object, which determines how part-level checksums are
@@ -812,6 +942,51 @@ export interface CopyObjectResult {
    * @public
    */
   ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. This checksum is only present
+   *       if the object was uploaded with the <code>SHA512</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. This checksum is only present
+   *       if the object was uploaded with the <code>MD5</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. This checksum is only present
+   *       if the object was uploaded with the <code>XXHASH64</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. This checksum is only present
+   *       if the object was uploaded with the <code>XXHASH3</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. This checksum is only present
+   *       if the object was uploaded with the <code>XXHASH128</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
 }
 
 /**
@@ -3264,6 +3439,12 @@ export interface DeleteBucketIntelligentTieringConfigurationRequest {
 export interface DeleteBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket containing the inventory configuration to delete.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -3278,6 +3459,10 @@ export interface DeleteBucketInventoryConfigurationRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -5783,12 +5968,37 @@ export interface DeleteObjectsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>MD5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>SHA1</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SHA256</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHA512</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH128</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6878,6 +7088,10 @@ export interface InventoryConfiguration {
 
   /**
    * <p>Contains the optional fields that are included in the inventory results.</p>
+   *          <note>
+   *             <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded |
+   *       EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided. </p>
+   *          </note>
    * @public
    */
   OptionalFields?: InventoryOptionalField[] | undefined;
@@ -6906,6 +7120,12 @@ export interface GetBucketInventoryConfigurationOutput {
 export interface GetBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket containing the inventory configuration to retrieve.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -6920,6 +7140,10 @@ export interface GetBucketInventoryConfigurationRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -9650,6 +9874,46 @@ export interface GetObjectOutput {
   ChecksumSHA256?: string | undefined;
 
   /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
    * <p>The checksum type, which determines how part-level checksums are combined to create an object-level
    *       checksum for multipart objects. You can use this header response to verify that the checksum type that
    *       is received is the same checksum type that was specified in the <code>CreateMultipartUpload</code>
@@ -10292,6 +10556,51 @@ export interface Checksum {
   ChecksumSHA256?: string | undefined;
 
   /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. This checksum is present
+   *       if the object was uploaded with the <code>SHA512</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. This checksum is present
+   *       if the object was uploaded with the <code>MD5</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. This checksum is present
+   *       if the object was uploaded with the <code>XXHASH64</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. This checksum is present
+   *       if the object was uploaded with the <code>XXHASH3</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. This checksum is present
+   *       if the object was uploaded with the <code>XXHASH128</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
    * <p>The checksum type that is used to calculate the object’s checksum value. For more information, see
    *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
    *         object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -10362,6 +10671,51 @@ export interface ObjectPart {
    * @public
    */
   ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>SHA512</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>MD5</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH64</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH3</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH128</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
 }
 
 /**
@@ -11306,6 +11660,46 @@ export interface HeadObjectOutput {
   ChecksumSHA256?: string | undefined;
 
   /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see
+   *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
    * <p>The checksum type, which determines how part-level checksums are combined to create an object-level
    *       checksum for multipart objects. You can use this header response to verify that the checksum type that
    *       is received is the same checksum type that was specified in <code>CreateMultipartUpload</code> request.
@@ -11982,6 +12376,12 @@ export interface ListBucketInventoryConfigurationsOutput {
 export interface ListBucketInventoryConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the inventory configurations to retrieve.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -11998,6 +12398,10 @@ export interface ListBucketInventoryConfigurationsRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -13642,6 +14046,51 @@ export interface Part {
    * @public
    */
   ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>SHA512</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>MD5</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH64</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH3</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This checksum is present if
+   *       the multipart upload request was created with the <code>XXHASH128</code> checksum algorithm. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *       the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
 }
 
 /**
@@ -14251,6 +14700,12 @@ export interface PutBucketIntelligentTieringConfigurationRequest {
 export interface PutBucketInventoryConfigurationRequest {
   /**
    * <p>The name of the bucket where the inventory configuration will be stored.</p>
+   *          <p>
+   *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
+   *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code>
+   *                <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    * @public
@@ -14271,6 +14726,10 @@ export interface PutBucketInventoryConfigurationRequest {
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   *          <note>
+   *             <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code
+   * <code>501 Not Implemented</code>.</p>
+   *          </note>
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
@@ -14625,12 +15084,37 @@ export interface PutBucketPolicyRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>MD5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>SHA1</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SHA256</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHA512</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH128</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -15074,6 +15558,51 @@ export interface PutObjectOutput {
   ChecksumSHA256?: string | undefined;
 
   /**
+   * <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. This header is present if
+   *       the object was uploaded with the <code>SHA512</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. This header is present if
+   *       the object was uploaded with the <code>MD5</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. This header is present if
+   *       the object was uploaded with the <code>XXHASH64</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. This header is present if
+   *       the object was uploaded with the <code>XXHASH3</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. This header is present if
+   *       the object was uploaded with the <code>XXHASH128</code> checksum algorithm. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *         object integrity in the Amazon S3 User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
+
+  /**
    * <p>This header specifies the checksum type of the object, which determines how part-level checksums are
    *       combined to create an object-level checksum for multipart objects. For <code>PutObject</code> uploads,
    *       the checksum type is always <code>FULL_OBJECT</code>. You can use this header as a data integrity check
@@ -15326,12 +15855,37 @@ export interface PutObjectRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>MD5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>SHA1</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SHA256</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SHA512</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XXHASH128</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -15396,6 +15950,51 @@ export interface PutObjectRequest {
    * @public
    */
   ChecksumSHA256?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 512-bit <code>SHA512</code>
+   *       digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumSHA512?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 128-bit <code>MD5</code>
+   *       digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumMD5?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH64</code>
+   *       checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH64?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH3</code>
+   *       checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH3?: string | undefined;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data
+   *       that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code>
+   *       checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3
+   *         User Guide</a>.</p>
+   * @public
+   */
+  ChecksumXXHASH128?: string | undefined;
 
   /**
    * <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>

@@ -160,6 +160,11 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * //       ChecksumCRC64NVME: "STRING_VALUE",
  * //       ChecksumSHA1: "STRING_VALUE",
  * //       ChecksumSHA256: "STRING_VALUE",
+ * //       ChecksumSHA512: "STRING_VALUE",
+ * //       ChecksumMD5: "STRING_VALUE",
+ * //       ChecksumXXHASH64: "STRING_VALUE",
+ * //       ChecksumXXHASH3: "STRING_VALUE",
+ * //       ChecksumXXHASH128: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Initiator: { // Initiator
@@ -172,7 +177,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * //   },
  * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS" || "FSX_ONTAP",
  * //   RequestCharged: "requester",
- * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * // };
  *

@@ -212,7 +212,7 @@ export interface UpdateObjectEncryptionCommandOutput extends UpdateObjectEncrypt
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * };
  * const command = new UpdateObjectEncryptionCommand(input);
  * const response = await client.send(command);

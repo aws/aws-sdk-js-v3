@@ -319,7 +319,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  *   ObjectLockLegalHoldStatus: "ON" || "OFF",
  *   ExpectedBucketOwner: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  *   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * };
  * const command = new CreateMultipartUploadCommand(input);
@@ -337,7 +337,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * //   SSEKMSEncryptionContext: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,
  * //   RequestCharged: "requester",
- * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * // };
  *

@@ -232,12 +232,17 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *   Bucket: "STRING_VALUE", // required
  *   ContentLength: Number("long"),
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  *   ChecksumCRC32: "STRING_VALUE",
  *   ChecksumCRC32C: "STRING_VALUE",
  *   ChecksumCRC64NVME: "STRING_VALUE",
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
+ *   ChecksumSHA512: "STRING_VALUE",
+ *   ChecksumMD5: "STRING_VALUE",
+ *   ChecksumXXHASH64: "STRING_VALUE",
+ *   ChecksumXXHASH3: "STRING_VALUE",
+ *   ChecksumXXHASH128: "STRING_VALUE",
  *   Key: "STRING_VALUE", // required
  *   PartNumber: Number("int"), // required
  *   UploadId: "STRING_VALUE", // required
@@ -257,6 +262,11 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * //   ChecksumCRC64NVME: "STRING_VALUE",
  * //   ChecksumSHA1: "STRING_VALUE",
  * //   ChecksumSHA256: "STRING_VALUE",
+ * //   ChecksumSHA512: "STRING_VALUE",
+ * //   ChecksumMD5: "STRING_VALUE",
+ * //   ChecksumXXHASH64: "STRING_VALUE",
+ * //   ChecksumXXHASH3: "STRING_VALUE",
+ * //   ChecksumXXHASH128: "STRING_VALUE",
  * //   SSECustomerAlgorithm: "STRING_VALUE",
  * //   SSECustomerKeyMD5: "STRING_VALUE",
  * //   SSEKMSKeyId: "STRING_VALUE",

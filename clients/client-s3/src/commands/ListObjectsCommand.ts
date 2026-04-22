@@ -104,7 +104,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //       LastModified: new Date("TIMESTAMP"),
  * //       ETag: "STRING_VALUE",
  * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
  * //       ],
  * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),

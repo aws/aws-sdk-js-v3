@@ -43,6 +43,11 @@ x-amz-checksum-crc32c: __ChecksumCRC32C__
 x-amz-checksum-crc64nvme: __ChecksumCRC64NVME__
 x-amz-checksum-sha1: __ChecksumSHA1__
 x-amz-checksum-sha256: __ChecksumSHA256__
+x-amz-checksum-sha512: __ChecksumSHA512__
+x-amz-checksum-md5: __ChecksumMD5__
+x-amz-checksum-xxhash64: __ChecksumXXHASH64__
+x-amz-checksum-xxhash3: __ChecksumXXHASH3__
+x-amz-checksum-xxhash128: __ChecksumXXHASH128__
 x-amz-checksum-type: __ChecksumType__
 x-amz-missing-meta: 0
 x-amz-version-id: __VersionId__
@@ -102,6 +107,11 @@ MQo=
   ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
   ChecksumSHA1: "__ChecksumSHA1__",
   ChecksumSHA256: "__ChecksumSHA256__",
+  ChecksumSHA512: "__ChecksumSHA512__",
+  ChecksumMD5: "__ChecksumMD5__",
+  ChecksumXXHASH64: "__ChecksumXXHASH64__",
+  ChecksumXXHASH3: "__ChecksumXXHASH3__",
+  ChecksumXXHASH128: "__ChecksumXXHASH128__",
   ChecksumType: "__ChecksumType__",
   MissingMeta: (number) 0,
   VersionId: "__VersionId__",
