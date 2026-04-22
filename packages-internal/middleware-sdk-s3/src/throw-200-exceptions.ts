@@ -3,13 +3,16 @@ import type {
   DeserializeMiddleware,
   Encoder,
   HandlerExecutionContext,
+  MetadataBearer,
   Pluggable,
   RelativeMiddlewareOptions,
   StreamCollector,
 } from "@smithy/types";
-import { headStream, splitStream } from "@smithy/util-stream";
+
+import { toStream } from "./toStream";
 
 type PreviouslyResolved = {
+  streamCollector: StreamCollector;
   utf8Encoder: Encoder;
 };
 
@@ -21,13 +24,6 @@ const THROW_IF_EMPTY_BODY: Record<string, boolean> = {
   UploadPartCopyCommand: true,
   CompleteMultipartUploadCommand: true,
 };
-
-/**
- * @internal
- * We will check at most this many bytes from the stream when looking for
- * an error-like 200 status.
- */
-const MAX_BYTES_TO_INSPECT = 3000;
 
 /**
  * In case of an internal error/terminated connection, S3 operations may return 200 errors. CopyObject, UploadPartCopy,
@@ -43,51 +39,32 @@ export const throw200ExceptionsMiddleware =
     if (!HttpResponse.isInstance(response)) {
       return result;
     }
-    const { statusCode, body: sourceBody } = response;
+    const { statusCode, body } = response;
+
+    // This middleware applies to 2xx.
     if (statusCode < 200 || statusCode >= 300) {
       return result;
     }
 
-    const isSplittableStream =
-      typeof sourceBody?.stream === "function" ||
-      typeof sourceBody?.pipe === "function" ||
-      typeof sourceBody?.tee === "function";
+    const bodyBytes: Uint8Array = await collectBody(body, config);
+    response.body = toStream(bodyBytes);
 
-    if (!isSplittableStream) {
-      return result;
-    }
-
-    let bodyCopy = sourceBody;
-    let body = sourceBody;
-
-    if (sourceBody && typeof sourceBody === "object" && !(sourceBody instanceof Uint8Array)) {
-      [bodyCopy, body] = await splitStream(sourceBody);
-    }
-    // restore split body to the response for deserialization.
-    response.body = body;
-
-    const bodyBytes: Uint8Array = await collectBody(bodyCopy, {
-      streamCollector: async (stream: any) => {
-        return headStream(stream, MAX_BYTES_TO_INSPECT);
-      },
-    });
-    if (typeof bodyCopy?.destroy === "function") {
-      // discard partially-read Node.js Stream.
-      bodyCopy.destroy();
+    // Throw on 200 response with empty body, legacy behavior allowlist.
+    if (bodyBytes.length === 0 && THROW_IF_EMPTY_BODY[context.commandName!]) {
+      const err = new Error("S3 aborted request") as Error & MetadataBearer;
+      err.$metadata = {
+        httpStatusCode: 503,
+      };
+      err.name = "InternalError";
+      throw err;
     }
 
     const bodyStringTail = config.utf8Encoder(bodyBytes.subarray(bodyBytes.length - 16));
 
-    // Throw on 200 response with empty body, legacy behavior allowlist.
-    if (bodyBytes.length === 0 && THROW_IF_EMPTY_BODY[context.commandName!]) {
-      const err = new Error("S3 aborted request");
-      err.name = "InternalError";
-      throw err;
-    }
     // Generalized throw-on-200 for top level Error element and non-streaming response.
     if (bodyStringTail && bodyStringTail.endsWith("</Error>")) {
-      // Set the error code to 4XX so that error deserializer can parse them
-      response.statusCode = 400;
+      // Synthetic 503 to indicate retryable.
+      response.statusCode = 503;
     }
 
     return result;

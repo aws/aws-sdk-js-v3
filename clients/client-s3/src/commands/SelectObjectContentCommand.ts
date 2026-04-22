@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -253,7 +252,6 @@ export class SelectObjectContentCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
       getSsecPlugin(config),
     ];
   })

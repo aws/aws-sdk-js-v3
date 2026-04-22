@@ -416,7 +416,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                     Optional<ShapeId> output = o.getOutput();
                     if (output.isPresent()) {
                         Shape outputShape = m.expectShape(output.get());
-                        boolean hasStreamingBlobOutputPayload = outputShape.getAllMembers()
+                        boolean hasIncompatiblePayload = outputShape.getAllMembers()
                             .values()
                             .stream()
                             .anyMatch(
@@ -427,13 +427,13 @@ public final class AddS3Config implements TypeScriptIntegration {
                                     }
                                     Shape shape = m.expectShape(memberShape.getTarget());
                                     boolean isBlob = shape.isBlobShape();
-                                    if (!isBlob) {
-                                        return false;
-                                    }
-                                    return shape.hasTrait(StreamingTrait.class);
+                                    boolean isUnion = shape.isUnionShape();
+                                    boolean isString = shape.isStringShape();
+
+                                    return (shape.hasTrait(StreamingTrait.class) && (isBlob || isUnion)) || isString;
                                 }
                             );
-                        if (hasStreamingBlobOutputPayload) {
+                        if (hasIncompatiblePayload) {
                             return false;
                         }
                     }

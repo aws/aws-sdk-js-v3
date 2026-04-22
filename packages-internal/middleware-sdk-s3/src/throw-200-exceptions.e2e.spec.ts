@@ -1,6 +1,9 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
-import { afterAll, beforeAll, describe, test as it } from "vitest";
+import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
+import { HttpResponse } from "@smithy/protocol-http";
+import { Readable } from "node:stream";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe("S3 throw 200 exceptions", () => {
   const config = {
@@ -40,17 +43,55 @@ describe("S3 throw 200 exceptions", () => {
     s3.destroy();
   });
 
-  it("should split stream successfully for less than 3kb payload and greater than 3kb payload", async () => {
-    for (let i = 0; i < 10; ++i) {
-      await s3.listObjects({
-        Bucket,
-      });
+  it("should retry exceptions thrown from the 200-error middleware", async () => {
+    let attempt = 0;
 
-      await s3.putObject({
-        Bucket,
-        Key: i + "long-text-".repeat(10),
-        Body: "abcd",
-      });
-    }
+    const s3_2 = new S3({
+      ...config,
+      // Set credentials to avoid the requestHandler having to make any
+      // calls other than CopyObject.
+      credentials: async () => s3.config.credentials(),
+      requestHandler: new (class extends NodeHttpHandler {
+        async handle(request: any, options: any) {
+          attempt++;
+          if (attempt <= 2) {
+            return {
+              response: new HttpResponse({
+                statusCode: 200,
+                headers: { "content-type": "application/xml" },
+                body: Readable.from(
+                  Buffer.from(
+                    `
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>InternalError</Code>
+  <Message>We encountered an internal error. Please try again.</Message>
+  <RequestId>FAKE</RequestId>
+</Error>
+    `.trim()
+                  )
+                ),
+              }),
+            };
+          }
+          return super.handle(request, options);
+        }
+      })(),
+    });
+
+    const Key = `throw-200-test-${randId}`;
+    await s3.putObject({ Bucket, Key, Body: "hello" });
+
+    const result = await s3_2.copyObject({
+      Bucket,
+      Key: `${Key}-copy`,
+      CopySource: `${Bucket}/${Key}`,
+    });
+
+    expect(attempt).toEqual(3);
+    expect(result.$metadata.attempts).toEqual(3);
+    expect(result.CopyObjectResult).toBeDefined();
+
+    await s3.deleteObject({ Bucket, Key: `${Key}-copy` });
   });
 }, 100_000);
