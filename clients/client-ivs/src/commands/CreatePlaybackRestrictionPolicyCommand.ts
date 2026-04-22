@@ -30,8 +30,7 @@ export interface CreatePlaybackRestrictionPolicyCommandInput extends CreatePlayb
 export interface CreatePlaybackRestrictionPolicyCommandOutput extends CreatePlaybackRestrictionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new playback restriction policy, for constraining playback by countries and/or
- *       origins.</p>
+ * <p>Creates a new playback restriction policy, for constraining playback by countries and/or origins.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

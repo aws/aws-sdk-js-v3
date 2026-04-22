@@ -27,8 +27,7 @@ export interface ListPlaybackKeyPairsCommandInput extends ListPlaybackKeyPairsRe
 export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
- *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+ * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

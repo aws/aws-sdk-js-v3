@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAdConfigurationsPaginator";
 export * from "./ListChannelsPaginator";
 export * from "./ListPlaybackKeyPairsPaginator";
 export * from "./ListPlaybackRestrictionPoliciesPaginator";

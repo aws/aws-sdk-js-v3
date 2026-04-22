@@ -27,11 +27,7 @@ export interface GetPlaybackKeyPairCommandInput extends GetPlaybackKeyPairReques
 export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and
- *         <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to
- *       generate viewer authorization tokens, to grant viewers access to private channels. For more
- *       information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the <i>Amazon IVS User
- *       Guide</i>.</p>
+ * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

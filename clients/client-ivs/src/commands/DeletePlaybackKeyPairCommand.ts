@@ -27,9 +27,7 @@ export interface DeletePlaybackKeyPairCommandInput extends DeletePlaybackKeyPair
 export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens
- *       generated using the key pair’s <code>privateKey</code>. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
- *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+ * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair’s <code>privateKey</code>. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

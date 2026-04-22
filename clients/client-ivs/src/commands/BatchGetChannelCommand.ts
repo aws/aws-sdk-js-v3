@@ -44,6 +44,13 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * const command = new BatchGetChannelCommand(input);
  * const response = await client.send(command);
  * // { // BatchGetChannelResponse
+ * //   accessControlAllowOrigin: "STRING_VALUE",
+ * //   accessControlExposeHeaders: "STRING_VALUE",
+ * //   cacheControl: "STRING_VALUE",
+ * //   contentSecurityPolicy: "STRING_VALUE",
+ * //   strictTransportSecurity: "STRING_VALUE",
+ * //   xContentTypeOptions: "STRING_VALUE",
+ * //   xFrameOptions: "STRING_VALUE",
  * //   channels: [ // Channels
  * //     { // Channel
  * //       arn: "STRING_VALUE",
@@ -70,6 +77,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //         maximumResolution: "SD" || "HD" || "FULL_HD",
  * //       },
  * //       containerFormat: "STRING_VALUE",
+ * //       adConfigurationArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchErrors
@@ -88,6 +96,15 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @see {@link BatchGetChannelCommandInput} for command's `input` shape.
  * @see {@link BatchGetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ServiceUnavailable} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
  *
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>

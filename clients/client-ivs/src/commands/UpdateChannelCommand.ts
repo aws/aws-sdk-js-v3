@@ -27,9 +27,7 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a channel's configuration. Live channels cannot be updated. You must stop the
- *       ongoing stream, update the channel, and restart the stream for the changes to take
- *       effect.</p>
+ * <p>Updates a channel's configuration. Live channels cannot be updated. You must stop the ongoing stream, update the channel, and restart the stream for the changes to take effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +52,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     maximumResolution: "SD" || "HD" || "FULL_HD",
  *   },
  *   containerFormat: "STRING_VALUE",
+ *   adConfigurationArn: "STRING_VALUE",
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -83,6 +82,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       maximumResolution: "SD" || "HD" || "FULL_HD",
  * //     },
  * //     containerFormat: "STRING_VALUE",
+ * //     adConfigurationArn: "STRING_VALUE",
  * //   },
  * // };
  *

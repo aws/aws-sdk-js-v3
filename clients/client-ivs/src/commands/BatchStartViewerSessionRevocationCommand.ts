@@ -30,8 +30,7 @@ export interface BatchStartViewerSessionRevocationCommandInput extends BatchStar
 export interface BatchStartViewerSessionRevocationCommandOutput extends BatchStartViewerSessionRevocationResponse, __MetadataBearer {}
 
 /**
- * <p>Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer
- *       ID pairs simultaneously.</p>
+ * <p>Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer ID pairs simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +51,13 @@ export interface BatchStartViewerSessionRevocationCommandOutput extends BatchSta
  * const command = new BatchStartViewerSessionRevocationCommand(input);
  * const response = await client.send(command);
  * // { // BatchStartViewerSessionRevocationResponse
+ * //   accessControlAllowOrigin: "STRING_VALUE",
+ * //   accessControlExposeHeaders: "STRING_VALUE",
+ * //   cacheControl: "STRING_VALUE",
+ * //   contentSecurityPolicy: "STRING_VALUE",
+ * //   strictTransportSecurity: "STRING_VALUE",
+ * //   xContentTypeOptions: "STRING_VALUE",
+ * //   xFrameOptions: "STRING_VALUE",
  * //   errors: [ // BatchStartViewerSessionRevocationErrors
  * //     { // BatchStartViewerSessionRevocationError
  * //       channelArn: "STRING_VALUE", // required

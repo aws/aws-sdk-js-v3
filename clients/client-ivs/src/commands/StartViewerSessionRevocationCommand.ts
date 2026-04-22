@@ -27,11 +27,7 @@ export interface StartViewerSessionRevocationCommandInput extends StartViewerSes
 export interface StartViewerSessionRevocationCommandOutput extends StartViewerSessionRevocationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the process of revoking the viewer session associated with a specified channel ARN
- *       and viewer ID. Optionally, you can provide a version to revoke viewer sessions less than and
- *       including that version. For instructions on associating a viewer ID with a viewer session, see
- *         <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up
- *         Private Channels</a>.</p>
+ * <p>Starts the process of revoking the viewer session associated with a specified channel ARN and viewer ID. Optionally, you can provide a version to revoke viewer sessions less than and including that version. For instructions on associating a viewer ID with a viewer session, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

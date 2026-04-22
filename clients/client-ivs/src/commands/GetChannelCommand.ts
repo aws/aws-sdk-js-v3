@@ -67,6 +67,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //       maximumResolution: "SD" || "HD" || "FULL_HD",
  * //     },
  * //     containerFormat: "STRING_VALUE",
+ * //     adConfigurationArn: "STRING_VALUE",
  * //   },
  * // };
  *

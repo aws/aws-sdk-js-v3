@@ -27,11 +27,7 @@ export interface ImportPlaybackKeyPairCommandInput extends ImportPlaybackKeyPair
 export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
- * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
- *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
- *       authorization tokens, to grant viewers access to private channels. For more information, see
- *         <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up
- *         Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+ * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer authorization tokens, to grant viewers access to private channels. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

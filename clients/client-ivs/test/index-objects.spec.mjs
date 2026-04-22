@@ -2,6 +2,8 @@ import {
   _Stream$,
   AccessDeniedException,
   AccessDeniedException$,
+  AdConfiguration$,
+  AdConfigurationSummary$,
   AudioConfiguration$,
   BatchError$,
   BatchGetChannel$,
@@ -27,6 +29,10 @@ import {
   ConflictException,
   ConflictException$,
   ContainerFormat,
+  CreateAdConfiguration$,
+  CreateAdConfigurationCommand,
+  CreateAdConfigurationRequest$,
+  CreateAdConfigurationResponse$,
   CreateChannel$,
   CreateChannelCommand,
   CreateChannelRequest$,
@@ -43,6 +49,9 @@ import {
   CreateStreamKeyCommand,
   CreateStreamKeyRequest$,
   CreateStreamKeyResponse$,
+  DeleteAdConfiguration$,
+  DeleteAdConfigurationCommand,
+  DeleteAdConfigurationRequest$,
   DeleteChannel$,
   DeleteChannelCommand,
   DeleteChannelRequest$,
@@ -60,6 +69,10 @@ import {
   DeleteStreamKeyCommand,
   DeleteStreamKeyRequest$,
   DestinationConfiguration$,
+  GetAdConfiguration$,
+  GetAdConfigurationCommand,
+  GetAdConfigurationRequest$,
+  GetAdConfigurationResponse$,
   GetChannel$,
   GetChannelCommand,
   GetChannelRequest$,
@@ -94,11 +107,19 @@ import {
   ImportPlaybackKeyPairResponse$,
   IngestConfiguration$,
   IngestConfigurations$,
+  InsertAdBreak$,
+  InsertAdBreakCommand,
+  InsertAdBreakRequest$,
+  InsertAdBreakResponse$,
   InternalServerException,
   InternalServerException$,
   Ivs,
   IvsClient,
   IvsServiceException,
+  ListAdConfigurations$,
+  ListAdConfigurationsCommand,
+  ListAdConfigurationsRequest$,
+  ListAdConfigurationsResponse$,
   ListChannels$,
   ListChannelsCommand,
   ListChannelsRequest$,
@@ -131,9 +152,11 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  MediaTailorPlaybackConfiguration$,
   MultitrackInputConfiguration$,
   MultitrackMaximumResolution,
   MultitrackPolicy,
+  paginateListAdConfigurations,
   paginateListChannels,
   paginateListPlaybackKeyPairs,
   paginateListPlaybackRestrictionPolicies,
@@ -162,6 +185,8 @@ import {
   S3DestinationConfiguration$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  ServiceUnavailable,
+  ServiceUnavailable$,
   Srt$,
   StartViewerSessionRevocation$,
   StartViewerSessionRevocationCommand,
@@ -219,6 +244,8 @@ assert(typeof BatchGetStreamKeyCommand === "function");
 assert(typeof BatchGetStreamKey$ === "object");
 assert(typeof BatchStartViewerSessionRevocationCommand === "function");
 assert(typeof BatchStartViewerSessionRevocation$ === "object");
+assert(typeof CreateAdConfigurationCommand === "function");
+assert(typeof CreateAdConfiguration$ === "object");
 assert(typeof CreateChannelCommand === "function");
 assert(typeof CreateChannel$ === "object");
 assert(typeof CreatePlaybackRestrictionPolicyCommand === "function");
@@ -227,6 +254,8 @@ assert(typeof CreateRecordingConfigurationCommand === "function");
 assert(typeof CreateRecordingConfiguration$ === "object");
 assert(typeof CreateStreamKeyCommand === "function");
 assert(typeof CreateStreamKey$ === "object");
+assert(typeof DeleteAdConfigurationCommand === "function");
+assert(typeof DeleteAdConfiguration$ === "object");
 assert(typeof DeleteChannelCommand === "function");
 assert(typeof DeleteChannel$ === "object");
 assert(typeof DeletePlaybackKeyPairCommand === "function");
@@ -237,6 +266,8 @@ assert(typeof DeleteRecordingConfigurationCommand === "function");
 assert(typeof DeleteRecordingConfiguration$ === "object");
 assert(typeof DeleteStreamKeyCommand === "function");
 assert(typeof DeleteStreamKey$ === "object");
+assert(typeof GetAdConfigurationCommand === "function");
+assert(typeof GetAdConfiguration$ === "object");
 assert(typeof GetChannelCommand === "function");
 assert(typeof GetChannel$ === "object");
 assert(typeof GetPlaybackKeyPairCommand === "function");
@@ -253,6 +284,10 @@ assert(typeof GetStreamSessionCommand === "function");
 assert(typeof GetStreamSession$ === "object");
 assert(typeof ImportPlaybackKeyPairCommand === "function");
 assert(typeof ImportPlaybackKeyPair$ === "object");
+assert(typeof InsertAdBreakCommand === "function");
+assert(typeof InsertAdBreak$ === "object");
+assert(typeof ListAdConfigurationsCommand === "function");
+assert(typeof ListAdConfigurations$ === "object");
 assert(typeof ListChannelsCommand === "function");
 assert(typeof ListChannels$ === "object");
 assert(typeof ListPlaybackKeyPairsCommand === "function");
@@ -284,6 +319,8 @@ assert(typeof UpdateChannel$ === "object");
 assert(typeof UpdatePlaybackRestrictionPolicyCommand === "function");
 assert(typeof UpdatePlaybackRestrictionPolicy$ === "object");
 // structural schemas
+assert(typeof AdConfiguration$ === "object");
+assert(typeof AdConfigurationSummary$ === "object");
 assert(typeof AudioConfiguration$ === "object");
 assert(typeof BatchError$ === "object");
 assert(typeof BatchGetChannelRequest$ === "object");
@@ -296,6 +333,8 @@ assert(typeof BatchStartViewerSessionRevocationResponse$ === "object");
 assert(typeof BatchStartViewerSessionRevocationViewerSession$ === "object");
 assert(typeof Channel$ === "object");
 assert(typeof ChannelSummary$ === "object");
+assert(typeof CreateAdConfigurationRequest$ === "object");
+assert(typeof CreateAdConfigurationResponse$ === "object");
 assert(typeof CreateChannelRequest$ === "object");
 assert(typeof CreateChannelResponse$ === "object");
 assert(typeof CreatePlaybackRestrictionPolicyRequest$ === "object");
@@ -304,6 +343,7 @@ assert(typeof CreateRecordingConfigurationRequest$ === "object");
 assert(typeof CreateRecordingConfigurationResponse$ === "object");
 assert(typeof CreateStreamKeyRequest$ === "object");
 assert(typeof CreateStreamKeyResponse$ === "object");
+assert(typeof DeleteAdConfigurationRequest$ === "object");
 assert(typeof DeleteChannelRequest$ === "object");
 assert(typeof DeletePlaybackKeyPairRequest$ === "object");
 assert(typeof DeletePlaybackKeyPairResponse$ === "object");
@@ -311,6 +351,8 @@ assert(typeof DeletePlaybackRestrictionPolicyRequest$ === "object");
 assert(typeof DeleteRecordingConfigurationRequest$ === "object");
 assert(typeof DeleteStreamKeyRequest$ === "object");
 assert(typeof DestinationConfiguration$ === "object");
+assert(typeof GetAdConfigurationRequest$ === "object");
+assert(typeof GetAdConfigurationResponse$ === "object");
 assert(typeof GetChannelRequest$ === "object");
 assert(typeof GetChannelResponse$ === "object");
 assert(typeof GetPlaybackKeyPairRequest$ === "object");
@@ -329,6 +371,10 @@ assert(typeof ImportPlaybackKeyPairRequest$ === "object");
 assert(typeof ImportPlaybackKeyPairResponse$ === "object");
 assert(typeof IngestConfiguration$ === "object");
 assert(typeof IngestConfigurations$ === "object");
+assert(typeof InsertAdBreakRequest$ === "object");
+assert(typeof InsertAdBreakResponse$ === "object");
+assert(typeof ListAdConfigurationsRequest$ === "object");
+assert(typeof ListAdConfigurationsResponse$ === "object");
 assert(typeof ListChannelsRequest$ === "object");
 assert(typeof ListChannelsResponse$ === "object");
 assert(typeof ListPlaybackKeyPairsRequest$ === "object");
@@ -345,6 +391,7 @@ assert(typeof ListStreamsRequest$ === "object");
 assert(typeof ListStreamsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MediaTailorPlaybackConfiguration$ === "object");
 assert(typeof MultitrackInputConfiguration$ === "object");
 assert(typeof PlaybackKeyPair$ === "object");
 assert(typeof PlaybackKeyPairSummary$ === "object");
@@ -408,6 +455,8 @@ assert(ResourceNotFoundException.prototype instanceof IvsServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof IvsServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(ServiceUnavailable.prototype instanceof IvsServiceException);
+assert(typeof ServiceUnavailable$ === "object");
 assert(StreamUnavailable.prototype instanceof IvsServiceException);
 assert(typeof StreamUnavailable$ === "object");
 assert(ThrottlingException.prototype instanceof IvsServiceException);
@@ -416,6 +465,7 @@ assert(ValidationException.prototype instanceof IvsServiceException);
 assert(typeof ValidationException$ === "object");
 assert(IvsServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListAdConfigurations === "function");
 assert(typeof paginateListChannels === "function");
 assert(typeof paginateListPlaybackKeyPairs === "function");
 assert(typeof paginateListPlaybackRestrictionPolicies === "function");

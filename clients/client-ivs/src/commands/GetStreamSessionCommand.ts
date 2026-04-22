@@ -72,6 +72,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         maximumResolution: "SD" || "HD" || "FULL_HD",
  * //       },
  * //       containerFormat: "STRING_VALUE",
+ * //       adConfigurationArn: "STRING_VALUE",
  * //     },
  * //     ingestConfiguration: { // IngestConfiguration
  * //       video: { // VideoConfiguration

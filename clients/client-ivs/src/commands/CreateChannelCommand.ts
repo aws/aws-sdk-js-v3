@@ -54,6 +54,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *     maximumResolution: "SD" || "HD" || "FULL_HD",
  *   },
  *   containerFormat: "STRING_VALUE",
+ *   adConfigurationArn: "STRING_VALUE",
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       maximumResolution: "SD" || "HD" || "FULL_HD",
  * //     },
  * //     containerFormat: "STRING_VALUE",
+ * //     adConfigurationArn: "STRING_VALUE",
  * //   },
  * //   streamKey: { // StreamKey
  * //     arn: "STRING_VALUE",

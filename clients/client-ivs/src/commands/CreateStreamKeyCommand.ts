@@ -27,10 +27,7 @@ export interface CreateStreamKeyCommandInput extends CreateStreamKeyRequest {}
 export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p>
- *          <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use
- *       CreateStreamKey on the same channel, it will fail because a stream key already exists and
- *       there is a limit of 1 stream key per channel. To reset the stream key on a channel, use <a>DeleteStreamKey</a> and then CreateStreamKey.</p>
+ * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p> <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use CreateStreamKey on the same channel, it will fail because a stream key already exists and there is a limit of 1 stream key per channel. To reset the stream key on a channel, use <a>DeleteStreamKey</a> and then CreateStreamKey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

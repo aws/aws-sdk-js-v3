@@ -27,14 +27,7 @@ export interface StopStreamCommandInput extends StopStreamRequest {}
 export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
- *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
- *       channel.</p>
- *          <note>
- *             <p>Many streaming client-software libraries automatically reconnect a dropped RTMPS
- *         session, so to stop the stream permanently, you may want to first revoke the
- *           <code>streamKey</code> attached to the channel.</p>
- *          </note>
+ * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a channel.</p> <note> <p>Many streaming client-software libraries automatically reconnect a dropped RTMPS session, so to stop the stream permanently, you may want to first revoke the <code>streamKey</code> attached to the channel.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

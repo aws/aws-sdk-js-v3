@@ -27,8 +27,7 @@ export interface ListStreamSessionsCommandInput extends ListStreamSessionsReques
 export interface ListStreamSessionsCommandOutput extends ListStreamSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a summary of current and previous streams for a specified channel in your account, in
- *       the AWS region where the API request is processed.</p>
+ * <p>Gets a summary of current and previous streams for a specified channel in your account, in the AWS region where the API request is processed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

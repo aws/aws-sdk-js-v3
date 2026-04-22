@@ -44,6 +44,13 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * const command = new BatchGetStreamKeyCommand(input);
  * const response = await client.send(command);
  * // { // BatchGetStreamKeyResponse
+ * //   accessControlAllowOrigin: "STRING_VALUE",
+ * //   accessControlExposeHeaders: "STRING_VALUE",
+ * //   cacheControl: "STRING_VALUE",
+ * //   contentSecurityPolicy: "STRING_VALUE",
+ * //   strictTransportSecurity: "STRING_VALUE",
+ * //   xContentTypeOptions: "STRING_VALUE",
+ * //   xFrameOptions: "STRING_VALUE",
  * //   streamKeys: [ // StreamKeys
  * //     { // StreamKey
  * //       arn: "STRING_VALUE",
@@ -70,6 +77,15 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * @see {@link BatchGetStreamKeyCommandInput} for command's `input` shape.
  * @see {@link BatchGetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ServiceUnavailable} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
  *
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>

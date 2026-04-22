@@ -27,12 +27,7 @@ export interface DeleteRecordingConfigurationCommandInput extends DeleteRecordin
 export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the recording configuration for the specified ARN.</p>
- *          <p>If you try to delete a recording configuration that is associated with a channel, you will
- *       get an error (409 ConflictException). To avoid this, for all channels that reference the
- *       recording configuration, first use <a>UpdateChannel</a> to set the
- *         <code>recordingConfigurationArn</code> field to an empty string, then use
- *       DeleteRecordingConfiguration.</p>
+ * <p>Deletes the recording configuration for the specified ARN.</p> <p>If you try to delete a recording configuration that is associated with a channel, you will get an error (409 ConflictException). To avoid this, for all channels that reference the recording configuration, first use <a>UpdateChannel</a> to set the <code>recordingConfigurationArn</code> field to an empty string, then use DeleteRecordingConfiguration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

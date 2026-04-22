@@ -27,8 +27,7 @@ export interface ListRecordingConfigurationsCommandInput extends ListRecordingCo
 export interface ListRecordingConfigurationsCommandOutput extends ListRecordingConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all recording configurations in your account, in the
- *         Amazon Web Services region where the API request is processed.</p>
+ * <p>Gets summary information about all recording configurations in your account, in the Amazon Web Services region where the API request is processed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
