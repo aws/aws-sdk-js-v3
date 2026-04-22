@@ -72,7 +72,7 @@ export default defineConfig({
       // is specifically a Node.js HTTP2 test.
       "tests/clients/client-kinesis/test/Kinesis.e2e.spec.ts",
       // requires .wav file.
-      "tests/clients/client-transcribe-streaming/test/index.e2e.spec.ts",
+      "tests/clients/client-transcribe-streaming/test/TranscribeStreaming.e2e.spec.ts",
     ],
     setupFiles: ["vitest.browser.setup.mts"],
     environment: "happy-dom",
