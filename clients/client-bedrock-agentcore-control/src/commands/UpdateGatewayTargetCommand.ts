@@ -107,6 +107,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *           },
  *           inlinePayload: "STRING_VALUE",
  *         },
+ *         resourcePriority: Number("int"),
  *         listingMode: "DEFAULT" || "DYNAMIC",
  *       },
  *       apiGateway: { // ApiGatewayTargetConfiguration
@@ -267,6 +268,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //           },
  * //           inlinePayload: "STRING_VALUE",
  * //         },
+ * //         resourcePriority: Number("int"),
  * //         listingMode: "DEFAULT" || "DYNAMIC",
  * //       },
  * //       apiGateway: { // ApiGatewayTargetConfiguration

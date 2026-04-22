@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateOauth2CredentialProviderRequest, UpdateOauth2CredentialProviderResponse } from "../models/models_0";
+import type { UpdateOauth2CredentialProviderRequest, UpdateOauth2CredentialProviderResponse } from "../models/models_1";
 import { UpdateOauth2CredentialProvider$ } from "../schemas/schemas_0";
 
 /**

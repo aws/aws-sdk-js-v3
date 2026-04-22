@@ -87,7 +87,7 @@ export interface UpdateOnlineEvaluationConfigCommandOutput extends UpdateOnlineE
  * //   onlineEvaluationConfigArn: "STRING_VALUE", // required
  * //   onlineEvaluationConfigId: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
+ * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "ERROR", // required
  * //   executionStatus: "ENABLED" || "DISABLED", // required
  * //   failureReason: "STRING_VALUE",
  * // };

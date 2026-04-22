@@ -9,8 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListOnlineEvaluationConfigsRequest } from "../models/models_0";
-import type { ListOnlineEvaluationConfigsResponse } from "../models/models_1";
+import type { ListOnlineEvaluationConfigsRequest, ListOnlineEvaluationConfigsResponse } from "../models/models_1";
 import { ListOnlineEvaluationConfigs$ } from "../schemas/schemas_0";
 
 /**
@@ -54,7 +53,7 @@ export interface ListOnlineEvaluationConfigsCommandOutput extends ListOnlineEval
  * //       onlineEvaluationConfigId: "STRING_VALUE", // required
  * //       onlineEvaluationConfigName: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
+ * //       status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "ERROR", // required
  * //       executionStatus: "ENABLED" || "DISABLED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required

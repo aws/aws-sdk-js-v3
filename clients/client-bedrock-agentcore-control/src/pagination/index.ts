@@ -10,6 +10,7 @@ export * from "./ListCodeInterpretersPaginator";
 export * from "./ListEvaluatorsPaginator";
 export * from "./ListGatewaysPaginator";
 export * from "./ListGatewayTargetsPaginator";
+export * from "./ListHarnessesPaginator";
 export * from "./ListMemoriesPaginator";
 export * from "./ListOauth2CredentialProvidersPaginator";
 export * from "./ListOnlineEvaluationConfigsPaginator";

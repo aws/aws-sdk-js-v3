@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteOnlineEvaluationConfigRequest, DeleteOnlineEvaluationConfigResponse } from "../models/models_0";
+import type { DeleteOnlineEvaluationConfigRequest, DeleteOnlineEvaluationConfigResponse } from "../models/models_1";
 import { DeleteOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**
@@ -48,7 +48,7 @@ export interface DeleteOnlineEvaluationConfigCommandOutput extends DeleteOnlineE
  * // { // DeleteOnlineEvaluationConfigResponse
  * //   onlineEvaluationConfigArn: "STRING_VALUE", // required
  * //   onlineEvaluationConfigId: "STRING_VALUE", // required
- * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
+ * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "ERROR", // required
  * // };
  *
  * ```

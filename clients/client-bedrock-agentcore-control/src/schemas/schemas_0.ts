@@ -76,6 +76,9 @@ const _CGRr = "CreateGatewayResponse";
 const _CGT = "CreateGatewayTarget";
 const _CGTR = "CreateGatewayTargetRequest";
 const _CGTRr = "CreateGatewayTargetResponse";
+const _CH = "CreateHarness";
+const _CHR = "CreateHarnessRequest";
+const _CHRr = "CreateHarnessResponse";
 const _CINC = "CodeInterpreterNetworkConfiguration";
 const _CIS = "CodeInterpreterSummary";
 const _CISo = "CodeInterpreterSummaries";
@@ -153,6 +156,9 @@ const _DGRe = "DeleteGatewayResponse";
 const _DGT = "DeleteGatewayTarget";
 const _DGTR = "DeleteGatewayTargetRequest";
 const _DGTRe = "DeleteGatewayTargetResponse";
+const _DH = "DeleteHarness";
+const _DHR = "DeleteHarnessRequest";
+const _DHRe = "DeleteHarnessResponse";
 const _DM = "DeleteMemory";
 const _DMI = "DeleteMemoryInput";
 const _DMO = "DeleteMemoryOutput";
@@ -244,6 +250,9 @@ const _GGRe = "GetGatewayResponse";
 const _GGT = "GetGatewayTarget";
 const _GGTR = "GetGatewayTargetRequest";
 const _GGTRe = "GetGatewayTargetResponse";
+const _GH = "GetHarness";
+const _GHR = "GetHarnessRequest";
+const _GHRe = "GetHarnessResponse";
 const _GIC = "GatewayInterceptorConfiguration";
 const _GICa = "GatewayInterceptorConfigurations";
 const _GM = "GetMemory";
@@ -290,6 +299,42 @@ const _GTVRe = "GetTokenVaultResponse";
 const _GWI = "GetWorkloadIdentity";
 const _GWIR = "GetWorkloadIdentityRequest";
 const _GWIRe = "GetWorkloadIdentityResponse";
+const _H = "Harness";
+const _HACBC = "HarnessAgentCoreBrowserConfig";
+const _HACCIC = "HarnessAgentCoreCodeInterpreterConfig";
+const _HACGC = "HarnessAgentCoreGatewayConfig";
+const _HACMC = "HarnessAgentCoreMemoryConfiguration";
+const _HACMRC = "HarnessAgentCoreMemoryRetrievalConfig";
+const _HACMRCa = "HarnessAgentCoreMemoryRetrievalConfigs";
+const _HACRE = "HarnessAgentCoreRuntimeEnvironment";
+const _HACRER = "HarnessAgentCoreRuntimeEnvironmentRequest";
+const _HBMC = "HarnessBedrockModelConfig";
+const _HEA = "HarnessEnvironmentArtifact";
+const _HEP = "HarnessEnvironmentProvider";
+const _HEPR = "HarnessEnvironmentProviderRequest";
+const _HGMC = "HarnessGeminiModelConfig";
+const _HGOA = "HarnessGatewayOutboundAuth";
+const _HHM = "HttpHeadersMap";
+const _HIFC = "HarnessInlineFunctionConfig";
+const _HIFD = "HarnessInlineFunctionDescription";
+const _HMC = "HarnessMemoryConfiguration";
+const _HMCa = "HarnessModelConfiguration";
+const _HOAMC = "HarnessOpenAiModelConfig";
+const _HRMC = "HarnessRemoteMcpConfig";
+const _HRMU = "HarnessRemoteMcpUrl";
+const _HS = "HarnessSummary";
+const _HSC = "HarnessSummarizationConfiguration";
+const _HSCB = "HarnessSystemContentBlock";
+const _HSP = "HarnessSystemPrompt";
+const _HSWC = "HarnessSlidingWindowConfiguration";
+const _HSa = "HarnessSkills";
+const _HSar = "HarnessSummaries";
+const _HSarn = "HarnessSkill";
+const _HT = "HarnessTool";
+const _HTC = "HarnessTruncationConfiguration";
+const _HTCa = "HarnessToolConfiguration";
+const _HTSC = "HarnessTruncationStrategyConfiguration";
+const _HTa = "HarnessTools";
 const _IC = "InferenceConfiguration";
 const _ICI = "InvocationConfigurationInput";
 const _ICP = "IamCredentialProvider";
@@ -335,6 +380,9 @@ const _LGRi = "ListGatewaysResponse";
 const _LGT = "ListGatewayTargets";
 const _LGTR = "ListGatewayTargetsRequest";
 const _LGTRi = "ListGatewayTargetsResponse";
+const _LH = "ListHarnesses";
+const _LHR = "ListHarnessesRequest";
+const _LHRi = "ListHarnessesResponse";
 const _LIC = "LambdaInterceptorConfiguration";
 const _LM = "ListMemories";
 const _LMI = "ListMemoriesInput";
@@ -471,6 +519,7 @@ const _SEO = "SemanticExtractionOverride";
 const _SGT = "SynchronizeGatewayTargets";
 const _SGTR = "SynchronizeGatewayTargetsRequest";
 const _SGTRy = "SynchronizeGatewayTargetsResponse";
+const _SJ = "SensitiveJson";
 const _SL = "S3Location";
 const _SMC = "SelfManagedConfiguration";
 const _SMCI = "SelfManagedConfigurationInput";
@@ -497,6 +546,7 @@ const _SRRFA = "SubmitRegistryRecordForApproval";
 const _SRRFAR = "SubmitRegistryRecordForApprovalRequest";
 const _SRRFARu = "SubmitRegistryRecordForApprovalResponse";
 const _SSC = "SessionStorageConfiguration";
+const _ST = "SensitiveText";
 const _STVCMK = "SetTokenVaultCMK";
 const _STVCMKR = "SetTokenVaultCMKRequest";
 const _STVCMKRe = "SetTokenVaultCMKResponse";
@@ -550,6 +600,11 @@ const _UGRp = "UpdateGatewayResponse";
 const _UGT = "UpdateGatewayTarget";
 const _UGTR = "UpdateGatewayTargetRequest";
 const _UGTRp = "UpdateGatewayTargetResponse";
+const _UH = "UpdateHarness";
+const _UHEA = "UpdatedHarnessEnvironmentArtifact";
+const _UHMC = "UpdatedHarnessMemoryConfiguration";
+const _UHR = "UpdateHarnessRequest";
+const _UHRp = "UpdateHarnessResponse";
 const _UM = "UpdateMemory";
 const _UMD = "UpdatedMcpDescriptor";
 const _UMDF = "UpdatedMcpDescriptorFields";
@@ -605,7 +660,12 @@ const _a = "a2a";
 const _aA = "autoApproval";
 const _aAl = "allowedAudience";
 const _aC = "agentCard";
+const _aCB = "agentCoreBrowser";
+const _aCCI = "agentCoreCodeInterpreter";
+const _aCG = "agentCoreGateway";
+const _aCMC = "agentCoreMemoryConfiguration";
 const _aCMV = "authorizingClaimMatchValue";
+const _aCRE = "agentCoreRuntimeEnvironment";
 const _aCl = "allowedClients";
 const _aCp = "approvalConfiguration";
 const _aCu = "authorizerConfiguration";
@@ -613,7 +673,10 @@ const _aD = "authorizationData";
 const _aE = "authorizationEndpoint";
 const _aG = "apiGateway";
 const _aGTC = "apiGatewayToolConfiguration";
+const _aI = "actorId";
+const _aIw = "awsIam";
 const _aK = "apiKey";
+const _aKA = "apiKeyArn";
 const _aKCP = "apiKeyCredentialProvider";
 const _aKSA = "apiKeySecretArn";
 const _aMRF = "additionalModelRequestFields";
@@ -635,12 +698,14 @@ const _aSM = "authorizationServerMetadata";
 const _aSg = "agentSkills";
 const _aT = "authorizerType";
 const _aTP = "appendToPrompt";
+const _aTl = "allowedTools";
 const _aU = "authorizationUrl";
 const _ar = "arn";
 const _b = "bucket";
 const _bA = "browserArn";
 const _bEMC = "bedrockEvaluatorModelConfig";
 const _bI = "browserId";
+const _bMC = "bedrockModelConfig";
 const _bOAI = "bucketOwnerAccountId";
 const _bS = "browserSigning";
 const _bSr = "browserSummaries";
@@ -687,6 +752,7 @@ const _ce = "certificates";
 const _ced = "cedar";
 const _co = "code";
 const _con = "configuration";
+const _conf = "config";
 const _cons = "consolidation";
 const _cont = "content";
 const _cu = "custom";
@@ -703,6 +769,7 @@ const _des = "descriptors";
 const _do = "domain";
 const _e = "error";
 const _eA = "evaluatorArn";
+const _eAn = "environmentArtifact";
 const _eC = "evaluatorConfig";
 const _eCO = "episodicConsolidationOverride";
 const _eED = "eventExpiryDuration";
@@ -727,6 +794,7 @@ const _eT = "evaluatorType";
 const _eV = "environmentVariables";
 const _en = "enabled";
 const _end = "endpoint";
+const _env = "environment";
 const _ev = "evaluators";
 const _ex = "extraction";
 const _f = "findings";
@@ -739,14 +807,20 @@ const _fi = "filters";
 const _gA = "gatewayArn";
 const _gI = "gatewayId";
 const _gIa = "gatewayIdentifier";
+const _gMC = "geminiModelConfig";
 const _gOPC = "googleOauth2ProviderConfig";
 const _gOPCi = "githubOauth2ProviderConfig";
 const _gT = "grantType";
 const _gU = "gatewayUrl";
-const _h = "http";
+const _h = "harness";
 const _hCWS = "historicalContextWindowSize";
 const _hE = "httpError";
+const _hI = "harnessId";
+const _hN = "harnessName";
 const _hQ = "httpQuery";
+const _ha = "harnesses";
+const _he = "headers";
+const _ht = "http";
 const _i = "id";
 const _iC = "inlineContent";
 const _iCP = "iamCredentialProvider";
@@ -754,6 +828,7 @@ const _iCn = "inferenceConfig";
 const _iCnp = "inputConfiguration";
 const _iCnt = "interceptorConfigurations";
 const _iCnv = "invocationConfiguration";
+const _iF = "inlineFunction";
 const _iOPC = "includedOauth2ProviderConfig";
 const _iP = "interceptionPoints";
 const _iPn = "inlinePayload";
@@ -797,10 +872,12 @@ const _le = "level";
 const _m = "message";
 const _mBT = "messageBasedTrigger";
 const _mC = "metadataConfiguration";
-const _mCe = "messageCount";
+const _mCe = "messagesCount";
+const _mCes = "messageCount";
 const _mCo = "modelConfig";
 const _mERA = "memoryExecutionRoleArn";
 const _mI = "modelId";
+const _mIa = "maxIterations";
 const _mIe = "memoryId";
 const _mL = "maxLifetime";
 const _mLR = "managedLatticeResource";
@@ -820,7 +897,8 @@ const _me = "methods";
 const _mem = "memory";
 const _memo = "memories";
 const _met = "method";
-const _mo = "mode";
+const _mo = "model";
+const _mod = "mode";
 const _n = "name";
 const _nC = "networkConfiguration";
 const _nM = "networkMode";
@@ -828,8 +906,11 @@ const _nMC = "networkModeConfig";
 const _nT = "namespaceTemplates";
 const _nTe = "nextToken";
 const _na = "namespaces";
+const _no = "none";
 const _nu = "numerical";
 const _o = "operator";
+const _oA = "outboundAuth";
+const _oAMC = "openAiModelConfig";
 const _oAS = "openApiSchema";
 const _oC = "outputConfig";
 const _oCP = "oauthCredentialProvider";
@@ -843,6 +924,7 @@ const _oPCO = "oauth2ProviderConfigOutput";
 const _oS = "outputSchema";
 const _oV = "optionalValue";
 const _oa = "oauth2";
+const _oau = "oauth";
 const _p = "path";
 const _pA = "profileArn";
 const _pAo = "policyArn";
@@ -864,6 +946,7 @@ const _pGo = "policyGeneration";
 const _pI = "profileId";
 const _pIo = "policyId";
 const _pRH = "passRequestHeaders";
+const _pRM = "preserveRecentMessages";
 const _pS = "profileSummaries";
 const _pT = "protocolType";
 const _pV = "protocolVersion";
@@ -880,6 +963,7 @@ const _rAeg = "registryArn";
 const _rAes = "resourceArn";
 const _rC = "reflectionConfiguration";
 const _rCI = "resourceConfigurationIdentifier";
+const _rCe = "retrievalConfig";
 const _rD = "routingDomain";
 const _rE = "runtimeEndpoints";
 const _rGA = "resourceGatewayArn";
@@ -887,9 +971,12 @@ const _rHA = "requestHeaderAllowlist";
 const _rHC = "requestHeaderConfiguration";
 const _rI = "registryId";
 const _rIe = "recordId";
+const _rM = "remoteMcp";
 const _rMMDSV = "requireMMDSV2";
+const _rP = "resourcePriority";
 const _rR = "registryRecords";
-const _rS = "ratingScale";
+const _rS = "relevanceScore";
+const _rSa = "ratingScale";
 const _rT = "responseTypes";
 const _rTF = "rawTextFragment";
 const _rTa = "rawText";
@@ -915,8 +1002,8 @@ const _sDR = "streamDeliveryResources";
 const _sEO = "semanticExtractionOverride";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
-const _sI = "subnetIds";
-const _sIt = "strategyId";
+const _sI = "strategyId";
+const _sIu = "subnetIds";
 const _sL = "s3Location";
 const _sM = "skillMd";
 const _sMC = "selfManagedConfiguration";
@@ -930,11 +1017,14 @@ const _sO = "semanticOverride";
 const _sOPC = "slackOauth2ProviderConfig";
 const _sOPCa = "salesforceOauth2ProviderConfig";
 const _sOu = "summaryOverride";
-const _sP = "serverProtocol";
+const _sP = "systemPrompt";
 const _sPa = "samplingPercentage";
+const _sPe = "serverProtocol";
 const _sR = "statusReasons";
 const _sRt = "statusReason";
+const _sRu = "summaryRatio";
 const _sS = "stopSequences";
+const _sSP = "summarizationSystemPrompt";
 const _sSe = "sessionStorage";
 const _sT = "synchronizationType";
 const _sTM = "sessionTimeoutMinutes";
@@ -942,15 +1032,19 @@ const _sTe = "searchType";
 const _sV = "schemaVersion";
 const _sVt = "stringValue";
 const _sVu = "supportedVersions";
+const _sW = "slidingWindow";
 const _s_ = "s3";
 const _sc = "scopes";
 const _se = "server";
 const _ser = "service";
+const _sk = "skills";
 const _st = "status";
 const _sta = "stage";
 const _stat = "statement";
-const _str = "strategies";
+const _str = "strategy";
+const _stra = "strategies";
 const _su = "subnets";
+const _sum = "summarization";
 const _t = "type";
 const _tA = "topicArn";
 const _tBT = "tokenBasedTrigger";
@@ -964,18 +1058,22 @@ const _tF = "toolFilters";
 const _tI = "targetId";
 const _tIL = "targetIdList";
 const _tIe = "tenantId";
-const _tK = "tagKeys";
+const _tK = "topK";
+const _tKa = "tagKeys";
 const _tO = "toolOverrides";
 const _tP = "topP";
 const _tRS = "targetResourceScope";
-const _tS = "toolSchema";
+const _tS = "timeoutSeconds";
+const _tSo = "toolSchema";
 const _tSr = "triggerSynchronization";
 const _tV = "targetVersion";
 const _tVI = "tokenVaultId";
 const _ta = "tags";
 const _tar = "targets";
 const _te = "temperature";
+const _tex = "text";
 const _to = "tools";
+const _tr = "truncation";
 const _u = "url";
 const _uA = "updatedAt";
 const _uI = "userId";
@@ -1133,9 +1231,13 @@ var EvaluatorDescription: StaticSimpleSchema = [0, n0, _ED, 8, 0];
 var EvaluatorInstructions: StaticSimpleSchema = [0, n0, _EI, 8, 0];
 var GatewayDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
 var GatewayName: StaticSimpleSchema = [0, n0, _GN, 8, 0];
+var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
+var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var InlinePayload: StaticSimpleSchema = [0, n0, _IP, 8, 0];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
+var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
+var SensitiveText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 var TargetDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 var TargetName: StaticSimpleSchema = [0, n0, _TN, 8, 0];
 export var A2aDescriptor$: StaticStructureSchema = [3, n0, _AD,
@@ -1383,6 +1485,16 @@ export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
 ];
+export var CreateHarnessRequest$: StaticStructureSchema = [3, n0, _CHR,
+  0,
+  [_hN, _eRA, _cTl, _env, _eAn, _eV, _aCu, _mo, _sP, _to, _sk, _aTl, _mem, _tr, _mIa, _mT, _tS, _ta],
+  [0, 0, [0, 4], () => HarnessEnvironmentProviderRequest$, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => HarnessModelConfiguration$, [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessMemoryConfiguration$, () => HarnessTruncationConfiguration$, 1, 1, 1, 128 | 0], 2
+];
+export var CreateHarnessResponse$: StaticStructureSchema = [3, n0, _CHRr,
+  0,
+  [_h],
+  [[() => Harness$, 0]], 1
+];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_n, _eED, _cTl, _d, _eKA, _mERA, _mS, _sDR, _ta],
@@ -1588,6 +1700,16 @@ export var DeleteGatewayTargetResponse$: StaticStructureSchema = [3, n0, _DGTRe,
   [_gA, _tI, _st, _sR],
   [0, 0, 0, 64 | 0], 3
 ];
+export var DeleteHarnessRequest$: StaticStructureSchema = [3, n0, _DHR,
+  0,
+  [_hI, _cTl],
+  [[0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 1
+];
+export var DeleteHarnessResponse$: StaticStructureSchema = [3, n0, _DHRe,
+  0,
+  [_h],
+  [[() => Harness$, 0]]
+];
 export var DeleteMemoryInput$: StaticStructureSchema = [3, n0, _DMI,
   0,
   [_mIe, _cTl],
@@ -1770,7 +1892,7 @@ export var GatewayInterceptorConfiguration$: StaticStructureSchema = [3, n0, _GI
 ];
 export var GatewayPolicyEngineConfiguration$: StaticStructureSchema = [3, n0, _GPEC,
   0,
-  [_ar, _mo],
+  [_ar, _mod],
   [0, 0], 2
 ];
 export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
@@ -1872,6 +1994,16 @@ export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
   [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
+];
+export var GetHarnessRequest$: StaticStructureSchema = [3, n0, _GHR,
+  0,
+  [_hI],
+  [[0, 1]], 1
+];
+export var GetHarnessResponse$: StaticStructureSchema = [3, n0, _GHRe,
+  0,
+  [_h],
+  [[() => Harness$, 0]], 1
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
@@ -2002,6 +2134,96 @@ export var GoogleOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _G
   0,
   [_oD, _cI],
   [() => Oauth2Discovery$, 0], 1
+];
+export var Harness$: StaticStructureSchema = [3, n0, _H,
+  0,
+  [_hI, _hN, _ar, _st, _eRA, _cA, _uA, _mo, _sP, _to, _sk, _aTl, _tr, _env, _eAn, _eV, _aCu, _mem, _mIa, _mT, _tS, _fR],
+  [0, 0, 0, 0, 0, 5, 5, () => HarnessModelConfiguration$, [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessTruncationConfiguration$, () => HarnessEnvironmentProvider$, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => HarnessMemoryConfiguration$, 1, 1, 1, 0], 14
+];
+export var HarnessAgentCoreBrowserConfig$: StaticStructureSchema = [3, n0, _HACBC,
+  0,
+  [_bA],
+  [0]
+];
+export var HarnessAgentCoreCodeInterpreterConfig$: StaticStructureSchema = [3, n0, _HACCIC,
+  0,
+  [_cIA],
+  [0]
+];
+export var HarnessAgentCoreGatewayConfig$: StaticStructureSchema = [3, n0, _HACGC,
+  0,
+  [_gA, _oA],
+  [0, [() => HarnessGatewayOutboundAuth$, 0]], 1
+];
+export var HarnessAgentCoreMemoryConfiguration$: StaticStructureSchema = [3, n0, _HACMC,
+  0,
+  [_ar, _aI, _mCe, _rCe],
+  [0, 0, 1, () => HarnessAgentCoreMemoryRetrievalConfigs], 1
+];
+export var HarnessAgentCoreMemoryRetrievalConfig$: StaticStructureSchema = [3, n0, _HACMRC,
+  0,
+  [_tK, _rS, _sI],
+  [1, 1, 0]
+];
+export var HarnessAgentCoreRuntimeEnvironment$: StaticStructureSchema = [3, n0, _HACRE,
+  0,
+  [_aRA, _aRN, _aRI, _lC, _nC, _fC],
+  [0, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, () => FilesystemConfigurations], 5
+];
+export var HarnessAgentCoreRuntimeEnvironmentRequest$: StaticStructureSchema = [3, n0, _HACRER,
+  0,
+  [_lC, _nC, _fC],
+  [() => LifecycleConfiguration$, () => NetworkConfiguration$, () => FilesystemConfigurations]
+];
+export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
+  0,
+  [_mI, _mT, _te, _tP],
+  [0, 1, 1, 1], 1
+];
+export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
+  0,
+  [_mI, _aKA, _mT, _te, _tP, _tK],
+  [0, 0, 1, 1, 1, 1], 2
+];
+export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
+  0,
+  [_d, _iS],
+  [[() => HarnessInlineFunctionDescription, 0], [() => SensitiveJson, 0]], 2
+];
+export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
+  0,
+  [_mI, _aKA, _mT, _te, _tP],
+  [0, 0, 1, 1, 1], 2
+];
+export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
+  0,
+  [_u, _he],
+  [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
+];
+export var HarnessSlidingWindowConfiguration$: StaticStructureSchema = [3, n0, _HSWC,
+  0,
+  [_mCe],
+  [1]
+];
+export var HarnessSummarizationConfiguration$: StaticStructureSchema = [3, n0, _HSC,
+  0,
+  [_sRu, _pRM, _sSP],
+  [1, 1, 0]
+];
+export var HarnessSummary$: StaticStructureSchema = [3, n0, _HS,
+  0,
+  [_hI, _hN, _ar, _st, _cA, _uA],
+  [0, 0, 0, 0, 5, 5], 6
+];
+export var HarnessTool$: StaticStructureSchema = [3, n0, _HT,
+  0,
+  [_t, _n, _conf],
+  [0, 0, [() => HarnessToolConfiguration$, 0]], 1
+];
+export var HarnessTruncationConfiguration$: StaticStructureSchema = [3, n0, _HTC,
+  0,
+  [_str, _conf],
+  [0, () => HarnessTruncationStrategyConfiguration$], 1
 ];
 export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
   0,
@@ -2173,6 +2395,16 @@ export var ListGatewayTargetsResponse$: StaticStructureSchema = [3, n0, _LGTRi,
   [_it, _nTe],
   [[() => TargetSummaries, 0], 0], 1
 ];
+export var ListHarnessesRequest$: StaticStructureSchema = [3, n0, _LHR,
+  0,
+  [_mR, _nTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
+];
+export var ListHarnessesResponse$: StaticStructureSchema = [3, n0, _LHRi,
+  0,
+  [_ha, _nTe],
+  [() => HarnessSummaries, 0], 1
+];
 export var ListMemoriesInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
   [_mR, _nTe],
@@ -2285,12 +2517,12 @@ export var ListWorkloadIdentitiesResponse$: StaticStructureSchema = [3, n0, _LWI
 ];
 export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [3, n0, _LAAJEC,
   0,
-  [_ins, _rS, _mCo],
+  [_ins, _rSa, _mCo],
   [[() => EvaluatorInstructions, 0], [() => RatingScale$, 0], () => EvaluatorModelConfig$], 3
 ];
 export var ManagedLatticeResource$: StaticStructureSchema = [3, n0, _MLR,
   0,
-  [_vI, _sI, _eIAT, _sGI, _ta, _rD],
+  [_vI, _sIu, _eIAT, _sGI, _ta, _rD],
   [0, 64 | 0, 0, 64 | 0, 128 | 0, 0], 3
 ];
 export var ManagedResourceDetails$: StaticStructureSchema = [3, n0, _MRD,
@@ -2310,22 +2542,22 @@ export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC,
 ];
 export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
   0,
-  [_lA, _tS],
+  [_lA, _tSo],
   [0, () => ToolSchema$], 2
 ];
 export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
   0,
-  [_end, _mTS, _lM],
-  [0, [() => McpToolSchemaConfiguration$, 0], 0], 1
+  [_end, _mTS, _rP, _lM],
+  [0, [() => McpToolSchemaConfiguration$, 0], 1, 0], 1
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _str, _sDR],
+  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _stra, _sDR],
   [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => StreamDeliveryResources$], 7
 ];
 export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_sIt, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st],
+  [_sI, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st],
   [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0], 5
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
@@ -2335,12 +2567,12 @@ export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
 ];
 export var MessageBasedTrigger$: StaticStructureSchema = [3, n0, _MBT,
   0,
-  [_mCe],
+  [_mCes],
   [1]
 ];
 export var MessageBasedTriggerInput$: StaticStructureSchema = [3, n0, _MBTI,
   0,
-  [_mCe],
+  [_mCes],
   [1]
 ];
 export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
@@ -2450,7 +2682,7 @@ export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
 ];
 export var ProtocolConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_sP],
+  [_sPe],
   [0], 1
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
@@ -2705,8 +2937,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _n, _st, _cA, _uA, _d],
-  [0, [() => TargetName, 0], 0, 5, 5, [() => TargetDescription, 0]], 5
+  [_tI, _n, _st, _cA, _uA, _d, _rP],
+  [0, [() => TargetName, 0], 0, 5, 5, [() => TargetDescription, 0], 1], 5
 ];
 export var TimeBasedTrigger$: StaticStructureSchema = [3, n0, _TBT,
   0,
@@ -2740,8 +2972,8 @@ export var ToolsDefinition$: StaticStructureSchema = [3, n0, _TDoo,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rAes, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
+  [_rAes, _tKa],
+  [[0, 1], [64 | 0, { [_hQ]: _tKa }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2823,6 +3055,16 @@ export var UpdatedDescriptorsUnion$: StaticStructureSchema = [3, n0, _UDU,
   [_mc, _a, _cu, _aSg],
   [() => UpdatedMcpDescriptor$, () => UpdatedA2aDescriptor$, () => UpdatedCustomDescriptor$, () => UpdatedAgentSkillsDescriptor$]
 ];
+export var UpdatedHarnessEnvironmentArtifact$: StaticStructureSchema = [3, n0, _UHEA,
+  0,
+  [_oV],
+  [() => HarnessEnvironmentArtifact$]
+];
+export var UpdatedHarnessMemoryConfiguration$: StaticStructureSchema = [3, n0, _UHMC,
+  0,
+  [_oV],
+  [() => HarnessMemoryConfiguration$]
+];
 export var UpdatedMcpDescriptor$: StaticStructureSchema = [3, n0, _UMD,
   0,
   [_oV],
@@ -2892,6 +3134,16 @@ export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
   [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$], 8
+];
+export var UpdateHarnessRequest$: StaticStructureSchema = [3, n0, _UHR,
+  0,
+  [_hI, _cTl, _eRA, _env, _eAn, _eV, _aCu, _mo, _sP, _to, _sk, _aTl, _mem, _tr, _mIa, _mT, _tS],
+  [[0, 1], [0, 4], 0, () => HarnessEnvironmentProviderRequest$, () => UpdatedHarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => UpdatedAuthorizerConfiguration$, () => HarnessModelConfiguration$, [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => UpdatedHarnessMemoryConfiguration$, () => HarnessTruncationConfiguration$, 1, 1, 1], 1
+];
+export var UpdateHarnessResponse$: StaticStructureSchema = [3, n0, _UHRp,
+  0,
+  [_h],
+  [[() => Harness$, 0]], 1
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
@@ -3033,6 +3285,7 @@ export var WorkloadIdentityType$: StaticStructureSchema = [3, n0, _WIT,
   [_n, _wIA],
   [0, 0], 2
 ];
+var __Unit = "unit" as const;
 var AgentRuntimeEndpoints: StaticListSchema = [1, n0, _AREg,
   0, [() => AgentRuntimeEndpoint$,
     0]
@@ -3117,6 +3370,21 @@ var GatewaySummaries: StaticListSchema = [1, n0, _GSa,
 ];
 var GatewayTargetList: StaticListSchema = [1, n0, _GTL,
   0, [() => GatewayTarget$,
+    0]
+];
+var HarnessAllowedTools = 64 | 0;
+var HarnessSkills: StaticListSchema = [1, n0, _HSa,
+  0, () => HarnessSkill$
+];
+var HarnessSummaries: StaticListSchema = [1, n0, _HSar,
+  0, () => HarnessSummary$
+];
+var HarnessSystemPrompt: StaticListSchema = [1, n0, _HSP,
+  0, [() => HarnessSystemContentBlock$,
+    0]
+];
+var HarnessTools: StaticListSchema = [1, n0, _HTa,
+  0, [() => HarnessTool$,
     0]
 ];
 var LogGroupNamesList = 64 | 0;
@@ -3218,6 +3486,12 @@ var WorkloadIdentityList: StaticListSchema = [1, n0, _WIL,
 ];
 var CustomParameterMap = 128 | 0;
 var EnvironmentVariablesMap: StaticMapSchema = [2, n0, _EVM,
+  8, 0, 0
+];
+var HarnessAgentCoreMemoryRetrievalConfigs: StaticMapSchema = [2, n0, _HACMRCa,
+  0, 0, () => HarnessAgentCoreMemoryRetrievalConfig$
+];
+var HttpHeadersMap: StaticMapSchema = [2, n0, _HHM,
   8, 0, 0
 ];
 var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu,
@@ -3360,6 +3634,56 @@ export var GatewayProtocolConfiguration$: StaticUnionSchema = [4, n0, _GPC,
   [_mc],
   [() => MCPGatewayConfiguration$]
 ];
+export var HarnessEnvironmentArtifact$: StaticUnionSchema = [4, n0, _HEA,
+  0,
+  [_cCon],
+  [() => ContainerConfiguration$]
+];
+export var HarnessEnvironmentProvider$: StaticUnionSchema = [4, n0, _HEP,
+  0,
+  [_aCRE],
+  [() => HarnessAgentCoreRuntimeEnvironment$]
+];
+export var HarnessEnvironmentProviderRequest$: StaticUnionSchema = [4, n0, _HEPR,
+  0,
+  [_aCRE],
+  [() => HarnessAgentCoreRuntimeEnvironmentRequest$]
+];
+export var HarnessGatewayOutboundAuth$: StaticUnionSchema = [4, n0, _HGOA,
+  0,
+  [_aIw, _no, _oau],
+  [() => __Unit, () => __Unit, [() => OAuthCredentialProvider$, 0]]
+];
+export var HarnessMemoryConfiguration$: StaticUnionSchema = [4, n0, _HMC,
+  0,
+  [_aCMC],
+  [() => HarnessAgentCoreMemoryConfiguration$]
+];
+export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMCa,
+  0,
+  [_bMC, _oAMC, _gMC],
+  [() => HarnessBedrockModelConfig$, () => HarnessOpenAiModelConfig$, () => HarnessGeminiModelConfig$]
+];
+export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSarn,
+  0,
+  [_p],
+  [0]
+];
+export var HarnessSystemContentBlock$: StaticUnionSchema = [4, n0, _HSCB,
+  0,
+  [_tex],
+  [[() => SensitiveText, 0]]
+];
+export var HarnessToolConfiguration$: StaticUnionSchema = [4, n0, _HTCa,
+  0,
+  [_rM, _aCB, _aCG, _iF, _aCCI],
+  [[() => HarnessRemoteMcpConfig$, 0], () => HarnessAgentCoreBrowserConfig$, [() => HarnessAgentCoreGatewayConfig$, 0], [() => HarnessInlineFunctionConfig$, 0], () => HarnessAgentCoreCodeInterpreterConfig$]
+];
+export var HarnessTruncationStrategyConfiguration$: StaticUnionSchema = [4, n0, _HTSC,
+  0,
+  [_sW, _sum],
+  [() => HarnessSlidingWindowConfiguration$, () => HarnessSummarizationConfiguration$]
+];
 export var InterceptorConfiguration$: StaticUnionSchema = [4, n0, _ICnt,
   0,
   [_lam],
@@ -3481,296 +3805,311 @@ export var TriggerConditionInput$: StaticUnionSchema = [4, n0, _TCI,
   [() => MessageBasedTriggerInput$, () => TokenBasedTriggerInput$, () => TimeBasedTriggerInput$]
 ];
 export var CreateAgentRuntime$: StaticOperationSchema = [9, n0, _CAR,
-  { [_h]: ["PUT", "/runtimes/", 202] }, () => CreateAgentRuntimeRequest$, () => CreateAgentRuntimeResponse$
+  { [_ht]: ["PUT", "/runtimes/", 202] }, () => CreateAgentRuntimeRequest$, () => CreateAgentRuntimeResponse$
 ];
 export var CreateAgentRuntimeEndpoint$: StaticOperationSchema = [9, n0, _CARE,
-  { [_h]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 202] }, () => CreateAgentRuntimeEndpointRequest$, () => CreateAgentRuntimeEndpointResponse$
+  { [_ht]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 202] }, () => CreateAgentRuntimeEndpointRequest$, () => CreateAgentRuntimeEndpointResponse$
 ];
 export var CreateApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _CAKCP,
-  { [_h]: ["POST", "/identities/CreateApiKeyCredentialProvider", 201] }, () => CreateApiKeyCredentialProviderRequest$, () => CreateApiKeyCredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/CreateApiKeyCredentialProvider", 201] }, () => CreateApiKeyCredentialProviderRequest$, () => CreateApiKeyCredentialProviderResponse$
 ];
 export var CreateBrowser$: StaticOperationSchema = [9, n0, _CB,
-  { [_h]: ["PUT", "/browsers", 202] }, () => CreateBrowserRequest$, () => CreateBrowserResponse$
+  { [_ht]: ["PUT", "/browsers", 202] }, () => CreateBrowserRequest$, () => CreateBrowserResponse$
 ];
 export var CreateBrowserProfile$: StaticOperationSchema = [9, n0, _CBP,
-  { [_h]: ["PUT", "/browser-profiles", 200] }, () => CreateBrowserProfileRequest$, () => CreateBrowserProfileResponse$
+  { [_ht]: ["PUT", "/browser-profiles", 200] }, () => CreateBrowserProfileRequest$, () => CreateBrowserProfileResponse$
 ];
 export var CreateCodeInterpreter$: StaticOperationSchema = [9, n0, _CCIr,
-  { [_h]: ["PUT", "/code-interpreters", 202] }, () => CreateCodeInterpreterRequest$, () => CreateCodeInterpreterResponse$
+  { [_ht]: ["PUT", "/code-interpreters", 202] }, () => CreateCodeInterpreterRequest$, () => CreateCodeInterpreterResponse$
 ];
 export var CreateEvaluator$: StaticOperationSchema = [9, n0, _CEr,
-  { [_h]: ["POST", "/evaluators/create", 202] }, () => CreateEvaluatorRequest$, () => CreateEvaluatorResponse$
+  { [_ht]: ["POST", "/evaluators/create", 202] }, () => CreateEvaluatorRequest$, () => CreateEvaluatorResponse$
 ];
 export var CreateGateway$: StaticOperationSchema = [9, n0, _CG,
-  { [_h]: ["POST", "/gateways/", 202] }, () => CreateGatewayRequest$, () => CreateGatewayResponse$
+  { [_ht]: ["POST", "/gateways/", 202] }, () => CreateGatewayRequest$, () => CreateGatewayResponse$
 ];
 export var CreateGatewayTarget$: StaticOperationSchema = [9, n0, _CGT,
-  { [_h]: ["POST", "/gateways/{gatewayIdentifier}/targets/", 202] }, () => CreateGatewayTargetRequest$, () => CreateGatewayTargetResponse$
+  { [_ht]: ["POST", "/gateways/{gatewayIdentifier}/targets/", 202] }, () => CreateGatewayTargetRequest$, () => CreateGatewayTargetResponse$
+];
+export var CreateHarness$: StaticOperationSchema = [9, n0, _CH,
+  { [_ht]: ["POST", "/harnesses", 201] }, () => CreateHarnessRequest$, () => CreateHarnessResponse$
 ];
 export var CreateMemory$: StaticOperationSchema = [9, n0, _CM,
-  { [_h]: ["POST", "/memories/create", 202] }, () => CreateMemoryInput$, () => CreateMemoryOutput$
+  { [_ht]: ["POST", "/memories/create", 202] }, () => CreateMemoryInput$, () => CreateMemoryOutput$
 ];
 export var CreateOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _COCP,
-  { [_h]: ["POST", "/identities/CreateOauth2CredentialProvider", 201] }, () => CreateOauth2CredentialProviderRequest$, () => CreateOauth2CredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/CreateOauth2CredentialProvider", 201] }, () => CreateOauth2CredentialProviderRequest$, () => CreateOauth2CredentialProviderResponse$
 ];
 export var CreateOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _COEC,
-  { [_h]: ["POST", "/online-evaluation-configs/create", 202] }, () => CreateOnlineEvaluationConfigRequest$, () => CreateOnlineEvaluationConfigResponse$
+  { [_ht]: ["POST", "/online-evaluation-configs/create", 202] }, () => CreateOnlineEvaluationConfigRequest$, () => CreateOnlineEvaluationConfigResponse$
 ];
 export var CreatePolicy$: StaticOperationSchema = [9, n0, _CPre,
-  { [_h]: ["POST", "/policy-engines/{policyEngineId}/policies", 202] }, () => CreatePolicyRequest$, () => CreatePolicyResponse$
+  { [_ht]: ["POST", "/policy-engines/{policyEngineId}/policies", 202] }, () => CreatePolicyRequest$, () => CreatePolicyResponse$
 ];
 export var CreatePolicyEngine$: StaticOperationSchema = [9, n0, _CPE,
-  { [_h]: ["POST", "/policy-engines", 202] }, () => CreatePolicyEngineRequest$, () => CreatePolicyEngineResponse$
+  { [_ht]: ["POST", "/policy-engines", 202] }, () => CreatePolicyEngineRequest$, () => CreatePolicyEngineResponse$
 ];
 export var CreateRegistry$: StaticOperationSchema = [9, n0, _CR,
-  { [_h]: ["POST", "/registries", 202] }, () => CreateRegistryRequest$, () => CreateRegistryResponse$
+  { [_ht]: ["POST", "/registries", 202] }, () => CreateRegistryRequest$, () => CreateRegistryResponse$
 ];
 export var CreateRegistryRecord$: StaticOperationSchema = [9, n0, _CRRre,
-  { [_h]: ["POST", "/registries/{registryId}/records", 202] }, () => CreateRegistryRecordRequest$, () => CreateRegistryRecordResponse$
+  { [_ht]: ["POST", "/registries/{registryId}/records", 202] }, () => CreateRegistryRecordRequest$, () => CreateRegistryRecordResponse$
 ];
 export var CreateWorkloadIdentity$: StaticOperationSchema = [9, n0, _CWI,
-  { [_h]: ["POST", "/identities/CreateWorkloadIdentity", 201] }, () => CreateWorkloadIdentityRequest$, () => CreateWorkloadIdentityResponse$
+  { [_ht]: ["POST", "/identities/CreateWorkloadIdentity", 201] }, () => CreateWorkloadIdentityRequest$, () => CreateWorkloadIdentityResponse$
 ];
 export var DeleteAgentRuntime$: StaticOperationSchema = [9, n0, _DAR,
-  { [_h]: ["DELETE", "/runtimes/{agentRuntimeId}/", 202] }, () => DeleteAgentRuntimeRequest$, () => DeleteAgentRuntimeResponse$
+  { [_ht]: ["DELETE", "/runtimes/{agentRuntimeId}/", 202] }, () => DeleteAgentRuntimeRequest$, () => DeleteAgentRuntimeResponse$
 ];
 export var DeleteAgentRuntimeEndpoint$: StaticOperationSchema = [9, n0, _DARE,
-  { [_h]: ["DELETE", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202] }, () => DeleteAgentRuntimeEndpointRequest$, () => DeleteAgentRuntimeEndpointResponse$
+  { [_ht]: ["DELETE", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202] }, () => DeleteAgentRuntimeEndpointRequest$, () => DeleteAgentRuntimeEndpointResponse$
 ];
 export var DeleteApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _DAKCP,
-  { [_h]: ["POST", "/identities/DeleteApiKeyCredentialProvider", 204] }, () => DeleteApiKeyCredentialProviderRequest$, () => DeleteApiKeyCredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/DeleteApiKeyCredentialProvider", 204] }, () => DeleteApiKeyCredentialProviderRequest$, () => DeleteApiKeyCredentialProviderResponse$
 ];
 export var DeleteBrowser$: StaticOperationSchema = [9, n0, _DB,
-  { [_h]: ["DELETE", "/browsers/{browserId}", 202] }, () => DeleteBrowserRequest$, () => DeleteBrowserResponse$
+  { [_ht]: ["DELETE", "/browsers/{browserId}", 202] }, () => DeleteBrowserRequest$, () => DeleteBrowserResponse$
 ];
 export var DeleteBrowserProfile$: StaticOperationSchema = [9, n0, _DBP,
-  { [_h]: ["DELETE", "/browser-profiles/{profileId}", 200] }, () => DeleteBrowserProfileRequest$, () => DeleteBrowserProfileResponse$
+  { [_ht]: ["DELETE", "/browser-profiles/{profileId}", 200] }, () => DeleteBrowserProfileRequest$, () => DeleteBrowserProfileResponse$
 ];
 export var DeleteCodeInterpreter$: StaticOperationSchema = [9, n0, _DCI,
-  { [_h]: ["DELETE", "/code-interpreters/{codeInterpreterId}", 202] }, () => DeleteCodeInterpreterRequest$, () => DeleteCodeInterpreterResponse$
+  { [_ht]: ["DELETE", "/code-interpreters/{codeInterpreterId}", 202] }, () => DeleteCodeInterpreterRequest$, () => DeleteCodeInterpreterResponse$
 ];
 export var DeleteEvaluator$: StaticOperationSchema = [9, n0, _DE,
-  { [_h]: ["DELETE", "/evaluators/{evaluatorId}", 202] }, () => DeleteEvaluatorRequest$, () => DeleteEvaluatorResponse$
+  { [_ht]: ["DELETE", "/evaluators/{evaluatorId}", 202] }, () => DeleteEvaluatorRequest$, () => DeleteEvaluatorResponse$
 ];
 export var DeleteGateway$: StaticOperationSchema = [9, n0, _DG,
-  { [_h]: ["DELETE", "/gateways/{gatewayIdentifier}/", 202] }, () => DeleteGatewayRequest$, () => DeleteGatewayResponse$
+  { [_ht]: ["DELETE", "/gateways/{gatewayIdentifier}/", 202] }, () => DeleteGatewayRequest$, () => DeleteGatewayResponse$
 ];
 export var DeleteGatewayTarget$: StaticOperationSchema = [9, n0, _DGT,
-  { [_h]: ["DELETE", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202] }, () => DeleteGatewayTargetRequest$, () => DeleteGatewayTargetResponse$
+  { [_ht]: ["DELETE", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202] }, () => DeleteGatewayTargetRequest$, () => DeleteGatewayTargetResponse$
+];
+export var DeleteHarness$: StaticOperationSchema = [9, n0, _DH,
+  { [_ht]: ["DELETE", "/harnesses/{harnessId}", 200] }, () => DeleteHarnessRequest$, () => DeleteHarnessResponse$
 ];
 export var DeleteMemory$: StaticOperationSchema = [9, n0, _DM,
-  { [_h]: ["DELETE", "/memories/{memoryId}/delete", 202] }, () => DeleteMemoryInput$, () => DeleteMemoryOutput$
+  { [_ht]: ["DELETE", "/memories/{memoryId}/delete", 202] }, () => DeleteMemoryInput$, () => DeleteMemoryOutput$
 ];
 export var DeleteOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _DOCP,
-  { [_h]: ["POST", "/identities/DeleteOauth2CredentialProvider", 204] }, () => DeleteOauth2CredentialProviderRequest$, () => DeleteOauth2CredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/DeleteOauth2CredentialProvider", 204] }, () => DeleteOauth2CredentialProviderRequest$, () => DeleteOauth2CredentialProviderResponse$
 ];
 export var DeleteOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _DOEC,
-  { [_h]: ["DELETE", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => DeleteOnlineEvaluationConfigRequest$, () => DeleteOnlineEvaluationConfigResponse$
+  { [_ht]: ["DELETE", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => DeleteOnlineEvaluationConfigRequest$, () => DeleteOnlineEvaluationConfigResponse$
 ];
 export var DeletePolicy$: StaticOperationSchema = [9, n0, _DP,
-  { [_h]: ["DELETE", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => DeletePolicyRequest$, () => DeletePolicyResponse$
+  { [_ht]: ["DELETE", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => DeletePolicyRequest$, () => DeletePolicyResponse$
 ];
 export var DeletePolicyEngine$: StaticOperationSchema = [9, n0, _DPE,
-  { [_h]: ["DELETE", "/policy-engines/{policyEngineId}", 202] }, () => DeletePolicyEngineRequest$, () => DeletePolicyEngineResponse$
+  { [_ht]: ["DELETE", "/policy-engines/{policyEngineId}", 202] }, () => DeletePolicyEngineRequest$, () => DeletePolicyEngineResponse$
 ];
 export var DeleteRegistry$: StaticOperationSchema = [9, n0, _DR,
-  { [_h]: ["DELETE", "/registries/{registryId}", 202] }, () => DeleteRegistryRequest$, () => DeleteRegistryResponse$
+  { [_ht]: ["DELETE", "/registries/{registryId}", 202] }, () => DeleteRegistryRequest$, () => DeleteRegistryResponse$
 ];
 export var DeleteRegistryRecord$: StaticOperationSchema = [9, n0, _DRRel,
-  { [_h]: ["DELETE", "/registries/{registryId}/records/{recordId}", 200] }, () => DeleteRegistryRecordRequest$, () => DeleteRegistryRecordResponse$
+  { [_ht]: ["DELETE", "/registries/{registryId}/records/{recordId}", 200] }, () => DeleteRegistryRecordRequest$, () => DeleteRegistryRecordResponse$
 ];
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
-  { [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 204] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
+  { [_ht]: ["DELETE", "/resourcepolicy/{resourceArn}", 204] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
 ];
 export var DeleteWorkloadIdentity$: StaticOperationSchema = [9, n0, _DWI,
-  { [_h]: ["POST", "/identities/DeleteWorkloadIdentity", 204] }, () => DeleteWorkloadIdentityRequest$, () => DeleteWorkloadIdentityResponse$
+  { [_ht]: ["POST", "/identities/DeleteWorkloadIdentity", 204] }, () => DeleteWorkloadIdentityRequest$, () => DeleteWorkloadIdentityResponse$
 ];
 export var GetAgentRuntime$: StaticOperationSchema = [9, n0, _GAR,
-  { [_h]: ["GET", "/runtimes/{agentRuntimeId}/", 200] }, () => GetAgentRuntimeRequest$, () => GetAgentRuntimeResponse$
+  { [_ht]: ["GET", "/runtimes/{agentRuntimeId}/", 200] }, () => GetAgentRuntimeRequest$, () => GetAgentRuntimeResponse$
 ];
 export var GetAgentRuntimeEndpoint$: StaticOperationSchema = [9, n0, _GARE,
-  { [_h]: ["GET", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 200] }, () => GetAgentRuntimeEndpointRequest$, () => GetAgentRuntimeEndpointResponse$
+  { [_ht]: ["GET", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 200] }, () => GetAgentRuntimeEndpointRequest$, () => GetAgentRuntimeEndpointResponse$
 ];
 export var GetApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _GAKCPe,
-  { [_h]: ["POST", "/identities/GetApiKeyCredentialProvider", 200] }, () => GetApiKeyCredentialProviderRequest$, () => GetApiKeyCredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/GetApiKeyCredentialProvider", 200] }, () => GetApiKeyCredentialProviderRequest$, () => GetApiKeyCredentialProviderResponse$
 ];
 export var GetBrowser$: StaticOperationSchema = [9, n0, _GB,
-  { [_h]: ["GET", "/browsers/{browserId}", 200] }, () => GetBrowserRequest$, () => GetBrowserResponse$
+  { [_ht]: ["GET", "/browsers/{browserId}", 200] }, () => GetBrowserRequest$, () => GetBrowserResponse$
 ];
 export var GetBrowserProfile$: StaticOperationSchema = [9, n0, _GBP,
-  { [_h]: ["GET", "/browser-profiles/{profileId}", 200] }, () => GetBrowserProfileRequest$, () => GetBrowserProfileResponse$
+  { [_ht]: ["GET", "/browser-profiles/{profileId}", 200] }, () => GetBrowserProfileRequest$, () => GetBrowserProfileResponse$
 ];
 export var GetCodeInterpreter$: StaticOperationSchema = [9, n0, _GCI,
-  { [_h]: ["GET", "/code-interpreters/{codeInterpreterId}", 200] }, () => GetCodeInterpreterRequest$, () => GetCodeInterpreterResponse$
+  { [_ht]: ["GET", "/code-interpreters/{codeInterpreterId}", 200] }, () => GetCodeInterpreterRequest$, () => GetCodeInterpreterResponse$
 ];
 export var GetEvaluator$: StaticOperationSchema = [9, n0, _GE,
-  { [_h]: ["GET", "/evaluators/{evaluatorId}", 200] }, () => GetEvaluatorRequest$, () => GetEvaluatorResponse$
+  { [_ht]: ["GET", "/evaluators/{evaluatorId}", 200] }, () => GetEvaluatorRequest$, () => GetEvaluatorResponse$
 ];
 export var GetGateway$: StaticOperationSchema = [9, n0, _GG,
-  { [_h]: ["GET", "/gateways/{gatewayIdentifier}/", 200] }, () => GetGatewayRequest$, () => GetGatewayResponse$
+  { [_ht]: ["GET", "/gateways/{gatewayIdentifier}/", 200] }, () => GetGatewayRequest$, () => GetGatewayResponse$
 ];
 export var GetGatewayTarget$: StaticOperationSchema = [9, n0, _GGT,
-  { [_h]: ["GET", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 200] }, () => GetGatewayTargetRequest$, () => GetGatewayTargetResponse$
+  { [_ht]: ["GET", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 200] }, () => GetGatewayTargetRequest$, () => GetGatewayTargetResponse$
+];
+export var GetHarness$: StaticOperationSchema = [9, n0, _GH,
+  { [_ht]: ["GET", "/harnesses/{harnessId}", 200] }, () => GetHarnessRequest$, () => GetHarnessResponse$
 ];
 export var GetMemory$: StaticOperationSchema = [9, n0, _GM,
-  { [_h]: ["GET", "/memories/{memoryId}/details", 200] }, () => GetMemoryInput$, () => GetMemoryOutput$
+  { [_ht]: ["GET", "/memories/{memoryId}/details", 200] }, () => GetMemoryInput$, () => GetMemoryOutput$
 ];
 export var GetOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _GOCP,
-  { [_h]: ["POST", "/identities/GetOauth2CredentialProvider", 200] }, () => GetOauth2CredentialProviderRequest$, () => GetOauth2CredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/GetOauth2CredentialProvider", 200] }, () => GetOauth2CredentialProviderRequest$, () => GetOauth2CredentialProviderResponse$
 ];
 export var GetOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _GOEC,
-  { [_h]: ["GET", "/online-evaluation-configs/{onlineEvaluationConfigId}", 200] }, () => GetOnlineEvaluationConfigRequest$, () => GetOnlineEvaluationConfigResponse$
+  { [_ht]: ["GET", "/online-evaluation-configs/{onlineEvaluationConfigId}", 200] }, () => GetOnlineEvaluationConfigRequest$, () => GetOnlineEvaluationConfigResponse$
 ];
 export var GetPolicy$: StaticOperationSchema = [9, n0, _GP,
-  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policies/{policyId}", 200] }, () => GetPolicyRequest$, () => GetPolicyResponse$
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policies/{policyId}", 200] }, () => GetPolicyRequest$, () => GetPolicyResponse$
 ];
 export var GetPolicyEngine$: StaticOperationSchema = [9, n0, _GPE,
-  { [_h]: ["GET", "/policy-engines/{policyEngineId}", 200] }, () => GetPolicyEngineRequest$, () => GetPolicyEngineResponse$
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}", 200] }, () => GetPolicyEngineRequest$, () => GetPolicyEngineResponse$
 ];
 export var GetPolicyGeneration$: StaticOperationSchema = [9, n0, _GPG,
-  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}", 200] }, () => GetPolicyGenerationRequest$, () => GetPolicyGenerationResponse$
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}", 200] }, () => GetPolicyGenerationRequest$, () => GetPolicyGenerationResponse$
 ];
 export var GetRegistry$: StaticOperationSchema = [9, n0, _GR,
-  { [_h]: ["GET", "/registries/{registryId}", 200] }, () => GetRegistryRequest$, () => GetRegistryResponse$
+  { [_ht]: ["GET", "/registries/{registryId}", 200] }, () => GetRegistryRequest$, () => GetRegistryResponse$
 ];
 export var GetRegistryRecord$: StaticOperationSchema = [9, n0, _GRRet,
-  { [_h]: ["GET", "/registries/{registryId}/records/{recordId}", 200] }, () => GetRegistryRecordRequest$, () => GetRegistryRecordResponse$
+  { [_ht]: ["GET", "/registries/{registryId}/records/{recordId}", 200] }, () => GetRegistryRecordRequest$, () => GetRegistryRecordResponse$
 ];
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
-  { [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
+  { [_ht]: ["GET", "/resourcepolicy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
 ];
 export var GetTokenVault$: StaticOperationSchema = [9, n0, _GTV,
-  { [_h]: ["POST", "/identities/get-token-vault", 200] }, () => GetTokenVaultRequest$, () => GetTokenVaultResponse$
+  { [_ht]: ["POST", "/identities/get-token-vault", 200] }, () => GetTokenVaultRequest$, () => GetTokenVaultResponse$
 ];
 export var GetWorkloadIdentity$: StaticOperationSchema = [9, n0, _GWI,
-  { [_h]: ["POST", "/identities/GetWorkloadIdentity", 200] }, () => GetWorkloadIdentityRequest$, () => GetWorkloadIdentityResponse$
+  { [_ht]: ["POST", "/identities/GetWorkloadIdentity", 200] }, () => GetWorkloadIdentityRequest$, () => GetWorkloadIdentityResponse$
 ];
 export var ListAgentRuntimeEndpoints$: StaticOperationSchema = [9, n0, _LARE,
-  { [_h]: ["POST", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 200] }, () => ListAgentRuntimeEndpointsRequest$, () => ListAgentRuntimeEndpointsResponse$
+  { [_ht]: ["POST", "/runtimes/{agentRuntimeId}/runtime-endpoints/", 200] }, () => ListAgentRuntimeEndpointsRequest$, () => ListAgentRuntimeEndpointsResponse$
 ];
 export var ListAgentRuntimes$: StaticOperationSchema = [9, n0, _LAR,
-  { [_h]: ["POST", "/runtimes/", 200] }, () => ListAgentRuntimesRequest$, () => ListAgentRuntimesResponse$
+  { [_ht]: ["POST", "/runtimes/", 200] }, () => ListAgentRuntimesRequest$, () => ListAgentRuntimesResponse$
 ];
 export var ListAgentRuntimeVersions$: StaticOperationSchema = [9, n0, _LARV,
-  { [_h]: ["POST", "/runtimes/{agentRuntimeId}/versions/", 200] }, () => ListAgentRuntimeVersionsRequest$, () => ListAgentRuntimeVersionsResponse$
+  { [_ht]: ["POST", "/runtimes/{agentRuntimeId}/versions/", 200] }, () => ListAgentRuntimeVersionsRequest$, () => ListAgentRuntimeVersionsResponse$
 ];
 export var ListApiKeyCredentialProviders$: StaticOperationSchema = [9, n0, _LAKCP,
-  { [_h]: ["POST", "/identities/ListApiKeyCredentialProviders", 200] }, () => ListApiKeyCredentialProvidersRequest$, () => ListApiKeyCredentialProvidersResponse$
+  { [_ht]: ["POST", "/identities/ListApiKeyCredentialProviders", 200] }, () => ListApiKeyCredentialProvidersRequest$, () => ListApiKeyCredentialProvidersResponse$
 ];
 export var ListBrowserProfiles$: StaticOperationSchema = [9, n0, _LBP,
-  { [_h]: ["POST", "/browser-profiles", 200] }, () => ListBrowserProfilesRequest$, () => ListBrowserProfilesResponse$
+  { [_ht]: ["POST", "/browser-profiles", 200] }, () => ListBrowserProfilesRequest$, () => ListBrowserProfilesResponse$
 ];
 export var ListBrowsers$: StaticOperationSchema = [9, n0, _LB,
-  { [_h]: ["POST", "/browsers", 200] }, () => ListBrowsersRequest$, () => ListBrowsersResponse$
+  { [_ht]: ["POST", "/browsers", 200] }, () => ListBrowsersRequest$, () => ListBrowsersResponse$
 ];
 export var ListCodeInterpreters$: StaticOperationSchema = [9, n0, _LCI,
-  { [_h]: ["POST", "/code-interpreters", 200] }, () => ListCodeInterpretersRequest$, () => ListCodeInterpretersResponse$
+  { [_ht]: ["POST", "/code-interpreters", 200] }, () => ListCodeInterpretersRequest$, () => ListCodeInterpretersResponse$
 ];
 export var ListEvaluators$: StaticOperationSchema = [9, n0, _LE,
-  { [_h]: ["POST", "/evaluators", 200] }, () => ListEvaluatorsRequest$, () => ListEvaluatorsResponse$
+  { [_ht]: ["POST", "/evaluators", 200] }, () => ListEvaluatorsRequest$, () => ListEvaluatorsResponse$
 ];
 export var ListGateways$: StaticOperationSchema = [9, n0, _LG,
-  { [_h]: ["GET", "/gateways/", 200] }, () => ListGatewaysRequest$, () => ListGatewaysResponse$
+  { [_ht]: ["GET", "/gateways/", 200] }, () => ListGatewaysRequest$, () => ListGatewaysResponse$
 ];
 export var ListGatewayTargets$: StaticOperationSchema = [9, n0, _LGT,
-  { [_h]: ["GET", "/gateways/{gatewayIdentifier}/targets/", 200] }, () => ListGatewayTargetsRequest$, () => ListGatewayTargetsResponse$
+  { [_ht]: ["GET", "/gateways/{gatewayIdentifier}/targets/", 200] }, () => ListGatewayTargetsRequest$, () => ListGatewayTargetsResponse$
+];
+export var ListHarnesses$: StaticOperationSchema = [9, n0, _LH,
+  { [_ht]: ["GET", "/harnesses", 200] }, () => ListHarnessesRequest$, () => ListHarnessesResponse$
 ];
 export var ListMemories$: StaticOperationSchema = [9, n0, _LM,
-  { [_h]: ["POST", "/memories/", 200] }, () => ListMemoriesInput$, () => ListMemoriesOutput$
+  { [_ht]: ["POST", "/memories/", 200] }, () => ListMemoriesInput$, () => ListMemoriesOutput$
 ];
 export var ListOauth2CredentialProviders$: StaticOperationSchema = [9, n0, _LOCP,
-  { [_h]: ["POST", "/identities/ListOauth2CredentialProviders", 200] }, () => ListOauth2CredentialProvidersRequest$, () => ListOauth2CredentialProvidersResponse$
+  { [_ht]: ["POST", "/identities/ListOauth2CredentialProviders", 200] }, () => ListOauth2CredentialProvidersRequest$, () => ListOauth2CredentialProvidersResponse$
 ];
 export var ListOnlineEvaluationConfigs$: StaticOperationSchema = [9, n0, _LOEC,
-  { [_h]: ["POST", "/online-evaluation-configs", 200] }, () => ListOnlineEvaluationConfigsRequest$, () => ListOnlineEvaluationConfigsResponse$
+  { [_ht]: ["POST", "/online-evaluation-configs", 200] }, () => ListOnlineEvaluationConfigsRequest$, () => ListOnlineEvaluationConfigsResponse$
 ];
 export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
-  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policies", 200] }, () => ListPoliciesRequest$, () => ListPoliciesResponse$
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policies", 200] }, () => ListPoliciesRequest$, () => ListPoliciesResponse$
 ];
 export var ListPolicyEngines$: StaticOperationSchema = [9, n0, _LPE,
-  { [_h]: ["GET", "/policy-engines", 200] }, () => ListPolicyEnginesRequest$, () => ListPolicyEnginesResponse$
+  { [_ht]: ["GET", "/policy-engines", 200] }, () => ListPolicyEnginesRequest$, () => ListPolicyEnginesResponse$
 ];
 export var ListPolicyGenerationAssets$: StaticOperationSchema = [9, n0, _LPGA,
-  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}/assets", 200] }, () => ListPolicyGenerationAssetsRequest$, () => ListPolicyGenerationAssetsResponse$
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}/assets", 200] }, () => ListPolicyGenerationAssetsRequest$, () => ListPolicyGenerationAssetsResponse$
 ];
 export var ListPolicyGenerations$: StaticOperationSchema = [9, n0, _LPG,
-  { [_h]: ["GET", "/policy-engines/{policyEngineId}/policy-generations", 200] }, () => ListPolicyGenerationsRequest$, () => ListPolicyGenerationsResponse$
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generations", 200] }, () => ListPolicyGenerationsRequest$, () => ListPolicyGenerationsResponse$
 ];
 export var ListRegistries$: StaticOperationSchema = [9, n0, _LR,
-  { [_h]: ["GET", "/registries", 200] }, () => ListRegistriesRequest$, () => ListRegistriesResponse$
+  { [_ht]: ["GET", "/registries", 200] }, () => ListRegistriesRequest$, () => ListRegistriesResponse$
 ];
 export var ListRegistryRecords$: StaticOperationSchema = [9, n0, _LRRis,
-  { [_h]: ["GET", "/registries/{registryId}/records", 200] }, () => ListRegistryRecordsRequest$, () => ListRegistryRecordsResponse$
+  { [_ht]: ["GET", "/registries/{registryId}/records", 200] }, () => ListRegistryRecordsRequest$, () => ListRegistryRecordsResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
-  { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+  { [_ht]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var ListWorkloadIdentities$: StaticOperationSchema = [9, n0, _LWI,
-  { [_h]: ["POST", "/identities/ListWorkloadIdentities", 200] }, () => ListWorkloadIdentitiesRequest$, () => ListWorkloadIdentitiesResponse$
+  { [_ht]: ["POST", "/identities/ListWorkloadIdentities", 200] }, () => ListWorkloadIdentitiesRequest$, () => ListWorkloadIdentitiesResponse$
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
-  { [_h]: ["PUT", "/resourcepolicy/{resourceArn}", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+  { [_ht]: ["PUT", "/resourcepolicy/{resourceArn}", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
 ];
 export var SetTokenVaultCMK$: StaticOperationSchema = [9, n0, _STVCMK,
-  { [_h]: ["POST", "/identities/set-token-vault-cmk", 200] }, () => SetTokenVaultCMKRequest$, () => SetTokenVaultCMKResponse$
+  { [_ht]: ["POST", "/identities/set-token-vault-cmk", 200] }, () => SetTokenVaultCMKRequest$, () => SetTokenVaultCMKResponse$
 ];
 export var StartPolicyGeneration$: StaticOperationSchema = [9, n0, _SPG,
-  { [_h]: ["POST", "/policy-engines/{policyEngineId}/policy-generations", 202] }, () => StartPolicyGenerationRequest$, () => StartPolicyGenerationResponse$
+  { [_ht]: ["POST", "/policy-engines/{policyEngineId}/policy-generations", 202] }, () => StartPolicyGenerationRequest$, () => StartPolicyGenerationResponse$
 ];
 export var SubmitRegistryRecordForApproval$: StaticOperationSchema = [9, n0, _SRRFA,
-  { [_h]: ["POST", "/registries/{registryId}/records/{recordId}/submit-for-approval", 202] }, () => SubmitRegistryRecordForApprovalRequest$, () => SubmitRegistryRecordForApprovalResponse$
+  { [_ht]: ["POST", "/registries/{registryId}/records/{recordId}/submit-for-approval", 202] }, () => SubmitRegistryRecordForApprovalRequest$, () => SubmitRegistryRecordForApprovalResponse$
 ];
 export var SynchronizeGatewayTargets$: StaticOperationSchema = [9, n0, _SGT,
-  { [_h]: ["PUT", "/gateways/{gatewayIdentifier}/synchronizeTargets", 202] }, () => SynchronizeGatewayTargetsRequest$, () => SynchronizeGatewayTargetsResponse$
+  { [_ht]: ["PUT", "/gateways/{gatewayIdentifier}/synchronizeTargets", 202] }, () => SynchronizeGatewayTargetsRequest$, () => SynchronizeGatewayTargetsResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
-  { [_h]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$
+  { [_ht]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
-  { [_h]: ["DELETE", "/tags/{resourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+  { [_ht]: ["DELETE", "/tags/{resourceArn}", 204] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
 export var UpdateAgentRuntime$: StaticOperationSchema = [9, n0, _UAR,
-  { [_h]: ["PUT", "/runtimes/{agentRuntimeId}/", 202] }, () => UpdateAgentRuntimeRequest$, () => UpdateAgentRuntimeResponse$
+  { [_ht]: ["PUT", "/runtimes/{agentRuntimeId}/", 202] }, () => UpdateAgentRuntimeRequest$, () => UpdateAgentRuntimeResponse$
 ];
 export var UpdateAgentRuntimeEndpoint$: StaticOperationSchema = [9, n0, _UARE,
-  { [_h]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202] }, () => UpdateAgentRuntimeEndpointRequest$, () => UpdateAgentRuntimeEndpointResponse$
+  { [_ht]: ["PUT", "/runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/", 202] }, () => UpdateAgentRuntimeEndpointRequest$, () => UpdateAgentRuntimeEndpointResponse$
 ];
 export var UpdateApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _UAKCP,
-  { [_h]: ["POST", "/identities/UpdateApiKeyCredentialProvider", 200] }, () => UpdateApiKeyCredentialProviderRequest$, () => UpdateApiKeyCredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/UpdateApiKeyCredentialProvider", 200] }, () => UpdateApiKeyCredentialProviderRequest$, () => UpdateApiKeyCredentialProviderResponse$
 ];
 export var UpdateEvaluator$: StaticOperationSchema = [9, n0, _UEp,
-  { [_h]: ["PUT", "/evaluators/{evaluatorId}", 202] }, () => UpdateEvaluatorRequest$, () => UpdateEvaluatorResponse$
+  { [_ht]: ["PUT", "/evaluators/{evaluatorId}", 202] }, () => UpdateEvaluatorRequest$, () => UpdateEvaluatorResponse$
 ];
 export var UpdateGateway$: StaticOperationSchema = [9, n0, _UG,
-  { [_h]: ["PUT", "/gateways/{gatewayIdentifier}/", 202] }, () => UpdateGatewayRequest$, () => UpdateGatewayResponse$
+  { [_ht]: ["PUT", "/gateways/{gatewayIdentifier}/", 202] }, () => UpdateGatewayRequest$, () => UpdateGatewayResponse$
 ];
 export var UpdateGatewayTarget$: StaticOperationSchema = [9, n0, _UGT,
-  { [_h]: ["PUT", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202] }, () => UpdateGatewayTargetRequest$, () => UpdateGatewayTargetResponse$
+  { [_ht]: ["PUT", "/gateways/{gatewayIdentifier}/targets/{targetId}/", 202] }, () => UpdateGatewayTargetRequest$, () => UpdateGatewayTargetResponse$
+];
+export var UpdateHarness$: StaticOperationSchema = [9, n0, _UH,
+  { [_ht]: ["PATCH", "/harnesses/{harnessId}", 200] }, () => UpdateHarnessRequest$, () => UpdateHarnessResponse$
 ];
 export var UpdateMemory$: StaticOperationSchema = [9, n0, _UM,
-  { [_h]: ["PUT", "/memories/{memoryId}/update", 202] }, () => UpdateMemoryInput$, () => UpdateMemoryOutput$
+  { [_ht]: ["PUT", "/memories/{memoryId}/update", 202] }, () => UpdateMemoryInput$, () => UpdateMemoryOutput$
 ];
 export var UpdateOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _UOCP,
-  { [_h]: ["POST", "/identities/UpdateOauth2CredentialProvider", 200] }, () => UpdateOauth2CredentialProviderRequest$, () => UpdateOauth2CredentialProviderResponse$
+  { [_ht]: ["POST", "/identities/UpdateOauth2CredentialProvider", 200] }, () => UpdateOauth2CredentialProviderRequest$, () => UpdateOauth2CredentialProviderResponse$
 ];
 export var UpdateOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _UOEC,
-  { [_h]: ["PUT", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => UpdateOnlineEvaluationConfigRequest$, () => UpdateOnlineEvaluationConfigResponse$
+  { [_ht]: ["PUT", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => UpdateOnlineEvaluationConfigRequest$, () => UpdateOnlineEvaluationConfigResponse$
 ];
 export var UpdatePolicy$: StaticOperationSchema = [9, n0, _UP,
-  { [_h]: ["PATCH", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => UpdatePolicyRequest$, () => UpdatePolicyResponse$
+  { [_ht]: ["PATCH", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => UpdatePolicyRequest$, () => UpdatePolicyResponse$
 ];
 export var UpdatePolicyEngine$: StaticOperationSchema = [9, n0, _UPE,
-  { [_h]: ["PATCH", "/policy-engines/{policyEngineId}", 202] }, () => UpdatePolicyEngineRequest$, () => UpdatePolicyEngineResponse$
+  { [_ht]: ["PATCH", "/policy-engines/{policyEngineId}", 202] }, () => UpdatePolicyEngineRequest$, () => UpdatePolicyEngineResponse$
 ];
 export var UpdateRegistry$: StaticOperationSchema = [9, n0, _URp,
-  { [_h]: ["PATCH", "/registries/{registryId}", 202] }, () => UpdateRegistryRequest$, () => UpdateRegistryResponse$
+  { [_ht]: ["PATCH", "/registries/{registryId}", 202] }, () => UpdateRegistryRequest$, () => UpdateRegistryResponse$
 ];
 export var UpdateRegistryRecord$: StaticOperationSchema = [9, n0, _URRpda,
-  { [_h]: ["PATCH", "/registries/{registryId}/records/{recordId}", 202] }, () => UpdateRegistryRecordRequest$, () => UpdateRegistryRecordResponse$
+  { [_ht]: ["PATCH", "/registries/{registryId}/records/{recordId}", 202] }, () => UpdateRegistryRecordRequest$, () => UpdateRegistryRecordResponse$
 ];
 export var UpdateRegistryRecordStatus$: StaticOperationSchema = [9, n0, _URRS,
-  { [_h]: ["PATCH", "/registries/{registryId}/records/{recordId}/status", 202] }, () => UpdateRegistryRecordStatusRequest$, () => UpdateRegistryRecordStatusResponse$
+  { [_ht]: ["PATCH", "/registries/{registryId}/records/{recordId}/status", 202] }, () => UpdateRegistryRecordStatusRequest$, () => UpdateRegistryRecordStatusResponse$
 ];
 export var UpdateWorkloadIdentity$: StaticOperationSchema = [9, n0, _UWI,
-  { [_h]: ["POST", "/identities/UpdateWorkloadIdentity", 200] }, () => UpdateWorkloadIdentityRequest$, () => UpdateWorkloadIdentityResponse$
+  { [_ht]: ["POST", "/identities/UpdateWorkloadIdentity", 200] }, () => UpdateWorkloadIdentityRequest$, () => UpdateWorkloadIdentityResponse$
 ];

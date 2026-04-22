@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateOnlineEvaluationConfigRequest, CreateOnlineEvaluationConfigResponse } from "../models/models_0";
+import type { CreateOnlineEvaluationConfigRequest, CreateOnlineEvaluationConfigResponse } from "../models/models_1";
 import { CreateOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**
@@ -95,7 +95,7 @@ export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineE
  * //       logGroupName: "STRING_VALUE", // required
  * //     },
  * //   },
- * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
+ * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "ERROR", // required
  * //   executionStatus: "ENABLED" || "DISABLED", // required
  * //   failureReason: "STRING_VALUE",
  * // };

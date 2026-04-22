@@ -120,6 +120,7 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //           },
  * //           inlinePayload: "STRING_VALUE",
  * //         },
+ * //         resourcePriority: Number("int"),
  * //         listingMode: "DEFAULT" || "DYNAMIC",
  * //       },
  * //       apiGateway: { // ApiGatewayTargetConfiguration

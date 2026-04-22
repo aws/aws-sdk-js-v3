@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetOnlineEvaluationConfigRequest, GetOnlineEvaluationConfigResponse } from "../models/models_0";
+import type { GetOnlineEvaluationConfigRequest, GetOnlineEvaluationConfigResponse } from "../models/models_1";
 import { GetOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
 /**
@@ -90,7 +90,7 @@ export interface GetOnlineEvaluationConfigCommandOutput extends GetOnlineEvaluat
  * //     },
  * //   },
  * //   evaluationExecutionRoleArn: "STRING_VALUE",
- * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
+ * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "ERROR", // required
  * //   executionStatus: "ENABLED" || "DISABLED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required

@@ -501,6 +501,54 @@ export type KeyType = (typeof KeyType)[keyof typeof KeyType];
  * @public
  * @enum
  */
+export const HarnessToolType = {
+  AGENTCORE_BROWSER: "agentcore_browser",
+  AGENTCORE_CODE_INTERPRETER: "agentcore_code_interpreter",
+  AGENTCORE_GATEWAY: "agentcore_gateway",
+  INLINE_FUNCTION: "inline_function",
+  REMOTE_MCP: "remote_mcp",
+} as const;
+/**
+ * @public
+ */
+export type HarnessToolType = (typeof HarnessToolType)[keyof typeof HarnessToolType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessTruncationStrategy = {
+  NONE: "none",
+  SLIDING_WINDOW: "sliding_window",
+  SUMMARIZATION: "summarization",
+} as const;
+/**
+ * @public
+ */
+export type HarnessTruncationStrategy = (typeof HarnessTruncationStrategy)[keyof typeof HarnessTruncationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type HarnessStatus = (typeof HarnessStatus)[keyof typeof HarnessStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentLevel = {
   FULL_CONTENT: "FULL_CONTENT",
   METADATA_ONLY: "METADATA_ONLY",
@@ -676,6 +724,7 @@ export const OnlineEvaluationConfigStatus = {
   CREATE_FAILED: "CREATE_FAILED",
   CREATING: "CREATING",
   DELETING: "DELETING",
+  ERROR: "ERROR",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",
 } as const;

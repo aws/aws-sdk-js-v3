@@ -88,6 +88,7 @@ import type {
   CreateGatewayTargetCommandInput,
   CreateGatewayTargetCommandOutput,
 } from "./commands/CreateGatewayTargetCommand";
+import type { CreateHarnessCommandInput, CreateHarnessCommandOutput } from "./commands/CreateHarnessCommand";
 import type { CreateMemoryCommandInput, CreateMemoryCommandOutput } from "./commands/CreateMemoryCommand";
 import type {
   CreateOauth2CredentialProviderCommandInput,
@@ -138,6 +139,7 @@ import type {
   DeleteGatewayTargetCommandInput,
   DeleteGatewayTargetCommandOutput,
 } from "./commands/DeleteGatewayTargetCommand";
+import type { DeleteHarnessCommandInput, DeleteHarnessCommandOutput } from "./commands/DeleteHarnessCommand";
 import type { DeleteMemoryCommandInput, DeleteMemoryCommandOutput } from "./commands/DeleteMemoryCommand";
 import type {
   DeleteOauth2CredentialProviderCommandInput,
@@ -186,6 +188,7 @@ import type {
 import type { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import type { GetGatewayTargetCommandInput, GetGatewayTargetCommandOutput } from "./commands/GetGatewayTargetCommand";
+import type { GetHarnessCommandInput, GetHarnessCommandOutput } from "./commands/GetHarnessCommand";
 import type { GetMemoryCommandInput, GetMemoryCommandOutput } from "./commands/GetMemoryCommand";
 import type {
   GetOauth2CredentialProviderCommandInput,
@@ -246,6 +249,7 @@ import type {
   ListGatewayTargetsCommandInput,
   ListGatewayTargetsCommandOutput,
 } from "./commands/ListGatewayTargetsCommand";
+import type { ListHarnessesCommandInput, ListHarnessesCommandOutput } from "./commands/ListHarnessesCommand";
 import type { ListMemoriesCommandInput, ListMemoriesCommandOutput } from "./commands/ListMemoriesCommand";
 import type {
   ListOauth2CredentialProvidersCommandInput,
@@ -318,6 +322,7 @@ import type {
   UpdateGatewayTargetCommandInput,
   UpdateGatewayTargetCommandOutput,
 } from "./commands/UpdateGatewayTargetCommand";
+import type { UpdateHarnessCommandInput, UpdateHarnessCommandOutput } from "./commands/UpdateHarnessCommand";
 import type { UpdateMemoryCommandInput, UpdateMemoryCommandOutput } from "./commands/UpdateMemoryCommand";
 import type {
   UpdateOauth2CredentialProviderCommandInput,
@@ -369,6 +374,7 @@ export type ServiceInputTypes =
   | CreateEvaluatorCommandInput
   | CreateGatewayCommandInput
   | CreateGatewayTargetCommandInput
+  | CreateHarnessCommandInput
   | CreateMemoryCommandInput
   | CreateOauth2CredentialProviderCommandInput
   | CreateOnlineEvaluationConfigCommandInput
@@ -386,6 +392,7 @@ export type ServiceInputTypes =
   | DeleteEvaluatorCommandInput
   | DeleteGatewayCommandInput
   | DeleteGatewayTargetCommandInput
+  | DeleteHarnessCommandInput
   | DeleteMemoryCommandInput
   | DeleteOauth2CredentialProviderCommandInput
   | DeleteOnlineEvaluationConfigCommandInput
@@ -404,6 +411,7 @@ export type ServiceInputTypes =
   | GetEvaluatorCommandInput
   | GetGatewayCommandInput
   | GetGatewayTargetCommandInput
+  | GetHarnessCommandInput
   | GetMemoryCommandInput
   | GetOauth2CredentialProviderCommandInput
   | GetOnlineEvaluationConfigCommandInput
@@ -425,6 +433,7 @@ export type ServiceInputTypes =
   | ListEvaluatorsCommandInput
   | ListGatewayTargetsCommandInput
   | ListGatewaysCommandInput
+  | ListHarnessesCommandInput
   | ListMemoriesCommandInput
   | ListOauth2CredentialProvidersCommandInput
   | ListOnlineEvaluationConfigsCommandInput
@@ -449,6 +458,7 @@ export type ServiceInputTypes =
   | UpdateEvaluatorCommandInput
   | UpdateGatewayCommandInput
   | UpdateGatewayTargetCommandInput
+  | UpdateHarnessCommandInput
   | UpdateMemoryCommandInput
   | UpdateOauth2CredentialProviderCommandInput
   | UpdateOnlineEvaluationConfigCommandInput
@@ -472,6 +482,7 @@ export type ServiceOutputTypes =
   | CreateEvaluatorCommandOutput
   | CreateGatewayCommandOutput
   | CreateGatewayTargetCommandOutput
+  | CreateHarnessCommandOutput
   | CreateMemoryCommandOutput
   | CreateOauth2CredentialProviderCommandOutput
   | CreateOnlineEvaluationConfigCommandOutput
@@ -489,6 +500,7 @@ export type ServiceOutputTypes =
   | DeleteEvaluatorCommandOutput
   | DeleteGatewayCommandOutput
   | DeleteGatewayTargetCommandOutput
+  | DeleteHarnessCommandOutput
   | DeleteMemoryCommandOutput
   | DeleteOauth2CredentialProviderCommandOutput
   | DeleteOnlineEvaluationConfigCommandOutput
@@ -507,6 +519,7 @@ export type ServiceOutputTypes =
   | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
   | GetGatewayTargetCommandOutput
+  | GetHarnessCommandOutput
   | GetMemoryCommandOutput
   | GetOauth2CredentialProviderCommandOutput
   | GetOnlineEvaluationConfigCommandOutput
@@ -528,6 +541,7 @@ export type ServiceOutputTypes =
   | ListEvaluatorsCommandOutput
   | ListGatewayTargetsCommandOutput
   | ListGatewaysCommandOutput
+  | ListHarnessesCommandOutput
   | ListMemoriesCommandOutput
   | ListOauth2CredentialProvidersCommandOutput
   | ListOnlineEvaluationConfigsCommandOutput
@@ -552,6 +566,7 @@ export type ServiceOutputTypes =
   | UpdateEvaluatorCommandOutput
   | UpdateGatewayCommandOutput
   | UpdateGatewayTargetCommandOutput
+  | UpdateHarnessCommandOutput
   | UpdateMemoryCommandOutput
   | UpdateOauth2CredentialProviderCommandOutput
   | UpdateOnlineEvaluationConfigCommandOutput

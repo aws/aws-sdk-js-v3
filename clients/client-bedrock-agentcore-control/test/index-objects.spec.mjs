@@ -99,6 +99,10 @@ import {
   CreateGatewayTargetCommand,
   CreateGatewayTargetRequest$,
   CreateGatewayTargetResponse$,
+  CreateHarness$,
+  CreateHarnessCommand,
+  CreateHarnessRequest$,
+  CreateHarnessResponse$,
   CreateMemory$,
   CreateMemoryCommand,
   CreateMemoryInput$,
@@ -187,6 +191,10 @@ import {
   DeleteGatewayTargetCommand,
   DeleteGatewayTargetRequest$,
   DeleteGatewayTargetResponse$,
+  DeleteHarness$,
+  DeleteHarnessCommand,
+  DeleteHarnessRequest$,
+  DeleteHarnessResponse$,
   DeleteMemory$,
   DeleteMemoryCommand,
   DeleteMemoryInput$,
@@ -301,6 +309,10 @@ import {
   GetGatewayTargetCommand,
   GetGatewayTargetRequest$,
   GetGatewayTargetResponse$,
+  GetHarness$,
+  GetHarnessCommand,
+  GetHarnessRequest$,
+  GetHarnessResponse$,
   GetMemory$,
   GetMemoryCommand,
   GetMemoryInput$,
@@ -349,6 +361,37 @@ import {
   GithubOauth2ProviderConfigOutput$,
   GoogleOauth2ProviderConfigInput$,
   GoogleOauth2ProviderConfigOutput$,
+  Harness$,
+  HarnessAgentCoreBrowserConfig$,
+  HarnessAgentCoreCodeInterpreterConfig$,
+  HarnessAgentCoreGatewayConfig$,
+  HarnessAgentCoreMemoryConfiguration$,
+  HarnessAgentCoreMemoryRetrievalConfig$,
+  HarnessAgentCoreRuntimeEnvironment$,
+  HarnessAgentCoreRuntimeEnvironmentRequest$,
+  HarnessBedrockModelConfig$,
+  HarnessEnvironmentArtifact$,
+  HarnessEnvironmentProvider$,
+  HarnessEnvironmentProviderRequest$,
+  HarnessGatewayOutboundAuth$,
+  HarnessGeminiModelConfig$,
+  HarnessInlineFunctionConfig$,
+  HarnessMemoryConfiguration$,
+  HarnessModelConfiguration$,
+  HarnessOpenAiModelConfig$,
+  HarnessRemoteMcpConfig$,
+  HarnessSkill$,
+  HarnessSlidingWindowConfiguration$,
+  HarnessStatus,
+  HarnessSummarizationConfiguration$,
+  HarnessSummary$,
+  HarnessSystemContentBlock$,
+  HarnessTool$,
+  HarnessToolConfiguration$,
+  HarnessToolType,
+  HarnessTruncationConfiguration$,
+  HarnessTruncationStrategy,
+  HarnessTruncationStrategyConfiguration$,
   IamCredentialProvider$,
   InboundTokenClaimValueType,
   IncludedOauth2ProviderConfigInput$,
@@ -408,6 +451,10 @@ import {
   ListGatewayTargetsCommand,
   ListGatewayTargetsRequest$,
   ListGatewayTargetsResponse$,
+  ListHarnesses$,
+  ListHarnessesCommand,
+  ListHarnessesRequest$,
+  ListHarnessesResponse$,
   ListingMode,
   ListMemories$,
   ListMemoriesCommand,
@@ -509,6 +556,7 @@ import {
   paginateListEvaluators,
   paginateListGateways,
   paginateListGatewayTargets,
+  paginateListHarnesses,
   paginateListMemories,
   paginateListOauth2CredentialProviders,
   paginateListOnlineEvaluationConfigs,
@@ -663,6 +711,8 @@ import {
   UpdatedDescription$,
   UpdatedDescriptors$,
   UpdatedDescriptorsUnion$,
+  UpdatedHarnessEnvironmentArtifact$,
+  UpdatedHarnessMemoryConfiguration$,
   UpdatedMcpDescriptor$,
   UpdatedMcpDescriptorFields$,
   UpdatedServerDefinition$,
@@ -683,6 +733,10 @@ import {
   UpdateGatewayTargetCommand,
   UpdateGatewayTargetRequest$,
   UpdateGatewayTargetResponse$,
+  UpdateHarness$,
+  UpdateHarnessCommand,
+  UpdateHarnessRequest$,
+  UpdateHarnessResponse$,
   UpdateMemory$,
   UpdateMemoryCommand,
   UpdateMemoryInput$,
@@ -768,6 +822,8 @@ assert(typeof CreateGatewayCommand === "function");
 assert(typeof CreateGateway$ === "object");
 assert(typeof CreateGatewayTargetCommand === "function");
 assert(typeof CreateGatewayTarget$ === "object");
+assert(typeof CreateHarnessCommand === "function");
+assert(typeof CreateHarness$ === "object");
 assert(typeof CreateMemoryCommand === "function");
 assert(typeof CreateMemory$ === "object");
 assert(typeof CreateOauth2CredentialProviderCommand === "function");
@@ -802,6 +858,8 @@ assert(typeof DeleteGatewayCommand === "function");
 assert(typeof DeleteGateway$ === "object");
 assert(typeof DeleteGatewayTargetCommand === "function");
 assert(typeof DeleteGatewayTarget$ === "object");
+assert(typeof DeleteHarnessCommand === "function");
+assert(typeof DeleteHarness$ === "object");
 assert(typeof DeleteMemoryCommand === "function");
 assert(typeof DeleteMemory$ === "object");
 assert(typeof DeleteOauth2CredentialProviderCommand === "function");
@@ -838,6 +896,8 @@ assert(typeof GetGatewayCommand === "function");
 assert(typeof GetGateway$ === "object");
 assert(typeof GetGatewayTargetCommand === "function");
 assert(typeof GetGatewayTarget$ === "object");
+assert(typeof GetHarnessCommand === "function");
+assert(typeof GetHarness$ === "object");
 assert(typeof GetMemoryCommand === "function");
 assert(typeof GetMemory$ === "object");
 assert(typeof GetOauth2CredentialProviderCommand === "function");
@@ -880,6 +940,8 @@ assert(typeof ListGatewaysCommand === "function");
 assert(typeof ListGateways$ === "object");
 assert(typeof ListGatewayTargetsCommand === "function");
 assert(typeof ListGatewayTargets$ === "object");
+assert(typeof ListHarnessesCommand === "function");
+assert(typeof ListHarnesses$ === "object");
 assert(typeof ListMemoriesCommand === "function");
 assert(typeof ListMemories$ === "object");
 assert(typeof ListOauth2CredentialProvidersCommand === "function");
@@ -928,6 +990,8 @@ assert(typeof UpdateGatewayCommand === "function");
 assert(typeof UpdateGateway$ === "object");
 assert(typeof UpdateGatewayTargetCommand === "function");
 assert(typeof UpdateGatewayTarget$ === "object");
+assert(typeof UpdateHarnessCommand === "function");
+assert(typeof UpdateHarness$ === "object");
 assert(typeof UpdateMemoryCommand === "function");
 assert(typeof UpdateMemory$ === "object");
 assert(typeof UpdateOauth2CredentialProviderCommand === "function");
@@ -1006,6 +1070,8 @@ assert(typeof CreateGatewayRequest$ === "object");
 assert(typeof CreateGatewayResponse$ === "object");
 assert(typeof CreateGatewayTargetRequest$ === "object");
 assert(typeof CreateGatewayTargetResponse$ === "object");
+assert(typeof CreateHarnessRequest$ === "object");
+assert(typeof CreateHarnessResponse$ === "object");
 assert(typeof CreateMemoryInput$ === "object");
 assert(typeof CreateMemoryOutput$ === "object");
 assert(typeof CreateOauth2CredentialProviderRequest$ === "object");
@@ -1056,6 +1122,8 @@ assert(typeof DeleteGatewayRequest$ === "object");
 assert(typeof DeleteGatewayResponse$ === "object");
 assert(typeof DeleteGatewayTargetRequest$ === "object");
 assert(typeof DeleteGatewayTargetResponse$ === "object");
+assert(typeof DeleteHarnessRequest$ === "object");
+assert(typeof DeleteHarnessResponse$ === "object");
 assert(typeof DeleteMemoryInput$ === "object");
 assert(typeof DeleteMemoryOutput$ === "object");
 assert(typeof DeleteMemoryStrategyInput$ === "object");
@@ -1120,6 +1188,8 @@ assert(typeof GetGatewayRequest$ === "object");
 assert(typeof GetGatewayResponse$ === "object");
 assert(typeof GetGatewayTargetRequest$ === "object");
 assert(typeof GetGatewayTargetResponse$ === "object");
+assert(typeof GetHarnessRequest$ === "object");
+assert(typeof GetHarnessResponse$ === "object");
 assert(typeof GetMemoryInput$ === "object");
 assert(typeof GetMemoryOutput$ === "object");
 assert(typeof GetOauth2CredentialProviderRequest$ === "object");
@@ -1146,6 +1216,34 @@ assert(typeof GithubOauth2ProviderConfigInput$ === "object");
 assert(typeof GithubOauth2ProviderConfigOutput$ === "object");
 assert(typeof GoogleOauth2ProviderConfigInput$ === "object");
 assert(typeof GoogleOauth2ProviderConfigOutput$ === "object");
+assert(typeof Harness$ === "object");
+assert(typeof HarnessAgentCoreBrowserConfig$ === "object");
+assert(typeof HarnessAgentCoreCodeInterpreterConfig$ === "object");
+assert(typeof HarnessAgentCoreGatewayConfig$ === "object");
+assert(typeof HarnessAgentCoreMemoryConfiguration$ === "object");
+assert(typeof HarnessAgentCoreMemoryRetrievalConfig$ === "object");
+assert(typeof HarnessAgentCoreRuntimeEnvironment$ === "object");
+assert(typeof HarnessAgentCoreRuntimeEnvironmentRequest$ === "object");
+assert(typeof HarnessBedrockModelConfig$ === "object");
+assert(typeof HarnessEnvironmentArtifact$ === "object");
+assert(typeof HarnessEnvironmentProvider$ === "object");
+assert(typeof HarnessEnvironmentProviderRequest$ === "object");
+assert(typeof HarnessGatewayOutboundAuth$ === "object");
+assert(typeof HarnessGeminiModelConfig$ === "object");
+assert(typeof HarnessInlineFunctionConfig$ === "object");
+assert(typeof HarnessMemoryConfiguration$ === "object");
+assert(typeof HarnessModelConfiguration$ === "object");
+assert(typeof HarnessOpenAiModelConfig$ === "object");
+assert(typeof HarnessRemoteMcpConfig$ === "object");
+assert(typeof HarnessSkill$ === "object");
+assert(typeof HarnessSlidingWindowConfiguration$ === "object");
+assert(typeof HarnessSummarizationConfiguration$ === "object");
+assert(typeof HarnessSummary$ === "object");
+assert(typeof HarnessSystemContentBlock$ === "object");
+assert(typeof HarnessTool$ === "object");
+assert(typeof HarnessToolConfiguration$ === "object");
+assert(typeof HarnessTruncationConfiguration$ === "object");
+assert(typeof HarnessTruncationStrategyConfiguration$ === "object");
 assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IncludedOauth2ProviderConfigInput$ === "object");
 assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
@@ -1181,6 +1279,8 @@ assert(typeof ListGatewaysRequest$ === "object");
 assert(typeof ListGatewaysResponse$ === "object");
 assert(typeof ListGatewayTargetsRequest$ === "object");
 assert(typeof ListGatewayTargetsResponse$ === "object");
+assert(typeof ListHarnessesRequest$ === "object");
+assert(typeof ListHarnessesResponse$ === "object");
 assert(typeof ListMemoriesInput$ === "object");
 assert(typeof ListMemoriesOutput$ === "object");
 assert(typeof ListOauth2CredentialProvidersRequest$ === "object");
@@ -1334,6 +1434,8 @@ assert(typeof UpdatedCustomDescriptor$ === "object");
 assert(typeof UpdatedDescription$ === "object");
 assert(typeof UpdatedDescriptors$ === "object");
 assert(typeof UpdatedDescriptorsUnion$ === "object");
+assert(typeof UpdatedHarnessEnvironmentArtifact$ === "object");
+assert(typeof UpdatedHarnessMemoryConfiguration$ === "object");
 assert(typeof UpdatedMcpDescriptor$ === "object");
 assert(typeof UpdatedMcpDescriptorFields$ === "object");
 assert(typeof UpdatedServerDefinition$ === "object");
@@ -1348,6 +1450,8 @@ assert(typeof UpdateGatewayRequest$ === "object");
 assert(typeof UpdateGatewayResponse$ === "object");
 assert(typeof UpdateGatewayTargetRequest$ === "object");
 assert(typeof UpdateGatewayTargetResponse$ === "object");
+assert(typeof UpdateHarnessRequest$ === "object");
+assert(typeof UpdateHarnessResponse$ === "object");
 assert(typeof UpdateMemoryInput$ === "object");
 assert(typeof UpdateMemoryOutput$ === "object");
 assert(typeof UpdateOauth2CredentialProviderRequest$ === "object");
@@ -1405,6 +1509,9 @@ assert(typeof GatewayInterceptionPoint === "object");
 assert(typeof GatewayPolicyEngineMode === "object");
 assert(typeof GatewayProtocolType === "object");
 assert(typeof GatewayStatus === "object");
+assert(typeof HarnessStatus === "object");
+assert(typeof HarnessToolType === "object");
+assert(typeof HarnessTruncationStrategy === "object");
 assert(typeof InboundTokenClaimValueType === "object");
 assert(typeof KeyType === "object");
 assert(typeof ListingMode === "object");
@@ -1488,6 +1595,7 @@ assert(typeof paginateListCodeInterpreters === "function");
 assert(typeof paginateListEvaluators === "function");
 assert(typeof paginateListGatewayTargets === "function");
 assert(typeof paginateListGateways === "function");
+assert(typeof paginateListHarnesses === "function");
 assert(typeof paginateListMemories === "function");
 assert(typeof paginateListOauth2CredentialProviders === "function");
 assert(typeof paginateListOnlineEvaluationConfigs === "function");

@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListGatewayTargetsRequest, ListGatewayTargetsResponse } from "../models/models_0";
-import { ListGatewayTargets$ } from "../schemas/schemas_0";
+import type { ListHarnessesRequest, ListHarnessesResponse } from "../models/models_0";
+import { ListHarnesses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,43 +20,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListGatewayTargetsCommand}.
+ * The input for {@link ListHarnessesCommand}.
  */
-export interface ListGatewayTargetsCommandInput extends ListGatewayTargetsRequest {}
+export interface ListHarnessesCommandInput extends ListHarnessesRequest {}
 /**
  * @public
  *
- * The output of {@link ListGatewayTargetsCommand}.
+ * The output of {@link ListHarnessesCommand}.
  */
-export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsResponse, __MetadataBearer {}
+export interface ListHarnessesCommandOutput extends ListHarnessesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all targets for a specific gateway.</p>
+ * <p>Operation to list Harnesses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, ListGatewayTargetsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, ListGatewayTargetsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, ListHarnessesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, ListHarnessesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // ListGatewayTargetsRequest
- *   gatewayIdentifier: "STRING_VALUE", // required
+ * const input = { // ListHarnessesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListGatewayTargetsCommand(input);
+ * const command = new ListHarnessesCommand(input);
  * const response = await client.send(command);
- * // { // ListGatewayTargetsResponse
- * //   items: [ // TargetSummaries // required
- * //     { // TargetSummary
- * //       targetId: "STRING_VALUE", // required
- * //       name: "STRING_VALUE", // required
- * //       status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED" || "SYNCHRONIZING" || "SYNCHRONIZE_UNSUCCESSFUL" || "CREATE_PENDING_AUTH" || "UPDATE_PENDING_AUTH" || "SYNCHRONIZE_PENDING_AUTH", // required
- * //       description: "STRING_VALUE",
+ * // { // ListHarnessesResponse
+ * //   harnesses: [ // HarnessSummaries // required
+ * //     { // HarnessSummary
+ * //       harnessId: "STRING_VALUE", // required
+ * //       harnessName: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
- * //       resourcePriority: Number("int"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -64,10 +62,10 @@ export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsRespo
  *
  * ```
  *
- * @param ListGatewayTargetsCommandInput - {@link ListGatewayTargetsCommandInput}
- * @returns {@link ListGatewayTargetsCommandOutput}
- * @see {@link ListGatewayTargetsCommandInput} for command's `input` shape.
- * @see {@link ListGatewayTargetsCommandOutput} for command's `response` shape.
+ * @param ListHarnessesCommandInput - {@link ListHarnessesCommandInput}
+ * @returns {@link ListHarnessesCommandOutput}
+ * @see {@link ListHarnessesCommandInput} for command's `input` shape.
+ * @see {@link ListHarnessesCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,10 +86,10 @@ export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsRespo
  *
  * @public
  */
-export class ListGatewayTargetsCommand extends $Command
+export class ListHarnessesCommand extends $Command
   .classBuilder<
-    ListGatewayTargetsCommandInput,
-    ListGatewayTargetsCommandOutput,
+    ListHarnessesCommandInput,
+    ListHarnessesCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,19 +98,19 @@ export class ListGatewayTargetsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "ListGatewayTargets", {})
-  .n("BedrockAgentCoreControlClient", "ListGatewayTargetsCommand")
-  .sc(ListGatewayTargets$)
+  .s("AmazonBedrockAgentCoreControl", "ListHarnesses", {})
+  .n("BedrockAgentCoreControlClient", "ListHarnessesCommand")
+  .sc(ListHarnesses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListGatewayTargetsRequest;
-      output: ListGatewayTargetsResponse;
+      input: ListHarnessesRequest;
+      output: ListHarnessesResponse;
     };
     sdk: {
-      input: ListGatewayTargetsCommandInput;
-      output: ListGatewayTargetsCommandOutput;
+      input: ListHarnessesCommandInput;
+      output: ListHarnessesCommandOutput;
     };
   };
 }

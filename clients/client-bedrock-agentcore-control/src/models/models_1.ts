@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type {
+  CredentialProviderVendorType,
   DescriptorType,
+  FilterOperator,
   FindingType,
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
@@ -22,21 +24,1448 @@ import type {
   AgentSkillsDescriptor,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
+  AtlassianOauth2ProviderConfigInput,
   AuthorizationData,
   AuthorizerConfiguration,
   CredentialProviderConfiguration,
-  DataSourceConfig,
-  EvaluatorReference,
+  CustomOauth2ProviderConfigInput,
+  GithubOauth2ProviderConfigInput,
+  GoogleOauth2ProviderConfigInput,
+  IncludedOauth2ProviderConfigInput,
   KmsConfiguration,
+  LinkedinOauth2ProviderConfigInput,
   ManagedResourceDetails,
   McpServerTargetConfiguration,
   MetadataConfiguration,
+  MicrosoftOauth2ProviderConfigInput,
+  Oauth2Discovery,
   PrivateEndpoint,
-  Rule,
   S3Configuration,
+  Secret,
   SkillDefinition,
   SkillMdDefinition,
+  UpdatedAuthorizerConfiguration,
 } from "./models_0";
+
+/**
+ * <p>Input configuration for a Salesforce OAuth2 provider.</p>
+ * @public
+ */
+export interface SalesforceOauth2ProviderConfigInput {
+  /**
+   * <p>The client ID for the Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The client secret for the Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+}
+
+/**
+ * <p>Input configuration for a Slack OAuth2 provider.</p>
+ * @public
+ */
+export interface SlackOauth2ProviderConfigInput {
+  /**
+   * <p>The client ID for the Slack OAuth2 provider.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The client secret for the Slack OAuth2 provider.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+}
+
+/**
+ * <p>Contains the input configuration for an OAuth2 provider.</p>
+ * @public
+ */
+export type Oauth2ProviderConfigInput =
+  | Oauth2ProviderConfigInput.AtlassianOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.CustomOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.GithubOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.GoogleOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.IncludedOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.LinkedinOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.MicrosoftOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.SalesforceOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.SlackOauth2ProviderConfigMember
+  | Oauth2ProviderConfigInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Oauth2ProviderConfigInput {
+  /**
+   * <p>The configuration for a custom OAuth2 provider.</p>
+   * @public
+   */
+  export interface CustomOauth2ProviderConfigMember {
+    customOauth2ProviderConfig: CustomOauth2ProviderConfigInput;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a Google OAuth2 provider.</p>
+   * @public
+   */
+  export interface GoogleOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig: GoogleOauth2ProviderConfigInput;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a GitHub OAuth2 provider.</p>
+   * @public
+   */
+  export interface GithubOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig: GithubOauth2ProviderConfigInput;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a Slack OAuth2 provider.</p>
+   * @public
+   */
+  export interface SlackOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  export interface SalesforceOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  export interface MicrosoftOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for Atlassian OAuth2 provider integration.</p>
+   * @public
+   */
+  export interface AtlassianOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInput;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration settings for LinkedIn OAuth2 provider integration.</p>
+   * @public
+   */
+  export interface LinkedinOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInput;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a non-custom OAuth2 provider. This includes settings for supported OAuth2 providers that have built-in integration support.</p>
+   * @public
+   */
+  export interface IncludedOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigInput) => T;
+    googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigInput) => T;
+    githubOauth2ProviderConfig: (value: GithubOauth2ProviderConfigInput) => T;
+    slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigInput) => T;
+    salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigInput) => T;
+    microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigInput) => T;
+    atlassianOauth2ProviderConfig: (value: AtlassianOauth2ProviderConfigInput) => T;
+    linkedinOauth2ProviderConfig: (value: LinkedinOauth2ProviderConfigInput) => T;
+    includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateOauth2CredentialProviderRequest {
+  /**
+   * <p>The name of the OAuth2 credential provider. The name must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor of the OAuth2 credential provider. This specifies which OAuth2 implementation to use.</p>
+   * @public
+   */
+  credentialProviderVendor: CredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The configuration settings for the OAuth2 provider, including client ID, client secret, and other vendor-specific settings.</p>
+   * @public
+   */
+  oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the OAuth2 credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration details returned for an Atlassian OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
+ * @public
+ */
+export interface AtlassianOauth2ProviderConfigOutput {
+  /**
+   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Atlassian OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a custom OAuth2 provider.</p>
+ * @public
+ */
+export interface CustomOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the custom provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the custom OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a GitHub OAuth2 provider.</p>
+ * @public
+ */
+export interface GithubOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the GitHub provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the GitHub OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Google OAuth2 provider.</p>
+ * @public
+ */
+export interface GoogleOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Google provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Google OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>The configuration details returned for a supported OAuth2 provider, including client credentials and OAuth2 discovery information.</p>
+ * @public
+ */
+export interface IncludedOauth2ProviderConfigOutput {
+  /**
+   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the supported OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>The configuration details returned for a LinkedIn OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
+ * @public
+ */
+export interface LinkedinOauth2ProviderConfigOutput {
+  /**
+   * <p>Contains the discovery information for an OAuth2 provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the LinkedIn OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Microsoft OAuth2 provider.</p>
+ * @public
+ */
+export interface MicrosoftOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Microsoft provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Salesforce OAuth2 provider.</p>
+ * @public
+ */
+export interface SalesforceOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Salesforce provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Output configuration for a Slack OAuth2 provider.</p>
+ * @public
+ */
+export interface SlackOauth2ProviderConfigOutput {
+  /**
+   * <p>The OAuth2 discovery information for the Slack provider.</p>
+   * @public
+   */
+  oauthDiscovery: Oauth2Discovery | undefined;
+
+  /**
+   * <p>The client ID for the Slack OAuth2 provider.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+}
+
+/**
+ * <p>Contains the output configuration for an OAuth2 provider.</p>
+ * @public
+ */
+export type Oauth2ProviderConfigOutput =
+  | Oauth2ProviderConfigOutput.AtlassianOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.CustomOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.GithubOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.GoogleOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.IncludedOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.LinkedinOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.MicrosoftOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.SalesforceOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.SlackOauth2ProviderConfigMember
+  | Oauth2ProviderConfigOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Oauth2ProviderConfigOutput {
+  /**
+   * <p>The output configuration for a custom OAuth2 provider.</p>
+   * @public
+   */
+  export interface CustomOauth2ProviderConfigMember {
+    customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Google OAuth2 provider.</p>
+   * @public
+   */
+  export interface GoogleOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a GitHub OAuth2 provider.</p>
+   * @public
+   */
+  export interface GithubOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Slack OAuth2 provider.</p>
+   * @public
+   */
+  export interface SlackOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Salesforce OAuth2 provider.</p>
+   * @public
+   */
+  export interface SalesforceOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output configuration for a Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  export interface MicrosoftOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration details for the Atlassian OAuth2 provider.</p>
+   * @public
+   */
+  export interface AtlassianOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigOutput;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration details for the LinkedIn OAuth2 provider.</p>
+   * @public
+   */
+  export interface LinkedinOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigOutput;
+    includedOauth2ProviderConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a non-custom OAuth2 provider. This includes the configuration details for supported OAuth2 providers that have built-in integration support.</p>
+   * @public
+   */
+  export interface IncludedOauth2ProviderConfigMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig: IncludedOauth2ProviderConfigOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customOauth2ProviderConfig?: never;
+    googleOauth2ProviderConfig?: never;
+    githubOauth2ProviderConfig?: never;
+    slackOauth2ProviderConfig?: never;
+    salesforceOauth2ProviderConfig?: never;
+    microsoftOauth2ProviderConfig?: never;
+    atlassianOauth2ProviderConfig?: never;
+    linkedinOauth2ProviderConfig?: never;
+    includedOauth2ProviderConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigOutput) => T;
+    googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigOutput) => T;
+    githubOauth2ProviderConfig: (value: GithubOauth2ProviderConfigOutput) => T;
+    slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigOutput) => T;
+    salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigOutput) => T;
+    microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigOutput) => T;
+    atlassianOauth2ProviderConfig: (value: AtlassianOauth2ProviderConfigOutput) => T;
+    linkedinOauth2ProviderConfig: (value: LinkedinOauth2ProviderConfigOutput) => T;
+    includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateOauth2CredentialProviderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretArn: Secret | undefined;
+
+  /**
+   * <p>The name of the OAuth2 credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
+
+  /**
+   * <p>Contains the output configuration for an OAuth2 provider.</p>
+   * @public
+   */
+  oauth2ProviderConfigOutput?: Oauth2ProviderConfigOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOauth2CredentialProviderRequest {
+  /**
+   * <p>The name of the OAuth2 credential provider to delete.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOauth2CredentialProviderResponse {}
+
+/**
+ * @public
+ */
+export interface GetOauth2CredentialProviderRequest {
+  /**
+   * <p>The name of the OAuth2 credential provider to retrieve.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOauth2CredentialProviderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretArn: Secret | undefined;
+
+  /**
+   * <p>The name of the OAuth2 credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>ARN of the credential provider requested.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>The vendor of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: CredentialProviderVendorType | undefined;
+
+  /**
+   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
+
+  /**
+   * <p>The configuration output for the OAuth2 provider.</p>
+   * @public
+   */
+  oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput | undefined;
+
+  /**
+   * <p>The timestamp when the OAuth2 credential provider was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOauth2CredentialProvidersRequest {
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about an OAuth2 credential provider.</p>
+ * @public
+ */
+export interface Oauth2CredentialProviderItem {
+  /**
+   * <p>The name of the OAuth2 credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: CredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the OAuth2 credential provider was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOauth2CredentialProvidersResponse {
+  /**
+   * <p>The list of OAuth2 credential providers.</p>
+   * @public
+   */
+  credentialProviders: Oauth2CredentialProviderItem[] | undefined;
+
+  /**
+   * <p>Pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOauth2CredentialProviderRequest {
+  /**
+   * <p>The name of the OAuth2 credential provider to update.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: CredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The configuration input for the OAuth2 provider.</p>
+   * @public
+   */
+  oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOauth2CredentialProviderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretArn: Secret | undefined;
+
+  /**
+   * <p>The name of the OAuth2 credential provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The vendor of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderVendor: CredentialProviderVendorType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
+   * @public
+   */
+  callbackUrl?: string | undefined;
+
+  /**
+   * <p>The configuration output for the OAuth2 provider.</p>
+   * @public
+   */
+  oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput | undefined;
+
+  /**
+   * <p>The timestamp when the OAuth2 credential provider was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * <p> The configuration for reading agent traces from CloudWatch logs as input for online evaluation. </p>
+ * @public
+ */
+export interface CloudWatchLogsInputConfig {
+  /**
+   * <p> The list of CloudWatch log group names to monitor for agent traces.</p>
+   * @public
+   */
+  logGroupNames: string[] | undefined;
+
+  /**
+   * <p> The list of service names to filter traces within the specified log groups. Used to identify relevant agent sessions. </p>
+   * @public
+   */
+  serviceNames: string[] | undefined;
+}
+
+/**
+ * <p> The configuration that specifies where to read agent traces for online evaluation. </p>
+ * @public
+ */
+export type DataSourceConfig =
+  | DataSourceConfig.CloudWatchLogsMember
+  | DataSourceConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSourceConfig {
+  /**
+   * <p> The CloudWatch logs configuration for reading agent traces from log groups. </p>
+   * @public
+   */
+  export interface CloudWatchLogsMember {
+    cloudWatchLogs: CloudWatchLogsInputConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cloudWatchLogs?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cloudWatchLogs: (value: CloudWatchLogsInputConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The reference to an evaluator used in online evaluation configurations, containing the evaluator identifier. </p>
+ * @public
+ */
+export type EvaluatorReference =
+  | EvaluatorReference.EvaluatorIdMember
+  | EvaluatorReference.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluatorReference {
+  /**
+   * <p> The unique identifier of the evaluator. Can reference builtin evaluators (e.g., Builtin.Helpfulness) or custom evaluators. </p>
+   * @public
+   */
+  export interface EvaluatorIdMember {
+    evaluatorId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    evaluatorId?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    evaluatorId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The value used in filter comparisons, supporting different data types for flexible filtering criteria. </p>
+ * @public
+ */
+export type FilterValue =
+  | FilterValue.BooleanValueMember
+  | FilterValue.DoubleValueMember
+  | FilterValue.StringValueMember
+  | FilterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FilterValue {
+  /**
+   * <p> The string value for text-based filtering. </p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The numeric value for numerical filtering and comparisons. </p>
+   * @public
+   */
+  export interface DoubleValueMember {
+    stringValue?: never;
+    doubleValue: number;
+    booleanValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The boolean value for true/false filtering conditions. </p>
+   * @public
+   */
+  export interface BooleanValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    doubleValue: (value: number) => T;
+    booleanValue: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The filter that applies conditions to agent traces during online evaluation to determine which traces should be evaluated. </p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p> The key or field name to filter on within the agent trace data. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p> The comparison operator to use for filtering. </p>
+   * @public
+   */
+  operator: FilterOperator | undefined;
+
+  /**
+   * <p> The value to compare against using the specified operator. </p>
+   * @public
+   */
+  value: FilterValue | undefined;
+}
+
+/**
+ * <p> The configuration that controls what percentage of agent traces are sampled for evaluation to manage evaluation volume and costs. </p>
+ * @public
+ */
+export interface SamplingConfig {
+  /**
+   * <p> The percentage of agent traces to sample for evaluation, ranging from 0.01% to 100%. </p>
+   * @public
+   */
+  samplingPercentage: number | undefined;
+}
+
+/**
+ * <p> The configuration that defines how agent sessions are detected and when they are considered complete for evaluation. </p>
+ * @public
+ */
+export interface SessionConfig {
+  /**
+   * <p> The number of minutes of inactivity after which an agent session is considered complete and ready for evaluation. Default is 15 minutes. </p>
+   * @public
+   */
+  sessionTimeoutMinutes: number | undefined;
+}
+
+/**
+ * <p> The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings for online evaluation. </p>
+ * @public
+ */
+export interface Rule {
+  /**
+   * <p> The sampling configuration that determines what percentage of agent traces to evaluate. </p>
+   * @public
+   */
+  samplingConfig: SamplingConfig | undefined;
+
+  /**
+   * <p> The list of filters that determine which agent traces should be included in the evaluation based on trace properties. </p>
+   * @public
+   */
+  filters?: Filter[] | undefined;
+
+  /**
+   * <p> The session configuration that defines timeout settings for detecting when agent sessions are complete and ready for evaluation. </p>
+   * @public
+   */
+  sessionConfig?: SessionConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateOnlineEvaluationConfigRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> The name of the online evaluation configuration. Must be unique within your account. </p>
+   * @public
+   */
+  onlineEvaluationConfigName: string | undefined;
+
+  /**
+   * <p> The description of the online evaluation configuration that explains its monitoring purpose and scope. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The evaluation rule that defines sampling configuration, filters, and session detection settings for the online evaluation. </p>
+   * @public
+   */
+  rule: Rule | undefined;
+
+  /**
+   * <p> The data source configuration that specifies CloudWatch log groups and service names to monitor for agent traces. </p>
+   * @public
+   */
+  dataSourceConfig: DataSourceConfig | undefined;
+
+  /**
+   * <p> The list of evaluators to apply during online evaluation. Can include both built-in evaluators and custom evaluators created with <code>CreateEvaluator</code>. </p>
+   * @public
+   */
+  evaluators: EvaluatorReference[] | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation. </p>
+   * @public
+   */
+  evaluationExecutionRoleArn: string | undefined;
+
+  /**
+   * <p> Whether to enable the online evaluation configuration immediately upon creation. If true, evaluation begins automatically. </p>
+   * @public
+   */
+  enableOnCreate: boolean | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Online Evaluation Config. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p> The configuration for writing evaluation results to CloudWatch logs with embedded metric format (EMF) for monitoring. </p>
+ * @public
+ */
+export interface CloudWatchOutputConfig {
+  /**
+   * <p> The name of the CloudWatch log group where evaluation results will be written. The log group will be created if it doesn't exist. </p>
+   * @public
+   */
+  logGroupName: string | undefined;
+}
+
+/**
+ * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+ * @public
+ */
+export interface OutputConfig {
+  /**
+   * <p> The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format. </p>
+   * @public
+   */
+  cloudWatchConfig: CloudWatchOutputConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the created online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the created online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration creation or execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOnlineEvaluationConfigRequest {
+  /**
+   * <p> The unique identifier of the online evaluation configuration to delete. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the deleted online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the deleted online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration deletion operation. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOnlineEvaluationConfigRequest {
+  /**
+   * <p> The unique identifier of the online evaluation configuration to retrieve. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOnlineEvaluationConfigResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigId: string | undefined;
+
+  /**
+   * <p> The name of the online evaluation configuration. </p>
+   * @public
+   */
+  onlineEvaluationConfigName: string | undefined;
+
+  /**
+   * <p> The description of the online evaluation configuration. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The evaluation rule containing sampling configuration, filters, and session settings. </p>
+   * @public
+   */
+  rule: Rule | undefined;
+
+  /**
+   * <p> The data source configuration specifying CloudWatch log groups and service names to monitor. </p>
+   * @public
+   */
+  dataSourceConfig: DataSourceConfig | undefined;
+
+  /**
+   * <p> The list of evaluators applied during online evaluation. </p>
+   * @public
+   */
+  evaluators: EvaluatorReference[] | undefined;
+
+  /**
+   * <p> The output configuration specifying where evaluation results are written. </p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
+   * @public
+   */
+  evaluationExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p> The status of the online evaluation configuration. </p>
+   * @public
+   */
+  status: OnlineEvaluationConfigStatus | undefined;
+
+  /**
+   * <p> The execution status indicating whether the online evaluation is currently running. </p>
+   * @public
+   */
+  executionStatus: OnlineEvaluationExecutionStatus | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The timestamp when the online evaluation configuration was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOnlineEvaluationConfigsRequest {
+  /**
+   * <p> The pagination token from a previous request to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p> The maximum number of online evaluation configurations to return in a single response. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * <p> The summary information about an online evaluation configuration, including basic metadata and execution status. </p>
@@ -3009,18 +4438,6 @@ export interface UpdatedApprovalConfiguration {
    * @public
    */
   optionalValue?: ApprovalConfiguration | undefined;
-}
-
-/**
- * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
- * @public
- */
-export interface UpdatedAuthorizerConfiguration {
-  /**
-   * <p>The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.</p>
-   * @public
-   */
-  optionalValue?: AuthorizerConfiguration | undefined;
 }
 
 /**

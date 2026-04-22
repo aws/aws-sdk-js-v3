@@ -17,17 +17,18 @@ import type {
   ContentLevel,
   ContentType,
   CredentialProviderType,
-  CredentialProviderVendorType,
   EndpointIpAddressType,
   EvaluatorLevel,
   EvaluatorStatus,
   EvaluatorType,
   ExceptionLevel,
-  FilterOperator,
   GatewayInterceptionPoint,
   GatewayPolicyEngineMode,
   GatewayProtocolType,
   GatewayStatus,
+  HarnessStatus,
+  HarnessToolType,
+  HarnessTruncationStrategy,
   InboundTokenClaimValueType,
   KeyType,
   ListingMode,
@@ -37,8 +38,6 @@ import type {
   MemoryView,
   NetworkMode,
   OAuthGrantType,
-  OnlineEvaluationConfigStatus,
-  OnlineEvaluationExecutionStatus,
   OverrideType,
   ResourceType,
   RestApiMethod,
@@ -4949,6 +4948,12 @@ export interface McpServerTargetConfiguration {
   mcpToolSchema?: McpToolSchemaConfiguration | undefined;
 
   /**
+   * <p>Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * @public
+   */
+  resourcePriority?: number | undefined;
+
+  /**
    * <p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>
    * @public
    */
@@ -5215,6 +5220,12 @@ export interface TargetSummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>Priority for resolving resource URI conflicts across targets. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * @public
+   */
+  resourcePriority?: number | undefined;
 }
 
 /**
@@ -5323,6 +5334,1469 @@ export interface GetTokenVaultResponse {
    * @public
    */
   lastModifiedDate: Date | undefined;
+}
+
+/**
+ * <p>The AgentCore Runtime environment request configuration.</p>
+ * @public
+ */
+export interface HarnessAgentCoreRuntimeEnvironmentRequest {
+  /**
+   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * @public
+   */
+  lifecycleConfiguration?: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>SecurityConfig for the Agent.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The filesystem configurations for the runtime environment.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
+}
+
+/**
+ * <p>The environment provider request configuration.</p>
+ * @public
+ */
+export type HarnessEnvironmentProviderRequest =
+  | HarnessEnvironmentProviderRequest.AgentCoreRuntimeEnvironmentMember
+  | HarnessEnvironmentProviderRequest.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessEnvironmentProviderRequest {
+  /**
+   * <p>The AgentCore Runtime environment configuration.</p>
+   * @public
+   */
+  export interface AgentCoreRuntimeEnvironmentMember {
+    agentCoreRuntimeEnvironment: HarnessAgentCoreRuntimeEnvironmentRequest;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreRuntimeEnvironment?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreRuntimeEnvironment: (value: HarnessAgentCoreRuntimeEnvironmentRequest) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The environment artifact for a harness, such as a container image containing custom dependencies.</p>
+ * @public
+ */
+export type HarnessEnvironmentArtifact =
+  | HarnessEnvironmentArtifact.ContainerConfigurationMember
+  | HarnessEnvironmentArtifact.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessEnvironmentArtifact {
+  /**
+   * <p>Representation of a container configuration.</p>
+   * @public
+   */
+  export interface ContainerConfigurationMember {
+    containerConfiguration: ContainerConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    containerConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    containerConfiguration: (value: ContainerConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for memory retrieval within a namespace.</p>
+ * @public
+ */
+export interface HarnessAgentCoreMemoryRetrievalConfig {
+  /**
+   * <p>The maximum number of memory entries to retrieve.</p>
+   * @public
+   */
+  topK?: number | undefined;
+
+  /**
+   * <p>The minimum relevance score for retrieved memories.</p>
+   * @public
+   */
+  relevanceScore?: number | undefined;
+
+  /**
+   * <p>The ID of the retrieval strategy to use.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+}
+
+/**
+ * <p>Configuration for AgentCore Memory integration.</p>
+ * @public
+ */
+export interface HarnessAgentCoreMemoryConfiguration {
+  /**
+   * <p>The ARN of the AgentCore Memory resource.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The actor ID for memory operations.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+
+  /**
+   * <p>The number of messages to retrieve from memory.</p>
+   * @public
+   */
+  messagesCount?: number | undefined;
+
+  /**
+   * <p>The retrieval configuration for long-term memory, mapping namespace path templates to retrieval settings.</p>
+   * @public
+   */
+  retrievalConfig?: Record<string, HarnessAgentCoreMemoryRetrievalConfig> | undefined;
+}
+
+/**
+ * <p>The memory configuration for a harness.</p>
+ * @public
+ */
+export type HarnessMemoryConfiguration =
+  | HarnessMemoryConfiguration.AgentCoreMemoryConfigurationMember
+  | HarnessMemoryConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessMemoryConfiguration {
+  /**
+   * <p>The AgentCore Memory configuration.</p>
+   * @public
+   */
+  export interface AgentCoreMemoryConfigurationMember {
+    agentCoreMemoryConfiguration: HarnessAgentCoreMemoryConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreMemoryConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreMemoryConfiguration: (value: HarnessAgentCoreMemoryConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for an Amazon Bedrock model provider.</p>
+ * @public
+ */
+export interface HarnessBedrockModelConfig {
+  /**
+   * <p>The Bedrock model ID.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+}
+
+/**
+ * <p>Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.</p>
+ * @public
+ */
+export interface HarnessGeminiModelConfig {
+  /**
+   * <p>The Gemini model ID.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of your Gemini API key on AgentCore Identity.</p>
+   * @public
+   */
+  apiKeyArn: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>The topK set when calling the model.</p>
+   * @public
+   */
+  topK?: number | undefined;
+}
+
+/**
+ * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
+ * @public
+ */
+export interface HarnessOpenAiModelConfig {
+  /**
+   * <p>The OpenAI model ID.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of your OpenAI API key on AgentCore Identity.</p>
+   * @public
+   */
+  apiKeyArn: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+}
+
+/**
+ * <p>Specification of which model to use.</p>
+ * @public
+ */
+export type HarnessModelConfiguration =
+  | HarnessModelConfiguration.BedrockModelConfigMember
+  | HarnessModelConfiguration.GeminiModelConfigMember
+  | HarnessModelConfiguration.OpenAiModelConfigMember
+  | HarnessModelConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessModelConfiguration {
+  /**
+   * <p>Configuration for an Amazon Bedrock model.</p>
+   * @public
+   */
+  export interface BedrockModelConfigMember {
+    bedrockModelConfig: HarnessBedrockModelConfig;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for an OpenAI model.</p>
+   * @public
+   */
+  export interface OpenAiModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig: HarnessOpenAiModelConfig;
+    geminiModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for a Google Gemini model.</p>
+   * @public
+   */
+  export interface GeminiModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig: HarnessGeminiModelConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    bedrockModelConfig: (value: HarnessBedrockModelConfig) => T;
+    openAiModelConfig: (value: HarnessOpenAiModelConfig) => T;
+    geminiModelConfig: (value: HarnessGeminiModelConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A skill available to the agent.</p>
+ * @public
+ */
+export type HarnessSkill =
+  | HarnessSkill.PathMember
+  | HarnessSkill.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessSkill {
+  /**
+   * <p>The filesystem path to the skill definition.</p>
+   * @public
+   */
+  export interface PathMember {
+    path: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    path?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    path: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A content block in the system prompt.</p>
+ * @public
+ */
+export type HarnessSystemContentBlock =
+  | HarnessSystemContentBlock.TextMember
+  | HarnessSystemContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessSystemContentBlock {
+  /**
+   * <p>The text content of the system prompt block.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for AgentCore Browser.</p>
+ * @public
+ */
+export interface HarnessAgentCoreBrowserConfig {
+  /**
+   * <p>If not populated, the built-in Browser ARN is used.</p>
+   * @public
+   */
+  browserArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration for AgentCore Code Interpreter.</p>
+ * @public
+ */
+export interface HarnessAgentCoreCodeInterpreterConfig {
+  /**
+   * <p>If not populated, the built-in Code Interpreter ARN is used.</p>
+   * @public
+   */
+  codeInterpreterArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface Unit {}
+
+/**
+ * <p>Authentication method for calling a Gateway.</p>
+ * @public
+ */
+export type HarnessGatewayOutboundAuth =
+  | HarnessGatewayOutboundAuth.AwsIamMember
+  | HarnessGatewayOutboundAuth.NoneMember
+  | HarnessGatewayOutboundAuth.OauthMember
+  | HarnessGatewayOutboundAuth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessGatewayOutboundAuth {
+  /**
+   * <p>SigV4-sign requests using the agent's execution role.</p>
+   * @public
+   */
+  export interface AwsIamMember {
+    awsIam: Unit;
+    none?: never;
+    oauth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>No authentication.</p>
+   * @public
+   */
+  export interface NoneMember {
+    awsIam?: never;
+    none: Unit;
+    oauth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.</p>
+   * @public
+   */
+  export interface OauthMember {
+    awsIam?: never;
+    none?: never;
+    oauth: OAuthCredentialProvider;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsIam?: never;
+    none?: never;
+    oauth?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    awsIam: (value: Unit) => T;
+    none: (value: Unit) => T;
+    oauth: (value: OAuthCredentialProvider) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for AgentCore Gateway.</p>
+ * @public
+ */
+export interface HarnessAgentCoreGatewayConfig {
+  /**
+   * <p>The ARN of the desired AgentCore Gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>How Loopy authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * @public
+   */
+  outboundAuth?: HarnessGatewayOutboundAuth | undefined;
+}
+
+/**
+ * <p>Configuration for an inline function tool. When the agent calls this tool, the tool call is returned to the caller for external execution.</p>
+ * @public
+ */
+export interface HarnessInlineFunctionConfig {
+  /**
+   * <p>Description of what the tool does, provided to the model.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>JSON Schema describing the tool's input parameters.</p>
+   * @public
+   */
+  inputSchema: __DocumentType | undefined;
+}
+
+/**
+ * <p>Configuration for connecting to a remote MCP server.</p>
+ * @public
+ */
+export interface HarnessRemoteMcpConfig {
+  /**
+   * <p>URL of the MCP endpoint.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * Map of key/value pairs for HTTP headers.
+   * @public
+   */
+  headers?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration union for different tool types.</p>
+ * @public
+ */
+export type HarnessToolConfiguration =
+  | HarnessToolConfiguration.AgentCoreBrowserMember
+  | HarnessToolConfiguration.AgentCoreCodeInterpreterMember
+  | HarnessToolConfiguration.AgentCoreGatewayMember
+  | HarnessToolConfiguration.InlineFunctionMember
+  | HarnessToolConfiguration.RemoteMcpMember
+  | HarnessToolConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessToolConfiguration {
+  /**
+   * <p>Configuration for remote MCP server.</p>
+   * @public
+   */
+  export interface RemoteMcpMember {
+    remoteMcp: HarnessRemoteMcpConfig;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Browser.</p>
+   * @public
+   */
+  export interface AgentCoreBrowserMember {
+    remoteMcp?: never;
+    agentCoreBrowser: HarnessAgentCoreBrowserConfig;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Gateway.</p>
+   * @public
+   */
+  export interface AgentCoreGatewayMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway: HarnessAgentCoreGatewayConfig;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for an inline function tool.</p>
+   * @public
+   */
+  export interface InlineFunctionMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction: HarnessInlineFunctionConfig;
+    agentCoreCodeInterpreter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for AgentCore Code Interpreter.</p>
+   * @public
+   */
+  export interface AgentCoreCodeInterpreterMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter: HarnessAgentCoreCodeInterpreterConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    remoteMcp?: never;
+    agentCoreBrowser?: never;
+    agentCoreGateway?: never;
+    inlineFunction?: never;
+    agentCoreCodeInterpreter?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    remoteMcp: (value: HarnessRemoteMcpConfig) => T;
+    agentCoreBrowser: (value: HarnessAgentCoreBrowserConfig) => T;
+    agentCoreGateway: (value: HarnessAgentCoreGatewayConfig) => T;
+    inlineFunction: (value: HarnessInlineFunctionConfig) => T;
+    agentCoreCodeInterpreter: (value: HarnessAgentCoreCodeInterpreterConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A tool available to the agent loop.</p>
+ * @public
+ */
+export interface HarnessTool {
+  /**
+   * <p>The type of tool.</p>
+   * @public
+   */
+  type: HarnessToolType | undefined;
+
+  /**
+   * <p>Unique name for the tool. If not provided, a name will be inferred or generated.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Tool-specific configuration.</p>
+   * @public
+   */
+  config?: HarnessToolConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for sliding window truncation strategy.</p>
+ * @public
+ */
+export interface HarnessSlidingWindowConfiguration {
+  /**
+   * <p>The number of recent messages to retain in the context window.</p>
+   * @public
+   */
+  messagesCount?: number | undefined;
+}
+
+/**
+ * <p>Configuration for summarization-based truncation strategy.</p>
+ * @public
+ */
+export interface HarnessSummarizationConfiguration {
+  /**
+   * <p>The ratio of content to summarize.</p>
+   * @public
+   */
+  summaryRatio?: number | undefined;
+
+  /**
+   * <p>The number of recent messages to preserve without summarization.</p>
+   * @public
+   */
+  preserveRecentMessages?: number | undefined;
+
+  /**
+   * <p>The system prompt used for generating summaries.</p>
+   * @public
+   */
+  summarizationSystemPrompt?: string | undefined;
+}
+
+/**
+ * <p>Strategy-specific truncation configuration.</p>
+ * @public
+ */
+export type HarnessTruncationStrategyConfiguration =
+  | HarnessTruncationStrategyConfiguration.SlidingWindowMember
+  | HarnessTruncationStrategyConfiguration.SummarizationMember
+  | HarnessTruncationStrategyConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessTruncationStrategyConfiguration {
+  /**
+   * <p>Configuration for sliding window truncation.</p>
+   * @public
+   */
+  export interface SlidingWindowMember {
+    slidingWindow: HarnessSlidingWindowConfiguration;
+    summarization?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for summarization-based truncation.</p>
+   * @public
+   */
+  export interface SummarizationMember {
+    slidingWindow?: never;
+    summarization: HarnessSummarizationConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    slidingWindow?: never;
+    summarization?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    slidingWindow: (value: HarnessSlidingWindowConfiguration) => T;
+    summarization: (value: HarnessSummarizationConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for truncating conversation context when it exceeds model limits.</p>
+ * @public
+ */
+export interface HarnessTruncationConfiguration {
+  /**
+   * <p>The truncation strategy to use.</p>
+   * @public
+   */
+  strategy: HarnessTruncationStrategy | undefined;
+
+  /**
+   * <p>The strategy-specific configuration.</p>
+   * @public
+   */
+  config?: HarnessTruncationStrategyConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessRequest {
+  /**
+   * <p>The name of the harness. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the harness assumes when running. This role must have permissions for the services the agent needs to access, such as Amazon Bedrock for model invocation.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The compute environment configuration for the harness, including network and lifecycle settings.</p>
+   * @public
+   */
+  environment?: HarnessEnvironmentProviderRequest | undefined;
+
+  /**
+   * <p>The environment artifact for the harness, such as a custom container image containing additional dependencies.</p>
+   * @public
+   */
+  environmentArtifact?: HarnessEnvironmentArtifact | undefined;
+
+  /**
+   * <p>Environment variables to set in the harness runtime environment.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The model configuration for the harness. Supports Amazon Bedrock, OpenAI, and Google Gemini model providers.</p>
+   * @public
+   */
+  model?: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt that defines the agent's behavior and instructions.</p>
+   * @public
+   */
+  systemPrompt?: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools available to the agent, such as remote MCP servers, AgentCore Gateway, AgentCore Browser, Code Interpreter, or inline functions.</p>
+   * @public
+   */
+  tools?: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills available to the agent. Skills are bundles of files that the agent can pull into its context on demand.</p>
+   * @public
+   */
+  skills?: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The tools that the agent is allowed to use. Supports glob patterns such as * for all tools, @builtin for all built-in tools, or @serverName/toolName for specific MCP server tools.</p>
+   * @public
+   */
+  allowedTools?: string[] | undefined;
+
+  /**
+   * <p>The AgentCore Memory configuration for persisting conversation context across sessions.</p>
+   * @public
+   */
+  memory?: HarnessMemoryConfiguration | undefined;
+
+  /**
+   * <p>The truncation configuration for managing conversation context when it exceeds model limits.</p>
+   * @public
+   */
+  truncation?: HarnessTruncationConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of iterations the agent loop can execute per invocation.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens the agent can generate per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration in seconds for the agent loop execution per invocation.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Tags to apply to the harness resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The AgentCore Runtime environment for a harness.</p>
+ * @public
+ */
+export interface HarnessAgentCoreRuntimeEnvironment {
+  /**
+   * <p>The ARN of the underlying AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>The name of the underlying AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeName: string | undefined;
+
+  /**
+   * <p>The ID of the underlying AgentCore Runtime.</p>
+   * @public
+   */
+  agentRuntimeId: string | undefined;
+
+  /**
+   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * @public
+   */
+  lifecycleConfiguration: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>SecurityConfig for the Agent.</p>
+   * @public
+   */
+  networkConfiguration: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The filesystem configurations for the runtime environment.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
+}
+
+/**
+ * <p>The environment provider for a harness.</p>
+ * @public
+ */
+export type HarnessEnvironmentProvider =
+  | HarnessEnvironmentProvider.AgentCoreRuntimeEnvironmentMember
+  | HarnessEnvironmentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessEnvironmentProvider {
+  /**
+   * <p>The AgentCore Runtime environment configuration.</p>
+   * @public
+   */
+  export interface AgentCoreRuntimeEnvironmentMember {
+    agentCoreRuntimeEnvironment: HarnessAgentCoreRuntimeEnvironment;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreRuntimeEnvironment?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreRuntimeEnvironment: (value: HarnessAgentCoreRuntimeEnvironment) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Representation of a Harness.</p>
+ * @public
+ */
+export interface Harness {
+  /**
+   * <p>The ID of the Harness.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the Harness.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The ARN of the Harness.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the Harness.</p>
+   * @public
+   */
+  status: HarnessStatus | undefined;
+
+  /**
+   * <p>IAM role the Harness assumes when running.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The createdAt time of the Harness.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The updatedAt time of the Harness.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The configuration of the default model used by the Harness.</p>
+   * @public
+   */
+  model: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt of the Harness.</p>
+   * @public
+   */
+  systemPrompt: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools of the Harness.</p>
+   * @public
+   */
+  tools: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills of the Harness.</p>
+   * @public
+   */
+  skills: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The allowed tools of the Harness. All tools are allowed by default.</p>
+   * @public
+   */
+  allowedTools: string[] | undefined;
+
+  /**
+   * <p>Configuration for truncating model context.</p>
+   * @public
+   */
+  truncation: HarnessTruncationConfiguration | undefined;
+
+  /**
+   * <p>The compute environment on which the Harness runs.</p>
+   * @public
+   */
+  environment: HarnessEnvironmentProvider | undefined;
+
+  /**
+   * <p>The environment artifact (e.g., container) in which the Harness operates.</p>
+   * @public
+   */
+  environmentArtifact?: HarnessEnvironmentArtifact | undefined;
+
+  /**
+   * <p>Environment variables exposed in the environment in which the Harness operates.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>AgentCore Memory instance configuration for short and long term memory.</p>
+   * @public
+   */
+  memory?: HarnessMemoryConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of iterations in the agent loop allowed before exiting per invocation.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens allowed before exiting per invocation.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration per invocation.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Reason why create or update operations fail.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessResponse {
+  /**
+   * <p>The harness that was created.</p>
+   * @public
+   */
+  harness: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessRequest {
+  /**
+   * <p>The ID of the harness to delete.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessResponse {
+  /**
+   * <p>The harness that was deleted.</p>
+   * @public
+   */
+  harness?: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessRequest {
+  /**
+   * <p>The ID of the harness to retrieve.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessResponse {
+  /**
+   * <p>The harness resource.</p>
+   * @public
+   */
+  harness: Harness | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessesRequest {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a harness.</p>
+ * @public
+ */
+export interface HarnessSummary {
+  /**
+   * <p>The ID of the harness.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the harness.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The ARN of the harness.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The current status of the harness.</p>
+   * @public
+   */
+  status: HarnessStatus | undefined;
+
+  /**
+   * <p>The timestamp when the harness was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the harness was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessesResponse {
+  /**
+   * <p>The list of harness summaries.</p>
+   * @public
+   */
+  harnesses: HarnessSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+ * @public
+ */
+export interface UpdatedAuthorizerConfiguration {
+  /**
+   * <p>The updated authorizer configuration value. If not specified, it will clear the current authorizer configuration of the resource.</p>
+   * @public
+   */
+  optionalValue?: AuthorizerConfiguration | undefined;
+}
+
+/**
+ * <p>Wrapper for updating the environment artifact configuration.</p>
+ * @public
+ */
+export interface UpdatedHarnessEnvironmentArtifact {
+  /**
+   * <p>The updated environment artifact value, or null to clear the existing configuration.</p>
+   * @public
+   */
+  optionalValue?: HarnessEnvironmentArtifact | undefined;
+}
+
+/**
+ * <p>Wrapper for updating the memory configuration.</p>
+ * @public
+ */
+export interface UpdatedHarnessMemoryConfiguration {
+  /**
+   * <p>The updated memory configuration value, or null to clear the existing configuration.</p>
+   * @public
+   */
+  optionalValue?: HarnessMemoryConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessRequest {
+  /**
+   * <p>The ID of the harness to update.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the harness assumes when running. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The compute environment configuration for the harness. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  environment?: HarnessEnvironmentProviderRequest | undefined;
+
+  /**
+   * <p>The environment artifact for the harness. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+   * @public
+   */
+  environmentArtifact?: UpdatedHarnessEnvironmentArtifact | undefined;
+
+  /**
+   * <p>Environment variables to set in the harness runtime environment. If specified, this replaces all existing environment variables. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Wrapper for updating an optional AuthorizerConfiguration field with PATCH semantics. When present in an update request, the authorizer configuration is replaced with optionalValue. When absent, the authorizer configuration is left unchanged. To unset, include the wrapper with optionalValue not specified.</p>
+   * @public
+   */
+  authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The model configuration for the harness. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  model?: HarnessModelConfiguration | undefined;
+
+  /**
+   * <p>The system prompt that defines the agent's behavior. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  systemPrompt?: HarnessSystemContentBlock[] | undefined;
+
+  /**
+   * <p>The tools available to the agent. If specified, this replaces all existing tools. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  tools?: HarnessTool[] | undefined;
+
+  /**
+   * <p>The skills available to the agent. If specified, this replaces all existing skills. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  skills?: HarnessSkill[] | undefined;
+
+  /**
+   * <p>The tools that the agent is allowed to use. If specified, this replaces all existing allowed tools. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  allowedTools?: string[] | undefined;
+
+  /**
+   * <p>The AgentCore Memory configuration. Use the optionalValue wrapper to set a new value, or set it to null to clear the existing configuration.</p>
+   * @public
+   */
+  memory?: UpdatedHarnessMemoryConfiguration | undefined;
+
+  /**
+   * <p>The truncation configuration for managing conversation context. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  truncation?: HarnessTruncationConfiguration | undefined;
+
+  /**
+   * <p>The maximum number of iterations the agent loop can execute per invocation. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  maxIterations?: number | undefined;
+
+  /**
+   * <p>The maximum number of tokens the agent can generate per iteration. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The maximum duration in seconds for the agent loop execution per invocation. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessResponse {
+  /**
+   * <p>The updated harness.</p>
+   * @public
+   */
+  harness: Harness | undefined;
 }
 
 /**
@@ -8031,1424 +9505,4 @@ export interface MicrosoftOauth2ProviderConfigInput {
    * @public
    */
   tenantId?: string | undefined;
-}
-
-/**
- * <p>Input configuration for a Salesforce OAuth2 provider.</p>
- * @public
- */
-export interface SalesforceOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the Salesforce OAuth2 provider.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the Salesforce OAuth2 provider.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-}
-
-/**
- * <p>Input configuration for a Slack OAuth2 provider.</p>
- * @public
- */
-export interface SlackOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the Slack OAuth2 provider.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the Slack OAuth2 provider.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-}
-
-/**
- * <p>Contains the input configuration for an OAuth2 provider.</p>
- * @public
- */
-export type Oauth2ProviderConfigInput =
-  | Oauth2ProviderConfigInput.AtlassianOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.CustomOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.GithubOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.GoogleOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.IncludedOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.LinkedinOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.MicrosoftOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.SalesforceOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.SlackOauth2ProviderConfigMember
-  | Oauth2ProviderConfigInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Oauth2ProviderConfigInput {
-  /**
-   * <p>The configuration for a custom OAuth2 provider.</p>
-   * @public
-   */
-  export interface CustomOauth2ProviderConfigMember {
-    customOauth2ProviderConfig: CustomOauth2ProviderConfigInput;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a Google OAuth2 provider.</p>
-   * @public
-   */
-  export interface GoogleOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig: GoogleOauth2ProviderConfigInput;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a GitHub OAuth2 provider.</p>
-   * @public
-   */
-  export interface GithubOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig: GithubOauth2ProviderConfigInput;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a Slack OAuth2 provider.</p>
-   * @public
-   */
-  export interface SlackOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a Salesforce OAuth2 provider.</p>
-   * @public
-   */
-  export interface SalesforceOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a Microsoft OAuth2 provider.</p>
-   * @public
-   */
-  export interface MicrosoftOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration settings for Atlassian OAuth2 provider integration.</p>
-   * @public
-   */
-  export interface AtlassianOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInput;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration settings for LinkedIn OAuth2 provider integration.</p>
-   * @public
-   */
-  export interface LinkedinOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInput;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a non-custom OAuth2 provider. This includes settings for supported OAuth2 providers that have built-in integration support.</p>
-   * @public
-   */
-  export interface IncludedOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigInput) => T;
-    googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigInput) => T;
-    githubOauth2ProviderConfig: (value: GithubOauth2ProviderConfigInput) => T;
-    slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigInput) => T;
-    salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigInput) => T;
-    microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigInput) => T;
-    atlassianOauth2ProviderConfig: (value: AtlassianOauth2ProviderConfigInput) => T;
-    linkedinOauth2ProviderConfig: (value: LinkedinOauth2ProviderConfigInput) => T;
-    includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateOauth2CredentialProviderRequest {
-  /**
-   * <p>The name of the OAuth2 credential provider. The name must be unique within your account.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor of the OAuth2 credential provider. This specifies which OAuth2 implementation to use.</p>
-   * @public
-   */
-  credentialProviderVendor: CredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The configuration settings for the OAuth2 provider, including client ID, client secret, and other vendor-specific settings.</p>
-   * @public
-   */
-  oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
-
-  /**
-   * <p>A map of tag keys and values to assign to the OAuth2 credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The configuration details returned for an Atlassian OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
- * @public
- */
-export interface AtlassianOauth2ProviderConfigOutput {
-  /**
-   * <p>Contains the discovery information for an OAuth2 provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the Atlassian OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Output configuration for a custom OAuth2 provider.</p>
- * @public
- */
-export interface CustomOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the custom provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the custom OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Output configuration for a GitHub OAuth2 provider.</p>
- * @public
- */
-export interface GithubOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the GitHub provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the GitHub OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Output configuration for a Google OAuth2 provider.</p>
- * @public
- */
-export interface GoogleOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Google provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the Google OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>The configuration details returned for a supported OAuth2 provider, including client credentials and OAuth2 discovery information.</p>
- * @public
- */
-export interface IncludedOauth2ProviderConfigOutput {
-  /**
-   * <p>Contains the discovery information for an OAuth2 provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the supported OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>The configuration details returned for a LinkedIn OAuth2 provider, including the client ID and OAuth2 discovery information.</p>
- * @public
- */
-export interface LinkedinOauth2ProviderConfigOutput {
-  /**
-   * <p>Contains the discovery information for an OAuth2 provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the LinkedIn OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Output configuration for a Microsoft OAuth2 provider.</p>
- * @public
- */
-export interface MicrosoftOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Microsoft provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the Microsoft OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Output configuration for a Salesforce OAuth2 provider.</p>
- * @public
- */
-export interface SalesforceOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Salesforce provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the Salesforce OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Output configuration for a Slack OAuth2 provider.</p>
- * @public
- */
-export interface SlackOauth2ProviderConfigOutput {
-  /**
-   * <p>The OAuth2 discovery information for the Slack provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the Slack OAuth2 provider.</p>
-   * @public
-   */
-  clientId?: string | undefined;
-}
-
-/**
- * <p>Contains the output configuration for an OAuth2 provider.</p>
- * @public
- */
-export type Oauth2ProviderConfigOutput =
-  | Oauth2ProviderConfigOutput.AtlassianOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.CustomOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.GithubOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.GoogleOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.IncludedOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.LinkedinOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.MicrosoftOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.SalesforceOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.SlackOauth2ProviderConfigMember
-  | Oauth2ProviderConfigOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Oauth2ProviderConfigOutput {
-  /**
-   * <p>The output configuration for a custom OAuth2 provider.</p>
-   * @public
-   */
-  export interface CustomOauth2ProviderConfigMember {
-    customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Google OAuth2 provider.</p>
-   * @public
-   */
-  export interface GoogleOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a GitHub OAuth2 provider.</p>
-   * @public
-   */
-  export interface GithubOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Slack OAuth2 provider.</p>
-   * @public
-   */
-  export interface SlackOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Salesforce OAuth2 provider.</p>
-   * @public
-   */
-  export interface SalesforceOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The output configuration for a Microsoft OAuth2 provider.</p>
-   * @public
-   */
-  export interface MicrosoftOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration details for the Atlassian OAuth2 provider.</p>
-   * @public
-   */
-  export interface AtlassianOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigOutput;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration details for the LinkedIn OAuth2 provider.</p>
-   * @public
-   */
-  export interface LinkedinOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigOutput;
-    includedOauth2ProviderConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for a non-custom OAuth2 provider. This includes the configuration details for supported OAuth2 providers that have built-in integration support.</p>
-   * @public
-   */
-  export interface IncludedOauth2ProviderConfigMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig: IncludedOauth2ProviderConfigOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customOauth2ProviderConfig?: never;
-    googleOauth2ProviderConfig?: never;
-    githubOauth2ProviderConfig?: never;
-    slackOauth2ProviderConfig?: never;
-    salesforceOauth2ProviderConfig?: never;
-    microsoftOauth2ProviderConfig?: never;
-    atlassianOauth2ProviderConfig?: never;
-    linkedinOauth2ProviderConfig?: never;
-    includedOauth2ProviderConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigOutput) => T;
-    googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigOutput) => T;
-    githubOauth2ProviderConfig: (value: GithubOauth2ProviderConfigOutput) => T;
-    slackOauth2ProviderConfig: (value: SlackOauth2ProviderConfigOutput) => T;
-    salesforceOauth2ProviderConfig: (value: SalesforceOauth2ProviderConfigOutput) => T;
-    microsoftOauth2ProviderConfig: (value: MicrosoftOauth2ProviderConfigOutput) => T;
-    atlassianOauth2ProviderConfig: (value: AtlassianOauth2ProviderConfigOutput) => T;
-    linkedinOauth2ProviderConfig: (value: LinkedinOauth2ProviderConfigOutput) => T;
-    includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateOauth2CredentialProviderResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
-   * @public
-   */
-  clientSecretArn: Secret | undefined;
-
-  /**
-   * <p>The name of the OAuth2 credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
-   * @public
-   */
-  callbackUrl?: string | undefined;
-
-  /**
-   * <p>Contains the output configuration for an OAuth2 provider.</p>
-   * @public
-   */
-  oauth2ProviderConfigOutput?: Oauth2ProviderConfigOutput | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOauth2CredentialProviderRequest {
-  /**
-   * <p>The name of the OAuth2 credential provider to delete.</p>
-   * @public
-   */
-  name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOauth2CredentialProviderResponse {}
-
-/**
- * @public
- */
-export interface GetOauth2CredentialProviderRequest {
-  /**
-   * <p>The name of the OAuth2 credential provider to retrieve.</p>
-   * @public
-   */
-  name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOauth2CredentialProviderResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
-   * @public
-   */
-  clientSecretArn: Secret | undefined;
-
-  /**
-   * <p>The name of the OAuth2 credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>ARN of the credential provider requested.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: CredentialProviderVendorType | undefined;
-
-  /**
-   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
-   * @public
-   */
-  callbackUrl?: string | undefined;
-
-  /**
-   * <p>The configuration output for the OAuth2 provider.</p>
-   * @public
-   */
-  oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput | undefined;
-
-  /**
-   * <p>The timestamp when the OAuth2 credential provider was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOauth2CredentialProvidersRequest {
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Maximum number of results to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about an OAuth2 credential provider.</p>
- * @public
- */
-export interface Oauth2CredentialProviderItem {
-  /**
-   * <p>The name of the OAuth2 credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: CredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>The timestamp when the OAuth2 credential provider was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOauth2CredentialProvidersResponse {
-  /**
-   * <p>The list of OAuth2 credential providers.</p>
-   * @public
-   */
-  credentialProviders: Oauth2CredentialProviderItem[] | undefined;
-
-  /**
-   * <p>Pagination token for the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOauth2CredentialProviderRequest {
-  /**
-   * <p>The name of the OAuth2 credential provider to update.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: CredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The configuration input for the OAuth2 provider.</p>
-   * @public
-   */
-  oauth2ProviderConfigInput: Oauth2ProviderConfigInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOauth2CredentialProviderResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>
-   * @public
-   */
-  clientSecretArn: Secret | undefined;
-
-  /**
-   * <p>The name of the OAuth2 credential provider.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The vendor of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderVendor: CredentialProviderVendorType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider.</p>
-   * @public
-   */
-  credentialProviderArn: string | undefined;
-
-  /**
-   * <p>Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.</p>
-   * @public
-   */
-  callbackUrl?: string | undefined;
-
-  /**
-   * <p>The configuration output for the OAuth2 provider.</p>
-   * @public
-   */
-  oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput | undefined;
-
-  /**
-   * <p>The timestamp when the OAuth2 credential provider was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the OAuth2 credential provider was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-}
-
-/**
- * <p> The configuration for reading agent traces from CloudWatch logs as input for online evaluation. </p>
- * @public
- */
-export interface CloudWatchLogsInputConfig {
-  /**
-   * <p> The list of CloudWatch log group names to monitor for agent traces.</p>
-   * @public
-   */
-  logGroupNames: string[] | undefined;
-
-  /**
-   * <p> The list of service names to filter traces within the specified log groups. Used to identify relevant agent sessions. </p>
-   * @public
-   */
-  serviceNames: string[] | undefined;
-}
-
-/**
- * <p> The configuration that specifies where to read agent traces for online evaluation. </p>
- * @public
- */
-export type DataSourceConfig =
-  | DataSourceConfig.CloudWatchLogsMember
-  | DataSourceConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace DataSourceConfig {
-  /**
-   * <p> The CloudWatch logs configuration for reading agent traces from log groups. </p>
-   * @public
-   */
-  export interface CloudWatchLogsMember {
-    cloudWatchLogs: CloudWatchLogsInputConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    cloudWatchLogs?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    cloudWatchLogs: (value: CloudWatchLogsInputConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p> The reference to an evaluator used in online evaluation configurations, containing the evaluator identifier. </p>
- * @public
- */
-export type EvaluatorReference =
-  | EvaluatorReference.EvaluatorIdMember
-  | EvaluatorReference.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluatorReference {
-  /**
-   * <p> The unique identifier of the evaluator. Can reference builtin evaluators (e.g., Builtin.Helpfulness) or custom evaluators. </p>
-   * @public
-   */
-  export interface EvaluatorIdMember {
-    evaluatorId: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    evaluatorId?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    evaluatorId: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p> The value used in filter comparisons, supporting different data types for flexible filtering criteria. </p>
- * @public
- */
-export type FilterValue =
-  | FilterValue.BooleanValueMember
-  | FilterValue.DoubleValueMember
-  | FilterValue.StringValueMember
-  | FilterValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace FilterValue {
-  /**
-   * <p> The string value for text-based filtering. </p>
-   * @public
-   */
-  export interface StringValueMember {
-    stringValue: string;
-    doubleValue?: never;
-    booleanValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> The numeric value for numerical filtering and comparisons. </p>
-   * @public
-   */
-  export interface DoubleValueMember {
-    stringValue?: never;
-    doubleValue: number;
-    booleanValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> The boolean value for true/false filtering conditions. </p>
-   * @public
-   */
-  export interface BooleanValueMember {
-    stringValue?: never;
-    doubleValue?: never;
-    booleanValue: boolean;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    stringValue?: never;
-    doubleValue?: never;
-    booleanValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    stringValue: (value: string) => T;
-    doubleValue: (value: number) => T;
-    booleanValue: (value: boolean) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p> The filter that applies conditions to agent traces during online evaluation to determine which traces should be evaluated. </p>
- * @public
- */
-export interface Filter {
-  /**
-   * <p> The key or field name to filter on within the agent trace data. </p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p> The comparison operator to use for filtering. </p>
-   * @public
-   */
-  operator: FilterOperator | undefined;
-
-  /**
-   * <p> The value to compare against using the specified operator. </p>
-   * @public
-   */
-  value: FilterValue | undefined;
-}
-
-/**
- * <p> The configuration that controls what percentage of agent traces are sampled for evaluation to manage evaluation volume and costs. </p>
- * @public
- */
-export interface SamplingConfig {
-  /**
-   * <p> The percentage of agent traces to sample for evaluation, ranging from 0.01% to 100%. </p>
-   * @public
-   */
-  samplingPercentage: number | undefined;
-}
-
-/**
- * <p> The configuration that defines how agent sessions are detected and when they are considered complete for evaluation. </p>
- * @public
- */
-export interface SessionConfig {
-  /**
-   * <p> The number of minutes of inactivity after which an agent session is considered complete and ready for evaluation. Default is 15 minutes. </p>
-   * @public
-   */
-  sessionTimeoutMinutes: number | undefined;
-}
-
-/**
- * <p> The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings for online evaluation. </p>
- * @public
- */
-export interface Rule {
-  /**
-   * <p> The sampling configuration that determines what percentage of agent traces to evaluate. </p>
-   * @public
-   */
-  samplingConfig: SamplingConfig | undefined;
-
-  /**
-   * <p> The list of filters that determine which agent traces should be included in the evaluation based on trace properties. </p>
-   * @public
-   */
-  filters?: Filter[] | undefined;
-
-  /**
-   * <p> The session configuration that defines timeout settings for detecting when agent sessions are complete and ready for evaluation. </p>
-   * @public
-   */
-  sessionConfig?: SessionConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOnlineEvaluationConfigRequest {
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p> The name of the online evaluation configuration. Must be unique within your account. </p>
-   * @public
-   */
-  onlineEvaluationConfigName: string | undefined;
-
-  /**
-   * <p> The description of the online evaluation configuration that explains its monitoring purpose and scope. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p> The evaluation rule that defines sampling configuration, filters, and session detection settings for the online evaluation. </p>
-   * @public
-   */
-  rule: Rule | undefined;
-
-  /**
-   * <p> The data source configuration that specifies CloudWatch log groups and service names to monitor for agent traces. </p>
-   * @public
-   */
-  dataSourceConfig: DataSourceConfig | undefined;
-
-  /**
-   * <p> The list of evaluators to apply during online evaluation. Can include both built-in evaluators and custom evaluators created with <code>CreateEvaluator</code>. </p>
-   * @public
-   */
-  evaluators: EvaluatorReference[] | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation. </p>
-   * @public
-   */
-  evaluationExecutionRoleArn: string | undefined;
-
-  /**
-   * <p> Whether to enable the online evaluation configuration immediately upon creation. If true, evaluation begins automatically. </p>
-   * @public
-   */
-  enableOnCreate: boolean | undefined;
-
-  /**
-   * <p>A map of tag keys and values to assign to an AgentCore Online Evaluation Config. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p> The configuration for writing evaluation results to CloudWatch logs with embedded metric format (EMF) for monitoring. </p>
- * @public
- */
-export interface CloudWatchOutputConfig {
-  /**
-   * <p> The name of the CloudWatch log group where evaluation results will be written. The log group will be created if it doesn't exist. </p>
-   * @public
-   */
-  logGroupName: string | undefined;
-}
-
-/**
- * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
- * @public
- */
-export interface OutputConfig {
-  /**
-   * <p> The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format. </p>
-   * @public
-   */
-  cloudWatchConfig: CloudWatchOutputConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOnlineEvaluationConfigResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the created online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the created online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
-   * @public
-   */
-  outputConfig?: OutputConfig | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
-
-  /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
-   * @public
-   */
-  executionStatus: OnlineEvaluationExecutionStatus | undefined;
-
-  /**
-   * <p> The reason for failure if the online evaluation configuration creation or execution failed. </p>
-   * @public
-   */
-  failureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOnlineEvaluationConfigRequest {
-  /**
-   * <p> The unique identifier of the online evaluation configuration to delete. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOnlineEvaluationConfigResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the deleted online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the deleted online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration deletion operation. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOnlineEvaluationConfigRequest {
-  /**
-   * <p> The unique identifier of the online evaluation configuration to retrieve. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOnlineEvaluationConfigResponse {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigId: string | undefined;
-
-  /**
-   * <p> The name of the online evaluation configuration. </p>
-   * @public
-   */
-  onlineEvaluationConfigName: string | undefined;
-
-  /**
-   * <p> The description of the online evaluation configuration. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p> The evaluation rule containing sampling configuration, filters, and session settings. </p>
-   * @public
-   */
-  rule: Rule | undefined;
-
-  /**
-   * <p> The data source configuration specifying CloudWatch log groups and service names to monitor. </p>
-   * @public
-   */
-  dataSourceConfig: DataSourceConfig | undefined;
-
-  /**
-   * <p> The list of evaluators applied during online evaluation. </p>
-   * @public
-   */
-  evaluators: EvaluatorReference[] | undefined;
-
-  /**
-   * <p> The output configuration specifying where evaluation results are written. </p>
-   * @public
-   */
-  outputConfig?: OutputConfig | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
-   * @public
-   */
-  evaluationExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p> The status of the online evaluation configuration. </p>
-   * @public
-   */
-  status: OnlineEvaluationConfigStatus | undefined;
-
-  /**
-   * <p> The execution status indicating whether the online evaluation is currently running. </p>
-   * @public
-   */
-  executionStatus: OnlineEvaluationExecutionStatus | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was created. </p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p> The timestamp when the online evaluation configuration was last updated. </p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p> The reason for failure if the online evaluation configuration execution failed. </p>
-   * @public
-   */
-  failureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOnlineEvaluationConfigsRequest {
-  /**
-   * <p> The pagination token from a previous request to retrieve the next page of results. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p> The maximum number of online evaluation configurations to return in a single response. </p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
