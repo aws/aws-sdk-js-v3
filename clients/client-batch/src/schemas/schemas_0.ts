@@ -261,6 +261,7 @@ const _SED = "ServiceEnvironmentDetail";
 const _SEDL = "ServiceEnvironmentDetailList";
 const _SEO = "ServiceEnvironmentOrder";
 const _SEOe = "ServiceEnvironmentOrders";
+const _SFVC = "S3FilesVolumeConfiguration";
 const _SJ = "SubmitJob";
 const _SJAD = "ServiceJobAttemptDetail";
 const _SJADe = "ServiceJobAttemptDetails";
@@ -341,6 +342,7 @@ const _aDS = "attemptDurationSeconds";
 const _aI = "attachmentId";
 const _aJI = "arrayJobId";
 const _aP = "arrayProperties";
+const _aPA = "accessPointArn";
 const _aPE = "allowPrivilegeEscalation";
 const _aPI = "accessPointId";
 const _aPIs = "assignPublicIp";
@@ -422,6 +424,7 @@ const _fOQ = "frontOfQueue";
 const _fOQS = "frontOfQuotaShares";
 const _fP = "fairsharePolicy";
 const _fPC = "fargatePlatformConfiguration";
+const _fSA = "fileSystemArn";
 const _fSI = "fileSystemId";
 const _fU = "fairshareUtilization";
 const _h = "host";
@@ -604,7 +607,10 @@ const _sRP = "serviceRequestPayload";
 const _sRe = "serviceRole";
 const _sS = "statusSummary";
 const _sSLUA = "statusSummaryLastUpdatedAt";
+const _sT = "startTimeout";
+const _sTt = "stopTimeout";
 const _sV = "sourceVolume";
+const _sVC = "s3filesVolumeConfiguration";
 const _se = "server";
 const _sec = "secrets";
 const _secr = "secret";
@@ -1527,6 +1533,11 @@ export var RuntimePlatform$: StaticStructureSchema = [3, n0, _RP,
   [_oSF, _cAp],
   [0, 0]
 ];
+export var S3FilesVolumeConfiguration$: StaticStructureSchema = [3, n0, _SFVC,
+  0,
+  [_fSA, _rD, _tEP, _aPA],
+  [0, 0, 1, 0], 1
+];
 export var SchedulingPolicyDetail$: StaticStructureSchema = [3, n0, _SPD,
   0,
   [_n, _a, _qSP, _fP, _t],
@@ -1649,8 +1660,8 @@ export var TaskContainerDependency$: StaticStructureSchema = [3, n0, _TCD,
 ];
 export var TaskContainerDetails$: StaticStructureSchema = [3, n0, _TCDa,
   0,
-  [_com, _dO, _en, _es, _fC, _im, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _sec, _ul, _us, _eC, _r, _lSN, _nI],
-  [64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, 0, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0, 1, 0, 0, () => NetworkInterfaceList]
+  [_com, _dO, _en, _es, _fC, _im, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _sec, _ul, _us, _sT, _sTt, _eC, _r, _lSN, _nI],
+  [64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, 0, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0, 1, 1, 1, 0, 0, () => NetworkInterfaceList]
 ];
 export var TaskContainerOverrides$: StaticStructureSchema = [3, n0, _TCO,
   0,
@@ -1659,8 +1670,8 @@ export var TaskContainerOverrides$: StaticStructureSchema = [3, n0, _TCO,
 ];
 export var TaskContainerProperties$: StaticStructureSchema = [3, n0, _TCP,
   0,
-  [_im, _com, _dO, _en, _es, _fC, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _sec, _ul, _us],
-  [0, 64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0], 1
+  [_im, _com, _dO, _en, _es, _fC, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _sec, _ul, _us, _sT, _sTt],
+  [0, 64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0, 1, 1], 1
 ];
 export var TaskPropertiesOverride$: StaticStructureSchema = [3, n0, _TPO,
   0,
@@ -1784,8 +1795,8 @@ export var UpdateServiceJobResponse$: StaticStructureSchema = [3, n0, _USJRp,
 ];
 export var Volume$: StaticStructureSchema = [3, n0, _V,
   0,
-  [_h, _n, _eVC],
-  [() => Host$, 0, () => EFSVolumeConfiguration$]
+  [_h, _n, _eVC, _sVC],
+  [() => Host$, 0, () => EFSVolumeConfiguration$, () => S3FilesVolumeConfiguration$]
 ];
 var AttemptDetails: StaticListSchema = [1, n0, _ADt,
   0, () => AttemptDetail$

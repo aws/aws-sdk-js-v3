@@ -275,6 +275,7 @@ import {
   RetryAction,
   RetryStrategy$,
   RuntimePlatform$,
+  S3FilesVolumeConfiguration$,
   SchedulingPolicyDetail$,
   SchedulingPolicyListingDetail$,
   Secret$,
@@ -628,6 +629,7 @@ assert(typeof RepositoryCredentials$ === "object");
 assert(typeof ResourceRequirement$ === "object");
 assert(typeof RetryStrategy$ === "object");
 assert(typeof RuntimePlatform$ === "object");
+assert(typeof S3FilesVolumeConfiguration$ === "object");
 assert(typeof SchedulingPolicyDetail$ === "object");
 assert(typeof SchedulingPolicyListingDetail$ === "object");
 assert(typeof Secret$ === "object");

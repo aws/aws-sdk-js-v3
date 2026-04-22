@@ -342,6 +342,7 @@ export type {
   ResourceRequirement,
   RetryStrategy,
   RuntimePlatform,
+  S3FilesVolumeConfiguration,
   SchedulingPolicyDetail,
   SchedulingPolicyListingDetail,
   Secret,

@@ -319,7 +319,7 @@ export interface CancelJobResponse {}
 /**
  * <p>Provides information used to select Amazon Machine Images (AMIs) for instances in the
  *    compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
- *     <code>ECS_AL2</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon ECS-optimized Amazon Linux 2</a>) for EC2 (ECS) compute environments and <code>EKS_AL2023</code> (<a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon EKS-optimized Amazon Linux 2023
+ *     <code>ECS_AL2023</code> (<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Amazon Linux 2023</a>) for EC2 (ECS) compute environments and <code>EKS_AL2023</code> (<a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon EKS-optimized Amazon Linux 2023
  *     AMI</a>) for EKS compute environments.</p>
  *          <note>
  *             <p>This object isn't applicable to jobs that are running on Fargate resources.</p>
@@ -333,36 +333,38 @@ export interface Ec2Configuration {
    *          <dl>
    *             <dt>ECS</dt>
    *             <dd>
-   *                <p>If the <code>imageIdOverride</code> parameter isn't specified, then a recent <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon ECS-optimized Amazon Linux 2 AMI</a> (<code>ECS_AL2</code>) is used. If a new image type is
+   *                <p>If the <code>imageIdOverride</code> parameter isn't specified, then a recent <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Amazon Linux 2023 AMI</a> (<code>ECS_AL2023</code>) is used. If a new image type is
    *       specified in an update, but neither an <code>imageId</code> nor a <code>imageIdOverride</code>
    *       parameter is specified, then the latest Amazon ECS optimized AMI for that image type that's
    *       supported by Batch is used.</p>
    *                <important>
-   *                   <p>Amazon Web Services will end support for Amazon ECS optimized AL2-optimized and AL2-accelerated AMIs. Starting in January 2026, Batch will change
-   *        the default AMI for new Amazon ECS compute environments from Amazon Linux 2 to Amazon Linux 2023.
-   *        We recommend migrating Batch Amazon ECS compute environments to Amazon Linux 2023 to maintain
-   *        optimal performance and security. For more information on upgrading from AL2 to AL2023, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs-migration-2023.html">How to migrate
+   *                   <p>Amazon Web Services is ending support for Amazon ECS Amazon Linux 2-optimized and accelerated AMIs on June 30,
+   *        2026. On January 12, 2026, Batch changed the default AMI for new Amazon ECS compute environments
+   *        from Amazon Linux 2 to Amazon Linux 2023. Effective June 30, 2026, Batch will block creation
+   *        of new Amazon ECS compute environments using Batch-provided Amazon Linux 2 AMIs. We strongly recommend
+   *        migrating your existing Batch Amazon ECS compute environments to Amazon Linux 2023 prior to June 30,
+   *        2026. For more information on upgrading from AL2 to AL2023, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs-migration-2023.html">How to migrate
    *         from ECS AL2 to ECS AL2023</a> in the <i>Batch User Guide</i>.</p>
    *                </important>
    *                <dl>
    *                   <dt>ECS_AL2</dt>
    *                   <dd>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami">Amazon Linux
-   *          2</a>: Default for all non-GPU instance families.</p>
+   *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon Linux
+   *          2</a>: Used for non-GPU instance families.</p>
    *                   </dd>
    *                   <dt>ECS_AL2_NVIDIA</dt>
    *                   <dd>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami">Amazon Linux 2
-   *           (GPU)</a>: Default for all GPU instance families (for example <code>P4</code> and
-   *           <code>G4</code>) and can be used for all non Amazon Web Services Graviton-based instance types.</p>
+   *           (GPU)</a>: Used for GPU instance families (for example <code>P4</code> and
+   *           <code>G4</code>) and non Amazon Web Services Graviton-based instance types.</p>
    *                   </dd>
    *                   <dt>ECS_AL2023</dt>
    *                   <dd>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon Linux 2023</a>: Batch
-   *          supports Amazon Linux 2023.</p>
+   *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon Linux 2023</a>: Default
+   *          for all non-GPU instance families.</p>
    *                      <note>
    *                         <p>Amazon Linux 2023 does not support <code>A1</code> instances.</p>
    *                      </note>
@@ -371,7 +373,7 @@ export interface Ec2Configuration {
    *                   <dd>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami">Amazon Linux 2023
-   *           (GPU)</a>: For all GPU instance families and can be used for all non Amazon Web Services Graviton-based instance types.</p>
+   *           (GPU)</a>: Default for all GPU instance families and can be used for all non Amazon Web Services Graviton-based instance types.</p>
    *                      <note>
    *                         <p>ECS_AL2023_NVIDIA doesn't support <code>p3</code> and <code>g3</code> instance types.</p>
    *                      </note>
@@ -387,12 +389,10 @@ export interface Ec2Configuration {
    *                <important>
    *                   <p>Amazon Linux 2023 AMIs are the
    *        default on Batch for Amazon EKS.</p>
-   *                   <p>Amazon Web Services will end
-   *        support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, starting 11/26/25. You can continue
-   *        using Batch-provided Amazon EKS optimized Amazon Linux 2 AMIs on your Amazon EKS compute
-   *        environments beyond the 11/26/25 end-of-support date, these compute environments will no
-   *        longer receive any new software updates, security patches, or bug fixes from
-   *        Amazon Web Services. For more information on upgrading from AL2 to AL2023, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-migration-2023.html">How to upgrade from EKS AL2 to EKS AL2023</a> in the <i>Batch User Guide</i>.</p>
+   *                   <p>Amazon Web Services ended support for Amazon EKS AL2-optimized and AL2-accelerated AMIs on November 26,
+   *        2025. Batch Amazon EKS compute environments using Amazon Linux 2 will no longer receive software
+   *        updates, security patches, or bug fixes from Amazon Web Services. We recommend migrating to Amazon Linux
+   *        2023. For more information on upgrading from AL2 to AL2023, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-migration-2023.html">How to upgrade from EKS AL2 to EKS AL2023</a> in the <i>Batch User Guide</i>.</p>
    *                </important>
    *                <dl>
    *                   <dt>EKS_AL2</dt>
@@ -440,8 +440,8 @@ export interface Ec2Configuration {
    *             <p>The AMI that you choose for a compute environment must match the architecture of the instance types that
    *     you intend to use for that compute environment. For example, if your compute environment uses A1 instance types,
    *     the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the
-   *     Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
-   *     Amazon Linux 2 AMI</a>
+   *     Amazon ECS-optimized Amazon Linux 2023 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
+   *     Amazon Linux 2023 AMI</a>
    *     in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          </note>
    * @public
@@ -862,8 +862,8 @@ export interface ComputeResource {
    *             <p>The AMI that you choose for a compute environment must match the architecture of the instance types that
    *     you intend to use for that compute environment. For example, if your compute environment uses A1 instance types,
    *     the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the
-   *     Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
-   *     Amazon Linux 2 AMI</a>
+   *     Amazon ECS-optimized Amazon Linux 2023 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
+   *     Amazon Linux 2023 AMI</a>
    *     in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          </note>
    *
@@ -1006,7 +1006,7 @@ export interface ComputeResource {
   /**
    * <p>Provides information that's used to select Amazon Machine Images (AMIs) for Amazon EC2 instances
    *    in the compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
-   *     <code>ECS_AL2</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
+   *     <code>ECS_AL2023</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
    *          <p>One or two values can be provided.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
@@ -3074,6 +3074,37 @@ export interface Host {
 }
 
 /**
+ * <p>This is used when you're using an S3Files file system for job storage.</p>
+ * @public
+ */
+export interface S3FilesVolumeConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3Files file system to use.</p>
+   * @public
+   */
+  fileSystemArn: string | undefined;
+
+  /**
+   * <p>The directory within the S3Files file system to mount as the root directory.</p>
+   * @public
+   */
+  rootDirectory?: string | undefined;
+
+  /**
+   * <p>The port to use when sending encrypted data between the Amazon ECS host and the S3Files file system
+   *    server.</p>
+   * @public
+   */
+  transitEncryptionPort?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3Files access point to use.</p>
+   * @public
+   */
+  accessPointArn?: string | undefined;
+}
+
+/**
  * <p>A data volume that's used in a job's container properties.</p>
  * @public
  */
@@ -3106,6 +3137,12 @@ export interface Volume {
    * @public
    */
   efsVolumeConfiguration?: EFSVolumeConfiguration | undefined;
+
+  /**
+   * <p>This parameter is specified when you're using an S3Files file system for job storage.</p>
+   * @public
+   */
+  s3filesVolumeConfiguration?: S3FilesVolumeConfiguration | undefined;
 }
 
 /**
@@ -3712,6 +3749,27 @@ export interface TaskContainerProperties {
    * @public
    */
   user?: string | undefined;
+
+  /**
+   * <p>Time duration (in seconds) to wait before giving up on resolving dependencies for a
+   *    container. The minimum value is 2 seconds and the maximum value for Fargate is 120
+   *    seconds.</p>
+   * @public
+   */
+  startTimeout?: number | undefined;
+
+  /**
+   * <p>Time duration (in seconds) to wait before the container is forcefully killed if it doesn't
+   *    exit normally on its own. The minimum value is 2 seconds and the maximum value for Fargate is
+   *    120 seconds. If the parameter is not specified, the default value of 30 seconds is used. For
+   *    tasks that use the EC2 launch type, if the <code>stopTimeout</code> parameter isn't specified,
+   *    the value set for the Amazon ECS container agent configuration variable
+   *     <code>ECS_CONTAINER_STOP_TIMEOUT</code> is used. If neither the <code>stopTimeout</code>
+   *    parameter nor the <code>ECS_CONTAINER_STOP_TIMEOUT</code> agent configuration variable are set,
+   *    then the default value of 30 seconds is used.</p>
+   * @public
+   */
+  stopTimeout?: number | undefined;
 }
 
 /**
@@ -5536,6 +5594,27 @@ export interface TaskContainerDetails {
    * @public
    */
   user?: string | undefined;
+
+  /**
+   * <p>Time duration (in seconds) to wait before giving up on resolving dependencies for a
+   *    container. The minimum value is 2 seconds and the maximum value for Fargate is 120
+   *    seconds.</p>
+   * @public
+   */
+  startTimeout?: number | undefined;
+
+  /**
+   * <p>Time duration (in seconds) to wait before the container is forcefully killed if it doesn't
+   *    exit normally on its own. The minimum value is 2 seconds and the maximum value for Fargate is
+   *    120 seconds. If the parameter is not specified, the default value of 30 seconds is used. For
+   *    tasks that use the EC2 launch type, if the <code>stopTimeout</code> parameter isn't specified,
+   *    the value set for the Amazon ECS container agent configuration variable
+   *     <code>ECS_CONTAINER_STOP_TIMEOUT</code> is used. If neither the <code>stopTimeout</code>
+   *    parameter nor the <code>ECS_CONTAINER_STOP_TIMEOUT</code> agent configuration variable are set,
+   *    then the default value of 30 seconds is used.</p>
+   * @public
+   */
+  stopTimeout?: number | undefined;
 
   /**
    * <p>The exit code returned upon completion.</p>
@@ -9370,7 +9449,7 @@ export interface ComputeResourceUpdate {
   /**
    * <p>Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the
    *    compute environment. If <code>Ec2Configuration</code> isn't specified, the default is
-   *     <code>ECS_AL2</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
+   *     <code>ECS_AL2023</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
    *          <p>When updating a compute environment, changing this setting requires an infrastructure update
    *    of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
    *     <i>Batch User Guide</i>. To remove the Amazon EC2 configuration and any custom AMI ID
@@ -9431,8 +9510,8 @@ export interface ComputeResourceUpdate {
    *             <p>The AMI that you choose for a compute environment must match the architecture of the instance types that
    *     you intend to use for that compute environment. For example, if your compute environment uses A1 instance types,
    *     the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the
-   *     Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
-   *     Amazon Linux 2 AMI</a>
+   *     Amazon ECS-optimized Amazon Linux 2023 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
+   *     Amazon Linux 2023 AMI</a>
    *     in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          </note>
    * @public

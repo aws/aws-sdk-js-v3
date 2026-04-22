@@ -96,6 +96,12 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 iam: "ENABLED" || "DISABLED",
  * //               },
  * //             },
+ * //             s3filesVolumeConfiguration: { // S3FilesVolumeConfiguration
+ * //               fileSystemArn: "STRING_VALUE", // required
+ * //               rootDirectory: "STRING_VALUE",
+ * //               transitEncryptionPort: Number("int"),
+ * //               accessPointArn: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         environment: [ // EnvironmentVariables
@@ -222,6 +228,12 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                       iam: "ENABLED" || "DISABLED",
  * //                     },
  * //                   },
+ * //                   s3filesVolumeConfiguration: {
+ * //                     fileSystemArn: "STRING_VALUE", // required
+ * //                     rootDirectory: "STRING_VALUE",
+ * //                     transitEncryptionPort: Number("int"),
+ * //                     accessPointArn: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               ],
  * //               environment: [
@@ -335,6 +347,8 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                       secrets: "<SecretList>",
  * //                       ulimits: "<Ulimits>",
  * //                       user: "STRING_VALUE",
+ * //                       startTimeout: Number("int"),
+ * //                       stopTimeout: Number("int"),
  * //                     },
  * //                   ],
  * //                   ephemeralStorage: "<EphemeralStorage>",
@@ -520,6 +534,8 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 secrets: "<SecretList>",
  * //                 ulimits: "<Ulimits>",
  * //                 user: "STRING_VALUE",
+ * //                 startTimeout: Number("int"),
+ * //                 stopTimeout: Number("int"),
  * //               },
  * //             ],
  * //             ephemeralStorage: "<EphemeralStorage>",
