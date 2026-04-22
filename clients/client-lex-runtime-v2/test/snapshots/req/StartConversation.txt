@@ -1,0 +1,884 @@
+POST https://runtime-v2-lex.us-east-1.amazonaws.com 
+/bots/__botId__/botAliases/__botAliasId__/botLocales/__localeId__/sessions/__sessionId__/conversation
+
+x-amz-lex-conversation-mode: __conversationMode__
+content-type: application/vnd.amazon.eventstream
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lex-runtime-v2#_.__ m/E,e
+host: runtime-v2-lex.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lex/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-lex-conversation-mode;x-amz-user-agent, Signature=***
+
+[async_iterable (PassThrough)]
+
+[chunk (event-stream object view)]
+  [total-size] 7326 [header-size] 67 [prelude-crc] 2429916370
+    [total-size] 7243 [header-size] 88 [prelude-crc] 1537584407
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 192,43,81,59,76,46,233,237,124,199,217,209,184,131,90,44,243,197,236,115,53,182,29,119,196,216,55,165,149,140,111,54 (binary)
+
+:event-type: ConfigurationEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "responseContentType": "__responseContentType__",
+  "requestAttributes": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  },
+  "sessionState": {
+    "dialogAction": {
+      "type": "__type__",
+      "slotToElicit": "__slotToElicit__",
+      "slotElicitationStyle": "__slotElicitationStyle__",
+      "subSlotToElicit": {
+        "name": "__name__",
+        "subSlotToElicit": {
+          "name": "__name__",
+          "subSlotToElicit": {}
+        }
+      }
+    },
+    "intent": {
+      "name": "__name__",
+      "slots": {
+        "key1": {
+          "value": {
+            "interpretedValue": "__interpretedValue__",
+            "originalValue": "__originalValue__",
+            "resolvedValues": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "shape": "__shape__",
+          "values": [
+            {},
+            {},
+            {}
+          ],
+          "subSlots": {
+            "key1": {},
+            "key2": {},
+            "key3": {}
+          }
+        },
+        "key2": {
+          "value": {
+            "interpretedValue": "__interpretedValue__",
+            "originalValue": "__originalValue__",
+            "resolvedValues": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "shape": "__shape__",
+          "values": [
+            {},
+            {},
+            {}
+          ],
+          "subSlots": {
+            "key1": {},
+            "key2": {},
+            "key3": {}
+          }
+        },
+        "key3": {
+          "value": {
+            "interpretedValue": "__interpretedValue__",
+            "originalValue": "__originalValue__",
+            "resolvedValues": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "shape": "__shape__",
+          "values": [
+            {},
+            {},
+            {}
+          ],
+          "subSlots": {
+            "key1": {},
+            "key2": {},
+            "key3": {}
+          }
+        }
+      },
+      "state": "__state__",
+      "confirmationState": "__confirmationState__"
+    },
+    "activeContexts": [
+      {
+        "name": "__name__",
+        "timeToLive": {
+          "timeToLiveInSeconds": 0,
+          "turnsToLive": 0
+        },
+        "contextAttributes": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      {
+        "name": "__name__",
+        "timeToLive": {
+          "timeToLiveInSeconds": 0,
+          "turnsToLive": 0
+        },
+        "contextAttributes": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      {
+        "name": "__name__",
+        "timeToLive": {
+          "timeToLiveInSeconds": 0,
+          "turnsToLive": 0
+        },
+        "contextAttributes": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      }
+    ],
+    "sessionAttributes": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
+    },
+    "originatingRequestId": "__originatingRequestId__",
+    "runtimeHints": {
+      "slotHints": {
+        "key1": {
+          "key1": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key2": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key3": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          }
+        },
+        "key2": {
+          "key1": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key2": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key3": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          }
+        },
+        "key3": {
+          "key1": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key2": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key3": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "welcomeMessages": [
+    {
+      "contentType": "__contentType__",
+      "content": "__content__",
+      "imageResponseCard": {
+        "title": "__title__",
+        "subtitle": "__subtitle__",
+        "imageUrl": "__imageUrl__",
+        "buttons": [
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          }
+        ]
+      }
+    },
+    {
+      "contentType": "__contentType__",
+      "content": "__content__",
+      "imageResponseCard": {
+        "title": "__title__",
+        "subtitle": "__subtitle__",
+        "imageUrl": "__imageUrl__",
+        "buttons": [
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          }
+        ]
+      }
+    },
+    {
+      "contentType": "__contentType__",
+      "content": "__content__",
+      "imageResponseCard": {
+        "title": "__title__",
+        "subtitle": "__subtitle__",
+        "imageUrl": "__imageUrl__",
+        "buttons": [
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          }
+        ]
+      }
+    }
+  ],
+  "disablePlayback": false,
+  "eventId": "__eventId__",
+  "clientTimestampMillis": 0
+}
+
+  [message-crc] 1015358807
+[message-crc] 3937137581
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 291 [header-size] 67 [prelude-crc] 3351922994
+    [total-size] 208 [header-size] 85 [prelude-crc] 4157998411
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 25,1,164,158,80,124,162,45,64,90,180,80,14,231,2,245,213,52,224,175,244,200,103,238,241,136,113,94,46,40,39,208 (binary)
+
+:event-type: AudioInputEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "contentType": "__contentType__",
+  "audioChunk": "AQAAAQ==",
+  "eventId": "__eventId__",
+  "clientTimestampMillis": 0
+}
+
+  [message-crc] 139736803
+[message-crc] 846123445
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 272 [header-size] 67 [prelude-crc] 558599012
+    [total-size] 189 [header-size] 84 [prelude-crc] 3782444577
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 56,251,185,243,136,31,189,73,190,83,73,86,124,57,111,226,126,85,239,171,44,31,121,27,235,209,185,198,242,96,157,134 (binary)
+
+:event-type: DTMFInputEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "inputCharacter": "__inputCharacter__",
+  "eventId": "__eventId__",
+  "clientTimestampMillis": 0
+}
+
+  [message-crc] 1387295631
+[message-crc] 866445318
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 252 [header-size] 67 [prelude-crc] 120812063
+    [total-size] 169 [header-size] 84 [prelude-crc] 1947449187
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 96,249,171,40,91,64,37,178,148,207,104,44,150,226,167,130,4,5,239,131,219,240,5,235,145,205,229,116,235,128,219,168 (binary)
+
+:event-type: TextInputEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "text": "__text__",
+  "eventId": "__eventId__",
+  "clientTimestampMillis": 0
+}
+
+  [message-crc] 585285566
+[message-crc] 361424860
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 243 [header-size] 67 [prelude-crc] 2237916622
+    [total-size] 160 [header-size] 93 [prelude-crc] 14642614
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 71,126,213,249,49,46,227,232,63,98,253,174,85,27,138,182,117,185,86,227,59,115,234,238,178,241,205,243,11,20,105,49 (binary)
+
+:event-type: PlaybackCompletionEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "eventId": "__eventId__",
+  "clientTimestampMillis": 0
+}
+
+  [message-crc] 886688945
+[message-crc] 3327502290
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 238 [header-size] 67 [prelude-crc] 487831293
+    [total-size] 155 [header-size] 88 [prelude-crc] 2789478574
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 94,8,38,123,45,102,120,117,234,97,179,20,153,99,244,177,110,123,185,137,154,14,214,39,93,14,117,208,255,150,142,156 (binary)
+
+:event-type: DisconnectionEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "eventId": "__eventId__",
+  "clientTimestampMillis": 0
+}
+
+  [message-crc] 3306631169
+[message-crc] 1081120907
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 83 [header-size] 67 [prelude-crc] 4114905688
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 95,96,127,242,85,18,18,111,188,203,91,75,198,173,139,12,68,140,81,49,56,181,69,180,105,48,132,22,167,228,146,103 (binary)
+
+[empty]
+
+
+[message-crc] 904141516
+============================================================
+
+

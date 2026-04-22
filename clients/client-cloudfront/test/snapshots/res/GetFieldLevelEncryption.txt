@@ -1,0 +1,120 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<FieldLevelEncryption xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <FieldLevelEncryptionConfig>
+        <CallerReference>
+            __CallerReference__
+        </CallerReference>
+        <Comment>
+            __Comment__
+        </Comment>
+        <QueryArgProfileConfig>
+            <ForwardWhenQueryArgProfileIsUnknown>
+                false
+            </ForwardWhenQueryArgProfileIsUnknown>
+            <QueryArgProfiles>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <QueryArgProfile/>
+<QueryArgProfile/>
+<QueryArgProfile/>
+                </Items>
+            </QueryArgProfiles>
+        </QueryArgProfileConfig>
+        <ContentTypeProfileConfig>
+            <ForwardWhenContentTypeIsUnknown>
+                false
+            </ForwardWhenContentTypeIsUnknown>
+            <ContentTypeProfiles>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <ContentTypeProfile/>
+<ContentTypeProfile/>
+<ContentTypeProfile/>
+                </Items>
+            </ContentTypeProfiles>
+        </ContentTypeProfileConfig>
+    </FieldLevelEncryptionConfig>
+</FieldLevelEncryption>
+
+
+--- [output object] ---
+{
+  FieldLevelEncryption: {
+    Id: "__Id__",
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    FieldLevelEncryptionConfig: {
+      CallerReference: "__CallerReference__",
+      Comment: "__Comment__",
+      QueryArgProfileConfig: {
+        ForwardWhenQueryArgProfileIsUnknown: (boolean) false,
+        QueryArgProfiles: {
+          Quantity: (number) 0,
+          Items: [
+            {},
+            {},
+            {}
+          ]
+        }
+      },
+      ContentTypeProfileConfig: {
+        ForwardWhenContentTypeIsUnknown: (boolean) false,
+        ContentTypeProfiles: {
+          Quantity: (number) 0,
+          Items: [
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,44 @@
+POST https://cloudfront.amazonaws.com 
+/2020-05-31/trust-store
+
+content-type: application/xml
+content-length: 436
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: b14a2db04425aacb34e20c0ff0406aa7492babc9fb6935a163fae9e463034691
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateTrustStoreRequest xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <Name>
+        __Name__
+    </Name>
+    <CaCertificatesBundleSource>
+        <CaCertificatesBundleS3Location>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Key>
+                __Key__
+            </Key>
+            <Region>
+                __Region__
+            </Region>
+            <Version>
+                __Version__
+            </Version>
+        </CaCertificatesBundleS3Location>
+    </CaCertificatesBundleSource>
+    <Tags>
+        <Items>
+            <Tag/>
+<Tag/>
+<Tag/>
+        </Items>
+    </Tags>
+</CreateTrustStoreRequest>

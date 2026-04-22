@@ -1,0 +1,87 @@
+POST https://cloudfront.amazonaws.com 
+/2020-05-31/origin-request-policy
+
+content-type: application/xml
+content-length: 856
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 91ae13327a65ce9c879868e340c255a9415713ba177f9d032c412c0e47060a6e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<OriginRequestPolicyConfig xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <Name>
+        __Name__
+    </Name>
+    <HeadersConfig>
+        <HeaderBehavior>
+            __HeaderBehavior__
+        </HeaderBehavior>
+        <Headers>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Name>
+                    __member__
+                </Name>
+                <Name>
+                    __member__
+                </Name>
+                <Name>
+                    __member__
+                </Name>
+            </Items>
+        </Headers>
+    </HeadersConfig>
+    <CookiesConfig>
+        <CookieBehavior>
+            __CookieBehavior__
+        </CookieBehavior>
+        <Cookies>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Name>
+                    __member__
+                </Name>
+                <Name>
+                    __member__
+                </Name>
+                <Name>
+                    __member__
+                </Name>
+            </Items>
+        </Cookies>
+    </CookiesConfig>
+    <QueryStringsConfig>
+        <QueryStringBehavior>
+            __QueryStringBehavior__
+        </QueryStringBehavior>
+        <QueryStrings>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <Name>
+                    __member__
+                </Name>
+                <Name>
+                    __member__
+                </Name>
+                <Name>
+                    __member__
+                </Name>
+            </Items>
+        </QueryStrings>
+    </QueryStringsConfig>
+    <Comment>
+        __Comment__
+    </Comment>
+</OriginRequestPolicyConfig>

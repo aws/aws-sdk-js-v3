@@ -1,0 +1,2331 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  responseEventStream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 208 [header-size] 95 [prelude-crc] 386133077
+:event-type: PlaybackInterruptionEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "eventReason": "__eventReason__",
+  "causedByEventId": "__causedByEventId__",
+  "eventId": "__eventId__"
+}
+
+[message-crc] 3134694395
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 156 [header-size] 85 [prelude-crc] 1792389123
+:event-type: TranscriptEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "transcript": "__transcript__",
+  "eventId": "__eventId__"
+}
+
+[message-crc] 544800549
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 9458 [header-size] 87 [prelude-crc] 1055153955
+:event-type: IntentResultEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "inputMode": "__inputMode__",
+  "interpretations": [
+    {
+      "nluConfidence": {
+        "score": 0
+      },
+      "sentimentResponse": {
+        "sentiment": "__sentiment__",
+        "sentimentScore": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 0,
+          "mixed": 0
+        }
+      },
+      "intent": {
+        "name": "__name__",
+        "slots": {
+          "key1": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          },
+          "key2": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          },
+          "key3": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          }
+        },
+        "state": "__state__",
+        "confirmationState": "__confirmationState__"
+      },
+      "interpretationSource": "__interpretationSource__"
+    },
+    {
+      "nluConfidence": {
+        "score": 0
+      },
+      "sentimentResponse": {
+        "sentiment": "__sentiment__",
+        "sentimentScore": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 0,
+          "mixed": 0
+        }
+      },
+      "intent": {
+        "name": "__name__",
+        "slots": {
+          "key1": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          },
+          "key2": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          },
+          "key3": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          }
+        },
+        "state": "__state__",
+        "confirmationState": "__confirmationState__"
+      },
+      "interpretationSource": "__interpretationSource__"
+    },
+    {
+      "nluConfidence": {
+        "score": 0
+      },
+      "sentimentResponse": {
+        "sentiment": "__sentiment__",
+        "sentimentScore": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 0,
+          "mixed": 0
+        }
+      },
+      "intent": {
+        "name": "__name__",
+        "slots": {
+          "key1": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          },
+          "key2": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          },
+          "key3": {
+            "value": {
+              "interpretedValue": "__interpretedValue__",
+              "originalValue": "__originalValue__",
+              "resolvedValues": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            "shape": "__shape__",
+            "values": [
+              {},
+              {},
+              {}
+            ],
+            "subSlots": {
+              "key1": {},
+              "key2": {},
+              "key3": {}
+            }
+          }
+        },
+        "state": "__state__",
+        "confirmationState": "__confirmationState__"
+      },
+      "interpretationSource": "__interpretationSource__"
+    }
+  ],
+  "sessionState": {
+    "dialogAction": {
+      "type": "__type__",
+      "slotToElicit": "__slotToElicit__",
+      "slotElicitationStyle": "__slotElicitationStyle__",
+      "subSlotToElicit": {
+        "name": "__name__",
+        "subSlotToElicit": {
+          "name": "__name__",
+          "subSlotToElicit": {}
+        }
+      }
+    },
+    "intent": {
+      "name": "__name__",
+      "slots": {
+        "key1": {
+          "value": {
+            "interpretedValue": "__interpretedValue__",
+            "originalValue": "__originalValue__",
+            "resolvedValues": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "shape": "__shape__",
+          "values": [
+            {},
+            {},
+            {}
+          ],
+          "subSlots": {
+            "key1": {},
+            "key2": {},
+            "key3": {}
+          }
+        },
+        "key2": {
+          "value": {
+            "interpretedValue": "__interpretedValue__",
+            "originalValue": "__originalValue__",
+            "resolvedValues": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "shape": "__shape__",
+          "values": [
+            {},
+            {},
+            {}
+          ],
+          "subSlots": {
+            "key1": {},
+            "key2": {},
+            "key3": {}
+          }
+        },
+        "key3": {
+          "value": {
+            "interpretedValue": "__interpretedValue__",
+            "originalValue": "__originalValue__",
+            "resolvedValues": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "shape": "__shape__",
+          "values": [
+            {},
+            {},
+            {}
+          ],
+          "subSlots": {
+            "key1": {},
+            "key2": {},
+            "key3": {}
+          }
+        }
+      },
+      "state": "__state__",
+      "confirmationState": "__confirmationState__"
+    },
+    "activeContexts": [
+      {
+        "name": "__name__",
+        "timeToLive": {
+          "timeToLiveInSeconds": 0,
+          "turnsToLive": 0
+        },
+        "contextAttributes": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      {
+        "name": "__name__",
+        "timeToLive": {
+          "timeToLiveInSeconds": 0,
+          "turnsToLive": 0
+        },
+        "contextAttributes": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      {
+        "name": "__name__",
+        "timeToLive": {
+          "timeToLiveInSeconds": 0,
+          "turnsToLive": 0
+        },
+        "contextAttributes": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      }
+    ],
+    "sessionAttributes": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
+    },
+    "originatingRequestId": "__originatingRequestId__",
+    "runtimeHints": {
+      "slotHints": {
+        "key1": {
+          "key1": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key2": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key3": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          }
+        },
+        "key2": {
+          "key1": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key2": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key3": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          }
+        },
+        "key3": {
+          "key1": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key2": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          },
+          "key3": {
+            "runtimeHintValues": [
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              },
+              {
+                "phrase": "__phrase__"
+              }
+            ],
+            "subSlotHints": {
+              "key1": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key2": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              },
+              "key3": {
+                "runtimeHintValues": [
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  },
+                  {
+                    "phrase": "__phrase__"
+                  }
+                ],
+                "subSlotHints": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "requestAttributes": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  },
+  "sessionId": "__sessionId__",
+  "eventId": "__eventId__",
+  "recognizedBotMember": {
+    "botId": "__botId__",
+    "botName": "__botName__"
+  }
+}
+
+[message-crc] 762563510
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 993 [header-size] 87 [prelude-crc] 51218431
+:event-type: TextResponseEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "messages": [
+    {
+      "contentType": "__contentType__",
+      "content": "__content__",
+      "imageResponseCard": {
+        "title": "__title__",
+        "subtitle": "__subtitle__",
+        "imageUrl": "__imageUrl__",
+        "buttons": [
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          }
+        ]
+      }
+    },
+    {
+      "contentType": "__contentType__",
+      "content": "__content__",
+      "imageResponseCard": {
+        "title": "__title__",
+        "subtitle": "__subtitle__",
+        "imageUrl": "__imageUrl__",
+        "buttons": [
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          }
+        ]
+      }
+    },
+    {
+      "contentType": "__contentType__",
+      "content": "__content__",
+      "imageResponseCard": {
+        "title": "__title__",
+        "subtitle": "__subtitle__",
+        "imageUrl": "__imageUrl__",
+        "buttons": [
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          },
+          {
+            "text": "__text__",
+            "value": "__value__"
+          }
+        ]
+      }
+    }
+  ],
+  "eventId": "__eventId__"
+}
+
+[message-crc] 1893218713
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 185 [header-size] 88 [prelude-crc] 491089098
+:event-type: AudioResponseEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "audioChunk": "AQAAAQ==",
+  "contentType": "__contentType__",
+  "eventId": "__eventId__"
+}
+
+[message-crc] 2684664253
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 125 [header-size] 84 [prelude-crc] 140930810
+:event-type: HeartbeatEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "eventId": "__eventId__"
+}
+
+[message-crc] 2086263709
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 132 [header-size] 91 [prelude-crc] 3724362055
+:event-type: AccessDeniedException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 341376562
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 136 [header-size] 95 [prelude-crc] 526411871
+:event-type: ResourceNotFoundException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 2307375396
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: ValidationException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3240994201
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: ThrottlingException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3184925585
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 134 [header-size] 93 [prelude-crc] 1314830098
+:event-type: InternalServerException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1614410970
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 128 [header-size] 87 [prelude-crc] 566995884
+:event-type: ConflictException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1401377452
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 136 [header-size] 95 [prelude-crc] 526411871
+:event-type: DependencyFailedException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3501739922
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: BadGatewayException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 294062921
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  responseEventStream: async_it[
+    {
+      PlaybackInterruptionEvent: {
+        eventReason: "__eventReason__",
+        causedByEventId: "__causedByEventId__",
+        eventId: "__eventId__"
+      }
+    },
+    {
+      TranscriptEvent: {
+        transcript: "__transcript__",
+        eventId: "__eventId__"
+      }
+    },
+    {
+      IntentResultEvent: {
+        inputMode: "__inputMode__",
+        interpretations: [
+          {
+            nluConfidence: {
+              score: (number) 0
+            },
+            sentimentResponse: {
+              sentiment: "__sentiment__",
+              sentimentScore: {
+                positive: (number) 0,
+                negative: (number) 0,
+                neutral: (number) 0,
+                mixed: (number) 0
+              }
+            },
+            intent: {
+              name: "__name__",
+              slots: {
+                key1: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                },
+                key2: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                },
+                key3: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                }
+              },
+              state: "__state__",
+              confirmationState: "__confirmationState__"
+            },
+            interpretationSource: "__interpretationSource__"
+          },
+          {
+            nluConfidence: {
+              score: (number) 0
+            },
+            sentimentResponse: {
+              sentiment: "__sentiment__",
+              sentimentScore: {
+                positive: (number) 0,
+                negative: (number) 0,
+                neutral: (number) 0,
+                mixed: (number) 0
+              }
+            },
+            intent: {
+              name: "__name__",
+              slots: {
+                key1: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                },
+                key2: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                },
+                key3: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                }
+              },
+              state: "__state__",
+              confirmationState: "__confirmationState__"
+            },
+            interpretationSource: "__interpretationSource__"
+          },
+          {
+            nluConfidence: {
+              score: (number) 0
+            },
+            sentimentResponse: {
+              sentiment: "__sentiment__",
+              sentimentScore: {
+                positive: (number) 0,
+                negative: (number) 0,
+                neutral: (number) 0,
+                mixed: (number) 0
+              }
+            },
+            intent: {
+              name: "__name__",
+              slots: {
+                key1: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                },
+                key2: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                },
+                key3: {
+                  value: {
+                    interpretedValue: "__interpretedValue__",
+                    originalValue: "__originalValue__",
+                    resolvedValues: [
+                      "__member__",
+                      "__member__",
+                      "__member__"
+                    ]
+                  },
+                  shape: "__shape__",
+                  values: [
+                    {},
+                    {},
+                    {}
+                  ],
+                  subSlots: {
+                    key1: {},
+                    key2: {},
+                    key3: {}
+                  }
+                }
+              },
+              state: "__state__",
+              confirmationState: "__confirmationState__"
+            },
+            interpretationSource: "__interpretationSource__"
+          }
+        ],
+        sessionState: {
+          dialogAction: {
+            type: "__type__",
+            slotToElicit: "__slotToElicit__",
+            slotElicitationStyle: "__slotElicitationStyle__",
+            subSlotToElicit: {
+              name: "__name__",
+              subSlotToElicit: {
+                name: "__name__",
+                subSlotToElicit: {}
+              }
+            }
+          },
+          intent: {
+            name: "__name__",
+            slots: {
+              key1: {
+                value: {
+                  interpretedValue: "__interpretedValue__",
+                  originalValue: "__originalValue__",
+                  resolvedValues: [
+                    "__member__",
+                    "__member__",
+                    "__member__"
+                  ]
+                },
+                shape: "__shape__",
+                values: [
+                  {},
+                  {},
+                  {}
+                ],
+                subSlots: {
+                  key1: {},
+                  key2: {},
+                  key3: {}
+                }
+              },
+              key2: {
+                value: {
+                  interpretedValue: "__interpretedValue__",
+                  originalValue: "__originalValue__",
+                  resolvedValues: [
+                    "__member__",
+                    "__member__",
+                    "__member__"
+                  ]
+                },
+                shape: "__shape__",
+                values: [
+                  {},
+                  {},
+                  {}
+                ],
+                subSlots: {
+                  key1: {},
+                  key2: {},
+                  key3: {}
+                }
+              },
+              key3: {
+                value: {
+                  interpretedValue: "__interpretedValue__",
+                  originalValue: "__originalValue__",
+                  resolvedValues: [
+                    "__member__",
+                    "__member__",
+                    "__member__"
+                  ]
+                },
+                shape: "__shape__",
+                values: [
+                  {},
+                  {},
+                  {}
+                ],
+                subSlots: {
+                  key1: {},
+                  key2: {},
+                  key3: {}
+                }
+              }
+            },
+            state: "__state__",
+            confirmationState: "__confirmationState__"
+          },
+          activeContexts: [
+            {
+              name: "__name__",
+              timeToLive: {
+                timeToLiveInSeconds: (number) 0,
+                turnsToLive: (number) 0
+              },
+              contextAttributes: {
+                key1: "__value__",
+                key2: "__value__",
+                key3: "__value__"
+              }
+            },
+            {
+              name: "__name__",
+              timeToLive: {
+                timeToLiveInSeconds: (number) 0,
+                turnsToLive: (number) 0
+              },
+              contextAttributes: {
+                key1: "__value__",
+                key2: "__value__",
+                key3: "__value__"
+              }
+            },
+            {
+              name: "__name__",
+              timeToLive: {
+                timeToLiveInSeconds: (number) 0,
+                turnsToLive: (number) 0
+              },
+              contextAttributes: {
+                key1: "__value__",
+                key2: "__value__",
+                key3: "__value__"
+              }
+            }
+          ],
+          sessionAttributes: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          },
+          originatingRequestId: "__originatingRequestId__",
+          runtimeHints: {
+            slotHints: {
+              key1: {
+                key1: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                },
+                key2: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                },
+                key3: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                }
+              },
+              key2: {
+                key1: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                },
+                key2: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                },
+                key3: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                }
+              },
+              key3: {
+                key1: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                },
+                key2: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                },
+                key3: {
+                  runtimeHintValues: [
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    },
+                    {
+                      phrase: "__phrase__"
+                    }
+                  ],
+                  subSlotHints: {
+                    key1: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key2: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    },
+                    key3: {
+                      runtimeHintValues: [
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        },
+                        {
+                          phrase: "__phrase__"
+                        }
+                      ],
+                      subSlotHints: {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        requestAttributes: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        },
+        sessionId: "__sessionId__",
+        eventId: "__eventId__",
+        recognizedBotMember: {
+          botId: "__botId__",
+          botName: "__botName__"
+        }
+      }
+    },
+    {
+      TextResponseEvent: {
+        messages: [
+          {
+            contentType: "__contentType__",
+            content: "__content__",
+            imageResponseCard: {
+              title: "__title__",
+              subtitle: "__subtitle__",
+              imageUrl: "__imageUrl__",
+              buttons: [
+                {
+                  text: "__text__",
+                  value: "__value__"
+                },
+                {
+                  text: "__text__",
+                  value: "__value__"
+                },
+                {
+                  text: "__text__",
+                  value: "__value__"
+                }
+              ]
+            }
+          },
+          {
+            contentType: "__contentType__",
+            content: "__content__",
+            imageResponseCard: {
+              title: "__title__",
+              subtitle: "__subtitle__",
+              imageUrl: "__imageUrl__",
+              buttons: [
+                {
+                  text: "__text__",
+                  value: "__value__"
+                },
+                {
+                  text: "__text__",
+                  value: "__value__"
+                },
+                {
+                  text: "__text__",
+                  value: "__value__"
+                }
+              ]
+            }
+          },
+          {
+            contentType: "__contentType__",
+            content: "__content__",
+            imageResponseCard: {
+              title: "__title__",
+              subtitle: "__subtitle__",
+              imageUrl: "__imageUrl__",
+              buttons: [
+                {
+                  text: "__text__",
+                  value: "__value__"
+                },
+                {
+                  text: "__text__",
+                  value: "__value__"
+                },
+                {
+                  text: "__text__",
+                  value: "__value__"
+                }
+              ]
+            }
+          }
+        ],
+        eventId: "__eventId__"
+      }
+    },
+    {
+      AudioResponseEvent: {
+        audioChunk: (Uint8Array) bytes[1, 0, 0, 1],
+        contentType: "__contentType__",
+        eventId: "__eventId__"
+      }
+    },
+    {
+      HeartbeatEvent: {
+        eventId: "__eventId__"
+      }
+    },
+    {
+      AccessDeniedException: {
+        message: "__message__"
+      }
+    },
+    {
+      ResourceNotFoundException: {
+        message: "__message__"
+      }
+    },
+    {
+      ValidationException: {
+        message: "__message__"
+      }
+    },
+    {
+      ThrottlingException: {
+        message: "__message__"
+      }
+    },
+    {
+      InternalServerException: {
+        message: "__message__"
+      }
+    },
+    {
+      ConflictException: {
+        message: "__message__"
+      }
+    },
+    {
+      DependencyFailedException: {
+        message: "__message__"
+      }
+    },
+    {
+      BadGatewayException: {
+        message: "__message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "nextToken": "__nextToken__",
+  "subscriptions": [
+    {
+      "subscriptionId": "__subscriptionId__",
+      "subscriptionArn": "__subscriptionArn__",
+      "principal": {
+        "user": "__user__"
+      },
+      "currentSubscription": {
+        "type": "__type__"
+      },
+      "nextSubscription": {
+        "type": "__type__"
+      }
+    },
+    {
+      "subscriptionId": "__subscriptionId__",
+      "subscriptionArn": "__subscriptionArn__",
+      "principal": {
+        "group": "__group__"
+      },
+      "currentSubscription": {
+        "type": "__type__"
+      },
+      "nextSubscription": {
+        "type": "__type__"
+      }
+    },
+    {
+      "subscriptionId": "__subscriptionId__",
+      "subscriptionArn": "__subscriptionArn__",
+      "principal": {
+        "user": "__user__"
+      },
+      "currentSubscription": {
+        "type": "__type__"
+      },
+      "nextSubscription": {
+        "type": "__type__"
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  nextToken: "__nextToken__",
+  subscriptions: [
+    {
+      subscriptionId: "__subscriptionId__",
+      subscriptionArn: "__subscriptionArn__",
+      principal: {
+        user: "__user__"
+      },
+      currentSubscription: {
+        type: "__type__"
+      },
+      nextSubscription: {
+        type: "__type__"
+      }
+    },
+    {
+      subscriptionId: "__subscriptionId__",
+      subscriptionArn: "__subscriptionArn__",
+      principal: {
+        group: "__group__"
+      },
+      currentSubscription: {
+        type: "__type__"
+      },
+      nextSubscription: {
+        type: "__type__"
+      }
+    },
+    {
+      subscriptionId: "__subscriptionId__",
+      subscriptionArn: "__subscriptionArn__",
+      principal: {
+        user: "__user__"
+      },
+      currentSubscription: {
+        type: "__type__"
+      },
+      nextSubscription: {
+        type: "__type__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

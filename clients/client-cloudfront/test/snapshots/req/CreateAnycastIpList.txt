@@ -1,0 +1,78 @@
+POST https://cloudfront.amazonaws.com 
+/2020-05-31/anycast-ip-list
+
+content-type: application/xml
+content-length: 798
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 7145e4087fe93460095bc1f58054051743d479efea310c2e452db2f4f7636b93
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateAnycastIpListRequest xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <Name>
+        __Name__
+    </Name>
+    <IpCount>
+        0
+    </IpCount>
+    <Tags>
+        <Items>
+            <Tag/>
+<Tag/>
+<Tag/>
+        </Items>
+    </Tags>
+    <IpAddressType>
+        __IpAddressType__
+    </IpAddressType>
+    <IpamCidrConfigs>
+        <IpamCidrConfig>
+            <Cidr>
+                __Cidr__
+            </Cidr>
+            <IpamPoolArn>
+                __IpamPoolArn__
+            </IpamPoolArn>
+            <AnycastIp>
+                __AnycastIp__
+            </AnycastIp>
+            <Status>
+                __Status__
+            </Status>
+        </IpamCidrConfig>
+        <IpamCidrConfig>
+            <Cidr>
+                __Cidr__
+            </Cidr>
+            <IpamPoolArn>
+                __IpamPoolArn__
+            </IpamPoolArn>
+            <AnycastIp>
+                __AnycastIp__
+            </AnycastIp>
+            <Status>
+                __Status__
+            </Status>
+        </IpamCidrConfig>
+        <IpamCidrConfig>
+            <Cidr>
+                __Cidr__
+            </Cidr>
+            <IpamPoolArn>
+                __IpamPoolArn__
+            </IpamPoolArn>
+            <AnycastIp>
+                __AnycastIp__
+            </AnycastIp>
+            <Status>
+                __Status__
+            </Status>
+        </IpamCidrConfig>
+    </IpamCidrConfigs>
+</CreateAnycastIpListRequest>

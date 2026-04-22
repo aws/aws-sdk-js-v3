@@ -1,0 +1,586 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Operations": [
+    {
+      "Id": "__Id__",
+      "Type": "__Type__",
+      "StartTimestamp": 946702799.999,
+      "Status": "__Status__",
+      "ParentId": "__ParentId__",
+      "Name": "__Name__",
+      "SubType": "__SubType__",
+      "EndTimestamp": 946702799.999,
+      "ExecutionDetails": {},
+      "ContextDetails": {},
+      "StepDetails": {},
+      "WaitDetails": {},
+      "CallbackDetails": {},
+      "ChainedInvokeDetails": {}
+    },
+    {
+      "Id": "__Id__",
+      "Type": "__Type__",
+      "StartTimestamp": 946702799.999,
+      "Status": "__Status__",
+      "ParentId": "__ParentId__",
+      "Name": "__Name__",
+      "SubType": "__SubType__",
+      "EndTimestamp": 946702799.999,
+      "ExecutionDetails": {},
+      "ContextDetails": {},
+      "StepDetails": {},
+      "WaitDetails": {},
+      "CallbackDetails": {},
+      "ChainedInvokeDetails": {}
+    },
+    {
+      "Id": "__Id__",
+      "Type": "__Type__",
+      "StartTimestamp": 946702799.999,
+      "Status": "__Status__",
+      "ParentId": "__ParentId__",
+      "Name": "__Name__",
+      "SubType": "__SubType__",
+      "EndTimestamp": 946702799.999,
+      "ExecutionDetails": {},
+      "ContextDetails": {},
+      "StepDetails": {},
+      "WaitDetails": {},
+      "CallbackDetails": {},
+      "ChainedInvokeDetails": {}
+    }
+  ],
+  "NextMarker": "__NextMarker__"
+}
+
+
+--- [output object] ---
+{
+  Operations: [
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      ParentId: "__ParentId__",
+      Name: "__Name__",
+      SubType: "__SubType__",
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExecutionDetails: {},
+      ContextDetails: {},
+      StepDetails: {},
+      WaitDetails: {},
+      CallbackDetails: {},
+      ChainedInvokeDetails: {}
+    },
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      ParentId: "__ParentId__",
+      Name: "__Name__",
+      SubType: "__SubType__",
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExecutionDetails: {},
+      ContextDetails: {},
+      StepDetails: {},
+      WaitDetails: {},
+      CallbackDetails: {},
+      ChainedInvokeDetails: {}
+    },
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      ParentId: "__ParentId__",
+      Name: "__Name__",
+      SubType: "__SubType__",
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExecutionDetails: {},
+      ContextDetails: {},
+      StepDetails: {},
+      WaitDetails: {},
+      CallbackDetails: {},
+      ChainedInvokeDetails: {}
+    }
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Operations": [
+    {
+      "Id": "__Id__",
+      "Type": "__Type__",
+      "StartTimestamp": 946702799.999,
+      "Status": "__Status__",
+      "ParentId": "__ParentId__",
+      "Name": "__Name__",
+      "SubType": "__SubType__",
+      "EndTimestamp": 946702799.999,
+      "ExecutionDetails": {
+        "InputPayload": "__InputPayload__"
+      },
+      "ContextDetails": {
+        "ReplayChildren": false,
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "StepDetails": {
+        "Attempt": 0,
+        "NextAttemptTimestamp": 946702799.999,
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "WaitDetails": {
+        "ScheduledEndTimestamp": 946702799.999
+      },
+      "CallbackDetails": {
+        "CallbackId": "__CallbackId__",
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "ChainedInvokeDetails": {
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      "Id": "__Id__",
+      "Type": "__Type__",
+      "StartTimestamp": 946702799.999,
+      "Status": "__Status__",
+      "ParentId": "__ParentId__",
+      "Name": "__Name__",
+      "SubType": "__SubType__",
+      "EndTimestamp": 946702799.999,
+      "ExecutionDetails": {
+        "InputPayload": "__InputPayload__"
+      },
+      "ContextDetails": {
+        "ReplayChildren": false,
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "StepDetails": {
+        "Attempt": 0,
+        "NextAttemptTimestamp": 946702799.999,
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "WaitDetails": {
+        "ScheduledEndTimestamp": 946702799.999
+      },
+      "CallbackDetails": {
+        "CallbackId": "__CallbackId__",
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "ChainedInvokeDetails": {
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      "Id": "__Id__",
+      "Type": "__Type__",
+      "StartTimestamp": 946702799.999,
+      "Status": "__Status__",
+      "ParentId": "__ParentId__",
+      "Name": "__Name__",
+      "SubType": "__SubType__",
+      "EndTimestamp": 946702799.999,
+      "ExecutionDetails": {
+        "InputPayload": "__InputPayload__"
+      },
+      "ContextDetails": {
+        "ReplayChildren": false,
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "StepDetails": {
+        "Attempt": 0,
+        "NextAttemptTimestamp": 946702799.999,
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "WaitDetails": {
+        "ScheduledEndTimestamp": 946702799.999
+      },
+      "CallbackDetails": {
+        "CallbackId": "__CallbackId__",
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "ChainedInvokeDetails": {
+        "Result": "__Result__",
+        "Error": {
+          "ErrorMessage": "__ErrorMessage__",
+          "ErrorType": "__ErrorType__",
+          "ErrorData": "__ErrorData__",
+          "StackTrace": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    }
+  ],
+  "NextMarker": "__NextMarker__"
+}
+
+
+--- [output object] ---
+{
+  Operations: [
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      ParentId: "__ParentId__",
+      Name: "__Name__",
+      SubType: "__SubType__",
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExecutionDetails: {
+        InputPayload: "__InputPayload__"
+      },
+      ContextDetails: {
+        ReplayChildren: (boolean) false,
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      StepDetails: {
+        Attempt: (number) 0,
+        NextAttemptTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      WaitDetails: {
+        ScheduledEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      CallbackDetails: {
+        CallbackId: "__CallbackId__",
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      ChainedInvokeDetails: {
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      ParentId: "__ParentId__",
+      Name: "__Name__",
+      SubType: "__SubType__",
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExecutionDetails: {
+        InputPayload: "__InputPayload__"
+      },
+      ContextDetails: {
+        ReplayChildren: (boolean) false,
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      StepDetails: {
+        Attempt: (number) 0,
+        NextAttemptTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      WaitDetails: {
+        ScheduledEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      CallbackDetails: {
+        CallbackId: "__CallbackId__",
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      ChainedInvokeDetails: {
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      ParentId: "__ParentId__",
+      Name: "__Name__",
+      SubType: "__SubType__",
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExecutionDetails: {
+        InputPayload: "__InputPayload__"
+      },
+      ContextDetails: {
+        ReplayChildren: (boolean) false,
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      StepDetails: {
+        Attempt: (number) 0,
+        NextAttemptTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      WaitDetails: {
+        ScheduledEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      CallbackDetails: {
+        CallbackId: "__CallbackId__",
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      ChainedInvokeDetails: {
+        Result: "__Result__",
+        Error: {
+          ErrorMessage: "__ErrorMessage__",
+          ErrorType: "__ErrorType__",
+          ErrorData: "__ErrorData__",
+          StackTrace: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    }
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

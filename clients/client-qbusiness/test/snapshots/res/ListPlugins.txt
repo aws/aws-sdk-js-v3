@@ -1,0 +1,111 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "nextToken": "__nextToken__",
+  "plugins": [
+    {
+      "pluginId": "__pluginId__",
+      "displayName": "__displayName__",
+      "type": "__type__",
+      "serverUrl": "__serverUrl__",
+      "state": "__state__",
+      "buildStatus": "__buildStatus__",
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999
+    },
+    {
+      "pluginId": "__pluginId__",
+      "displayName": "__displayName__",
+      "type": "__type__",
+      "serverUrl": "__serverUrl__",
+      "state": "__state__",
+      "buildStatus": "__buildStatus__",
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999
+    },
+    {
+      "pluginId": "__pluginId__",
+      "displayName": "__displayName__",
+      "type": "__type__",
+      "serverUrl": "__serverUrl__",
+      "state": "__state__",
+      "buildStatus": "__buildStatus__",
+      "createdAt": 946702799.999,
+      "updatedAt": 946702799.999
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  nextToken: "__nextToken__",
+  plugins: [
+    {
+      pluginId: "__pluginId__",
+      displayName: "__displayName__",
+      type: "__type__",
+      serverUrl: "__serverUrl__",
+      state: "__state__",
+      buildStatus: "__buildStatus__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      pluginId: "__pluginId__",
+      displayName: "__displayName__",
+      type: "__type__",
+      serverUrl: "__serverUrl__",
+      state: "__state__",
+      buildStatus: "__buildStatus__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      pluginId: "__pluginId__",
+      displayName: "__displayName__",
+      type: "__type__",
+      serverUrl: "__serverUrl__",
+      state: "__state__",
+      buildStatus: "__buildStatus__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

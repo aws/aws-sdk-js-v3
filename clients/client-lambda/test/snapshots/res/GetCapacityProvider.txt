@@ -1,0 +1,204 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "CapacityProvider": {
+    "CapacityProviderArn": "__CapacityProviderArn__",
+    "State": "__State__",
+    "VpcConfig": {
+      "SubnetIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "PermissionsConfig": {
+      "CapacityProviderOperatorRoleArn": "__CapacityProviderOperatorRoleArn__"
+    },
+    "InstanceRequirements": {},
+    "CapacityProviderScalingConfig": {},
+    "KmsKeyArn": "__KmsKeyArn__",
+    "LastModified": "__LastModified__"
+  }
+}
+
+
+--- [output object] ---
+{
+  CapacityProvider: {
+    CapacityProviderArn: "__CapacityProviderArn__",
+    State: "__State__",
+    VpcConfig: {
+      SubnetIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    PermissionsConfig: {
+      CapacityProviderOperatorRoleArn: "__CapacityProviderOperatorRoleArn__"
+    },
+    InstanceRequirements: {},
+    CapacityProviderScalingConfig: {},
+    KmsKeyArn: "__KmsKeyArn__",
+    LastModified: "__LastModified__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "CapacityProvider": {
+    "CapacityProviderArn": "__CapacityProviderArn__",
+    "State": "__State__",
+    "VpcConfig": {
+      "SubnetIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "PermissionsConfig": {
+      "CapacityProviderOperatorRoleArn": "__CapacityProviderOperatorRoleArn__"
+    },
+    "InstanceRequirements": {
+      "Architectures": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AllowedInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ExcludedInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "CapacityProviderScalingConfig": {
+      "MaxVCpuCount": 0,
+      "ScalingMode": "__ScalingMode__",
+      "ScalingPolicies": [
+        {
+          "PredefinedMetricType": "__PredefinedMetricType__",
+          "TargetValue": 0
+        },
+        {
+          "PredefinedMetricType": "__PredefinedMetricType__",
+          "TargetValue": 0
+        },
+        {
+          "PredefinedMetricType": "__PredefinedMetricType__",
+          "TargetValue": 0
+        }
+      ]
+    },
+    "KmsKeyArn": "__KmsKeyArn__",
+    "LastModified": "__LastModified__"
+  }
+}
+
+
+--- [output object] ---
+{
+  CapacityProvider: {
+    CapacityProviderArn: "__CapacityProviderArn__",
+    State: "__State__",
+    VpcConfig: {
+      SubnetIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    PermissionsConfig: {
+      CapacityProviderOperatorRoleArn: "__CapacityProviderOperatorRoleArn__"
+    },
+    InstanceRequirements: {
+      Architectures: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AllowedInstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ExcludedInstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    CapacityProviderScalingConfig: {
+      MaxVCpuCount: (number) 0,
+      ScalingMode: "__ScalingMode__",
+      ScalingPolicies: [
+        {
+          PredefinedMetricType: "__PredefinedMetricType__",
+          TargetValue: (number) 0
+        },
+        {
+          PredefinedMetricType: "__PredefinedMetricType__",
+          TargetValue: (number) 0
+        },
+        {
+          PredefinedMetricType: "__PredefinedMetricType__",
+          TargetValue: (number) 0
+        }
+      ]
+    },
+    KmsKeyArn: "__KmsKeyArn__",
+    LastModified: "__LastModified__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

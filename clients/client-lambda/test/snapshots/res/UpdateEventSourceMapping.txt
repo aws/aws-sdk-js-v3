@@ -1,0 +1,381 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "UUID": "__UUID__",
+  "StartingPosition": "__StartingPosition__",
+  "StartingPositionTimestamp": 946702799.999,
+  "BatchSize": 0,
+  "MaximumBatchingWindowInSeconds": 0,
+  "ParallelizationFactor": 0,
+  "EventSourceArn": "__EventSourceArn__",
+  "FilterCriteria": {
+    "Filters": [
+      {},
+      {},
+      {}
+    ]
+  },
+  "FunctionArn": "__FunctionArn__",
+  "LastModified": 946702799.999,
+  "LastProcessingResult": "__LastProcessingResult__",
+  "State": "__State__",
+  "StateTransitionReason": "__StateTransitionReason__",
+  "DestinationConfig": {
+    "OnSuccess": {
+      "Destination": "__Destination__"
+    },
+    "OnFailure": {
+      "Destination": "__Destination__"
+    }
+  },
+  "Topics": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "Queues": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "SourceAccessConfigurations": [
+    {
+      "Type": "__Type__",
+      "URI": "__URI__"
+    },
+    {
+      "Type": "__Type__",
+      "URI": "__URI__"
+    },
+    {
+      "Type": "__Type__",
+      "URI": "__URI__"
+    }
+  ],
+  "SelfManagedEventSource": {
+    "Endpoints": {
+      "key1": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "key2": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "key3": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "MaximumRecordAgeInSeconds": 0,
+  "BisectBatchOnFunctionError": false,
+  "MaximumRetryAttempts": 0,
+  "TumblingWindowInSeconds": 0,
+  "FunctionResponseTypes": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "AmazonManagedKafkaEventSourceConfig": {
+    "ConsumerGroupId": "__ConsumerGroupId__",
+    "SchemaRegistryConfig": {
+      "SchemaRegistryURI": "__SchemaRegistryURI__",
+      "EventRecordFormat": "__EventRecordFormat__",
+      "AccessConfigs": [
+        {
+          "Type": "__Type__",
+          "URI": "__URI__"
+        },
+        {
+          "Type": "__Type__",
+          "URI": "__URI__"
+        },
+        {
+          "Type": "__Type__",
+          "URI": "__URI__"
+        }
+      ],
+      "SchemaValidationConfigs": [
+        {
+          "Attribute": "__Attribute__"
+        },
+        {
+          "Attribute": "__Attribute__"
+        },
+        {
+          "Attribute": "__Attribute__"
+        }
+      ]
+    }
+  },
+  "SelfManagedKafkaEventSourceConfig": {
+    "ConsumerGroupId": "__ConsumerGroupId__",
+    "SchemaRegistryConfig": {
+      "SchemaRegistryURI": "__SchemaRegistryURI__",
+      "EventRecordFormat": "__EventRecordFormat__",
+      "AccessConfigs": [
+        {
+          "Type": "__Type__",
+          "URI": "__URI__"
+        },
+        {
+          "Type": "__Type__",
+          "URI": "__URI__"
+        },
+        {
+          "Type": "__Type__",
+          "URI": "__URI__"
+        }
+      ],
+      "SchemaValidationConfigs": [
+        {
+          "Attribute": "__Attribute__"
+        },
+        {
+          "Attribute": "__Attribute__"
+        },
+        {
+          "Attribute": "__Attribute__"
+        }
+      ]
+    }
+  },
+  "ScalingConfig": {
+    "MaximumConcurrency": 0
+  },
+  "DocumentDBEventSourceConfig": {
+    "DatabaseName": "__DatabaseName__",
+    "CollectionName": "__CollectionName__",
+    "FullDocument": "__FullDocument__"
+  },
+  "KMSKeyArn": "__KMSKeyArn__",
+  "FilterCriteriaError": {
+    "ErrorCode": "__ErrorCode__",
+    "Message": "__Message__"
+  },
+  "EventSourceMappingArn": "__EventSourceMappingArn__",
+  "MetricsConfig": {
+    "Metrics": []
+  },
+  "LoggingConfig": {
+    "SystemLogLevel": "__SystemLogLevel__"
+  },
+  "ProvisionedPollerConfig": {
+    "MinimumPollers": 0,
+    "MaximumPollers": 0,
+    "PollerGroupName": "__PollerGroupName__"
+  }
+}
+
+
+--- [output object] ---
+{
+  UUID: "__UUID__",
+  StartingPosition: "__StartingPosition__",
+  StartingPositionTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  BatchSize: (number) 0,
+  MaximumBatchingWindowInSeconds: (number) 0,
+  ParallelizationFactor: (number) 0,
+  EventSourceArn: "__EventSourceArn__",
+  FilterCriteria: {
+    Filters: [
+      {},
+      {},
+      {}
+    ]
+  },
+  FunctionArn: "__FunctionArn__",
+  LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastProcessingResult: "__LastProcessingResult__",
+  State: "__State__",
+  StateTransitionReason: "__StateTransitionReason__",
+  DestinationConfig: {
+    OnSuccess: {
+      Destination: "__Destination__"
+    },
+    OnFailure: {
+      Destination: "__Destination__"
+    }
+  },
+  Topics: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  Queues: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  SourceAccessConfigurations: [
+    {
+      Type: "__Type__",
+      URI: "__URI__"
+    },
+    {
+      Type: "__Type__",
+      URI: "__URI__"
+    },
+    {
+      Type: "__Type__",
+      URI: "__URI__"
+    }
+  ],
+  SelfManagedEventSource: {
+    Endpoints: {
+      key1: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      key2: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      key3: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  MaximumRecordAgeInSeconds: (number) 0,
+  BisectBatchOnFunctionError: (boolean) false,
+  MaximumRetryAttempts: (number) 0,
+  TumblingWindowInSeconds: (number) 0,
+  FunctionResponseTypes: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  AmazonManagedKafkaEventSourceConfig: {
+    ConsumerGroupId: "__ConsumerGroupId__",
+    SchemaRegistryConfig: {
+      SchemaRegistryURI: "__SchemaRegistryURI__",
+      EventRecordFormat: "__EventRecordFormat__",
+      AccessConfigs: [
+        {
+          Type: "__Type__",
+          URI: "__URI__"
+        },
+        {
+          Type: "__Type__",
+          URI: "__URI__"
+        },
+        {
+          Type: "__Type__",
+          URI: "__URI__"
+        }
+      ],
+      SchemaValidationConfigs: [
+        {
+          Attribute: "__Attribute__"
+        },
+        {
+          Attribute: "__Attribute__"
+        },
+        {
+          Attribute: "__Attribute__"
+        }
+      ]
+    }
+  },
+  SelfManagedKafkaEventSourceConfig: {
+    ConsumerGroupId: "__ConsumerGroupId__",
+    SchemaRegistryConfig: {
+      SchemaRegistryURI: "__SchemaRegistryURI__",
+      EventRecordFormat: "__EventRecordFormat__",
+      AccessConfigs: [
+        {
+          Type: "__Type__",
+          URI: "__URI__"
+        },
+        {
+          Type: "__Type__",
+          URI: "__URI__"
+        },
+        {
+          Type: "__Type__",
+          URI: "__URI__"
+        }
+      ],
+      SchemaValidationConfigs: [
+        {
+          Attribute: "__Attribute__"
+        },
+        {
+          Attribute: "__Attribute__"
+        },
+        {
+          Attribute: "__Attribute__"
+        }
+      ]
+    }
+  },
+  ScalingConfig: {
+    MaximumConcurrency: (number) 0
+  },
+  DocumentDBEventSourceConfig: {
+    DatabaseName: "__DatabaseName__",
+    CollectionName: "__CollectionName__",
+    FullDocument: "__FullDocument__"
+  },
+  KMSKeyArn: "__KMSKeyArn__",
+  FilterCriteriaError: {
+    ErrorCode: "__ErrorCode__",
+    Message: "__Message__"
+  },
+  EventSourceMappingArn: "__EventSourceMappingArn__",
+  MetricsConfig: {
+    Metrics: []
+  },
+  LoggingConfig: {
+    SystemLogLevel: "__SystemLogLevel__"
+  },
+  ProvisionedPollerConfig: {
+    MinimumPollers: (number) 0,
+    MaximumPollers: (number) 0,
+    PollerGroupName: "__PollerGroupName__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

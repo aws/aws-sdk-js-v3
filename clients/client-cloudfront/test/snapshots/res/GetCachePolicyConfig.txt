@@ -1,0 +1,176 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<CachePolicyConfig xmlns="https://placeholder.amazonaws.com">
+    <Name>
+        __Name__
+    </Name>
+    <MinTTL>
+        0
+    </MinTTL>
+    <Comment>
+        __Comment__
+    </Comment>
+    <DefaultTTL>
+        0
+    </DefaultTTL>
+    <MaxTTL>
+        0
+    </MaxTTL>
+    <ParametersInCacheKeyAndForwardedToOrigin>
+        <EnableAcceptEncodingGzip>
+            false
+        </EnableAcceptEncodingGzip>
+        <HeadersConfig>
+            <HeaderBehavior>
+                __HeaderBehavior__
+            </HeaderBehavior>
+            <Headers>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </Headers>
+        </HeadersConfig>
+        <CookiesConfig>
+            <CookieBehavior>
+                __CookieBehavior__
+            </CookieBehavior>
+            <Cookies>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </Cookies>
+        </CookiesConfig>
+        <QueryStringsConfig>
+            <QueryStringBehavior>
+                __QueryStringBehavior__
+            </QueryStringBehavior>
+            <QueryStrings>
+                <Quantity>
+                    0
+                </Quantity>
+                <Items>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                    <Name>
+                        __member__
+                    </Name>
+                </Items>
+            </QueryStrings>
+        </QueryStringsConfig>
+        <EnableAcceptEncodingBrotli>
+            false
+        </EnableAcceptEncodingBrotli>
+    </ParametersInCacheKeyAndForwardedToOrigin>
+</CachePolicyConfig>
+
+
+--- [output object] ---
+{
+  CachePolicyConfig: {
+    Name: "__Name__",
+    MinTTL: (number) 0,
+    Comment: "__Comment__",
+    DefaultTTL: (number) 0,
+    MaxTTL: (number) 0,
+    ParametersInCacheKeyAndForwardedToOrigin: {
+      EnableAcceptEncodingGzip: (boolean) false,
+      HeadersConfig: {
+        HeaderBehavior: "__HeaderBehavior__",
+        Headers: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      CookiesConfig: {
+        CookieBehavior: "__CookieBehavior__",
+        Cookies: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      QueryStringsConfig: {
+        QueryStringBehavior: "__QueryStringBehavior__",
+        QueryStrings: {
+          Quantity: (number) 0,
+          Items: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      EnableAcceptEncodingBrotli: (boolean) false
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

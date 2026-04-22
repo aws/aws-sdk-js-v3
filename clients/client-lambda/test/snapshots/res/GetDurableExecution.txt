@@ -1,0 +1,112 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DurableExecutionArn": "__DurableExecutionArn__",
+  "DurableExecutionName": "__DurableExecutionName__",
+  "FunctionArn": "__FunctionArn__",
+  "StartTimestamp": 946702799.999,
+  "Status": "__Status__",
+  "InputPayload": "__InputPayload__",
+  "Result": "__Result__",
+  "Error": {},
+  "EndTimestamp": 946702799.999,
+  "Version": "__Version__",
+  "TraceHeader": {}
+}
+
+
+--- [output object] ---
+{
+  DurableExecutionArn: "__DurableExecutionArn__",
+  DurableExecutionName: "__DurableExecutionName__",
+  FunctionArn: "__FunctionArn__",
+  StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Status: "__Status__",
+  InputPayload: "__InputPayload__",
+  Result: "__Result__",
+  Error: {},
+  EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Version: "__Version__",
+  TraceHeader: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DurableExecutionArn": "__DurableExecutionArn__",
+  "DurableExecutionName": "__DurableExecutionName__",
+  "FunctionArn": "__FunctionArn__",
+  "StartTimestamp": 946702799.999,
+  "Status": "__Status__",
+  "InputPayload": "__InputPayload__",
+  "Result": "__Result__",
+  "Error": {
+    "ErrorMessage": "__ErrorMessage__",
+    "ErrorType": "__ErrorType__",
+    "ErrorData": "__ErrorData__",
+    "StackTrace": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "EndTimestamp": 946702799.999,
+  "Version": "__Version__",
+  "TraceHeader": {
+    "XAmznTraceId": "__XAmznTraceId__"
+  }
+}
+
+
+--- [output object] ---
+{
+  DurableExecutionArn: "__DurableExecutionArn__",
+  DurableExecutionName: "__DurableExecutionName__",
+  FunctionArn: "__FunctionArn__",
+  StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Status: "__Status__",
+  InputPayload: "__InputPayload__",
+  Result: "__Result__",
+  Error: {
+    ErrorMessage: "__ErrorMessage__",
+    ErrorType: "__ErrorType__",
+    ErrorData: "__ErrorData__",
+    StackTrace: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Version: "__Version__",
+  TraceHeader: {
+    XAmznTraceId: "__XAmznTraceId__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

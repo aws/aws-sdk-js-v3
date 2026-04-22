@@ -1,0 +1,123 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "displayName": "__displayName__",
+  "applicationId": "__applicationId__",
+  "applicationArn": "__applicationArn__",
+  "identityType": "__identityType__",
+  "iamIdentityProviderArn": "__iamIdentityProviderArn__",
+  "identityCenterApplicationArn": "__identityCenterApplicationArn__",
+  "roleArn": "__roleArn__",
+  "status": "__status__",
+  "description": "__description__",
+  "encryptionConfiguration": {
+    "kmsKeyId": "__kmsKeyId__"
+  },
+  "createdAt": 946702799.999,
+  "updatedAt": 946702799.999,
+  "error": {
+    "errorMessage": "__errorMessage__",
+    "errorCode": "__errorCode__"
+  },
+  "attachmentsConfiguration": {
+    "attachmentsControlMode": "__attachmentsControlMode__"
+  },
+  "qAppsConfiguration": {
+    "qAppsControlMode": "__qAppsControlMode__"
+  },
+  "personalizationConfiguration": {
+    "personalizationControlMode": "__personalizationControlMode__"
+  },
+  "autoSubscriptionConfiguration": {
+    "autoSubscribe": "__autoSubscribe__",
+    "defaultSubscriptionType": "__defaultSubscriptionType__"
+  },
+  "clientIdsForOIDC": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "quickSightConfiguration": {
+    "clientNamespace": "__clientNamespace__"
+  }
+}
+
+
+--- [output object] ---
+{
+  displayName: "__displayName__",
+  applicationId: "__applicationId__",
+  applicationArn: "__applicationArn__",
+  identityType: "__identityType__",
+  iamIdentityProviderArn: "__iamIdentityProviderArn__",
+  identityCenterApplicationArn: "__identityCenterApplicationArn__",
+  roleArn: "__roleArn__",
+  status: "__status__",
+  description: "__description__",
+  encryptionConfiguration: {
+    kmsKeyId: "__kmsKeyId__"
+  },
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  error: {
+    errorMessage: "__errorMessage__",
+    errorCode: "__errorCode__"
+  },
+  attachmentsConfiguration: {
+    attachmentsControlMode: "__attachmentsControlMode__"
+  },
+  qAppsConfiguration: {
+    qAppsControlMode: "__qAppsControlMode__"
+  },
+  personalizationConfiguration: {
+    personalizationControlMode: "__personalizationControlMode__"
+  },
+  autoSubscriptionConfiguration: {
+    autoSubscribe: "__autoSubscribe__",
+    defaultSubscriptionType: "__defaultSubscriptionType__"
+  },
+  clientIdsForOIDC: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  quickSightConfiguration: {
+    clientNamespace: "__clientNamespace__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,319 @@
+POST https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/conversations?userId=__userId__&userGroups=__member__&userGroups=__member__&userGroups=__member__&conversationId=__conversationId__&parentMessageId=__parentMessageId__&clientToken=1111abcd-uuid-uuid-uuid-000000001111
+
+content-type: application/vnd.amazon.eventstream
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[async_iterable (PassThrough)]
+
+[chunk (event-stream object view)]
+  [total-size] 1517 [header-size] 67 [prelude-crc] 176053662
+    [total-size] 1434 [header-size] 88 [prelude-crc] 3421087917
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 146,147,20,115,110,35,164,224,229,179,52,8,57,231,36,207,142,80,128,52,220,141,211,22,114,154,108,222,133,220,234,252 (binary)
+
+:event-type: configurationEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "chatMode": "__chatMode__",
+  "chatModeConfiguration": {
+    "pluginConfiguration": {
+      "pluginId": "__pluginId__"
+    }
+  },
+  "attributeFilter": {
+    "andAllFilters": [
+      {},
+      {},
+      {}
+    ],
+    "orAllFilters": [
+      {},
+      {},
+      {}
+    ],
+    "notFilter": {
+      "andAllFilters": [
+        {},
+        {},
+        {}
+      ],
+      "orAllFilters": [
+        {},
+        {},
+        {}
+      ],
+      "notFilter": {},
+      "equalsTo": {
+        "name": "__name__",
+        "value": {
+          "stringValue": "__stringValue__"
+        }
+      },
+      "containsAll": {
+        "name": "__name__",
+        "value": {
+          "longValue": 0
+        }
+      },
+      "containsAny": {
+        "name": "__name__",
+        "value": {
+          "stringListValue": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "greaterThan": {
+        "name": "__name__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      },
+      "greaterThanOrEquals": {
+        "name": "__name__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      },
+      "lessThan": {
+        "name": "__name__",
+        "value": {
+          "stringValue": "__stringValue__"
+        }
+      },
+      "lessThanOrEquals": {
+        "name": "__name__",
+        "value": {
+          "stringValue": "__stringValue__"
+        }
+      }
+    },
+    "equalsTo": {
+      "name": "__name__",
+      "value": {
+        "stringValue": "__stringValue__"
+      }
+    },
+    "containsAll": {
+      "name": "__name__",
+      "value": {
+        "longValue": 0
+      }
+    },
+    "containsAny": {
+      "name": "__name__",
+      "value": {
+        "stringListValue": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    "greaterThan": {
+      "name": "__name__",
+      "value": {
+        "dateValue": 946702799.999
+      }
+    },
+    "greaterThanOrEquals": {
+      "name": "__name__",
+      "value": {
+        "dateValue": 946702799.999
+      }
+    },
+    "lessThan": {
+      "name": "__name__",
+      "value": {
+        "stringValue": "__stringValue__"
+      }
+    },
+    "lessThanOrEquals": {
+      "name": "__name__",
+      "value": {
+        "stringValue": "__stringValue__"
+      }
+    }
+  }
+}
+
+  [message-crc] 2702525520
+[message-crc] 4285605484
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 211 [header-size] 67 [prelude-crc] 1151519434
+    [total-size] 128 [header-size] 79 [prelude-crc] 849818618
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 37,251,235,129,156,113,24,108,73,226,174,40,48,44,133,210,81,117,170,233,72,9,163,178,111,111,240,106,56,141,71,167 (binary)
+
+:event-type: textEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "userMessage": "__userMessage__"
+}
+
+  [message-crc] 1540668599
+[message-crc] 2821326476
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 338 [header-size] 67 [prelude-crc] 58228813
+    [total-size] 255 [header-size] 85 [prelude-crc] 3024600478
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 59,18,185,90,179,112,50,39,225,255,148,145,231,149,228,127,229,35,172,189,204,88,97,247,236,164,138,223,53,61,194,134 (binary)
+
+:event-type: attachmentEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "attachment": {
+    "data": "AQAAAQ==",
+    "name": "__name__",
+    "copyFrom": {
+      "conversation": {
+        "conversationId": "__conversationId__",
+        "attachmentId": "__attachmentId__"
+      }
+    }
+  }
+}
+
+  [message-crc] 3453036646
+[message-crc] 3769013795
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 657 [header-size] 67 [prelude-crc] 727277800
+    [total-size] 574 [header-size] 90 [prelude-crc] 3175465071
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 48,157,141,124,20,130,102,37,164,129,164,55,55,28,138,253,191,2,47,223,243,141,209,255,65,44,231,246,164,30,196,177 (binary)
+
+:event-type: actionExecutionEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "pluginId": "__pluginId__",
+  "payload": {
+    "key1": {
+      "value": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      }
+    },
+    "key2": {
+      "value": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      }
+    },
+    "key3": {
+      "value": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      }
+    }
+  },
+  "payloadFieldNameSeparator": "__payloadFieldNameSeparator__"
+}
+
+  [message-crc] 2997568147
+[message-crc] 1365017717
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 186 [header-size] 67 [prelude-crc] 3498106870
+    [total-size] 103 [header-size] 85 [prelude-crc] 1429328207
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 80,161,86,128,49,150,60,24,102,239,229,85,115,59,223,185,71,220,79,137,222,221,216,218,43,208,228,78,158,65,23,78 (binary)
+
+:event-type: endOfInputEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+  [message-crc] 3847609753
+[message-crc] 1182294744
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 269 [header-size] 67 [prelude-crc] 3107706967
+    [total-size] 186 [header-size] 96 [prelude-crc] 1927786116
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 116,208,25,39,206,28,78,157,230,215,134,196,245,165,174,173,187,207,237,235,201,167,76,167,107,227,164,147,179,101,168,137 (binary)
+
+:event-type: authChallengeResponseEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "responseMap": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  }
+}
+
+  [message-crc] 4026555153
+[message-crc] 3703738241
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 83 [header-size] 67 [prelude-crc] 4114905688
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 94,204,45,124,112,164,202,113,173,56,58,241,176,185,151,186,117,161,77,37,12,4,22,117,0,132,255,70,28,211,58,236 (binary)
+
+[empty]
+
+
+[message-crc] 1577620663
+============================================================
+
+

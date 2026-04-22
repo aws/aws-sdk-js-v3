@@ -1,0 +1,141 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "applicationId": "__applicationId__",
+  "webExperienceId": "__webExperienceId__",
+  "webExperienceArn": "__webExperienceArn__",
+  "defaultEndpoint": "__defaultEndpoint__",
+  "status": "__status__",
+  "createdAt": 946702799.999,
+  "updatedAt": 946702799.999,
+  "title": "__title__",
+  "subtitle": "__subtitle__",
+  "welcomeMessage": "__welcomeMessage__",
+  "samplePromptsControlMode": "__samplePromptsControlMode__",
+  "origins": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "roleArn": "__roleArn__",
+  "identityProviderConfiguration": {
+    "openIDConnectConfiguration": {
+      "secretsArn": "__secretsArn__",
+      "secretsRole": "__secretsRole__"
+    }
+  },
+  "authenticationConfiguration": {
+    "samlConfiguration": {
+      "metadataXML": "__metadataXML__",
+      "roleArn": "__roleArn__",
+      "userIdAttribute": "__userIdAttribute__",
+      "userGroupAttribute": "__userGroupAttribute__"
+    }
+  },
+  "error": {
+    "errorMessage": "__errorMessage__",
+    "errorCode": "__errorCode__"
+  },
+  "browserExtensionConfiguration": {
+    "enabledBrowserExtensions": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "customizationConfiguration": {
+    "customCSSUrl": "__customCSSUrl__",
+    "logoUrl": "__logoUrl__",
+    "fontUrl": "__fontUrl__",
+    "faviconUrl": "__faviconUrl__"
+  }
+}
+
+
+--- [output object] ---
+{
+  applicationId: "__applicationId__",
+  webExperienceId: "__webExperienceId__",
+  webExperienceArn: "__webExperienceArn__",
+  defaultEndpoint: "__defaultEndpoint__",
+  status: "__status__",
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  title: "__title__",
+  subtitle: "__subtitle__",
+  welcomeMessage: "__welcomeMessage__",
+  samplePromptsControlMode: "__samplePromptsControlMode__",
+  origins: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  roleArn: "__roleArn__",
+  identityProviderConfiguration: {
+    openIDConnectConfiguration: {
+      secretsArn: "__secretsArn__",
+      secretsRole: "__secretsRole__"
+    }
+  },
+  authenticationConfiguration: {
+    samlConfiguration: {
+      metadataXML: "__metadataXML__",
+      roleArn: "__roleArn__",
+      userIdAttribute: "__userIdAttribute__",
+      userGroupAttribute: "__userGroupAttribute__"
+    }
+  },
+  error: {
+    errorMessage: "__errorMessage__",
+    errorCode: "__errorCode__"
+  },
+  browserExtensionConfiguration: {
+    enabledBrowserExtensions: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  customizationConfiguration: {
+    customCSSUrl: "__customCSSUrl__",
+    logoUrl: "__logoUrl__",
+    fontUrl: "__fontUrl__",
+    faviconUrl: "__faviconUrl__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

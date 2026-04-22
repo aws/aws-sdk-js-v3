@@ -1,0 +1,383 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Configuration": {
+    "FunctionName": "__FunctionName__",
+    "FunctionArn": "__FunctionArn__",
+    "Runtime": "__Runtime__",
+    "Role": "__Role__",
+    "Handler": "__Handler__",
+    "CodeSize": 0,
+    "Description": "__Description__",
+    "Timeout": 0,
+    "MemorySize": 0,
+    "LastModified": "__LastModified__",
+    "CodeSha256": "__CodeSha256__",
+    "Version": "__Version__",
+    "VpcConfig": {
+      "SubnetIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "VpcId": "__VpcId__",
+      "Ipv6AllowedForDualStack": false
+    },
+    "DeadLetterConfig": {
+      "TargetArn": "__TargetArn__"
+    },
+    "Environment": {
+      "Variables": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "Error": {
+        "ErrorCode": "__ErrorCode__",
+        "Message": "__Message__"
+      }
+    },
+    "KMSKeyArn": "__KMSKeyArn__",
+    "TracingConfig": {
+      "Mode": "__Mode__"
+    },
+    "MasterArn": "__MasterArn__",
+    "RevisionId": "__RevisionId__",
+    "Layers": [
+      {
+        "Arn": "__Arn__",
+        "CodeSize": 0,
+        "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+        "SigningJobArn": "__SigningJobArn__"
+      },
+      {
+        "Arn": "__Arn__",
+        "CodeSize": 0,
+        "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+        "SigningJobArn": "__SigningJobArn__"
+      },
+      {
+        "Arn": "__Arn__",
+        "CodeSize": 0,
+        "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+        "SigningJobArn": "__SigningJobArn__"
+      }
+    ],
+    "State": "__State__",
+    "StateReason": "__StateReason__",
+    "StateReasonCode": "__StateReasonCode__",
+    "LastUpdateStatus": "__LastUpdateStatus__",
+    "LastUpdateStatusReason": "__LastUpdateStatusReason__",
+    "LastUpdateStatusReasonCode": "__LastUpdateStatusReasonCode__",
+    "FileSystemConfigs": [
+      {
+        "Arn": "__Arn__",
+        "LocalMountPath": "__LocalMountPath__"
+      },
+      {
+        "Arn": "__Arn__",
+        "LocalMountPath": "__LocalMountPath__"
+      },
+      {
+        "Arn": "__Arn__",
+        "LocalMountPath": "__LocalMountPath__"
+      }
+    ],
+    "PackageType": "__PackageType__",
+    "ImageConfigResponse": {
+      "ImageConfig": {
+        "EntryPoint": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Command": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "WorkingDirectory": "__WorkingDirectory__"
+      },
+      "Error": {
+        "ErrorCode": "__ErrorCode__",
+        "Message": "__Message__"
+      }
+    },
+    "SigningProfileVersionArn": "__SigningProfileVersionArn__",
+    "SigningJobArn": "__SigningJobArn__",
+    "Architectures": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "EphemeralStorage": {
+      "Size": 0
+    },
+    "SnapStart": {
+      "ApplyOn": "__ApplyOn__",
+      "OptimizationStatus": "__OptimizationStatus__"
+    },
+    "RuntimeVersionConfig": {
+      "RuntimeVersionArn": "__RuntimeVersionArn__",
+      "Error": {
+        "ErrorCode": "__ErrorCode__",
+        "Message": "__Message__"
+      }
+    },
+    "LoggingConfig": {
+      "LogFormat": "__LogFormat__",
+      "ApplicationLogLevel": "__ApplicationLogLevel__",
+      "SystemLogLevel": "__SystemLogLevel__",
+      "LogGroup": "__LogGroup__"
+    },
+    "CapacityProviderConfig": {
+      "LambdaManagedInstancesCapacityProviderConfig": {
+        "CapacityProviderArn": "__CapacityProviderArn__",
+        "PerExecutionEnvironmentMaxConcurrency": 0,
+        "ExecutionEnvironmentMemoryGiBPerVCpu": 0
+      }
+    },
+    "ConfigSha256": "__ConfigSha256__",
+    "DurableConfig": {
+      "RetentionPeriodInDays": 0,
+      "ExecutionTimeout": 0
+    },
+    "TenancyConfig": {
+      "TenantIsolationMode": "__TenantIsolationMode__"
+    }
+  },
+  "Code": {
+    "RepositoryType": "__RepositoryType__",
+    "Location": "__Location__",
+    "ImageUri": "__ImageUri__",
+    "ResolvedImageUri": "__ResolvedImageUri__",
+    "SourceKMSKeyArn": "__SourceKMSKeyArn__"
+  },
+  "Tags": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  },
+  "TagsError": {
+    "ErrorCode": "__ErrorCode__",
+    "Message": "__Message__"
+  },
+  "Concurrency": {
+    "ReservedConcurrentExecutions": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  Configuration: {
+    FunctionName: "__FunctionName__",
+    FunctionArn: "__FunctionArn__",
+    Runtime: "__Runtime__",
+    Role: "__Role__",
+    Handler: "__Handler__",
+    CodeSize: (number) 0,
+    Description: "__Description__",
+    Timeout: (number) 0,
+    MemorySize: (number) 0,
+    LastModified: "__LastModified__",
+    CodeSha256: "__CodeSha256__",
+    Version: "__Version__",
+    VpcConfig: {
+      SubnetIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      VpcId: "__VpcId__",
+      Ipv6AllowedForDualStack: (boolean) false
+    },
+    DeadLetterConfig: {
+      TargetArn: "__TargetArn__"
+    },
+    Environment: {
+      Variables: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
+      },
+      Error: {
+        ErrorCode: "__ErrorCode__",
+        Message: "__Message__"
+      }
+    },
+    KMSKeyArn: "__KMSKeyArn__",
+    TracingConfig: {
+      Mode: "__Mode__"
+    },
+    MasterArn: "__MasterArn__",
+    RevisionId: "__RevisionId__",
+    Layers: [
+      {
+        Arn: "__Arn__",
+        CodeSize: (number) 0,
+        SigningProfileVersionArn: "__SigningProfileVersionArn__",
+        SigningJobArn: "__SigningJobArn__"
+      },
+      {
+        Arn: "__Arn__",
+        CodeSize: (number) 0,
+        SigningProfileVersionArn: "__SigningProfileVersionArn__",
+        SigningJobArn: "__SigningJobArn__"
+      },
+      {
+        Arn: "__Arn__",
+        CodeSize: (number) 0,
+        SigningProfileVersionArn: "__SigningProfileVersionArn__",
+        SigningJobArn: "__SigningJobArn__"
+      }
+    ],
+    State: "__State__",
+    StateReason: "__StateReason__",
+    StateReasonCode: "__StateReasonCode__",
+    LastUpdateStatus: "__LastUpdateStatus__",
+    LastUpdateStatusReason: "__LastUpdateStatusReason__",
+    LastUpdateStatusReasonCode: "__LastUpdateStatusReasonCode__",
+    FileSystemConfigs: [
+      {
+        Arn: "__Arn__",
+        LocalMountPath: "__LocalMountPath__"
+      },
+      {
+        Arn: "__Arn__",
+        LocalMountPath: "__LocalMountPath__"
+      },
+      {
+        Arn: "__Arn__",
+        LocalMountPath: "__LocalMountPath__"
+      }
+    ],
+    PackageType: "__PackageType__",
+    ImageConfigResponse: {
+      ImageConfig: {
+        EntryPoint: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Command: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        WorkingDirectory: "__WorkingDirectory__"
+      },
+      Error: {
+        ErrorCode: "__ErrorCode__",
+        Message: "__Message__"
+      }
+    },
+    SigningProfileVersionArn: "__SigningProfileVersionArn__",
+    SigningJobArn: "__SigningJobArn__",
+    Architectures: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    EphemeralStorage: {
+      Size: (number) 0
+    },
+    SnapStart: {
+      ApplyOn: "__ApplyOn__",
+      OptimizationStatus: "__OptimizationStatus__"
+    },
+    RuntimeVersionConfig: {
+      RuntimeVersionArn: "__RuntimeVersionArn__",
+      Error: {
+        ErrorCode: "__ErrorCode__",
+        Message: "__Message__"
+      }
+    },
+    LoggingConfig: {
+      LogFormat: "__LogFormat__",
+      ApplicationLogLevel: "__ApplicationLogLevel__",
+      SystemLogLevel: "__SystemLogLevel__",
+      LogGroup: "__LogGroup__"
+    },
+    CapacityProviderConfig: {
+      LambdaManagedInstancesCapacityProviderConfig: {
+        CapacityProviderArn: "__CapacityProviderArn__",
+        PerExecutionEnvironmentMaxConcurrency: (number) 0,
+        ExecutionEnvironmentMemoryGiBPerVCpu: (number) 0
+      }
+    },
+    ConfigSha256: "__ConfigSha256__",
+    DurableConfig: {
+      RetentionPeriodInDays: (number) 0,
+      ExecutionTimeout: (number) 0
+    },
+    TenancyConfig: {
+      TenantIsolationMode: "__TenantIsolationMode__"
+    }
+  },
+  Code: {
+    RepositoryType: "__RepositoryType__",
+    Location: "__Location__",
+    ImageUri: "__ImageUri__",
+    ResolvedImageUri: "__ResolvedImageUri__",
+    SourceKMSKeyArn: "__SourceKMSKeyArn__"
+  },
+  Tags: {
+    key1: "__value__",
+    key2: "__value__",
+    key3: "__value__"
+  },
+  TagsError: {
+    ErrorCode: "__ErrorCode__",
+    Message: "__Message__"
+  },
+  Concurrency: {
+    ReservedConcurrentExecutions: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

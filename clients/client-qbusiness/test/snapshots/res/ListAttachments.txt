@@ -1,0 +1,171 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "attachments": [
+    {
+      "attachmentId": "__attachmentId__",
+      "conversationId": "__conversationId__",
+      "name": "__name__",
+      "copyFrom": {
+        "conversation": {
+          "conversationId": "__conversationId__",
+          "attachmentId": "__attachmentId__"
+        }
+      },
+      "fileType": "__fileType__",
+      "fileSize": 0,
+      "md5chksum": "__md5chksum__",
+      "createdAt": 946702799.999,
+      "status": "__status__",
+      "error": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      }
+    },
+    {
+      "attachmentId": "__attachmentId__",
+      "conversationId": "__conversationId__",
+      "name": "__name__",
+      "copyFrom": {
+        "conversation": {
+          "conversationId": "__conversationId__",
+          "attachmentId": "__attachmentId__"
+        }
+      },
+      "fileType": "__fileType__",
+      "fileSize": 0,
+      "md5chksum": "__md5chksum__",
+      "createdAt": 946702799.999,
+      "status": "__status__",
+      "error": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      }
+    },
+    {
+      "attachmentId": "__attachmentId__",
+      "conversationId": "__conversationId__",
+      "name": "__name__",
+      "copyFrom": {
+        "conversation": {
+          "conversationId": "__conversationId__",
+          "attachmentId": "__attachmentId__"
+        }
+      },
+      "fileType": "__fileType__",
+      "fileSize": 0,
+      "md5chksum": "__md5chksum__",
+      "createdAt": 946702799.999,
+      "status": "__status__",
+      "error": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      }
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  attachments: [
+    {
+      attachmentId: "__attachmentId__",
+      conversationId: "__conversationId__",
+      name: "__name__",
+      copyFrom: {
+        conversation: {
+          conversationId: "__conversationId__",
+          attachmentId: "__attachmentId__"
+        }
+      },
+      fileType: "__fileType__",
+      fileSize: (number) 0,
+      md5chksum: "__md5chksum__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__",
+      error: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      }
+    },
+    {
+      attachmentId: "__attachmentId__",
+      conversationId: "__conversationId__",
+      name: "__name__",
+      copyFrom: {
+        conversation: {
+          conversationId: "__conversationId__",
+          attachmentId: "__attachmentId__"
+        }
+      },
+      fileType: "__fileType__",
+      fileSize: (number) 0,
+      md5chksum: "__md5chksum__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__",
+      error: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      }
+    },
+    {
+      attachmentId: "__attachmentId__",
+      conversationId: "__conversationId__",
+      name: "__name__",
+      copyFrom: {
+        conversation: {
+          conversationId: "__conversationId__",
+          attachmentId: "__attachmentId__"
+        }
+      },
+      fileType: "__fileType__",
+      fileSize: (number) 0,
+      md5chksum: "__md5chksum__",
+      createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      status: "__status__",
+      error: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      }
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

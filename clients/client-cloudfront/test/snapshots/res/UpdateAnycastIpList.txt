@@ -1,0 +1,164 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<AnycastIpList xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <Name>
+        __Name__
+    </Name>
+    <Status>
+        __Status__
+    </Status>
+    <Arn>
+        __Arn__
+    </Arn>
+    <AnycastIps>
+        <AnycastIp>
+            __member__
+        </AnycastIp>
+        <AnycastIp>
+            __member__
+        </AnycastIp>
+        <AnycastIp>
+            __member__
+        </AnycastIp>
+    </AnycastIps>
+    <IpCount>
+        0
+    </IpCount>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <IpAddressType>
+        __IpAddressType__
+    </IpAddressType>
+    <IpamConfig>
+        <Quantity>
+            0
+        </Quantity>
+        <IpamCidrConfigs>
+            <IpamCidrConfig>
+                <Cidr>
+                    __Cidr__
+                </Cidr>
+                <IpamPoolArn>
+                    __IpamPoolArn__
+                </IpamPoolArn>
+                <AnycastIp>
+                    __AnycastIp__
+                </AnycastIp>
+                <Status>
+                    __Status__
+                </Status>
+            </IpamCidrConfig>
+            <IpamCidrConfig>
+                <Cidr>
+                    __Cidr__
+                </Cidr>
+                <IpamPoolArn>
+                    __IpamPoolArn__
+                </IpamPoolArn>
+                <AnycastIp>
+                    __AnycastIp__
+                </AnycastIp>
+                <Status>
+                    __Status__
+                </Status>
+            </IpamCidrConfig>
+            <IpamCidrConfig>
+                <Cidr>
+                    __Cidr__
+                </Cidr>
+                <IpamPoolArn>
+                    __IpamPoolArn__
+                </IpamPoolArn>
+                <AnycastIp>
+                    __AnycastIp__
+                </AnycastIp>
+                <Status>
+                    __Status__
+                </Status>
+            </IpamCidrConfig>
+        </IpamCidrConfigs>
+    </IpamConfig>
+</AnycastIpList>
+
+
+--- [output object] ---
+{
+  AnycastIpList: {
+    Id: "__Id__",
+    Name: "__Name__",
+    Status: "__Status__",
+    Arn: "__Arn__",
+    AnycastIps: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    IpCount: (number) 0,
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    IpAddressType: "__IpAddressType__",
+    IpamConfig: {
+      Quantity: (number) 0,
+      IpamCidrConfigs: [
+        {
+          Cidr: "__Cidr__",
+          IpamPoolArn: "__IpamPoolArn__",
+          AnycastIp: "__AnycastIp__",
+          Status: "__Status__"
+        },
+        {
+          Cidr: "__Cidr__",
+          IpamPoolArn: "__IpamPoolArn__",
+          AnycastIp: "__AnycastIp__",
+          Status: "__Status__"
+        },
+        {
+          Cidr: "__Cidr__",
+          IpamPoolArn: "__IpamPoolArn__",
+          AnycastIp: "__AnycastIp__",
+          Status: "__Status__"
+        }
+      ]
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

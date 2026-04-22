@@ -1,0 +1,43 @@
+PUT https://lambda.us-east-1.amazonaws.com 
+/2021-10-31/functions/__FunctionName__/url?Qualifier=__Qualifier__
+
+content-type: application/json
+content-length: 327
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e
+host: lambda.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 6759590d801a75af26f0f019e5dd36be11314c48fe10f4eba6202ebf0f61e603
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "AuthType": "__AuthType__",
+  "Cors": {
+    "AllowCredentials": false,
+    "AllowHeaders": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "AllowMethods": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "AllowOrigins": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ExposeHeaders": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "MaxAge": 0
+  },
+  "InvokeMode": "__InvokeMode__"
+}

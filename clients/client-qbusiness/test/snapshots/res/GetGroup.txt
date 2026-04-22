@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "status": {
+    "status": "__status__",
+    "lastUpdatedAt": 946702799.999,
+    "errorDetail": {
+      "errorMessage": "__errorMessage__",
+      "errorCode": "__errorCode__"
+    }
+  },
+  "statusHistory": [
+    {
+      "status": "__status__",
+      "lastUpdatedAt": 946702799.999,
+      "errorDetail": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      }
+    },
+    {
+      "status": "__status__",
+      "lastUpdatedAt": 946702799.999,
+      "errorDetail": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      }
+    },
+    {
+      "status": "__status__",
+      "lastUpdatedAt": 946702799.999,
+      "errorDetail": {
+        "errorMessage": "__errorMessage__",
+        "errorCode": "__errorCode__"
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  status: {
+    status: "__status__",
+    lastUpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    errorDetail: {
+      errorMessage: "__errorMessage__",
+      errorCode: "__errorCode__"
+    }
+  },
+  statusHistory: [
+    {
+      status: "__status__",
+      lastUpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      errorDetail: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      }
+    },
+    {
+      status: "__status__",
+      lastUpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      errorDetail: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      }
+    },
+    {
+      status: "__status__",
+      lastUpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      errorDetail: {
+        errorMessage: "__errorMessage__",
+        errorCode: "__errorCode__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

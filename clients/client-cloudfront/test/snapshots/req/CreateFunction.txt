@@ -1,0 +1,42 @@
+POST https://cloudfront.amazonaws.com 
+/2020-05-31/function
+
+content-type: application/xml
+content-length: 465
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 777dc3d71188c2bbafdb6b3ae2b294a5f352b72adbbe530fa64c0dece8b58c81
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateFunctionRequest xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <Name>
+        __Name__
+    </Name>
+    <FunctionConfig>
+        <Comment>
+            __Comment__
+        </Comment>
+        <Runtime>
+            __Runtime__
+        </Runtime>
+        <KeyValueStoreAssociations>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <KeyValueStoreAssociation/>
+<KeyValueStoreAssociation/>
+<KeyValueStoreAssociation/>
+            </Items>
+        </KeyValueStoreAssociations>
+    </FunctionConfig>
+    <FunctionCode>
+        AQAAAQ==
+    </FunctionCode>
+</CreateFunctionRequest>

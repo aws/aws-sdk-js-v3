@@ -1,0 +1,73 @@
+POST https://polly.us-east-1.amazonaws.com 
+/v1/synthesisStream
+
+x-amzn-engine: __Engine__
+x-amzn-outputformat: __OutputFormat__
+x-amzn-voiceid: __VoiceId__
+x-amzn-languagecode: __LanguageCode__
+x-amzn-lexiconnames: __member__, __member__, __member__
+x-amzn-samplerate: __SampleRate__
+content-type: application/vnd.amazon.eventstream
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/polly#_.__ m/E,e
+host: polly.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/polly/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent;x-amzn-engine;x-amzn-languagecode;x-amzn-lexiconnames;x-amzn-outputformat;x-amzn-samplerate;x-amzn-voiceid, Signature=***
+
+[async_iterable (PassThrough)]
+
+[chunk (event-stream object view)]
+  [total-size] 266 [header-size] 67 [prelude-crc] 186319943
+    [total-size] 183 [header-size] 79 [prelude-crc] 564549484
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 53,240,79,149,78,103,234,153,220,4,193,182,17,14,222,186,149,71,154,208,156,37,93,71,91,224,245,68,99,185,181,229 (binary)
+
+:event-type: TextEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "Text": "__Text__",
+  "TextType": "__TextType__",
+  "FlushStreamConfiguration": {
+    "Force": false
+  }
+}
+
+  [message-crc] 1124921150
+[message-crc] 3453372193
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 187 [header-size] 67 [prelude-crc] 3990943302
+    [total-size] 104 [header-size] 86 [prelude-crc] 1315444516
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 92,226,156,9,157,9,13,236,21,220,235,105,56,160,248,170,93,223,248,160,36,50,27,33,166,95,253,19,204,64,155,109 (binary)
+
+:event-type: CloseStreamEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+  [message-crc] 1520633560
+[message-crc] 2375512799
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 83 [header-size] 67 [prelude-crc] 4114905688
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 223,213,138,208,194,99,148,79,156,240,187,173,132,25,166,145,202,203,241,21,172,165,154,201,254,126,198,166,53,3,185,184 (binary)
+
+[empty]
+
+
+[message-crc] 18070686
+============================================================
+
+

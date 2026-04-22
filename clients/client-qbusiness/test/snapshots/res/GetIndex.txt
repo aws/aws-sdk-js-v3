@@ -1,0 +1,123 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "applicationId": "__applicationId__",
+  "indexId": "__indexId__",
+  "displayName": "__displayName__",
+  "indexArn": "__indexArn__",
+  "status": "__status__",
+  "type": "__type__",
+  "description": "__description__",
+  "createdAt": 946702799.999,
+  "updatedAt": 946702799.999,
+  "capacityConfiguration": {
+    "units": 0
+  },
+  "documentAttributeConfigurations": [
+    {
+      "name": "__name__",
+      "type": "__type__",
+      "search": "__search__"
+    },
+    {
+      "name": "__name__",
+      "type": "__type__",
+      "search": "__search__"
+    },
+    {
+      "name": "__name__",
+      "type": "__type__",
+      "search": "__search__"
+    }
+  ],
+  "error": {
+    "errorMessage": "__errorMessage__",
+    "errorCode": "__errorCode__"
+  },
+  "indexStatistics": {
+    "textDocumentStatistics": {
+      "indexedTextBytes": 0,
+      "indexedTextDocumentCount": 0
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  applicationId: "__applicationId__",
+  indexId: "__indexId__",
+  displayName: "__displayName__",
+  indexArn: "__indexArn__",
+  status: "__status__",
+  type: "__type__",
+  description: "__description__",
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  updatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  capacityConfiguration: {
+    units: (number) 0
+  },
+  documentAttributeConfigurations: [
+    {
+      name: "__name__",
+      type: "__type__",
+      search: "__search__"
+    },
+    {
+      name: "__name__",
+      type: "__type__",
+      search: "__search__"
+    },
+    {
+      name: "__name__",
+      type: "__type__",
+      search: "__search__"
+    }
+  ],
+  error: {
+    errorMessage: "__errorMessage__",
+    errorCode: "__errorCode__"
+  },
+  indexStatistics: {
+    textDocumentStatistics: {
+      indexedTextBytes: (number) 0,
+      indexedTextDocumentCount: (number) 0
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

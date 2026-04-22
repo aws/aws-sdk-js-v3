@@ -1,0 +1,33 @@
+PUT https://cloudfront.amazonaws.com 
+/2020-05-31/trust-store/__Id__
+
+if-match: __IfMatch__
+content-type: application/xml
+content-length: 318
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
+host: cloudfront.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 6166b82f5cb13f04fc27b7816b188de0d1f48daeb2b7eb384bae28e51f4ab9ce
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;if-match;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CaCertificatesBundleSource xmlns="http://cloudfront.amazonaws.com/doc/2020-05-31/">
+    <CaCertificatesBundleS3Location>
+        <Bucket>
+            __Bucket__
+        </Bucket>
+        <Key>
+            __Key__
+        </Key>
+        <Region>
+            __Region__
+        </Region>
+        <Version>
+            __Version__
+        </Version>
+    </CaCertificatesBundleS3Location>
+</CaCertificatesBundleSource>

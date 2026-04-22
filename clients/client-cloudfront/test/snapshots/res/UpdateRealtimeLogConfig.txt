@@ -1,0 +1,141 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UpdateRealtimeLogConfigResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UpdateRealtimeLogConfigResult xmlns="https://placeholder.amazonaws.com">
+    <RealtimeLogConfig>
+        <ARN>
+            __ARN__
+        </ARN>
+        <Name>
+            __Name__
+        </Name>
+        <SamplingRate>
+            0
+        </SamplingRate>
+        <EndPoints>
+            <member>
+                <StreamType>
+                    __StreamType__
+                </StreamType>
+                <KinesisStreamConfig>
+                    <RoleARN>
+                        __RoleARN__
+                    </RoleARN>
+                    <StreamARN>
+                        __StreamARN__
+                    </StreamARN>
+                </KinesisStreamConfig>
+            </member>
+            <member>
+                <StreamType>
+                    __StreamType__
+                </StreamType>
+                <KinesisStreamConfig>
+                    <RoleARN>
+                        __RoleARN__
+                    </RoleARN>
+                    <StreamARN>
+                        __StreamARN__
+                    </StreamARN>
+                </KinesisStreamConfig>
+            </member>
+            <member>
+                <StreamType>
+                    __StreamType__
+                </StreamType>
+                <KinesisStreamConfig>
+                    <RoleARN>
+                        __RoleARN__
+                    </RoleARN>
+                    <StreamARN>
+                        __StreamARN__
+                    </StreamARN>
+                </KinesisStreamConfig>
+            </member>
+        </EndPoints>
+        <Fields>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+        </Fields>
+    </RealtimeLogConfig>
+</UpdateRealtimeLogConfigResult>
+
+
+--- [output object] ---
+{
+  RealtimeLogConfig: {
+    ARN: "__ARN__",
+    Name: "__Name__",
+    SamplingRate: (number) 0,
+    EndPoints: [
+      {
+        StreamType: "__StreamType__",
+        KinesisStreamConfig: {
+          RoleARN: "__RoleARN__",
+          StreamARN: "__StreamARN__"
+        }
+      },
+      {
+        StreamType: "__StreamType__",
+        KinesisStreamConfig: {
+          RoleARN: "__RoleARN__",
+          StreamARN: "__StreamARN__"
+        }
+      },
+      {
+        StreamType: "__StreamType__",
+        KinesisStreamConfig: {
+          RoleARN: "__RoleARN__",
+          StreamARN: "__StreamARN__"
+        }
+      }
+    ],
+    Fields: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

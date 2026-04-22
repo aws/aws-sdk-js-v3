@@ -1,0 +1,130 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "domainId": "__domainId__",
+  "arn": "__arn__",
+  "name": "__name__",
+  "status": "__status__",
+  "createdAt": 946702799.999,
+  "kmsKeyArn": "__kmsKeyArn__",
+  "encryptionContext": {
+    "encryptionType": "__encryptionType__",
+    "kmsKeyArn": "__kmsKeyArn__"
+  },
+  "webAppUrl": "__webAppUrl__",
+  "webAppConfiguration": {
+    "ehrRole": "__ehrRole__",
+    "idcApplicationId": "__idcApplicationId__",
+    "idcRegion": "__idcRegion__"
+  },
+  "tags": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  domainId: "__domainId__",
+  arn: "__arn__",
+  name: "__name__",
+  status: "__status__",
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  kmsKeyArn: "__kmsKeyArn__",
+  encryptionContext: {
+    encryptionType: "__encryptionType__",
+    kmsKeyArn: "__kmsKeyArn__"
+  },
+  webAppUrl: "__webAppUrl__",
+  webAppConfiguration: {
+    ehrRole: "__ehrRole__",
+    idcApplicationId: "__idcApplicationId__",
+    idcRegion: "__idcRegion__"
+  },
+  tags: {
+    key1: "__value__",
+    key2: "__value__",
+    key3: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "domainId": "__domainId__",
+  "arn": "__arn__",
+  "name": "__name__",
+  "status": "__status__",
+  "createdAt": 946702799.999,
+  "kmsKeyArn": "__kmsKeyArn__",
+  "encryptionContext": {
+    "encryptionType": "__encryptionType__",
+    "kmsKeyArn": "__kmsKeyArn__"
+  },
+  "webAppUrl": "__webAppUrl__",
+  "webAppConfiguration": {
+    "ehrRole": "__ehrRole__",
+    "idcApplicationId": "__idcApplicationId__",
+    "idcRegion": "__idcRegion__"
+  },
+  "tags": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  domainId: "__domainId__",
+  arn: "__arn__",
+  name: "__name__",
+  status: "__status__",
+  createdAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  kmsKeyArn: "__kmsKeyArn__",
+  encryptionContext: {
+    encryptionType: "__encryptionType__",
+    kmsKeyArn: "__kmsKeyArn__"
+  },
+  webAppUrl: "__webAppUrl__",
+  webAppConfiguration: {
+    ehrRole: "__ehrRole__",
+    idcApplicationId: "__idcApplicationId__",
+    idcRegion: "__idcRegion__"
+  },
+  tags: {
+    key1: "__value__",
+    key2: "__value__",
+    key3: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

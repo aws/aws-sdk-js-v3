@@ -1,0 +1,231 @@
+POST https://qbusiness.us-east-1.api.aws 
+/applications/__applicationId__/conversations?sync=&userId=__userId__&userGroups=__member__&userGroups=__member__&userGroups=__member__
+
+content-type: application/json
+content-length: 2467
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/qbusiness#_.__ m/E,e
+host: qbusiness.us-east-1.api.aws
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 1913682ded42c68ea564e5af30c0e101bc6eceefe3d5572a0807e248e529a81f
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/qbusiness/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "userMessage": "__userMessage__",
+  "attachments": [
+    {
+      "data": "AQAAAQ==",
+      "name": "__name__",
+      "copyFrom": {
+        "conversation": {
+          "conversationId": "__conversationId__",
+          "attachmentId": "__attachmentId__"
+        }
+      }
+    },
+    {
+      "data": "AQAAAQ==",
+      "name": "__name__",
+      "copyFrom": {
+        "conversation": {
+          "conversationId": "__conversationId__",
+          "attachmentId": "__attachmentId__"
+        }
+      }
+    },
+    {
+      "data": "AQAAAQ==",
+      "name": "__name__",
+      "copyFrom": {
+        "conversation": {
+          "conversationId": "__conversationId__",
+          "attachmentId": "__attachmentId__"
+        }
+      }
+    }
+  ],
+  "actionExecution": {
+    "pluginId": "__pluginId__",
+    "payload": {
+      "key1": {
+        "value": {
+          "doc_note": "this is a document",
+          "doc_date": 946702799.999,
+          "doc_blob": "AQAAAQ==",
+          "doc_list": [
+            -7,
+            -3,
+            0,
+            1,
+            5
+          ]
+        }
+      },
+      "key2": {
+        "value": {
+          "doc_note": "this is a document",
+          "doc_date": 946702799.999,
+          "doc_blob": "AQAAAQ==",
+          "doc_list": [
+            -7,
+            -3,
+            0,
+            1,
+            5
+          ]
+        }
+      },
+      "key3": {
+        "value": {
+          "doc_note": "this is a document",
+          "doc_date": 946702799.999,
+          "doc_blob": "AQAAAQ==",
+          "doc_list": [
+            -7,
+            -3,
+            0,
+            1,
+            5
+          ]
+        }
+      }
+    },
+    "payloadFieldNameSeparator": "__payloadFieldNameSeparator__"
+  },
+  "authChallengeResponse": {
+    "responseMap": {
+      "key1": "__value__",
+      "key2": "__value__",
+      "key3": "__value__"
+    }
+  },
+  "conversationId": "__conversationId__",
+  "parentMessageId": "__parentMessageId__",
+  "attributeFilter": {
+    "andAllFilters": [
+      {},
+      {},
+      {}
+    ],
+    "orAllFilters": [
+      {},
+      {},
+      {}
+    ],
+    "notFilter": {
+      "andAllFilters": [
+        {},
+        {},
+        {}
+      ],
+      "orAllFilters": [
+        {},
+        {},
+        {}
+      ],
+      "notFilter": {},
+      "equalsTo": {
+        "name": "__name__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      },
+      "containsAll": {
+        "name": "__name__",
+        "value": {
+          "stringListValue": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "containsAny": {
+        "name": "__name__",
+        "value": {
+          "stringValue": "__stringValue__"
+        }
+      },
+      "greaterThan": {
+        "name": "__name__",
+        "value": {
+          "longValue": 0
+        }
+      },
+      "greaterThanOrEquals": {
+        "name": "__name__",
+        "value": {
+          "longValue": 0
+        }
+      },
+      "lessThan": {
+        "name": "__name__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      },
+      "lessThanOrEquals": {
+        "name": "__name__",
+        "value": {
+          "dateValue": 946702799.999
+        }
+      }
+    },
+    "equalsTo": {
+      "name": "__name__",
+      "value": {
+        "dateValue": 946702799.999
+      }
+    },
+    "containsAll": {
+      "name": "__name__",
+      "value": {
+        "stringListValue": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    "containsAny": {
+      "name": "__name__",
+      "value": {
+        "stringValue": "__stringValue__"
+      }
+    },
+    "greaterThan": {
+      "name": "__name__",
+      "value": {
+        "longValue": 0
+      }
+    },
+    "greaterThanOrEquals": {
+      "name": "__name__",
+      "value": {
+        "longValue": 0
+      }
+    },
+    "lessThan": {
+      "name": "__name__",
+      "value": {
+        "dateValue": 946702799.999
+      }
+    },
+    "lessThanOrEquals": {
+      "name": "__name__",
+      "value": {
+        "dateValue": 946702799.999
+      }
+    }
+  },
+  "chatMode": "__chatMode__",
+  "chatModeConfiguration": {
+    "pluginConfiguration": {
+      "pluginId": "__pluginId__"
+    }
+  },
+  "clientToken": "1111abcd-uuid-uuid-uuid-000000001111"
+}

@@ -1,0 +1,78 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+Location: __Location__
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<OriginAccessControl xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <OriginAccessControlConfig>
+        <Name>
+            __Name__
+        </Name>
+        <SigningProtocol>
+            __SigningProtocol__
+        </SigningProtocol>
+        <SigningBehavior>
+            __SigningBehavior__
+        </SigningBehavior>
+        <OriginAccessControlOriginType>
+            __OriginAccessControlOriginType__
+        </OriginAccessControlOriginType>
+        <Description>
+            __Description__
+        </Description>
+    </OriginAccessControlConfig>
+</OriginAccessControl>
+
+
+--- [output object] ---
+{
+  OriginAccessControl: {
+    Id: "__Id__",
+    OriginAccessControlConfig: {
+      Name: "__Name__",
+      SigningProtocol: "__SigningProtocol__",
+      SigningBehavior: "__SigningBehavior__",
+      OriginAccessControlOriginType: "__OriginAccessControlOriginType__",
+      Description: "__Description__"
+    }
+  },
+  Location: "__Location__",
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

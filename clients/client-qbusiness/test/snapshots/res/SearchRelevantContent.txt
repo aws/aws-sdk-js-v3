@@ -1,0 +1,241 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "relevantContent": [
+    {
+      "content": "__content__",
+      "documentId": "__documentId__",
+      "documentTitle": "__documentTitle__",
+      "documentUri": "__documentUri__",
+      "documentAttributes": [
+        {
+          "name": "__name__",
+          "value": {
+            "stringListValue": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        {
+          "name": "__name__",
+          "value": {
+            "longValue": 0
+          }
+        },
+        {
+          "name": "__name__",
+          "value": {
+            "dateValue": 946702799.999
+          }
+        }
+      ],
+      "scoreAttributes": {
+        "scoreConfidence": "__scoreConfidence__"
+      }
+    },
+    {
+      "content": "__content__",
+      "documentId": "__documentId__",
+      "documentTitle": "__documentTitle__",
+      "documentUri": "__documentUri__",
+      "documentAttributes": [
+        {
+          "name": "__name__",
+          "value": {
+            "longValue": 0
+          }
+        },
+        {
+          "name": "__name__",
+          "value": {
+            "dateValue": 946702799.999
+          }
+        },
+        {
+          "name": "__name__",
+          "value": {
+            "stringValue": "__stringValue__"
+          }
+        }
+      ],
+      "scoreAttributes": {
+        "scoreConfidence": "__scoreConfidence__"
+      }
+    },
+    {
+      "content": "__content__",
+      "documentId": "__documentId__",
+      "documentTitle": "__documentTitle__",
+      "documentUri": "__documentUri__",
+      "documentAttributes": [
+        {
+          "name": "__name__",
+          "value": {
+            "dateValue": 946702799.999
+          }
+        },
+        {
+          "name": "__name__",
+          "value": {
+            "stringValue": "__stringValue__"
+          }
+        },
+        {
+          "name": "__name__",
+          "value": {
+            "stringListValue": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        }
+      ],
+      "scoreAttributes": {
+        "scoreConfidence": "__scoreConfidence__"
+      }
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  relevantContent: [
+    {
+      content: "__content__",
+      documentId: "__documentId__",
+      documentTitle: "__documentTitle__",
+      documentUri: "__documentUri__",
+      documentAttributes: [
+        {
+          name: "__name__",
+          value: {
+            stringListValue: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        {
+          name: "__name__",
+          value: {
+            longValue: (number) 0
+          }
+        },
+        {
+          name: "__name__",
+          value: {
+            dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        }
+      ],
+      scoreAttributes: {
+        scoreConfidence: "__scoreConfidence__"
+      }
+    },
+    {
+      content: "__content__",
+      documentId: "__documentId__",
+      documentTitle: "__documentTitle__",
+      documentUri: "__documentUri__",
+      documentAttributes: [
+        {
+          name: "__name__",
+          value: {
+            longValue: (number) 0
+          }
+        },
+        {
+          name: "__name__",
+          value: {
+            dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        },
+        {
+          name: "__name__",
+          value: {
+            stringValue: "__stringValue__"
+          }
+        }
+      ],
+      scoreAttributes: {
+        scoreConfidence: "__scoreConfidence__"
+      }
+    },
+    {
+      content: "__content__",
+      documentId: "__documentId__",
+      documentTitle: "__documentTitle__",
+      documentUri: "__documentUri__",
+      documentAttributes: [
+        {
+          name: "__name__",
+          value: {
+            dateValue: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        },
+        {
+          name: "__name__",
+          value: {
+            stringValue: "__stringValue__"
+          }
+        },
+        {
+          name: "__name__",
+          value: {
+            stringListValue: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        }
+      ],
+      scoreAttributes: {
+        scoreConfidence: "__scoreConfidence__"
+      }
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

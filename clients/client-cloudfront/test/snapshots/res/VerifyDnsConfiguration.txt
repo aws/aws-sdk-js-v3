@@ -1,0 +1,97 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<VerifyDnsConfigurationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<VerifyDnsConfigurationResult xmlns="https://placeholder.amazonaws.com">
+    <DnsConfigurationList>
+        <DnsConfiguration>
+            <Domain>
+                __Domain__
+            </Domain>
+            <Status>
+                __Status__
+            </Status>
+            <Reason>
+                __Reason__
+            </Reason>
+        </DnsConfiguration>
+        <DnsConfiguration>
+            <Domain>
+                __Domain__
+            </Domain>
+            <Status>
+                __Status__
+            </Status>
+            <Reason>
+                __Reason__
+            </Reason>
+        </DnsConfiguration>
+        <DnsConfiguration>
+            <Domain>
+                __Domain__
+            </Domain>
+            <Status>
+                __Status__
+            </Status>
+            <Reason>
+                __Reason__
+            </Reason>
+        </DnsConfiguration>
+    </DnsConfigurationList>
+</VerifyDnsConfigurationResult>
+
+
+--- [output object] ---
+{
+  DnsConfigurationList: [
+    {
+      Domain: "__Domain__",
+      Status: "__Status__",
+      Reason: "__Reason__"
+    },
+    {
+      Domain: "__Domain__",
+      Status: "__Status__",
+      Reason: "__Reason__"
+    },
+    {
+      Domain: "__Domain__",
+      Status: "__Status__",
+      Reason: "__Reason__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

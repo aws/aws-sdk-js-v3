@@ -1,0 +1,155 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "medicalScribeListeningSessionDetails": {
+    "sessionId": "__sessionId__",
+    "domainId": "__domainId__",
+    "subscriptionId": "__subscriptionId__",
+    "languageCode": "__languageCode__",
+    "mediaSampleRateHertz": 0,
+    "mediaEncoding": "__mediaEncoding__",
+    "channelDefinitions": [
+      {
+        "channelId": 0,
+        "participantRole": "__participantRole__"
+      },
+      {
+        "channelId": 0,
+        "participantRole": "__participantRole__"
+      },
+      {
+        "channelId": 0,
+        "participantRole": "__participantRole__"
+      }
+    ],
+    "postStreamActionSettings": {
+      "outputS3Uri": "__outputS3Uri__",
+      "clinicalNoteGenerationSettings": {
+        "noteTemplateSettings": {
+          "customTemplate": {
+            "templateType": "__templateType__"
+          }
+        }
+      }
+    },
+    "postStreamActionResult": {
+      "clinicalNoteGenerationResult": {
+        "noteResult": {
+          "outputLocation": "__outputLocation__",
+          "status": "__status__",
+          "failureReason": "__failureReason__"
+        },
+        "transcriptResult": {
+          "outputLocation": "__outputLocation__",
+          "status": "__status__",
+          "failureReason": "__failureReason__"
+        },
+        "afterVisitSummaryResult": {
+          "outputLocation": "__outputLocation__",
+          "status": "__status__",
+          "failureReason": "__failureReason__"
+        }
+      }
+    },
+    "encounterContextProvided": false,
+    "streamStatus": "__streamStatus__",
+    "streamCreationTime": 946702799.999,
+    "streamEndTime": 946702799.999
+  }
+}
+
+
+--- [output object] ---
+{
+  medicalScribeListeningSessionDetails: {
+    sessionId: "__sessionId__",
+    domainId: "__domainId__",
+    subscriptionId: "__subscriptionId__",
+    languageCode: "__languageCode__",
+    mediaSampleRateHertz: (number) 0,
+    mediaEncoding: "__mediaEncoding__",
+    channelDefinitions: [
+      {
+        channelId: (number) 0,
+        participantRole: "__participantRole__"
+      },
+      {
+        channelId: (number) 0,
+        participantRole: "__participantRole__"
+      },
+      {
+        channelId: (number) 0,
+        participantRole: "__participantRole__"
+      }
+    ],
+    postStreamActionSettings: {
+      outputS3Uri: "__outputS3Uri__",
+      clinicalNoteGenerationSettings: {
+        noteTemplateSettings: {
+          customTemplate: {
+            templateType: "__templateType__"
+          }
+        }
+      }
+    },
+    postStreamActionResult: {
+      clinicalNoteGenerationResult: {
+        noteResult: {
+          outputLocation: "__outputLocation__",
+          status: "__status__",
+          failureReason: "__failureReason__"
+        },
+        transcriptResult: {
+          outputLocation: "__outputLocation__",
+          status: "__status__",
+          failureReason: "__failureReason__"
+        },
+        afterVisitSummaryResult: {
+          outputLocation: "__outputLocation__",
+          status: "__status__",
+          failureReason: "__failureReason__"
+        }
+      }
+    },
+    encounterContextProvided: (boolean) false,
+    streamStatus: "__streamStatus__",
+    streamCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    streamEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

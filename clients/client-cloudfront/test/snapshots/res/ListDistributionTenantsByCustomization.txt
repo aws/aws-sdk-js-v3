@@ -1,0 +1,449 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListDistributionTenantsByCustomizationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListDistributionTenantsByCustomizationResult xmlns="https://placeholder.amazonaws.com">
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+    <DistributionTenantList>
+        <DistributionTenantSummary>
+            <Id>
+                __Id__
+            </Id>
+            <DistributionId>
+                __DistributionId__
+            </DistributionId>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Domains>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+            </Domains>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <ConnectionGroupId>
+                __ConnectionGroupId__
+            </ConnectionGroupId>
+            <Customizations>
+                <WebAcl>
+                    <Action>
+                        __Action__
+                    </Action>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </WebAcl>
+                <Certificate>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </Certificate>
+                <GeoRestrictions>
+                    <RestrictionType>
+                        __RestrictionType__
+                    </RestrictionType>
+                    <Locations>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                    </Locations>
+                </GeoRestrictions>
+            </Customizations>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+        </DistributionTenantSummary>
+        <DistributionTenantSummary>
+            <Id>
+                __Id__
+            </Id>
+            <DistributionId>
+                __DistributionId__
+            </DistributionId>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Domains>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+            </Domains>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <ConnectionGroupId>
+                __ConnectionGroupId__
+            </ConnectionGroupId>
+            <Customizations>
+                <WebAcl>
+                    <Action>
+                        __Action__
+                    </Action>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </WebAcl>
+                <Certificate>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </Certificate>
+                <GeoRestrictions>
+                    <RestrictionType>
+                        __RestrictionType__
+                    </RestrictionType>
+                    <Locations>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                    </Locations>
+                </GeoRestrictions>
+            </Customizations>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+        </DistributionTenantSummary>
+        <DistributionTenantSummary>
+            <Id>
+                __Id__
+            </Id>
+            <DistributionId>
+                __DistributionId__
+            </DistributionId>
+            <Name>
+                __Name__
+            </Name>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Domains>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+                <member>
+                    <Domain>
+                        __Domain__
+                    </Domain>
+                    <Status>
+                        __Status__
+                    </Status>
+                </member>
+            </Domains>
+            <CreatedTime>
+                2000-01-01T04:59:59.999Z
+            </CreatedTime>
+            <LastModifiedTime>
+                2000-01-01T04:59:59.999Z
+            </LastModifiedTime>
+            <ETag>
+                __ETag__
+            </ETag>
+            <ConnectionGroupId>
+                __ConnectionGroupId__
+            </ConnectionGroupId>
+            <Customizations>
+                <WebAcl>
+                    <Action>
+                        __Action__
+                    </Action>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </WebAcl>
+                <Certificate>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </Certificate>
+                <GeoRestrictions>
+                    <RestrictionType>
+                        __RestrictionType__
+                    </RestrictionType>
+                    <Locations>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                        <Location>
+                            __member__
+                        </Location>
+                    </Locations>
+                </GeoRestrictions>
+            </Customizations>
+            <Enabled>
+                false
+            </Enabled>
+            <Status>
+                __Status__
+            </Status>
+        </DistributionTenantSummary>
+    </DistributionTenantList>
+</ListDistributionTenantsByCustomizationResult>
+
+
+--- [output object] ---
+{
+  NextMarker: "__NextMarker__",
+  DistributionTenantList: [
+    {
+      Id: "__Id__",
+      DistributionId: "__DistributionId__",
+      Name: "__Name__",
+      Arn: "__Arn__",
+      Domains: [
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        },
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        },
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        }
+      ],
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      ConnectionGroupId: "__ConnectionGroupId__",
+      Customizations: {
+        WebAcl: {
+          Action: "__Action__",
+          Arn: "__Arn__"
+        },
+        Certificate: {
+          Arn: "__Arn__"
+        },
+        GeoRestrictions: {
+          RestrictionType: "__RestrictionType__",
+          Locations: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      Enabled: (boolean) false,
+      Status: "__Status__"
+    },
+    {
+      Id: "__Id__",
+      DistributionId: "__DistributionId__",
+      Name: "__Name__",
+      Arn: "__Arn__",
+      Domains: [
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        },
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        },
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        }
+      ],
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      ConnectionGroupId: "__ConnectionGroupId__",
+      Customizations: {
+        WebAcl: {
+          Action: "__Action__",
+          Arn: "__Arn__"
+        },
+        Certificate: {
+          Arn: "__Arn__"
+        },
+        GeoRestrictions: {
+          RestrictionType: "__RestrictionType__",
+          Locations: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      Enabled: (boolean) false,
+      Status: "__Status__"
+    },
+    {
+      Id: "__Id__",
+      DistributionId: "__DistributionId__",
+      Name: "__Name__",
+      Arn: "__Arn__",
+      Domains: [
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        },
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        },
+        {
+          Domain: "__Domain__",
+          Status: "__Status__"
+        }
+      ],
+      CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      ConnectionGroupId: "__ConnectionGroupId__",
+      Customizations: {
+        WebAcl: {
+          Action: "__Action__",
+          Arn: "__Arn__"
+        },
+        Certificate: {
+          Arn: "__Arn__"
+        },
+        GeoRestrictions: {
+          RestrictionType: "__RestrictionType__",
+          Locations: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      Enabled: (boolean) false,
+      Status: "__Status__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

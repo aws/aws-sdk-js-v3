@@ -1,0 +1,128 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<ContinuousDeploymentPolicy xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <LastModifiedTime>
+        2000-01-01T04:59:59.999Z
+    </LastModifiedTime>
+    <ContinuousDeploymentPolicyConfig>
+        <StagingDistributionDnsNames>
+            <Quantity>
+                0
+            </Quantity>
+            <Items>
+                <DnsName>
+                    __member__
+                </DnsName>
+                <DnsName>
+                    __member__
+                </DnsName>
+                <DnsName>
+                    __member__
+                </DnsName>
+            </Items>
+        </StagingDistributionDnsNames>
+        <Enabled>
+            false
+        </Enabled>
+        <TrafficConfig>
+            <Type>
+                __Type__
+            </Type>
+            <SingleWeightConfig>
+                <Weight>
+                    0
+                </Weight>
+                <SessionStickinessConfig>
+                    <IdleTTL>
+                        0
+                    </IdleTTL>
+                    <MaximumTTL>
+                        0
+                    </MaximumTTL>
+                </SessionStickinessConfig>
+            </SingleWeightConfig>
+            <SingleHeaderConfig>
+                <Header>
+                    __Header__
+                </Header>
+                <Value>
+                    __Value__
+                </Value>
+            </SingleHeaderConfig>
+        </TrafficConfig>
+    </ContinuousDeploymentPolicyConfig>
+</ContinuousDeploymentPolicy>
+
+
+--- [output object] ---
+{
+  ContinuousDeploymentPolicy: {
+    Id: "__Id__",
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ContinuousDeploymentPolicyConfig: {
+      StagingDistributionDnsNames: {
+        Quantity: (number) 0,
+        Items: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      Enabled: (boolean) false,
+      TrafficConfig: {
+        Type: "__Type__",
+        SingleWeightConfig: {
+          Weight: (number) 0,
+          SessionStickinessConfig: {
+            IdleTTL: (number) 0,
+            MaximumTTL: (number) 0
+          }
+        },
+        SingleHeaderConfig: {
+          Header: "__Header__",
+          Value: "__Value__"
+        }
+      }
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

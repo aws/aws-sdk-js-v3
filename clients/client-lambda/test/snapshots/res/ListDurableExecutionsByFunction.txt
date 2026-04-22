@@ -1,0 +1,99 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DurableExecutions": [
+    {
+      "DurableExecutionArn": "__DurableExecutionArn__",
+      "DurableExecutionName": "__DurableExecutionName__",
+      "FunctionArn": "__FunctionArn__",
+      "Status": "__Status__",
+      "StartTimestamp": 946702799.999,
+      "EndTimestamp": 946702799.999
+    },
+    {
+      "DurableExecutionArn": "__DurableExecutionArn__",
+      "DurableExecutionName": "__DurableExecutionName__",
+      "FunctionArn": "__FunctionArn__",
+      "Status": "__Status__",
+      "StartTimestamp": 946702799.999,
+      "EndTimestamp": 946702799.999
+    },
+    {
+      "DurableExecutionArn": "__DurableExecutionArn__",
+      "DurableExecutionName": "__DurableExecutionName__",
+      "FunctionArn": "__FunctionArn__",
+      "Status": "__Status__",
+      "StartTimestamp": 946702799.999,
+      "EndTimestamp": 946702799.999
+    }
+  ],
+  "NextMarker": "__NextMarker__"
+}
+
+
+--- [output object] ---
+{
+  DurableExecutions: [
+    {
+      DurableExecutionArn: "__DurableExecutionArn__",
+      DurableExecutionName: "__DurableExecutionName__",
+      FunctionArn: "__FunctionArn__",
+      Status: "__Status__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      DurableExecutionArn: "__DurableExecutionArn__",
+      DurableExecutionName: "__DurableExecutionName__",
+      FunctionArn: "__FunctionArn__",
+      Status: "__Status__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      DurableExecutionArn: "__DurableExecutionArn__",
+      DurableExecutionName: "__DurableExecutionName__",
+      FunctionArn: "__FunctionArn__",
+      Status: "__Status__",
+      StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

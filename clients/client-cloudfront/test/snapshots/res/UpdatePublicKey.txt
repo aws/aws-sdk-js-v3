@@ -1,0 +1,76 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+ETag: __ETag__
+
+[Uint8Array (xml)]
+<PublicKey xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <CreatedTime>
+        2000-01-01T04:59:59.999Z
+    </CreatedTime>
+    <PublicKeyConfig>
+        <CallerReference>
+            __CallerReference__
+        </CallerReference>
+        <Name>
+            __Name__
+        </Name>
+        <EncodedKey>
+            __EncodedKey__
+        </EncodedKey>
+        <Comment>
+            __Comment__
+        </Comment>
+    </PublicKeyConfig>
+</PublicKey>
+
+
+--- [output object] ---
+{
+  PublicKey: {
+    Id: "__Id__",
+    CreatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    PublicKeyConfig: {
+      CallerReference: "__CallerReference__",
+      Name: "__Name__",
+      EncodedKey: "__EncodedKey__",
+      Comment: "__Comment__"
+    }
+  },
+  ETag: "__ETag__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

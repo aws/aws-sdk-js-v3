@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 409
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            FieldLevelEncryptionProfileInUse
+        </Code>
+        <Message>
+            unmodeled message.
+        </Message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
+
+
+--- [error name & message] ---
+FieldLevelEncryptionProfileInUse: unmodeled message.
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 409,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "FieldLevelEncryptionProfileInUse",
+  message: "unmodeled message.",
+  Error: {
+    Type: "Sender",
+    Code: "FieldLevelEncryptionProfileInUse",
+    Message: "unmodeled message."
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com",
+  Type: "Sender",
+  Code: "FieldLevelEncryptionProfileInUse"
+}
+
+======================== w/ optional fields ========================
+[status] 409
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            FieldLevelEncryptionProfileInUse
+        </Code>
+        <Message>
+            __Message__
+        </Message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
+
+
+--- [error name & message] ---
+FieldLevelEncryptionProfileInUse: __Message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 409,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "FieldLevelEncryptionProfileInUse",
+  message: "__Message__",
+  Error: {
+    Type: "Sender",
+    Code: "FieldLevelEncryptionProfileInUse",
+    Message: "__Message__"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com",
+  Type: "Sender",
+  Code: "FieldLevelEncryptionProfileInUse"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: char 'A' is not expected.:1:1
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
