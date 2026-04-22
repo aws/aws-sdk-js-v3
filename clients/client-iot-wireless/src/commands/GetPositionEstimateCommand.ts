@@ -189,6 +189,11 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  *     Use2DSolver: true || false,
  *   },
  *   Timestamp: new Date("TIMESTAMP"),
+ *   AdvancedConfiguration: { // AdvancedConfiguration
+ *     WiFiCellular: { // WiFiCellular
+ *       ConfidencePercent: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new GetPositionEstimateCommand(input);
  * const response = await client.send(command);

@@ -4,6 +4,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   Accuracy$,
+  AdvancedConfiguration$,
   AggregationPeriod,
   ApplicationConfig$,
   ApplicationConfigType,
@@ -634,6 +635,7 @@ import {
   WcdmaNmrObj$,
   WcdmaObj$,
   WiFiAccessPoint$,
+  WiFiCellular$,
   WirelessDeviceEvent,
   WirelessDeviceEventLogOption$,
   WirelessDeviceFrameInfo,
@@ -887,6 +889,7 @@ assert(typeof UpdateWirelessGateway$ === "object");
 assert(typeof AbpV1_0_x$ === "object");
 assert(typeof AbpV1_1$ === "object");
 assert(typeof Accuracy$ === "object");
+assert(typeof AdvancedConfiguration$ === "object");
 assert(typeof ApplicationConfig$ === "object");
 assert(typeof AssociateAwsAccountWithPartnerAccountRequest$ === "object");
 assert(typeof AssociateAwsAccountWithPartnerAccountResponse$ === "object");
@@ -1231,6 +1234,7 @@ assert(typeof WcdmaLocalId$ === "object");
 assert(typeof WcdmaNmrObj$ === "object");
 assert(typeof WcdmaObj$ === "object");
 assert(typeof WiFiAccessPoint$ === "object");
+assert(typeof WiFiCellular$ === "object");
 assert(typeof WirelessDeviceEventLogOption$ === "object");
 assert(typeof WirelessDeviceImportTask$ === "object");
 assert(typeof WirelessDeviceLogOption$ === "object");

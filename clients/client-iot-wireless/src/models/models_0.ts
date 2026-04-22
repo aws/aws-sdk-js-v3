@@ -169,6 +169,31 @@ export interface Accuracy {
 }
 
 /**
+ * Configuration for WiFi and cellular location payloads.
+ * @public
+ */
+export interface WiFiCellular {
+  /**
+   * Confidence level for WiFi and cellular position estimates, expressed as a
+   *         percentage. Valid range: 50–99 inclusive. Defaults to 68 if not specified.
+   * @public
+   */
+  ConfidencePercent?: number | undefined;
+}
+
+/**
+ * Optional configuration to customize location estimates.
+ * @public
+ */
+export interface AdvancedConfiguration {
+  /**
+   * Configuration for WiFi and cellular-based payloads for location estimates.
+   * @public
+   */
+  WiFiCellular?: WiFiCellular | undefined;
+}
+
+/**
  * <p>LoRaWAN application configuration, which can be used to perform geolocation.</p>
  * @public
  */
@@ -4567,6 +4592,13 @@ export interface GetPositionEstimateRequest {
    * @public
    */
   Timestamp?: Date | undefined;
+
+  /**
+   * Optional configuration to customize position estimates.
+   *         If not provided, defaults are applied.
+   * @public
+   */
+  AdvancedConfiguration?: AdvancedConfiguration | undefined;
 }
 
 /**
@@ -7112,40 +7144,4 @@ export interface SendDataToWirelessDeviceRequest {
    * @public
    */
   WirelessMetadata?: WirelessMetadata | undefined;
-}
-
-/**
- * @public
- */
-export interface SendDataToWirelessDeviceResponse {
-  /**
-   * <p>The ID of the message sent to the wireless device.</p>
-   * @public
-   */
-  MessageId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
-  /**
-   * <p>The ID of the multicast group.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Query string used to search for wireless devices as part of the bulk associate and
-   *             disassociate process.</p>
-   * @public
-   */
-  QueryString?: string | undefined;
-
-  /**
-   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
-   *             manage a resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

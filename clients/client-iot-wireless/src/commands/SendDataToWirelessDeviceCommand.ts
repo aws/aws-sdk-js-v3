@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import type { SendDataToWirelessDeviceRequest, SendDataToWirelessDeviceResponse } from "../models/models_0";
+import type { SendDataToWirelessDeviceRequest } from "../models/models_0";
+import type { SendDataToWirelessDeviceResponse } from "../models/models_1";
 import { SendDataToWirelessDevice$ } from "../schemas/schemas_0";
 
 /**

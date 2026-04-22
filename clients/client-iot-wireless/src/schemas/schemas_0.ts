@@ -3,8 +3,9 @@ const _AA = "AssistAltitude";
 const _AAAWPA = "AssociateAwsAccountWithPartnerAccount";
 const _AAAWPAR = "AssociateAwsAccountWithPartnerAccountRequest";
 const _AAAWPARs = "AssociateAwsAccountWithPartnerAccountResponse";
-const _AC = "ApplicationConfig";
+const _AC = "AdvancedConfiguration";
 const _ACT = "AutoCreateTasks";
+const _ACp = "ApplicationConfig";
 const _ADE = "AccessDeniedException";
 const _AE = "AppEui";
 const _AGM = "AddGwMetadata";
@@ -84,6 +85,7 @@ const _CNO = "CdmaNmrObj";
 const _CNo = "ConfigurationName";
 const _CO = "CdmaObj";
 const _CP = "CellParams";
+const _CPo = "ConfidencePercent";
 const _CRT = "ClientRequestToken";
 const _CS = "ConnectionStatus";
 const _CSEC = "ConnectionStatusEventConfiguration";
@@ -805,6 +807,7 @@ const _WDTA = "WirelessDevicesToAdd";
 const _WDTR = "WirelessDevicesToRemove";
 const _WFAP = "WiFiAccessPoints";
 const _WFAPi = "WiFiAccessPoint";
+const _WFC = "WiFiCellular";
 const _WG = "WirelessGateways";
 const _WGELO = "WirelessGatewayEventLogOption";
 const _WGELOL = "WirelessGatewayEventLogOptionList";
@@ -953,7 +956,12 @@ export var Accuracy$: StaticStructureSchema = [3, n0, _Ac,
   [_HA, _VA],
   [1, 1]
 ];
-export var ApplicationConfig$: StaticStructureSchema = [3, n0, _AC,
+export var AdvancedConfiguration$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_WFC],
+  [() => WiFiCellular$]
+];
+export var ApplicationConfig$: StaticStructureSchema = [3, n0, _ACp,
   0,
   [_FP, _T, _DN],
   [1, 0, 0]
@@ -1570,8 +1578,8 @@ export var GetPositionConfigurationResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetPositionEstimateRequest$: StaticStructureSchema = [3, n0, _GPER,
   0,
-  [_WFAP, _CT, _Ip, _Gn, _Ti],
-  [() => WiFiAccessPoints, () => CellTowers$, () => Ip$, () => Gnss$, 4]
+  [_WFAP, _CT, _Ip, _Gn, _Ti, _AC],
+  [() => WiFiAccessPoints, () => CellTowers$, () => Ip$, () => Gnss$, 4, () => AdvancedConfiguration$]
 ];
 export var GetPositionEstimateResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
@@ -2672,6 +2680,11 @@ export var WiFiAccessPoint$: StaticStructureSchema = [3, n0, _WFAPi,
   0,
   [_MA, _Rss],
   [0, 1], 2
+];
+export var WiFiCellular$: StaticStructureSchema = [3, n0, _WFC,
+  0,
+  [_CPo],
+  [1]
 ];
 export var WirelessDeviceEventLogOption$: StaticStructureSchema = [3, n0, _WDELO,
   0,

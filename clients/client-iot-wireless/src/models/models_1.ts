@@ -36,6 +36,42 @@ import type {
 /**
  * @public
  */
+export interface SendDataToWirelessDeviceResponse {
+  /**
+   * <p>The ID of the message sent to the wireless device.</p>
+   * @public
+   */
+  MessageId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Query string used to search for wireless devices as part of the bulk associate and
+   *             disassociate process.</p>
+   * @public
+   */
+  QueryString?: string | undefined;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to
+   *             manage a resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
 
 /**
