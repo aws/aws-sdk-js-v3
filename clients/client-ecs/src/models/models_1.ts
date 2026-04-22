@@ -45,6 +45,23 @@ import type {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface DeleteTaskDefinitionsResponse {
+  /**
+   * <p>The list of deleted task definitions.</p>
+   * @public
+   */
+  taskDefinitions?: TaskDefinition[] | undefined;
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   * @public
+   */
+  failures?: Failure[] | undefined;
+}
+
+/**
  *
  * @public
  */

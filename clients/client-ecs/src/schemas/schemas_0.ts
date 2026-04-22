@@ -10,6 +10,7 @@ const _AM = "AcceleratorManufacturer";
 const _AMS = "AcceleratorManufacturerSet";
 const _AN = "AcceleratorName";
 const _ANS = "AcceleratorNameSet";
+const _ARC = "AutoRepairConfiguration";
 const _ASC = "AttachmentStateChange";
 const _ASCt = "AttachmentStateChanges";
 const _ASGP = "AutoScalingGroupProvider";
@@ -571,12 +572,14 @@ const _aPA = "accessPointArn";
 const _aPAA = "awsPcaAuthorityArn";
 const _aPI = "assignPublicIp";
 const _aPIc = "accessPointId";
-const _aS = "attachmentsStatus";
+const _aRC = "autoRepairConfiguration";
+const _aS = "actionsStatus";
 const _aSC = "activeServicesCount";
 const _aSGA = "autoScalingGroupArn";
 const _aSGP = "autoScalingGroupProvider";
 const _aSM = "autoScalingMetric";
 const _aSTV = "autoScalingTargetValue";
+const _aSt = "attachmentsStatus";
 const _aSu = "autoScaling";
 const _aT = "accessType";
 const _aTGA = "alternateTargetGroupArn";
@@ -1372,6 +1375,11 @@ export var Attribute$: StaticStructureSchema = [3, n0, _At,
   [_n, _v, _tT, _tI],
   [0, 0, 0, 0], 1
 ];
+export var AutoRepairConfiguration$: StaticStructureSchema = [3, n0, _ARC,
+  0,
+  [_aS],
+  [0]
+];
 export var AutoScalingGroupProvider$: StaticStructureSchema = [3, n0, _ASGP,
   0,
   [_aSGA, _mS, _mTP, _mD],
@@ -1414,7 +1422,7 @@ export var CapacityReservationRequest$: StaticStructureSchema = [3, n0, _CRR,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_cA, _cN, _co, _st, _rCIC, _rTC, _pTC, _aSC, _sta, _ta, _set, _cPap, _dCPS, _a, _aS, _sCD],
+  [_cA, _cN, _co, _st, _rCIC, _rTC, _pTC, _aSC, _sta, _ta, _set, _cPap, _dCPS, _a, _aSt, _sCD],
   [0, 0, () => ClusterConfiguration$, 0, 1, 1, 1, 1, () => Statistics, () => Tags, () => ClusterSettings, 64 | 0, () => CapacityProviderStrategy, () => Attachments, 0, () => ClusterServiceConnectDefaults$]
 ];
 export var ClusterConfiguration$: StaticStructureSchema = [3, n0, _CCl,
@@ -1529,8 +1537,8 @@ export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _CMIPC,
   0,
-  [_iRA, _iLT, _pTr, _iO],
-  [0, [() => InstanceLaunchTemplate$, 0], 0, () => InfrastructureOptimization$], 2
+  [_iRA, _iLT, _pTr, _iO, _aRC],
+  [0, [() => InstanceLaunchTemplate$, 0], 0, () => InfrastructureOptimization$, () => AutoRepairConfiguration$], 2
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -2124,8 +2132,8 @@ export var IngressPathSummary$: StaticStructureSchema = [3, n0, _IPS,
 ];
 export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
   0,
-  [_t, _st, _lU, _lSC],
-  [0, 0, 4, 4]
+  [_t, _st, _sR, _lU, _lSC],
+  [0, 0, 0, 4, 4]
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
@@ -2354,8 +2362,8 @@ export var ManagedInstancesNetworkConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var ManagedInstancesProvider$: StaticStructureSchema = [3, n0, _MIPa,
   0,
-  [_iRA, _iLT, _pTr, _iO],
-  [0, [() => InstanceLaunchTemplate$, 0], 0, () => InfrastructureOptimization$]
+  [_iRA, _iLT, _pTr, _iO, _aRC],
+  [0, [() => InstanceLaunchTemplate$, 0], 0, () => InfrastructureOptimization$, () => AutoRepairConfiguration$]
 ];
 export var ManagedInstancesStorageConfiguration$: StaticStructureSchema = [3, n0, _MISC,
   0,
@@ -2964,8 +2972,8 @@ export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _UMIPC,
   0,
-  [_iRA, _iLT, _pTr, _iO],
-  [0, [() => InstanceLaunchTemplateUpdate$, 0], 0, () => InfrastructureOptimization$], 2
+  [_iRA, _iLT, _pTr, _iO, _aRC],
+  [0, [() => InstanceLaunchTemplateUpdate$, 0], 0, () => InfrastructureOptimization$, () => AutoRepairConfiguration$], 2
 ];
 export var UpdateServicePrimaryTaskSetRequest$: StaticStructureSchema = [3, n0, _USPTSR,
   0,

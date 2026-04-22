@@ -126,6 +126,19 @@ export type ManagedTerminationProtection =
  * @public
  * @enum
  */
+export const AutoRepairActionsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AutoRepairActionsStatus = (typeof AutoRepairActionsStatus)[keyof typeof AutoRepairActionsStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityOptionType = {
   ON_DEMAND: "ON_DEMAND",
   RESERVED: "RESERVED",

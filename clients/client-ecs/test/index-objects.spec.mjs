@@ -16,6 +16,8 @@ import {
   Attribute$,
   AttributeLimitExceededException,
   AttributeLimitExceededException$,
+  AutoRepairActionsStatus,
+  AutoRepairConfiguration$,
   AutoScalingGroupProvider$,
   AutoScalingGroupProviderUpdate$,
   AvailabilityZoneRebalancing,
@@ -843,6 +845,7 @@ assert(typeof AdvancedConfiguration$ === "object");
 assert(typeof Attachment$ === "object");
 assert(typeof AttachmentStateChange$ === "object");
 assert(typeof Attribute$ === "object");
+assert(typeof AutoRepairConfiguration$ === "object");
 assert(typeof AutoScalingGroupProvider$ === "object");
 assert(typeof AutoScalingGroupProviderUpdate$ === "object");
 assert(typeof AwsVpcConfiguration$ === "object");
@@ -1183,6 +1186,7 @@ assert(typeof AccessType === "object");
 assert(typeof AgentUpdateStatus === "object");
 assert(typeof ApplicationProtocol === "object");
 assert(typeof AssignPublicIp === "object");
+assert(typeof AutoRepairActionsStatus === "object");
 assert(typeof AvailabilityZoneRebalancing === "object");
 assert(typeof BareMetal === "object");
 assert(typeof BurstablePerformance === "object");

@@ -9,6 +9,7 @@ import type {
   AgentUpdateStatus,
   ApplicationProtocol,
   AssignPublicIp,
+  AutoRepairActionsStatus,
   AvailabilityZoneRebalancing,
   BareMetal,
   BurstablePerformance,
@@ -228,6 +229,18 @@ export interface AutoScalingGroupProvider {
    * @public
    */
   managedDraining?: ManagedDraining | undefined;
+}
+
+/**
+ * <p>The auto repair configuration for an Amazon ECS Managed Instances capacity provider. When enabled, Amazon ECS automatically replaces container instances that are detected as unhealthy based on container instance health checks, including accelerated compute device and daemon health checks.</p>
+ * @public
+ */
+export interface AutoRepairConfiguration {
+  /**
+   * <p>The status of auto repair actions for the capacity provider. When set to <code>ENABLED</code>, Amazon ECS automatically replaces container instances with an <code>IMPAIRED</code> health status. When set to <code>DISABLED</code>, Amazon ECS still monitors container instance health but does not automatically replace impaired instances.</p>
+   * @public
+   */
+  actionsStatus?: AutoRepairActionsStatus | undefined;
 }
 
 /**
@@ -672,6 +685,12 @@ export interface CreateManagedInstancesProviderConfiguration {
    * @public
    */
   infrastructureOptimization?: InfrastructureOptimization | undefined;
+
+  /**
+   * <p>The auto repair configuration for the Amazon ECS Managed Instances capacity provider. Use this to enable or disable automatic replacement of container instances that are detected as unhealthy.</p>
+   * @public
+   */
+  autoRepairConfiguration?: AutoRepairConfiguration | undefined;
 }
 
 /**
@@ -755,6 +774,12 @@ export interface ManagedInstancesProvider {
    * @public
    */
   infrastructureOptimization?: InfrastructureOptimization | undefined;
+
+  /**
+   * <p>The auto repair configuration for the Amazon ECS Managed Instances capacity provider. Indicates whether Amazon ECS automatically replaces container instances that are detected as unhealthy.</p>
+   * @public
+   */
+  autoRepairConfiguration?: AutoRepairConfiguration | undefined;
 }
 
 /**
@@ -1050,6 +1075,12 @@ export interface UpdateManagedInstancesProviderConfiguration {
    * @public
    */
   infrastructureOptimization?: InfrastructureOptimization | undefined;
+
+  /**
+   * <p>The updated auto repair configuration for the Amazon ECS Managed Instances capacity provider.</p>
+   * @public
+   */
+  autoRepairConfiguration?: AutoRepairConfiguration | undefined;
 }
 
 /**
@@ -1558,6 +1589,12 @@ export interface InstanceHealthCheckResult {
    * @public
    */
   status?: InstanceHealthCheckState | undefined;
+
+  /**
+   * <p>The reason for the container instance health status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
 
   /**
    * <p>The Unix timestamp for when the container instance health status was last updated.</p>
@@ -9318,21 +9355,4 @@ export interface DeleteTaskDefinitionsRequest {
    * @public
    */
   taskDefinitions: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTaskDefinitionsResponse {
-  /**
-   * <p>The list of deleted task definitions.</p>
-   * @public
-   */
-  taskDefinitions?: TaskDefinition[] | undefined;
-
-  /**
-   * <p>Any failures associated with the call.</p>
-   * @public
-   */
-  failures?: Failure[] | undefined;
 }
