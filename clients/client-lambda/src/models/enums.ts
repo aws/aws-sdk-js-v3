@@ -430,6 +430,7 @@ export const Runtime = {
   ruby32: "ruby3.2",
   ruby33: "ruby3.3",
   ruby34: "ruby3.4",
+  ruby40: "ruby4.0",
 } as const;
 /**
  * @public
