@@ -30,6 +30,15 @@ const _GDFJRRe = "GetDashboardForJobRunResponse";
 const _GJR = "GetJobRun";
 const _GJRR = "GetJobRunRequest";
 const _GJRRe = "GetJobRunResponse";
+const _GRD = "GetResourceDashboard";
+const _GRDR = "GetResourceDashboardRequest";
+const _GRDRe = "GetResourceDashboardResponse";
+const _GS = "GetSession";
+const _GSE = "GetSessionEndpoint";
+const _GSER = "GetSessionEndpointRequest";
+const _GSERe = "GetSessionEndpointResponse";
+const _GSR = "GetSessionRequest";
+const _GSRe = "GetSessionResponse";
 const _H = "Hive";
 const _HCP = "HiveCliParameters";
 const _IC = "ImageConfiguration";
@@ -58,6 +67,9 @@ const _LJRAR = "ListJobRunAttemptsRequest";
 const _LJRARi = "ListJobRunAttemptsResponse";
 const _LJRR = "ListJobRunsRequest";
 const _LJRRi = "ListJobRunsResponse";
+const _LS = "ListSessions";
+const _LSR = "ListSessionsRequest";
+const _LSRi = "ListSessionsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -71,25 +83,36 @@ const _Q = "Query";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RetryPolicy";
 const _RU = "ResourceUtilization";
+const _S = "Session";
 const _SA = "StartApplication";
 const _SAR = "StartApplicationRequest";
 const _SARt = "StartApplicationResponse";
 const _SARto = "StopApplicationRequest";
 const _SARtop = "StopApplicationResponse";
+const _SAT = "SessionAuthToken";
 const _SAt = "StopApplication";
 const _SC = "SchedulerConfiguration";
+const _SCO = "SessionConfigurationOverrides";
 const _SJR = "StartJobRun";
 const _SJRR = "StartJobRunRequest";
 const _SJRRt = "StartJobRunResponse";
 const _SMC = "S3MonitoringConfiguration";
 const _SPM = "SensitivePropertiesMap";
 const _SQEE = "ServiceQuotaExceededException";
-const _SS = "SparkSubmit";
+const _SS = "SessionSummary";
 const _SSP = "SparkSubmitParameters";
+const _SSR = "StartSessionRequest";
+const _SSRt = "StartSessionResponse";
+const _SSp = "SparkSubmit";
+const _SSt = "StartSession";
+const _Se = "Sessions";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TRU = "TotalResourceUtilization";
+const _TS = "TerminateSession";
+const _TSR = "TerminateSessionRequest";
+const _TSRe = "TerminateSessionResponse";
 const _UA = "UpdateApplication";
 const _UAR = "UpdateApplicationRequest";
 const _UARp = "UpdateApplicationResponse";
@@ -109,6 +132,8 @@ const _aI = "applicationId";
 const _aSC = "autoStartConfiguration";
 const _aSCu = "autoStopConfiguration";
 const _aSPL = "accessSystemProfileLogs";
+const _aT = "authToken";
+const _aTEA = "authTokenExpiresAt";
 const _aUA = "attemptUpdatedAt";
 const _ap = "application";
 const _app = "applications";
@@ -140,6 +165,7 @@ const _eR = "executionRole";
 const _eRA = "executionRoleArn";
 const _eTM = "executionTimeoutMinutes";
 const _en = "enabled";
+const _end = "endpoint";
 const _h = "hive";
 const _hE = "httpError";
 const _hQ = "httpQuery";
@@ -152,6 +178,7 @@ const _iCIA = "identityCenterInstanceArn";
 const _iCm = "imageConfiguration";
 const _iCn = "interactiveConfiguration";
 const _iQF = "initQueryFile";
+const _iS = "idleSince";
 const _iTM = "idleTimeoutMinutes";
 const _iU = "imageUri";
 const _jCA = "jobCreatedAt";
@@ -190,23 +217,29 @@ const _qDM = "queuedDurationMilliseconds";
 const _qTM = "queueTimeoutMinutes";
 const _rA = "resourceArn";
 const _rC = "runtimeConfiguration";
+const _rI = "resourceId";
 const _rID = "resolvedImageDigest";
 const _rL = "releaseLabel";
 const _rP = "retryPolicy";
+const _rT = "resourceType";
 const _rWU = "remoteWriteUrl";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.emrserverless";
 const _sA = "startedAt";
 const _sC = "schedulerConfiguration";
 const _sD = "stateDetails";
 const _sE = "studioEnabled";
+const _sEe = "sessionEnabled";
 const _sGBH = "storageGBHour";
 const _sGI = "securityGroupIds";
 const _sGPIS = "shutdownGracePeriodInSeconds";
-const _sI = "subnetIds";
+const _sI = "sessionId";
+const _sIu = "subnetIds";
 const _sMC = "s3MonitoringConfiguration";
 const _sS = "sparkSubmit";
 const _sSP = "sparkSubmitParameters";
 const _se = "server";
+const _ses = "session";
+const _sess = "sessions";
 const _st = "state";
 const _sta = "states";
 const _t = "type";
@@ -293,6 +326,7 @@ var EntryPointPath: StaticSimpleSchema = [0, n0, _EPP, 8, 0];
 var HiveCliParameters: StaticSimpleSchema = [0, n0, _HCP, 8, 0];
 var InitScriptPath: StaticSimpleSchema = [0, n0, _ISP, 8, 0];
 var Query: StaticSimpleSchema = [0, n0, _Q, 8, 0];
+var SessionAuthToken: StaticSimpleSchema = [0, n0, _SAT, 8, 0];
 var SparkSubmitParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -394,6 +428,36 @@ export var GetJobRunResponse$: StaticStructureSchema = [3, n0, _GJRRe,
   [_jR],
   [[() => JobRun$, 0]], 1
 ];
+export var GetResourceDashboardRequest$: StaticStructureSchema = [3, n0, _GRDR,
+  0,
+  [_aI, _rI, _rT],
+  [[0, 1], [0, { [_hQ]: _rI }], [0, { [_hQ]: _rT }]], 3
+];
+export var GetResourceDashboardResponse$: StaticStructureSchema = [3, n0, _GRDRe,
+  0,
+  [_u],
+  [0]
+];
+export var GetSessionEndpointRequest$: StaticStructureSchema = [3, n0, _GSER,
+  0,
+  [_aI, _sI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetSessionEndpointResponse$: StaticStructureSchema = [3, n0, _GSERe,
+  0,
+  [_aI, _sI, _end, _aT, _aTEA],
+  [0, 0, 0, [() => SessionAuthToken, 0], 4], 5
+];
+export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
+  0,
+  [_aI, _sI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
+  0,
+  [_ses],
+  [[() => Session$, 0]], 1
+];
 export var Hive$: StaticStructureSchema = [3, n0, _H,
   0,
   [_q, _iQF, _pa],
@@ -426,8 +490,8 @@ export var InitialCapacityConfig$: StaticStructureSchema = [3, n0, _ICCn,
 ];
 export var InteractiveConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   0,
-  [_sE, _lEE],
-  [2, 2]
+  [_sE, _lEE, _sEe],
+  [2, 2, 2]
 ];
 export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0, _JLCAC,
   0,
@@ -484,6 +548,16 @@ export var ListJobRunsResponse$: StaticStructureSchema = [3, n0, _LJRRi,
   [_jRo, _nT],
   [() => JobRuns, 0], 1
 ];
+export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
+  0,
+  [_aI, _nT, _mR, _sta, _cAA, _cAB],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [64 | 0, { [_hQ]: _sta }], [4, { [_hQ]: _cAA }], [4, { [_hQ]: _cAB }]], 1
+];
+export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
+  0,
+  [_sess, _nT],
+  [() => Sessions, 0], 1
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -511,7 +585,7 @@ export var MonitoringConfiguration$: StaticStructureSchema = [3, n0, _MC,
 ];
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
-  [_sI, _sGI],
+  [_sIu, _sGI],
   [64 | 0, 64 | 0]
 ];
 export var PrometheusMonitoringConfiguration$: StaticStructureSchema = [3, n0, _PMC,
@@ -539,7 +613,22 @@ export var SchedulerConfiguration$: StaticStructureSchema = [3, n0, _SC,
   [_qTM, _mCR],
   [1, 1]
 ];
-export var SparkSubmit$: StaticStructureSchema = [3, n0, _SS,
+export var Session$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_aI, _sI, _a, _st, _sD, _rL, _eRA, _cB, _cA, _uA, _n, _sA, _eA, _iS, _cO, _nC, _iTM, _ta, _tRU, _bRU, _tEDS],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 4, [() => SessionConfigurationOverrides$, 0], () => NetworkConfiguration$, 1, 128 | 0, () => TotalResourceUtilization$, () => ResourceUtilization$, 1], 10
+];
+export var SessionConfigurationOverrides$: StaticStructureSchema = [3, n0, _SCO,
+  0,
+  [_rC],
+  [[() => ConfigurationList, 0]]
+];
+export var SessionSummary$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_aI, _sI, _a, _st, _sD, _rL, _eRA, _cB, _cA, _uA, _n],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0], 10
+];
+export var SparkSubmit$: StaticStructureSchema = [3, n0, _SSp,
   0,
   [_eP, _ePA, _sSP],
   [[() => EntryPointPath, 0], [() => EntryPointArguments, 0], [() => SparkSubmitParameters, 0]], 1
@@ -564,6 +653,16 @@ export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
   [_aI, _jRI, _a],
   [0, 0, 0], 3
 ];
+export var StartSessionRequest$: StaticStructureSchema = [3, n0, _SSR,
+  0,
+  [_aI, _eRA, _cT, _cO, _ta, _iTM, _n],
+  [[0, 1], 0, [0, 4], [() => SessionConfigurationOverrides$, 0], 128 | 0, 1, 0], 2
+];
+export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt,
+  0,
+  [_aI, _sI, _a],
+  [0, 0, 0], 3
+];
 export var StopApplicationRequest$: StaticStructureSchema = [3, n0, _SARto,
   0,
   [_aI],
@@ -583,6 +682,16 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
   [],
   []
+];
+export var TerminateSessionRequest$: StaticStructureSchema = [3, n0, _TSR,
+  0,
+  [_aI, _sI],
+  [[0, 1], [0, 1]], 2
+];
+export var TerminateSessionResponse$: StaticStructureSchema = [3, n0, _TSRe,
+  0,
+  [_aI, _sI],
+  [0, 0], 2
 ];
 export var TotalResourceUtilization$: StaticStructureSchema = [3, n0, _TRU,
   0,
@@ -646,6 +755,10 @@ var JobRunStateSet = 64 | 0;
 var LogTypeList = 64 | 0;
 var PolicyArnList = 64 | 0;
 var SecurityGroupIds = 64 | 0;
+var Sessions: StaticListSchema = [1, n0, _Se,
+  0, () => SessionSummary$
+];
+var SessionStateSet = 64 | 0;
 var SubnetIds = 64 | 0;
 var TagKeyList = 64 | 0;
 var EncryptionContext = 128 | 0;
@@ -688,6 +801,15 @@ export var GetDashboardForJobRun$: StaticOperationSchema = [9, n0, _GDFJR,
 export var GetJobRun$: StaticOperationSchema = [9, n0, _GJR,
   { [_ht]: ["GET", "/applications/{applicationId}/jobruns/{jobRunId}", 200] }, () => GetJobRunRequest$, () => GetJobRunResponse$
 ];
+export var GetResourceDashboard$: StaticOperationSchema = [9, n0, _GRD,
+  { [_ht]: ["GET", "/applications/{applicationId}/dashboard", 200] }, () => GetResourceDashboardRequest$, () => GetResourceDashboardResponse$
+];
+export var GetSession$: StaticOperationSchema = [9, n0, _GS,
+  { [_ht]: ["GET", "/applications/{applicationId}/sessions/{sessionId}", 200] }, () => GetSessionRequest$, () => GetSessionResponse$
+];
+export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
+  { [_ht]: ["GET", "/applications/{applicationId}/sessions/{sessionId}/endpoint", 200] }, () => GetSessionEndpointRequest$, () => GetSessionEndpointResponse$
+];
 export var ListApplications$: StaticOperationSchema = [9, n0, _LA,
   { [_ht]: ["GET", "/applications", 200] }, () => ListApplicationsRequest$, () => ListApplicationsResponse$
 ];
@@ -696,6 +818,9 @@ export var ListJobRunAttempts$: StaticOperationSchema = [9, n0, _LJRA,
 ];
 export var ListJobRuns$: StaticOperationSchema = [9, n0, _LJR,
   { [_ht]: ["GET", "/applications/{applicationId}/jobruns", 200] }, () => ListJobRunsRequest$, () => ListJobRunsResponse$
+];
+export var ListSessions$: StaticOperationSchema = [9, n0, _LS,
+  { [_ht]: ["GET", "/applications/{applicationId}/sessions", 200] }, () => ListSessionsRequest$, () => ListSessionsResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
@@ -706,11 +831,17 @@ export var StartApplication$: StaticOperationSchema = [9, n0, _SA,
 export var StartJobRun$: StaticOperationSchema = [9, n0, _SJR,
   { [_ht]: ["POST", "/applications/{applicationId}/jobruns", 200] }, () => StartJobRunRequest$, () => StartJobRunResponse$
 ];
+export var StartSession$: StaticOperationSchema = [9, n0, _SSt,
+  { [_ht]: ["POST", "/applications/{applicationId}/sessions", 200] }, () => StartSessionRequest$, () => StartSessionResponse$
+];
 export var StopApplication$: StaticOperationSchema = [9, n0, _SAt,
   { [_ht]: ["POST", "/applications/{applicationId}/stop", 200] }, () => StopApplicationRequest$, () => StopApplicationResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_ht]: ["POST", "/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
+];
+export var TerminateSession$: StaticOperationSchema = [9, n0, _TS,
+  { [_ht]: ["DELETE", "/applications/{applicationId}/sessions/{sessionId}", 200] }, () => TerminateSessionRequest$, () => TerminateSessionResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$

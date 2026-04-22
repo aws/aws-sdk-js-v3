@@ -84,6 +84,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   interactiveConfiguration: { // InteractiveConfiguration
  *     studioEnabled: true || false,
  *     livyEndpointEnabled: true || false,
+ *     sessionEnabled: true || false,
  *   },
  *   releaseLabel: "STRING_VALUE",
  *   runtimeConfiguration: [ // ConfigurationList
@@ -255,6 +256,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     interactiveConfiguration: { // InteractiveConfiguration
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
+ * //       sessionEnabled: true || false,
  * //     },
  * //     schedulerConfiguration: { // SchedulerConfiguration
  * //       queueTimeoutMinutes: Number("int"),

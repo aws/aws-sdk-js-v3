@@ -34,6 +34,18 @@ export type ApplicationState = (typeof ApplicationState)[keyof typeof Applicatio
  * @public
  * @enum
  */
+export const ResourceType = {
+  SESSION: "SESSION",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const JobRunMode = {
   BATCH: "BATCH",
   STREAMING: "STREAMING",
@@ -62,3 +74,22 @@ export const JobRunState = {
  * @public
  */
 export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionState = {
+  BUSY: "BUSY",
+  FAILED: "FAILED",
+  IDLE: "IDLE",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  SUBMITTED: "SUBMITTED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+} as const;
+/**
+ * @public
+ */
+export type SessionState = (typeof SessionState)[keyof typeof SessionState];

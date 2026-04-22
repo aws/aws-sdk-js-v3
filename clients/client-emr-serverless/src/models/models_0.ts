@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ApplicationState, Architecture, JobRunMode, JobRunState } from "./enums";
+import type { ApplicationState, Architecture, JobRunMode, JobRunState, ResourceType, SessionState } from "./enums";
 
 /**
  * <p>The configuration for an application to automatically start on job submission.</p>
@@ -155,6 +155,12 @@ export interface InteractiveConfiguration {
    * @public
    */
   livyEndpointEnabled?: boolean | undefined;
+
+  /**
+   * <p>Enables interactive sessions on the application. When set to <code>true</code>, you can start interactive sessions using the <code>StartSession</code> operation.</p>
+   * @public
+   */
+  sessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -511,6 +517,40 @@ export interface GetApplicationRequest {
    * @public
    */
   applicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourceDashboardRequest {
+  /**
+   * <p>The ID of the application that the resource belongs to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of resource to access the dashboard for. Currently, only <code>Session</code> is supported.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourceDashboardResponse {
+  /**
+   * <p>A URL to the resource dashboard. For an active resource, this URL opens the live application UI. For a terminated resource, this URL opens the persistent application UI. This value is not included in the response if the URL is not available.</p>
+   * @public
+   */
+  url?: string | undefined;
 }
 
 /**
@@ -1229,6 +1269,262 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface GetSessionRequest {
+  /**
+   * <p>The ID of the application that the session belongs to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionEndpointRequest {
+  /**
+   * <p>The ID of the application that the session belongs to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionEndpointResponse {
+  /**
+   * <p>The output contains the ID of the application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The output contains the ID of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * The endpoint URL for connecting to the session.
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * Authentication token for accessing the session endpoint.
+   * @public
+   */
+  authToken: string | undefined;
+
+  /**
+   * The expiration time of the authentication token.
+   * @public
+   */
+  authTokenExpiresAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsRequest {
+  /**
+   * <p>The ID of the application to list sessions for.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of session results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of sessions to return in each page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>An optional filter for session states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
+   * @public
+   */
+  states?: SessionState[] | undefined;
+
+  /**
+   * <p>The lower bound of the option to filter by creation date and time.</p>
+   * @public
+   */
+  createdAtAfter?: Date | undefined;
+
+  /**
+   * <p>The upper bound of the option to filter by creation date and time.</p>
+   * @public
+   */
+  createdAtBefore?: Date | undefined;
+}
+
+/**
+ * <p>The summary of attributes associated with a session.</p>
+ * @public
+ */
+export interface SessionSummary {
+  /**
+   * <p>The ID of the application that the session belongs to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The optional name of the session.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The state of the session.</p>
+   * @public
+   */
+  state: SessionState | undefined;
+
+  /**
+   * <p>Additional details about the current state of the session.</p>
+   * @public
+   */
+  stateDetails: string | undefined;
+
+  /**
+   * <p>The Amazon EMR release label associated with the session.</p>
+   * @public
+   */
+  releaseLabel: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the execution role for the session.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The IAM principal that created the session.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time that the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the session was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsResponse {
+  /**
+   * <p>The output lists information about the specified sessions.</p>
+   * @public
+   */
+  sessions: SessionSummary[] | undefined;
+
+  /**
+   * <p>The output displays the token for the next set of session results. This is required for pagination and is available as a response of the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionResponse {
+  /**
+   * <p>The output contains the application ID on which the session was started.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The output contains the ID of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The output contains the ARN of the session.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateSessionRequest {
+  /**
+   * <p>The ID of the application that the session belongs to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the session to terminate.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateSessionResponse {
+  /**
+   * <p>The output contains the application ID on which the session was terminated.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The output contains the ID of the terminated session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>
@@ -1600,6 +1896,18 @@ export interface CreateApplicationRequest {
 }
 
 /**
+ * <p>The configuration overrides for a session.</p>
+ * @public
+ */
+export interface SessionConfigurationOverrides {
+  /**
+   * <p>The runtime configuration for the session. Contains Spark configuration properties specified at session creation time.</p>
+   * @public
+   */
+  runtimeConfiguration?: Configuration[] | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateApplicationRequest {
@@ -1898,6 +2206,138 @@ export interface JobRun {
 }
 
 /**
+ * <p>Information about a session, including the session state, configuration, and timestamps.</p>
+ * @public
+ */
+export interface Session {
+  /**
+   * <p>The ID of the application that the session belongs to.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The optional name of the session.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The state of the session.</p>
+   * @public
+   */
+  state: SessionState | undefined;
+
+  /**
+   * <p>Additional details about the current state of the session.</p>
+   * @public
+   */
+  stateDetails: string | undefined;
+
+  /**
+   * <p>The Amazon EMR release label associated with the session.</p>
+   * @public
+   */
+  releaseLabel: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the execution role for the session.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The IAM principal that created the session.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time that the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the session was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the session moved to a running state.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the session was terminated or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the session became idle.</p>
+   * @public
+   */
+  idleSince?: Date | undefined;
+
+  /**
+   * <p>The configuration overrides for the session, including runtime configuration properties.</p>
+   * @public
+   */
+  configurationOverrides?: SessionConfigurationOverrides | undefined;
+
+  /**
+   * <p>The network configuration for customer VPC connectivity for the session.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The idle timeout in minutes for the session. After the session remains idle for this duration, it is automatically terminated.</p>
+   * @public
+   */
+  idleTimeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The tags assigned to the session.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The aggregate vCPU, memory, and storage resources used from the time the session starts to execute, until the time the session terminates, rounded up to the nearest second.</p>
+   * @public
+   */
+  totalResourceUtilization?: TotalResourceUtilization | undefined;
+
+  /**
+   * <p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the session. The billed resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB per worker. Note that billed resources do not include usage for idle pre-initialized workers.</p>
+   * @public
+   */
+  billedResourceUtilization?: ResourceUtilization | undefined;
+
+  /**
+   * <p>The total execution duration of the session in seconds.</p>
+   * @public
+   */
+  totalExecutionDurationSeconds?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface StartJobRunRequest {
@@ -1971,6 +2411,53 @@ export interface StartJobRunRequest {
 /**
  * @public
  */
+export interface StartSessionRequest {
+  /**
+   * <p>The ID of the application on which to start the session.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token, the server returns the successful response without performing the operation again.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The execution role ARN for the session. Amazon EMR Serverless uses this role to access Amazon Web Services resources on your behalf during session execution.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The configuration overrides for the session. Only runtime configuration overrides are supported.</p>
+   * @public
+   */
+  configurationOverrides?: SessionConfigurationOverrides | undefined;
+
+  /**
+   * <p>The tags to assign to the session.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The idle timeout in minutes for the session. After the session remains idle for this duration, Amazon EMR Serverless automatically terminates it.</p>
+   * @public
+   */
+  idleTimeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The optional name for the session.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
    * <p>Information about the updated application.</p>
@@ -1988,4 +2475,15 @@ export interface GetJobRunResponse {
    * @public
    */
   jobRun: JobRun | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionResponse {
+  /**
+   * <p>The output displays information about the session.</p>
+   * @public
+   */
+  session: Session | undefined;
 }

@@ -29,6 +29,21 @@ import {
 } from "./commands/GetDashboardForJobRunCommand";
 import { type GetJobRunCommandInput, type GetJobRunCommandOutput, GetJobRunCommand } from "./commands/GetJobRunCommand";
 import {
+  type GetResourceDashboardCommandInput,
+  type GetResourceDashboardCommandOutput,
+  GetResourceDashboardCommand,
+} from "./commands/GetResourceDashboardCommand";
+import {
+  type GetSessionCommandInput,
+  type GetSessionCommandOutput,
+  GetSessionCommand,
+} from "./commands/GetSessionCommand";
+import {
+  type GetSessionEndpointCommandInput,
+  type GetSessionEndpointCommandOutput,
+  GetSessionEndpointCommand,
+} from "./commands/GetSessionEndpointCommand";
+import {
   type ListApplicationsCommandInput,
   type ListApplicationsCommandOutput,
   ListApplicationsCommand,
@@ -43,6 +58,11 @@ import {
   type ListJobRunsCommandOutput,
   ListJobRunsCommand,
 } from "./commands/ListJobRunsCommand";
+import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
+  ListSessionsCommand,
+} from "./commands/ListSessionsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -59,6 +79,11 @@ import {
   StartJobRunCommand,
 } from "./commands/StartJobRunCommand";
 import {
+  type StartSessionCommandInput,
+  type StartSessionCommandOutput,
+  StartSessionCommand,
+} from "./commands/StartSessionCommand";
+import {
   type StopApplicationCommandInput,
   type StopApplicationCommandOutput,
   StopApplicationCommand,
@@ -68,6 +93,11 @@ import {
   type TagResourceCommandOutput,
   TagResourceCommand,
 } from "./commands/TagResourceCommand";
+import {
+  type TerminateSessionCommandInput,
+  type TerminateSessionCommandOutput,
+  TerminateSessionCommand,
+} from "./commands/TerminateSessionCommand";
 import {
   type UntagResourceCommandInput,
   type UntagResourceCommandOutput,
@@ -82,6 +112,7 @@ import { EMRServerlessClient } from "./EMRServerlessClient";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListJobRunAttempts } from "./pagination/ListJobRunAttemptsPaginator";
 import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 
 const commands = {
   CancelJobRunCommand,
@@ -90,14 +121,20 @@ const commands = {
   GetApplicationCommand,
   GetDashboardForJobRunCommand,
   GetJobRunCommand,
+  GetResourceDashboardCommand,
+  GetSessionCommand,
+  GetSessionEndpointCommand,
   ListApplicationsCommand,
   ListJobRunAttemptsCommand,
   ListJobRunsCommand,
+  ListSessionsCommand,
   ListTagsForResourceCommand,
   StartApplicationCommand,
   StartJobRunCommand,
+  StartSessionCommand,
   StopApplicationCommand,
   TagResourceCommand,
+  TerminateSessionCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
 };
@@ -105,6 +142,7 @@ const paginators = {
   paginateListApplications,
   paginateListJobRunAttempts,
   paginateListJobRuns,
+  paginateListSessions,
 };
 
 export interface EMRServerless {
@@ -211,6 +249,57 @@ export interface EMRServerless {
   ): void;
 
   /**
+   * @see {@link GetResourceDashboardCommand}
+   */
+  getResourceDashboard(
+    args: GetResourceDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceDashboardCommandOutput>;
+  getResourceDashboard(
+    args: GetResourceDashboardCommandInput,
+    cb: (err: any, data?: GetResourceDashboardCommandOutput) => void
+  ): void;
+  getResourceDashboard(
+    args: GetResourceDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSessionEndpointCommand}
+   */
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionEndpointCommandOutput>;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
+  ): void;
+  getSessionEndpoint(
+    args: GetSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListApplicationsCommand}
    */
   listApplications(): Promise<ListApplicationsCommandOutput>;
@@ -260,6 +349,23 @@ export interface EMRServerless {
     args: ListJobRunsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListJobRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -314,6 +420,23 @@ export interface EMRServerless {
   ): void;
 
   /**
+   * @see {@link StartSessionCommand}
+   */
+  startSession(
+    args: StartSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSessionCommandOutput>;
+  startSession(
+    args: StartSessionCommandInput,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopApplicationCommand}
    */
   stopApplication(
@@ -345,6 +468,23 @@ export interface EMRServerless {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateSessionCommand}
+   */
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateSessionCommandOutput>;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
+  ): void;
+  terminateSession(
+    args: TerminateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateSessionCommandOutput) => void
   ): void;
 
   /**
@@ -413,6 +553,17 @@ export interface EMRServerless {
     args: ListJobRunsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListJobRunsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
 }
 
 /**

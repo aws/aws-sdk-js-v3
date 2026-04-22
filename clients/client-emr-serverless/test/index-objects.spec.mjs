@@ -38,6 +38,18 @@ import {
   GetJobRunCommand,
   GetJobRunRequest$,
   GetJobRunResponse$,
+  GetResourceDashboard$,
+  GetResourceDashboardCommand,
+  GetResourceDashboardRequest$,
+  GetResourceDashboardResponse$,
+  GetSession$,
+  GetSessionCommand,
+  GetSessionEndpoint$,
+  GetSessionEndpointCommand,
+  GetSessionEndpointRequest$,
+  GetSessionEndpointResponse$,
+  GetSessionRequest$,
+  GetSessionResponse$,
   Hive$,
   IdentityCenterConfiguration$,
   IdentityCenterConfigurationInput$,
@@ -67,6 +79,10 @@ import {
   ListJobRunsCommand,
   ListJobRunsRequest$,
   ListJobRunsResponse$,
+  ListSessions$,
+  ListSessionsCommand,
+  ListSessionsRequest$,
+  ListSessionsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -78,15 +94,21 @@ import {
   paginateListApplications,
   paginateListJobRunAttempts,
   paginateListJobRuns,
+  paginateListSessions,
   PrometheusMonitoringConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ResourceType,
   ResourceUtilization$,
   RetryPolicy$,
   S3MonitoringConfiguration$,
   SchedulerConfiguration$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  Session$,
+  SessionConfigurationOverrides$,
+  SessionState,
+  SessionSummary$,
   SparkSubmit$,
   StartApplication$,
   StartApplicationCommand,
@@ -96,6 +118,10 @@ import {
   StartJobRunCommand,
   StartJobRunRequest$,
   StartJobRunResponse$,
+  StartSession$,
+  StartSessionCommand,
+  StartSessionRequest$,
+  StartSessionResponse$,
   StopApplication$,
   StopApplicationCommand,
   StopApplicationRequest$,
@@ -104,6 +130,10 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TerminateSession$,
+  TerminateSessionCommand,
+  TerminateSessionRequest$,
+  TerminateSessionResponse$,
   TotalResourceUtilization$,
   UntagResource$,
   UntagResourceCommand,
@@ -136,22 +166,34 @@ assert(typeof GetDashboardForJobRunCommand === "function");
 assert(typeof GetDashboardForJobRun$ === "object");
 assert(typeof GetJobRunCommand === "function");
 assert(typeof GetJobRun$ === "object");
+assert(typeof GetResourceDashboardCommand === "function");
+assert(typeof GetResourceDashboard$ === "object");
+assert(typeof GetSessionCommand === "function");
+assert(typeof GetSession$ === "object");
+assert(typeof GetSessionEndpointCommand === "function");
+assert(typeof GetSessionEndpoint$ === "object");
 assert(typeof ListApplicationsCommand === "function");
 assert(typeof ListApplications$ === "object");
 assert(typeof ListJobRunAttemptsCommand === "function");
 assert(typeof ListJobRunAttempts$ === "object");
 assert(typeof ListJobRunsCommand === "function");
 assert(typeof ListJobRuns$ === "object");
+assert(typeof ListSessionsCommand === "function");
+assert(typeof ListSessions$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof StartApplicationCommand === "function");
 assert(typeof StartApplication$ === "object");
 assert(typeof StartJobRunCommand === "function");
 assert(typeof StartJobRun$ === "object");
+assert(typeof StartSessionCommand === "function");
+assert(typeof StartSession$ === "object");
 assert(typeof StopApplicationCommand === "function");
 assert(typeof StopApplication$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
+assert(typeof TerminateSessionCommand === "function");
+assert(typeof TerminateSession$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateApplicationCommand === "function");
@@ -177,6 +219,12 @@ assert(typeof GetDashboardForJobRunRequest$ === "object");
 assert(typeof GetDashboardForJobRunResponse$ === "object");
 assert(typeof GetJobRunRequest$ === "object");
 assert(typeof GetJobRunResponse$ === "object");
+assert(typeof GetResourceDashboardRequest$ === "object");
+assert(typeof GetResourceDashboardResponse$ === "object");
+assert(typeof GetSessionEndpointRequest$ === "object");
+assert(typeof GetSessionEndpointResponse$ === "object");
+assert(typeof GetSessionRequest$ === "object");
+assert(typeof GetSessionResponse$ === "object");
 assert(typeof Hive$ === "object");
 assert(typeof IdentityCenterConfiguration$ === "object");
 assert(typeof IdentityCenterConfigurationInput$ === "object");
@@ -196,6 +244,8 @@ assert(typeof ListJobRunAttemptsRequest$ === "object");
 assert(typeof ListJobRunAttemptsResponse$ === "object");
 assert(typeof ListJobRunsRequest$ === "object");
 assert(typeof ListJobRunsResponse$ === "object");
+assert(typeof ListSessionsRequest$ === "object");
+assert(typeof ListSessionsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ManagedPersistenceMonitoringConfiguration$ === "object");
@@ -207,15 +257,22 @@ assert(typeof ResourceUtilization$ === "object");
 assert(typeof RetryPolicy$ === "object");
 assert(typeof S3MonitoringConfiguration$ === "object");
 assert(typeof SchedulerConfiguration$ === "object");
+assert(typeof Session$ === "object");
+assert(typeof SessionConfigurationOverrides$ === "object");
+assert(typeof SessionSummary$ === "object");
 assert(typeof SparkSubmit$ === "object");
 assert(typeof StartApplicationRequest$ === "object");
 assert(typeof StartApplicationResponse$ === "object");
 assert(typeof StartJobRunRequest$ === "object");
 assert(typeof StartJobRunResponse$ === "object");
+assert(typeof StartSessionRequest$ === "object");
+assert(typeof StartSessionResponse$ === "object");
 assert(typeof StopApplicationRequest$ === "object");
 assert(typeof StopApplicationResponse$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TerminateSessionRequest$ === "object");
+assert(typeof TerminateSessionResponse$ === "object");
 assert(typeof TotalResourceUtilization$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
@@ -229,6 +286,8 @@ assert(typeof ApplicationState === "object");
 assert(typeof Architecture === "object");
 assert(typeof JobRunMode === "object");
 assert(typeof JobRunState === "object");
+assert(typeof ResourceType === "object");
+assert(typeof SessionState === "object");
 // errors
 assert(ConflictException.prototype instanceof EMRServerlessServiceException);
 assert(typeof ConflictException$ === "object");
@@ -245,4 +304,5 @@ assert(EMRServerlessServiceException.prototype instanceof Error);
 assert(typeof paginateListApplications === "function");
 assert(typeof paginateListJobRunAttempts === "function");
 assert(typeof paginateListJobRuns === "function");
+assert(typeof paginateListSessions === "function");
 console.log(`EMRServerless index test passed.`);

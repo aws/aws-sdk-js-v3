@@ -76,20 +76,32 @@ import type {
   GetDashboardForJobRunCommandOutput,
 } from "./commands/GetDashboardForJobRunCommand";
 import type { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import type {
+  GetResourceDashboardCommandInput,
+  GetResourceDashboardCommandOutput,
+} from "./commands/GetResourceDashboardCommand";
+import type { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import type {
+  GetSessionEndpointCommandInput,
+  GetSessionEndpointCommandOutput,
+} from "./commands/GetSessionEndpointCommand";
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import type {
   ListJobRunAttemptsCommandInput,
   ListJobRunAttemptsCommandOutput,
 } from "./commands/ListJobRunAttemptsCommand";
 import type { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
 import type { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
+import type { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import type { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
   UpdateApplicationCommandInput,
@@ -116,14 +128,20 @@ export type ServiceInputTypes =
   | GetApplicationCommandInput
   | GetDashboardForJobRunCommandInput
   | GetJobRunCommandInput
+  | GetResourceDashboardCommandInput
+  | GetSessionCommandInput
+  | GetSessionEndpointCommandInput
   | ListApplicationsCommandInput
   | ListJobRunAttemptsCommandInput
   | ListJobRunsCommandInput
+  | ListSessionsCommandInput
   | ListTagsForResourceCommandInput
   | StartApplicationCommandInput
   | StartJobRunCommandInput
+  | StartSessionCommandInput
   | StopApplicationCommandInput
   | TagResourceCommandInput
+  | TerminateSessionCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput;
 
@@ -137,14 +155,20 @@ export type ServiceOutputTypes =
   | GetApplicationCommandOutput
   | GetDashboardForJobRunCommandOutput
   | GetJobRunCommandOutput
+  | GetResourceDashboardCommandOutput
+  | GetSessionCommandOutput
+  | GetSessionEndpointCommandOutput
   | ListApplicationsCommandOutput
   | ListJobRunAttemptsCommandOutput
   | ListJobRunsCommandOutput
+  | ListSessionsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartApplicationCommandOutput
   | StartJobRunCommandOutput
+  | StartSessionCommandOutput
   | StopApplicationCommandOutput
   | TagResourceCommandOutput
+  | TerminateSessionCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput;
 
