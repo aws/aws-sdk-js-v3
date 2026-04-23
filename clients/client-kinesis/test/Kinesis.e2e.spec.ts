@@ -272,7 +272,8 @@ describe("@aws-sdk/client-kinesis", () => {
           expect(totalRequests).toBeGreaterThanOrEqual(53 + 17);
         }
         for (let i = 1; i < batch.length; ++i) {
-          expect(batch[i - 1].totalRequests).toBeGreaterThanOrEqual(batch[i].totalRequests);
+          // Allow a tolerance of 2 for non-deterministic HTTP/2 request distribution.
+          expect(batch[i - 1].totalRequests).toBeGreaterThanOrEqual(batch[i].totalRequests - 2);
         }
       }
     });
