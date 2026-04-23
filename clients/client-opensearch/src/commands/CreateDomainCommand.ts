@@ -153,6 +153,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   IdentityCenterOptions: { // IdentityCenterOptionsInput
  *     EnabledAPIAccess: true || false,
  *     IdentityCenterInstanceARN: "STRING_VALUE",
+ *     IdentityCenterInstanceRegion: "STRING_VALUE",
  *     SubjectKey: "UserName" || "UserId" || "Email",
  *     RolesKey: "GroupName" || "GroupId",
  *   },
@@ -343,6 +344,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     IdentityCenterOptions: { // IdentityCenterOptions
  * //       EnabledAPIAccess: true || false,
  * //       IdentityCenterInstanceARN: "STRING_VALUE",
+ * //       IdentityCenterInstanceRegion: "STRING_VALUE",
  * //       SubjectKey: "UserName" || "UserId" || "Email",
  * //       RolesKey: "GroupName" || "GroupId",
  * //       IdentityCenterApplicationARN: "STRING_VALUE",

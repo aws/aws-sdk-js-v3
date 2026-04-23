@@ -49,6 +49,11 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * //     { // AuthorizedPrincipal
  * //       PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
  * //       Principal: "STRING_VALUE",
+ * //       ServiceOptions: { // ServiceOptions
+ * //         SupportedRegions: [ // RegionsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE", // required

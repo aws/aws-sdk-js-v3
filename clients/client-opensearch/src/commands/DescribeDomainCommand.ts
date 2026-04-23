@@ -179,6 +179,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //     IdentityCenterOptions: { // IdentityCenterOptions
  * //       EnabledAPIAccess: true || false,
  * //       IdentityCenterInstanceARN: "STRING_VALUE",
+ * //       IdentityCenterInstanceRegion: "STRING_VALUE",
  * //       SubjectKey: "UserName" || "UserId" || "Email",
  * //       RolesKey: "GroupName" || "GroupId",
  * //       IdentityCenterApplicationARN: "STRING_VALUE",

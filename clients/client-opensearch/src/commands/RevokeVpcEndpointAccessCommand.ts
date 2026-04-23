@@ -41,6 +41,11 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  *   DomainName: "STRING_VALUE", // required
  *   Account: "STRING_VALUE",
  *   Service: "application.opensearchservice.amazonaws.com",
+ *   ServiceOptions: { // ServiceOptions
+ *     SupportedRegions: [ // RegionsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);

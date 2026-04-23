@@ -527,6 +527,7 @@ import {
   ScheduledBy,
   SecurityLakeDirectQueryDataSource$,
   ServerlessVectorAcceleration$,
+  ServiceOptions$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   ServiceSoftwareOptions$,
@@ -1072,6 +1073,7 @@ assert(typeof ScheduledAction$ === "object");
 assert(typeof ScheduledAutoTuneDetails$ === "object");
 assert(typeof SecurityLakeDirectQueryDataSource$ === "object");
 assert(typeof ServerlessVectorAcceleration$ === "object");
+assert(typeof ServiceOptions$ === "object");
 assert(typeof ServiceSoftwareOptions$ === "object");
 assert(typeof SnapshotOptions$ === "object");
 assert(typeof SnapshotOptionsStatus$ === "object");

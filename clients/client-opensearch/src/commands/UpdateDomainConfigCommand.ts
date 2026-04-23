@@ -152,6 +152,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   IdentityCenterOptions: { // IdentityCenterOptionsInput
  *     EnabledAPIAccess: true || false,
  *     IdentityCenterInstanceARN: "STRING_VALUE",
+ *     IdentityCenterInstanceRegion: "STRING_VALUE",
  *     SubjectKey: "UserName" || "UserId" || "Email",
  *     RolesKey: "GroupName" || "GroupId",
  *   },
@@ -389,6 +390,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //       Options: { // IdentityCenterOptions
  * //         EnabledAPIAccess: true || false,
  * //         IdentityCenterInstanceARN: "STRING_VALUE",
+ * //         IdentityCenterInstanceRegion: "STRING_VALUE",
  * //         SubjectKey: "UserName" || "UserId" || "Email",
  * //         RolesKey: "GroupName" || "GroupId",
  * //         IdentityCenterApplicationARN: "STRING_VALUE",

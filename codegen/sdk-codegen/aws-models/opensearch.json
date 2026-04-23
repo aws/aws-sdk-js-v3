@@ -2472,6 +2472,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Web Services service SP to grant access to.</p>"
           }
+        },
+        "ServiceOptions": {
+          "target": "com.amazonaws.opensearch#ServiceOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The options for the service, including the supported Regions for the endpoint\n            access.</p>"
+          }
         }
       },
       "traits": {
@@ -2506,6 +2512,12 @@
           "target": "com.amazonaws.opensearch#String",
           "traits": {
             "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM\n                principal</a> that is allowed access to the domain.</p>"
+          }
+        },
+        "ServiceOptions": {
+          "target": "com.amazonaws.opensearch#ServiceOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The options for the service, including the supported Regions for the endpoint\n            access.</p>"
           }
         }
       },
@@ -9523,6 +9535,12 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>"
           }
         },
+        "IdentityCenterInstanceRegion": {
+          "target": "com.amazonaws.opensearch#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the IAM Identity Center instance.</p>"
+          }
+        },
         "SubjectKey": {
           "target": "com.amazonaws.opensearch#SubjectKeyIdCOption",
           "traits": {
@@ -9565,6 +9583,12 @@
           "target": "com.amazonaws.opensearch#IdentityCenterInstanceARN",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the IAM Identity Center instance used to create an OpenSearch UI application that\n   uses IAM Identity Center for authentication.</p>"
+          }
+        },
+        "IdentityCenterInstanceRegion": {
+          "target": "com.amazonaws.opensearch#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The Region of the IAM Identity Center instance.</p>"
           }
         },
         "SubjectKey": {
@@ -14004,11 +14028,18 @@
     "com.amazonaws.opensearch#Region": {
       "type": "string",
       "traits": {
+        "smithy.api#documentation": "<p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>",
         "smithy.api#length": {
           "min": 5,
           "max": 30
         },
         "smithy.api#pattern": "^[a-z][a-z0-9\\-]+$"
+      }
+    },
+    "com.amazonaws.opensearch#RegionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.opensearch#Region"
       }
     },
     "com.amazonaws.opensearch#RegisterCapability": {
@@ -14542,6 +14573,12 @@
           "target": "com.amazonaws.opensearch#AWSServicePrincipal",
           "traits": {
             "smithy.api#documentation": "<p>The service SP to revoke access from.</p>"
+          }
+        },
+        "ServiceOptions": {
+          "target": "com.amazonaws.opensearch#ServiceOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The options for the service, including the supported Regions for the endpoint\n            access.</p>"
           }
         }
       },
@@ -15106,6 +15143,20 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Configuration for serverless vector acceleration, which provides <a href=\"https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gpu-acceleration-vector-index.html\">GPU-accelerated</a> vector\n         search capabilities for improved performance on vector workloads.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#ServiceOptions": {
+      "type": "structure",
+      "members": {
+        "SupportedRegions": {
+          "target": "com.amazonaws.opensearch#RegionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of supported Regions for the service.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options for the service, such as the supported Regions.</p>"
       }
     },
     "com.amazonaws.opensearch#ServiceQuotaExceededException": {

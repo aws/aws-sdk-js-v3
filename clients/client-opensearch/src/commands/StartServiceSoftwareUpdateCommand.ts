@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartServiceSoftwareUpdateRequest, StartServiceSoftwareUpdateResponse } from "../models/models_0";
+import type { StartServiceSoftwareUpdateRequest } from "../models/models_0";
+import type { StartServiceSoftwareUpdateResponse } from "../models/models_1";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { StartServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 

@@ -41,6 +41,11 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  *   DomainName: "STRING_VALUE", // required
  *   Account: "STRING_VALUE",
  *   Service: "application.opensearchservice.amazonaws.com",
+ *   ServiceOptions: { // ServiceOptions
+ *     SupportedRegions: [ // RegionsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
@@ -48,6 +53,11 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * //   AuthorizedPrincipal: { // AuthorizedPrincipal
  * //     PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
  * //     Principal: "STRING_VALUE",
+ * //     ServiceOptions: { // ServiceOptions
+ * //       SupportedRegions: [ // RegionsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

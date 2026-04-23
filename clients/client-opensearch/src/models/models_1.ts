@@ -39,11 +39,25 @@ import type {
   PackageEncryptionOptions,
   PackageSource,
   ScheduledAction,
+  ServiceSoftwareOptions,
   SnapshotOptions,
   SoftwareUpdateOptions,
   VpcEndpoint,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * <p>Represents the output of a <code>StartServiceSoftwareUpdate</code> operation. Contains
+ *             the status of the update.</p>
+ * @public
+ */
+export interface StartServiceSoftwareUpdateResponse {
+  /**
+   * <p>The current status of the OpenSearch Service software update.</p>
+   * @public
+   */
+  ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
+}
 
 /**
  * @public

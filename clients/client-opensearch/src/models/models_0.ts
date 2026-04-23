@@ -1412,6 +1412,18 @@ export interface AssociatePackagesResponse {
 }
 
 /**
+ * <p>Options for the service, such as the supported Regions.</p>
+ * @public
+ */
+export interface ServiceOptions {
+  /**
+   * <p>The list of supported Regions for the service.</p>
+   * @public
+   */
+  SupportedRegions?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface AuthorizeVpcEndpointAccessRequest {
@@ -1432,6 +1444,13 @@ export interface AuthorizeVpcEndpointAccessRequest {
    * @public
    */
   Service?: AWSServicePrincipal | undefined;
+
+  /**
+   * <p>The options for the service, including the supported Regions for the endpoint
+   *             access.</p>
+   * @public
+   */
+  ServiceOptions?: ServiceOptions | undefined;
 }
 
 /**
@@ -1452,6 +1471,13 @@ export interface AuthorizedPrincipal {
    * @public
    */
   Principal?: string | undefined;
+
+  /**
+   * <p>The options for the service, including the supported Regions for the endpoint
+   *             access.</p>
+   * @public
+   */
+  ServiceOptions?: ServiceOptions | undefined;
 }
 
 /**
@@ -2274,6 +2300,12 @@ export interface IdentityCenterOptionsInput {
   IdentityCenterInstanceARN?: string | undefined;
 
   /**
+   * <p>The Region of the IAM Identity Center instance.</p>
+   * @public
+   */
+  IdentityCenterInstanceRegion?: string | undefined;
+
+  /**
    * <p>Specifies the attribute that contains the subject identifier (such as username, user ID, or
    *    email) in IAM Identity Center.</p>
    * @public
@@ -2724,6 +2756,12 @@ export interface IdentityCenterOptions {
    * @public
    */
   IdentityCenterInstanceARN?: string | undefined;
+
+  /**
+   * <p>The Region of the IAM Identity Center instance.</p>
+   * @public
+   */
+  IdentityCenterInstanceRegion?: string | undefined;
 
   /**
    * <p>Specifies the attribute that contains the subject identifier (such as username, user ID, or
@@ -8200,6 +8238,13 @@ export interface RevokeVpcEndpointAccessRequest {
    * @public
    */
   Service?: AWSServicePrincipal | undefined;
+
+  /**
+   * <p>The options for the service, including the supported Regions for the endpoint
+   *             access.</p>
+   * @public
+   */
+  ServiceOptions?: ServiceOptions | undefined;
 }
 
 /**
@@ -8347,17 +8392,4 @@ export interface StartServiceSoftwareUpdateRequest {
    * @public
    */
   DesiredStartTime?: number | undefined;
-}
-
-/**
- * <p>Represents the output of a <code>StartServiceSoftwareUpdate</code> operation. Contains
- *             the status of the update.</p>
- * @public
- */
-export interface StartServiceSoftwareUpdateResponse {
-  /**
-   * <p>The current status of the OpenSearch Service software update.</p>
-   * @public
-   */
-  ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
 }
