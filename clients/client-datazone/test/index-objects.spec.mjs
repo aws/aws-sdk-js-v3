@@ -615,6 +615,9 @@ import {
   JobRunSummary$,
   JobType,
   LakeFormationConfiguration$,
+  LakehousePropertiesInput$,
+  LakehousePropertiesOutput$,
+  LakehousePropertiesPatch$,
   LessThanExpression$,
   LessThanOrEqualToExpression$,
   LikeExpression$,
@@ -1876,6 +1879,9 @@ assert(typeof JobRunDetails$ === "object");
 assert(typeof JobRunError$ === "object");
 assert(typeof JobRunSummary$ === "object");
 assert(typeof LakeFormationConfiguration$ === "object");
+assert(typeof LakehousePropertiesInput$ === "object");
+assert(typeof LakehousePropertiesOutput$ === "object");
+assert(typeof LakehousePropertiesPatch$ === "object");
 assert(typeof LessThanExpression$ === "object");
 assert(typeof LessThanOrEqualToExpression$ === "object");
 assert(typeof LikeExpression$ === "object");

@@ -22,7 +22,6 @@ import type {
   GlossaryUsageRestriction,
   GovernedEntityType,
   GroupProfileStatus,
-  GroupSearchType,
   JobRunMode,
   JobRunStatus,
   JobType,
@@ -65,13 +64,14 @@ import type {
   UserType,
 } from "./enums";
 import type {
+  AcceptedAssetScope,
   AccountInfo,
   AccountPoolSummary,
   AccountSource,
   ActionParameters,
   AssetFilterSummary,
-  AssetItem,
   AssetListing,
+  AssetPermission,
   AssetRevision,
   ConfigurableEnvironmentAction,
   Configuration,
@@ -112,12 +112,246 @@ import type {
   ScheduleConfiguration,
   SingleSignOn,
   SubscribedAsset,
+  SubscribedGroupInput,
+  SubscribedIamPrincipalInput,
   SubscribedListing,
+  SubscribedListingInput,
   SubscribedPrincipal,
+  SubscribedProjectInput,
+  SubscribedUserInput,
   TermRelations,
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The principal that is to be given a subscriptiong grant.</p>
+ * @public
+ */
+export type SubscribedPrincipalInput =
+  | SubscribedPrincipalInput.GroupMember
+  | SubscribedPrincipalInput.IamMember
+  | SubscribedPrincipalInput.ProjectMember
+  | SubscribedPrincipalInput.UserMember
+  | SubscribedPrincipalInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SubscribedPrincipalInput {
+  /**
+   * <p>The project that is to be given a subscription grant.</p>
+   * @public
+   */
+  export interface ProjectMember {
+    project: SubscribedProjectInput;
+    user?: never;
+    group?: never;
+    iam?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed user.</p>
+   * @public
+   */
+  export interface UserMember {
+    project?: never;
+    user: SubscribedUserInput;
+    group?: never;
+    iam?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed group.</p>
+   * @public
+   */
+  export interface GroupMember {
+    project?: never;
+    user?: never;
+    group: SubscribedGroupInput;
+    iam?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed IAM principal.</p>
+   * @public
+   */
+  export interface IamMember {
+    project?: never;
+    user?: never;
+    group?: never;
+    iam: SubscribedIamPrincipalInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    project?: never;
+    user?: never;
+    group?: never;
+    iam?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    project: (value: SubscribedProjectInput) => T;
+    user: (value: SubscribedUserInput) => T;
+    group: (value: SubscribedGroupInput) => T;
+    iam: (value: SubscribedIamPrincipalInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionRequestInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the subscription request is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone principals for whom the subscription request is created.</p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipalInput[] | undefined;
+
+  /**
+   * <p>The published asset for which the subscription grant is to be created.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListingInput[] | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The metadata form included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormInput[] | undefined;
+
+  /**
+   * <p>The asset permissions of the subscription request.</p>
+   * @public
+   */
+  assetPermissions?: AssetPermission[] | undefined;
+
+  /**
+   * <p>The asset scopes of the subscription request.</p>
+   * @public
+   */
+  assetScopes?: AcceptedAssetScope[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSubscriptionRequestOutput {
+  /**
+   * <p>The ID of the subscription request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone domain in whcih the subscription request is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the subscription request.</p>
+   * @public
+   */
+  status: SubscriptionRequestStatus | undefined;
+
+  /**
+   * <p>A timestamp of when the subscription request is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>The subscribed principals of the subscription request.</p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipal[] | undefined;
+
+  /**
+   * <p>The published asset for which the subscription grant is to be created.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListing[] | undefined;
+
+  /**
+   * <p>The ID of the reviewer of the subscription request.</p>
+   * @public
+   */
+  reviewerId?: string | undefined;
+
+  /**
+   * <p>The decision comment of the subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>The metadata form included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormOutput[] | undefined;
+}
 
 /**
  * <p>The details of the subscription target configuration.</p>
@@ -11178,149 +11412,4 @@ export interface GlossaryTermItem {
    * @public
    */
   additionalAttributes?: GlossaryTermItemAdditionalAttributes | undefined;
-}
-
-/**
- * <p>The details of the search results.</p>
- * @public
- */
-export type SearchInventoryResultItem =
-  | SearchInventoryResultItem.AssetItemMember
-  | SearchInventoryResultItem.DataProductItemMember
-  | SearchInventoryResultItem.GlossaryItemMember
-  | SearchInventoryResultItem.GlossaryTermItemMember
-  | SearchInventoryResultItem.$UnknownMember;
-
-/**
- * @public
- */
-export namespace SearchInventoryResultItem {
-  /**
-   * <p>The glossary item included in the search results.</p>
-   * @public
-   */
-  export interface GlossaryItemMember {
-    glossaryItem: GlossaryItem;
-    glossaryTermItem?: never;
-    assetItem?: never;
-    dataProductItem?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The glossary term item included in the search results.</p>
-   * @public
-   */
-  export interface GlossaryTermItemMember {
-    glossaryItem?: never;
-    glossaryTermItem: GlossaryTermItem;
-    assetItem?: never;
-    dataProductItem?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The asset item included in the search results.</p>
-   * @public
-   */
-  export interface AssetItemMember {
-    glossaryItem?: never;
-    glossaryTermItem?: never;
-    assetItem: AssetItem;
-    dataProductItem?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The data product.</p>
-   * @public
-   */
-  export interface DataProductItemMember {
-    glossaryItem?: never;
-    glossaryTermItem?: never;
-    assetItem?: never;
-    dataProductItem: DataProductResultItem;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    glossaryItem?: never;
-    glossaryTermItem?: never;
-    assetItem?: never;
-    dataProductItem?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    glossaryItem: (value: GlossaryItem) => T;
-    glossaryTermItem: (value: GlossaryTermItem) => T;
-    assetItem: (value: AssetItem) => T;
-    dataProductItem: (value: DataProductResultItem) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface SearchOutput {
-  /**
-   * <p>The results of the <code>Search</code> action.</p>
-   * @public
-   */
-  items?: SearchInventoryResultItem[] | undefined;
-
-  /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Total number of search results.</p>
-   * @public
-   */
-  totalMatchCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchGroupProfilesInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to search group profiles.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The group type for which to search.</p>
-   * @public
-   */
-  groupType: GroupSearchType | undefined;
-
-  /**
-   * <p>Specifies the text for which to search.</p>
-   * @public
-   */
-  searchText?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call to <code>SearchGroupProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results. </p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

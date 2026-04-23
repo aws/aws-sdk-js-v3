@@ -7,6 +7,7 @@ import type {
   FormTypeStatus,
   GraphEntityType,
   GroupProfileStatus,
+  GroupSearchType,
   InventorySearchScope,
   ProjectStatus,
   ResolutionStrategy,
@@ -27,6 +28,7 @@ import type {
   AdditionalAttributes,
   AggregationListItem,
   AggregationOutput,
+  AssetItem,
   AssetListingItem,
   AssetTypeItem,
   AwsLocation,
@@ -61,13 +63,161 @@ import type {
 } from "./models_0";
 import type {
   DataProductListingItem,
+  DataProductResultItem,
   Filter,
+  GlossaryItem,
+  GlossaryTermItem,
   Import,
   RelationPattern,
   SearchInItem,
   SearchSort,
   SubscriptionTargetForm,
 } from "./models_1";
+
+/**
+ * <p>The details of the search results.</p>
+ * @public
+ */
+export type SearchInventoryResultItem =
+  | SearchInventoryResultItem.AssetItemMember
+  | SearchInventoryResultItem.DataProductItemMember
+  | SearchInventoryResultItem.GlossaryItemMember
+  | SearchInventoryResultItem.GlossaryTermItemMember
+  | SearchInventoryResultItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SearchInventoryResultItem {
+  /**
+   * <p>The glossary item included in the search results.</p>
+   * @public
+   */
+  export interface GlossaryItemMember {
+    glossaryItem: GlossaryItem;
+    glossaryTermItem?: never;
+    assetItem?: never;
+    dataProductItem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The glossary term item included in the search results.</p>
+   * @public
+   */
+  export interface GlossaryTermItemMember {
+    glossaryItem?: never;
+    glossaryTermItem: GlossaryTermItem;
+    assetItem?: never;
+    dataProductItem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The asset item included in the search results.</p>
+   * @public
+   */
+  export interface AssetItemMember {
+    glossaryItem?: never;
+    glossaryTermItem?: never;
+    assetItem: AssetItem;
+    dataProductItem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The data product.</p>
+   * @public
+   */
+  export interface DataProductItemMember {
+    glossaryItem?: never;
+    glossaryTermItem?: never;
+    assetItem?: never;
+    dataProductItem: DataProductResultItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    glossaryItem?: never;
+    glossaryTermItem?: never;
+    assetItem?: never;
+    dataProductItem?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    glossaryItem: (value: GlossaryItem) => T;
+    glossaryTermItem: (value: GlossaryTermItem) => T;
+    assetItem: (value: AssetItem) => T;
+    dataProductItem: (value: DataProductResultItem) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface SearchOutput {
+  /**
+   * <p>The results of the <code>Search</code> action.</p>
+   * @public
+   */
+  items?: SearchInventoryResultItem[] | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Total number of search results.</p>
+   * @public
+   */
+  totalMatchCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchGroupProfilesInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which you want to search group profiles.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The group type for which to search.</p>
+   * @public
+   */
+  groupType: GroupSearchType | undefined;
+
+  /**
+   * <p>Specifies the text for which to search.</p>
+   * @public
+   */
+  searchText?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call to <code>SearchGroupProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>The details of a group profile.</p>

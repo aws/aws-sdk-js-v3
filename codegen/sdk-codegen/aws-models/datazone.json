@@ -3466,6 +3466,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The MWAA serverless properties of a connection.</p>"
           }
+        },
+        "lakehouseProperties": {
+          "target": "com.amazonaws.datazone#LakehousePropertiesInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The lakehouse properties of a connection.</p>"
+          }
         }
       },
       "traits": {
@@ -3546,6 +3552,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The MWAA serverless properties of a connection.</p>"
           }
+        },
+        "lakehouseProperties": {
+          "target": "com.amazonaws.datazone#LakehousePropertiesOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>The lakehouse properties of a connection.</p>"
+          }
         }
       },
       "traits": {
@@ -3601,6 +3613,12 @@
           "target": "com.amazonaws.datazone#MlflowPropertiesPatch",
           "traits": {
             "smithy.api#documentation": "<p>The MLflow properties of a connection.</p>"
+          }
+        },
+        "lakehouseProperties": {
+          "target": "com.amazonaws.datazone#LakehousePropertiesPatch",
+          "traits": {
+            "smithy.api#documentation": "<p>The lakehouse properties of a connection properties patch.</p>"
           }
         }
       },
@@ -23101,6 +23119,48 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The Lake Formation configuration of the Data Lake blueprint.</p>"
+      }
+    },
+    "com.amazonaws.datazone#LakehousePropertiesInput": {
+      "type": "structure",
+      "members": {
+        "glueLineageSyncEnabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The lakehouse properties of a connection.</p>"
+      }
+    },
+    "com.amazonaws.datazone#LakehousePropertiesOutput": {
+      "type": "structure",
+      "members": {
+        "glueLineageSyncEnabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether Glue lineage sync is enabled for tables managed by Glue crawlers.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The lakehouse properties of a connection.</p>"
+      }
+    },
+    "com.amazonaws.datazone#LakehousePropertiesPatch": {
+      "type": "structure",
+      "members": {
+        "glueLineageSyncEnabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The lakehouse properties of a connection properties patch.</p>"
       }
     },
     "com.amazonaws.datazone#LambdaExecutionRoleArn": {

@@ -626,14 +626,17 @@ const _LP = "ListProjects";
 const _LPG = "ListPolicyGrants";
 const _LPGI = "ListPolicyGrantsInput";
 const _LPGO = "ListPolicyGrantsOutput";
-const _LPI = "ListProjectsInput";
+const _LPI = "LakehousePropertiesInput";
+const _LPIi = "ListProjectsInput";
 const _LPM = "ListProjectMemberships";
 const _LPMI = "ListProjectMembershipsInput";
 const _LPMO = "ListProjectMembershipsOutput";
-const _LPO = "ListProjectsOutput";
-const _LPP = "ListProjectProfiles";
+const _LPO = "LakehousePropertiesOutput";
+const _LPOi = "ListProjectsOutput";
+const _LPP = "LakehousePropertiesPatch";
 const _LPPI = "ListProjectProfilesInput";
 const _LPPO = "ListProjectProfilesOutput";
+const _LPPi = "ListProjectProfiles";
 const _LR = "ListingRevision";
 const _LRD = "LineageRunDetails";
 const _LRI = "ListingRevisionInput";
@@ -1324,6 +1327,7 @@ const _lJI = "lineageJobId";
 const _lN = "lastName";
 const _lNTI = "lineageNodeTypeItem";
 const _lNi = "lineageNode";
+const _lP = "lakehouseProperties";
 const _lR = "listingRevision";
 const _lRA = "lastRunAt";
 const _lRAC = "lastRunAssetCount";
@@ -3453,6 +3457,21 @@ export var LakeFormationConfiguration$: StaticStructureSchema = [3, n0, _LFC,
   [_lRR, _lRESL],
   [0, 64 | 0]
 ];
+export var LakehousePropertiesInput$: StaticStructureSchema = [3, n0, _LPI,
+  0,
+  [_gLSE],
+  [2]
+];
+export var LakehousePropertiesOutput$: StaticStructureSchema = [3, n0, _LPO,
+  0,
+  [_gLSE],
+  [2]
+];
+export var LakehousePropertiesPatch$: StaticStructureSchema = [3, n0, _LPP,
+  0,
+  [_gLSE],
+  [2]
+];
 export var LessThanExpression$: StaticStructureSchema = [3, n0, _LTE,
   0,
   [_cN, _v],
@@ -3783,12 +3802,12 @@ export var ListProjectProfilesOutput$: StaticStructureSchema = [3, n0, _LPPO,
   [_it, _nT],
   [[() => ProjectProfileSummaries, 0], 0]
 ];
-export var ListProjectsInput$: StaticStructureSchema = [3, n0, _LPI,
+export var ListProjectsInput$: StaticStructureSchema = [3, n0, _LPIi,
   0,
   [_dI, _uI, _gIr, _n, _pCro, _nT, _mRa],
   [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _gIr }], [() => ProjectName, { [_hQ]: _n }], [0, { [_hQ]: _pCro }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
-export var ListProjectsOutput$: StaticStructureSchema = [3, n0, _LPO,
+export var ListProjectsOutput$: StaticStructureSchema = [3, n0, _LPOi,
   0,
   [_it, _nT],
   [[() => ProjectSummaries, 0], 0]
@@ -5242,18 +5261,18 @@ export var AwsAccount$: StaticUnionSchema = [4, n0, _AAw,
 ];
 export var ConnectionPropertiesInput$: StaticUnionSchema = [4, n0, _CPIo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP],
-  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP],
+  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$]
 ];
 export var ConnectionPropertiesOutput$: StaticUnionSchema = [4, n0, _CPOo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP],
-  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP],
+  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$]
 ];
 export var ConnectionPropertiesPatch$: StaticUnionSchema = [4, n0, _CPP,
   0,
-  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _aQP, _mP],
-  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$]
+  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _aQP, _mP, _lP],
+  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$]
 ];
 export var DataSourceConfigurationInput$: StaticUnionSchema = [4, n0, _DSCI,
   0,
@@ -5846,7 +5865,7 @@ export var ListPolicyGrants$: StaticOperationSchema = [9, n0, _LPG,
 export var ListProjectMemberships$: StaticOperationSchema = [9, n0, _LPM,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects/{projectIdentifier}/memberships", 200] }, () => ListProjectMembershipsInput$, () => ListProjectMembershipsOutput$
 ];
-export var ListProjectProfiles$: StaticOperationSchema = [9, n0, _LPP,
+export var ListProjectProfiles$: StaticOperationSchema = [9, n0, _LPPi,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/project-profiles", 200] }, () => ListProjectProfilesInput$, () => ListProjectProfilesOutput$
 ];
 export var ListProjects$: StaticOperationSchema = [9, n0, _LP,

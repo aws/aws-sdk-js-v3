@@ -5274,6 +5274,18 @@ export interface IamPropertiesInput {
 }
 
 /**
+ * <p>The lakehouse properties of a connection.</p>
+ * @public
+ */
+export interface LakehousePropertiesInput {
+  /**
+   * <p>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</p>
+   * @public
+   */
+  glueLineageSyncEnabled?: boolean | undefined;
+}
+
+/**
  * <p>The MLflow properties of a connection.</p>
  * @public
  */
@@ -5659,6 +5671,7 @@ export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.GluePropertiesMember
   | ConnectionPropertiesInput.HyperPodPropertiesMember
   | ConnectionPropertiesInput.IamPropertiesMember
+  | ConnectionPropertiesInput.LakehousePropertiesMember
   | ConnectionPropertiesInput.MlflowPropertiesMember
   | ConnectionPropertiesInput.RedshiftPropertiesMember
   | ConnectionPropertiesInput.S3PropertiesMember
@@ -5689,6 +5702,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5709,6 +5723,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5729,6 +5744,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5749,6 +5765,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5769,6 +5786,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5789,6 +5807,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5809,6 +5828,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5829,6 +5849,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5849,6 +5870,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5869,6 +5891,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties: MlflowPropertiesInput;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5889,6 +5912,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties: WorkflowsMwaaPropertiesInput;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -5909,6 +5933,28 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties: WorkflowsServerlessPropertiesInput;
+    lakehouseProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The lakehouse properties of a connection.</p>
+   * @public
+   */
+  export interface LakehousePropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties: LakehousePropertiesInput;
     $unknown?: never;
   }
 
@@ -5928,6 +5974,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown: [string, any];
   }
 
@@ -5948,6 +5995,7 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties: (value: MlflowPropertiesInput) => T;
     workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesInput) => T;
     workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesInput) => T;
+    lakehouseProperties: (value: LakehousePropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6007,6 +6055,18 @@ export interface IamPropertiesOutput {
 
   /**
    * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * @public
+   */
+  glueLineageSyncEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The lakehouse properties of a connection.</p>
+ * @public
+ */
+export interface LakehousePropertiesOutput {
+  /**
+   * <p>Specifies whether Glue lineage sync is enabled for tables managed by Glue crawlers.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -6340,6 +6400,7 @@ export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.GluePropertiesMember
   | ConnectionPropertiesOutput.HyperPodPropertiesMember
   | ConnectionPropertiesOutput.IamPropertiesMember
+  | ConnectionPropertiesOutput.LakehousePropertiesMember
   | ConnectionPropertiesOutput.MlflowPropertiesMember
   | ConnectionPropertiesOutput.RedshiftPropertiesMember
   | ConnectionPropertiesOutput.S3PropertiesMember
@@ -6370,6 +6431,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6390,6 +6452,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6410,6 +6473,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6430,6 +6494,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6450,6 +6515,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6470,6 +6536,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6490,6 +6557,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6510,6 +6578,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6530,6 +6599,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6550,6 +6620,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties: MlflowPropertiesOutput;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6570,6 +6641,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties: WorkflowsMwaaPropertiesOutput;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6590,6 +6662,28 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties: WorkflowsServerlessPropertiesOutput;
+    lakehouseProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The lakehouse properties of a connection.</p>
+   * @public
+   */
+  export interface LakehousePropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties: LakehousePropertiesOutput;
     $unknown?: never;
   }
 
@@ -6609,6 +6703,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties?: never;
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6629,6 +6724,7 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties: (value: MlflowPropertiesOutput) => T;
     workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesOutput) => T;
     workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesOutput) => T;
+    lakehouseProperties: (value: LakehousePropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6676,6 +6772,18 @@ export interface GluePropertiesPatch {
 export interface IamPropertiesPatch {
   /**
    * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * @public
+   */
+  glueLineageSyncEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The lakehouse properties of a connection properties patch.</p>
+ * @public
+ */
+export interface LakehousePropertiesPatch {
+  /**
+   * <p>Specifies whether to enable Glue lineage sync for tables managed by Glue crawlers.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -6822,6 +6930,7 @@ export type ConnectionPropertiesPatch =
   | ConnectionPropertiesPatch.AthenaPropertiesMember
   | ConnectionPropertiesPatch.GluePropertiesMember
   | ConnectionPropertiesPatch.IamPropertiesMember
+  | ConnectionPropertiesPatch.LakehousePropertiesMember
   | ConnectionPropertiesPatch.MlflowPropertiesMember
   | ConnectionPropertiesPatch.RedshiftPropertiesMember
   | ConnectionPropertiesPatch.S3PropertiesMember
@@ -6845,6 +6954,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6861,6 +6971,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6877,6 +6988,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6893,6 +7005,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6909,6 +7022,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6925,6 +7039,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties: S3PropertiesPatch;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6941,6 +7056,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties: AmazonQPropertiesPatch;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown?: never;
   }
 
@@ -6957,6 +7073,24 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesPatch;
+    lakehouseProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The lakehouse properties of a connection properties patch.</p>
+   * @public
+   */
+  export interface LakehousePropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    lakehouseProperties: LakehousePropertiesPatch;
     $unknown?: never;
   }
 
@@ -6972,6 +7106,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    lakehouseProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6988,6 +7123,7 @@ export namespace ConnectionPropertiesPatch {
     s3Properties: (value: S3PropertiesPatch) => T;
     amazonQProperties: (value: AmazonQPropertiesPatch) => T;
     mlflowProperties: (value: MlflowPropertiesPatch) => T;
+    lakehouseProperties: (value: LakehousePropertiesPatch) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11490,233 +11626,4 @@ export interface SubscribedUserInput {
    * @public
    */
   identifier?: string | undefined;
-}
-
-/**
- * <p>The principal that is to be given a subscriptiong grant.</p>
- * @public
- */
-export type SubscribedPrincipalInput =
-  | SubscribedPrincipalInput.GroupMember
-  | SubscribedPrincipalInput.IamMember
-  | SubscribedPrincipalInput.ProjectMember
-  | SubscribedPrincipalInput.UserMember
-  | SubscribedPrincipalInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace SubscribedPrincipalInput {
-  /**
-   * <p>The project that is to be given a subscription grant.</p>
-   * @public
-   */
-  export interface ProjectMember {
-    project: SubscribedProjectInput;
-    user?: never;
-    group?: never;
-    iam?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The subscribed user.</p>
-   * @public
-   */
-  export interface UserMember {
-    project?: never;
-    user: SubscribedUserInput;
-    group?: never;
-    iam?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The subscribed group.</p>
-   * @public
-   */
-  export interface GroupMember {
-    project?: never;
-    user?: never;
-    group: SubscribedGroupInput;
-    iam?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The subscribed IAM principal.</p>
-   * @public
-   */
-  export interface IamMember {
-    project?: never;
-    user?: never;
-    group?: never;
-    iam: SubscribedIamPrincipalInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    project?: never;
-    user?: never;
-    group?: never;
-    iam?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    project: (value: SubscribedProjectInput) => T;
-    user: (value: SubscribedUserInput) => T;
-    group: (value: SubscribedGroupInput) => T;
-    iam: (value: SubscribedIamPrincipalInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateSubscriptionRequestInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the subscription request is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone principals for whom the subscription request is created.</p>
-   * @public
-   */
-  subscribedPrincipals: SubscribedPrincipalInput[] | undefined;
-
-  /**
-   * <p>The published asset for which the subscription grant is to be created.</p>
-   * @public
-   */
-  subscribedListings: SubscribedListingInput[] | undefined;
-
-  /**
-   * <p>The reason for the subscription request.</p>
-   * @public
-   */
-  requestReason: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The metadata form included in the subscription request.</p>
-   * @public
-   */
-  metadataForms?: FormInput[] | undefined;
-
-  /**
-   * <p>The asset permissions of the subscription request.</p>
-   * @public
-   */
-  assetPermissions?: AssetPermission[] | undefined;
-
-  /**
-   * <p>The asset scopes of the subscription request.</p>
-   * @public
-   */
-  assetScopes?: AcceptedAssetScope[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSubscriptionRequestOutput {
-  /**
-   * <p>The ID of the subscription request.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription request.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription request.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon DataZone domain in whcih the subscription request is created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The status of the subscription request.</p>
-   * @public
-   */
-  status: SubscriptionRequestStatus | undefined;
-
-  /**
-   * <p>A timestamp of when the subscription request is created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription request was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The reason for the subscription request.</p>
-   * @public
-   */
-  requestReason: string | undefined;
-
-  /**
-   * <p>The subscribed principals of the subscription request.</p>
-   * @public
-   */
-  subscribedPrincipals: SubscribedPrincipal[] | undefined;
-
-  /**
-   * <p>The published asset for which the subscription grant is to be created.</p>
-   * @public
-   */
-  subscribedListings: SubscribedListing[] | undefined;
-
-  /**
-   * <p>The ID of the reviewer of the subscription request.</p>
-   * @public
-   */
-  reviewerId?: string | undefined;
-
-  /**
-   * <p>The decision comment of the subscription request.</p>
-   * @public
-   */
-  decisionComment?: string | undefined;
-
-  /**
-   * <p>The ID of the existing subscription.</p>
-   * @public
-   */
-  existingSubscriptionId?: string | undefined;
-
-  /**
-   * <p>The metadata form included in the subscription request.</p>
-   * @public
-   */
-  metadataForms?: FormOutput[] | undefined;
 }
