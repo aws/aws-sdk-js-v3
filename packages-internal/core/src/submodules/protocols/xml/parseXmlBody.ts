@@ -1,8 +1,8 @@
 import { parseXML } from "@aws-sdk/xml-builder";
-import { getValueFromTextNode } from "@smithy/smithy-client";
 import type { HttpResponse, SerdeContext } from "@smithy/types";
 
 import { collectBodyString } from "../common";
+import { getValueFromTextNode } from "./getValueFromTextNode";
 
 /**
  * @internal
