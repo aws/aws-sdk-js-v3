@@ -36,6 +36,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.5 (2026-04-23)
+### Chores
+* **codegen:** sync for http2 session closure, retry longpoll backoff, and fast-xml-parser version bump ([#7958](https://github.com/aws/aws-sdk-js-v3/issues/7958)) ([107aefc](https://github.com/aws/aws-sdk-js-v3/commit/107aefc4d41379a56836ade376f27eef23db8d43))
+
+
+
 # 3.974.4 (2026-04-22)
 ### Bug Fixes
 * **client-s3:** retry errors with 200 status code ([#7945](https://github.com/aws/aws-sdk-js-v3/issues/7945)) ([7d9d8d1](https://github.com/aws/aws-sdk-js-v3/commit/7d9d8d17c5d743f0c4ccf4bbe6f0c1d5b2264667))

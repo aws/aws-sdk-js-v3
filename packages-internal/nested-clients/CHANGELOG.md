@@ -27,6 +27,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.3 (2026-04-23)
+### Chores
+* **codegen:** sync for http2 session closure, retry longpoll backoff, and fast-xml-parser version bump ([#7958](https://github.com/aws/aws-sdk-js-v3/issues/7958)) ([107aefc](https://github.com/aws/aws-sdk-js-v3/commit/107aefc4d41379a56836ade376f27eef23db8d43))
+
+
+
 # 3.997.2 (2026-04-21)
 ### Bug Fixes
 * **client-sts:** override IDPCommunicationError to be retryable ([#7946](https://github.com/aws/aws-sdk-js-v3/issues/7946)) ([d75e129](https://github.com/aws/aws-sdk-js-v3/commit/d75e129a8c188d793e079d316815c2aa29902425))

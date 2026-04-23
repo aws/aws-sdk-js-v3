@@ -20,6 +20,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.19 (2026-04-23)
+### Chores
+* **xml-builder:** up fast-xml-parser to 5.7.1 ([#7957](https://github.com/aws/aws-sdk-js-v3/issues/7957)) ([110b1c0](https://github.com/aws/aws-sdk-js-v3/commit/110b1c01dedb62bc56449598eeaac1d838e4995f))
+
+
+
 # 3.972.18 (2026-04-16)
 ### Chores
 * upgrade smithy to 1.69.0 ([#7932](https://github.com/aws/aws-sdk-js-v3/issues/7932)) ([560d987](https://github.com/aws/aws-sdk-js-v3/commit/560d9878471409e943a80ac2979e7fc8c2fff834))

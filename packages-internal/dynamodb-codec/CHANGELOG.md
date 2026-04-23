@@ -36,6 +36,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.5 (2026-04-23)
+### Chores
+* **codegen:** sync for http2 session closure, retry longpoll backoff, and fast-xml-parser version bump ([#7958](https://github.com/aws/aws-sdk-js-v3/issues/7958)) ([107aefc](https://github.com/aws/aws-sdk-js-v3/commit/107aefc4d41379a56836ade376f27eef23db8d43))
+
+
+
 # 3.973.4 (2026-04-22)
 ### Chores
 * **dynamodb-codec:** update dependencies.

@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.16 (2026-04-23)
+### Chores
+* **codegen:** sync for http2 session closure, retry longpoll backoff, and fast-xml-parser version bump ([#7958](https://github.com/aws/aws-sdk-js-v3/issues/7958)) ([107aefc](https://github.com/aws/aws-sdk-js-v3/commit/107aefc4d41379a56836ade376f27eef23db8d43))
+
+
+
 # 3.972.15 (2026-04-20)
 ### Chores
 * **codegen:** sync for http2 session concurrency fixes ([#7942](https://github.com/aws/aws-sdk-js-v3/issues/7942)) ([273ad5b](https://github.com/aws/aws-sdk-js-v3/commit/273ad5be3adc5288e480655de1c5887a38540fe4))

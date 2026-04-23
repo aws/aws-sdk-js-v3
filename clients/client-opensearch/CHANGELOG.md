@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
+
+
+### Features
+
+* **client-opensearch:** Amazon OpenSearch UI applications now support cross-Region domain association, enabling you to connect OpenSearch Dashboards in one AWS Region to OpenSearch domains in other Regions within the same partition for centralized data visualization. ([600311b](https://github.com/aws/aws-sdk-js-v3/commit/600311b94218e85cdf2d770347a848a83fcc9c45))
+
+
+
+
+
 # [3.1035.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1034.0...v3.1035.0) (2026-04-22)
 
 
