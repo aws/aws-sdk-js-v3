@@ -28,10 +28,10 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.8",
     "@aws-sdk/util-format-url": "workspace:^3.972.10",
-    "@smithy/middleware-endpoint": "^4.4.31",
+    "@smithy/middleware-endpoint": "^4.4.32",
     "@smithy/protocol-http": "^5.3.14",
     "@smithy/signature-v4": "^5.3.14",
-    "@smithy/smithy-client": "^4.12.12",
+    "@smithy/smithy-client": "^4.12.13",
     "@smithy/types": "^4.14.1",
     "tslib": "^2.6.2"
   },
