@@ -277,6 +277,7 @@ export type {
   OtaTaskExecutionStatus,
   OtaType,
   ProtocolType,
+  ProvisioningProfileStatus,
   ProvisioningStatus,
   ProvisioningType,
   RetryCriteriaFailureType,

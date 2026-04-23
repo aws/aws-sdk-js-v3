@@ -346,6 +346,7 @@ import {
   paginateListSchemaVersions,
   ProactiveRefreshTokenRenewal$,
   ProtocolType,
+  ProvisioningProfileStatus,
   ProvisioningProfileSummary$,
   ProvisioningStatus,
   ProvisioningType,
@@ -854,6 +855,7 @@ assert(typeof OtaStatus === "object");
 assert(typeof OtaTaskExecutionStatus === "object");
 assert(typeof OtaType === "object");
 assert(typeof ProtocolType === "object");
+assert(typeof ProvisioningProfileStatus === "object");
 assert(typeof ProvisioningStatus === "object");
 assert(typeof ProvisioningType === "object");
 assert(typeof RetryCriteriaFailureType === "object");

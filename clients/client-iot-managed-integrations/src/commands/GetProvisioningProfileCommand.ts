@@ -31,7 +31,7 @@ export interface GetProvisioningProfileCommandInput extends GetProvisioningProfi
 export interface GetProvisioningProfileCommandOutput extends GetProvisioningProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Get a provisioning profile by template name.</p>
+ * <p>Get details of a provisioning profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,7 @@ export interface GetProvisioningProfileCommandOutput extends GetProvisioningProf
  * //   Name: "STRING_VALUE",
  * //   ProvisioningType: "FLEET_PROVISIONING" || "JITR",
  * //   Id: "STRING_VALUE",
+ * //   Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * //   ClaimCertificate: "STRING_VALUE",
  * //   Tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",

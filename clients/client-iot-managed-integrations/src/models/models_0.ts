@@ -28,6 +28,7 @@ import type {
   OtaTaskExecutionStatus,
   OtaType,
   ProtocolType,
+  ProvisioningProfileStatus,
   ProvisioningStatus,
   ProvisioningType,
   RetryCriteriaFailureType,
@@ -533,7 +534,7 @@ export interface AuthConfigUpdate {
   oAuthUpdate?: OAuthUpdate | undefined;
 
   /**
-   * <p>The General Authorization update information containing authorization materials to add or update in Kinesis Data Streams.</p>
+   * <p>The General Authorization update information containing authorization materials to add or update.</p>
    * @public
    */
   GeneralAuthorizationUpdate?: GeneralAuthorizationUpdate | undefined;
@@ -1515,6 +1516,8 @@ export interface CreateManagedThingRequest {
 
   /**
    * <p>The capabilities of the device such as light bulb.</p>
+   *
+   * @deprecated (since 06-25-2025) Capabilities has been deprecated, use CapabilityReport instead.
    * @public
    */
   Capabilities?: string | undefined;
@@ -1946,19 +1949,19 @@ export interface CreateProvisioningProfileRequest {
   ProvisioningType: ProvisioningType | undefined;
 
   /**
-   * <p>The id of the certificate authority (CA) certificate.</p>
+   * <p>The body of the PEM-encoded certificate authority (CA) certificate.</p>
    * @public
    */
   CaCertificate?: string | undefined;
 
   /**
-   * <p>The claim certificate.</p>
+   * <p>The body of the PEM-encoded claim certificate. If a claim certificate is provided, it will be used for the provisioning profile. Otherwise, a claim certificate will be generated.</p>
    * @public
    */
   ClaimCertificate?: string | undefined;
 
   /**
-   * <p>The name of the provisioning template.</p>
+   * <p>The name of the provisioning profile.</p>
    * @public
    */
   Name?: string | undefined;
@@ -1981,13 +1984,13 @@ export interface CreateProvisioningProfileRequest {
  */
 export interface CreateProvisioningProfileResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning profile.</p>
+   * <p>The Amazon Resource Name (ARN) of the provisioning profile.</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the provisioning template.</p>
+   * <p>The name of the provisioning profile.</p>
    * @public
    */
   Name?: string | undefined;
@@ -2005,13 +2008,19 @@ export interface CreateProvisioningProfileResponse {
   Id?: string | undefined;
 
   /**
-   * <p>The id of the claim certificate.</p>
+   * <p>The status of a provisioning profile.</p>
+   * @public
+   */
+  Status?: ProvisioningProfileStatus | undefined;
+
+  /**
+   * <p>The body of the PEM-encoded claim certificate.</p>
    * @public
    */
   ClaimCertificate?: string | undefined;
 
   /**
-   * <p>The private key of the claim certificate. This is stored securely on the device for validating the connection endpoint with IoT managed integrations using the public key.</p>
+   * <p>The private key of the claim certificate. This may be stored securely on the device for validating the connection endpoint with IoT managed integrations using the public key.</p>
    * @public
    */
   ClaimCertificatePrivateKey?: string | undefined;
@@ -2215,7 +2224,7 @@ export interface DeleteOtaTaskConfigurationRequest {
  */
 export interface DeleteProvisioningProfileRequest {
   /**
-   * <p>The name of the provisioning template.</p>
+   * <p>The id of the provisioning profile.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -3346,6 +3355,8 @@ export interface GetManagedThingCapabilitiesResponse {
 
   /**
    * <p>The capabilities of the device such as light bulb.</p>
+   *
+   * @deprecated (since 06-25-2025) Capabilities has been deprecated, use CapabilityReport instead.
    * @public
    */
   Capabilities?: string | undefined;
@@ -3800,7 +3811,7 @@ export interface GetOtaTaskConfigurationResponse {
  */
 export interface GetProvisioningProfileRequest {
   /**
-   * <p>The provisioning template the device uses for the provisioning process.</p>
+   * <p>The id of a provisioning profile.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -3811,13 +3822,13 @@ export interface GetProvisioningProfileRequest {
  */
 export interface GetProvisioningProfileResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning profile.</p>
+   * <p>The Amazon Resource Name (ARN) of the provisioning profile.</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the provisioning template.</p>
+   * <p>The name of the provisioning profile.</p>
    * @public
    */
   Name?: string | undefined;
@@ -3835,7 +3846,13 @@ export interface GetProvisioningProfileResponse {
   Id?: string | undefined;
 
   /**
-   * <p>The id of the claim certificate.</p>
+   * <p>The status of a provisioning profile.</p>
+   * @public
+   */
+  Status?: ProvisioningProfileStatus | undefined;
+
+  /**
+   * <p>The body of the PEM-encoded claim certificate.</p>
    * @public
    */
   ClaimCertificate?: string | undefined;
@@ -4595,6 +4612,8 @@ export interface UpdateManagedThingRequest {
 
   /**
    * <p>The capabilities of the device such as light bulb.</p>
+   *
+   * @deprecated (since 06-25-2025) Capabilities has been deprecated, use CapabilityReport instead.
    * @public
    */
   Capabilities?: string | undefined;
@@ -4967,7 +4986,7 @@ export interface ListProvisioningProfilesRequest {
  */
 export interface ProvisioningProfileSummary {
   /**
-   * <p>The name of the provisioning template.</p>
+   * <p>The name of the provisioning profile.</p>
    * @public
    */
   Name?: string | undefined;
@@ -4979,7 +4998,7 @@ export interface ProvisioningProfileSummary {
   Id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning template used in the provisioning profile.</p>
+   * <p>The Amazon Resource Name (ARN) of the provisioning profile.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -4989,6 +5008,12 @@ export interface ProvisioningProfileSummary {
    * @public
    */
   ProvisioningType?: ProvisioningType | undefined;
+
+  /**
+   * <p>The status of a provisioning profile.</p>
+   * @public
+   */
+  Status?: ProvisioningProfileStatus | undefined;
 }
 
 /**

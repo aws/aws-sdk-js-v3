@@ -31,7 +31,7 @@ export interface CreateProvisioningProfileCommandInput extends CreateProvisionin
 export interface CreateProvisioningProfileCommandOutput extends CreateProvisioningProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Create a provisioning profile for a device to execute the provisioning flows using a provisioning template. The provisioning template is a document that defines the set of resources and policies applied to a device during the provisioning process.</p>
+ * <p>Create a provisioning profile for executing device provisioning flows. The provisioning profile is a document that defines the set of resources and policies applied to a device during the provisioning process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,7 @@ export interface CreateProvisioningProfileCommandOutput extends CreateProvisioni
  * //   Name: "STRING_VALUE",
  * //   ProvisioningType: "FLEET_PROVISIONING" || "JITR",
  * //   Id: "STRING_VALUE",
+ * //   Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * //   ClaimCertificate: "STRING_VALUE",
  * //   ClaimCertificatePrivateKey: "STRING_VALUE",
  * // };

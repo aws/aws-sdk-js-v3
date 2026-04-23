@@ -910,8 +910,8 @@ export var CreateProvisioningProfileRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateProvisioningProfileResponse$: StaticStructureSchema = [3, n0, _CPPRr,
   0,
-  [_Ar, _N, _PT, _I, _CCl, _CCPK],
-  [0, 0, 0, 0, [() => ClaimCertificate, 0], [() => ClaimCertificatePrivateKey, 0]]
+  [_Ar, _N, _PT, _I, _St, _CCl, _CCPK],
+  [0, 0, 0, 0, 0, [() => ClaimCertificate, 0], [() => ClaimCertificatePrivateKey, 0]]
 ];
 export var CredentialLockerSummary$: StaticStructureSchema = [3, n0, _CLS,
   0,
@@ -1220,8 +1220,8 @@ export var GetProvisioningProfileRequest$: StaticStructureSchema = [3, n0, _GPPR
 ];
 export var GetProvisioningProfileResponse$: StaticStructureSchema = [3, n0, _GPPRe,
   0,
-  [_Ar, _N, _PT, _I, _CCl, _Ta],
-  [0, 0, 0, 0, [() => ClaimCertificate, 0], [() => TagsMap, 0]]
+  [_Ar, _N, _PT, _I, _St, _CCl, _Ta],
+  [0, 0, 0, 0, 0, [() => ClaimCertificate, 0], [() => TagsMap, 0]]
 ];
 export var GetRuntimeLogConfigurationRequest$: StaticStructureSchema = [3, n0, _GRLCR,
   0,
@@ -1540,8 +1540,8 @@ export var ProactiveRefreshTokenRenewal$: StaticStructureSchema = [3, n0, _PRTR,
 ];
 export var ProvisioningProfileSummary$: StaticStructureSchema = [3, n0, _PPS,
   0,
-  [_N, _I, _Ar, _PT],
-  [0, 0, 0, 0]
+  [_N, _I, _Ar, _PT, _St],
+  [0, 0, 0, 0, 0]
 ];
 export var PushConfig$: StaticStructureSchema = [3, n0, _PC,
   0,

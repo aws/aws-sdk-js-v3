@@ -53,6 +53,7 @@ export interface ListProvisioningProfilesCommandOutput extends ListProvisioningP
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       ProvisioningType: "FLEET_PROVISIONING" || "JITR",
+ * //       Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

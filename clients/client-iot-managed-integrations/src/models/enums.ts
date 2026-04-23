@@ -298,6 +298,22 @@ export type ProvisioningType = (typeof ProvisioningType)[keyof typeof Provisioni
  * @public
  * @enum
  */
+export const ProvisioningProfileStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type ProvisioningProfileStatus = (typeof ProvisioningProfileStatus)[keyof typeof ProvisioningProfileStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DiscoveryType = {
   CLOUD: "CLOUD",
   CONTROLLER_CAPABILITY_REDISCOVERY: "CONTROLLER_CAPABILITY_REDISCOVERY",
