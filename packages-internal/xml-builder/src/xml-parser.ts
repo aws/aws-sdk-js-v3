@@ -20,8 +20,6 @@ const parser = new XMLParser({
   tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
   maxNestedTags: Infinity,
 });
-parser.addEntity("#xD", "\r");
-parser.addEntity("#10", "\n");
 
 /**
  * @internal

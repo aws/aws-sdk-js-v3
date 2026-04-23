@@ -207,6 +207,16 @@ describe("xml parsing", () => {
     expect(parseXMLBrowser(xml)).toEqual(parseXML(xml));
   });
 
+  it("should resolve numeric character references for CR and LF", () => {
+    const xml = `<Response><Message>line1&#xD;&#10;line2&#x0A;line3</Message></Response>`;
+    const object = parseXML(xml);
+    expect(object).toEqual({
+      Response: {
+        Message: "line1\r\nline2\nline3",
+      },
+    });
+  });
+
   it("throws on parsing error", () => {
     const xmlSamples = [`<unclosed`, `<unmatched></matched>`];
 
