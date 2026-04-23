@@ -21,7 +21,9 @@ import {
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import { type Logger, LogLevel } from "@aws-sdk/config/logger";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import https from "node:https";
 
 import { byteLength } from "../byteLength";
 import { getChunk } from "../chunker";
@@ -69,12 +71,16 @@ export class S3TransferManager implements IS3TransferManager {
   public constructor(config: S3TransferManagerConfig = {}) {
     this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
     this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
+    this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
 
     this.s3 =
       config.s3 ??
       new S3Client({
         requestChecksumCalculation: this.requestChecksumCalculation,
         responseChecksumValidation: this.responseChecksumValidation,
+        requestHandler: new NodeHttpHandler({
+          httpsAgent: new https.Agent({ maxSockets: this.maxConcurrentUploads }),
+        }),
       });
 
     this.targetPartSizeBytes = config.targetPartSizeBytes ?? 8 * 1024 * 1024; // 8 MB
@@ -82,7 +88,6 @@ export class S3TransferManager implements IS3TransferManager {
 
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
     this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 8;
-    this.maxConcurrentUploads = config.maxConcurrentUploads ?? 4;
     this.logger = config.logger ?? new LogLevel("warn");
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
@@ -1113,6 +1118,9 @@ export class S3TransferManager implements IS3TransferManager {
 
     if (hasFullObjectChecksum) {
       createMpuRequest.ChecksumType = "FULL_OBJECT";
+    }
+    if (!createMpuRequest.ChecksumAlgorithm && this.requestChecksumCalculation === "WHEN_SUPPORTED") {
+      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? "CRC32";
     }
     const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
     const uploadId = createMpuResponse.UploadId!;

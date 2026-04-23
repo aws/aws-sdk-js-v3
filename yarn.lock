@@ -10753,7 +10753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/config@workspace:^3.1030.0, @aws-sdk/config@workspace:packages/config":
+"@aws-sdk/config@workspace:3.1058.0, @aws-sdk/config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/config@workspace:packages/config"
   dependencies:
@@ -11180,8 +11180,14 @@ __metadata:
   resolution: "@aws-sdk/lib-storage@workspace:lib/lib-storage"
   dependencies:
     "@aws-sdk/client-s3": "workspace:3.1058.0"
+    "@aws-sdk/config": "workspace:3.1058.0"
     "@smithy/core": "npm:^3.24.6"
+    "@smithy/middleware-endpoint": "npm:^4.4.31"
+    "@smithy/node-http-handler": "npm:^4.6.0"
+    "@smithy/protocol-http": "npm:^5.3.14"
+    "@smithy/smithy-client": "npm:^4.12.12"
     "@smithy/types": "npm:^4.14.3"
+    "@smithy/util-stream": "npm:^4.5.24"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
     buffer: "npm:5.6.0"
@@ -16249,7 +16255,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/node-http-handler@npm:^4.7.6":
+"@smithy/middleware-endpoint@npm:^4.4.31":
+  version: 4.5.6
+  resolution: "@smithy/middleware-endpoint@npm:4.5.6"
+  dependencies:
+    "@smithy/core": "npm:^3.24.6"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/3712128c1ccdaba66cc501d645569ce972c0b7b0b6515596526b858154b669d48179e9f752c0f26c3853353758a6bb197cc0d24d36877700a3a170f530e94570
+  languageName: node
+  linkType: hard
+
+"@smithy/node-http-handler@npm:^4.6.0, @smithy/node-http-handler@npm:^4.7.6":
   version: 4.7.6
   resolution: "@smithy/node-http-handler@npm:4.7.6"
   dependencies:
@@ -16260,7 +16276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/protocol-http@npm:^5.4.6":
+"@smithy/protocol-http@npm:^5.3.14, @smithy/protocol-http@npm:^5.4.6":
   version: 5.4.6
   resolution: "@smithy/protocol-http@npm:5.4.6"
   dependencies:
@@ -16303,7 +16319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/smithy-client@npm:^4.13.6":
+"@smithy/smithy-client@npm:^4.12.12, @smithy/smithy-client@npm:^4.13.6":
   version: 4.13.6
   resolution: "@smithy/smithy-client@npm:4.13.6"
   dependencies:
@@ -16365,7 +16381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/util-stream@npm:^4.6.6":
+"@smithy/util-stream@npm:^4.5.24, @smithy/util-stream@npm:^4.6.6":
   version: 4.6.6
   resolution: "@smithy/util-stream@npm:4.6.6"
   dependencies:
