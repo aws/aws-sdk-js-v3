@@ -8575,10 +8575,7 @@ const compareEquivalentUnknownTypeBodies = (
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentXmlBodies = (
-  expectedBody: string,
-  generatedBody: string
-): Object => {
+const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string): Object => {
   const parseConfig = {
     attributeNamePrefix: "",
     processEntities: {
