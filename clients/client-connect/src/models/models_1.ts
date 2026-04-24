@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AgentAvailabilityTimer,
+  AttachmentScope,
   AutoEvaluationStatus,
   Channel,
   Comparison,
@@ -55,7 +56,6 @@ import type {
   Statistic,
   Status,
   StorageType,
-  TaskTemplateStatus,
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
@@ -74,6 +74,7 @@ import type {
   AgentStatusReference,
   AiAgentInfo,
   AliasConfiguration,
+  AllowedExtension,
   AudioQualityMetricsInfo,
   AutoAcceptConfig,
   CreatedByInfo,
@@ -84,6 +85,7 @@ import type {
   GranularAccessControlConfiguration,
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
+  ImagesLogo,
   InstanceStorageConfig,
   LexBot,
   LexV2Bot,
@@ -104,17 +106,25 @@ import type {
   RuleTriggerEventSource,
   SecurityProfileItem,
   SuccessfulBatchAssociationSummary,
-  TaskTemplateConstraints,
-  TaskTemplateDefaults,
-  TaskTemplateField,
   TestCaseEntryPoint,
   UserIdentityInfo,
   UserPhoneConfig,
   Validation,
   View,
   VoiceEnhancementConfig,
-  WorkspaceThemeImages,
 } from "./models_0";
+
+/**
+ * <p>Contains image configuration for a workspace theme.</p>
+ * @public
+ */
+export interface WorkspaceThemeImages {
+  /**
+   * <p>The logo images used in the workspace.</p>
+   * @public
+   */
+  Logo?: ImagesLogo | undefined;
+}
 
 /**
  * <p>Contains color configuration for canvas elements in a workspace theme.</p>
@@ -1341,6 +1351,82 @@ export interface DescribeAgentStatusResponse {
    * @public
    */
   AgentStatus?: AgentStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAttachedFilesConfigurationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>
+   * @public
+   */
+  AttachmentScope: AttachmentScope | undefined;
+}
+
+/**
+ * <p>The configuration for allowed file extensions.</p>
+ * @public
+ */
+export interface ExtensionConfiguration {
+  /**
+   * <p>The list of allowed file extensions.</p>
+   * @public
+   */
+  AllowedExtensions: AllowedExtension[] | undefined;
+}
+
+/**
+ * <p>The configuration for attached files for a specific attachment scope.</p>
+ * @public
+ */
+export interface AttachedFilesConfiguration {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>
+   * @public
+   */
+  AttachmentScope: AttachmentScope | undefined;
+
+  /**
+   * <p>The maximum size limit for attached files in bytes.</p>
+   * @public
+   */
+  MaximumSizeLimitInBytes?: number | undefined;
+
+  /**
+   * <p>The configuration for allowed file extensions.</p>
+   * @public
+   */
+  ExtensionConfiguration?: ExtensionConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when the configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAttachedFilesConfigurationResponse {
+  /**
+   * <p>Information about the attached files configuration.</p>
+   * @public
+   */
+  AttachedFilesConfiguration: AttachedFilesConfiguration | undefined;
 }
 
 /**
@@ -10235,182 +10321,4 @@ export interface GetMetricDataV2Response {
    * @public
    */
   MetricResults?: MetricResultV2[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPromptFileRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the prompt.</p>
-   * @public
-   */
-  PromptId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPromptFileResponse {
-  /**
-   * <p>A generated URL to the prompt that can be given to an unauthorized user so they can access the prompt in
-   *    S3.</p>
-   * @public
-   */
-  PromptPresignedUrl?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTaskTemplateRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the task template.</p>
-   * @public
-   */
-  TaskTemplateId: string | undefined;
-
-  /**
-   * <p>The system generated version of a task template that is associated with a task, when the task is created.</p>
-   * @public
-   */
-  SnapshotVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTaskTemplateResponse {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the task template.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the task template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>The ContactFlowId for the flow that will be run if this template is used to create a self-assigned task.</p>
-   * @public
-   */
-  SelfAssignFlowId?: string | undefined;
-
-  /**
-   * <p>Constraints that are applicable to the fields listed.</p>
-   * @public
-   */
-  Constraints?: TaskTemplateConstraints | undefined;
-
-  /**
-   * <p>The default values for fields when a task is created by referencing this template.</p>
-   * @public
-   */
-  Defaults?: TaskTemplateDefaults | undefined;
-
-  /**
-   * <p>Fields that are part of the template.</p>
-   * @public
-   */
-  Fields?: TaskTemplateField[] | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>The timestamp when the task template was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the task template was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTestCaseExecutionSummaryRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the test case.</p>
-   * @public
-   */
-  TestCaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the test case execution.</p>
-   * @public
-   */
-  TestCaseExecutionId: string | undefined;
 }

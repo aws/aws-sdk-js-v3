@@ -1414,6 +1414,21 @@ export type MediaType = (typeof MediaType)[keyof typeof MediaType];
  * @public
  * @enum
  */
+export const AttachmentScope = {
+  CASE: "CASE",
+  CHAT: "CHAT",
+  EMAIL: "EMAIL",
+  TASK: "TASK",
+} as const;
+/**
+ * @public
+ */
+export type AttachmentScope = (typeof AttachmentScope)[keyof typeof AttachmentScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnsweringMachineDetectionStatus = {
   AMD_ERROR: "AMD_ERROR",
   AMD_NOT_APPLICABLE: "AMD_NOT_APPLICABLE",

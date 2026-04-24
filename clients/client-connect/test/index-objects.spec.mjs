@@ -32,6 +32,7 @@ import {
   AiUseCase,
   AliasConfiguration$,
   AllowedCapabilities$,
+  AllowedExtension$,
   AllowedUserAction,
   AnalyticsDataAssociationResult$,
   AnalyticsDataSetsResult$,
@@ -115,8 +116,11 @@ import {
   AttachedFile$,
   AttachedFileError$,
   AttachedFileInvalidRequestExceptionReason,
+  AttachedFilesConfiguration$,
+  AttachedFilesConfigurationSummary$,
   AttachedFileServiceQuotaExceededExceptionReason,
   AttachmentReference$,
+  AttachmentScope,
   Attendee$,
   Attribute$,
   AttributeAndCondition$,
@@ -577,6 +581,10 @@ import {
   DescribeAgentStatusCommand,
   DescribeAgentStatusRequest$,
   DescribeAgentStatusResponse$,
+  DescribeAttachedFilesConfiguration$,
+  DescribeAttachedFilesConfigurationCommand,
+  DescribeAttachedFilesConfigurationRequest$,
+  DescribeAttachedFilesConfigurationResponse$,
   DescribeAuthenticationProfile$,
   DescribeAuthenticationProfileCommand,
   DescribeAuthenticationProfileRequest$,
@@ -895,6 +903,7 @@ import {
   ExecutionRecordStatus,
   Expiry$,
   Expression$,
+  ExtensionConfiguration$,
   ExternalInvocationConfiguration$,
   FailedBatchAssociationSummary$,
   FailedRequest$,
@@ -1074,6 +1083,10 @@ import {
   ListAssociatedContactsCommand,
   ListAssociatedContactsRequest$,
   ListAssociatedContactsResponse$,
+  ListAttachedFilesConfigurations$,
+  ListAttachedFilesConfigurationsCommand,
+  ListAttachedFilesConfigurationsRequest$,
+  ListAttachedFilesConfigurationsResponse$,
   ListAuthenticationProfiles$,
   ListAuthenticationProfilesCommand,
   ListAuthenticationProfilesRequest$,
@@ -1400,6 +1413,7 @@ import {
   paginateGetMetricDataV2,
   paginateListAgentStatuses,
   paginateListApprovedOrigins,
+  paginateListAttachedFilesConfigurations,
   paginateListAuthenticationProfiles,
   paginateListBots,
   paginateListChildHoursOfOperations,
@@ -1950,6 +1964,10 @@ import {
   UpdateAgentStatus$,
   UpdateAgentStatusCommand,
   UpdateAgentStatusRequest$,
+  UpdateAttachedFilesConfiguration$,
+  UpdateAttachedFilesConfigurationCommand,
+  UpdateAttachedFilesConfigurationRequest$,
+  UpdateAttachedFilesConfigurationResponse$,
   UpdateAuthenticationProfile$,
   UpdateAuthenticationProfileCommand,
   UpdateAuthenticationProfileRequest$,
@@ -2451,6 +2469,8 @@ assert(typeof DeleteWorkspacePageCommand === "function");
 assert(typeof DeleteWorkspacePage$ === "object");
 assert(typeof DescribeAgentStatusCommand === "function");
 assert(typeof DescribeAgentStatus$ === "object");
+assert(typeof DescribeAttachedFilesConfigurationCommand === "function");
+assert(typeof DescribeAttachedFilesConfiguration$ === "object");
 assert(typeof DescribeAuthenticationProfileCommand === "function");
 assert(typeof DescribeAuthenticationProfile$ === "object");
 assert(typeof DescribeContactCommand === "function");
@@ -2597,6 +2617,8 @@ assert(typeof ListApprovedOriginsCommand === "function");
 assert(typeof ListApprovedOrigins$ === "object");
 assert(typeof ListAssociatedContactsCommand === "function");
 assert(typeof ListAssociatedContacts$ === "object");
+assert(typeof ListAttachedFilesConfigurationsCommand === "function");
+assert(typeof ListAttachedFilesConfigurations$ === "object");
 assert(typeof ListAuthenticationProfilesCommand === "function");
 assert(typeof ListAuthenticationProfiles$ === "object");
 assert(typeof ListBotsCommand === "function");
@@ -2847,6 +2869,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateAgentStatusCommand === "function");
 assert(typeof UpdateAgentStatus$ === "object");
+assert(typeof UpdateAttachedFilesConfigurationCommand === "function");
+assert(typeof UpdateAttachedFilesConfiguration$ === "object");
 assert(typeof UpdateAuthenticationProfileCommand === "function");
 assert(typeof UpdateAuthenticationProfile$ === "object");
 assert(typeof UpdateContactCommand === "function");
@@ -2995,6 +3019,7 @@ assert(typeof AgentStatusSummary$ === "object");
 assert(typeof AiAgentInfo$ === "object");
 assert(typeof AliasConfiguration$ === "object");
 assert(typeof AllowedCapabilities$ === "object");
+assert(typeof AllowedExtension$ === "object");
 assert(typeof AnalyticsDataAssociationResult$ === "object");
 assert(typeof AnalyticsDataSetsResult$ === "object");
 assert(typeof AnswerMachineDetectionConfig$ === "object");
@@ -3033,6 +3058,8 @@ assert(typeof AssociateWorkspaceRequest$ === "object");
 assert(typeof AssociateWorkspaceResponse$ === "object");
 assert(typeof AttachedFile$ === "object");
 assert(typeof AttachedFileError$ === "object");
+assert(typeof AttachedFilesConfiguration$ === "object");
+assert(typeof AttachedFilesConfigurationSummary$ === "object");
 assert(typeof AttachmentReference$ === "object");
 assert(typeof Attendee$ === "object");
 assert(typeof Attribute$ === "object");
@@ -3285,6 +3312,8 @@ assert(typeof DeleteWorkspaceRequest$ === "object");
 assert(typeof DeleteWorkspaceResponse$ === "object");
 assert(typeof DescribeAgentStatusRequest$ === "object");
 assert(typeof DescribeAgentStatusResponse$ === "object");
+assert(typeof DescribeAttachedFilesConfigurationRequest$ === "object");
+assert(typeof DescribeAttachedFilesConfigurationResponse$ === "object");
 assert(typeof DescribeAuthenticationProfileRequest$ === "object");
 assert(typeof DescribeAuthenticationProfileResponse$ === "object");
 assert(typeof DescribeContactEvaluationRequest$ === "object");
@@ -3467,6 +3496,7 @@ assert(typeof EventBridgeActionDefinition$ === "object");
 assert(typeof ExecutionRecord$ === "object");
 assert(typeof Expiry$ === "object");
 assert(typeof Expression$ === "object");
+assert(typeof ExtensionConfiguration$ === "object");
 assert(typeof ExternalInvocationConfiguration$ === "object");
 assert(typeof FailedBatchAssociationSummary$ === "object");
 assert(typeof FailedRequest$ === "object");
@@ -3566,6 +3596,8 @@ assert(typeof ListApprovedOriginsRequest$ === "object");
 assert(typeof ListApprovedOriginsResponse$ === "object");
 assert(typeof ListAssociatedContactsRequest$ === "object");
 assert(typeof ListAssociatedContactsResponse$ === "object");
+assert(typeof ListAttachedFilesConfigurationsRequest$ === "object");
+assert(typeof ListAttachedFilesConfigurationsResponse$ === "object");
 assert(typeof ListAuthenticationProfilesRequest$ === "object");
 assert(typeof ListAuthenticationProfilesResponse$ === "object");
 assert(typeof ListBotsRequest$ === "object");
@@ -4010,6 +4042,8 @@ assert(typeof UntagContactRequest$ === "object");
 assert(typeof UntagContactResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateAgentStatusRequest$ === "object");
+assert(typeof UpdateAttachedFilesConfigurationRequest$ === "object");
+assert(typeof UpdateAttachedFilesConfigurationResponse$ === "object");
 assert(typeof UpdateAuthenticationProfileRequest$ === "object");
 assert(typeof UpdateCaseActionDefinition$ === "object");
 assert(typeof UpdateContactAttributesRequest$ === "object");
@@ -4168,6 +4202,7 @@ assert(typeof ApplicationType === "object");
 assert(typeof ArtifactStatus === "object");
 assert(typeof AttachedFileInvalidRequestExceptionReason === "object");
 assert(typeof AttachedFileServiceQuotaExceededExceptionReason === "object");
+assert(typeof AttachmentScope === "object");
 assert(typeof AutoEvaluationStatus === "object");
 assert(typeof BehaviorType === "object");
 assert(typeof BooleanComparisonType === "object");
@@ -4393,6 +4428,7 @@ assert(typeof paginateGetMetricData === "function");
 assert(typeof paginateGetMetricDataV2 === "function");
 assert(typeof paginateListAgentStatuses === "function");
 assert(typeof paginateListApprovedOrigins === "function");
+assert(typeof paginateListAttachedFilesConfigurations === "function");
 assert(typeof paginateListAuthenticationProfiles === "function");
 assert(typeof paginateListBots === "function");
 assert(typeof paginateListChildHoursOfOperations === "function");

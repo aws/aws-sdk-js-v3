@@ -406,6 +406,10 @@ import type {
   DescribeAgentStatusCommandOutput,
 } from "./commands/DescribeAgentStatusCommand";
 import type {
+  DescribeAttachedFilesConfigurationCommandInput,
+  DescribeAttachedFilesConfigurationCommandOutput,
+} from "./commands/DescribeAttachedFilesConfigurationCommand";
+import type {
   DescribeAuthenticationProfileCommandInput,
   DescribeAuthenticationProfileCommandOutput,
 } from "./commands/DescribeAuthenticationProfileCommand";
@@ -652,6 +656,10 @@ import type {
   ListAssociatedContactsCommandInput,
   ListAssociatedContactsCommandOutput,
 } from "./commands/ListAssociatedContactsCommand";
+import type {
+  ListAttachedFilesConfigurationsCommandInput,
+  ListAttachedFilesConfigurationsCommandOutput,
+} from "./commands/ListAttachedFilesConfigurationsCommand";
 import type {
   ListAuthenticationProfilesCommandInput,
   ListAuthenticationProfilesCommandOutput,
@@ -1045,6 +1053,10 @@ import type {
   UpdateAgentStatusCommandOutput,
 } from "./commands/UpdateAgentStatusCommand";
 import type {
+  UpdateAttachedFilesConfigurationCommandInput,
+  UpdateAttachedFilesConfigurationCommandOutput,
+} from "./commands/UpdateAttachedFilesConfigurationCommand";
+import type {
   UpdateAuthenticationProfileCommandInput,
   UpdateAuthenticationProfileCommandOutput,
 } from "./commands/UpdateAuthenticationProfileCommand";
@@ -1396,6 +1408,7 @@ export type ServiceInputTypes =
   | DeleteWorkspaceMediaCommandInput
   | DeleteWorkspacePageCommandInput
   | DescribeAgentStatusCommandInput
+  | DescribeAttachedFilesConfigurationCommandInput
   | DescribeAuthenticationProfileCommandInput
   | DescribeContactCommandInput
   | DescribeContactEvaluationCommandInput
@@ -1469,6 +1482,7 @@ export type ServiceInputTypes =
   | ListAnalyticsDataLakeDataSetsCommandInput
   | ListApprovedOriginsCommandInput
   | ListAssociatedContactsCommandInput
+  | ListAttachedFilesConfigurationsCommandInput
   | ListAuthenticationProfilesCommandInput
   | ListBotsCommandInput
   | ListChildHoursOfOperationsCommandInput
@@ -1594,6 +1608,7 @@ export type ServiceInputTypes =
   | UntagContactCommandInput
   | UntagResourceCommandInput
   | UpdateAgentStatusCommandInput
+  | UpdateAttachedFilesConfigurationCommandInput
   | UpdateAuthenticationProfileCommandInput
   | UpdateContactAttributesCommandInput
   | UpdateContactCommandInput
@@ -1768,6 +1783,7 @@ export type ServiceOutputTypes =
   | DeleteWorkspaceMediaCommandOutput
   | DeleteWorkspacePageCommandOutput
   | DescribeAgentStatusCommandOutput
+  | DescribeAttachedFilesConfigurationCommandOutput
   | DescribeAuthenticationProfileCommandOutput
   | DescribeContactCommandOutput
   | DescribeContactEvaluationCommandOutput
@@ -1841,6 +1857,7 @@ export type ServiceOutputTypes =
   | ListAnalyticsDataLakeDataSetsCommandOutput
   | ListApprovedOriginsCommandOutput
   | ListAssociatedContactsCommandOutput
+  | ListAttachedFilesConfigurationsCommandOutput
   | ListAuthenticationProfilesCommandOutput
   | ListBotsCommandOutput
   | ListChildHoursOfOperationsCommandOutput
@@ -1966,6 +1983,7 @@ export type ServiceOutputTypes =
   | UntagContactCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentStatusCommandOutput
+  | UpdateAttachedFilesConfigurationCommandOutput
   | UpdateAuthenticationProfileCommandOutput
   | UpdateContactAttributesCommandOutput
   | UpdateContactCommandOutput

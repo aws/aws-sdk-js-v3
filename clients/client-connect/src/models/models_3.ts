@@ -3,6 +3,7 @@ import type {
   AgentAvailabilityTimer,
   AgentStatusState,
   AnsweringMachineDetectionStatus,
+  AttachmentScope,
   Channel,
   ChatEventType,
   ContactFlowModuleState,
@@ -42,6 +43,7 @@ import type {
   RoutingCriteriaStepStatus,
   RulePublishStatus,
   SearchableQueueType,
+  StringComparisonType,
   TargetListType,
   TaskTemplateStatus,
   TestCaseExecutionStatus,
@@ -123,11 +125,13 @@ import type {
   EvaluationAnswerData,
   EvaluationNote,
   Expiry,
+  ExtensionConfiguration,
   GlobalResiliencyMetadata,
   HierarchyGroup,
   NextContactEntry,
   QualityMetrics,
   QueueInfo,
+  QuickConnect,
   RecordingInfo,
   RoutingProfile,
   TaskTemplateInfoV2,
@@ -154,11 +158,224 @@ import type {
   NumberCondition,
   PromptSearchFilter,
   QueueSearchFilter,
-  QuickConnectSearchFilter,
-  RoutingProfileSearchFilter,
   SignInConfig,
   TelephonyConfig,
 } from "./models_2";
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface QuickConnectSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchQuickConnectsResponse {
+  /**
+   * <p>Information about the quick connects.</p>
+   * @public
+   */
+  QuickConnects?: QuickConnect[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of quick connects which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return tags.</p>
+ * @public
+ */
+export interface TagSearchCondition {
+  /**
+   * <p>The tag key used in the tag search condition.</p>
+   * @public
+   */
+  tagKey?: string | undefined;
+
+  /**
+   * <p>The tag value used in the tag search condition.</p>
+   * @public
+   */
+  tagValue?: string | undefined;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the tag key in tag search condition.</p>
+   * @public
+   */
+  tagKeyComparisonType?: StringComparisonType | undefined;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the tag value in tag search condition.</p>
+   * @public
+   */
+  tagValueComparisonType?: StringComparisonType | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to search tags.</p>
+ * @public
+ */
+export interface ResourceTagsSearchCriteria {
+  /**
+   * <p>The search criteria to be used to return tags.</p>
+   * @public
+   */
+  TagSearchCondition?: TagSearchCondition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourceTagsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon Resource Name (ARN)
+   *    of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The list of resource types to be used to search tags from. If not provided or if any empty list is provided,
+   *    this API will search from all supported resource types. Note that lowercase and - are required.</p>
+   *          <p class="title">
+   *             <b>Supported resource types</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>agent</p>
+   *             </li>
+   *             <li>
+   *                <p>agent-state</p>
+   *             </li>
+   *             <li>
+   *                <p>routing-profile</p>
+   *             </li>
+   *             <li>
+   *                <p>standard-queue</p>
+   *             </li>
+   *             <li>
+   *                <p>security-profile</p>
+   *             </li>
+   *             <li>
+   *                <p>operating-hours</p>
+   *             </li>
+   *             <li>
+   *                <p>prompt</p>
+   *             </li>
+   *             <li>
+   *                <p>contact-flow</p>
+   *             </li>
+   *             <li>
+   *                <p>flow- module</p>
+   *             </li>
+   *             <li>
+   *                <p>transfer-destination (also known as quick connect)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceTypes?: string[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return tags.</p>
+   * @public
+   */
+  SearchCriteria?: ResourceTagsSearchCriteria | undefined;
+}
+
+/**
+ * <p>A tag set contains tag key and tag value.</p>
+ * @public
+ */
+export interface TagSet {
+  /**
+   * <p>The tag key in the TagSet.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The tag value in the tagSet.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourceTagsResponse {
+  /**
+   * <p>A list of tags used in the Amazon Connect instance.</p>
+   * @public
+   */
+  Tags?: TagSet[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface RoutingProfileSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
 
 /**
  * @public
@@ -3011,6 +3228,70 @@ export interface UpdateAgentStatusRequest {
    * @public
    */
   ResetOrderNumber?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAttachedFilesConfigurationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>
+   * @public
+   */
+  AttachmentScope: AttachmentScope | undefined;
+
+  /**
+   * <p>The maximum size limit for attached files in bytes. The minimum value is 1 and the maximum value is 104857600 (100 MB).</p>
+   * @public
+   */
+  MaximumSizeLimitInBytes?: number | undefined;
+
+  /**
+   * <p>The configuration for allowed file extensions.</p>
+   * @public
+   */
+  ExtensionConfiguration?: ExtensionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAttachedFilesConfigurationResponse {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The scope of the attachment.</p>
+   * @public
+   */
+  AttachmentScope: AttachmentScope | undefined;
+
+  /**
+   * <p>The maximum size limit for attached files in bytes.</p>
+   * @public
+   */
+  MaximumSizeLimitInBytes?: number | undefined;
+
+  /**
+   * <p>The configuration for allowed file extensions.</p>
+   * @public
+   */
+  ExtensionConfiguration?: ExtensionConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when the configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
 }
 
 /**

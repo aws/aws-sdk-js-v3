@@ -1134,6 +1134,30 @@
         "smithy.api#documentation": "<p>Information about the capabilities enabled for participants of the contact.</p>"
       }
     },
+    "com.amazonaws.connect#AllowedExtension": {
+      "type": "structure",
+      "members": {
+        "Extension": {
+          "target": "com.amazonaws.connect#FileExtension",
+          "traits": {
+            "smithy.api#documentation": "<p>The file extension. The extension must be between 1 and 10 characters and can contain only alphanumeric characters, hyphens, and underscores.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about an allowed file extension.</p>"
+      }
+    },
+    "com.amazonaws.connect#AllowedExtensionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#AllowedExtension"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A list of allowed file extensions.</p>"
+      }
+    },
     "com.amazonaws.connect#AllowedFlowModules": {
       "type": "list",
       "member": {
@@ -1507,6 +1531,9 @@
           "target": "com.amazonaws.connect#DescribeAgentStatus"
         },
         {
+          "target": "com.amazonaws.connect#DescribeAttachedFilesConfiguration"
+        },
+        {
           "target": "com.amazonaws.connect#DescribeAuthenticationProfile"
         },
         {
@@ -1724,6 +1751,9 @@
         },
         {
           "target": "com.amazonaws.connect#ListAssociatedContacts"
+        },
+        {
+          "target": "com.amazonaws.connect#ListAttachedFilesConfigurations"
         },
         {
           "target": "com.amazonaws.connect#ListAuthenticationProfiles"
@@ -2099,6 +2129,9 @@
         },
         {
           "target": "com.amazonaws.connect#UpdateAgentStatus"
+        },
+        {
+          "target": "com.amazonaws.connect#UpdateAttachedFilesConfiguration"
         },
         {
           "target": "com.amazonaws.connect#UpdateAuthenticationProfile"
@@ -5118,6 +5151,86 @@
         }
       }
     },
+    "com.amazonaws.connect#AttachedFilesConfiguration": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentScope": {
+          "target": "com.amazonaws.connect#AttachmentScope",
+          "traits": {
+            "smithy.api#documentation": "<p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaximumSizeLimitInBytes": {
+          "target": "com.amazonaws.connect#MaximumSizeLimitInBytes",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum size limit for attached files in bytes.</p>"
+          }
+        },
+        "ExtensionConfiguration": {
+          "target": "com.amazonaws.connect#ExtensionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for allowed file extensions.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.connect#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the configuration was last modified.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for attached files for a specific attachment scope.</p>"
+      }
+    },
+    "com.amazonaws.connect#AttachedFilesConfigurationSummary": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentScope": {
+          "target": "com.amazonaws.connect#AttachmentScope",
+          "traits": {
+            "smithy.api#documentation": "<p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaximumSizeLimitInBytes": {
+          "target": "com.amazonaws.connect#MaximumSizeLimitInBytes"
+        },
+        "ExtensionConfiguration": {
+          "target": "com.amazonaws.connect#ExtensionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for allowed file extensions.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A summary of the attached files configuration.</p>"
+      }
+    },
+    "com.amazonaws.connect#AttachedFilesConfigurationSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#AttachedFilesConfigurationSummary"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A list of attached files configuration summaries.</p>"
+      }
+    },
     "com.amazonaws.connect#AttachedFilesList": {
       "type": "list",
       "member": {
@@ -5163,6 +5276,38 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a reference when the <code>referenceType</code> is <code>ATTACHMENT</code>. Otherwise,\n   null.</p>"
+      }
+    },
+    "com.amazonaws.connect#AttachmentScope": {
+      "type": "enum",
+      "members": {
+        "EMAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL"
+          }
+        },
+        "CHAT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHAT"
+          }
+        },
+        "CASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CASE"
+          }
+        },
+        "TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TASK"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The scope of the attachment. Valid values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>EMAIL</code> - Attachments for email messages.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CHAT</code> - Attachments for chat conversations.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CASE</code> - Attachments for cases.</p>\n            </li>\n            <li>\n               <p>\n                  <code>TASK</code> - Attachments for tasks.</p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.connect#Attendee": {
@@ -18117,6 +18262,79 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.connect#DescribeAttachedFilesConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DescribeAttachedFilesConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#DescribeAttachedFilesConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the attached files configuration for the specified Amazon Connect instance and attachment scope.</p>\n         <p>If a custom configuration exists for the specified attachment scope, the custom configuration is returned. If no custom configuration exists, the default configuration values for that attachment scope are returned.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/attached-files-configurations/{InstanceId}/{AttachmentScope}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DescribeAttachedFilesConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentScope": {
+          "target": "com.amazonaws.connect#AttachmentScope",
+          "traits": {
+            "smithy.api#documentation": "<p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#DescribeAttachedFilesConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "AttachedFilesConfiguration": {
+          "target": "com.amazonaws.connect#AttachedFilesConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the attached files configuration.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.connect#DescribeAuthenticationProfile": {
       "type": "operation",
       "input": {
@@ -26261,6 +26479,21 @@
         "target": "com.amazonaws.connect#Expression"
       }
     },
+    "com.amazonaws.connect#ExtensionConfiguration": {
+      "type": "structure",
+      "members": {
+        "AllowedExtensions": {
+          "target": "com.amazonaws.connect#AllowedExtensionsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of allowed file extensions.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for allowed file extensions.</p>"
+      }
+    },
     "com.amazonaws.connect#ExternalInvocationConfiguration": {
       "type": "structure",
       "members": {
@@ -26488,6 +26721,17 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.connect#FieldValue"
+      }
+    },
+    "com.amazonaws.connect#FileExtension": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "<p>A file extension. The extension must be between 1 and 10 characters and can contain only alphanumeric characters, hyphens, and underscores.</p>",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9-_]+$"
       }
     },
     "com.amazonaws.connect#FileId": {
@@ -31659,6 +31903,96 @@
           "target": "com.amazonaws.connect#AssociatedContactSummaryList",
           "traits": {
             "smithy.api#documentation": "<p>List of the contact summary for all the contacts in contact tree associated with unique identifier.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connect#ListAttachedFilesConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListAttachedFilesConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListAttachedFilesConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Provides summary information about the attached files configurations for the specified Amazon Connect instance.</p>\n         <p>This API returns effective configurations (custom overrides or defaults) for each attachment scope. If no custom configuration exists for a scope, the default configuration values are returned.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/attached-files-configurations/{InstanceId}",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "AttachedFilesConfigurations",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListAttachedFilesConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult100",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#ListAttachedFilesConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "AttachedFilesConfigurations": {
+          "target": "com.amazonaws.connect#AttachedFilesConfigurationSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the attached files configurations.</p>"
           }
         },
         "NextToken": {
@@ -38189,6 +38523,16 @@
         "smithy.api#documentation": "<p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to\n   get more tags.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.connect#MaximumSizeLimitInBytes": {
+      "type": "long",
+      "traits": {
+        "smithy.api#documentation": "<p>The maximum size limit for attached files in bytes. The minimum value is 1 and the maximum value is 104857600 (100 MB).</p>",
+        "smithy.api#range": {
+          "min": 1,
+          "max": 104857600
+        }
       }
     },
     "com.amazonaws.connect#MediaConcurrencies": {
@@ -55808,6 +56152,116 @@
       },
       "traits": {
         "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#UpdateAttachedFilesConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#UpdateAttachedFilesConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#UpdateAttachedFilesConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the attached files configuration for the specified Amazon Connect instance and attachment scope.</p>\n         <p>If no instance-specific configuration exists, this operation creates one. Partial updates are supported—only specified fields are updated, while unspecified fields retain their current values.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/attached-files-configurations/{InstanceId}/{AttachmentScope}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#UpdateAttachedFilesConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentScope": {
+          "target": "com.amazonaws.connect#AttachmentScope",
+          "traits": {
+            "smithy.api#documentation": "<p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaximumSizeLimitInBytes": {
+          "target": "com.amazonaws.connect#MaximumSizeLimitInBytes",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum size limit for attached files in bytes. The minimum value is 1 and the maximum value is 104857600 (100 MB).</p>"
+          }
+        },
+        "ExtensionConfiguration": {
+          "target": "com.amazonaws.connect#ExtensionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for allowed file extensions.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#UpdateAttachedFilesConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AttachmentScope": {
+          "target": "com.amazonaws.connect#AttachmentScope",
+          "traits": {
+            "smithy.api#documentation": "<p>The scope of the attachment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaximumSizeLimitInBytes": {
+          "target": "com.amazonaws.connect#MaximumSizeLimitInBytes",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum size limit for attached files in bytes.</p>"
+          }
+        },
+        "ExtensionConfiguration": {
+          "target": "com.amazonaws.connect#ExtensionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for allowed file extensions.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.connect#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the configuration was last modified.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.connect#UpdateAuthenticationProfile": {

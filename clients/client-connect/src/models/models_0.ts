@@ -978,6 +978,18 @@ export interface AllowedCapabilities {
 }
 
 /**
+ * <p>Information about an allowed file extension.</p>
+ * @public
+ */
+export interface AllowedExtension {
+  /**
+   * <p>The file extension. The extension must be between 1 and 10 characters and can contain only alphanumeric characters, hyphens, and underscores.</p>
+   * @public
+   */
+  Extension: string | undefined;
+}
+
+/**
  * <p> A list of Flow Modules an AI Agent can invoke as a tool </p>
  * @public
  */
@@ -8023,16 +8035,4 @@ export interface ImagesLogo {
    * @public
    */
   Favicon?: string | undefined;
-}
-
-/**
- * <p>Contains image configuration for a workspace theme.</p>
- * @public
- */
-export interface WorkspaceThemeImages {
-  /**
-   * <p>The logo images used in the workspace.</p>
-   * @public
-   */
-  Logo?: ImagesLogo | undefined;
 }

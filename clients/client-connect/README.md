@@ -950,6 +950,13 @@ DescribeAgentStatus
 </details>
 <details>
 <summary>
+DescribeAttachedFilesConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DescribeAttachedFilesConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeAttachedFilesConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeAttachedFilesConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeAuthenticationProfile
 </summary>
 
@@ -1458,6 +1465,13 @@ ListAssociatedContacts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListAssociatedContactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAssociatedContactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAssociatedContactsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAttachedFilesConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListAttachedFilesConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAttachedFilesConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAttachedFilesConfigurationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -2333,6 +2347,13 @@ UpdateAgentStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateAgentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateAgentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateAgentStatusCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAttachedFilesConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateAttachedFilesConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateAttachedFilesConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateAttachedFilesConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

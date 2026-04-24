@@ -2,6 +2,7 @@
 import type {
   AgentStatusType,
   ArtifactStatus,
+  AttachmentScope,
   AutoEvaluationStatus,
   BooleanComparisonType,
   Channel,
@@ -58,7 +59,6 @@ import type {
   SortableFieldName,
   SortOrder,
   SourceType,
-  StringComparisonType,
   TaskTemplateStatus,
   TestCaseExecutionStatus,
   TestCaseStatus,
@@ -88,6 +88,9 @@ import type {
   PrimaryValueResponse,
   SecurityProfileItem,
   TagCondition,
+  TaskTemplateConstraints,
+  TaskTemplateDefaults,
+  TaskTemplateField,
   UserProficiency,
 } from "./models_0";
 import type {
@@ -98,6 +101,7 @@ import type {
   DataTableAttribute,
   EvaluationContactParticipant,
   EvaluationScore,
+  ExtensionConfiguration,
   HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationOverride,
@@ -106,8 +110,185 @@ import type {
   PredefinedAttribute,
   Prompt,
   Queue,
-  QuickConnect,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetPromptFileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the prompt.</p>
+   * @public
+   */
+  PromptId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPromptFileResponse {
+  /**
+   * <p>A generated URL to the prompt that can be given to an unauthorized user so they can access the prompt in
+   *    S3.</p>
+   * @public
+   */
+  PromptPresignedUrl?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  TaskTemplateId: string | undefined;
+
+  /**
+   * <p>The system generated version of a task template that is associated with a task, when the task is created.</p>
+   * @public
+   */
+  SnapshotVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTaskTemplateResponse {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+
+  /**
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a self-assigned task.</p>
+   * @public
+   */
+  SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.</p>
+   * @public
+   */
+  Constraints?: TaskTemplateConstraints | undefined;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   * @public
+   */
+  Defaults?: TaskTemplateDefaults | undefined;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   * @public
+   */
+  Fields?: TaskTemplateField[] | undefined;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus | undefined;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestCaseExecutionSummaryRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case execution.</p>
+   * @public
+   */
+  TestCaseExecutionId: string | undefined;
+}
 
 /**
  * <p>Contains summary statistics about a test case execution.</p>
@@ -648,6 +829,77 @@ export interface ListAssociatedContactsResponse {
    * @public
    */
   ContactSummaryList?: AssociatedContactSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachedFilesConfigurationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of the attached files configuration.</p>
+ * @public
+ */
+export interface AttachedFilesConfigurationSummary {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The scope of the attachment. Valid values are <code>EMAIL</code>, <code>CHAT</code>, <code>CASE</code>, and <code>TASK</code>.</p>
+   * @public
+   */
+  AttachmentScope: AttachmentScope | undefined;
+
+  /**
+   * <p>The maximum size limit for attached files in bytes. The minimum value is 1 and the maximum value is 104857600 (100 MB).</p>
+   * @public
+   */
+  MaximumSizeLimitInBytes?: number | undefined;
+
+  /**
+   * <p>The configuration for allowed file extensions.</p>
+   * @public
+   */
+  ExtensionConfiguration?: ExtensionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAttachedFilesConfigurationsResponse {
+  /**
+   * <p>Information about the attached files configurations.</p>
+   * @public
+   */
+  AttachedFilesConfigurations?: AttachedFilesConfigurationSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -8479,219 +8731,4 @@ export interface SearchQueuesResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface QuickConnectSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchQuickConnectsResponse {
-  /**
-   * <p>Information about the quick connects.</p>
-   * @public
-   */
-  QuickConnects?: QuickConnect[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of quick connects which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return tags.</p>
- * @public
- */
-export interface TagSearchCondition {
-  /**
-   * <p>The tag key used in the tag search condition.</p>
-   * @public
-   */
-  tagKey?: string | undefined;
-
-  /**
-   * <p>The tag value used in the tag search condition.</p>
-   * @public
-   */
-  tagValue?: string | undefined;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the tag key in tag search condition.</p>
-   * @public
-   */
-  tagKeyComparisonType?: StringComparisonType | undefined;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the tag value in tag search condition.</p>
-   * @public
-   */
-  tagValueComparisonType?: StringComparisonType | undefined;
-}
-
-/**
- * <p>The search criteria to be used to search tags.</p>
- * @public
- */
-export interface ResourceTagsSearchCriteria {
-  /**
-   * <p>The search criteria to be used to return tags.</p>
-   * @public
-   */
-  TagSearchCondition?: TagSearchCondition | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchResourceTagsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon Resource Name (ARN)
-   *    of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The list of resource types to be used to search tags from. If not provided or if any empty list is provided,
-   *    this API will search from all supported resource types. Note that lowercase and - are required.</p>
-   *          <p class="title">
-   *             <b>Supported resource types</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>agent</p>
-   *             </li>
-   *             <li>
-   *                <p>agent-state</p>
-   *             </li>
-   *             <li>
-   *                <p>routing-profile</p>
-   *             </li>
-   *             <li>
-   *                <p>standard-queue</p>
-   *             </li>
-   *             <li>
-   *                <p>security-profile</p>
-   *             </li>
-   *             <li>
-   *                <p>operating-hours</p>
-   *             </li>
-   *             <li>
-   *                <p>prompt</p>
-   *             </li>
-   *             <li>
-   *                <p>contact-flow</p>
-   *             </li>
-   *             <li>
-   *                <p>flow- module</p>
-   *             </li>
-   *             <li>
-   *                <p>transfer-destination (also known as quick connect)</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceTypes?: string[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The search criteria to be used to return tags.</p>
-   * @public
-   */
-  SearchCriteria?: ResourceTagsSearchCriteria | undefined;
-}
-
-/**
- * <p>A tag set contains tag key and tag value.</p>
- * @public
- */
-export interface TagSet {
-  /**
-   * <p>The tag key in the TagSet.</p>
-   * @public
-   */
-  key?: string | undefined;
-
-  /**
-   * <p>The tag value in the tagSet.</p>
-   * @public
-   */
-  value?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchResourceTagsResponse {
-  /**
-   * <p>A list of tags used in the Amazon Connect instance.</p>
-   * @public
-   */
-  Tags?: TagSet[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface RoutingProfileSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
 }

@@ -74,14 +74,21 @@ const _AEE = "AutoEvaluationEnabled";
 const _AEF = "ActivateEvaluationForm";
 const _AEFR = "ActivateEvaluationFormRequest";
 const _AEFRc = "ActivateEvaluationFormResponse";
+const _AEL = "AllowedExtensionsList";
 const _AER = "AdditionalEmailRecipients";
 const _AES = "AutoEvaluationStatus";
+const _AEl = "AllowedExtension";
+const _AEll = "AllowedExtensions";
 const _AEn = "AndExpression";
 const _AEu = "AutoEvaluation";
 const _AF = "AgentFirst";
-const _AFC = "AutomaticFailConfiguration";
+const _AFC = "AttachedFilesConfiguration";
 const _AFCAA = "AgentFirstCallbackAutoAccept";
 const _AFCACWC = "AgentFirstCallbackAfterContactWorkConfig";
+const _AFCS = "AttachedFilesConfigurationSummary";
+const _AFCSL = "AttachedFilesConfigurationSummaryList";
+const _AFCt = "AttachedFilesConfigurations";
+const _AFCu = "AutomaticFailConfiguration";
 const _AFE = "AttachedFileError";
 const _AFEL = "AttachedFileErrorsList";
 const _AFIRER = "AttachedFileInvalidRequestExceptionReason";
@@ -183,6 +190,7 @@ const _ASc = "ActionSummaries";
 const _ASg = "AgentStatus";
 const _ASge = "AgentStatuses";
 const _ASn = "AnswerSource";
+const _ASt = "AttachmentScope";
 const _AT = "ActionType";
 const _ATC = "ApproximateTotalCount";
 const _ATDGU = "AssociateTrafficDistributionGroupUser";
@@ -568,6 +576,9 @@ const _DA = "DirectoryAlias";
 const _DADS = "DisassociateAnalyticsDataSet";
 const _DADSR = "DisassociateAnalyticsDataSetRequest";
 const _DAF = "DeleteAttachedFile";
+const _DAFC = "DescribeAttachedFilesConfiguration";
+const _DAFCR = "DescribeAttachedFilesConfigurationRequest";
+const _DAFCRe = "DescribeAttachedFilesConfigurationResponse";
 const _DAFR = "DeleteAttachedFileRequest";
 const _DAFRe = "DeleteAttachedFileResponse";
 const _DAO = "DisassociateApprovedOrigin";
@@ -923,6 +934,7 @@ const _EC = "ErrorCode";
 const _ECLAAD = "EvaluationContactLensAnswerAnalysisDetails";
 const _ECP = "EvaluationContactParticipant";
 const _ECn = "EncryptionConfig";
+const _ECx = "ExtensionConfiguration";
 const _ED = "EligibilityDays";
 const _EDIM = "ExpiryDurationInMinutes";
 const _EDTV = "EvaluateDataTableValues";
@@ -1062,10 +1074,11 @@ const _Er = "Errors";
 const _Err = "Error";
 const _Ev = "Evaluation";
 const _Eve = "Event";
-const _Ex = "Expiry";
+const _Ex = "Extension";
 const _Exc = "Exclusion";
-const _Exp = "Expression";
-const _Expr = "Expressions";
+const _Exp = "Expiry";
+const _Expr = "Expression";
+const _Expre = "Expressions";
 const _F = "Failed";
 const _FA = "FunctionArn";
 const _FAF = "FlowAttributeFilter";
@@ -1310,6 +1323,9 @@ const _LADARi = "ListAnalyticsDataAssociationsResponse";
 const _LADLDS = "ListAnalyticsDataLakeDataSets";
 const _LADLDSR = "ListAnalyticsDataLakeDataSetsRequest";
 const _LADLDSRi = "ListAnalyticsDataLakeDataSetsResponse";
+const _LAFC = "ListAttachedFilesConfigurations";
+const _LAFCR = "ListAttachedFilesConfigurationsRequest";
+const _LAFCRi = "ListAttachedFilesConfigurationsResponse";
 const _LAO = "ListApprovedOrigins";
 const _LAOR = "ListApprovedOriginsRequest";
 const _LAORi = "ListApprovedOriginsResponse";
@@ -1599,6 +1615,7 @@ const _MRed = "MediaRegion";
 const _MS = "MediaSource";
 const _MSBC = "MaxSlotsByChannel";
 const _MSD = "MaxSessionDuration";
+const _MSLIB = "MaximumSizeLimitInBytes";
 const _MSQRCA = "MultiSelectQuestionRuleCategoryAutomation";
 const _MST = "MessageSourceType";
 const _MSTe = "MediaStreamType";
@@ -2434,6 +2451,9 @@ const _Ty = "Typography";
 const _U = "Username";
 const _UA = "UserArn";
 const _UAF = "UserAttributeFilter";
+const _UAFC = "UpdateAttachedFilesConfiguration";
+const _UAFCR = "UpdateAttachedFilesConfigurationRequest";
+const _UAFCRp = "UpdateAttachedFilesConfigurationResponse";
 const _UAP = "UpdateAuthenticationProfile";
 const _UAPR = "UpdateAuthenticationProfileRequest";
 const _UAS = "UpdateAgentStatus";
@@ -3154,6 +3174,11 @@ export var AllowedCapabilities$: StaticStructureSchema = [3, n0, _ACll,
   [_Cu, _Ag],
   [() => ParticipantCapabilities$, () => ParticipantCapabilities$]
 ];
+export var AllowedExtension$: StaticStructureSchema = [3, n0, _AEl,
+  0,
+  [_Ex],
+  [0], 1
+];
 export var AnalyticsDataAssociationResult$: StaticStructureSchema = [3, n0, _ADAR,
   0,
   [_DSI, _TAI, _RSI, _RSA, _RSS],
@@ -3344,6 +3369,16 @@ export var AttachedFileError$: StaticStructureSchema = [3, n0, _AFE,
   [_EC, _EM, _FIi],
   [0, 0, 0]
 ];
+export var AttachedFilesConfiguration$: StaticStructureSchema = [3, n0, _AFC,
+  0,
+  [_II, _ASt, _MSLIB, _ECx, _LMT],
+  [0, 0, 1, () => ExtensionConfiguration$, 4], 2
+];
+export var AttachedFilesConfigurationSummary$: StaticStructureSchema = [3, n0, _AFCS,
+  0,
+  [_II, _ASt, _MSLIB, _ECx],
+  [0, 0, 1, () => ExtensionConfiguration$], 2
+];
 export var AttachmentReference$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_N, _V, _St, _A],
@@ -3404,7 +3439,7 @@ export var AutoEvaluationDetails$: StaticStructureSchema = [3, n0, _AEDu,
   [_AEE, _AES],
   [2, 0], 1
 ];
-export var AutomaticFailConfiguration$: StaticStructureSchema = [3, n0, _AFC,
+export var AutomaticFailConfiguration$: StaticStructureSchema = [3, n0, _AFCu,
   0,
   [_TS],
   [0]
@@ -4594,6 +4629,16 @@ export var DescribeAgentStatusResponse$: StaticStructureSchema = [3, n0, _DASRe,
   [_ASg],
   [() => AgentStatus$]
 ];
+export var DescribeAttachedFilesConfigurationRequest$: StaticStructureSchema = [3, n0, _DAFCR,
+  0,
+  [_II, _ASt],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeAttachedFilesConfigurationResponse$: StaticStructureSchema = [3, n0, _DAFCRe,
+  0,
+  [_AFC],
+  [() => AttachedFilesConfiguration$], 1
+];
 export var DescribeAuthenticationProfileRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
   [_API, _II],
@@ -5266,7 +5311,7 @@ export var EvaluationFormMultiSelectQuestionProperties$: StaticStructureSchema =
 ];
 export var EvaluationFormNumericQuestionOption$: StaticStructureSchema = [3, n0, _EFNQO,
   0,
-  [_MV, _MVa, _Sco, _AFut, _AFC],
+  [_MV, _MVa, _Sco, _AFut, _AFCu],
   [1, 1, 1, 2, () => AutomaticFailConfiguration$], 2
 ];
 export var EvaluationFormNumericQuestionProperties$: StaticStructureSchema = [3, n0, _EFNQP,
@@ -5316,7 +5361,7 @@ export var EvaluationFormSingleSelectQuestionAutomation$: StaticStructureSchema 
 ];
 export var EvaluationFormSingleSelectQuestionOption$: StaticStructureSchema = [3, n0, _EFSSQO,
   0,
-  [_RIef, _Te, _Sco, _AFut, _AFC],
+  [_RIef, _Te, _Sco, _AFut, _AFCu],
   [0, 0, 1, 2, () => AutomaticFailConfiguration$], 2
 ];
 export var EvaluationFormSingleSelectQuestionProperties$: StaticStructureSchema = [3, n0, _EFSSQP,
@@ -5449,15 +5494,20 @@ export var ExecutionRecord$: StaticStructureSchema = [3, n0, _ERx,
   [_OI, _St, _Tim, _Reco],
   [0, 0, 4, 0]
 ];
-export var Expiry$: StaticStructureSchema = [3, n0, _Ex,
+export var Expiry$: StaticStructureSchema = [3, n0, _Exp,
   0,
   [_DIS, _ETx],
   [1, 4]
 ];
-export var Expression$: StaticStructureSchema = [3, n0, _Exp,
+export var Expression$: StaticStructureSchema = [3, n0, _Expr,
   0,
   [_ACt, _AEn, _OE, _NAC],
   [() => AttributeCondition$, () => Expressions, () => Expressions, () => AttributeCondition$]
+];
+export var ExtensionConfiguration$: StaticStructureSchema = [3, n0, _ECx,
+  0,
+  [_AEll],
+  [() => AllowedExtensionsList], 1
 ];
 export var ExternalInvocationConfiguration$: StaticStructureSchema = [3, n0, _EIC,
   0,
@@ -5948,6 +5998,16 @@ export var ListAssociatedContactsResponse$: StaticStructureSchema = [3, n0, _LAC
   0,
   [_CSL, _NT],
   [() => AssociatedContactSummaryList, 0]
+];
+export var ListAttachedFilesConfigurationsRequest$: StaticStructureSchema = [3, n0, _LAFCR,
+  0,
+  [_II, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAttachedFilesConfigurationsResponse$: StaticStructureSchema = [3, n0, _LAFCRi,
+  0,
+  [_AFCt, _NT],
+  [() => AttachedFilesConfigurationSummaryList, 0]
 ];
 export var ListAuthenticationProfilesRequest$: StaticStructureSchema = [3, n0, _LAPR,
   0,
@@ -6826,7 +6886,7 @@ export var ParticipantTimerConfiguration$: StaticStructureSchema = [3, n0, _PTC,
 ];
 export var ParticipantTokenCredentials$: StaticStructureSchema = [3, n0, _PTCa,
   0,
-  [_PTa, _Ex],
+  [_PTa, _Exp],
   [0, 0]
 ];
 export var PauseContactRequest$: StaticStructureSchema = [3, n0, _PCR,
@@ -7211,7 +7271,7 @@ export var RoutingCriteriaInput$: StaticStructureSchema = [3, n0, _RCIo,
 ];
 export var RoutingCriteriaInputStep$: StaticStructureSchema = [3, n0, _RCIS,
   0,
-  [_Ex, _Exp],
+  [_Exp, _Expr],
   [() => RoutingCriteriaInputStepExpiry$, () => Expression$]
 ];
 export var RoutingCriteriaInputStepExpiry$: StaticStructureSchema = [3, n0, _RCISE,
@@ -7851,7 +7911,7 @@ export var StateTransition$: StaticStructureSchema = [3, n0, _STtat,
 ];
 export var Step$: StaticStructureSchema = [3, n0, _Step,
   0,
-  [_Ex, _Exp, _St],
+  [_Exp, _Expr, _St],
   [() => Expiry$, () => Expression$, 0]
 ];
 export var StopContactMediaProcessingRequest$: StaticStructureSchema = [3, n0, _SCMPRto,
@@ -8133,6 +8193,16 @@ export var UpdateAgentStatusRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
   [_II, _ASI, _N, _D, _S, _DO, _RON],
   [[0, 1], [0, 1], 0, 0, 0, 1, 2], 2
+];
+export var UpdateAttachedFilesConfigurationRequest$: StaticStructureSchema = [3, n0, _UAFCR,
+  0,
+  [_II, _ASt, _MSLIB, _ECx],
+  [[0, 1], [0, 1], 1, () => ExtensionConfiguration$], 2
+];
+export var UpdateAttachedFilesConfigurationResponse$: StaticStructureSchema = [3, n0, _UAFCRp,
+  0,
+  [_II, _ASt, _MSLIB, _ECx, _LMT],
+  [0, 0, 1, () => ExtensionConfiguration$, 4], 2
 ];
 export var UpdateAuthenticationProfileRequest$: StaticStructureSchema = [3, n0, _UAPR,
   0,
@@ -8885,6 +8955,9 @@ var AiAgents: StaticListSchema = [1, n0, _AAi,
 var AliasConfigurationList: StaticListSchema = [1, n0, _ACL,
   0, () => AliasConfiguration$
 ];
+var AllowedExtensionsList: StaticListSchema = [1, n0, _AEL,
+  0, () => AllowedExtension$
+];
 var AllowedFlowModules: StaticListSchema = [1, n0, _AFM,
   0, () => FlowModule$
 ];
@@ -8906,6 +8979,9 @@ var AssociatedContactSummaryList: StaticListSchema = [1, n0, _ACSL,
 var AssociatedQueueIdList = 64 | 0;
 var AttachedFileErrorsList: StaticListSchema = [1, n0, _AFEL,
   0, () => AttachedFileError$
+];
+var AttachedFilesConfigurationSummaryList: StaticListSchema = [1, n0, _AFCSL,
+  0, () => AttachedFilesConfigurationSummary$
 ];
 var AttachedFilesList: StaticListSchema = [1, n0, _AFL,
   0, () => AttachedFile$
@@ -9155,7 +9231,7 @@ var EvaluationTranscriptPointsOfInterest: StaticListSchema = [1, n0, _ETPOIv,
 var ExecutionRecordList: StaticListSchema = [1, n0, _ERLx,
   0, () => ExecutionRecord$
 ];
-var Expressions: StaticListSchema = [1, n0, _Expr,
+var Expressions: StaticListSchema = [1, n0, _Expre,
   0, () => Expression$
 ];
 var FailedBatchAssociationSummaryList: StaticListSchema = [1, n0, _FBASL,
@@ -9704,7 +9780,7 @@ export var EvaluationFormItem$: StaticUnionSchema = [4, n0, _EFIv,
 ];
 export var EvaluationFormItemEnablementConditionOperand$: StaticUnionSchema = [4, n0, _EFIECO,
   0,
-  [_Exp, _Con],
+  [_Expr, _Con],
   [() => EvaluationFormItemEnablementExpression$, () => EvaluationFormItemEnablementCondition$]
 ];
 export var EvaluationFormMultiSelectQuestionAutomationOption$: StaticUnionSchema = [4, n0, _EFMSQAO,
@@ -10103,6 +10179,9 @@ export var DeleteWorkspacePage$: StaticOperationSchema = [9, n0, _DWP,
 export var DescribeAgentStatus$: StaticOperationSchema = [9, n0, _DAS,
   { [_h]: ["GET", "/agent-status/{InstanceId}/{AgentStatusId}", 200] }, () => DescribeAgentStatusRequest$, () => DescribeAgentStatusResponse$
 ];
+export var DescribeAttachedFilesConfiguration$: StaticOperationSchema = [9, n0, _DAFC,
+  { [_h]: ["GET", "/attached-files-configurations/{InstanceId}/{AttachmentScope}", 200] }, () => DescribeAttachedFilesConfigurationRequest$, () => DescribeAttachedFilesConfigurationResponse$
+];
 export var DescribeAuthenticationProfile$: StaticOperationSchema = [9, n0, _DAP,
   { [_h]: ["GET", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200] }, () => DescribeAuthenticationProfileRequest$, () => DescribeAuthenticationProfileResponse$
 ];
@@ -10321,6 +10400,9 @@ export var ListApprovedOrigins$: StaticOperationSchema = [9, n0, _LAO,
 ];
 export var ListAssociatedContacts$: StaticOperationSchema = [9, n0, _LAC,
   { [_h]: ["GET", "/contact/associated/{InstanceId}", 200] }, () => ListAssociatedContactsRequest$, () => ListAssociatedContactsResponse$
+];
+export var ListAttachedFilesConfigurations$: StaticOperationSchema = [9, n0, _LAFC,
+  { [_h]: ["GET", "/attached-files-configurations/{InstanceId}", 200] }, () => ListAttachedFilesConfigurationsRequest$, () => ListAttachedFilesConfigurationsResponse$
 ];
 export var ListAuthenticationProfiles$: StaticOperationSchema = [9, n0, _LAP,
   { [_h]: ["GET", "/authentication-profiles-summary/{InstanceId}", 200] }, () => ListAuthenticationProfilesRequest$, () => ListAuthenticationProfilesResponse$
@@ -10696,6 +10778,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _URn,
 ];
 export var UpdateAgentStatus$: StaticOperationSchema = [9, n0, _UAS,
   { [_h]: ["POST", "/agent-status/{InstanceId}/{AgentStatusId}", 200] }, () => UpdateAgentStatusRequest$, () => __Unit
+];
+export var UpdateAttachedFilesConfiguration$: StaticOperationSchema = [9, n0, _UAFC,
+  { [_h]: ["POST", "/attached-files-configurations/{InstanceId}/{AttachmentScope}", 200] }, () => UpdateAttachedFilesConfigurationRequest$, () => UpdateAttachedFilesConfigurationResponse$
 ];
 export var UpdateAuthenticationProfile$: StaticOperationSchema = [9, n0, _UAP,
   { [_h]: ["POST", "/authentication-profiles/{InstanceId}/{AuthenticationProfileId}", 200] }, () => UpdateAuthenticationProfileRequest$, () => __Unit

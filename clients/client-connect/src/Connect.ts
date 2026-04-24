@@ -538,6 +538,11 @@ import {
   DescribeAgentStatusCommand,
 } from "./commands/DescribeAgentStatusCommand";
 import {
+  type DescribeAttachedFilesConfigurationCommandInput,
+  type DescribeAttachedFilesConfigurationCommandOutput,
+  DescribeAttachedFilesConfigurationCommand,
+} from "./commands/DescribeAttachedFilesConfigurationCommand";
+import {
   type DescribeAuthenticationProfileCommandInput,
   type DescribeAuthenticationProfileCommandOutput,
   DescribeAuthenticationProfileCommand,
@@ -902,6 +907,11 @@ import {
   type ListAssociatedContactsCommandOutput,
   ListAssociatedContactsCommand,
 } from "./commands/ListAssociatedContactsCommand";
+import {
+  type ListAttachedFilesConfigurationsCommandInput,
+  type ListAttachedFilesConfigurationsCommandOutput,
+  ListAttachedFilesConfigurationsCommand,
+} from "./commands/ListAttachedFilesConfigurationsCommand";
 import {
   type ListAuthenticationProfilesCommandInput,
   type ListAuthenticationProfilesCommandOutput,
@@ -1512,6 +1522,11 @@ import {
   UpdateAgentStatusCommand,
 } from "./commands/UpdateAgentStatusCommand";
 import {
+  type UpdateAttachedFilesConfigurationCommandInput,
+  type UpdateAttachedFilesConfigurationCommandOutput,
+  UpdateAttachedFilesConfigurationCommand,
+} from "./commands/UpdateAttachedFilesConfigurationCommand";
+import {
   type UpdateAuthenticationProfileCommandInput,
   type UpdateAuthenticationProfileCommandOutput,
   UpdateAuthenticationProfileCommand,
@@ -1829,6 +1844,7 @@ import { paginateGetMetricData } from "./pagination/GetMetricDataPaginator";
 import { paginateGetMetricDataV2 } from "./pagination/GetMetricDataV2Paginator";
 import { paginateListAgentStatuses } from "./pagination/ListAgentStatusesPaginator";
 import { paginateListApprovedOrigins } from "./pagination/ListApprovedOriginsPaginator";
+import { paginateListAttachedFilesConfigurations } from "./pagination/ListAttachedFilesConfigurationsPaginator";
 import { paginateListAuthenticationProfiles } from "./pagination/ListAuthenticationProfilesPaginator";
 import { paginateListBots } from "./pagination/ListBotsPaginator";
 import { paginateListChildHoursOfOperations } from "./pagination/ListChildHoursOfOperationsPaginator";
@@ -2020,6 +2036,7 @@ const commands = {
   DeleteWorkspaceMediaCommand,
   DeleteWorkspacePageCommand,
   DescribeAgentStatusCommand,
+  DescribeAttachedFilesConfigurationCommand,
   DescribeAuthenticationProfileCommand,
   DescribeContactCommand,
   DescribeContactEvaluationCommand,
@@ -2093,6 +2110,7 @@ const commands = {
   ListAnalyticsDataLakeDataSetsCommand,
   ListApprovedOriginsCommand,
   ListAssociatedContactsCommand,
+  ListAttachedFilesConfigurationsCommand,
   ListAuthenticationProfilesCommand,
   ListBotsCommand,
   ListChildHoursOfOperationsCommand,
@@ -2218,6 +2236,7 @@ const commands = {
   UntagContactCommand,
   UntagResourceCommand,
   UpdateAgentStatusCommand,
+  UpdateAttachedFilesConfigurationCommand,
   UpdateAuthenticationProfileCommand,
   UpdateContactCommand,
   UpdateContactAttributesCommand,
@@ -2289,6 +2308,7 @@ const paginators = {
   paginateGetMetricDataV2,
   paginateListAgentStatuses,
   paginateListApprovedOrigins,
+  paginateListAttachedFilesConfigurations,
   paginateListAuthenticationProfiles,
   paginateListBots,
   paginateListChildHoursOfOperations,
@@ -4190,6 +4210,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DescribeAttachedFilesConfigurationCommand}
+   */
+  describeAttachedFilesConfiguration(
+    args: DescribeAttachedFilesConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAttachedFilesConfigurationCommandOutput>;
+  describeAttachedFilesConfiguration(
+    args: DescribeAttachedFilesConfigurationCommandInput,
+    cb: (err: any, data?: DescribeAttachedFilesConfigurationCommandOutput) => void
+  ): void;
+  describeAttachedFilesConfiguration(
+    args: DescribeAttachedFilesConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAttachedFilesConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAuthenticationProfileCommand}
    */
   describeAuthenticationProfile(
@@ -5428,6 +5465,23 @@ export interface Connect {
     args: ListAssociatedContactsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssociatedContactsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAttachedFilesConfigurationsCommand}
+   */
+  listAttachedFilesConfigurations(
+    args: ListAttachedFilesConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttachedFilesConfigurationsCommandOutput>;
+  listAttachedFilesConfigurations(
+    args: ListAttachedFilesConfigurationsCommandInput,
+    cb: (err: any, data?: ListAttachedFilesConfigurationsCommandOutput) => void
+  ): void;
+  listAttachedFilesConfigurations(
+    args: ListAttachedFilesConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttachedFilesConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -7561,6 +7615,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateAttachedFilesConfigurationCommand}
+   */
+  updateAttachedFilesConfiguration(
+    args: UpdateAttachedFilesConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAttachedFilesConfigurationCommandOutput>;
+  updateAttachedFilesConfiguration(
+    args: UpdateAttachedFilesConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAttachedFilesConfigurationCommandOutput) => void
+  ): void;
+  updateAttachedFilesConfiguration(
+    args: UpdateAttachedFilesConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAttachedFilesConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateAuthenticationProfileCommand}
    */
   updateAuthenticationProfile(
@@ -8690,6 +8761,17 @@ export interface Connect {
     args: ListApprovedOriginsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListApprovedOriginsCommandOutput>;
+
+  /**
+   * @see {@link ListAttachedFilesConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedFilesConfigurationsCommandOutput}.
+   */
+  paginateListAttachedFilesConfigurations(
+    args: ListAttachedFilesConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedFilesConfigurationsCommandOutput>;
 
   /**
    * @see {@link ListAuthenticationProfilesCommand}

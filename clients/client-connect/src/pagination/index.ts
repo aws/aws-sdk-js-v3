@@ -7,6 +7,7 @@ export * from "./GetMetricDataPaginator";
 export * from "./GetMetricDataV2Paginator";
 export * from "./ListAgentStatusesPaginator";
 export * from "./ListApprovedOriginsPaginator";
+export * from "./ListAttachedFilesConfigurationsPaginator";
 export * from "./ListAuthenticationProfilesPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListChildHoursOfOperationsPaginator";
