@@ -37,6 +37,7 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @enum
  */
 export const AgentManagedRuntimeType = {
+  NODE_22: "NODE_22",
   PYTHON_3_10: "PYTHON_3_10",
   PYTHON_3_11: "PYTHON_3_11",
   PYTHON_3_12: "PYTHON_3_12",
@@ -74,6 +75,19 @@ export const InboundTokenClaimValueType = {
  * @public
  */
 export type InboundTokenClaimValueType = (typeof InboundTokenClaimValueType)[keyof typeof InboundTokenClaimValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointIpAddressType = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+} as const;
+/**
+ * @public
+ */
+export type EndpointIpAddressType = (typeof EndpointIpAddressType)[keyof typeof EndpointIpAddressType];
 
 /**
  * @public
@@ -405,19 +419,6 @@ export type CredentialProviderType = (typeof CredentialProviderType)[keyof typeo
  * @public
  * @enum
  */
-export const EndpointIpAddressType = {
-  IPV4: "IPV4",
-  IPV6: "IPV6",
-} as const;
-/**
- * @public
- */
-export type EndpointIpAddressType = (typeof EndpointIpAddressType)[keyof typeof EndpointIpAddressType];
-
-/**
- * @public
- * @enum
- */
 export const RestApiMethod = {
   DELETE: "DELETE",
   GET: "GET",
@@ -681,6 +682,24 @@ export const CredentialProviderVendorType = {
  */
 export type CredentialProviderVendorType =
   (typeof CredentialProviderVendorType)[keyof typeof CredentialProviderVendorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
 /**
  * @public

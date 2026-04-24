@@ -61,6 +61,49 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  *       },
  *       clientId: "STRING_VALUE", // required
  *       clientSecret: "STRING_VALUE", // required
+ *       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ *         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ *           resourceConfigurationIdentifier: "STRING_VALUE",
+ *         },
+ *         managedVpcResource: { // ManagedVpcResource
+ *           vpcIdentifier: "STRING_VALUE", // required
+ *           subnetIds: [ // SubnetIds // required
+ *             "STRING_VALUE",
+ *           ],
+ *           endpointIpAddressType: "IPV4" || "IPV6", // required
+ *           securityGroupIds: [ // SecurityGroupIds
+ *             "STRING_VALUE",
+ *           ],
+ *           tags: { // TagsMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           routingDomain: "STRING_VALUE",
+ *         },
+ *       },
+ *       privateEndpointOverrides: [ // PrivateEndpointOverrides
+ *         { // PrivateEndpointOverride
+ *           domain: "STRING_VALUE", // required
+ *           privateEndpoint: {//  Union: only one key present
+ *             selfManagedLatticeResource: {//  Union: only one key present
+ *               resourceConfigurationIdentifier: "STRING_VALUE",
+ *             },
+ *             managedVpcResource: {
+ *               vpcIdentifier: "STRING_VALUE", // required
+ *               subnetIds: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *               endpointIpAddressType: "IPV4" || "IPV6", // required
+ *               securityGroupIds: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               tags: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               routingDomain: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
  *     },
  *     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
@@ -127,6 +170,49 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  * //         },
  * //       },
  * //       clientId: "STRING_VALUE",
+ * //       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ * //         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ * //           resourceConfigurationIdentifier: "STRING_VALUE",
+ * //         },
+ * //         managedVpcResource: { // ManagedVpcResource
+ * //           vpcIdentifier: "STRING_VALUE", // required
+ * //           subnetIds: [ // SubnetIds // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //           securityGroupIds: [ // SecurityGroupIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tags: { // TagsMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           routingDomain: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       privateEndpointOverrides: [ // PrivateEndpointOverrides
+ * //         { // PrivateEndpointOverride
+ * //           domain: "STRING_VALUE", // required
+ * //           privateEndpoint: {//  Union: only one key present
+ * //             selfManagedLatticeResource: {//  Union: only one key present
+ * //               resourceConfigurationIdentifier: "STRING_VALUE",
+ * //             },
+ * //             managedVpcResource: {
+ * //               vpcIdentifier: "STRING_VALUE", // required
+ * //               subnetIds: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //               securityGroupIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               tags: {
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //               routingDomain: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
@@ -215,6 +301,7 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  * //   },
  * //   createdTime: new Date("TIMESTAMP"), // required
  * //   lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED",
  * // };
  *
  * ```

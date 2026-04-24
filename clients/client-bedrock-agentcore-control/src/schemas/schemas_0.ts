@@ -428,7 +428,6 @@ const _MCPGC = "MCPGatewayConfiguration";
 const _MD = "McpDescriptor";
 const _MEC = "ModifyExtractionConfiguration";
 const _MICI = "ModifyInvocationConfigurationInput";
-const _MLR = "ManagedLatticeResource";
 const _MLTC = "McpLambdaTargetConfiguration";
 const _MMS = "ModifyMemoryStrategies";
 const _MMSI = "ModifyMemoryStrategyInput";
@@ -448,6 +447,7 @@ const _MSTC = "McpServerTargetConfiguration";
 const _MSe = "MemorySummary";
 const _MTC = "McpTargetConfiguration";
 const _MTSC = "McpToolSchemaConfiguration";
+const _MVR = "ManagedVpcResource";
 const _NC = "NetworkConfiguration";
 const _NSD = "NumericalScaleDefinition";
 const _NSDu = "NumericalScaleDefinitions";
@@ -469,6 +469,8 @@ const _PC = "ProtocolConfiguration";
 const _PD = "PolicyDefinition";
 const _PE = "PolicyEngine";
 const _PEMR = "PrivateEndpointManagedResources";
+const _PEO = "PrivateEndpointOverride";
+const _PEOr = "PrivateEndpointOverrides";
 const _PEo = "PolicyEngines";
 const _PEr = "PrivateEndpoint";
 const _PG = "PolicyGeneration";
@@ -880,7 +882,6 @@ const _mI = "modelId";
 const _mIa = "maxIterations";
 const _mIe = "memoryId";
 const _mL = "maxLifetime";
-const _mLR = "managedLatticeResource";
 const _mMS = "modifyMemoryStrategies";
 const _mOPC = "microsoftOauth2ProviderConfig";
 const _mP = "mountPath";
@@ -890,6 +891,7 @@ const _mSI = "memoryStrategyId";
 const _mSc = "mcpServer";
 const _mT = "maxTokens";
 const _mTS = "mcpToolSchema";
+const _mVR = "managedVpcResource";
 const _mVS = "matchValueString";
 const _mVSL = "matchValueStringList";
 const _mc = "mcp";
@@ -936,6 +938,7 @@ const _pEA = "policyEngineArn";
 const _pEC = "policyEngineConfiguration";
 const _pEI = "policyEngineId";
 const _pEMR = "privateEndpointManagedResources";
+const _pEO = "privateEndpointOverrides";
 const _pEo = "policyEngines";
 const _pG = "policyGenerations";
 const _pGA = "policyGenerationArn";
@@ -1512,8 +1515,8 @@ export var CreateOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n
 ];
 export var CreateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _COCPRr,
   0,
-  [_cSA, _n, _cPA, _cUa, _oPCO],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$], 3
+  [_cSA, _n, _cPA, _cUa, _oPCO, _st],
+  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 0], 3
 ];
 export var CreateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _COECR,
   0,
@@ -1592,8 +1595,8 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _CJWTAC,
   0,
-  [_dU, _aAl, _aCl, _aS, _cC],
-  [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType], 1
+  [_dU, _aAl, _aCl, _aS, _cC, _pE, _pEO],
+  [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
@@ -1602,13 +1605,13 @@ export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
-  [_oD, _cI, _cS],
-  [() => Oauth2Discovery$, 0, [() => ClientSecretType, 0]], 3
+  [_oD, _cI, _cS, _pE, _pEO],
+  [() => Oauth2Discovery$, 0, [() => ClientSecretType, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides], 3
 ];
 export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _COPCO,
   0,
-  [_oD, _cI],
-  [() => Oauth2Discovery$, 0], 1
+  [_oD, _cI, _pE, _pEO],
+  [() => Oauth2Discovery$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
 ];
 export var DeleteAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _DARER,
   0,
@@ -2022,8 +2025,8 @@ export var GetOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _GOCPRe,
   0,
-  [_cSA, _n, _cPA, _cPV, _oPCO, _cT, _lUT, _cUa],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0], 7
+  [_cSA, _n, _cPA, _cPV, _oPCO, _cT, _lUT, _cUa, _st, _fR],
+  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0, 0], 7
 ];
 export var GetOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _GOECR,
   0,
@@ -2520,15 +2523,15 @@ export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [3, n0, _LAAJEC,
   [_ins, _rSa, _mCo],
   [[() => EvaluatorInstructions, 0], [() => RatingScale$, 0], () => EvaluatorModelConfig$], 3
 ];
-export var ManagedLatticeResource$: StaticStructureSchema = [3, n0, _MLR,
-  0,
-  [_vI, _sIu, _eIAT, _sGI, _ta, _rD],
-  [0, 64 | 0, 0, 64 | 0, 128 | 0, 0], 3
-];
 export var ManagedResourceDetails$: StaticStructureSchema = [3, n0, _MRD,
   0,
   [_do, _rGA, _rAA],
   [0, 0, 0]
+];
+export var ManagedVpcResource$: StaticStructureSchema = [3, n0, _MVR,
+  0,
+  [_vI, _sIu, _eIAT, _sGI, _ta, _rD],
+  [0, 64 | 0, 0, 64 | 0, 128 | 0, 0], 3
 ];
 export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
   0,
@@ -2679,6 +2682,11 @@ export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
   0,
   [_pGI, _pGAI],
   [0, 0], 2
+];
+export var PrivateEndpointOverride$: StaticStructureSchema = [3, n0, _PEO,
+  0,
+  [_do, _pE],
+  [0, () => PrivateEndpoint$], 2
 ];
 export var ProtocolConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -3162,8 +3170,8 @@ export var UpdateOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n
 ];
 export var UpdateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _UOCPRp,
   0,
-  [_cSA, _n, _cPV, _cPA, _oPCO, _cT, _lUT, _cUa],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0], 7
+  [_cSA, _n, _cPV, _cPA, _oPCO, _cT, _lUT, _cUa, _st],
+  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0], 7
 ];
 export var UpdateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _UOECR,
   0,
@@ -3435,6 +3443,9 @@ var PolicyGenerations: StaticListSchema = [1, n0, _PGo,
 var PolicyStatusReasons = 64 | 0;
 var PrivateEndpointManagedResources: StaticListSchema = [1, n0, _PEMR,
   0, () => ManagedResourceDetails$
+];
+var PrivateEndpointOverrides: StaticListSchema = [1, n0, _PEOr,
+  0, () => PrivateEndpointOverride$
 ];
 var RegistryRecordCredentialProviderConfigurationList: StaticListSchema = [1, n0, _RRCPCL,
   0, () => RegistryRecordCredentialProviderConfiguration$
@@ -3741,8 +3752,8 @@ export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
 ];
 export var PrivateEndpoint$: StaticUnionSchema = [4, n0, _PEr,
   0,
-  [_sMLR, _mLR],
-  [() => SelfManagedLatticeResource$, () => ManagedLatticeResource$]
+  [_sMLR, _mVR],
+  [() => SelfManagedLatticeResource$, () => ManagedVpcResource$]
 ];
 export var RatingScale$: StaticUnionSchema = [4, n0, _RSa,
   8,

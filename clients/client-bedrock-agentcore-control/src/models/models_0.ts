@@ -579,7 +579,7 @@ export interface CodeConfiguration {
   code: Code | undefined;
 
   /**
-   * <p>The runtime environment for executing the code (for example, Python 3.9 or Node.js 18).</p>
+   * <p>The runtime environment for executing the agent code. Specify the programming language and version to use for the agent runtime. For valid values, see the list of supported runtimes.</p>
    * @public
    */
   runtime: AgentManagedRuntimeType | undefined;
@@ -752,6 +752,158 @@ export interface CustomClaimValidationType {
 }
 
 /**
+ * <p>Configuration for a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role.</p>
+ * @public
+ */
+export interface ManagedVpcResource {
+  /**
+   * <p>The ID of the VPC that contains your private resource.</p>
+   * @public
+   */
+  vpcIdentifier: string | undefined;
+
+  /**
+   * <p>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The IP address type for the resource configuration endpoint.</p>
+   * @public
+   */
+  endpointIpAddressType: EndpointIpAddressType | undefined;
+
+  /**
+   * <p>The security group IDs to associate with the VPC Lattice resource gateway. If not specified, the default security group for the VPC is used.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Tags to apply to the managed VPC Lattice resource gateway.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</p>
+   * @public
+   */
+  routingDomain?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.</p>
+ * @public
+ */
+export type SelfManagedLatticeResource =
+  | SelfManagedLatticeResource.ResourceConfigurationIdentifierMember
+  | SelfManagedLatticeResource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SelfManagedLatticeResource {
+  /**
+   * <p>The ARN or ID of the VPC Lattice resource configuration.</p>
+   * @public
+   */
+  export interface ResourceConfigurationIdentifierMember {
+    resourceConfigurationIdentifier: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    resourceConfigurationIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    resourceConfigurationIdentifier: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+ * @public
+ */
+export type PrivateEndpoint =
+  | PrivateEndpoint.ManagedVpcResourceMember
+  | PrivateEndpoint.SelfManagedLatticeResourceMember
+  | PrivateEndpoint.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrivateEndpoint {
+  /**
+   * <p>Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.</p>
+   * @public
+   */
+  export interface SelfManagedLatticeResourceMember {
+    selfManagedLatticeResource: SelfManagedLatticeResource;
+    managedVpcResource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for connecting to a private resource using a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resources on your behalf.</p>
+   * @public
+   */
+  export interface ManagedVpcResourceMember {
+    selfManagedLatticeResource?: never;
+    managedVpcResource: ManagedVpcResource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    selfManagedLatticeResource?: never;
+    managedVpcResource?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    selfManagedLatticeResource: (value: SelfManagedLatticeResource) => T;
+    managedVpcResource: (value: ManagedVpcResource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration.</p>
+ * @public
+ */
+export interface PrivateEndpointOverride {
+  /**
+   * <p>The domain to override with a private endpoint.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The private endpoint configuration for the specified domain.</p>
+   * @public
+   */
+  privateEndpoint: PrivateEndpoint | undefined;
+}
+
+/**
  * <p>Configuration for inbound JWT-based authorization, specifying how incoming requests should be authenticated.</p>
  * @public
  */
@@ -785,6 +937,18 @@ export interface CustomJWTAuthorizerConfiguration {
    * @public
    */
   customClaims?: CustomClaimValidationType[] | undefined;
+
+  /**
+   * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>A list of private endpoint overrides for the JWT authorizer. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>
+   * @public
+   */
+  privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 }
 
 /**
@@ -4633,140 +4797,6 @@ export interface MetadataConfiguration {
    * @public
    */
   allowedResponseHeaders?: string[] | undefined;
-}
-
-/**
- * <p>Configuration for a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role.</p>
- * @public
- */
-export interface ManagedLatticeResource {
-  /**
-   * <p>The ID of the VPC that contains your private resource.</p>
-   * @public
-   */
-  vpcIdentifier: string | undefined;
-
-  /**
-   * <p>The subnet IDs within the VPC where the VPC Lattice resource gateway is placed.</p>
-   * @public
-   */
-  subnetIds: string[] | undefined;
-
-  /**
-   * <p>The IP address type for the resource configuration endpoint.</p>
-   * @public
-   */
-  endpointIpAddressType: EndpointIpAddressType | undefined;
-
-  /**
-   * <p>The security group IDs to associate with the VPC Lattice resource gateway. If not specified, the default security group for the VPC is used.</p>
-   * @public
-   */
-  securityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>Tags to apply to the managed VPC Lattice resource gateway.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</p>
-   * @public
-   */
-  routingDomain?: string | undefined;
-}
-
-/**
- * <p>Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.</p>
- * @public
- */
-export type SelfManagedLatticeResource =
-  | SelfManagedLatticeResource.ResourceConfigurationIdentifierMember
-  | SelfManagedLatticeResource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace SelfManagedLatticeResource {
-  /**
-   * <p>The ARN or ID of the VPC Lattice resource configuration.</p>
-   * @public
-   */
-  export interface ResourceConfigurationIdentifierMember {
-    resourceConfigurationIdentifier: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    resourceConfigurationIdentifier?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    resourceConfigurationIdentifier: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
- * @public
- */
-export type PrivateEndpoint =
-  | PrivateEndpoint.ManagedLatticeResourceMember
-  | PrivateEndpoint.SelfManagedLatticeResourceMember
-  | PrivateEndpoint.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PrivateEndpoint {
-  /**
-   * <p>Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.</p>
-   * @public
-   */
-  export interface SelfManagedLatticeResourceMember {
-    selfManagedLatticeResource: SelfManagedLatticeResource;
-    managedLatticeResource?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for connecting to a private resource using a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resources on your behalf.</p>
-   * @public
-   */
-  export interface ManagedLatticeResourceMember {
-    selfManagedLatticeResource?: never;
-    managedLatticeResource: ManagedLatticeResource;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    selfManagedLatticeResource?: never;
-    managedLatticeResource?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    selfManagedLatticeResource: (value: SelfManagedLatticeResource) => T;
-    managedLatticeResource: (value: ManagedLatticeResource) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**
@@ -9391,6 +9421,18 @@ export interface CustomOauth2ProviderConfigInput {
    * @public
    */
   clientSecret: string | undefined;
+
+  /**
+   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The list of private endpoint overrides for the custom OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>
+   * @public
+   */
+  privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 }
 
 /**
@@ -9481,28 +9523,4 @@ export interface LinkedinOauth2ProviderConfigInput {
    * @public
    */
   clientSecret: string | undefined;
-}
-
-/**
- * <p>Input configuration for a Microsoft OAuth2 provider.</p>
- * @public
- */
-export interface MicrosoftOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the Microsoft OAuth2 provider.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the Microsoft OAuth2 provider.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-
-  /**
-   * <p>The Microsoft Entra ID (formerly Azure AD) tenant ID for your organization. This identifies the specific tenant within Microsoft's identity platform where your application is registered.</p>
-   * @public
-   */
-  tenantId?: string | undefined;
 }

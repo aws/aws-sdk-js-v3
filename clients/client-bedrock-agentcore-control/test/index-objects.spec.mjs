@@ -501,8 +501,8 @@ import {
   ListWorkloadIdentitiesRequest$,
   ListWorkloadIdentitiesResponse$,
   LlmAsAJudgeEvaluatorConfig$,
-  ManagedLatticeResource$,
   ManagedResourceDetails$,
+  ManagedVpcResource$,
   McpDescriptor$,
   MCPGatewayConfiguration$,
   McpLambdaTargetConfiguration$,
@@ -578,6 +578,7 @@ import {
   PolicyStatus,
   PolicyValidationMode,
   PrivateEndpoint$,
+  PrivateEndpointOverride$,
   ProtocolConfiguration$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
@@ -647,6 +648,7 @@ import {
   StartPolicyGenerationCommand,
   StartPolicyGenerationRequest$,
   StartPolicyGenerationResponse$,
+  Status,
   StrategyConfiguration$,
   StreamDeliveryResource$,
   StreamDeliveryResources$,
@@ -1304,8 +1306,8 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListWorkloadIdentitiesRequest$ === "object");
 assert(typeof ListWorkloadIdentitiesResponse$ === "object");
 assert(typeof LlmAsAJudgeEvaluatorConfig$ === "object");
-assert(typeof ManagedLatticeResource$ === "object");
 assert(typeof ManagedResourceDetails$ === "object");
+assert(typeof ManagedVpcResource$ === "object");
 assert(typeof McpDescriptor$ === "object");
 assert(typeof MCPGatewayConfiguration$ === "object");
 assert(typeof McpLambdaTargetConfiguration$ === "object");
@@ -1347,6 +1349,7 @@ assert(typeof PolicyGeneration$ === "object");
 assert(typeof PolicyGenerationAsset$ === "object");
 assert(typeof PolicyGenerationDetails$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
+assert(typeof PrivateEndpointOverride$ === "object");
 assert(typeof ProtocolConfiguration$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
@@ -1538,6 +1541,7 @@ assert(typeof RestApiMethod === "object");
 assert(typeof SchemaType === "object");
 assert(typeof SearchType === "object");
 assert(typeof ServerProtocol === "object");
+assert(typeof Status === "object");
 assert(typeof SynchronizationType === "object");
 assert(typeof TargetStatus === "object");
 assert(typeof ValidationExceptionReason === "object");

@@ -118,6 +118,12 @@
           "traits": {
             "smithy.api#enumValue": "PYTHON_3_14"
           }
+        },
+        "NODE_22": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NODE_22"
+          }
         }
       }
     },
@@ -2410,7 +2416,7 @@
         "runtime": {
           "target": "com.amazonaws.bedrockagentcorecontrol#AgentManagedRuntimeType",
           "traits": {
-            "smithy.api#documentation": "<p>The runtime environment for executing the code (for example, Python 3.9 or Node.js 18).</p>",
+            "smithy.api#documentation": "<p>The runtime environment for executing the agent code. Specify the programming language and version to use for the agent runtime. For valid values, see the list of supported runtimes.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4558,6 +4564,12 @@
           "traits": {
             "smithy.api#notProperty": {}
           }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the OAuth2 credential provider.</p>"
+          }
         }
       },
       "traits": {
@@ -5891,6 +5903,15 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of objects that define a custom claim validation name, value, and operation </p>"
           }
+        },
+        "privateEndpoint": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpoint"
+        },
+        "privateEndpointOverrides": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of private endpoint overrides for the JWT authorizer. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>"
+          }
         }
       },
       "traits": {
@@ -5963,6 +5984,18 @@
             "smithy.api#documentation": "<p>The client secret for the custom OAuth2 provider.</p>",
             "smithy.api#required": {}
           }
+        },
+        "privateEndpoint": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>"
+          }
+        },
+        "privateEndpointOverrides": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of private endpoint overrides for the custom OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>"
+          }
         }
       },
       "traits": {
@@ -5983,6 +6016,18 @@
           "target": "com.amazonaws.bedrockagentcorecontrol#ClientIdType",
           "traits": {
             "smithy.api#documentation": "<p>The client ID for the custom OAuth2 provider.</p>"
+          }
+        },
+        "privateEndpoint": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>"
+          }
+        },
+        "privateEndpointOverrides": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverrides",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of private endpoint overrides for the custom OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>"
           }
         }
       },
@@ -7046,6 +7091,9 @@
       "errors": [
         {
           "target": "com.amazonaws.bedrockagentcorecontrol#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ConflictException"
         },
         {
           "target": "com.amazonaws.bedrockagentcorecontrol#InternalServerException"
@@ -10828,6 +10876,19 @@
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the OAuth2 credential provider was last updated.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the OAuth2 credential provider.</p>"
+          }
+        },
+        "failureReason": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the failure if the OAuth2 credential provider is in a failed state.</p>",
+            "smithy.api#notProperty": {}
           }
         }
       },
@@ -15873,7 +15934,33 @@
         "smithy.api#documentation": "<p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>"
       }
     },
-    "com.amazonaws.bedrockagentcorecontrol#ManagedLatticeResource": {
+    "com.amazonaws.bedrockagentcorecontrol#ManagedResourceDetails": {
+      "type": "structure",
+      "members": {
+        "domain": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain associated with this managed resource.</p>"
+          }
+        },
+        "resourceGatewayArn": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ResourceGatewayArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the VPC Lattice resource gateway created in your account.</p>"
+          }
+        },
+        "resourceAssociationArn": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ResourceAssociationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the service network resource association.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details of a resource created and managed by the gateway for private endpoint connectivity.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#ManagedVpcResource": {
       "type": "structure",
       "members": {
         "vpcIdentifier": {
@@ -15918,32 +16005,6 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Configuration for a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role.</p>"
-      }
-    },
-    "com.amazonaws.bedrockagentcorecontrol#ManagedResourceDetails": {
-      "type": "structure",
-      "members": {
-        "domain": {
-          "target": "com.amazonaws.bedrockagentcorecontrol#DomainName",
-          "traits": {
-            "smithy.api#documentation": "<p>The domain associated with this managed resource.</p>"
-          }
-        },
-        "resourceGatewayArn": {
-          "target": "com.amazonaws.bedrockagentcorecontrol#ResourceGatewayArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the VPC Lattice resource gateway created in your account.</p>"
-          }
-        },
-        "resourceAssociationArn": {
-          "target": "com.amazonaws.bedrockagentcorecontrol#ResourceAssociationArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The ARN of the service network resource association.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Details of a resource created and managed by the gateway for private endpoint connectivity.</p>"
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#MatchValueString": {
@@ -17278,6 +17339,9 @@
         },
         "lastUpdatedTime": {
           "target": "smithy.api#Timestamp"
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Status"
         }
       },
       "put": {
@@ -18362,8 +18426,8 @@
             "smithy.api#documentation": "<p>Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.</p>"
           }
         },
-        "managedLatticeResource": {
-          "target": "com.amazonaws.bedrockagentcorecontrol#ManagedLatticeResource",
+        "managedVpcResource": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ManagedVpcResource",
           "traits": {
             "smithy.api#documentation": "<p>Configuration for connecting to a private resource using a managed VPC Lattice resource. The gateway creates and manages the VPC Lattice resources on your behalf.</p>"
           }
@@ -18380,6 +18444,48 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of managed resources created by the gateway for private endpoint connectivity.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverride": {
+      "type": "structure",
+      "members": {
+        "domain": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverrideDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>The domain to override with a private endpoint.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "privateEndpoint": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>The private endpoint configuration for the specified domain.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverrideDomain": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 253
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverrides": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverride"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 5
+        }
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#Prompt": {
@@ -20431,6 +20537,53 @@
         "smithy.api#length": {
           "min": 35,
           "max": 10000
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#Status": {
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        },
+        "UPDATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_FAILED"
+          }
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "DELETE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_FAILED"
+          }
         }
       }
     },
@@ -23024,6 +23177,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The timestamp when the OAuth2 credential provider was last updated.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Status",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the OAuth2 credential provider.</p>"
           }
         }
       },

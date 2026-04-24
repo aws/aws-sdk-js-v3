@@ -195,7 +195,7 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
  * //           resourceConfigurationIdentifier: "STRING_VALUE",
  * //         },
- * //         managedLatticeResource: { // ManagedLatticeResource
+ * //         managedVpcResource: { // ManagedVpcResource
  * //           vpcIdentifier: "STRING_VALUE", // required
  * //           subnetIds: [ // SubnetIds // required
  * //             "STRING_VALUE",

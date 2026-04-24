@@ -87,7 +87,7 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //           versionId: "STRING_VALUE",
  * //         },
  * //       },
- * //       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13" || "PYTHON_3_14", // required
+ * //       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13" || "PYTHON_3_14" || "NODE_22", // required
  * //       entryPoint: [ // EntryPoints // required
  * //         "STRING_VALUE",
  * //       ],
@@ -123,6 +123,49 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //               ],
  * //             },
  * //             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ * //         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ * //           resourceConfigurationIdentifier: "STRING_VALUE",
+ * //         },
+ * //         managedVpcResource: { // ManagedVpcResource
+ * //           vpcIdentifier: "STRING_VALUE", // required
+ * //           subnetIds: [ // SubnetIds // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //           securityGroupIds: [ // SecurityGroupIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tags: { // TagsMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           routingDomain: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       privateEndpointOverrides: [ // PrivateEndpointOverrides
+ * //         { // PrivateEndpointOverride
+ * //           domain: "STRING_VALUE", // required
+ * //           privateEndpoint: {//  Union: only one key present
+ * //             selfManagedLatticeResource: {//  Union: only one key present
+ * //               resourceConfigurationIdentifier: "STRING_VALUE",
+ * //             },
+ * //             managedVpcResource: {
+ * //               vpcIdentifier: "STRING_VALUE", // required
+ * //               subnetIds: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //               securityGroupIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               tags: {
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //               routingDomain: "STRING_VALUE",
+ * //             },
  * //           },
  * //         },
  * //       ],

@@ -16,6 +16,7 @@ import type {
   RegistryRecordStatus,
   RegistryStatus,
   SchemaType,
+  Status,
   SynchronizationType,
   TargetStatus,
 } from "./enums";
@@ -37,15 +38,39 @@ import type {
   ManagedResourceDetails,
   McpServerTargetConfiguration,
   MetadataConfiguration,
-  MicrosoftOauth2ProviderConfigInput,
   Oauth2Discovery,
   PrivateEndpoint,
+  PrivateEndpointOverride,
   S3Configuration,
   Secret,
   SkillDefinition,
   SkillMdDefinition,
   UpdatedAuthorizerConfiguration,
 } from "./models_0";
+
+/**
+ * <p>Input configuration for a Microsoft OAuth2 provider.</p>
+ * @public
+ */
+export interface MicrosoftOauth2ProviderConfigInput {
+  /**
+   * <p>The client ID for the Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The client secret for the Microsoft OAuth2 provider.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p>The Microsoft Entra ID (formerly Azure AD) tenant ID for your organization. This identifies the specific tenant within Microsoft's identity platform where your application is registered.</p>
+   * @public
+   */
+  tenantId?: string | undefined;
+}
 
 /**
  * <p>Input configuration for a Salesforce OAuth2 provider.</p>
@@ -353,6 +378,18 @@ export interface CustomOauth2ProviderConfigOutput {
    * @public
    */
   clientId?: string | undefined;
+
+  /**
+   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The list of private endpoint overrides for the custom OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>
+   * @public
+   */
+  privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 }
 
 /**
@@ -721,6 +758,12 @@ export interface CreateOauth2CredentialProviderResponse {
    * @public
    */
   oauth2ProviderConfigOutput?: Oauth2ProviderConfigOutput | undefined;
+
+  /**
+   * <p>The current status of the OAuth2 credential provider.</p>
+   * @public
+   */
+  status?: Status | undefined;
 }
 
 /**
@@ -801,6 +844,18 @@ export interface GetOauth2CredentialProviderResponse {
    * @public
    */
   lastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the OAuth2 credential provider.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The reason for the failure if the OAuth2 credential provider is in a failed state.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
 }
 
 /**
@@ -947,6 +1002,12 @@ export interface UpdateOauth2CredentialProviderResponse {
    * @public
    */
   lastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the OAuth2 credential provider.</p>
+   * @public
+   */
+  status?: Status | undefined;
 }
 
 /**

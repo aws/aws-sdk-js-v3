@@ -83,6 +83,49 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *           },
  *         },
  *       ],
+ *       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ *         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ *           resourceConfigurationIdentifier: "STRING_VALUE",
+ *         },
+ *         managedVpcResource: { // ManagedVpcResource
+ *           vpcIdentifier: "STRING_VALUE", // required
+ *           subnetIds: [ // SubnetIds // required
+ *             "STRING_VALUE",
+ *           ],
+ *           endpointIpAddressType: "IPV4" || "IPV6", // required
+ *           securityGroupIds: [ // SecurityGroupIds
+ *             "STRING_VALUE",
+ *           ],
+ *           tags: { // TagsMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           routingDomain: "STRING_VALUE",
+ *         },
+ *       },
+ *       privateEndpointOverrides: [ // PrivateEndpointOverrides
+ *         { // PrivateEndpointOverride
+ *           domain: "STRING_VALUE", // required
+ *           privateEndpoint: {//  Union: only one key present
+ *             selfManagedLatticeResource: {//  Union: only one key present
+ *               resourceConfigurationIdentifier: "STRING_VALUE",
+ *             },
+ *             managedVpcResource: {
+ *               vpcIdentifier: "STRING_VALUE", // required
+ *               subnetIds: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *               endpointIpAddressType: "IPV4" || "IPV6", // required
+ *               securityGroupIds: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               tags: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               routingDomain: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
  *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
@@ -106,9 +149,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *     mode: "LOG_ONLY" || "ENFORCE", // required
  *   },
  *   exceptionLevel: "DEBUG",
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ *   tags: "<TagsMap>",
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
@@ -160,6 +201,49 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //               ],
  * //             },
  * //             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ * //         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ * //           resourceConfigurationIdentifier: "STRING_VALUE",
+ * //         },
+ * //         managedVpcResource: { // ManagedVpcResource
+ * //           vpcIdentifier: "STRING_VALUE", // required
+ * //           subnetIds: [ // SubnetIds // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //           securityGroupIds: [ // SecurityGroupIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           tags: { // TagsMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           routingDomain: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       privateEndpointOverrides: [ // PrivateEndpointOverrides
+ * //         { // PrivateEndpointOverride
+ * //           domain: "STRING_VALUE", // required
+ * //           privateEndpoint: {//  Union: only one key present
+ * //             selfManagedLatticeResource: {//  Union: only one key present
+ * //               resourceConfigurationIdentifier: "STRING_VALUE",
+ * //             },
+ * //             managedVpcResource: {
+ * //               vpcIdentifier: "STRING_VALUE", // required
+ * //               subnetIds: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //               securityGroupIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               tags: {
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //               routingDomain: "STRING_VALUE",
+ * //             },
  * //           },
  * //         },
  * //       ],
