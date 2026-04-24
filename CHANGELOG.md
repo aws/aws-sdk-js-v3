@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
+
+
+### Bug Fixes
+
+* **client-kinesis:** tolerance for flaky H2 session ordering assertion in E2E test ([#7959](https://github.com/aws/aws-sdk-js-v3/issues/7959)) ([5873496](https://github.com/aws/aws-sdk-js-v3/commit/587349604bf02f47f6b9f1ea871e899f550174bd))
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Added support for configuring identity providers and inbound authorizers within a private VPC for AWS Bedrock AgentCore, enabling secure network connection without public internet access ([a0bf24c](https://github.com/aws/aws-sdk-js-v3/commit/a0bf24cdd0e25ba11271d2b29be9ef723a1736d9))
+* **client-cloudwatch-logs:** Adding nextToken and maxItems to the GetQueryResults API. ([1a5ef61](https://github.com/aws/aws-sdk-js-v3/commit/1a5ef61934e2eff7072103ed452952b5b559ed1e))
+* **client-connect:** Amazon Connect is expanding attachment capabilities to give customers greater flexibility and control. Currently limited to predefined file types, the new feature will allow contact center administrators to customize which file extensions and sizes are supported across chat, email, tasks, and cases. ([7e987e8](https://github.com/aws/aws-sdk-js-v3/commit/7e987e88800c133572a09fd9910cd0d74e02ea22))
+* **client-connecthealth:** Corrected CreateWebAppConfiguration documentation. Adding slash as an allowed character for the Ambient documentation agent to allow pronoun specifications. ([c21882c](https://github.com/aws/aws-sdk-js-v3/commit/c21882c4645ad0ef53423e426fe79df03f3ded77))
+* **client-evs:** EVS now supports i7i.metal-24xl EC2 bare metal instance type, delivering high random IOPS performance with real-time latency, ideal for IO intensive and latency-sensitive workloads such as transactional databases, real-time analytics, and AI ML pre-processing. ([fd92ee4](https://github.com/aws/aws-sdk-js-v3/commit/fd92ee48de0325846d7ff69ce1c2568c45f0ac6b))
+* **client-transfer:** AWS Transfer Family now support configurable IP address types for Web Apps of type VPC, enabling customers to select IPv4-only or dual-stack (IPv4 and IPv6) configurations based on their network requirements. ([f2a72a8](https://github.com/aws/aws-sdk-js-v3/commit/f2a72a8511682e4a10a931c58b34c7aaf5820b81))
+* **clients:** update client endpoints as of 2026-04-24 ([ca3df2b](https://github.com/aws/aws-sdk-js-v3/commit/ca3df2be81f16be0919b8fe8f384d2495def6754))
+
+
+
+
+
 # [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
 
 

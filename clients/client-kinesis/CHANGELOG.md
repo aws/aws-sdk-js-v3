@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
+
+
+### Bug Fixes
+
+* **client-kinesis:** tolerance for flaky H2 session ordering assertion in E2E test ([#7959](https://github.com/aws/aws-sdk-js-v3/issues/7959)) ([5873496](https://github.com/aws/aws-sdk-js-v3/commit/587349604bf02f47f6b9f1ea871e899f550174bd))
+
+
+
+
+
 # [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis

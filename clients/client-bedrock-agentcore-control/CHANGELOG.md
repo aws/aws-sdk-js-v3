@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Added support for configuring identity providers and inbound authorizers within a private VPC for AWS Bedrock AgentCore, enabling secure network connection without public internet access ([a0bf24c](https://github.com/aws/aws-sdk-js-v3/commit/a0bf24cdd0e25ba11271d2b29be9ef723a1736d9))
+
+
+
+
+
 # [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

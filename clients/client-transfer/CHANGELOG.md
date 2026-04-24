@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
+
+
+### Features
+
+* **client-transfer:** AWS Transfer Family now support configurable IP address types for Web Apps of type VPC, enabling customers to select IPv4-only or dual-stack (IPv4 and IPv6) configurations based on their network requirements. ([f2a72a8](https://github.com/aws/aws-sdk-js-v3/commit/f2a72a8511682e4a10a931c58b34c7aaf5820b81))
+
+
+
+
+
 # [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

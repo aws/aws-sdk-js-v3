@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
+
+
+### Features
+
+* **client-connect:** Amazon Connect is expanding attachment capabilities to give customers greater flexibility and control. Currently limited to predefined file types, the new feature will allow contact center administrators to customize which file extensions and sizes are supported across chat, email, tasks, and cases. ([7e987e8](https://github.com/aws/aws-sdk-js-v3/commit/7e987e88800c133572a09fd9910cd0d74e02ea22))
+
+
+
+
+
 # [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
