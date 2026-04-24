@@ -5396,6 +5396,18 @@ export interface GetQueryResultsRequest {
    * @public
    */
   queryId: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 1 hour.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of log events to return in the response. The maximum is 10,000 log events.</p>
+   * @public
+   */
+  maxItems?: number | undefined;
 }
 
 /**
@@ -5520,6 +5532,14 @@ export interface GetQueryResultsResponse {
    * @public
    */
   encryptionKey?: string | undefined;
+
+  /**
+   * <p>If there are more log events remaining in the results, the response includes a
+   *       <code>nextToken</code>. You can use this token in a subsequent <code>GetQueryResults</code>
+   *       request to get the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

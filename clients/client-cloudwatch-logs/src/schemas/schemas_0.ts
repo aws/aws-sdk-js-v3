@@ -730,6 +730,7 @@ const _lo = "location";
 const _m = "message";
 const _mF = "metricFilters";
 const _mFC = "metricFilterCount";
+const _mI = "maxItems";
 const _mK = "moveKeys";
 const _mN = "metricName";
 const _mNe = "metricNamespace";
@@ -1780,13 +1781,13 @@ export var GetLookupTableResponse$: StaticStructureSchema = [3, n0, _GLTRe,
 ];
 export var GetQueryResultsRequest$: StaticStructureSchema = [3, n0, _GQRR,
   0,
-  [_qI],
-  [0], 1
+  [_qI, _nT, _mI],
+  [0, 0, 1], 1
 ];
 export var GetQueryResultsResponse$: StaticStructureSchema = [3, n0, _GQRRe,
   0,
-  [_qL, _r, _stat, _sta, _eK],
-  [0, () => QueryResults, () => QueryStatistics$, 0, 0]
+  [_qL, _r, _stat, _sta, _eK, _nT],
+  [0, () => QueryResults, () => QueryStatistics$, 0, 0, 0]
 ];
 export var GetScheduledQueryHistoryRequest$: StaticStructureSchema = [3, n0, _GSQHR,
   0,

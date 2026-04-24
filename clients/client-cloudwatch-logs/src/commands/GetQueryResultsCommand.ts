@@ -61,6 +61,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * const client = new CloudWatchLogsClient(config);
  * const input = { // GetQueryResultsRequest
  *   queryId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxItems: Number("int"),
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
@@ -84,6 +86,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * //   },
  * //   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
  * //   encryptionKey: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

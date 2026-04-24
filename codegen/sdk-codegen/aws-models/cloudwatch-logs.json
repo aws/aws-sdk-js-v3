@@ -6917,6 +6917,24 @@
         "smithy.api#documentation": "<p>Returns the results from the specified query.</p>\n         <p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field,\n      which is the identifier for the log record. You can use the value of <code>@ptr</code> in a\n        <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html\">GetLogRecord</a>\n      operation to get the full log record.</p>\n         <p>\n            <code>GetQueryResults</code> does not start running a query. To run a query, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html\">StartQuery</a>. For more information about how long results of previous queries are\n      available, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html\">CloudWatch Logs\n        quotas</a>.</p>\n         <p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this\n      operation returns only partial results. If you see a value of <code>Scheduled</code> or\n        <code>Running</code> for the status, you can retry the operation later to see the final\n      results. </p>\n         <p>This operation is used both for retrieving results from interactive queries and from\n      automated scheduled query executions. Scheduled queries use <code>GetQueryResults</code>\n      internally to retrieve query results for processing and delivery to configured\n      destinations.</p>\n         <p>If you are using CloudWatch cross-account observability, you can use this operation\n      in a monitoring account to start queries in linked source accounts. For more information, see\n        <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html\">CloudWatch cross-account observability</a>.</p>"
       }
     },
+    "com.amazonaws.cloudwatchlogs#GetQueryResultsMaxItems": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 10000
+        }
+      }
+    },
+    "com.amazonaws.cloudwatchlogs#GetQueryResultsNextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        }
+      }
+    },
     "com.amazonaws.cloudwatchlogs#GetQueryResultsRequest": {
       "type": "structure",
       "members": {
@@ -6925,6 +6943,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID number of the query.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.cloudwatchlogs#GetQueryResultsNextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of items to return. The token expires after 1 hour.</p>"
+          }
+        },
+        "maxItems": {
+          "target": "com.amazonaws.cloudwatchlogs#GetQueryResultsMaxItems",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of log events to return in the response. The maximum is 10,000 log events.</p>"
           }
         }
       },
@@ -6963,6 +6993,12 @@
           "target": "com.amazonaws.cloudwatchlogs#EncryptionKey",
           "traits": {
             "smithy.api#documentation": "<p>If you associated an KMS key with the CloudWatch Logs Insights\n      query results in this account, this field displays the ARN of the key that's used to encrypt\n      the query results when <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html\">StartQuery</a> stores\n      them.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.cloudwatchlogs#GetQueryResultsNextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are more log events remaining in the results, the response includes a\n      <code>nextToken</code>. You can use this token in a subsequent <code>GetQueryResults</code>\n      request to get the next set of results.</p>"
           }
         }
       },

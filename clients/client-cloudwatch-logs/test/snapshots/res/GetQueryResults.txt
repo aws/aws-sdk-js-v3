@@ -82,7 +82,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "logGroupsScanned": 0
   },
   "status": "__status__",
-  "encryptionKey": "__encryptionKey__"
+  "encryptionKey": "__encryptionKey__",
+  "nextToken": "__nextToken__"
 }
 
 
@@ -143,6 +144,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   },
   status: "__status__",
   encryptionKey: "__encryptionKey__",
+  nextToken: "__nextToken__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
