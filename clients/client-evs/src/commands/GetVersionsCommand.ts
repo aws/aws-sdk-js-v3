@@ -46,13 +46,13 @@ export interface GetVersionsCommandOutput extends GetVersionsResponse, __Metadat
  * //       status: "STRING_VALUE", // required
  * //       defaultEsxVersion: "STRING_VALUE", // required
  * //       instanceTypes: [ // InstanceTypeList // required
- * //         "i4i.metal",
+ * //         "i4i.metal" || "i7i.metal-24xl",
  * //       ],
  * //     },
  * //   ],
  * //   instanceTypeEsxVersions: [ // InstanceTypeEsxVersionsList // required
  * //     { // InstanceTypeEsxVersionsInfo
- * //       instanceType: "i4i.metal", // required
+ * //       instanceType: "i4i.metal" || "i7i.metal-24xl", // required
  * //       esxVersions: [ // EsxVersionList // required
  * //         "STRING_VALUE",
  * //       ],

@@ -86,7 +86,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *     { // HostInfoForCreate
  *       hostName: "STRING_VALUE", // required
  *       keyName: "STRING_VALUE", // required
- *       instanceType: "i4i.metal", // required
+ *       instanceType: "i4i.metal" || "i7i.metal-24xl", // required
  *       placementGroupId: "STRING_VALUE",
  *       dedicatedHostId: "STRING_VALUE",
  *     },

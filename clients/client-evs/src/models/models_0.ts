@@ -333,7 +333,7 @@ export interface HostInfoForCreate {
   keyName: string | undefined;
 
   /**
-   * <p>The EC2 instance type that represents the host.</p> <note> <p>Currently, Amazon EVS supports only the <code>i4i.metal</code> instance type.</p> </note>
+   * <p>The EC2 instance type that represents the host.</p>
    * @public
    */
   instanceType: _InstanceType | undefined;
@@ -447,13 +447,13 @@ export interface InitialVlans {
  */
 export interface LicenseInfo {
   /**
-   * <p> The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.</p>
+   * <p> The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must meet the instance-type-specific minimum core requirements.</p>
    * @public
    */
   solutionKey: string | undefined;
 
   /**
-   * <p> The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.</p>
+   * <p> The VSAN license key. This license unlocks vSAN features. The vSAN license key must meet the instance-type-specific minimum capacity requirements.</p>
    * @public
    */
   vsanKey: string | undefined;
@@ -590,7 +590,7 @@ export interface CreateEnvironmentRequest {
   termsAccepted: boolean | undefined;
 
   /**
-   * <p>The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key. The VCF solution key must cover a minimum of 256 cores. The vSAN license key must provide at least 110 TiB of vSAN capacity.</p> <p>VCF licenses can be used for only one Amazon EVS environment. Amazon EVS does not support reuse of VCF licenses for multiple environments.</p> <p>VCF license information can be retrieved from the Broadcom portal.</p>
+   * <p>The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key. The VCF solution key must meet minimum core requirements, and the vSAN license key must meet minimum capacity requirements for your selected instance type.</p> <p>For information about minimum license requirements, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/vcf-license-mgmt.html">the VCF subscriptions section</a> in the <i>Amazon EVS User Guide</i>.</p> <p>VCF licenses can be used for only one Amazon EVS environment. Amazon EVS does not support reuse of VCF licenses for multiple environments.</p> <p>VCF license information can be retrieved from the Broadcom portal.</p>
    * @public
    */
   licenseInfo: LicenseInfo[] | undefined;
@@ -734,7 +734,7 @@ export interface Environment {
   termsAccepted?: boolean | undefined;
 
   /**
-   * <p> The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key. The VCF solution key must cover a minimum of 256 cores. The vSAN license key must provide at least 110 TiB of vSAN capacity.</p>
+   * <p> The license information that Amazon EVS requires to create an environment. Amazon EVS requires two license keys: a VCF solution key and a vSAN license key. The VCF solution key must meet minimum core requirements, and the vSAN license key must meet minimum capacity requirements for your selected instance type.</p> <p>For information about minimum license requirements, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/vcf-license-mgmt.html">the VCF subscriptions section</a> in the <i>Amazon EVS User Guide</i>.</p>
    * @public
    */
   licenseInfo?: LicenseInfo[] | undefined;
@@ -1066,7 +1066,7 @@ export interface Host {
   keyName?: string | undefined;
 
   /**
-   * <p>The EC2 instance type of the host.</p> <note> <p>Currently, Amazon EVS supports only the <code>i4i.metal</code> instance type.</p> </note> <note> <p>EC2 instances created through Amazon EVS do not support associating an IAM instance profile.</p> </note>
+   * <p>The EC2 instance type of the host.</p> <note> <p>EC2 instances created through Amazon EVS do not support associating an IAM instance profile.</p> </note>
    * @public
    */
   instanceType?: _InstanceType | undefined;
