@@ -419,6 +419,7 @@ import {
   WebAppIdentityProviderDetails$,
   WebAppUnits$,
   WebAppVpcConfig$,
+  WebAppVpcEndpointIpAddressType,
   WorkflowDetail$,
   WorkflowDetails$,
   WorkflowStep$,
@@ -816,6 +817,7 @@ assert(typeof TlsSessionResumptionMode === "object");
 assert(typeof TransferTableStatus === "object");
 assert(typeof WebAppEndpointPolicy === "object");
 assert(typeof WebAppEndpointType === "object");
+assert(typeof WebAppVpcEndpointIpAddressType === "object");
 assert(typeof WorkflowStepType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof TransferServiceException);

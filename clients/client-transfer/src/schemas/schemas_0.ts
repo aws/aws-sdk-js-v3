@@ -1569,8 +1569,8 @@ export var UpdateWebAppResponse$: StaticStructureSchema = [3, n0, _UWARp,
 ];
 export var UpdateWebAppVpcConfig$: StaticStructureSchema = [3, n0, _UWAVC,
   0,
-  [_SIu],
-  [64 | 0]
+  [_SIu, _IAT],
+  [64 | 0, 0]
 ];
 export var UserDetails$: StaticStructureSchema = [3, n0, _UD,
   0,
@@ -1579,8 +1579,8 @@ export var UserDetails$: StaticStructureSchema = [3, n0, _UD,
 ];
 export var WebAppVpcConfig$: StaticStructureSchema = [3, n0, _WAVC,
   0,
-  [_SIu, _VI, _SGI],
-  [64 | 0, 0, 64 | 0]
+  [_SIu, _VI, _SGI, _IAT],
+  [64 | 0, 0, 64 | 0, 0]
 ];
 export var WorkflowDetail$: StaticStructureSchema = [3, n0, _WDo,
   0,

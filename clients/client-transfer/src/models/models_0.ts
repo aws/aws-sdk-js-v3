@@ -39,6 +39,7 @@ import type {
   TransferTableStatus,
   WebAppEndpointPolicy,
   WebAppEndpointType,
+  WebAppVpcEndpointIpAddressType,
   WorkflowStepType,
 } from "./enums";
 
@@ -2054,6 +2055,12 @@ export interface WebAppVpcConfig {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address type for the web app's VPC endpoint. This determines whether the endpoint is accessible over IPv4 only, or over both IPv4 and IPv6.</p>
+   * @public
+   */
+  IpAddressType?: WebAppVpcEndpointIpAddressType | undefined;
 }
 
 /**
@@ -5354,6 +5361,12 @@ export interface UpdateWebAppVpcConfig {
    * @public
    */
   SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address type for the web app's VPC endpoint. This determines whether the endpoint is accessible over IPv4 only, or over both IPv4 and IPv6.</p>
+   * @public
+   */
+  IpAddressType?: WebAppVpcEndpointIpAddressType | undefined;
 }
 
 /**

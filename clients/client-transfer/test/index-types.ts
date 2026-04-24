@@ -254,6 +254,7 @@ export type {
   TransferTableStatus,
   WebAppEndpointPolicy,
   WebAppEndpointType,
+  WebAppVpcEndpointIpAddressType,
   WorkflowStepType,
   As2AsyncMdnConnectorConfig,
   As2ConnectorConfig,

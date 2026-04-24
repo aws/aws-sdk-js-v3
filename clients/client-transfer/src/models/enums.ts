@@ -417,6 +417,20 @@ export type DirectoryListingOptimization =
  * @public
  * @enum
  */
+export const WebAppVpcEndpointIpAddressType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+/**
+ * @public
+ */
+export type WebAppVpcEndpointIpAddressType =
+  (typeof WebAppVpcEndpointIpAddressType)[keyof typeof WebAppVpcEndpointIpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const WebAppEndpointPolicy = {
   FIPS: "FIPS",
   STANDARD: "STANDARD",

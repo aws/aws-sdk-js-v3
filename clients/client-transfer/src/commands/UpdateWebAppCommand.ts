@@ -52,6 +52,7 @@ export interface UpdateWebAppCommandOutput extends UpdateWebAppResponse, __Metad
  *       SubnetIds: [ // SubnetIds
  *         "STRING_VALUE",
  *       ],
+ *       IpAddressType: "IPV4" || "DUALSTACK",
  *     },
  *   },
  * };

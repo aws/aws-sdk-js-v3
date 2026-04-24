@@ -63,6 +63,7 @@ export interface CreateWebAppCommandOutput extends CreateWebAppResponse, __Metad
  *       SecurityGroupIds: [ // SecurityGroupIds
  *         "STRING_VALUE",
  *       ],
+ *       IpAddressType: "IPV4" || "DUALSTACK",
  *     },
  *   },
  * };
