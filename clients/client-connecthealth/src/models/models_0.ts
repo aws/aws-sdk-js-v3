@@ -352,7 +352,7 @@ export interface ClinicalNoteGenerationSettingsResponse {
 }
 
 /**
- * <p>Input configuration for creating a Pulse web application. Used only in CreateDomain operation input.</p>
+ * <p>Input configuration for creating a web application. Used only in CreateDomain operation input.</p>
  * @public
  */
 export interface CreateWebAppConfiguration {
