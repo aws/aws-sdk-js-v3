@@ -1067,6 +1067,12 @@ export interface GetPartitionRequest {
    * @public
    */
   PartitionValues: string[] | undefined;
+
+  /**
+   * <p>A structure containing the Lake Formation audit context.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
 }
 
 /**
@@ -1415,6 +1421,12 @@ export interface GetPartitionsRequest {
    * @public
    */
   QueryAsOfTime?: Date | undefined;
+
+  /**
+   * <p>A structure containing the Lake Formation audit context.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
 }
 
 /**
@@ -2611,6 +2623,12 @@ export interface GetTableVersionRequest {
    * @public
    */
   VersionId?: string | undefined;
+
+  /**
+   * <p>A structure containing the Lake Formation audit context.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
 }
 
 /**
@@ -2649,6 +2667,12 @@ export interface GetTableVersionsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>A structure containing the Lake Formation audit context.</p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
 }
 
 /**

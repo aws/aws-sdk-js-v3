@@ -5062,8 +5062,8 @@ export var GetPartitionIndexesResponse$: StaticStructureSchema = [3, n0, _GPIRe,
 ];
 export var GetPartitionRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
-  [_DN, _TN, _PV, _CI],
-  [0, 0, 64 | 0, 0], 3
+  [_DN, _TN, _PV, _CI, _ACu],
+  [0, 0, 64 | 0, 0, () => AuditContext$], 3
 ];
 export var GetPartitionResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -5072,8 +5072,8 @@ export var GetPartitionResponse$: StaticStructureSchema = [3, n0, _GPRe,
 ];
 export var GetPartitionsRequest$: StaticStructureSchema = [3, n0, _GPRet,
   0,
-  [_DN, _TN, _CI, _Ex, _NTe, _Seg, _MRax, _ECS, _TI, _QAOT],
-  [0, 0, 0, 0, 0, () => Segment$, 1, 2, 0, 4], 2
+  [_DN, _TN, _CI, _Ex, _NTe, _Seg, _MRax, _ECS, _TI, _QAOT, _ACu],
+  [0, 0, 0, 0, 0, () => Segment$, 1, 2, 0, 4, () => AuditContext$], 2
 ];
 export var GetPartitionsResponse$: StaticStructureSchema = [3, n0, _GPReta,
   0,
@@ -5232,8 +5232,8 @@ export var GetTablesResponse$: StaticStructureSchema = [3, n0, _GTReta,
 ];
 export var GetTableVersionRequest$: StaticStructureSchema = [3, n0, _GTVR,
   0,
-  [_DN, _TN, _CI, _VIe],
-  [0, 0, 0, 0], 2
+  [_DN, _TN, _CI, _VIe, _ACu],
+  [0, 0, 0, 0, () => AuditContext$], 2
 ];
 export var GetTableVersionResponse$: StaticStructureSchema = [3, n0, _GTVRe,
   0,
@@ -5242,8 +5242,8 @@ export var GetTableVersionResponse$: StaticStructureSchema = [3, n0, _GTVRe,
 ];
 export var GetTableVersionsRequest$: StaticStructureSchema = [3, n0, _GTVRet,
   0,
-  [_DN, _TN, _CI, _NTe, _MRax],
-  [0, 0, 0, 0, 1], 2
+  [_DN, _TN, _CI, _NTe, _MRax, _ACu],
+  [0, 0, 0, 0, 1, () => AuditContext$], 2
 ];
 export var GetTableVersionsResponse$: StaticStructureSchema = [3, n0, _GTVReta,
   0,

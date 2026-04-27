@@ -44,6 +44,13 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  *   TableName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
  * };
  * const command = new GetTableVersionsCommand(input);
  * const response = await client.send(command);

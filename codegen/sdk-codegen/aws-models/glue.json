@@ -24313,6 +24313,9 @@
             "smithy.api#documentation": "<p>The values that define the partition.</p>",
             "smithy.api#required": {}
           }
+        },
+        "AuditContext": {
+          "target": "com.amazonaws.glue#AuditContext"
         }
       },
       "traits": {
@@ -24443,6 +24446,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>"
           }
+        },
+        "AuditContext": {
+          "target": "com.amazonaws.glue#AuditContext"
         }
       },
       "traits": {
@@ -25708,6 +25714,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>"
           }
+        },
+        "AuditContext": {
+          "target": "com.amazonaws.glue#AuditContext"
         }
       },
       "traits": {
@@ -25802,6 +25811,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of table versions to return in one response.</p>"
           }
+        },
+        "AuditContext": {
+          "target": "com.amazonaws.glue#AuditContext"
         }
       },
       "traits": {

@@ -43,6 +43,13 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  *   PartitionValues: [ // ValueStringList // required
  *     "STRING_VALUE",
  *   ],
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
  * };
  * const command = new GetPartitionCommand(input);
  * const response = await client.send(command);

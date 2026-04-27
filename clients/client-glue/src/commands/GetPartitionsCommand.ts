@@ -50,6 +50,13 @@ export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __Met
  *   ExcludeColumnSchema: true || false,
  *   TransactionId: "STRING_VALUE",
  *   QueryAsOfTime: new Date("TIMESTAMP"),
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
  * };
  * const command = new GetPartitionsCommand(input);
  * const response = await client.send(command);
