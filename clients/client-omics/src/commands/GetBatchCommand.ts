@@ -72,6 +72,8 @@ export interface GetBatchCommandOutput extends GetBatchResponse, __MetadataBeare
  * //     workflowOwnerId: "STRING_VALUE",
  * //     outputBucketOwnerId: "STRING_VALUE",
  * //     workflowVersionName: "STRING_VALUE",
+ * //     networkingMode: "STRING_VALUE",
+ * //     configurationName: "STRING_VALUE",
  * //   },
  * //   submissionSummary: { // SubmissionSummary
  * //     successfulStartSubmissionCount: Number("int"),

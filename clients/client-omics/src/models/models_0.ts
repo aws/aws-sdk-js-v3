@@ -3569,6 +3569,18 @@ export interface DefaultRunSetting {
    * @public
    */
   workflowVersionName?: string | undefined;
+
+  /**
+   * <p>Optional configuration for run networking behavior. If not specified, this will default to RESTRICTED.</p>
+   * @public
+   */
+  networkingMode?: NetworkingMode | undefined;
+
+  /**
+   * <p>Optional configuration name to use for the workflow run.</p>
+   * @public
+   */
+  configurationName?: string | undefined;
 }
 
 /**
@@ -4149,7 +4161,7 @@ export interface GetBatchResponse {
   name?: string | undefined;
 
   /**
-   * <p>The current status of the run batch.</p>
+   * <p>The current status of the run batch. Possible values: <code>CREATING</code> (initial setup), <code>PENDING</code> (ready to submit runs), <code>SUBMITTING</code> (submitting runs), <code>INPROGRESS</code> (runs executing), <code>STOPPING</code> (cancellation in progress), <code>PROCESSED</code> (all runs completed), <code>CANCELLED</code> (batch cancelled), <code>FAILED</code> (batch failed), <code>RUNS_DELETING</code> (deleting runs), <code>RUNS_DELETED</code> (runs deleted).</p>
    * @public
    */
   status?: BatchStatus | undefined;
@@ -8871,7 +8883,7 @@ export interface StartRunBatchResponse {
   arn?: string | undefined;
 
   /**
-   * <p>The initial status of the run batch.</p>
+   * <p>The initial status of the run batch. Returns <code>CREATING</code> while the batch is being initialized.</p>
    * @public
    */
   status?: BatchStatus | undefined;

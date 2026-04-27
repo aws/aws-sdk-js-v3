@@ -1112,8 +1112,8 @@ export var CreateWorkflowVersionResponse$: StaticStructureSchema = [3, n0, _CWVR
 ];
 export var DefaultRunSetting$: StaticStructureSchema = [3, n0, _DRS,
   0,
-  [_wI, _rA, _wT, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _oU, _lL, _rT, _rMet, _sT, _wOI, _oBOI, _wVN],
-  [0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, 0, 0, 0, 0, 0], 2
+  [_wI, _rA, _wT, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _oU, _lL, _rT, _rMet, _sT, _wOI, _oBOI, _wVN, _nM, _cN],
+  [0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var DefinitionRepository$: StaticStructureSchema = [3, n0, _DR,
   0,

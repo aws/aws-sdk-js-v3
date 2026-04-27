@@ -312,6 +312,7 @@ export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
  */
 export const BatchStatus = {
   CANCELLED: "CANCELLED",
+  CREATING: "CREATING",
   FAILED: "FAILED",
   INPROGRESS: "INPROGRESS",
   PENDING: "PENDING",
@@ -514,6 +515,19 @@ export const RunLogLevel = {
  * @public
  */
 export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkingMode = {
+  RESTRICTED: "RESTRICTED",
+  VPC: "VPC",
+} as const;
+/**
+ * @public
+ */
+export type NetworkingMode = (typeof NetworkingMode)[keyof typeof NetworkingMode];
 
 /**
  * @public
@@ -766,19 +780,6 @@ export const RunExport = {
  * @public
  */
 export type RunExport = (typeof RunExport)[keyof typeof RunExport];
-
-/**
- * @public
- * @enum
- */
-export const NetworkingMode = {
-  RESTRICTED: "RESTRICTED",
-  VPC: "VPC",
-} as const;
-/**
- * @public
- */
-export type NetworkingMode = (typeof NetworkingMode)[keyof typeof NetworkingMode];
 
 /**
  * @public
