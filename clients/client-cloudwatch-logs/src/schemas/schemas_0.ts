@@ -768,6 +768,7 @@ const _pP = "parsePostgres";
 const _pR = "patternRegex";
 const _pRa = "parseRoute53";
 const _pS = "patternString";
+const _pSI = "parentSourceIdentifier";
 const _pSo = "policyScope";
 const _pT = "policyType";
 const _pTOCSF = "parseToOCSF";
@@ -2396,8 +2397,8 @@ export var S3DeliveryConfiguration$: StaticStructureSchema = [3, n0, _SDC,
 ];
 export var S3TableIntegrationSource$: StaticStructureSchema = [3, n0, _STIS,
   0,
-  [_i, _dS, _sta, _sRt, _cTSr],
-  [0, () => DataSource$, 0, 0, 1]
+  [_i, _dS, _sta, _sRt, _cTSr, _pSI],
+  [0, () => DataSource$, 0, 0, 1, 0]
 ];
 export var ScheduledQueryDestination$: StaticStructureSchema = [3, n0, _SQD,
   0,

@@ -62,6 +62,7 @@ export interface ListSourcesForS3TableIntegrationCommandOutput extends ListSourc
  * //       status: "ACTIVE" || "UNHEALTHY" || "FAILED" || "DATA_SOURCE_DELETE_IN_PROGRESS",
  * //       statusReason: "STRING_VALUE",
  * //       createdTimeStamp: Number("long"),
+ * //       parentSourceIdentifier: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

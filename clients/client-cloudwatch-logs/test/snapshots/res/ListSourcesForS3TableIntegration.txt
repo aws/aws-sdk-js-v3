@@ -37,7 +37,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "status": "__status__",
       "statusReason": "__statusReason__",
-      "createdTimeStamp": 0
+      "createdTimeStamp": 0,
+      "parentSourceIdentifier": "__parentSourceIdentifier__"
     },
     {
       "identifier": "__identifier__",
@@ -47,7 +48,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "status": "__status__",
       "statusReason": "__statusReason__",
-      "createdTimeStamp": 0
+      "createdTimeStamp": 0,
+      "parentSourceIdentifier": "__parentSourceIdentifier__"
     },
     {
       "identifier": "__identifier__",
@@ -57,7 +59,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "status": "__status__",
       "statusReason": "__statusReason__",
-      "createdTimeStamp": 0
+      "createdTimeStamp": 0,
+      "parentSourceIdentifier": "__parentSourceIdentifier__"
     }
   ],
   "nextToken": "__nextToken__"
@@ -75,7 +78,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       status: "__status__",
       statusReason: "__statusReason__",
-      createdTimeStamp: (number) 0
+      createdTimeStamp: (number) 0,
+      parentSourceIdentifier: "__parentSourceIdentifier__"
     },
     {
       identifier: "__identifier__",
@@ -85,7 +89,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       status: "__status__",
       statusReason: "__statusReason__",
-      createdTimeStamp: (number) 0
+      createdTimeStamp: (number) 0,
+      parentSourceIdentifier: "__parentSourceIdentifier__"
     },
     {
       identifier: "__identifier__",
@@ -95,7 +100,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       status: "__status__",
       statusReason: "__statusReason__",
-      createdTimeStamp: (number) 0
+      createdTimeStamp: (number) 0,
+      parentSourceIdentifier: "__parentSourceIdentifier__"
     }
   ],
   nextToken: "__nextToken__",

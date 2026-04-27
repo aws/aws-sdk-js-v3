@@ -7152,6 +7152,12 @@ export interface S3TableIntegrationSource {
    * @public
    */
   createdTimeStamp?: number | undefined;
+
+  /**
+   * <p>The identifier of the parent data source for this association.</p>
+   * @public
+   */
+  parentSourceIdentifier?: string | undefined;
 }
 
 /**
@@ -7792,8 +7798,10 @@ export interface PutDeliverySourceRequest {
    *         <code>arn:aws:workmail:us-east-1:123456789012:organization/m-1234EXAMPLEabcd1234abcd1234abcd1234</code>
    *          </p>
    *          <p>For the <code>SECURITY_FINDING_LOGS</code> logType, use a wildcard ARN for the hub
-   *       resource. For example,
+   *       resource. For Amazon Web Services Security Hub CSPM, use
    *         <code>arn:aws:securityhub:us-east-1:111122223333:hub/*</code>
+   *       and for Amazon Web Services Security Hub, use
+   *         <code>arn:aws:securityhub:us-east-1:111122223333:hubv2/*</code>
    *          </p>
    * @public
    */
@@ -7867,8 +7875,8 @@ export interface PutDeliverySourceRequest {
    *                <p>For Network Load Balancer, the valid value is <code>NLB_ACCESS_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code> and
-   *             <code>PCS_JOBCOMP_LOGS</code>.</p>
+   *                <p>For PCS, the valid values are <code>PCS_SCHEDULER_LOGS</code>,
+   *             <code>PCS_JOBCOMP_LOGS</code>, and <code>PCS_SCHEDULER_AUDIT_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Quick, the valid values are <code>CHAT_LOGS</code> and
@@ -7884,6 +7892,10 @@ export interface PutDeliverySourceRequest {
    *             </li>
    *             <li>
    *                <p>For Amazon Web Services Security Hub CSPM, the valid value is
+   *             <code>SECURITY_FINDING_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Web Services Security Hub, the valid value is
    *             <code>SECURITY_FINDING_LOGS</code>.</p>
    *             </li>
    *             <li>
