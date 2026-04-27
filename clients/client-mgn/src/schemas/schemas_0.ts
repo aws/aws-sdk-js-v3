@@ -67,6 +67,7 @@ const _DLCTe = "DescribeLaunchConfigurationTemplates";
 const _DNMD = "DeleteNetworkMigrationDefinition";
 const _DNMDR = "DeleteNetworkMigrationDefinitionRequest";
 const _DNMDRe = "DeleteNetworkMigrationDefinitionResponse";
+const _DO = "DeleteOperation";
 const _DRCT = "DeleteReplicationConfigurationTemplate";
 const _DRCTR = "DeleteReplicationConfigurationTemplateRequest";
 const _DRCTRe = "DeleteReplicationConfigurationTemplateResponse";
@@ -249,6 +250,9 @@ const _MA = "ManagedAccount";
 const _MAA = "MarkAsArchived";
 const _MAAR = "MarkAsArchivedRequest";
 const _MAa = "ManagedAccounts";
+const _MC = "MergeConstruct";
+const _MCe = "MergeConstructs";
+const _MO = "MergeOperation";
 const _NI = "NetworkInterface";
 const _NIe = "NetworkInterfaces";
 const _NMAJD = "NetworkMigrationAnalysisJobDetails";
@@ -318,6 +322,8 @@ const _SCL = "SourceConfigurationList";
 const _SCR = "StartCutoverRequest";
 const _SCRt = "StartCutoverResponse";
 const _SCo = "SourceConfiguration";
+const _SCp = "SplitConstruct";
+const _SCpl = "SplitConstructs";
 const _SCt = "StartCutover";
 const _SD = "SsmDocument";
 const _SDEP = "SsmDocumentExternalParameters";
@@ -352,6 +358,7 @@ const _SNMMUR = "StartNetworkMigrationMappingUpdateRequest";
 const _SNMMURt = "StartNetworkMigrationMappingUpdateResponse";
 const _SNMMUS = "StartNetworkMigrationMappingUpdateSegment";
 const _SNMMUSt = "StartNetworkMigrationMappingUpdateSegments";
+const _SO = "SplitOperation";
 const _SP = "SourceProperties";
 const _SPSP = "SsmParameterStoreParameter";
 const _SPSPs = "SsmParameterStoreParameters";
@@ -457,6 +464,7 @@ const _c = "client";
 const _cA = "createdAt";
 const _cAo = "connectorAction";
 const _cAon = "connectorArn";
+const _cB = "cidrBlock";
 const _cC = "createdCount";
 const _cDT = "creationDateTime";
 const _cGOFSDM = "codeGenerationOutputFormatStatusDetailsMap";
@@ -495,6 +503,7 @@ const _dRIa = "dataReplicationInfo";
 const _dRS = "dataReplicationState";
 const _dV = "documentVersion";
 const _de = "deployment";
+const _del = "delete";
 const _di = "disks";
 const _e = "error";
 const _eA = "encryptionAlgorithm";
@@ -520,6 +529,7 @@ const _eT = "errorType";
 const _eTx = "exportTask";
 const _er = "errors";
 const _ev = "event";
+const _ex = "excluded";
 const _f = "filters";
 const _fB = "firstBoot";
 const _fBDT = "firstByteDateTime";
@@ -583,10 +593,12 @@ const _mA = "macAddress";
 const _mAC = "maxAttemptsCount";
 const _mATMID = "mapAutoTaggingMpeID";
 const _mC = "modifiedCount";
+const _mCe = "mergeConstructs";
 const _mN = "modelName";
 const _mR = "maxResults";
 const _mSFC = "mustSucceedForCutover";
 const _mSID = "mapperSegmentID";
+const _me = "merge";
 const _n = "name";
 const _nADT = "nextAttemptDateTime";
 const _nI = "networkInterfaces";
@@ -651,6 +663,7 @@ const _sC = "serviceCode";
 const _sCC = "ssmCommandConfig";
 const _sCe = "serversCount";
 const _sCo = "sourceConfigurations";
+const _sCp = "splitConstructs";
 const _sD = "statusDetails";
 const _sDL = "statusDetailList";
 const _sDN = "ssmDocumentName";
@@ -686,6 +699,7 @@ const _se = "server";
 const _seg = "segments";
 const _ser = "servers";
 const _so = "source";
+const _sp = "split";
 const _st = "state";
 const _sta = "status";
 const _stag = "stage";
@@ -983,6 +997,11 @@ export var DeleteNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3,
   [0], 1
 ];
 export var DeleteNetworkMigrationDefinitionResponse$: StaticStructureSchema = [3, n0, _DNMDRe,
+  0,
+  [],
+  []
+];
+export var DeleteOperation$: StaticStructureSchema = [3, n0, _DO,
   0,
   [],
   []
@@ -1667,6 +1686,16 @@ export var MarkAsArchivedRequest$: StaticStructureSchema = [3, n0, _MAAR,
   [_sSIDo, _aIDc],
   [0, 0], 1
 ];
+export var MergeConstruct$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_sID, _cIDo],
+  [0, 0]
+];
+export var MergeOperation$: StaticStructureSchema = [3, n0, _MO,
+  0,
+  [_mCe],
+  [() => MergeConstructs]
+];
 export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   0,
   [_mA, _ip, _iPs],
@@ -1744,8 +1773,8 @@ export var NetworkMigrationMapperSegment$: StaticStructureSchema = [3, n0, _NMMS
 ];
 export var NetworkMigrationMapperSegmentConstruct$: StaticStructureSchema = [3, n0, _NMMSC,
   0,
-  [_cIDo, _cTon, _n, _d, _lID, _cA, _uA, _p],
-  [0, 0, 0, 0, 0, 4, 4, 128 | 0]
+  [_cIDo, _cTon, _n, _d, _lID, _ex, _cA, _uA, _p],
+  [0, 0, 0, 0, 0, 2, 4, 4, 128 | 0]
 ];
 export var NetworkMigrationMappingJobDetails$: StaticStructureSchema = [3, n0, _NMMJD,
   0,
@@ -1881,6 +1910,16 @@ export var SourceServerConnectorAction$: StaticStructureSchema = [3, n0, _SSCA,
   0,
   [_cSA, _cAon],
   [0, 0]
+];
+export var SplitConstruct$: StaticStructureSchema = [3, n0, _SCp,
+  0,
+  [_cB],
+  [0]
+];
+export var SplitOperation$: StaticStructureSchema = [3, n0, _SO,
+  0,
+  [_sCp],
+  [() => SplitConstructs]
 ];
 export var SsmDocument$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -2104,8 +2143,8 @@ export var UpdateNetworkMigrationMapperSegmentRequest$: StaticStructureSchema = 
 ];
 export var UpdateOperation$: StaticStructureSchema = [3, n0, _UO,
   0,
-  [_p],
-  [128 | 0]
+  [_n, _ex, _p],
+  [0, 2, 128 | 0]
 ];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
@@ -2232,6 +2271,9 @@ var ListNetworkMigrationMappingUpdatesIDsFilter = 64 | 0;
 var ManagedAccounts: StaticListSchema = [1, n0, _MAa,
   0, () => ManagedAccount$
 ];
+var MergeConstructs: StaticListSchema = [1, n0, _MCe,
+  0, () => MergeConstruct$
+];
 var NetworkInterfaces: StaticListSchema = [1, n0, _NIe,
   0, () => NetworkInterface$
 ];
@@ -2310,6 +2352,9 @@ var SourceServersList: StaticListSchema = [1, n0, _SSL,
   0, [() => SourceServer$,
     0]
 ];
+var SplitConstructs: StaticListSchema = [1, n0, _SCpl,
+  0, () => SplitConstruct$
+];
 var SsmDocuments: StaticListSchema = [1, n0, _SDs,
   0, () => SsmDocument$
 ];
@@ -2363,8 +2408,8 @@ var TagsMap: StaticMapSchema = [2, n0, _TM,
 ];
 export var OperationUnion$: StaticUnionSchema = [4, n0, _OU,
   0,
-  [_u],
-  [() => UpdateOperation$]
+  [_me, _sp, _del, _u],
+  [() => MergeOperation$, () => SplitOperation$, () => DeleteOperation$, () => UpdateOperation$]
 ];
 export var SsmExternalParameter$: StaticUnionSchema = [4, n0, _SEP,
   0,

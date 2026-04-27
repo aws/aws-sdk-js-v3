@@ -82,6 +82,7 @@ import {
   DeleteNetworkMigrationDefinitionCommand,
   DeleteNetworkMigrationDefinitionRequest$,
   DeleteNetworkMigrationDefinitionResponse$,
+  DeleteOperation$,
   DeleteReplicationConfigurationTemplate$,
   DeleteReplicationConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateRequest$,
@@ -326,6 +327,8 @@ import {
   MarkAsArchived$,
   MarkAsArchivedCommand,
   MarkAsArchivedRequest$,
+  MergeConstruct$,
+  MergeOperation$,
   Mgn,
   MgnClient,
   MgnServiceException,
@@ -437,6 +440,8 @@ import {
   SourceServerActionDocument$,
   SourceServerActionsRequestFilters$,
   SourceServerConnectorAction$,
+  SplitConstruct$,
+  SplitOperation$,
   SsmDocument$,
   SsmDocumentType,
   SsmExternalParameter$,
@@ -795,6 +800,7 @@ assert(typeof DeleteLaunchConfigurationTemplateRequest$ === "object");
 assert(typeof DeleteLaunchConfigurationTemplateResponse$ === "object");
 assert(typeof DeleteNetworkMigrationDefinitionRequest$ === "object");
 assert(typeof DeleteNetworkMigrationDefinitionResponse$ === "object");
+assert(typeof DeleteOperation$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateResponse$ === "object");
 assert(typeof DeleteSourceServerRequest$ === "object");
@@ -931,6 +937,8 @@ assert(typeof ListWavesRequestFilters$ === "object");
 assert(typeof ListWavesResponse$ === "object");
 assert(typeof ManagedAccount$ === "object");
 assert(typeof MarkAsArchivedRequest$ === "object");
+assert(typeof MergeConstruct$ === "object");
+assert(typeof MergeOperation$ === "object");
 assert(typeof NetworkInterface$ === "object");
 assert(typeof NetworkMigrationAnalysisJobDetails$ === "object");
 assert(typeof NetworkMigrationAnalysisResult$ === "object");
@@ -975,6 +983,8 @@ assert(typeof SourceServer$ === "object");
 assert(typeof SourceServerActionDocument$ === "object");
 assert(typeof SourceServerActionsRequestFilters$ === "object");
 assert(typeof SourceServerConnectorAction$ === "object");
+assert(typeof SplitConstruct$ === "object");
+assert(typeof SplitOperation$ === "object");
 assert(typeof SsmDocument$ === "object");
 assert(typeof SsmExternalParameter$ === "object");
 assert(typeof SsmParameterStoreParameter$ === "object");

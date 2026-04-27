@@ -54,6 +54,7 @@ export interface GetNetworkMigrationMapperSegmentConstructCommandOutput extends 
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     logicalID: "STRING_VALUE",
+ * //     excluded: true || false,
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     properties: { // ConstructProperties

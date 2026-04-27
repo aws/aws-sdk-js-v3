@@ -48,7 +48,25 @@ export interface StartNetworkMigrationMappingUpdateCommandOutput extends StartNe
  *       constructID: "STRING_VALUE", // required
  *       constructType: "STRING_VALUE", // required
  *       operation: { // OperationUnion Union: only one key present
+ *         merge: { // MergeOperation
+ *           mergeConstructs: [ // MergeConstructs
+ *             { // MergeConstruct
+ *               segmentID: "STRING_VALUE",
+ *               constructID: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         split: { // SplitOperation
+ *           splitConstructs: [ // SplitConstructs
+ *             { // SplitConstruct
+ *               cidrBlock: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         delete: {},
  *         update: { // UpdateOperation
+ *           name: "STRING_VALUE",
+ *           excluded: true || false,
  *           properties: { // ConstructProperties
  *             "<keys>": "STRING_VALUE",
  *           },

@@ -2938,6 +2938,12 @@ export interface NetworkMigrationMapperSegmentConstruct {
   logicalID?: string | undefined;
 
   /**
+   * <p>Whether this construct is excluded from the migration.</p>
+   * @public
+   */
+  excluded?: boolean | undefined;
+
+  /**
    * <p>The timestamp when the construct was created.</p>
    * @public
    */
@@ -4585,10 +4591,82 @@ export interface StartNetworkMigrationMappingResponse {
 }
 
 /**
+ * <p>An operation that deletes a construct from the mapping.</p>
+ * @public
+ */
+export interface DeleteOperation {}
+
+/**
+ * <p>A construct reference specifying the source segment and construct to merge.</p>
+ * @public
+ */
+export interface MergeConstruct {
+  /**
+   * <p>The segment ID of the construct to merge.</p>
+   * @public
+   */
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The construct ID to merge.</p>
+   * @public
+   */
+  constructID?: string | undefined;
+}
+
+/**
+ * <p>An operation that merges constructs from different segments into the target construct.</p>
+ * @public
+ */
+export interface MergeOperation {
+  /**
+   * <p>The list of constructs to merge into the target.</p>
+   * @public
+   */
+  mergeConstructs?: MergeConstruct[] | undefined;
+}
+
+/**
+ * <p>A split target specifying the CIDR block for the new construct.</p>
+ * @public
+ */
+export interface SplitConstruct {
+  /**
+   * <p>The CIDR block for the split construct.</p>
+   * @public
+   */
+  cidrBlock?: string | undefined;
+}
+
+/**
+ * <p>An operation that splits a construct into multiple constructs with different CIDR blocks.</p>
+ * @public
+ */
+export interface SplitOperation {
+  /**
+   * <p>The list of split targets with their CIDR blocks.</p>
+   * @public
+   */
+  splitConstructs?: SplitConstruct[] | undefined;
+}
+
+/**
  * <p>An operation that updates the properties of a construct.</p>
  * @public
  */
 export interface UpdateOperation {
+  /**
+   * <p>The updated name for the construct.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Whether to exclude this construct from the migration.</p>
+   * @public
+   */
+  excluded?: boolean | undefined;
+
   /**
    * <p>The properties to update on the construct.</p>
    * @public
@@ -4601,6 +4679,9 @@ export interface UpdateOperation {
  * @public
  */
 export type OperationUnion =
+  | OperationUnion.DeleteMember
+  | OperationUnion.MergeMember
+  | OperationUnion.SplitMember
   | OperationUnion.UpdateMember
   | OperationUnion.$UnknownMember;
 
@@ -4609,10 +4690,49 @@ export type OperationUnion =
  */
 export namespace OperationUnion {
   /**
+   * <p>A merge operation to combine constructs from different segments.</p>
+   * @public
+   */
+  export interface MergeMember {
+    merge: MergeOperation;
+    split?: never;
+    delete?: never;
+    update?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A split operation to divide a construct into multiple constructs with specified CIDR blocks.</p>
+   * @public
+   */
+  export interface SplitMember {
+    merge?: never;
+    split: SplitOperation;
+    delete?: never;
+    update?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A delete operation to remove a construct from the mapping.</p>
+   * @public
+   */
+  export interface DeleteMember {
+    merge?: never;
+    split?: never;
+    delete: DeleteOperation;
+    update?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>An update operation to modify construct properties.</p>
    * @public
    */
   export interface UpdateMember {
+    merge?: never;
+    split?: never;
+    delete?: never;
     update: UpdateOperation;
     $unknown?: never;
   }
@@ -4621,6 +4741,9 @@ export namespace OperationUnion {
    * @public
    */
   export interface $UnknownMember {
+    merge?: never;
+    split?: never;
+    delete?: never;
     update?: never;
     $unknown: [string, any];
   }
@@ -4630,6 +4753,9 @@ export namespace OperationUnion {
    *
    */
   export interface Visitor<T> {
+    merge: (value: MergeOperation) => T;
+    split: (value: SplitOperation) => T;
+    delete: (value: DeleteOperation) => T;
     update: (value: UpdateOperation) => T;
     _: (name: string, value: any) => T;
   }
