@@ -98,6 +98,17 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //         },
+ * //         CompositeSliConfig: { // CompositeSliConfig
+ * //           SelectionConfig: { // SelectionConfig
+ * //             Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ * //             Pattern: "STRING_VALUE",
+ * //           },
+ * //           Components: [ // CompositeSliComponents
+ * //             { // CompositeSliComponent Union: only one key present
+ * //               OperationName: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo", // required
@@ -194,6 +205,17 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //           MetricSourceKeyAttributes: "<Attributes>", // required
  * //           MetricSourceAttributes: "<Attributes>",
  * //         },
+ * //         CompositeSliConfig: {
+ * //           SelectionConfig: {
+ * //             Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ * //             Pattern: "STRING_VALUE",
+ * //           },
+ * //           Components: [
+ * //             {//  Union: only one key present
+ * //               OperationName: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -220,6 +242,7 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //       },
  * //     ],
  * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency" || "AppMonitor" || "Canary" || "Service",
+ * //     AutoInvestigationEnabled: true || false,
  * //   },
  * // };
  *

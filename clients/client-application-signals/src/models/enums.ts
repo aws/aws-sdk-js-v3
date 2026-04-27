@@ -63,6 +63,20 @@ export type ServiceLevelIndicatorComparisonOperator =
  * @public
  * @enum
  */
+export const SelectionType = {
+  EXPLICIT: "EXPLICIT",
+  PREFIX: "PREFIX",
+  REGEX: "REGEX",
+} as const;
+/**
+ * @public
+ */
+export type SelectionType = (typeof SelectionType)[keyof typeof SelectionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ServiceLevelIndicatorMetricType = {
   AVAILABILITY: "AVAILABILITY",
   LATENCY: "LATENCY",

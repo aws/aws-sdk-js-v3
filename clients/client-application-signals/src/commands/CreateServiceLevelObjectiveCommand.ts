@@ -92,6 +92,17 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *         },
  *         DependencyOperationName: "STRING_VALUE", // required
  *       },
+ *       CompositeSliConfig: { // CompositeSliConfig
+ *         SelectionConfig: { // SelectionConfig
+ *           Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ *           Pattern: "STRING_VALUE",
+ *         },
+ *         Components: [ // CompositeSliComponents
+ *           { // CompositeSliComponent Union: only one key present
+ *             OperationName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
  *     },
  *     MetricThreshold: Number("double"),
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -189,6 +200,17 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *         MetricSourceAttributes: "<Attributes>",
  *       },
  *       MetricName: "STRING_VALUE",
+ *       CompositeSliConfig: {
+ *         SelectionConfig: {
+ *           Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ *           Pattern: "STRING_VALUE",
+ *         },
+ *         Components: [
+ *           {//  Union: only one key present
+ *             OperationName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
  *     },
  *     MetricThreshold: Number("double"),
  *     ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -220,6 +242,7 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *     },
  *   ],
  *   CreateRecommendedSlo: true || false,
+ *   AutoInvestigationEnabled: true || false,
  * };
  * const command = new CreateServiceLevelObjectiveCommand(input);
  * const response = await client.send(command);
@@ -275,6 +298,17 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //           MetricSourceAttributes: {
  * //             "<keys>": "STRING_VALUE",
  * //           },
+ * //         },
+ * //         CompositeSliConfig: { // CompositeSliConfig
+ * //           SelectionConfig: { // SelectionConfig
+ * //             Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ * //             Pattern: "STRING_VALUE",
+ * //           },
+ * //           Components: [ // CompositeSliComponents
+ * //             { // CompositeSliComponent Union: only one key present
+ * //               OperationName: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       MetricThreshold: Number("double"), // required
@@ -372,6 +406,17 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //           MetricSourceKeyAttributes: "<Attributes>", // required
  * //           MetricSourceAttributes: "<Attributes>",
  * //         },
+ * //         CompositeSliConfig: {
+ * //           SelectionConfig: {
+ * //             Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ * //             Pattern: "STRING_VALUE",
+ * //           },
+ * //           Components: [
+ * //             {//  Union: only one key present
+ * //               OperationName: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       MetricThreshold: Number("double"),
  * //       ComparisonOperator: "GreaterThanOrEqualTo" || "GreaterThan" || "LessThan" || "LessThanOrEqualTo",
@@ -398,6 +443,7 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //       },
  * //     ],
  * //     MetricSourceType: "ServiceOperation" || "CloudWatchMetric" || "ServiceDependency" || "AppMonitor" || "Canary" || "Service",
+ * //     AutoInvestigationEnabled: true || false,
  * //   },
  * // };
  *

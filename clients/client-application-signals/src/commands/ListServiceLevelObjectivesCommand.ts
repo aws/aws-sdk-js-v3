@@ -95,6 +95,17 @@ export interface ListServiceLevelObjectivesCommandOutput extends ListServiceLeve
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       },
+ * //       CompositeSliConfig: { // CompositeSliConfig
+ * //         SelectionConfig: { // SelectionConfig
+ * //           Type: "EXPLICIT" || "PREFIX" || "REGEX", // required
+ * //           Pattern: "STRING_VALUE",
+ * //         },
+ * //         Components: [ // CompositeSliComponents
+ * //           { // CompositeSliComponent Union: only one key present
+ * //             OperationName: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

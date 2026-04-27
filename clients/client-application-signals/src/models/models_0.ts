@@ -6,6 +6,7 @@ import type {
   DurationUnit,
   EvaluationType,
   MetricSourceType,
+  SelectionType,
   ServiceLevelIndicatorComparisonOperator,
   ServiceLevelIndicatorMetricType,
   ServiceLevelObjectiveBudgetStatus,
@@ -177,6 +178,81 @@ export interface Goal {
    * @public
    */
   WarningThreshold?: number | undefined;
+}
+
+/**
+ * <p>Identifies a single operation to include in a composite SLI for a service-level SLO. Used as an element of the <code>Components</code> list in <code>CompositeSliConfig</code>.</p>
+ * @public
+ */
+export type CompositeSliComponent =
+  | CompositeSliComponent.OperationNameMember
+  | CompositeSliComponent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CompositeSliComponent {
+  /**
+   * <p>The name of the operation to include in the composite SLI.</p>
+   * @public
+   */
+  export interface OperationNameMember {
+    OperationName: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    OperationName?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    OperationName: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines how operations are selected for a service-level SLO.</p>
+ * @public
+ */
+export interface SelectionConfig {
+  /**
+   * <p>The strategy for selecting operations to include in a service-level SLO.</p> <ul> <li> <p> <code>EXPLICIT</code> — You provide a specific list of operations in the <code>Components</code> field of <code>CompositeSliConfig</code>.</p> </li> <li> <p> <code>PREFIX</code> — You provide a prefix string in the <code>Pattern</code> field of <code>SelectionConfig</code>, and all operations whose names start with the prefix are included.</p> </li> <li> <p> <code>REGEX</code> — You provide a regular expression in the <code>Pattern</code> field of <code>SelectionConfig</code>, and all operations whose names match the pattern are included.</p> </li> </ul>
+   * @public
+   */
+  Type: SelectionType | undefined;
+
+  /**
+   * <p>A prefix string or regular expression that specifies which operations to include in a service-level SLO. When <code>SelectionType</code> is <code>PREFIX</code>, this value is a prefix string that matches the beginning of operation names. When <code>SelectionType</code> is <code>REGEX</code>, this value is a regular expression that matches operation names.</p>
+   * @public
+   */
+  Pattern?: string | undefined;
+}
+
+/**
+ * <p>This structure contains the configuration for a composite service level indicator (SLI) that aggregates metrics across multiple operations of a service for service-level SLOs.</p>
+ * @public
+ */
+export interface CompositeSliConfig {
+  /**
+   * <p>Specifies how operations are selected for this service-level SLO. Operations can be selected explicitly by listing them, by specifying a prefix to match operation names, or by providing a regular expression pattern.</p>
+   * @public
+   */
+  SelectionConfig: SelectionConfig | undefined;
+
+  /**
+   * <p>The list of operations included in this composite SLI. You must specify between 2 and 20 components. Each component is a <code>CompositeSliComponent</code> that identifies a single operation by its <code>OperationName</code>.</p>
+   * @public
+   */
+  Components?: CompositeSliComponent[] | undefined;
 }
 
 /**
@@ -434,6 +510,12 @@ export interface RequestBasedServiceLevelIndicatorMetric {
    * @public
    */
   MetricSource?: MetricSource | undefined;
+
+  /**
+   * <p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>
+   * @public
+   */
+  CompositeSliConfig?: CompositeSliConfig | undefined;
 }
 
 /**
@@ -500,6 +582,12 @@ export interface ServiceLevelIndicatorMetric {
    * @public
    */
   MetricSource?: MetricSource | undefined;
+
+  /**
+   * <p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>
+   * @public
+   */
+  CompositeSliConfig?: CompositeSliConfig | undefined;
 }
 
 /**
@@ -2227,6 +2315,12 @@ export interface RequestBasedServiceLevelIndicatorMetricConfig {
    * @public
    */
   MetricName?: string | undefined;
+
+  /**
+   * <p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>
+   * @public
+   */
+  CompositeSliConfig?: CompositeSliConfig | undefined;
 }
 
 /**
@@ -2311,6 +2405,12 @@ export interface ServiceLevelIndicatorMetricConfig {
    * @public
    */
   DependencyConfig?: DependencyConfig | undefined;
+
+  /**
+   * <p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>
+   * @public
+   */
+  CompositeSliConfig?: CompositeSliConfig | undefined;
 }
 
 /**
@@ -2388,6 +2488,12 @@ export interface CreateServiceLevelObjectiveInput {
    * @public
    */
   CreateRecommendedSlo?: boolean | undefined;
+
+  /**
+   * Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+   * @public
+   */
+  AutoInvestigationEnabled?: boolean | undefined;
 }
 
 /**
@@ -2460,6 +2566,12 @@ export interface ServiceLevelObjective {
    * @public
    */
   MetricSourceType?: MetricSourceType | undefined;
+
+  /**
+   * Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+   * @public
+   */
+  AutoInvestigationEnabled?: boolean | undefined;
 }
 
 /**
@@ -2628,6 +2740,12 @@ export interface ServiceLevelObjectiveSummary {
    * @public
    */
   MetricSource?: MetricSource | undefined;
+
+  /**
+   * <p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>
+   * @public
+   */
+  CompositeSliConfig?: CompositeSliConfig | undefined;
 }
 
 /**
@@ -2686,6 +2804,12 @@ export interface UpdateServiceLevelObjectiveInput {
    * @public
    */
   BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
+
+  /**
+   * Indicates whether DevOps Agent will automatically investigate this SLO when it is breached
+   * @public
+   */
+  AutoInvestigationEnabled?: boolean | undefined;
 }
 
 /**

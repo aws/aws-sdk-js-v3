@@ -1006,6 +1006,54 @@
         }
       }
     },
+    "com.amazonaws.applicationsignals#CompositeSliComponent": {
+      "type": "union",
+      "members": {
+        "OperationName": {
+          "target": "com.amazonaws.applicationsignals#OperationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the operation to include in the composite SLI.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Identifies a single operation to include in a composite SLI for a service-level SLO. Used as an element of the <code>Components</code> list in <code>CompositeSliConfig</code>.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#CompositeSliComponents": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.applicationsignals#CompositeSliComponent"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A list of operations that form a composite SLI for a service-level SLO. Each element is a <code>CompositeSliComponent</code> that identifies a single operation. Used in the <code>Components</code> field of <code>CompositeSliConfig</code>.</p>",
+        "smithy.api#length": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.applicationsignals#CompositeSliConfig": {
+      "type": "structure",
+      "members": {
+        "SelectionConfig": {
+          "target": "com.amazonaws.applicationsignals#SelectionConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies how operations are selected for this service-level SLO. Operations can be selected explicitly by listing them, by specifying a prefix to match operation names, or by providing a regular expression pattern.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Components": {
+          "target": "com.amazonaws.applicationsignals#CompositeSliComponents",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of operations included in this composite SLI. You must specify between 2 and 20 components. Each component is a <code>CompositeSliComponent</code> that identifies a single operation by its <code>OperationName</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure contains the configuration for a composite service level indicator (SLI) that aggregates metrics across multiple operations of a service for service-level SLOs.</p>"
+      }
+    },
     "com.amazonaws.applicationsignals#ConflictException": {
       "type": "structure",
       "members": {
@@ -1124,6 +1172,12 @@
           "traits": {
             "smithy.api#default": false,
             "smithy.api#documentation": "<p>Set this to <code>true</code> to create a recommended SLO out of the box. When set to <code>true</code>, you don't need to specify the <code>MetricThreshold</code> or <code>ComparisonOperator</code> in the <code>SliConfig</code> or <code>RequestBasedSliConfig</code>. The default value is <code>false</code>.</p> <p>This is supported for SLOs on a service, service operation, or a dependency.</p>"
+          }
+        },
+        "AutoInvestigationEnabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Indicates whether DevOps Agent will automatically investigate this SLO when it is breached"
           }
         }
       },
@@ -3686,6 +3740,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>"
           }
+        },
+        "CompositeSliConfig": {
+          "target": "com.amazonaws.applicationsignals#CompositeSliConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>"
+          }
         }
       },
       "traits": {
@@ -3741,6 +3801,12 @@
           "target": "com.amazonaws.applicationsignals#MetricName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the metric for SLOs on resources other than Application Signals services.</p>"
+          }
+        },
+        "CompositeSliConfig": {
+          "target": "com.amazonaws.applicationsignals#CompositeSliConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>"
           }
         }
       },
@@ -3824,6 +3890,58 @@
           "min": 60,
           "max": 900
         }
+      }
+    },
+    "com.amazonaws.applicationsignals#SelectionConfig": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.applicationsignals#SelectionType",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Pattern": {
+          "target": "com.amazonaws.applicationsignals#SelectionPattern",
+          "traits": {
+            "smithy.api#documentation": "<p>A prefix string or regular expression that specifies which operations to include in a service-level SLO. When <code>SelectionType</code> is <code>PREFIX</code>, this value is a prefix string that matches the beginning of operation names. When <code>SelectionType</code> is <code>REGEX</code>, this value is a regular expression that matches operation names.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Defines how operations are selected for a service-level SLO.</p>"
+      }
+    },
+    "com.amazonaws.applicationsignals#SelectionPattern": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^.+$"
+      }
+    },
+    "com.amazonaws.applicationsignals#SelectionType": {
+      "type": "enum",
+      "members": {
+        "EXPLICIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPLICIT"
+          }
+        },
+        "PREFIX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREFIX"
+          }
+        },
+        "REGEX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REGEX"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The strategy for selecting operations to include in a service-level SLO.</p> <ul> <li> <p> <code>EXPLICIT</code> — You provide a specific list of operations in the <code>Components</code> field of <code>CompositeSliConfig</code>.</p> </li> <li> <p> <code>PREFIX</code> — You provide a prefix string in the <code>Pattern</code> field of <code>SelectionConfig</code>, and all operations whose names start with the prefix are included.</p> </li> <li> <p> <code>REGEX</code> — You provide a regular expression in the <code>Pattern</code> field of <code>SelectionConfig</code>, and all operations whose names match the pattern are included.</p> </li> </ul>"
       }
     },
     "com.amazonaws.applicationsignals#Service": {
@@ -4165,6 +4283,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>"
           }
+        },
+        "CompositeSliConfig": {
+          "target": "com.amazonaws.applicationsignals#CompositeSliConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>"
+          }
         }
       },
       "traits": {
@@ -4226,6 +4350,12 @@
           "target": "com.amazonaws.applicationsignals#DependencyConfig",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the dependency using the <code>DependencyKeyAttributes</code> and <code>DependencyOperationName</code>. </p>"
+          }
+        },
+        "CompositeSliConfig": {
+          "target": "com.amazonaws.applicationsignals#CompositeSliConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>"
           }
         }
       },
@@ -4334,6 +4464,12 @@
           "target": "com.amazonaws.applicationsignals#MetricSourceType",
           "traits": {
             "smithy.api#documentation": "<p>Displays the SLI metric source type for this SLO. Supported types are:</p> <ul> <li> <p>Service operation</p> </li> <li> <p>Service dependency</p> </li> <li> <p>Service</p> </li> <li> <p>CloudWatch metric</p> </li> <li> <p>AppMonitor</p> </li> <li> <p>Canary</p> </li> </ul>"
+          }
+        },
+        "AutoInvestigationEnabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Indicates whether DevOps Agent will automatically investigate this SLO when it is breached"
           }
         }
       },
@@ -4666,6 +4802,12 @@
           "target": "com.amazonaws.applicationsignals#MetricSource",
           "traits": {
             "smithy.api#documentation": "<p>Identifies the metric source for SLOs on resources other than Application Signals services.</p>"
+          }
+        },
+        "CompositeSliConfig": {
+          "target": "com.amazonaws.applicationsignals#CompositeSliConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The composite SLI configuration for service-level SLOs that monitor multiple operations of a service.</p>"
           }
         }
       },
@@ -5339,6 +5481,12 @@
           "target": "com.amazonaws.applicationsignals#BurnRateConfigurations",
           "traits": {
             "smithy.api#documentation": "<p>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>"
+          }
+        },
+        "AutoInvestigationEnabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Indicates whether DevOps Agent will automatically investigate this SLO when it is breached"
           }
         }
       },

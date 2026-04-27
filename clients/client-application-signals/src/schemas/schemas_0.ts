@@ -10,6 +10,7 @@ const _AFu = "AuditFinding";
 const _AFud = "AuditFindings";
 const _AG = "AttainmentGoal";
 const _AI = "AccountId";
+const _AIE = "AutoInvestigationEnabled";
 const _AM = "AttributeMaps";
 const _AR = "AuditorResults";
 const _ARu = "AuditorResult";
@@ -33,7 +34,7 @@ const _BUEWE = "BatchUpdateExclusionWindowsError";
 const _BUEWEa = "BatchUpdateExclusionWindowsErrors";
 const _BUEWI = "BatchUpdateExclusionWindowsInput";
 const _BUEWO = "BatchUpdateExclusionWindowsOutput";
-const _C = "Canary";
+const _C = "Components";
 const _CE = "ConflictException";
 const _CET = "ChangeEventType";
 const _CEa = "CanaryEntity";
@@ -43,11 +44,15 @@ const _CI = "CalendarInterval";
 const _CN = "CanaryName";
 const _CO = "ComparisonOperator";
 const _CRS = "CreateRecommendedSlo";
+const _CSC = "CompositeSliConfig";
+const _CSCo = "CompositeSliComponents";
+const _CSCom = "CompositeSliComponent";
 const _CSLO = "CreateServiceLevelObjective";
 const _CSLOI = "CreateServiceLevelObjectiveInput";
 const _CSLOO = "CreateServiceLevelObjectiveOutput";
 const _CT = "ConnectionType";
 const _CTr = "CreatedTime";
+const _Ca = "Canary";
 const _D = "Description";
 const _DC = "DependencyConfig";
 const _DG = "DependencyGraph";
@@ -174,6 +179,7 @@ const _PGC = "PutGroupingConfiguration";
 const _PGCI = "PutGroupingConfigurationInput";
 const _PGCO = "PutGroupingConfigurationOutput";
 const _PS = "PeriodSeconds";
+const _Pa = "Pattern";
 const _R = "Reports";
 const _RA = "ResourceArn";
 const _RBS = "RequestBasedSli";
@@ -195,7 +201,8 @@ const _Re = "Region";
 const _Rea = "Reason";
 const _S = "Severity";
 const _SA = "SloArn";
-const _SC = "SliConfig";
+const _SC = "SelectionConfig";
+const _SCl = "SliConfig";
 const _SD = "ServiceDependencies";
 const _SDI = "StartDiscoveryInput";
 const _SDO = "StartDiscoveryOutput";
@@ -413,10 +420,15 @@ export var ChangeEvent$: StaticStructureSchema = [3, n0, _CEh,
   [_Ti, _AI, _Re, _En, _CET, _EI, _UN, _EN],
   [4, 0, 0, 128 | 0, 0, 0, 0, 0], 6
 ];
+export var CompositeSliConfig$: StaticStructureSchema = [3, n0, _CSC,
+  0,
+  [_SC, _C],
+  [() => SelectionConfig$, () => CompositeSliComponents], 1
+];
 export var CreateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _CSLOI,
   0,
-  [_N, _D, _SC, _RBSC, _G, _Ta, _BRCu, _CRS],
-  [0, 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => TagList, () => BurnRateConfigurations, 2], 1
+  [_N, _D, _SCl, _RBSC, _G, _Ta, _BRCu, _CRS, _AIE],
+  [0, 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => TagList, () => BurnRateConfigurations, 2, 2], 1
 ];
 export var CreateServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _CSLOO,
   0,
@@ -670,18 +682,23 @@ export var RequestBasedServiceLevelIndicatorConfig$: StaticStructureSchema = [3,
 ];
 export var RequestBasedServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _RBSLIM,
   0,
-  [_TRCM, _MRCM, _KA, _ON, _MT, _DC, _MS],
-  [() => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$], 2
+  [_TRCM, _MRCM, _KA, _ON, _MT, _DC, _MS, _CSC],
+  [() => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$, () => CompositeSliConfig$], 2
 ];
 export var RequestBasedServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _RBSLIMC,
   0,
-  [_KA, _ON, _MT, _TRCM, _MRCM, _DC, _MS, _MN],
-  [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$, () => MetricSource$, 0]
+  [_KA, _ON, _MT, _TRCM, _MRCM, _DC, _MS, _MN, _CSC],
+  [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$, () => MetricSource$, 0, () => CompositeSliConfig$]
 ];
 export var RollingInterval$: StaticStructureSchema = [3, n0, _RIo,
   0,
   [_DU, _Du],
   [0, 1], 2
+];
+export var SelectionConfig$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_T, _Pa],
+  [0, 0], 1
 ];
 export var Service$: StaticStructureSchema = [3, n0, _Se,
   0,
@@ -720,18 +737,18 @@ export var ServiceLevelIndicatorConfig$: StaticStructureSchema = [3, n0, _SLIC,
 ];
 export var ServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _SLIM,
   0,
-  [_MDQe, _KA, _ON, _MT, _DC, _MS],
-  [() => MetricDataQueries, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$], 1
+  [_MDQe, _KA, _ON, _MT, _DC, _MS, _CSC],
+  [() => MetricDataQueries, 128 | 0, 0, 0, () => DependencyConfig$, () => MetricSource$, () => CompositeSliConfig$], 1
 ];
 export var ServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _SLIMC,
   0,
-  [_KA, _ON, _MT, _MN, _Stat, _PS, _MS, _MDQe, _DC],
-  [128 | 0, 0, 0, 0, 0, 1, () => MetricSource$, () => MetricDataQueries, () => DependencyConfig$]
+  [_KA, _ON, _MT, _MN, _Stat, _PS, _MS, _MDQe, _DC, _CSC],
+  [128 | 0, 0, 0, 0, 0, 1, () => MetricSource$, () => MetricDataQueries, () => DependencyConfig$, () => CompositeSliConfig$]
 ];
 export var ServiceLevelObjective$: StaticStructureSchema = [3, n0, _SLO,
   0,
-  [_Ar, _N, _CTr, _LUT, _G, _D, _Sli, _RBS, _ETv, _BRCu, _MSTe],
-  [0, 0, 4, 4, () => Goal$, 0, () => ServiceLevelIndicator$, () => RequestBasedServiceLevelIndicator$, 0, () => BurnRateConfigurations, 0], 5
+  [_Ar, _N, _CTr, _LUT, _G, _D, _Sli, _RBS, _ETv, _BRCu, _MSTe, _AIE],
+  [0, 0, 4, 4, () => Goal$, 0, () => ServiceLevelIndicator$, () => RequestBasedServiceLevelIndicator$, 0, () => BurnRateConfigurations, 0, 2], 5
 ];
 export var ServiceLevelObjectiveBudgetReport$: StaticStructureSchema = [3, n0, _SLOBR,
   0,
@@ -750,8 +767,8 @@ export var ServiceLevelObjectiveEntity$: StaticStructureSchema = [3, n0, _SLOE,
 ];
 export var ServiceLevelObjectiveSummary$: StaticStructureSchema = [3, n0, _SLOS,
   0,
-  [_Ar, _N, _KA, _ON, _DC, _CTr, _ETv, _MSTe, _MS],
-  [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0, () => MetricSource$], 2
+  [_Ar, _N, _KA, _ON, _DC, _CTr, _ETv, _MSTe, _MS, _CSC],
+  [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0, () => MetricSource$, () => CompositeSliConfig$], 2
 ];
 export var ServiceOperation$: StaticStructureSchema = [3, n0, _SOe,
   0,
@@ -810,8 +827,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _USLOI,
   0,
-  [_I, _D, _SC, _RBSC, _G, _BRCu],
-  [[0, 1], 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => BurnRateConfigurations], 1
+  [_I, _D, _SCl, _RBSC, _G, _BRCu, _AIE],
+  [[0, 1], 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => BurnRateConfigurations, 2], 1
 ];
 export var UpdateServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _USLOO,
   0,
@@ -849,6 +866,9 @@ var BurnRateConfigurations: StaticListSchema = [1, n0, _BRCu,
 ];
 var ChangeEvents: StaticListSchema = [1, n0, _CEha,
   0, () => ChangeEvent$
+];
+var CompositeSliComponents: StaticListSchema = [1, n0, _CSCo,
+  0, () => CompositeSliComponent$
 ];
 var Dimensions: StaticListSchema = [1, n0, _Dim,
   0, () => Dimension$
@@ -916,8 +936,13 @@ var Attributes = 128 | 0;
 var DataMap = 128 | 0;
 export var AuditTargetEntity$: StaticUnionSchema = [4, n0, _ATE,
   0,
-  [_Se, _Sl, _SOe, _C],
+  [_Se, _Sl, _SOe, _Ca],
   [() => ServiceEntity$, () => ServiceLevelObjectiveEntity$, () => ServiceOperationEntity$, () => CanaryEntity$]
+];
+export var CompositeSliComponent$: StaticUnionSchema = [4, n0, _CSCom,
+  0,
+  [_ON],
+  [0]
 ];
 export var Interval$: StaticUnionSchema = [4, n0, _In,
   0,

@@ -23,6 +23,8 @@ import {
   CanaryEntity$,
   ChangeEvent$,
   ChangeEventType,
+  CompositeSliComponent$,
+  CompositeSliConfig$,
   ConflictException,
   ConflictException$,
   ConnectionType,
@@ -130,6 +132,8 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   RollingInterval$,
+  SelectionConfig$,
+  SelectionType,
   Service$,
   ServiceDependency$,
   ServiceDependent$,
@@ -244,6 +248,8 @@ assert(typeof BurnRateConfiguration$ === "object");
 assert(typeof CalendarInterval$ === "object");
 assert(typeof CanaryEntity$ === "object");
 assert(typeof ChangeEvent$ === "object");
+assert(typeof CompositeSliComponent$ === "object");
+assert(typeof CompositeSliConfig$ === "object");
 assert(typeof CreateServiceLevelObjectiveInput$ === "object");
 assert(typeof CreateServiceLevelObjectiveOutput$ === "object");
 assert(typeof DeleteGroupingConfigurationOutput$ === "object");
@@ -300,6 +306,7 @@ assert(typeof RequestBasedServiceLevelIndicatorConfig$ === "object");
 assert(typeof RequestBasedServiceLevelIndicatorMetric$ === "object");
 assert(typeof RequestBasedServiceLevelIndicatorMetricConfig$ === "object");
 assert(typeof RollingInterval$ === "object");
+assert(typeof SelectionConfig$ === "object");
 assert(typeof Service$ === "object");
 assert(typeof ServiceDependency$ === "object");
 assert(typeof ServiceDependent$ === "object");
@@ -335,6 +342,7 @@ assert(typeof DetailLevel === "object");
 assert(typeof DurationUnit === "object");
 assert(typeof EvaluationType === "object");
 assert(typeof MetricSourceType === "object");
+assert(typeof SelectionType === "object");
 assert(typeof ServiceLevelIndicatorComparisonOperator === "object");
 assert(typeof ServiceLevelIndicatorMetricType === "object");
 assert(typeof ServiceLevelObjectiveBudgetStatus === "object");
