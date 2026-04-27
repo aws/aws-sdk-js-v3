@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeReplicationGroupsCommandInput,
+  type DescribeReplicationGroupsCommandOutput,
   DescribeReplicationGroupsCommand,
 } from "../commands/DescribeReplicationGroupsCommand";
 import type { ElastiCacheClient } from "../ElastiCacheClient";
+import type { ElastiCacheServiceException } from "../models/ElastiCacheServiceException";
 
-const checkState = async (client: ElastiCacheClient, input: DescribeReplicationGroupsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElastiCacheClient, input: DescribeReplicationGroupsCommandInput): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput | ElastiCacheServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeReplicationGroupsCommand(input));
+    let result: DescribeReplicationGroupsCommandOutput & any = await client.send(new DescribeReplicationGroupsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeReplicationG
 export const waitForReplicationGroupAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeReplicationGroupsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput | ElastiCacheServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForReplicationGroupAvailable = async (
 export const waitUntilReplicationGroupAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeReplicationGroupsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeReplicationGroupsCommandOutput>;
 };

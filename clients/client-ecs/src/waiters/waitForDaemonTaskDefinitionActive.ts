@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeDaemonTaskDefinitionCommandInput,
+  type DescribeDaemonTaskDefinitionCommandOutput,
   DescribeDaemonTaskDefinitionCommand,
 } from "../commands/DescribeDaemonTaskDefinitionCommand";
 import type { ECSClient } from "../ECSClient";
+import type { ECSServiceException } from "../models/ECSServiceException";
 
-const checkState = async (client: ECSClient, input: DescribeDaemonTaskDefinitionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ECSClient, input: DescribeDaemonTaskDefinitionCommandInput): Promise<WaiterResult<DescribeDaemonTaskDefinitionCommandOutput | ECSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDaemonTaskDefinitionCommand(input));
+    let result: DescribeDaemonTaskDefinitionCommandOutput & any = await client.send(new DescribeDaemonTaskDefinitionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: ECSClient, input: DescribeDaemonTaskDefinition
 export const waitForDaemonTaskDefinitionActive = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeDaemonTaskDefinitionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDaemonTaskDefinitionCommandOutput | ECSServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForDaemonTaskDefinitionActive = async (
 export const waitUntilDaemonTaskDefinitionActive = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeDaemonTaskDefinitionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDaemonTaskDefinitionCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDaemonTaskDefinitionCommandOutput>;
 };

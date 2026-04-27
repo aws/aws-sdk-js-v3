@@ -133,6 +133,10 @@ import {
   type UpdateSafetyRuleCommandOutput,
   UpdateSafetyRuleCommand,
 } from "./commands/UpdateSafetyRuleCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type {
+  Route53RecoveryControlConfigServiceException,
+} from "./models/Route53RecoveryControlConfigServiceException";
 import { paginateListAssociatedRoute53HealthChecks } from "./pagination/ListAssociatedRoute53HealthChecksPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { paginateListControlPanels } from "./pagination/ListControlPanelsPaginator";
@@ -682,7 +686,7 @@ export interface Route53RecoveryControlConfig {
   waitUntilClusterCreated(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterCommandOutput>>;
 
   /**
    * @see {@link DescribeClusterCommand}
@@ -692,7 +696,7 @@ export interface Route53RecoveryControlConfig {
   waitUntilClusterDeleted(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeControlPanelCommand}
@@ -702,7 +706,7 @@ export interface Route53RecoveryControlConfig {
   waitUntilControlPanelCreated(
     args: DescribeControlPanelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeControlPanelCommandOutput>>;
 
   /**
    * @see {@link DescribeControlPanelCommand}
@@ -712,7 +716,7 @@ export interface Route53RecoveryControlConfig {
   waitUntilControlPanelDeleted(
     args: DescribeControlPanelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeRoutingControlCommand}
@@ -722,7 +726,7 @@ export interface Route53RecoveryControlConfig {
   waitUntilRoutingControlCreated(
     args: DescribeRoutingControlCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeRoutingControlCommandOutput>>;
 
   /**
    * @see {@link DescribeRoutingControlCommand}
@@ -732,7 +736,7 @@ export interface Route53RecoveryControlConfig {
   waitUntilRoutingControlDeleted(
     args: DescribeRoutingControlCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

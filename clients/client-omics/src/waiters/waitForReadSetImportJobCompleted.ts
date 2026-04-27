@@ -9,14 +9,16 @@ import {
 
 import {
   type GetReadSetImportJobCommandInput,
+  type GetReadSetImportJobCommandOutput,
   GetReadSetImportJobCommand,
 } from "../commands/GetReadSetImportJobCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommandInput): Promise<WaiterResult<GetReadSetImportJobCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetReadSetImportJobCommand(input));
+    let result: GetReadSetImportJobCommandOutput & any = await client.send(new GetReadSetImportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -86,7 +88,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetImportJobCommand
 export const waitForReadSetImportJobCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetReadSetImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetReadSetImportJobCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -98,8 +100,8 @@ export const waitForReadSetImportJobCompleted = async (
 export const waitUntilReadSetImportJobCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetReadSetImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetReadSetImportJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetReadSetImportJobCommandOutput>;
 };

@@ -845,6 +845,7 @@ import {
   UploadSSHPublicKeyCommand,
 } from "./commands/UploadSSHPublicKeyCommand";
 import { IAMClient } from "./IAMClient";
+import type { IAMServiceException } from "./models/IAMServiceException";
 import { paginateGetAccountAuthorizationDetails } from "./pagination/GetAccountAuthorizationDetailsPaginator";
 import { paginateGetGroup } from "./pagination/GetGroupPaginator";
 import { paginateListAccessKeys } from "./pagination/ListAccessKeysPaginator";
@@ -4516,7 +4517,7 @@ export interface IAM {
   waitUntilInstanceProfileExists(
     args: GetInstanceProfileCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetInstanceProfileCommandOutput>>;
 
   /**
    * @see {@link GetPolicyCommand}
@@ -4526,7 +4527,7 @@ export interface IAM {
   waitUntilPolicyExists(
     args: GetPolicyCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPolicyCommandOutput>>;
 
   /**
    * @see {@link GetRoleCommand}
@@ -4536,7 +4537,7 @@ export interface IAM {
   waitUntilRoleExists(
     args: GetRoleCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRoleCommandOutput>>;
 
   /**
    * @see {@link GetUserCommand}
@@ -4546,7 +4547,7 @@ export interface IAM {
   waitUntilUserExists(
     args: GetUserCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetUserCommandOutput>>;
 }
 
 /**

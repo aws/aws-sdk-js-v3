@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeNatGatewaysCommandInput,
+  type DescribeNatGatewaysCommandOutput,
   DescribeNatGatewaysCommand,
 } from "../commands/DescribeNatGatewaysCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeNatGatewaysCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeNatGatewaysCommandInput): Promise<WaiterResult<DescribeNatGatewaysCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeNatGatewaysCommand(input));
+    let result: DescribeNatGatewaysCommandOutput & any = await client.send(new DescribeNatGatewaysCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -78,7 +80,7 @@ const checkState = async (client: EC2Client, input: DescribeNatGatewaysCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "NatGatewayNotFound") {
+    if (exception.name === "NatGatewayNotFound") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -91,7 +93,7 @@ const checkState = async (client: EC2Client, input: DescribeNatGatewaysCommandIn
 export const waitForNatGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeNatGatewaysCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNatGatewaysCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -103,8 +105,8 @@ export const waitForNatGatewayAvailable = async (
 export const waitUntilNatGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeNatGatewaysCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNatGatewaysCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeNatGatewaysCommandOutput>;
 };

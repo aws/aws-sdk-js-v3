@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetAnnotationStoreCommandInput, GetAnnotationStoreCommand } from "../commands/GetAnnotationStoreCommand";
+import {
+  type GetAnnotationStoreCommandInput,
+  type GetAnnotationStoreCommandOutput,
+  GetAnnotationStoreCommand,
+} from "../commands/GetAnnotationStoreCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandInput): Promise<WaiterResult<GetAnnotationStoreCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetAnnotationStoreCommand(input));
+    let result: GetAnnotationStoreCommandOutput & any = await client.send(new GetAnnotationStoreCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -59,7 +64,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandI
 export const waitForAnnotationStoreCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -71,8 +76,8 @@ export const waitForAnnotationStoreCreated = async (
 export const waitUntilAnnotationStoreCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetAnnotationStoreCommandOutput>;
 };

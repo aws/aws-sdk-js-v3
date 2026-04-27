@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeInternetGatewaysCommandInput,
+  type DescribeInternetGatewaysCommandOutput,
   DescribeInternetGatewaysCommand,
 } from "../commands/DescribeInternetGatewaysCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeInternetGatewaysCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeInternetGatewaysCommandInput): Promise<WaiterResult<DescribeInternetGatewaysCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeInternetGatewaysCommand(input));
+    let result: DescribeInternetGatewaysCommandOutput & any = await client.send(new DescribeInternetGatewaysCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -32,7 +34,7 @@ const checkState = async (client: EC2Client, input: DescribeInternetGatewaysComm
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidInternetGateway.NotFound") {
+    if (exception.name === "InvalidInternetGateway.NotFound") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -45,7 +47,7 @@ const checkState = async (client: EC2Client, input: DescribeInternetGatewaysComm
 export const waitForInternetGatewayExists = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeInternetGatewaysCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInternetGatewaysCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -57,8 +59,8 @@ export const waitForInternetGatewayExists = async (
 export const waitUntilInternetGatewayExists = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeInternetGatewaysCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInternetGatewaysCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeInternetGatewaysCommandOutput>;
 };

@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
-import { type DescribeCodeReviewCommandInput, DescribeCodeReviewCommand } from "../commands/DescribeCodeReviewCommand";
+import {
+  type DescribeCodeReviewCommandInput,
+  type DescribeCodeReviewCommandOutput,
+  DescribeCodeReviewCommand,
+} from "../commands/DescribeCodeReviewCommand";
+import type { CodeGuruReviewerServiceException } from "../models/CodeGuruReviewerServiceException";
 
-const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeReviewCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeReviewCommandInput): Promise<WaiterResult<DescribeCodeReviewCommandOutput | CodeGuruReviewerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCodeReviewCommand(input));
+    let result: DescribeCodeReviewCommandOutput & any = await client.send(new DescribeCodeReviewCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: CodeGuruReviewerClient, input: DescribeCodeRev
 export const waitForCodeReviewCompleted = async (
   params: WaiterConfiguration<CodeGuruReviewerClient>,
   input: DescribeCodeReviewCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCodeReviewCommandOutput | CodeGuruReviewerServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForCodeReviewCompleted = async (
 export const waitUntilCodeReviewCompleted = async (
   params: WaiterConfiguration<CodeGuruReviewerClient>,
   input: DescribeCodeReviewCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCodeReviewCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCodeReviewCommandOutput>;
 };

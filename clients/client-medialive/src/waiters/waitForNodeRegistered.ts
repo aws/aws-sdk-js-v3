@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeNodeCommandInput, DescribeNodeCommand } from "../commands/DescribeNodeCommand";
+import {
+  type DescribeNodeCommandInput,
+  type DescribeNodeCommandOutput,
+  DescribeNodeCommand,
+} from "../commands/DescribeNodeCommand";
 import type { MediaLiveClient } from "../MediaLiveClient";
+import type { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
-const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInput): Promise<WaiterResult<DescribeNodeCommandOutput | MediaLiveServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeNodeCommand(input));
+    let result: DescribeNodeCommandOutput & any = await client.send(new DescribeNodeCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -41,10 +46,10 @@ const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInp
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "NotFoundException") {
+    if (exception.name === "NotFoundException") {
       return { state: WaiterState.RETRY, reason };
     }
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -57,7 +62,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeNodeCommandInp
 export const waitForNodeRegistered = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeNodeCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNodeCommandOutput | MediaLiveServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +74,8 @@ export const waitForNodeRegistered = async (
 export const waitUntilNodeRegistered = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeNodeCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNodeCommandOutput>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeNodeCommandOutput>;
 };

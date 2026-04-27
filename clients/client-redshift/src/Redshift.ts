@@ -713,6 +713,8 @@ import {
   type UpdatePartnerStatusCommandOutput,
   UpdatePartnerStatusCommand,
 } from "./commands/UpdatePartnerStatusCommand";
+import type { ClusterNotFoundFault } from "./models/errors";
+import type { RedshiftServiceException } from "./models/RedshiftServiceException";
 import { paginateDescribeClusterDbRevisions } from "./pagination/DescribeClusterDbRevisionsPaginator";
 import { paginateDescribeClusterParameterGroups } from "./pagination/DescribeClusterParameterGroupsPaginator";
 import { paginateDescribeClusterParameters } from "./pagination/DescribeClusterParametersPaginator";
@@ -3799,7 +3801,7 @@ export interface Redshift {
   waitUntilClusterAvailable(
     args: DescribeClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClustersCommandOutput>>;
 
   /**
    * @see {@link DescribeClustersCommand}
@@ -3809,7 +3811,7 @@ export interface Redshift {
   waitUntilClusterDeleted(
     args: DescribeClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ClusterNotFoundFault>>;
 
   /**
    * @see {@link DescribeClustersCommand}
@@ -3819,7 +3821,7 @@ export interface Redshift {
   waitUntilClusterRestored(
     args: DescribeClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClustersCommandOutput>>;
 
   /**
    * @see {@link DescribeClusterSnapshotsCommand}
@@ -3829,7 +3831,7 @@ export interface Redshift {
   waitUntilSnapshotAvailable(
     args: DescribeClusterSnapshotsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterSnapshotsCommandOutput>>;
 }
 
 /**

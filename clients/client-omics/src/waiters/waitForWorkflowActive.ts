@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetWorkflowCommandInput, GetWorkflowCommand } from "../commands/GetWorkflowCommand";
+import {
+  type GetWorkflowCommandInput,
+  type GetWorkflowCommandOutput,
+  GetWorkflowCommand,
+} from "../commands/GetWorkflowCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetWorkflowCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetWorkflowCommandInput): Promise<WaiterResult<GetWorkflowCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetWorkflowCommand(input));
+    let result: GetWorkflowCommandOutput & any = await client.send(new GetWorkflowCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -59,7 +64,7 @@ const checkState = async (client: OmicsClient, input: GetWorkflowCommandInput): 
 export const waitForWorkflowActive = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetWorkflowCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetWorkflowCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 30 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -71,8 +76,8 @@ export const waitForWorkflowActive = async (
 export const waitUntilWorkflowActive = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetWorkflowCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetWorkflowCommandOutput>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 30 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetWorkflowCommandOutput>;
 };

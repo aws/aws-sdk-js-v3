@@ -239,6 +239,7 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import type { CloudWatchServiceException } from "./models/CloudWatchServiceException";
 import { paginateDescribeAlarmHistory } from "./pagination/DescribeAlarmHistoryPaginator";
 import { paginateDescribeAlarms } from "./pagination/DescribeAlarmsPaginator";
 import { paginateDescribeAnomalyDetectors } from "./pagination/DescribeAnomalyDetectorsPaginator";
@@ -1233,7 +1234,7 @@ export interface CloudWatch {
   waitUntilAlarmExists(
     args: DescribeAlarmsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAlarmsCommandOutput>>;
 
   /**
    * @see {@link DescribeAlarmsCommand}
@@ -1243,7 +1244,7 @@ export interface CloudWatch {
   waitUntilCompositeAlarmExists(
     args: DescribeAlarmsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAlarmsCommandOutput>>;
 
   /**
    * @see {@link GetAlarmMuteRuleCommand}
@@ -1253,7 +1254,7 @@ export interface CloudWatch {
   waitUntilAlarmMuteRuleExists(
     args: GetAlarmMuteRuleCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetAlarmMuteRuleCommandOutput>>;
 }
 
 /**

@@ -8,12 +8,18 @@ import {
 } from "@smithy/util-waiter";
 
 import type { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
-import { type GetPolicyEngineCommandInput, GetPolicyEngineCommand } from "../commands/GetPolicyEngineCommand";
+import {
+  type GetPolicyEngineCommandInput,
+  type GetPolicyEngineCommandOutput,
+  GetPolicyEngineCommand,
+} from "../commands/GetPolicyEngineCommand";
+import type { BedrockAgentCoreControlServiceException } from "../models/BedrockAgentCoreControlServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyEngineCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyEngineCommandInput): Promise<WaiterResult<GetPolicyEngineCommandOutput | BedrockAgentCoreControlServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPolicyEngineCommand(input));
+    let result: GetPolicyEngineCommandOutput & any = await client.send(new GetPolicyEngineCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +39,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -46,7 +52,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
 export const waitForPolicyEngineDeleted = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyEngineCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyEngineCommandOutput | BedrockAgentCoreControlServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +64,8 @@ export const waitForPolicyEngineDeleted = async (
 export const waitUntilPolicyEngineDeleted = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyEngineCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

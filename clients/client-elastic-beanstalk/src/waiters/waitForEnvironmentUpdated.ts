@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeEnvironmentsCommandInput,
+  type DescribeEnvironmentsCommandOutput,
   DescribeEnvironmentsCommand,
 } from "../commands/DescribeEnvironmentsCommand";
 import type { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
+import type { ElasticBeanstalkSyntheticServiceException } from "../models/ElasticBeanstalkSyntheticServiceException";
 
-const checkState = async (client: ElasticBeanstalkClient, input: DescribeEnvironmentsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElasticBeanstalkClient, input: DescribeEnvironmentsCommandInput): Promise<WaiterResult<DescribeEnvironmentsCommandOutput | ElasticBeanstalkSyntheticServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeEnvironmentsCommand(input));
+    let result: DescribeEnvironmentsCommandOutput & any = await client.send(new DescribeEnvironmentsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -62,7 +64,7 @@ const checkState = async (client: ElasticBeanstalkClient, input: DescribeEnviron
 export const waitForEnvironmentUpdated = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,
   input: DescribeEnvironmentsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeEnvironmentsCommandOutput | ElasticBeanstalkSyntheticServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -74,8 +76,8 @@ export const waitForEnvironmentUpdated = async (
 export const waitUntilEnvironmentUpdated = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,
   input: DescribeEnvironmentsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeEnvironmentsCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeEnvironmentsCommandOutput>;
 };

@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeContactCommandInput, DescribeContactCommand } from "../commands/DescribeContactCommand";
+import {
+  type DescribeContactCommandInput,
+  type DescribeContactCommandOutput,
+  DescribeContactCommand,
+} from "../commands/DescribeContactCommand";
 import type { GroundStationClient } from "../GroundStationClient";
+import type { GroundStationServiceException } from "../models/GroundStationServiceException";
 
-const checkState = async (client: GroundStationClient, input: DescribeContactCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: GroundStationClient, input: DescribeContactCommandInput): Promise<WaiterResult<DescribeContactCommandOutput | GroundStationServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeContactCommand(input));
+    let result: DescribeContactCommandOutput & any = await client.send(new DescribeContactCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: GroundStationClient, input: DescribeContactCom
 export const waitForContactScheduled = async (
   params: WaiterConfiguration<GroundStationClient>,
   input: DescribeContactCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeContactCommandOutput | GroundStationServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 900 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForContactScheduled = async (
 export const waitUntilContactScheduled = async (
   params: WaiterConfiguration<GroundStationClient>,
   input: DescribeContactCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeContactCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 900 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeContactCommandOutput>;
 };

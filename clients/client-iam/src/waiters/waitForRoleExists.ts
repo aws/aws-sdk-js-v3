@@ -7,18 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetRoleCommandInput, GetRoleCommand } from "../commands/GetRoleCommand";
+import { type GetRoleCommandInput, type GetRoleCommandOutput, GetRoleCommand } from "../commands/GetRoleCommand";
 import type { IAMClient } from "../IAMClient";
+import type { IAMServiceException } from "../models/IAMServiceException";
 
-const checkState = async (client: IAMClient, input: GetRoleCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: IAMClient, input: GetRoleCommandInput): Promise<WaiterResult<GetRoleCommandOutput | IAMServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetRoleCommand(input));
+    let result: GetRoleCommandOutput & any = await client.send(new GetRoleCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "NoSuchEntityException") {
+    if (exception.name === "NoSuchEntityException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -31,7 +32,7 @@ const checkState = async (client: IAMClient, input: GetRoleCommandInput): Promis
 export const waitForRoleExists = async (
   params: WaiterConfiguration<IAMClient>,
   input: GetRoleCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRoleCommandOutput | IAMServiceException>> => {
   const serviceDefaults = { minDelay: 1, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -43,8 +44,8 @@ export const waitForRoleExists = async (
 export const waitUntilRoleExists = async (
   params: WaiterConfiguration<IAMClient>,
   input: GetRoleCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRoleCommandOutput>> => {
   const serviceDefaults = { minDelay: 1, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetRoleCommandOutput>;
 };

@@ -7,13 +7,14 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetQueueCommandInput, GetQueueCommand } from "../commands/GetQueueCommand";
+import { type GetQueueCommandInput, type GetQueueCommandOutput, GetQueueCommand } from "../commands/GetQueueCommand";
 import type { DeadlineClient } from "../DeadlineClient";
+import type { DeadlineServiceException } from "../models/DeadlineServiceException";
 
-const checkState = async (client: DeadlineClient, input: GetQueueCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DeadlineClient, input: GetQueueCommandInput): Promise<WaiterResult<GetQueueCommandOutput | DeadlineServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetQueueCommand(input));
+    let result: GetQueueCommandOutput & any = await client.send(new GetQueueCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -35,7 +36,7 @@ const checkState = async (client: DeadlineClient, input: GetQueueCommandInput): 
 export const waitForQueueScheduling = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetQueueCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetQueueCommandOutput | DeadlineServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 700 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -47,8 +48,8 @@ export const waitForQueueScheduling = async (
 export const waitUntilQueueScheduling = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetQueueCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetQueueCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 700 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetQueueCommandOutput>;
 };

@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeClusterCommandInput, DescribeClusterCommand } from "../commands/DescribeClusterCommand";
+import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
+  DescribeClusterCommand,
+} from "../commands/DescribeClusterCommand";
 import type { EMRClient } from "../EMRClient";
+import type { EMRServiceException } from "../models/EMRServiceException";
 
-const checkState = async (client: EMRClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EMRClient, input: DescribeClusterCommandInput): Promise<WaiterResult<DescribeClusterCommandOutput | EMRServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeClusterCommand(input));
+    let result: DescribeClusterCommandOutput & any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -67,7 +72,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
 export const waitForClusterRunning = async (
   params: WaiterConfiguration<EMRClient>,
   input: DescribeClusterCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeClusterCommandOutput | EMRServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -79,8 +84,8 @@ export const waitForClusterRunning = async (
 export const waitUntilClusterRunning = async (
   params: WaiterConfiguration<EMRClient>,
   input: DescribeClusterCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeClusterCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeClusterCommandOutput>;
 };

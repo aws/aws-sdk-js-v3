@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeExportCommandInput, DescribeExportCommand } from "../commands/DescribeExportCommand";
+import {
+  type DescribeExportCommandInput,
+  type DescribeExportCommandOutput,
+  DescribeExportCommand,
+} from "../commands/DescribeExportCommand";
 import type { LexModelsV2Client } from "../LexModelsV2Client";
+import type { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
-const checkState = async (client: LexModelsV2Client, input: DescribeExportCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LexModelsV2Client, input: DescribeExportCommandInput): Promise<WaiterResult<DescribeExportCommandOutput | LexModelsV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeExportCommand(input));
+    let result: DescribeExportCommandOutput & any = await client.send(new DescribeExportCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeExportComman
 export const waitForBotExportCompleted = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeExportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeExportCommandOutput | LexModelsV2ServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForBotExportCompleted = async (
 export const waitUntilBotExportCompleted = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeExportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeExportCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeExportCommandOutput>;
 };

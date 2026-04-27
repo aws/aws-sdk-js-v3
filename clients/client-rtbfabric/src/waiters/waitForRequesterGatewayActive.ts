@@ -9,14 +9,16 @@ import {
 
 import {
   type GetRequesterGatewayCommandInput,
+  type GetRequesterGatewayCommandOutput,
   GetRequesterGatewayCommand,
 } from "../commands/GetRequesterGatewayCommand";
+import type { RTBFabricServiceException } from "../models/RTBFabricServiceException";
 import type { RTBFabricClient } from "../RTBFabricClient";
 
-const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCommandInput): Promise<WaiterResult<GetRequesterGatewayCommandOutput | RTBFabricServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetRequesterGatewayCommand(input));
+    let result: GetRequesterGatewayCommandOutput & any = await client.send(new GetRequesterGatewayCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCom
 export const waitForRequesterGatewayActive = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetRequesterGatewayCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRequesterGatewayCommandOutput | RTBFabricServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForRequesterGatewayActive = async (
 export const waitUntilRequesterGatewayActive = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetRequesterGatewayCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRequesterGatewayCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetRequesterGatewayCommandOutput>;
 };

@@ -39,7 +39,7 @@
     "@smithy/eventstream-serde-node": "^4.2.14",
     "@smithy/hash-node": "^4.2.14",
     "@smithy/hash-stream-node": "^4.2.14",
-    "@smithy/middleware-retry": "^4.5.5",
+    "@smithy/middleware-retry": "^4.5.6",
     "@smithy/node-config-provider": "^4.3.14",
     "@smithy/node-http-handler": "^4.6.1",
     "@smithy/smithy-client": "^4.12.13",
@@ -48,7 +48,7 @@
     "@smithy/util-base64": "^4.3.2",
     "@smithy/util-body-length-node": "^4.2.3",
     "@smithy/util-defaults-mode-node": "^4.2.54",
-    "@smithy/util-retry": "^4.3.4",
+    "@smithy/util-retry": "^4.3.5",
     "@smithy/util-stream": "^4.5.25",
     "@smithy/util-utf8": "^4.2.2",
     "tslib": "^2.6.2"

@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeLoadBalancersCommandInput,
+  type DescribeLoadBalancersCommandOutput,
   DescribeLoadBalancersCommand,
 } from "../commands/DescribeLoadBalancersCommand";
 import type { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import type { ElasticLoadBalancingV2ServiceException } from "../models/ElasticLoadBalancingV2ServiceException";
 
-const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeLoadBalancersCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeLoadBalancersCommandInput): Promise<WaiterResult<DescribeLoadBalancersCommandOutput | ElasticLoadBalancingV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeLoadBalancersCommand(input));
+    let result: DescribeLoadBalancersCommandOutput & any = await client.send(new DescribeLoadBalancersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -50,7 +52,7 @@ const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeL
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "LoadBalancerNotFoundException") {
+    if (exception.name === "LoadBalancerNotFoundException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -63,7 +65,7 @@ const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeL
 export const waitForLoadBalancerAvailable = async (
   params: WaiterConfiguration<ElasticLoadBalancingV2Client>,
   input: DescribeLoadBalancersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeLoadBalancersCommandOutput | ElasticLoadBalancingV2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -75,8 +77,8 @@ export const waitForLoadBalancerAvailable = async (
 export const waitUntilLoadBalancerAvailable = async (
   params: WaiterConfiguration<ElasticLoadBalancingV2Client>,
   input: DescribeLoadBalancersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeLoadBalancersCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeLoadBalancersCommandOutput>;
 };

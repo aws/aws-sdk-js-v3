@@ -373,6 +373,7 @@ import {
   UpdateTaskSetCommand,
 } from "./commands/UpdateTaskSetCommand";
 import { ECSClient } from "./ECSClient";
+import type { ECSServiceException } from "./models/ECSServiceException";
 import { paginateListAccountSettings } from "./pagination/ListAccountSettingsPaginator";
 import { paginateListAttributes } from "./pagination/ListAttributesPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
@@ -1909,7 +1910,7 @@ export interface ECS {
   waitUntilDaemonActive(
     args: DescribeDaemonCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDaemonCommandOutput>>;
 
   /**
    * @see {@link DescribeDaemonDeploymentsCommand}
@@ -1919,7 +1920,7 @@ export interface ECS {
   waitUntilDaemonDeploymentSuccessful(
     args: DescribeDaemonDeploymentsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDaemonDeploymentsCommandOutput>>;
 
   /**
    * @see {@link DescribeDaemonDeploymentsCommand}
@@ -1929,7 +1930,7 @@ export interface ECS {
   waitUntilDaemonDeploymentStopped(
     args: DescribeDaemonDeploymentsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDaemonDeploymentsCommandOutput>>;
 
   /**
    * @see {@link DescribeDaemonTaskDefinitionCommand}
@@ -1939,7 +1940,7 @@ export interface ECS {
   waitUntilDaemonTaskDefinitionActive(
     args: DescribeDaemonTaskDefinitionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDaemonTaskDefinitionCommandOutput>>;
 
   /**
    * @see {@link DescribeDaemonTaskDefinitionCommand}
@@ -1949,7 +1950,7 @@ export interface ECS {
   waitUntilDaemonTaskDefinitionDeleted(
     args: DescribeDaemonTaskDefinitionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDaemonTaskDefinitionCommandOutput>>;
 
   /**
    * @see {@link DescribeServicesCommand}
@@ -1959,7 +1960,7 @@ export interface ECS {
   waitUntilServicesInactive(
     args: DescribeServicesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeServicesCommandOutput>>;
 
   /**
    * @see {@link DescribeServicesCommand}
@@ -1969,7 +1970,7 @@ export interface ECS {
   waitUntilServicesStable(
     args: DescribeServicesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeServicesCommandOutput>>;
 
   /**
    * @see {@link DescribeTasksCommand}
@@ -1979,7 +1980,7 @@ export interface ECS {
   waitUntilTasksRunning(
     args: DescribeTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeTasksCommand}
@@ -1989,7 +1990,7 @@ export interface ECS {
   waitUntilTasksStopped(
     args: DescribeTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTasksCommandOutput>>;
 }
 
 /**

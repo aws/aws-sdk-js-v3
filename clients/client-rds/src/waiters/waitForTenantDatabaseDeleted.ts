@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeTenantDatabasesCommandInput,
+  type DescribeTenantDatabasesCommandOutput,
   DescribeTenantDatabasesCommand,
 } from "../commands/DescribeTenantDatabasesCommand";
+import type { DBInstanceNotFoundFault } from "../models/errors";
+import type { RDSServiceException } from "../models/RDSServiceException";
 import type { RDSClient } from "../RDSClient";
 
-const checkState = async (client: RDSClient, input: DescribeTenantDatabasesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RDSClient, input: DescribeTenantDatabasesCommandInput): Promise<WaiterResult<DescribeTenantDatabasesCommandOutput | RDSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTenantDatabasesCommand(input));
+    let result: DescribeTenantDatabasesCommandOutput & any = await client.send(new DescribeTenantDatabasesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -28,7 +31,7 @@ const checkState = async (client: RDSClient, input: DescribeTenantDatabasesComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBInstanceNotFoundFault") {
+    if (exception.name === "DBInstanceNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -41,7 +44,7 @@ const checkState = async (client: RDSClient, input: DescribeTenantDatabasesComma
 export const waitForTenantDatabaseDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeTenantDatabasesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTenantDatabasesCommandOutput | RDSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -53,8 +56,8 @@ export const waitForTenantDatabaseDeleted = async (
 export const waitUntilTenantDatabaseDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeTenantDatabasesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTenantDatabasesCommandOutput | DBInstanceNotFoundFault>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTenantDatabasesCommandOutput | DBInstanceNotFoundFault>;
 };

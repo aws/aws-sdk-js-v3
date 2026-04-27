@@ -99,6 +99,8 @@ import {
   type UpdateSpaceCommandOutput,
   UpdateSpaceCommand,
 } from "./commands/UpdateSpaceCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { RepostspaceServiceException } from "./models/RepostspaceServiceException";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
 import { paginateListSpaces } from "./pagination/ListSpacesPaginator";
 import { RepostspaceClient } from "./RepostspaceClient";
@@ -494,7 +496,7 @@ export interface Repostspace {
   waitUntilChannelCreated(
     args: GetChannelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetChannelCommandOutput>>;
 
   /**
    * @see {@link GetChannelCommand}
@@ -504,7 +506,7 @@ export interface Repostspace {
   waitUntilChannelDeleted(
     args: GetChannelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetChannelCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetSpaceCommand}
@@ -514,7 +516,7 @@ export interface Repostspace {
   waitUntilSpaceCreated(
     args: GetSpaceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSpaceCommandOutput>>;
 
   /**
    * @see {@link GetSpaceCommand}
@@ -524,7 +526,7 @@ export interface Repostspace {
   waitUntilSpaceDeleted(
     args: GetSpaceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSpaceCommandOutput | ResourceNotFoundException>>;
 }
 
 /**

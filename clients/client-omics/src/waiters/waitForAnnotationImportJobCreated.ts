@@ -9,14 +9,16 @@ import {
 
 import {
   type GetAnnotationImportJobCommandInput,
+  type GetAnnotationImportJobCommandOutput,
   GetAnnotationImportJobCommand,
 } from "../commands/GetAnnotationImportJobCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetAnnotationImportJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetAnnotationImportJobCommandInput): Promise<WaiterResult<GetAnnotationImportJobCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetAnnotationImportJobCommand(input));
+    let result: GetAnnotationImportJobCommandOutput & any = await client.send(new GetAnnotationImportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -70,7 +72,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationImportJobComm
 export const waitForAnnotationImportJobCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationImportJobCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -82,8 +84,8 @@ export const waitForAnnotationImportJobCreated = async (
 export const waitUntilAnnotationImportJobCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationImportJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetAnnotationImportJobCommandOutput>;
 };

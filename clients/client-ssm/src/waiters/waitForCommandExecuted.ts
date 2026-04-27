@@ -9,14 +9,16 @@ import {
 
 import {
   type GetCommandInvocationCommandInput,
+  type GetCommandInvocationCommandOutput,
   GetCommandInvocationCommand,
 } from "../commands/GetCommandInvocationCommand";
+import type { SSMServiceException } from "../models/SSMServiceException";
 import type { SSMClient } from "../SSMClient";
 
-const checkState = async (client: SSMClient, input: GetCommandInvocationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SSMClient, input: GetCommandInvocationCommandInput): Promise<WaiterResult<GetCommandInvocationCommandOutput | SSMServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetCommandInvocationCommand(input));
+    let result: GetCommandInvocationCommandOutput & any = await client.send(new GetCommandInvocationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -84,7 +86,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvocationDoesNotExist") {
+    if (exception.name === "InvocationDoesNotExist") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -97,7 +99,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
 export const waitForCommandExecuted = async (
   params: WaiterConfiguration<SSMClient>,
   input: GetCommandInvocationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetCommandInvocationCommandOutput | SSMServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -109,8 +111,8 @@ export const waitForCommandExecuted = async (
 export const waitUntilCommandExecuted = async (
   params: WaiterConfiguration<SSMClient>,
   input: GetCommandInvocationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetCommandInvocationCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetCommandInvocationCommandOutput>;
 };

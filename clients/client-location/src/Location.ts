@@ -277,6 +277,7 @@ import {
   VerifyDevicePositionCommand,
 } from "./commands/VerifyDevicePositionCommand";
 import { LocationClient } from "./LocationClient";
+import type { LocationServiceException } from "./models/LocationServiceException";
 import { paginateForecastGeofenceEvents } from "./pagination/ForecastGeofenceEventsPaginator";
 import { paginateGetDevicePositionHistory } from "./pagination/GetDevicePositionHistoryPaginator";
 import { paginateListDevicePositions } from "./pagination/ListDevicePositionsPaginator";
@@ -1611,7 +1612,7 @@ export interface Location {
   waitUntilJobCompleted(
     args: GetJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Location>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetJobCommandOutput>>;
 }
 
 /**

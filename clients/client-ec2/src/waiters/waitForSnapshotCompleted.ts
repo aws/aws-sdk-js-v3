@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeSnapshotsCommandInput, DescribeSnapshotsCommand } from "../commands/DescribeSnapshotsCommand";
+import {
+  type DescribeSnapshotsCommandInput,
+  type DescribeSnapshotsCommandOutput,
+  DescribeSnapshotsCommand,
+} from "../commands/DescribeSnapshotsCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeSnapshotsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeSnapshotsCommandInput): Promise<WaiterResult<DescribeSnapshotsCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeSnapshotsCommand(input));
+    let result: DescribeSnapshotsCommandOutput & any = await client.send(new DescribeSnapshotsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -57,7 +62,7 @@ const checkState = async (client: EC2Client, input: DescribeSnapshotsCommandInpu
 export const waitForSnapshotCompleted = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSnapshotsCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +74,8 @@ export const waitForSnapshotCompleted = async (
 export const waitUntilSnapshotCompleted = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSnapshotsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeSnapshotsCommandOutput>;
 };

@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { CodeDeployClient } from "../CodeDeployClient";
-import { type GetDeploymentCommandInput, GetDeploymentCommand } from "../commands/GetDeploymentCommand";
+import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
+  GetDeploymentCommand,
+} from "../commands/GetDeploymentCommand";
+import type { CodeDeployServiceException } from "../models/CodeDeployServiceException";
 
-const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandInput): Promise<WaiterResult<GetDeploymentCommandOutput | CodeDeployServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetDeploymentCommand(input));
+    let result: GetDeploymentCommandOutput & any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
 export const waitForDeploymentSuccessful = async (
   params: WaiterConfiguration<CodeDeployClient>,
   input: GetDeploymentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetDeploymentCommandOutput | CodeDeployServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForDeploymentSuccessful = async (
 export const waitUntilDeploymentSuccessful = async (
   params: WaiterConfiguration<CodeDeployClient>,
   input: GetDeploymentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetDeploymentCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetDeploymentCommandOutput>;
 };

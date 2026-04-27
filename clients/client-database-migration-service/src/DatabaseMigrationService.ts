@@ -604,6 +604,8 @@ import {
   UpdateSubscriptionsToEventBridgeCommand,
 } from "./commands/UpdateSubscriptionsToEventBridgeCommand";
 import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceServiceException } from "./models/DatabaseMigrationServiceServiceException";
+import type { ResourceNotFoundFault } from "./models/errors";
 import {
   paginateDescribeApplicableIndividualAssessments,
 } from "./pagination/DescribeApplicableIndividualAssessmentsPaginator";
@@ -3377,7 +3379,7 @@ export interface DatabaseMigrationService {
   waitUntilTestConnectionSucceeds(
     args: DescribeConnectionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeConnectionsCommandOutput>>;
 
   /**
    * @see {@link DescribeEndpointsCommand}
@@ -3387,7 +3389,7 @@ export interface DatabaseMigrationService {
   waitUntilEndpointDeleted(
     args: DescribeEndpointsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundFault>>;
 
   /**
    * @see {@link DescribeReplicationInstancesCommand}
@@ -3397,7 +3399,7 @@ export interface DatabaseMigrationService {
   waitUntilReplicationInstanceAvailable(
     args: DescribeReplicationInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeReplicationInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeReplicationInstancesCommand}
@@ -3407,7 +3409,7 @@ export interface DatabaseMigrationService {
   waitUntilReplicationInstanceDeleted(
     args: DescribeReplicationInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundFault>>;
 
   /**
    * @see {@link DescribeReplicationTasksCommand}
@@ -3417,7 +3419,7 @@ export interface DatabaseMigrationService {
   waitUntilReplicationTaskDeleted(
     args: DescribeReplicationTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundFault>>;
 
   /**
    * @see {@link DescribeReplicationTasksCommand}
@@ -3427,7 +3429,7 @@ export interface DatabaseMigrationService {
   waitUntilReplicationTaskReady(
     args: DescribeReplicationTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeReplicationTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeReplicationTasksCommand}
@@ -3437,7 +3439,7 @@ export interface DatabaseMigrationService {
   waitUntilReplicationTaskRunning(
     args: DescribeReplicationTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeReplicationTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeReplicationTasksCommand}
@@ -3447,7 +3449,7 @@ export interface DatabaseMigrationService {
   waitUntilReplicationTaskStopped(
     args: DescribeReplicationTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeReplicationTasksCommandOutput>>;
 }
 
 /**

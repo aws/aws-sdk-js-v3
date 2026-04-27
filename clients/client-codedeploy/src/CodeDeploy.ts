@@ -244,6 +244,7 @@ import {
   type UpdateDeploymentGroupCommandOutput,
   UpdateDeploymentGroupCommand,
 } from "./commands/UpdateDeploymentGroupCommand";
+import type { CodeDeployServiceException } from "./models/CodeDeployServiceException";
 import { paginateListApplicationRevisions } from "./pagination/ListApplicationRevisionsPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListDeploymentConfigs } from "./pagination/ListDeploymentConfigsPaginator";
@@ -1198,7 +1199,7 @@ export interface CodeDeploy {
   waitUntilDeploymentSuccessful(
     args: GetDeploymentCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CodeDeploy>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetDeploymentCommandOutput>>;
 }
 
 /**

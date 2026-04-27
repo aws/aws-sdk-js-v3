@@ -734,6 +734,7 @@ import {
   type UpdateServiceSettingCommandOutput,
   UpdateServiceSettingCommand,
 } from "./commands/UpdateServiceSettingCommand";
+import type { SSMServiceException } from "./models/SSMServiceException";
 import { paginateDescribeActivations } from "./pagination/DescribeActivationsPaginator";
 import { paginateDescribeAssociationExecutions } from "./pagination/DescribeAssociationExecutionsPaginator";
 import { paginateDescribeAssociationExecutionTargets } from "./pagination/DescribeAssociationExecutionTargetsPaginator";
@@ -4072,7 +4073,7 @@ export interface SSM {
   waitUntilCommandExecuted(
     args: GetCommandInvocationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SSM>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetCommandInvocationCommandOutput>>;
 }
 
 /**

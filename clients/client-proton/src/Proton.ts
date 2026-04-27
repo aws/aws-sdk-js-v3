@@ -443,6 +443,8 @@ import {
   type UpdateTemplateSyncConfigCommandOutput,
   UpdateTemplateSyncConfigCommand,
 } from "./commands/UpdateTemplateSyncConfigCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { ProtonServiceException } from "./models/ProtonServiceException";
 import { paginateListComponentOutputs } from "./pagination/ListComponentOutputsPaginator";
 import { paginateListComponentProvisionedResources } from "./pagination/ListComponentProvisionedResourcesPaginator";
 import { paginateListComponents } from "./pagination/ListComponentsPaginator";
@@ -2335,7 +2337,7 @@ export interface Proton {
   waitUntilComponentDeployed(
     args: GetComponentCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetComponentCommandOutput>>;
 
   /**
    * @see {@link GetComponentCommand}
@@ -2345,7 +2347,7 @@ export interface Proton {
   waitUntilComponentDeleted(
     args: GetComponentCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetEnvironmentCommand}
@@ -2355,7 +2357,7 @@ export interface Proton {
   waitUntilEnvironmentDeployed(
     args: GetEnvironmentCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetEnvironmentCommandOutput>>;
 
   /**
    * @see {@link GetEnvironmentTemplateVersionCommand}
@@ -2365,7 +2367,7 @@ export interface Proton {
   waitUntilEnvironmentTemplateVersionRegistered(
     args: GetEnvironmentTemplateVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetEnvironmentTemplateVersionCommandOutput>>;
 
   /**
    * @see {@link GetServiceCommand}
@@ -2375,7 +2377,7 @@ export interface Proton {
   waitUntilServiceCreated(
     args: GetServiceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetServiceCommandOutput>>;
 
   /**
    * @see {@link GetServiceCommand}
@@ -2385,7 +2387,7 @@ export interface Proton {
   waitUntilServiceUpdated(
     args: GetServiceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetServiceCommandOutput>>;
 
   /**
    * @see {@link GetServiceCommand}
@@ -2395,7 +2397,7 @@ export interface Proton {
   waitUntilServiceDeleted(
     args: GetServiceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetServiceCommand}
@@ -2405,7 +2407,7 @@ export interface Proton {
   waitUntilServicePipelineDeployed(
     args: GetServiceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetServiceCommandOutput>>;
 
   /**
    * @see {@link GetServiceInstanceCommand}
@@ -2415,7 +2417,7 @@ export interface Proton {
   waitUntilServiceInstanceDeployed(
     args: GetServiceInstanceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetServiceInstanceCommandOutput>>;
 
   /**
    * @see {@link GetServiceTemplateVersionCommand}
@@ -2425,7 +2427,7 @@ export interface Proton {
   waitUntilServiceTemplateVersionRegistered(
     args: GetServiceTemplateVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetServiceTemplateVersionCommandOutput>>;
 }
 
 /**

@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeNodegroupCommandInput, DescribeNodegroupCommand } from "../commands/DescribeNodegroupCommand";
+import {
+  type DescribeNodegroupCommandInput,
+  type DescribeNodegroupCommandOutput,
+  DescribeNodegroupCommand,
+} from "../commands/DescribeNodegroupCommand";
 import type { EKSClient } from "../EKSClient";
+import type { EKSServiceException } from "../models/EKSServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInput): Promise<WaiterResult<DescribeNodegroupCommandOutput | EKSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeNodegroupCommand(input));
+    let result: DescribeNodegroupCommandOutput & any = await client.send(new DescribeNodegroupCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -25,7 +31,7 @@ const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInpu
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -38,7 +44,7 @@ const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInpu
 export const waitForNodegroupDeleted = async (
   params: WaiterConfiguration<EKSClient>,
   input: DescribeNodegroupCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNodegroupCommandOutput | EKSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +56,8 @@ export const waitForNodegroupDeleted = async (
 export const waitUntilNodegroupDeleted = async (
   params: WaiterConfiguration<EKSClient>,
   input: DescribeNodegroupCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

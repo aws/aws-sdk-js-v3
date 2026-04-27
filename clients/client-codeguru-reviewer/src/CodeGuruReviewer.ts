@@ -79,6 +79,7 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import type { CodeGuruReviewerServiceException } from "./models/CodeGuruReviewerServiceException";
 import { paginateListCodeReviews } from "./pagination/ListCodeReviewsPaginator";
 import { paginateListRecommendationFeedback } from "./pagination/ListRecommendationFeedbackPaginator";
 import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
@@ -405,7 +406,7 @@ export interface CodeGuruReviewer {
   waitUntilCodeReviewCompleted(
     args: DescribeCodeReviewCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CodeGuruReviewer>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCodeReviewCommandOutput>>;
 
   /**
    * @see {@link DescribeRepositoryAssociationCommand}
@@ -415,7 +416,7 @@ export interface CodeGuruReviewer {
   waitUntilRepositoryAssociationSucceeded(
     args: DescribeRepositoryAssociationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CodeGuruReviewer>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeRepositoryAssociationCommandOutput>>;
 }
 
 /**

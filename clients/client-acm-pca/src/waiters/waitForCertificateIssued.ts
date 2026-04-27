@@ -8,20 +8,25 @@ import {
 } from "@smithy/util-waiter";
 
 import type { ACMPCAClient } from "../ACMPCAClient";
-import { type GetCertificateCommandInput, GetCertificateCommand } from "../commands/GetCertificateCommand";
+import {
+  type GetCertificateCommandInput,
+  type GetCertificateCommandOutput,
+  GetCertificateCommand,
+} from "../commands/GetCertificateCommand";
+import type { ACMPCAServiceException } from "../models/ACMPCAServiceException";
 
-const checkState = async (client: ACMPCAClient, input: GetCertificateCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ACMPCAClient, input: GetCertificateCommandInput): Promise<WaiterResult<GetCertificateCommandOutput | ACMPCAServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetCertificateCommand(input));
+    let result: GetCertificateCommandOutput & any = await client.send(new GetCertificateCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "RequestInProgressException") {
+    if (exception.name === "RequestInProgressException") {
       return { state: WaiterState.RETRY, reason };
     }
-    if (exception.name && exception.name == "AccessDeniedException") {
+    if (exception.name === "AccessDeniedException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -34,7 +39,7 @@ const checkState = async (client: ACMPCAClient, input: GetCertificateCommandInpu
 export const waitForCertificateIssued = async (
   params: WaiterConfiguration<ACMPCAClient>,
   input: GetCertificateCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetCertificateCommandOutput | ACMPCAServiceException>> => {
   const serviceDefaults = { minDelay: 1, maxDelay: 60 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -46,8 +51,8 @@ export const waitForCertificateIssued = async (
 export const waitUntilCertificateIssued = async (
   params: WaiterConfiguration<ACMPCAClient>,
   input: GetCertificateCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetCertificateCommandOutput>> => {
   const serviceDefaults = { minDelay: 1, maxDelay: 60 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetCertificateCommandOutput>;
 };

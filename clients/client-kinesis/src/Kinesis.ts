@@ -200,6 +200,8 @@ import {
   UpdateStreamWarmThroughputCommand,
 } from "./commands/UpdateStreamWarmThroughputCommand";
 import { KinesisClient } from "./KinesisClient";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { KinesisServiceException } from "./models/KinesisServiceException";
 import { paginateListStreamConsumers } from "./pagination/ListStreamConsumersPaginator";
 import { paginateListStreams } from "./pagination/ListStreamsPaginator";
 import { waitUntilStreamExists } from "./waiters/waitForStreamExists";
@@ -959,7 +961,7 @@ export interface Kinesis {
   waitUntilStreamExists(
     args: DescribeStreamCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Kinesis>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStreamCommandOutput>>;
 
   /**
    * @see {@link DescribeStreamCommand}
@@ -969,7 +971,7 @@ export interface Kinesis {
   waitUntilStreamNotExists(
     args: DescribeStreamCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Kinesis>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

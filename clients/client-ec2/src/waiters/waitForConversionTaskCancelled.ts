@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeConversionTasksCommandInput,
+  type DescribeConversionTasksCommandOutput,
   DescribeConversionTasksCommand,
 } from "../commands/DescribeConversionTasksCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeConversionTasksCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeConversionTasksCommandInput): Promise<WaiterResult<DescribeConversionTasksCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeConversionTasksCommand(input));
+    let result: DescribeConversionTasksCommandOutput & any = await client.send(new DescribeConversionTasksCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: EC2Client, input: DescribeConversionTasksComma
 export const waitForConversionTaskCancelled = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeConversionTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeConversionTasksCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForConversionTaskCancelled = async (
 export const waitUntilConversionTaskCancelled = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeConversionTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeConversionTasksCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeConversionTasksCommandOutput>;
 };

@@ -8,12 +8,18 @@ import {
 } from "@smithy/util-waiter";
 
 import type { AmpClient } from "../AmpClient";
-import { type DescribeWorkspaceCommandInput, DescribeWorkspaceCommand } from "../commands/DescribeWorkspaceCommand";
+import {
+  type DescribeWorkspaceCommandInput,
+  type DescribeWorkspaceCommandOutput,
+  DescribeWorkspaceCommand,
+} from "../commands/DescribeWorkspaceCommand";
+import type { AmpServiceException } from "../models/AmpServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInput): Promise<WaiterResult<DescribeWorkspaceCommandOutput | AmpServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeWorkspaceCommand(input));
+    let result: DescribeWorkspaceCommandOutput & any = await client.send(new DescribeWorkspaceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -25,7 +31,7 @@ const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInpu
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -38,7 +44,7 @@ const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInpu
 export const waitForWorkspaceDeleted = async (
   params: WaiterConfiguration<AmpClient>,
   input: DescribeWorkspaceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeWorkspaceCommandOutput | AmpServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +56,8 @@ export const waitForWorkspaceDeleted = async (
 export const waitUntilWorkspaceDeleted = async (
   params: WaiterConfiguration<AmpClient>,
   input: DescribeWorkspaceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

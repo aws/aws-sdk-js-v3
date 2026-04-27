@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeStreamCommandInput, DescribeStreamCommand } from "../commands/DescribeStreamCommand";
+import {
+  type DescribeStreamCommandInput,
+  type DescribeStreamCommandOutput,
+  DescribeStreamCommand,
+} from "../commands/DescribeStreamCommand";
 import type { KinesisClient } from "../KinesisClient";
+import type { KinesisServiceException } from "../models/KinesisServiceException";
 
-const checkState = async (client: KinesisClient, input: DescribeStreamCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: KinesisClient, input: DescribeStreamCommandInput): Promise<WaiterResult<DescribeStreamCommandOutput | KinesisServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeStreamCommand(input));
+    let result: DescribeStreamCommandOutput & any = await client.send(new DescribeStreamCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -35,7 +40,7 @@ const checkState = async (client: KinesisClient, input: DescribeStreamCommandInp
 export const waitForStreamExists = async (
   params: WaiterConfiguration<KinesisClient>,
   input: DescribeStreamCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStreamCommandOutput | KinesisServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -47,8 +52,8 @@ export const waitForStreamExists = async (
 export const waitUntilStreamExists = async (
   params: WaiterConfiguration<KinesisClient>,
   input: DescribeStreamCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStreamCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeStreamCommandOutput>;
 };

@@ -295,6 +295,7 @@ import {
   ValidatePullThroughCacheRuleCommand,
 } from "./commands/ValidatePullThroughCacheRuleCommand";
 import { ECRClient } from "./ECRClient";
+import type { ECRServiceException } from "./models/ECRServiceException";
 import { paginateDescribeImageScanFindings } from "./pagination/DescribeImageScanFindingsPaginator";
 import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";
 import { paginateDescribePullThroughCacheRules } from "./pagination/DescribePullThroughCacheRulesPaginator";
@@ -1463,7 +1464,7 @@ export interface ECR {
   waitUntilImageScanComplete(
     args: DescribeImageScanFindingsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECR>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImageScanFindingsCommandOutput>>;
 
   /**
    * @see {@link GetLifecyclePolicyPreviewCommand}
@@ -1473,7 +1474,7 @@ export interface ECR {
   waitUntilLifecyclePolicyPreviewComplete(
     args: GetLifecyclePolicyPreviewCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ECR>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetLifecyclePolicyPreviewCommandOutput>>;
 }
 
 /**

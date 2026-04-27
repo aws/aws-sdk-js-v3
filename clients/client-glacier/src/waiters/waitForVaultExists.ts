@@ -7,18 +7,23 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeVaultCommandInput, DescribeVaultCommand } from "../commands/DescribeVaultCommand";
+import {
+  type DescribeVaultCommandInput,
+  type DescribeVaultCommandOutput,
+  DescribeVaultCommand,
+} from "../commands/DescribeVaultCommand";
 import type { GlacierClient } from "../GlacierClient";
+import type { GlacierServiceException } from "../models/GlacierServiceException";
 
-const checkState = async (client: GlacierClient, input: DescribeVaultCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: GlacierClient, input: DescribeVaultCommandInput): Promise<WaiterResult<DescribeVaultCommandOutput | GlacierServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeVaultCommand(input));
+    let result: DescribeVaultCommandOutput & any = await client.send(new DescribeVaultCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -31,7 +36,7 @@ const checkState = async (client: GlacierClient, input: DescribeVaultCommandInpu
 export const waitForVaultExists = async (
   params: WaiterConfiguration<GlacierClient>,
   input: DescribeVaultCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeVaultCommandOutput | GlacierServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -43,8 +48,8 @@ export const waitForVaultExists = async (
 export const waitUntilVaultExists = async (
   params: WaiterConfiguration<GlacierClient>,
   input: DescribeVaultCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeVaultCommandOutput>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeVaultCommandOutput>;
 };

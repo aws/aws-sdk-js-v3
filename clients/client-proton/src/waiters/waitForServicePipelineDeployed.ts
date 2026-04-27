@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetServiceCommandInput, GetServiceCommand } from "../commands/GetServiceCommand";
+import {
+  type GetServiceCommandInput,
+  type GetServiceCommandOutput,
+  GetServiceCommand,
+} from "../commands/GetServiceCommand";
+import type { ProtonServiceException } from "../models/ProtonServiceException";
 import type { ProtonClient } from "../ProtonClient";
 
-const checkState = async (client: ProtonClient, input: GetServiceCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ProtonClient, input: GetServiceCommandInput): Promise<WaiterResult<GetServiceCommandOutput | ProtonServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetServiceCommand(input));
+    let result: GetServiceCommandOutput & any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
 export const waitForServicePipelineDeployed = async (
   params: WaiterConfiguration<ProtonClient>,
   input: GetServiceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetServiceCommandOutput | ProtonServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForServicePipelineDeployed = async (
 export const waitUntilServicePipelineDeployed = async (
   params: WaiterConfiguration<ProtonClient>,
   input: GetServiceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetServiceCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetServiceCommandOutput>;
 };

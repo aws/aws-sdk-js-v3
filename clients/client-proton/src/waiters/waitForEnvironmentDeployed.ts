@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetEnvironmentCommandInput, GetEnvironmentCommand } from "../commands/GetEnvironmentCommand";
+import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
+  GetEnvironmentCommand,
+} from "../commands/GetEnvironmentCommand";
+import type { ProtonServiceException } from "../models/ProtonServiceException";
 import type { ProtonClient } from "../ProtonClient";
 
-const checkState = async (client: ProtonClient, input: GetEnvironmentCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ProtonClient, input: GetEnvironmentCommandInput): Promise<WaiterResult<GetEnvironmentCommandOutput | ProtonServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetEnvironmentCommand(input));
+    let result: GetEnvironmentCommandOutput & any = await client.send(new GetEnvironmentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: ProtonClient, input: GetEnvironmentCommandInpu
 export const waitForEnvironmentDeployed = async (
   params: WaiterConfiguration<ProtonClient>,
   input: GetEnvironmentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetEnvironmentCommandOutput | ProtonServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 4999 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForEnvironmentDeployed = async (
 export const waitUntilEnvironmentDeployed = async (
   params: WaiterConfiguration<ProtonClient>,
   input: GetEnvironmentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetEnvironmentCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 4999 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetEnvironmentCommandOutput>;
 };

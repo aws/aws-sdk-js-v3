@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { CloudFrontClient } from "../CloudFrontClient";
-import { type GetInvalidationCommandInput, GetInvalidationCommand } from "../commands/GetInvalidationCommand";
+import {
+  type GetInvalidationCommandInput,
+  type GetInvalidationCommandOutput,
+  GetInvalidationCommand,
+} from "../commands/GetInvalidationCommand";
+import type { CloudFrontServiceException } from "../models/CloudFrontServiceException";
 
-const checkState = async (client: CloudFrontClient, input: GetInvalidationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFrontClient, input: GetInvalidationCommandInput): Promise<WaiterResult<GetInvalidationCommandOutput | CloudFrontServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetInvalidationCommand(input));
+    let result: GetInvalidationCommandOutput & any = await client.send(new GetInvalidationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -35,7 +40,7 @@ const checkState = async (client: CloudFrontClient, input: GetInvalidationComman
 export const waitForInvalidationCompleted = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetInvalidationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetInvalidationCommandOutput | CloudFrontServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -47,8 +52,8 @@ export const waitForInvalidationCompleted = async (
 export const waitUntilInvalidationCompleted = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetInvalidationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetInvalidationCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetInvalidationCommandOutput>;
 };

@@ -159,6 +159,7 @@ import {
   type UpdateTransformerCommandOutput,
   UpdateTransformerCommand,
 } from "./commands/UpdateTransformerCommand";
+import type { B2biServiceException } from "./models/B2biServiceException";
 import { paginateListCapabilities } from "./pagination/ListCapabilitiesPaginator";
 import { paginateListPartnerships } from "./pagination/ListPartnershipsPaginator";
 import { paginateListProfiles } from "./pagination/ListProfilesPaginator";
@@ -774,7 +775,7 @@ export interface B2bi {
   waitUntilTransformerJobSucceeded(
     args: GetTransformerJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<B2bi>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetTransformerJobCommandOutput>>;
 }
 
 /**

@@ -8,17 +8,22 @@ import {
 } from "@smithy/util-waiter";
 
 import type { CloudWatchClient } from "../CloudWatchClient";
-import { type GetAlarmMuteRuleCommandInput, GetAlarmMuteRuleCommand } from "../commands/GetAlarmMuteRuleCommand";
+import {
+  type GetAlarmMuteRuleCommandInput,
+  type GetAlarmMuteRuleCommandOutput,
+  GetAlarmMuteRuleCommand,
+} from "../commands/GetAlarmMuteRuleCommand";
+import type { CloudWatchServiceException } from "../models/CloudWatchServiceException";
 
-const checkState = async (client: CloudWatchClient, input: GetAlarmMuteRuleCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudWatchClient, input: GetAlarmMuteRuleCommandInput): Promise<WaiterResult<GetAlarmMuteRuleCommandOutput | CloudWatchServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetAlarmMuteRuleCommand(input));
+    let result: GetAlarmMuteRuleCommandOutput & any = await client.send(new GetAlarmMuteRuleCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -31,7 +36,7 @@ const checkState = async (client: CloudWatchClient, input: GetAlarmMuteRuleComma
 export const waitForAlarmMuteRuleExists = async (
   params: WaiterConfiguration<CloudWatchClient>,
   input: GetAlarmMuteRuleCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAlarmMuteRuleCommandOutput | CloudWatchServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -43,8 +48,8 @@ export const waitForAlarmMuteRuleExists = async (
 export const waitUntilAlarmMuteRuleExists = async (
   params: WaiterConfiguration<CloudWatchClient>,
   input: GetAlarmMuteRuleCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAlarmMuteRuleCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetAlarmMuteRuleCommandOutput>;
 };

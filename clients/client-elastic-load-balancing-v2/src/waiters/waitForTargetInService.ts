@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeTargetHealthCommandInput,
+  type DescribeTargetHealthCommandOutput,
   DescribeTargetHealthCommand,
 } from "../commands/DescribeTargetHealthCommand";
 import type { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import type { ElasticLoadBalancingV2ServiceException } from "../models/ElasticLoadBalancingV2ServiceException";
 
-const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeTargetHealthCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeTargetHealthCommandInput): Promise<WaiterResult<DescribeTargetHealthCommandOutput | ElasticLoadBalancingV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTargetHealthCommand(input));
+    let result: DescribeTargetHealthCommandOutput & any = await client.send(new DescribeTargetHealthCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +38,7 @@ const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeT
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidInstance") {
+    if (exception.name === "InvalidInstance") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -49,7 +51,7 @@ const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeT
 export const waitForTargetInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingV2Client>,
   input: DescribeTargetHealthCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTargetHealthCommandOutput | ElasticLoadBalancingV2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +63,8 @@ export const waitForTargetInService = async (
 export const waitUntilTargetInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingV2Client>,
   input: DescribeTargetHealthCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTargetHealthCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTargetHealthCommandOutput>;
 };

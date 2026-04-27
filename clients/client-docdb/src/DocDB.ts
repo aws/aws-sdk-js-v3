@@ -284,6 +284,8 @@ import {
   SwitchoverGlobalClusterCommand,
 } from "./commands/SwitchoverGlobalClusterCommand";
 import { DocDBClient } from "./DocDBClient";
+import type { DocDBServiceException } from "./models/DocDBServiceException";
+import type { DBInstanceNotFoundFault } from "./models/errors";
 import { paginateDescribeCertificates } from "./pagination/DescribeCertificatesPaginator";
 import { paginateDescribeDBClusterParameterGroups } from "./pagination/DescribeDBClusterParameterGroupsPaginator";
 import { paginateDescribeDBClusterParameters } from "./pagination/DescribeDBClusterParametersPaginator";
@@ -1477,7 +1479,7 @@ export interface DocDB {
   waitUntilDBInstanceAvailable(
     args: DescribeDBInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DocDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeDBInstancesCommand}
@@ -1487,7 +1489,7 @@ export interface DocDB {
   waitUntilDBInstanceDeleted(
     args: DescribeDBInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DocDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBInstancesCommandOutput | DBInstanceNotFoundFault>>;
 }
 
 /**

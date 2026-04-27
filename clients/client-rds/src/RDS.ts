@@ -828,6 +828,13 @@ import {
   type SwitchoverReadReplicaCommandOutput,
   SwitchoverReadReplicaCommand,
 } from "./commands/SwitchoverReadReplicaCommand";
+import type {
+  DBClusterNotFoundFault,
+  DBClusterSnapshotNotFoundFault,
+  DBInstanceNotFoundFault,
+  DBSnapshotNotFoundFault,
+} from "./models/errors";
+import type { RDSServiceException } from "./models/RDSServiceException";
 import { paginateDescribeBlueGreenDeployments } from "./pagination/DescribeBlueGreenDeploymentsPaginator";
 import { paginateDescribeCertificates } from "./pagination/DescribeCertificatesPaginator";
 import { paginateDescribeDBClusterAutomatedBackups } from "./pagination/DescribeDBClusterAutomatedBackupsPaginator";
@@ -4407,7 +4414,7 @@ export interface RDS {
   waitUntilDBClusterAvailable(
     args: DescribeDBClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBClustersCommandOutput>>;
 
   /**
    * @see {@link DescribeDBClustersCommand}
@@ -4417,7 +4424,7 @@ export interface RDS {
   waitUntilDBClusterDeleted(
     args: DescribeDBClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBClustersCommandOutput | DBClusterNotFoundFault>>;
 
   /**
    * @see {@link DescribeDBClusterSnapshotsCommand}
@@ -4427,7 +4434,7 @@ export interface RDS {
   waitUntilDBClusterSnapshotAvailable(
     args: DescribeDBClusterSnapshotsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBClusterSnapshotsCommandOutput>>;
 
   /**
    * @see {@link DescribeDBClusterSnapshotsCommand}
@@ -4437,7 +4444,7 @@ export interface RDS {
   waitUntilDBClusterSnapshotDeleted(
     args: DescribeDBClusterSnapshotsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBClusterSnapshotsCommandOutput | DBClusterSnapshotNotFoundFault>>;
 
   /**
    * @see {@link DescribeDBInstancesCommand}
@@ -4447,7 +4454,7 @@ export interface RDS {
   waitUntilDBInstanceAvailable(
     args: DescribeDBInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeDBInstancesCommand}
@@ -4457,7 +4464,7 @@ export interface RDS {
   waitUntilDBInstanceDeleted(
     args: DescribeDBInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBInstancesCommandOutput | DBInstanceNotFoundFault>>;
 
   /**
    * @see {@link DescribeDBSnapshotsCommand}
@@ -4467,7 +4474,7 @@ export interface RDS {
   waitUntilDBSnapshotAvailable(
     args: DescribeDBSnapshotsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput>>;
 
   /**
    * @see {@link DescribeDBSnapshotsCommand}
@@ -4477,7 +4484,7 @@ export interface RDS {
   waitUntilDBSnapshotDeleted(
     args: DescribeDBSnapshotsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput | DBSnapshotNotFoundFault>>;
 
   /**
    * @see {@link DescribeTenantDatabasesCommand}
@@ -4487,7 +4494,7 @@ export interface RDS {
   waitUntilTenantDatabaseAvailable(
     args: DescribeTenantDatabasesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTenantDatabasesCommandOutput>>;
 
   /**
    * @see {@link DescribeTenantDatabasesCommand}
@@ -4497,7 +4504,7 @@ export interface RDS {
   waitUntilTenantDatabaseDeleted(
     args: DescribeTenantDatabasesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTenantDatabasesCommandOutput | DBInstanceNotFoundFault>>;
 }
 
 /**

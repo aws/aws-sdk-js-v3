@@ -278,6 +278,8 @@ import {
   UpdateTimeToLiveCommand,
 } from "./commands/UpdateTimeToLiveCommand";
 import { DynamoDBClient } from "./DynamoDBClient";
+import type { DynamoDBServiceException } from "./models/DynamoDBServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListContributorInsights } from "./pagination/ListContributorInsightsPaginator";
 import { paginateListExports } from "./pagination/ListExportsPaginator";
 import { paginateListImports } from "./pagination/ListImportsPaginator";
@@ -1419,7 +1421,7 @@ export interface DynamoDB {
   waitUntilContributorInsightsEnabled(
     args: DescribeContributorInsightsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeContributorInsightsCommandOutput>>;
 
   /**
    * @see {@link DescribeExportCommand}
@@ -1429,7 +1431,7 @@ export interface DynamoDB {
   waitUntilExportCompleted(
     args: DescribeExportCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeExportCommandOutput>>;
 
   /**
    * @see {@link DescribeImportCommand}
@@ -1439,7 +1441,7 @@ export interface DynamoDB {
   waitUntilImportCompleted(
     args: DescribeImportCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImportCommandOutput>>;
 
   /**
    * @see {@link DescribeKinesisStreamingDestinationCommand}
@@ -1449,7 +1451,7 @@ export interface DynamoDB {
   waitUntilKinesisStreamingDestinationActive(
     args: DescribeKinesisStreamingDestinationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeKinesisStreamingDestinationCommandOutput>>;
 
   /**
    * @see {@link DescribeTableCommand}
@@ -1459,7 +1461,7 @@ export interface DynamoDB {
   waitUntilTableExists(
     args: DescribeTableCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTableCommandOutput>>;
 
   /**
    * @see {@link DescribeTableCommand}
@@ -1469,7 +1471,7 @@ export interface DynamoDB {
   waitUntilTableNotExists(
     args: DescribeTableCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeTasksCommandInput, DescribeTasksCommand } from "../commands/DescribeTasksCommand";
+import {
+  type DescribeTasksCommandInput,
+  type DescribeTasksCommandOutput,
+  DescribeTasksCommand,
+} from "../commands/DescribeTasksCommand";
 import type { ECSClient } from "../ECSClient";
+import type { ECSServiceException } from "../models/ECSServiceException";
 
-const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): Promise<WaiterResult<DescribeTasksCommandOutput | ECSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTasksCommand(input));
+    let result: DescribeTasksCommandOutput & any = await client.send(new DescribeTasksCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -71,7 +76,7 @@ const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): 
 export const waitForTasksRunning = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTasksCommandOutput | ECSServiceException>> => {
   const serviceDefaults = { minDelay: 6, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -83,8 +88,8 @@ export const waitForTasksRunning = async (
 export const waitUntilTasksRunning = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTasksCommandOutput>> => {
   const serviceDefaults = { minDelay: 6, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTasksCommandOutput>;
 };

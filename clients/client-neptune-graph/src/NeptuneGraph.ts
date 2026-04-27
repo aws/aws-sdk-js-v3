@@ -166,6 +166,8 @@ import {
   type UpdateGraphCommandOutput,
   UpdateGraphCommand,
 } from "./commands/UpdateGraphCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { NeptuneGraphServiceException } from "./models/NeptuneGraphServiceException";
 import { NeptuneGraphClient } from "./NeptuneGraphClient";
 import { paginateListExportTasks } from "./pagination/ListExportTasksPaginator";
 import { paginateListGraphSnapshots } from "./pagination/ListGraphSnapshotsPaginator";
@@ -887,7 +889,7 @@ export interface NeptuneGraph {
   waitUntilExportTaskSuccessful(
     args: GetExportTaskCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetExportTaskCommandOutput>>;
 
   /**
    * @see {@link GetExportTaskCommand}
@@ -897,7 +899,7 @@ export interface NeptuneGraph {
   waitUntilExportTaskCancelled(
     args: GetExportTaskCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetExportTaskCommandOutput>>;
 
   /**
    * @see {@link GetGraphCommand}
@@ -907,7 +909,7 @@ export interface NeptuneGraph {
   waitUntilGraphAvailable(
     args: GetGraphCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetGraphCommandOutput>>;
 
   /**
    * @see {@link GetGraphCommand}
@@ -917,7 +919,7 @@ export interface NeptuneGraph {
   waitUntilGraphDeleted(
     args: GetGraphCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetGraphCommand}
@@ -927,7 +929,7 @@ export interface NeptuneGraph {
   waitUntilGraphStopped(
     args: GetGraphCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetGraphCommandOutput>>;
 
   /**
    * @see {@link GetGraphSnapshotCommand}
@@ -937,7 +939,7 @@ export interface NeptuneGraph {
   waitUntilGraphSnapshotAvailable(
     args: GetGraphSnapshotCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetGraphSnapshotCommandOutput>>;
 
   /**
    * @see {@link GetGraphSnapshotCommand}
@@ -947,7 +949,7 @@ export interface NeptuneGraph {
   waitUntilGraphSnapshotDeleted(
     args: GetGraphSnapshotCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetImportTaskCommand}
@@ -957,7 +959,7 @@ export interface NeptuneGraph {
   waitUntilImportTaskSuccessful(
     args: GetImportTaskCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetImportTaskCommandOutput>>;
 
   /**
    * @see {@link GetImportTaskCommand}
@@ -967,7 +969,7 @@ export interface NeptuneGraph {
   waitUntilImportTaskCancelled(
     args: GetImportTaskCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetImportTaskCommandOutput>>;
 
   /**
    * @see {@link GetPrivateGraphEndpointCommand}
@@ -977,7 +979,7 @@ export interface NeptuneGraph {
   waitUntilPrivateGraphEndpointAvailable(
     args: GetPrivateGraphEndpointCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPrivateGraphEndpointCommandOutput>>;
 
   /**
    * @see {@link GetPrivateGraphEndpointCommand}
@@ -987,7 +989,7 @@ export interface NeptuneGraph {
   waitUntilPrivateGraphEndpointDeleted(
     args: GetPrivateGraphEndpointCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

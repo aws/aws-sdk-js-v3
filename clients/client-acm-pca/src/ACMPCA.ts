@@ -112,6 +112,7 @@ import {
   type UpdateCertificateAuthorityCommandOutput,
   UpdateCertificateAuthorityCommand,
 } from "./commands/UpdateCertificateAuthorityCommand";
+import type { ACMPCAServiceException } from "./models/ACMPCAServiceException";
 import { paginateListCertificateAuthorities } from "./pagination/ListCertificateAuthoritiesPaginator";
 import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";
 import { paginateListTags } from "./pagination/ListTagsPaginator";
@@ -589,7 +590,7 @@ export interface ACMPCA {
   waitUntilAuditReportCreated(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ACMPCA>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCertificateAuthorityAuditReportCommandOutput>>;
 
   /**
    * @see {@link GetCertificateCommand}
@@ -599,7 +600,7 @@ export interface ACMPCA {
   waitUntilCertificateIssued(
     args: GetCertificateCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ACMPCA>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetCertificateCommandOutput>>;
 
   /**
    * @see {@link GetCertificateAuthorityCsrCommand}
@@ -609,7 +610,7 @@ export interface ACMPCA {
   waitUntilCertificateAuthorityCSRCreated(
     args: GetCertificateAuthorityCsrCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ACMPCA>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetCertificateAuthorityCsrCommandOutput>>;
 }
 
 /**

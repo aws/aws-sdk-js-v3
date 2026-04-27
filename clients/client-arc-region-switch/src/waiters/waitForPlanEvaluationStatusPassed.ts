@@ -10,13 +10,15 @@ import {
 import type { ARCRegionSwitchClient } from "../ARCRegionSwitchClient";
 import {
   type GetPlanEvaluationStatusCommandInput,
+  type GetPlanEvaluationStatusCommandOutput,
   GetPlanEvaluationStatusCommand,
 } from "../commands/GetPlanEvaluationStatusCommand";
+import type { ARCRegionSwitchServiceException } from "../models/ARCRegionSwitchServiceException";
 
-const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluationStatusCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluationStatusCommandInput): Promise<WaiterResult<GetPlanEvaluationStatusCommandOutput | ARCRegionSwitchServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPlanEvaluationStatusCommand(input));
+    let result: GetPlanEvaluationStatusCommandOutput & any = await client.send(new GetPlanEvaluationStatusCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluatio
 export const waitForPlanEvaluationStatusPassed = async (
   params: WaiterConfiguration<ARCRegionSwitchClient>,
   input: GetPlanEvaluationStatusCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPlanEvaluationStatusCommandOutput | ARCRegionSwitchServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForPlanEvaluationStatusPassed = async (
 export const waitUntilPlanEvaluationStatusPassed = async (
   params: WaiterConfiguration<ARCRegionSwitchClient>,
   input: GetPlanEvaluationStatusCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPlanEvaluationStatusCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetPlanEvaluationStatusCommandOutput>;
 };

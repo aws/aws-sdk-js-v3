@@ -9,14 +9,16 @@ import {
 
 import {
   type GetQueueFleetAssociationCommandInput,
+  type GetQueueFleetAssociationCommandOutput,
   GetQueueFleetAssociationCommand,
 } from "../commands/GetQueueFleetAssociationCommand";
 import type { DeadlineClient } from "../DeadlineClient";
+import type { DeadlineServiceException } from "../models/DeadlineServiceException";
 
-const checkState = async (client: DeadlineClient, input: GetQueueFleetAssociationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DeadlineClient, input: GetQueueFleetAssociationCommandInput): Promise<WaiterResult<GetQueueFleetAssociationCommandOutput | DeadlineServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetQueueFleetAssociationCommand(input));
+    let result: GetQueueFleetAssociationCommandOutput & any = await client.send(new GetQueueFleetAssociationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -38,7 +40,7 @@ const checkState = async (client: DeadlineClient, input: GetQueueFleetAssociatio
 export const waitForQueueFleetAssociationStopped = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetQueueFleetAssociationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetQueueFleetAssociationCommandOutput | DeadlineServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +52,8 @@ export const waitForQueueFleetAssociationStopped = async (
 export const waitUntilQueueFleetAssociationStopped = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetQueueFleetAssociationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetQueueFleetAssociationCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetQueueFleetAssociationCommandOutput>;
 };

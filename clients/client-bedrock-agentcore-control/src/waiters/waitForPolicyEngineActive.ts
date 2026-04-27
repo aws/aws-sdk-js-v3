@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
-import { type GetPolicyEngineCommandInput, GetPolicyEngineCommand } from "../commands/GetPolicyEngineCommand";
+import {
+  type GetPolicyEngineCommandInput,
+  type GetPolicyEngineCommandOutput,
+  GetPolicyEngineCommand,
+} from "../commands/GetPolicyEngineCommand";
+import type { BedrockAgentCoreControlServiceException } from "../models/BedrockAgentCoreControlServiceException";
 
-const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyEngineCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyEngineCommandInput): Promise<WaiterResult<GetPolicyEngineCommandOutput | BedrockAgentCoreControlServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPolicyEngineCommand(input));
+    let result: GetPolicyEngineCommandOutput & any = await client.send(new GetPolicyEngineCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -59,7 +64,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
 export const waitForPolicyEngineActive = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyEngineCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyEngineCommandOutput | BedrockAgentCoreControlServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -71,8 +76,8 @@ export const waitForPolicyEngineActive = async (
 export const waitUntilPolicyEngineActive = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyEngineCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyEngineCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetPolicyEngineCommandOutput>;
 };

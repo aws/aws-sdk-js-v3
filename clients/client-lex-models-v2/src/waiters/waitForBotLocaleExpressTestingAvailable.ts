@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeBotLocaleCommandInput, DescribeBotLocaleCommand } from "../commands/DescribeBotLocaleCommand";
+import {
+  type DescribeBotLocaleCommandInput,
+  type DescribeBotLocaleCommandOutput,
+  DescribeBotLocaleCommand,
+} from "../commands/DescribeBotLocaleCommand";
 import type { LexModelsV2Client } from "../LexModelsV2Client";
+import type { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
-const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCommandInput): Promise<WaiterResult<DescribeBotLocaleCommandOutput | LexModelsV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBotLocaleCommand(input));
+    let result: DescribeBotLocaleCommandOutput & any = await client.send(new DescribeBotLocaleCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -67,7 +72,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
 export const waitForBotLocaleExpressTestingAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotLocaleCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotLocaleCommandOutput | LexModelsV2ServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -79,8 +84,8 @@ export const waitForBotLocaleExpressTestingAvailable = async (
 export const waitUntilBotLocaleExpressTestingAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotLocaleCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotLocaleCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeBotLocaleCommandOutput>;
 };

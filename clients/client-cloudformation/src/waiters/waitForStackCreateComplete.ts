@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { CloudFormationClient } from "../CloudFormationClient";
-import { type DescribeStacksCommandInput, DescribeStacksCommand } from "../commands/DescribeStacksCommand";
+import {
+  type DescribeStacksCommandInput,
+  type DescribeStacksCommandOutput,
+  DescribeStacksCommand,
+} from "../commands/DescribeStacksCommand";
+import type { CloudFormationServiceException } from "../models/CloudFormationServiceException";
 
-const checkState = async (client: CloudFormationClient, input: DescribeStacksCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFormationClient, input: DescribeStacksCommandInput): Promise<WaiterResult<DescribeStacksCommandOutput | CloudFormationServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeStacksCommand(input));
+    let result: DescribeStacksCommandOutput & any = await client.send(new DescribeStacksCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -231,7 +236,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationError") {
+    if (exception.name === "ValidationError") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -244,7 +249,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
 export const waitForStackCreateComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeStacksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStacksCommandOutput | CloudFormationServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -256,8 +261,8 @@ export const waitForStackCreateComplete = async (
 export const waitUntilStackCreateComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeStacksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStacksCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeStacksCommandOutput>;
 };

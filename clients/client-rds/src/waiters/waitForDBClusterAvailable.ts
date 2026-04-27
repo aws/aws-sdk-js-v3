@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeDBClustersCommandInput, DescribeDBClustersCommand } from "../commands/DescribeDBClustersCommand";
+import {
+  type DescribeDBClustersCommandInput,
+  type DescribeDBClustersCommandOutput,
+  DescribeDBClustersCommand,
+} from "../commands/DescribeDBClustersCommand";
+import type { RDSServiceException } from "../models/RDSServiceException";
 import type { RDSClient } from "../RDSClient";
 
-const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInput): Promise<WaiterResult<DescribeDBClustersCommandOutput | RDSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBClustersCommand(input));
+    let result: DescribeDBClustersCommandOutput & any = await client.send(new DescribeDBClustersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -113,7 +118,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
 export const waitForDBClusterAvailable = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBClustersCommandOutput | RDSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -125,8 +130,8 @@ export const waitForDBClusterAvailable = async (
 export const waitUntilDBClusterAvailable = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBClustersCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDBClustersCommandOutput>;
 };

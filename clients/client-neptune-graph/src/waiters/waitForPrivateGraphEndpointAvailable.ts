@@ -9,14 +9,16 @@ import {
 
 import {
   type GetPrivateGraphEndpointCommandInput,
+  type GetPrivateGraphEndpointCommandOutput,
   GetPrivateGraphEndpointCommand,
 } from "../commands/GetPrivateGraphEndpointCommand";
+import type { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndpointCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndpointCommandInput): Promise<WaiterResult<GetPrivateGraphEndpointCommandOutput | NeptuneGraphServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPrivateGraphEndpointCommand(input));
+    let result: GetPrivateGraphEndpointCommandOutput & any = await client.send(new GetPrivateGraphEndpointCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndp
 export const waitForPrivateGraphEndpointAvailable = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetPrivateGraphEndpointCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPrivateGraphEndpointCommandOutput | NeptuneGraphServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForPrivateGraphEndpointAvailable = async (
 export const waitUntilPrivateGraphEndpointAvailable = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetPrivateGraphEndpointCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPrivateGraphEndpointCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetPrivateGraphEndpointCommandOutput>;
 };

@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeImportSnapshotTasksCommandInput,
+  type DescribeImportSnapshotTasksCommandOutput,
   DescribeImportSnapshotTasksCommand,
 } from "../commands/DescribeImportSnapshotTasksCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeImportSnapshotTasksCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeImportSnapshotTasksCommandInput): Promise<WaiterResult<DescribeImportSnapshotTasksCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImportSnapshotTasksCommand(input));
+    let result: DescribeImportSnapshotTasksCommandOutput & any = await client.send(new DescribeImportSnapshotTasksCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: EC2Client, input: DescribeImportSnapshotTasksC
 export const waitForSnapshotImported = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeImportSnapshotTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImportSnapshotTasksCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForSnapshotImported = async (
 export const waitUntilSnapshotImported = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeImportSnapshotTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImportSnapshotTasksCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeImportSnapshotTasksCommandOutput>;
 };

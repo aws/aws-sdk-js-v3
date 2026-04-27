@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetStreamGroupCommandInput, GetStreamGroupCommand } from "../commands/GetStreamGroupCommand";
+import {
+  type GetStreamGroupCommandInput,
+  type GetStreamGroupCommandOutput,
+  GetStreamGroupCommand,
+} from "../commands/GetStreamGroupCommand";
 import type { GameLiftStreamsClient } from "../GameLiftStreamsClient";
+import type { GameLiftStreamsServiceException } from "../models/GameLiftStreamsServiceException";
 
-const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCommandInput): Promise<WaiterResult<GetStreamGroupCommandOutput | GameLiftStreamsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetStreamGroupCommand(input));
+    let result: GetStreamGroupCommandOutput & any = await client.send(new GetStreamGroupCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -59,7 +64,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetStreamGroupCo
 export const waitForStreamGroupActive = async (
   params: WaiterConfiguration<GameLiftStreamsClient>,
   input: GetStreamGroupCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetStreamGroupCommandOutput | GameLiftStreamsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -71,8 +76,8 @@ export const waitForStreamGroupActive = async (
 export const waitUntilStreamGroupActive = async (
   params: WaiterConfiguration<GameLiftStreamsClient>,
   input: GetStreamGroupCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetStreamGroupCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetStreamGroupCommandOutput>;
 };

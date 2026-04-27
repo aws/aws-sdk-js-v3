@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { AppConfigClient } from "../AppConfigClient";
-import { type GetDeploymentCommandInput, GetDeploymentCommand } from "../commands/GetDeploymentCommand";
+import {
+  type GetDeploymentCommandInput,
+  type GetDeploymentCommandOutput,
+  GetDeploymentCommand,
+} from "../commands/GetDeploymentCommand";
+import type { AppConfigServiceException } from "../models/AppConfigServiceException";
 
-const checkState = async (client: AppConfigClient, input: GetDeploymentCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AppConfigClient, input: GetDeploymentCommandInput): Promise<WaiterResult<GetDeploymentCommandOutput | AppConfigServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetDeploymentCommand(input));
+    let result: GetDeploymentCommandOutput & any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: AppConfigClient, input: GetDeploymentCommandIn
 export const waitForDeploymentComplete = async (
   params: WaiterConfiguration<AppConfigClient>,
   input: GetDeploymentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetDeploymentCommandOutput | AppConfigServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForDeploymentComplete = async (
 export const waitUntilDeploymentComplete = async (
   params: WaiterConfiguration<AppConfigClient>,
   input: GetDeploymentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetDeploymentCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetDeploymentCommandOutput>;
 };

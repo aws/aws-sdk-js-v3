@@ -9,14 +9,16 @@ import {
 
 import {
   type GetLifecyclePolicyPreviewCommandInput,
+  type GetLifecyclePolicyPreviewCommandOutput,
   GetLifecyclePolicyPreviewCommand,
 } from "../commands/GetLifecyclePolicyPreviewCommand";
 import type { ECRClient } from "../ECRClient";
+import type { ECRServiceException } from "../models/ECRServiceException";
 
-const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCommandInput): Promise<WaiterResult<GetLifecyclePolicyPreviewCommandOutput | ECRServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetLifecyclePolicyPreviewCommand(input));
+    let result: GetLifecyclePolicyPreviewCommandOutput & any = await client.send(new GetLifecyclePolicyPreviewCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCom
 export const waitForLifecyclePolicyPreviewComplete = async (
   params: WaiterConfiguration<ECRClient>,
   input: GetLifecyclePolicyPreviewCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetLifecyclePolicyPreviewCommandOutput | ECRServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForLifecyclePolicyPreviewComplete = async (
 export const waitUntilLifecyclePolicyPreviewComplete = async (
   params: WaiterConfiguration<ECRClient>,
   input: GetLifecyclePolicyPreviewCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetLifecyclePolicyPreviewCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetLifecyclePolicyPreviewCommandOutput>;
 };

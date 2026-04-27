@@ -359,6 +359,7 @@ import {
   type VerifyEmailIdentityCommandOutput,
   VerifyEmailIdentityCommand,
 } from "./commands/VerifyEmailIdentityCommand";
+import type { SESServiceException } from "./models/SESServiceException";
 import {
   paginateListCustomVerificationEmailTemplates,
 } from "./pagination/ListCustomVerificationEmailTemplatesPaginator";
@@ -1698,7 +1699,7 @@ export interface SES {
   waitUntilIdentityExists(
     args: GetIdentityVerificationAttributesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SES>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetIdentityVerificationAttributesCommandOutput>>;
 }
 
 /**

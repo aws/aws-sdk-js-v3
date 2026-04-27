@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeLanguageModelCommandInput,
+  type DescribeLanguageModelCommandOutput,
   DescribeLanguageModelCommand,
 } from "../commands/DescribeLanguageModelCommand";
+import type { TranscribeServiceException } from "../models/TranscribeServiceException";
 import type { TranscribeClient } from "../TranscribeClient";
 
-const checkState = async (client: TranscribeClient, input: DescribeLanguageModelCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: TranscribeClient, input: DescribeLanguageModelCommandInput): Promise<WaiterResult<DescribeLanguageModelCommandOutput | TranscribeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeLanguageModelCommand(input));
+    let result: DescribeLanguageModelCommandOutput & any = await client.send(new DescribeLanguageModelCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: TranscribeClient, input: DescribeLanguageModel
 export const waitForLanguageModelCompleted = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: DescribeLanguageModelCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeLanguageModelCommandOutput | TranscribeServiceException>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForLanguageModelCompleted = async (
 export const waitUntilLanguageModelCompleted = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: DescribeLanguageModelCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeLanguageModelCommandOutput>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeLanguageModelCommandOutput>;
 };

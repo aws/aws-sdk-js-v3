@@ -1948,6 +1948,7 @@ import {
   type UpdateWorkteamCommandOutput,
   UpdateWorkteamCommand,
 } from "./commands/UpdateWorkteamCommand";
+import type { SageMakerServiceException } from "./models/SageMakerServiceException";
 import { paginateCreateHubContentPresignedUrls } from "./pagination/CreateHubContentPresignedUrlsPaginator";
 import {
   paginateDescribeTrainingPlanExtensionHistory,
@@ -10363,7 +10364,7 @@ export interface SageMaker {
   waitUntilEndpointDeleted(
     args: DescribeEndpointCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<SageMakerServiceException>>;
 
   /**
    * @see {@link DescribeEndpointCommand}
@@ -10373,7 +10374,7 @@ export interface SageMaker {
   waitUntilEndpointInService(
     args: DescribeEndpointCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeEndpointCommandOutput>>;
 
   /**
    * @see {@link DescribeImageCommand}
@@ -10383,7 +10384,7 @@ export interface SageMaker {
   waitUntilImageCreated(
     args: DescribeImageCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImageCommandOutput>>;
 
   /**
    * @see {@link DescribeImageCommand}
@@ -10393,7 +10394,7 @@ export interface SageMaker {
   waitUntilImageDeleted(
     args: DescribeImageCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<SageMakerServiceException>>;
 
   /**
    * @see {@link DescribeImageCommand}
@@ -10403,7 +10404,7 @@ export interface SageMaker {
   waitUntilImageUpdated(
     args: DescribeImageCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImageCommandOutput>>;
 
   /**
    * @see {@link DescribeImageVersionCommand}
@@ -10413,7 +10414,7 @@ export interface SageMaker {
   waitUntilImageVersionCreated(
     args: DescribeImageVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImageVersionCommandOutput>>;
 
   /**
    * @see {@link DescribeImageVersionCommand}
@@ -10423,7 +10424,7 @@ export interface SageMaker {
   waitUntilImageVersionDeleted(
     args: DescribeImageVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<SageMakerServiceException>>;
 
   /**
    * @see {@link DescribeNotebookInstanceCommand}
@@ -10433,7 +10434,7 @@ export interface SageMaker {
   waitUntilNotebookInstanceDeleted(
     args: DescribeNotebookInstanceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<SageMakerServiceException>>;
 
   /**
    * @see {@link DescribeNotebookInstanceCommand}
@@ -10443,7 +10444,7 @@ export interface SageMaker {
   waitUntilNotebookInstanceInService(
     args: DescribeNotebookInstanceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNotebookInstanceCommandOutput>>;
 
   /**
    * @see {@link DescribeNotebookInstanceCommand}
@@ -10453,7 +10454,7 @@ export interface SageMaker {
   waitUntilNotebookInstanceStopped(
     args: DescribeNotebookInstanceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNotebookInstanceCommandOutput>>;
 
   /**
    * @see {@link DescribeProcessingJobCommand}
@@ -10463,7 +10464,7 @@ export interface SageMaker {
   waitUntilProcessingJobCompletedOrStopped(
     args: DescribeProcessingJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeProcessingJobCommandOutput>>;
 
   /**
    * @see {@link DescribeTrainingJobCommand}
@@ -10473,7 +10474,7 @@ export interface SageMaker {
   waitUntilTrainingJobCompletedOrStopped(
     args: DescribeTrainingJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTrainingJobCommandOutput>>;
 
   /**
    * @see {@link DescribeTransformJobCommand}
@@ -10483,7 +10484,7 @@ export interface SageMaker {
   waitUntilTransformJobCompletedOrStopped(
     args: DescribeTransformJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SageMaker>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTransformJobCommandOutput>>;
 }
 
 /**

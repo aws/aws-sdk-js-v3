@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeImageCommandInput, DescribeImageCommand } from "../commands/DescribeImageCommand";
+import {
+  type DescribeImageCommandInput,
+  type DescribeImageCommandOutput,
+  DescribeImageCommand,
+} from "../commands/DescribeImageCommand";
+import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (client: SageMakerClient, input: DescribeImageCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeImageCommandInput): Promise<WaiterResult<DescribeImageCommandOutput | SageMakerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImageCommand(input));
+    let result: DescribeImageCommandOutput & any = await client.send(new DescribeImageCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +38,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationException") {
+    if (exception.name === "ValidationException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -46,7 +51,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageCommandIn
 export const waitForImageUpdated = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImageCommandOutput | SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +63,8 @@ export const waitForImageUpdated = async (
 export const waitUntilImageUpdated = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImageCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeImageCommandOutput>;
 };

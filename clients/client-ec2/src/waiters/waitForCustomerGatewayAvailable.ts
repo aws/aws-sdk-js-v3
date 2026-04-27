@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeCustomerGatewaysCommandInput,
+  type DescribeCustomerGatewaysCommandOutput,
   DescribeCustomerGatewaysCommand,
 } from "../commands/DescribeCustomerGatewaysCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysCommandInput): Promise<WaiterResult<DescribeCustomerGatewaysCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCustomerGatewaysCommand(input));
+    let result: DescribeCustomerGatewaysCommandOutput & any = await client.send(new DescribeCustomerGatewaysCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -74,7 +76,7 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
 export const waitForCustomerGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeCustomerGatewaysCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCustomerGatewaysCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -86,8 +88,8 @@ export const waitForCustomerGatewayAvailable = async (
 export const waitUntilCustomerGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeCustomerGatewaysCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCustomerGatewaysCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCustomerGatewaysCommandOutput>;
 };

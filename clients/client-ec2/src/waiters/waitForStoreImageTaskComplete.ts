@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeStoreImageTasksCommandInput,
+  type DescribeStoreImageTasksCommandOutput,
   DescribeStoreImageTasksCommand,
 } from "../commands/DescribeStoreImageTasksCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeStoreImageTasksCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeStoreImageTasksCommandInput): Promise<WaiterResult<DescribeStoreImageTasksCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeStoreImageTasksCommand(input));
+    let result: DescribeStoreImageTasksCommandOutput & any = await client.send(new DescribeStoreImageTasksCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -74,7 +76,7 @@ const checkState = async (client: EC2Client, input: DescribeStoreImageTasksComma
 export const waitForStoreImageTaskComplete = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeStoreImageTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStoreImageTasksCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -86,8 +88,8 @@ export const waitForStoreImageTaskComplete = async (
 export const waitUntilStoreImageTaskComplete = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeStoreImageTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStoreImageTasksCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeStoreImageTasksCommandOutput>;
 };

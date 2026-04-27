@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeDaemonCommandInput, DescribeDaemonCommand } from "../commands/DescribeDaemonCommand";
+import {
+  type DescribeDaemonCommandInput,
+  type DescribeDaemonCommandOutput,
+  DescribeDaemonCommand,
+} from "../commands/DescribeDaemonCommand";
 import type { ECSClient } from "../ECSClient";
+import type { ECSServiceException } from "../models/ECSServiceException";
 
-const checkState = async (client: ECSClient, input: DescribeDaemonCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ECSClient, input: DescribeDaemonCommandInput): Promise<WaiterResult<DescribeDaemonCommandOutput | ECSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDaemonCommand(input));
+    let result: DescribeDaemonCommandOutput & any = await client.send(new DescribeDaemonCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: ECSClient, input: DescribeDaemonCommandInput):
 export const waitForDaemonActive = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeDaemonCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDaemonCommandOutput | ECSServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForDaemonActive = async (
 export const waitUntilDaemonActive = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeDaemonCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDaemonCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDaemonCommandOutput>;
 };

@@ -10,13 +10,16 @@ import {
 import type { AmpClient } from "../AmpClient";
 import {
   type DescribeAnomalyDetectorCommandInput,
+  type DescribeAnomalyDetectorCommandOutput,
   DescribeAnomalyDetectorCommand,
 } from "../commands/DescribeAnomalyDetectorCommand";
+import type { AmpServiceException } from "../models/AmpServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorCommandInput): Promise<WaiterResult<DescribeAnomalyDetectorCommandOutput | AmpServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAnomalyDetectorCommand(input));
+    let result: DescribeAnomalyDetectorCommandOutput & any = await client.send(new DescribeAnomalyDetectorCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -28,7 +31,7 @@ const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -41,7 +44,7 @@ const checkState = async (client: AmpClient, input: DescribeAnomalyDetectorComma
 export const waitForAnomalyDetectorDeleted = async (
   params: WaiterConfiguration<AmpClient>,
   input: DescribeAnomalyDetectorCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeAnomalyDetectorCommandOutput | AmpServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -53,8 +56,8 @@ export const waitForAnomalyDetectorDeleted = async (
 export const waitUntilAnomalyDetectorDeleted = async (
   params: WaiterConfiguration<AmpClient>,
   input: DescribeAnomalyDetectorCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

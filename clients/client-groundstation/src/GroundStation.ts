@@ -205,6 +205,7 @@ import {
   UpdateMissionProfileCommand,
 } from "./commands/UpdateMissionProfileCommand";
 import { GroundStationClient } from "./GroundStationClient";
+import type { GroundStationServiceException } from "./models/GroundStationServiceException";
 import { paginateListAntennas } from "./pagination/ListAntennasPaginator";
 import { paginateListConfigs } from "./pagination/ListConfigsPaginator";
 import { paginateListContacts } from "./pagination/ListContactsPaginator";
@@ -1081,7 +1082,7 @@ export interface GroundStation {
   waitUntilContactScheduled(
     args: DescribeContactCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GroundStation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeContactCommandOutput>>;
 
   /**
    * @see {@link DescribeContactVersionCommand}
@@ -1091,7 +1092,7 @@ export interface GroundStation {
   waitUntilContactUpdated(
     args: DescribeContactVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GroundStation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeContactVersionCommandOutput>>;
 }
 
 /**

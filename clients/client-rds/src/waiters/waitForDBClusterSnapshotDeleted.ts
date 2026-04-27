@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeDBClusterSnapshotsCommandInput,
+  type DescribeDBClusterSnapshotsCommandOutput,
   DescribeDBClusterSnapshotsCommand,
 } from "../commands/DescribeDBClusterSnapshotsCommand";
+import type { DBClusterSnapshotNotFoundFault } from "../models/errors";
+import type { RDSServiceException } from "../models/RDSServiceException";
 import type { RDSClient } from "../RDSClient";
 
-const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCommandInput): Promise<WaiterResult<DescribeDBClusterSnapshotsCommandOutput | RDSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBClusterSnapshotsCommand(input));
+    let result: DescribeDBClusterSnapshotsCommandOutput & any = await client.send(new DescribeDBClusterSnapshotsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -84,7 +87,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCo
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBClusterSnapshotNotFoundFault") {
+    if (exception.name === "DBClusterSnapshotNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -97,7 +100,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCo
 export const waitForDBClusterSnapshotDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClusterSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBClusterSnapshotsCommandOutput | RDSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -109,8 +112,8 @@ export const waitForDBClusterSnapshotDeleted = async (
 export const waitUntilDBClusterSnapshotDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClusterSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBClusterSnapshotsCommandOutput | DBClusterSnapshotNotFoundFault>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDBClusterSnapshotsCommandOutput | DBClusterSnapshotNotFoundFault>;
 };

@@ -19,6 +19,7 @@ import {
   type StartDomainExportCommandOutput,
   StartDomainExportCommand,
 } from "./commands/StartDomainExportCommand";
+import type { SimpleDBv2ServiceException } from "./models/SimpleDBv2ServiceException";
 import { paginateListExports } from "./pagination/ListExportsPaginator";
 import { SimpleDBv2Client } from "./SimpleDBv2Client";
 import { waitUntilExportSucceeded } from "./waiters/waitForExportSucceeded";
@@ -107,7 +108,7 @@ export interface SimpleDBv2 {
   waitUntilExportSucceeded(
     args: GetExportCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SimpleDBv2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetExportCommandOutput>>;
 }
 
 /**

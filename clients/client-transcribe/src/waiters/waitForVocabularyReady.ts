@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetVocabularyCommandInput, GetVocabularyCommand } from "../commands/GetVocabularyCommand";
+import {
+  type GetVocabularyCommandInput,
+  type GetVocabularyCommandOutput,
+  GetVocabularyCommand,
+} from "../commands/GetVocabularyCommand";
+import type { TranscribeServiceException } from "../models/TranscribeServiceException";
 import type { TranscribeClient } from "../TranscribeClient";
 
-const checkState = async (client: TranscribeClient, input: GetVocabularyCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: TranscribeClient, input: GetVocabularyCommandInput): Promise<WaiterResult<GetVocabularyCommandOutput | TranscribeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetVocabularyCommand(input));
+    let result: GetVocabularyCommandOutput & any = await client.send(new GetVocabularyCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: TranscribeClient, input: GetVocabularyCommandI
 export const waitForVocabularyReady = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetVocabularyCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetVocabularyCommandOutput | TranscribeServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForVocabularyReady = async (
 export const waitUntilVocabularyReady = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetVocabularyCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetVocabularyCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetVocabularyCommandOutput>;
 };

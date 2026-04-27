@@ -10,13 +10,15 @@ import {
 import type { CloudFormationClient } from "../CloudFormationClient";
 import {
   type DescribeStackRefactorCommandInput,
+  type DescribeStackRefactorCommandOutput,
   DescribeStackRefactorCommand,
 } from "../commands/DescribeStackRefactorCommand";
+import type { CloudFormationServiceException } from "../models/CloudFormationServiceException";
 
-const checkState = async (client: CloudFormationClient, input: DescribeStackRefactorCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFormationClient, input: DescribeStackRefactorCommandInput): Promise<WaiterResult<DescribeStackRefactorCommandOutput | CloudFormationServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeStackRefactorCommand(input));
+    let result: DescribeStackRefactorCommandOutput & any = await client.send(new DescribeStackRefactorCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +38,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStackRefa
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationError") {
+    if (exception.name === "ValidationError") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -49,7 +51,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeStackRefa
 export const waitForStackRefactorCreateComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeStackRefactorCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStackRefactorCommandOutput | CloudFormationServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +63,8 @@ export const waitForStackRefactorCreateComplete = async (
 export const waitUntilStackRefactorCreateComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeStackRefactorCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStackRefactorCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeStackRefactorCommandOutput>;
 };

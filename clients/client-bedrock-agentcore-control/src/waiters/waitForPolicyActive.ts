@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
-import { type GetPolicyCommandInput, GetPolicyCommand } from "../commands/GetPolicyCommand";
+import {
+  type GetPolicyCommandInput,
+  type GetPolicyCommandOutput,
+  GetPolicyCommand,
+} from "../commands/GetPolicyCommand";
+import type { BedrockAgentCoreControlServiceException } from "../models/BedrockAgentCoreControlServiceException";
 
-const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyCommandInput): Promise<WaiterResult<GetPolicyCommandOutput | BedrockAgentCoreControlServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPolicyCommand(input));
+    let result: GetPolicyCommandOutput & any = await client.send(new GetPolicyCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -59,7 +64,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
 export const waitForPolicyActive = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyCommandOutput | BedrockAgentCoreControlServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -71,8 +76,8 @@ export const waitForPolicyActive = async (
 export const waitUntilPolicyActive = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetPolicyCommandOutput>;
 };

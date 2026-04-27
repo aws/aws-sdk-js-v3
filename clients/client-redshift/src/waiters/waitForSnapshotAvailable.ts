@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeClusterSnapshotsCommandInput,
+  type DescribeClusterSnapshotsCommandOutput,
   DescribeClusterSnapshotsCommand,
 } from "../commands/DescribeClusterSnapshotsCommand";
+import type { RedshiftServiceException } from "../models/RedshiftServiceException";
 import type { RedshiftClient } from "../RedshiftClient";
 
-const checkState = async (client: RedshiftClient, input: DescribeClusterSnapshotsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RedshiftClient, input: DescribeClusterSnapshotsCommandInput): Promise<WaiterResult<DescribeClusterSnapshotsCommandOutput | RedshiftServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeClusterSnapshotsCommand(input));
+    let result: DescribeClusterSnapshotsCommandOutput & any = await client.send(new DescribeClusterSnapshotsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -74,7 +76,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClusterSnapshot
 export const waitForSnapshotAvailable = async (
   params: WaiterConfiguration<RedshiftClient>,
   input: DescribeClusterSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeClusterSnapshotsCommandOutput | RedshiftServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -86,8 +88,8 @@ export const waitForSnapshotAvailable = async (
 export const waitUntilSnapshotAvailable = async (
   params: WaiterConfiguration<RedshiftClient>,
   input: DescribeClusterSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeClusterSnapshotsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeClusterSnapshotsCommandOutput>;
 };

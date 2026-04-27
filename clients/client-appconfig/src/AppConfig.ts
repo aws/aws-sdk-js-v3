@@ -234,6 +234,7 @@ import {
   type ValidateConfigurationCommandOutput,
   ValidateConfigurationCommand,
 } from "./commands/ValidateConfigurationCommand";
+import type { AppConfigServiceException } from "./models/AppConfigServiceException";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListConfigurationProfiles } from "./pagination/ListConfigurationProfilesPaginator";
 import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
@@ -1175,7 +1176,7 @@ export interface AppConfig {
   waitUntilDeploymentComplete(
     args: GetDeploymentCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AppConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetDeploymentCommandOutput>>;
 
   /**
    * @see {@link GetEnvironmentCommand}
@@ -1185,7 +1186,7 @@ export interface AppConfig {
   waitUntilEnvironmentReadyForDeployment(
     args: GetEnvironmentCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AppConfig>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetEnvironmentCommandOutput>>;
 }
 
 /**

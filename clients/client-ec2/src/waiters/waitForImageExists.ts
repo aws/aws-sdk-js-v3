@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeImagesCommandInput, DescribeImagesCommand } from "../commands/DescribeImagesCommand";
+import {
+  type DescribeImagesCommandInput,
+  type DescribeImagesCommandOutput,
+  DescribeImagesCommand,
+} from "../commands/DescribeImagesCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeImagesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeImagesCommandInput): Promise<WaiterResult<DescribeImagesCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImagesCommand(input));
+    let result: DescribeImagesCommandOutput & any = await client.send(new DescribeImagesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -26,7 +31,7 @@ const checkState = async (client: EC2Client, input: DescribeImagesCommandInput):
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidAMIID.NotFound") {
+    if (exception.name === "InvalidAMIID.NotFound") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -39,7 +44,7 @@ const checkState = async (client: EC2Client, input: DescribeImagesCommandInput):
 export const waitForImageExists = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeImagesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImagesCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -51,8 +56,8 @@ export const waitForImageExists = async (
 export const waitUntilImageExists = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeImagesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImagesCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeImagesCommandOutput>;
 };

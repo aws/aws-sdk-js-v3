@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeNotebookInstanceCommandInput,
+  type DescribeNotebookInstanceCommandOutput,
   DescribeNotebookInstanceCommand,
 } from "../commands/DescribeNotebookInstanceCommand";
+import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (client: SageMakerClient, input: DescribeNotebookInstanceCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeNotebookInstanceCommandInput): Promise<WaiterResult<DescribeNotebookInstanceCommandOutput | SageMakerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeNotebookInstanceCommand(input));
+    let result: DescribeNotebookInstanceCommandOutput & any = await client.send(new DescribeNotebookInstanceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -28,7 +30,7 @@ const checkState = async (client: SageMakerClient, input: DescribeNotebookInstan
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationException") {
+    if (exception.name === "ValidationException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -41,7 +43,7 @@ const checkState = async (client: SageMakerClient, input: DescribeNotebookInstan
 export const waitForNotebookInstanceDeleted = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeNotebookInstanceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNotebookInstanceCommandOutput | SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -53,8 +55,8 @@ export const waitForNotebookInstanceDeleted = async (
 export const waitUntilNotebookInstanceDeleted = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeNotebookInstanceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<SageMakerServiceException>;
 };

@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeHybridADUpdateCommandInput,
+  type DescribeHybridADUpdateCommandOutput,
   DescribeHybridADUpdateCommand,
 } from "../commands/DescribeHybridADUpdateCommand";
 import type { DirectoryServiceClient } from "../DirectoryServiceClient";
+import type { DirectoryServiceServiceException } from "../models/DirectoryServiceServiceException";
 
-const checkState = async (client: DirectoryServiceClient, input: DescribeHybridADUpdateCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DirectoryServiceClient, input: DescribeHybridADUpdateCommandInput): Promise<WaiterResult<DescribeHybridADUpdateCommandOutput | DirectoryServiceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeHybridADUpdateCommand(input));
+    let result: DescribeHybridADUpdateCommandOutput & any = await client.send(new DescribeHybridADUpdateCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: DirectoryServiceClient, input: DescribeHybridA
 export const waitForHybridADUpdated = async (
   params: WaiterConfiguration<DirectoryServiceClient>,
   input: DescribeHybridADUpdateCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeHybridADUpdateCommandOutput | DirectoryServiceServiceException>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForHybridADUpdated = async (
 export const waitUntilHybridADUpdated = async (
   params: WaiterConfiguration<DirectoryServiceClient>,
   input: DescribeHybridADUpdateCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeHybridADUpdateCommandOutput>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeHybridADUpdateCommandOutput>;
 };

@@ -10,13 +10,15 @@ import {
 import type { ACMClient } from "../ACMClient";
 import {
   type DescribeCertificateCommandInput,
+  type DescribeCertificateCommandOutput,
   DescribeCertificateCommand,
 } from "../commands/DescribeCertificateCommand";
+import type { ACMServiceException } from "../models/ACMServiceException";
 
-const checkState = async (client: ACMClient, input: DescribeCertificateCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ACMClient, input: DescribeCertificateCommandInput): Promise<WaiterResult<DescribeCertificateCommandOutput | ACMServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCertificateCommand(input));
+    let result: DescribeCertificateCommandOutput & any = await client.send(new DescribeCertificateCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -58,7 +60,7 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -71,7 +73,7 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
 export const waitForCertificateValidated = async (
   params: WaiterConfiguration<ACMClient>,
   input: DescribeCertificateCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCertificateCommandOutput | ACMServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -83,8 +85,8 @@ export const waitForCertificateValidated = async (
 export const waitUntilCertificateValidated = async (
   params: WaiterConfiguration<ACMClient>,
   input: DescribeCertificateCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCertificateCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCertificateCommandOutput>;
 };

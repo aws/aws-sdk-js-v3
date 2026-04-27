@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeNetworkInterfacesCommandInput,
+  type DescribeNetworkInterfacesCommandOutput,
   DescribeNetworkInterfacesCommand,
 } from "../commands/DescribeNetworkInterfacesCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeNetworkInterfacesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeNetworkInterfacesCommandInput): Promise<WaiterResult<DescribeNetworkInterfacesCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeNetworkInterfacesCommand(input));
+    let result: DescribeNetworkInterfacesCommandOutput & any = await client.send(new DescribeNetworkInterfacesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +38,7 @@ const checkState = async (client: EC2Client, input: DescribeNetworkInterfacesCom
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidNetworkInterfaceID.NotFound") {
+    if (exception.name === "InvalidNetworkInterfaceID.NotFound") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -49,7 +51,7 @@ const checkState = async (client: EC2Client, input: DescribeNetworkInterfacesCom
 export const waitForNetworkInterfaceAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeNetworkInterfacesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNetworkInterfacesCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +63,8 @@ export const waitForNetworkInterfaceAvailable = async (
 export const waitUntilNetworkInterfaceAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeNetworkInterfacesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeNetworkInterfacesCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeNetworkInterfacesCommandOutput>;
 };

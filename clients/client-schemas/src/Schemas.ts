@@ -163,6 +163,7 @@ import {
   type UpdateSchemaCommandOutput,
   UpdateSchemaCommand,
 } from "./commands/UpdateSchemaCommand";
+import type { SchemasServiceException } from "./models/SchemasServiceException";
 import { paginateListDiscoverers } from "./pagination/ListDiscoverersPaginator";
 import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";
 import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
@@ -810,7 +811,7 @@ export interface Schemas {
   waitUntilCodeBindingExists(
     args: DescribeCodeBindingCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Schemas>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCodeBindingCommandOutput>>;
 }
 
 /**

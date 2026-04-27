@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeChannelCommandInput, DescribeChannelCommand } from "../commands/DescribeChannelCommand";
+import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
+  DescribeChannelCommand,
+} from "../commands/DescribeChannelCommand";
 import type { MediaLiveClient } from "../MediaLiveClient";
+import type { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
-const checkState = async (client: MediaLiveClient, input: DescribeChannelCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: DescribeChannelCommandInput): Promise<WaiterResult<DescribeChannelCommandOutput | MediaLiveServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeChannelCommand(input));
+    let result: DescribeChannelCommandOutput & any = await client.send(new DescribeChannelCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +38,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -46,7 +51,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
 export const waitForChannelRunning = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeChannelCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeChannelCommandOutput | MediaLiveServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +63,8 @@ export const waitForChannelRunning = async (
 export const waitUntilChannelRunning = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeChannelCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeChannelCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeChannelCommandOutput>;
 };

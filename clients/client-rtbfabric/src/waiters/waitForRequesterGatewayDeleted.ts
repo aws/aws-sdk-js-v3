@@ -9,14 +9,17 @@ import {
 
 import {
   type GetRequesterGatewayCommandInput,
+  type GetRequesterGatewayCommandOutput,
   GetRequesterGatewayCommand,
 } from "../commands/GetRequesterGatewayCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { RTBFabricServiceException } from "../models/RTBFabricServiceException";
 import type { RTBFabricClient } from "../RTBFabricClient";
 
-const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCommandInput): Promise<WaiterResult<GetRequesterGatewayCommandOutput | RTBFabricServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetRequesterGatewayCommand(input));
+    let result: GetRequesterGatewayCommandOutput & any = await client.send(new GetRequesterGatewayCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +39,7 @@ const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCom
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -49,7 +52,7 @@ const checkState = async (client: RTBFabricClient, input: GetRequesterGatewayCom
 export const waitForRequesterGatewayDeleted = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetRequesterGatewayCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRequesterGatewayCommandOutput | RTBFabricServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +64,8 @@ export const waitForRequesterGatewayDeleted = async (
 export const waitUntilRequesterGatewayDeleted = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetRequesterGatewayCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRequesterGatewayCommandOutput | ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetRequesterGatewayCommandOutput | ResourceNotFoundException>;
 };

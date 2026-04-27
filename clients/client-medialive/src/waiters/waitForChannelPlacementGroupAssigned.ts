@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeChannelPlacementGroupCommandInput,
+  type DescribeChannelPlacementGroupCommandOutput,
   DescribeChannelPlacementGroupCommand,
 } from "../commands/DescribeChannelPlacementGroupCommand";
 import type { MediaLiveClient } from "../MediaLiveClient";
+import type { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
-const checkState = async (client: MediaLiveClient, input: DescribeChannelPlacementGroupCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: DescribeChannelPlacementGroupCommandInput): Promise<WaiterResult<DescribeChannelPlacementGroupCommandOutput | MediaLiveServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeChannelPlacementGroupCommand(input));
+    let result: DescribeChannelPlacementGroupCommandOutput & any = await client.send(new DescribeChannelPlacementGroupCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +38,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelPlaceme
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -49,7 +51,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelPlaceme
 export const waitForChannelPlacementGroupAssigned = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeChannelPlacementGroupCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeChannelPlacementGroupCommandOutput | MediaLiveServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +63,8 @@ export const waitForChannelPlacementGroupAssigned = async (
 export const waitUntilChannelPlacementGroupAssigned = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeChannelPlacementGroupCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeChannelPlacementGroupCommandOutput>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeChannelPlacementGroupCommandOutput>;
 };

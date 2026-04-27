@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeReplicationGroupsCommandInput,
+  type DescribeReplicationGroupsCommandOutput,
   DescribeReplicationGroupsCommand,
 } from "../commands/DescribeReplicationGroupsCommand";
 import type { ElastiCacheClient } from "../ElastiCacheClient";
+import type { ElastiCacheServiceException } from "../models/ElastiCacheServiceException";
+import type { ReplicationGroupNotFoundFault } from "../models/errors";
 
-const checkState = async (client: ElastiCacheClient, input: DescribeReplicationGroupsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElastiCacheClient, input: DescribeReplicationGroupsCommandInput): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput | ElastiCacheServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeReplicationGroupsCommand(input));
+    let result: DescribeReplicationGroupsCommandOutput & any = await client.send(new DescribeReplicationGroupsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -50,7 +53,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeReplicationG
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ReplicationGroupNotFoundFault") {
+    if (exception.name === "ReplicationGroupNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -63,7 +66,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeReplicationG
 export const waitForReplicationGroupDeleted = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeReplicationGroupsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput | ElastiCacheServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -75,8 +78,8 @@ export const waitForReplicationGroupDeleted = async (
 export const waitUntilReplicationGroupDeleted = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeReplicationGroupsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput | ReplicationGroupNotFoundFault>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeReplicationGroupsCommandOutput | ReplicationGroupNotFoundFault>;
 };

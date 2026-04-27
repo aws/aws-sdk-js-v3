@@ -7,13 +7,14 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetFleetCommandInput, GetFleetCommand } from "../commands/GetFleetCommand";
+import { type GetFleetCommandInput, type GetFleetCommandOutput, GetFleetCommand } from "../commands/GetFleetCommand";
 import type { DeadlineClient } from "../DeadlineClient";
+import type { DeadlineServiceException } from "../models/DeadlineServiceException";
 
-const checkState = async (client: DeadlineClient, input: GetFleetCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DeadlineClient, input: GetFleetCommandInput): Promise<WaiterResult<GetFleetCommandOutput | DeadlineServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetFleetCommand(input));
+    let result: GetFleetCommandOutput & any = await client.send(new GetFleetCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +52,7 @@ const checkState = async (client: DeadlineClient, input: GetFleetCommandInput): 
 export const waitForFleetActive = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetFleetCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetFleetCommandOutput | DeadlineServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 900 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +64,8 @@ export const waitForFleetActive = async (
 export const waitUntilFleetActive = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetFleetCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetFleetCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 900 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetFleetCommandOutput>;
 };

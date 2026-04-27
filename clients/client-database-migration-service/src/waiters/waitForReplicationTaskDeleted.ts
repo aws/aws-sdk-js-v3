@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeReplicationTasksCommandInput,
+  type DescribeReplicationTasksCommandOutput,
   DescribeReplicationTasksCommand,
 } from "../commands/DescribeReplicationTasksCommand";
 import type { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
+import type { ResourceNotFoundFault } from "../models/errors";
 
-const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationTasksCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationTasksCommandInput): Promise<WaiterResult<DescribeReplicationTasksCommandOutput | DatabaseMigrationServiceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeReplicationTasksCommand(input));
+    let result: DescribeReplicationTasksCommandOutput & any = await client.send(new DescribeReplicationTasksCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -90,7 +93,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundFault") {
+    if (exception.name === "ResourceNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -103,7 +106,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
 export const waitForReplicationTaskDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeReplicationTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationTasksCommandOutput | DatabaseMigrationServiceServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -115,8 +118,8 @@ export const waitForReplicationTaskDeleted = async (
 export const waitUntilReplicationTaskDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeReplicationTasksCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundFault>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundFault>;
 };

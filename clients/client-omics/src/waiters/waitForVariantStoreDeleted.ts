@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetVariantStoreCommandInput, GetVariantStoreCommand } from "../commands/GetVariantStoreCommand";
+import {
+  type GetVariantStoreCommandInput,
+  type GetVariantStoreCommandOutput,
+  GetVariantStoreCommand,
+} from "../commands/GetVariantStoreCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetVariantStoreCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetVariantStoreCommandInput): Promise<WaiterResult<GetVariantStoreCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetVariantStoreCommand(input));
+    let result: GetVariantStoreCommandOutput & any = await client.send(new GetVariantStoreCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +39,7 @@ const checkState = async (client: OmicsClient, input: GetVariantStoreCommandInpu
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -46,7 +52,7 @@ const checkState = async (client: OmicsClient, input: GetVariantStoreCommandInpu
 export const waitForVariantStoreDeleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetVariantStoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetVariantStoreCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +64,8 @@ export const waitForVariantStoreDeleted = async (
 export const waitUntilVariantStoreDeleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetVariantStoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetVariantStoreCommandOutput | ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetVariantStoreCommandOutput | ResourceNotFoundException>;
 };

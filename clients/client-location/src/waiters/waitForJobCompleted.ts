@@ -7,13 +7,14 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetJobCommandInput, GetJobCommand } from "../commands/GetJobCommand";
+import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "../commands/GetJobCommand";
 import type { LocationClient } from "../LocationClient";
+import type { LocationServiceException } from "../models/LocationServiceException";
 
-const checkState = async (client: LocationClient, input: GetJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LocationClient, input: GetJobCommandInput): Promise<WaiterResult<GetJobCommandOutput | LocationServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetJobCommand(input));
+    let result: GetJobCommandOutput & any = await client.send(new GetJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +52,7 @@ const checkState = async (client: LocationClient, input: GetJobCommandInput): Pr
 export const waitForJobCompleted = async (
   params: WaiterConfiguration<LocationClient>,
   input: GetJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetJobCommandOutput | LocationServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +64,8 @@ export const waitForJobCompleted = async (
 export const waitUntilJobCompleted = async (
   params: WaiterConfiguration<LocationClient>,
   input: GetJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetJobCommandOutput>;
 };

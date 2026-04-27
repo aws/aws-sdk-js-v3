@@ -74,6 +74,7 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import { HealthLakeClient } from "./HealthLakeClient";
+import type { HealthLakeServiceException } from "./models/HealthLakeServiceException";
 import { paginateListFHIRDatastores } from "./pagination/ListFHIRDatastoresPaginator";
 import { paginateListFHIRExportJobs } from "./pagination/ListFHIRExportJobsPaginator";
 import { paginateListFHIRImportJobs } from "./pagination/ListFHIRImportJobsPaginator";
@@ -373,7 +374,7 @@ export interface HealthLake {
   waitUntilFHIRDatastoreActive(
     args: DescribeFHIRDatastoreCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFHIRDatastoreCommandOutput>>;
 
   /**
    * @see {@link DescribeFHIRDatastoreCommand}
@@ -383,7 +384,7 @@ export interface HealthLake {
   waitUntilFHIRDatastoreDeleted(
     args: DescribeFHIRDatastoreCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFHIRDatastoreCommandOutput>>;
 
   /**
    * @see {@link DescribeFHIRExportJobCommand}
@@ -393,7 +394,7 @@ export interface HealthLake {
   waitUntilFHIRExportJobCompleted(
     args: DescribeFHIRExportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFHIRExportJobCommandOutput>>;
 
   /**
    * @see {@link DescribeFHIRImportJobCommand}
@@ -403,7 +404,7 @@ export interface HealthLake {
   waitUntilFHIRImportJobCompleted(
     args: DescribeFHIRImportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFHIRImportJobCommandOutput>>;
 }
 
 /**

@@ -616,6 +616,7 @@ import {
   UpdateSdiSourceCommand,
 } from "./commands/UpdateSdiSourceCommand";
 import { MediaLiveClient } from "./MediaLiveClient";
+import type { MediaLiveServiceException } from "./models/MediaLiveServiceException";
 import { paginateDescribeSchedule } from "./pagination/DescribeSchedulePaginator";
 import { paginateListAlerts } from "./pagination/ListAlertsPaginator";
 import { paginateListChannelPlacementGroups } from "./pagination/ListChannelPlacementGroupsPaginator";
@@ -3218,7 +3219,7 @@ export interface MediaLive {
   waitUntilChannelCreated(
     args: DescribeChannelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelCommandOutput>>;
 
   /**
    * @see {@link DescribeChannelCommand}
@@ -3228,7 +3229,7 @@ export interface MediaLive {
   waitUntilChannelDeleted(
     args: DescribeChannelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelCommandOutput>>;
 
   /**
    * @see {@link DescribeChannelCommand}
@@ -3238,7 +3239,7 @@ export interface MediaLive {
   waitUntilChannelRunning(
     args: DescribeChannelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelCommandOutput>>;
 
   /**
    * @see {@link DescribeChannelCommand}
@@ -3248,7 +3249,7 @@ export interface MediaLive {
   waitUntilChannelStopped(
     args: DescribeChannelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelCommandOutput>>;
 
   /**
    * @see {@link DescribeChannelPlacementGroupCommand}
@@ -3258,7 +3259,7 @@ export interface MediaLive {
   waitUntilChannelPlacementGroupAssigned(
     args: DescribeChannelPlacementGroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelPlacementGroupCommandOutput>>;
 
   /**
    * @see {@link DescribeChannelPlacementGroupCommand}
@@ -3268,7 +3269,7 @@ export interface MediaLive {
   waitUntilChannelPlacementGroupDeleted(
     args: DescribeChannelPlacementGroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelPlacementGroupCommandOutput>>;
 
   /**
    * @see {@link DescribeChannelPlacementGroupCommand}
@@ -3278,7 +3279,7 @@ export interface MediaLive {
   waitUntilChannelPlacementGroupUnassigned(
     args: DescribeChannelPlacementGroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChannelPlacementGroupCommandOutput>>;
 
   /**
    * @see {@link DescribeClusterCommand}
@@ -3288,7 +3289,7 @@ export interface MediaLive {
   waitUntilClusterCreated(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterCommandOutput>>;
 
   /**
    * @see {@link DescribeClusterCommand}
@@ -3298,7 +3299,7 @@ export interface MediaLive {
   waitUntilClusterDeleted(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterCommandOutput>>;
 
   /**
    * @see {@link DescribeInputCommand}
@@ -3308,7 +3309,7 @@ export interface MediaLive {
   waitUntilInputAttached(
     args: DescribeInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInputCommandOutput>>;
 
   /**
    * @see {@link DescribeInputCommand}
@@ -3318,7 +3319,7 @@ export interface MediaLive {
   waitUntilInputDeleted(
     args: DescribeInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInputCommandOutput>>;
 
   /**
    * @see {@link DescribeInputCommand}
@@ -3328,7 +3329,7 @@ export interface MediaLive {
   waitUntilInputDetached(
     args: DescribeInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInputCommandOutput>>;
 
   /**
    * @see {@link DescribeMultiplexCommand}
@@ -3338,7 +3339,7 @@ export interface MediaLive {
   waitUntilMultiplexCreated(
     args: DescribeMultiplexCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeMultiplexCommandOutput>>;
 
   /**
    * @see {@link DescribeMultiplexCommand}
@@ -3348,7 +3349,7 @@ export interface MediaLive {
   waitUntilMultiplexDeleted(
     args: DescribeMultiplexCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeMultiplexCommandOutput>>;
 
   /**
    * @see {@link DescribeMultiplexCommand}
@@ -3358,7 +3359,7 @@ export interface MediaLive {
   waitUntilMultiplexRunning(
     args: DescribeMultiplexCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeMultiplexCommandOutput>>;
 
   /**
    * @see {@link DescribeMultiplexCommand}
@@ -3368,7 +3369,7 @@ export interface MediaLive {
   waitUntilMultiplexStopped(
     args: DescribeMultiplexCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeMultiplexCommandOutput>>;
 
   /**
    * @see {@link DescribeNodeCommand}
@@ -3378,7 +3379,7 @@ export interface MediaLive {
   waitUntilNodeDeregistered(
     args: DescribeNodeCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNodeCommandOutput>>;
 
   /**
    * @see {@link DescribeNodeCommand}
@@ -3388,7 +3389,7 @@ export interface MediaLive {
   waitUntilNodeRegistered(
     args: DescribeNodeCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNodeCommandOutput>>;
 
   /**
    * @see {@link GetSignalMapCommand}
@@ -3398,7 +3399,7 @@ export interface MediaLive {
   waitUntilSignalMapCreated(
     args: GetSignalMapCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSignalMapCommandOutput>>;
 
   /**
    * @see {@link GetSignalMapCommand}
@@ -3408,7 +3409,7 @@ export interface MediaLive {
   waitUntilSignalMapMonitorDeleted(
     args: GetSignalMapCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSignalMapCommandOutput>>;
 
   /**
    * @see {@link GetSignalMapCommand}
@@ -3418,7 +3419,7 @@ export interface MediaLive {
   waitUntilSignalMapMonitorDeployed(
     args: GetSignalMapCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSignalMapCommandOutput>>;
 
   /**
    * @see {@link GetSignalMapCommand}
@@ -3428,7 +3429,7 @@ export interface MediaLive {
   waitUntilSignalMapUpdated(
     args: GetSignalMapCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSignalMapCommandOutput>>;
 }
 
 /**

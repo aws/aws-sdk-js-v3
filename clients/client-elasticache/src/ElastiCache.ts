@@ -384,6 +384,8 @@ import {
   TestMigrationCommand,
 } from "./commands/TestMigrationCommand";
 import { ElastiCacheClient } from "./ElastiCacheClient";
+import type { ElastiCacheServiceException } from "./models/ElastiCacheServiceException";
+import type { CacheClusterNotFoundFault, ReplicationGroupNotFoundFault } from "./models/errors";
 import { paginateDescribeCacheClusters } from "./pagination/DescribeCacheClustersPaginator";
 import { paginateDescribeCacheEngineVersions } from "./pagination/DescribeCacheEngineVersionsPaginator";
 import { paginateDescribeCacheParameterGroups } from "./pagination/DescribeCacheParameterGroupsPaginator";
@@ -2024,7 +2026,7 @@ export interface ElastiCache {
   waitUntilCacheClusterAvailable(
     args: DescribeCacheClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCacheClustersCommandOutput>>;
 
   /**
    * @see {@link DescribeCacheClustersCommand}
@@ -2034,7 +2036,7 @@ export interface ElastiCache {
   waitUntilCacheClusterDeleted(
     args: DescribeCacheClustersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCacheClustersCommandOutput | CacheClusterNotFoundFault>>;
 
   /**
    * @see {@link DescribeReplicationGroupsCommand}
@@ -2044,7 +2046,7 @@ export interface ElastiCache {
   waitUntilReplicationGroupAvailable(
     args: DescribeReplicationGroupsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput>>;
 
   /**
    * @see {@link DescribeReplicationGroupsCommand}
@@ -2054,7 +2056,7 @@ export interface ElastiCache {
   waitUntilReplicationGroupDeleted(
     args: DescribeReplicationGroupsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeReplicationGroupsCommandOutput | ReplicationGroupNotFoundFault>>;
 }
 
 /**

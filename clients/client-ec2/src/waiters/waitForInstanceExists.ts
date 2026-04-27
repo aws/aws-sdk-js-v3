@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeInstancesCommandInput, DescribeInstancesCommand } from "../commands/DescribeInstancesCommand";
+import {
+  type DescribeInstancesCommandInput,
+  type DescribeInstancesCommandOutput,
+  DescribeInstancesCommand,
+} from "../commands/DescribeInstancesCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeInstancesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeInstancesCommandInput): Promise<WaiterResult<DescribeInstancesCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeInstancesCommand(input));
+    let result: DescribeInstancesCommandOutput & any = await client.send(new DescribeInstancesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -26,7 +31,7 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidInstanceID.NotFound") {
+    if (exception.name === "InvalidInstanceID.NotFound") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -39,7 +44,7 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
 export const waitForInstanceExists = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeInstancesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInstancesCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -51,8 +56,8 @@ export const waitForInstanceExists = async (
 export const waitUntilInstanceExists = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeInstancesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInstancesCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeInstancesCommandOutput>;
 };

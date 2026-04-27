@@ -94,6 +94,7 @@ import {
   type UpdateCertificateOptionsCommandOutput,
   UpdateCertificateOptionsCommand,
 } from "./commands/UpdateCertificateOptionsCommand";
+import type { ACMServiceException } from "./models/ACMServiceException";
 import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
 import { paginateSearchCertificates } from "./pagination/SearchCertificatesPaginator";
 import { waitUntilCertificateValidated } from "./waiters/waitForCertificateValidated";
@@ -448,7 +449,7 @@ export interface ACM {
   waitUntilCertificateValidated(
     args: DescribeCertificateCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ACM>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCertificateCommandOutput>>;
 }
 
 /**

@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeTrainingJobCommandInput,
+  type DescribeTrainingJobCommandOutput,
   DescribeTrainingJobCommand,
 } from "../commands/DescribeTrainingJobCommand";
+import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (client: SageMakerClient, input: DescribeTrainingJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeTrainingJobCommandInput): Promise<WaiterResult<DescribeTrainingJobCommandOutput | SageMakerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTrainingJobCommand(input));
+    let result: DescribeTrainingJobCommandOutput & any = await client.send(new DescribeTrainingJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -44,7 +46,7 @@ const checkState = async (client: SageMakerClient, input: DescribeTrainingJobCom
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationException") {
+    if (exception.name === "ValidationException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -57,7 +59,7 @@ const checkState = async (client: SageMakerClient, input: DescribeTrainingJobCom
 export const waitForTrainingJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeTrainingJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTrainingJobCommandOutput | SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 21600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +71,8 @@ export const waitForTrainingJobCompletedOrStopped = async (
 export const waitUntilTrainingJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeTrainingJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTrainingJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 21600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTrainingJobCommandOutput>;
 };

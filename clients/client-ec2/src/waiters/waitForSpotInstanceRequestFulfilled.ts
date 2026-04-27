@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeSpotInstanceRequestsCommandInput,
+  type DescribeSpotInstanceRequestsCommandOutput,
   DescribeSpotInstanceRequestsCommand,
 } from "../commands/DescribeSpotInstanceRequestsCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeSpotInstanceRequestsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeSpotInstanceRequestsCommandInput): Promise<WaiterResult<DescribeSpotInstanceRequestsCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeSpotInstanceRequestsCommand(input));
+    let result: DescribeSpotInstanceRequestsCommandOutput & any = await client.send(new DescribeSpotInstanceRequestsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -108,7 +110,7 @@ const checkState = async (client: EC2Client, input: DescribeSpotInstanceRequests
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidSpotInstanceRequestID.NotFound") {
+    if (exception.name === "InvalidSpotInstanceRequestID.NotFound") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -121,7 +123,7 @@ const checkState = async (client: EC2Client, input: DescribeSpotInstanceRequests
 export const waitForSpotInstanceRequestFulfilled = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSpotInstanceRequestsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSpotInstanceRequestsCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -133,8 +135,8 @@ export const waitForSpotInstanceRequestFulfilled = async (
 export const waitUntilSpotInstanceRequestFulfilled = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSpotInstanceRequestsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSpotInstanceRequestsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeSpotInstanceRequestsCommandOutput>;
 };

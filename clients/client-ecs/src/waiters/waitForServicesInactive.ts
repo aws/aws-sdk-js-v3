@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeServicesCommandInput, DescribeServicesCommand } from "../commands/DescribeServicesCommand";
+import {
+  type DescribeServicesCommandInput,
+  type DescribeServicesCommandOutput,
+  DescribeServicesCommand,
+} from "../commands/DescribeServicesCommand";
 import type { ECSClient } from "../ECSClient";
+import type { ECSServiceException } from "../models/ECSServiceException";
 
-const checkState = async (client: ECSClient, input: DescribeServicesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ECSClient, input: DescribeServicesCommandInput): Promise<WaiterResult<DescribeServicesCommandOutput | ECSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeServicesCommand(input));
+    let result: DescribeServicesCommandOutput & any = await client.send(new DescribeServicesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -55,7 +60,7 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
 export const waitForServicesInactive = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeServicesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeServicesCommandOutput | ECSServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -67,8 +72,8 @@ export const waitForServicesInactive = async (
 export const waitUntilServicesInactive = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeServicesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeServicesCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeServicesCommandOutput>;
 };

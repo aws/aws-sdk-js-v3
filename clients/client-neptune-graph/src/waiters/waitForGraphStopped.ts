@@ -7,13 +7,14 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetGraphCommandInput, GetGraphCommand } from "../commands/GetGraphCommand";
+import { type GetGraphCommandInput, type GetGraphCommandOutput, GetGraphCommand } from "../commands/GetGraphCommand";
+import type { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInput): Promise<WaiterResult<GetGraphCommandOutput | NeptuneGraphServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetGraphCommand(input));
+    let result: GetGraphCommandOutput & any = await client.send(new GetGraphCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +44,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInpu
 export const waitForGraphStopped = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetGraphCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetGraphCommandOutput | NeptuneGraphServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +56,8 @@ export const waitForGraphStopped = async (
 export const waitUntilGraphStopped = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetGraphCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetGraphCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetGraphCommandOutput>;
 };

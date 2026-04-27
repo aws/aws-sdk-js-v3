@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeEndpointsCommandInput, DescribeEndpointsCommand } from "../commands/DescribeEndpointsCommand";
+import {
+  type DescribeEndpointsCommandInput,
+  type DescribeEndpointsCommandOutput,
+  DescribeEndpointsCommand,
+} from "../commands/DescribeEndpointsCommand";
 import type { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
+import type { ResourceNotFoundFault } from "../models/errors";
 
-const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeEndpointsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeEndpointsCommandInput): Promise<WaiterResult<DescribeEndpointsCommandOutput | DatabaseMigrationServiceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeEndpointsCommand(input));
+    let result: DescribeEndpointsCommandOutput & any = await client.send(new DescribeEndpointsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -45,7 +51,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundFault") {
+    if (exception.name === "ResourceNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -58,7 +64,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
 export const waitForEndpointDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeEndpointsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeEndpointsCommandOutput | DatabaseMigrationServiceServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -70,8 +76,8 @@ export const waitForEndpointDeleted = async (
 export const waitUntilEndpointDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeEndpointsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundFault>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundFault>;
 };

@@ -74,6 +74,7 @@ import {
   UpdateConnectionCommand,
 } from "./commands/UpdateConnectionCommand";
 import { InterconnectClient } from "./InterconnectClient";
+import type { InterconnectServiceException } from "./models/InterconnectServiceException";
 import { paginateListAttachPoints } from "./pagination/ListAttachPointsPaginator";
 import { paginateListConnections } from "./pagination/ListConnectionsPaginator";
 import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
@@ -370,7 +371,7 @@ export interface Interconnect {
   waitUntilConnectionAvailable(
     args: GetConnectionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Interconnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetConnectionCommandOutput>>;
 
   /**
    * @see {@link GetConnectionCommand}
@@ -380,7 +381,7 @@ export interface Interconnect {
   waitUntilConnectionDeleted(
     args: GetConnectionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Interconnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetConnectionCommandOutput>>;
 }
 
 /**

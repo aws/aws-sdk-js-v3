@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeInstanceHealthCommandInput,
+  type DescribeInstanceHealthCommandOutput,
   DescribeInstanceHealthCommand,
 } from "../commands/DescribeInstanceHealthCommand";
 import type { ElasticLoadBalancingClient } from "../ElasticLoadBalancingClient";
+import type { ElasticLoadBalancingServiceException } from "../models/ElasticLoadBalancingServiceException";
 
-const checkState = async (client: ElasticLoadBalancingClient, input: DescribeInstanceHealthCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElasticLoadBalancingClient, input: DescribeInstanceHealthCommandInput): Promise<WaiterResult<DescribeInstanceHealthCommandOutput | ElasticLoadBalancingServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeInstanceHealthCommand(input));
+    let result: DescribeInstanceHealthCommandOutput & any = await client.send(new DescribeInstanceHealthCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -44,7 +46,7 @@ const checkState = async (client: ElasticLoadBalancingClient, input: DescribeIns
 export const waitForAnyInstanceInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingClient>,
   input: DescribeInstanceHealthCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInstanceHealthCommandOutput | ElasticLoadBalancingServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -56,8 +58,8 @@ export const waitForAnyInstanceInService = async (
 export const waitUntilAnyInstanceInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingClient>,
   input: DescribeInstanceHealthCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInstanceHealthCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeInstanceHealthCommandOutput>;
 };

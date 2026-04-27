@@ -7,13 +7,15 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetGraphCommandInput, GetGraphCommand } from "../commands/GetGraphCommand";
+import { type GetGraphCommandInput, type GetGraphCommandOutput, GetGraphCommand } from "../commands/GetGraphCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInput): Promise<WaiterResult<GetGraphCommandOutput | NeptuneGraphServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetGraphCommand(input));
+    let result: GetGraphCommandOutput & any = await client.send(new GetGraphCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -25,7 +27,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInpu
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -38,7 +40,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetGraphCommandInpu
 export const waitForGraphDeleted = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetGraphCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetGraphCommandOutput | NeptuneGraphServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +52,8 @@ export const waitForGraphDeleted = async (
 export const waitUntilGraphDeleted = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetGraphCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

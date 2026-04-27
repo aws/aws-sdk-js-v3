@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetHarvestJobCommandInput, GetHarvestJobCommand } from "../commands/GetHarvestJobCommand";
+import {
+  type GetHarvestJobCommandInput,
+  type GetHarvestJobCommandOutput,
+  GetHarvestJobCommand,
+} from "../commands/GetHarvestJobCommand";
 import type { MediaPackageV2Client } from "../MediaPackageV2Client";
+import type { MediaPackageV2ServiceException } from "../models/MediaPackageV2ServiceException";
 
-const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobCommandInput): Promise<WaiterResult<GetHarvestJobCommandOutput | MediaPackageV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetHarvestJobCommand(input));
+    let result: GetHarvestJobCommandOutput & any = await client.send(new GetHarvestJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -67,7 +72,7 @@ const checkState = async (client: MediaPackageV2Client, input: GetHarvestJobComm
 export const waitForHarvestJobFinished = async (
   params: WaiterConfiguration<MediaPackageV2Client>,
   input: GetHarvestJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetHarvestJobCommandOutput | MediaPackageV2ServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -79,8 +84,8 @@ export const waitForHarvestJobFinished = async (
 export const waitUntilHarvestJobFinished = async (
   params: WaiterConfiguration<MediaPackageV2Client>,
   input: GetHarvestJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetHarvestJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetHarvestJobCommandOutput>;
 };

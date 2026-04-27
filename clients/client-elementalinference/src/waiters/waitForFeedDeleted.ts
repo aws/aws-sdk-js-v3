@@ -7,13 +7,15 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetFeedCommandInput, GetFeedCommand } from "../commands/GetFeedCommand";
+import { type GetFeedCommandInput, type GetFeedCommandOutput, GetFeedCommand } from "../commands/GetFeedCommand";
 import type { ElementalInferenceClient } from "../ElementalInferenceClient";
+import type { ElementalInferenceServiceException } from "../models/ElementalInferenceServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: ElementalInferenceClient, input: GetFeedCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElementalInferenceClient, input: GetFeedCommandInput): Promise<WaiterResult<GetFeedCommandOutput | ElementalInferenceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetFeedCommand(input));
+    let result: GetFeedCommandOutput & any = await client.send(new GetFeedCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,13 +35,13 @@ const checkState = async (client: ElementalInferenceClient, input: GetFeedComman
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
-    if (exception.name && exception.name == "TooManyRequestException") {
+    if (exception.name === "TooManyRequestException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -52,7 +54,7 @@ const checkState = async (client: ElementalInferenceClient, input: GetFeedComman
 export const waitForFeedDeleted = async (
   params: WaiterConfiguration<ElementalInferenceClient>,
   input: GetFeedCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetFeedCommandOutput | ElementalInferenceServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -64,8 +66,8 @@ export const waitForFeedDeleted = async (
 export const waitUntilFeedDeleted = async (
   params: WaiterConfiguration<ElementalInferenceClient>,
   input: GetFeedCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetFeedCommandOutput | ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetFeedCommandOutput | ResourceNotFoundException>;
 };

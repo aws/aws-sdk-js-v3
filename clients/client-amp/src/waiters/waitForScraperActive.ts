@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { AmpClient } from "../AmpClient";
-import { type DescribeScraperCommandInput, DescribeScraperCommand } from "../commands/DescribeScraperCommand";
+import {
+  type DescribeScraperCommandInput,
+  type DescribeScraperCommandOutput,
+  DescribeScraperCommand,
+} from "../commands/DescribeScraperCommand";
+import type { AmpServiceException } from "../models/AmpServiceException";
 
-const checkState = async (client: AmpClient, input: DescribeScraperCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AmpClient, input: DescribeScraperCommandInput): Promise<WaiterResult<DescribeScraperCommandOutput | AmpServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeScraperCommand(input));
+    let result: DescribeScraperCommandOutput & any = await client.send(new DescribeScraperCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: AmpClient, input: DescribeScraperCommandInput)
 export const waitForScraperActive = async (
   params: WaiterConfiguration<AmpClient>,
   input: DescribeScraperCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeScraperCommandOutput | AmpServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForScraperActive = async (
 export const waitUntilScraperActive = async (
   params: WaiterConfiguration<AmpClient>,
   input: DescribeScraperCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeScraperCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeScraperCommandOutput>;
 };

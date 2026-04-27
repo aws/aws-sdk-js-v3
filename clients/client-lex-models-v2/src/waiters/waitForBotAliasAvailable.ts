@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeBotAliasCommandInput, DescribeBotAliasCommand } from "../commands/DescribeBotAliasCommand";
+import {
+  type DescribeBotAliasCommandInput,
+  type DescribeBotAliasCommandOutput,
+  DescribeBotAliasCommand,
+} from "../commands/DescribeBotAliasCommand";
 import type { LexModelsV2Client } from "../LexModelsV2Client";
+import type { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
-const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasCommandInput): Promise<WaiterResult<DescribeBotAliasCommandOutput | LexModelsV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBotAliasCommand(input));
+    let result: DescribeBotAliasCommandOutput & any = await client.send(new DescribeBotAliasCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasComm
 export const waitForBotAliasAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotAliasCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotAliasCommandOutput | LexModelsV2ServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForBotAliasAvailable = async (
 export const waitUntilBotAliasAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotAliasCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotAliasCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeBotAliasCommandOutput>;
 };

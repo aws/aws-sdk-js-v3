@@ -9,14 +9,16 @@ import {
 
 import {
   type GetMedicalTranscriptionJobCommandInput,
+  type GetMedicalTranscriptionJobCommandOutput,
   GetMedicalTranscriptionJobCommand,
 } from "../commands/GetMedicalTranscriptionJobCommand";
+import type { TranscribeServiceException } from "../models/TranscribeServiceException";
 import type { TranscribeClient } from "../TranscribeClient";
 
-const checkState = async (client: TranscribeClient, input: GetMedicalTranscriptionJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: TranscribeClient, input: GetMedicalTranscriptionJobCommandInput): Promise<WaiterResult<GetMedicalTranscriptionJobCommandOutput | TranscribeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetMedicalTranscriptionJobCommand(input));
+    let result: GetMedicalTranscriptionJobCommandOutput & any = await client.send(new GetMedicalTranscriptionJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: TranscribeClient, input: GetMedicalTranscripti
 export const waitForMedicalTranscriptionJobCompleted = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetMedicalTranscriptionJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMedicalTranscriptionJobCommandOutput | TranscribeServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForMedicalTranscriptionJobCompleted = async (
 export const waitUntilMedicalTranscriptionJobCompleted = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetMedicalTranscriptionJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMedicalTranscriptionJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetMedicalTranscriptionJobCommandOutput>;
 };

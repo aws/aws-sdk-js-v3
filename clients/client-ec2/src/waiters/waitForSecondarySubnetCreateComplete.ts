@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeSecondarySubnetsCommandInput,
+  type DescribeSecondarySubnetsCommandOutput,
   DescribeSecondarySubnetsCommand,
 } from "../commands/DescribeSecondarySubnetsCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeSecondarySubnetsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeSecondarySubnetsCommandInput): Promise<WaiterResult<DescribeSecondarySubnetsCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeSecondarySubnetsCommand(input));
+    let result: DescribeSecondarySubnetsCommandOutput & any = await client.send(new DescribeSecondarySubnetsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -50,7 +52,7 @@ const checkState = async (client: EC2Client, input: DescribeSecondarySubnetsComm
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidSecondarySubnetId.NotFound") {
+    if (exception.name === "InvalidSecondarySubnetId.NotFound") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -63,7 +65,7 @@ const checkState = async (client: EC2Client, input: DescribeSecondarySubnetsComm
 export const waitForSecondarySubnetCreateComplete = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSecondarySubnetsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSecondarySubnetsCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -75,8 +77,8 @@ export const waitForSecondarySubnetCreateComplete = async (
 export const waitUntilSecondarySubnetCreateComplete = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSecondarySubnetsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSecondarySubnetsCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeSecondarySubnetsCommandOutput>;
 };

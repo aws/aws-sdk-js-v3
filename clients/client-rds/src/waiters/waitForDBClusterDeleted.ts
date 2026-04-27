@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeDBClustersCommandInput, DescribeDBClustersCommand } from "../commands/DescribeDBClustersCommand";
+import {
+  type DescribeDBClustersCommandInput,
+  type DescribeDBClustersCommandOutput,
+  DescribeDBClustersCommand,
+} from "../commands/DescribeDBClustersCommand";
+import type { DBClusterNotFoundFault } from "../models/errors";
+import type { RDSServiceException } from "../models/RDSServiceException";
 import type { RDSClient } from "../RDSClient";
 
-const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInput): Promise<WaiterResult<DescribeDBClustersCommandOutput | RDSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBClustersCommand(input));
+    let result: DescribeDBClustersCommandOutput & any = await client.send(new DescribeDBClustersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -81,7 +87,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBClusterNotFoundFault") {
+    if (exception.name === "DBClusterNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -94,7 +100,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
 export const waitForDBClusterDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBClustersCommandOutput | RDSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -106,8 +112,8 @@ export const waitForDBClusterDeleted = async (
 export const waitUntilDBClusterDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBClustersCommandOutput | DBClusterNotFoundFault>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDBClustersCommandOutput | DBClusterNotFoundFault>;
 };

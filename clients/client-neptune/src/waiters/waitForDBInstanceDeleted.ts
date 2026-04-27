@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeDBInstancesCommandInput,
+  type DescribeDBInstancesCommandOutput,
   DescribeDBInstancesCommand,
 } from "../commands/DescribeDBInstancesCommand";
+import type { DBInstanceNotFoundFault } from "../models/errors";
+import type { NeptuneServiceException } from "../models/NeptuneServiceException";
 import type { NeptuneClient } from "../NeptuneClient";
 
-const checkState = async (client: NeptuneClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneClient, input: DescribeDBInstancesCommandInput): Promise<WaiterResult<DescribeDBInstancesCommandOutput | NeptuneServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBInstancesCommand(input));
+    let result: DescribeDBInstancesCommandOutput & any = await client.send(new DescribeDBInstancesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -92,7 +95,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBInstanceNotFoundFault") {
+    if (exception.name === "DBInstanceNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -105,7 +108,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
 export const waitForDBInstanceDeleted = async (
   params: WaiterConfiguration<NeptuneClient>,
   input: DescribeDBInstancesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBInstancesCommandOutput | NeptuneServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -117,8 +120,8 @@ export const waitForDBInstanceDeleted = async (
 export const waitUntilDBInstanceDeleted = async (
   params: WaiterConfiguration<NeptuneClient>,
   input: DescribeDBInstancesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBInstancesCommandOutput | DBInstanceNotFoundFault>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDBInstancesCommandOutput | DBInstanceNotFoundFault>;
 };
