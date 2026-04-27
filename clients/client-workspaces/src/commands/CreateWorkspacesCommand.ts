@@ -171,8 +171,8 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //       },
  * //       ModificationStates: [ // ModificationStateList
  * //         { // ModificationState
- * //           Resource: "ROOT_VOLUME" || "USER_VOLUME" || "COMPUTE_TYPE",
- * //           State: "UPDATE_INITIATED" || "UPDATE_IN_PROGRESS",
+ * //           Resource: "ROOT_VOLUME" || "USER_VOLUME" || "COMPUTE_TYPE" || "PROTOCOL",
+ * //           State: "UPDATE_INITIATED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED",
  * //         },
  * //       ],
  * //       RelatedWorkspaces: [ // RelatedWorkspaces

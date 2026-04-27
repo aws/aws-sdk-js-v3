@@ -556,6 +556,7 @@ export type RunningMode = (typeof RunningMode)[keyof typeof RunningMode];
  */
 export const ModificationResourceEnum = {
   COMPUTE_TYPE: "COMPUTE_TYPE",
+  PROTOCOL: "PROTOCOL",
   ROOT_VOLUME: "ROOT_VOLUME",
   USER_VOLUME: "USER_VOLUME",
 } as const;
@@ -569,6 +570,7 @@ export type ModificationResourceEnum = (typeof ModificationResourceEnum)[keyof t
  * @enum
  */
 export const ModificationStateEnum = {
+  UPDATE_FAILED: "UPDATE_FAILED",
   UPDATE_INITIATED: "UPDATE_INITIATED",
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
