@@ -125,6 +125,7 @@ import type {
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand";
 import type { GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
 import type { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "./commands/GenerateRandomCommand";
+import type { GetKeyLastUsageCommandInput, GetKeyLastUsageCommandOutput } from "./commands/GetKeyLastUsageCommand";
 import type { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "./commands/GetKeyPolicyCommand";
 import type {
   GetKeyRotationStatusCommandInput,
@@ -220,6 +221,7 @@ export type ServiceInputTypes =
   | GenerateDataKeyWithoutPlaintextCommandInput
   | GenerateMacCommandInput
   | GenerateRandomCommandInput
+  | GetKeyLastUsageCommandInput
   | GetKeyPolicyCommandInput
   | GetKeyRotationStatusCommandInput
   | GetParametersForImportCommandInput
@@ -278,6 +280,7 @@ export type ServiceOutputTypes =
   | GenerateDataKeyWithoutPlaintextCommandOutput
   | GenerateMacCommandOutput
   | GenerateRandomCommandOutput
+  | GetKeyLastUsageCommandOutput
   | GetKeyPolicyCommandOutput
   | GetKeyRotationStatusCommandOutput
   | GetParametersForImportCommandOutput

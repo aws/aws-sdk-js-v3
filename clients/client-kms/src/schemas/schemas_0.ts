@@ -51,6 +51,7 @@ const _CKSNIUE = "CustomKeyStoreNameInUseException";
 const _CKST = "CustomKeyStoreType";
 const _CMKS = "CustomerMasterKeySpec";
 const _CS = "ConnectionState";
+const _CTEI = "CloudTrailEventId";
 const _Co = "Connectivity";
 const _D = "Description";
 const _DA = "DeleteAlias";
@@ -121,6 +122,9 @@ const _GDKWP = "GenerateDataKeyWithoutPlaintext";
 const _GDKWPR = "GenerateDataKeyWithoutPlaintextRequest";
 const _GDKWPRe = "GenerateDataKeyWithoutPlaintextResponse";
 const _GI = "GrantId";
+const _GKLU = "GetKeyLastUsage";
+const _GKLUR = "GetKeyLastUsageRequest";
+const _GKLURe = "GetKeyLastUsageResponse";
 const _GKP = "GetKeyPolicy";
 const _GKPR = "GetKeyPolicyRequest";
 const _GKPRe = "GetKeyPolicyResponse";
@@ -168,10 +172,13 @@ const _K = "Keys";
 const _KA = "KeyArn";
 const _KAA = "KeyAgreementAlgorithm";
 const _KAAe = "KeyAgreementAlgorithms";
+const _KCD = "KeyCreationDate";
 const _KEA = "KeyEncryptionAlgorithm";
 const _KI = "KeyId";
 const _KL = "KeyList";
 const _KLE = "KeyListEntry";
+const _KLU = "KeyLastUsage";
+const _KLUD = "KeyLastUsageData";
 const _KM = "KeyMetadata";
 const _KMD = "KeyMaterialDescription";
 const _KMI = "KeyMaterialId";
@@ -184,6 +191,7 @@ const _KMe = "KeyManager";
 const _KO = "KeyOrigin";
 const _KPS = "KeyPairSpec";
 const _KRE = "KeyRotationEnabled";
+const _KRI = "KmsRequestId";
 const _KS = "KeySpec";
 const _KSP = "KeyStorePassword";
 const _KSPT = "KeyStorePasswordType";
@@ -234,6 +242,7 @@ const _NOB = "NumberOfBytes";
 const _NRD = "NextRotationDate";
 const _O = "Operations";
 const _ODRSD = "OnDemandRotationStartDate";
+const _Op = "Operation";
 const _Or = "Origin";
 const _P = "Policy";
 const _PDWID = "PendingDeletionWindowInDays";
@@ -303,8 +312,10 @@ const _TKa = "TagKeys";
 const _TL = "TagList";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
+const _TSD = "TrackingStartDate";
 const _TV = "TagValue";
 const _Ta = "Tag";
+const _Ti = "Timestamp";
 const _Tr = "Truncated";
 const _UA = "UpdateAlias";
 const _UAR = "UpdateAliasRequest";
@@ -965,6 +976,16 @@ export var GenerateRandomResponse$: StaticStructureSchema = [3, n0, _GRRe,
   [_Pl, _CFR],
   [[() => PlaintextType, 0], 21]
 ];
+export var GetKeyLastUsageRequest$: StaticStructureSchema = [3, n0, _GKLUR,
+  0,
+  [_KI],
+  [0], 1
+];
+export var GetKeyLastUsageResponse$: StaticStructureSchema = [3, n0, _GKLURe,
+  0,
+  [_KI, _KLU, _TSD, _KCD],
+  [0, () => KeyLastUsageData$, 4, 4]
+];
 export var GetKeyPolicyRequest$: StaticStructureSchema = [3, n0, _GKPR,
   0,
   [_KI, _PN],
@@ -1024,6 +1045,11 @@ export var ImportKeyMaterialResponse$: StaticStructureSchema = [3, n0, _IKMRm,
   0,
   [_KI, _KMI],
   [0, 0]
+];
+export var KeyLastUsageData$: StaticStructureSchema = [3, n0, _KLUD,
+  0,
+  [_Op, _Ti, _CTEI, _KRI],
+  [0, 4, 0, 0]
 ];
 export var KeyListEntry$: StaticStructureSchema = [3, n0, _KLE,
   0,
@@ -1367,6 +1393,9 @@ export var GenerateMac$: StaticOperationSchema = [9, n0, _GM,
 ];
 export var GenerateRandom$: StaticOperationSchema = [9, n0, _GR,
   0, () => GenerateRandomRequest$, () => GenerateRandomResponse$
+];
+export var GetKeyLastUsage$: StaticOperationSchema = [9, n0, _GKLU,
+  0, () => GetKeyLastUsageRequest$, () => GetKeyLastUsageResponse$
 ];
 export var GetKeyPolicy$: StaticOperationSchema = [9, n0, _GKP,
   0, () => GetKeyPolicyRequest$, () => GetKeyPolicyResponse$

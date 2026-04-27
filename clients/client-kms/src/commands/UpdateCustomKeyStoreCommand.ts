@@ -58,8 +58,10 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *       name (<code>NewCustomKeyStoreName</code>), to tell KMS about a change to the
  *         <code>kmsuser</code> crypto user password (<code>KeyStorePassword</code>), or to associate
  *       the custom key store with a different, but related, CloudHSM cluster
- *         (<code>CloudHsmClusterId</code>). To update any property of an CloudHSM key store, the
- *         <code>ConnectionState</code> of the CloudHSM key store must be <code>DISCONNECTED</code>. </p>
+ *         (<code>CloudHsmClusterId</code>). To update most properties of an CloudHSM key store, the
+ *         <code>ConnectionState</code> of the CloudHSM key store must be <code>DISCONNECTED</code>.
+ *         However, you can update the <code>CustomKeyStoreName</code> of an AWS CloudHSM key store
+ *         when it is in the <code>CONNECTED</code> or <code>DISCONNECTED</code> state.</p>
  *          <p>For an external key store, you can use this operation to change the custom key store
  *       friendly name (<code>NewCustomKeyStoreName</code>), or to tell KMS about a change to the
  *       external key store proxy authentication credentials
@@ -238,8 +240,10 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *             </li>
  *             <li>
  *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. This operation is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>
+ *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
+ *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
+ *             For all other properties, the custom key store
+ *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
  *             </li>
  *             <li>
  *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store

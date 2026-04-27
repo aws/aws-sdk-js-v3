@@ -91,9 +91,11 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. If you use the <code>KeyId</code>
- *       parameter to identify a KMS key in a different Amazon Web Services account, specify the key ARN or the alias
- *       ARN of the KMS key.</p>
+ *             <b>Cross-account use</b>: Yes. To specify a KMS key
+ *       in a different Amazon Web Services account, use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-alias-ARN">alias
+ *         ARN</a>. A short <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a> is also acceptable
+ *       when decrypting symmetric ciphertexts, though using a full key ARN is recommended
+ *       to be more explicit about the intended KMS key.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Decrypt</a> (key policy)</p>
  *          <p>

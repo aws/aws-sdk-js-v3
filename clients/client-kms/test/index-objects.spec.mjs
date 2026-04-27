@@ -135,6 +135,10 @@ import {
   GenerateRandomCommand,
   GenerateRandomRequest$,
   GenerateRandomResponse$,
+  GetKeyLastUsage$,
+  GetKeyLastUsageCommand,
+  GetKeyLastUsageRequest$,
+  GetKeyLastUsageResponse$,
   GetKeyPolicy$,
   GetKeyPolicyCommand,
   GetKeyPolicyRequest$,
@@ -185,6 +189,8 @@ import {
   InvalidMarkerException$,
   KeyAgreementAlgorithmSpec,
   KeyEncryptionMechanism,
+  KeyLastUsageData$,
+  KeyLastUsageTrackingOperation,
   KeyListEntry$,
   KeyManagerType,
   KeyMaterialState,
@@ -402,6 +408,8 @@ assert(typeof GenerateMacCommand === "function");
 assert(typeof GenerateMac$ === "object");
 assert(typeof GenerateRandomCommand === "function");
 assert(typeof GenerateRandom$ === "object");
+assert(typeof GetKeyLastUsageCommand === "function");
+assert(typeof GetKeyLastUsage$ === "object");
 assert(typeof GetKeyPolicyCommand === "function");
 assert(typeof GetKeyPolicy$ === "object");
 assert(typeof GetKeyRotationStatusCommand === "function");
@@ -505,6 +513,8 @@ assert(typeof GenerateMacRequest$ === "object");
 assert(typeof GenerateMacResponse$ === "object");
 assert(typeof GenerateRandomRequest$ === "object");
 assert(typeof GenerateRandomResponse$ === "object");
+assert(typeof GetKeyLastUsageRequest$ === "object");
+assert(typeof GetKeyLastUsageResponse$ === "object");
 assert(typeof GetKeyPolicyRequest$ === "object");
 assert(typeof GetKeyPolicyResponse$ === "object");
 assert(typeof GetKeyRotationStatusRequest$ === "object");
@@ -517,6 +527,7 @@ assert(typeof GrantConstraints$ === "object");
 assert(typeof GrantListEntry$ === "object");
 assert(typeof ImportKeyMaterialRequest$ === "object");
 assert(typeof ImportKeyMaterialResponse$ === "object");
+assert(typeof KeyLastUsageData$ === "object");
 assert(typeof KeyListEntry$ === "object");
 assert(typeof KeyMetadata$ === "object");
 assert(typeof ListAliasesRequest$ === "object");
@@ -581,6 +592,7 @@ assert(typeof ImportType === "object");
 assert(typeof IncludeKeyMaterial === "object");
 assert(typeof KeyAgreementAlgorithmSpec === "object");
 assert(typeof KeyEncryptionMechanism === "object");
+assert(typeof KeyLastUsageTrackingOperation === "object");
 assert(typeof KeyManagerType === "object");
 assert(typeof KeyMaterialState === "object");
 assert(typeof KeySpec === "object");

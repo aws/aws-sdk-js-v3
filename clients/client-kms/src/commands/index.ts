@@ -24,6 +24,7 @@ export * from "./GenerateDataKeyPairWithoutPlaintextCommand";
 export * from "./GenerateDataKeyWithoutPlaintextCommand";
 export * from "./GenerateMacCommand";
 export * from "./GenerateRandomCommand";
+export * from "./GetKeyLastUsageCommand";
 export * from "./GetKeyPolicyCommand";
 export * from "./GetKeyRotationStatusCommand";
 export * from "./GetParametersForImportCommand";

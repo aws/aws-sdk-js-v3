@@ -112,6 +112,11 @@ import {
   GenerateRandomCommand,
 } from "./commands/GenerateRandomCommand";
 import {
+  type GetKeyLastUsageCommandInput,
+  type GetKeyLastUsageCommandOutput,
+  GetKeyLastUsageCommand,
+} from "./commands/GetKeyLastUsageCommand";
+import {
   type GetKeyPolicyCommandInput,
   type GetKeyPolicyCommandOutput,
   GetKeyPolicyCommand,
@@ -267,6 +272,7 @@ const commands = {
   GenerateDataKeyWithoutPlaintextCommand,
   GenerateMacCommand,
   GenerateRandomCommand,
+  GetKeyLastUsageCommand,
   GetKeyPolicyCommand,
   GetKeyRotationStatusCommand,
   GetParametersForImportCommand,
@@ -735,6 +741,23 @@ export interface KMS {
     args: GenerateRandomCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GenerateRandomCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetKeyLastUsageCommand}
+   */
+  getKeyLastUsage(
+    args: GetKeyLastUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyLastUsageCommandOutput>;
+  getKeyLastUsage(
+    args: GetKeyLastUsageCommandInput,
+    cb: (err: any, data?: GetKeyLastUsageCommandOutput) => void
+  ): void;
+  getKeyLastUsage(
+    args: GetKeyLastUsageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKeyLastUsageCommandOutput) => void
   ): void;
 
   /**

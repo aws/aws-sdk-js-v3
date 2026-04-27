@@ -74,8 +74,10 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *          <p>
  *             <b>Cross-account use</b>: Yes. The source KMS key and
  *       destination KMS key can be in different Amazon Web Services accounts. Either or both KMS keys can be in a
- *       different account than the caller. To specify a KMS key in a different account, you must use
- *       its key ARN or alias ARN.</p>
+ *       different account than the caller. To specify a KMS key in a different account, use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>
+ *       or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-alias-ARN">alias ARN</a>. A short <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a>
+ *       is also acceptable for the source key when decrypting symmetric ciphertexts, though
+ *       using a full key ARN is recommended to be more explicit about the intended KMS key.</p>
  *          <p>
  *             <b>Required permissions</b>:</p>
  *          <ul>

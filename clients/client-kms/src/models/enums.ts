@@ -382,6 +382,30 @@ export type KeyEncryptionMechanism = (typeof KeyEncryptionMechanism)[keyof typeo
  * @public
  * @enum
  */
+export const KeyLastUsageTrackingOperation = {
+  Decrypt: "Decrypt",
+  DeriveSharedSecret: "DeriveSharedSecret",
+  Encrypt: "Encrypt",
+  GenerateDataKey: "GenerateDataKey",
+  GenerateDataKeyPair: "GenerateDataKeyPair",
+  GenerateDataKeyPairWithoutPlaintext: "GenerateDataKeyPairWithoutPlaintext",
+  GenerateDataKeyWithoutPlaintext: "GenerateDataKeyWithoutPlaintext",
+  GenerateMac: "GenerateMac",
+  ReEncrypt: "ReEncrypt",
+  Sign: "Sign",
+  Verify: "Verify",
+  VerifyMac: "VerifyMac",
+} as const;
+/**
+ * @public
+ */
+export type KeyLastUsageTrackingOperation =
+  (typeof KeyLastUsageTrackingOperation)[keyof typeof KeyLastUsageTrackingOperation];
+
+/**
+ * @public
+ * @enum
+ */
 export const WrappingKeySpec = {
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",

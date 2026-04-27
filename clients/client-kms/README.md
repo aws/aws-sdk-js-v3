@@ -453,6 +453,13 @@ GenerateRandom
 </details>
 <details>
 <summary>
+GetKeyLastUsage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kms/command/GetKeyLastUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/GetKeyLastUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/GetKeyLastUsageCommandOutput/)
+</details>
+<details>
+<summary>
 GetKeyPolicy
 </summary>
 

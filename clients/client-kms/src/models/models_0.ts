@@ -16,6 +16,7 @@ import type {
   IncludeKeyMaterial,
   KeyAgreementAlgorithmSpec,
   KeyEncryptionMechanism,
+  KeyLastUsageTrackingOperation,
   KeyManagerType,
   KeyMaterialState,
   KeySpec,
@@ -1704,7 +1705,7 @@ export interface DecryptRequest {
    *       key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
    *       it adds to the symmetric ciphertext blob. However, it is always recommended as a best
    *       practice. This practice ensures that you use the KMS key that you intend.</p>
-   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
    *             <li>
@@ -3039,6 +3040,98 @@ export interface GenerateRandomResponse {
 /**
  * @public
  */
+export interface GetKeyLastUsageRequest {
+  /**
+   * <p>Identifies the KMS key to get usage information for. To specify a KMS key, use its key ID
+   *       or key ARN. Alias names are not supported.</p>
+   *          <p>Specify the key ID or key ARN of the KMS key.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+}
+
+/**
+ * <p>Contains usage information about the last time the KMS key was used for a successful cryptographic
+ *       operation.</p>
+ * @public
+ */
+export interface KeyLastUsageData {
+  /**
+   * <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been
+   *       used since KMS began tracking.</p>
+   * @public
+   */
+  Operation?: KeyLastUsageTrackingOperation | undefined;
+
+  /**
+   * <p>The date and time when the KMS key was most recently used for a successful cryptographic
+   *       operation. Absent if the key has not been used since KMS began tracking.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p>The CloudTrail <code>eventId</code> associated with the last successful cryptographic operation.
+   *       Absent if the key has not been used since KMS began tracking.</p>
+   * @public
+   */
+  CloudTrailEventId?: string | undefined;
+
+  /**
+   * <p>The KMS request ID associated with the last successful cryptographic operation. Absent if the key
+   *       has not been used since KMS began tracking.</p>
+   * @public
+   */
+  KmsRequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKeyLastUsageResponse {
+  /**
+   * <p>The globally unique identifier for the KMS key.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+
+  /**
+   * <p>Contains usage information about the last time the KMS key was used for a successful cryptographic
+   *       operation. If the key has not been used since tracking began, this response element is
+   *       empty.</p>
+   * @public
+   */
+  KeyLastUsage?: KeyLastUsageData | undefined;
+
+  /**
+   * <p>The date from which KMS began recording cryptographic activity for this key, or the date
+   *       the KMS key was created, whichever is later.</p>
+   * @public
+   */
+  TrackingStartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the KMS key was created.</p>
+   * @public
+   */
+  KeyCreationDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetKeyPolicyRequest {
   /**
    * <p>Gets the key policy for the specified KMS key.</p>
@@ -4290,7 +4383,7 @@ export interface ReEncryptRequest {
    *       <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key
    *       from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best
    *       practice. This practice ensures that you use the KMS key that you intend.</p>
-   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
    *             <li>
@@ -4895,6 +4988,12 @@ export interface SignRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS
+   *       still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1
+   *       of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.
+   *       </p>
+   *          </important>
    *          <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the
    *         <code>Message</code> value must match the length of hashed messages for the specified
    *       signing algorithm.</p>
@@ -5115,8 +5214,7 @@ export interface UpdateCustomKeyStoreRequest {
    *          <important>
    *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
    *          </important>
-   *          <p>To change this value, an CloudHSM key store must be disconnected. An external key store can
-   *       be connected or disconnected.</p>
+   *          <p>To change this value, the custom key store can be connected or disconnected.</p>
    * @public
    */
   NewCustomKeyStoreName?: string | undefined;
@@ -5375,6 +5473,12 @@ export interface VerifyRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS
+   *       still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1
+   *       of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.
+   *       </p>
+   *          </important>
    *          <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the
    *         <code>Message</code> value must match the length of hashed messages for the specified
    *       signing algorithm.</p>

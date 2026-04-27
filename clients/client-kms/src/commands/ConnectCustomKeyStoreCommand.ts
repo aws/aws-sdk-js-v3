@@ -206,8 +206,10 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *             </li>
  *             <li>
  *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. This operation is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>
+ *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
+ *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
+ *             For all other properties, the custom key store
+ *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
  *             </li>
  *             <li>
  *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
