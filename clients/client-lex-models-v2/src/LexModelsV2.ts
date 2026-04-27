@@ -524,6 +524,7 @@ import {
   UpdateTestSetCommand,
 } from "./commands/UpdateTestSetCommand";
 import { LexModelsV2Client } from "./LexModelsV2Client";
+import type { LexModelsV2ServiceException } from "./models/LexModelsV2ServiceException";
 import { paginateDescribeBotAnalyzerRecommendation } from "./pagination/DescribeBotAnalyzerRecommendationPaginator";
 import { paginateListAggregatedUtterances } from "./pagination/ListAggregatedUtterancesPaginator";
 import { paginateListBotAliases } from "./pagination/ListBotAliasesPaginator";
@@ -2879,7 +2880,7 @@ export interface LexModelsV2 {
   waitUntilBotAvailable(
     args: DescribeBotCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBotCommandOutput>>;
 
   /**
    * @see {@link DescribeBotAliasCommand}
@@ -2889,7 +2890,7 @@ export interface LexModelsV2 {
   waitUntilBotAliasAvailable(
     args: DescribeBotAliasCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBotAliasCommandOutput>>;
 
   /**
    * @see {@link DescribeBotLocaleCommand}
@@ -2899,7 +2900,7 @@ export interface LexModelsV2 {
   waitUntilBotLocaleBuilt(
     args: DescribeBotLocaleCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBotLocaleCommandOutput>>;
 
   /**
    * @see {@link DescribeBotLocaleCommand}
@@ -2909,7 +2910,7 @@ export interface LexModelsV2 {
   waitUntilBotLocaleCreated(
     args: DescribeBotLocaleCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBotLocaleCommandOutput>>;
 
   /**
    * @see {@link DescribeBotLocaleCommand}
@@ -2919,7 +2920,7 @@ export interface LexModelsV2 {
   waitUntilBotLocaleExpressTestingAvailable(
     args: DescribeBotLocaleCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBotLocaleCommandOutput>>;
 
   /**
    * @see {@link DescribeBotVersionCommand}
@@ -2929,7 +2930,7 @@ export interface LexModelsV2 {
   waitUntilBotVersionAvailable(
     args: DescribeBotVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBotVersionCommandOutput>>;
 
   /**
    * @see {@link DescribeExportCommand}
@@ -2939,7 +2940,7 @@ export interface LexModelsV2 {
   waitUntilBotExportCompleted(
     args: DescribeExportCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeExportCommandOutput>>;
 
   /**
    * @see {@link DescribeImportCommand}
@@ -2949,7 +2950,7 @@ export interface LexModelsV2 {
   waitUntilBotImportCompleted(
     args: DescribeImportCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImportCommandOutput>>;
 }
 
 /**

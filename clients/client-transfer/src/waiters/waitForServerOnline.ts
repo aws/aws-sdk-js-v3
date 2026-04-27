@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeServerCommandInput, DescribeServerCommand } from "../commands/DescribeServerCommand";
+import {
+  type DescribeServerCommandInput,
+  type DescribeServerCommandOutput,
+  DescribeServerCommand,
+} from "../commands/DescribeServerCommand";
+import type { TransferServiceException } from "../models/TransferServiceException";
 import type { TransferClient } from "../TransferClient";
 
-const checkState = async (client: TransferClient, input: DescribeServerCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: TransferClient, input: DescribeServerCommandInput): Promise<WaiterResult<DescribeServerCommandOutput | TransferServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeServerCommand(input));
+    let result: DescribeServerCommandOutput & any = await client.send(new DescribeServerCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: TransferClient, input: DescribeServerCommandIn
 export const waitForServerOnline = async (
   params: WaiterConfiguration<TransferClient>,
   input: DescribeServerCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeServerCommandOutput | TransferServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForServerOnline = async (
 export const waitUntilServerOnline = async (
   params: WaiterConfiguration<TransferClient>,
   input: DescribeServerCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeServerCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeServerCommandOutput>;
 };

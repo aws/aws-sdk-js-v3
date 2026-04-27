@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { ARCRegionSwitchClient } from "../ARCRegionSwitchClient";
-import { type GetPlanExecutionCommandInput, GetPlanExecutionCommand } from "../commands/GetPlanExecutionCommand";
+import {
+  type GetPlanExecutionCommandInput,
+  type GetPlanExecutionCommandOutput,
+  GetPlanExecutionCommand,
+} from "../commands/GetPlanExecutionCommand";
+import type { ARCRegionSwitchServiceException } from "../models/ARCRegionSwitchServiceException";
 
-const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecutionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecutionCommandInput): Promise<WaiterResult<GetPlanExecutionCommandOutput | ARCRegionSwitchServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPlanExecutionCommand(input));
+    let result: GetPlanExecutionCommandOutput & any = await client.send(new GetPlanExecutionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -67,7 +72,7 @@ const checkState = async (client: ARCRegionSwitchClient, input: GetPlanExecution
 export const waitForPlanExecutionCompleted = async (
   params: WaiterConfiguration<ARCRegionSwitchClient>,
   input: GetPlanExecutionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPlanExecutionCommandOutput | ARCRegionSwitchServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -79,8 +84,8 @@ export const waitForPlanExecutionCompleted = async (
 export const waitUntilPlanExecutionCompleted = async (
   params: WaiterConfiguration<ARCRegionSwitchClient>,
   input: GetPlanExecutionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPlanExecutionCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetPlanExecutionCommandOutput>;
 };

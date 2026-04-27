@@ -49,6 +49,7 @@ import {
   type UpdateResourceCommandOutput,
   UpdateResourceCommand,
 } from "./commands/UpdateResourceCommand";
+import type { CloudControlServiceException } from "./models/CloudControlServiceException";
 import { paginateListResourceRequests } from "./pagination/ListResourceRequestsPaginator";
 import { paginateListResources } from "./pagination/ListResourcesPaginator";
 import { waitUntilResourceRequestSuccess } from "./waiters/waitForResourceRequestSuccess";
@@ -239,7 +240,7 @@ export interface CloudControl {
   waitUntilResourceRequestSuccess(
     args: GetResourceRequestStatusCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetResourceRequestStatusCommandOutput>>;
 }
 
 /**

@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeDataSourcesCommandInput,
+  type DescribeDataSourcesCommandOutput,
   DescribeDataSourcesCommand,
 } from "../commands/DescribeDataSourcesCommand";
 import type { MachineLearningClient } from "../MachineLearningClient";
+import type { MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
-const checkState = async (client: MachineLearningClient, input: DescribeDataSourcesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MachineLearningClient, input: DescribeDataSourcesCommandInput): Promise<WaiterResult<DescribeDataSourcesCommandOutput | MachineLearningServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDataSourcesCommand(input));
+    let result: DescribeDataSourcesCommandOutput & any = await client.send(new DescribeDataSourcesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: MachineLearningClient, input: DescribeDataSour
 export const waitForDataSourceAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeDataSourcesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDataSourcesCommandOutput | MachineLearningServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForDataSourceAvailable = async (
 export const waitUntilDataSourceAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeDataSourcesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDataSourcesCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDataSourcesCommandOutput>;
 };

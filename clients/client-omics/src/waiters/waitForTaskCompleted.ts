@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetRunTaskCommandInput, GetRunTaskCommand } from "../commands/GetRunTaskCommand";
+import {
+  type GetRunTaskCommandInput,
+  type GetRunTaskCommandOutput,
+  GetRunTaskCommand,
+} from "../commands/GetRunTaskCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): Promise<WaiterResult<GetRunTaskCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetRunTaskCommand(input));
+    let result: GetRunTaskCommandOutput & any = await client.send(new GetRunTaskCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -75,7 +80,7 @@ const checkState = async (client: OmicsClient, input: GetRunTaskCommandInput): P
 export const waitForTaskCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetRunTaskCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRunTaskCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -87,8 +92,8 @@ export const waitForTaskCompleted = async (
 export const waitUntilTaskCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetRunTaskCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRunTaskCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetRunTaskCommandOutput>;
 };

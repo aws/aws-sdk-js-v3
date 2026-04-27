@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeFHIRDatastoreCommandInput,
+  type DescribeFHIRDatastoreCommandOutput,
   DescribeFHIRDatastoreCommand,
 } from "../commands/DescribeFHIRDatastoreCommand";
 import type { HealthLakeClient } from "../HealthLakeClient";
+import type { HealthLakeServiceException } from "../models/HealthLakeServiceException";
 
-const checkState = async (client: HealthLakeClient, input: DescribeFHIRDatastoreCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: HealthLakeClient, input: DescribeFHIRDatastoreCommandInput): Promise<WaiterResult<DescribeFHIRDatastoreCommandOutput | HealthLakeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeFHIRDatastoreCommand(input));
+    let result: DescribeFHIRDatastoreCommandOutput & any = await client.send(new DescribeFHIRDatastoreCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: HealthLakeClient, input: DescribeFHIRDatastore
 export const waitForFHIRDatastoreActive = async (
   params: WaiterConfiguration<HealthLakeClient>,
   input: DescribeFHIRDatastoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFHIRDatastoreCommandOutput | HealthLakeServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForFHIRDatastoreActive = async (
 export const waitUntilFHIRDatastoreActive = async (
   params: WaiterConfiguration<HealthLakeClient>,
   input: DescribeFHIRDatastoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFHIRDatastoreCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeFHIRDatastoreCommandOutput>;
 };

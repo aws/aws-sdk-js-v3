@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeMLModelsCommandInput, DescribeMLModelsCommand } from "../commands/DescribeMLModelsCommand";
+import {
+  type DescribeMLModelsCommandInput,
+  type DescribeMLModelsCommandOutput,
+  DescribeMLModelsCommand,
+} from "../commands/DescribeMLModelsCommand";
 import type { MachineLearningClient } from "../MachineLearningClient";
+import type { MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
-const checkState = async (client: MachineLearningClient, input: DescribeMLModelsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MachineLearningClient, input: DescribeMLModelsCommandInput): Promise<WaiterResult<DescribeMLModelsCommandOutput | MachineLearningServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeMLModelsCommand(input));
+    let result: DescribeMLModelsCommandOutput & any = await client.send(new DescribeMLModelsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -57,7 +62,7 @@ const checkState = async (client: MachineLearningClient, input: DescribeMLModels
 export const waitForMLModelAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeMLModelsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeMLModelsCommandOutput | MachineLearningServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +74,8 @@ export const waitForMLModelAvailable = async (
 export const waitUntilMLModelAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeMLModelsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeMLModelsCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeMLModelsCommandOutput>;
 };

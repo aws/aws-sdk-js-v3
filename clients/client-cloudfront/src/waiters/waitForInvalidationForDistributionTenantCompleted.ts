@@ -10,13 +10,15 @@ import {
 import type { CloudFrontClient } from "../CloudFrontClient";
 import {
   type GetInvalidationForDistributionTenantCommandInput,
+  type GetInvalidationForDistributionTenantCommandOutput,
   GetInvalidationForDistributionTenantCommand,
 } from "../commands/GetInvalidationForDistributionTenantCommand";
+import type { CloudFrontServiceException } from "../models/CloudFrontServiceException";
 
-const checkState = async (client: CloudFrontClient, input: GetInvalidationForDistributionTenantCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFrontClient, input: GetInvalidationForDistributionTenantCommandInput): Promise<WaiterResult<GetInvalidationForDistributionTenantCommandOutput | CloudFrontServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetInvalidationForDistributionTenantCommand(input));
+    let result: GetInvalidationForDistributionTenantCommandOutput & any = await client.send(new GetInvalidationForDistributionTenantCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -38,7 +40,7 @@ const checkState = async (client: CloudFrontClient, input: GetInvalidationForDis
 export const waitForInvalidationForDistributionTenantCompleted = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetInvalidationForDistributionTenantCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetInvalidationForDistributionTenantCommandOutput | CloudFrontServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +52,8 @@ export const waitForInvalidationForDistributionTenantCompleted = async (
 export const waitUntilInvalidationForDistributionTenantCompleted = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetInvalidationForDistributionTenantCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetInvalidationForDistributionTenantCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetInvalidationForDistributionTenantCommandOutput>;
 };

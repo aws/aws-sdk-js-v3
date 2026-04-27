@@ -9,14 +9,16 @@ import {
 
 import {
   type GetMedicalScribeJobCommandInput,
+  type GetMedicalScribeJobCommandOutput,
   GetMedicalScribeJobCommand,
 } from "../commands/GetMedicalScribeJobCommand";
+import type { TranscribeServiceException } from "../models/TranscribeServiceException";
 import type { TranscribeClient } from "../TranscribeClient";
 
-const checkState = async (client: TranscribeClient, input: GetMedicalScribeJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: TranscribeClient, input: GetMedicalScribeJobCommandInput): Promise<WaiterResult<GetMedicalScribeJobCommandOutput | TranscribeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetMedicalScribeJobCommand(input));
+    let result: GetMedicalScribeJobCommandOutput & any = await client.send(new GetMedicalScribeJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: TranscribeClient, input: GetMedicalScribeJobCo
 export const waitForMedicalScribeJobCompleted = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetMedicalScribeJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMedicalScribeJobCommandOutput | TranscribeServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForMedicalScribeJobCompleted = async (
 export const waitUntilMedicalScribeJobCompleted = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetMedicalScribeJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMedicalScribeJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetMedicalScribeJobCommandOutput>;
 };

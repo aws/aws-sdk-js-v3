@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeProcessingJobCommandInput,
+  type DescribeProcessingJobCommandOutput,
   DescribeProcessingJobCommand,
 } from "../commands/DescribeProcessingJobCommand";
+import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (client: SageMakerClient, input: DescribeProcessingJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeProcessingJobCommandInput): Promise<WaiterResult<DescribeProcessingJobCommandOutput | SageMakerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeProcessingJobCommand(input));
+    let result: DescribeProcessingJobCommandOutput & any = await client.send(new DescribeProcessingJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -44,7 +46,7 @@ const checkState = async (client: SageMakerClient, input: DescribeProcessingJobC
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationException") {
+    if (exception.name === "ValidationException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -57,7 +59,7 @@ const checkState = async (client: SageMakerClient, input: DescribeProcessingJobC
 export const waitForProcessingJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeProcessingJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeProcessingJobCommandOutput | SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +71,8 @@ export const waitForProcessingJobCompletedOrStopped = async (
 export const waitUntilProcessingJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeProcessingJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeProcessingJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeProcessingJobCommandOutput>;
 };

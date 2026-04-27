@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeTransformJobCommandInput,
+  type DescribeTransformJobCommandOutput,
   DescribeTransformJobCommand,
 } from "../commands/DescribeTransformJobCommand";
+import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (client: SageMakerClient, input: DescribeTransformJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeTransformJobCommandInput): Promise<WaiterResult<DescribeTransformJobCommandOutput | SageMakerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTransformJobCommand(input));
+    let result: DescribeTransformJobCommandOutput & any = await client.send(new DescribeTransformJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -44,7 +46,7 @@ const checkState = async (client: SageMakerClient, input: DescribeTransformJobCo
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationException") {
+    if (exception.name === "ValidationException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -57,7 +59,7 @@ const checkState = async (client: SageMakerClient, input: DescribeTransformJobCo
 export const waitForTransformJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeTransformJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTransformJobCommandOutput | SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +71,8 @@ export const waitForTransformJobCompletedOrStopped = async (
 export const waitUntilTransformJobCompletedOrStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeTransformJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTransformJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTransformJobCommandOutput>;
 };

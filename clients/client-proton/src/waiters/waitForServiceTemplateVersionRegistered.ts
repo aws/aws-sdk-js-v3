@@ -9,14 +9,16 @@ import {
 
 import {
   type GetServiceTemplateVersionCommandInput,
+  type GetServiceTemplateVersionCommandOutput,
   GetServiceTemplateVersionCommand,
 } from "../commands/GetServiceTemplateVersionCommand";
+import type { ProtonServiceException } from "../models/ProtonServiceException";
 import type { ProtonClient } from "../ProtonClient";
 
-const checkState = async (client: ProtonClient, input: GetServiceTemplateVersionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ProtonClient, input: GetServiceTemplateVersionCommandInput): Promise<WaiterResult<GetServiceTemplateVersionCommandOutput | ProtonServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetServiceTemplateVersionCommand(input));
+    let result: GetServiceTemplateVersionCommandOutput & any = await client.send(new GetServiceTemplateVersionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: ProtonClient, input: GetServiceTemplateVersion
 export const waitForServiceTemplateVersionRegistered = async (
   params: WaiterConfiguration<ProtonClient>,
   input: GetServiceTemplateVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetServiceTemplateVersionCommandOutput | ProtonServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 300 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForServiceTemplateVersionRegistered = async (
 export const waitUntilServiceTemplateVersionRegistered = async (
   params: WaiterConfiguration<ProtonClient>,
   input: GetServiceTemplateVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetServiceTemplateVersionCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 300 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetServiceTemplateVersionCommandOutput>;
 };

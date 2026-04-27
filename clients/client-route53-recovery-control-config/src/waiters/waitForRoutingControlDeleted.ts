@@ -9,14 +9,19 @@ import {
 
 import {
   type DescribeRoutingControlCommandInput,
+  type DescribeRoutingControlCommandOutput,
   DescribeRoutingControlCommand,
 } from "../commands/DescribeRoutingControlCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type {
+  Route53RecoveryControlConfigServiceException,
+} from "../models/Route53RecoveryControlConfigServiceException";
 import type { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
-const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeRoutingControlCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: Route53RecoveryControlConfigClient, input: DescribeRoutingControlCommandInput): Promise<WaiterResult<DescribeRoutingControlCommandOutput | Route53RecoveryControlConfigServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeRoutingControlCommand(input));
+    let result: DescribeRoutingControlCommandOutput & any = await client.send(new DescribeRoutingControlCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -28,10 +33,10 @@ const checkState = async (client: Route53RecoveryControlConfigClient, input: Des
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
-    if (exception.name && exception.name == "InternalServerException") {
+    if (exception.name === "InternalServerException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -44,7 +49,7 @@ const checkState = async (client: Route53RecoveryControlConfigClient, input: Des
 export const waitForRoutingControlDeleted = async (
   params: WaiterConfiguration<Route53RecoveryControlConfigClient>,
   input: DescribeRoutingControlCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeRoutingControlCommandOutput | Route53RecoveryControlConfigServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -56,8 +61,8 @@ export const waitForRoutingControlDeleted = async (
 export const waitUntilRoutingControlDeleted = async (
   params: WaiterConfiguration<Route53RecoveryControlConfigClient>,
   input: DescribeRoutingControlCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

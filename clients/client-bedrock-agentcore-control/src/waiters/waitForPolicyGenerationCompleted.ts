@@ -10,13 +10,15 @@ import {
 import type { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
 import {
   type GetPolicyGenerationCommandInput,
+  type GetPolicyGenerationCommandOutput,
   GetPolicyGenerationCommand,
 } from "../commands/GetPolicyGenerationCommand";
+import type { BedrockAgentCoreControlServiceException } from "../models/BedrockAgentCoreControlServiceException";
 
-const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyGenerationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolicyGenerationCommandInput): Promise<WaiterResult<GetPolicyGenerationCommandOutput | BedrockAgentCoreControlServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPolicyGenerationCommand(input));
+    let result: GetPolicyGenerationCommandOutput & any = await client.send(new GetPolicyGenerationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -62,7 +64,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetPolic
 export const waitForPolicyGenerationCompleted = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyGenerationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyGenerationCommandOutput | BedrockAgentCoreControlServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -74,8 +76,8 @@ export const waitForPolicyGenerationCompleted = async (
 export const waitUntilPolicyGenerationCompleted = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyGenerationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPolicyGenerationCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetPolicyGenerationCommandOutput>;
 };

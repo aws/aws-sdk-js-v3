@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetChannelCommandInput, GetChannelCommand } from "../commands/GetChannelCommand";
+import {
+  type GetChannelCommandInput,
+  type GetChannelCommandOutput,
+  GetChannelCommand,
+} from "../commands/GetChannelCommand";
+import type { RepostspaceServiceException } from "../models/RepostspaceServiceException";
 import type { RepostspaceClient } from "../RepostspaceClient";
 
-const checkState = async (client: RepostspaceClient, input: GetChannelCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RepostspaceClient, input: GetChannelCommandInput): Promise<WaiterResult<GetChannelCommandOutput | RepostspaceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetChannelCommand(input));
+    let result: GetChannelCommandOutput & any = await client.send(new GetChannelCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: RepostspaceClient, input: GetChannelCommandInp
 export const waitForChannelCreated = async (
   params: WaiterConfiguration<RepostspaceClient>,
   input: GetChannelCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetChannelCommandOutput | RepostspaceServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForChannelCreated = async (
 export const waitUntilChannelCreated = async (
   params: WaiterConfiguration<RepostspaceClient>,
   input: GetChannelCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetChannelCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetChannelCommandOutput>;
 };

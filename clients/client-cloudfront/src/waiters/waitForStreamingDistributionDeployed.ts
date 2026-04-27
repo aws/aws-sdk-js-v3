@@ -10,13 +10,15 @@ import {
 import type { CloudFrontClient } from "../CloudFrontClient";
 import {
   type GetStreamingDistributionCommandInput,
+  type GetStreamingDistributionCommandOutput,
   GetStreamingDistributionCommand,
 } from "../commands/GetStreamingDistributionCommand";
+import type { CloudFrontServiceException } from "../models/CloudFrontServiceException";
 
-const checkState = async (client: CloudFrontClient, input: GetStreamingDistributionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFrontClient, input: GetStreamingDistributionCommandInput): Promise<WaiterResult<GetStreamingDistributionCommandOutput | CloudFrontServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetStreamingDistributionCommand(input));
+    let result: GetStreamingDistributionCommandOutput & any = await client.send(new GetStreamingDistributionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -38,7 +40,7 @@ const checkState = async (client: CloudFrontClient, input: GetStreamingDistribut
 export const waitForStreamingDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetStreamingDistributionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetStreamingDistributionCommandOutput | CloudFrontServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 1500 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +52,8 @@ export const waitForStreamingDistributionDeployed = async (
 export const waitUntilStreamingDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetStreamingDistributionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetStreamingDistributionCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 1500 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetStreamingDistributionCommandOutput>;
 };

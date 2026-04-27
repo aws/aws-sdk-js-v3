@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeImageVersionCommandInput,
+  type DescribeImageVersionCommandOutput,
   DescribeImageVersionCommand,
 } from "../commands/DescribeImageVersionCommand";
+import type { SageMakerServiceException } from "../models/SageMakerServiceException";
 import type { SageMakerClient } from "../SageMakerClient";
 
-const checkState = async (client: SageMakerClient, input: DescribeImageVersionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SageMakerClient, input: DescribeImageVersionCommandInput): Promise<WaiterResult<DescribeImageVersionCommandOutput | SageMakerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImageVersionCommand(input));
+    let result: DescribeImageVersionCommandOutput & any = await client.send(new DescribeImageVersionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +38,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageVersionCo
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationException") {
+    if (exception.name === "ValidationException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -49,7 +51,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageVersionCo
 export const waitForImageVersionCreated = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImageVersionCommandOutput | SageMakerServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +63,8 @@ export const waitForImageVersionCreated = async (
 export const waitUntilImageVersionCreated = async (
   params: WaiterConfiguration<SageMakerClient>,
   input: DescribeImageVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImageVersionCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeImageVersionCommandOutput>;
 };

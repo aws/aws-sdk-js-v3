@@ -516,6 +516,8 @@ import {
   type UpdateWorkloadIdentityCommandOutput,
   UpdateWorkloadIdentityCommand,
 } from "./commands/UpdateWorkloadIdentityCommand";
+import type { BedrockAgentCoreControlServiceException } from "./models/BedrockAgentCoreControlServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListAgentRuntimeEndpoints } from "./pagination/ListAgentRuntimeEndpointsPaginator";
 import { paginateListAgentRuntimes } from "./pagination/ListAgentRuntimesPaginator";
 import { paginateListAgentRuntimeVersions } from "./pagination/ListAgentRuntimeVersionsPaginator";
@@ -2687,7 +2689,7 @@ export interface BedrockAgentCoreControl {
   waitUntilMemoryCreated(
     args: GetMemoryCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetMemoryCommandOutput>>;
 
   /**
    * @see {@link GetPolicyCommand}
@@ -2697,7 +2699,7 @@ export interface BedrockAgentCoreControl {
   waitUntilPolicyActive(
     args: GetPolicyCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPolicyCommandOutput>>;
 
   /**
    * @see {@link GetPolicyCommand}
@@ -2707,7 +2709,7 @@ export interface BedrockAgentCoreControl {
   waitUntilPolicyDeleted(
     args: GetPolicyCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetPolicyEngineCommand}
@@ -2717,7 +2719,7 @@ export interface BedrockAgentCoreControl {
   waitUntilPolicyEngineActive(
     args: GetPolicyEngineCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPolicyEngineCommandOutput>>;
 
   /**
    * @see {@link GetPolicyEngineCommand}
@@ -2727,7 +2729,7 @@ export interface BedrockAgentCoreControl {
   waitUntilPolicyEngineDeleted(
     args: GetPolicyEngineCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetPolicyGenerationCommand}
@@ -2737,7 +2739,7 @@ export interface BedrockAgentCoreControl {
   waitUntilPolicyGenerationCompleted(
     args: GetPolicyGenerationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPolicyGenerationCommandOutput>>;
 }
 
 /**

@@ -135,6 +135,8 @@ import {
   type UpdateResponderGatewayCommandOutput,
   UpdateResponderGatewayCommand,
 } from "./commands/UpdateResponderGatewayCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { RTBFabricServiceException } from "./models/RTBFabricServiceException";
 import { paginateListLinks } from "./pagination/ListLinksPaginator";
 import { paginateListRequesterGateways } from "./pagination/ListRequesterGatewaysPaginator";
 import { paginateListResponderGateways } from "./pagination/ListResponderGatewaysPaginator";
@@ -702,7 +704,7 @@ export interface RTBFabric {
   waitUntilInboundExternalLinkActive(
     args: GetInboundExternalLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetInboundExternalLinkCommandOutput>>;
 
   /**
    * @see {@link GetInboundExternalLinkCommand}
@@ -712,7 +714,7 @@ export interface RTBFabric {
   waitUntilInboundExternalLinkDeleted(
     args: GetInboundExternalLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetInboundExternalLinkCommandOutput>>;
 
   /**
    * @see {@link GetLinkCommand}
@@ -722,7 +724,7 @@ export interface RTBFabric {
   waitUntilLinkAccepted(
     args: GetLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetLinkCommandOutput>>;
 
   /**
    * @see {@link GetLinkCommand}
@@ -732,7 +734,7 @@ export interface RTBFabric {
   waitUntilLinkActive(
     args: GetLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetLinkCommandOutput>>;
 
   /**
    * @see {@link GetLinkCommand}
@@ -742,7 +744,7 @@ export interface RTBFabric {
   waitUntilLinkDeleted(
     args: GetLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetLinkCommandOutput>>;
 
   /**
    * @see {@link GetOutboundExternalLinkCommand}
@@ -752,7 +754,7 @@ export interface RTBFabric {
   waitUntilOutboundExternalLinkActive(
     args: GetOutboundExternalLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetOutboundExternalLinkCommandOutput>>;
 
   /**
    * @see {@link GetOutboundExternalLinkCommand}
@@ -762,7 +764,7 @@ export interface RTBFabric {
   waitUntilOutboundExternalLinkDeleted(
     args: GetOutboundExternalLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetOutboundExternalLinkCommandOutput>>;
 
   /**
    * @see {@link GetRequesterGatewayCommand}
@@ -772,7 +774,7 @@ export interface RTBFabric {
   waitUntilRequesterGatewayActive(
     args: GetRequesterGatewayCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRequesterGatewayCommandOutput>>;
 
   /**
    * @see {@link GetRequesterGatewayCommand}
@@ -782,7 +784,7 @@ export interface RTBFabric {
   waitUntilRequesterGatewayDeleted(
     args: GetRequesterGatewayCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRequesterGatewayCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetResponderGatewayCommand}
@@ -792,7 +794,7 @@ export interface RTBFabric {
   waitUntilResponderGatewayActive(
     args: GetResponderGatewayCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetResponderGatewayCommandOutput>>;
 
   /**
    * @see {@link GetResponderGatewayCommand}
@@ -802,7 +804,7 @@ export interface RTBFabric {
   waitUntilResponderGatewayDeleted(
     args: GetResponderGatewayCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetResponderGatewayCommandOutput | ResourceNotFoundException>>;
 }
 
 /**

@@ -3812,6 +3812,7 @@ import {
   WithdrawByoipCidrCommand,
 } from "./commands/WithdrawByoipCidrCommand";
 import { EC2Client } from "./EC2Client";
+import type { EC2ServiceException } from "./models/EC2ServiceException";
 import { paginateDescribeAddressesAttribute } from "./pagination/DescribeAddressesAttributePaginator";
 import { paginateDescribeAddressTransfers } from "./pagination/DescribeAddressTransfersPaginator";
 import {
@@ -20136,7 +20137,7 @@ export interface EC2 {
   waitUntilBundleTaskComplete(
     args: DescribeBundleTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBundleTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeConversionTasksCommand}
@@ -20146,7 +20147,7 @@ export interface EC2 {
   waitUntilConversionTaskCancelled(
     args: DescribeConversionTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeConversionTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeConversionTasksCommand}
@@ -20156,7 +20157,7 @@ export interface EC2 {
   waitUntilConversionTaskCompleted(
     args: DescribeConversionTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeConversionTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeConversionTasksCommand}
@@ -20166,7 +20167,7 @@ export interface EC2 {
   waitUntilConversionTaskDeleted(
     args: DescribeConversionTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeConversionTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeCustomerGatewaysCommand}
@@ -20176,7 +20177,7 @@ export interface EC2 {
   waitUntilCustomerGatewayAvailable(
     args: DescribeCustomerGatewaysCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeCustomerGatewaysCommandOutput>>;
 
   /**
    * @see {@link DescribeExportTasksCommand}
@@ -20186,7 +20187,7 @@ export interface EC2 {
   waitUntilExportTaskCancelled(
     args: DescribeExportTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeExportTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeExportTasksCommand}
@@ -20196,7 +20197,7 @@ export interface EC2 {
   waitUntilExportTaskCompleted(
     args: DescribeExportTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeExportTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeImagesCommand}
@@ -20206,7 +20207,7 @@ export interface EC2 {
   waitUntilImageAvailable(
     args: DescribeImagesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImagesCommandOutput>>;
 
   /**
    * @see {@link DescribeImagesCommand}
@@ -20216,7 +20217,7 @@ export interface EC2 {
   waitUntilImageExists(
     args: DescribeImagesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImagesCommandOutput>>;
 
   /**
    * @see {@link DescribeImageUsageReportsCommand}
@@ -20226,7 +20227,7 @@ export interface EC2 {
   waitUntilImageUsageReportAvailable(
     args: DescribeImageUsageReportsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImageUsageReportsCommandOutput>>;
 
   /**
    * @see {@link DescribeImportSnapshotTasksCommand}
@@ -20236,7 +20237,7 @@ export interface EC2 {
   waitUntilSnapshotImported(
     args: DescribeImportSnapshotTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeImportSnapshotTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeInstancesCommand}
@@ -20246,7 +20247,7 @@ export interface EC2 {
   waitUntilInstanceExists(
     args: DescribeInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeInstancesCommand}
@@ -20256,7 +20257,7 @@ export interface EC2 {
   waitUntilInstanceRunning(
     args: DescribeInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeInstancesCommand}
@@ -20266,7 +20267,7 @@ export interface EC2 {
   waitUntilInstanceStopped(
     args: DescribeInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeInstancesCommand}
@@ -20276,7 +20277,7 @@ export interface EC2 {
   waitUntilInstanceTerminated(
     args: DescribeInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeInstanceStatusCommand}
@@ -20286,7 +20287,7 @@ export interface EC2 {
   waitUntilInstanceStatusOk(
     args: DescribeInstanceStatusCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstanceStatusCommandOutput>>;
 
   /**
    * @see {@link DescribeInstanceStatusCommand}
@@ -20296,7 +20297,7 @@ export interface EC2 {
   waitUntilSystemStatusOk(
     args: DescribeInstanceStatusCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstanceStatusCommandOutput>>;
 
   /**
    * @see {@link DescribeInternetGatewaysCommand}
@@ -20306,7 +20307,7 @@ export interface EC2 {
   waitUntilInternetGatewayExists(
     args: DescribeInternetGatewaysCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInternetGatewaysCommandOutput>>;
 
   /**
    * @see {@link DescribeKeyPairsCommand}
@@ -20316,7 +20317,7 @@ export interface EC2 {
   waitUntilKeyPairExists(
     args: DescribeKeyPairsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeKeyPairsCommandOutput>>;
 
   /**
    * @see {@link DescribeNatGatewaysCommand}
@@ -20326,7 +20327,7 @@ export interface EC2 {
   waitUntilNatGatewayAvailable(
     args: DescribeNatGatewaysCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNatGatewaysCommandOutput>>;
 
   /**
    * @see {@link DescribeNatGatewaysCommand}
@@ -20336,7 +20337,7 @@ export interface EC2 {
   waitUntilNatGatewayDeleted(
     args: DescribeNatGatewaysCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNatGatewaysCommandOutput | EC2ServiceException>>;
 
   /**
    * @see {@link DescribeNetworkInterfacesCommand}
@@ -20346,7 +20347,7 @@ export interface EC2 {
   waitUntilNetworkInterfaceAvailable(
     args: DescribeNetworkInterfacesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNetworkInterfacesCommandOutput>>;
 
   /**
    * @see {@link DescribeSecondaryNetworksCommand}
@@ -20356,7 +20357,7 @@ export interface EC2 {
   waitUntilSecondaryNetworkCreateComplete(
     args: DescribeSecondaryNetworksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecondaryNetworksCommandOutput>>;
 
   /**
    * @see {@link DescribeSecondaryNetworksCommand}
@@ -20366,7 +20367,7 @@ export interface EC2 {
   waitUntilSecondaryNetworkDeleteComplete(
     args: DescribeSecondaryNetworksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecondaryNetworksCommandOutput>>;
 
   /**
    * @see {@link DescribeSecondarySubnetsCommand}
@@ -20376,7 +20377,7 @@ export interface EC2 {
   waitUntilSecondarySubnetCreateComplete(
     args: DescribeSecondarySubnetsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecondarySubnetsCommandOutput>>;
 
   /**
    * @see {@link DescribeSecondarySubnetsCommand}
@@ -20386,7 +20387,7 @@ export interface EC2 {
   waitUntilSecondarySubnetDeleteComplete(
     args: DescribeSecondarySubnetsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecondarySubnetsCommandOutput>>;
 
   /**
    * @see {@link DescribeSecurityGroupsCommand}
@@ -20396,7 +20397,7 @@ export interface EC2 {
   waitUntilSecurityGroupExists(
     args: DescribeSecurityGroupsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecurityGroupsCommandOutput>>;
 
   /**
    * @see {@link DescribeSecurityGroupVpcAssociationsCommand}
@@ -20406,7 +20407,7 @@ export interface EC2 {
   waitUntilSecurityGroupVpcAssociationAssociated(
     args: DescribeSecurityGroupVpcAssociationsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecurityGroupVpcAssociationsCommandOutput>>;
 
   /**
    * @see {@link DescribeSecurityGroupVpcAssociationsCommand}
@@ -20416,7 +20417,7 @@ export interface EC2 {
   waitUntilSecurityGroupVpcAssociationDisassociated(
     args: DescribeSecurityGroupVpcAssociationsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSecurityGroupVpcAssociationsCommandOutput>>;
 
   /**
    * @see {@link DescribeSnapshotsCommand}
@@ -20426,7 +20427,7 @@ export interface EC2 {
   waitUntilSnapshotCompleted(
     args: DescribeSnapshotsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSnapshotsCommandOutput>>;
 
   /**
    * @see {@link DescribeSpotInstanceRequestsCommand}
@@ -20436,7 +20437,7 @@ export interface EC2 {
   waitUntilSpotInstanceRequestFulfilled(
     args: DescribeSpotInstanceRequestsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSpotInstanceRequestsCommandOutput>>;
 
   /**
    * @see {@link DescribeStoreImageTasksCommand}
@@ -20446,7 +20447,7 @@ export interface EC2 {
   waitUntilStoreImageTaskComplete(
     args: DescribeStoreImageTasksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStoreImageTasksCommandOutput>>;
 
   /**
    * @see {@link DescribeSubnetsCommand}
@@ -20456,7 +20457,7 @@ export interface EC2 {
   waitUntilSubnetAvailable(
     args: DescribeSubnetsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSubnetsCommandOutput>>;
 
   /**
    * @see {@link DescribeVolumesCommand}
@@ -20466,7 +20467,7 @@ export interface EC2 {
   waitUntilVolumeAvailable(
     args: DescribeVolumesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVolumesCommandOutput>>;
 
   /**
    * @see {@link DescribeVolumesCommand}
@@ -20476,7 +20477,7 @@ export interface EC2 {
   waitUntilVolumeDeleted(
     args: DescribeVolumesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVolumesCommandOutput | EC2ServiceException>>;
 
   /**
    * @see {@link DescribeVolumesCommand}
@@ -20486,7 +20487,7 @@ export interface EC2 {
   waitUntilVolumeInUse(
     args: DescribeVolumesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVolumesCommandOutput>>;
 
   /**
    * @see {@link DescribeVpcPeeringConnectionsCommand}
@@ -20496,7 +20497,7 @@ export interface EC2 {
   waitUntilVpcPeeringConnectionDeleted(
     args: DescribeVpcPeeringConnectionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVpcPeeringConnectionsCommandOutput | EC2ServiceException>>;
 
   /**
    * @see {@link DescribeVpcPeeringConnectionsCommand}
@@ -20506,7 +20507,7 @@ export interface EC2 {
   waitUntilVpcPeeringConnectionExists(
     args: DescribeVpcPeeringConnectionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVpcPeeringConnectionsCommandOutput>>;
 
   /**
    * @see {@link DescribeVpcsCommand}
@@ -20516,7 +20517,7 @@ export interface EC2 {
   waitUntilVpcAvailable(
     args: DescribeVpcsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVpcsCommandOutput>>;
 
   /**
    * @see {@link DescribeVpcsCommand}
@@ -20526,7 +20527,7 @@ export interface EC2 {
   waitUntilVpcExists(
     args: DescribeVpcsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVpcsCommandOutput>>;
 
   /**
    * @see {@link DescribeVpnConnectionsCommand}
@@ -20536,7 +20537,7 @@ export interface EC2 {
   waitUntilVpnConnectionAvailable(
     args: DescribeVpnConnectionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVpnConnectionsCommandOutput>>;
 
   /**
    * @see {@link DescribeVpnConnectionsCommand}
@@ -20546,7 +20547,7 @@ export interface EC2 {
   waitUntilVpnConnectionDeleted(
     args: DescribeVpnConnectionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVpnConnectionsCommandOutput>>;
 
   /**
    * @see {@link GetPasswordDataCommand}
@@ -20556,7 +20557,7 @@ export interface EC2 {
   waitUntilPasswordDataAvailable(
     args: GetPasswordDataCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPasswordDataCommandOutput>>;
 }
 
 /**

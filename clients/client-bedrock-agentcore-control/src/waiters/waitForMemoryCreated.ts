@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { BedrockAgentCoreControlClient } from "../BedrockAgentCoreControlClient";
-import { type GetMemoryCommandInput, GetMemoryCommand } from "../commands/GetMemoryCommand";
+import {
+  type GetMemoryCommandInput,
+  type GetMemoryCommandOutput,
+  GetMemoryCommand,
+} from "../commands/GetMemoryCommand";
+import type { BedrockAgentCoreControlServiceException } from "../models/BedrockAgentCoreControlServiceException";
 
-const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemoryCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemoryCommandInput): Promise<WaiterResult<GetMemoryCommandOutput | BedrockAgentCoreControlServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetMemoryCommand(input));
+    let result: GetMemoryCommandOutput & any = await client.send(new GetMemoryCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: BedrockAgentCoreControlClient, input: GetMemor
 export const waitForMemoryCreated = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetMemoryCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMemoryCommandOutput | BedrockAgentCoreControlServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForMemoryCreated = async (
 export const waitUntilMemoryCreated = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetMemoryCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMemoryCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetMemoryCommandOutput>;
 };

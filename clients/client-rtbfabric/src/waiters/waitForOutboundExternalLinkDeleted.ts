@@ -9,14 +9,16 @@ import {
 
 import {
   type GetOutboundExternalLinkCommandInput,
+  type GetOutboundExternalLinkCommandOutput,
   GetOutboundExternalLinkCommand,
 } from "../commands/GetOutboundExternalLinkCommand";
+import type { RTBFabricServiceException } from "../models/RTBFabricServiceException";
 import type { RTBFabricClient } from "../RTBFabricClient";
 
-const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLinkCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLinkCommandInput): Promise<WaiterResult<GetOutboundExternalLinkCommandOutput | RTBFabricServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetOutboundExternalLinkCommand(input));
+    let result: GetOutboundExternalLinkCommandOutput & any = await client.send(new GetOutboundExternalLinkCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: RTBFabricClient, input: GetOutboundExternalLin
 export const waitForOutboundExternalLinkDeleted = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetOutboundExternalLinkCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetOutboundExternalLinkCommandOutput | RTBFabricServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForOutboundExternalLinkDeleted = async (
 export const waitUntilOutboundExternalLinkDeleted = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetOutboundExternalLinkCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetOutboundExternalLinkCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetOutboundExternalLinkCommandOutput>;
 };

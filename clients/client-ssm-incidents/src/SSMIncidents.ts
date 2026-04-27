@@ -163,6 +163,8 @@ import {
   type UpdateTimelineEventCommandOutput,
   UpdateTimelineEventCommand,
 } from "./commands/UpdateTimelineEventCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { SSMIncidentsServiceException } from "./models/SSMIncidentsServiceException";
 import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
 import { paginateListIncidentFindings } from "./pagination/ListIncidentFindingsPaginator";
 import { paginateListIncidentRecords } from "./pagination/ListIncidentRecordsPaginator";
@@ -837,7 +839,7 @@ export interface SSMIncidents {
   waitUntilWaitForReplicationSetActive(
     args: GetReplicationSetCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SSMIncidents>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetReplicationSetCommandOutput>>;
 
   /**
    * @see {@link GetReplicationSetCommand}
@@ -847,7 +849,7 @@ export interface SSMIncidents {
   waitUntilWaitForReplicationSetDeleted(
     args: GetReplicationSetCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<SSMIncidents>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

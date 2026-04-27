@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeImportCommandInput, DescribeImportCommand } from "../commands/DescribeImportCommand";
+import {
+  type DescribeImportCommandInput,
+  type DescribeImportCommandOutput,
+  DescribeImportCommand,
+} from "../commands/DescribeImportCommand";
 import type { DynamoDBClient } from "../DynamoDBClient";
+import type { DynamoDBServiceException } from "../models/DynamoDBServiceException";
 
-const checkState = async (client: DynamoDBClient, input: DescribeImportCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DynamoDBClient, input: DescribeImportCommandInput): Promise<WaiterResult<DescribeImportCommandOutput | DynamoDBServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImportCommand(input));
+    let result: DescribeImportCommandOutput & any = await client.send(new DescribeImportCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: DynamoDBClient, input: DescribeImportCommandIn
 export const waitForImportCompleted = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeImportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImportCommandOutput | DynamoDBServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForImportCompleted = async (
 export const waitUntilImportCompleted = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeImportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImportCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeImportCommandOutput>;
 };

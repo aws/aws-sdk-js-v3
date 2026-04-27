@@ -375,6 +375,7 @@ import {
   type UpdateStreamProcessorCommandOutput,
   UpdateStreamProcessorCommand,
 } from "./commands/UpdateStreamProcessorCommand";
+import type { RekognitionServiceException } from "./models/RekognitionServiceException";
 import { paginateDescribeProjects } from "./pagination/DescribeProjectsPaginator";
 import { paginateDescribeProjectVersions } from "./pagination/DescribeProjectVersionsPaginator";
 import { paginateGetCelebrityRecognition } from "./pagination/GetCelebrityRecognitionPaginator";
@@ -1986,7 +1987,7 @@ export interface Rekognition {
   waitUntilProjectVersionRunning(
     args: DescribeProjectVersionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Rekognition>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeProjectVersionsCommandOutput>>;
 
   /**
    * @see {@link DescribeProjectVersionsCommand}
@@ -1996,7 +1997,7 @@ export interface Rekognition {
   waitUntilProjectVersionTrainingCompleted(
     args: DescribeProjectVersionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Rekognition>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeProjectVersionsCommandOutput>>;
 }
 
 /**

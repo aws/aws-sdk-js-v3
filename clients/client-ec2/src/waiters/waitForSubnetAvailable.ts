@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeSubnetsCommandInput, DescribeSubnetsCommand } from "../commands/DescribeSubnetsCommand";
+import {
+  type DescribeSubnetsCommandInput,
+  type DescribeSubnetsCommandOutput,
+  DescribeSubnetsCommand,
+} from "../commands/DescribeSubnetsCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeSubnetsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeSubnetsCommandInput): Promise<WaiterResult<DescribeSubnetsCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeSubnetsCommand(input));
+    let result: DescribeSubnetsCommandOutput & any = await client.send(new DescribeSubnetsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: EC2Client, input: DescribeSubnetsCommandInput)
 export const waitForSubnetAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSubnetsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSubnetsCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForSubnetAvailable = async (
 export const waitUntilSubnetAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeSubnetsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeSubnetsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeSubnetsCommandOutput>;
 };

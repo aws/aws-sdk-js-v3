@@ -401,6 +401,7 @@ import {
   VerifyTrustCommand,
 } from "./commands/VerifyTrustCommand";
 import { DirectoryServiceClient } from "./DirectoryServiceClient";
+import type { DirectoryServiceServiceException } from "./models/DirectoryServiceServiceException";
 import {
   paginateDescribeClientAuthenticationSettings,
 } from "./pagination/DescribeClientAuthenticationSettingsPaginator";
@@ -2065,7 +2066,7 @@ export interface DirectoryService {
   waitUntilHybridADUpdated(
     args: DescribeHybridADUpdateCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DirectoryService>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeHybridADUpdateCommandOutput>>;
 }
 
 /**

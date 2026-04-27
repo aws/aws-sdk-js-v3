@@ -10,13 +10,15 @@ import {
 import type { AutoScalingClient } from "../AutoScalingClient";
 import {
   type DescribeAutoScalingGroupsCommandInput,
+  type DescribeAutoScalingGroupsCommandOutput,
   DescribeAutoScalingGroupsCommand,
 } from "../commands/DescribeAutoScalingGroupsCommand";
+import type { AutoScalingServiceException } from "../models/AutoScalingServiceException";
 
-const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingGroupsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingGroupsCommandInput): Promise<WaiterResult<DescribeAutoScalingGroupsCommandOutput | AutoScalingServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
+    let result: DescribeAutoScalingGroupsCommandOutput & any = await client.send(new DescribeAutoScalingGroupsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -68,7 +70,7 @@ const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingG
 export const waitForGroupInService = async (
   params: WaiterConfiguration<AutoScalingClient>,
   input: DescribeAutoScalingGroupsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeAutoScalingGroupsCommandOutput | AutoScalingServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -80,8 +82,8 @@ export const waitForGroupInService = async (
 export const waitUntilGroupInService = async (
   params: WaiterConfiguration<AutoScalingClient>,
   input: DescribeAutoScalingGroupsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeAutoScalingGroupsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeAutoScalingGroupsCommandOutput>;
 };

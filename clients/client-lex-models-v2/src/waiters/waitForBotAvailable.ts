@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeBotCommandInput, DescribeBotCommand } from "../commands/DescribeBotCommand";
+import {
+  type DescribeBotCommandInput,
+  type DescribeBotCommandOutput,
+  DescribeBotCommand,
+} from "../commands/DescribeBotCommand";
 import type { LexModelsV2Client } from "../LexModelsV2Client";
+import type { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
-const checkState = async (client: LexModelsV2Client, input: DescribeBotCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LexModelsV2Client, input: DescribeBotCommandInput): Promise<WaiterResult<DescribeBotCommandOutput | LexModelsV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBotCommand(input));
+    let result: DescribeBotCommandOutput & any = await client.send(new DescribeBotCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -59,7 +64,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotCommandIn
 export const waitForBotAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotCommandOutput | LexModelsV2ServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -71,8 +76,8 @@ export const waitForBotAvailable = async (
 export const waitUntilBotAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeBotCommandOutput>;
 };

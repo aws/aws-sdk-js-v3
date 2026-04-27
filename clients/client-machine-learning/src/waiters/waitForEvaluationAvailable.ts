@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeEvaluationsCommandInput,
+  type DescribeEvaluationsCommandOutput,
   DescribeEvaluationsCommand,
 } from "../commands/DescribeEvaluationsCommand";
 import type { MachineLearningClient } from "../MachineLearningClient";
+import type { MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
-const checkState = async (client: MachineLearningClient, input: DescribeEvaluationsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MachineLearningClient, input: DescribeEvaluationsCommandInput): Promise<WaiterResult<DescribeEvaluationsCommandOutput | MachineLearningServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeEvaluationsCommand(input));
+    let result: DescribeEvaluationsCommandOutput & any = await client.send(new DescribeEvaluationsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: MachineLearningClient, input: DescribeEvaluati
 export const waitForEvaluationAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeEvaluationsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeEvaluationsCommandOutput | MachineLearningServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForEvaluationAvailable = async (
 export const waitUntilEvaluationAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeEvaluationsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeEvaluationsCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeEvaluationsCommandOutput>;
 };

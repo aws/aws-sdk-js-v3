@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeImageUsageReportsCommandInput,
+  type DescribeImageUsageReportsCommandOutput,
   DescribeImageUsageReportsCommand,
 } from "../commands/DescribeImageUsageReportsCommand";
 import type { EC2Client } from "../EC2Client";
+import type { EC2ServiceException } from "../models/EC2ServiceException";
 
-const checkState = async (client: EC2Client, input: DescribeImageUsageReportsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EC2Client, input: DescribeImageUsageReportsCommandInput): Promise<WaiterResult<DescribeImageUsageReportsCommandOutput | EC2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImageUsageReportsCommand(input));
+    let result: DescribeImageUsageReportsCommandOutput & any = await client.send(new DescribeImageUsageReportsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: EC2Client, input: DescribeImageUsageReportsCom
 export const waitForImageUsageReportAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeImageUsageReportsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImageUsageReportsCommandOutput | EC2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForImageUsageReportAvailable = async (
 export const waitUntilImageUsageReportAvailable = async (
   params: WaiterConfiguration<EC2Client>,
   input: DescribeImageUsageReportsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeImageUsageReportsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeImageUsageReportsCommandOutput>;
 };

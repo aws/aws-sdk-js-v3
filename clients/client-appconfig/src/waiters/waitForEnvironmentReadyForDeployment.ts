@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { AppConfigClient } from "../AppConfigClient";
-import { type GetEnvironmentCommandInput, GetEnvironmentCommand } from "../commands/GetEnvironmentCommand";
+import {
+  type GetEnvironmentCommandInput,
+  type GetEnvironmentCommandOutput,
+  GetEnvironmentCommand,
+} from "../commands/GetEnvironmentCommand";
+import type { AppConfigServiceException } from "../models/AppConfigServiceException";
 
-const checkState = async (client: AppConfigClient, input: GetEnvironmentCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AppConfigClient, input: GetEnvironmentCommandInput): Promise<WaiterResult<GetEnvironmentCommandOutput | AppConfigServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetEnvironmentCommand(input));
+    let result: GetEnvironmentCommandOutput & any = await client.send(new GetEnvironmentCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: AppConfigClient, input: GetEnvironmentCommandI
 export const waitForEnvironmentReadyForDeployment = async (
   params: WaiterConfiguration<AppConfigClient>,
   input: GetEnvironmentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetEnvironmentCommandOutput | AppConfigServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForEnvironmentReadyForDeployment = async (
 export const waitUntilEnvironmentReadyForDeployment = async (
   params: WaiterConfiguration<AppConfigClient>,
   input: GetEnvironmentCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetEnvironmentCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetEnvironmentCommandOutput>;
 };

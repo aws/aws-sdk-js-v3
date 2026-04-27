@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeCodeBindingCommandInput,
+  type DescribeCodeBindingCommandOutput,
   DescribeCodeBindingCommand,
 } from "../commands/DescribeCodeBindingCommand";
+import type { SchemasServiceException } from "../models/SchemasServiceException";
 import type { SchemasClient } from "../SchemasClient";
 
-const checkState = async (client: SchemasClient, input: DescribeCodeBindingCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SchemasClient, input: DescribeCodeBindingCommandInput): Promise<WaiterResult<DescribeCodeBindingCommandOutput | SchemasServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCodeBindingCommand(input));
+    let result: DescribeCodeBindingCommandOutput & any = await client.send(new DescribeCodeBindingCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -44,7 +46,7 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "NotFoundException") {
+    if (exception.name === "NotFoundException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -57,7 +59,7 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
 export const waitForCodeBindingExists = async (
   params: WaiterConfiguration<SchemasClient>,
   input: DescribeCodeBindingCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCodeBindingCommandOutput | SchemasServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -69,8 +71,8 @@ export const waitForCodeBindingExists = async (
 export const waitUntilCodeBindingExists = async (
   params: WaiterConfiguration<SchemasClient>,
   input: DescribeCodeBindingCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCodeBindingCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCodeBindingCommandOutput>;
 };

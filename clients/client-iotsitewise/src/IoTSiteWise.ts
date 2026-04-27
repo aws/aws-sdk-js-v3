@@ -529,6 +529,8 @@ import {
   UpdateProjectCommand,
 } from "./commands/UpdateProjectCommand";
 import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { IoTSiteWiseServiceException } from "./models/IoTSiteWiseServiceException";
 import { paginateBatchGetAssetPropertyAggregates } from "./pagination/BatchGetAssetPropertyAggregatesPaginator";
 import { paginateBatchGetAssetPropertyValueHistory } from "./pagination/BatchGetAssetPropertyValueHistoryPaginator";
 import { paginateBatchGetAssetPropertyValue } from "./pagination/BatchGetAssetPropertyValuePaginator";
@@ -2826,7 +2828,7 @@ export interface IoTSiteWise {
   waitUntilAssetActive(
     args: DescribeAssetCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAssetCommandOutput>>;
 
   /**
    * @see {@link DescribeAssetCommand}
@@ -2836,7 +2838,7 @@ export interface IoTSiteWise {
   waitUntilAssetNotExists(
     args: DescribeAssetCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeAssetModelCommand}
@@ -2846,7 +2848,7 @@ export interface IoTSiteWise {
   waitUntilAssetModelActive(
     args: DescribeAssetModelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAssetModelCommandOutput>>;
 
   /**
    * @see {@link DescribeAssetModelCommand}
@@ -2856,7 +2858,7 @@ export interface IoTSiteWise {
   waitUntilAssetModelNotExists(
     args: DescribeAssetModelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribePortalCommand}
@@ -2866,7 +2868,7 @@ export interface IoTSiteWise {
   waitUntilPortalActive(
     args: DescribePortalCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribePortalCommandOutput>>;
 
   /**
    * @see {@link DescribePortalCommand}
@@ -2876,7 +2878,7 @@ export interface IoTSiteWise {
   waitUntilPortalNotExists(
     args: DescribePortalCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

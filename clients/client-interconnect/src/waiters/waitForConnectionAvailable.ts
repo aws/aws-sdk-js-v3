@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetConnectionCommandInput, GetConnectionCommand } from "../commands/GetConnectionCommand";
+import {
+  type GetConnectionCommandInput,
+  type GetConnectionCommandOutput,
+  GetConnectionCommand,
+} from "../commands/GetConnectionCommand";
 import type { InterconnectClient } from "../InterconnectClient";
+import type { InterconnectServiceException } from "../models/InterconnectServiceException";
 
-const checkState = async (client: InterconnectClient, input: GetConnectionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: InterconnectClient, input: GetConnectionCommandInput): Promise<WaiterResult<GetConnectionCommandOutput | InterconnectServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetConnectionCommand(input));
+    let result: GetConnectionCommandOutput & any = await client.send(new GetConnectionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: InterconnectClient, input: GetConnectionComman
 export const waitForConnectionAvailable = async (
   params: WaiterConfiguration<InterconnectClient>,
   input: GetConnectionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetConnectionCommandOutput | InterconnectServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForConnectionAvailable = async (
 export const waitUntilConnectionAvailable = async (
   params: WaiterConfiguration<InterconnectClient>,
   input: GetConnectionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetConnectionCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetConnectionCommandOutput>;
 };

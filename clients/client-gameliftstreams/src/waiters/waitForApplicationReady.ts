@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetApplicationCommandInput, GetApplicationCommand } from "../commands/GetApplicationCommand";
+import {
+  type GetApplicationCommandInput,
+  type GetApplicationCommandOutput,
+  GetApplicationCommand,
+} from "../commands/GetApplicationCommand";
 import type { GameLiftStreamsClient } from "../GameLiftStreamsClient";
+import type { GameLiftStreamsServiceException } from "../models/GameLiftStreamsServiceException";
 
-const checkState = async (client: GameLiftStreamsClient, input: GetApplicationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: GameLiftStreamsClient, input: GetApplicationCommandInput): Promise<WaiterResult<GetApplicationCommandOutput | GameLiftStreamsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetApplicationCommand(input));
+    let result: GetApplicationCommandOutput & any = await client.send(new GetApplicationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetApplicationCo
 export const waitForApplicationReady = async (
   params: WaiterConfiguration<GameLiftStreamsClient>,
   input: GetApplicationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetApplicationCommandOutput | GameLiftStreamsServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForApplicationReady = async (
 export const waitUntilApplicationReady = async (
   params: WaiterConfiguration<GameLiftStreamsClient>,
   input: GetApplicationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetApplicationCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetApplicationCommandOutput>;
 };

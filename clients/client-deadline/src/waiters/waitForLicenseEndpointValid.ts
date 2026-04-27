@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetLicenseEndpointCommandInput, GetLicenseEndpointCommand } from "../commands/GetLicenseEndpointCommand";
+import {
+  type GetLicenseEndpointCommandInput,
+  type GetLicenseEndpointCommandOutput,
+  GetLicenseEndpointCommand,
+} from "../commands/GetLicenseEndpointCommand";
 import type { DeadlineClient } from "../DeadlineClient";
+import type { DeadlineServiceException } from "../models/DeadlineServiceException";
 
-const checkState = async (client: DeadlineClient, input: GetLicenseEndpointCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DeadlineClient, input: GetLicenseEndpointCommandInput): Promise<WaiterResult<GetLicenseEndpointCommandOutput | DeadlineServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetLicenseEndpointCommand(input));
+    let result: GetLicenseEndpointCommandOutput & any = await client.send(new GetLicenseEndpointCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: DeadlineClient, input: GetLicenseEndpointComma
 export const waitForLicenseEndpointValid = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetLicenseEndpointCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetLicenseEndpointCommandOutput | DeadlineServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 1140 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForLicenseEndpointValid = async (
 export const waitUntilLicenseEndpointValid = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetLicenseEndpointCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetLicenseEndpointCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 1140 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetLicenseEndpointCommandOutput>;
 };

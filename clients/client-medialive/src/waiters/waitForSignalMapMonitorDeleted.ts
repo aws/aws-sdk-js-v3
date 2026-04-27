@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetSignalMapCommandInput, GetSignalMapCommand } from "../commands/GetSignalMapCommand";
+import {
+  type GetSignalMapCommandInput,
+  type GetSignalMapCommandOutput,
+  GetSignalMapCommand,
+} from "../commands/GetSignalMapCommand";
 import type { MediaLiveClient } from "../MediaLiveClient";
+import type { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
-const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInput): Promise<WaiterResult<GetSignalMapCommandOutput | MediaLiveServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetSignalMapCommand(input));
+    let result: GetSignalMapCommandOutput & any = await client.send(new GetSignalMapCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
 export const waitForSignalMapMonitorDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: GetSignalMapCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetSignalMapCommandOutput | MediaLiveServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForSignalMapMonitorDeleted = async (
 export const waitUntilSignalMapMonitorDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: GetSignalMapCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetSignalMapCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetSignalMapCommandOutput>;
 };

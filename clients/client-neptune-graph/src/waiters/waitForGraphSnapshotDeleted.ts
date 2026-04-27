@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetGraphSnapshotCommandInput, GetGraphSnapshotCommand } from "../commands/GetGraphSnapshotCommand";
+import {
+  type GetGraphSnapshotCommandInput,
+  type GetGraphSnapshotCommandOutput,
+  GetGraphSnapshotCommand,
+} from "../commands/GetGraphSnapshotCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (client: NeptuneGraphClient, input: GetGraphSnapshotCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetGraphSnapshotCommandInput): Promise<WaiterResult<GetGraphSnapshotCommandOutput | NeptuneGraphServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetGraphSnapshotCommand(input));
+    let result: GetGraphSnapshotCommandOutput & any = await client.send(new GetGraphSnapshotCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -25,7 +31,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetGraphSnapshotCom
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -38,7 +44,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetGraphSnapshotCom
 export const waitForGraphSnapshotDeleted = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetGraphSnapshotCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetGraphSnapshotCommandOutput | NeptuneGraphServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +56,8 @@ export const waitForGraphSnapshotDeleted = async (
 export const waitUntilGraphSnapshotDeleted = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetGraphSnapshotCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

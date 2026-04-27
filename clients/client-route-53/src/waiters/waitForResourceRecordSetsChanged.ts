@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetChangeCommandInput, GetChangeCommand } from "../commands/GetChangeCommand";
+import {
+  type GetChangeCommandInput,
+  type GetChangeCommandOutput,
+  GetChangeCommand,
+} from "../commands/GetChangeCommand";
+import type { Route53ServiceException } from "../models/Route53ServiceException";
 import type { Route53Client } from "../Route53Client";
 
-const checkState = async (client: Route53Client, input: GetChangeCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: Route53Client, input: GetChangeCommandInput): Promise<WaiterResult<GetChangeCommandOutput | Route53ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetChangeCommand(input));
+    let result: GetChangeCommandOutput & any = await client.send(new GetChangeCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -35,7 +40,7 @@ const checkState = async (client: Route53Client, input: GetChangeCommandInput): 
 export const waitForResourceRecordSetsChanged = async (
   params: WaiterConfiguration<Route53Client>,
   input: GetChangeCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetChangeCommandOutput | Route53ServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -47,8 +52,8 @@ export const waitForResourceRecordSetsChanged = async (
 export const waitUntilResourceRecordSetsChanged = async (
   params: WaiterConfiguration<Route53Client>,
   input: GetChangeCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetChangeCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetChangeCommandOutput>;
 };

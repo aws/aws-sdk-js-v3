@@ -10,13 +10,15 @@ import {
 import type { CloudFormationClient } from "../CloudFormationClient";
 import {
   type DescribeTypeRegistrationCommandInput,
+  type DescribeTypeRegistrationCommandOutput,
   DescribeTypeRegistrationCommand,
 } from "../commands/DescribeTypeRegistrationCommand";
+import type { CloudFormationServiceException } from "../models/CloudFormationServiceException";
 
-const checkState = async (client: CloudFormationClient, input: DescribeTypeRegistrationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFormationClient, input: DescribeTypeRegistrationCommandInput): Promise<WaiterResult<DescribeTypeRegistrationCommandOutput | CloudFormationServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTypeRegistrationCommand(input));
+    let result: DescribeTypeRegistrationCommandOutput & any = await client.send(new DescribeTypeRegistrationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeTypeRegis
 export const waitForTypeRegistrationComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeTypeRegistrationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTypeRegistrationCommandOutput | CloudFormationServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForTypeRegistrationComplete = async (
 export const waitUntilTypeRegistrationComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeTypeRegistrationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTypeRegistrationCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTypeRegistrationCommandOutput>;
 };

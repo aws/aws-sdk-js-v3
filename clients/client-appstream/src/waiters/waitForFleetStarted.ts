@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { AppStreamClient } from "../AppStreamClient";
-import { type DescribeFleetsCommandInput, DescribeFleetsCommand } from "../commands/DescribeFleetsCommand";
+import {
+  type DescribeFleetsCommandInput,
+  type DescribeFleetsCommandOutput,
+  DescribeFleetsCommand,
+} from "../commands/DescribeFleetsCommand";
+import type { AppStreamServiceException } from "../models/AppStreamServiceException";
 
-const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandInput): Promise<WaiterResult<DescribeFleetsCommandOutput | AppStreamServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeFleetsCommand(input));
+    let result: DescribeFleetsCommandOutput & any = await client.send(new DescribeFleetsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -71,7 +76,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
 export const waitForFleetStarted = async (
   params: WaiterConfiguration<AppStreamClient>,
   input: DescribeFleetsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFleetsCommandOutput | AppStreamServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -83,8 +88,8 @@ export const waitForFleetStarted = async (
 export const waitUntilFleetStarted = async (
   params: WaiterConfiguration<AppStreamClient>,
   input: DescribeFleetsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFleetsCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeFleetsCommandOutput>;
 };

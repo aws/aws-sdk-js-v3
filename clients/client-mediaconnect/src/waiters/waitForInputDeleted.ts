@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetRouterInputCommandInput, GetRouterInputCommand } from "../commands/GetRouterInputCommand";
+import {
+  type GetRouterInputCommandInput,
+  type GetRouterInputCommandOutput,
+  GetRouterInputCommand,
+} from "../commands/GetRouterInputCommand";
 import type { MediaConnectClient } from "../MediaConnectClient";
+import type { NotFoundException } from "../models/errors";
+import type { MediaConnectServiceException } from "../models/MediaConnectServiceException";
 
-const checkState = async (client: MediaConnectClient, input: GetRouterInputCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaConnectClient, input: GetRouterInputCommandInput): Promise<WaiterResult<GetRouterInputCommandOutput | MediaConnectServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetRouterInputCommand(input));
+    let result: GetRouterInputCommandOutput & any = await client.send(new GetRouterInputCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,13 +39,13 @@ const checkState = async (client: MediaConnectClient, input: GetRouterInputComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
-    if (exception.name && exception.name == "ServiceUnavailableException") {
+    if (exception.name === "ServiceUnavailableException") {
       return { state: WaiterState.RETRY, reason };
     }
-    if (exception.name && exception.name == "NotFoundException") {
+    if (exception.name === "NotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -52,7 +58,7 @@ const checkState = async (client: MediaConnectClient, input: GetRouterInputComma
 export const waitForInputDeleted = async (
   params: WaiterConfiguration<MediaConnectClient>,
   input: GetRouterInputCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetRouterInputCommandOutput | MediaConnectServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -64,8 +70,8 @@ export const waitForInputDeleted = async (
 export const waitUntilInputDeleted = async (
   params: WaiterConfiguration<MediaConnectClient>,
   input: GetRouterInputCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<NotFoundException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<NotFoundException>;
 };

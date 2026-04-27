@@ -260,6 +260,8 @@ import {
   SetSubnetsCommand,
 } from "./commands/SetSubnetsCommand";
 import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
+import type { ElasticLoadBalancingV2ServiceException } from "./models/ElasticLoadBalancingV2ServiceException";
+import type { InvalidTargetException, LoadBalancerNotFoundException } from "./models/errors";
 import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
 import { paginateDescribeListenerCertificates } from "./pagination/DescribeListenerCertificatesPaginator";
 import { paginateDescribeListeners } from "./pagination/DescribeListenersPaginator";
@@ -1329,7 +1331,7 @@ export interface ElasticLoadBalancingV2 {
   waitUntilLoadBalancerAvailable(
     args: DescribeLoadBalancersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeLoadBalancersCommandOutput>>;
 
   /**
    * @see {@link DescribeLoadBalancersCommand}
@@ -1339,7 +1341,7 @@ export interface ElasticLoadBalancingV2 {
   waitUntilLoadBalancerExists(
     args: DescribeLoadBalancersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeLoadBalancersCommandOutput>>;
 
   /**
    * @see {@link DescribeLoadBalancersCommand}
@@ -1349,7 +1351,7 @@ export interface ElasticLoadBalancingV2 {
   waitUntilLoadBalancersDeleted(
     args: DescribeLoadBalancersCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<LoadBalancerNotFoundException>>;
 
   /**
    * @see {@link DescribeTargetHealthCommand}
@@ -1359,7 +1361,7 @@ export interface ElasticLoadBalancingV2 {
   waitUntilTargetDeregistered(
     args: DescribeTargetHealthCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTargetHealthCommandOutput | InvalidTargetException>>;
 
   /**
    * @see {@link DescribeTargetHealthCommand}
@@ -1369,7 +1371,7 @@ export interface ElasticLoadBalancingV2 {
   waitUntilTargetInService(
     args: DescribeTargetHealthCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTargetHealthCommandOutput>>;
 }
 
 /**

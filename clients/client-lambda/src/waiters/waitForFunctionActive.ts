@@ -9,14 +9,16 @@ import {
 
 import {
   type GetFunctionConfigurationCommandInput,
+  type GetFunctionConfigurationCommandOutput,
   GetFunctionConfigurationCommand,
 } from "../commands/GetFunctionConfigurationCommand";
 import type { LambdaClient } from "../LambdaClient";
+import type { LambdaServiceException } from "../models/LambdaServiceException";
 
-const checkState = async (client: LambdaClient, input: GetFunctionConfigurationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LambdaClient, input: GetFunctionConfigurationCommandInput): Promise<WaiterResult<GetFunctionConfigurationCommandOutput | LambdaServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetFunctionConfigurationCommand(input));
+    let result: GetFunctionConfigurationCommandOutput & any = await client.send(new GetFunctionConfigurationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
 export const waitForFunctionActive = async (
   params: WaiterConfiguration<LambdaClient>,
   input: GetFunctionConfigurationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetFunctionConfigurationCommandOutput | LambdaServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 300 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForFunctionActive = async (
 export const waitUntilFunctionActive = async (
   params: WaiterConfiguration<LambdaClient>,
   input: GetFunctionConfigurationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetFunctionConfigurationCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 300 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetFunctionConfigurationCommandOutput>;
 };

@@ -166,6 +166,8 @@ import {
   UploadMultipartPartCommand,
 } from "./commands/UploadMultipartPartCommand";
 import { GlacierClient } from "./GlacierClient";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { GlacierServiceException } from "./models/GlacierServiceException";
 import { paginateListJobs } from "./pagination/ListJobsPaginator";
 import { paginateListMultipartUploads } from "./pagination/ListMultipartUploadsPaginator";
 import { paginateListParts } from "./pagination/ListPartsPaginator";
@@ -833,7 +835,7 @@ export interface Glacier {
   waitUntilVaultExists(
     args: DescribeVaultCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Glacier>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeVaultCommandOutput>>;
 
   /**
    * @see {@link DescribeVaultCommand}
@@ -843,7 +845,7 @@ export interface Glacier {
   waitUntilVaultNotExists(
     args: DescribeVaultCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Glacier>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

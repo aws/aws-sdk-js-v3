@@ -407,6 +407,8 @@ import {
   UpdateRouterOutputCommand,
 } from "./commands/UpdateRouterOutputCommand";
 import { MediaConnectClient } from "./MediaConnectClient";
+import type { NotFoundException } from "./models/errors";
+import type { MediaConnectServiceException } from "./models/MediaConnectServiceException";
 import { paginateListBridges } from "./pagination/ListBridgesPaginator";
 import { paginateListEntitlements } from "./pagination/ListEntitlementsPaginator";
 import { paginateListFlows } from "./pagination/ListFlowsPaginator";
@@ -2062,7 +2064,7 @@ export interface MediaConnect {
   waitUntilFlowActive(
     args: DescribeFlowCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFlowCommandOutput>>;
 
   /**
    * @see {@link DescribeFlowCommand}
@@ -2072,7 +2074,7 @@ export interface MediaConnect {
   waitUntilFlowStandby(
     args: DescribeFlowCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFlowCommandOutput>>;
 
   /**
    * @see {@link DescribeFlowCommand}
@@ -2082,7 +2084,7 @@ export interface MediaConnect {
   waitUntilFlowDeleted(
     args: DescribeFlowCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<NotFoundException>>;
 
   /**
    * @see {@link GetRouterInputCommand}
@@ -2092,7 +2094,7 @@ export interface MediaConnect {
   waitUntilInputActive(
     args: GetRouterInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRouterInputCommandOutput>>;
 
   /**
    * @see {@link GetRouterInputCommand}
@@ -2102,7 +2104,7 @@ export interface MediaConnect {
   waitUntilInputStandby(
     args: GetRouterInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRouterInputCommandOutput>>;
 
   /**
    * @see {@link GetRouterInputCommand}
@@ -2112,7 +2114,7 @@ export interface MediaConnect {
   waitUntilInputDeleted(
     args: GetRouterInputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<NotFoundException>>;
 
   /**
    * @see {@link GetRouterOutputCommand}
@@ -2122,7 +2124,7 @@ export interface MediaConnect {
   waitUntilOutputActive(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRouterOutputCommandOutput>>;
 
   /**
    * @see {@link GetRouterOutputCommand}
@@ -2132,7 +2134,7 @@ export interface MediaConnect {
   waitUntilOutputDeleted(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<NotFoundException>>;
 
   /**
    * @see {@link GetRouterOutputCommand}
@@ -2142,7 +2144,7 @@ export interface MediaConnect {
   waitUntilOutputRouted(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRouterOutputCommandOutput>>;
 
   /**
    * @see {@link GetRouterOutputCommand}
@@ -2152,7 +2154,7 @@ export interface MediaConnect {
   waitUntilOutputStandby(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRouterOutputCommandOutput>>;
 
   /**
    * @see {@link GetRouterOutputCommand}
@@ -2162,7 +2164,7 @@ export interface MediaConnect {
   waitUntilOutputUnrouted(
     args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRouterOutputCommandOutput>>;
 }
 
 /**

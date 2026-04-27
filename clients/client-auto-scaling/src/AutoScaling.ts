@@ -339,6 +339,7 @@ import {
   type UpdateAutoScalingGroupCommandOutput,
   UpdateAutoScalingGroupCommand,
 } from "./commands/UpdateAutoScalingGroupCommand";
+import type { AutoScalingServiceException } from "./models/AutoScalingServiceException";
 import { paginateDescribeAutoScalingGroups } from "./pagination/DescribeAutoScalingGroupsPaginator";
 import { paginateDescribeAutoScalingInstances } from "./pagination/DescribeAutoScalingInstancesPaginator";
 import { paginateDescribeInstanceRefreshes } from "./pagination/DescribeInstanceRefreshesPaginator";
@@ -1734,7 +1735,7 @@ export interface AutoScaling {
   waitUntilGroupExists(
     args: DescribeAutoScalingGroupsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AutoScaling>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAutoScalingGroupsCommandOutput>>;
 
   /**
    * @see {@link DescribeAutoScalingGroupsCommand}
@@ -1744,7 +1745,7 @@ export interface AutoScaling {
   waitUntilGroupInService(
     args: DescribeAutoScalingGroupsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AutoScaling>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAutoScalingGroupsCommandOutput>>;
 
   /**
    * @see {@link DescribeAutoScalingGroupsCommand}
@@ -1754,7 +1755,7 @@ export interface AutoScaling {
   waitUntilGroupNotExists(
     args: DescribeAutoScalingGroupsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AutoScaling>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAutoScalingGroupsCommandOutput>>;
 }
 
 /**

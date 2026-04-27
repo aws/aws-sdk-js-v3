@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeBotVersionCommandInput, DescribeBotVersionCommand } from "../commands/DescribeBotVersionCommand";
+import {
+  type DescribeBotVersionCommandInput,
+  type DescribeBotVersionCommandOutput,
+  DescribeBotVersionCommand,
+} from "../commands/DescribeBotVersionCommand";
 import type { LexModelsV2Client } from "../LexModelsV2Client";
+import type { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
-const checkState = async (client: LexModelsV2Client, input: DescribeBotVersionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: LexModelsV2Client, input: DescribeBotVersionCommandInput): Promise<WaiterResult<DescribeBotVersionCommandOutput | LexModelsV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBotVersionCommand(input));
+    let result: DescribeBotVersionCommandOutput & any = await client.send(new DescribeBotVersionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -41,7 +46,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotVersionCo
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -54,7 +59,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotVersionCo
 export const waitForBotVersionAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotVersionCommandOutput | LexModelsV2ServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +71,8 @@ export const waitForBotVersionAvailable = async (
 export const waitUntilBotVersionAvailable = async (
   params: WaiterConfiguration<LexModelsV2Client>,
   input: DescribeBotVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBotVersionCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeBotVersionCommandOutput>;
 };

@@ -10,13 +10,15 @@ import {
 import type { CloudControlClient } from "../CloudControlClient";
 import {
   type GetResourceRequestStatusCommandInput,
+  type GetResourceRequestStatusCommandOutput,
   GetResourceRequestStatusCommand,
 } from "../commands/GetResourceRequestStatusCommand";
+import type { CloudControlServiceException } from "../models/CloudControlServiceException";
 
-const checkState = async (client: CloudControlClient, input: GetResourceRequestStatusCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudControlClient, input: GetResourceRequestStatusCommandInput): Promise<WaiterResult<GetResourceRequestStatusCommandOutput | CloudControlServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetResourceRequestStatusCommand(input));
+    let result: GetResourceRequestStatusCommandOutput & any = await client.send(new GetResourceRequestStatusCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: CloudControlClient, input: GetResourceRequestS
 export const waitForResourceRequestSuccess = async (
   params: WaiterConfiguration<CloudControlClient>,
   input: GetResourceRequestStatusCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetResourceRequestStatusCommandOutput | CloudControlServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForResourceRequestSuccess = async (
 export const waitUntilResourceRequestSuccess = async (
   params: WaiterConfiguration<CloudControlClient>,
   input: GetResourceRequestStatusCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetResourceRequestStatusCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetResourceRequestStatusCommandOutput>;
 };

@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeStepCommandInput, DescribeStepCommand } from "../commands/DescribeStepCommand";
+import {
+  type DescribeStepCommandInput,
+  type DescribeStepCommandOutput,
+  DescribeStepCommand,
+} from "../commands/DescribeStepCommand";
 import type { EMRClient } from "../EMRClient";
+import type { EMRServiceException } from "../models/EMRServiceException";
 
-const checkState = async (client: EMRClient, input: DescribeStepCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EMRClient, input: DescribeStepCommandInput): Promise<WaiterResult<DescribeStepCommandOutput | EMRServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeStepCommand(input));
+    let result: DescribeStepCommandOutput & any = await client.send(new DescribeStepCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +56,7 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
 export const waitForStepComplete = async (
   params: WaiterConfiguration<EMRClient>,
   input: DescribeStepCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStepCommandOutput | EMRServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +68,8 @@ export const waitForStepComplete = async (
 export const waitUntilStepComplete = async (
   params: WaiterConfiguration<EMRClient>,
   input: DescribeStepCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeStepCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeStepCommandOutput>;
 };

@@ -9,14 +9,16 @@ import {
 
 import {
   type GetReferenceImportJobCommandInput,
+  type GetReferenceImportJobCommandOutput,
   GetReferenceImportJobCommand,
 } from "../commands/GetReferenceImportJobCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetReferenceImportJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetReferenceImportJobCommandInput): Promise<WaiterResult<GetReferenceImportJobCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetReferenceImportJobCommand(input));
+    let result: GetReferenceImportJobCommandOutput & any = await client.send(new GetReferenceImportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -86,7 +88,7 @@ const checkState = async (client: OmicsClient, input: GetReferenceImportJobComma
 export const waitForReferenceImportJobCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetReferenceImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetReferenceImportJobCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -98,8 +100,8 @@ export const waitForReferenceImportJobCompleted = async (
 export const waitUntilReferenceImportJobCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetReferenceImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetReferenceImportJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetReferenceImportJobCommandOutput>;
 };

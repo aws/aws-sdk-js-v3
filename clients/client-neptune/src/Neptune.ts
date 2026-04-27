@@ -358,6 +358,8 @@ import {
   type SwitchoverGlobalClusterCommandOutput,
   SwitchoverGlobalClusterCommand,
 } from "./commands/SwitchoverGlobalClusterCommand";
+import type { DBInstanceNotFoundFault } from "./models/errors";
+import type { NeptuneServiceException } from "./models/NeptuneServiceException";
 import { NeptuneClient } from "./NeptuneClient";
 import { paginateDescribeDBClusterEndpoints } from "./pagination/DescribeDBClusterEndpointsPaginator";
 import { paginateDescribeDBClusterParameterGroups } from "./pagination/DescribeDBClusterParameterGroupsPaginator";
@@ -1862,7 +1864,7 @@ export interface Neptune {
   waitUntilDBInstanceAvailable(
     args: DescribeDBInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Neptune>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBInstancesCommandOutput>>;
 
   /**
    * @see {@link DescribeDBInstancesCommand}
@@ -1872,7 +1874,7 @@ export interface Neptune {
   waitUntilDBInstanceDeleted(
     args: DescribeDBInstancesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Neptune>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDBInstancesCommandOutput | DBInstanceNotFoundFault>>;
 }
 
 /**

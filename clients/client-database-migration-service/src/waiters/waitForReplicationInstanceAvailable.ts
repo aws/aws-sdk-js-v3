@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeReplicationInstancesCommandInput,
+  type DescribeReplicationInstancesCommandOutput,
   DescribeReplicationInstancesCommand,
 } from "../commands/DescribeReplicationInstancesCommand";
 import type { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
 
-const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationInstancesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeReplicationInstancesCommandInput): Promise<WaiterResult<DescribeReplicationInstancesCommandOutput | DatabaseMigrationServiceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeReplicationInstancesCommand(input));
+    let result: DescribeReplicationInstancesCommandOutput & any = await client.send(new DescribeReplicationInstancesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -102,7 +104,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
 export const waitForReplicationInstanceAvailable = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeReplicationInstancesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationInstancesCommandOutput | DatabaseMigrationServiceServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -114,8 +116,8 @@ export const waitForReplicationInstanceAvailable = async (
 export const waitUntilReplicationInstanceAvailable = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeReplicationInstancesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeReplicationInstancesCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeReplicationInstancesCommandOutput>;
 };

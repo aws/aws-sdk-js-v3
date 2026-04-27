@@ -244,6 +244,7 @@ import {
   ValidateConfigurationSettingsCommand,
 } from "./commands/ValidateConfigurationSettingsCommand";
 import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
+import type { ElasticBeanstalkSyntheticServiceException } from "./models/ElasticBeanstalkSyntheticServiceException";
 import {
   paginateDescribeEnvironmentManagedActionHistory,
 } from "./pagination/DescribeEnvironmentManagedActionHistoryPaginator";
@@ -1191,7 +1192,7 @@ export interface ElasticBeanstalk {
   waitUntilEnvironmentExists(
     args: DescribeEnvironmentsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticBeanstalk>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeEnvironmentsCommandOutput>>;
 
   /**
    * @see {@link DescribeEnvironmentsCommand}
@@ -1201,7 +1202,7 @@ export interface ElasticBeanstalk {
   waitUntilEnvironmentTerminated(
     args: DescribeEnvironmentsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticBeanstalk>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeEnvironmentsCommandOutput>>;
 
   /**
    * @see {@link DescribeEnvironmentsCommand}
@@ -1211,7 +1212,7 @@ export interface ElasticBeanstalk {
   waitUntilEnvironmentUpdated(
     args: DescribeEnvironmentsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticBeanstalk>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeEnvironmentsCommandOutput>>;
 }
 
 /**

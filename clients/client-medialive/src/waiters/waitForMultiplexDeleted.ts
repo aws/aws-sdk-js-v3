@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeMultiplexCommandInput, DescribeMultiplexCommand } from "../commands/DescribeMultiplexCommand";
+import {
+  type DescribeMultiplexCommandInput,
+  type DescribeMultiplexCommandOutput,
+  DescribeMultiplexCommand,
+} from "../commands/DescribeMultiplexCommand";
 import type { MediaLiveClient } from "../MediaLiveClient";
+import type { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
-const checkState = async (client: MediaLiveClient, input: DescribeMultiplexCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: DescribeMultiplexCommandInput): Promise<WaiterResult<DescribeMultiplexCommandOutput | MediaLiveServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeMultiplexCommand(input));
+    let result: DescribeMultiplexCommandOutput & any = await client.send(new DescribeMultiplexCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +38,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeMultiplexComma
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -46,7 +51,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeMultiplexComma
 export const waitForMultiplexDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeMultiplexCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeMultiplexCommandOutput | MediaLiveServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +63,8 @@ export const waitForMultiplexDeleted = async (
 export const waitUntilMultiplexDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeMultiplexCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeMultiplexCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeMultiplexCommandOutput>;
 };

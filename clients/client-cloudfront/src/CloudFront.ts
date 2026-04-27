@@ -844,6 +844,7 @@ import {
   type VerifyDnsConfigurationCommandOutput,
   VerifyDnsConfigurationCommand,
 } from "./commands/VerifyDnsConfigurationCommand";
+import type { CloudFrontServiceException } from "./models/CloudFrontServiceException";
 import {
   paginateListCloudFrontOriginAccessIdentities,
 } from "./pagination/ListCloudFrontOriginAccessIdentitiesPaginator";
@@ -4132,7 +4133,7 @@ export interface CloudFront {
   waitUntilDistributionDeployed(
     args: GetDistributionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetDistributionCommandOutput>>;
 
   /**
    * @see {@link GetInvalidationCommand}
@@ -4142,7 +4143,7 @@ export interface CloudFront {
   waitUntilInvalidationCompleted(
     args: GetInvalidationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetInvalidationCommandOutput>>;
 
   /**
    * @see {@link GetInvalidationForDistributionTenantCommand}
@@ -4152,7 +4153,7 @@ export interface CloudFront {
   waitUntilInvalidationForDistributionTenantCompleted(
     args: GetInvalidationForDistributionTenantCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetInvalidationForDistributionTenantCommandOutput>>;
 
   /**
    * @see {@link GetStreamingDistributionCommand}
@@ -4162,7 +4163,7 @@ export interface CloudFront {
   waitUntilStreamingDistributionDeployed(
     args: GetStreamingDistributionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetStreamingDistributionCommandOutput>>;
 }
 
 /**

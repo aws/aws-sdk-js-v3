@@ -9,14 +9,16 @@ import {
 
 import {
   type GetQueueLimitAssociationCommandInput,
+  type GetQueueLimitAssociationCommandOutput,
   GetQueueLimitAssociationCommand,
 } from "../commands/GetQueueLimitAssociationCommand";
 import type { DeadlineClient } from "../DeadlineClient";
+import type { DeadlineServiceException } from "../models/DeadlineServiceException";
 
-const checkState = async (client: DeadlineClient, input: GetQueueLimitAssociationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DeadlineClient, input: GetQueueLimitAssociationCommandInput): Promise<WaiterResult<GetQueueLimitAssociationCommandOutput | DeadlineServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetQueueLimitAssociationCommand(input));
+    let result: GetQueueLimitAssociationCommandOutput & any = await client.send(new GetQueueLimitAssociationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -38,7 +40,7 @@ const checkState = async (client: DeadlineClient, input: GetQueueLimitAssociatio
 export const waitForQueueLimitAssociationStopped = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetQueueLimitAssociationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetQueueLimitAssociationCommandOutput | DeadlineServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -50,8 +52,8 @@ export const waitForQueueLimitAssociationStopped = async (
 export const waitUntilQueueLimitAssociationStopped = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetQueueLimitAssociationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetQueueLimitAssociationCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetQueueLimitAssociationCommandOutput>;
 };

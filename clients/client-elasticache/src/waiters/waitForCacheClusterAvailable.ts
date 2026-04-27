@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeCacheClustersCommandInput,
+  type DescribeCacheClustersCommandOutput,
   DescribeCacheClustersCommand,
 } from "../commands/DescribeCacheClustersCommand";
 import type { ElastiCacheClient } from "../ElastiCacheClient";
+import type { ElastiCacheServiceException } from "../models/ElastiCacheServiceException";
 
-const checkState = async (client: ElastiCacheClient, input: DescribeCacheClustersCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElastiCacheClient, input: DescribeCacheClustersCommandInput): Promise<WaiterResult<DescribeCacheClustersCommandOutput | ElastiCacheServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCacheClustersCommand(input));
+    let result: DescribeCacheClustersCommandOutput & any = await client.send(new DescribeCacheClustersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -102,7 +104,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
 export const waitForCacheClusterAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeCacheClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCacheClustersCommandOutput | ElastiCacheServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -114,8 +116,8 @@ export const waitForCacheClusterAvailable = async (
 export const waitUntilCacheClusterAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeCacheClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCacheClustersCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCacheClustersCommandOutput>;
 };

@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetExportCommandInput, GetExportCommand } from "../commands/GetExportCommand";
+import {
+  type GetExportCommandInput,
+  type GetExportCommandOutput,
+  GetExportCommand,
+} from "../commands/GetExportCommand";
+import type { SimpleDBv2ServiceException } from "../models/SimpleDBv2ServiceException";
 import type { SimpleDBv2Client } from "../SimpleDBv2Client";
 
-const checkState = async (client: SimpleDBv2Client, input: GetExportCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SimpleDBv2Client, input: GetExportCommandInput): Promise<WaiterResult<GetExportCommandOutput | SimpleDBv2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetExportCommand(input));
+    let result: GetExportCommandOutput & any = await client.send(new GetExportCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: SimpleDBv2Client, input: GetExportCommandInput
 export const waitForExportSucceeded = async (
   params: WaiterConfiguration<SimpleDBv2Client>,
   input: GetExportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetExportCommandOutput | SimpleDBv2ServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForExportSucceeded = async (
 export const waitUntilExportSucceeded = async (
   params: WaiterConfiguration<SimpleDBv2Client>,
   input: GetExportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetExportCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetExportCommandOutput>;
 };

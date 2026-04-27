@@ -410,6 +410,7 @@ import {
   UpdateSensitivityInspectionTemplateCommand,
 } from "./commands/UpdateSensitivityInspectionTemplateCommand";
 import { Macie2Client } from "./Macie2Client";
+import type { Macie2ServiceException } from "./models/Macie2ServiceException";
 import { paginateDescribeBuckets } from "./pagination/DescribeBucketsPaginator";
 import { paginateGetUsageStatistics } from "./pagination/GetUsageStatisticsPaginator";
 import { paginateListAllowLists } from "./pagination/ListAllowListsPaginator";
@@ -2143,7 +2144,7 @@ export interface Macie2 {
   waitUntilFindingRevealed(
     args: GetSensitiveDataOccurrencesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Macie2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetSensitiveDataOccurrencesCommandOutput>>;
 }
 
 /**

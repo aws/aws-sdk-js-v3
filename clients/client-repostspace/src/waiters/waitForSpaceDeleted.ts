@@ -7,13 +7,15 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetSpaceCommandInput, GetSpaceCommand } from "../commands/GetSpaceCommand";
+import { type GetSpaceCommandInput, type GetSpaceCommandOutput, GetSpaceCommand } from "../commands/GetSpaceCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { RepostspaceServiceException } from "../models/RepostspaceServiceException";
 import type { RepostspaceClient } from "../RepostspaceClient";
 
-const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput): Promise<WaiterResult<GetSpaceCommandOutput | RepostspaceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetSpaceCommand(input));
+    let result: GetSpaceCommandOutput & any = await client.send(new GetSpaceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -41,7 +43,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -54,7 +56,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
 export const waitForSpaceDeleted = async (
   params: WaiterConfiguration<RepostspaceClient>,
   input: GetSpaceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetSpaceCommandOutput | RepostspaceServiceException>> => {
   const serviceDefaults = { minDelay: 300, maxDelay: 7200 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForSpaceDeleted = async (
 export const waitUntilSpaceDeleted = async (
   params: WaiterConfiguration<RepostspaceClient>,
   input: GetSpaceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetSpaceCommandOutput | ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 300, maxDelay: 7200 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetSpaceCommandOutput | ResourceNotFoundException>;
 };

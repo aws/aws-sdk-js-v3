@@ -129,6 +129,8 @@ import {
   UpdateStreamGroupCommand,
 } from "./commands/UpdateStreamGroupCommand";
 import { GameLiftStreamsClient } from "./GameLiftStreamsClient";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { GameLiftStreamsServiceException } from "./models/GameLiftStreamsServiceException";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListStreamGroups } from "./pagination/ListStreamGroupsPaginator";
 import { paginateListStreamSessionsByAccount } from "./pagination/ListStreamSessionsByAccountPaginator";
@@ -643,7 +645,7 @@ export interface GameLiftStreams {
   waitUntilApplicationReady(
     args: GetApplicationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetApplicationCommandOutput>>;
 
   /**
    * @see {@link GetApplicationCommand}
@@ -653,7 +655,7 @@ export interface GameLiftStreams {
   waitUntilApplicationDeleted(
     args: GetApplicationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetStreamGroupCommand}
@@ -663,7 +665,7 @@ export interface GameLiftStreams {
   waitUntilStreamGroupActive(
     args: GetStreamGroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetStreamGroupCommandOutput>>;
 
   /**
    * @see {@link GetStreamGroupCommand}
@@ -673,7 +675,7 @@ export interface GameLiftStreams {
   waitUntilStreamGroupDeleted(
     args: GetStreamGroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetStreamSessionCommand}
@@ -683,7 +685,7 @@ export interface GameLiftStreams {
   waitUntilStreamSessionActive(
     args: GetStreamSessionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetStreamSessionCommandOutput>>;
 }
 
 /**

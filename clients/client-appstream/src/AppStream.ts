@@ -446,6 +446,7 @@ import {
   type UpdateThemeForStackCommandOutput,
   UpdateThemeForStackCommand,
 } from "./commands/UpdateThemeForStackCommand";
+import type { AppStreamServiceException } from "./models/AppStreamServiceException";
 import {
   paginateDescribeAppBlockBuilderAppBlockAssociations,
 } from "./pagination/DescribeAppBlockBuilderAppBlockAssociationsPaginator";
@@ -2140,7 +2141,7 @@ export interface AppStream {
   waitUntilFleetStarted(
     args: DescribeFleetsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AppStream>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFleetsCommandOutput>>;
 
   /**
    * @see {@link DescribeFleetsCommand}
@@ -2150,7 +2151,7 @@ export interface AppStream {
   waitUntilFleetStopped(
     args: DescribeFleetsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<AppStream>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFleetsCommandOutput>>;
 }
 
 /**

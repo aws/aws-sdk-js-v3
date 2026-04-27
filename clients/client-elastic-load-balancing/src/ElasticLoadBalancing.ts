@@ -150,6 +150,8 @@ import {
   SetLoadBalancerPoliciesOfListenerCommand,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
 import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
+import type { ElasticLoadBalancingServiceException } from "./models/ElasticLoadBalancingServiceException";
+import type { InvalidEndPointException } from "./models/errors";
 import { paginateDescribeLoadBalancers } from "./pagination/DescribeLoadBalancersPaginator";
 import { waitUntilAnyInstanceInService } from "./waiters/waitForAnyInstanceInService";
 import { waitUntilInstanceDeregistered } from "./waiters/waitForInstanceDeregistered";
@@ -712,7 +714,7 @@ export interface ElasticLoadBalancing {
   waitUntilAnyInstanceInService(
     args: DescribeInstanceHealthCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancing>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstanceHealthCommandOutput>>;
 
   /**
    * @see {@link DescribeInstanceHealthCommand}
@@ -722,7 +724,7 @@ export interface ElasticLoadBalancing {
   waitUntilInstanceDeregistered(
     args: DescribeInstanceHealthCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancing>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstanceHealthCommandOutput | InvalidEndPointException>>;
 
   /**
    * @see {@link DescribeInstanceHealthCommand}
@@ -732,7 +734,7 @@ export interface ElasticLoadBalancing {
   waitUntilInstanceInService(
     args: DescribeInstanceHealthCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancing>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeInstanceHealthCommandOutput>>;
 }
 
 /**

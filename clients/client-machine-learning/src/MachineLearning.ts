@@ -141,6 +141,7 @@ import {
   UpdateMLModelCommand,
 } from "./commands/UpdateMLModelCommand";
 import { MachineLearningClient } from "./MachineLearningClient";
+import type { MachineLearningServiceException } from "./models/MachineLearningServiceException";
 import { paginateDescribeBatchPredictions } from "./pagination/DescribeBatchPredictionsPaginator";
 import { paginateDescribeDataSources } from "./pagination/DescribeDataSourcesPaginator";
 import { paginateDescribeEvaluations } from "./pagination/DescribeEvaluationsPaginator";
@@ -726,7 +727,7 @@ export interface MachineLearning {
   waitUntilBatchPredictionAvailable(
     args: DescribeBatchPredictionsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeBatchPredictionsCommandOutput>>;
 
   /**
    * @see {@link DescribeDataSourcesCommand}
@@ -736,7 +737,7 @@ export interface MachineLearning {
   waitUntilDataSourceAvailable(
     args: DescribeDataSourcesCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeDataSourcesCommandOutput>>;
 
   /**
    * @see {@link DescribeEvaluationsCommand}
@@ -746,7 +747,7 @@ export interface MachineLearning {
   waitUntilEvaluationAvailable(
     args: DescribeEvaluationsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeEvaluationsCommandOutput>>;
 
   /**
    * @see {@link DescribeMLModelsCommand}
@@ -756,7 +757,7 @@ export interface MachineLearning {
   waitUntilMLModelAvailable(
     args: DescribeMLModelsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeMLModelsCommandOutput>>;
 }
 
 /**

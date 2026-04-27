@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetExportTaskCommandInput, GetExportTaskCommand } from "../commands/GetExportTaskCommand";
+import {
+  type GetExportTaskCommandInput,
+  type GetExportTaskCommandOutput,
+  GetExportTaskCommand,
+} from "../commands/GetExportTaskCommand";
+import type { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (client: NeptuneGraphClient, input: GetExportTaskCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetExportTaskCommandInput): Promise<WaiterResult<GetExportTaskCommandOutput | NeptuneGraphServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetExportTaskCommand(input));
+    let result: GetExportTaskCommandOutput & any = await client.send(new GetExportTaskCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetExportTaskComman
 export const waitForExportTaskCancelled = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetExportTaskCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetExportTaskCommandOutput | NeptuneGraphServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForExportTaskCancelled = async (
 export const waitUntilExportTaskCancelled = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetExportTaskCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetExportTaskCommandOutput>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetExportTaskCommandOutput>;
 };

@@ -9,14 +9,16 @@ import {
 
 import {
   type GetIdentityVerificationAttributesCommandInput,
+  type GetIdentityVerificationAttributesCommandOutput,
   GetIdentityVerificationAttributesCommand,
 } from "../commands/GetIdentityVerificationAttributesCommand";
+import type { SESServiceException } from "../models/SESServiceException";
 import type { SESClient } from "../SESClient";
 
-const checkState = async (client: SESClient, input: GetIdentityVerificationAttributesCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: SESClient, input: GetIdentityVerificationAttributesCommandInput): Promise<WaiterResult<GetIdentityVerificationAttributesCommandOutput | SESServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
+    let result: GetIdentityVerificationAttributesCommandOutput & any = await client.send(new GetIdentityVerificationAttributesCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -45,7 +47,7 @@ const checkState = async (client: SESClient, input: GetIdentityVerificationAttri
 export const waitForIdentityExists = async (
   params: WaiterConfiguration<SESClient>,
   input: GetIdentityVerificationAttributesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetIdentityVerificationAttributesCommandOutput | SESServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -57,8 +59,8 @@ export const waitForIdentityExists = async (
 export const waitUntilIdentityExists = async (
   params: WaiterConfiguration<SESClient>,
   input: GetIdentityVerificationAttributesCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetIdentityVerificationAttributesCommandOutput>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetIdentityVerificationAttributesCommandOutput>;
 };

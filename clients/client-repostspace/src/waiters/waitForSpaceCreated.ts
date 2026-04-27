@@ -7,13 +7,14 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetSpaceCommandInput, GetSpaceCommand } from "../commands/GetSpaceCommand";
+import { type GetSpaceCommandInput, type GetSpaceCommandOutput, GetSpaceCommand } from "../commands/GetSpaceCommand";
+import type { RepostspaceServiceException } from "../models/RepostspaceServiceException";
 import type { RepostspaceClient } from "../RepostspaceClient";
 
-const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput): Promise<WaiterResult<GetSpaceCommandOutput | RepostspaceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetSpaceCommand(input));
+    let result: GetSpaceCommandOutput & any = await client.send(new GetSpaceCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +52,7 @@ const checkState = async (client: RepostspaceClient, input: GetSpaceCommandInput
 export const waitForSpaceCreated = async (
   params: WaiterConfiguration<RepostspaceClient>,
   input: GetSpaceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetSpaceCommandOutput | RepostspaceServiceException>> => {
   const serviceDefaults = { minDelay: 300, maxDelay: 7200 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +64,8 @@ export const waitForSpaceCreated = async (
 export const waitUntilSpaceCreated = async (
   params: WaiterConfiguration<RepostspaceClient>,
   input: GetSpaceCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetSpaceCommandOutput>> => {
   const serviceDefaults = { minDelay: 300, maxDelay: 7200 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetSpaceCommandOutput>;
 };

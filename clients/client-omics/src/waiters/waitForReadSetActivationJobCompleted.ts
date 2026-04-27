@@ -9,14 +9,16 @@ import {
 
 import {
   type GetReadSetActivationJobCommandInput,
+  type GetReadSetActivationJobCommandOutput,
   GetReadSetActivationJobCommand,
 } from "../commands/GetReadSetActivationJobCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetReadSetActivationJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetReadSetActivationJobCommandInput): Promise<WaiterResult<GetReadSetActivationJobCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetReadSetActivationJobCommand(input));
+    let result: GetReadSetActivationJobCommandOutput & any = await client.send(new GetReadSetActivationJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -86,7 +88,7 @@ const checkState = async (client: OmicsClient, input: GetReadSetActivationJobCom
 export const waitForReadSetActivationJobCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetReadSetActivationJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetReadSetActivationJobCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -98,8 +100,8 @@ export const waitForReadSetActivationJobCompleted = async (
 export const waitUntilReadSetActivationJobCompleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetReadSetActivationJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetReadSetActivationJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetReadSetActivationJobCommandOutput>;
 };

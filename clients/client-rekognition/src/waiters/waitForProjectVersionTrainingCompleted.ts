@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeProjectVersionsCommandInput,
+  type DescribeProjectVersionsCommandOutput,
   DescribeProjectVersionsCommand,
 } from "../commands/DescribeProjectVersionsCommand";
+import type { RekognitionServiceException } from "../models/RekognitionServiceException";
 import type { RekognitionClient } from "../RekognitionClient";
 
-const checkState = async (client: RekognitionClient, input: DescribeProjectVersionsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RekognitionClient, input: DescribeProjectVersionsCommandInput): Promise<WaiterResult<DescribeProjectVersionsCommandOutput | RekognitionServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeProjectVersionsCommand(input));
+    let result: DescribeProjectVersionsCommandOutput & any = await client.send(new DescribeProjectVersionsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: RekognitionClient, input: DescribeProjectVersi
 export const waitForProjectVersionTrainingCompleted = async (
   params: WaiterConfiguration<RekognitionClient>,
   input: DescribeProjectVersionsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeProjectVersionsCommandOutput | RekognitionServiceException>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForProjectVersionTrainingCompleted = async (
 export const waitUntilProjectVersionTrainingCompleted = async (
   params: WaiterConfiguration<RekognitionClient>,
   input: DescribeProjectVersionsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeProjectVersionsCommandOutput>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeProjectVersionsCommandOutput>;
 };

@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { CloudFormationClient } from "../CloudFormationClient";
-import { type DescribeChangeSetCommandInput, DescribeChangeSetCommand } from "../commands/DescribeChangeSetCommand";
+import {
+  type DescribeChangeSetCommandInput,
+  type DescribeChangeSetCommandOutput,
+  DescribeChangeSetCommand,
+} from "../commands/DescribeChangeSetCommand";
+import type { CloudFormationServiceException } from "../models/CloudFormationServiceException";
 
-const checkState = async (client: CloudFormationClient, input: DescribeChangeSetCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CloudFormationClient, input: DescribeChangeSetCommandInput): Promise<WaiterResult<DescribeChangeSetCommandOutput | CloudFormationServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeChangeSetCommand(input));
+    let result: DescribeChangeSetCommandOutput & any = await client.send(new DescribeChangeSetCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +38,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeChangeSet
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ValidationError") {
+    if (exception.name === "ValidationError") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -46,7 +51,7 @@ const checkState = async (client: CloudFormationClient, input: DescribeChangeSet
 export const waitForChangeSetCreateComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeChangeSetCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeChangeSetCommandOutput | CloudFormationServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +63,8 @@ export const waitForChangeSetCreateComplete = async (
 export const waitUntilChangeSetCreateComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
   input: DescribeChangeSetCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeChangeSetCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeChangeSetCommandOutput>;
 };

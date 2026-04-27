@@ -9,14 +9,16 @@ import {
 
 import {
   type GetMedicalVocabularyCommandInput,
+  type GetMedicalVocabularyCommandOutput,
   GetMedicalVocabularyCommand,
 } from "../commands/GetMedicalVocabularyCommand";
+import type { TranscribeServiceException } from "../models/TranscribeServiceException";
 import type { TranscribeClient } from "../TranscribeClient";
 
-const checkState = async (client: TranscribeClient, input: GetMedicalVocabularyCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: TranscribeClient, input: GetMedicalVocabularyCommandInput): Promise<WaiterResult<GetMedicalVocabularyCommandOutput | TranscribeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetMedicalVocabularyCommand(input));
+    let result: GetMedicalVocabularyCommandOutput & any = await client.send(new GetMedicalVocabularyCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: TranscribeClient, input: GetMedicalVocabularyC
 export const waitForMedicalVocabularyReady = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetMedicalVocabularyCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMedicalVocabularyCommandOutput | TranscribeServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForMedicalVocabularyReady = async (
 export const waitUntilMedicalVocabularyReady = async (
   params: WaiterConfiguration<TranscribeClient>,
   input: GetMedicalVocabularyCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetMedicalVocabularyCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetMedicalVocabularyCommandOutput>;
 };

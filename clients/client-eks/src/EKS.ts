@@ -329,6 +329,8 @@ import {
   UpdatePodIdentityAssociationCommand,
 } from "./commands/UpdatePodIdentityAssociationCommand";
 import { EKSClient } from "./EKSClient";
+import type { EKSServiceException } from "./models/EKSServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateDescribeAddonVersions } from "./pagination/DescribeAddonVersionsPaginator";
 import { paginateDescribeClusterVersions } from "./pagination/DescribeClusterVersionsPaginator";
 import { paginateListAccessEntries } from "./pagination/ListAccessEntriesPaginator";
@@ -1714,7 +1716,7 @@ export interface EKS {
   waitUntilAddonActive(
     args: DescribeAddonCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAddonCommandOutput>>;
 
   /**
    * @see {@link DescribeAddonCommand}
@@ -1724,7 +1726,7 @@ export interface EKS {
   waitUntilAddonDeleted(
     args: DescribeAddonCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeClusterCommand}
@@ -1734,7 +1736,7 @@ export interface EKS {
   waitUntilClusterActive(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterCommandOutput>>;
 
   /**
    * @see {@link DescribeClusterCommand}
@@ -1744,7 +1746,7 @@ export interface EKS {
   waitUntilClusterDeleted(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeFargateProfileCommand}
@@ -1754,7 +1756,7 @@ export interface EKS {
   waitUntilFargateProfileActive(
     args: DescribeFargateProfileCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeFargateProfileCommandOutput>>;
 
   /**
    * @see {@link DescribeFargateProfileCommand}
@@ -1764,7 +1766,7 @@ export interface EKS {
   waitUntilFargateProfileDeleted(
     args: DescribeFargateProfileCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeNodegroupCommand}
@@ -1774,7 +1776,7 @@ export interface EKS {
   waitUntilNodegroupActive(
     args: DescribeNodegroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeNodegroupCommandOutput>>;
 
   /**
    * @see {@link DescribeNodegroupCommand}
@@ -1784,7 +1786,7 @@ export interface EKS {
   waitUntilNodegroupDeleted(
     args: DescribeNodegroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

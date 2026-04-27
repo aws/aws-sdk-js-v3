@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeTargetHealthCommandInput,
+  type DescribeTargetHealthCommandOutput,
   DescribeTargetHealthCommand,
 } from "../commands/DescribeTargetHealthCommand";
 import type { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import type { ElasticLoadBalancingV2ServiceException } from "../models/ElasticLoadBalancingV2ServiceException";
+import type { InvalidTargetException } from "../models/errors";
 
-const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeTargetHealthCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeTargetHealthCommandInput): Promise<WaiterResult<DescribeTargetHealthCommandOutput | ElasticLoadBalancingV2ServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTargetHealthCommand(input));
+    let result: DescribeTargetHealthCommandOutput & any = await client.send(new DescribeTargetHealthCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +39,7 @@ const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeT
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidTargetException") {
+    if (exception.name === "InvalidTargetException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -49,7 +52,7 @@ const checkState = async (client: ElasticLoadBalancingV2Client, input: DescribeT
 export const waitForTargetDeregistered = async (
   params: WaiterConfiguration<ElasticLoadBalancingV2Client>,
   input: DescribeTargetHealthCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTargetHealthCommandOutput | ElasticLoadBalancingV2ServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +64,8 @@ export const waitForTargetDeregistered = async (
 export const waitUntilTargetDeregistered = async (
   params: WaiterConfiguration<ElasticLoadBalancingV2Client>,
   input: DescribeTargetHealthCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTargetHealthCommandOutput | InvalidTargetException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeTargetHealthCommandOutput | InvalidTargetException>;
 };

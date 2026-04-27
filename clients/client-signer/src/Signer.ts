@@ -103,6 +103,7 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import type { SignerServiceException } from "./models/SignerServiceException";
 import { paginateListSigningJobs } from "./pagination/ListSigningJobsPaginator";
 import { paginateListSigningPlatforms } from "./pagination/ListSigningPlatformsPaginator";
 import { paginateListSigningProfiles } from "./pagination/ListSigningProfilesPaginator";
@@ -507,7 +508,7 @@ export interface Signer {
   waitUntilSuccessfulSigningJob(
     args: DescribeSigningJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Signer>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeSigningJobCommandOutput>>;
 }
 
 /**

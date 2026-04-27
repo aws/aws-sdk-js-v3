@@ -418,6 +418,7 @@ import {
   UpdateFunctionUrlConfigCommand,
 } from "./commands/UpdateFunctionUrlConfigCommand";
 import { LambdaClient } from "./LambdaClient";
+import type { LambdaServiceException } from "./models/LambdaServiceException";
 import { paginateGetDurableExecutionHistory } from "./pagination/GetDurableExecutionHistoryPaginator";
 import { paginateGetDurableExecutionState } from "./pagination/GetDurableExecutionStatePaginator";
 import { paginateListAliases } from "./pagination/ListAliasesPaginator";
@@ -2193,7 +2194,7 @@ export interface Lambda {
   waitUntilFunctionActiveV2(
     args: GetFunctionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFunctionCommandOutput>>;
 
   /**
    * @see {@link GetFunctionCommand}
@@ -2203,7 +2204,7 @@ export interface Lambda {
   waitUntilFunctionExists(
     args: GetFunctionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFunctionCommandOutput>>;
 
   /**
    * @see {@link GetFunctionCommand}
@@ -2213,7 +2214,7 @@ export interface Lambda {
   waitUntilFunctionUpdatedV2(
     args: GetFunctionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFunctionCommandOutput>>;
 
   /**
    * @see {@link GetFunctionConfigurationCommand}
@@ -2223,7 +2224,7 @@ export interface Lambda {
   waitUntilFunctionActive(
     args: GetFunctionConfigurationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFunctionConfigurationCommandOutput>>;
 
   /**
    * @see {@link GetFunctionConfigurationCommand}
@@ -2233,7 +2234,7 @@ export interface Lambda {
   waitUntilFunctionUpdated(
     args: GetFunctionConfigurationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFunctionConfigurationCommandOutput>>;
 
   /**
    * @see {@link GetFunctionConfigurationCommand}
@@ -2243,7 +2244,7 @@ export interface Lambda {
   waitUntilPublishedVersionActive(
     args: GetFunctionConfigurationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFunctionConfigurationCommandOutput>>;
 }
 
 /**

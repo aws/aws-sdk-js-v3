@@ -223,6 +223,7 @@ import {
   type UpdateVocabularyFilterCommandOutput,
   UpdateVocabularyFilterCommand,
 } from "./commands/UpdateVocabularyFilterCommand";
+import type { TranscribeServiceException } from "./models/TranscribeServiceException";
 import { paginateListCallAnalyticsCategories } from "./pagination/ListCallAnalyticsCategoriesPaginator";
 import { paginateListCallAnalyticsJobs } from "./pagination/ListCallAnalyticsJobsPaginator";
 import { paginateListLanguageModels } from "./pagination/ListLanguageModelsPaginator";
@@ -1155,7 +1156,7 @@ export interface Transcribe {
   waitUntilLanguageModelCompleted(
     args: DescribeLanguageModelCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeLanguageModelCommandOutput>>;
 
   /**
    * @see {@link GetCallAnalyticsJobCommand}
@@ -1165,7 +1166,7 @@ export interface Transcribe {
   waitUntilCallAnalyticsJobCompleted(
     args: GetCallAnalyticsJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetCallAnalyticsJobCommandOutput>>;
 
   /**
    * @see {@link GetMedicalScribeJobCommand}
@@ -1175,7 +1176,7 @@ export interface Transcribe {
   waitUntilMedicalScribeJobCompleted(
     args: GetMedicalScribeJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetMedicalScribeJobCommandOutput>>;
 
   /**
    * @see {@link GetMedicalTranscriptionJobCommand}
@@ -1185,7 +1186,7 @@ export interface Transcribe {
   waitUntilMedicalTranscriptionJobCompleted(
     args: GetMedicalTranscriptionJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetMedicalTranscriptionJobCommandOutput>>;
 
   /**
    * @see {@link GetMedicalVocabularyCommand}
@@ -1195,7 +1196,7 @@ export interface Transcribe {
   waitUntilMedicalVocabularyReady(
     args: GetMedicalVocabularyCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetMedicalVocabularyCommandOutput>>;
 
   /**
    * @see {@link GetTranscriptionJobCommand}
@@ -1205,7 +1206,7 @@ export interface Transcribe {
   waitUntilTranscriptionJobCompleted(
     args: GetTranscriptionJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetTranscriptionJobCommandOutput>>;
 
   /**
    * @see {@link GetVocabularyCommand}
@@ -1215,7 +1216,7 @@ export interface Transcribe {
   waitUntilVocabularyReady(
     args: GetVocabularyCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetVocabularyCommandOutput>>;
 }
 
 /**

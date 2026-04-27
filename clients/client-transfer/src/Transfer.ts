@@ -359,6 +359,7 @@ import {
   type UpdateWebAppCustomizationCommandOutput,
   UpdateWebAppCustomizationCommand,
 } from "./commands/UpdateWebAppCustomizationCommand";
+import type { TransferServiceException } from "./models/TransferServiceException";
 import { paginateListAccesses } from "./pagination/ListAccessesPaginator";
 import { paginateListAgreements } from "./pagination/ListAgreementsPaginator";
 import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
@@ -1836,7 +1837,7 @@ export interface Transfer {
   waitUntilServerOffline(
     args: DescribeServerCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transfer>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeServerCommandOutput>>;
 
   /**
    * @see {@link DescribeServerCommand}
@@ -1846,7 +1847,7 @@ export interface Transfer {
   waitUntilServerOnline(
     args: DescribeServerCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Transfer>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeServerCommandOutput>>;
 }
 
 /**

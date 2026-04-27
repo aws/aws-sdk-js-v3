@@ -7,13 +7,14 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetLinkCommandInput, GetLinkCommand } from "../commands/GetLinkCommand";
+import { type GetLinkCommandInput, type GetLinkCommandOutput, GetLinkCommand } from "../commands/GetLinkCommand";
+import type { RTBFabricServiceException } from "../models/RTBFabricServiceException";
 import type { RTBFabricClient } from "../RTBFabricClient";
 
-const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): Promise<WaiterResult<GetLinkCommandOutput | RTBFabricServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetLinkCommand(input));
+    let result: GetLinkCommandOutput & any = await client.send(new GetLinkCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -51,7 +52,7 @@ const checkState = async (client: RTBFabricClient, input: GetLinkCommandInput): 
 export const waitForLinkDeleted = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetLinkCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetLinkCommandOutput | RTBFabricServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -63,8 +64,8 @@ export const waitForLinkDeleted = async (
 export const waitUntilLinkDeleted = async (
   params: WaiterConfiguration<RTBFabricClient>,
   input: GetLinkCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetLinkCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetLinkCommandOutput>;
 };

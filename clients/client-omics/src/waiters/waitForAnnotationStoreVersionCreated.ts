@@ -9,14 +9,16 @@ import {
 
 import {
   type GetAnnotationStoreVersionCommandInput,
+  type GetAnnotationStoreVersionCommandOutput,
   GetAnnotationStoreVersionCommand,
 } from "../commands/GetAnnotationStoreVersionCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionCommandInput): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetAnnotationStoreVersionCommand(input));
+    let result: GetAnnotationStoreVersionCommandOutput & any = await client.send(new GetAnnotationStoreVersionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -62,7 +64,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
 export const waitForAnnotationStoreVersionCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -74,8 +76,8 @@ export const waitForAnnotationStoreVersionCreated = async (
 export const waitUntilAnnotationStoreVersionCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetAnnotationStoreVersionCommandOutput>;
 };

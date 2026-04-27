@@ -7,18 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetUserCommandInput, GetUserCommand } from "../commands/GetUserCommand";
+import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "../commands/GetUserCommand";
 import type { IAMClient } from "../IAMClient";
+import type { IAMServiceException } from "../models/IAMServiceException";
 
-const checkState = async (client: IAMClient, input: GetUserCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: IAMClient, input: GetUserCommandInput): Promise<WaiterResult<GetUserCommandOutput | IAMServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetUserCommand(input));
+    let result: GetUserCommandOutput & any = await client.send(new GetUserCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "NoSuchEntityException") {
+    if (exception.name === "NoSuchEntityException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -31,7 +32,7 @@ const checkState = async (client: IAMClient, input: GetUserCommandInput): Promis
 export const waitForUserExists = async (
   params: WaiterConfiguration<IAMClient>,
   input: GetUserCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetUserCommandOutput | IAMServiceException>> => {
   const serviceDefaults = { minDelay: 1, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -43,8 +44,8 @@ export const waitForUserExists = async (
 export const waitUntilUserExists = async (
   params: WaiterConfiguration<IAMClient>,
   input: GetUserCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetUserCommandOutput>> => {
   const serviceDefaults = { minDelay: 1, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetUserCommandOutput>;
 };

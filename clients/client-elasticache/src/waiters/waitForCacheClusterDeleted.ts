@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeCacheClustersCommandInput,
+  type DescribeCacheClustersCommandOutput,
   DescribeCacheClustersCommand,
 } from "../commands/DescribeCacheClustersCommand";
 import type { ElastiCacheClient } from "../ElastiCacheClient";
+import type { ElastiCacheServiceException } from "../models/ElastiCacheServiceException";
+import type { CacheClusterNotFoundFault } from "../models/errors";
 
-const checkState = async (client: ElastiCacheClient, input: DescribeCacheClustersCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ElastiCacheClient, input: DescribeCacheClustersCommandInput): Promise<WaiterResult<DescribeCacheClustersCommandOutput | ElastiCacheServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCacheClustersCommand(input));
+    let result: DescribeCacheClustersCommandOutput & any = await client.send(new DescribeCacheClustersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -120,7 +123,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "CacheClusterNotFoundFault") {
+    if (exception.name === "CacheClusterNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -133,7 +136,7 @@ const checkState = async (client: ElastiCacheClient, input: DescribeCacheCluster
 export const waitForCacheClusterDeleted = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeCacheClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCacheClustersCommandOutput | ElastiCacheServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -145,8 +148,8 @@ export const waitForCacheClusterDeleted = async (
 export const waitUntilCacheClusterDeleted = async (
   params: WaiterConfiguration<ElastiCacheClient>,
   input: DescribeCacheClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCacheClustersCommandOutput | CacheClusterNotFoundFault>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCacheClustersCommandOutput | CacheClusterNotFoundFault>;
 };

@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeDBSnapshotsCommandInput,
+  type DescribeDBSnapshotsCommandOutput,
   DescribeDBSnapshotsCommand,
 } from "../commands/DescribeDBSnapshotsCommand";
+import type { DBSnapshotNotFoundFault } from "../models/errors";
+import type { RDSServiceException } from "../models/RDSServiceException";
 import type { RDSClient } from "../RDSClient";
 
-const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandInput): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput | RDSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBSnapshotsCommand(input));
+    let result: DescribeDBSnapshotsCommandOutput & any = await client.send(new DescribeDBSnapshotsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -84,7 +87,7 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBSnapshotNotFoundFault") {
+    if (exception.name === "DBSnapshotNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -97,7 +100,7 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
 export const waitForDBSnapshotDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput | RDSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -109,8 +112,8 @@ export const waitForDBSnapshotDeleted = async (
 export const waitUntilDBSnapshotDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput | DBSnapshotNotFoundFault>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDBSnapshotsCommandOutput | DBSnapshotNotFoundFault>;
 };

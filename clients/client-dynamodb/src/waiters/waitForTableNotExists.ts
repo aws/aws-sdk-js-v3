@@ -7,17 +7,23 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeTableCommandInput, DescribeTableCommand } from "../commands/DescribeTableCommand";
+import {
+  type DescribeTableCommandInput,
+  type DescribeTableCommandOutput,
+  DescribeTableCommand,
+} from "../commands/DescribeTableCommand";
 import type { DynamoDBClient } from "../DynamoDBClient";
+import type { DynamoDBServiceException } from "../models/DynamoDBServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInput): Promise<WaiterResult<DescribeTableCommandOutput | DynamoDBServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTableCommand(input));
+    let result: DescribeTableCommandOutput & any = await client.send(new DescribeTableCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -30,7 +36,7 @@ const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInp
 export const waitForTableNotExists = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeTableCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeTableCommandOutput | DynamoDBServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -42,8 +48,8 @@ export const waitForTableNotExists = async (
 export const waitUntilTableNotExists = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeTableCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

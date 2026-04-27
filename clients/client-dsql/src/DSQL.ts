@@ -69,6 +69,8 @@ import {
   UpdateClusterCommand,
 } from "./commands/UpdateClusterCommand";
 import { DSQLClient } from "./DSQLClient";
+import type { DSQLServiceException } from "./models/DSQLServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { waitUntilClusterActive } from "./waiters/waitForClusterActive";
 import { waitUntilClusterNotExists } from "./waiters/waitForClusterNotExists";
@@ -321,7 +323,7 @@ export interface DSQL {
   waitUntilClusterActive(
     args: GetClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetClusterCommandOutput>>;
 
   /**
    * @see {@link GetClusterCommand}
@@ -331,7 +333,7 @@ export interface DSQL {
   waitUntilClusterNotExists(
     args: GetClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

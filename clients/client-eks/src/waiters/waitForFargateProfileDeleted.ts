@@ -9,14 +9,17 @@ import {
 
 import {
   type DescribeFargateProfileCommandInput,
+  type DescribeFargateProfileCommandOutput,
   DescribeFargateProfileCommand,
 } from "../commands/DescribeFargateProfileCommand";
 import type { EKSClient } from "../EKSClient";
+import type { EKSServiceException } from "../models/EKSServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: EKSClient, input: DescribeFargateProfileCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EKSClient, input: DescribeFargateProfileCommandInput): Promise<WaiterResult<DescribeFargateProfileCommandOutput | EKSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeFargateProfileCommand(input));
+    let result: DescribeFargateProfileCommandOutput & any = await client.send(new DescribeFargateProfileCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -28,7 +31,7 @@ const checkState = async (client: EKSClient, input: DescribeFargateProfileComman
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -41,7 +44,7 @@ const checkState = async (client: EKSClient, input: DescribeFargateProfileComman
 export const waitForFargateProfileDeleted = async (
   params: WaiterConfiguration<EKSClient>,
   input: DescribeFargateProfileCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFargateProfileCommandOutput | EKSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -53,8 +56,8 @@ export const waitForFargateProfileDeleted = async (
 export const waitUntilFargateProfileDeleted = async (
   params: WaiterConfiguration<EKSClient>,
   input: DescribeFargateProfileCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

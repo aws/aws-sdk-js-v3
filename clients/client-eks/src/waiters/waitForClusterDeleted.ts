@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeClusterCommandInput, DescribeClusterCommand } from "../commands/DescribeClusterCommand";
+import {
+  type DescribeClusterCommandInput,
+  type DescribeClusterCommandOutput,
+  DescribeClusterCommand,
+} from "../commands/DescribeClusterCommand";
 import type { EKSClient } from "../EKSClient";
+import type { EKSServiceException } from "../models/EKSServiceException";
+import type { ResourceNotFoundException } from "../models/errors";
 
-const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: EKSClient, input: DescribeClusterCommandInput): Promise<WaiterResult<DescribeClusterCommandOutput | EKSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeClusterCommand(input));
+    let result: DescribeClusterCommandOutput & any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -41,7 +47,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -54,7 +60,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
 export const waitForClusterDeleted = async (
   params: WaiterConfiguration<EKSClient>,
   input: DescribeClusterCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeClusterCommandOutput | EKSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +72,8 @@ export const waitForClusterDeleted = async (
 export const waitUntilClusterDeleted = async (
   params: WaiterConfiguration<EKSClient>,
   input: DescribeClusterCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

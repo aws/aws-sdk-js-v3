@@ -451,6 +451,7 @@ import {
   type ValidateTemplateCommandOutput,
   ValidateTemplateCommand,
 } from "./commands/ValidateTemplateCommand";
+import type { CloudFormationServiceException } from "./models/CloudFormationServiceException";
 import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
 import { paginateDescribeChangeSet } from "./pagination/DescribeChangeSetPaginator";
 import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
@@ -2452,7 +2453,7 @@ export interface CloudFormation {
   waitUntilChangeSetCreateComplete(
     args: DescribeChangeSetCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeChangeSetCommandOutput>>;
 
   /**
    * @see {@link DescribeStackRefactorCommand}
@@ -2462,7 +2463,7 @@ export interface CloudFormation {
   waitUntilStackRefactorCreateComplete(
     args: DescribeStackRefactorCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStackRefactorCommandOutput>>;
 
   /**
    * @see {@link DescribeStackRefactorCommand}
@@ -2472,7 +2473,7 @@ export interface CloudFormation {
   waitUntilStackRefactorExecuteComplete(
     args: DescribeStackRefactorCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStackRefactorCommandOutput>>;
 
   /**
    * @see {@link DescribeStacksCommand}
@@ -2482,7 +2483,7 @@ export interface CloudFormation {
   waitUntilStackCreateComplete(
     args: DescribeStacksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStacksCommandOutput>>;
 
   /**
    * @see {@link DescribeStacksCommand}
@@ -2492,7 +2493,7 @@ export interface CloudFormation {
   waitUntilStackDeleteComplete(
     args: DescribeStacksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStacksCommandOutput | CloudFormationServiceException>>;
 
   /**
    * @see {@link DescribeStacksCommand}
@@ -2502,7 +2503,7 @@ export interface CloudFormation {
   waitUntilStackExists(
     args: DescribeStacksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStacksCommandOutput>>;
 
   /**
    * @see {@link DescribeStacksCommand}
@@ -2512,7 +2513,7 @@ export interface CloudFormation {
   waitUntilStackImportComplete(
     args: DescribeStacksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStacksCommandOutput>>;
 
   /**
    * @see {@link DescribeStacksCommand}
@@ -2522,7 +2523,7 @@ export interface CloudFormation {
   waitUntilStackRollbackComplete(
     args: DescribeStacksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStacksCommandOutput>>;
 
   /**
    * @see {@link DescribeStacksCommand}
@@ -2532,7 +2533,7 @@ export interface CloudFormation {
   waitUntilStackUpdateComplete(
     args: DescribeStacksCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStacksCommandOutput>>;
 
   /**
    * @see {@link DescribeTypeRegistrationCommand}
@@ -2542,7 +2543,7 @@ export interface CloudFormation {
   waitUntilTypeRegistrationComplete(
     args: DescribeTypeRegistrationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeTypeRegistrationCommandOutput>>;
 }
 
 /**

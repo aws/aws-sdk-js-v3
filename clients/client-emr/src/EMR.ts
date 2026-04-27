@@ -301,6 +301,7 @@ import {
   UpdateStudioSessionMappingCommand,
 } from "./commands/UpdateStudioSessionMappingCommand";
 import { EMRClient } from "./EMRClient";
+import type { EMRServiceException } from "./models/EMRServiceException";
 import { paginateListBootstrapActions } from "./pagination/ListBootstrapActionsPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { paginateListInstanceFleets } from "./pagination/ListInstanceFleetsPaginator";
@@ -1570,7 +1571,7 @@ export interface EMR {
   waitUntilClusterRunning(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EMR>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterCommandOutput>>;
 
   /**
    * @see {@link DescribeClusterCommand}
@@ -1580,7 +1581,7 @@ export interface EMR {
   waitUntilClusterTerminated(
     args: DescribeClusterCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EMR>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeClusterCommandOutput>>;
 
   /**
    * @see {@link DescribeStepCommand}
@@ -1590,7 +1591,7 @@ export interface EMR {
   waitUntilStepComplete(
     args: DescribeStepCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EMR>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeStepCommandOutput>>;
 }
 
 /**

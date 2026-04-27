@@ -9,14 +9,17 @@ import {
 
 import {
   type GetAnnotationStoreVersionCommandInput,
+  type GetAnnotationStoreVersionCommandOutput,
   GetAnnotationStoreVersionCommand,
 } from "../commands/GetAnnotationStoreVersionCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionCommandInput): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetAnnotationStoreVersionCommand(input));
+    let result: GetAnnotationStoreVersionCommandOutput & any = await client.send(new GetAnnotationStoreVersionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +39,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -49,7 +52,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreVersionC
 export const waitForAnnotationStoreVersionDeleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +64,8 @@ export const waitForAnnotationStoreVersionDeleted = async (
 export const waitUntilAnnotationStoreVersionDeleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreVersionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput | ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetAnnotationStoreVersionCommandOutput | ResourceNotFoundException>;
 };

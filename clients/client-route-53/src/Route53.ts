@@ -355,6 +355,7 @@ import {
   type UpdateTrafficPolicyInstanceCommandOutput,
   UpdateTrafficPolicyInstanceCommand,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
+import type { Route53ServiceException } from "./models/Route53ServiceException";
 import { paginateListCidrBlocks } from "./pagination/ListCidrBlocksPaginator";
 import { paginateListCidrCollections } from "./pagination/ListCidrCollectionsPaginator";
 import { paginateListCidrLocations } from "./pagination/ListCidrLocationsPaginator";
@@ -1745,7 +1746,7 @@ export interface Route53 {
   waitUntilResourceRecordSetsChanged(
     args: GetChangeCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Route53>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetChangeCommandOutput>>;
 }
 
 /**

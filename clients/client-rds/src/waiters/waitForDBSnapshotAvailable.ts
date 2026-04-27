@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeDBSnapshotsCommandInput,
+  type DescribeDBSnapshotsCommandOutput,
   DescribeDBSnapshotsCommand,
 } from "../commands/DescribeDBSnapshotsCommand";
+import type { RDSServiceException } from "../models/RDSServiceException";
 import type { RDSClient } from "../RDSClient";
 
-const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandInput): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput | RDSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBSnapshotsCommand(input));
+    let result: DescribeDBSnapshotsCommandOutput & any = await client.send(new DescribeDBSnapshotsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -116,7 +118,7 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
 export const waitForDBSnapshotAvailable = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput | RDSServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -128,8 +130,8 @@ export const waitForDBSnapshotAvailable = async (
 export const waitUntilDBSnapshotAvailable = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBSnapshotsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDBSnapshotsCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDBSnapshotsCommandOutput>;
 };

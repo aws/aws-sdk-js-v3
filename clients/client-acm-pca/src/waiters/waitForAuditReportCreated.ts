@@ -10,13 +10,15 @@ import {
 import type { ACMPCAClient } from "../ACMPCAClient";
 import {
   type DescribeCertificateAuthorityAuditReportCommandInput,
+  type DescribeCertificateAuthorityAuditReportCommandOutput,
   DescribeCertificateAuthorityAuditReportCommand,
 } from "../commands/DescribeCertificateAuthorityAuditReportCommand";
+import type { ACMPCAServiceException } from "../models/ACMPCAServiceException";
 
-const checkState = async (client: ACMPCAClient, input: DescribeCertificateAuthorityAuditReportCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ACMPCAClient, input: DescribeCertificateAuthorityAuditReportCommandInput): Promise<WaiterResult<DescribeCertificateAuthorityAuditReportCommandOutput | ACMPCAServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCertificateAuthorityAuditReportCommand(input));
+    let result: DescribeCertificateAuthorityAuditReportCommandOutput & any = await client.send(new DescribeCertificateAuthorityAuditReportCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -36,7 +38,7 @@ const checkState = async (client: ACMPCAClient, input: DescribeCertificateAuthor
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "AccessDeniedException") {
+    if (exception.name === "AccessDeniedException") {
       return { state: WaiterState.FAILURE, reason };
     }
   }
@@ -49,7 +51,7 @@ const checkState = async (client: ACMPCAClient, input: DescribeCertificateAuthor
 export const waitForAuditReportCreated = async (
   params: WaiterConfiguration<ACMPCAClient>,
   input: DescribeCertificateAuthorityAuditReportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCertificateAuthorityAuditReportCommandOutput | ACMPCAServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 180 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -61,8 +63,8 @@ export const waitForAuditReportCreated = async (
 export const waitUntilAuditReportCreated = async (
   params: WaiterConfiguration<ACMPCAClient>,
   input: DescribeCertificateAuthorityAuditReportCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeCertificateAuthorityAuditReportCommandOutput>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 180 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeCertificateAuthorityAuditReportCommandOutput>;
 };

@@ -9,14 +9,16 @@ import {
 
 import {
   type GetVariantImportJobCommandInput,
+  type GetVariantImportJobCommandOutput,
   GetVariantImportJobCommand,
 } from "../commands/GetVariantImportJobCommand";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetVariantImportJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetVariantImportJobCommandInput): Promise<WaiterResult<GetVariantImportJobCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetVariantImportJobCommand(input));
+    let result: GetVariantImportJobCommandOutput & any = await client.send(new GetVariantImportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -70,7 +72,7 @@ const checkState = async (client: OmicsClient, input: GetVariantImportJobCommand
 export const waitForVariantImportJobCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetVariantImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetVariantImportJobCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -82,8 +84,8 @@ export const waitForVariantImportJobCreated = async (
 export const waitUntilVariantImportJobCreated = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetVariantImportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetVariantImportJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetVariantImportJobCommandOutput>;
 };

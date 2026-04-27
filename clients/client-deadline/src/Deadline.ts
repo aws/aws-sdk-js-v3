@@ -564,6 +564,8 @@ import {
   UpdateWorkerScheduleCommand,
 } from "./commands/UpdateWorkerScheduleCommand";
 import { DeadlineClient } from "./DeadlineClient";
+import type { DeadlineServiceException } from "./models/DeadlineServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateGetSessionsStatisticsAggregation } from "./pagination/GetSessionsStatisticsAggregationPaginator";
 import { paginateListAvailableMeteredProducts } from "./pagination/ListAvailableMeteredProductsPaginator";
 import { paginateListBudgets } from "./pagination/ListBudgetsPaginator";
@@ -3196,7 +3198,7 @@ export interface Deadline {
   waitUntilFleetActive(
     args: GetFleetCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFleetCommandOutput>>;
 
   /**
    * @see {@link GetJobCommand}
@@ -3206,7 +3208,7 @@ export interface Deadline {
   waitUntilJobCreateComplete(
     args: GetJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetJobCommandOutput>>;
 
   /**
    * @see {@link GetJobCommand}
@@ -3216,7 +3218,7 @@ export interface Deadline {
   waitUntilJobComplete(
     args: GetJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetJobCommandOutput>>;
 
   /**
    * @see {@link GetJobCommand}
@@ -3226,7 +3228,7 @@ export interface Deadline {
   waitUntilJobSucceeded(
     args: GetJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetJobCommandOutput>>;
 
   /**
    * @see {@link GetLicenseEndpointCommand}
@@ -3236,7 +3238,7 @@ export interface Deadline {
   waitUntilLicenseEndpointValid(
     args: GetLicenseEndpointCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetLicenseEndpointCommandOutput>>;
 
   /**
    * @see {@link GetLicenseEndpointCommand}
@@ -3246,7 +3248,7 @@ export interface Deadline {
   waitUntilLicenseEndpointDeleted(
     args: GetLicenseEndpointCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link GetQueueCommand}
@@ -3256,7 +3258,7 @@ export interface Deadline {
   waitUntilQueueSchedulingBlocked(
     args: GetQueueCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetQueueCommandOutput>>;
 
   /**
    * @see {@link GetQueueCommand}
@@ -3266,7 +3268,7 @@ export interface Deadline {
   waitUntilQueueScheduling(
     args: GetQueueCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetQueueCommandOutput>>;
 
   /**
    * @see {@link GetQueueFleetAssociationCommand}
@@ -3276,7 +3278,7 @@ export interface Deadline {
   waitUntilQueueFleetAssociationStopped(
     args: GetQueueFleetAssociationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetQueueFleetAssociationCommandOutput>>;
 
   /**
    * @see {@link GetQueueLimitAssociationCommand}
@@ -3286,7 +3288,7 @@ export interface Deadline {
   waitUntilQueueLimitAssociationStopped(
     args: GetQueueLimitAssociationCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Deadline>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetQueueLimitAssociationCommandOutput>>;
 }
 
 /**

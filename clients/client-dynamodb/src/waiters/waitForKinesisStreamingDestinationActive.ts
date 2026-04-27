@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeKinesisStreamingDestinationCommandInput,
+  type DescribeKinesisStreamingDestinationCommandOutput,
   DescribeKinesisStreamingDestinationCommand,
 } from "../commands/DescribeKinesisStreamingDestinationCommand";
 import type { DynamoDBClient } from "../DynamoDBClient";
+import type { DynamoDBServiceException } from "../models/DynamoDBServiceException";
 
-const checkState = async (client: DynamoDBClient, input: DescribeKinesisStreamingDestinationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DynamoDBClient, input: DescribeKinesisStreamingDestinationCommandInput): Promise<WaiterResult<DescribeKinesisStreamingDestinationCommandOutput | DynamoDBServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeKinesisStreamingDestinationCommand(input));
+    let result: DescribeKinesisStreamingDestinationCommandOutput & any = await client.send(new DescribeKinesisStreamingDestinationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -55,7 +57,7 @@ const checkState = async (client: DynamoDBClient, input: DescribeKinesisStreamin
 export const waitForKinesisStreamingDestinationActive = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeKinesisStreamingDestinationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeKinesisStreamingDestinationCommandOutput | DynamoDBServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -67,8 +69,8 @@ export const waitForKinesisStreamingDestinationActive = async (
 export const waitUntilKinesisStreamingDestinationActive = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeKinesisStreamingDestinationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeKinesisStreamingDestinationCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeKinesisStreamingDestinationCommandOutput>;
 };

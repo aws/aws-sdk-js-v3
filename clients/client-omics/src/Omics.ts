@@ -511,6 +511,8 @@ import {
   type UploadReadSetPartCommandOutput,
   UploadReadSetPartCommand,
 } from "./commands/UploadReadSetPartCommand";
+import type { ResourceNotFoundException } from "./models/errors";
+import type { OmicsServiceException } from "./models/OmicsServiceException";
 import { OmicsClient } from "./OmicsClient";
 import { paginateListAnnotationImportJobs } from "./pagination/ListAnnotationImportJobsPaginator";
 import { paginateListAnnotationStores } from "./pagination/ListAnnotationStoresPaginator";
@@ -2828,7 +2830,7 @@ export interface Omics {
   waitUntilAnnotationImportJobCreated(
     args: GetAnnotationImportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetAnnotationImportJobCommandOutput>>;
 
   /**
    * @see {@link GetAnnotationStoreCommand}
@@ -2838,7 +2840,7 @@ export interface Omics {
   waitUntilAnnotationStoreCreated(
     args: GetAnnotationStoreCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetAnnotationStoreCommandOutput>>;
 
   /**
    * @see {@link GetAnnotationStoreCommand}
@@ -2848,7 +2850,7 @@ export interface Omics {
   waitUntilAnnotationStoreDeleted(
     args: GetAnnotationStoreCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetAnnotationStoreCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetAnnotationStoreVersionCommand}
@@ -2858,7 +2860,7 @@ export interface Omics {
   waitUntilAnnotationStoreVersionCreated(
     args: GetAnnotationStoreVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput>>;
 
   /**
    * @see {@link GetAnnotationStoreVersionCommand}
@@ -2868,7 +2870,7 @@ export interface Omics {
   waitUntilAnnotationStoreVersionDeleted(
     args: GetAnnotationStoreVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetAnnotationStoreVersionCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetReadSetActivationJobCommand}
@@ -2878,7 +2880,7 @@ export interface Omics {
   waitUntilReadSetActivationJobCompleted(
     args: GetReadSetActivationJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetReadSetActivationJobCommandOutput>>;
 
   /**
    * @see {@link GetReadSetExportJobCommand}
@@ -2888,7 +2890,7 @@ export interface Omics {
   waitUntilReadSetExportJobCompleted(
     args: GetReadSetExportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetReadSetExportJobCommandOutput>>;
 
   /**
    * @see {@link GetReadSetImportJobCommand}
@@ -2898,7 +2900,7 @@ export interface Omics {
   waitUntilReadSetImportJobCompleted(
     args: GetReadSetImportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetReadSetImportJobCommandOutput>>;
 
   /**
    * @see {@link GetReferenceImportJobCommand}
@@ -2908,7 +2910,7 @@ export interface Omics {
   waitUntilReferenceImportJobCompleted(
     args: GetReferenceImportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetReferenceImportJobCommandOutput>>;
 
   /**
    * @see {@link GetRunCommand}
@@ -2918,7 +2920,7 @@ export interface Omics {
   waitUntilRunRunning(
     args: GetRunCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRunCommandOutput>>;
 
   /**
    * @see {@link GetRunCommand}
@@ -2928,7 +2930,7 @@ export interface Omics {
   waitUntilRunCompleted(
     args: GetRunCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRunCommandOutput>>;
 
   /**
    * @see {@link GetRunTaskCommand}
@@ -2938,7 +2940,7 @@ export interface Omics {
   waitUntilTaskRunning(
     args: GetRunTaskCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRunTaskCommandOutput>>;
 
   /**
    * @see {@link GetRunTaskCommand}
@@ -2948,7 +2950,7 @@ export interface Omics {
   waitUntilTaskCompleted(
     args: GetRunTaskCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetRunTaskCommandOutput>>;
 
   /**
    * @see {@link GetVariantImportJobCommand}
@@ -2958,7 +2960,7 @@ export interface Omics {
   waitUntilVariantImportJobCreated(
     args: GetVariantImportJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetVariantImportJobCommandOutput>>;
 
   /**
    * @see {@link GetVariantStoreCommand}
@@ -2968,7 +2970,7 @@ export interface Omics {
   waitUntilVariantStoreCreated(
     args: GetVariantStoreCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetVariantStoreCommandOutput>>;
 
   /**
    * @see {@link GetVariantStoreCommand}
@@ -2978,7 +2980,7 @@ export interface Omics {
   waitUntilVariantStoreDeleted(
     args: GetVariantStoreCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetVariantStoreCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetWorkflowCommand}
@@ -2988,7 +2990,7 @@ export interface Omics {
   waitUntilWorkflowActive(
     args: GetWorkflowCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetWorkflowCommandOutput>>;
 
   /**
    * @see {@link GetWorkflowVersionCommand}
@@ -2998,7 +3000,7 @@ export interface Omics {
   waitUntilWorkflowVersionActive(
     args: GetWorkflowVersionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetWorkflowVersionCommandOutput>>;
 }
 
 /**

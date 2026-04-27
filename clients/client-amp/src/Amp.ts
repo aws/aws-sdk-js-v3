@@ -229,6 +229,8 @@ import {
   type UpdateWorkspaceConfigurationCommandOutput,
   UpdateWorkspaceConfigurationCommand,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
+import type { AmpServiceException } from "./models/AmpServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListAnomalyDetectors } from "./pagination/ListAnomalyDetectorsPaginator";
 import { paginateListRuleGroupsNamespaces } from "./pagination/ListRuleGroupsNamespacesPaginator";
 import { paginateListScrapers } from "./pagination/ListScrapersPaginator";
@@ -1106,7 +1108,7 @@ export interface Amp {
   waitUntilAnomalyDetectorActive(
     args: DescribeAnomalyDetectorCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeAnomalyDetectorCommandOutput>>;
 
   /**
    * @see {@link DescribeAnomalyDetectorCommand}
@@ -1116,7 +1118,7 @@ export interface Amp {
   waitUntilAnomalyDetectorDeleted(
     args: DescribeAnomalyDetectorCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeScraperCommand}
@@ -1126,7 +1128,7 @@ export interface Amp {
   waitUntilScraperActive(
     args: DescribeScraperCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeScraperCommandOutput>>;
 
   /**
    * @see {@link DescribeScraperCommand}
@@ -1136,7 +1138,7 @@ export interface Amp {
   waitUntilScraperDeleted(
     args: DescribeScraperCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 
   /**
    * @see {@link DescribeWorkspaceCommand}
@@ -1146,7 +1148,7 @@ export interface Amp {
   waitUntilWorkspaceActive(
     args: DescribeWorkspaceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<DescribeWorkspaceCommandOutput>>;
 
   /**
    * @see {@link DescribeWorkspaceCommand}
@@ -1156,7 +1158,7 @@ export interface Amp {
   waitUntilWorkspaceDeleted(
     args: DescribeWorkspaceCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
 }
 
 /**

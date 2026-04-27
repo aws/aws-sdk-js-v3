@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetAnnotationStoreCommandInput, GetAnnotationStoreCommand } from "../commands/GetAnnotationStoreCommand";
+import {
+  type GetAnnotationStoreCommandInput,
+  type GetAnnotationStoreCommandOutput,
+  GetAnnotationStoreCommand,
+} from "../commands/GetAnnotationStoreCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { OmicsServiceException } from "../models/OmicsServiceException";
 import type { OmicsClient } from "../OmicsClient";
 
-const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandInput): Promise<WaiterResult<GetAnnotationStoreCommandOutput | OmicsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetAnnotationStoreCommand(input));
+    let result: GetAnnotationStoreCommandOutput & any = await client.send(new GetAnnotationStoreCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +39,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandI
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -46,7 +52,7 @@ const checkState = async (client: OmicsClient, input: GetAnnotationStoreCommandI
 export const waitForAnnotationStoreDeleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreCommandOutput | OmicsServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +64,8 @@ export const waitForAnnotationStoreDeleted = async (
 export const waitUntilAnnotationStoreDeleted = async (
   params: WaiterConfiguration<OmicsClient>,
   input: GetAnnotationStoreCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetAnnotationStoreCommandOutput | ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetAnnotationStoreCommandOutput | ResourceNotFoundException>;
 };

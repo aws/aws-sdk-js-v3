@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeFHIRExportJobCommandInput,
+  type DescribeFHIRExportJobCommandOutput,
   DescribeFHIRExportJobCommand,
 } from "../commands/DescribeFHIRExportJobCommand";
 import type { HealthLakeClient } from "../HealthLakeClient";
+import type { HealthLakeServiceException } from "../models/HealthLakeServiceException";
 
-const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJobCommandInput): Promise<WaiterResult<DescribeFHIRExportJobCommandOutput | HealthLakeServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeFHIRExportJobCommand(input));
+    let result: DescribeFHIRExportJobCommandOutput & any = await client.send(new DescribeFHIRExportJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -70,7 +72,7 @@ const checkState = async (client: HealthLakeClient, input: DescribeFHIRExportJob
 export const waitForFHIRExportJobCompleted = async (
   params: WaiterConfiguration<HealthLakeClient>,
   input: DescribeFHIRExportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFHIRExportJobCommandOutput | HealthLakeServiceException>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -82,8 +84,8 @@ export const waitForFHIRExportJobCompleted = async (
 export const waitUntilFHIRExportJobCompleted = async (
   params: WaiterConfiguration<HealthLakeClient>,
   input: DescribeFHIRExportJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeFHIRExportJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 120, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeFHIRExportJobCommandOutput>;
 };

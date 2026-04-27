@@ -7,13 +7,19 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeClustersCommandInput, DescribeClustersCommand } from "../commands/DescribeClustersCommand";
+import {
+  type DescribeClustersCommandInput,
+  type DescribeClustersCommandOutput,
+  DescribeClustersCommand,
+} from "../commands/DescribeClustersCommand";
+import type { ClusterNotFoundFault } from "../models/errors";
+import type { RedshiftServiceException } from "../models/RedshiftServiceException";
 import type { RedshiftClient } from "../RedshiftClient";
 
-const checkState = async (client: RedshiftClient, input: DescribeClustersCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: RedshiftClient, input: DescribeClustersCommandInput): Promise<WaiterResult<DescribeClustersCommandOutput | RedshiftServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeClustersCommand(input));
+    let result: DescribeClustersCommandOutput & any = await client.send(new DescribeClustersCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -45,7 +51,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClustersCommand
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ClusterNotFoundFault") {
+    if (exception.name === "ClusterNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -58,7 +64,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClustersCommand
 export const waitForClusterDeleted = async (
   params: WaiterConfiguration<RedshiftClient>,
   input: DescribeClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeClustersCommandOutput | RedshiftServiceException>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -70,8 +76,8 @@ export const waitForClusterDeleted = async (
 export const waitUntilClusterDeleted = async (
   params: WaiterConfiguration<RedshiftClient>,
   input: DescribeClustersCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ClusterNotFoundFault>> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ClusterNotFoundFault>;
 };

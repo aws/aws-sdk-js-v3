@@ -8,12 +8,17 @@ import {
 } from "@smithy/util-waiter";
 
 import type { B2biClient } from "../B2biClient";
-import { type GetTransformerJobCommandInput, GetTransformerJobCommand } from "../commands/GetTransformerJobCommand";
+import {
+  type GetTransformerJobCommandInput,
+  type GetTransformerJobCommandOutput,
+  GetTransformerJobCommand,
+} from "../commands/GetTransformerJobCommand";
+import type { B2biServiceException } from "../models/B2biServiceException";
 
-const checkState = async (client: B2biClient, input: GetTransformerJobCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: B2biClient, input: GetTransformerJobCommandInput): Promise<WaiterResult<GetTransformerJobCommandOutput | B2biServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetTransformerJobCommand(input));
+    let result: GetTransformerJobCommandOutput & any = await client.send(new GetTransformerJobCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: B2biClient, input: GetTransformerJobCommandInp
 export const waitForTransformerJobSucceeded = async (
   params: WaiterConfiguration<B2biClient>,
   input: GetTransformerJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetTransformerJobCommandOutput | B2biServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForTransformerJobSucceeded = async (
 export const waitUntilTransformerJobSucceeded = async (
   params: WaiterConfiguration<B2biClient>,
   input: GetTransformerJobCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetTransformerJobCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetTransformerJobCommandOutput>;
 };

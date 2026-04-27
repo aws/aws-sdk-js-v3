@@ -10,13 +10,15 @@ import {
 import type { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import {
   type DescribeRepositoryAssociationCommandInput,
+  type DescribeRepositoryAssociationCommandOutput,
   DescribeRepositoryAssociationCommand,
 } from "../commands/DescribeRepositoryAssociationCommand";
+import type { CodeGuruReviewerServiceException } from "../models/CodeGuruReviewerServiceException";
 
-const checkState = async (client: CodeGuruReviewerClient, input: DescribeRepositoryAssociationCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: CodeGuruReviewerClient, input: DescribeRepositoryAssociationCommandInput): Promise<WaiterResult<DescribeRepositoryAssociationCommandOutput | CodeGuruReviewerServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
+    let result: DescribeRepositoryAssociationCommandOutput & any = await client.send(new DescribeRepositoryAssociationCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -54,7 +56,7 @@ const checkState = async (client: CodeGuruReviewerClient, input: DescribeReposit
 export const waitForRepositoryAssociationSucceeded = async (
   params: WaiterConfiguration<CodeGuruReviewerClient>,
   input: DescribeRepositoryAssociationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeRepositoryAssociationCommandOutput | CodeGuruReviewerServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -66,8 +68,8 @@ export const waitForRepositoryAssociationSucceeded = async (
 export const waitUntilRepositoryAssociationSucceeded = async (
   params: WaiterConfiguration<CodeGuruReviewerClient>,
   input: DescribeRepositoryAssociationCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeRepositoryAssociationCommandOutput>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeRepositoryAssociationCommandOutput>;
 };

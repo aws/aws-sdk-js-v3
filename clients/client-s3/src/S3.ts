@@ -531,6 +531,8 @@ import {
   type WriteGetObjectResponseCommandOutput,
   WriteGetObjectResponseCommand,
 } from "./commands/WriteGetObjectResponseCommand";
+import type { NotFound } from "./models/errors";
+import type { S3ServiceException } from "./models/S3ServiceException";
 import { paginateListBuckets } from "./pagination/ListBucketsPaginator";
 import { paginateListDirectoryBuckets } from "./pagination/ListDirectoryBucketsPaginator";
 import { paginateListObjectsV2 } from "./pagination/ListObjectsV2Paginator";
@@ -2537,7 +2539,7 @@ export interface S3 {
   waitUntilBucketExists(
     args: HeadBucketCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<HeadBucketCommandOutput>>;
 
   /**
    * @see {@link HeadBucketCommand}
@@ -2547,7 +2549,7 @@ export interface S3 {
   waitUntilBucketNotExists(
     args: HeadBucketCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<NotFound>>;
 
   /**
    * @see {@link HeadObjectCommand}
@@ -2557,7 +2559,7 @@ export interface S3 {
   waitUntilObjectExists(
     args: HeadObjectCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<HeadObjectCommandOutput>>;
 
   /**
    * @see {@link HeadObjectCommand}
@@ -2567,7 +2569,7 @@ export interface S3 {
   waitUntilObjectNotExists(
     args: HeadObjectCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<NotFound>>;
 }
 
 /**

@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribeInputCommandInput, DescribeInputCommand } from "../commands/DescribeInputCommand";
+import {
+  type DescribeInputCommandInput,
+  type DescribeInputCommandOutput,
+  DescribeInputCommand,
+} from "../commands/DescribeInputCommand";
 import type { MediaLiveClient } from "../MediaLiveClient";
+import type { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
-const checkState = async (client: MediaLiveClient, input: DescribeInputCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: DescribeInputCommandInput): Promise<WaiterResult<DescribeInputCommandOutput | MediaLiveServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeInputCommand(input));
+    let result: DescribeInputCommandOutput & any = await client.send(new DescribeInputCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -33,7 +38,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InternalServerErrorException") {
+    if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
   }
@@ -46,7 +51,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
 export const waitForInputDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeInputCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInputCommandOutput | MediaLiveServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +63,8 @@ export const waitForInputDeleted = async (
 export const waitUntilInputDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
   input: DescribeInputCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeInputCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeInputCommandOutput>;
 };

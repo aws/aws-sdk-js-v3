@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeContributorInsightsCommandInput,
+  type DescribeContributorInsightsCommandOutput,
   DescribeContributorInsightsCommand,
 } from "../commands/DescribeContributorInsightsCommand";
 import type { DynamoDBClient } from "../DynamoDBClient";
+import type { DynamoDBServiceException } from "../models/DynamoDBServiceException";
 
-const checkState = async (client: DynamoDBClient, input: DescribeContributorInsightsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DynamoDBClient, input: DescribeContributorInsightsCommandInput): Promise<WaiterResult<DescribeContributorInsightsCommandOutput | DynamoDBServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeContributorInsightsCommand(input));
+    let result: DescribeContributorInsightsCommandOutput & any = await client.send(new DescribeContributorInsightsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -46,7 +48,7 @@ const checkState = async (client: DynamoDBClient, input: DescribeContributorInsi
 export const waitForContributorInsightsEnabled = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeContributorInsightsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeContributorInsightsCommandOutput | DynamoDBServiceException>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -58,8 +60,8 @@ export const waitForContributorInsightsEnabled = async (
 export const waitUntilContributorInsightsEnabled = async (
   params: WaiterConfiguration<DynamoDBClient>,
   input: DescribeContributorInsightsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeContributorInsightsCommandOutput>> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeContributorInsightsCommandOutput>;
 };

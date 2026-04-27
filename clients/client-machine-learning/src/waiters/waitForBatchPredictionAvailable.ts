@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeBatchPredictionsCommandInput,
+  type DescribeBatchPredictionsCommandOutput,
   DescribeBatchPredictionsCommand,
 } from "../commands/DescribeBatchPredictionsCommand";
 import type { MachineLearningClient } from "../MachineLearningClient";
+import type { MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
-const checkState = async (client: MachineLearningClient, input: DescribeBatchPredictionsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: MachineLearningClient, input: DescribeBatchPredictionsCommandInput): Promise<WaiterResult<DescribeBatchPredictionsCommandOutput | MachineLearningServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBatchPredictionsCommand(input));
+    let result: DescribeBatchPredictionsCommandOutput & any = await client.send(new DescribeBatchPredictionsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: MachineLearningClient, input: DescribeBatchPre
 export const waitForBatchPredictionAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeBatchPredictionsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBatchPredictionsCommandOutput | MachineLearningServiceException>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForBatchPredictionAvailable = async (
 export const waitUntilBatchPredictionAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
   input: DescribeBatchPredictionsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeBatchPredictionsCommandOutput>> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeBatchPredictionsCommandOutput>;
 };

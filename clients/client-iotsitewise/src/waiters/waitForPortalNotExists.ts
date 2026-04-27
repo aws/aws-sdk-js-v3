@@ -7,17 +7,23 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type DescribePortalCommandInput, DescribePortalCommand } from "../commands/DescribePortalCommand";
+import {
+  type DescribePortalCommandInput,
+  type DescribePortalCommandOutput,
+  DescribePortalCommand,
+} from "../commands/DescribePortalCommand";
 import type { IoTSiteWiseClient } from "../IoTSiteWiseClient";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { IoTSiteWiseServiceException } from "../models/IoTSiteWiseServiceException";
 
-const checkState = async (client: IoTSiteWiseClient, input: DescribePortalCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: IoTSiteWiseClient, input: DescribePortalCommandInput): Promise<WaiterResult<DescribePortalCommandOutput | IoTSiteWiseServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribePortalCommand(input));
+    let result: DescribePortalCommandOutput & any = await client.send(new DescribePortalCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -30,7 +36,7 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribePortalComman
 export const waitForPortalNotExists = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,
   input: DescribePortalCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribePortalCommandOutput | IoTSiteWiseServiceException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -42,8 +48,8 @@ export const waitForPortalNotExists = async (
 export const waitUntilPortalNotExists = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,
   input: DescribePortalCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 3, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

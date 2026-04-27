@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeDaemonDeploymentsCommandInput,
+  type DescribeDaemonDeploymentsCommandOutput,
   DescribeDaemonDeploymentsCommand,
 } from "../commands/DescribeDaemonDeploymentsCommand";
 import type { ECSClient } from "../ECSClient";
+import type { ECSServiceException } from "../models/ECSServiceException";
 
-const checkState = async (client: ECSClient, input: DescribeDaemonDeploymentsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: ECSClient, input: DescribeDaemonDeploymentsCommandInput): Promise<WaiterResult<DescribeDaemonDeploymentsCommandOutput | ECSServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDaemonDeploymentsCommand(input));
+    let result: DescribeDaemonDeploymentsCommandOutput & any = await client.send(new DescribeDaemonDeploymentsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -102,7 +104,7 @@ const checkState = async (client: ECSClient, input: DescribeDaemonDeploymentsCom
 export const waitForDaemonDeploymentSuccessful = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeDaemonDeploymentsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDaemonDeploymentsCommandOutput | ECSServiceException>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -114,8 +116,8 @@ export const waitForDaemonDeploymentSuccessful = async (
 export const waitUntilDaemonDeploymentSuccessful = async (
   params: WaiterConfiguration<ECSClient>,
   input: DescribeDaemonDeploymentsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeDaemonDeploymentsCommandOutput>> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeDaemonDeploymentsCommandOutput>;
 };

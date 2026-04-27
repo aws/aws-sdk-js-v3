@@ -7,13 +7,18 @@ import {
   WaiterState,
 } from "@smithy/util-waiter";
 
-import { type GetStreamSessionCommandInput, GetStreamSessionCommand } from "../commands/GetStreamSessionCommand";
+import {
+  type GetStreamSessionCommandInput,
+  type GetStreamSessionCommandOutput,
+  GetStreamSessionCommand,
+} from "../commands/GetStreamSessionCommand";
 import type { GameLiftStreamsClient } from "../GameLiftStreamsClient";
+import type { GameLiftStreamsServiceException } from "../models/GameLiftStreamsServiceException";
 
-const checkState = async (client: GameLiftStreamsClient, input: GetStreamSessionCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: GameLiftStreamsClient, input: GetStreamSessionCommandInput): Promise<WaiterResult<GetStreamSessionCommandOutput | GameLiftStreamsServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetStreamSessionCommand(input));
+    let result: GetStreamSessionCommandOutput & any = await client.send(new GetStreamSessionCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -43,7 +48,7 @@ const checkState = async (client: GameLiftStreamsClient, input: GetStreamSession
 export const waitForStreamSessionActive = async (
   params: WaiterConfiguration<GameLiftStreamsClient>,
   input: GetStreamSessionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetStreamSessionCommandOutput | GameLiftStreamsServiceException>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -55,8 +60,8 @@ export const waitForStreamSessionActive = async (
 export const waitUntilStreamSessionActive = async (
   params: WaiterConfiguration<GameLiftStreamsClient>,
   input: GetStreamSessionCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetStreamSessionCommandOutput>> => {
   const serviceDefaults = { minDelay: 2, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<GetStreamSessionCommandOutput>;
 };

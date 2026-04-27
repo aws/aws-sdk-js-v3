@@ -9,14 +9,17 @@ import {
 
 import {
   type GetPrivateGraphEndpointCommandInput,
+  type GetPrivateGraphEndpointCommandOutput,
   GetPrivateGraphEndpointCommand,
 } from "../commands/GetPrivateGraphEndpointCommand";
+import type { ResourceNotFoundException } from "../models/errors";
+import type { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 import type { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndpointCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndpointCommandInput): Promise<WaiterResult<GetPrivateGraphEndpointCommandOutput | NeptuneGraphServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPrivateGraphEndpointCommand(input));
+    let result: GetPrivateGraphEndpointCommandOutput & any = await client.send(new GetPrivateGraphEndpointCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -28,7 +31,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndp
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "ResourceNotFoundException") {
+    if (exception.name === "ResourceNotFoundException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }
@@ -41,7 +44,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndp
 export const waitForPrivateGraphEndpointDeleted = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetPrivateGraphEndpointCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<GetPrivateGraphEndpointCommandOutput | NeptuneGraphServiceException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -53,8 +56,8 @@ export const waitForPrivateGraphEndpointDeleted = async (
 export const waitUntilPrivateGraphEndpointDeleted = async (
   params: WaiterConfiguration<NeptuneGraphClient>,
   input: GetPrivateGraphEndpointCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<ResourceNotFoundException>> => {
   const serviceDefaults = { minDelay: 10, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<ResourceNotFoundException>;
 };

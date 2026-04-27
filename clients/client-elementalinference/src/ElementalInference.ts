@@ -51,6 +51,8 @@ import {
   UpdateFeedCommand,
 } from "./commands/UpdateFeedCommand";
 import { ElementalInferenceClient } from "./ElementalInferenceClient";
+import type { ElementalInferenceServiceException } from "./models/ElementalInferenceServiceException";
+import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListFeeds } from "./pagination/ListFeedsPaginator";
 import { waitUntilFeedDeleted } from "./waiters/waitForFeedDeleted";
 
@@ -264,7 +266,7 @@ export interface ElementalInference {
   waitUntilFeedDeleted(
     args: GetFeedCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ElementalInference>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetFeedCommandOutput | ResourceNotFoundException>>;
 }
 
 /**

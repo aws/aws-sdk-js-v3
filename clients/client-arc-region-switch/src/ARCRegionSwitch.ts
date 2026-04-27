@@ -106,6 +106,7 @@ import {
   type UpdatePlanExecutionStepCommandOutput,
   UpdatePlanExecutionStepCommand,
 } from "./commands/UpdatePlanExecutionStepCommand";
+import type { ARCRegionSwitchServiceException } from "./models/ARCRegionSwitchServiceException";
 import { paginateGetPlanEvaluationStatus } from "./pagination/GetPlanEvaluationStatusPaginator";
 import { paginateGetPlanExecution } from "./pagination/GetPlanExecutionPaginator";
 import { paginateListPlanExecutionEvents } from "./pagination/ListPlanExecutionEventsPaginator";
@@ -611,7 +612,7 @@ export interface ARCRegionSwitch {
   waitUntilPlanEvaluationStatusPassed(
     args: GetPlanEvaluationStatusCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ARCRegionSwitch>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPlanEvaluationStatusCommandOutput>>;
 
   /**
    * @see {@link GetPlanExecutionCommand}
@@ -621,7 +622,7 @@ export interface ARCRegionSwitch {
   waitUntilPlanExecutionCompleted(
     args: GetPlanExecutionCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<ARCRegionSwitch>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetPlanExecutionCommandOutput>>;
 }
 
 /**

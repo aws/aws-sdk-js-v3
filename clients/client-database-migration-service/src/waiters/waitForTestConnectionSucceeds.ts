@@ -9,14 +9,16 @@ import {
 
 import {
   type DescribeConnectionsCommandInput,
+  type DescribeConnectionsCommandOutput,
   DescribeConnectionsCommand,
 } from "../commands/DescribeConnectionsCommand";
 import type { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClient";
+import type { DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
 
-const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeConnectionsCommandInput): Promise<WaiterResult> => {
+const checkState = async (client: DatabaseMigrationServiceClient, input: DescribeConnectionsCommandInput): Promise<WaiterResult<DescribeConnectionsCommandOutput | DatabaseMigrationServiceServiceException>> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeConnectionsCommand(input));
+    let result: DescribeConnectionsCommandOutput & any = await client.send(new DescribeConnectionsCommand(input));
     reason = result;
     try {
       const returnComparator = () => {
@@ -60,7 +62,7 @@ const checkState = async (client: DatabaseMigrationServiceClient, input: Describ
 export const waitForTestConnectionSucceeds = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeConnectionsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeConnectionsCommandOutput | DatabaseMigrationServiceServiceException>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
@@ -72,8 +74,8 @@ export const waitForTestConnectionSucceeds = async (
 export const waitUntilTestConnectionSucceeds = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
   input: DescribeConnectionsCommandInput
-): Promise<WaiterResult> => {
+): Promise<WaiterResult<DescribeConnectionsCommandOutput>> => {
   const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
-  return checkExceptions(result);
+  return checkExceptions(result) as WaiterResult<DescribeConnectionsCommandOutput>;
 };

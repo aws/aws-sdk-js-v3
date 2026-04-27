@@ -159,6 +159,7 @@ import {
   UpdateOriginEndpointCommand,
 } from "./commands/UpdateOriginEndpointCommand";
 import { MediaPackageV2Client } from "./MediaPackageV2Client";
+import type { MediaPackageV2ServiceException } from "./models/MediaPackageV2ServiceException";
 import { paginateListChannelGroups } from "./pagination/ListChannelGroupsPaginator";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
 import { paginateListHarvestJobs } from "./pagination/ListHarvestJobsPaginator";
@@ -771,7 +772,7 @@ export interface MediaPackageV2 {
   waitUntilHarvestJobFinished(
     args: GetHarvestJobCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaPackageV2>, "client">
-  ): Promise<WaiterResult>;
+  ): Promise<WaiterResult<GetHarvestJobCommandOutput>>;
 }
 
 /**
