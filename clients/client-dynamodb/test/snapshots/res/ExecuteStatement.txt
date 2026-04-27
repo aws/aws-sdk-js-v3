@@ -1,0 +1,219 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Items": [
+    {
+      "key1": {
+        "L": [
+          {
+            "M": {
+              "key1": {},
+              "key2": {}
+            }
+          },
+          {
+            "L": [
+              {},
+              {},
+              {}
+            ]
+          },
+          {
+            "NULL": false
+          }
+        ]
+      },
+      "key2": {
+        "BOOL": false
+      }
+    },
+    {
+      "key1": {
+        "NULL": false
+      },
+      "key2": {
+        "S": "__S__"
+      }
+    },
+    {
+      "key1": {
+        "BOOL": false
+      },
+      "key2": {
+        "N": "__N__"
+      }
+    }
+  ],
+  "NextToken": "__NextToken__",
+  "ConsumedCapacity": {
+    "TableName": "__TableName__",
+    "CapacityUnits": 0,
+    "ReadCapacityUnits": 0,
+    "WriteCapacityUnits": 0,
+    "Table": {
+      "ReadCapacityUnits": 0,
+      "WriteCapacityUnits": 0,
+      "CapacityUnits": 0
+    },
+    "LocalSecondaryIndexes": {
+      "key1": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0,
+        "CapacityUnits": 0
+      },
+      "key2": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0,
+        "CapacityUnits": 0
+      }
+    },
+    "GlobalSecondaryIndexes": {
+      "key1": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0,
+        "CapacityUnits": 0
+      },
+      "key2": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0,
+        "CapacityUnits": 0
+      }
+    }
+  },
+  "LastEvaluatedKey": {
+    "key1": {
+      "NULL": false
+    },
+    "key2": {
+      "S": "__S__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  Items: [
+    {
+      key1: {
+        L: [
+          {
+            M: {
+              key1: {},
+              key2: {}
+            }
+          },
+          {
+            L: [
+              {},
+              {},
+              {}
+            ]
+          },
+          {
+            NULL: (boolean) false
+          }
+        ]
+      },
+      key2: {
+        BOOL: (boolean) false
+      }
+    },
+    {
+      key1: {
+        NULL: (boolean) false
+      },
+      key2: {
+        S: "__S__"
+      }
+    },
+    {
+      key1: {
+        BOOL: (boolean) false
+      },
+      key2: {
+        N: "__N__"
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  ConsumedCapacity: {
+    TableName: "__TableName__",
+    CapacityUnits: (number) 0,
+    ReadCapacityUnits: (number) 0,
+    WriteCapacityUnits: (number) 0,
+    Table: {
+      ReadCapacityUnits: (number) 0,
+      WriteCapacityUnits: (number) 0,
+      CapacityUnits: (number) 0
+    },
+    LocalSecondaryIndexes: {
+      key1: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0,
+        CapacityUnits: (number) 0
+      },
+      key2: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0,
+        CapacityUnits: (number) 0
+      }
+    },
+    GlobalSecondaryIndexes: {
+      key1: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0,
+        CapacityUnits: (number) 0
+      },
+      key2: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0,
+        CapacityUnits: (number) 0
+      }
+    }
+  },
+  LastEvaluatedKey: {
+    key1: {
+      NULL: (boolean) false
+    },
+    key2: {
+      S: "__S__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

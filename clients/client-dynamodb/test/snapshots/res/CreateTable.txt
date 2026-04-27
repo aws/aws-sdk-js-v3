@@ -1,0 +1,1113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "TableDescription": {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "__AttributeName__",
+        "AttributeType": "__AttributeType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "AttributeType": "__AttributeType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "AttributeType": "__AttributeType__"
+      }
+    ],
+    "TableName": "__TableName__",
+    "KeySchema": [
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      }
+    ],
+    "TableStatus": "__TableStatus__",
+    "CreationDateTime": 946702799.999,
+    "ProvisionedThroughput": {
+      "LastIncreaseDateTime": 946702799.999,
+      "LastDecreaseDateTime": 946702799.999,
+      "NumberOfDecreasesToday": 0,
+      "ReadCapacityUnits": 0,
+      "WriteCapacityUnits": 0
+    },
+    "TableSizeBytes": 0,
+    "ItemCount": 0,
+    "TableArn": "__TableArn__",
+    "TableId": "__TableId__",
+    "BillingModeSummary": {
+      "BillingMode": "__BillingMode__",
+      "LastUpdateToPayPerRequestDateTime": 946702799.999
+    },
+    "LocalSecondaryIndexes": [
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__"
+      },
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__"
+      },
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "IndexStatus": "__IndexStatus__",
+        "Backfilling": false,
+        "ProvisionedThroughput": {
+          "LastIncreaseDateTime": 946702799.999,
+          "LastDecreaseDateTime": 946702799.999,
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__",
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 0,
+          "MaxWriteRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0,
+          "Status": "__Status__"
+        }
+      },
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "IndexStatus": "__IndexStatus__",
+        "Backfilling": false,
+        "ProvisionedThroughput": {
+          "LastIncreaseDateTime": 946702799.999,
+          "LastDecreaseDateTime": 946702799.999,
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__",
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 0,
+          "MaxWriteRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0,
+          "Status": "__Status__"
+        }
+      },
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "IndexStatus": "__IndexStatus__",
+        "Backfilling": false,
+        "ProvisionedThroughput": {
+          "LastIncreaseDateTime": 946702799.999,
+          "LastDecreaseDateTime": 946702799.999,
+          "NumberOfDecreasesToday": 0,
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__",
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 0,
+          "MaxWriteRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0,
+          "Status": "__Status__"
+        }
+      }
+    ],
+    "StreamSpecification": {
+      "StreamEnabled": false,
+      "StreamViewType": "__StreamViewType__"
+    },
+    "LatestStreamLabel": "__LatestStreamLabel__",
+    "LatestStreamArn": "__LatestStreamArn__",
+    "GlobalTableVersion": "__GlobalTableVersion__",
+    "Replicas": [
+      {
+        "RegionName": "__RegionName__",
+        "ReplicaStatus": "__ReplicaStatus__",
+        "ReplicaStatusDescription": "__ReplicaStatusDescription__",
+        "ReplicaStatusPercentProgress": "__ReplicaStatusPercentProgress__",
+        "KMSMasterKeyId": "__KMSMasterKeyId__",
+        "ProvisionedThroughputOverride": {
+          "ReadCapacityUnits": 0
+        },
+        "OnDemandThroughputOverride": {
+          "MaxReadRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0,
+          "Status": "__Status__"
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          }
+        ],
+        "ReplicaInaccessibleDateTime": 946702799.999,
+        "ReplicaTableClassSummary": {
+          "TableClass": "__TableClass__",
+          "LastUpdateDateTime": 946702799.999
+        },
+        "GlobalTableSettingsReplicationMode": "__GlobalTableSettingsReplicationMode__"
+      },
+      {
+        "RegionName": "__RegionName__",
+        "ReplicaStatus": "__ReplicaStatus__",
+        "ReplicaStatusDescription": "__ReplicaStatusDescription__",
+        "ReplicaStatusPercentProgress": "__ReplicaStatusPercentProgress__",
+        "KMSMasterKeyId": "__KMSMasterKeyId__",
+        "ProvisionedThroughputOverride": {
+          "ReadCapacityUnits": 0
+        },
+        "OnDemandThroughputOverride": {
+          "MaxReadRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0,
+          "Status": "__Status__"
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          }
+        ],
+        "ReplicaInaccessibleDateTime": 946702799.999,
+        "ReplicaTableClassSummary": {
+          "TableClass": "__TableClass__",
+          "LastUpdateDateTime": 946702799.999
+        },
+        "GlobalTableSettingsReplicationMode": "__GlobalTableSettingsReplicationMode__"
+      },
+      {
+        "RegionName": "__RegionName__",
+        "ReplicaStatus": "__ReplicaStatus__",
+        "ReplicaStatusDescription": "__ReplicaStatusDescription__",
+        "ReplicaStatusPercentProgress": "__ReplicaStatusPercentProgress__",
+        "KMSMasterKeyId": "__KMSMasterKeyId__",
+        "ProvisionedThroughputOverride": {
+          "ReadCapacityUnits": 0
+        },
+        "OnDemandThroughputOverride": {
+          "MaxReadRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0,
+          "Status": "__Status__"
+        },
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "ProvisionedThroughputOverride": {
+              "ReadCapacityUnits": 0
+            },
+            "OnDemandThroughputOverride": {
+              "MaxReadRequestUnits": 0
+            },
+            "WarmThroughput": {
+              "ReadUnitsPerSecond": 0,
+              "WriteUnitsPerSecond": 0,
+              "Status": "__Status__"
+            }
+          }
+        ],
+        "ReplicaInaccessibleDateTime": 946702799.999,
+        "ReplicaTableClassSummary": {
+          "TableClass": "__TableClass__",
+          "LastUpdateDateTime": 946702799.999
+        },
+        "GlobalTableSettingsReplicationMode": "__GlobalTableSettingsReplicationMode__"
+      }
+    ],
+    "GlobalTableWitnesses": [
+      {
+        "RegionName": "__RegionName__",
+        "WitnessStatus": "__WitnessStatus__"
+      },
+      {
+        "RegionName": "__RegionName__",
+        "WitnessStatus": "__WitnessStatus__"
+      },
+      {
+        "RegionName": "__RegionName__",
+        "WitnessStatus": "__WitnessStatus__"
+      }
+    ],
+    "GlobalTableSettingsReplicationMode": "__GlobalTableSettingsReplicationMode__",
+    "RestoreSummary": {
+      "RestoreDateTime": 946702799.999,
+      "RestoreInProgress": false,
+      "SourceBackupArn": "__SourceBackupArn__",
+      "SourceTableArn": "__SourceTableArn__"
+    },
+    "SSEDescription": {
+      "Status": "__Status__",
+      "SSEType": "__SSEType__",
+      "KMSMasterKeyArn": "__KMSMasterKeyArn__",
+      "InaccessibleEncryptionDateTime": 946702799.999
+    },
+    "ArchivalSummary": {
+      "ArchivalDateTime": 946702799.999,
+      "ArchivalReason": "__ArchivalReason__",
+      "ArchivalBackupArn": "__ArchivalBackupArn__"
+    },
+    "TableClassSummary": {
+      "TableClass": "__TableClass__",
+      "LastUpdateDateTime": 946702799.999
+    },
+    "DeletionProtectionEnabled": false,
+    "OnDemandThroughput": {
+      "MaxReadRequestUnits": 0,
+      "MaxWriteRequestUnits": 0
+    },
+    "WarmThroughput": {
+      "ReadUnitsPerSecond": 0,
+      "WriteUnitsPerSecond": 0,
+      "Status": "__Status__"
+    },
+    "MultiRegionConsistency": "__MultiRegionConsistency__"
+  }
+}
+
+
+--- [output object] ---
+{
+  TableDescription: {
+    AttributeDefinitions: [
+      {
+        AttributeName: "__AttributeName__",
+        AttributeType: "__AttributeType__"
+      },
+      {
+        AttributeName: "__AttributeName__",
+        AttributeType: "__AttributeType__"
+      },
+      {
+        AttributeName: "__AttributeName__",
+        AttributeType: "__AttributeType__"
+      }
+    ],
+    TableName: "__TableName__",
+    KeySchema: [
+      {
+        AttributeName: "__AttributeName__",
+        KeyType: "__KeyType__"
+      },
+      {
+        AttributeName: "__AttributeName__",
+        KeyType: "__KeyType__"
+      },
+      {
+        AttributeName: "__AttributeName__",
+        KeyType: "__KeyType__"
+      }
+    ],
+    TableStatus: "__TableStatus__",
+    CreationDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ProvisionedThroughput: {
+      LastIncreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastDecreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      NumberOfDecreasesToday: (number) 0,
+      ReadCapacityUnits: (number) 0,
+      WriteCapacityUnits: (number) 0
+    },
+    TableSizeBytes: (number) 0,
+    ItemCount: (number) 0,
+    TableArn: "__TableArn__",
+    TableId: "__TableId__",
+    BillingModeSummary: {
+      BillingMode: "__BillingMode__",
+      LastUpdateToPayPerRequestDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    LocalSecondaryIndexes: [
+      {
+        IndexName: "__IndexName__",
+        KeySchema: [
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__"
+      },
+      {
+        IndexName: "__IndexName__",
+        KeySchema: [
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__"
+      },
+      {
+        IndexName: "__IndexName__",
+        KeySchema: [
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__"
+      }
+    ],
+    GlobalSecondaryIndexes: [
+      {
+        IndexName: "__IndexName__",
+        KeySchema: [
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        IndexStatus: "__IndexStatus__",
+        Backfilling: (boolean) false,
+        ProvisionedThroughput: {
+          LastIncreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          LastDecreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NumberOfDecreasesToday: (number) 0,
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0
+        },
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__",
+        OnDemandThroughput: {
+          MaxReadRequestUnits: (number) 0,
+          MaxWriteRequestUnits: (number) 0
+        },
+        WarmThroughput: {
+          ReadUnitsPerSecond: (number) 0,
+          WriteUnitsPerSecond: (number) 0,
+          Status: "__Status__"
+        }
+      },
+      {
+        IndexName: "__IndexName__",
+        KeySchema: [
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        IndexStatus: "__IndexStatus__",
+        Backfilling: (boolean) false,
+        ProvisionedThroughput: {
+          LastIncreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          LastDecreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NumberOfDecreasesToday: (number) 0,
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0
+        },
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__",
+        OnDemandThroughput: {
+          MaxReadRequestUnits: (number) 0,
+          MaxWriteRequestUnits: (number) 0
+        },
+        WarmThroughput: {
+          ReadUnitsPerSecond: (number) 0,
+          WriteUnitsPerSecond: (number) 0,
+          Status: "__Status__"
+        }
+      },
+      {
+        IndexName: "__IndexName__",
+        KeySchema: [
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            KeyType: "__KeyType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        IndexStatus: "__IndexStatus__",
+        Backfilling: (boolean) false,
+        ProvisionedThroughput: {
+          LastIncreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          LastDecreaseDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NumberOfDecreasesToday: (number) 0,
+          ReadCapacityUnits: (number) 0,
+          WriteCapacityUnits: (number) 0
+        },
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__",
+        OnDemandThroughput: {
+          MaxReadRequestUnits: (number) 0,
+          MaxWriteRequestUnits: (number) 0
+        },
+        WarmThroughput: {
+          ReadUnitsPerSecond: (number) 0,
+          WriteUnitsPerSecond: (number) 0,
+          Status: "__Status__"
+        }
+      }
+    ],
+    StreamSpecification: {
+      StreamEnabled: (boolean) false,
+      StreamViewType: "__StreamViewType__"
+    },
+    LatestStreamLabel: "__LatestStreamLabel__",
+    LatestStreamArn: "__LatestStreamArn__",
+    GlobalTableVersion: "__GlobalTableVersion__",
+    Replicas: [
+      {
+        RegionName: "__RegionName__",
+        ReplicaStatus: "__ReplicaStatus__",
+        ReplicaStatusDescription: "__ReplicaStatusDescription__",
+        ReplicaStatusPercentProgress: "__ReplicaStatusPercentProgress__",
+        KMSMasterKeyId: "__KMSMasterKeyId__",
+        ProvisionedThroughputOverride: {
+          ReadCapacityUnits: (number) 0
+        },
+        OnDemandThroughputOverride: {
+          MaxReadRequestUnits: (number) 0
+        },
+        WarmThroughput: {
+          ReadUnitsPerSecond: (number) 0,
+          WriteUnitsPerSecond: (number) 0,
+          Status: "__Status__"
+        },
+        GlobalSecondaryIndexes: [
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          }
+        ],
+        ReplicaInaccessibleDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        ReplicaTableClassSummary: {
+          TableClass: "__TableClass__",
+          LastUpdateDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        GlobalTableSettingsReplicationMode: "__GlobalTableSettingsReplicationMode__"
+      },
+      {
+        RegionName: "__RegionName__",
+        ReplicaStatus: "__ReplicaStatus__",
+        ReplicaStatusDescription: "__ReplicaStatusDescription__",
+        ReplicaStatusPercentProgress: "__ReplicaStatusPercentProgress__",
+        KMSMasterKeyId: "__KMSMasterKeyId__",
+        ProvisionedThroughputOverride: {
+          ReadCapacityUnits: (number) 0
+        },
+        OnDemandThroughputOverride: {
+          MaxReadRequestUnits: (number) 0
+        },
+        WarmThroughput: {
+          ReadUnitsPerSecond: (number) 0,
+          WriteUnitsPerSecond: (number) 0,
+          Status: "__Status__"
+        },
+        GlobalSecondaryIndexes: [
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          }
+        ],
+        ReplicaInaccessibleDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        ReplicaTableClassSummary: {
+          TableClass: "__TableClass__",
+          LastUpdateDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        GlobalTableSettingsReplicationMode: "__GlobalTableSettingsReplicationMode__"
+      },
+      {
+        RegionName: "__RegionName__",
+        ReplicaStatus: "__ReplicaStatus__",
+        ReplicaStatusDescription: "__ReplicaStatusDescription__",
+        ReplicaStatusPercentProgress: "__ReplicaStatusPercentProgress__",
+        KMSMasterKeyId: "__KMSMasterKeyId__",
+        ProvisionedThroughputOverride: {
+          ReadCapacityUnits: (number) 0
+        },
+        OnDemandThroughputOverride: {
+          MaxReadRequestUnits: (number) 0
+        },
+        WarmThroughput: {
+          ReadUnitsPerSecond: (number) 0,
+          WriteUnitsPerSecond: (number) 0,
+          Status: "__Status__"
+        },
+        GlobalSecondaryIndexes: [
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            ProvisionedThroughputOverride: {
+              ReadCapacityUnits: (number) 0
+            },
+            OnDemandThroughputOverride: {
+              MaxReadRequestUnits: (number) 0
+            },
+            WarmThroughput: {
+              ReadUnitsPerSecond: (number) 0,
+              WriteUnitsPerSecond: (number) 0,
+              Status: "__Status__"
+            }
+          }
+        ],
+        ReplicaInaccessibleDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        ReplicaTableClassSummary: {
+          TableClass: "__TableClass__",
+          LastUpdateDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        GlobalTableSettingsReplicationMode: "__GlobalTableSettingsReplicationMode__"
+      }
+    ],
+    GlobalTableWitnesses: [
+      {
+        RegionName: "__RegionName__",
+        WitnessStatus: "__WitnessStatus__"
+      },
+      {
+        RegionName: "__RegionName__",
+        WitnessStatus: "__WitnessStatus__"
+      },
+      {
+        RegionName: "__RegionName__",
+        WitnessStatus: "__WitnessStatus__"
+      }
+    ],
+    GlobalTableSettingsReplicationMode: "__GlobalTableSettingsReplicationMode__",
+    RestoreSummary: {
+      RestoreDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      RestoreInProgress: (boolean) false,
+      SourceBackupArn: "__SourceBackupArn__",
+      SourceTableArn: "__SourceTableArn__"
+    },
+    SSEDescription: {
+      Status: "__Status__",
+      SSEType: "__SSEType__",
+      KMSMasterKeyArn: "__KMSMasterKeyArn__",
+      InaccessibleEncryptionDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    ArchivalSummary: {
+      ArchivalDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ArchivalReason: "__ArchivalReason__",
+      ArchivalBackupArn: "__ArchivalBackupArn__"
+    },
+    TableClassSummary: {
+      TableClass: "__TableClass__",
+      LastUpdateDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    DeletionProtectionEnabled: (boolean) false,
+    OnDemandThroughput: {
+      MaxReadRequestUnits: (number) 0,
+      MaxWriteRequestUnits: (number) 0
+    },
+    WarmThroughput: {
+      ReadUnitsPerSecond: (number) 0,
+      WriteUnitsPerSecond: (number) 0,
+      Status: "__Status__"
+    },
+    MultiRegionConsistency: "__MultiRegionConsistency__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
