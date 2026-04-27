@@ -217,6 +217,28 @@ describe("xml parsing", () => {
     });
   });
 
+  it("should preserve control characters like \\x15 in text content despite xml 1.0 decl", () => {
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<Response><Key>prefix&#x15;suffix</Key></Response>`;
+    const object = parseXML(xml);
+    expect(object).toEqual({
+      Response: {
+        Key: "prefix\x15suffix",
+      },
+    });
+  });
+
+  it("should preserve control characters like \\x15 in text content despite xml 1.0 decl (browser)", () => {
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<Response><Key>prefix&#x15;suffix</Key></Response>`;
+    const object = parseXMLBrowser(xml);
+    expect(object).toEqual({
+      Response: {
+        Key: "prefix\x15suffix",
+      },
+    });
+  });
+
   it("throws on parsing error", () => {
     const xmlSamples = [`<unclosed`, `<unmatched></matched>`];
 

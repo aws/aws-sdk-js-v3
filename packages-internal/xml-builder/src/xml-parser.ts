@@ -1,4 +1,28 @@
+// todo: package types are incorrect wrt exports.
+import type EntityDecoder from "@nodable/entities";
+import { COMMON_HTML, CURRENCY, XML } from "@nodable/entities";
 import { XMLParser } from "fast-xml-parser";
+
+// todo: package types are incorrect wrt exports.
+const { EntityDecoder: EntityDecoderImpl } = require("@nodable/entities");
+
+/**
+ * Custom entity decoder that preserves C0 control characters (e.g. U+0015)
+ * which XML 1.0 strict mode would strip. AWS services may return these
+ * characters in responses despite XML 1.0 declaration.
+ *
+ * @internal
+ */
+const entityDecoder: EntityDecoder = new EntityDecoderImpl({
+  namedEntities: { ...XML, ...COMMON_HTML, ...CURRENCY },
+  numericAllowed: true,
+  limit: {
+    maxTotalExpansions: Infinity,
+  },
+  ncr: {
+    xmlVersion: 1.1,
+  },
+});
 
 /**
  * Because this is only used against trusted server responses,
@@ -13,6 +37,27 @@ const parser = new XMLParser({
     maxTotalExpansions: Infinity,
   },
   htmlEntities: true,
+  entityDecoder: {
+    setExternalEntities: (entities: Record<string, string>): void => {
+      entityDecoder.setExternalEntities(entities);
+    },
+    addInputEntities: (entities: Record<string, string>): void => {
+      entityDecoder.addInputEntities(entities);
+    },
+    reset: (): void => {
+      entityDecoder.reset();
+    },
+    decode: (text: string): string => {
+      return entityDecoder.decode(text);
+    },
+    /**
+     * The previous XML parser allowed C0 control chars despite
+     * any presence of the xml 1.0 declaration `<?xml version="1.0" encoding="UTF-8"?>`.
+     * We will avoid having the xml version set by the incoming payload
+     * as a workaround.
+     */
+    setXmlVersion: (version: string) => void {},
+  },
   ignoreAttributes: false,
   ignoreDeclaration: true,
   parseTagValue: false,
