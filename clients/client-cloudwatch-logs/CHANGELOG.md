@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Adds support for selecting all logs sources and types in a single association. ([0f94449](https://github.com/aws/aws-sdk-js-v3/commit/0f9444959266c854db73989f2335150f0c7083a8))
+
+
+
+
+
 # [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
 
 

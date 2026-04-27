@@ -38,6 +38,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.36 (2026-04-27)
+### Chores
+* **codegen:** sync for typed waiter-result values ([#7965](https://github.com/aws/aws-sdk-js-v3/issues/7965)) ([e9f8d8a](https://github.com/aws/aws-sdk-js-v3/commit/e9f8d8a9a00832fdcf2e7313a1994875f282147b))
+
+
+
 # 3.972.35 (2026-04-23)
 ### Chores
 * **codegen:** sync for http2 session closure, retry longpoll backoff, and fast-xml-parser version bump ([#7958](https://github.com/aws/aws-sdk-js-v3/issues/7958)) ([107aefc](https://github.com/aws/aws-sdk-js-v3/commit/107aefc4d41379a56836ade376f27eef23db8d43))

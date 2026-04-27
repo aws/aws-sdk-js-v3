@@ -21,6 +21,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-04-27)
+### Bug Fixes
+* **xml-builder:** use xml 1.1 parsing behavior for entities ([#7964](https://github.com/aws/aws-sdk-js-v3/issues/7964)) ([7a30bce](https://github.com/aws/aws-sdk-js-v3/commit/7a30bce017601c93aea1b6aed38c0c9882e05834))
+
+
+
 # 3.972.19 (2026-04-23)
 ### Chores
 * **xml-builder:** up fast-xml-parser to 5.7.1 ([#7957](https://github.com/aws/aws-sdk-js-v3/issues/7957)) ([110b1c0](https://github.com/aws/aws-sdk-js-v3/commit/110b1c01dedb62bc56449598eeaac1d838e4995f))

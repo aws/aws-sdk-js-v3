@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
+
+
+### Bug Fixes
+
+* **xml-builder:** use xml 1.1 parsing behavior for entities ([#7964](https://github.com/aws/aws-sdk-js-v3/issues/7964)) ([7a30bce](https://github.com/aws/aws-sdk-js-v3/commit/7a30bce017601c93aea1b6aed38c0c9882e05834))
+
+
+### Features
+
+* **client-application-signals:** Application Signals now supports creating composite Service Level Objectives on Service Operations. Users can now create service SLO on multiple operations. ([6a04d60](https://github.com/aws/aws-sdk-js-v3/commit/6a04d604cbd7ee7058fd3ee18b98a49cc2ba401e))
+* **client-billingconductor:** Add support for Passthrough pricing plan ([31ed64a](https://github.com/aws/aws-sdk-js-v3/commit/31ed64a485f9cb44f801a38a65a2f4ed9e8b7098))
+* **client-cloudwatch-logs:** Adds support for selecting all logs sources and types in a single association. ([0f94449](https://github.com/aws/aws-sdk-js-v3/commit/0f9444959266c854db73989f2335150f0c7083a8))
+* **client-glue:** Addition of AdditionalAuditContext to GetPartition, GetPartitions, GetTableVersion, and GetTableVersions ([eaf5eef](https://github.com/aws/aws-sdk-js-v3/commit/eaf5eef0956457502cab66e902d666bb7260db81))
+* **client-ivs:** Adds tags parameter to the CreateAdConfiguration operation ([6e9a5a0](https://github.com/aws/aws-sdk-js-v3/commit/6e9a5a05c472beb4bc410608fa05a83b85ed8054))
+* **client-kms:** KMS GetKeyLastUsage API provides information on the last successful cryptographic operation performed on KMS keys. This new API provides KMS customers with the last timestamp, CloudTrail eventId, and the cryptographic operation that was performed on the key. ([7edc07d](https://github.com/aws/aws-sdk-js-v3/commit/7edc07d473e2eb7932696943bf4e681785c4c6ae))
+* **client-mgn:** Added network modernization support, enabling customers to edit, resize, merge, and split VPCs and subnets during migration while retaining functional, non-conflicting IP addresses. ([8cc9996](https://github.com/aws/aws-sdk-js-v3/commit/8cc999681d4be96343b8572ef3a13f83f1d9debb))
+* **client-omics:** Enable Public Internet or VPC configuration to BatchRun ([345017d](https://github.com/aws/aws-sdk-js-v3/commit/345017d340b604dfd9a20cb6626afd5f4d8bcd17))
+* **client-opensearch:** Amazon OpenSearch Service now supports JWKS URL configuration for JWT authentication ([5dfd054](https://github.com/aws/aws-sdk-js-v3/commit/5dfd0544b8ad56b7e9f48cf0beccf920ab0c64ea))
+* **client-sagemaker:** Updated API documentation for endpoint MetricsConfig. Added details on supported metric publish frequencies and clarified how EnableEnhancedMetrics controls utilization and invocation metric behavior. ([c3a61e2](https://github.com/aws/aws-sdk-js-v3/commit/c3a61e2d6ccaaa8112ebc6b46304ae79145f44da))
+* **client-workspaces:** Added support for Protocol as modified resource and added update failure as modification state ([6bd9ee4](https://github.com/aws/aws-sdk-js-v3/commit/6bd9ee46a6042faacce0fad44d8f721a21b086ef))
+
+
+
+
+
 # [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
 
 

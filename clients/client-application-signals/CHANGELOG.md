@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
+
+
+### Features
+
+* **client-application-signals:** Application Signals now supports creating composite Service Level Objectives on Service Operations. Users can now create service SLO on multiple operations. ([6a04d60](https://github.com/aws/aws-sdk-js-v3/commit/6a04d604cbd7ee7058fd3ee18b98a49cc2ba401e))
+
+
+
+
+
 # [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
 
 **Note:** Version bump only for package @aws-sdk/client-application-signals

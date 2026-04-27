@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
+
+
+### Features
+
+* **client-omics:** Enable Public Internet or VPC configuration to BatchRun ([345017d](https://github.com/aws/aws-sdk-js-v3/commit/345017d340b604dfd9a20cb6626afd5f4d8bcd17))
+
+
+
+
+
 # [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

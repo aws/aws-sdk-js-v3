@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
+
+
+### Features
+
+* **client-workspaces:** Added support for Protocol as modified resource and added update failure as modification state ([6bd9ee4](https://github.com/aws/aws-sdk-js-v3/commit/6bd9ee46a6042faacce0fad44d8f721a21b086ef))
+
+
+
+
+
 # [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

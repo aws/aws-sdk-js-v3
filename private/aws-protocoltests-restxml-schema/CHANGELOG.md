@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
+
+
+### Bug Fixes
+
+* **xml-builder:** use xml 1.1 parsing behavior for entities ([#7964](https://github.com/aws/aws-sdk-js-v3/issues/7964)) ([7a30bce](https://github.com/aws/aws-sdk-js-v3/commit/7a30bce017601c93aea1b6aed38c0c9882e05834))
+
+
+
+
+
 # [3.1037.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1036.0...v3.1037.0) (2026-04-24)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-restxml-schema
