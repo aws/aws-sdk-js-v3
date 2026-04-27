@@ -487,8 +487,8 @@ export var ChannelSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CreateAdConfigurationRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
-  [_mTPC, _n],
-  [() => MediaTailorPlaybackConfigurationsList, 0], 1
+  [_mTPC, _n, _t],
+  [() => MediaTailorPlaybackConfigurationsList, 0, 128 | 0], 1
 ];
 export var CreateAdConfigurationResponse$: StaticStructureSchema = [3, n0, _CACRr,
   0,

@@ -43,6 +43,9 @@ export interface CreateAdConfigurationCommandOutput extends CreateAdConfiguratio
  *       playbackConfigurationArn: "STRING_VALUE",
  *     },
  *   ],
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateAdConfigurationCommand(input);
  * const response = await client.send(command);
