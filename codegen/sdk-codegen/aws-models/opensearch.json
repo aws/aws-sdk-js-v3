@@ -10339,6 +10339,12 @@
             "smithy.api#documentation": "<p>Element of the JWT assertion to use for roles.</p>"
           }
         },
+        "JwksUrl": {
+          "target": "com.amazonaws.opensearch#JwksUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.</p>"
+          }
+        },
         "PublicKey": {
           "target": "com.amazonaws.opensearch#String",
           "traits": {
@@ -10371,6 +10377,12 @@
             "smithy.api#documentation": "<p>The key used for matching the JWT roles attribute.</p>"
           }
         },
+        "JwksUrl": {
+          "target": "com.amazonaws.opensearch#JwksUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The configured JWKS URL endpoint from which the cluster retrieves public keys to verify JWT requests.</p>"
+          }
+        },
         "PublicKey": {
           "target": "com.amazonaws.opensearch#String",
           "traits": {
@@ -10380,6 +10392,16 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the JWT options configured for the domain.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#JwksUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^$|^https://(?!(?:10|127|169\\.254|192\\.168|172\\.(?:1[6-9]|2[0-9]|3[01]))\\.)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\\.[a-zA-Z]{2,}(?::[0-9]{1,5})?(?:/[a-zA-Z0-9\\-._~%!$&'()*+,;=:']*)?$"
       }
     },
     "com.amazonaws.opensearch#KeyStoreAccessOption": {

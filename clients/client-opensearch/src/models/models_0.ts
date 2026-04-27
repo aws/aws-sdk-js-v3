@@ -726,6 +726,12 @@ export interface JWTOptionsOutput {
   RolesKey?: string | undefined;
 
   /**
+   * <p>The configured JWKS URL endpoint from which the cluster retrieves public keys to verify JWT requests.</p>
+   * @public
+   */
+  JwksUrl?: string | undefined;
+
+  /**
    * <p>The key used to verify the signature of incoming JWT requests.</p>
    * @public
    */
@@ -885,6 +891,12 @@ export interface JWTOptionsInput {
    * @public
    */
   RolesKey?: string | undefined;
+
+  /**
+   * <p>The URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.</p>
+   * @public
+   */
+  JwksUrl?: string | undefined;
 
   /**
    * <p>Element of the JWT assertion used by the cluster to verify JWT signatures.</p>

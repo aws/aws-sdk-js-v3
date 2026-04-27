@@ -140,6 +140,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *       Enabled: true || false,
  *       SubjectKey: "STRING_VALUE",
  *       RolesKey: "STRING_VALUE",
+ *       JwksUrl: "STRING_VALUE",
  *       PublicKey: "STRING_VALUE",
  *     },
  *     IAMFederationOptions: { // IAMFederationOptionsInput
@@ -374,6 +375,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //           Enabled: true || false,
  * //           SubjectKey: "STRING_VALUE",
  * //           RolesKey: "STRING_VALUE",
+ * //           JwksUrl: "STRING_VALUE",
  * //           PublicKey: "STRING_VALUE",
  * //         },
  * //         IAMFederationOptions: { // IAMFederationOptionsOutput

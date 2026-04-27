@@ -420,6 +420,7 @@ const _Id_ = "Id";
 const _In = "Insight";
 const _Ins = "Insights";
 const _Is = "Issues";
+const _JU = "JwksUrl";
 const _JWTO = "JWTOptions";
 const _JWTOI = "JWTOptionsInput";
 const _JWTOO = "JWTOptionsOutput";
@@ -1907,13 +1908,13 @@ export var IPAddressTypeStatus$: StaticStructureSchema = [3, n0, _IPATS,
 ];
 export var JWTOptionsInput$: StaticStructureSchema = [3, n0, _JWTOI,
   0,
-  [_E, _SK, _RK, _PK],
-  [2, 0, 0, 0]
+  [_E, _SK, _RK, _JU, _PK],
+  [2, 0, 0, 0, 0]
 ];
 export var JWTOptionsOutput$: StaticStructureSchema = [3, n0, _JWTOO,
   0,
-  [_E, _SK, _RK, _PK],
-  [2, 0, 0, 0]
+  [_E, _SK, _RK, _JU, _PK],
+  [2, 0, 0, 0, 0]
 ];
 export var KeyStoreAccessOption$: StaticStructureSchema = [3, n0, _KSAO,
   0,
