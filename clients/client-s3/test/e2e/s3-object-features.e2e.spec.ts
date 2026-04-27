@@ -100,7 +100,8 @@ describe("@aws-sdk/client-s3", () => {
         "\n \n",
         "a\r\n b\n c\r",
         "a\r\u0085 b\u0085",
-        "a\r\u2028 b\u0085 c\u2028",
+        "a\r\u2028 b\u0085 c\u2028 d\x15",
+        "special_c0_\x15\x15\x15\x15",
       ];
 
       beforeAll(async () => {
@@ -126,15 +127,44 @@ describe("@aws-sdk/client-s3", () => {
         }
       });
 
+      it("can list objects with special character keys", async () => {
+        const listObjects = await client.listObjects({
+          Bucket,
+          Prefix: "special_c0_",
+        });
+
+        expect(listObjects.Contents?.length).toBeGreaterThanOrEqual(1);
+        expect(listObjects.Contents?.[0].Key).toEqual("special_c0_\x15\x15\x15\x15");
+      });
+
       it("can delete keys containing special characters", async () => {
+        const [firstHalf, secondHalf] = [keys.slice(0, 4), keys.slice(4)];
+
         await client.deleteObjects({
           Bucket,
           Delete: {
-            Objects: keys.map((Key) => ({
+            Objects: firstHalf.map((Key) => ({
               Key,
             })),
           },
         });
+
+        // S3 cannot delete the keys using DeleteObjects because the keys would be part
+        // of the XML payload and are rejected, specifically the \x15 C0 control char
+        // not valid in XML 1.0.
+
+        // This is despite the keys being listable (in a supposedly XML-1.0 ListObjects response payload).
+        // and individually deletable.
+        const p = [];
+        for (const key of secondHalf) {
+          p.push(
+            client.deleteObject({
+              Bucket,
+              Key: key,
+            })
+          );
+        }
+        await Promise.all(p);
 
         await Promise.all(
           keys.map(async (Key) => {

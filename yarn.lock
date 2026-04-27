@@ -1176,7 +1176,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
-    fast-xml-parser: "npm:5.7.1"
+    fast-xml-parser: "npm:5.7.2"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -1236,7 +1236,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
-    fast-xml-parser: "npm:5.7.1"
+    fast-xml-parser: "npm:5.7.2"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -25483,11 +25483,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/xml-builder@workspace:packages-internal/xml-builder"
   dependencies:
+    "@nodable/entities": "npm:2.1.0"
     "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    fast-xml-parser: "npm:5.7.1"
+    fast-xml-parser: "npm:5.7.2"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -28557,7 +28558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nodable/entities@npm:^2.1.0":
+"@nodable/entities@npm:2.1.0, @nodable/entities@npm:^2.1.0":
   version: 2.1.0
   resolution: "@nodable/entities@npm:2.1.0"
   checksum: 10c0/5a4cba2b61a5b6c726328b18b1de6d033cae4a658a118644bf31e0bcbda126ea7b69385043dc556cf1ed859b9ca220e82b81b5e5c48ef1b519fb8ec104575dee
@@ -34581,9 +34582,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:5.7.1":
-  version: 5.7.1
-  resolution: "fast-xml-parser@npm:5.7.1"
+"fast-xml-parser@npm:5.7.2":
+  version: 5.7.2
+  resolution: "fast-xml-parser@npm:5.7.2"
   dependencies:
     "@nodable/entities": "npm:^2.1.0"
     fast-xml-builder: "npm:^1.1.5"
@@ -34591,7 +34592,7 @@ __metadata:
     strnum: "npm:^2.2.3"
   bin:
     fxparser: src/cli/cli.js
-  checksum: 10c0/b8b54e33060da5fc5ce26fdc73c4728f18415f9be9a774f1406b03265a5b411b742c39dba0127c3f0f31fad5b3ee11f51be79aa16df160f69fd5e4b902bfbb85
+  checksum: 10c0/d48439ce0700add82f5e7c6ccc5a1f06483beb7cd8e88caa83c6406843e52f14988e60d05cbb3a86ffe07e073807674c807e0764d94a280e1c96d7e2011dae8e
   languageName: node
   linkType: hard
 
