@@ -96,7 +96,7 @@
     "@smithy/smithy-client": "^4.12.13",
     "@smithy/typecheck": "^1.0.25",
     "@smithy/types": "^4.14.1",
-    "@smithy/util-retry": "^4.3.5",
+    "@smithy/util-retry": "^4.3.6",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
