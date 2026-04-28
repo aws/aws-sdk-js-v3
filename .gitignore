@@ -86,3 +86,8 @@ temp-tarball/
 
 # Gradle composite build properties
 codegen/local.properties
+
+# VSCode/Cursor
+.cursor/
+.cursorrules
+.vscode/

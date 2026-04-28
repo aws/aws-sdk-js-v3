@@ -1,3 +1,5 @@
+import assert from "node:assert";
+
 import {
   ApproximateCreationDateTimePrecision,
   ArchivalSummary$,
@@ -471,8 +473,7 @@ import {
   WarmThroughput$,
   WitnessStatus,
   WriteRequest$,
-} from "../dist-cjs/index.js";
-import assert from "node:assert";
+} from "./dist-cjs/index.js";
 // clients
 assert(typeof DynamoDBClient === "function");
 assert(typeof DynamoDB === "function");
