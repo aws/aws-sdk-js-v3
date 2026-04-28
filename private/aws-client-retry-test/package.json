@@ -21,7 +21,7 @@
     "@aws-sdk/client-lambda": "workspace:3.1038.0",
     "@smithy/protocol-http": "^5.3.14",
     "@smithy/types": "^4.14.1",
-    "@smithy/util-retry": "^4.3.5",
+    "@smithy/util-retry": "^4.3.6",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
