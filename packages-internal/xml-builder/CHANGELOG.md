@@ -5,20 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 3.972.21 (2026-04-27)
+### Bug Fixes
+* **xml-builder:** fix(xml-builder): inline nodable/entities for dist format compatibility ([#7968](https://github.com/aws/aws-sdk-js-v3/issues/7968))
 
 
 

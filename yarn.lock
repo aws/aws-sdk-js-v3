@@ -1201,7 +1201,7 @@ __metadata:
     "@aws-sdk/util-endpoints": "workspace:^3.996.8"
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.10"
     "@aws-sdk/util-user-agent-node": "workspace:^3.973.22"
-    "@aws-sdk/xml-builder": "workspace:^3.972.20"
+    "@aws-sdk/xml-builder": "workspace:^3.972.21"
     "@smithy/config-resolver": "npm:^4.4.17"
     "@smithy/core": "npm:^3.23.17"
     "@smithy/fetch-http-handler": "npm:^5.3.17"
@@ -23927,7 +23927,7 @@ __metadata:
   resolution: "@aws-sdk/core@workspace:packages-internal/core"
   dependencies:
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/xml-builder": "workspace:^3.972.20"
+    "@aws-sdk/xml-builder": "workspace:^3.972.21"
     "@smithy/core": "npm:^3.23.17"
     "@smithy/node-config-provider": "npm:^4.3.14"
     "@smithy/property-provider": "npm:^4.2.14"
@@ -25479,7 +25479,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/xml-builder@workspace:^3.972.20, @aws-sdk/xml-builder@workspace:packages-internal/xml-builder":
+"@aws-sdk/xml-builder@workspace:^3.972.21, @aws-sdk/xml-builder@workspace:packages-internal/xml-builder":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/xml-builder@workspace:packages-internal/xml-builder"
   dependencies:
