@@ -1,10 +1,6 @@
-// todo: package types are incorrect wrt exports.
-import type EntityDecoder from "@nodable/entities";
-import { COMMON_HTML, CURRENCY, XML } from "@nodable/entities";
 import { XMLParser } from "fast-xml-parser";
 
-// todo: package types are incorrect wrt exports.
-const { EntityDecoder: EntityDecoderImpl } = require("@nodable/entities");
+import { type EntityDecoder, COMMON_HTML, CURRENCY, EntityDecoderImpl, XML } from "./xml-external/nodable_entities";
 
 /**
  * Custom entity decoder that preserves C0 control characters (e.g. U+0015)
