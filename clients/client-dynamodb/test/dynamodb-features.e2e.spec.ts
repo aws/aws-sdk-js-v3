@@ -19,18 +19,38 @@ describe(DynamoDB.name, () => {
 
     // Wait for table to be active
     await waitUntilTableExists({ client, maxWaitTime: 300 }, { TableName: sharedTableName });
-  }, 60000);
+  }, 360_000);
 
   afterAll(async () => {
-    // Cleanup shared table
+    const prefix = "aws-sdk-js-integration-";
+    const eightHoursAgo = Date.now() - 8 * 60 * 60 * 1000;
+
     if (sharedTableName) {
-      try {
-        await client.deleteTable({ TableName: sharedTableName });
-      } catch (error) {
-        // Ignore errors during cleanup
-      }
+      await client.deleteTable({ TableName: sharedTableName }).catch(() => {});
     }
-  });
+
+    let lastTable: string | undefined;
+    do {
+      const list = await client.listTables({
+        ...(lastTable ? { ExclusiveStartTableName: lastTable } : {}),
+      });
+      const tables = list.TableNames ?? [];
+      lastTable = list.LastEvaluatedTableName;
+
+      for (const name of tables) {
+        if (!name.startsWith(prefix) || name === sharedTableName) {
+          continue;
+        }
+        try {
+          const desc = await client.describeTable({ TableName: name });
+          if (desc?.Table?.CreationDateTime?.getTime?.() ?? -Infinity < eightHoursAgo) {
+            await client.deleteTable({ TableName: name }).catch(() => {});
+            console.log("Deleted", name);
+          }
+        } catch {}
+      }
+    } while (lastTable);
+  }, 120_000);
 
   describe("Creating a table", () => {
     it("should verify table exists and is active", async () => {

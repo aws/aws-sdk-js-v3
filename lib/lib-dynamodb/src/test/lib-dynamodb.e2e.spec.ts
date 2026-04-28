@@ -1,22 +1,18 @@
-import {
-  BillingMode,
+import type {
   CreateTableCommandOutput,
   DeleteItemCommandOutput,
   DescribeTableCommandOutput,
-  DynamoDB,
   GetItemCommandOutput,
-  waitUntilTableExists,
 } from "@aws-sdk/client-dynamodb";
-import {
+import { BillingMode, DynamoDB, waitUntilTableExists } from "@aws-sdk/client-dynamodb";
+import type {
   BatchExecuteStatementCommandOutput,
   BatchGetCommandOutput,
   BatchWriteCommandOutput,
-  DynamoDBDocument,
   ExecuteStatementCommandOutput,
   ExecuteTransactionCommandOutput,
   GetCommandInput,
   GetCommandOutput,
-  NumberValue,
   PutCommandOutput,
   QueryCommandInput,
   QueryCommandOutput,
@@ -26,8 +22,9 @@ import {
   TransactWriteCommandOutput,
   UpdateCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocument, NumberValue } from "@aws-sdk/lib-dynamodb";
 import { HttpRequest } from "@smithy/protocol-http";
-import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 // expected running time: table creation (~20s) + operations 10s
 
@@ -586,10 +583,33 @@ describe(
     }, 180_000);
 
     afterAll(async () => {
-      await dynamodb.deleteTable({
-        TableName,
-      });
-    });
+      const prefix = "js-sdk-dynamodb-test-";
+      const eightHoursAgo = Date.now() - 8 * 60 * 60 * 1000;
+
+      await dynamodb.deleteTable({ TableName }).catch(() => {});
+
+      let lastTable: string | undefined;
+      do {
+        const list = await dynamodb.listTables({
+          ...(lastTable ? { ExclusiveStartTableName: lastTable } : {}),
+        });
+        const tables = list.TableNames ?? [];
+        lastTable = list.LastEvaluatedTableName;
+
+        for (const name of tables) {
+          if (!name.startsWith(prefix) || name === TableName) {
+            continue;
+          }
+          try {
+            const desc = await dynamodb.describeTable({ TableName: name });
+            if (desc?.Table?.CreationDateTime?.getTime?.() ?? -Infinity < eightHoursAgo) {
+              await dynamodb.deleteTable({ TableName: name }).catch(() => {});
+              console.log("Deleted", name);
+            }
+          } catch {}
+        }
+      } while (lastTable);
+    }, 120_000);
 
     describe("updateTransformFunction", () => {
       it("modifies all fields of an object", () => {
