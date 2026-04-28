@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { setup as setupSnapshotTesting } from "@aws-sdk/snapshot-testing";
 import { SnapshotRunner } from "@smithy/snapshot-testing";
 import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
@@ -159,9 +160,13 @@ import {
 vi.setSystemTime(new Date(946702799999));
 const Client = DynamoDBClient;
 
-const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
+setupSnapshotTesting();
+const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "compare";
 
 describe("DynamoDBClient" + ` (${mode})`, () => {
+  const normalize = (s: string) =>
+    s.replace(/\smd\/tsc#[_0-9.]+/g, "").replace(/[ \t]+/g, " ");
+
   const runner = new SnapshotRunner({
     snapshotDirPath: join(__dirname, "snapshots"),
     Client,
@@ -170,7 +175,7 @@ describe("DynamoDBClient" + ` (${mode})`, () => {
       it(caseName, run);
     },
     assertions(caseName: string, expected: string, actual: string): Promise<void> {
-      expect(actual).toEqual(expected);
+      expect(normalize(actual)).toEqual(normalize(expected));
       return Promise.resolve();
     },
     schemas: new Map<any, any>([
