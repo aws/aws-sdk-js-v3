@@ -1,5 +1,13 @@
 # Smithy AWS Typescript Codegen Changelog
 
+[Commit logs](https://github.com/aws/aws-sdk-js-v3/commits/main/codegen/smithy-aws-typescript-codegen/src/main/java/software/amazon/smithy/aws/typescript/codegen)
+
+## 0.49.0 (2026-04-28)
+
+### Chores
+
+- Upgraded to smithy-typescript 0.49.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0480-2026-04-28))
+
 ## 0.48.0 (2026-04-08)
 
 ### Chores
