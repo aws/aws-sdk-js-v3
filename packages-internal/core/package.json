@@ -83,7 +83,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@aws-sdk/xml-builder": "workspace:^3.972.20",
+    "@aws-sdk/xml-builder": "workspace:^3.972.21",
     "@smithy/core": "^3.23.17",
     "@smithy/node-config-provider": "^4.3.14",
     "@smithy/property-provider": "^4.2.14",
