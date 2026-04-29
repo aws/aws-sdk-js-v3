@@ -73,7 +73,7 @@ describe(DynamoDB.name, () => {
         }
         try {
           const desc = await client.describeTable({ TableName: name });
-          if (desc?.Table?.CreationDateTime?.getTime?.() ?? -Infinity < eightHoursAgo) {
+          if ((desc?.Table?.CreationDateTime?.getTime?.() ?? Infinity) < eightHoursAgo) {
             await client.deleteTable({ TableName: name }).catch(() => {});
             console.log("Deleted", name);
           }
