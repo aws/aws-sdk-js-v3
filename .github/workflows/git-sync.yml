@@ -2,23 +2,41 @@ name: git-sync-with-mirror
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   git-sync:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::231016596583:role/github-actions-git-sync-role
+          aws-region: us-east-1
+
+      - name: Fetch SSH key from Secrets Manager
+        id: secrets
+        run: |
+          ssh_key=$(aws secretsmanager get-secret-value \
+            --secret-id prod/aws-javascript-sdk-team/github/ssh-keys/aws-sdk-js-v3 \
+            --query SecretString --output text)
+          echo "::add-mask::$ssh_key"
+          {
+            echo "SSH_PRIVATE_KEY<<ENDOFKEY"
+            echo "$ssh_key"
+            echo "ENDOFKEY"
+          } >> "$GITHUB_OUTPUT"
+
       - name: git-sync
-        env:
-          git_sync_destination_repo: ${{ secrets.GIT_SYNC_DESTINATION_REPO }}
-          git_sync_ssh_private_key: ${{ secrets.GIT_SYNC_SSH_PRIVATE_KEY }}
-        if: env.git_sync_destination_repo && env.git_sync_ssh_private_key
         uses: wei/git-sync@v3
         with:
           source_repo: "git@github.com:aws/aws-sdk-js-v3.git"
           source_branch: "main"
-          destination_repo: ${{ secrets.GIT_SYNC_DESTINATION_REPO }} 
+          destination_repo: ${{ secrets.GIT_SYNC_DESTINATION_REPO }}
           destination_branch: "main"
-          ssh_private_key: ${{ secrets.GIT_SYNC_SSH_PRIVATE_KEY }}
+          ssh_private_key: ${{ steps.secrets.outputs.SSH_PRIVATE_KEY }}
