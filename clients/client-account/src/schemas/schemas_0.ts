@@ -237,8 +237,8 @@ export var GetAccountInformationRequest$: StaticStructureSchema = [3, n0, _GAIR,
 ];
 export var GetAccountInformationResponse$: StaticStructureSchema = [3, n0, _GAIRe,
   0,
-  [_AI, _AN, _ACD],
-  [0, [() => AccountName, 0], 5]
+  [_AI, _AN, _ACD, _AS],
+  [0, [() => AccountName, 0], 5, 0]
 ];
 export var GetAlternateContactRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,

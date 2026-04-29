@@ -1,5 +1,11 @@
 // smithy-typescript generated code
-import type { AlternateContactType, AwsAccountState, PrimaryEmailUpdateStatus, RegionOptStatus } from "./enums";
+import type {
+  AccountState,
+  AlternateContactType,
+  AwsAccountState,
+  PrimaryEmailUpdateStatus,
+  RegionOptStatus,
+} from "./enums";
 
 /**
  * @public
@@ -85,6 +91,12 @@ export interface GetAccountInformationResponse {
    * @public
    */
   AccountCreatedDate?: Date | undefined;
+
+  /**
+   * <p>The state of the account. Each account state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes.</p> <p>Valid values: <code>PENDING_ACTIVATION | ACTIVE | SUSPENDED | CLOSED</code> </p>
+   * @public
+   */
+  AccountState?: AccountState | undefined;
 }
 
 /**

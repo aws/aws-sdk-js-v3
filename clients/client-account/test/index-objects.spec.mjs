@@ -8,6 +8,7 @@ import {
   Account,
   AccountClient,
   AccountServiceException,
+  AccountState,
   AlternateContact$,
   AlternateContactType,
   AwsAccountState,
@@ -146,6 +147,7 @@ assert(typeof StartPrimaryEmailUpdateRequest$ === "object");
 assert(typeof StartPrimaryEmailUpdateResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
+assert(typeof AccountState === "object");
 assert(typeof AlternateContactType === "object");
 assert(typeof AwsAccountState === "object");
 assert(typeof PrimaryEmailUpdateStatus === "object");

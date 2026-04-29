@@ -29,6 +29,21 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const AccountState = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type AccountState = (typeof AccountState)[keyof typeof AccountState];
+
+/**
+ * @public
+ * @enum
+ */
 export const AlternateContactType = {
   BILLING: "BILLING",
   OPERATIONS: "OPERATIONS",

@@ -27,7 +27,7 @@ export interface GetAccountInformationCommandInput extends GetAccountInformation
 export interface GetAccountInformationCommandOutput extends GetAccountInformationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified account including its account name, account ID, and account creation date and time. To use this API, an IAM user or role must have the <code>account:GetAccountInformation</code> IAM permission. </p>
+ * <p>Retrieves information about the specified account including its account name, account ID, account creation date and time, and account state. To use this API, an IAM user or role must have the <code>account:GetAccountInformation</code> IAM permission. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,7 @@ export interface GetAccountInformationCommandOutput extends GetAccountInformatio
  * //   AccountId: "STRING_VALUE",
  * //   AccountName: "STRING_VALUE",
  * //   AccountCreatedDate: new Date("TIMESTAMP"),
+ * //   AccountState: "STRING_VALUE",
  * // };
  *
  * ```

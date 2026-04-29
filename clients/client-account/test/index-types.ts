@@ -47,6 +47,7 @@ export type {
   StartPrimaryEmailUpdateCommand,
   StartPrimaryEmailUpdateCommandInput,
   StartPrimaryEmailUpdateCommandOutput,
+  AccountState,
   AlternateContactType,
   AwsAccountState,
   PrimaryEmailUpdateStatus,
