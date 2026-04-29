@@ -383,6 +383,57 @@ describe("getSignedUrl", () => {
       expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
     });
   });
+
+  describe("should URL-encode special characters in the resource path (regression for #7571)", () => {
+    it("encodes a raw space in the resource path as %20", () => {
+      const urlWithSpace = "https://d111111abcdef8.cloudfront.net/My File.pdf";
+      const result = getSignedUrl({
+        url: urlWithSpace,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        passphrase,
+      });
+      expect(result).toContain("/My%20File.pdf");
+      expect(result).not.toContain("/My File.pdf");
+    });
+
+    it("does not double-encode a path that is already percent-encoded", () => {
+      const urlAlreadyEncoded = "https://d111111abcdef8.cloudfront.net/My%20File.pdf";
+      const result = getSignedUrl({
+        url: urlAlreadyEncoded,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        passphrase,
+      });
+      expect(result).toContain("/My%20File.pdf");
+      expect(result).not.toContain("/My%2520File.pdf");
+    });
+
+    it("encodes the path and produces a signature that matches a policy whose resource uses the encoded path", () => {
+      const urlWithSpace = "https://d111111abcdef8.cloudfront.net/My File.pdf";
+      const result = getSignedUrl({
+        url: urlWithSpace,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        passphrase,
+      });
+      const expectedResource = "https://d111111abcdef8.cloudfront.net/My%20File.pdf";
+      const policyStr = JSON.stringify({
+        Statement: [
+          {
+            Resource: expectedResource,
+            Condition: { DateLessThan: { "AWS:EpochTime": epochDateLessThan } },
+          },
+        ],
+      });
+      const parsedUrl = parseUrl(result);
+      const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+      expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+    });
+  });
 });
 
 describe("getSignedCookies", () => {

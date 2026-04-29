@@ -113,11 +113,13 @@ export function getSignedUrl({
     throw new Error("@aws-sdk/cloudfront-signer: Please provide 'url' or 'policy'.");
   }
 
+  const encodedUrl = url ? encodeBaseUrlQuery(url) : undefined;
+
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
   } else {
     cloudfrontSignBuilder.setPolicyParameters({
-      url,
+      url: encodedUrl,
       dateLessThan,
       dateGreaterThan,
       ipAddress,
@@ -125,8 +127,8 @@ export function getSignedUrl({
   }
 
   let baseUrl: string | undefined;
-  if (url) {
-    baseUrl = url;
+  if (encodedUrl) {
+    baseUrl = encodedUrl;
   } else if (policy) {
     const resources = getPolicyResources(policy!);
     if (!resources[0]) {
@@ -134,7 +136,7 @@ export function getSignedUrl({
         "@aws-sdk/cloudfront-signer: No URL provided and unable to determine URL from first policy statement resource."
       );
     }
-    baseUrl = resources[0].replace("*://", "https://");
+    baseUrl = encodeBaseUrlQuery(resources[0].replace("*://", "https://"));
   }
 
   const startFlag = baseUrl!.includes("?") ? "&" : "?";
@@ -143,20 +145,29 @@ export function getSignedUrl({
     .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
     .join("&");
 
-  function encodeBaseUrlQuery(url: string) {
-    if (url.includes("?")) {
-      const [hostAndPath, query] = url.split("?");
-      const params = [...new URLSearchParams(query).entries()]
-        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-        .join("&");
-      return `${hostAndPath}?${params}`;
-    }
-    return url;
-  }
-
-  const urlString = encodeBaseUrlQuery(baseUrl!) + startFlag + params;
+  const urlString = baseUrl + startFlag + params;
 
   return getResource(urlString);
+}
+
+/**
+ * Encodes the host-and-path portion of a URL such that characters that must
+ * be percent-encoded for the URL to be valid (e.g. spaces -> %20) are
+ * encoded, while existing percent-encoded sequences are preserved (no
+ * double-encoding) and query-string parameter values are re-encoded
+ * consistently. Path segments such as "." and ".." are not normalized.
+ *
+ * @internal
+ */
+function encodeBaseUrlQuery(url: string): string {
+  if (url.includes("?")) {
+    const [hostAndPath, query] = url.split("?");
+    const params = [...new URLSearchParams(query).entries()]
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .join("&");
+    return `${encodeBaseUrlPath(hostAndPath)}?${params}`;
+  }
+  return encodeBaseUrlPath(url);
 }
 
 /**
@@ -183,7 +194,7 @@ export function getSignedCookies({
     cloudfrontSignBuilder.setCustomPolicy(policy);
   } else {
     cloudfrontSignBuilder.setPolicyParameters({
-      url,
+      url: url ? encodeBaseUrlQuery(url) : url,
       dateLessThan,
       dateGreaterThan,
       ipAddress,
@@ -257,6 +268,44 @@ interface CloudfrontAttributes {
 function getPolicyResources(policy: string | Policy) {
   const parsedPolicy: Policy = typeof policy === "string" ? JSON.parse(policy) : policy;
   return (parsedPolicy?.Statement ?? []).map((s) => s.Resource);
+}
+
+/**
+ * Encodes characters in the host-and-path portion of a URL that must be
+ * percent-encoded for the URL to be valid (e.g. spaces -> %20), without
+ * double-encoding sequences that are already percent-encoded and without
+ * normalizing path segments such as "." and "..".
+ *
+ * @internal
+ */
+function encodeBaseUrlPath(hostAndPath: string): string {
+  const schemeIndex = hostAndPath.indexOf("://");
+  if (schemeIndex === -1) {
+    return encodePathPreservingEncoded(hostAndPath);
+  }
+  const schemeAndAuthorityEnd = hostAndPath.indexOf("/", schemeIndex + 3);
+  if (schemeAndAuthorityEnd === -1) {
+    return hostAndPath;
+  }
+  const schemeAndAuthority = hostAndPath.slice(0, schemeAndAuthorityEnd);
+  const path = hostAndPath.slice(schemeAndAuthorityEnd);
+  return schemeAndAuthority + encodePathPreservingEncoded(path);
+}
+
+/**
+ * Percent-encodes characters in `path` that require encoding, while leaving
+ * existing percent-encoded sequences (%XX) untouched so callers that have
+ * already encoded their path are not double-encoded.
+ *
+ * @internal
+ */
+function encodePathPreservingEncoded(path: string): string {
+  return path.replace(/%[0-9A-Fa-f]{2}|[^A-Za-z0-9\-._~!$&'()*+,;=:@/]/g, (match) => {
+    if (match.length === 3 && match[0] === "%") {
+      return match;
+    }
+    return encodeURIComponent(match);
+  });
 }
 
 /**
