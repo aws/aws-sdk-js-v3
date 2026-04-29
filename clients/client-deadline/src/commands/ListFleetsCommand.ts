@@ -128,7 +128,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //             acceleratorCapabilities: { // AcceleratorCapabilities
  * //               selections: [ // AcceleratorSelections // required
  * //                 { // AcceleratorSelection
- * //                   name: "t4" || "a10g" || "l4" || "l40s", // required
+ * //                   name: "t4" || "a10g" || "l4" || "l40s" || "rtx-pro-server-6000", // required
  * //                   runtime: "STRING_VALUE",
  * //                 },
  * //               ],

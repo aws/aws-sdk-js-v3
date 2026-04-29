@@ -1876,7 +1876,7 @@ export interface GetMonitorResponse {
   identityCenterInstanceArn: string | undefined;
 
   /**
-   * The AWS region where IAM Identity Center is enabled.
+   * <p>The AWS Region where IAM Identity Center is enabled.</p>
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -1917,7 +1917,7 @@ export interface GetMonitorResponse {
  */
 export interface GetMonitorSettingsRequest {
   /**
-   * <p>The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>
+   * <p>The unique identifier of the monitor. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>ListMonitors</code> operation.</p>
    * @public
    */
   monitorId: string | undefined;
@@ -1928,7 +1928,7 @@ export interface GetMonitorSettingsRequest {
  */
 export interface GetMonitorSettingsResponse {
   /**
-   * Monitor settings as key-value pairs.
+   * <p>The monitor settings as key-value pairs.</p>
    * @public
    */
   settings: Record<string, string> | undefined;
@@ -1994,7 +1994,7 @@ export interface MonitorSummary {
   identityCenterInstanceArn: string | undefined;
 
   /**
-   * The AWS region where IAM Identity Center is enabled.
+   * <p>The AWS Region where IAM Identity Center is enabled.</p>
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -2093,7 +2093,7 @@ export interface UpdateMonitorSettingsRequest {
   monitorId: string | undefined;
 
   /**
-   * Monitor settings as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.
+   * <p>The monitor settings to update as key-value pairs. Keys present in the request are upserted; keys absent are left unchanged. Send an empty string value to delete a key.</p>
    * @public
    */
   settings: Record<string, string> | undefined;

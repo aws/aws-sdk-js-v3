@@ -7,6 +7,7 @@ export const AcceleratorName = {
   A10G: "a10g",
   L4: "l4",
   L40S: "l40s",
+  RTX_PRO_SERVER_6000: "rtx-pro-server-6000",
   T4: "t4",
 } as const;
 /**
