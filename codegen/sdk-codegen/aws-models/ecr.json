@@ -5251,7 +5251,7 @@
         "value": {
           "target": "com.amazonaws.ecr#AccountSettingName",
           "traits": {
-            "smithy.api#documentation": "<p>The setting value for the setting name. Valid value for basic scan type: <code>AWS_NATIVE</code>.\n            Valid values for registry policy scope: <code>V1</code> or <code>V2</code>.\n            Valid values for blob mounting: <code>ENABLED</code> or <code>DISABLED</code>.</p>"
+            "smithy.api#documentation": "<p>The setting value for the setting name. Valid value for basic scan type: <code>AWS_NATIVE</code>.\n            Valid values for registry policy scope: <code>V2</code>.\n            Valid values for blob mounting: <code>ENABLED</code> or <code>DISABLED</code>.</p>"
           }
         }
       },
@@ -8178,7 +8178,7 @@
         "value": {
           "target": "com.amazonaws.ecr#AccountSettingValue",
           "traits": {
-            "smithy.api#documentation": "<p>Setting value that is specified. Valid value for basic scan type: <code>AWS_NATIVE</code>.\n            Valid values for registry policy scope: <code>V1</code> or <code>V2</code>.\n            Valid values for blob mounting: <code>ENABLED</code> or <code>DISABLED</code>.</p>",
+            "smithy.api#documentation": "<p>Setting value that is specified. Valid value for basic scan type: <code>AWS_NATIVE</code>.\n            Valid values for registry policy scope: <code>V2</code>.\n            Valid values for blob mounting: <code>ENABLED</code> or <code>DISABLED</code>.</p>",
             "smithy.api#required": {}
           }
         }
