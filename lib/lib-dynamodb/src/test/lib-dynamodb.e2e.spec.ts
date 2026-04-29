@@ -624,7 +624,7 @@ describe(
           }
           try {
             const desc = await dynamodb.describeTable({ TableName: name });
-            if (desc?.Table?.CreationDateTime?.getTime?.() ?? -Infinity < eightHoursAgo) {
+            if ((desc?.Table?.CreationDateTime?.getTime?.() ?? Infinity) < eightHoursAgo) {
               await dynamodb.deleteTable({ TableName: name }).catch(() => {});
               console.log("Deleted", name);
             }
