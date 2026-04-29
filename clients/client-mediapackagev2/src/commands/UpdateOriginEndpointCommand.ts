@@ -53,9 +53,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *     TsIncludeDvbSubtitles: true || false,
  *     Scte: { // Scte
  *       ScteFilter: [ // ScteFilterList
- *         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM",
+ *         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK" || "PROVIDER_PROMO" || "DISTRIBUTOR_PROMO" || "PROVIDER_AD_BLOCK" || "DISTRIBUTOR_AD_BLOCK",
  *       ],
- *       ScteInSegments: "NONE" || "ALL",
+ *       ScteInSegments: "NONE" || "ALL" || "MATCHES_FILTER",
+ *       CustomAdTypes: [ // CustomAdTypeList
+ *         "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK",
+ *       ],
  *     },
  *     Encryption: { // Encryption
  *       ConstantInitializationVector: "STRING_VALUE",
@@ -89,6 +92,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ChildManifestName: "STRING_VALUE",
  *       ScteHls: { // ScteHls
  *         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
+ *         ScteInManifests: "ALL" || "MATCHES_FILTER",
  *       },
  *       StartTag: { // StartTag
  *         TimeOffset: Number("float"), // required
@@ -105,6 +109,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
  *       UrlEncodeChildManifest: true || false,
+ *       UriPathType: "LEAF" || "ROOT",
  *     },
  *   ],
  *   LowLatencyHlsManifests: [ // CreateLowLatencyHlsManifests
@@ -113,6 +118,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ChildManifestName: "STRING_VALUE",
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
+ *         ScteInManifests: "ALL" || "MATCHES_FILTER",
  *       },
  *       StartTag: {
  *         TimeOffset: Number("float"), // required
@@ -129,6 +135,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         ClipStartTime: new Date("TIMESTAMP"),
  *       },
  *       UrlEncodeChildManifest: true || false,
+ *       UriPathType: "LEAF" || "ROOT",
  *     },
  *   ],
  *   DashManifests: [ // CreateDashManifests
@@ -152,6 +159,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ],
  *       ScteDash: { // ScteDash
  *         AdMarkerDash: "BINARY" || "XML",
+ *         ScteInManifests: "ALL" || "MATCHES_FILTER",
  *       },
  *       DrmSignaling: "INDIVIDUAL" || "REFERENCED",
  *       UtcTiming: { // DashUtcTiming
@@ -195,6 +203,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
  *         },
  *       },
+ *       UriPathType: "LEAF" || "ROOT",
  *     },
  *   ],
  *   MssManifests: [ // CreateMssManifests
@@ -217,6 +226,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
  *     ],
  *   },
+ *   UriSeparator: "UNDERSCORE" || "HYPHEN",
  *   ETag: "STRING_VALUE",
  * };
  * const command = new UpdateOriginEndpointCommand(input);
@@ -235,9 +245,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //     TsIncludeDvbSubtitles: true || false,
  * //     Scte: { // Scte
  * //       ScteFilter: [ // ScteFilterList
- * //         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM",
+ * //         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK" || "PROVIDER_PROMO" || "DISTRIBUTOR_PROMO" || "PROVIDER_AD_BLOCK" || "DISTRIBUTOR_AD_BLOCK",
  * //       ],
- * //       ScteInSegments: "NONE" || "ALL",
+ * //       ScteInSegments: "NONE" || "ALL" || "MATCHES_FILTER",
+ * //       CustomAdTypes: [ // CustomAdTypeList
+ * //         "PROGRAM" || "CHAPTER" || "UNSCHEDULED_EVENT" || "ALTERNATE_CONTENT_OPPORTUNITY" || "NETWORK",
+ * //       ],
  * //     },
  * //     Encryption: { // Encryption
  * //       ConstantInitializationVector: "STRING_VALUE",
@@ -276,6 +289,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: { // ScteHls
  * //         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
+ * //         ScteInManifests: "ALL" || "MATCHES_FILTER",
  * //       },
  * //       FilterConfiguration: { // FilterConfiguration
  * //         ManifestFilter: "STRING_VALUE",
@@ -290,6 +304,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         Precise: true || false,
  * //       },
  * //       UrlEncodeChildManifest: true || false,
+ * //       UriPathType: "LEAF" || "ROOT",
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -301,6 +316,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       ProgramDateTimeIntervalSeconds: Number("int"),
  * //       ScteHls: {
  * //         AdMarkerHls: "DATERANGE" || "SCTE35_ENHANCED",
+ * //         ScteInManifests: "ALL" || "MATCHES_FILTER",
  * //       },
  * //       FilterConfiguration: {
  * //         ManifestFilter: "STRING_VALUE",
@@ -315,6 +331,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         Precise: true || false,
  * //       },
  * //       UrlEncodeChildManifest: true || false,
+ * //       UriPathType: "LEAF" || "ROOT",
  * //     },
  * //   ],
  * //   MssManifests: [ // GetMssManifests
@@ -338,6 +355,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
  * //     ],
  * //   },
+ * //   UriSeparator: "UNDERSCORE" || "HYPHEN",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -364,6 +382,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       ],
  * //       ScteDash: { // ScteDash
  * //         AdMarkerDash: "BINARY" || "XML",
+ * //         ScteInManifests: "ALL" || "MATCHES_FILTER",
  * //       },
  * //       DrmSignaling: "INDIVIDUAL" || "REFERENCED",
  * //       UtcTiming: { // DashUtcTiming
@@ -407,6 +426,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
  * //         },
  * //       },
+ * //       UriPathType: "LEAF" || "ROOT",
  * //     },
  * //   ],
  * // };
@@ -468,7 +488,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ProgramDateTimeIntervalSeconds: 60,
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
- *       }
+ *       },
+ *       UriPathType: "LEAF"
  *     },
  *     {
  *       ChildManifestName: "exampleManifest2",
@@ -477,7 +498,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ProgramDateTimeIntervalSeconds: 60,
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
- *       }
+ *       },
+ *       UriPathType: "LEAF"
  *     }
  *   ],
  *   LowLatencyHlsManifests: [
@@ -488,7 +510,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ProgramDateTimeIntervalSeconds: 60,
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
- *       }
+ *       },
+ *       UriPathType: "ROOT"
  *     },
  *     {
  *       ChildManifestName: "exampleLLManifest2",
@@ -497,7 +520,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ProgramDateTimeIntervalSeconds: 60,
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
- *       }
+ *       },
+ *       UriPathType: "ROOT"
  *     }
  *   ],
  *   OriginEndpointName: "exampleOriginEndpointTS",
@@ -533,7 +557,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *     TsIncludeDvbSubtitles: false,
  *     TsUseAudioRenditionGroup: true
  *   },
- *   StartoverWindowSeconds: 600
+ *   StartoverWindowSeconds: 600,
+ *   UriSeparator: "HYPHEN"
  * };
  * const command = new UpdateOriginEndpointCommand(input);
  * const response = await client.send(command);
@@ -563,6 +588,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
  *       },
+ *       UriPathType: "LEAF",
  *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
  *     },
  *     {
@@ -573,6 +599,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
  *       },
+ *       UriPathType: "LEAF",
  *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
  *     }
  *   ],
@@ -585,6 +612,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
  *       },
+ *       UriPathType: "ROOT",
  *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
  *     },
  *     {
@@ -595,6 +623,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteHls: {
  *         AdMarkerHls: "DATERANGE"
  *       },
+ *       UriPathType: "ROOT",
  *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
  *     }
  *   ],
@@ -636,7 +665,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *   Tags: {
  *     key1: "value1",
  *     key2: "value2"
- *   }
+ *   },
+ *   UriSeparator: "HYPHEN"
  * }
  * *\/
  * ```
@@ -691,7 +721,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *     SegmentDurationSeconds: 2,
  *     SegmentName: "segmentName2"
  *   },
- *   StartoverWindowSeconds: 600
+ *   StartoverWindowSeconds: 600,
+ *   UriSeparator: "HYPHEN"
  * };
  * const command = new UpdateOriginEndpointCommand(input);
  * const response = await client.send(command);
@@ -753,7 +784,8 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *   Tags: {
  *     key1: "value1",
  *     key2: "value2"
- *   }
+ *   },
+ *   UriSeparator: "HYPHEN"
  * }
  * *\/
  * ```

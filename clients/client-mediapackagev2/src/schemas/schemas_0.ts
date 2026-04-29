@@ -7,6 +7,7 @@ const _BU = "BaseUrls";
 const _C = "Compactness";
 const _CA = "CreatedAt";
 const _CAC = "CdnAuthConfiguration";
+const _CAT = "CustomAdTypes";
 const _CAe = "CertificateArn";
 const _CC = "CreateChannel";
 const _CCG = "CreateChannelGroup";
@@ -228,6 +229,7 @@ const _SDS = "SegmentDurationSeconds";
 const _SDe = "S3Destination";
 const _SF = "ScteFilter";
 const _SH = "ScteHls";
+const _SIM = "ScteInManifests";
 const _SIS = "ScteInSegments";
 const _SKP = "SpekeKeyProvider";
 const _SL = "ServiceLocation";
@@ -269,8 +271,10 @@ const _UECM = "UrlEncodeChildManifest";
 const _UOE = "UpdateOriginEndpoint";
 const _UOER = "UpdateOriginEndpointRequest";
 const _UOERp = "UpdateOriginEndpointResponse";
+const _UPT = "UriPathType";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
+const _US = "UriSeparator";
 const _UT = "UtcTiming";
 const _VE = "ValidationException";
 const _VET = "ValidationExceptionType";
@@ -419,8 +423,8 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDashManifestConfiguration$: StaticStructureSchema = [3, n0, _CDMC,
   0,
-  [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC],
-  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$], 1
+  [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT],
+  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0], 1
 ];
 export var CreateHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJRr,
   0,
@@ -434,13 +438,13 @@ export var CreateHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRre,
 ];
 export var CreateHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _CHMC,
   0,
-  [_MN, _CMN, _SH, _ST, _MWS, _PDTIS, _FC, _UECM],
-  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2], 1
+  [_MN, _CMN, _SH, _ST, _MWS, _PDTIS, _FC, _UECM, _UPT],
+  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2, 0], 1
 ];
 export var CreateLowLatencyHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _CLLHMC,
   0,
-  [_MN, _CMN, _SH, _ST, _MWS, _PDTIS, _FC, _UECM],
-  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2], 1
+  [_MN, _CMN, _SH, _ST, _MWS, _PDTIS, _FC, _UECM, _UPT],
+  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2, 0], 1
 ];
 export var CreateMssManifestConfiguration$: StaticStructureSchema = [3, n0, _CMMC,
   0,
@@ -449,13 +453,13 @@ export var CreateMssManifestConfiguration$: StaticStructureSchema = [3, n0, _CMM
 ];
 export var CreateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _COER,
   0,
-  [_CGN, _CN, _OEN, _CTo, _Se, _CT, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _T],
-  [[0, 1], [0, 1], 0, 0, () => Segment$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 128 | 0], 4
+  [_CGN, _CN, _OEN, _CTo, _Se, _CT, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _T],
+  [[0, 1], [0, 1], 0, 0, () => Segment$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0], 4
 ];
 export var CreateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _COERr,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _ET, _T],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0], 8
+  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _ET, _T],
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 128 | 0], 8
 ];
 export var DashBaseUrl$: StaticStructureSchema = [3, n0, _DBU,
   0,
@@ -609,8 +613,8 @@ export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
 ];
 export var GetDashManifestConfiguration$: StaticStructureSchema = [3, n0, _GDMC,
   0,
-  [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC],
-  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$], 2
+  [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT],
+  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0], 2
 ];
 export var GetHarvestJobRequest$: StaticStructureSchema = [3, n0, _GHJR,
   0,
@@ -624,13 +628,13 @@ export var GetHarvestJobResponse$: StaticStructureSchema = [3, n0, _GHJRe,
 ];
 export var GetHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _GHMC,
   0,
-  [_MN, _U, _CMN, _MWS, _PDTIS, _SH, _FC, _ST, _UECM],
-  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2], 2
+  [_MN, _U, _CMN, _MWS, _PDTIS, _SH, _FC, _ST, _UECM, _UPT],
+  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2, 0], 2
 ];
 export var GetLowLatencyHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _GLLHMC,
   0,
-  [_MN, _U, _CMN, _MWS, _PDTIS, _SH, _FC, _ST, _UECM],
-  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2], 2
+  [_MN, _U, _CMN, _MWS, _PDTIS, _SH, _FC, _ST, _UECM, _UPT],
+  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2, 0], 2
 ];
 export var GetMssManifestConfiguration$: StaticStructureSchema = [3, n0, _GMMC,
   0,
@@ -654,8 +658,8 @@ export var GetOriginEndpointRequest$: StaticStructureSchema = [3, n0, _GOER,
 ];
 export var GetOriginEndpointResponse$: StaticStructureSchema = [3, n0, _GOERe,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _RA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _ET, _T],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0], 8
+  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _RA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _ET, _T],
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 128 | 0], 8
 ];
 export var HarvestedDashManifest$: StaticStructureSchema = [3, n0, _HDM,
   0,
@@ -769,8 +773,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var OriginEndpointListConfiguration$: StaticStructureSchema = [3, n0, _OELC,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC],
-  [0, 0, 0, 0, 0, 0, 4, 4, () => ListHlsManifests, () => ListLowLatencyHlsManifests, () => ListDashManifests, () => ListMssManifests, () => ForceEndpointErrorConfiguration$], 5
+  [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC, _US],
+  [0, 0, 0, 0, 0, 0, 4, 4, () => ListHlsManifests, () => ListLowLatencyHlsManifests, () => ListDashManifests, () => ListMssManifests, () => ForceEndpointErrorConfiguration$, 0], 5
 ];
 export var OutputHeaderConfiguration$: StaticStructureSchema = [3, n0, _OHC,
   0,
@@ -824,18 +828,18 @@ export var S3DestinationConfig$: StaticStructureSchema = [3, n0, _SDC,
 ];
 export var Scte$: StaticStructureSchema = [3, n0, _Sc,
   0,
-  [_SF, _SIS],
-  [64 | 0, 0]
+  [_SF, _SIS, _CAT],
+  [64 | 0, 0, 64 | 0]
 ];
 export var ScteDash$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_AMD],
-  [0]
+  [_AMD, _SIM],
+  [0, 0]
 ];
 export var ScteHls$: StaticStructureSchema = [3, n0, _SH,
   0,
-  [_AMH],
-  [0]
+  [_AMH, _SIM],
+  [0, 0]
 ];
 export var Segment$: StaticStructureSchema = [3, n0, _Se,
   0,
@@ -884,13 +888,13 @@ export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _UOER,
   0,
-  [_CGN, _CN, _OEN, _CTo, _Se, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _ET],
-  [[0, 1], [0, 1], [0, 1], 0, () => Segment$, 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, [0, { [_hH]: _xauim }]], 4
+  [_CGN, _CN, _OEN, _CTo, _Se, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _ET],
+  [[0, 1], [0, 1], [0, 1], 0, () => Segment$, 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 0, [0, { [_hH]: _xauim }]], 4
 ];
 export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _MM, _FEEC, _ET, _T, _DM],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
+  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _MM, _FEEC, _US, _ET, _T, _DM],
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
 ];
 var __Unit = "unit" as const;
 var CdnIdentifierSecretArns = 64 | 0;
@@ -912,6 +916,7 @@ var CreateLowLatencyHlsManifests: StaticListSchema = [1, n0, _CLLHM,
 var CreateMssManifests: StaticListSchema = [1, n0, _CMM,
   0, () => CreateMssManifestConfiguration$
 ];
+var CustomAdTypeList = 64 | 0;
 var DashBaseUrls: StaticListSchema = [1, n0, _DBUa,
   0, () => DashBaseUrl$
 ];

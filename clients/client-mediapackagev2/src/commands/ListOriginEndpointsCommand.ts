@@ -90,6 +90,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //           "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
  * //         ],
  * //       },
+ * //       UriSeparator: "UNDERSCORE" || "HYPHEN",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -174,7 +175,8 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  *         }
  *       ],
  *       ModifiedAt: "2022-10-18T09:36:00.00Z",
- *       OriginEndpointName: "exampleOriginEndpointTS"
+ *       OriginEndpointName: "exampleOriginEndpointTS",
+ *       UriSeparator: "UNDERSCORE"
  *     },
  *     {
  *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointCMAF",
@@ -225,7 +227,8 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  *         }
  *       ],
  *       ModifiedAt: "2022-10-18T09:36:00.00Z",
- *       OriginEndpointName: "exampleOriginEndpointCMAF"
+ *       OriginEndpointName: "exampleOriginEndpointCMAF",
+ *       UriSeparator: "UNDERSCORE"
  *     },
  *     {
  *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointISM",
@@ -253,7 +256,8 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointISM/exampleMssManifest2.ism/Manifest"
  *         }
  *       ],
- *       OriginEndpointName: "exampleOriginEndpointISM"
+ *       OriginEndpointName: "exampleOriginEndpointISM",
+ *       UriSeparator: "UNDERSCORE"
  *     }
  *   ]
  * }

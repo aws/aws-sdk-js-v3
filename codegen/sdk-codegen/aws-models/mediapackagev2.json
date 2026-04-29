@@ -1035,6 +1035,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The configuration for DASH subtitles.</p>"
           }
+        },
+        "UriPathType": {
+          "target": "com.amazonaws.mediapackagev2#UriPathType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.mpd</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.mpd</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -1412,6 +1418,12 @@
           "traits": {
             "smithy.api#documentation": "<p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html\">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>"
           }
+        },
+        "UriPathType": {
+          "target": "com.amazonaws.mediapackagev2#UriPathType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.m3u8</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.m3u8</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -1472,6 +1484,12 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html\">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>"
+          }
+        },
+        "UriPathType": {
+          "target": "com.amazonaws.mediapackagev2#UriPathType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.m3u8</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.m3u8</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>"
           }
         }
       },
@@ -1572,6 +1590,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 6,
                 "SegmentName": "segmentName",
@@ -1608,7 +1627,8 @@
                     "AdMarkerHls": "DATERANGE"
                   },
                   "ManifestWindowSeconds": 30,
-                  "ProgramDateTimeIntervalSeconds": 60
+                  "ProgramDateTimeIntervalSeconds": 60,
+                  "UriPathType": "ROOT"
                 },
                 {
                   "ManifestName": "exampleManifest2",
@@ -1617,7 +1637,8 @@
                     "AdMarkerHls": "DATERANGE"
                   },
                   "ManifestWindowSeconds": 30,
-                  "ProgramDateTimeIntervalSeconds": 60
+                  "ProgramDateTimeIntervalSeconds": 60,
+                  "UriPathType": "ROOT"
                 }
               ],
               "LowLatencyHlsManifests": [
@@ -1658,6 +1679,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 6,
                 "SegmentName": "segmentName",
@@ -1695,7 +1717,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8",
+                  "UriPathType": "ROOT"
                 },
                 {
                   "ManifestName": "exampleManifest2",
@@ -1705,7 +1728,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8",
+                  "UriPathType": "ROOT"
                 }
               ],
               "LowLatencyHlsManifests": [
@@ -1717,7 +1741,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8",
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleLLManifest2",
@@ -1727,7 +1752,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8",
+                  "UriPathType": "LEAF"
                 }
               ],
               "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
@@ -1748,6 +1774,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 6,
                 "SegmentName": "segmentName",
@@ -1927,6 +1954,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 6,
                 "SegmentName": "segmentName",
@@ -1962,7 +1990,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleManifest1.m3u8",
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleManifest2",
@@ -1972,7 +2001,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleManifest2.m3u8",
+                  "UriPathType": "LEAF"
                 }
               ],
               "LowLatencyHlsManifests": [
@@ -1984,7 +2014,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest1.m3u8",
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleLLManifest2",
@@ -1994,7 +2025,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest2.m3u8",
+                  "UriPathType": "LEAF"
                 }
               ],
               "DashManifests": [
@@ -2044,7 +2076,8 @@
                       }
                     ]
                   },
-                  "Compactness": "STANDARD"
+                  "Compactness": "STANDARD",
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleDashManifest2",
@@ -2092,7 +2125,8 @@
                       }
                     ]
                   },
-                  "Compactness": "STANDARD"
+                  "Compactness": "STANDARD",
+                  "UriPathType": "LEAF"
                 }
               ],
               "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
@@ -2114,6 +2148,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 2,
                 "SegmentName": "segmentName",
@@ -2158,6 +2193,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 2,
                 "SegmentName": "segmentName",
@@ -2297,6 +2333,12 @@
             "smithy.api#documentation": "<p>The failover settings for the endpoint.</p>"
           }
         },
+        "UriSeparator": {
+          "target": "com.amazonaws.mediapackagev2#UriSeparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value, the default is <code>UNDERSCORE</code>.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.mediapackagev2#TagMap",
           "traits": {
@@ -2410,6 +2452,12 @@
             "smithy.api#documentation": "<p>The failover settings for the endpoint.</p>"
           }
         },
+        "UriSeparator": {
+          "target": "com.amazonaws.mediapackagev2#UriSeparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The separator character used in generated URIs for this origin endpoint.</p>"
+          }
+        },
         "ETag": {
           "target": "com.amazonaws.mediapackagev2#EntityTag",
           "traits": {
@@ -2427,6 +2475,53 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.mediapackagev2#CustomAdType": {
+      "type": "enum",
+      "members": {
+        "PROGRAM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROGRAM"
+          }
+        },
+        "CHAPTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHAPTER"
+          }
+        },
+        "UNSCHEDULED_EVENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNSCHEDULED_EVENT"
+          }
+        },
+        "ALTERNATE_CONTENT_OPPORTUNITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALTERNATE_CONTENT_OPPORTUNITY"
+          }
+        },
+        "NETWORK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediapackagev2#CustomAdTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediapackagev2#CustomAdType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 25
+        }
       }
     },
     "com.amazonaws.mediapackagev2#DashBaseUrl": {
@@ -4051,6 +4146,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The configuration for DASH subtitles.</p>"
           }
+        },
+        "UriPathType": {
+          "target": "com.amazonaws.mediapackagev2#UriPathType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of path used in manifest URIs. <code>LEAF</code> indicates leaf-relative paths. <code>ROOT</code> indicates root-relative paths that include the full path from root.</p>"
+          }
         }
       },
       "traits": {
@@ -4411,6 +4512,12 @@
           "traits": {
             "smithy.api#documentation": "<p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html\">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>"
           }
+        },
+        "UriPathType": {
+          "target": "com.amazonaws.mediapackagev2#UriPathType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of path used in manifest URIs. <code>LEAF</code> indicates leaf-relative paths. <code>ROOT</code> indicates root-relative paths that include the full path from root.</p>"
+          }
         }
       },
       "traits": {
@@ -4471,6 +4578,12 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html\">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>"
+          }
+        },
+        "UriPathType": {
+          "target": "com.amazonaws.mediapackagev2#UriPathType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of path used in manifest URIs. <code>LEAF</code> indicates leaf-relative paths. <code>ROOT</code> indicates root-relative paths that include the full path from root.</p>"
           }
         }
       },
@@ -4576,6 +4689,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 6,
                 "SegmentName": "segmentName",
@@ -4613,7 +4727,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8",
+                  "UriPathType": "ROOT"
                 },
                 {
                   "ManifestName": "exampleManifest2",
@@ -4623,7 +4738,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8",
+                  "UriPathType": "ROOT"
                 }
               ],
               "LowLatencyHlsManifests": [
@@ -4635,7 +4751,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8",
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleLLManifest2",
@@ -4645,7 +4762,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8",
+                  "UriPathType": "LEAF"
                 }
               ],
               "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
@@ -4675,6 +4793,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "UNDERSCORE",
               "Segment": {
                 "SegmentDurationSeconds": 2,
                 "SegmentName": "segmentName",
@@ -4984,6 +5103,12 @@
           "target": "com.amazonaws.mediapackagev2#ForceEndpointErrorConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The failover settings for the endpoint.</p>"
+          }
+        },
+        "UriSeparator": {
+          "target": "com.amazonaws.mediapackagev2#UriSeparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The separator character used in generated URIs for this origin endpoint.</p>"
           }
         },
         "ETag": {
@@ -6225,6 +6350,7 @@
                       "SLATE_INPUT"
                     ]
                   },
+                  "UriSeparator": "UNDERSCORE",
                   "HlsManifests": [
                     {
                       "ManifestName": "exampleManifest1",
@@ -6266,6 +6392,7 @@
                       "SLATE_INPUT"
                     ]
                   },
+                  "UriSeparator": "UNDERSCORE",
                   "HlsManifests": [
                     {
                       "ManifestName": "exampleManifest1",
@@ -6318,6 +6445,7 @@
                       "SLATE_INPUT"
                     ]
                   },
+                  "UriSeparator": "UNDERSCORE",
                   "MssManifests": [
                     {
                       "ManifestName": "exampleMssManifest1",
@@ -6595,6 +6723,12 @@
           "target": "com.amazonaws.mediapackagev2#ForceEndpointErrorConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The failover settings for the endpoint.</p>"
+          }
+        },
+        "UriSeparator": {
+          "target": "com.amazonaws.mediapackagev2#UriSeparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The separator character used in generated URIs for this origin endpoint.</p>"
           }
         }
       },
@@ -7364,7 +7498,13 @@
         "ScteInSegments": {
           "target": "com.amazonaws.mediapackagev2#ScteInSegments",
           "traits": {
-            "smithy.api#documentation": "<p>Controls whether SCTE-35 messages are included in segment files.</p> <ul> <li> <p>None – SCTE-35 messages are not included in segments (default)</p> </li> <li> <p>All – SCTE-35 messages are embedded in segment data</p> </li> </ul> <p> For DASH manifests, when set to <code>All</code>, an <code>InbandEventStream</code> tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.</p>"
+            "smithy.api#documentation": "<p>Controls whether SCTE-35 messages are included in segment files.</p> <ul> <li> <p>None – SCTE-35 messages are not included in segments (default)</p> </li> <li> <p>All – SCTE-35 messages are embedded in segment data</p> </li> <li> <p>MatchesFilter – SCTE-35 messages which match the ScteFilter are embedded in segment data</p> </li> </ul> <p> For DASH manifests, when set to <code>All</code> or <code>MatchesFilter</code>, an <code>InbandEventStream</code> tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.</p>"
+          }
+        },
+        "CustomAdTypes": {
+          "target": "com.amazonaws.mediapackagev2#CustomAdTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>"
           }
         }
       },
@@ -7379,6 +7519,12 @@
           "target": "com.amazonaws.mediapackagev2#AdMarkerDash",
           "traits": {
             "smithy.api#documentation": "<p>Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.</p> <p>Value description:</p> <ul> <li> <p> <code>Binary</code> - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.</p> </li> <li> <p> <code>XML</code> - The SCTE marker is expressed fully in XML.</p> </li> </ul>"
+          }
+        },
+        "ScteInManifests": {
+          "target": "com.amazonaws.mediapackagev2#ScteInManifests",
+          "traits": {
+            "smithy.api#documentation": "<p>Controls which SCTE-35 events appear in DASH manifests. <code>ALL</code> includes all non-implicit SCTE-35 events. <code>MATCHES_FILTER</code> includes only events whose type matches the configured <code>ScteFilter</code>.</p> <p>If you don't specify a value, the default is <code>ALL</code>.</p>"
           }
         }
       },
@@ -7442,6 +7588,54 @@
           "traits": {
             "smithy.api#enumValue": "PROGRAM"
           }
+        },
+        "CHAPTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHAPTER"
+          }
+        },
+        "UNSCHEDULED_EVENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNSCHEDULED_EVENT"
+          }
+        },
+        "ALTERNATE_CONTENT_OPPORTUNITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALTERNATE_CONTENT_OPPORTUNITY"
+          }
+        },
+        "NETWORK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK"
+          }
+        },
+        "PROVIDER_PROMO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVIDER_PROMO"
+          }
+        },
+        "DISTRIBUTOR_PROMO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISTRIBUTOR_PROMO"
+          }
+        },
+        "PROVIDER_AD_BLOCK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVIDER_AD_BLOCK"
+          }
+        },
+        "DISTRIBUTOR_AD_BLOCK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISTRIBUTOR_AD_BLOCK"
+          }
         }
       }
     },
@@ -7465,10 +7659,33 @@
           "traits": {
             "smithy.api#documentation": "<p>Ad markers indicate when ads should be inserted during playback. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output. Choose what you want MediaPackage to do with the ad markers.</p> <p>Value description: </p> <ul> <li> <p>SCTE35_ENHANCED - Generate industry-standard CUE tag ad markers in HLS manifests based on SCTE-35 input messages from the input stream.</p> </li> <li> <p>DATERANGE - Insert EXT-X-DATERANGE tags to signal ad and program transition events in TS and CMAF manifests. If you use DATERANGE, you must set a programDateTimeIntervalSeconds value of 1 or higher. To learn more about DATERANGE, see <a href=\"http://docs.aws.amazon.com/mediapackage/latest/ug/scte-35-ad-marker-ext-x-daterange.html\">SCTE-35 Ad Marker EXT-X-DATERANGE</a>.</p> </li> </ul>"
           }
+        },
+        "ScteInManifests": {
+          "target": "com.amazonaws.mediapackagev2#ScteInManifests",
+          "traits": {
+            "smithy.api#documentation": "<p>Controls which SCTE-35 events appear in HLS manifests. <code>ALL</code> includes all non-implicit SCTE-35 events. <code>MATCHES_FILTER</code> includes only events whose type matches the configured <code>ScteFilter</code>.</p> <p>If you don't specify a value, the default is <code>ALL</code>.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>The SCTE configuration.</p>"
+      }
+    },
+    "com.amazonaws.mediapackagev2#ScteInManifests": {
+      "type": "enum",
+      "members": {
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
+          }
+        },
+        "MATCHES_FILTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MATCHES_FILTER"
+          }
+        }
       }
     },
     "com.amazonaws.mediapackagev2#ScteInSegments": {
@@ -7484,6 +7701,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ALL"
+          }
+        },
+        "MATCHES_FILTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MATCHES_FILTER"
           }
         }
       }
@@ -8233,6 +8456,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "HYPHEN",
               "Segment": {
                 "SegmentDurationSeconds": 7,
                 "SegmentName": "segmentName2",
@@ -8269,7 +8493,8 @@
                     "AdMarkerHls": "DATERANGE"
                   },
                   "ManifestWindowSeconds": 30,
-                  "ProgramDateTimeIntervalSeconds": 60
+                  "ProgramDateTimeIntervalSeconds": 60,
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleManifest2",
@@ -8278,7 +8503,8 @@
                     "AdMarkerHls": "DATERANGE"
                   },
                   "ManifestWindowSeconds": 30,
-                  "ProgramDateTimeIntervalSeconds": 60
+                  "ProgramDateTimeIntervalSeconds": 60,
+                  "UriPathType": "LEAF"
                 }
               ],
               "LowLatencyHlsManifests": [
@@ -8289,7 +8515,8 @@
                     "AdMarkerHls": "DATERANGE"
                   },
                   "ManifestWindowSeconds": 30,
-                  "ProgramDateTimeIntervalSeconds": 60
+                  "ProgramDateTimeIntervalSeconds": 60,
+                  "UriPathType": "ROOT"
                 },
                 {
                   "ManifestName": "exampleLLManifest2",
@@ -8298,7 +8525,8 @@
                     "AdMarkerHls": "DATERANGE"
                   },
                   "ManifestWindowSeconds": 30,
-                  "ProgramDateTimeIntervalSeconds": 60
+                  "ProgramDateTimeIntervalSeconds": 60,
+                  "UriPathType": "ROOT"
                 }
               ]
             },
@@ -8315,6 +8543,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "HYPHEN",
               "Segment": {
                 "SegmentDurationSeconds": 7,
                 "SegmentName": "segmentName2",
@@ -8352,7 +8581,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8",
+                  "UriPathType": "LEAF"
                 },
                 {
                   "ManifestName": "exampleManifest2",
@@ -8362,7 +8592,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8",
+                  "UriPathType": "LEAF"
                 }
               ],
               "LowLatencyHlsManifests": [
@@ -8374,7 +8605,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8",
+                  "UriPathType": "ROOT"
                 },
                 {
                   "ManifestName": "exampleLLManifest2",
@@ -8384,7 +8616,8 @@
                   },
                   "ManifestWindowSeconds": 30,
                   "ProgramDateTimeIntervalSeconds": 60,
-                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
+                  "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8",
+                  "UriPathType": "ROOT"
                 }
               ],
               "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
@@ -8406,6 +8639,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "HYPHEN",
               "Segment": {
                 "SegmentDurationSeconds": 2,
                 "SegmentName": "segmentName2",
@@ -8451,6 +8685,7 @@
               "ForceEndpointErrorConfiguration": {
                 "EndpointErrorConditions": ["STALE_MANIFEST", "INCOMPLETE_MANIFEST", "MISSING_DRM_KEY", "SLATE_INPUT"]
               },
+              "UriSeparator": "HYPHEN",
               "Segment": {
                 "SegmentDurationSeconds": 2,
                 "SegmentName": "segmentName2",
@@ -8590,6 +8825,12 @@
             "smithy.api#documentation": "<p>The failover settings for the endpoint.</p>"
           }
         },
+        "UriSeparator": {
+          "target": "com.amazonaws.mediapackagev2#UriSeparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value in the update request, the current value is preserved.</p>"
+          }
+        },
         "ETag": {
           "target": "com.amazonaws.mediapackagev2#EntityTag",
           "traits": {
@@ -8698,6 +8939,12 @@
             "smithy.api#documentation": "<p>The failover settings for the endpoint.</p>"
           }
         },
+        "UriSeparator": {
+          "target": "com.amazonaws.mediapackagev2#UriSeparator",
+          "traits": {
+            "smithy.api#documentation": "<p>The separator character used in generated URIs for this origin endpoint.</p>"
+          }
+        },
         "ETag": {
           "target": "com.amazonaws.mediapackagev2#EntityTag",
           "traits": {
@@ -8722,6 +8969,40 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.mediapackagev2#UriPathType": {
+      "type": "enum",
+      "members": {
+        "LEAF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LEAF"
+          }
+        },
+        "ROOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROOT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediapackagev2#UriSeparator": {
+      "type": "enum",
+      "members": {
+        "UNDERSCORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDERSCORE"
+          }
+        },
+        "HYPHEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HYPHEN"
+          }
+        }
       }
     },
     "com.amazonaws.mediapackagev2#ValidationException": {
@@ -9331,6 +9612,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "INVALID_ARN"
+          }
+        },
+        "SCTE_IN_MANIFESTS_INVALID_CONFIGURATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SCTE_IN_MANIFESTS_INVALID_CONFIGURATION"
+          }
+        },
+        "CUSTOM_AD_TYPES_INVALID_CONFIGURATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOM_AD_TYPES_INVALID_CONFIGURATION"
           }
         }
       }

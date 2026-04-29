@@ -35,6 +35,7 @@ import {
   CreateOriginEndpointCommand,
   CreateOriginEndpointRequest$,
   CreateOriginEndpointResponse$,
+  CustomAdType,
   DashBaseUrl$,
   DashCompactness,
   DashDrmSignaling,
@@ -179,6 +180,7 @@ import {
   ScteDash$,
   ScteFilter,
   ScteHls$,
+  ScteInManifests,
   ScteInSegments,
   Segment$,
   ServiceQuotaExceededException,
@@ -206,6 +208,8 @@ import {
   UpdateOriginEndpointCommand,
   UpdateOriginEndpointRequest$,
   UpdateOriginEndpointResponse$,
+  UriPathType,
+  UriSeparator,
   ValidationException,
   ValidationException$,
   ValidationExceptionType,
@@ -388,6 +392,7 @@ assert(typeof AdMarkerHls === "object");
 assert(typeof CmafEncryptionMethod === "object");
 assert(typeof ConflictExceptionType === "object");
 assert(typeof ContainerType === "object");
+assert(typeof CustomAdType === "object");
 assert(typeof DashCompactness === "object");
 assert(typeof DashDrmSignaling === "object");
 assert(typeof DashPeriodTrigger === "object");
@@ -405,8 +410,11 @@ assert(typeof PresetSpeke20Audio === "object");
 assert(typeof PresetSpeke20Video === "object");
 assert(typeof ResourceTypeNotFound === "object");
 assert(typeof ScteFilter === "object");
+assert(typeof ScteInManifests === "object");
 assert(typeof ScteInSegments === "object");
 assert(typeof TsEncryptionMethod === "object");
+assert(typeof UriPathType === "object");
+assert(typeof UriSeparator === "object");
 assert(typeof ValidationExceptionType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MediaPackageV2ServiceException);

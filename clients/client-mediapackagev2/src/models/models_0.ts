@@ -4,6 +4,7 @@ import type {
   AdMarkerHls,
   CmafEncryptionMethod,
   ContainerType,
+  CustomAdType,
   DashCompactness,
   DashDrmSignaling,
   DashPeriodTrigger,
@@ -20,8 +21,11 @@ import type {
   PresetSpeke20Audio,
   PresetSpeke20Video,
   ScteFilter,
+  ScteInManifests,
   ScteInSegments,
   TsEncryptionMethod,
+  UriPathType,
+  UriSeparator,
 } from "./enums";
 
 /**
@@ -774,6 +778,12 @@ export interface ScteDash {
    * @public
    */
   AdMarkerDash?: AdMarkerDash | undefined;
+
+  /**
+   * <p>Controls which SCTE-35 events appear in DASH manifests. <code>ALL</code> includes all non-implicit SCTE-35 events. <code>MATCHES_FILTER</code> includes only events whose type matches the configured <code>ScteFilter</code>.</p> <p>If you don't specify a value, the default is <code>ALL</code>.</p>
+   * @public
+   */
+  ScteInManifests?: ScteInManifests | undefined;
 }
 
 /**
@@ -924,6 +934,12 @@ export interface CreateDashManifestConfiguration {
    * @public
    */
   SubtitleConfiguration?: DashSubtitleConfiguration | undefined;
+
+  /**
+   * <p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.mpd</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.mpd</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>
+   * @public
+   */
+  UriPathType?: UriPathType | undefined;
 }
 
 /**
@@ -948,6 +964,12 @@ export interface ScteHls {
    * @public
    */
   AdMarkerHls?: AdMarkerHls | undefined;
+
+  /**
+   * <p>Controls which SCTE-35 events appear in HLS manifests. <code>ALL</code> includes all non-implicit SCTE-35 events. <code>MATCHES_FILTER</code> includes only events whose type matches the configured <code>ScteFilter</code>.</p> <p>If you don't specify a value, the default is <code>ALL</code>.</p>
+   * @public
+   */
+  ScteInManifests?: ScteInManifests | undefined;
 }
 
 /**
@@ -1020,6 +1042,12 @@ export interface CreateHlsManifestConfiguration {
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
+
+  /**
+   * <p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.m3u8</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.m3u8</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>
+   * @public
+   */
+  UriPathType?: UriPathType | undefined;
 }
 
 /**
@@ -1074,6 +1102,12 @@ export interface CreateLowLatencyHlsManifestConfiguration {
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
+
+  /**
+   * <p>The type of path to use in manifest URIs. <code>LEAF</code> uses leaf-relative paths (for example, <code>index_1.m3u8</code>). <code>ROOT</code> uses root-relative paths that include the full path from root (for example, <code>/out/v1/channel-group/channel/endpoint/index_1.m3u8</code>). If you don't specify a value, the default is <code>LEAF</code>.</p>
+   * @public
+   */
+  UriPathType?: UriPathType | undefined;
 }
 
 /**
@@ -1238,10 +1272,16 @@ export interface Scte {
   ScteFilter?: ScteFilter[] | undefined;
 
   /**
-   * <p>Controls whether SCTE-35 messages are included in segment files.</p> <ul> <li> <p>None – SCTE-35 messages are not included in segments (default)</p> </li> <li> <p>All – SCTE-35 messages are embedded in segment data</p> </li> </ul> <p> For DASH manifests, when set to <code>All</code>, an <code>InbandEventStream</code> tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.</p>
+   * <p>Controls whether SCTE-35 messages are included in segment files.</p> <ul> <li> <p>None – SCTE-35 messages are not included in segments (default)</p> </li> <li> <p>All – SCTE-35 messages are embedded in segment data</p> </li> <li> <p>MatchesFilter – SCTE-35 messages which match the ScteFilter are embedded in segment data</p> </li> </ul> <p> For DASH manifests, when set to <code>All</code> or <code>MatchesFilter</code>, an <code>InbandEventStream</code> tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.</p>
    * @public
    */
   ScteInSegments?: ScteInSegments | undefined;
+
+  /**
+   * <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+   * @public
+   */
+  CustomAdTypes?: CustomAdType[] | undefined;
 }
 
 /**
@@ -1375,6 +1415,12 @@ export interface CreateOriginEndpointRequest {
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
+   * <p>The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value, the default is <code>UNDERSCORE</code>.</p>
+   * @public
+   */
+  UriSeparator?: UriSeparator | undefined;
+
+  /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>"Key1": "Value1",</code> </p> <p> <code>"Key2": "Value2"</code> </p>
    * @public
    */
@@ -1493,6 +1539,12 @@ export interface GetDashManifestConfiguration {
    * @public
    */
   SubtitleConfiguration?: DashSubtitleConfiguration | undefined;
+
+  /**
+   * <p>The type of path used in manifest URIs. <code>LEAF</code> indicates leaf-relative paths. <code>ROOT</code> indicates root-relative paths that include the full path from root.</p>
+   * @public
+   */
+  UriPathType?: UriPathType | undefined;
 }
 
 /**
@@ -1553,6 +1605,12 @@ export interface GetHlsManifestConfiguration {
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
+
+  /**
+   * <p>The type of path used in manifest URIs. <code>LEAF</code> indicates leaf-relative paths. <code>ROOT</code> indicates root-relative paths that include the full path from root.</p>
+   * @public
+   */
+  UriPathType?: UriPathType | undefined;
 }
 
 /**
@@ -1613,6 +1671,12 @@ export interface GetLowLatencyHlsManifestConfiguration {
    * @public
    */
   UrlEncodeChildManifest?: boolean | undefined;
+
+  /**
+   * <p>The type of path used in manifest URIs. <code>LEAF</code> indicates leaf-relative paths. <code>ROOT</code> indicates root-relative paths that include the full path from root.</p>
+   * @public
+   */
+  UriPathType?: UriPathType | undefined;
 }
 
 /**
@@ -1744,6 +1808,12 @@ export interface CreateOriginEndpointResponse {
    * @public
    */
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
+
+  /**
+   * <p>The separator character used in generated URIs for this origin endpoint.</p>
+   * @public
+   */
+  UriSeparator?: UriSeparator | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
@@ -1908,6 +1978,12 @@ export interface GetOriginEndpointResponse {
    * @public
    */
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
+
+  /**
+   * <p>The separator character used in generated URIs for this origin endpoint.</p>
+   * @public
+   */
+  UriSeparator?: UriSeparator | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
@@ -2117,6 +2193,12 @@ export interface OriginEndpointListConfiguration {
    * @public
    */
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
+
+  /**
+   * <p>The separator character used in generated URIs for this origin endpoint.</p>
+   * @public
+   */
+  UriSeparator?: UriSeparator | undefined;
 }
 
 /**
@@ -2397,6 +2479,12 @@ export interface UpdateOriginEndpointRequest {
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
 
   /**
+   * <p>The separator character to use in generated URIs for this origin endpoint. This setting applies to all manifest types on the endpoint. If you don't specify a value in the update request, the current value is preserved.</p>
+   * @public
+   */
+  UriSeparator?: UriSeparator | undefined;
+
+  /**
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
@@ -2490,6 +2578,12 @@ export interface UpdateOriginEndpointResponse {
    * @public
    */
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration | undefined;
+
+  /**
+   * <p>The separator character used in generated URIs for this origin endpoint.</p>
+   * @public
+   */
+  UriSeparator?: UriSeparator | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>

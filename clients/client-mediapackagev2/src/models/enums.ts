@@ -68,6 +68,7 @@ export const ValidationExceptionType = {
   CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST: "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST",
   CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE: "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
+  CUSTOM_AD_TYPES_INVALID_CONFIGURATION: "CUSTOM_AD_TYPES_INVALID_CONFIGURATION",
   DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE: "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE",
   DECRYPT_SECRET_FAILED: "DECRYPT_SECRET_FAILED",
   DESCRIBE_CERTIFICATE_FAILED: "DESCRIBE_CERTIFICATE_FAILED",
@@ -137,6 +138,7 @@ export const ValidationExceptionType = {
   ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
   ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
+  SCTE_IN_MANIFESTS_INVALID_CONFIGURATION: "SCTE_IN_MANIFESTS_INVALID_CONFIGURATION",
   SECRET_ARN_RESOURCE_NOT_FOUND: "SECRET_ARN_RESOURCE_NOT_FOUND",
   SECRET_FROM_DIFFERENT_ACCOUNT: "SECRET_FROM_DIFFERENT_ACCOUNT",
   SECRET_FROM_DIFFERENT_REGION: "SECRET_FROM_DIFFERENT_REGION",
@@ -249,6 +251,19 @@ export type DashProfile = (typeof DashProfile)[keyof typeof DashProfile];
  * @public
  * @enum
  */
+export const ScteInManifests = {
+  ALL: "ALL",
+  MATCHES_FILTER: "MATCHES_FILTER",
+} as const;
+/**
+ * @public
+ */
+export type ScteInManifests = (typeof ScteInManifests)[keyof typeof ScteInManifests];
+
+/**
+ * @public
+ * @enum
+ */
 export const DashSegmentTemplateFormat = {
   NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
 } as const;
@@ -269,6 +284,19 @@ export const DashTtmlProfile = {
  * @public
  */
 export type DashTtmlProfile = (typeof DashTtmlProfile)[keyof typeof DashTtmlProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const UriPathType = {
+  LEAF: "LEAF",
+  ROOT: "ROOT",
+} as const;
+/**
+ * @public
+ */
+export type UriPathType = (typeof UriPathType)[keyof typeof UriPathType];
 
 /**
  * @public
@@ -408,16 +436,40 @@ export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof Preset
  * @public
  * @enum
  */
+export const CustomAdType = {
+  ALTERNATE_CONTENT_OPPORTUNITY: "ALTERNATE_CONTENT_OPPORTUNITY",
+  CHAPTER: "CHAPTER",
+  NETWORK: "NETWORK",
+  PROGRAM: "PROGRAM",
+  UNSCHEDULED_EVENT: "UNSCHEDULED_EVENT",
+} as const;
+/**
+ * @public
+ */
+export type CustomAdType = (typeof CustomAdType)[keyof typeof CustomAdType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScteFilter = {
+  ALTERNATE_CONTENT_OPPORTUNITY: "ALTERNATE_CONTENT_OPPORTUNITY",
   BREAK: "BREAK",
+  CHAPTER: "CHAPTER",
   DISTRIBUTOR_ADVERTISEMENT: "DISTRIBUTOR_ADVERTISEMENT",
+  DISTRIBUTOR_AD_BLOCK: "DISTRIBUTOR_AD_BLOCK",
   DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
   DISTRIBUTOR_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
+  DISTRIBUTOR_PROMO: "DISTRIBUTOR_PROMO",
+  NETWORK: "NETWORK",
   PROGRAM: "PROGRAM",
   PROVIDER_ADVERTISEMENT: "PROVIDER_ADVERTISEMENT",
+  PROVIDER_AD_BLOCK: "PROVIDER_AD_BLOCK",
   PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY: "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
   PROVIDER_PLACEMENT_OPPORTUNITY: "PROVIDER_PLACEMENT_OPPORTUNITY",
+  PROVIDER_PROMO: "PROVIDER_PROMO",
   SPLICE_INSERT: "SPLICE_INSERT",
+  UNSCHEDULED_EVENT: "UNSCHEDULED_EVENT",
 } as const;
 /**
  * @public
@@ -430,12 +482,26 @@ export type ScteFilter = (typeof ScteFilter)[keyof typeof ScteFilter];
  */
 export const ScteInSegments = {
   ALL: "ALL",
+  MATCHES_FILTER: "MATCHES_FILTER",
   NONE: "NONE",
 } as const;
 /**
  * @public
  */
 export type ScteInSegments = (typeof ScteInSegments)[keyof typeof ScteInSegments];
+
+/**
+ * @public
+ * @enum
+ */
+export const UriSeparator = {
+  HYPHEN: "HYPHEN",
+  UNDERSCORE: "UNDERSCORE",
+} as const;
+/**
+ * @public
+ */
+export type UriSeparator = (typeof UriSeparator)[keyof typeof UriSeparator];
 
 /**
  * @public
