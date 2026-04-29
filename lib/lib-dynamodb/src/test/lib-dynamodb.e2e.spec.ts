@@ -4,7 +4,7 @@ import type {
   DescribeTableCommandOutput,
   GetItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-import { BillingMode, DynamoDB, waitUntilTableExists } from "@aws-sdk/client-dynamodb";
+import { BillingMode, DynamoDB } from "@aws-sdk/client-dynamodb";
 import type {
   BatchExecuteStatementCommandOutput,
   BatchGetCommandOutput,
@@ -125,14 +125,18 @@ describe(
       }
     }
 
-    // Tables will be dropped at the end of the test.
-    // For faster test development, remove this random suffix and
-    // don't delete the table in afterAll().
-    // The table will in that case be re-used.
     const randId = (Math.random() + 1).toString(36).substring(2, 6);
     const timestamp = (Date.now() / 1000) | 0;
+    const TableName = `js-sdk-lib-dynamodb-test-${timestamp}-${randId}`;
+    const start = Date.now();
+    const mark = () => `DDB-E2E: ` + ((Date.now() - start) / 1000).toFixed(3) + "s elapsed.";
 
-    const TableName = `js-sdk-dynamodb-test-${timestamp}-${randId}`;
+    /**
+     * todo: flaky test, entering verbose manual mode.
+     * this can be removed in favor of a plain `waitUntilTableExists`
+     * call later, if remedied.
+     */
+    console.log(mark(), `Selected TableName: ${TableName}`);
 
     const log = {
       describe: null as null | DescribeTableCommandOutput,
@@ -260,11 +264,29 @@ describe(
             BillingMode: BillingMode.PAY_PER_REQUEST,
           })
           .catch(passError);
-        await waitUntilTableExists(
-          { client: dynamodb, maxWaitTime: 120 },
+        console.log(mark(), "CreateTable:", log.create?.$metadata?.httpStatusCode);
+
+        while (true) {
+          try {
+            const describe = await dynamodb.describeTable({
+              TableName,
+            });
+            console.log(mark(), "DescribeTable:", describe?.$metadata?.httpStatusCode, describe.Table?.TableStatus);
+            if (describe.Table?.TableStatus === "ACTIVE") {
+              break;
+            }
+          } catch (e) {
+            console.log(mark(), "DescribeTable:", e?.$metadata?.httpStatusCode);
+            console.log("\t", e.name, e.message);
+          }
+          await new Promise((resolve) => setTimeout(resolve, 6_000));
+        }
+
+        await dynamodb.waitUntilTableExists(
           {
             TableName,
-          }
+          },
+          { maxWaitTime: 120 }
         );
       }
 
@@ -583,7 +605,7 @@ describe(
     }, 180_000);
 
     afterAll(async () => {
-      const prefix = "js-sdk-dynamodb-test-";
+      const prefix = "js-sdk-lib-dynamodb-test-";
       const eightHoursAgo = Date.now() - 8 * 60 * 60 * 1000;
 
       await dynamodb.deleteTable({ TableName }).catch(() => {});

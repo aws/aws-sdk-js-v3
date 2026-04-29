@@ -1,6 +1,6 @@
 import { DynamoDB, ResourceNotFoundException } from "@aws-sdk/client-dynamodb";
 import { TypeRegistry } from "@smithy/core/schema";
-import { StaticErrorSchema } from "@smithy/types";
+import type { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 describe(DynamoDB.name, () => {

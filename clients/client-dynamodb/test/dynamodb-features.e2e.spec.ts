@@ -1,32 +1,62 @@
-import { DynamoDB, waitUntilTableExists } from "@aws-sdk/client-dynamodb";
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(DynamoDB.name, () => {
-  let client: DynamoDB;
-  let sharedTableName: string;
+  let client!: DynamoDB;
+  let TableName!: string;
 
   beforeAll(async () => {
     client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: aws?.testCredentials });
 
-    // Create shared table for tests
-    sharedTableName = `aws-sdk-js-integration-${Date.now()}`;
-    await client.createTable({
-      TableName: sharedTableName,
+    const randId = (Math.random() + 1).toString(36).substring(2, 6);
+    const timestamp = (Date.now() / 1000) | 0;
+    TableName = `js-sdk-client-dynamodb-test-${timestamp}-${randId}`;
+    const start = Date.now();
+    const mark = () => `DDB-E2E: ` + ((Date.now() - start) / 1000).toFixed(3) + "s elapsed.";
+
+    /**
+     * todo: flaky test, entering verbose manual mode.
+     * this can be removed in favor of a plain `waitUntilTableExists`
+     * call later, if remedied.
+     */
+    console.log(mark(), `Selected TableName: ${TableName}`);
+
+    const create = await client.createTable({
+      TableName,
       AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
       KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
       BillingMode: "PAY_PER_REQUEST",
     });
 
-    // Wait for table to be active
-    await waitUntilTableExists({ client, maxWaitTime: 300 }, { TableName: sharedTableName });
+    console.log(mark(), "CreateTable:", create.$metadata.httpStatusCode);
+
+    while (true) {
+      try {
+        const describe = await client.describeTable({
+          TableName,
+        });
+        console.log(mark(), "DescribeTable:", describe.$metadata.httpStatusCode, describe.Table?.TableStatus);
+        if (describe.Table?.TableStatus === "ACTIVE") {
+          break;
+        }
+      } catch (e) {
+        console.log(mark(), "DescribeTable:", e.$metadata.httpStatusCode);
+        console.log("\t", e.name, e.message);
+      }
+      await new Promise((resolve) => setTimeout(resolve, 6_000));
+    }
+
+    // end verbose mode - waiter can be called even if the check above succeeded.
+    // it should return immediately.
+    await client.waitUntilTableExists({ TableName }, { maxWaitTime: 300 });
   }, 360_000);
 
   afterAll(async () => {
-    const prefix = "aws-sdk-js-integration-";
+    const prefix = "js-sdk-client-dynamodb-test-";
     const eightHoursAgo = Date.now() - 8 * 60 * 60 * 1000;
 
-    if (sharedTableName) {
-      await client.deleteTable({ TableName: sharedTableName }).catch(() => {});
+    if (TableName) {
+      await client.deleteTable({ TableName }).catch(() => {});
     }
 
     let lastTable: string | undefined;
@@ -38,7 +68,7 @@ describe(DynamoDB.name, () => {
       lastTable = list.LastEvaluatedTableName;
 
       for (const name of tables) {
-        if (!name.startsWith(prefix) || name === sharedTableName) {
+        if (!name.startsWith(prefix) || name === TableName) {
           continue;
         }
         try {
@@ -54,27 +84,24 @@ describe(DynamoDB.name, () => {
 
   describe("Creating a table", () => {
     it("should verify table exists and is active", async () => {
-      // Verify table exists by describing it
-      const describeResult = await client.describeTable({ TableName: sharedTableName });
-      expect(describeResult.Table?.TableName).toBe(sharedTableName);
+      const describeResult = await client.describeTable({ TableName });
+      expect(describeResult.Table?.TableName).toBe(TableName);
       expect(describeResult.Table?.TableStatus).toBe("ACTIVE");
     });
   });
 
   describe("Item CRUD", () => {
     it("should put item, get it, and verify attributes", async () => {
-      // Put item
       const item = { id: { S: "foo" }, data: { S: "bår" } };
       const putResult = await client.putItem({
-        TableName: sharedTableName,
+        TableName,
         Item: item,
       });
 
       expect(putResult.$metadata?.httpStatusCode).toBe(200);
 
-      // Get item
       const getResult = await client.getItem({
-        TableName: sharedTableName,
+        TableName,
         Key: { id: { S: "foo" } },
       });
 
@@ -129,7 +156,7 @@ describe(DynamoDB.name, () => {
       };
 
       const putResult = await client.putItem({
-        TableName: sharedTableName,
+        TableName,
         Item: recursiveItem,
       });
 
@@ -137,7 +164,7 @@ describe(DynamoDB.name, () => {
 
       // Get item and verify nested attribute
       const getResult = await client.getItem({
-        TableName: sharedTableName,
+        TableName,
         Key: { id: { S: "fooRecursive" } },
       });
 
