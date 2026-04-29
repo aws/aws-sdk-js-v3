@@ -40,6 +40,7 @@ export * from "./DescribeBuildCommand";
 export * from "./DescribeComputeCommand";
 export * from "./DescribeContainerFleetCommand";
 export * from "./DescribeContainerGroupDefinitionCommand";
+export * from "./DescribeContainerGroupPortMappingsCommand";
 export * from "./DescribeEC2InstanceLimitsCommand";
 export * from "./DescribeFleetAttributesCommand";
 export * from "./DescribeFleetCapacityCommand";

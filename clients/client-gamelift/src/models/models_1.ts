@@ -2,6 +2,8 @@
 import type {
   BackfillMode,
   BalancingStrategy,
+  ContainerFleetRemoveAttribute,
+  ContainerOperatingSystem,
   FlexMatchMode,
   GameServerHealthCheck,
   GameServerProtectionPolicy,
@@ -11,15 +13,22 @@ import type {
 } from "./enums";
 import type {
   AnywhereConfiguration,
+  ConnectionPortRange,
+  ContainerFleet,
+  ContainerGroupDefinition,
+  DeploymentConfiguration,
   FilterConfiguration,
   GameProperty,
   GameServer,
+  GameServerContainerDefinitionInput,
   GameServerGroup,
   GameSession,
+  GameSessionCreationLimitPolicy,
   GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
   IpPermission,
+  LogConfiguration,
   ManagedCapacityConfiguration,
   MatchmakingConfiguration,
   PlayerLatencyPolicy,
@@ -28,7 +37,230 @@ import type {
   RuntimeConfiguration,
   S3Location,
   Script,
+  SupportContainerDefinitionInput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateContainerFleetInput {
+  /**
+   * <p>A unique identifier for the container fleet to update. You can use either the fleet ID
+   *             or ARN value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>The name or ARN value of a new game server container group definition to deploy on the
+   *             fleet. If you're updating the fleet to a specific version of a container group
+   *             definition, use the ARN value and include the version number. If you're updating the
+   *             fleet to the latest version of a container group definition, you can use the name value.
+   *             You can't remove a fleet's game server container group definition, you can only update
+   *             or replace it with another definition.</p>
+   *          <p>Update a container group definition by calling
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>.
+   *             This operation creates a
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             resource with an incremented version. </p>
+   * @public
+   */
+  GameServerContainerGroupDefinitionName?: string | undefined;
+
+  /**
+   * <p>The name or ARN value of a new per-instance container group definition to deploy on
+   *             the fleet. If you're updating the fleet to a specific version of a container group
+   *             definition, use the ARN value and include the version number. If you're updating the
+   *             fleet to the latest version of a container group definition, you can use the name
+   *             value.</p>
+   *          <p>Update a container group definition by calling
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>.
+   *             This operation creates a
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             resource with an incremented version. </p>
+   *          <p>To remove a fleet's per-instance container group definition, leave this parameter empty
+   *             and use the parameter <code>RemoveAttributes</code>.</p>
+   * @public
+   */
+  PerInstanceContainerGroupDefinitionName?: string | undefined;
+
+  /**
+   * <p>The number of times to replicate the game server container group on each fleet
+   *             instance. By default, Amazon GameLift Servers calculates the maximum number of game server container
+   *             groups that can fit on each instance. You can remove this property value to use the
+   *             calculated value, or set it manually. If you set this number manually, Amazon GameLift Servers uses your
+   *             value as long as it's less than the calculated maximum.</p>
+   * @public
+   */
+  GameServerContainerGroupsPerInstance?: number | undefined;
+
+  /**
+   * <p>A revised set of port numbers to open on each fleet instance. By default, Amazon GameLift Servers
+   *             calculates an optimal port range based on your fleet configuration. If you previously
+   *             set this parameter manually, you can't reset this to use the calculated settings.</p>
+   *          <p>The port range must not overlap with the Amazon GameLift Servers reserved port range
+   *             <code>4092-4191</code>. This range is reserved for internal Amazon GameLift Servers
+   *             services.</p>
+   * @public
+   */
+  InstanceConnectionPortRange?: ConnectionPortRange | undefined;
+
+  /**
+   * <p>A set of ports to add to the container fleet's inbound permissions.</p>
+   *          <p>The port range must not overlap with the Amazon GameLift Servers reserved port range
+   *             <code>4092-4191</code>. This range is reserved for internal Amazon GameLift Servers
+   *             services.</p>
+   * @public
+   */
+  InstanceInboundPermissionAuthorizations?: IpPermission[] | undefined;
+
+  /**
+   * <p>A set of ports to remove from the container fleet's inbound permissions.</p>
+   * @public
+   */
+  InstanceInboundPermissionRevocations?: IpPermission[] | undefined;
+
+  /**
+   * <p>Instructions for how to deploy updates to a container fleet, if the fleet update
+   *             initiates a deployment. The deployment configuration lets you determine how to replace
+   *             fleet instances and what actions to take if the deployment fails.</p>
+   * @public
+   */
+  DeploymentConfiguration?: DeploymentConfiguration | undefined;
+
+  /**
+   * <p>A meaningful description of the container fleet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of an Amazon Web Services CloudWatch metric group to add this fleet to.  </p>
+   * @public
+   */
+  MetricGroups?: string[] | undefined;
+
+  /**
+   * <p>The game session protection policy to apply to all new game sessions that are started
+   *             in this fleet. Game sessions that already exist are not affected. </p>
+   * @public
+   */
+  NewGameSessionProtectionPolicy?: ProtectionPolicy | undefined;
+
+  /**
+   * <p>A policy that limits the number of game sessions that each individual player can create
+   *             on instances in this fleet. The limit applies for a specified span of time.</p>
+   * @public
+   */
+  GameSessionCreationLimitPolicy?: GameSessionCreationLimitPolicy | undefined;
+
+  /**
+   * <p>The method for collecting container logs for the fleet. </p>
+   * @public
+   */
+  LogConfiguration?: LogConfiguration | undefined;
+
+  /**
+   * <p>If set, this update removes a fleet's per-instance container group definition. You
+   *             can't remove a fleet's game server container group definition.</p>
+   * @public
+   */
+  RemoveAttributes?: ContainerFleetRemoveAttribute[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerFleetOutput {
+  /**
+   * <p>A collection of container fleet objects for all fleets that match the request
+   *             criteria.</p>
+   * @public
+   */
+  ContainerFleet?: ContainerFleet | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerGroupDefinitionInput {
+  /**
+   * <p>A descriptive identifier for the container group definition. The name value must be unique in an Amazon Web Services Region.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An updated definition for the game server container in this group. Define a game server
+   *       container only when the container group type is <code>GAME_SERVER</code>. You can pass in your
+   *       container definitions as a JSON file.</p>
+   * @public
+   */
+  GameServerContainerDefinition?: GameServerContainerDefinitionInput | undefined;
+
+  /**
+   * <p>One or more definitions for support containers in this group. You can define a support
+   *       container in any type of container group. You can pass in your container definitions as a JSON
+   *       file.</p>
+   * @public
+   */
+  SupportContainerDefinitions?: SupportContainerDefinitionInput[] | undefined;
+
+  /**
+   * <p>The maximum amount of memory (in MiB) to allocate to the container group. All containers in
+   *       the group share this memory. If you specify memory limits for an individual container, the
+   *       total value must be greater than any individual container's memory limit.</p>
+   * @public
+   */
+  TotalMemoryLimitMebibytes?: number | undefined;
+
+  /**
+   * <p>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal to 1024
+   *       CPU units). All containers in the group share this memory. If you specify vCPU limits for
+   *       individual containers, the total value must be equal to or greater than the sum of the CPU
+   *       limits for all containers in the group.</p>
+   * @public
+   */
+  TotalVcpuLimit?: number | undefined;
+
+  /**
+   * <p>A description for this update to the container group definition. </p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The container group definition version to update. The new version starts with values from
+   *       the source version, and then updates values included in this request. </p>
+   * @public
+   */
+  SourceVersionNumber?: number | undefined;
+
+  /**
+   * <p>The platform that all containers in the group use. Containers in a group must run on the
+   *       same operating system.</p>
+   *          <note>
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
+   *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
+   *           server SDK version 5.</a>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  OperatingSystem?: ContainerOperatingSystem | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerGroupDefinitionOutput {
+  /**
+   * <p>The properties of the updated container group definition version.</p>
+   * @public
+   */
+  ContainerGroupDefinition?: ContainerGroupDefinition | undefined;
+}
 
 /**
  * @public
@@ -376,7 +608,8 @@ export interface UpdateGameServerGroupOutput {
  */
 export interface UpdateGameSessionInput {
   /**
-   * <p>A unique identifier for the game session to update. </p>
+   * <p>An identifier for the game session that is unique across all regions to update. The value is always a full ARN in the following format:
+   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<ID string></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;

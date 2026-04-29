@@ -208,6 +208,11 @@ import {
   DescribeContainerGroupDefinitionCommand,
 } from "./commands/DescribeContainerGroupDefinitionCommand";
 import {
+  type DescribeContainerGroupPortMappingsCommandInput,
+  type DescribeContainerGroupPortMappingsCommandOutput,
+  DescribeContainerGroupPortMappingsCommand,
+} from "./commands/DescribeContainerGroupPortMappingsCommand";
+import {
   type DescribeEC2InstanceLimitsCommandInput,
   type DescribeEC2InstanceLimitsCommandOutput,
   DescribeEC2InstanceLimitsCommand,
@@ -670,6 +675,7 @@ const commands = {
   DescribeComputeCommand,
   DescribeContainerFleetCommand,
   DescribeContainerGroupDefinitionCommand,
+  DescribeContainerGroupPortMappingsCommand,
   DescribeEC2InstanceLimitsCommand,
   DescribeFleetAttributesCommand,
   DescribeFleetCapacityCommand,
@@ -1477,6 +1483,23 @@ export interface GameLift {
     args: DescribeContainerGroupDefinitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContainerGroupDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeContainerGroupPortMappingsCommand}
+   */
+  describeContainerGroupPortMappings(
+    args: DescribeContainerGroupPortMappingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContainerGroupPortMappingsCommandOutput>;
+  describeContainerGroupPortMappings(
+    args: DescribeContainerGroupPortMappingsCommandInput,
+    cb: (err: any, data?: DescribeContainerGroupPortMappingsCommandOutput) => void
+  ): void;
+  describeContainerGroupPortMappings(
+    args: DescribeContainerGroupPortMappingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContainerGroupPortMappingsCommandOutput) => void
   ): void;
 
   /**

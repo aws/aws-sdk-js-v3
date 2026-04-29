@@ -564,6 +564,13 @@ DescribeContainerGroupDefinition
 </details>
 <details>
 <summary>
+DescribeContainerGroupPortMappings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/DescribeContainerGroupPortMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeContainerGroupPortMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/DescribeContainerGroupPortMappingsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeEC2InstanceLimits
 </summary>
 

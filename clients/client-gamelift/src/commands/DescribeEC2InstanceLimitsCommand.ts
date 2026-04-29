@@ -39,27 +39,30 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *             Region or in a remote location. For remote locations, limits also differ based on the
  *             combination of home Region and remote location. All requests must specify an Amazon Web Services
  *             Region (either explicitly or as your default settings). To get the limit for a remote
- *             location, you must also specify the location. For example, the following requests all
+ *             location, you must also specify the location. To learn more about how Amazon GameLift Servers handles
+ *             locations, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service
+ *                 locations</a>. For example, the following requests all
  *             return different results: </p>
  *          <ul>
  *             <li>
  *                <p>Request specifies the Region <code>ap-northeast-1</code> with no location. The
- *                     result is limits and usage data on all instance types that are deployed in
- *                         <code>us-east-2</code>, by all of the fleets that reside in
+ *                     result is limits and usage data on all of the fleets that reside in
+ *                         <code>ap-northeast-1</code>, for all instance types that are deployed in
  *                         <code>ap-northeast-1</code>. </p>
  *             </li>
  *             <li>
- *                <p>Request specifies the Region <code>us-east-1</code> with location
- *                         <code>ca-central-1</code>. The result is limits and usage data on all
- *                     instance types that are deployed in <code>ca-central-1</code>, by all of the
- *                     fleets that reside in <code>us-east-2</code>. These limits do not affect fleets
- *                     in any other Regions that deploy instances to <code>ca-central-1</code>.</p>
+ *                <p>Request specifies the Region <code>ap-northeast-1</code> with location
+ *                         <code>us-west-2</code>. The result is limits and usage data on all of the
+ *                     fleets that reside in <code>ap-northeast-1</code>, for all instance types
+ *                     that are deployed in <code>us-west-2</code>.</p>
  *             </li>
  *             <li>
- *                <p>Request specifies the Region <code>eu-west-1</code> with location
- *                         <code>ca-central-1</code>. The result is limits and usage data on all
- *                     instance types that are deployed in <code>ca-central-1</code>, by all of the
- *                     fleets that reside in <code>eu-west-1</code>.</p>
+ *                <p>Request specifies the Region <code>us-east-1</code> with location
+ *                         <code>ap-northeast-1</code>. The result is limits and usage data on all of
+ *                     the fleets that reside in <code>us-east-1</code>, for all instance types
+ *                     that are deployed in <code>ap-northeast-1</code>. These limits do not affect
+ *                     fleets in any other Regions that deploy instances to
+ *                         <code>ap-northeast-1</code>.</p>
  *             </li>
  *          </ul>
  *          <p>This operation can be used in the following ways:</p>

@@ -38,6 +38,7 @@ import {
   ContainerFleetStatus,
   ContainerGroupDefinition$,
   ContainerGroupDefinitionStatus,
+  ContainerGroupPortMapping$,
   ContainerGroupType,
   ContainerHealthCheck$,
   ContainerIdentifier$,
@@ -45,6 +46,7 @@ import {
   ContainerMountPointAccessLevel,
   ContainerOperatingSystem,
   ContainerPortConfiguration$,
+  ContainerPortMapping$,
   ContainerPortRange$,
   CreateAlias$,
   CreateAliasCommand,
@@ -201,6 +203,10 @@ import {
   DescribeContainerGroupDefinitionCommand,
   DescribeContainerGroupDefinitionInput$,
   DescribeContainerGroupDefinitionOutput$,
+  DescribeContainerGroupPortMappings$,
+  DescribeContainerGroupPortMappingsCommand,
+  DescribeContainerGroupPortMappingsInput$,
+  DescribeContainerGroupPortMappingsOutput$,
   DescribeEC2InstanceLimits$,
   DescribeEC2InstanceLimitsCommand,
   DescribeEC2InstanceLimitsInput$,
@@ -773,6 +779,8 @@ assert(typeof DescribeContainerFleetCommand === "function");
 assert(typeof DescribeContainerFleet$ === "object");
 assert(typeof DescribeContainerGroupDefinitionCommand === "function");
 assert(typeof DescribeContainerGroupDefinition$ === "object");
+assert(typeof DescribeContainerGroupPortMappingsCommand === "function");
+assert(typeof DescribeContainerGroupPortMappings$ === "object");
 assert(typeof DescribeEC2InstanceLimitsCommand === "function");
 assert(typeof DescribeEC2InstanceLimits$ === "object");
 assert(typeof DescribeFleetAttributesCommand === "function");
@@ -949,10 +957,12 @@ assert(typeof ContainerEnvironment$ === "object");
 assert(typeof ContainerFleet$ === "object");
 assert(typeof ContainerFleetLocationAttributes$ === "object");
 assert(typeof ContainerGroupDefinition$ === "object");
+assert(typeof ContainerGroupPortMapping$ === "object");
 assert(typeof ContainerHealthCheck$ === "object");
 assert(typeof ContainerIdentifier$ === "object");
 assert(typeof ContainerMountPoint$ === "object");
 assert(typeof ContainerPortConfiguration$ === "object");
+assert(typeof ContainerPortMapping$ === "object");
 assert(typeof ContainerPortRange$ === "object");
 assert(typeof CreateAliasInput$ === "object");
 assert(typeof CreateAliasOutput$ === "object");
@@ -1028,6 +1038,8 @@ assert(typeof DescribeContainerFleetInput$ === "object");
 assert(typeof DescribeContainerFleetOutput$ === "object");
 assert(typeof DescribeContainerGroupDefinitionInput$ === "object");
 assert(typeof DescribeContainerGroupDefinitionOutput$ === "object");
+assert(typeof DescribeContainerGroupPortMappingsInput$ === "object");
+assert(typeof DescribeContainerGroupPortMappingsOutput$ === "object");
 assert(typeof DescribeEC2InstanceLimitsInput$ === "object");
 assert(typeof DescribeEC2InstanceLimitsOutput$ === "object");
 assert(typeof DescribeFleetAttributesInput$ === "object");

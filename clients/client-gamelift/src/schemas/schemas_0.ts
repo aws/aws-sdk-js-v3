@@ -74,6 +74,9 @@ const _CGDA = "ContainerGroupDefinitionArn";
 const _CGDL = "ContainerGroupDefinitionList";
 const _CGDN = "ContainerGroupDefinitionName";
 const _CGDo = "ContainerGroupDefinitions";
+const _CGPM = "ContainerGroupPortMapping";
+const _CGPML = "ContainerGroupPortMappingList";
+const _CGPMo = "ContainerGroupPortMappings";
 const _CGS = "ClaimGameServer";
 const _CGSG = "CreateGameServerGroup";
 const _CGSGI = "CreateGameServerGroupInput";
@@ -112,6 +115,9 @@ const _CNon = "ConfigurationName";
 const _CO = "ComparisonOperator";
 const _CP = "ContainerPath";
 const _CPC = "ContainerPortConfiguration";
+const _CPM = "ContainerPortMappings";
+const _CPML = "ContainerPortMappingList";
+const _CPMo = "ContainerPortMapping";
 const _CPR = "ConnectionPortRange";
 const _CPRL = "ContainerPortRangeList";
 const _CPRo = "ContainerPortRanges";
@@ -124,6 +130,8 @@ const _CPSO = "CreatePlayerSessionOutput";
 const _CPSOr = "CreatePlayerSessionsOutput";
 const _CPSr = "CreatePlayerSessions";
 const _CPe = "CertificatePath";
+const _CPo = "ContainerPort";
+const _CPon = "ConnectionPort";
 const _CRI = "ContainerRuntimeId";
 const _CS = "ComputeStatus";
 const _CSI = "CreateScriptInput";
@@ -172,6 +180,9 @@ const _DCGDIe = "DescribeContainerGroupDefinitionInput";
 const _DCGDO = "DeleteContainerGroupDefinitionOutput";
 const _DCGDOe = "DescribeContainerGroupDefinitionOutput";
 const _DCGDe = "DescribeContainerGroupDefinition";
+const _DCGPM = "DescribeContainerGroupPortMappings";
+const _DCGPMI = "DescribeContainerGroupPortMappingsInput";
+const _DCGPMO = "DescribeContainerGroupPortMappingsOutput";
 const _DCI = "DeregisterComputeInput";
 const _DCIe = "DescribeComputeInput";
 const _DCO = "DeregisterComputeOutput";
@@ -1082,6 +1093,11 @@ export var ContainerGroupDefinition$: StaticStructureSchema = [3, n0, _CGD,
   [_N, _CGDA, _CT, _OS, _CGT, _TMLM, _TVL, _GSCD, _SCD, _VN, _VD, _St, _SR],
   [0, 0, 4, 0, 0, 1, 1, [() => GameServerContainerDefinition$, 0], [() => SupportContainerDefinitionList, 0], 1, 0, 0, 0], 1
 ];
+export var ContainerGroupPortMapping$: StaticStructureSchema = [3, n0, _CGPM,
+  0,
+  [_CNo, _CRI, _CPM],
+  [0, 0, [() => ContainerPortMappingList, 0]]
+];
 export var ContainerHealthCheck$: StaticStructureSchema = [3, n0, _CHC,
   0,
   [_Com, _I, _R, _SP, _Ti],
@@ -1101,6 +1117,11 @@ export var ContainerPortConfiguration$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_CPRo],
   [[() => ContainerPortRangeList, 0]], 1
+];
+export var ContainerPortMapping$: StaticStructureSchema = [3, n0, _CPMo,
+  0,
+  [_CPo, _CPon, _P],
+  [[() => PortNumber, 0], [() => PortNumber, 0], 0]
 ];
 export var ContainerPortRange$: StaticStructureSchema = [3, n0, _CPRon,
   0,
@@ -1476,6 +1497,16 @@ export var DescribeContainerGroupDefinitionOutput$: StaticStructureSchema = [3, 
   0,
   [_CGD],
   [[() => ContainerGroupDefinition$, 0]]
+];
+export var DescribeContainerGroupPortMappingsInput$: StaticStructureSchema = [3, n0, _DCGPMI,
+  0,
+  [_FI, _CGT, _CN, _II, _CNo],
+  [0, 0, 0, 0, 0], 2
+];
+export var DescribeContainerGroupPortMappingsOutput$: StaticStructureSchema = [3, n0, _DCGPMO,
+  0,
+  [_FI, _L, _CGDA, _CGT, _CN, _II, _CGPMo],
+  [0, 0, 0, 0, 0, 0, [() => ContainerGroupPortMappingList, 0]]
 ];
 export var DescribeEC2InstanceLimitsInput$: StaticStructureSchema = [3, n0, _DECILI,
   0,
@@ -2630,11 +2661,19 @@ var ContainerGroupDefinitionList: StaticListSchema = [1, n0, _CGDL,
   0, [() => ContainerGroupDefinition$,
     0]
 ];
+var ContainerGroupPortMappingList: StaticListSchema = [1, n0, _CGPML,
+  0, [() => ContainerGroupPortMapping$,
+    0]
+];
 var ContainerIdentifierList: StaticListSchema = [1, n0, _CIL,
   0, () => ContainerIdentifier$
 ];
 var ContainerMountPointList: StaticListSchema = [1, n0, _CMPL,
   0, () => ContainerMountPoint$
+];
+var ContainerPortMappingList: StaticListSchema = [1, n0, _CPML,
+  0, [() => ContainerPortMapping$,
+    0]
 ];
 var ContainerPortRangeList: StaticListSchema = [1, n0, _CPRL,
   0, [() => ContainerPortRange$,
@@ -2937,6 +2976,9 @@ export var DescribeContainerFleet$: StaticOperationSchema = [9, n0, _DCFe,
 ];
 export var DescribeContainerGroupDefinition$: StaticOperationSchema = [9, n0, _DCGDe,
   0, () => DescribeContainerGroupDefinitionInput$, () => DescribeContainerGroupDefinitionOutput$
+];
+export var DescribeContainerGroupPortMappings$: StaticOperationSchema = [9, n0, _DCGPM,
+  0, () => DescribeContainerGroupPortMappingsInput$, () => DescribeContainerGroupPortMappingsOutput$
 ];
 export var DescribeEC2InstanceLimits$: StaticOperationSchema = [9, n0, _DECIL,
   0, () => DescribeEC2InstanceLimitsInput$, () => DescribeEC2InstanceLimitsOutput$

@@ -57,8 +57,8 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>gameSessionId</b> -- A unique identifier for the game session. You can use either a
- *                         <code>GameSessionId</code> or <code>GameSessionArn</code> value. </p>
+ *                   <b>gameSessionId</b> -- An identifier for the game session that is unique across all regions. You must use the
+ *                         full ARN value. </p>
  *             </li>
  *             <li>
  *                <p>

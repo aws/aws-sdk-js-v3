@@ -181,6 +181,10 @@ import type {
   DescribeContainerGroupDefinitionCommandOutput,
 } from "./commands/DescribeContainerGroupDefinitionCommand";
 import type {
+  DescribeContainerGroupPortMappingsCommandInput,
+  DescribeContainerGroupPortMappingsCommandOutput,
+} from "./commands/DescribeContainerGroupPortMappingsCommand";
+import type {
   DescribeEC2InstanceLimitsCommandInput,
   DescribeEC2InstanceLimitsCommandOutput,
 } from "./commands/DescribeEC2InstanceLimitsCommand";
@@ -485,6 +489,7 @@ export type ServiceInputTypes =
   | DescribeComputeCommandInput
   | DescribeContainerFleetCommandInput
   | DescribeContainerGroupDefinitionCommandInput
+  | DescribeContainerGroupPortMappingsCommandInput
   | DescribeEC2InstanceLimitsCommandInput
   | DescribeFleetAttributesCommandInput
   | DescribeFleetCapacityCommandInput
@@ -609,6 +614,7 @@ export type ServiceOutputTypes =
   | DescribeComputeCommandOutput
   | DescribeContainerFleetCommandOutput
   | DescribeContainerGroupDefinitionCommandOutput
+  | DescribeContainerGroupPortMappingsCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
   | DescribeFleetAttributesCommandOutput
   | DescribeFleetCapacityCommandOutput
