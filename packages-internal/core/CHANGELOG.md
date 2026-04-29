@@ -38,6 +38,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.7 (2026-04-28)
+### Chores
+* **codegen:** sync for adaptive retry fixes ([#7970](https://github.com/aws/aws-sdk-js-v3/issues/7970)) ([3dfb72b](https://github.com/aws/aws-sdk-js-v3/commit/3dfb72b7359b53da18c209e9211b38a1229357ac))
+* **xml-builder:** manual version bump for 3.972.21 release ([#7969](https://github.com/aws/aws-sdk-js-v3/issues/7969)) ([99bfb4b](https://github.com/aws/aws-sdk-js-v3/commit/99bfb4b8283bc45e803aee9a825115faaaf22fa5))
+
+
+
 # 3.974.6 (2026-04-27)
 ### Chores
 * **codegen:** sync for typed waiter-result values ([#7965](https://github.com/aws/aws-sdk-js-v3/issues/7965)) ([e9f8d8a](https://github.com/aws/aws-sdk-js-v3/commit/e9f8d8a9a00832fdcf2e7313a1994875f282147b))

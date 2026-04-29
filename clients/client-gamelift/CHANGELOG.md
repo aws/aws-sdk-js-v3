@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift Servers adds a new DescribeContainerGroupPortMappings API for container fleets, making it easy to discover which connection ports map to your container ports without needing to remotely access the compute. ([71e95d8](https://github.com/aws/aws-sdk-js-v3/commit/71e95d8fadc47939e8c0256711ced1ba6b9114b8))
+
+
+
+
+
 # [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

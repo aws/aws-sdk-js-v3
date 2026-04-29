@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
+
+
+### Bug Fixes
+
+* **xml-builder:** inline nodable/entities for dist format compatibility ([#7968](https://github.com/aws/aws-sdk-js-v3/issues/7968)) ([02b6be6](https://github.com/aws/aws-sdk-js-v3/commit/02b6be6bec6d47d3dcecbdcad6e4319107ae2172))
+
+
+### Features
+
+* **client-account:** Adds AccountState in the response for the GetAccountInformation API. Each state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes. ([dc28353](https://github.com/aws/aws-sdk-js-v3/commit/dc283531a71fd6a04dc60174dca53ea5f2cc0d6b))
+* **client-bedrock-agentcore-control:** Adds configuration bundles for versioned, immutable agent configuration snapshots with branch-based lineage ([480b651](https://github.com/aws/aws-sdk-js-v3/commit/480b6517551ec62ebdaf6eba1edbe6f0b7bc65f3))
+* **client-bedrock-agentcore:** Adds batch evaluation for running evaluators against multiple agent sessions with server-side orchestration, AI-powered recommendations for optimizing system prompts and tool descriptions, and AB testing with controlled traffic splitting and statistical significance reporting ([c9db871](https://github.com/aws/aws-sdk-js-v3/commit/c9db871637ce5b58a88b77d49f98d4c6010b07c7))
+* **client-cloudfront:** Amazon CloudFront now supports cache tag. Tag objects via response headers and invalidate all matching objects in a single request, replacing manual URL tracking and broad wildcards. ([fac8398](https://github.com/aws/aws-sdk-js-v3/commit/fac83987712b960debc5ba412571fa19a1a6abad))
+* **client-deadline:** Adds support for rtx-pro-server-6000 GPU accelerator for service-managed fleets. ([86aab76](https://github.com/aws/aws-sdk-js-v3/commit/86aab769147360954d2e19c5dfa8e95366c93c22))
+* **client-gamelift:** Amazon GameLift Servers adds a new DescribeContainerGroupPortMappings API for container fleets, making it easy to discover which connection ports map to your container ports without needing to remotely access the compute. ([71e95d8](https://github.com/aws/aws-sdk-js-v3/commit/71e95d8fadc47939e8c0256711ced1ba6b9114b8))
+* **client-mediapackagev2:** This feature adds configuration for specifying SCTE marker handling and allow greater control over generated manifest and segment URIs ([cd814f6](https://github.com/aws/aws-sdk-js-v3/commit/cd814f6b30a943bdfb52e66b8739a8e31e4b5c05))
+* **client-transfer:** This launch will increase the limits for customers to list the contents from the remote directories from 10k to 200k. ([58052c9](https://github.com/aws/aws-sdk-js-v3/commit/58052c95a4417ce5a348b6ee6da27e1ee67906a8))
+* **client-workspaces-web:** Allow admins to configure IPv6 ranges on IP Access Settings. ([a1d8beb](https://github.com/aws/aws-sdk-js-v3/commit/a1d8beb2e04804f9e2d358557fe5c9bae85777a6))
+* **clients:** update client endpoints as of 2026-04-29 ([2c0c097](https://github.com/aws/aws-sdk-js-v3/commit/2c0c09793fb67bd3c6b09c7e39ca943772b38acf))
+
+
+
+
+
 # [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
+
+
+### Features
+
+* **client-account:** Adds AccountState in the response for the GetAccountInformation API. Each state represents a specific phase in the account lifecycle. Use this information to manage account access, automate workflows, or trigger actions based on account state changes. ([dc28353](https://github.com/aws/aws-sdk-js-v3/commit/dc283531a71fd6a04dc60174dca53ea5f2cc0d6b))
+
+
+
+
+
 # [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-account

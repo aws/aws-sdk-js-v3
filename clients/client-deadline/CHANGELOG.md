@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
+
+
+### Features
+
+* **client-deadline:** Adds support for rtx-pro-server-6000 GPU accelerator for service-managed fleets. ([86aab76](https://github.com/aws/aws-sdk-js-v3/commit/86aab769147360954d2e19c5dfa8e95366c93c22))
+
+
+
+
+
 # [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-deadline

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
+
+
+### Features
+
+* **client-cloudfront:** Amazon CloudFront now supports cache tag. Tag objects via response headers and invalidate all matching objects in a single request, replacing manual URL tracking and broad wildcards. ([fac8398](https://github.com/aws/aws-sdk-js-v3/commit/fac83987712b960debc5ba412571fa19a1a6abad))
+
+
+
+
+
 # [3.1038.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1037.0...v3.1038.0) (2026-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront
