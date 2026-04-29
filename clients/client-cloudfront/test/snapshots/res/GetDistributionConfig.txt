@@ -448,6 +448,11 @@ ETag: __ETag__
             __Id__
         </Id>
     </ConnectionFunctionAssociation>
+    <CacheTagConfig>
+        <HeaderName>
+            __HeaderName__
+        </HeaderName>
+    </CacheTagConfig>
 </DistributionConfig>
 
 
@@ -673,6 +678,9 @@ ETag: __ETag__
     },
     ConnectionFunctionAssociation: {
       Id: "__Id__"
+    },
+    CacheTagConfig: {
+      HeaderName: "__HeaderName__"
     }
   },
   ETag: "__ETag__",

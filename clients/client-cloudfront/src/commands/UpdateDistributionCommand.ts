@@ -369,6 +369,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  *       Id: "STRING_VALUE", // required
  *     },
+ *     CacheTagConfig: { // CacheTagConfig
+ *       HeaderName: "STRING_VALUE", // required
+ *     },
  *   },
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
@@ -744,6 +747,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //       },
  * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  * //         Id: "STRING_VALUE", // required
+ * //       },
+ * //       CacheTagConfig: { // CacheTagConfig
+ * //         HeaderName: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals

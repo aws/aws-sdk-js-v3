@@ -416,6 +416,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput extends Update
  * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  * //         Id: "STRING_VALUE", // required
  * //       },
+ * //       CacheTagConfig: { // CacheTagConfig
+ * //         HeaderName: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal

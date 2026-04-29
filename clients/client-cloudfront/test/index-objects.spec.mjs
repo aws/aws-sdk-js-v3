@@ -42,6 +42,7 @@ import {
   CachePolicyQueryStringsConfig$,
   CachePolicySummary$,
   CachePolicyType,
+  CacheTagConfig$,
   CannotChangeImmutablePublicKeyFields,
   CannotChangeImmutablePublicKeyFields$,
   CannotDeleteEntityWhileInUse,
@@ -1595,6 +1596,7 @@ assert(typeof CachePolicyHeadersConfig$ === "object");
 assert(typeof CachePolicyList$ === "object");
 assert(typeof CachePolicyQueryStringsConfig$ === "object");
 assert(typeof CachePolicySummary$ === "object");
+assert(typeof CacheTagConfig$ === "object");
 assert(typeof Certificate$ === "object");
 assert(typeof CloudFrontOriginAccessIdentity$ === "object");
 assert(typeof CloudFrontOriginAccessIdentityConfig$ === "object");

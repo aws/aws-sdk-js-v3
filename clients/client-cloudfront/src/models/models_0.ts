@@ -1227,6 +1227,18 @@ export interface CachePolicyList {
 }
 
 /**
+ * <p>A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add <code>CacheTagConfig</code> to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the <code>CreateInvalidation</code> API.</p>
+ * @public
+ */
+export interface CacheTagConfig {
+  /**
+   * <p>The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, <code>product:electronics, category:tv, brand:example</code>).</p>
+   * @public
+   */
+  HeaderName: string | undefined;
+}
+
+/**
  * <p>The Certificate Manager (ACM) certificate associated with your distribution.</p>
  * @public
  */
@@ -2225,6 +2237,12 @@ export interface DistributionConfig {
    * @public
    */
   ConnectionFunctionAssociation?: ConnectionFunctionAssociation | undefined;
+
+  /**
+   * <p>Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in <code>HeaderName</code> from origin responses and stores the comma-separated values as cache tags on the object.</p> <p>Distributions without <code>CacheTagConfig</code> do not extract tags. When <code>CacheTagConfig</code> is removed from a distribution via <code>UpdateDistribution</code>, CloudFront stops extracting tags from origin responses.</p> <note> <p>Changing the <code>HeaderName</code> on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.</p> </note>
+   * @public
+   */
+  CacheTagConfig?: CacheTagConfig | undefined;
 }
 
 /**
@@ -6791,21 +6809,4 @@ export interface GetKeyGroupConfigRequest {
    * @public
    */
   Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKeyGroupConfigResult {
-  /**
-   * <p>The key group configuration.</p>
-   * @public
-   */
-  KeyGroupConfig?: KeyGroupConfig | undefined;
-
-  /**
-   * <p>The identifier for this version of the key group.</p>
-   * @public
-   */
-  ETag?: string | undefined;
 }

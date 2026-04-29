@@ -2,14 +2,14 @@ POST https://cloudfront.amazonaws.com
 /2020-05-31/distribution
 
 content-type: application/xml
-content-length: 5360
+content-length: 5432
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/cloudfront#_.__ m/E,e
 host: cloudfront.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 35972cdc34ebb06453708a80586a3b9acd3cf3cedcc20ae56ebbfb107ea50338
+x-amz-content-sha256: 9be46fb0e1abe35a8168810469719baf350ba121495d0b02ffd03bcb019133f7
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -435,4 +435,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cloudfront/aws
             __Id__
         </Id>
     </ConnectionFunctionAssociation>
+    <CacheTagConfig>
+        <HeaderName>
+            __HeaderName__
+        </HeaderName>
+    </CacheTagConfig>
 </DistributionConfig>

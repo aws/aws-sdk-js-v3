@@ -202,6 +202,7 @@ const _CSDWTRr = "CreateStreamingDistributionWithTagsResult";
 const _CSP = "ContentSecurityPolicy";
 const _CSe = "CertificateSource";
 const _CT = "CommentType";
+const _CTC = "CacheTagConfig";
 const _CTLP = "CertificateTransparencyLoggingPreference";
 const _CTO = "ContentTypeOptions";
 const _CTP = "ContentTypeProfile";
@@ -2391,6 +2392,11 @@ export var CachePolicySummary$: StaticStructureSchema = [3, n0, _CPS,
   [_T, _CP],
   [0, [() => CachePolicy$, 0]], 2
 ];
+export var CacheTagConfig$: StaticStructureSchema = [3, n0, _CTC,
+  0,
+  [_HN],
+  [0], 1
+];
 export var Certificate$: StaticStructureSchema = [3, n0, _Ce,
   0,
   [_Ar],
@@ -2993,8 +2999,8 @@ export var Distribution$: StaticStructureSchema = [3, n0, _D,
 ];
 export var DistributionConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_CR, _O, _DCB, _Co, _E, _A, _DRO, _OG, _CBa, _CERu, _Lo, _PC, _VC, _Re, _WACLI, _HV, _IIPVE, _CDPI, _Sta, _AILI, _TCe, _CMo, _VMC, _CFA],
-  [0, [() => Origins$, 0], [() => DefaultCacheBehavior$, 0], [() => CommentType, 0], 2, [() => Aliases$, 0], 0, [() => OriginGroups$, 0], [() => CacheBehaviors$, 0], [() => CustomErrorResponses$, 0], () => LoggingConfig$, 0, () => ViewerCertificate$, [() => Restrictions$, 0], 0, 0, 2, 0, 2, 0, [() => TenantConfig$, 0], 0, () => ViewerMtlsConfig$, () => ConnectionFunctionAssociation$], 5
+  [_CR, _O, _DCB, _Co, _E, _A, _DRO, _OG, _CBa, _CERu, _Lo, _PC, _VC, _Re, _WACLI, _HV, _IIPVE, _CDPI, _Sta, _AILI, _TCe, _CMo, _VMC, _CFA, _CTC],
+  [0, [() => Origins$, 0], [() => DefaultCacheBehavior$, 0], [() => CommentType, 0], 2, [() => Aliases$, 0], 0, [() => OriginGroups$, 0], [() => CacheBehaviors$, 0], [() => CustomErrorResponses$, 0], () => LoggingConfig$, 0, () => ViewerCertificate$, [() => Restrictions$, 0], 0, 0, 2, 0, 2, 0, [() => TenantConfig$, 0], 0, () => ViewerMtlsConfig$, () => ConnectionFunctionAssociation$, () => CacheTagConfig$], 5
 ];
 export var DistributionConfigWithTags$: StaticStructureSchema = [3, n0, _DCWT,
   0,

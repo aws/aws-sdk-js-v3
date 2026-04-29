@@ -86,6 +86,23 @@ import type {
 /**
  * @public
  */
+export interface GetKeyGroupConfigResult {
+  /**
+   * <p>The key group configuration.</p>
+   * @public
+   */
+  KeyGroupConfig?: KeyGroupConfig | undefined;
+
+  /**
+   * <p>The identifier for this version of the key group.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetManagedCertificateDetailsRequest {
   /**
    * <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
@@ -3728,7 +3745,7 @@ export interface UpdateAnycastIpListRequest {
   IpAddressType?: IpAddressType | undefined;
 
   /**
-   * <p> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool settings for updating the Anycast static IP list. </p>
+   * <p>A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool settings for updating the Anycast static IP list.</p>
    * @public
    */
   IpamCidrConfigs?: IpamCidrConfig[] | undefined;

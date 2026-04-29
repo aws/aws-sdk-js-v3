@@ -411,6 +411,9 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  * //         Id: "STRING_VALUE", // required
  * //       },
+ * //       CacheTagConfig: { // CacheTagConfig
+ * //         HeaderName: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal

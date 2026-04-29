@@ -374,6 +374,9 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  * //     ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  * //       Id: "STRING_VALUE", // required
  * //     },
+ * //     CacheTagConfig: { // CacheTagConfig
+ * //       HeaderName: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };

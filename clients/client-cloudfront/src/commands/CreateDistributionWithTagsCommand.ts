@@ -370,6 +370,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  *         Id: "STRING_VALUE", // required
  *       },
+ *       CacheTagConfig: { // CacheTagConfig
+ *         HeaderName: "STRING_VALUE", // required
+ *       },
  *     },
  *     Tags: { // Tags
  *       Items: [ // TagList
@@ -752,6 +755,9 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //       },
  * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  * //         Id: "STRING_VALUE", // required
+ * //       },
+ * //       CacheTagConfig: { // CacheTagConfig
+ * //         HeaderName: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals

@@ -468,6 +468,11 @@ ETag: __ETag__
                 __Id__
             </Id>
         </ConnectionFunctionAssociation>
+        <CacheTagConfig>
+            <HeaderName>
+                __HeaderName__
+            </HeaderName>
+        </CacheTagConfig>
     </DistributionConfig>
     <ActiveTrustedSigners>
         <Enabled>
@@ -873,6 +878,9 @@ ETag: __ETag__
       },
       ConnectionFunctionAssociation: {
         Id: "__Id__"
+      },
+      CacheTagConfig: {
+        HeaderName: "__HeaderName__"
       }
     },
     ActiveTrustedSigners: {

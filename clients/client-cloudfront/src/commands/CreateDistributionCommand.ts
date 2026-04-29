@@ -369,6 +369,9 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *     ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  *       Id: "STRING_VALUE", // required
  *     },
+ *     CacheTagConfig: { // CacheTagConfig
+ *       HeaderName: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new CreateDistributionCommand(input);
@@ -742,6 +745,9 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //       },
  * //       ConnectionFunctionAssociation: { // ConnectionFunctionAssociation
  * //         Id: "STRING_VALUE", // required
+ * //       },
+ * //       CacheTagConfig: { // CacheTagConfig
+ * //         HeaderName: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals

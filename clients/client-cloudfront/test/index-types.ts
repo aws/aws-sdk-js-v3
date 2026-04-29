@@ -575,6 +575,7 @@ export type {
   CachePolicyList,
   CachePolicyQueryStringsConfig,
   CachePolicySummary,
+  CacheTagConfig,
   Certificate,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityConfig,
