@@ -24,10 +24,25 @@ import {
   CompleteResourceTokenAuthCommand,
 } from "./commands/CompleteResourceTokenAuthCommand";
 import {
+  type CreateABTestCommandInput,
+  type CreateABTestCommandOutput,
+  CreateABTestCommand,
+} from "./commands/CreateABTestCommand";
+import {
   type CreateEventCommandInput,
   type CreateEventCommandOutput,
   CreateEventCommand,
 } from "./commands/CreateEventCommand";
+import {
+  type DeleteABTestCommandInput,
+  type DeleteABTestCommandOutput,
+  DeleteABTestCommand,
+} from "./commands/DeleteABTestCommand";
+import {
+  type DeleteBatchEvaluationCommandInput,
+  type DeleteBatchEvaluationCommandOutput,
+  DeleteBatchEvaluationCommand,
+} from "./commands/DeleteBatchEvaluationCommand";
 import {
   type DeleteEventCommandInput,
   type DeleteEventCommandOutput,
@@ -38,12 +53,23 @@ import {
   type DeleteMemoryRecordCommandOutput,
   DeleteMemoryRecordCommand,
 } from "./commands/DeleteMemoryRecordCommand";
+import {
+  type DeleteRecommendationCommandInput,
+  type DeleteRecommendationCommandOutput,
+  DeleteRecommendationCommand,
+} from "./commands/DeleteRecommendationCommand";
 import { type EvaluateCommandInput, type EvaluateCommandOutput, EvaluateCommand } from "./commands/EvaluateCommand";
+import { type GetABTestCommandInput, type GetABTestCommandOutput, GetABTestCommand } from "./commands/GetABTestCommand";
 import {
   type GetAgentCardCommandInput,
   type GetAgentCardCommandOutput,
   GetAgentCardCommand,
 } from "./commands/GetAgentCardCommand";
+import {
+  type GetBatchEvaluationCommandInput,
+  type GetBatchEvaluationCommandOutput,
+  GetBatchEvaluationCommand,
+} from "./commands/GetBatchEvaluationCommand";
 import {
   type GetBrowserSessionCommandInput,
   type GetBrowserSessionCommandOutput,
@@ -60,6 +86,11 @@ import {
   type GetMemoryRecordCommandOutput,
   GetMemoryRecordCommand,
 } from "./commands/GetMemoryRecordCommand";
+import {
+  type GetRecommendationCommandInput,
+  type GetRecommendationCommandOutput,
+  GetRecommendationCommand,
+} from "./commands/GetRecommendationCommand";
 import {
   type GetResourceApiKeyCommandInput,
   type GetResourceApiKeyCommandOutput,
@@ -111,10 +142,20 @@ import {
   InvokeHarnessCommand,
 } from "./commands/InvokeHarnessCommand";
 import {
+  type ListABTestsCommandInput,
+  type ListABTestsCommandOutput,
+  ListABTestsCommand,
+} from "./commands/ListABTestsCommand";
+import {
   type ListActorsCommandInput,
   type ListActorsCommandOutput,
   ListActorsCommand,
 } from "./commands/ListActorsCommand";
+import {
+  type ListBatchEvaluationsCommandInput,
+  type ListBatchEvaluationsCommandOutput,
+  ListBatchEvaluationsCommand,
+} from "./commands/ListBatchEvaluationsCommand";
 import {
   type ListBrowserSessionsCommandInput,
   type ListBrowserSessionsCommandOutput,
@@ -141,6 +182,11 @@ import {
   ListMemoryRecordsCommand,
 } from "./commands/ListMemoryRecordsCommand";
 import {
+  type ListRecommendationsCommandInput,
+  type ListRecommendationsCommandOutput,
+  ListRecommendationsCommand,
+} from "./commands/ListRecommendationsCommand";
+import {
   type ListSessionsCommandInput,
   type ListSessionsCommandOutput,
   ListSessionsCommand,
@@ -161,6 +207,11 @@ import {
   SearchRegistryRecordsCommand,
 } from "./commands/SearchRegistryRecordsCommand";
 import {
+  type StartBatchEvaluationCommandInput,
+  type StartBatchEvaluationCommandOutput,
+  StartBatchEvaluationCommand,
+} from "./commands/StartBatchEvaluationCommand";
+import {
   type StartBrowserSessionCommandInput,
   type StartBrowserSessionCommandOutput,
   StartBrowserSessionCommand,
@@ -175,6 +226,16 @@ import {
   type StartMemoryExtractionJobCommandOutput,
   StartMemoryExtractionJobCommand,
 } from "./commands/StartMemoryExtractionJobCommand";
+import {
+  type StartRecommendationCommandInput,
+  type StartRecommendationCommandOutput,
+  StartRecommendationCommand,
+} from "./commands/StartRecommendationCommand";
+import {
+  type StopBatchEvaluationCommandInput,
+  type StopBatchEvaluationCommandOutput,
+  StopBatchEvaluationCommand,
+} from "./commands/StopBatchEvaluationCommand";
 import {
   type StopBrowserSessionCommandInput,
   type StopBrowserSessionCommandOutput,
@@ -191,14 +252,22 @@ import {
   StopRuntimeSessionCommand,
 } from "./commands/StopRuntimeSessionCommand";
 import {
+  type UpdateABTestCommandInput,
+  type UpdateABTestCommandOutput,
+  UpdateABTestCommand,
+} from "./commands/UpdateABTestCommand";
+import {
   type UpdateBrowserStreamCommandInput,
   type UpdateBrowserStreamCommandOutput,
   UpdateBrowserStreamCommand,
 } from "./commands/UpdateBrowserStreamCommand";
+import { paginateListABTests } from "./pagination/ListABTestsPaginator";
 import { paginateListActors } from "./pagination/ListActorsPaginator";
+import { paginateListBatchEvaluations } from "./pagination/ListBatchEvaluationsPaginator";
 import { paginateListEvents } from "./pagination/ListEventsPaginator";
 import { paginateListMemoryExtractionJobs } from "./pagination/ListMemoryExtractionJobsPaginator";
 import { paginateListMemoryRecords } from "./pagination/ListMemoryRecordsPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
 import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 import { paginateRetrieveMemoryRecords } from "./pagination/RetrieveMemoryRecordsPaginator";
 
@@ -207,15 +276,22 @@ const commands = {
   BatchDeleteMemoryRecordsCommand,
   BatchUpdateMemoryRecordsCommand,
   CompleteResourceTokenAuthCommand,
+  CreateABTestCommand,
   CreateEventCommand,
+  DeleteABTestCommand,
+  DeleteBatchEvaluationCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
+  DeleteRecommendationCommand,
   EvaluateCommand,
+  GetABTestCommand,
   GetAgentCardCommand,
+  GetBatchEvaluationCommand,
   GetBrowserSessionCommand,
   GetCodeInterpreterSessionCommand,
   GetEventCommand,
   GetMemoryRecordCommand,
+  GetRecommendationCommand,
   GetResourceApiKeyCommand,
   GetResourceOauth2TokenCommand,
   GetWorkloadAccessTokenCommand,
@@ -226,29 +302,39 @@ const commands = {
   InvokeBrowserCommand,
   InvokeCodeInterpreterCommand,
   InvokeHarnessCommand,
+  ListABTestsCommand,
   ListActorsCommand,
+  ListBatchEvaluationsCommand,
   ListBrowserSessionsCommand,
   ListCodeInterpreterSessionsCommand,
   ListEventsCommand,
   ListMemoryExtractionJobsCommand,
   ListMemoryRecordsCommand,
+  ListRecommendationsCommand,
   ListSessionsCommand,
   RetrieveMemoryRecordsCommand,
   SaveBrowserSessionProfileCommand,
   SearchRegistryRecordsCommand,
+  StartBatchEvaluationCommand,
   StartBrowserSessionCommand,
   StartCodeInterpreterSessionCommand,
   StartMemoryExtractionJobCommand,
+  StartRecommendationCommand,
+  StopBatchEvaluationCommand,
   StopBrowserSessionCommand,
   StopCodeInterpreterSessionCommand,
   StopRuntimeSessionCommand,
+  UpdateABTestCommand,
   UpdateBrowserStreamCommand,
 };
 const paginators = {
+  paginateListABTests,
   paginateListActors,
+  paginateListBatchEvaluations,
   paginateListEvents,
   paginateListMemoryExtractionJobs,
   paginateListMemoryRecords,
+  paginateListRecommendations,
   paginateListSessions,
   paginateRetrieveMemoryRecords,
 };
@@ -323,6 +409,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link CreateABTestCommand}
+   */
+  createABTest(
+    args: CreateABTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateABTestCommandOutput>;
+  createABTest(
+    args: CreateABTestCommandInput,
+    cb: (err: any, data?: CreateABTestCommandOutput) => void
+  ): void;
+  createABTest(
+    args: CreateABTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateABTestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEventCommand}
    */
   createEvent(
@@ -337,6 +440,40 @@ export interface BedrockAgentCore {
     args: CreateEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteABTestCommand}
+   */
+  deleteABTest(
+    args: DeleteABTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteABTestCommandOutput>;
+  deleteABTest(
+    args: DeleteABTestCommandInput,
+    cb: (err: any, data?: DeleteABTestCommandOutput) => void
+  ): void;
+  deleteABTest(
+    args: DeleteABTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteABTestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteBatchEvaluationCommand}
+   */
+  deleteBatchEvaluation(
+    args: DeleteBatchEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBatchEvaluationCommandOutput>;
+  deleteBatchEvaluation(
+    args: DeleteBatchEvaluationCommandInput,
+    cb: (err: any, data?: DeleteBatchEvaluationCommandOutput) => void
+  ): void;
+  deleteBatchEvaluation(
+    args: DeleteBatchEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBatchEvaluationCommandOutput) => void
   ): void;
 
   /**
@@ -374,6 +511,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link DeleteRecommendationCommand}
+   */
+  deleteRecommendation(
+    args: DeleteRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecommendationCommandOutput>;
+  deleteRecommendation(
+    args: DeleteRecommendationCommandInput,
+    cb: (err: any, data?: DeleteRecommendationCommandOutput) => void
+  ): void;
+  deleteRecommendation(
+    args: DeleteRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecommendationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EvaluateCommand}
    */
   evaluate(
@@ -391,6 +545,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link GetABTestCommand}
+   */
+  getABTest(
+    args: GetABTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetABTestCommandOutput>;
+  getABTest(
+    args: GetABTestCommandInput,
+    cb: (err: any, data?: GetABTestCommandOutput) => void
+  ): void;
+  getABTest(
+    args: GetABTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetABTestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAgentCardCommand}
    */
   getAgentCard(
@@ -405,6 +576,23 @@ export interface BedrockAgentCore {
     args: GetAgentCardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAgentCardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBatchEvaluationCommand}
+   */
+  getBatchEvaluation(
+    args: GetBatchEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBatchEvaluationCommandOutput>;
+  getBatchEvaluation(
+    args: GetBatchEvaluationCommandInput,
+    cb: (err: any, data?: GetBatchEvaluationCommandOutput) => void
+  ): void;
+  getBatchEvaluation(
+    args: GetBatchEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBatchEvaluationCommandOutput) => void
   ): void;
 
   /**
@@ -473,6 +661,23 @@ export interface BedrockAgentCore {
     args: GetMemoryRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMemoryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecommendationCommand}
+   */
+  getRecommendation(
+    args: GetRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommendationCommandOutput>;
+  getRecommendation(
+    args: GetRecommendationCommandInput,
+    cb: (err: any, data?: GetRecommendationCommandOutput) => void
+  ): void;
+  getRecommendation(
+    args: GetRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommendationCommandOutput) => void
   ): void;
 
   /**
@@ -646,6 +851,24 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link ListABTestsCommand}
+   */
+  listABTests(): Promise<ListABTestsCommandOutput>;
+  listABTests(
+    args: ListABTestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListABTestsCommandOutput>;
+  listABTests(
+    args: ListABTestsCommandInput,
+    cb: (err: any, data?: ListABTestsCommandOutput) => void
+  ): void;
+  listABTests(
+    args: ListABTestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListABTestsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListActorsCommand}
    */
   listActors(
@@ -660,6 +883,24 @@ export interface BedrockAgentCore {
     args: ListActorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListActorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBatchEvaluationsCommand}
+   */
+  listBatchEvaluations(): Promise<ListBatchEvaluationsCommandOutput>;
+  listBatchEvaluations(
+    args: ListBatchEvaluationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBatchEvaluationsCommandOutput>;
+  listBatchEvaluations(
+    args: ListBatchEvaluationsCommandInput,
+    cb: (err: any, data?: ListBatchEvaluationsCommandOutput) => void
+  ): void;
+  listBatchEvaluations(
+    args: ListBatchEvaluationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBatchEvaluationsCommandOutput) => void
   ): void;
 
   /**
@@ -748,6 +989,24 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link ListRecommendationsCommand}
+   */
+  listRecommendations(): Promise<ListRecommendationsCommandOutput>;
+  listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendationsCommandOutput>;
+  listRecommendations(
+    args: ListRecommendationsCommandInput,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+  listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSessionsCommand}
    */
   listSessions(
@@ -816,6 +1075,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link StartBatchEvaluationCommand}
+   */
+  startBatchEvaluation(
+    args: StartBatchEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBatchEvaluationCommandOutput>;
+  startBatchEvaluation(
+    args: StartBatchEvaluationCommandInput,
+    cb: (err: any, data?: StartBatchEvaluationCommandOutput) => void
+  ): void;
+  startBatchEvaluation(
+    args: StartBatchEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBatchEvaluationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartBrowserSessionCommand}
    */
   startBrowserSession(
@@ -864,6 +1140,40 @@ export interface BedrockAgentCore {
     args: StartMemoryExtractionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartMemoryExtractionJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartRecommendationCommand}
+   */
+  startRecommendation(
+    args: StartRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRecommendationCommandOutput>;
+  startRecommendation(
+    args: StartRecommendationCommandInput,
+    cb: (err: any, data?: StartRecommendationCommandOutput) => void
+  ): void;
+  startRecommendation(
+    args: StartRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopBatchEvaluationCommand}
+   */
+  stopBatchEvaluation(
+    args: StopBatchEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBatchEvaluationCommandOutput>;
+  stopBatchEvaluation(
+    args: StopBatchEvaluationCommandInput,
+    cb: (err: any, data?: StopBatchEvaluationCommandOutput) => void
+  ): void;
+  stopBatchEvaluation(
+    args: StopBatchEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopBatchEvaluationCommandOutput) => void
   ): void;
 
   /**
@@ -918,6 +1228,23 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link UpdateABTestCommand}
+   */
+  updateABTest(
+    args: UpdateABTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateABTestCommandOutput>;
+  updateABTest(
+    args: UpdateABTestCommandInput,
+    cb: (err: any, data?: UpdateABTestCommandOutput) => void
+  ): void;
+  updateABTest(
+    args: UpdateABTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateABTestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateBrowserStreamCommand}
    */
   updateBrowserStream(
@@ -935,6 +1262,17 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link ListABTestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListABTestsCommandOutput}.
+   */
+  paginateListABTests(
+    args?: ListABTestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListABTestsCommandOutput>;
+
+  /**
    * @see {@link ListActorsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -944,6 +1282,17 @@ export interface BedrockAgentCore {
     args: ListActorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListActorsCommandOutput>;
+
+  /**
+   * @see {@link ListBatchEvaluationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchEvaluationsCommandOutput}.
+   */
+  paginateListBatchEvaluations(
+    args?: ListBatchEvaluationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchEvaluationsCommandOutput>;
 
   /**
    * @see {@link ListEventsCommand}
@@ -977,6 +1326,17 @@ export interface BedrockAgentCore {
     args: ListMemoryRecordsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListMemoryRecordsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args?: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
 
   /**
    * @see {@link ListSessionsCommand}

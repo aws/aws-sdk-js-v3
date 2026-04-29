@@ -84,14 +84,29 @@ import type {
   CompleteResourceTokenAuthCommandInput,
   CompleteResourceTokenAuthCommandOutput,
 } from "./commands/CompleteResourceTokenAuthCommand";
+import type { CreateABTestCommandInput, CreateABTestCommandOutput } from "./commands/CreateABTestCommand";
 import type { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
+import type { DeleteABTestCommandInput, DeleteABTestCommandOutput } from "./commands/DeleteABTestCommand";
+import type {
+  DeleteBatchEvaluationCommandInput,
+  DeleteBatchEvaluationCommandOutput,
+} from "./commands/DeleteBatchEvaluationCommand";
 import type { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import type {
   DeleteMemoryRecordCommandInput,
   DeleteMemoryRecordCommandOutput,
 } from "./commands/DeleteMemoryRecordCommand";
+import type {
+  DeleteRecommendationCommandInput,
+  DeleteRecommendationCommandOutput,
+} from "./commands/DeleteRecommendationCommand";
 import type { EvaluateCommandInput, EvaluateCommandOutput } from "./commands/EvaluateCommand";
+import type { GetABTestCommandInput, GetABTestCommandOutput } from "./commands/GetABTestCommand";
 import type { GetAgentCardCommandInput, GetAgentCardCommandOutput } from "./commands/GetAgentCardCommand";
+import type {
+  GetBatchEvaluationCommandInput,
+  GetBatchEvaluationCommandOutput,
+} from "./commands/GetBatchEvaluationCommand";
 import type {
   GetBrowserSessionCommandInput,
   GetBrowserSessionCommandOutput,
@@ -102,6 +117,10 @@ import type {
 } from "./commands/GetCodeInterpreterSessionCommand";
 import type { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
 import type { GetMemoryRecordCommandInput, GetMemoryRecordCommandOutput } from "./commands/GetMemoryRecordCommand";
+import type {
+  GetRecommendationCommandInput,
+  GetRecommendationCommandOutput,
+} from "./commands/GetRecommendationCommand";
 import type {
   GetResourceApiKeyCommandInput,
   GetResourceApiKeyCommandOutput,
@@ -136,7 +155,12 @@ import type {
   InvokeCodeInterpreterCommandOutput,
 } from "./commands/InvokeCodeInterpreterCommand";
 import type { InvokeHarnessCommandInput, InvokeHarnessCommandOutput } from "./commands/InvokeHarnessCommand";
+import type { ListABTestsCommandInput, ListABTestsCommandOutput } from "./commands/ListABTestsCommand";
 import type { ListActorsCommandInput, ListActorsCommandOutput } from "./commands/ListActorsCommand";
+import type {
+  ListBatchEvaluationsCommandInput,
+  ListBatchEvaluationsCommandOutput,
+} from "./commands/ListBatchEvaluationsCommand";
 import type {
   ListBrowserSessionsCommandInput,
   ListBrowserSessionsCommandOutput,
@@ -154,6 +178,10 @@ import type {
   ListMemoryRecordsCommandInput,
   ListMemoryRecordsCommandOutput,
 } from "./commands/ListMemoryRecordsCommand";
+import type {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
 import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import type {
   RetrieveMemoryRecordsCommandInput,
@@ -168,6 +196,10 @@ import type {
   SearchRegistryRecordsCommandOutput,
 } from "./commands/SearchRegistryRecordsCommand";
 import type {
+  StartBatchEvaluationCommandInput,
+  StartBatchEvaluationCommandOutput,
+} from "./commands/StartBatchEvaluationCommand";
+import type {
   StartBrowserSessionCommandInput,
   StartBrowserSessionCommandOutput,
 } from "./commands/StartBrowserSessionCommand";
@@ -180,6 +212,14 @@ import type {
   StartMemoryExtractionJobCommandOutput,
 } from "./commands/StartMemoryExtractionJobCommand";
 import type {
+  StartRecommendationCommandInput,
+  StartRecommendationCommandOutput,
+} from "./commands/StartRecommendationCommand";
+import type {
+  StopBatchEvaluationCommandInput,
+  StopBatchEvaluationCommandOutput,
+} from "./commands/StopBatchEvaluationCommand";
+import type {
   StopBrowserSessionCommandInput,
   StopBrowserSessionCommandOutput,
 } from "./commands/StopBrowserSessionCommand";
@@ -191,6 +231,7 @@ import type {
   StopRuntimeSessionCommandInput,
   StopRuntimeSessionCommandOutput,
 } from "./commands/StopRuntimeSessionCommand";
+import type { UpdateABTestCommandInput, UpdateABTestCommandOutput } from "./commands/UpdateABTestCommand";
 import type {
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
@@ -214,15 +255,22 @@ export type ServiceInputTypes =
   | BatchDeleteMemoryRecordsCommandInput
   | BatchUpdateMemoryRecordsCommandInput
   | CompleteResourceTokenAuthCommandInput
+  | CreateABTestCommandInput
   | CreateEventCommandInput
+  | DeleteABTestCommandInput
+  | DeleteBatchEvaluationCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
+  | DeleteRecommendationCommandInput
   | EvaluateCommandInput
+  | GetABTestCommandInput
   | GetAgentCardCommandInput
+  | GetBatchEvaluationCommandInput
   | GetBrowserSessionCommandInput
   | GetCodeInterpreterSessionCommandInput
   | GetEventCommandInput
   | GetMemoryRecordCommandInput
+  | GetRecommendationCommandInput
   | GetResourceApiKeyCommandInput
   | GetResourceOauth2TokenCommandInput
   | GetWorkloadAccessTokenCommandInput
@@ -233,22 +281,29 @@ export type ServiceInputTypes =
   | InvokeBrowserCommandInput
   | InvokeCodeInterpreterCommandInput
   | InvokeHarnessCommandInput
+  | ListABTestsCommandInput
   | ListActorsCommandInput
+  | ListBatchEvaluationsCommandInput
   | ListBrowserSessionsCommandInput
   | ListCodeInterpreterSessionsCommandInput
   | ListEventsCommandInput
   | ListMemoryExtractionJobsCommandInput
   | ListMemoryRecordsCommandInput
+  | ListRecommendationsCommandInput
   | ListSessionsCommandInput
   | RetrieveMemoryRecordsCommandInput
   | SaveBrowserSessionProfileCommandInput
   | SearchRegistryRecordsCommandInput
+  | StartBatchEvaluationCommandInput
   | StartBrowserSessionCommandInput
   | StartCodeInterpreterSessionCommandInput
   | StartMemoryExtractionJobCommandInput
+  | StartRecommendationCommandInput
+  | StopBatchEvaluationCommandInput
   | StopBrowserSessionCommandInput
   | StopCodeInterpreterSessionCommandInput
   | StopRuntimeSessionCommandInput
+  | UpdateABTestCommandInput
   | UpdateBrowserStreamCommandInput;
 
 /**
@@ -259,15 +314,22 @@ export type ServiceOutputTypes =
   | BatchDeleteMemoryRecordsCommandOutput
   | BatchUpdateMemoryRecordsCommandOutput
   | CompleteResourceTokenAuthCommandOutput
+  | CreateABTestCommandOutput
   | CreateEventCommandOutput
+  | DeleteABTestCommandOutput
+  | DeleteBatchEvaluationCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput
+  | DeleteRecommendationCommandOutput
   | EvaluateCommandOutput
+  | GetABTestCommandOutput
   | GetAgentCardCommandOutput
+  | GetBatchEvaluationCommandOutput
   | GetBrowserSessionCommandOutput
   | GetCodeInterpreterSessionCommandOutput
   | GetEventCommandOutput
   | GetMemoryRecordCommandOutput
+  | GetRecommendationCommandOutput
   | GetResourceApiKeyCommandOutput
   | GetResourceOauth2TokenCommandOutput
   | GetWorkloadAccessTokenCommandOutput
@@ -278,22 +340,29 @@ export type ServiceOutputTypes =
   | InvokeBrowserCommandOutput
   | InvokeCodeInterpreterCommandOutput
   | InvokeHarnessCommandOutput
+  | ListABTestsCommandOutput
   | ListActorsCommandOutput
+  | ListBatchEvaluationsCommandOutput
   | ListBrowserSessionsCommandOutput
   | ListCodeInterpreterSessionsCommandOutput
   | ListEventsCommandOutput
   | ListMemoryExtractionJobsCommandOutput
   | ListMemoryRecordsCommandOutput
+  | ListRecommendationsCommandOutput
   | ListSessionsCommandOutput
   | RetrieveMemoryRecordsCommandOutput
   | SaveBrowserSessionProfileCommandOutput
   | SearchRegistryRecordsCommandOutput
+  | StartBatchEvaluationCommandOutput
   | StartBrowserSessionCommandOutput
   | StartCodeInterpreterSessionCommandOutput
   | StartMemoryExtractionJobCommandOutput
+  | StartRecommendationCommandOutput
+  | StopBatchEvaluationCommandOutput
   | StopBrowserSessionCommandOutput
   | StopCodeInterpreterSessionCommandOutput
   | StopRuntimeSessionCommandOutput
+  | UpdateABTestCommandOutput
   | UpdateBrowserStreamCommandOutput;
 
 /**

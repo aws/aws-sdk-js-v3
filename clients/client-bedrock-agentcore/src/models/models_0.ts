@@ -2,14 +2,17 @@
 import type { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import type {
+  ABTestExecutionStatus,
+  ABTestStatus,
   AutomationStreamStatus,
+  BatchEvaluationStatus,
   BrowserActionStatus,
   BrowserEnterprisePolicyType,
   BrowserSessionStatus,
+  CloudWatchLogsFilterOperator,
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
   ContentBlockType,
-  DescriptorType,
   EventFilterCondition,
   ExtractionJobStatus,
   HarnessConversationRole,
@@ -24,7 +27,8 @@ import type {
   OAuthGrantType,
   OperatorType,
   ProgrammingLanguage,
-  RegistryRecordStatus,
+  RecommendationStatus,
+  RecommendationType,
   ResourceContentType,
   Role,
   ScreenshotFormat,
@@ -71,6 +75,275 @@ export interface A2aDescriptor {
    * @public
    */
   agentCard: AgentCardDefinition | undefined;
+}
+
+/**
+ * <p>An online evaluation configuration associated with a specific A/B test variant.</p>
+ * @public
+ */
+export interface PerVariantOnlineEvaluationConfig {
+  /**
+   * <p>The name of the variant this evaluation configuration applies to.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the online evaluation configuration for this variant.</p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+}
+
+/**
+ * <p>The evaluation configuration for an A/B test, specifying which online evaluation configurations to use for measuring variant performance.</p>
+ * @public
+ */
+export type ABTestEvaluationConfig =
+  | ABTestEvaluationConfig.OnlineEvaluationConfigArnMember
+  | ABTestEvaluationConfig.PerVariantOnlineEvaluationConfigMember
+  | ABTestEvaluationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ABTestEvaluationConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a single online evaluation configuration to use for both variants.</p>
+   * @public
+   */
+  export interface OnlineEvaluationConfigArnMember {
+    onlineEvaluationConfigArn: string;
+    perVariantOnlineEvaluationConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Per-variant online evaluation configurations, allowing different evaluation settings for each variant.</p>
+   * @public
+   */
+  export interface PerVariantOnlineEvaluationConfigMember {
+    onlineEvaluationConfigArn?: never;
+    perVariantOnlineEvaluationConfig: PerVariantOnlineEvaluationConfig[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    onlineEvaluationConfigArn?: never;
+    perVariantOnlineEvaluationConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    onlineEvaluationConfigArn: (value: string) => T;
+    perVariantOnlineEvaluationConfig: (value: PerVariantOnlineEvaluationConfig[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Statistics for the control variant in an A/B test.</p>
+ * @public
+ */
+export interface ControlStats {
+  /**
+   * <p>The name of the control variant.</p>
+   * @public
+   */
+  variantName: string | undefined;
+
+  /**
+   * <p>The number of sessions evaluated for the control variant.</p>
+   * @public
+   */
+  sampleSize: number | undefined;
+
+  /**
+   * <p>The mean evaluation score for the control variant.</p>
+   * @public
+   */
+  mean: number | undefined;
+}
+
+/**
+ * <p>A confidence interval for a statistical measurement.</p>
+ * @public
+ */
+export interface ConfidenceInterval {
+  /**
+   * <p>The lower bound of the confidence interval.</p>
+   * @public
+   */
+  lower?: number | undefined;
+
+  /**
+   * <p>The upper bound of the confidence interval.</p>
+   * @public
+   */
+  upper?: number | undefined;
+}
+
+/**
+ * <p>Statistical results for a treatment variant compared against the control.</p>
+ * @public
+ */
+export interface VariantResult {
+  /**
+   * <p>The name of the treatment variant.</p>
+   * @public
+   */
+  variantName: string | undefined;
+
+  /**
+   * <p>The number of sessions evaluated for this variant.</p>
+   * @public
+   */
+  sampleSize: number | undefined;
+
+  /**
+   * <p>The mean evaluation score for this variant.</p>
+   * @public
+   */
+  mean: number | undefined;
+
+  /**
+   * <p>The absolute change in mean score compared to the control variant.</p>
+   * @public
+   */
+  absoluteChange?: number | undefined;
+
+  /**
+   * <p>The percentage change in mean score compared to the control variant.</p>
+   * @public
+   */
+  percentChange?: number | undefined;
+
+  /**
+   * <p>The p-value indicating the statistical significance of the observed difference.</p>
+   * @public
+   */
+  pValue?: number | undefined;
+
+  /**
+   * <p>The confidence interval for the observed difference.</p>
+   * @public
+   */
+  confidenceInterval?: ConfidenceInterval | undefined;
+
+  /**
+   * <p>Whether the observed difference is statistically significant.</p>
+   * @public
+   */
+  isSignificant: boolean | undefined;
+}
+
+/**
+ * <p>Statistical metrics for a single evaluator comparing control and treatment variants.</p>
+ * @public
+ */
+export interface EvaluatorMetric {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluator.</p>
+   * @public
+   */
+  evaluatorArn: string | undefined;
+
+  /**
+   * <p>The statistics for the control variant.</p>
+   * @public
+   */
+  controlStats: ControlStats | undefined;
+
+  /**
+   * <p>The results for each treatment variant compared against the control.</p>
+   * @public
+   */
+  variantResults: VariantResult[] | undefined;
+}
+
+/**
+ * <p>The statistical results of an A/B test.</p>
+ * @public
+ */
+export interface ABTestResults {
+  /**
+   * <p>The timestamp when the analysis was performed.</p>
+   * @public
+   */
+  analysisTimestamp?: Date | undefined;
+
+  /**
+   * <p>The per-evaluator metrics comparing control and treatment variants.</p>
+   * @public
+   */
+  evaluatorMetrics: EvaluatorMetric[] | undefined;
+}
+
+/**
+ * <p>Summary information about an A/B test.</p>
+ * @public
+ */
+export interface ABTestSummary {
+  /**
+   * <p>The unique identifier of the A/B test.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the A/B test.</p>
+   * @public
+   */
+  abTestArn: string | undefined;
+
+  /**
+   * <p>The name of the A/B test.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the A/B test.</p>
+   * @public
+   */
+  status: ABTestStatus | undefined;
+
+  /**
+   * <p>The execution status of the A/B test.</p>
+   * @public
+   */
+  executionStatus: ABTestExecutionStatus | undefined;
+
+  /**
+   * <p>The description of the A/B test.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway used for traffic splitting.</p>
+   * @public
+   */
+  gatewayArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**
@@ -784,6 +1057,200 @@ export interface AgentSkillsDescriptor {
    * @public
    */
   skillDefinition?: SkillDefinition | undefined;
+}
+
+/**
+ * <p>A value used in filter comparisons, supporting different data types.</p>
+ * @public
+ */
+export type FilterValue =
+  | FilterValue.BooleanValueMember
+  | FilterValue.DoubleValueMember
+  | FilterValue.StringValueMember
+  | FilterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FilterValue {
+  /**
+   * <p>A string value for text-based filtering.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A numeric value for numerical filtering and comparisons.</p>
+   * @public
+   */
+  export interface DoubleValueMember {
+    stringValue?: never;
+    doubleValue: number;
+    booleanValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A boolean value for true/false filtering conditions.</p>
+   * @public
+   */
+  export interface BooleanValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    doubleValue: (value: number) => T;
+    booleanValue: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A filter for narrowing down agent traces from CloudWatch Logs based on key-value comparisons.</p>
+ * @public
+ */
+export interface CloudWatchLogsFilter {
+  /**
+   * <p>The key or field name to filter on within the agent trace data.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The comparison operator to use for filtering.</p>
+   * @public
+   */
+  operator: CloudWatchLogsFilterOperator | undefined;
+
+  /**
+   * <p>The value to compare against using the specified operator.</p>
+   * @public
+   */
+  value: FilterValue | undefined;
+}
+
+/**
+ * <p>A rule configuration for filtering agent traces from CloudWatch Logs.</p>
+ * @public
+ */
+export interface CloudWatchLogsRule {
+  /**
+   * <p>The list of filters to apply when reading agent traces.</p>
+   * @public
+   */
+  filters?: CloudWatchLogsFilter[] | undefined;
+}
+
+/**
+ * <p>Configuration for reading agent traces from CloudWatch Logs for recommendation analysis.</p>
+ * @public
+ */
+export interface CloudWatchLogsTraceConfig {
+  /**
+   * <p>The list of CloudWatch log group ARNs to read agent traces from.</p>
+   * @public
+   */
+  logGroupArns: string[] | undefined;
+
+  /**
+   * <p>The list of service names to filter traces within the specified log groups.</p>
+   * @public
+   */
+  serviceNames: string[] | undefined;
+
+  /**
+   * <p>The start time of the time range to read traces from.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time of the time range to read traces from.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>Optional rule configuration for filtering traces.</p>
+   * @public
+   */
+  rule?: CloudWatchLogsRule | undefined;
+}
+
+/**
+ * <p>The configuration specifying where to read agent traces from for recommendation analysis.</p>
+ * @public
+ */
+export type AgentTracesConfig =
+  | AgentTracesConfig.CloudwatchLogsMember
+  | AgentTracesConfig.SessionSpansMember
+  | AgentTracesConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentTracesConfig {
+  /**
+   * <p>Agent traces provided as inline session spans in OpenTelemetry format.</p>
+   * @public
+   */
+  export interface SessionSpansMember {
+    sessionSpans: __DocumentType[];
+    cloudwatchLogs?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Agent traces read from CloudWatch Logs.</p>
+   * @public
+   */
+  export interface CloudwatchLogsMember {
+    sessionSpans?: never;
+    cloudwatchLogs: CloudWatchLogsTraceConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sessionSpans?: never;
+    cloudwatchLogs?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    sessionSpans: (value: __DocumentType[]) => T;
+    cloudwatchLogs: (value: CloudWatchLogsTraceConfig) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -2787,6 +3254,286 @@ export interface CompleteResourceTokenAuthRequest {
 export interface CompleteResourceTokenAuthResponse {}
 
 /**
+ * <p>A filter to restrict which gateway target paths are included in the A/B test.</p>
+ * @public
+ */
+export interface GatewayFilter {
+  /**
+   * <p>A list of target path patterns to include in the A/B test.</p>
+   * @public
+   */
+  targetPaths?: string[] | undefined;
+}
+
+/**
+ * <p>A reference to a specific version of a configuration bundle.</p>
+ * @public
+ */
+export interface ConfigurationBundleRef {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The version of the configuration bundle.</p>
+   * @public
+   */
+  bundleVersion: string | undefined;
+}
+
+/**
+ * <p>A reference to a gateway target.</p>
+ * @public
+ */
+export interface TargetRef {
+  /**
+   * <p>The name of the gateway target.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>The configuration for an A/B test variant.</p>
+ * @public
+ */
+export interface VariantConfiguration {
+  /**
+   * <p>A reference to a configuration bundle version to use for this variant.</p>
+   * @public
+   */
+  configurationBundle?: ConfigurationBundleRef | undefined;
+
+  /**
+   * <p>A reference to a gateway target to route traffic to for this variant.</p>
+   * @public
+   */
+  target?: TargetRef | undefined;
+}
+
+/**
+ * <p>A variant in an A/B test, representing either the control (C) or treatment (T1) configuration.</p>
+ * @public
+ */
+export interface Variant {
+  /**
+   * <p>The name of the variant. Must be <code>C</code> for control or <code>T1</code> for treatment.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The percentage of traffic to route to this variant. Weights across all variants must sum to 100.</p>
+   * @public
+   */
+  weight: number | undefined;
+
+  /**
+   * <p>The configuration for this variant, including the configuration bundle or target reference.</p>
+   * @public
+   */
+  variantConfiguration: VariantConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateABTestRequest {
+  /**
+   * <p>The name of the A/B test. Must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the A/B test.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway to use for traffic splitting.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The list of variants for the A/B test. Must contain exactly two variants: a control (C) and a treatment (T1), each with a configuration bundle or target reference and a traffic weight.</p>
+   * @public
+   */
+  variants: Variant[] | undefined;
+
+  /**
+   * <p>Optional filter to restrict which gateway target paths are included in the A/B test.</p>
+   * @public
+   */
+  gatewayFilter?: GatewayFilter | undefined;
+
+  /**
+   * <p>The evaluation configuration specifying which online evaluation configurations to use for measuring variant performance.</p>
+   * @public
+   */
+  evaluationConfig: ABTestEvaluationConfig | undefined;
+
+  /**
+   * <p>The IAM role ARN that grants permissions for the A/B test to access gateway and evaluation resources.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Whether to enable the A/B test immediately upon creation. If true, traffic splitting begins automatically.</p>
+   * @public
+   */
+  enableOnCreate?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateABTestResponse {
+  /**
+   * <p>The unique identifier of the created A/B test.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created A/B test.</p>
+   * @public
+   */
+  abTestArn: string | undefined;
+
+  /**
+   * <p>The name of the A/B test.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The status of the A/B test.</p>
+   * @public
+   */
+  status: ABTestStatus | undefined;
+
+  /**
+   * <p>The execution status indicating whether the A/B test is currently running.</p>
+   * @public
+   */
+  executionStatus: ABTestExecutionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteABTestRequest {
+  /**
+   * <p>The unique identifier of the A/B test to delete.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteABTestResponse {
+  /**
+   * <p>The unique identifier of the deleted A/B test.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted A/B test.</p>
+   * @public
+   */
+  abTestArn: string | undefined;
+
+  /**
+   * <p>The status of the A/B test deletion operation.</p>
+   * @public
+   */
+  status: ABTestStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBatchEvaluationRequest {
+  /**
+   * <p>The unique identifier of the batch evaluation to delete.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBatchEvaluationResponse {
+  /**
+   * <p>The unique identifier of the deleted batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+
+  /**
+   * <p>The status of the batch evaluation deletion operation.</p>
+   * @public
+   */
+  status: BatchEvaluationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecommendationRequest {
+  /**
+   * <p>The unique identifier of the recommendation to delete.</p>
+   * @public
+   */
+  recommendationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecommendationResponse {
+  /**
+   * <p>The unique identifier of the deleted recommendation.</p>
+   * @public
+   */
+  recommendationId: string | undefined;
+
+  /**
+   * <p>The status of the recommendation deletion operation.</p>
+   * @public
+   */
+  status: RecommendationStatus | undefined;
+}
+
+/**
  * <p> The input data structure containing agent session spans in OpenTelemetry format. Supports traces from frameworks like Strands (AgentCore Runtime) and LangGraph with OpenInference instrumentation for comprehensive evaluation. </p>
  * @public
  */
@@ -3156,6 +3903,1800 @@ export interface EvaluateResponse {
    * @public
    */
   evaluationResults: EvaluationResultContent[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetABTestRequest {
+  /**
+   * <p>The unique identifier of the A/B test to retrieve.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetABTestResponse {
+  /**
+   * <p>The unique identifier of the A/B test.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the A/B test.</p>
+   * @public
+   */
+  abTestArn: string | undefined;
+
+  /**
+   * <p>The name of the A/B test.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the A/B test.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The current status of the A/B test.</p>
+   * @public
+   */
+  status: ABTestStatus | undefined;
+
+  /**
+   * <p>The execution status indicating whether the A/B test is currently running.</p>
+   * @public
+   */
+  executionStatus: ABTestExecutionStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway used for traffic splitting.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The list of variants in the A/B test.</p>
+   * @public
+   */
+  variants: Variant[] | undefined;
+
+  /**
+   * <p>The gateway filter restricting which target paths are included.</p>
+   * @public
+   */
+  gatewayFilter?: GatewayFilter | undefined;
+
+  /**
+   * <p>The evaluation configuration for measuring variant performance.</p>
+   * @public
+   */
+  evaluationConfig: ABTestEvaluationConfig | undefined;
+
+  /**
+   * <p>The IAM role ARN used by the A/B test.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the current run of the A/B test.</p>
+   * @public
+   */
+  currentRunId?: string | undefined;
+
+  /**
+   * <p>The error details if the A/B test encountered failures.</p>
+   * @public
+   */
+  errorDetails?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was stopped.</p>
+   * @public
+   */
+  stoppedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test will automatically expire.</p>
+   * @public
+   */
+  maxDurationExpiresAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The statistical results of the A/B test, including per-evaluator metrics and significance analysis.</p>
+   * @public
+   */
+  results?: ABTestResults | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBatchEvaluationRequest {
+  /**
+   * <p>The unique identifier of the batch evaluation to retrieve.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+}
+
+/**
+ * <p>A time range filter for selecting sessions. Specifies the start and end times to narrow down which sessions are included.</p>
+ * @public
+ */
+export interface SessionFilterConfig {
+  /**
+   * <p>The start time of the time range. Only sessions with activity at or after this timestamp are included.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the time range. Only sessions with activity before this timestamp are included.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
+ * <p>Filter configuration for narrowing down CloudWatch Logs sessions for evaluation.</p>
+ * @public
+ */
+export interface CloudWatchFilterConfig {
+  /**
+   * <p>A list of specific session IDs to evaluate. If specified, only these sessions are included in the evaluation.</p>
+   * @public
+   */
+  sessionIds?: string[] | undefined;
+
+  /**
+   * <p>The time range filter for selecting sessions to evaluate.</p>
+   * @public
+   */
+  timeRange?: SessionFilterConfig | undefined;
+}
+
+/**
+ * <p>The configuration for reading agent traces from CloudWatch Logs.</p>
+ * @public
+ */
+export interface CloudWatchLogsSource {
+  /**
+   * <p>The list of agent service names to filter traces within the specified log groups.</p>
+   * @public
+   */
+  serviceNames: string[] | undefined;
+
+  /**
+   * <p>The list of CloudWatch log group names to read agent traces from. Maximum of 5 log groups.</p>
+   * @public
+   */
+  logGroupNames: string[] | undefined;
+
+  /**
+   * <p>Optional filter configuration to narrow down which sessions to evaluate.</p>
+   * @public
+   */
+  filterConfig?: CloudWatchFilterConfig | undefined;
+}
+
+/**
+ * Where to pull session spans from
+ * @public
+ */
+export type DataSourceConfig =
+  | DataSourceConfig.CloudWatchLogsMember
+  | DataSourceConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSourceConfig {
+  /**
+   * Pull session spans from CloudWatch
+   * @public
+   */
+  export interface CloudWatchLogsMember {
+    cloudWatchLogs: CloudWatchLogsSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cloudWatchLogs?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cloudWatchLogs: (value: CloudWatchLogsSource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Aggregated statistics for an evaluator.</p>
+ * @public
+ */
+export interface EvaluatorStatistics {
+  /**
+   * <p>The average score across all evaluated sessions for this evaluator.</p>
+   * @public
+   */
+  averageScore?: number | undefined;
+}
+
+/**
+ * <p>Summary statistics for a single evaluator within a batch evaluation.</p>
+ * @public
+ */
+export interface EvaluatorSummary {
+  /**
+   * <p>The unique identifier of the evaluator.</p>
+   * @public
+   */
+  evaluatorId?: string | undefined;
+
+  /**
+   * <p>The aggregated statistics for this evaluator.</p>
+   * @public
+   */
+  statistics?: EvaluatorStatistics | undefined;
+
+  /**
+   * <p>The total number of sessions evaluated by this evaluator.</p>
+   * @public
+   */
+  totalEvaluated?: number | undefined;
+
+  /**
+   * <p>The total number of sessions that failed evaluation by this evaluator.</p>
+   * @public
+   */
+  totalFailed?: number | undefined;
+}
+
+/**
+ * <p>Aggregated results from a batch evaluation, including session completion counts and evaluator score summaries.</p>
+ * @public
+ */
+export interface EvaluationJobResults {
+  /**
+   * <p>The number of sessions that have been successfully evaluated.</p>
+   * @public
+   */
+  numberOfSessionsCompleted?: number | undefined;
+
+  /**
+   * <p>The number of sessions currently being evaluated.</p>
+   * @public
+   */
+  numberOfSessionsInProgress?: number | undefined;
+
+  /**
+   * <p>The number of sessions that failed evaluation.</p>
+   * @public
+   */
+  numberOfSessionsFailed?: number | undefined;
+
+  /**
+   * <p>The total number of sessions included in the batch evaluation.</p>
+   * @public
+   */
+  totalNumberOfSessions?: number | undefined;
+
+  /**
+   * <p>The number of sessions that were ignored during evaluation.</p>
+   * @public
+   */
+  numberOfSessionsIgnored?: number | undefined;
+
+  /**
+   * <p>A list of per-evaluator summary statistics.</p>
+   * @public
+   */
+  evaluatorSummaries?: EvaluatorSummary[] | undefined;
+}
+
+/**
+ * An evaluator to run against sessions
+ * @public
+ */
+export interface Evaluator {
+  /**
+   * <p>The unique identifier of the evaluator. Can reference built-in evaluators (e.g., <code>Builtin.Helpfulness</code>) or custom evaluators.</p>
+   * @public
+   */
+  evaluatorId: string | undefined;
+}
+
+/**
+ * CloudWatch Logs destination for batch evaluation results
+ * @public
+ */
+export interface CloudWatchOutputConfig {
+  /**
+   * <p>The name of the CloudWatch log group where evaluation results will be written.</p>
+   * @public
+   */
+  logGroupName: string | undefined;
+
+  /**
+   * <p>The name of the CloudWatch log stream where evaluation results will be written.</p>
+   * @public
+   */
+  logStreamName: string | undefined;
+}
+
+/**
+ * Output destination configuration
+ * @public
+ */
+export type OutputConfig =
+  | OutputConfig.CloudWatchConfigMember
+  | OutputConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OutputConfig {
+  /**
+   * <p>The CloudWatch Logs configuration for writing evaluation results.</p>
+   * @public
+   */
+  export interface CloudWatchConfigMember {
+    cloudWatchConfig: CloudWatchOutputConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cloudWatchConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cloudWatchConfig: (value: CloudWatchOutputConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetBatchEvaluationResponse {
+  /**
+   * <p>The unique identifier of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+
+  /**
+   * <p>The name of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationName: string | undefined;
+
+  /**
+   * <p>The current status of the batch evaluation.</p>
+   * @public
+   */
+  status: BatchEvaluationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the batch evaluation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The list of evaluators applied during the batch evaluation.</p>
+   * @public
+   */
+  evaluators?: Evaluator[] | undefined;
+
+  /**
+   * <p>The data source configuration specifying where agent traces are pulled from.</p>
+   * @public
+   */
+  dataSourceConfig?: DataSourceConfig | undefined;
+
+  /**
+   * <p>The output configuration specifying where evaluation results are written.</p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p>The aggregated evaluation results, including session completion counts and evaluator score summaries.</p>
+   * @public
+   */
+  evaluationResults?: EvaluationJobResults | undefined;
+
+  /**
+   * <p>The error details if the batch evaluation encountered failures.</p>
+   * @public
+   */
+  errorDetails?: string[] | undefined;
+
+  /**
+   * <p>The description of the batch evaluation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the batch evaluation was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecommendationRequest {
+  /**
+   * <p>The unique identifier of the recommendation to retrieve.</p>
+   * @public
+   */
+  recommendationId: string | undefined;
+}
+
+/**
+ * <p>A reference to an evaluator used for recommendation assessment.</p>
+ * @public
+ */
+export interface RecommendationEvaluatorReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluator.</p>
+   * @public
+   */
+  evaluatorArn: string | undefined;
+}
+
+/**
+ * <p>The evaluation configuration for assessing recommendation quality.</p>
+ * @public
+ */
+export interface RecommendationEvaluationConfig {
+  /**
+   * <p>The list of evaluators to use for assessing recommendation quality.</p>
+   * @public
+   */
+  evaluators: RecommendationEvaluatorReference[] | undefined;
+}
+
+/**
+ * <p>A system prompt sourced from a configuration bundle version.</p>
+ * @public
+ */
+export interface SystemPromptConfigurationBundle {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the configuration bundle.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The JSON path within the configuration bundle that contains the system prompt.</p>
+   * @public
+   */
+  systemPromptJsonPath: string | undefined;
+}
+
+/**
+ * <p>The system prompt input, either as inline text or from a configuration bundle.</p>
+ * @public
+ */
+export type SystemPromptConfig =
+  | SystemPromptConfig.ConfigurationBundleMember
+  | SystemPromptConfig.TextMember
+  | SystemPromptConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SystemPromptConfig {
+  /**
+   * <p>The system prompt text provided inline.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    configurationBundle?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The system prompt sourced from a configuration bundle version.</p>
+   * @public
+   */
+  export interface ConfigurationBundleMember {
+    text?: never;
+    configurationBundle: SystemPromptConfigurationBundle;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    configurationBundle?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    configurationBundle: (value: SystemPromptConfigurationBundle) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for generating system prompt optimization recommendations.</p>
+ * @public
+ */
+export interface SystemPromptRecommendationConfig {
+  /**
+   * <p>The current system prompt to optimize.</p>
+   * @public
+   */
+  systemPrompt: SystemPromptConfig | undefined;
+
+  /**
+   * <p>The agent traces to analyze for generating recommendations.</p>
+   * @public
+   */
+  agentTraces: AgentTracesConfig | undefined;
+
+  /**
+   * <p>The evaluation configuration specifying which evaluator to use for assessing recommendation quality.</p>
+   * @public
+   */
+  evaluationConfig: RecommendationEvaluationConfig | undefined;
+}
+
+/**
+ * <p>Maps a tool name to its JSON path within a configuration bundle.</p>
+ * @public
+ */
+export interface ConfigurationBundleToolEntry {
+  /**
+   * <p>The name of the tool.</p>
+   * @public
+   */
+  toolName: string | undefined;
+
+  /**
+   * <p>The JSON path within the configuration bundle's components that contains the tool description.</p>
+   * @public
+   */
+  toolDescriptionJsonPath: string | undefined;
+}
+
+/**
+ * <p>Tool descriptions sourced from a configuration bundle version.</p>
+ * @public
+ */
+export interface ToolDescriptionConfigurationBundle {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the configuration bundle.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The list of tool entries mapping tool names to their JSON paths within the bundle.</p>
+   * @public
+   */
+  tools: ConfigurationBundleToolEntry[] | undefined;
+}
+
+/**
+ * <p>The tool description content.</p>
+ * @public
+ */
+export type ToolDescriptionConfig =
+  | ToolDescriptionConfig.TextMember
+  | ToolDescriptionConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolDescriptionConfig {
+  /**
+   * <p>The tool description as inline text.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A tool description input containing the tool name and its current description.</p>
+ * @public
+ */
+export interface ToolDescriptionInput {
+  /**
+   * <p>The name of the tool.</p>
+   * @public
+   */
+  toolName: string | undefined;
+
+  /**
+   * <p>The current description of the tool to optimize.</p>
+   * @public
+   */
+  toolDescription: ToolDescriptionConfig | undefined;
+}
+
+/**
+ * <p>Inline tool description input containing a list of tools.</p>
+ * @public
+ */
+export interface ToolDescriptionTextInput {
+  /**
+   * <p>The list of tool descriptions to optimize.</p>
+   * @public
+   */
+  tools: ToolDescriptionInput[] | undefined;
+}
+
+/**
+ * <p>The source of tool descriptions, either inline text or from a configuration bundle.</p>
+ * @public
+ */
+export type ToolDescriptionSource =
+  | ToolDescriptionSource.ConfigurationBundleMember
+  | ToolDescriptionSource.ToolDescriptionTextMember
+  | ToolDescriptionSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolDescriptionSource {
+  /**
+   * <p>Tool descriptions provided as inline text.</p>
+   * @public
+   */
+  export interface ToolDescriptionTextMember {
+    toolDescriptionText: ToolDescriptionTextInput;
+    configurationBundle?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Tool descriptions sourced from a configuration bundle version.</p>
+   * @public
+   */
+  export interface ConfigurationBundleMember {
+    toolDescriptionText?: never;
+    configurationBundle: ToolDescriptionConfigurationBundle;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    toolDescriptionText?: never;
+    configurationBundle?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    toolDescriptionText: (value: ToolDescriptionTextInput) => T;
+    configurationBundle: (value: ToolDescriptionConfigurationBundle) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for generating tool description optimization recommendations.</p>
+ * @public
+ */
+export interface ToolDescriptionRecommendationConfig {
+  /**
+   * <p>The current tool descriptions to optimize.</p>
+   * @public
+   */
+  toolDescription: ToolDescriptionSource | undefined;
+
+  /**
+   * <p>The agent traces to analyze for generating tool description recommendations.</p>
+   * @public
+   */
+  agentTraces: AgentTracesConfig | undefined;
+}
+
+/**
+ * <p>The configuration for a recommendation, varying by recommendation type.</p>
+ * @public
+ */
+export type RecommendationConfig =
+  | RecommendationConfig.SystemPromptRecommendationConfigMember
+  | RecommendationConfig.ToolDescriptionRecommendationConfigMember
+  | RecommendationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecommendationConfig {
+  /**
+   * <p>The configuration for a system prompt recommendation.</p>
+   * @public
+   */
+  export interface SystemPromptRecommendationConfigMember {
+    systemPromptRecommendationConfig: SystemPromptRecommendationConfig;
+    toolDescriptionRecommendationConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for a tool description recommendation.</p>
+   * @public
+   */
+  export interface ToolDescriptionRecommendationConfigMember {
+    systemPromptRecommendationConfig?: never;
+    toolDescriptionRecommendationConfig: ToolDescriptionRecommendationConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    systemPromptRecommendationConfig?: never;
+    toolDescriptionRecommendationConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    systemPromptRecommendationConfig: (value: SystemPromptRecommendationConfig) => T;
+    toolDescriptionRecommendationConfig: (value: ToolDescriptionRecommendationConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A configuration bundle reference in a recommendation result.</p>
+ * @public
+ */
+export interface RecommendationResultConfigurationBundle {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The version identifier of the configuration bundle containing the recommendation.</p>
+   * @public
+   */
+  versionId: string | undefined;
+}
+
+/**
+ * <p>The result of a system prompt recommendation, containing the optimized prompt.</p>
+ * @public
+ */
+export interface SystemPromptRecommendationResult {
+  /**
+   * <p>The optimized system prompt text generated by the recommendation.</p>
+   * @public
+   */
+  recommendedSystemPrompt?: string | undefined;
+
+  /**
+   * <p>The configuration bundle containing the recommended system prompt, if the input was sourced from a configuration bundle.</p>
+   * @public
+   */
+  configurationBundle?: RecommendationResultConfigurationBundle | undefined;
+
+  /**
+   * <p>The error code if the recommendation failed.</p>
+   * @public
+   */
+  errorCode?: string | undefined;
+
+  /**
+   * <p>The error message if the recommendation failed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>The output for a single tool description recommendation.</p>
+ * @public
+ */
+export interface ToolDescriptionOutput {
+  /**
+   * <p>The name of the tool.</p>
+   * @public
+   */
+  toolName: string | undefined;
+
+  /**
+   * <p>The optimized tool description text generated by the recommendation.</p>
+   * @public
+   */
+  recommendedToolDescription?: string | undefined;
+}
+
+/**
+ * <p>The result of a tool description recommendation, containing optimized descriptions.</p>
+ * @public
+ */
+export interface ToolDescriptionRecommendationResult {
+  /**
+   * <p>The list of tools with their recommended descriptions.</p>
+   * @public
+   */
+  tools?: ToolDescriptionOutput[] | undefined;
+
+  /**
+   * <p>The configuration bundle containing the recommended tool descriptions, if the input was sourced from a configuration bundle.</p>
+   * @public
+   */
+  configurationBundle?: RecommendationResultConfigurationBundle | undefined;
+
+  /**
+   * <p>The error code if the recommendation failed.</p>
+   * @public
+   */
+  errorCode?: string | undefined;
+
+  /**
+   * <p>The error message if the recommendation failed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>The result of a recommendation, containing the optimized output.</p>
+ * @public
+ */
+export type RecommendationResult =
+  | RecommendationResult.SystemPromptRecommendationResultMember
+  | RecommendationResult.ToolDescriptionRecommendationResultMember
+  | RecommendationResult.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecommendationResult {
+  /**
+   * <p>The result of a system prompt recommendation.</p>
+   * @public
+   */
+  export interface SystemPromptRecommendationResultMember {
+    systemPromptRecommendationResult: SystemPromptRecommendationResult;
+    toolDescriptionRecommendationResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result of a tool description recommendation.</p>
+   * @public
+   */
+  export interface ToolDescriptionRecommendationResultMember {
+    systemPromptRecommendationResult?: never;
+    toolDescriptionRecommendationResult: ToolDescriptionRecommendationResult;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    systemPromptRecommendationResult?: never;
+    toolDescriptionRecommendationResult?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    systemPromptRecommendationResult: (value: SystemPromptRecommendationResult) => T;
+    toolDescriptionRecommendationResult: (value: ToolDescriptionRecommendationResult) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetRecommendationResponse {
+  /**
+   * <p>The unique identifier of the recommendation.</p>
+   * @public
+   */
+  recommendationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommendation.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+
+  /**
+   * <p>The name of the recommendation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the recommendation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of recommendation.</p>
+   * @public
+   */
+  type: RecommendationType | undefined;
+
+  /**
+   * <p>The configuration for the recommendation.</p>
+   * @public
+   */
+  recommendationConfig: RecommendationConfig | undefined;
+
+  /**
+   * <p>The current status of the recommendation.</p>
+   * @public
+   */
+  status: RecommendationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The result of the recommendation, containing the optimized system prompt or tool descriptions. Only present when the recommendation status is <code>COMPLETED</code>.</p>
+   * @public
+   */
+  recommendationResult?: RecommendationResult | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListABTestsRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListABTestsResponse {
+  /**
+   * <p>The list of A/B test summaries.</p>
+   * @public
+   */
+  abTests: ABTestSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBatchEvaluationsRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * Summary representation for list responses
+ * @public
+ */
+export interface BatchEvaluationSummary {
+  /**
+   * <p>The unique identifier of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+
+  /**
+   * <p>The name of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationName: string | undefined;
+
+  /**
+   * <p>The current status of the batch evaluation.</p>
+   * @public
+   */
+  status: BatchEvaluationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the batch evaluation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The description of the batch evaluation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The list of evaluators applied during the batch evaluation.</p>
+   * @public
+   */
+  evaluators?: Evaluator[] | undefined;
+
+  /**
+   * <p>The aggregated evaluation results.</p>
+   * @public
+   */
+  evaluationResults?: EvaluationJobResults | undefined;
+
+  /**
+   * <p>The error details if the batch evaluation encountered failures.</p>
+   * @public
+   */
+  errorDetails?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the batch evaluation was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBatchEvaluationsResponse {
+  /**
+   * <p>The list of batch evaluation summaries.</p>
+   * @public
+   */
+  batchEvaluations: BatchEvaluationSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Optional filter to return only recommendations with the specified status.</p>
+   * @public
+   */
+  statusFilter?: RecommendationStatus | undefined;
+}
+
+/**
+ * <p>Summary information about a recommendation.</p>
+ * @public
+ */
+export interface RecommendationSummary {
+  /**
+   * <p>The unique identifier of the recommendation.</p>
+   * @public
+   */
+  recommendationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommendation.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+
+  /**
+   * <p>The name of the recommendation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the recommendation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of recommendation.</p>
+   * @public
+   */
+  type: RecommendationType | undefined;
+
+  /**
+   * <p>The current status of the recommendation.</p>
+   * @public
+   */
+  status: RecommendationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsResponse {
+  /**
+   * <p>The list of recommendation summaries.</p>
+   * @public
+   */
+  recommendationSummaries: RecommendationSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The input for a ground truth conversation turn.</p>
+ * @public
+ */
+export type GroundTruthTurnInput =
+  | GroundTruthTurnInput.PromptMember
+  | GroundTruthTurnInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GroundTruthTurnInput {
+  /**
+   * <p>The text prompt for this conversation turn.</p>
+   * @public
+   */
+  export interface PromptMember {
+    prompt: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    prompt?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    prompt: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Ground truth data for a single conversation turn.</p>
+ * @public
+ */
+export interface GroundTruthTurn {
+  /**
+   * <p>The input for this conversation turn.</p>
+   * @public
+   */
+  input?: GroundTruthTurnInput | undefined;
+
+  /**
+   * <p>The expected response for this conversation turn.</p>
+   * @public
+   */
+  expectedResponse?: EvaluationContent | undefined;
+}
+
+/**
+ * <p>Inline ground truth data containing assertions, expected trajectories, and per-turn expected responses.</p>
+ * @public
+ */
+export interface InlineGroundTruth {
+  /**
+   * assertions for evaluation, reuses common model EvaluationContentList
+   * @public
+   */
+  assertions?: EvaluationContent[] | undefined;
+
+  /**
+   * expectedTrajectory for evaluation, reuses common model EvaluationExpectedTrajectory
+   * @public
+   */
+  expectedTrajectory?: EvaluationExpectedTrajectory | undefined;
+
+  /**
+   * <p>A list of per-turn ground truth data, each containing an input prompt and expected response.</p>
+   * @public
+   */
+  turns?: GroundTruthTurn[] | undefined;
+}
+
+/**
+ * Where to pull ground truth from
+ * @public
+ */
+export type GroundTruthSource =
+  | GroundTruthSource.InlineMember
+  | GroundTruthSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GroundTruthSource {
+  /**
+   * Provide ground truth inline
+   * @public
+   */
+  export interface InlineMember {
+    inline: InlineGroundTruth;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    inline?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    inline: (value: InlineGroundTruth) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Metadata for a specific session in a batch evaluation, including ground truth data and test scenario identifiers.</p>
+ * @public
+ */
+export interface SessionMetadataShape {
+  /**
+   * <p>The unique identifier of the session this metadata applies to.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>An optional test scenario identifier for categorizing and tracking evaluation results.</p>
+   * @public
+   */
+  testScenarioId?: string | undefined;
+
+  /**
+   * <p>The ground truth data for this session, including expected responses and assertions.</p>
+   * @public
+   */
+  groundTruth?: GroundTruthSource | undefined;
+
+  /**
+   * <p>Additional key-value metadata associated with this session.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Metadata for the evaluation, including session-specific ground truth data.</p>
+ * @public
+ */
+export type EvaluationMetadata =
+  | EvaluationMetadata.SessionMetadataMember
+  | EvaluationMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationMetadata {
+  /**
+   * <p>A list of session metadata entries containing ground truth data and test scenario identifiers for specific sessions.</p>
+   * @public
+   */
+  export interface SessionMetadataMember {
+    sessionMetadata: SessionMetadataShape[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sessionMetadata?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    sessionMetadata: (value: SessionMetadataShape[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartBatchEvaluationRequest {
+  /**
+   * <p>The name of the batch evaluation. Must be unique within your account.</p>
+   * @public
+   */
+  batchEvaluationName: string | undefined;
+
+  /**
+   * <p>The list of evaluators to apply during the batch evaluation. Can include both built-in evaluators and custom evaluators. Maximum of 10 evaluators.</p>
+   * @public
+   */
+  evaluators?: Evaluator[] | undefined;
+
+  /**
+   * <p>The data source configuration that specifies where to pull agent session traces from for evaluation.</p>
+   * @public
+   */
+  dataSourceConfig: DataSourceConfig | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Optional metadata for the evaluation, including session-specific ground truth data and test scenario identifiers.</p>
+   * @public
+   */
+  evaluationMetadata?: EvaluationMetadata | undefined;
+
+  /**
+   * <p>The description of the batch evaluation.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBatchEvaluationResponse {
+  /**
+   * <p>The unique identifier of the created batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+
+  /**
+   * <p>The name of the batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationName: string | undefined;
+
+  /**
+   * <p>The list of evaluators applied during the batch evaluation.</p>
+   * @public
+   */
+  evaluators?: Evaluator[] | undefined;
+
+  /**
+   * <p>The status of the batch evaluation.</p>
+   * @public
+   */
+  status: BatchEvaluationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the batch evaluation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The output configuration specifying where evaluation results are written.</p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
+   * <p>The description of the batch evaluation.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecommendationRequest {
+  /**
+   * <p>The name of the recommendation. Must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the recommendation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of recommendation to generate. Valid values are <code>SYSTEM_PROMPT_RECOMMENDATION</code> for system prompt optimization or <code>TOOL_DESCRIPTION_RECOMMENDATION</code> for tool description optimization.</p>
+   * @public
+   */
+  type: RecommendationType | undefined;
+
+  /**
+   * <p>The configuration for the recommendation, including the input to optimize, agent traces to analyze, and evaluation settings.</p>
+   * @public
+   */
+  recommendationConfig: RecommendationConfig | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecommendationResponse {
+  /**
+   * <p>The unique identifier of the created recommendation.</p>
+   * @public
+   */
+  recommendationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created recommendation.</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+
+  /**
+   * <p>The name of the recommendation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the recommendation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of recommendation.</p>
+   * @public
+   */
+  type: RecommendationType | undefined;
+
+  /**
+   * <p>The configuration for the recommendation.</p>
+   * @public
+   */
+  recommendationConfig: RecommendationConfig | undefined;
+
+  /**
+   * <p>The status of the recommendation.</p>
+   * @public
+   */
+  status: RecommendationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the recommendation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopBatchEvaluationRequest {
+  /**
+   * <p>The unique identifier of the batch evaluation to stop.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopBatchEvaluationResponse {
+  /**
+   * <p>The unique identifier of the stopped batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stopped batch evaluation.</p>
+   * @public
+   */
+  batchEvaluationArn: string | undefined;
+
+  /**
+   * <p>The status of the batch evaluation after the stop request.</p>
+   * @public
+   */
+  status: BatchEvaluationStatus | undefined;
+
+  /**
+   * <p>The description of the batch evaluation.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateABTestRequest {
+  /**
+   * <p>The unique identifier of the A/B test to update.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The updated name of the A/B test.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description of the A/B test.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated list of variants.</p>
+   * @public
+   */
+  variants?: Variant[] | undefined;
+
+  /**
+   * <p>The updated gateway filter.</p>
+   * @public
+   */
+  gatewayFilter?: GatewayFilter | undefined;
+
+  /**
+   * <p>The updated evaluation configuration.</p>
+   * @public
+   */
+  evaluationConfig?: ABTestEvaluationConfig | undefined;
+
+  /**
+   * <p>The updated IAM role ARN.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The updated execution status to enable or disable the A/B test.</p>
+   * @public
+   */
+  executionStatus?: ABTestExecutionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateABTestResponse {
+  /**
+   * <p>The unique identifier of the updated A/B test.</p>
+   * @public
+   */
+  abTestId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated A/B test.</p>
+   * @public
+   */
+  abTestArn: string | undefined;
+
+  /**
+   * <p>The status of the A/B test.</p>
+   * @public
+   */
+  status: ABTestStatus | undefined;
+
+  /**
+   * <p>The execution status of the A/B test.</p>
+   * @public
+   */
+  executionStatus: ABTestExecutionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the A/B test was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**
@@ -4537,7 +7078,7 @@ export interface HarnessAgentCoreGatewayConfig {
   gatewayArn: string | undefined;
 
   /**
-   * <p>How Loopy authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
    * @public
    */
   outboundAuth?: HarnessGatewayOutboundAuth | undefined;
@@ -4573,7 +7114,7 @@ export interface HarnessRemoteMcpConfig {
   url: string | undefined;
 
   /**
-   * Map of key/value pairs for HTTP headers.
+   * <p>Custom headers to include when connecting to the remote MCP server.</p>
    * @public
    */
   headers?: Record<string, string> | undefined;
@@ -7063,117 +9604,4 @@ export interface McpDescriptor {
    * @public
    */
   tools: ToolsDefinition | undefined;
-}
-
-/**
- * <p> Contains the descriptor configuration for a registry record. Only the field that matches the record's <code>descriptorType</code> is populated.</p>
- * @public
- */
-export interface Descriptors {
-  /**
-   * <p> The MCP (Model Context Protocol) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>MCP</code>.</p>
-   * @public
-   */
-  mcp?: McpDescriptor | undefined;
-
-  /**
-   * <p> The A2A (Agent-to-Agent) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>A2A</code>.</p>
-   * @public
-   */
-  a2a?: A2aDescriptor | undefined;
-
-  /**
-   * <p> The custom descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>CUSTOM</code>.</p>
-   * @public
-   */
-  custom?: CustomDescriptor | undefined;
-
-  /**
-   * <p> The agent skills descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>AGENT_SKILLS</code>.</p>
-   * @public
-   */
-  agentSkills?: AgentSkillsDescriptor | undefined;
-}
-
-/**
- * <p> Summary information about a registry record.</p>
- * @public
- */
-export interface RegistryRecordSummary {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the registry that this record belongs to.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p> The unique identifier of the registry record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p> The name of the registry record.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p> A description of the registry record.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p> The type of descriptor associated with this registry record.</p>
-   * @public
-   */
-  descriptorType: DescriptorType | undefined;
-
-  /**
-   * <p> The descriptor configurations for this registry record.</p>
-   * @public
-   */
-  descriptors: Descriptors | undefined;
-
-  /**
-   * <p> The version of the registry record.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p> The current status of the registry record.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p> The date and time when the registry record was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p> The date and time when the registry record was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchRegistryRecordsResponse {
-  /**
-   * <p> The list of registry records that match the search query, ordered by relevance.</p>
-   * @public
-   */
-  registryRecords: RegistryRecordSummary[] | undefined;
 }

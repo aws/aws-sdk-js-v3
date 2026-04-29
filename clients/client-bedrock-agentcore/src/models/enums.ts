@@ -3,6 +3,40 @@
  * @public
  * @enum
  */
+export const ABTestExecutionStatus = {
+  NOT_STARTED: "NOT_STARTED",
+  PAUSED: "PAUSED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type ABTestExecutionStatus = (typeof ABTestExecutionStatus)[keyof typeof ABTestExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ABTestStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ABTestStatus = (typeof ABTestStatus)[keyof typeof ABTestStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "CannotParse",
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
@@ -27,6 +61,26 @@ export const CommandExecutionStatus = {
  * @public
  */
 export type CommandExecutionStatus = (typeof CommandExecutionStatus)[keyof typeof CommandExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchLogsFilterOperator = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  GREATER_THAN: "GreaterThan",
+  GREATER_THAN_OR_EQUAL: "GreaterThanOrEqual",
+  LESS_THAN: "LessThan",
+  LESS_THAN_OR_EQUAL: "LessThanOrEqual",
+  NOT_CONTAINS: "NotContains",
+  NOT_EQUALS: "NotEquals",
+} as const;
+/**
+ * @public
+ */
+export type CloudWatchLogsFilterOperator =
+  (typeof CloudWatchLogsFilterOperator)[keyof typeof CloudWatchLogsFilterOperator];
 
 /**
  * @public
@@ -120,6 +174,54 @@ export const CodeInterpreterSessionStatus = {
  */
 export type CodeInterpreterSessionStatus =
   (typeof CodeInterpreterSessionStatus)[keyof typeof CodeInterpreterSessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BatchEvaluationStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type BatchEvaluationStatus = (typeof BatchEvaluationStatus)[keyof typeof BatchEvaluationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStatus = {
+  COMPLETED: "COMPLETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationType = {
+  SYSTEM_PROMPT_RECOMMENDATION: "SYSTEM_PROMPT_RECOMMENDATION",
+  TOOL_DESCRIPTION_RECOMMENDATION: "TOOL_DESCRIPTION_RECOMMENDATION",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
  * @public
