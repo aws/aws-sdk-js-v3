@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_0";
-import { ListGateways$ } from "../schemas/schemas_0";
+import type { DeleteGatewayRuleRequest, DeleteGatewayRuleResponse } from "../models/models_0";
+import { DeleteGatewayRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,61 +20,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListGatewaysCommand}.
+ * The input for {@link DeleteGatewayRuleCommand}.
  */
-export interface ListGatewaysCommandInput extends ListGatewaysRequest {}
+export interface DeleteGatewayRuleCommandInput extends DeleteGatewayRuleRequest {}
 /**
  * @public
  *
- * The output of {@link ListGatewaysCommand}.
+ * The output of {@link DeleteGatewayRuleCommand}.
  */
-export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __MetadataBearer {}
+export interface DeleteGatewayRuleCommandOutput extends DeleteGatewayRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all gateways in the account.</p>
+ * <p>Deletes a gateway rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, ListGatewaysCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, ListGatewaysCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, DeleteGatewayRuleCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, DeleteGatewayRuleCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // ListGatewaysRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // DeleteGatewayRuleRequest
+ *   gatewayIdentifier: "STRING_VALUE", // required
+ *   ruleId: "STRING_VALUE", // required
  * };
- * const command = new ListGatewaysCommand(input);
+ * const command = new DeleteGatewayRuleCommand(input);
  * const response = await client.send(command);
- * // { // ListGatewaysResponse
- * //   items: [ // GatewaySummaries // required
- * //     { // GatewaySummary
- * //       gatewayId: "STRING_VALUE", // required
- * //       name: "STRING_VALUE", // required
- * //       status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED", // required
- * //       description: "STRING_VALUE",
- * //       createdAt: new Date("TIMESTAMP"), // required
- * //       updatedAt: new Date("TIMESTAMP"), // required
- * //       authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
- * //       protocolType: "MCP",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // DeleteGatewayRuleResponse
+ * //   ruleId: "STRING_VALUE", // required
+ * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING", // required
  * // };
  *
  * ```
  *
- * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
- * @returns {@link ListGatewaysCommandOutput}
- * @see {@link ListGatewaysCommandInput} for command's `input` shape.
- * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
+ * @param DeleteGatewayRuleCommandInput - {@link DeleteGatewayRuleCommandInput}
+ * @returns {@link DeleteGatewayRuleCommandOutput}
+ * @see {@link DeleteGatewayRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteGatewayRuleCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>This exception is thrown when a request is denied per access permissions</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
@@ -88,10 +83,10 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  *
  * @public
  */
-export class ListGatewaysCommand extends $Command
+export class DeleteGatewayRuleCommand extends $Command
   .classBuilder<
-    ListGatewaysCommandInput,
-    ListGatewaysCommandOutput,
+    DeleteGatewayRuleCommandInput,
+    DeleteGatewayRuleCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,19 +95,19 @@ export class ListGatewaysCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "ListGateways", {})
-  .n("BedrockAgentCoreControlClient", "ListGatewaysCommand")
-  .sc(ListGateways$)
+  .s("AmazonBedrockAgentCoreControl", "DeleteGatewayRule", {})
+  .n("BedrockAgentCoreControlClient", "DeleteGatewayRuleCommand")
+  .sc(DeleteGatewayRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListGatewaysRequest;
-      output: ListGatewaysResponse;
+      input: DeleteGatewayRuleRequest;
+      output: DeleteGatewayRuleResponse;
     };
     sdk: {
-      input: ListGatewaysCommandInput;
-      output: ListGatewaysCommandOutput;
+      input: DeleteGatewayRuleCommandInput;
+      output: DeleteGatewayRuleCommandOutput;
     };
   };
 }

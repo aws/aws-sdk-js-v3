@@ -58,7 +58,7 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",
- * //   protocolType: "MCP", // required
+ * //   protocolType: "MCP",
  * //   protocolConfiguration: { // GatewayProtocolConfiguration Union: only one key present
  * //     mcp: { // MCPGatewayConfiguration
  * //       supportedVersions: [ // McpSupportedVersions
@@ -68,7 +68,7 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * //       searchType: "SEMANTIC",
  * //     },
  * //   },
- * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE", // required
+ * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
  * //   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  * //     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  * //       discoveryUrl: "STRING_VALUE", // required

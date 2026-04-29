@@ -42,6 +42,7 @@ export interface GetEvaluatorCommandOutput extends GetEvaluatorResponse, __Metad
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // GetEvaluatorRequest
  *   evaluatorId: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new GetEvaluatorCommand(input);
  * const response = await client.send(command);
@@ -95,6 +96,7 @@ export interface GetEvaluatorCommandOutput extends GetEvaluatorResponse, __Metad
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   lockedForModification: true || false,
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

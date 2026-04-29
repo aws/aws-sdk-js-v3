@@ -59,6 +59,7 @@ export interface ListEvaluatorsCommandOutput extends ListEvaluatorsResponse, __M
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       lockedForModification: true || false,
+ * //       kmsKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

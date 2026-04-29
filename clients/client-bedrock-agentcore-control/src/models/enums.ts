@@ -241,6 +241,24 @@ export type CodeInterpreterStatus = (typeof CodeInterpreterStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const ConfigurationBundleStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ConfigurationBundleStatus = (typeof ConfigurationBundleStatus)[keyof typeof ConfigurationBundleStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluatorLevel = {
   SESSION: "SESSION",
   TOOL_CALL: "TOOL_CALL",
@@ -272,6 +290,19 @@ export type EvaluatorStatus = (typeof EvaluatorStatus)[keyof typeof EvaluatorSta
  * @public
  * @enum
  */
+export const IncludedData = {
+  ALL_DATA: "ALL_DATA",
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluatorType = {
   BUILTIN: "Builtin",
   CODE: "CustomCode",
@@ -287,6 +318,7 @@ export type EvaluatorType = (typeof EvaluatorType)[keyof typeof EvaluatorType];
  * @enum
  */
 export const AuthorizerType = {
+  AUTHENTICATE_ONLY: "AUTHENTICATE_ONLY",
   AWS_IAM: "AWS_IAM",
   CUSTOM_JWT: "CUSTOM_JWT",
   NONE: "NONE",
@@ -379,6 +411,34 @@ export type GatewayStatus = (typeof GatewayStatus)[keyof typeof GatewayStatus];
  * @public
  * @enum
  */
+export const PrincipalMatchOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+/**
+ * @public
+ */
+export type PrincipalMatchOperator = (typeof PrincipalMatchOperator)[keyof typeof PrincipalMatchOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayRuleStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type GatewayRuleStatus = (typeof GatewayRuleStatus)[keyof typeof GatewayRuleStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApiKeyCredentialLocation = {
   HEADER: "HEADER",
   QUERY_PARAMETER: "QUERY_PARAMETER",
@@ -407,7 +467,9 @@ export type OAuthGrantType = (typeof OAuthGrantType)[keyof typeof OAuthGrantType
  */
 export const CredentialProviderType = {
   API_KEY: "API_KEY",
+  CALLER_IAM_CREDENTIALS: "CALLER_IAM_CREDENTIALS",
   GATEWAY_IAM_ROLE: "GATEWAY_IAM_ROLE",
+  JWT_PASSTHROUGH: "JWT_PASSTHROUGH",
   OAUTH: "OAUTH",
 } as const;
 /**
@@ -462,6 +524,19 @@ export const ListingMode = {
  * @public
  */
 export type ListingMode = (typeof ListingMode)[keyof typeof ListingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetProtocolType = {
+  HTTP: "HTTP",
+  MCP: "MCP",
+} as const;
+/**
+ * @public
+ */
+export type TargetProtocolType = (typeof TargetProtocolType)[keyof typeof TargetProtocolType];
 
 /**
  * @public

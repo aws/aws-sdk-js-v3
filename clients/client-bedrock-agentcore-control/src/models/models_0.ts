@@ -14,6 +14,7 @@ import type {
   ClaimMatchOperatorType,
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
+  ConfigurationBundleStatus,
   ContentLevel,
   ContentType,
   CredentialProviderType,
@@ -25,20 +26,18 @@ import type {
   GatewayInterceptionPoint,
   GatewayPolicyEngineMode,
   GatewayProtocolType,
+  GatewayRuleStatus,
   GatewayStatus,
   HarnessStatus,
   HarnessToolType,
   HarnessTruncationStrategy,
   InboundTokenClaimValueType,
+  IncludedData,
   KeyType,
   ListingMode,
-  MemoryStatus,
-  MemoryStrategyStatus,
-  MemoryStrategyType,
-  MemoryView,
   NetworkMode,
   OAuthGrantType,
-  OverrideType,
+  PrincipalMatchOperator,
   ResourceType,
   RestApiMethod,
   SearchType,
@@ -74,6 +73,309 @@ export interface A2aDescriptor {
    * @public
    */
   agentCard?: AgentCardDefinition | undefined;
+}
+
+/**
+ * <p>A static configuration bundle override.</p>
+ * @public
+ */
+export interface StaticOverride {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle to apply.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The version of the configuration bundle to apply.</p>
+   * @public
+   */
+  bundleVersion: string | undefined;
+}
+
+/**
+ * <p>A reference to a specific version of a configuration bundle.</p>
+ * @public
+ */
+export interface ConfigurationBundleReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The version of the configuration bundle.</p>
+   * @public
+   */
+  bundleVersion: string | undefined;
+}
+
+/**
+ * <p>An entry in a traffic split configuration, defining a named variant with a weight and configuration bundle reference.</p>
+ * @public
+ */
+export interface TrafficSplitEntry {
+  /**
+   * <p>The name of this traffic split variant.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The percentage of traffic to route to this variant. Weights across all entries must sum to 100.</p>
+   * @public
+   */
+  weight: number | undefined;
+
+  /**
+   * <p>The configuration bundle reference for this variant.</p>
+   * @public
+   */
+  configurationBundle: ConfigurationBundleReference | undefined;
+
+  /**
+   * <p>The description of this traffic split variant.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Key-value metadata associated with this traffic split variant.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A weighted configuration bundle override that splits traffic between multiple bundle versions.</p>
+ * @public
+ */
+export interface WeightedOverride {
+  /**
+   * <p>The traffic split entries defining how traffic is distributed between configuration bundle versions.</p>
+   * @public
+   */
+  trafficSplit: TrafficSplitEntry[] | undefined;
+}
+
+/**
+ * <p>An action that applies a configuration bundle override, either as a static override or a weighted split for A/B testing.</p>
+ * @public
+ */
+export type ConfigurationBundleAction =
+  | ConfigurationBundleAction.StaticOverrideMember
+  | ConfigurationBundleAction.WeightedOverrideMember
+  | ConfigurationBundleAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationBundleAction {
+  /**
+   * <p>A static configuration bundle override that applies a single bundle version to all matching requests.</p>
+   * @public
+   */
+  export interface StaticOverrideMember {
+    staticOverride: StaticOverride;
+    weightedOverride?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A weighted configuration bundle override that splits traffic between multiple bundle versions based on configured weights.</p>
+   * @public
+   */
+  export interface WeightedOverrideMember {
+    staticOverride?: never;
+    weightedOverride: WeightedOverride;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    staticOverride?: never;
+    weightedOverride?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    staticOverride: (value: StaticOverride) => T;
+    weightedOverride: (value: WeightedOverride) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A static route to a single gateway target.</p>
+ * @public
+ */
+export interface StaticRoute {
+  /**
+   * <p>The name of the target to route requests to.</p>
+   * @public
+   */
+  targetName: string | undefined;
+}
+
+/**
+ * <p>An entry in a target traffic split configuration.</p>
+ * @public
+ */
+export interface TargetTrafficSplitEntry {
+  /**
+   * <p>The name of this traffic split variant.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The percentage of traffic to route to this variant.</p>
+   * @public
+   */
+  weight: number | undefined;
+
+  /**
+   * <p>The name of the target to route traffic to.</p>
+   * @public
+   */
+  targetName: string | undefined;
+
+  /**
+   * <p>The description of this traffic split variant.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Key-value metadata associated with this traffic split variant.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A weighted route that splits traffic between multiple gateway targets.</p>
+ * @public
+ */
+export interface WeightedRoute {
+  /**
+   * <p>The traffic split entries defining how traffic is distributed between targets.</p>
+   * @public
+   */
+  trafficSplit: TargetTrafficSplitEntry[] | undefined;
+}
+
+/**
+ * <p>An action that routes requests to a gateway target, either statically or with weighted traffic splitting.</p>
+ * @public
+ */
+export type RouteToTargetAction =
+  | RouteToTargetAction.StaticRouteMember
+  | RouteToTargetAction.WeightedRouteMember
+  | RouteToTargetAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouteToTargetAction {
+  /**
+   * <p>A static route that sends all matching requests to a single target.</p>
+   * @public
+   */
+  export interface StaticRouteMember {
+    staticRoute: StaticRoute;
+    weightedRoute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A weighted route that splits traffic between multiple targets.</p>
+   * @public
+   */
+  export interface WeightedRouteMember {
+    staticRoute?: never;
+    weightedRoute: WeightedRoute;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    staticRoute?: never;
+    weightedRoute?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    staticRoute: (value: StaticRoute) => T;
+    weightedRoute: (value: WeightedRoute) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>An action to take when a gateway rule's conditions are met.</p>
+ * @public
+ */
+export type Action =
+  | Action.ConfigurationBundleMember
+  | Action.RouteToTargetMember
+  | Action.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Action {
+  /**
+   * <p>An action that applies a configuration bundle override to the request.</p>
+   * @public
+   */
+  export interface ConfigurationBundleMember {
+    configurationBundle: ConfigurationBundleAction;
+    routeToTarget?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An action that routes the request to a specific target.</p>
+   * @public
+   */
+  export interface RouteToTargetMember {
+    configurationBundle?: never;
+    routeToTarget: RouteToTargetAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    configurationBundle?: never;
+    routeToTarget?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    configurationBundle: (value: ConfigurationBundleAction) => T;
+    routeToTarget: (value: RouteToTargetAction) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -3105,6 +3407,586 @@ export interface ListCodeInterpretersResponse {
 }
 
 /**
+ * <p>The configuration for a component within a configuration bundle. The component type is inferred from the component identifier ARN.</p>
+ * @public
+ */
+export interface ComponentConfiguration {
+  /**
+   * <p>The configuration values as a flexible JSON document.</p>
+   * @public
+   */
+  configuration: __DocumentType | undefined;
+}
+
+/**
+ * <p>The source that created a configuration bundle version.</p>
+ * @public
+ */
+export interface VersionCreatedBySource {
+  /**
+   * <p>The name of the source (for example, <code>user</code>, <code>optimization-job</code>, or <code>system</code>).</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source, if applicable (for example, a user ARN or optimization job ARN).</p>
+   * @public
+   */
+  arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationBundleRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The name for the configuration bundle. Names must be unique within your account.</p>
+   * @public
+   */
+  bundleName: string | undefined;
+
+  /**
+   * <p>The description for the configuration bundle.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A map of component identifiers to their configurations. Each component represents a configurable element within the bundle.</p>
+   * @public
+   */
+  components: Record<string, ComponentConfiguration> | undefined;
+
+  /**
+   * <p>The branch name for version tracking. Defaults to <code>mainline</code> if not specified.</p>
+   * @public
+   */
+  branchName?: string | undefined;
+
+  /**
+   * <p>A commit message describing the initial version of the configuration bundle.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>The source that created this version, including the source name and optional ARN.</p>
+   * @public
+   */
+  createdBy?: VersionCreatedBySource | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the configuration bundle. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationBundleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the created configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The initial version identifier of the configuration bundle.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The timestamp when the configuration bundle was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationBundleRequest {
+  /**
+   * <p>The unique identifier of the configuration bundle to delete.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationBundleResponse {
+  /**
+   * <p>The unique identifier of the deleted configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The status of the configuration bundle deletion operation.</p>
+   * @public
+   */
+  status: ConfigurationBundleStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationBundleRequest {
+  /**
+   * <p>The unique identifier of the configuration bundle to retrieve.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The branch name to get the latest version from. If not specified, returns the latest version on the mainline branch.</p>
+   * @public
+   */
+  branchName?: string | undefined;
+}
+
+/**
+ * <p>The version lineage metadata that tracks parent versions and creation source. Supports git-like two-parent merges for branch management.</p>
+ * @public
+ */
+export interface VersionLineageMetadata {
+  /**
+   * <p>A list of parent version identifiers. Regular commits have 0-1 parents. Merge commits have 2 parents: the target branch parent and the source branch parent. The first parent represents the primary lineage.</p>
+   * @public
+   */
+  parentVersionIds?: string[] | undefined;
+
+  /**
+   * <p>The branch name for this version. If not specified, inherits the parent's branch or defaults to <code>mainline</code>.</p>
+   * @public
+   */
+  branchName?: string | undefined;
+
+  /**
+   * <p>The source that created this version.</p>
+   * @public
+   */
+  createdBy?: VersionCreatedBySource | undefined;
+
+  /**
+   * <p>A commit message describing the changes in this version.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationBundleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The name of the configuration bundle.</p>
+   * @public
+   */
+  bundleName: string | undefined;
+
+  /**
+   * <p>The description of the configuration bundle.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The version identifier of this configuration bundle.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>A map of component identifiers to their configurations for this version.</p>
+   * @public
+   */
+  components: Record<string, ComponentConfiguration> | undefined;
+
+  /**
+   * <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
+   * @public
+   */
+  lineageMetadata?: VersionLineageMetadata | undefined;
+
+  /**
+   * <p>The timestamp when the configuration bundle was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the configuration bundle was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationBundleVersionRequest {
+  /**
+   * <p>The unique identifier of the configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The version identifier of the configuration bundle version to retrieve.</p>
+   * @public
+   */
+  versionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationBundleVersionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The name of the configuration bundle.</p>
+   * @public
+   */
+  bundleName: string | undefined;
+
+  /**
+   * <p>The description of the configuration bundle.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The version identifier of this configuration bundle version.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>A map of component identifiers to their configurations for this version.</p>
+   * @public
+   */
+  components: Record<string, ComponentConfiguration> | undefined;
+
+  /**
+   * <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
+   * @public
+   */
+  lineageMetadata?: VersionLineageMetadata | undefined;
+
+  /**
+   * <p>The timestamp when the configuration bundle was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when this specific version was created.</p>
+   * @public
+   */
+  versionCreatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationBundlesRequest {
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a configuration bundle.</p>
+ * @public
+ */
+export interface ConfigurationBundleSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The name of the configuration bundle.</p>
+   * @public
+   */
+  bundleName: string | undefined;
+
+  /**
+   * <p>The description of the configuration bundle.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationBundlesResponse {
+  /**
+   * <p>The list of configuration bundle summaries.</p>
+   * @public
+   */
+  bundles: ConfigurationBundleSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter for listing configuration bundle versions.</p>
+ * @public
+ */
+export interface VersionFilter {
+  /**
+   * <p>Filter by branch name.</p>
+   * @public
+   */
+  branchName?: string | undefined;
+
+  /**
+   * <p>Filter by creation source name.</p>
+   * @public
+   */
+  createdByName?: string | undefined;
+
+  /**
+   * <p>When true, returns only the latest version for each branch. When false or not specified, returns all versions. Can be combined with <code>branchName</code> to get the latest version for a specific branch.</p>
+   * @public
+   */
+  latestPerBranch?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationBundleVersionsRequest {
+  /**
+   * <p>The unique identifier of the configuration bundle to list versions for.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>An optional filter for listing versions, including branch name, creation source, and whether to return only the latest version per branch.</p>
+   * @public
+   */
+  filter?: VersionFilter | undefined;
+}
+
+/**
+ * <p>Summary information about a configuration bundle version.</p>
+ * @public
+ */
+export interface ConfigurationBundleVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The version identifier of this configuration bundle version.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The version lineage metadata, including parent versions, branch name, and creation source.</p>
+   * @public
+   */
+  lineageMetadata?: VersionLineageMetadata | undefined;
+
+  /**
+   * <p>The timestamp when this version was created.</p>
+   * @public
+   */
+  versionCreatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationBundleVersionsResponse {
+  /**
+   * <p>The list of configuration bundle version summaries.</p>
+   * @public
+   */
+  versions: ConfigurationBundleVersionSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConfigurationBundleRequest {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the configuration bundle to update.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The updated name for the configuration bundle.</p>
+   * @public
+   */
+  bundleName?: string | undefined;
+
+  /**
+   * <p>The updated description for the configuration bundle.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated component configurations. Creates a new version of the bundle.</p>
+   * @public
+   */
+  components?: Record<string, ComponentConfiguration> | undefined;
+
+  /**
+   * <p>A list of parent version identifiers for lineage tracking. Regular commits have a single parent. Merge commits have two parents: the target branch parent and the source branch parent. If the branch already exists, the first parent must be the latest version on that branch.</p>
+   * @public
+   */
+  parentVersionIds?: string[] | undefined;
+
+  /**
+   * <p>The branch name for this version. If not specified, inherits the parent's branch or defaults to <code>mainline</code>.</p>
+   * @public
+   */
+  branchName?: string | undefined;
+
+  /**
+   * <p>A commit message describing the changes in this version.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+
+  /**
+   * <p>The source that created this version, including the source name and optional ARN.</p>
+   * @public
+   */
+  createdBy?: VersionCreatedBySource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConfigurationBundleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated configuration bundle.</p>
+   * @public
+   */
+  bundleId: string | undefined;
+
+  /**
+   * <p>The new version identifier created by this update.</p>
+   * @public
+   */
+  versionId: string | undefined;
+
+  /**
+   * <p>The timestamp when the configuration bundle was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteResourcePolicyRequest {
@@ -3477,6 +4359,12 @@ export interface CreateEvaluatorRequest {
   level: EvaluatorLevel | undefined;
 
   /**
+   * <p> The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting sensitive evaluator data, including instructions and rating scale. If you don't specify a KMS key, the evaluator data is encrypted with an Amazon Web Services owned key. Only symmetric encryption KMS keys are supported. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
    * <p>A map of tag keys and values to assign to an AgentCore Evaluator. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
    * @public
    */
@@ -3555,6 +4443,12 @@ export interface GetEvaluatorRequest {
    * @public
    */
   evaluatorId: string | undefined;
+
+  /**
+   * <p> Controls which data is returned in the response. <code>ALL_DATA</code> (default) returns the full evaluator including decrypted instructions and rating scale. For evaluators encrypted with a customer managed KMS key, this requires <code>kms:Decrypt</code> permission on the key. <code>METADATA_ONLY</code> returns evaluator metadata and model configuration without instructions or rating scale, and does not require any KMS permissions. </p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -3620,6 +4514,12 @@ export interface GetEvaluatorResponse {
    * @public
    */
   lockedForModification?: boolean | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key. </p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -3703,6 +4603,12 @@ export interface EvaluatorSummary {
    * @public
    */
   lockedForModification?: boolean | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt the evaluator's sensitive data. This field is only present for evaluators encrypted with a customer managed key. </p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -3755,6 +4661,12 @@ export interface UpdateEvaluatorRequest {
    * @public
    */
   level?: EvaluatorLevel | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of a customer managed KMS key to use for encrypting sensitive evaluator data. Specify a new key ARN to rotate the encryption key, or specify a key ARN to add encryption to an evaluator that was previously created without one. When you rotate to a new key, the service decrypts the existing data with the old key and re-encrypts it with the new key. Only symmetric encryption KMS keys are supported. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -3986,7 +4898,7 @@ export interface CreateGatewayRequest {
    * <p>The protocol type for the gateway.</p>
    * @public
    */
-  protocolType: GatewayProtocolType | undefined;
+  protocolType?: GatewayProtocolType | undefined;
 
   /**
    * <p>The configuration settings for the protocol specified in the <code>protocolType</code> parameter.</p>
@@ -4105,7 +5017,7 @@ export interface CreateGatewayResponse {
    * <p>The protocol type of the gateway.</p>
    * @public
    */
-  protocolType: GatewayProtocolType | undefined;
+  protocolType?: GatewayProtocolType | undefined;
 
   /**
    * <p>The configuration settings for the protocol used by the gateway.</p>
@@ -4269,7 +5181,7 @@ export interface GetGatewayResponse {
    * <p>Protocol applied to a gateway.</p>
    * @public
    */
-  protocolType: GatewayProtocolType | undefined;
+  protocolType?: GatewayProtocolType | undefined;
 
   /**
    * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
@@ -4388,7 +5300,7 @@ export interface GatewaySummary {
    * <p>The protocol type used by the gateway.</p>
    * @public
    */
-  protocolType: GatewayProtocolType | undefined;
+  protocolType?: GatewayProtocolType | undefined;
 }
 
 /**
@@ -4440,7 +5352,7 @@ export interface UpdateGatewayRequest {
    * <p>The updated protocol type for the gateway.</p>
    * @public
    */
-  protocolType: GatewayProtocolType | undefined;
+  protocolType?: GatewayProtocolType | undefined;
 
   /**
    * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
@@ -4553,7 +5465,7 @@ export interface UpdateGatewayResponse {
    * <p>The updated protocol type for the gateway.</p>
    * @public
    */
-  protocolType: GatewayProtocolType | undefined;
+  protocolType?: GatewayProtocolType | undefined;
 
   /**
    * <p>The configuration for a gateway protocol. This structure defines how the gateway communicates with external services.</p>
@@ -4602,6 +5514,585 @@ export interface UpdateGatewayResponse {
    * @public
    */
   exceptionLevel?: ExceptionLevel | undefined;
+}
+
+/**
+ * <p>A condition that matches requests based on the request path.</p>
+ * @public
+ */
+export interface MatchPaths {
+  /**
+   * <p>A list of path patterns. The condition is met if the request path matches any of the patterns.</p>
+   * @public
+   */
+  anyOf: string[] | undefined;
+}
+
+/**
+ * <p>An IAM principal specification for rule matching.</p>
+ * @public
+ */
+export interface IamPrincipal {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM principal. Supports user, role, and assumed-role ARNs. Wildcards can be used with the <code>StringLike</code> operator.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The match operator. <code>StringEquals</code> requires an exact match. <code>StringLike</code> supports wildcard patterns using <code>*</code> and <code>?</code>.</p>
+   * @public
+   */
+  operator?: PrincipalMatchOperator | undefined;
+}
+
+/**
+ * Union for principal matching. Currently supports IAM principal ARN glob matching.
+ * Extensible for future principal types (e.g., OAuth client ID).
+ * @public
+ */
+export type MatchPrincipalEntry =
+  | MatchPrincipalEntry.IamPrincipalMember
+  | MatchPrincipalEntry.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MatchPrincipalEntry {
+  /**
+   * <p>An IAM principal to match against, specified by ARN.</p>
+   * @public
+   */
+  export interface IamPrincipalMember {
+    iamPrincipal: IamPrincipal;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    iamPrincipal?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    iamPrincipal: (value: IamPrincipal) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A condition that matches requests based on the caller's identity.</p>
+ * @public
+ */
+export interface MatchPrincipals {
+  /**
+   * <p>A list of principal entries. The condition is met if any of the entries match the caller's identity.</p>
+   * @public
+   */
+  anyOf: MatchPrincipalEntry[] | undefined;
+}
+
+/**
+ * <p>A condition that determines when a gateway rule applies. Conditions can match on principals or request paths.</p>
+ * @public
+ */
+export type Condition =
+  | Condition.MatchPathsMember
+  | Condition.MatchPrincipalsMember
+  | Condition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Condition {
+  /**
+   * <p>A condition that matches on the identity of the caller making the request.</p>
+   * @public
+   */
+  export interface MatchPrincipalsMember {
+    matchPrincipals: MatchPrincipals;
+    matchPaths?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A condition that matches on the request path.</p>
+   * @public
+   */
+  export interface MatchPathsMember {
+    matchPrincipals?: never;
+    matchPaths: MatchPaths;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    matchPrincipals?: never;
+    matchPaths?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    matchPrincipals: (value: MatchPrincipals) => T;
+    matchPaths: (value: MatchPaths) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway to create a rule for.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first. Must be between 1 and 1,000,000.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply. Conditions can match on principals (IAM ARNs) or request paths.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met. Actions can route to a specific target or apply a configuration bundle override.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * <p>System-managed metadata for rules created by automated processes such as A/B tests.</p>
+ * @public
+ */
+export interface SystemManagedBlock {
+  /**
+   * <p>The identifier of the system or process that manages this rule.</p>
+   * @public
+   */
+  managedBy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the gateway rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the rule.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+
+  /**
+   * <p>System-managed metadata for rules created by automated processes.</p>
+   * @public
+   */
+  system?: SystemManagedBlock | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway containing the rule.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rule to delete.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the deleted rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The status of the rule deletion operation.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway containing the rule.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rule to retrieve.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * Create response excludes updatedAt (redundant on create).
+ * Get/Update responses include it via their own output structures.
+ * @public
+ */
+export interface GetGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the gateway rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the rule.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+
+  /**
+   * <p>System-managed metadata for rules created by automated processes.</p>
+   * @public
+   */
+  system?: SystemManagedBlock | undefined;
+
+  /**
+   * <p>The timestamp when the rule was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayRulesRequest {
+  /**
+   * <p>The identifier of the gateway to list rules for.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Detailed information about a gateway rule.</p>
+ * @public
+ */
+export interface GatewayRuleDetail {
+  /**
+   * <p>The unique identifier of the gateway rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the rule.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+
+  /**
+   * <p>System-managed metadata for rules created by automated processes.</p>
+   * @public
+   */
+  system?: SystemManagedBlock | undefined;
+
+  /**
+   * <p>The timestamp when the rule was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayRulesResponse {
+  /**
+   * <p>The list of gateway rules.</p>
+   * @public
+   */
+  gatewayRules: GatewayRuleDetail[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGatewayRuleRequest {
+  /**
+   * <p>The identifier of the gateway containing the rule.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rule to update.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The updated priority of the rule.</p>
+   * @public
+   */
+  priority?: number | undefined;
+
+  /**
+   * <p>The updated conditions for the rule.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The updated actions for the rule.</p>
+   * @public
+   */
+  actions?: Action[] | undefined;
+
+  /**
+   * <p>The updated description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * Create response excludes updatedAt (redundant on create).
+ * Get/Update responses include it via their own output structures.
+ * @public
+ */
+export interface UpdateGatewayRuleResponse {
+  /**
+   * <p>The unique identifier of the gateway rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway that the rule belongs to.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The priority of the rule. Rules are evaluated in order of priority, with lower numbers evaluated first.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions that must be met for the rule to apply.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>The actions to take when the rule conditions are met.</p>
+   * @public
+   */
+  actions: Action[] | undefined;
+
+  /**
+   * <p>The description of the gateway rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the rule.</p>
+   * @public
+   */
+  status: GatewayRuleStatus | undefined;
+
+  /**
+   * <p>System-managed metadata for rules created by automated processes.</p>
+   * @public
+   */
+  system?: SystemManagedBlock | undefined;
+
+  /**
+   * <p>The timestamp when the rule was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -4800,6 +6291,63 @@ export interface MetadataConfiguration {
 }
 
 /**
+ * <p>Configuration for an AgentCore Runtime target. Specifies the agent runtime to route requests to via HTTP.</p>
+ * @public
+ */
+export interface RuntimeTargetConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.</p>
+   * @public
+   */
+  qualifier?: string | undefined;
+}
+
+/**
+ * <p>The HTTP target configuration for a gateway target. Contains the configuration for HTTP-based target endpoints.</p>
+ * @public
+ */
+export type HttpTargetConfiguration =
+  | HttpTargetConfiguration.AgentcoreRuntimeMember
+  | HttpTargetConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HttpTargetConfiguration {
+  /**
+   * <p>The AgentCore Runtime target configuration for HTTP-based communication with an agent runtime.</p>
+   * @public
+   */
+  export interface AgentcoreRuntimeMember {
+    agentcoreRuntime: RuntimeTargetConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentcoreRuntime?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentcoreRuntime: (value: RuntimeTargetConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Specifies which operations from an API Gateway REST API are exposed as tools. Tool names and descriptions are derived from the operationId and description fields in the API's exported OpenAPI specification.</p>
  * @public
  */
@@ -4978,16 +6526,16 @@ export interface McpServerTargetConfiguration {
   mcpToolSchema?: McpToolSchemaConfiguration | undefined;
 
   /**
-   * <p>Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.</p>
-   * @public
-   */
-  resourcePriority?: number | undefined;
-
-  /**
    * <p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>
    * @public
    */
   listingMode?: ListingMode | undefined;
+
+  /**
+   * <p>Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * @public
+   */
+  resourcePriority?: number | undefined;
 }
 
 /**
@@ -5573,7 +7121,7 @@ export interface HarnessBedrockModelConfig {
   modelId: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
    * @public
    */
   maxTokens?: number | undefined;
@@ -5609,7 +7157,7 @@ export interface HarnessGeminiModelConfig {
   apiKeyArn: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
    * @public
    */
   maxTokens?: number | undefined;
@@ -5651,7 +7199,7 @@ export interface HarnessOpenAiModelConfig {
   apiKeyArn: string | undefined;
 
   /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
    * @public
    */
   maxTokens?: number | undefined;
@@ -5926,7 +7474,7 @@ export interface HarnessAgentCoreGatewayConfig {
   gatewayArn: string | undefined;
 
   /**
-   * <p>How Loopy authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
+   * <p>How harness authenticates to this Gateway. Defaults to AWS_IAM (SigV4) if omitted.</p>
    * @public
    */
   outboundAuth?: HarnessGatewayOutboundAuth | undefined;
@@ -5962,7 +7510,7 @@ export interface HarnessRemoteMcpConfig {
   url: string | undefined;
 
   /**
-   * Map of key/value pairs for HTTP headers.
+   * <p>Custom headers to include when connecting to the remote MCP server.</p>
    * @public
    */
   headers?: Record<string, string> | undefined;
@@ -6301,7 +7849,7 @@ export interface CreateHarnessRequest {
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens the agent can generate per iteration.</p>
+   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
    * @public
    */
   maxTokens?: number | undefined;
@@ -6520,7 +8068,7 @@ export interface Harness {
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens allowed before exiting per invocation.</p>
+   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation.</p>
    * @public
    */
   maxTokens?: number | undefined;
@@ -6806,7 +8354,7 @@ export interface UpdateHarnessRequest {
   maxIterations?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens the agent can generate per iteration. If not specified, the existing value is retained.</p>
+   * <p>The maximum total number of output tokens the agent can generate across all model calls within a single invocation. If not specified, the existing value is retained.</p>
    * @public
    */
   maxTokens?: number | undefined;
@@ -7937,1590 +9485,4 @@ export namespace CustomConsolidationConfiguration {
     episodicConsolidationOverride: (value: EpisodicConsolidationOverride) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>Contains consolidation configuration information for a memory strategy.</p>
- * @public
- */
-export type ConsolidationConfiguration =
-  | ConsolidationConfiguration.CustomConsolidationConfigurationMember
-  | ConsolidationConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ConsolidationConfiguration {
-  /**
-   * <p>The custom consolidation configuration.</p>
-   * @public
-   */
-  export interface CustomConsolidationConfigurationMember {
-    customConsolidationConfiguration: CustomConsolidationConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customConsolidationConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customConsolidationConfiguration: (value: CustomConsolidationConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains configurations to override the default extraction step for the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicExtractionOverride {
-  /**
-   * <p>The text appended to the prompt for the extraction step of the episodic memory strategy.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID used for the extraction step of the episodic memory strategy.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains semantic extraction override configuration.</p>
- * @public
- */
-export interface SemanticExtractionOverride {
-  /**
-   * <p>The text to append to the prompt for semantic extraction.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for semantic extraction.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains user preference extraction override configuration.</p>
- * @public
- */
-export interface UserPreferenceExtractionOverride {
-  /**
-   * <p>The text to append to the prompt for user preference extraction.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for user preference extraction.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains custom extraction configuration information.</p>
- * @public
- */
-export type CustomExtractionConfiguration =
-  | CustomExtractionConfiguration.EpisodicExtractionOverrideMember
-  | CustomExtractionConfiguration.SemanticExtractionOverrideMember
-  | CustomExtractionConfiguration.UserPreferenceExtractionOverrideMember
-  | CustomExtractionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomExtractionConfiguration {
-  /**
-   * <p>The semantic extraction override configuration.</p>
-   * @public
-   */
-  export interface SemanticExtractionOverrideMember {
-    semanticExtractionOverride: SemanticExtractionOverride;
-    userPreferenceExtractionOverride?: never;
-    episodicExtractionOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The user preference extraction override configuration.</p>
-   * @public
-   */
-  export interface UserPreferenceExtractionOverrideMember {
-    semanticExtractionOverride?: never;
-    userPreferenceExtractionOverride: UserPreferenceExtractionOverride;
-    episodicExtractionOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configurations to override the default extraction step for the episodic memory strategy.</p>
-   * @public
-   */
-  export interface EpisodicExtractionOverrideMember {
-    semanticExtractionOverride?: never;
-    userPreferenceExtractionOverride?: never;
-    episodicExtractionOverride: EpisodicExtractionOverride;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    semanticExtractionOverride?: never;
-    userPreferenceExtractionOverride?: never;
-    episodicExtractionOverride?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    semanticExtractionOverride: (value: SemanticExtractionOverride) => T;
-    userPreferenceExtractionOverride: (value: UserPreferenceExtractionOverride) => T;
-    episodicExtractionOverride: (value: EpisodicExtractionOverride) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains extraction configuration information for a memory strategy.</p>
- * @public
- */
-export type ExtractionConfiguration =
-  | ExtractionConfiguration.CustomExtractionConfigurationMember
-  | ExtractionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ExtractionConfiguration {
-  /**
-   * <p>The custom extraction configuration.</p>
-   * @public
-   */
-  export interface CustomExtractionConfigurationMember {
-    customExtractionConfiguration: CustomExtractionConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customExtractionConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customExtractionConfiguration: (value: CustomExtractionConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains configurations to override the default reflection step for the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicReflectionOverride {
-  /**
-   * <p>The text appended to the prompt for the reflection step of the episodic memory strategy.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID used for the reflection step of the episodic memory strategy.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>The namespaces over which reflections were created. Can be less nested than the episodic namespaces.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates over which reflections were created. Can be less nested than the episodic namespaces.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-}
-
-/**
- * <p>Contains configurations for a custom reflection strategy.</p>
- * @public
- */
-export type CustomReflectionConfiguration =
-  | CustomReflectionConfiguration.EpisodicReflectionOverrideMember
-  | CustomReflectionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomReflectionConfiguration {
-  /**
-   * <p>The configuration for a reflection strategy to override the default one.</p>
-   * @public
-   */
-  export interface EpisodicReflectionOverrideMember {
-    episodicReflectionOverride: EpisodicReflectionOverride;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    episodicReflectionOverride?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    episodicReflectionOverride: (value: EpisodicReflectionOverride) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The configuration for the reflections created with the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicReflectionConfiguration {
-  /**
-   * <p>The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates for which to create reflections. Can be less nested than the episodic namespaces.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-}
-
-/**
- * <p>Contains reflection configuration information for a memory strategy.</p>
- * @public
- */
-export type ReflectionConfiguration =
-  | ReflectionConfiguration.CustomReflectionConfigurationMember
-  | ReflectionConfiguration.EpisodicReflectionConfigurationMember
-  | ReflectionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ReflectionConfiguration {
-  /**
-   * <p>The configuration for a custom reflection strategy.</p>
-   * @public
-   */
-  export interface CustomReflectionConfigurationMember {
-    customReflectionConfiguration: CustomReflectionConfiguration;
-    episodicReflectionConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configuration for the episodic reflection strategy.</p>
-   * @public
-   */
-  export interface EpisodicReflectionConfigurationMember {
-    customReflectionConfiguration?: never;
-    episodicReflectionConfiguration: EpisodicReflectionConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customReflectionConfiguration?: never;
-    episodicReflectionConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customReflectionConfiguration: (value: CustomReflectionConfiguration) => T;
-    episodicReflectionConfiguration: (value: EpisodicReflectionConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The configuration to invoke a self-managed memory processing pipeline with.</p>
- * @public
- */
-export interface InvocationConfiguration {
-  /**
-   * <p>The ARN of the SNS topic for job notifications.</p>
-   * @public
-   */
-  topicArn: string | undefined;
-
-  /**
-   * <p>The S3 bucket name for event payload delivery.</p>
-   * @public
-   */
-  payloadDeliveryBucketName: string | undefined;
-}
-
-/**
- * <p>The trigger configuration based on a message.</p>
- * @public
- */
-export interface MessageBasedTrigger {
-  /**
-   * <p>The number of messages that trigger memory processing.</p>
-   * @public
-   */
-  messageCount?: number | undefined;
-}
-
-/**
- * <p>Trigger configuration based on time.</p>
- * @public
- */
-export interface TimeBasedTrigger {
-  /**
-   * <p>Idle session timeout (seconds) that triggers memory processing.</p>
-   * @public
-   */
-  idleSessionTimeout?: number | undefined;
-}
-
-/**
- * <p>Trigger configuration based on tokens.</p>
- * @public
- */
-export interface TokenBasedTrigger {
-  /**
-   * <p>Number of tokens that trigger memory processing.</p>
-   * @public
-   */
-  tokenCount?: number | undefined;
-}
-
-/**
- * <p>Condition that triggers memory processing.</p>
- * @public
- */
-export type TriggerCondition =
-  | TriggerCondition.MessageBasedTriggerMember
-  | TriggerCondition.TimeBasedTriggerMember
-  | TriggerCondition.TokenBasedTriggerMember
-  | TriggerCondition.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TriggerCondition {
-  /**
-   * <p>Message based trigger configuration.</p>
-   * @public
-   */
-  export interface MessageBasedTriggerMember {
-    messageBasedTrigger: MessageBasedTrigger;
-    tokenBasedTrigger?: never;
-    timeBasedTrigger?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Token based trigger configuration.</p>
-   * @public
-   */
-  export interface TokenBasedTriggerMember {
-    messageBasedTrigger?: never;
-    tokenBasedTrigger: TokenBasedTrigger;
-    timeBasedTrigger?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Time based trigger configuration.</p>
-   * @public
-   */
-  export interface TimeBasedTriggerMember {
-    messageBasedTrigger?: never;
-    tokenBasedTrigger?: never;
-    timeBasedTrigger: TimeBasedTrigger;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    messageBasedTrigger?: never;
-    tokenBasedTrigger?: never;
-    timeBasedTrigger?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    messageBasedTrigger: (value: MessageBasedTrigger) => T;
-    tokenBasedTrigger: (value: TokenBasedTrigger) => T;
-    timeBasedTrigger: (value: TimeBasedTrigger) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A configuration for a self-managed memory strategy.</p>
- * @public
- */
-export interface SelfManagedConfiguration {
-  /**
-   * <p>A list of conditions that trigger memory processing.</p>
-   * @public
-   */
-  triggerConditions: TriggerCondition[] | undefined;
-
-  /**
-   * <p>The configuration to use when invoking memory processing.</p>
-   * @public
-   */
-  invocationConfiguration: InvocationConfiguration | undefined;
-
-  /**
-   * <p>The number of historical messages to include in processing context.</p>
-   * @public
-   */
-  historicalContextWindowSize: number | undefined;
-}
-
-/**
- * <p>Contains configuration information for a memory strategy.</p>
- * @public
- */
-export interface StrategyConfiguration {
-  /**
-   * <p>The type of override for the strategy configuration.</p>
-   * @public
-   */
-  type?: OverrideType | undefined;
-
-  /**
-   * <p>The extraction configuration for the memory strategy.</p>
-   * @public
-   */
-  extraction?: ExtractionConfiguration | undefined;
-
-  /**
-   * <p>The consolidation configuration for the memory strategy.</p>
-   * @public
-   */
-  consolidation?: ConsolidationConfiguration | undefined;
-
-  /**
-   * <p>The reflection configuration for the memory strategy.</p>
-   * @public
-   */
-  reflection?: ReflectionConfiguration | undefined;
-
-  /**
-   * <p>Self-managed configuration settings.</p>
-   * @public
-   */
-  selfManagedConfiguration?: SelfManagedConfiguration | undefined;
-}
-
-/**
- * <p>Contains information about a memory strategy.</p>
- * @public
- */
-export interface MemoryStrategy {
-  /**
-   * <p>The unique identifier of the memory strategy.</p>
-   * @public
-   */
-  strategyId: string | undefined;
-
-  /**
-   * <p>The name of the memory strategy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the memory strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The configuration of the memory strategy.</p>
-   * @public
-   */
-  configuration?: StrategyConfiguration | undefined;
-
-  /**
-   * <p>The type of the memory strategy.</p>
-   * @public
-   */
-  type: MemoryStrategyType | undefined;
-
-  /**
-   * <p>The namespaces associated with the memory strategy.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates associated with the memory strategy.</p>
-   * @public
-   */
-  namespaceTemplates: string[] | undefined;
-
-  /**
-   * <p>The timestamp when the memory strategy was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the memory strategy was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The current status of the memory strategy.</p>
-   * @public
-   */
-  status?: MemoryStrategyStatus | undefined;
-}
-
-/**
- * <p>Contains information about a memory resource.</p>
- * @public
- */
-export interface Memory {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the memory.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the memory.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the memory.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the memory.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The ARN of the KMS key used to encrypt the memory.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that provides permissions for the memory.</p>
-   * @public
-   */
-  memoryExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>The number of days after which memory events will expire.</p>
-   * @public
-   */
-  eventExpiryDuration: number | undefined;
-
-  /**
-   * <p>The current status of the memory.</p>
-   * @public
-   */
-  status: MemoryStatus | undefined;
-
-  /**
-   * <p>The reason for failure if the memory is in a failed state.</p>
-   * @public
-   */
-  failureReason?: string | undefined;
-
-  /**
-   * <p>The timestamp when the memory was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the memory was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The list of memory strategies associated with this memory.</p>
-   * @public
-   */
-  strategies?: MemoryStrategy[] | undefined;
-
-  /**
-   * <p>Configuration for streaming memory record data to external resources.</p>
-   * @public
-   */
-  streamDeliveryResources?: StreamDeliveryResources | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMemoryOutput {
-  /**
-   * <p>The details of the created memory, including its ID, ARN, name, description, and configuration settings.</p>
-   * @public
-   */
-  memory?: Memory | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMemoryInput {
-  /**
-   * <p>A client token is used for keeping track of idempotent requests. It can contain a session id which can be around 250 chars, combined with a unique AWS identifier.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the memory to delete.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMemoryOutput {
-  /**
-   * <p>The unique identifier of the deleted AgentCore Memory resource.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The current status of the AgentCore Memory resource deletion.</p>
-   * @public
-   */
-  status?: MemoryStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemoryInput {
-  /**
-   * <p>The unique identifier of the memory to retrieve.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The level of detail to return for the memory.</p>
-   * @public
-   */
-  view?: MemoryView | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemoryOutput {
-  /**
-   * <p>The retrieved AgentCore Memory resource details.</p>
-   * @public
-   */
-  memory: Memory | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMemoriesInput {
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about a memory resource.</p>
- * @public
- */
-export interface MemorySummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the memory.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the memory.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The current status of the memory.</p>
-   * @public
-   */
-  status?: MemoryStatus | undefined;
-
-  /**
-   * <p>The timestamp when the memory was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the memory was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMemoriesOutput {
-  /**
-   * <p>The list of AgentCore Memory resource summaries.</p>
-   * @public
-   */
-  memories: MemorySummary[] | undefined;
-
-  /**
-   * <p>A token to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Input for deleting a memory strategy.</p>
- * @public
- */
-export interface DeleteMemoryStrategyInput {
-  /**
-   * <p>The unique identifier of the memory strategy to delete.</p>
-   * @public
-   */
-  memoryStrategyId: string | undefined;
-}
-
-/**
- * <p>Input for a custom consolidation configuration.</p>
- * @public
- */
-export type CustomConsolidationConfigurationInput =
-  | CustomConsolidationConfigurationInput.EpisodicConsolidationOverrideMember
-  | CustomConsolidationConfigurationInput.SemanticConsolidationOverrideMember
-  | CustomConsolidationConfigurationInput.SummaryConsolidationOverrideMember
-  | CustomConsolidationConfigurationInput.UserPreferenceConsolidationOverrideMember
-  | CustomConsolidationConfigurationInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomConsolidationConfigurationInput {
-  /**
-   * <p>The semantic consolidation override configuration input.</p>
-   * @public
-   */
-  export interface SemanticConsolidationOverrideMember {
-    semanticConsolidationOverride: SemanticOverrideConsolidationConfigurationInput;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The summary consolidation override configuration input.</p>
-   * @public
-   */
-  export interface SummaryConsolidationOverrideMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride: SummaryOverrideConsolidationConfigurationInput;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The user preference consolidation override configuration input.</p>
-   * @public
-   */
-  export interface UserPreferenceConsolidationOverrideMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride: UserPreferenceOverrideConsolidationConfigurationInput;
-    episodicConsolidationOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configurations to override the consolidation step of the episodic strategy.</p>
-   * @public
-   */
-  export interface EpisodicConsolidationOverrideMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride: EpisodicOverrideConsolidationConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    semanticConsolidationOverride: (value: SemanticOverrideConsolidationConfigurationInput) => T;
-    summaryConsolidationOverride: (value: SummaryOverrideConsolidationConfigurationInput) => T;
-    userPreferenceConsolidationOverride: (value: UserPreferenceOverrideConsolidationConfigurationInput) => T;
-    episodicConsolidationOverride: (value: EpisodicOverrideConsolidationConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains information for modifying a consolidation configuration.</p>
- * @public
- */
-export type ModifyConsolidationConfiguration =
-  | ModifyConsolidationConfiguration.CustomConsolidationConfigurationMember
-  | ModifyConsolidationConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ModifyConsolidationConfiguration {
-  /**
-   * <p>The updated custom consolidation configuration.</p>
-   * @public
-   */
-  export interface CustomConsolidationConfigurationMember {
-    customConsolidationConfiguration: CustomConsolidationConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customConsolidationConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customConsolidationConfiguration: (value: CustomConsolidationConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Input for a custom extraction configuration.</p>
- * @public
- */
-export type CustomExtractionConfigurationInput =
-  | CustomExtractionConfigurationInput.EpisodicExtractionOverrideMember
-  | CustomExtractionConfigurationInput.SemanticExtractionOverrideMember
-  | CustomExtractionConfigurationInput.UserPreferenceExtractionOverrideMember
-  | CustomExtractionConfigurationInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomExtractionConfigurationInput {
-  /**
-   * <p>The semantic extraction override configuration input.</p>
-   * @public
-   */
-  export interface SemanticExtractionOverrideMember {
-    semanticExtractionOverride: SemanticOverrideExtractionConfigurationInput;
-    userPreferenceExtractionOverride?: never;
-    episodicExtractionOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The user preference extraction override configuration input.</p>
-   * @public
-   */
-  export interface UserPreferenceExtractionOverrideMember {
-    semanticExtractionOverride?: never;
-    userPreferenceExtractionOverride: UserPreferenceOverrideExtractionConfigurationInput;
-    episodicExtractionOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configurations to override the extraction step of the episodic strategy.</p>
-   * @public
-   */
-  export interface EpisodicExtractionOverrideMember {
-    semanticExtractionOverride?: never;
-    userPreferenceExtractionOverride?: never;
-    episodicExtractionOverride: EpisodicOverrideExtractionConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    semanticExtractionOverride?: never;
-    userPreferenceExtractionOverride?: never;
-    episodicExtractionOverride?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    semanticExtractionOverride: (value: SemanticOverrideExtractionConfigurationInput) => T;
-    userPreferenceExtractionOverride: (value: UserPreferenceOverrideExtractionConfigurationInput) => T;
-    episodicExtractionOverride: (value: EpisodicOverrideExtractionConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains information for modifying an extraction configuration.</p>
- * @public
- */
-export type ModifyExtractionConfiguration =
-  | ModifyExtractionConfiguration.CustomExtractionConfigurationMember
-  | ModifyExtractionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ModifyExtractionConfiguration {
-  /**
-   * <p>The updated custom extraction configuration.</p>
-   * @public
-   */
-  export interface CustomExtractionConfigurationMember {
-    customExtractionConfiguration: CustomExtractionConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    customExtractionConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    customExtractionConfiguration: (value: CustomExtractionConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Input for a custom reflection configuration.</p>
- * @public
- */
-export type CustomReflectionConfigurationInput =
-  | CustomReflectionConfigurationInput.EpisodicReflectionOverrideMember
-  | CustomReflectionConfigurationInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomReflectionConfigurationInput {
-  /**
-   * <p>The reflection override configuration input.</p>
-   * @public
-   */
-  export interface EpisodicReflectionOverrideMember {
-    episodicReflectionOverride: EpisodicOverrideReflectionConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    episodicReflectionOverride?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    episodicReflectionOverride: (value: EpisodicOverrideReflectionConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Contains information for modifying a reflection configuration.</p>
- * @public
- */
-export type ModifyReflectionConfiguration =
-  | ModifyReflectionConfiguration.CustomReflectionConfigurationMember
-  | ModifyReflectionConfiguration.EpisodicReflectionConfigurationMember
-  | ModifyReflectionConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ModifyReflectionConfiguration {
-  /**
-   * <p>The updated episodic reflection configuration.</p>
-   * @public
-   */
-  export interface EpisodicReflectionConfigurationMember {
-    episodicReflectionConfiguration: EpisodicReflectionConfigurationInput;
-    customReflectionConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The updated custom reflection configuration.</p>
-   * @public
-   */
-  export interface CustomReflectionConfigurationMember {
-    episodicReflectionConfiguration?: never;
-    customReflectionConfiguration: CustomReflectionConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    episodicReflectionConfiguration?: never;
-    customReflectionConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    episodicReflectionConfiguration: (value: EpisodicReflectionConfigurationInput) => T;
-    customReflectionConfiguration: (value: CustomReflectionConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The configuration for updating invocation settings.</p>
- * @public
- */
-export interface ModifyInvocationConfigurationInput {
-  /**
-   * <p>The updated ARN of the SNS topic for job notifications.</p>
-   * @public
-   */
-  topicArn?: string | undefined;
-
-  /**
-   * <p>The updated S3 bucket name for event payload delivery.</p>
-   * @public
-   */
-  payloadDeliveryBucketName?: string | undefined;
-}
-
-/**
- * <p>The configuration for updating the self-managed memory strategy.</p>
- * @public
- */
-export interface ModifySelfManagedConfiguration {
-  /**
-   * <p>The updated list of conditions that trigger memory processing.</p>
-   * @public
-   */
-  triggerConditions?: TriggerConditionInput[] | undefined;
-
-  /**
-   * <p>The updated configuration to invoke self-managed memory processing pipeline.</p>
-   * @public
-   */
-  invocationConfiguration?: ModifyInvocationConfigurationInput | undefined;
-
-  /**
-   * <p>The updated number of historical messages to include in processing context.</p>
-   * @public
-   */
-  historicalContextWindowSize?: number | undefined;
-}
-
-/**
- * <p>Contains information for modifying a strategy configuration.</p>
- * @public
- */
-export interface ModifyStrategyConfiguration {
-  /**
-   * <p>The updated extraction configuration.</p>
-   * @public
-   */
-  extraction?: ModifyExtractionConfiguration | undefined;
-
-  /**
-   * <p>The updated consolidation configuration.</p>
-   * @public
-   */
-  consolidation?: ModifyConsolidationConfiguration | undefined;
-
-  /**
-   * <p>The updated reflection configuration.</p>
-   * @public
-   */
-  reflection?: ModifyReflectionConfiguration | undefined;
-
-  /**
-   * <p>The updated self-managed configuration.</p>
-   * @public
-   */
-  selfManagedConfiguration?: ModifySelfManagedConfiguration | undefined;
-}
-
-/**
- * <p>Input for modifying a memory strategy.</p>
- * @public
- */
-export interface ModifyMemoryStrategyInput {
-  /**
-   * <p>The unique identifier of the memory strategy to modify.</p>
-   * @public
-   */
-  memoryStrategyId: string | undefined;
-
-  /**
-   * <p>The updated description of the memory strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated namespaces for the memory strategy.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The updated namespaceTemplates for the memory strategy.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-
-  /**
-   * <p>The updated configuration for the memory strategy.</p>
-   * @public
-   */
-  configuration?: ModifyStrategyConfiguration | undefined;
-}
-
-/**
- * <p>Contains information for modifying memory strategies.</p>
- * @public
- */
-export interface ModifyMemoryStrategies {
-  /**
-   * <p>The list of memory strategies to add.</p>
-   * @public
-   */
-  addMemoryStrategies?: MemoryStrategyInput[] | undefined;
-
-  /**
-   * <p>The list of memory strategies to modify.</p>
-   * @public
-   */
-  modifyMemoryStrategies?: ModifyMemoryStrategyInput[] | undefined;
-
-  /**
-   * <p>The list of memory strategies to delete.</p>
-   * @public
-   */
-  deleteMemoryStrategies?: DeleteMemoryStrategyInput[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMemoryInput {
-  /**
-   * <p>A client token is used for keeping track of idempotent requests. It can contain a session id which can be around 250 chars, combined with a unique AWS identifier.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the memory to update.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The updated description of the AgentCore Memory resource.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The number of days after which memory events will expire, between 7 and 365 days.</p>
-   * @public
-   */
-  eventExpiryDuration?: number | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that provides permissions for the AgentCore Memory resource.</p>
-   * @public
-   */
-  memoryExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>The memory strategies to add, modify, or delete.</p>
-   * @public
-   */
-  memoryStrategies?: ModifyMemoryStrategies | undefined;
-
-  /**
-   * <p>Configuration for streaming memory record data to external resources.</p>
-   * @public
-   */
-  streamDeliveryResources?: StreamDeliveryResources | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMemoryOutput {
-  /**
-   * <p>The updated AgentCore Memory resource details.</p>
-   * @public
-   */
-  memory?: Memory | undefined;
-}
-
-/**
- * <p>Configuration settings for connecting to Atlassian services using OAuth2 authentication. This includes the client credentials required to authenticate with Atlassian's OAuth2 authorization server.</p>
- * @public
- */
-export interface AtlassianOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the Atlassian OAuth2 provider. This identifier is assigned by Atlassian when you register your application.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the Atlassian OAuth2 provider. This secret is assigned by Atlassian and used along with the client ID to authenticate your application.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-}
-
-/**
- * <p>Contains the authorization server metadata for an OAuth2 provider.</p>
- * @public
- */
-export interface Oauth2AuthorizationServerMetadata {
-  /**
-   * <p>The issuer URL for the OAuth2 authorization server.</p>
-   * @public
-   */
-  issuer: string | undefined;
-
-  /**
-   * <p>The authorization endpoint URL for the OAuth2 authorization server.</p>
-   * @public
-   */
-  authorizationEndpoint: string | undefined;
-
-  /**
-   * <p>The token endpoint URL for the OAuth2 authorization server.</p>
-   * @public
-   */
-  tokenEndpoint: string | undefined;
-
-  /**
-   * <p>The supported response types for the OAuth2 authorization server.</p>
-   * @public
-   */
-  responseTypes?: string[] | undefined;
-
-  /**
-   * <p>The authentication methods supported by the token endpoint. This specifies how clients can authenticate when requesting tokens from the authorization server.</p>
-   * @public
-   */
-  tokenEndpointAuthMethods?: string[] | undefined;
-}
-
-/**
- * <p>Contains the discovery information for an OAuth2 provider.</p>
- * @public
- */
-export type Oauth2Discovery =
-  | Oauth2Discovery.AuthorizationServerMetadataMember
-  | Oauth2Discovery.DiscoveryUrlMember
-  | Oauth2Discovery.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Oauth2Discovery {
-  /**
-   * <p>The discovery URL for the OAuth2 provider.</p>
-   * @public
-   */
-  export interface DiscoveryUrlMember {
-    discoveryUrl: string;
-    authorizationServerMetadata?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The authorization server metadata for the OAuth2 provider.</p>
-   * @public
-   */
-  export interface AuthorizationServerMetadataMember {
-    discoveryUrl?: never;
-    authorizationServerMetadata: Oauth2AuthorizationServerMetadata;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    discoveryUrl?: never;
-    authorizationServerMetadata?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    discoveryUrl: (value: string) => T;
-    authorizationServerMetadata: (value: Oauth2AuthorizationServerMetadata) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Input configuration for a custom OAuth2 provider.</p>
- * @public
- */
-export interface CustomOauth2ProviderConfigInput {
-  /**
-   * <p>The OAuth2 discovery information for the custom provider.</p>
-   * @public
-   */
-  oauthDiscovery: Oauth2Discovery | undefined;
-
-  /**
-   * <p>The client ID for the custom OAuth2 provider.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the custom OAuth2 provider.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-
-  /**
-   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
-   * @public
-   */
-  privateEndpoint?: PrivateEndpoint | undefined;
-
-  /**
-   * <p>The list of private endpoint overrides for the custom OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>
-   * @public
-   */
-  privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
-}
-
-/**
- * <p>Input configuration for a GitHub OAuth2 provider.</p>
- * @public
- */
-export interface GithubOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the GitHub OAuth2 provider.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the GitHub OAuth2 provider.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-}
-
-/**
- * <p>Input configuration for a Google OAuth2 provider.</p>
- * @public
- */
-export interface GoogleOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the Google OAuth2 provider.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the Google OAuth2 provider.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-}
-
-/**
- * <p>Configuration settings for connecting to a supported OAuth2 provider. This includes client credentials and OAuth2 discovery information for providers that have built-in support.</p>
- * @public
- */
-export interface IncludedOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the supported OAuth2 provider. This identifier is assigned by the OAuth2 provider when you register your application.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the supported OAuth2 provider. This secret is assigned by the OAuth2 provider and used along with the client ID to authenticate your application.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
-
-  /**
-   * <p>Token issuer of your isolated OAuth2 application tenant. This URL identifies the authorization server that issues tokens for this provider.</p>
-   * @public
-   */
-  issuer?: string | undefined;
-
-  /**
-   * <p>OAuth2 authorization endpoint for your isolated OAuth2 application tenant. This is where users are redirected to authenticate and authorize access to their resources.</p>
-   * @public
-   */
-  authorizationEndpoint?: string | undefined;
-
-  /**
-   * <p>OAuth2 token endpoint for your isolated OAuth2 application tenant. This is where authorization codes are exchanged for access tokens.</p>
-   * @public
-   */
-  tokenEndpoint?: string | undefined;
-}
-
-/**
- * <p>Configuration settings for connecting to LinkedIn services using OAuth2 authentication. This includes the client credentials required to authenticate with LinkedIn's OAuth2 authorization server.</p>
- * @public
- */
-export interface LinkedinOauth2ProviderConfigInput {
-  /**
-   * <p>The client ID for the LinkedIn OAuth2 provider. This identifier is assigned by LinkedIn when you register your application.</p>
-   * @public
-   */
-  clientId: string | undefined;
-
-  /**
-   * <p>The client secret for the LinkedIn OAuth2 provider. This secret is assigned by LinkedIn and used along with the client ID to authenticate your application.</p>
-   * @public
-   */
-  clientSecret: string | undefined;
 }

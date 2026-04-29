@@ -82,8 +82,16 @@ import type {
   CreateCodeInterpreterCommandInput,
   CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
+import type {
+  CreateConfigurationBundleCommandInput,
+  CreateConfigurationBundleCommandOutput,
+} from "./commands/CreateConfigurationBundleCommand";
 import type { CreateEvaluatorCommandInput, CreateEvaluatorCommandOutput } from "./commands/CreateEvaluatorCommand";
 import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type {
+  CreateGatewayRuleCommandInput,
+  CreateGatewayRuleCommandOutput,
+} from "./commands/CreateGatewayRuleCommand";
 import type {
   CreateGatewayTargetCommandInput,
   CreateGatewayTargetCommandOutput,
@@ -133,8 +141,16 @@ import type {
   DeleteCodeInterpreterCommandInput,
   DeleteCodeInterpreterCommandOutput,
 } from "./commands/DeleteCodeInterpreterCommand";
+import type {
+  DeleteConfigurationBundleCommandInput,
+  DeleteConfigurationBundleCommandOutput,
+} from "./commands/DeleteConfigurationBundleCommand";
 import type { DeleteEvaluatorCommandInput, DeleteEvaluatorCommandOutput } from "./commands/DeleteEvaluatorCommand";
 import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type {
+  DeleteGatewayRuleCommandInput,
+  DeleteGatewayRuleCommandOutput,
+} from "./commands/DeleteGatewayRuleCommand";
 import type {
   DeleteGatewayTargetCommandInput,
   DeleteGatewayTargetCommandOutput,
@@ -185,8 +201,17 @@ import type {
   GetCodeInterpreterCommandInput,
   GetCodeInterpreterCommandOutput,
 } from "./commands/GetCodeInterpreterCommand";
+import type {
+  GetConfigurationBundleCommandInput,
+  GetConfigurationBundleCommandOutput,
+} from "./commands/GetConfigurationBundleCommand";
+import type {
+  GetConfigurationBundleVersionCommandInput,
+  GetConfigurationBundleVersionCommandOutput,
+} from "./commands/GetConfigurationBundleVersionCommand";
 import type { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import type { GetGatewayRuleCommandInput, GetGatewayRuleCommandOutput } from "./commands/GetGatewayRuleCommand";
 import type { GetGatewayTargetCommandInput, GetGatewayTargetCommandOutput } from "./commands/GetGatewayTargetCommand";
 import type { GetHarnessCommandInput, GetHarnessCommandOutput } from "./commands/GetHarnessCommand";
 import type { GetMemoryCommandInput, GetMemoryCommandOutput } from "./commands/GetMemoryCommand";
@@ -243,7 +268,16 @@ import type {
   ListCodeInterpretersCommandInput,
   ListCodeInterpretersCommandOutput,
 } from "./commands/ListCodeInterpretersCommand";
+import type {
+  ListConfigurationBundlesCommandInput,
+  ListConfigurationBundlesCommandOutput,
+} from "./commands/ListConfigurationBundlesCommand";
+import type {
+  ListConfigurationBundleVersionsCommandInput,
+  ListConfigurationBundleVersionsCommandOutput,
+} from "./commands/ListConfigurationBundleVersionsCommand";
 import type { ListEvaluatorsCommandInput, ListEvaluatorsCommandOutput } from "./commands/ListEvaluatorsCommand";
+import type { ListGatewayRulesCommandInput, ListGatewayRulesCommandOutput } from "./commands/ListGatewayRulesCommand";
 import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import type {
   ListGatewayTargetsCommandInput,
@@ -316,8 +350,16 @@ import type {
   UpdateApiKeyCredentialProviderCommandInput,
   UpdateApiKeyCredentialProviderCommandOutput,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
+import type {
+  UpdateConfigurationBundleCommandInput,
+  UpdateConfigurationBundleCommandOutput,
+} from "./commands/UpdateConfigurationBundleCommand";
 import type { UpdateEvaluatorCommandInput, UpdateEvaluatorCommandOutput } from "./commands/UpdateEvaluatorCommand";
 import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
+import type {
+  UpdateGatewayRuleCommandInput,
+  UpdateGatewayRuleCommandOutput,
+} from "./commands/UpdateGatewayRuleCommand";
 import type {
   UpdateGatewayTargetCommandInput,
   UpdateGatewayTargetCommandOutput,
@@ -371,8 +413,10 @@ export type ServiceInputTypes =
   | CreateBrowserCommandInput
   | CreateBrowserProfileCommandInput
   | CreateCodeInterpreterCommandInput
+  | CreateConfigurationBundleCommandInput
   | CreateEvaluatorCommandInput
   | CreateGatewayCommandInput
+  | CreateGatewayRuleCommandInput
   | CreateGatewayTargetCommandInput
   | CreateHarnessCommandInput
   | CreateMemoryCommandInput
@@ -389,8 +433,10 @@ export type ServiceInputTypes =
   | DeleteBrowserCommandInput
   | DeleteBrowserProfileCommandInput
   | DeleteCodeInterpreterCommandInput
+  | DeleteConfigurationBundleCommandInput
   | DeleteEvaluatorCommandInput
   | DeleteGatewayCommandInput
+  | DeleteGatewayRuleCommandInput
   | DeleteGatewayTargetCommandInput
   | DeleteHarnessCommandInput
   | DeleteMemoryCommandInput
@@ -408,8 +454,11 @@ export type ServiceInputTypes =
   | GetBrowserCommandInput
   | GetBrowserProfileCommandInput
   | GetCodeInterpreterCommandInput
+  | GetConfigurationBundleCommandInput
+  | GetConfigurationBundleVersionCommandInput
   | GetEvaluatorCommandInput
   | GetGatewayCommandInput
+  | GetGatewayRuleCommandInput
   | GetGatewayTargetCommandInput
   | GetHarnessCommandInput
   | GetMemoryCommandInput
@@ -430,7 +479,10 @@ export type ServiceInputTypes =
   | ListBrowserProfilesCommandInput
   | ListBrowsersCommandInput
   | ListCodeInterpretersCommandInput
+  | ListConfigurationBundleVersionsCommandInput
+  | ListConfigurationBundlesCommandInput
   | ListEvaluatorsCommandInput
+  | ListGatewayRulesCommandInput
   | ListGatewayTargetsCommandInput
   | ListGatewaysCommandInput
   | ListHarnessesCommandInput
@@ -455,8 +507,10 @@ export type ServiceInputTypes =
   | UpdateAgentRuntimeCommandInput
   | UpdateAgentRuntimeEndpointCommandInput
   | UpdateApiKeyCredentialProviderCommandInput
+  | UpdateConfigurationBundleCommandInput
   | UpdateEvaluatorCommandInput
   | UpdateGatewayCommandInput
+  | UpdateGatewayRuleCommandInput
   | UpdateGatewayTargetCommandInput
   | UpdateHarnessCommandInput
   | UpdateMemoryCommandInput
@@ -479,8 +533,10 @@ export type ServiceOutputTypes =
   | CreateBrowserCommandOutput
   | CreateBrowserProfileCommandOutput
   | CreateCodeInterpreterCommandOutput
+  | CreateConfigurationBundleCommandOutput
   | CreateEvaluatorCommandOutput
   | CreateGatewayCommandOutput
+  | CreateGatewayRuleCommandOutput
   | CreateGatewayTargetCommandOutput
   | CreateHarnessCommandOutput
   | CreateMemoryCommandOutput
@@ -497,8 +553,10 @@ export type ServiceOutputTypes =
   | DeleteBrowserCommandOutput
   | DeleteBrowserProfileCommandOutput
   | DeleteCodeInterpreterCommandOutput
+  | DeleteConfigurationBundleCommandOutput
   | DeleteEvaluatorCommandOutput
   | DeleteGatewayCommandOutput
+  | DeleteGatewayRuleCommandOutput
   | DeleteGatewayTargetCommandOutput
   | DeleteHarnessCommandOutput
   | DeleteMemoryCommandOutput
@@ -516,8 +574,11 @@ export type ServiceOutputTypes =
   | GetBrowserCommandOutput
   | GetBrowserProfileCommandOutput
   | GetCodeInterpreterCommandOutput
+  | GetConfigurationBundleCommandOutput
+  | GetConfigurationBundleVersionCommandOutput
   | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
+  | GetGatewayRuleCommandOutput
   | GetGatewayTargetCommandOutput
   | GetHarnessCommandOutput
   | GetMemoryCommandOutput
@@ -538,7 +599,10 @@ export type ServiceOutputTypes =
   | ListBrowserProfilesCommandOutput
   | ListBrowsersCommandOutput
   | ListCodeInterpretersCommandOutput
+  | ListConfigurationBundleVersionsCommandOutput
+  | ListConfigurationBundlesCommandOutput
   | ListEvaluatorsCommandOutput
+  | ListGatewayRulesCommandOutput
   | ListGatewayTargetsCommandOutput
   | ListGatewaysCommandOutput
   | ListHarnessesCommandOutput
@@ -563,8 +627,10 @@ export type ServiceOutputTypes =
   | UpdateAgentRuntimeCommandOutput
   | UpdateAgentRuntimeEndpointCommandOutput
   | UpdateApiKeyCredentialProviderCommandOutput
+  | UpdateConfigurationBundleCommandOutput
   | UpdateEvaluatorCommandOutput
   | UpdateGatewayCommandOutput
+  | UpdateGatewayRuleCommandOutput
   | UpdateGatewayTargetCommandOutput
   | UpdateHarnessCommandOutput
   | UpdateMemoryCommandOutput

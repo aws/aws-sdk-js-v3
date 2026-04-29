@@ -85,6 +85,7 @@ export interface CreateEvaluatorCommandOutput extends CreateEvaluatorResponse, _
  *     },
  *   },
  *   level: "TOOL_CALL" || "TRACE" || "SESSION", // required
+ *   kmsKeyArn: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },

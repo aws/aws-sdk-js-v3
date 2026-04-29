@@ -45,7 +45,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
- *   protocolType: "MCP", // required
+ *   protocolType: "MCP",
  *   protocolConfiguration: { // GatewayProtocolConfiguration Union: only one key present
  *     mcp: { // MCPGatewayConfiguration
  *       supportedVersions: [ // McpSupportedVersions
@@ -55,7 +55,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       searchType: "SEMANTIC",
  *     },
  *   },
- *   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE", // required
+ *   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
  *   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  *     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  *       discoveryUrl: "STRING_VALUE", // required
@@ -166,7 +166,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE",
- * //   protocolType: "MCP", // required
+ * //   protocolType: "MCP",
  * //   protocolConfiguration: { // GatewayProtocolConfiguration Union: only one key present
  * //     mcp: { // MCPGatewayConfiguration
  * //       supportedVersions: [ // McpSupportedVersions
@@ -176,7 +176,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       searchType: "SEMANTIC",
  * //     },
  * //   },
- * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE", // required
+ * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
  * //   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  * //     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
  * //       discoveryUrl: "STRING_VALUE", // required

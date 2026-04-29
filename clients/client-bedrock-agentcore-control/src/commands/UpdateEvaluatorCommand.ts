@@ -85,6 +85,7 @@ export interface UpdateEvaluatorCommandOutput extends UpdateEvaluatorResponse, _
  *     },
  *   },
  *   level: "TOOL_CALL" || "TRACE" || "SESSION",
+ *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateEvaluatorCommand(input);
  * const response = await client.send(command);

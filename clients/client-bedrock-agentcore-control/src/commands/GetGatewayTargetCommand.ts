@@ -120,8 +120,8 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //           },
  * //           inlinePayload: "STRING_VALUE",
  * //         },
- * //         resourcePriority: Number("int"),
  * //         listingMode: "DEFAULT" || "DYNAMIC",
+ * //         resourcePriority: Number("int"),
  * //       },
  * //       apiGateway: { // ApiGatewayTargetConfiguration
  * //         restApiId: "STRING_VALUE", // required
@@ -146,10 +146,16 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //         },
  * //       },
  * //     },
+ * //     http: { // HttpTargetConfiguration Union: only one key present
+ * //       agentcoreRuntime: { // RuntimeTargetConfiguration
+ * //         arn: "STRING_VALUE", // required
+ * //         qualifier: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   credentialProviderConfigurations: [ // CredentialProviderConfigurations // required
  * //     { // CredentialProviderConfiguration
- * //       credentialProviderType: "GATEWAY_IAM_ROLE" || "OAUTH" || "API_KEY", // required
+ * //       credentialProviderType: "GATEWAY_IAM_ROLE" || "OAUTH" || "API_KEY" || "CALLER_IAM_CREDENTIALS" || "JWT_PASSTHROUGH", // required
  * //       credentialProvider: { // CredentialProvider Union: only one key present
  * //         oauthCredentialProvider: { // OAuthCredentialProvider
  * //           providerArn: "STRING_VALUE", // required
@@ -219,6 +225,7 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //       userId: "STRING_VALUE",
  * //     },
  * //   },
+ * //   protocolType: "MCP" || "HTTP",
  * // };
  *
  * ```

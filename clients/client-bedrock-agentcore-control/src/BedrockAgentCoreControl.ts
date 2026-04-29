@@ -40,6 +40,11 @@ import {
   CreateCodeInterpreterCommand,
 } from "./commands/CreateCodeInterpreterCommand";
 import {
+  type CreateConfigurationBundleCommandInput,
+  type CreateConfigurationBundleCommandOutput,
+  CreateConfigurationBundleCommand,
+} from "./commands/CreateConfigurationBundleCommand";
+import {
   type CreateEvaluatorCommandInput,
   type CreateEvaluatorCommandOutput,
   CreateEvaluatorCommand,
@@ -49,6 +54,11 @@ import {
   type CreateGatewayCommandOutput,
   CreateGatewayCommand,
 } from "./commands/CreateGatewayCommand";
+import {
+  type CreateGatewayRuleCommandInput,
+  type CreateGatewayRuleCommandOutput,
+  CreateGatewayRuleCommand,
+} from "./commands/CreateGatewayRuleCommand";
 import {
   type CreateGatewayTargetCommandInput,
   type CreateGatewayTargetCommandOutput,
@@ -130,6 +140,11 @@ import {
   DeleteCodeInterpreterCommand,
 } from "./commands/DeleteCodeInterpreterCommand";
 import {
+  type DeleteConfigurationBundleCommandInput,
+  type DeleteConfigurationBundleCommandOutput,
+  DeleteConfigurationBundleCommand,
+} from "./commands/DeleteConfigurationBundleCommand";
+import {
   type DeleteEvaluatorCommandInput,
   type DeleteEvaluatorCommandOutput,
   DeleteEvaluatorCommand,
@@ -139,6 +154,11 @@ import {
   type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
 } from "./commands/DeleteGatewayCommand";
+import {
+  type DeleteGatewayRuleCommandInput,
+  type DeleteGatewayRuleCommandOutput,
+  DeleteGatewayRuleCommand,
+} from "./commands/DeleteGatewayRuleCommand";
 import {
   type DeleteGatewayTargetCommandInput,
   type DeleteGatewayTargetCommandOutput,
@@ -225,6 +245,16 @@ import {
   GetCodeInterpreterCommand,
 } from "./commands/GetCodeInterpreterCommand";
 import {
+  type GetConfigurationBundleCommandInput,
+  type GetConfigurationBundleCommandOutput,
+  GetConfigurationBundleCommand,
+} from "./commands/GetConfigurationBundleCommand";
+import {
+  type GetConfigurationBundleVersionCommandInput,
+  type GetConfigurationBundleVersionCommandOutput,
+  GetConfigurationBundleVersionCommand,
+} from "./commands/GetConfigurationBundleVersionCommand";
+import {
   type GetEvaluatorCommandInput,
   type GetEvaluatorCommandOutput,
   GetEvaluatorCommand,
@@ -234,6 +264,11 @@ import {
   type GetGatewayCommandOutput,
   GetGatewayCommand,
 } from "./commands/GetGatewayCommand";
+import {
+  type GetGatewayRuleCommandInput,
+  type GetGatewayRuleCommandOutput,
+  GetGatewayRuleCommand,
+} from "./commands/GetGatewayRuleCommand";
 import {
   type GetGatewayTargetCommandInput,
   type GetGatewayTargetCommandOutput,
@@ -327,10 +362,25 @@ import {
   ListCodeInterpretersCommand,
 } from "./commands/ListCodeInterpretersCommand";
 import {
+  type ListConfigurationBundlesCommandInput,
+  type ListConfigurationBundlesCommandOutput,
+  ListConfigurationBundlesCommand,
+} from "./commands/ListConfigurationBundlesCommand";
+import {
+  type ListConfigurationBundleVersionsCommandInput,
+  type ListConfigurationBundleVersionsCommandOutput,
+  ListConfigurationBundleVersionsCommand,
+} from "./commands/ListConfigurationBundleVersionsCommand";
+import {
   type ListEvaluatorsCommandInput,
   type ListEvaluatorsCommandOutput,
   ListEvaluatorsCommand,
 } from "./commands/ListEvaluatorsCommand";
+import {
+  type ListGatewayRulesCommandInput,
+  type ListGatewayRulesCommandOutput,
+  ListGatewayRulesCommand,
+} from "./commands/ListGatewayRulesCommand";
 import {
   type ListGatewaysCommandInput,
   type ListGatewaysCommandOutput,
@@ -452,6 +502,11 @@ import {
   UpdateApiKeyCredentialProviderCommand,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
 import {
+  type UpdateConfigurationBundleCommandInput,
+  type UpdateConfigurationBundleCommandOutput,
+  UpdateConfigurationBundleCommand,
+} from "./commands/UpdateConfigurationBundleCommand";
+import {
   type UpdateEvaluatorCommandInput,
   type UpdateEvaluatorCommandOutput,
   UpdateEvaluatorCommand,
@@ -461,6 +516,11 @@ import {
   type UpdateGatewayCommandOutput,
   UpdateGatewayCommand,
 } from "./commands/UpdateGatewayCommand";
+import {
+  type UpdateGatewayRuleCommandInput,
+  type UpdateGatewayRuleCommandOutput,
+  UpdateGatewayRuleCommand,
+} from "./commands/UpdateGatewayRuleCommand";
 import {
   type UpdateGatewayTargetCommandInput,
   type UpdateGatewayTargetCommandOutput,
@@ -525,7 +585,10 @@ import { paginateListApiKeyCredentialProviders } from "./pagination/ListApiKeyCr
 import { paginateListBrowserProfiles } from "./pagination/ListBrowserProfilesPaginator";
 import { paginateListBrowsers } from "./pagination/ListBrowsersPaginator";
 import { paginateListCodeInterpreters } from "./pagination/ListCodeInterpretersPaginator";
+import { paginateListConfigurationBundles } from "./pagination/ListConfigurationBundlesPaginator";
+import { paginateListConfigurationBundleVersions } from "./pagination/ListConfigurationBundleVersionsPaginator";
 import { paginateListEvaluators } from "./pagination/ListEvaluatorsPaginator";
+import { paginateListGatewayRules } from "./pagination/ListGatewayRulesPaginator";
 import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
 import { paginateListGatewayTargets } from "./pagination/ListGatewayTargetsPaginator";
 import { paginateListHarnesses } from "./pagination/ListHarnessesPaginator";
@@ -553,8 +616,10 @@ const commands = {
   CreateBrowserCommand,
   CreateBrowserProfileCommand,
   CreateCodeInterpreterCommand,
+  CreateConfigurationBundleCommand,
   CreateEvaluatorCommand,
   CreateGatewayCommand,
+  CreateGatewayRuleCommand,
   CreateGatewayTargetCommand,
   CreateHarnessCommand,
   CreateMemoryCommand,
@@ -571,8 +636,10 @@ const commands = {
   DeleteBrowserCommand,
   DeleteBrowserProfileCommand,
   DeleteCodeInterpreterCommand,
+  DeleteConfigurationBundleCommand,
   DeleteEvaluatorCommand,
   DeleteGatewayCommand,
+  DeleteGatewayRuleCommand,
   DeleteGatewayTargetCommand,
   DeleteHarnessCommand,
   DeleteMemoryCommand,
@@ -590,8 +657,11 @@ const commands = {
   GetBrowserCommand,
   GetBrowserProfileCommand,
   GetCodeInterpreterCommand,
+  GetConfigurationBundleCommand,
+  GetConfigurationBundleVersionCommand,
   GetEvaluatorCommand,
   GetGatewayCommand,
+  GetGatewayRuleCommand,
   GetGatewayTargetCommand,
   GetHarnessCommand,
   GetMemoryCommand,
@@ -612,7 +682,10 @@ const commands = {
   ListBrowserProfilesCommand,
   ListBrowsersCommand,
   ListCodeInterpretersCommand,
+  ListConfigurationBundlesCommand,
+  ListConfigurationBundleVersionsCommand,
   ListEvaluatorsCommand,
+  ListGatewayRulesCommand,
   ListGatewaysCommand,
   ListGatewayTargetsCommand,
   ListHarnessesCommand,
@@ -637,8 +710,10 @@ const commands = {
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpointCommand,
   UpdateApiKeyCredentialProviderCommand,
+  UpdateConfigurationBundleCommand,
   UpdateEvaluatorCommand,
   UpdateGatewayCommand,
+  UpdateGatewayRuleCommand,
   UpdateGatewayTargetCommand,
   UpdateHarnessCommand,
   UpdateMemoryCommand,
@@ -659,7 +734,10 @@ const paginators = {
   paginateListBrowserProfiles,
   paginateListBrowsers,
   paginateListCodeInterpreters,
+  paginateListConfigurationBundles,
+  paginateListConfigurationBundleVersions,
   paginateListEvaluators,
+  paginateListGatewayRules,
   paginateListGateways,
   paginateListGatewayTargets,
   paginateListHarnesses,
@@ -787,6 +865,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link CreateConfigurationBundleCommand}
+   */
+  createConfigurationBundle(
+    args: CreateConfigurationBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationBundleCommandOutput>;
+  createConfigurationBundle(
+    args: CreateConfigurationBundleCommandInput,
+    cb: (err: any, data?: CreateConfigurationBundleCommandOutput) => void
+  ): void;
+  createConfigurationBundle(
+    args: CreateConfigurationBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEvaluatorCommand}
    */
   createEvaluator(
@@ -818,6 +913,23 @@ export interface BedrockAgentCoreControl {
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGatewayRuleCommand}
+   */
+  createGatewayRule(
+    args: CreateGatewayRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayRuleCommandOutput>;
+  createGatewayRule(
+    args: CreateGatewayRuleCommandInput,
+    cb: (err: any, data?: CreateGatewayRuleCommandOutput) => void
+  ): void;
+  createGatewayRule(
+    args: CreateGatewayRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGatewayRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1093,6 +1205,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link DeleteConfigurationBundleCommand}
+   */
+  deleteConfigurationBundle(
+    args: DeleteConfigurationBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationBundleCommandOutput>;
+  deleteConfigurationBundle(
+    args: DeleteConfigurationBundleCommandInput,
+    cb: (err: any, data?: DeleteConfigurationBundleCommandOutput) => void
+  ): void;
+  deleteConfigurationBundle(
+    args: DeleteConfigurationBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEvaluatorCommand}
    */
   deleteEvaluator(
@@ -1124,6 +1253,23 @@ export interface BedrockAgentCoreControl {
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGatewayRuleCommand}
+   */
+  deleteGatewayRule(
+    args: DeleteGatewayRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayRuleCommandOutput>;
+  deleteGatewayRule(
+    args: DeleteGatewayRuleCommandInput,
+    cb: (err: any, data?: DeleteGatewayRuleCommandOutput) => void
+  ): void;
+  deleteGatewayRule(
+    args: DeleteGatewayRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGatewayRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1416,6 +1562,40 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link GetConfigurationBundleCommand}
+   */
+  getConfigurationBundle(
+    args: GetConfigurationBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationBundleCommandOutput>;
+  getConfigurationBundle(
+    args: GetConfigurationBundleCommandInput,
+    cb: (err: any, data?: GetConfigurationBundleCommandOutput) => void
+  ): void;
+  getConfigurationBundle(
+    args: GetConfigurationBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationBundleVersionCommand}
+   */
+  getConfigurationBundleVersion(
+    args: GetConfigurationBundleVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationBundleVersionCommandOutput>;
+  getConfigurationBundleVersion(
+    args: GetConfigurationBundleVersionCommandInput,
+    cb: (err: any, data?: GetConfigurationBundleVersionCommandOutput) => void
+  ): void;
+  getConfigurationBundleVersion(
+    args: GetConfigurationBundleVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationBundleVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEvaluatorCommand}
    */
   getEvaluator(
@@ -1447,6 +1627,23 @@ export interface BedrockAgentCoreControl {
     args: GetGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGatewayRuleCommand}
+   */
+  getGatewayRule(
+    args: GetGatewayRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGatewayRuleCommandOutput>;
+  getGatewayRule(
+    args: GetGatewayRuleCommandInput,
+    cb: (err: any, data?: GetGatewayRuleCommandOutput) => void
+  ): void;
+  getGatewayRule(
+    args: GetGatewayRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGatewayRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1796,6 +1993,41 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListConfigurationBundlesCommand}
+   */
+  listConfigurationBundles(): Promise<ListConfigurationBundlesCommandOutput>;
+  listConfigurationBundles(
+    args: ListConfigurationBundlesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationBundlesCommandOutput>;
+  listConfigurationBundles(
+    args: ListConfigurationBundlesCommandInput,
+    cb: (err: any, data?: ListConfigurationBundlesCommandOutput) => void
+  ): void;
+  listConfigurationBundles(
+    args: ListConfigurationBundlesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationBundlesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationBundleVersionsCommand}
+   */
+  listConfigurationBundleVersions(
+    args: ListConfigurationBundleVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationBundleVersionsCommandOutput>;
+  listConfigurationBundleVersions(
+    args: ListConfigurationBundleVersionsCommandInput,
+    cb: (err: any, data?: ListConfigurationBundleVersionsCommandOutput) => void
+  ): void;
+  listConfigurationBundleVersions(
+    args: ListConfigurationBundleVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationBundleVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEvaluatorsCommand}
    */
   listEvaluators(): Promise<ListEvaluatorsCommandOutput>;
@@ -1811,6 +2043,23 @@ export interface BedrockAgentCoreControl {
     args: ListEvaluatorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEvaluatorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGatewayRulesCommand}
+   */
+  listGatewayRules(
+    args: ListGatewayRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewayRulesCommandOutput>;
+  listGatewayRules(
+    args: ListGatewayRulesCommandInput,
+    cb: (err: any, data?: ListGatewayRulesCommandOutput) => void
+  ): void;
+  listGatewayRules(
+    args: ListGatewayRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGatewayRulesCommandOutput) => void
   ): void;
 
   /**
@@ -2230,6 +2479,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateConfigurationBundleCommand}
+   */
+  updateConfigurationBundle(
+    args: UpdateConfigurationBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationBundleCommandOutput>;
+  updateConfigurationBundle(
+    args: UpdateConfigurationBundleCommandInput,
+    cb: (err: any, data?: UpdateConfigurationBundleCommandOutput) => void
+  ): void;
+  updateConfigurationBundle(
+    args: UpdateConfigurationBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEvaluatorCommand}
    */
   updateEvaluator(
@@ -2261,6 +2527,23 @@ export interface BedrockAgentCoreControl {
     args: UpdateGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGatewayRuleCommand}
+   */
+  updateGatewayRule(
+    args: UpdateGatewayRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewayRuleCommandOutput>;
+  updateGatewayRule(
+    args: UpdateGatewayRuleCommandInput,
+    cb: (err: any, data?: UpdateGatewayRuleCommandOutput) => void
+  ): void;
+  updateGatewayRule(
+    args: UpdateGatewayRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGatewayRuleCommandOutput) => void
   ): void;
 
   /**
@@ -2528,6 +2811,28 @@ export interface BedrockAgentCoreControl {
   ): Paginator<ListCodeInterpretersCommandOutput>;
 
   /**
+   * @see {@link ListConfigurationBundlesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationBundlesCommandOutput}.
+   */
+  paginateListConfigurationBundles(
+    args?: ListConfigurationBundlesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationBundlesCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationBundleVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationBundleVersionsCommandOutput}.
+   */
+  paginateListConfigurationBundleVersions(
+    args: ListConfigurationBundleVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationBundleVersionsCommandOutput>;
+
+  /**
    * @see {@link ListEvaluatorsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2537,6 +2842,17 @@ export interface BedrockAgentCoreControl {
     args?: ListEvaluatorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEvaluatorsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewayRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayRulesCommandOutput}.
+   */
+  paginateListGatewayRules(
+    args: ListGatewayRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayRulesCommandOutput>;
 
   /**
    * @see {@link ListGatewaysCommand}

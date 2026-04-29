@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateMemoryInput, UpdateMemoryOutput } from "../models/models_0";
+import type { UpdateMemoryInput, UpdateMemoryOutput } from "../models/models_1";
 import { UpdateMemory$ } from "../schemas/schemas_0";
 
 /**

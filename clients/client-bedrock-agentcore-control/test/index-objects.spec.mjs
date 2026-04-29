@@ -2,6 +2,7 @@ import {
   A2aDescriptor$,
   AccessDeniedException,
   AccessDeniedException$,
+  Action$,
   AgentCardDefinition$,
   AgentManagedRuntimeType,
   AgentRuntime$,
@@ -53,8 +54,15 @@ import {
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
   CodeInterpreterSummary$,
+  ComponentConfiguration$,
   ConcurrentModificationException,
   ConcurrentModificationException$,
+  Condition$,
+  ConfigurationBundleAction$,
+  ConfigurationBundleReference$,
+  ConfigurationBundleStatus,
+  ConfigurationBundleSummary$,
+  ConfigurationBundleVersionSummary$,
   ConflictException,
   ConflictException$,
   ConsolidationConfiguration$,
@@ -87,6 +95,10 @@ import {
   CreateCodeInterpreterCommand,
   CreateCodeInterpreterRequest$,
   CreateCodeInterpreterResponse$,
+  CreateConfigurationBundle$,
+  CreateConfigurationBundleCommand,
+  CreateConfigurationBundleRequest$,
+  CreateConfigurationBundleResponse$,
   CreateEvaluator$,
   CreateEvaluatorCommand,
   CreateEvaluatorRequest$,
@@ -95,6 +107,10 @@ import {
   CreateGatewayCommand,
   CreateGatewayRequest$,
   CreateGatewayResponse$,
+  CreateGatewayRule$,
+  CreateGatewayRuleCommand,
+  CreateGatewayRuleRequest$,
+  CreateGatewayRuleResponse$,
   CreateGatewayTarget$,
   CreateGatewayTargetCommand,
   CreateGatewayTargetRequest$,
@@ -179,6 +195,10 @@ import {
   DeleteCodeInterpreterCommand,
   DeleteCodeInterpreterRequest$,
   DeleteCodeInterpreterResponse$,
+  DeleteConfigurationBundle$,
+  DeleteConfigurationBundleCommand,
+  DeleteConfigurationBundleRequest$,
+  DeleteConfigurationBundleResponse$,
   DeleteEvaluator$,
   DeleteEvaluatorCommand,
   DeleteEvaluatorRequest$,
@@ -187,6 +207,10 @@ import {
   DeleteGatewayCommand,
   DeleteGatewayRequest$,
   DeleteGatewayResponse$,
+  DeleteGatewayRule$,
+  DeleteGatewayRuleCommand,
+  DeleteGatewayRuleRequest$,
+  DeleteGatewayRuleResponse$,
   DeleteGatewayTarget$,
   DeleteGatewayTargetCommand,
   DeleteGatewayTargetRequest$,
@@ -270,6 +294,8 @@ import {
   GatewayPolicyEngineMode,
   GatewayProtocolConfiguration$,
   GatewayProtocolType,
+  GatewayRuleDetail$,
+  GatewayRuleStatus,
   GatewayStatus,
   GatewaySummary$,
   GatewayTarget$,
@@ -297,6 +323,14 @@ import {
   GetCodeInterpreterCommand,
   GetCodeInterpreterRequest$,
   GetCodeInterpreterResponse$,
+  GetConfigurationBundle$,
+  GetConfigurationBundleCommand,
+  GetConfigurationBundleRequest$,
+  GetConfigurationBundleResponse$,
+  GetConfigurationBundleVersion$,
+  GetConfigurationBundleVersionCommand,
+  GetConfigurationBundleVersionRequest$,
+  GetConfigurationBundleVersionResponse$,
   GetEvaluator$,
   GetEvaluatorCommand,
   GetEvaluatorRequest$,
@@ -305,6 +339,10 @@ import {
   GetGatewayCommand,
   GetGatewayRequest$,
   GetGatewayResponse$,
+  GetGatewayRule$,
+  GetGatewayRuleCommand,
+  GetGatewayRuleRequest$,
+  GetGatewayRuleResponse$,
   GetGatewayTarget$,
   GetGatewayTargetCommand,
   GetGatewayTargetRequest$,
@@ -392,8 +430,11 @@ import {
   HarnessTruncationConfiguration$,
   HarnessTruncationStrategy,
   HarnessTruncationStrategyConfiguration$,
+  HttpTargetConfiguration$,
   IamCredentialProvider$,
+  IamPrincipal$,
   InboundTokenClaimValueType,
+  IncludedData,
   IncludedOauth2ProviderConfigInput$,
   IncludedOauth2ProviderConfigOutput$,
   InferenceConfiguration$,
@@ -439,10 +480,22 @@ import {
   ListCodeInterpretersCommand,
   ListCodeInterpretersRequest$,
   ListCodeInterpretersResponse$,
+  ListConfigurationBundles$,
+  ListConfigurationBundlesCommand,
+  ListConfigurationBundlesRequest$,
+  ListConfigurationBundlesResponse$,
+  ListConfigurationBundleVersions$,
+  ListConfigurationBundleVersionsCommand,
+  ListConfigurationBundleVersionsRequest$,
+  ListConfigurationBundleVersionsResponse$,
   ListEvaluators$,
   ListEvaluatorsCommand,
   ListEvaluatorsRequest$,
   ListEvaluatorsResponse$,
+  ListGatewayRules$,
+  ListGatewayRulesCommand,
+  ListGatewayRulesRequest$,
+  ListGatewayRulesResponse$,
   ListGateways$,
   ListGatewaysCommand,
   ListGatewaysRequest$,
@@ -503,6 +556,9 @@ import {
   LlmAsAJudgeEvaluatorConfig$,
   ManagedResourceDetails$,
   ManagedVpcResource$,
+  MatchPaths$,
+  MatchPrincipalEntry$,
+  MatchPrincipals$,
   McpDescriptor$,
   MCPGatewayConfiguration$,
   McpLambdaTargetConfiguration$,
@@ -553,7 +609,10 @@ import {
   paginateListBrowserProfiles,
   paginateListBrowsers,
   paginateListCodeInterpreters,
+  paginateListConfigurationBundles,
+  paginateListConfigurationBundleVersions,
   paginateListEvaluators,
+  paginateListGatewayRules,
   paginateListGateways,
   paginateListGatewayTargets,
   paginateListHarnesses,
@@ -577,6 +636,7 @@ import {
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
+  PrincipalMatchOperator,
   PrivateEndpoint$,
   PrivateEndpointOverride$,
   ProtocolConfiguration$,
@@ -607,8 +667,10 @@ import {
   ResourceNotFoundException$,
   ResourceType,
   RestApiMethod,
+  RouteToTargetAction$,
   Rule$,
   RuntimeMetadataConfiguration$,
+  RuntimeTargetConfiguration$,
   S3Configuration$,
   S3Location$,
   SalesforceOauth2ProviderConfigInput$,
@@ -648,6 +710,8 @@ import {
   StartPolicyGenerationCommand,
   StartPolicyGenerationRequest$,
   StartPolicyGenerationResponse$,
+  StaticOverride$,
+  StaticRoute$,
   Status,
   StrategyConfiguration$,
   StreamDeliveryResource$,
@@ -666,13 +730,16 @@ import {
   SynchronizeGatewayTargetsCommand,
   SynchronizeGatewayTargetsRequest$,
   SynchronizeGatewayTargetsResponse$,
+  SystemManagedBlock$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
   TargetConfiguration$,
+  TargetProtocolType,
   TargetStatus,
   TargetSummary$,
+  TargetTrafficSplitEntry$,
   ThrottledException,
   ThrottledException$,
   ThrottlingException,
@@ -684,6 +751,7 @@ import {
   ToolDefinition$,
   ToolSchema$,
   ToolsDefinition$,
+  TrafficSplitEntry$,
   TriggerCondition$,
   TriggerConditionInput$,
   UnauthorizedException,
@@ -704,6 +772,10 @@ import {
   UpdateApiKeyCredentialProviderCommand,
   UpdateApiKeyCredentialProviderRequest$,
   UpdateApiKeyCredentialProviderResponse$,
+  UpdateConfigurationBundle$,
+  UpdateConfigurationBundleCommand,
+  UpdateConfigurationBundleRequest$,
+  UpdateConfigurationBundleResponse$,
   UpdatedA2aDescriptor$,
   UpdatedAgentSkillsDescriptor$,
   UpdatedAgentSkillsDescriptorFields$,
@@ -731,6 +803,10 @@ import {
   UpdateGatewayCommand,
   UpdateGatewayRequest$,
   UpdateGatewayResponse$,
+  UpdateGatewayRule$,
+  UpdateGatewayRuleCommand,
+  UpdateGatewayRuleRequest$,
+  UpdateGatewayRuleResponse$,
   UpdateGatewayTarget$,
   UpdateGatewayTargetCommand,
   UpdateGatewayTargetRequest$,
@@ -785,6 +861,9 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VersionCreatedBySource$,
+  VersionFilter$,
+  VersionLineageMetadata$,
   VpcConfig$,
   waitForMemoryCreated,
   waitForPolicyActive,
@@ -798,6 +877,8 @@ import {
   waitUntilPolicyEngineActive,
   waitUntilPolicyEngineDeleted,
   waitUntilPolicyGenerationCompleted,
+  WeightedOverride$,
+  WeightedRoute$,
   WorkloadIdentityDetails$,
   WorkloadIdentityType$,
 } from "../dist-cjs/index.js";
@@ -818,10 +899,14 @@ assert(typeof CreateBrowserProfileCommand === "function");
 assert(typeof CreateBrowserProfile$ === "object");
 assert(typeof CreateCodeInterpreterCommand === "function");
 assert(typeof CreateCodeInterpreter$ === "object");
+assert(typeof CreateConfigurationBundleCommand === "function");
+assert(typeof CreateConfigurationBundle$ === "object");
 assert(typeof CreateEvaluatorCommand === "function");
 assert(typeof CreateEvaluator$ === "object");
 assert(typeof CreateGatewayCommand === "function");
 assert(typeof CreateGateway$ === "object");
+assert(typeof CreateGatewayRuleCommand === "function");
+assert(typeof CreateGatewayRule$ === "object");
 assert(typeof CreateGatewayTargetCommand === "function");
 assert(typeof CreateGatewayTarget$ === "object");
 assert(typeof CreateHarnessCommand === "function");
@@ -854,10 +939,14 @@ assert(typeof DeleteBrowserProfileCommand === "function");
 assert(typeof DeleteBrowserProfile$ === "object");
 assert(typeof DeleteCodeInterpreterCommand === "function");
 assert(typeof DeleteCodeInterpreter$ === "object");
+assert(typeof DeleteConfigurationBundleCommand === "function");
+assert(typeof DeleteConfigurationBundle$ === "object");
 assert(typeof DeleteEvaluatorCommand === "function");
 assert(typeof DeleteEvaluator$ === "object");
 assert(typeof DeleteGatewayCommand === "function");
 assert(typeof DeleteGateway$ === "object");
+assert(typeof DeleteGatewayRuleCommand === "function");
+assert(typeof DeleteGatewayRule$ === "object");
 assert(typeof DeleteGatewayTargetCommand === "function");
 assert(typeof DeleteGatewayTarget$ === "object");
 assert(typeof DeleteHarnessCommand === "function");
@@ -892,10 +981,16 @@ assert(typeof GetBrowserProfileCommand === "function");
 assert(typeof GetBrowserProfile$ === "object");
 assert(typeof GetCodeInterpreterCommand === "function");
 assert(typeof GetCodeInterpreter$ === "object");
+assert(typeof GetConfigurationBundleCommand === "function");
+assert(typeof GetConfigurationBundle$ === "object");
+assert(typeof GetConfigurationBundleVersionCommand === "function");
+assert(typeof GetConfigurationBundleVersion$ === "object");
 assert(typeof GetEvaluatorCommand === "function");
 assert(typeof GetEvaluator$ === "object");
 assert(typeof GetGatewayCommand === "function");
 assert(typeof GetGateway$ === "object");
+assert(typeof GetGatewayRuleCommand === "function");
+assert(typeof GetGatewayRule$ === "object");
 assert(typeof GetGatewayTargetCommand === "function");
 assert(typeof GetGatewayTarget$ === "object");
 assert(typeof GetHarnessCommand === "function");
@@ -936,8 +1031,14 @@ assert(typeof ListBrowsersCommand === "function");
 assert(typeof ListBrowsers$ === "object");
 assert(typeof ListCodeInterpretersCommand === "function");
 assert(typeof ListCodeInterpreters$ === "object");
+assert(typeof ListConfigurationBundlesCommand === "function");
+assert(typeof ListConfigurationBundles$ === "object");
+assert(typeof ListConfigurationBundleVersionsCommand === "function");
+assert(typeof ListConfigurationBundleVersions$ === "object");
 assert(typeof ListEvaluatorsCommand === "function");
 assert(typeof ListEvaluators$ === "object");
+assert(typeof ListGatewayRulesCommand === "function");
+assert(typeof ListGatewayRules$ === "object");
 assert(typeof ListGatewaysCommand === "function");
 assert(typeof ListGateways$ === "object");
 assert(typeof ListGatewayTargetsCommand === "function");
@@ -986,10 +1087,14 @@ assert(typeof UpdateAgentRuntimeEndpointCommand === "function");
 assert(typeof UpdateAgentRuntimeEndpoint$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderCommand === "function");
 assert(typeof UpdateApiKeyCredentialProvider$ === "object");
+assert(typeof UpdateConfigurationBundleCommand === "function");
+assert(typeof UpdateConfigurationBundle$ === "object");
 assert(typeof UpdateEvaluatorCommand === "function");
 assert(typeof UpdateEvaluator$ === "object");
 assert(typeof UpdateGatewayCommand === "function");
 assert(typeof UpdateGateway$ === "object");
+assert(typeof UpdateGatewayRuleCommand === "function");
+assert(typeof UpdateGatewayRule$ === "object");
 assert(typeof UpdateGatewayTargetCommand === "function");
 assert(typeof UpdateGatewayTarget$ === "object");
 assert(typeof UpdateHarnessCommand === "function");
@@ -1014,6 +1119,7 @@ assert(typeof UpdateWorkloadIdentityCommand === "function");
 assert(typeof UpdateWorkloadIdentity$ === "object");
 // structural schemas
 assert(typeof A2aDescriptor$ === "object");
+assert(typeof Action$ === "object");
 assert(typeof AgentCardDefinition$ === "object");
 assert(typeof AgentRuntime$ === "object");
 assert(typeof AgentRuntimeArtifact$ === "object");
@@ -1050,6 +1156,12 @@ assert(typeof CodeBasedEvaluatorConfig$ === "object");
 assert(typeof CodeConfiguration$ === "object");
 assert(typeof CodeInterpreterNetworkConfiguration$ === "object");
 assert(typeof CodeInterpreterSummary$ === "object");
+assert(typeof ComponentConfiguration$ === "object");
+assert(typeof Condition$ === "object");
+assert(typeof ConfigurationBundleAction$ === "object");
+assert(typeof ConfigurationBundleReference$ === "object");
+assert(typeof ConfigurationBundleSummary$ === "object");
+assert(typeof ConfigurationBundleVersionSummary$ === "object");
 assert(typeof ConsolidationConfiguration$ === "object");
 assert(typeof ContainerConfiguration$ === "object");
 assert(typeof Content$ === "object");
@@ -1066,10 +1178,14 @@ assert(typeof CreateBrowserRequest$ === "object");
 assert(typeof CreateBrowserResponse$ === "object");
 assert(typeof CreateCodeInterpreterRequest$ === "object");
 assert(typeof CreateCodeInterpreterResponse$ === "object");
+assert(typeof CreateConfigurationBundleRequest$ === "object");
+assert(typeof CreateConfigurationBundleResponse$ === "object");
 assert(typeof CreateEvaluatorRequest$ === "object");
 assert(typeof CreateEvaluatorResponse$ === "object");
 assert(typeof CreateGatewayRequest$ === "object");
 assert(typeof CreateGatewayResponse$ === "object");
+assert(typeof CreateGatewayRuleRequest$ === "object");
+assert(typeof CreateGatewayRuleResponse$ === "object");
 assert(typeof CreateGatewayTargetRequest$ === "object");
 assert(typeof CreateGatewayTargetResponse$ === "object");
 assert(typeof CreateHarnessRequest$ === "object");
@@ -1118,10 +1234,14 @@ assert(typeof DeleteBrowserRequest$ === "object");
 assert(typeof DeleteBrowserResponse$ === "object");
 assert(typeof DeleteCodeInterpreterRequest$ === "object");
 assert(typeof DeleteCodeInterpreterResponse$ === "object");
+assert(typeof DeleteConfigurationBundleRequest$ === "object");
+assert(typeof DeleteConfigurationBundleResponse$ === "object");
 assert(typeof DeleteEvaluatorRequest$ === "object");
 assert(typeof DeleteEvaluatorResponse$ === "object");
 assert(typeof DeleteGatewayRequest$ === "object");
 assert(typeof DeleteGatewayResponse$ === "object");
+assert(typeof DeleteGatewayRuleRequest$ === "object");
+assert(typeof DeleteGatewayRuleResponse$ === "object");
 assert(typeof DeleteGatewayTargetRequest$ === "object");
 assert(typeof DeleteGatewayTargetResponse$ === "object");
 assert(typeof DeleteHarnessRequest$ === "object");
@@ -1170,6 +1290,7 @@ assert(typeof GatewayApiKeyCredentialProvider$ === "object");
 assert(typeof GatewayInterceptorConfiguration$ === "object");
 assert(typeof GatewayPolicyEngineConfiguration$ === "object");
 assert(typeof GatewayProtocolConfiguration$ === "object");
+assert(typeof GatewayRuleDetail$ === "object");
 assert(typeof GatewaySummary$ === "object");
 assert(typeof GatewayTarget$ === "object");
 assert(typeof GetAgentRuntimeEndpointRequest$ === "object");
@@ -1184,10 +1305,16 @@ assert(typeof GetBrowserRequest$ === "object");
 assert(typeof GetBrowserResponse$ === "object");
 assert(typeof GetCodeInterpreterRequest$ === "object");
 assert(typeof GetCodeInterpreterResponse$ === "object");
+assert(typeof GetConfigurationBundleRequest$ === "object");
+assert(typeof GetConfigurationBundleResponse$ === "object");
+assert(typeof GetConfigurationBundleVersionRequest$ === "object");
+assert(typeof GetConfigurationBundleVersionResponse$ === "object");
 assert(typeof GetEvaluatorRequest$ === "object");
 assert(typeof GetEvaluatorResponse$ === "object");
 assert(typeof GetGatewayRequest$ === "object");
 assert(typeof GetGatewayResponse$ === "object");
+assert(typeof GetGatewayRuleRequest$ === "object");
+assert(typeof GetGatewayRuleResponse$ === "object");
 assert(typeof GetGatewayTargetRequest$ === "object");
 assert(typeof GetGatewayTargetResponse$ === "object");
 assert(typeof GetHarnessRequest$ === "object");
@@ -1246,7 +1373,9 @@ assert(typeof HarnessTool$ === "object");
 assert(typeof HarnessToolConfiguration$ === "object");
 assert(typeof HarnessTruncationConfiguration$ === "object");
 assert(typeof HarnessTruncationStrategyConfiguration$ === "object");
+assert(typeof HttpTargetConfiguration$ === "object");
 assert(typeof IamCredentialProvider$ === "object");
+assert(typeof IamPrincipal$ === "object");
 assert(typeof IncludedOauth2ProviderConfigInput$ === "object");
 assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
@@ -1275,8 +1404,14 @@ assert(typeof ListBrowsersRequest$ === "object");
 assert(typeof ListBrowsersResponse$ === "object");
 assert(typeof ListCodeInterpretersRequest$ === "object");
 assert(typeof ListCodeInterpretersResponse$ === "object");
+assert(typeof ListConfigurationBundlesRequest$ === "object");
+assert(typeof ListConfigurationBundlesResponse$ === "object");
+assert(typeof ListConfigurationBundleVersionsRequest$ === "object");
+assert(typeof ListConfigurationBundleVersionsResponse$ === "object");
 assert(typeof ListEvaluatorsRequest$ === "object");
 assert(typeof ListEvaluatorsResponse$ === "object");
+assert(typeof ListGatewayRulesRequest$ === "object");
+assert(typeof ListGatewayRulesResponse$ === "object");
 assert(typeof ListGatewaysRequest$ === "object");
 assert(typeof ListGatewaysResponse$ === "object");
 assert(typeof ListGatewayTargetsRequest$ === "object");
@@ -1308,6 +1443,9 @@ assert(typeof ListWorkloadIdentitiesResponse$ === "object");
 assert(typeof LlmAsAJudgeEvaluatorConfig$ === "object");
 assert(typeof ManagedResourceDetails$ === "object");
 assert(typeof ManagedVpcResource$ === "object");
+assert(typeof MatchPaths$ === "object");
+assert(typeof MatchPrincipalEntry$ === "object");
+assert(typeof MatchPrincipals$ === "object");
 assert(typeof McpDescriptor$ === "object");
 assert(typeof MCPGatewayConfiguration$ === "object");
 assert(typeof McpLambdaTargetConfiguration$ === "object");
@@ -1365,8 +1503,10 @@ assert(typeof RegistrySummary$ === "object");
 assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceLocation$ === "object");
+assert(typeof RouteToTargetAction$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
+assert(typeof RuntimeTargetConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigInput$ === "object");
@@ -1395,6 +1535,8 @@ assert(typeof SlackOauth2ProviderConfigInput$ === "object");
 assert(typeof SlackOauth2ProviderConfigOutput$ === "object");
 assert(typeof StartPolicyGenerationRequest$ === "object");
 assert(typeof StartPolicyGenerationResponse$ === "object");
+assert(typeof StaticOverride$ === "object");
+assert(typeof StaticRoute$ === "object");
 assert(typeof StrategyConfiguration$ === "object");
 assert(typeof StreamDeliveryResource$ === "object");
 assert(typeof StreamDeliveryResources$ === "object");
@@ -1407,10 +1549,12 @@ assert(typeof SummaryOverrideConsolidationConfigurationInput$ === "object");
 assert(typeof SynchronizationConfiguration$ === "object");
 assert(typeof SynchronizeGatewayTargetsRequest$ === "object");
 assert(typeof SynchronizeGatewayTargetsResponse$ === "object");
+assert(typeof SystemManagedBlock$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TargetConfiguration$ === "object");
 assert(typeof TargetSummary$ === "object");
+assert(typeof TargetTrafficSplitEntry$ === "object");
 assert(typeof TimeBasedTrigger$ === "object");
 assert(typeof TimeBasedTriggerInput$ === "object");
 assert(typeof TokenBasedTrigger$ === "object");
@@ -1418,6 +1562,7 @@ assert(typeof TokenBasedTriggerInput$ === "object");
 assert(typeof ToolDefinition$ === "object");
 assert(typeof ToolSchema$ === "object");
 assert(typeof ToolsDefinition$ === "object");
+assert(typeof TrafficSplitEntry$ === "object");
 assert(typeof TriggerCondition$ === "object");
 assert(typeof TriggerConditionInput$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -1428,6 +1573,8 @@ assert(typeof UpdateAgentRuntimeRequest$ === "object");
 assert(typeof UpdateAgentRuntimeResponse$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderRequest$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderResponse$ === "object");
+assert(typeof UpdateConfigurationBundleRequest$ === "object");
+assert(typeof UpdateConfigurationBundleResponse$ === "object");
 assert(typeof UpdatedA2aDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDescriptorFields$ === "object");
@@ -1451,6 +1598,8 @@ assert(typeof UpdateEvaluatorRequest$ === "object");
 assert(typeof UpdateEvaluatorResponse$ === "object");
 assert(typeof UpdateGatewayRequest$ === "object");
 assert(typeof UpdateGatewayResponse$ === "object");
+assert(typeof UpdateGatewayRuleRequest$ === "object");
+assert(typeof UpdateGatewayRuleResponse$ === "object");
 assert(typeof UpdateGatewayTargetRequest$ === "object");
 assert(typeof UpdateGatewayTargetResponse$ === "object");
 assert(typeof UpdateHarnessRequest$ === "object");
@@ -1480,7 +1629,12 @@ assert(typeof UserPreferenceOverrideConfigurationInput$ === "object");
 assert(typeof UserPreferenceOverrideConsolidationConfigurationInput$ === "object");
 assert(typeof UserPreferenceOverrideExtractionConfigurationInput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof VersionCreatedBySource$ === "object");
+assert(typeof VersionFilter$ === "object");
+assert(typeof VersionLineageMetadata$ === "object");
 assert(typeof VpcConfig$ === "object");
+assert(typeof WeightedOverride$ === "object");
+assert(typeof WeightedRoute$ === "object");
 assert(typeof WorkloadIdentityDetails$ === "object");
 assert(typeof WorkloadIdentityType$ === "object");
 // enums
@@ -1496,6 +1650,7 @@ assert(typeof BrowserStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
 assert(typeof CodeInterpreterStatus === "object");
+assert(typeof ConfigurationBundleStatus === "object");
 assert(typeof ContentLevel === "object");
 assert(typeof ContentType === "object");
 assert(typeof CredentialProviderType === "object");
@@ -1511,11 +1666,13 @@ assert(typeof FindingType === "object");
 assert(typeof GatewayInterceptionPoint === "object");
 assert(typeof GatewayPolicyEngineMode === "object");
 assert(typeof GatewayProtocolType === "object");
+assert(typeof GatewayRuleStatus === "object");
 assert(typeof GatewayStatus === "object");
 assert(typeof HarnessStatus === "object");
 assert(typeof HarnessToolType === "object");
 assert(typeof HarnessTruncationStrategy === "object");
 assert(typeof InboundTokenClaimValueType === "object");
+assert(typeof IncludedData === "object");
 assert(typeof KeyType === "object");
 assert(typeof ListingMode === "object");
 assert(typeof MemoryStatus === "object");
@@ -1531,6 +1688,7 @@ assert(typeof PolicyEngineStatus === "object");
 assert(typeof PolicyGenerationStatus === "object");
 assert(typeof PolicyStatus === "object");
 assert(typeof PolicyValidationMode === "object");
+assert(typeof PrincipalMatchOperator === "object");
 assert(typeof RegistryAuthorizerType === "object");
 assert(typeof RegistryRecordCredentialProviderType === "object");
 assert(typeof RegistryRecordOAuthGrantType === "object");
@@ -1543,6 +1701,7 @@ assert(typeof SearchType === "object");
 assert(typeof ServerProtocol === "object");
 assert(typeof Status === "object");
 assert(typeof SynchronizationType === "object");
+assert(typeof TargetProtocolType === "object");
 assert(typeof TargetStatus === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
@@ -1596,7 +1755,10 @@ assert(typeof paginateListApiKeyCredentialProviders === "function");
 assert(typeof paginateListBrowserProfiles === "function");
 assert(typeof paginateListBrowsers === "function");
 assert(typeof paginateListCodeInterpreters === "function");
+assert(typeof paginateListConfigurationBundleVersions === "function");
+assert(typeof paginateListConfigurationBundles === "function");
 assert(typeof paginateListEvaluators === "function");
+assert(typeof paginateListGatewayRules === "function");
 assert(typeof paginateListGatewayTargets === "function");
 assert(typeof paginateListGateways === "function");
 assert(typeof paginateListHarnesses === "function");

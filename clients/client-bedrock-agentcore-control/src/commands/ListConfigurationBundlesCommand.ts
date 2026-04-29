@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_0";
-import { ListGateways$ } from "../schemas/schemas_0";
+import type { ListConfigurationBundlesRequest, ListConfigurationBundlesResponse } from "../models/models_0";
+import { ListConfigurationBundles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,43 +20,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListGatewaysCommand}.
+ * The input for {@link ListConfigurationBundlesCommand}.
  */
-export interface ListGatewaysCommandInput extends ListGatewaysRequest {}
+export interface ListConfigurationBundlesCommandInput extends ListConfigurationBundlesRequest {}
 /**
  * @public
  *
- * The output of {@link ListGatewaysCommand}.
+ * The output of {@link ListConfigurationBundlesCommand}.
  */
-export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __MetadataBearer {}
+export interface ListConfigurationBundlesCommandOutput extends ListConfigurationBundlesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all gateways in the account.</p>
+ * <p>Lists all configuration bundles in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, ListGatewaysCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, ListGatewaysCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, ListConfigurationBundlesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, ListConfigurationBundlesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // ListGatewaysRequest
- *   maxResults: Number("int"),
+ * const input = { // ListConfigurationBundlesRequest
  *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new ListGatewaysCommand(input);
+ * const command = new ListConfigurationBundlesCommand(input);
  * const response = await client.send(command);
- * // { // ListGatewaysResponse
- * //   items: [ // GatewaySummaries // required
- * //     { // GatewaySummary
- * //       gatewayId: "STRING_VALUE", // required
- * //       name: "STRING_VALUE", // required
- * //       status: "CREATING" || "UPDATING" || "UPDATE_UNSUCCESSFUL" || "DELETING" || "READY" || "FAILED", // required
+ * // { // ListConfigurationBundlesResponse
+ * //   bundles: [ // ConfigurationBundleSummaryList // required
+ * //     { // ConfigurationBundleSummary
+ * //       bundleArn: "STRING_VALUE", // required
+ * //       bundleId: "STRING_VALUE", // required
+ * //       bundleName: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       createdAt: new Date("TIMESTAMP"), // required
- * //       updatedAt: new Date("TIMESTAMP"), // required
- * //       authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
- * //       protocolType: "MCP",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -64,10 +60,10 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  *
  * ```
  *
- * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
- * @returns {@link ListGatewaysCommandOutput}
- * @see {@link ListGatewaysCommandInput} for command's `input` shape.
- * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
+ * @param ListConfigurationBundlesCommandInput - {@link ListConfigurationBundlesCommandInput}
+ * @returns {@link ListConfigurationBundlesCommandOutput}
+ * @see {@link ListConfigurationBundlesCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationBundlesCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,10 +84,10 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  *
  * @public
  */
-export class ListGatewaysCommand extends $Command
+export class ListConfigurationBundlesCommand extends $Command
   .classBuilder<
-    ListGatewaysCommandInput,
-    ListGatewaysCommandOutput,
+    ListConfigurationBundlesCommandInput,
+    ListConfigurationBundlesCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,19 +96,19 @@ export class ListGatewaysCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "ListGateways", {})
-  .n("BedrockAgentCoreControlClient", "ListGatewaysCommand")
-  .sc(ListGateways$)
+  .s("AmazonBedrockAgentCoreControl", "ListConfigurationBundles", {})
+  .n("BedrockAgentCoreControlClient", "ListConfigurationBundlesCommand")
+  .sc(ListConfigurationBundles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListGatewaysRequest;
-      output: ListGatewaysResponse;
+      input: ListConfigurationBundlesRequest;
+      output: ListConfigurationBundlesResponse;
     };
     sdk: {
-      input: ListGatewaysCommandInput;
-      output: ListGatewaysCommandOutput;
+      input: ListConfigurationBundlesCommandInput;
+      output: ListConfigurationBundlesCommandOutput;
     };
   };
 }
