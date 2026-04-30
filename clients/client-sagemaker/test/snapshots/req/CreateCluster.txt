@@ -10,7 +10,7 @@ host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 7951daca875ba924236a7c105d4fb00f3c14a50ea881b92b6d5e3a85adf4069e
+x-amz-content-sha256: c954aa7f38e16377d3df211d08b11194ef591e06af1eb40c63333db4ac2056f6
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -405,12 +405,6 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceType": "__InstanceType__",
       "ExecutionRole": "__ExecutionRole__",
-      "EnvironmentConfig": {
-        "FSxLustreConfig": {
-          "SizeInGiB": 0,
-          "PerUnitStorageThroughput": 0
-        }
-      },
       "ThreadsPerCore": 0,
       "InstanceStorageConfigs": [
         {
@@ -477,6 +471,12 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
               "AlarmName": "__AlarmName__"
             }
           ]
+        }
+      },
+      "EnvironmentConfig": {
+        "FSxLustreConfig": {
+          "SizeInGiB": 0,
+          "PerUnitStorageThroughput": 0
         }
       }
     },
@@ -485,12 +485,6 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceType": "__InstanceType__",
       "ExecutionRole": "__ExecutionRole__",
-      "EnvironmentConfig": {
-        "FSxLustreConfig": {
-          "SizeInGiB": 0,
-          "PerUnitStorageThroughput": 0
-        }
-      },
       "ThreadsPerCore": 0,
       "InstanceStorageConfigs": [
         {
@@ -557,6 +551,12 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
               "AlarmName": "__AlarmName__"
             }
           ]
+        }
+      },
+      "EnvironmentConfig": {
+        "FSxLustreConfig": {
+          "SizeInGiB": 0,
+          "PerUnitStorageThroughput": 0
         }
       }
     },
@@ -565,12 +565,6 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceType": "__InstanceType__",
       "ExecutionRole": "__ExecutionRole__",
-      "EnvironmentConfig": {
-        "FSxLustreConfig": {
-          "SizeInGiB": 0,
-          "PerUnitStorageThroughput": 0
-        }
-      },
       "ThreadsPerCore": 0,
       "InstanceStorageConfigs": [
         {
@@ -637,6 +631,12 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
               "AlarmName": "__AlarmName__"
             }
           ]
+        }
+      },
+      "EnvironmentConfig": {
+        "FSxLustreConfig": {
+          "SizeInGiB": 0,
+          "PerUnitStorageThroughput": 0
         }
       }
     }

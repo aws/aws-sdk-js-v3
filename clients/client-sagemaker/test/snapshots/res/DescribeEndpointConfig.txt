@@ -14,6 +14,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -41,6 +59,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -68,6 +104,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -122,6 +176,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -149,6 +221,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -176,6 +266,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -227,6 +335,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -254,6 +380,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -281,6 +425,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -335,6 +497,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -362,6 +542,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -389,6 +587,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -453,6 +669,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -492,6 +726,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -531,6 +783,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -666,6 +936,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -705,6 +993,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -744,6 +1050,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelName": "__ModelName__",
       "InitialInstanceCount": 0,
       "InstanceType": "__InstanceType__",
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Priority": 0,
+          "ModelNameOverride": "__ModelNameOverride__"
+        }
+      ],
+      "VariantInstanceProvisionTimeoutInSeconds": 0,
       "InitialVariantWeight": 0,
       "AcceleratorType": "__AcceleratorType__",
       "CoreDumpConfig": {
@@ -810,6 +1134,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -849,6 +1191,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -888,6 +1248,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -1023,6 +1401,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -1062,6 +1458,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {
@@ -1101,6 +1515,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelName: "__ModelName__",
       InitialInstanceCount: (number) 0,
       InstanceType: "__InstanceType__",
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        },
+        {
+          InstanceType: "__InstanceType__",
+          Priority: (number) 0,
+          ModelNameOverride: "__ModelNameOverride__"
+        }
+      ],
+      VariantInstanceProvisionTimeoutInSeconds: (number) 0,
       InitialVariantWeight: (number) 0,
       AcceleratorType: "__AcceleratorType__",
       CoreDumpConfig: {

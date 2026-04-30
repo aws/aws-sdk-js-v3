@@ -3,20 +3,21 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateInferenceComponent
-content-length: 1131
+content-length: 3335
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 5d204321257a012a44373b63d7fad1267c14d1a846a39a03820042ddab3575fe
+x-amz-content-sha256: 6811f31175e5f123de71d19923c0658c421f1783dd819f79d91a8e703e45b45e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
 {
   "InferenceComponentName": "__InferenceComponentName__",
   "Specification": {
+    "InstanceType": "__InstanceType__",
     "ModelName": "__ModelName__",
     "Container": {
       "Image": "__Image__",
@@ -49,6 +50,110 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       }
     }
   },
+  "Specifications": [
+    {
+      "InstanceType": "__InstanceType__",
+      "ModelName": "__ModelName__",
+      "Container": {
+        "Image": "__Image__",
+        "ArtifactUrl": "__ArtifactUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "StartupParameters": {
+        "ModelDataDownloadTimeoutInSeconds": 0,
+        "ContainerStartupHealthCheckTimeoutInSeconds": 0
+      },
+      "ComputeResourceRequirements": {
+        "MinMemoryRequiredInMb": 0,
+        "NumberOfCpuCoresRequired": 0,
+        "NumberOfAcceleratorDevicesRequired": 0,
+        "MaxMemoryRequiredInMb": 0
+      },
+      "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+      "DataCacheConfig": {
+        "EnableCaching": false
+      },
+      "SchedulingConfig": {
+        "PlacementStrategy": "__PlacementStrategy__",
+        "AvailabilityZoneBalance": {
+          "EnforcementMode": "__EnforcementMode__",
+          "MaxImbalance": 0
+        }
+      }
+    },
+    {
+      "InstanceType": "__InstanceType__",
+      "ModelName": "__ModelName__",
+      "Container": {
+        "Image": "__Image__",
+        "ArtifactUrl": "__ArtifactUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "StartupParameters": {
+        "ModelDataDownloadTimeoutInSeconds": 0,
+        "ContainerStartupHealthCheckTimeoutInSeconds": 0
+      },
+      "ComputeResourceRequirements": {
+        "MinMemoryRequiredInMb": 0,
+        "NumberOfCpuCoresRequired": 0,
+        "NumberOfAcceleratorDevicesRequired": 0,
+        "MaxMemoryRequiredInMb": 0
+      },
+      "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+      "DataCacheConfig": {
+        "EnableCaching": false
+      },
+      "SchedulingConfig": {
+        "PlacementStrategy": "__PlacementStrategy__",
+        "AvailabilityZoneBalance": {
+          "EnforcementMode": "__EnforcementMode__",
+          "MaxImbalance": 0
+        }
+      }
+    },
+    {
+      "InstanceType": "__InstanceType__",
+      "ModelName": "__ModelName__",
+      "Container": {
+        "Image": "__Image__",
+        "ArtifactUrl": "__ArtifactUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "StartupParameters": {
+        "ModelDataDownloadTimeoutInSeconds": 0,
+        "ContainerStartupHealthCheckTimeoutInSeconds": 0
+      },
+      "ComputeResourceRequirements": {
+        "MinMemoryRequiredInMb": 0,
+        "NumberOfCpuCoresRequired": 0,
+        "NumberOfAcceleratorDevicesRequired": 0,
+        "MaxMemoryRequiredInMb": 0
+      },
+      "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+      "DataCacheConfig": {
+        "EnableCaching": false
+      },
+      "SchedulingConfig": {
+        "PlacementStrategy": "__PlacementStrategy__",
+        "AvailabilityZoneBalance": {
+          "EnforcementMode": "__EnforcementMode__",
+          "MaxImbalance": 0
+        }
+      }
+    }
+  ],
   "RuntimeConfig": {
     "CopyCount": 0
   },

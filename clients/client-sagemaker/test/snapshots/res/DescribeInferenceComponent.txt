@@ -15,6 +15,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "VariantName": "__VariantName__",
   "FailureReason": "__FailureReason__",
   "Specification": {},
+  "Specifications": [
+    {},
+    {},
+    {}
+  ],
   "RuntimeConfig": {},
   "InferenceComponentStatus": "__InferenceComponentStatus__",
   "LastDeploymentConfig": {
@@ -46,6 +51,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   VariantName: "__VariantName__",
   FailureReason: "__FailureReason__",
   Specification: {},
+  Specifications: [
+    {},
+    {},
+    {}
+  ],
   RuntimeConfig: {},
   InferenceComponentStatus: "__InferenceComponentStatus__",
   LastDeploymentConfig: {
@@ -90,6 +100,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "VariantName": "__VariantName__",
   "FailureReason": "__FailureReason__",
   "Specification": {
+    "InstanceType": "__InstanceType__",
     "ModelName": "__ModelName__",
     "Container": {
       "DeployedImage": {
@@ -126,9 +137,139 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     }
   },
+  "Specifications": [
+    {
+      "InstanceType": "__InstanceType__",
+      "ModelName": "__ModelName__",
+      "Container": {
+        "DeployedImage": {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        "ArtifactUrl": "__ArtifactUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "StartupParameters": {
+        "ModelDataDownloadTimeoutInSeconds": 0,
+        "ContainerStartupHealthCheckTimeoutInSeconds": 0
+      },
+      "ComputeResourceRequirements": {
+        "MinMemoryRequiredInMb": 0,
+        "NumberOfCpuCoresRequired": 0,
+        "NumberOfAcceleratorDevicesRequired": 0,
+        "MaxMemoryRequiredInMb": 0
+      },
+      "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+      "DataCacheConfig": {
+        "EnableCaching": false
+      },
+      "SchedulingConfig": {
+        "PlacementStrategy": "__PlacementStrategy__",
+        "AvailabilityZoneBalance": {
+          "EnforcementMode": "__EnforcementMode__",
+          "MaxImbalance": 0
+        }
+      }
+    },
+    {
+      "InstanceType": "__InstanceType__",
+      "ModelName": "__ModelName__",
+      "Container": {
+        "DeployedImage": {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        "ArtifactUrl": "__ArtifactUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "StartupParameters": {
+        "ModelDataDownloadTimeoutInSeconds": 0,
+        "ContainerStartupHealthCheckTimeoutInSeconds": 0
+      },
+      "ComputeResourceRequirements": {
+        "MinMemoryRequiredInMb": 0,
+        "NumberOfCpuCoresRequired": 0,
+        "NumberOfAcceleratorDevicesRequired": 0,
+        "MaxMemoryRequiredInMb": 0
+      },
+      "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+      "DataCacheConfig": {
+        "EnableCaching": false
+      },
+      "SchedulingConfig": {
+        "PlacementStrategy": "__PlacementStrategy__",
+        "AvailabilityZoneBalance": {
+          "EnforcementMode": "__EnforcementMode__",
+          "MaxImbalance": 0
+        }
+      }
+    },
+    {
+      "InstanceType": "__InstanceType__",
+      "ModelName": "__ModelName__",
+      "Container": {
+        "DeployedImage": {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        "ArtifactUrl": "__ArtifactUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "StartupParameters": {
+        "ModelDataDownloadTimeoutInSeconds": 0,
+        "ContainerStartupHealthCheckTimeoutInSeconds": 0
+      },
+      "ComputeResourceRequirements": {
+        "MinMemoryRequiredInMb": 0,
+        "NumberOfCpuCoresRequired": 0,
+        "NumberOfAcceleratorDevicesRequired": 0,
+        "MaxMemoryRequiredInMb": 0
+      },
+      "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+      "DataCacheConfig": {
+        "EnableCaching": false
+      },
+      "SchedulingConfig": {
+        "PlacementStrategy": "__PlacementStrategy__",
+        "AvailabilityZoneBalance": {
+          "EnforcementMode": "__EnforcementMode__",
+          "MaxImbalance": 0
+        }
+      }
+    }
+  ],
   "RuntimeConfig": {
     "DesiredCopyCount": 0,
-    "CurrentCopyCount": 0
+    "CurrentCopyCount": 0,
+    "PlacementStatus": [
+      {
+        "InstanceType": "__InstanceType__",
+        "CurrentCopyCount": 0
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "CurrentCopyCount": 0
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "CurrentCopyCount": 0
+      }
+    ]
   },
   "InferenceComponentStatus": "__InferenceComponentStatus__",
   "LastDeploymentConfig": {
@@ -172,6 +313,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   VariantName: "__VariantName__",
   FailureReason: "__FailureReason__",
   Specification: {
+    InstanceType: "__InstanceType__",
     ModelName: "__ModelName__",
     Container: {
       DeployedImage: {
@@ -208,9 +350,139 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     }
   },
+  Specifications: [
+    {
+      InstanceType: "__InstanceType__",
+      ModelName: "__ModelName__",
+      Container: {
+        DeployedImage: {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        ArtifactUrl: "__ArtifactUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      StartupParameters: {
+        ModelDataDownloadTimeoutInSeconds: (number) 0,
+        ContainerStartupHealthCheckTimeoutInSeconds: (number) 0
+      },
+      ComputeResourceRequirements: {
+        MinMemoryRequiredInMb: (number) 0,
+        NumberOfCpuCoresRequired: (number) 0,
+        NumberOfAcceleratorDevicesRequired: (number) 0,
+        MaxMemoryRequiredInMb: (number) 0
+      },
+      BaseInferenceComponentName: "__BaseInferenceComponentName__",
+      DataCacheConfig: {
+        EnableCaching: (boolean) false
+      },
+      SchedulingConfig: {
+        PlacementStrategy: "__PlacementStrategy__",
+        AvailabilityZoneBalance: {
+          EnforcementMode: "__EnforcementMode__",
+          MaxImbalance: (number) 0
+        }
+      }
+    },
+    {
+      InstanceType: "__InstanceType__",
+      ModelName: "__ModelName__",
+      Container: {
+        DeployedImage: {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        ArtifactUrl: "__ArtifactUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      StartupParameters: {
+        ModelDataDownloadTimeoutInSeconds: (number) 0,
+        ContainerStartupHealthCheckTimeoutInSeconds: (number) 0
+      },
+      ComputeResourceRequirements: {
+        MinMemoryRequiredInMb: (number) 0,
+        NumberOfCpuCoresRequired: (number) 0,
+        NumberOfAcceleratorDevicesRequired: (number) 0,
+        MaxMemoryRequiredInMb: (number) 0
+      },
+      BaseInferenceComponentName: "__BaseInferenceComponentName__",
+      DataCacheConfig: {
+        EnableCaching: (boolean) false
+      },
+      SchedulingConfig: {
+        PlacementStrategy: "__PlacementStrategy__",
+        AvailabilityZoneBalance: {
+          EnforcementMode: "__EnforcementMode__",
+          MaxImbalance: (number) 0
+        }
+      }
+    },
+    {
+      InstanceType: "__InstanceType__",
+      ModelName: "__ModelName__",
+      Container: {
+        DeployedImage: {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        ArtifactUrl: "__ArtifactUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      StartupParameters: {
+        ModelDataDownloadTimeoutInSeconds: (number) 0,
+        ContainerStartupHealthCheckTimeoutInSeconds: (number) 0
+      },
+      ComputeResourceRequirements: {
+        MinMemoryRequiredInMb: (number) 0,
+        NumberOfCpuCoresRequired: (number) 0,
+        NumberOfAcceleratorDevicesRequired: (number) 0,
+        MaxMemoryRequiredInMb: (number) 0
+      },
+      BaseInferenceComponentName: "__BaseInferenceComponentName__",
+      DataCacheConfig: {
+        EnableCaching: (boolean) false
+      },
+      SchedulingConfig: {
+        PlacementStrategy: "__PlacementStrategy__",
+        AvailabilityZoneBalance: {
+          EnforcementMode: "__EnforcementMode__",
+          MaxImbalance: (number) 0
+        }
+      }
+    }
+  ],
   RuntimeConfig: {
     DesiredCopyCount: (number) 0,
-    CurrentCopyCount: (number) 0
+    CurrentCopyCount: (number) 0,
+    PlacementStatus: [
+      {
+        InstanceType: "__InstanceType__",
+        CurrentCopyCount: (number) 0
+      },
+      {
+        InstanceType: "__InstanceType__",
+        CurrentCopyCount: (number) 0
+      },
+      {
+        InstanceType: "__InstanceType__",
+        CurrentCopyCount: (number) 0
+      }
+    ]
   },
   InferenceComponentStatus: "__InferenceComponentStatus__",
   LastDeploymentConfig: {

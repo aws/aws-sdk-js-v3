@@ -7554,7 +7554,7 @@ export interface ClusterRestrictedInstanceGroupSpecification {
    * <p>The configuration for the restricted instance groups (RIG) environment.</p>
    * @public
    */
-  EnvironmentConfig: EnvironmentConfig | undefined;
+  EnvironmentConfig?: EnvironmentConfig | undefined;
 }
 
 /**

@@ -25,7 +25,9 @@ import type {
   ListWorkforcesSortByOptions,
   ListWorkteamsSortByOptions,
   ModelApprovalStatus,
+  ModelCardSortOrder,
   ModelCardStatus,
+  ModelCardVersionSortBy,
   ModelMetadataFilterType,
   ModelPackageGroupSortBy,
   ModelPackageGroupStatus,
@@ -165,7 +167,6 @@ import type {
   MonitoringScheduleConfig,
   NetworkConfig,
   NotebookInstanceLifecycleHook,
-  PartnerAppConfig,
   RetryStrategy,
   SchedulerConfig,
   ShadowModeConfig,
@@ -185,13 +186,12 @@ import type {
   HyperParameterTrainingJobSummary,
   InferenceComponentDeploymentConfig,
   InstanceGroupHealthCheckConfiguration,
-  MemberDefinition,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
-  NotificationConfiguration,
   OidcConfig,
   ParallelismConfiguration,
+  PartnerAppConfig,
   PartnerAppMaintenanceConfig,
   PipelineDefinitionS3Location,
   ProcessingInput,
@@ -209,7 +209,6 @@ import type {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
 import type {
@@ -250,6 +249,112 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>A summary of the model card.</p>
+ * @public
+ */
+export interface ModelCardSummary {
+  /**
+   * <p>The name of the model card.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card.</p>
+   * @public
+   */
+  ModelCardArn: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
+   * @public
+   */
+  ModelCardStatus: ModelCardStatus | undefined;
+
+  /**
+   * <p>The date and time that the model card was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the model card was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCardsResponse {
+  /**
+   * <p>The summaries of the listed model cards.</p>
+   * @public
+   */
+  ModelCardSummaries: ModelCardSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model cards, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCardVersionsRequest {
+  /**
+   * <p>Only list model card versions that were created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Only list model card versions that were created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of model card versions to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>List model card versions for the model card with the specified name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>Only list model card versions with the specified approval status.</p>
+   * @public
+   */
+  ModelCardStatus?: ModelCardStatus | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListModelCardVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model card versions, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Sort listed model card versions by version. Sorts by version by default.</p>
+   * @public
+   */
+  SortBy?: ModelCardVersionSortBy | undefined;
+
+  /**
+   * <p>Sort model card versions by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: ModelCardSortOrder | undefined;
+}
 
 /**
  * <p>A summary of a specific version of the model card.</p>
@@ -8776,6 +8881,12 @@ export interface UpdateInferenceComponentInput {
   Specification?: InferenceComponentSpecification | undefined;
 
   /**
+   * <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to specify different model or resource configurations for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
+   * @public
+   */
+  Specifications?: InferenceComponentSpecification[] | undefined;
+
+  /**
    * <p>Runtime settings for a model that is deployed with an inference component.</p>
    * @public
    */
@@ -9884,61 +9995,4 @@ export interface UpdateWorkforceRequest {
    * @public
    */
   IpAddressType?: WorkforceIpAddressType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkforceResponse {
-  /**
-   * <p>A single private workforce. You can create one private work force in each Amazon Web Services Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
-   * @public
-   */
-  Workforce: Workforce | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkteamRequest {
-  /**
-   * <p>The name of the work team to update.</p>
-   * @public
-   */
-  WorkteamName: string | undefined;
-
-  /**
-   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify the workers that make up the work team. </p> <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity provider (IdP) use <code>OidcMemberDefinition</code>. You should not provide input for both of these parameters in a single request.</p> <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito <i>user groups</i> within the user pool used to create a workforce. All of the <code>CognitoMemberDefinition</code> objects that make up the member definition must have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon Cognito user group to an existing worker pool, see <a href="">Adding groups to a User Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User Pools</a>.</p> <p>For workforces created using your own OIDC IdP, specify the user groups that you want to include in your private work team in <code>OidcMemberDefinition</code> by listing those groups in <code>Groups</code>. Be aware that user groups that are already in the work team must also be listed in <code>Groups</code> when you make this request to remain on the work team. If you do not include these user groups, they will no longer be associated with the work team you update. </p>
-   * @public
-   */
-  MemberDefinitions?: MemberDefinition[] | undefined;
-
-  /**
-   * <p>An updated description for the work team.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Configures SNS topic notifications for available or expiring work items</p>
-   * @public
-   */
-  NotificationConfiguration?: NotificationConfiguration | undefined;
-
-  /**
-   * <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
-   * @public
-   */
-  WorkerAccessConfiguration?: WorkerAccessConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkteamResponse {
-  /**
-   * <p>A <code>Workteam</code> object that describes the updated work team.</p>
-   * @public
-   */
-  Workteam: Workteam | undefined;
 }

@@ -3418,6 +3418,30 @@ export interface ProductionVariantCoreDumpConfig {
 }
 
 /**
+ * <p>Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.</p>
+ * @public
+ */
+export interface InstancePool {
+  /**
+   * <p>The ML compute instance type for the instance pool.</p>
+   * @public
+   */
+  InstanceType: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.</p>
+   * @public
+   */
+  ModelNameOverride?: string | undefined;
+
+  /**
+   * <p>The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool.</p> <p>Valid values: 1 to 5, where 1 is the highest priority.</p>
+   * @public
+   */
+  Priority: number | undefined;
+}
+
+/**
  * <p>Configures the scale-in behavior for managed instance scaling.</p>
  * @public
  */
@@ -3535,6 +3559,18 @@ export interface ProductionVariant {
    * @public
    */
   InstanceType?: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.</p>
+   * @public
+   */
+  InstancePools?: InstancePool[] | undefined;
+
+  /**
+   * <p>The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.</p> <p>Valid values: 300 to 3600.</p>
+   * @public
+   */
+  VariantInstanceProvisionTimeoutInSeconds?: number | undefined;
 
   /**
    * <p>Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. The traffic to a production variant is determined by the ratio of the <code>VariantWeight</code> to the sum of all <code>VariantWeight</code> values across all ProductionVariants. If unspecified, it defaults to 1.0. </p>
@@ -5225,6 +5261,12 @@ export interface InferenceComponentStartupParameters {
  */
 export interface InferenceComponentSpecification {
   /**
+   * <p>The ML compute instance type for the inference component specification. Specifies which instance type this specification applies to. Required when using the <code>Specifications</code> parameter with multiple entries.</p>
+   * @public
+   */
+  InstanceType?: ProductionVariantInstanceType | undefined;
+
+  /**
    * <p>The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.</p>
    * @public
    */
@@ -5294,6 +5336,12 @@ export interface CreateInferenceComponentInput {
    * @public
    */
   Specification?: InferenceComponentSpecification | undefined;
+
+  /**
+   * <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to deploy a different model or resource configuration for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
+   * @public
+   */
+  Specifications?: InferenceComponentSpecification[] | undefined;
 
   /**
    * <p>Runtime settings for a model that is deployed with an inference component.</p>
@@ -8442,34 +8490,4 @@ export interface RoleGroupAssignment {
    * @public
    */
   GroupPatterns: string[] | undefined;
-}
-
-/**
- * <p>Configuration settings for the SageMaker Partner AI App.</p>
- * @public
- */
-export interface PartnerAppConfig {
-  /**
-   * <p>The list of users that are given admin access to the SageMaker Partner AI App.</p>
-   * @public
-   */
-  AdminUsers?: string[] | undefined;
-
-  /**
-   * <p>This is a map of required inputs for a SageMaker Partner AI App. Based on the application type, the map is populated with a key and value pair that is specific to the user and application.</p>
-   * @public
-   */
-  Arguments?: Record<string, string> | undefined;
-
-  /**
-   * <p>A list of Amazon Web Services IAM Identity Center group patterns that can access the SageMaker Partner AI App. Group names support wildcard matching using <code>*</code>. An empty list indicates the app will not use Identity Center group features. All groups specified in <code>RoleGroupAssignments</code> must match patterns in this list.</p>
-   * @public
-   */
-  AssignedGroupPatterns?: string[] | undefined;
-
-  /**
-   * <p>A map of in-app roles to Amazon Web Services IAM Identity Center group patterns. Groups assigned to specific roles receive those permissions, while groups in <code>AssignedGroupPatterns</code> but not in this map receive default in-app role depending on app type. Group patterns support wildcard matching using <code>*</code>. Currently supported by Fiddler version 1.3 and later with roles: <code>ORG_MEMBER</code> (default) and <code>ORG_ADMIN</code>.</p>
-   * @public
-   */
-  RoleGroupAssignments?: RoleGroupAssignment[] | undefined;
 }

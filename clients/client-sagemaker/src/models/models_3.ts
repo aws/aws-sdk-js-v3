@@ -76,11 +76,11 @@ import type {
   ModelCardSortBy,
   ModelCardSortOrder,
   ModelCardStatus,
-  ModelCardVersionSortBy,
   ModelPackageGroupStatus,
   ModelPackageRegistrationType,
   ModelPackageStatus,
   ModelRegistrationMode,
+  ModelVariantStatus,
   MonitoringJobDefinitionSortKey,
   MonitoringType,
   NotebookInstanceAcceleratorType,
@@ -198,6 +198,7 @@ import type {
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
   InferenceExecutionConfig,
+  InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
@@ -213,6 +214,7 @@ import type {
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
+  ModelInfrastructureConfig,
   ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
@@ -234,12 +236,12 @@ import type {
   OptimizationJobModelSource,
   OptimizationJobOutputConfig,
   OptimizationVpcConfig,
-  PartnerAppConfig,
   ProductionVariantServerlessConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   ResourceLimits,
   RetryStrategy,
+  ShadowModeConfig,
   SourceAlgorithmSpecification,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
@@ -271,6 +273,7 @@ import type {
   OfflineStoreStatus,
   OwnershipSettings,
   ParallelismConfiguration,
+  PartnerAppConfig,
   PartnerAppMaintenanceConfig,
   ProcessingInput,
   ProcessingOutputConfig,
@@ -292,6 +295,167 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>The metadata of the endpoint.</p>
+ * @public
+ */
+export interface EndpointMetadata {
+  /**
+   * <p>The name of the endpoint.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName?: string | undefined;
+
+  /**
+   * <p> The status of the endpoint. For possible values of the status of an endpoint, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html">EndpointSummary</a>. </p>
+   * @public
+   */
+  EndpointStatus?: EndpointStatus | undefined;
+
+  /**
+   * <p> If the status of the endpoint is <code>Failed</code>, or the status is <code>InService</code> but update operation fails, this provides the reason why it failed. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * <p>Summary of the deployment configuration of a model.</p>
+ * @public
+ */
+export interface ModelVariantConfigSummary {
+  /**
+   * <p>The name of the Amazon SageMaker Model entity.</p>
+   * @public
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The name of the variant.</p>
+   * @public
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>The configuration of the infrastructure that the model has been deployed to.</p>
+   * @public
+   */
+  InfrastructureConfig: ModelInfrastructureConfig | undefined;
+
+  /**
+   * <p>The status of deployment for the model variant on the hosted inference endpoint.</p> <ul> <li> <p> <code>Creating</code> - Amazon SageMaker is preparing the model variant on the hosted inference endpoint. </p> </li> <li> <p> <code>InService</code> - The model variant is running on the hosted inference endpoint. </p> </li> <li> <p> <code>Updating</code> - Amazon SageMaker is updating the model variant on the hosted inference endpoint. </p> </li> <li> <p> <code>Deleting</code> - Amazon SageMaker is deleting the model variant on the hosted inference endpoint. </p> </li> <li> <p> <code>Deleted</code> - The model variant has been deleted on the hosted inference endpoint. This can only happen after stopping the experiment. </p> </li> </ul>
+   * @public
+   */
+  Status: ModelVariantStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the inference experiment being described.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the inference experiment.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the inference experiment.</p>
+   * @public
+   */
+  Type: InferenceExperimentType | undefined;
+
+  /**
+   * <p>The duration for which the inference experiment ran or will run.</p>
+   * @public
+   */
+  Schedule?: InferenceExperimentSchedule | undefined;
+
+  /**
+   * <p> The status of the inference experiment. The following are the possible statuses for an inference experiment: </p> <ul> <li> <p> <code>Creating</code> - Amazon SageMaker is creating your experiment. </p> </li> <li> <p> <code>Created</code> - Amazon SageMaker has finished the creation of your experiment and will begin the experiment at the scheduled time. </p> </li> <li> <p> <code>Updating</code> - When you make changes to your experiment, your experiment shows as updating. </p> </li> <li> <p> <code>Starting</code> - Amazon SageMaker is beginning your experiment. </p> </li> <li> <p> <code>Running</code> - Your experiment is in progress. </p> </li> <li> <p> <code>Stopping</code> - Amazon SageMaker is stopping your experiment. </p> </li> <li> <p> <code>Completed</code> - Your experiment has completed. </p> </li> <li> <p> <code>Cancelled</code> - When you conclude your experiment early using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows as cancelled. </p> </li> </ul>
+   * @public
+   */
+  Status: InferenceExperimentStatus | undefined;
+
+  /**
+   * <p> The error message or client-specified <code>Reason</code> from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a> API, that explains the status of the inference experiment. </p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The description of the inference experiment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which you created the inference experiment.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p> The timestamp at which the inference experiment was completed. </p>
+   * @public
+   */
+  CompletionTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which you last modified the inference experiment.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p> The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment. </p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The metadata of the endpoint on which the inference experiment ran.</p>
+   * @public
+   */
+  EndpointMetadata: EndpointMetadata | undefined;
+
+  /**
+   * <p> An array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant in the inference experiment. Each <code>ModelVariantConfigSummary</code> object in the array describes the infrastructure configuration for deploying the corresponding variant. </p>
+   * @public
+   */
+  ModelVariants: ModelVariantConfigSummary[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
+   * @public
+   */
+  DataStorageConfig?: InferenceExperimentDataStorageConfig | undefined;
+
+  /**
+   * <p> The configuration of <code>ShadowMode</code> inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates. </p>
+   * @public
+   */
+  ShadowModeConfig?: ShadowModeConfig | undefined;
+
+  /**
+   * <p> The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>. </p>
+   * @public
+   */
+  KmsKey?: string | undefined;
+}
 
 /**
  * @public
@@ -11681,112 +11845,6 @@ export interface ListModelCardsRequest {
 
   /**
    * <p>Sort model cards by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: ModelCardSortOrder | undefined;
-}
-
-/**
- * <p>A summary of the model card.</p>
- * @public
- */
-export interface ModelCardSummary {
-  /**
-   * <p>The name of the model card.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card.</p>
-   * @public
-   */
-  ModelCardArn: string | undefined;
-
-  /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
-   * @public
-   */
-  ModelCardStatus: ModelCardStatus | undefined;
-
-  /**
-   * <p>The date and time that the model card was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the model card was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelCardsResponse {
-  /**
-   * <p>The summaries of the listed model cards.</p>
-   * @public
-   */
-  ModelCardSummaries: ModelCardSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model cards, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelCardVersionsRequest {
-  /**
-   * <p>Only list model card versions that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Only list model card versions that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of model card versions to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>List model card versions for the model card with the specified name or Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>Only list model card versions with the specified approval status.</p>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListModelCardVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model card versions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Sort listed model card versions by version. Sorts by version by default.</p>
-   * @public
-   */
-  SortBy?: ModelCardVersionSortBy | undefined;
-
-  /**
-   * <p>Sort model card versions by ascending or descending order.</p>
    * @public
    */
   SortOrder?: ModelCardSortOrder | undefined;

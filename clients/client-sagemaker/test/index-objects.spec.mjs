@@ -1373,6 +1373,7 @@ import {
   InferenceComponentDataCacheConfigSummary$,
   InferenceComponentDeploymentConfig$,
   InferenceComponentMetadata$,
+  InferenceComponentPlacementStatus$,
   InferenceComponentPlacementStrategy,
   InferenceComponentRollingUpdatePolicy$,
   InferenceComponentRuntimeConfig$,
@@ -1409,6 +1410,8 @@ import {
   InstanceMetadata$,
   InstanceMetadataServiceConfiguration$,
   InstancePlacementConfig$,
+  InstancePool$,
+  InstancePoolSummary$,
   IntegerParameterRange$,
   IntegerParameterRangeSpecification$,
   IPAddressType,
@@ -4343,6 +4346,7 @@ assert(typeof InferenceComponentDataCacheConfig$ === "object");
 assert(typeof InferenceComponentDataCacheConfigSummary$ === "object");
 assert(typeof InferenceComponentDeploymentConfig$ === "object");
 assert(typeof InferenceComponentMetadata$ === "object");
+assert(typeof InferenceComponentPlacementStatus$ === "object");
 assert(typeof InferenceComponentRollingUpdatePolicy$ === "object");
 assert(typeof InferenceComponentRuntimeConfig$ === "object");
 assert(typeof InferenceComponentRuntimeConfigSummary$ === "object");
@@ -4370,6 +4374,8 @@ assert(typeof InstanceGroupScalingMetadata$ === "object");
 assert(typeof InstanceMetadata$ === "object");
 assert(typeof InstanceMetadataServiceConfiguration$ === "object");
 assert(typeof InstancePlacementConfig$ === "object");
+assert(typeof InstancePool$ === "object");
+assert(typeof InstancePoolSummary$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
 assert(typeof JupyterLabAppImageConfig$ === "object");

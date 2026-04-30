@@ -1694,14 +1694,18 @@ const _ICDCCS = "InferenceComponentDataCacheConfigSummary";
 const _ICJC = "ImageClassificationJobConfig";
 const _ICM = "InferenceComponentMetadata";
 const _ICN = "InferenceComponentName";
+const _ICPS = "InferenceComponentPlacementStatus";
+const _ICPSL = "InferenceComponentPlacementStatusList";
 const _ICRC = "InferenceComponentRuntimeConfig";
 const _ICRCS = "InferenceComponentRuntimeConfigSummary";
 const _ICRUP = "InferenceComponentRollingUpdatePolicy";
 const _ICS = "InferenceComponentStatus";
 const _ICSC = "InferenceComponentSchedulingConfig";
-const _ICSL = "InferenceComponentSummaryList";
+const _ICSL = "InferenceComponentSpecificationList";
+const _ICSLn = "InferenceComponentSummaryList";
 const _ICSP = "InferenceComponentStartupParameters";
 const _ICSS = "InferenceComponentSpecificationSummary";
+const _ICSSL = "InferenceComponentSpecificationSummaryList";
 const _ICSn = "InferenceComponentSpecification";
 const _ICSnf = "InferenceComponentSummary";
 const _ICm = "ImageConfig";
@@ -1758,15 +1762,20 @@ const _IN = "ImageName";
 const _INLI = "IncludeNodeLogicalIds";
 const _INOU = "InitialNumberOfUsers";
 const _INn = "InputName";
-const _IP = "InProgress";
+const _IP = "InstancePool";
 const _IPC = "IamPolicyConstraints";
 const _IPCn = "InstancePlacementConfig";
 const _IPI = "InvocationsPerInstance";
+const _IPL = "InstancePoolList";
 const _IPOAS = "IdentityProviderOAuthSettings";
 const _IPOASd = "IdentityProviderOAuthSetting";
 const _IPR = "IntegerParameterRange";
 const _IPRS = "IntegerParameterRangeSpecification";
 const _IPRn = "IntegerParameterRanges";
+const _IPS = "InstancePoolSummary";
+const _IPSL = "InstancePoolSummaryList";
+const _IPn = "InstancePools";
+const _IPnr = "InProgress";
 const _IR = "IsRequired";
 const _IRA = "IotRoleAlias";
 const _IRJ = "InferenceRecommendationsJob";
@@ -2338,6 +2347,7 @@ const _MN = "MetricName";
 const _MNC = "ModelNameContains";
 const _MNCo = "MonitoringNetworkConfig";
 const _MNE = "ModelNameEquals";
+const _MNO = "ModelNameOverride";
 const _MNOT = "MaxNumberOfTests";
 const _MNOTJ = "MaxNumberOfTrainingJobs";
 const _MNOTJNI = "MaxNumberOfTrainingJobsNotImproving";
@@ -2707,9 +2717,10 @@ const _PST = "ProcessingStartTime";
 const _PSa = "PaymentStatus";
 const _PSi = "PipelineSummaries";
 const _PSip = "PipelineSummary";
-const _PSl = "PlacementStrategy";
-const _PSla = "PlacementSpecifications";
-const _PSlac = "PlacementSpecification";
+const _PSl = "PlacementStatus";
+const _PSla = "PlacementStrategy";
+const _PSlac = "PlacementSpecifications";
+const _PSlace = "PlacementSpecification";
 const _PSr = "ProjectStatus";
 const _PSri = "PrimaryStatus";
 const _PSro = "ProfilingStatus";
@@ -2764,6 +2775,7 @@ const _Pi = "Pipeline";
 const _Pl = "Placement";
 const _Pr = "Properties";
 const _Pre = "Predefined";
+const _Pri = "Priority";
 const _Pro = "Processor";
 const _Proj = "Project";
 const _QC = "QualityCheck";
@@ -3197,6 +3209,7 @@ const _So = "Sources";
 const _Sp = "Spot";
 const _Spa = "Spaces";
 const _Spe = "Specification";
+const _Spec = "Specifications";
 const _St = "Status";
 const _Sta = "Stat";
 const _Stag = "Stages";
@@ -3576,6 +3589,7 @@ const _VG = "VendorGuidance";
 const _VH = "ValueHint";
 const _VI = "VolumeId";
 const _VIM = "ValueInMilliseconds";
+const _VIPTIS = "VariantInstanceProvisionTimeoutInSeconds";
 const _VIe = "VersionId";
 const _VIp = "VpcId";
 const _VKKI = "VolumeKmsKeyId";
@@ -4606,8 +4620,8 @@ export var ClusterRestrictedInstanceGroupDetails$: StaticStructureSchema = [3, n
 ];
 export var ClusterRestrictedInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CRIGS,
   0,
-  [_ICn, _IGN, _ITn, _ERx, _ECn, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC],
-  [1, 0, 0, 0, () => EnvironmentConfig$, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$], 5
+  [_ICn, _IGN, _ITn, _ERx, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _ECn],
+  [1, 0, 0, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, () => EnvironmentConfig$], 4
 ];
 export var ClusterSchedulerConfigSummary$: StaticStructureSchema = [3, n0, _CSCS,
   0,
@@ -5066,8 +5080,8 @@ export var CreateImageVersionResponse$: StaticStructureSchema = [3, n0, _CIVRr,
 ];
 export var CreateInferenceComponentInput$: StaticStructureSchema = [3, n0, _CICI,
   0,
-  [_ICN, _EN, _VN, _Spe, _RC, _Ta],
-  [0, 0, 0, () => InferenceComponentSpecification$, () => InferenceComponentRuntimeConfig$, () => TagList], 2
+  [_ICN, _EN, _VN, _Spe, _Spec, _RC, _Ta],
+  [0, 0, 0, () => InferenceComponentSpecification$, () => InferenceComponentSpecificationList, () => InferenceComponentRuntimeConfig$, () => TagList], 2
 ];
 export var CreateInferenceComponentOutput$: StaticStructureSchema = [3, n0, _CICO,
   0,
@@ -6361,8 +6375,8 @@ export var DescribeInferenceComponentInput$: StaticStructureSchema = [3, n0, _DI
 ];
 export var DescribeInferenceComponentOutput$: StaticStructureSchema = [3, n0, _DICO,
   0,
-  [_ICN, _ICA, _EN, _EA, _CT, _LMT, _VN, _FR, _Spe, _RC, _ICS, _LDC],
-  [0, 0, 0, 0, 4, 4, 0, 0, () => InferenceComponentSpecificationSummary$, () => InferenceComponentRuntimeConfigSummary$, 0, () => InferenceComponentDeploymentConfig$], 6
+  [_ICN, _ICA, _EN, _EA, _CT, _LMT, _VN, _FR, _Spe, _Spec, _RC, _ICS, _LDC],
+  [0, 0, 0, 0, 4, 4, 0, 0, () => InferenceComponentSpecificationSummary$, () => InferenceComponentSpecificationSummaryList, () => InferenceComponentRuntimeConfigSummary$, 0, () => InferenceComponentDeploymentConfig$], 6
 ];
 export var DescribeInferenceExperimentRequest$: StaticStructureSchema = [3, n0, _DIERes,
   0,
@@ -7479,6 +7493,11 @@ export var InferenceComponentMetadata$: StaticStructureSchema = [3, n0, _ICM,
   [_Ar],
   [0]
 ];
+export var InferenceComponentPlacementStatus$: StaticStructureSchema = [3, n0, _ICPS,
+  0,
+  [_ITn, _CCC],
+  [0, 1], 2
+];
 export var InferenceComponentRollingUpdatePolicy$: StaticStructureSchema = [3, n0, _ICRUP,
   0,
   [_MBS, _WIIS, _METIS, _RMBS],
@@ -7491,23 +7510,23 @@ export var InferenceComponentRuntimeConfig$: StaticStructureSchema = [3, n0, _IC
 ];
 export var InferenceComponentRuntimeConfigSummary$: StaticStructureSchema = [3, n0, _ICRCS,
   0,
-  [_DCCe, _CCC],
-  [1, 1]
+  [_DCCe, _CCC, _PSl],
+  [1, 1, () => InferenceComponentPlacementStatusList]
 ];
 export var InferenceComponentSchedulingConfig$: StaticStructureSchema = [3, n0, _ICSC,
   0,
-  [_PSl, _AZB],
+  [_PSla, _AZB],
   [0, () => InferenceComponentAvailabilityZoneBalance$], 1
 ];
 export var InferenceComponentSpecification$: StaticStructureSchema = [3, n0, _ICSn,
   0,
-  [_MNod, _Conta, _SPt, _CRR, _BICN, _DCCat, _SCch],
-  [0, () => InferenceComponentContainerSpecification$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfig$, () => InferenceComponentSchedulingConfig$]
+  [_ITn, _MNod, _Conta, _SPt, _CRR, _BICN, _DCCat, _SCch],
+  [0, 0, () => InferenceComponentContainerSpecification$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfig$, () => InferenceComponentSchedulingConfig$]
 ];
 export var InferenceComponentSpecificationSummary$: StaticStructureSchema = [3, n0, _ICSS,
   0,
-  [_MNod, _Conta, _SPt, _CRR, _BICN, _DCCat, _SCch],
-  [0, () => InferenceComponentContainerSpecificationSummary$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfigSummary$, () => InferenceComponentSchedulingConfig$]
+  [_ITn, _MNod, _Conta, _SPt, _CRR, _BICN, _DCCat, _SCch],
+  [0, 0, () => InferenceComponentContainerSpecificationSummary$, () => InferenceComponentStartupParameters$, () => InferenceComponentComputeResourceRequirements$, 0, () => InferenceComponentDataCacheConfigSummary$, () => InferenceComponentSchedulingConfig$]
 ];
 export var InferenceComponentStartupParameters$: StaticStructureSchema = [3, n0, _ICSP,
   0,
@@ -7611,8 +7630,18 @@ export var InstanceMetadataServiceConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var InstancePlacementConfig$: StaticStructureSchema = [3, n0, _IPCn,
   0,
-  [_EMJ, _PSla],
+  [_EMJ, _PSlac],
   [2, () => PlacementSpecifications]
+];
+export var InstancePool$: StaticStructureSchema = [3, n0, _IP,
+  0,
+  [_ITn, _Pri, _MNO],
+  [0, 1, 0], 2
+];
+export var InstancePoolSummary$: StaticStructureSchema = [3, n0, _IPS,
+  0,
+  [_ITn, _CICu],
+  [0, 1], 2
 ];
 export var IntegerParameterRange$: StaticStructureSchema = [3, n0, _IPR,
   0,
@@ -9331,8 +9360,8 @@ export var PendingDeploymentSummary$: StaticStructureSchema = [3, n0, _PDS,
 ];
 export var PendingProductionVariantSummary$: StaticStructureSchema = [3, n0, _PPVS,
   0,
-  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _ITn, _ATcc, _VSar, _CSCu, _DSCes, _MIS, _RCo],
-  [0, () => DeployedImages, 1, 1, 1, 1, 0, 0, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$], 1
+  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _ITn, _IPn, _ATcc, _VSar, _CSCu, _DSCes, _MIS, _RCo],
+  [0, () => DeployedImages, 1, 1, 1, 1, 0, () => InstancePoolSummaryList, 0, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$], 1
 ];
 export var Phase$: StaticStructureSchema = [3, n0, _Ph,
   0,
@@ -9389,7 +9418,7 @@ export var PipelineVersionSummary$: StaticStructureSchema = [3, n0, _PVSi,
   [_PAi, _PVI, _CT, _PVD, _PVDN, _LEPEAa],
   [0, 1, 4, 0, 0, 0]
 ];
-export var PlacementSpecification$: StaticStructureSchema = [3, n0, _PSlac,
+export var PlacementSpecification$: StaticStructureSchema = [3, n0, _PSlace,
   0,
   [_ICn, _USIl],
   [1, 0], 1
@@ -9471,8 +9500,8 @@ export var ProcessingStoppingCondition$: StaticStructureSchema = [3, n0, _PSC,
 ];
 export var ProductionVariant$: StaticStructureSchema = [3, n0, _PVr,
   0,
-  [_VN, _MNod, _IIC, _ITn, _IVW, _ATcc, _CDCo, _SCe, _VSIGB, _MDDTIS, _CSHCTIS, _ESSMA, _MIS, _RCo, _IAV, _CRC],
-  [0, 0, 1, 0, 1, 0, () => ProductionVariantCoreDumpConfig$, () => ProductionVariantServerlessConfig$, 1, 1, 1, 2, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, 0, () => ProductionVariantCapacityReservationConfig$], 1
+  [_VN, _MNod, _IIC, _ITn, _IPn, _VIPTIS, _IVW, _ATcc, _CDCo, _SCe, _VSIGB, _MDDTIS, _CSHCTIS, _ESSMA, _MIS, _RCo, _IAV, _CRC],
+  [0, 0, 1, 0, () => InstancePoolList, 1, 1, 0, () => ProductionVariantCoreDumpConfig$, () => ProductionVariantServerlessConfig$, 1, 1, 1, 2, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, 0, () => ProductionVariantCapacityReservationConfig$], 1
 ];
 export var ProductionVariantCapacityReservationConfig$: StaticStructureSchema = [3, n0, _PVCRC,
   0,
@@ -9521,8 +9550,8 @@ export var ProductionVariantStatus$: StaticStructureSchema = [3, n0, _PVSr,
 ];
 export var ProductionVariantSummary$: StaticStructureSchema = [3, n0, _PVSro,
   0,
-  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _VSar, _CSCu, _DSCes, _MIS, _RCo, _CRC],
-  [0, () => DeployedImages, 1, 1, 1, 1, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, () => ProductionVariantCapacityReservationSummary$], 1
+  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _IPn, _VSar, _CSCu, _DSCes, _MIS, _RCo, _CRC],
+  [0, () => DeployedImages, 1, 1, 1, 1, () => InstancePoolSummaryList, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, () => ProductionVariantCapacityReservationSummary$], 1
 ];
 export var ProfilerConfig$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -10386,7 +10415,7 @@ export var TrainingJobDefinition$: StaticStructureSchema = [3, n0, _TJD,
 ];
 export var TrainingJobStatusCounters$: StaticStructureSchema = [3, n0, _TJSC,
   0,
-  [_Com, _IP, _REe, _NRE, _Sto],
+  [_Com, _IPnr, _REe, _NRE, _Sto],
   [1, 1, 1, 1, 1]
 ];
 export var TrainingJobStepMetadata$: StaticStructureSchema = [3, n0, _TJSM,
@@ -10806,8 +10835,8 @@ export var UpdateImageVersionResponse$: StaticStructureSchema = [3, n0, _UIVRp,
 ];
 export var UpdateInferenceComponentInput$: StaticStructureSchema = [3, n0, _UICI,
   0,
-  [_ICN, _Spe, _RC, _DCe],
-  [0, () => InferenceComponentSpecification$, () => InferenceComponentRuntimeConfig$, () => InferenceComponentDeploymentConfig$], 1
+  [_ICN, _Spe, _Spec, _RC, _DCe],
+  [0, () => InferenceComponentSpecification$, () => InferenceComponentSpecificationList, () => InferenceComponentRuntimeConfig$, () => InferenceComponentDeploymentConfig$], 1
 ];
 export var UpdateInferenceComponentOutput$: StaticStructureSchema = [3, n0, _UICO,
   0,
@@ -11548,7 +11577,16 @@ var Images: StaticListSchema = [1, n0, _Ima,
 var ImageVersions: StaticListSchema = [1, n0, _IVm,
   0, () => ImageVersion$
 ];
-var InferenceComponentSummaryList: StaticListSchema = [1, n0, _ICSL,
+var InferenceComponentPlacementStatusList: StaticListSchema = [1, n0, _ICPSL,
+  0, () => InferenceComponentPlacementStatus$
+];
+var InferenceComponentSpecificationList: StaticListSchema = [1, n0, _ICSL,
+  0, () => InferenceComponentSpecification$
+];
+var InferenceComponentSpecificationSummaryList: StaticListSchema = [1, n0, _ICSSL,
+  0, () => InferenceComponentSpecificationSummary$
+];
+var InferenceComponentSummaryList: StaticListSchema = [1, n0, _ICSLn,
   0, () => InferenceComponentSummary$
 ];
 var InferenceExperimentList: StaticListSchema = [1, n0, _IEL,
@@ -11572,6 +11610,12 @@ var InstanceGroups: StaticListSchema = [1, n0, _IG,
   0, () => InstanceGroup$
 ];
 var InstanceIds = 64 | 0;
+var InstancePoolList: StaticListSchema = [1, n0, _IPL,
+  0, () => InstancePool$
+];
+var InstancePoolSummaryList: StaticListSchema = [1, n0, _IPSL,
+  0, () => InstancePoolSummary$
+];
 var IntegerParameterRanges: StaticListSchema = [1, n0, _IPRn,
   0, () => IntegerParameterRange$
 ];
@@ -11740,7 +11784,7 @@ var PipelineSummaryList: StaticListSchema = [1, n0, _PSLi,
 var PipelineVersionSummaryList: StaticListSchema = [1, n0, _PVSL,
   0, () => PipelineVersionSummary$
 ];
-var PlacementSpecifications: StaticListSchema = [1, n0, _PSla,
+var PlacementSpecifications: StaticListSchema = [1, n0, _PSlac,
   0, () => PlacementSpecification$
 ];
 var PriorityClassList: StaticListSchema = [1, n0, _PCL,

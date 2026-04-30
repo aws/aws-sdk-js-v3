@@ -24,6 +24,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -68,6 +82,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -112,6 +140,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -174,6 +216,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -219,6 +275,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -264,6 +334,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -312,6 +396,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -357,6 +455,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -402,6 +514,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -450,6 +576,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -494,6 +634,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -538,6 +692,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -596,6 +764,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -640,6 +822,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -684,6 +880,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -746,6 +956,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -791,6 +1015,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -836,6 +1074,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -884,6 +1136,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -929,6 +1195,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -974,6 +1254,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -1022,6 +1316,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -1066,6 +1374,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -1110,6 +1432,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -1193,6 +1529,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -1284,6 +1634,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -1375,6 +1739,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -1541,6 +1919,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -1607,6 +1999,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -1673,6 +2079,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -1742,6 +2162,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -1808,6 +2242,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -1874,6 +2322,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "CurrentInstanceCount": 0,
         "DesiredInstanceCount": 0,
         "InstanceType": "__InstanceType__",
+        "InstancePools": [
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "CurrentInstanceCount": 0
+          }
+        ],
         "AcceleratorType": "__AcceleratorType__",
         "VariantStatus": [
           {
@@ -1986,6 +2448,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -2077,6 +2553,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -2168,6 +2658,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "DesiredWeight": 0,
       "CurrentInstanceCount": 0,
       "DesiredInstanceCount": 0,
+      "InstancePools": [
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "CurrentInstanceCount": 0
+        }
+      ],
       "VariantStatus": [
         {
           "Status": "__Status__",
@@ -2276,6 +2780,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -2367,6 +2885,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -2458,6 +2990,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -2624,6 +3170,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -2690,6 +3250,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -2756,6 +3330,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -2825,6 +3413,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -2891,6 +3493,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -2957,6 +3573,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CurrentInstanceCount: (number) 0,
         DesiredInstanceCount: (number) 0,
         InstanceType: "__InstanceType__",
+        InstancePools: [
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          },
+          {
+            InstanceType: "__InstanceType__",
+            CurrentInstanceCount: (number) 0
+          }
+        ],
         AcceleratorType: "__AcceleratorType__",
         VariantStatus: [
           {
@@ -3069,6 +3699,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -3160,6 +3804,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",
@@ -3251,6 +3909,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DesiredWeight: (number) 0,
       CurrentInstanceCount: (number) 0,
       DesiredInstanceCount: (number) 0,
+      InstancePools: [
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        },
+        {
+          InstanceType: "__InstanceType__",
+          CurrentInstanceCount: (number) 0
+        }
+      ],
       VariantStatus: [
         {
           Status: "__Status__",

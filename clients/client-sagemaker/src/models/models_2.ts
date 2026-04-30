@@ -45,13 +45,10 @@ import type {
   ImageVersionStatus,
   InferenceComponentCapacitySizeType,
   InferenceComponentStatus,
-  InferenceExperimentStatus,
-  InferenceExperimentType,
   InputMode,
   JobType,
   JoinSource,
   LastUpdateStatusValue,
-  ModelVariantStatus,
   ObjectiveStatus,
   OfflineStoreStatusValue,
   PartnerAppAuthType,
@@ -182,15 +179,12 @@ import type {
   InferenceComponentComputeResourceRequirements,
   InferenceComponentSchedulingConfig,
   InferenceComponentStartupParameters,
-  InferenceExperimentDataStorageConfig,
-  InferenceExperimentSchedule,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   MetricsConfig,
   ModelDeployConfig,
-  ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -200,17 +194,46 @@ import type {
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
-  PartnerAppConfig,
   ProductionVariant,
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   RetryStrategy,
+  RoleGroupAssignment,
   SchedulerConfig,
-  ShadowModeConfig,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Configuration settings for the SageMaker Partner AI App.</p>
+ * @public
+ */
+export interface PartnerAppConfig {
+  /**
+   * <p>The list of users that are given admin access to the SageMaker Partner AI App.</p>
+   * @public
+   */
+  AdminUsers?: string[] | undefined;
+
+  /**
+   * <p>This is a map of required inputs for a SageMaker Partner AI App. Based on the application type, the map is populated with a key and value pair that is specific to the user and application.</p>
+   * @public
+   */
+  Arguments?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services IAM Identity Center group patterns that can access the SageMaker Partner AI App. Group names support wildcard matching using <code>*</code>. An empty list indicates the app will not use Identity Center group features. All groups specified in <code>RoleGroupAssignments</code> must match patterns in this list.</p>
+   * @public
+   */
+  AssignedGroupPatterns?: string[] | undefined;
+
+  /**
+   * <p>A map of in-app roles to Amazon Web Services IAM Identity Center group patterns. Groups assigned to specific roles receive those permissions, while groups in <code>AssignedGroupPatterns</code> but not in this map receive default in-app role depending on app type. Group patterns support wildcard matching using <code>*</code>. Currently supported by Fiddler version 1.3 and later with roles: <code>ORG_MEMBER</code> (default) and <code>ORG_ADMIN</code>.</p>
+   * @public
+   */
+  RoleGroupAssignments?: RoleGroupAssignment[] | undefined;
+}
 
 /**
  * <p>Maintenance configuration settings for the SageMaker Partner AI App.</p>
@@ -6417,6 +6440,24 @@ export interface DescribeEndpointInput {
 }
 
 /**
+ * <p>A summary of an instance pool for a production variant, including the instance type and the current number of instances.</p>
+ * @public
+ */
+export interface InstancePoolSummary {
+  /**
+   * <p>The ML compute instance type for the instance pool.</p>
+   * @public
+   */
+  InstanceType: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>The current number of instances of this type in the instance pool.</p>
+   * @public
+   */
+  CurrentInstanceCount: number | undefined;
+}
+
+/**
  * <p>Describes the status of the production variant.</p>
  * @public
  */
@@ -6486,6 +6527,12 @@ export interface PendingProductionVariantSummary {
    * @public
    */
   InstanceType?: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>A list of instance pools for the production variant. Each pool indicates the instance type and the current number of instances of that type.</p>
+   * @public
+   */
+  InstancePools?: InstancePoolSummary[] | undefined;
 
   /**
    * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify the size of the EI instance to use for the production variant.</p>
@@ -6666,6 +6713,12 @@ export interface ProductionVariantSummary {
    * @public
    */
   DesiredInstanceCount?: number | undefined;
+
+  /**
+   * <p>A list of instance pools for the production variant. Each pool indicates the instance type and the current number of instances of that type.</p>
+   * @public
+   */
+  InstancePools?: InstancePoolSummary[] | undefined;
 
   /**
    * <p>The endpoint variant status which describes the current deployment stage status or operational status.</p>
@@ -8235,6 +8288,24 @@ export interface InferenceComponentDeploymentConfig {
 }
 
 /**
+ * <p>The placement status of an inference component on a specific instance type. Shows the number of inference component copies currently placed on instances of a given type.</p>
+ * @public
+ */
+export interface InferenceComponentPlacementStatus {
+  /**
+   * <p>The ML compute instance type where the inference component copies are placed.</p>
+   * @public
+   */
+  InstanceType: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>The number of inference component copies currently placed on instances of this type.</p>
+   * @public
+   */
+  CurrentCopyCount: number | undefined;
+}
+
+/**
  * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
  * @public
  */
@@ -8250,6 +8321,12 @@ export interface InferenceComponentRuntimeConfigSummary {
    * @public
    */
   CurrentCopyCount?: number | undefined;
+
+  /**
+   * <p>The placement status of the inference component across instance types. Shows how the inference component copies are distributed across instance types.</p>
+   * @public
+   */
+  PlacementStatus?: InferenceComponentPlacementStatus[] | undefined;
 }
 
 /**
@@ -8293,6 +8370,12 @@ export interface InferenceComponentDataCacheConfigSummary {
  * @public
  */
 export interface InferenceComponentSpecificationSummary {
+  /**
+   * <p>The ML compute instance type associated with this inference component specification.</p>
+   * @public
+   */
+  InstanceType?: ProductionVariantInstanceType | undefined;
+
   /**
    * <p>The name of the SageMaker AI model object that is deployed with the inference component.</p>
    * @public
@@ -8383,6 +8466,12 @@ export interface DescribeInferenceComponentOutput {
   Specification?: InferenceComponentSpecificationSummary | undefined;
 
   /**
+   * <p>A list of specification summaries for the inference component, one per instance type. This parameter is populated when the inference component was created with multiple specifications. When this parameter is populated, the singular <code>Specification</code> parameter is not returned.</p>
+   * @public
+   */
+  Specifications?: InferenceComponentSpecificationSummary[] | undefined;
+
+  /**
    * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
    * @public
    */
@@ -8422,165 +8511,4 @@ export interface DescribeInferenceExperimentRequest {
    * @public
    */
   Name: string | undefined;
-}
-
-/**
- * <p>The metadata of the endpoint.</p>
- * @public
- */
-export interface EndpointMetadata {
-  /**
-   * <p>The name of the endpoint.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName?: string | undefined;
-
-  /**
-   * <p> The status of the endpoint. For possible values of the status of an endpoint, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html">EndpointSummary</a>. </p>
-   * @public
-   */
-  EndpointStatus?: EndpointStatus | undefined;
-
-  /**
-   * <p> If the status of the endpoint is <code>Failed</code>, or the status is <code>InService</code> but update operation fails, this provides the reason why it failed. </p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
-
-/**
- * <p>Summary of the deployment configuration of a model.</p>
- * @public
- */
-export interface ModelVariantConfigSummary {
-  /**
-   * <p>The name of the Amazon SageMaker Model entity.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The name of the variant.</p>
-   * @public
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>The configuration of the infrastructure that the model has been deployed to.</p>
-   * @public
-   */
-  InfrastructureConfig: ModelInfrastructureConfig | undefined;
-
-  /**
-   * <p>The status of deployment for the model variant on the hosted inference endpoint.</p> <ul> <li> <p> <code>Creating</code> - Amazon SageMaker is preparing the model variant on the hosted inference endpoint. </p> </li> <li> <p> <code>InService</code> - The model variant is running on the hosted inference endpoint. </p> </li> <li> <p> <code>Updating</code> - Amazon SageMaker is updating the model variant on the hosted inference endpoint. </p> </li> <li> <p> <code>Deleting</code> - Amazon SageMaker is deleting the model variant on the hosted inference endpoint. </p> </li> <li> <p> <code>Deleted</code> - The model variant has been deleted on the hosted inference endpoint. This can only happen after stopping the experiment. </p> </li> </ul>
-   * @public
-   */
-  Status: ModelVariantStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the inference experiment being described.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the inference experiment.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The type of the inference experiment.</p>
-   * @public
-   */
-  Type: InferenceExperimentType | undefined;
-
-  /**
-   * <p>The duration for which the inference experiment ran or will run.</p>
-   * @public
-   */
-  Schedule?: InferenceExperimentSchedule | undefined;
-
-  /**
-   * <p> The status of the inference experiment. The following are the possible statuses for an inference experiment: </p> <ul> <li> <p> <code>Creating</code> - Amazon SageMaker is creating your experiment. </p> </li> <li> <p> <code>Created</code> - Amazon SageMaker has finished the creation of your experiment and will begin the experiment at the scheduled time. </p> </li> <li> <p> <code>Updating</code> - When you make changes to your experiment, your experiment shows as updating. </p> </li> <li> <p> <code>Starting</code> - Amazon SageMaker is beginning your experiment. </p> </li> <li> <p> <code>Running</code> - Your experiment is in progress. </p> </li> <li> <p> <code>Stopping</code> - Amazon SageMaker is stopping your experiment. </p> </li> <li> <p> <code>Completed</code> - Your experiment has completed. </p> </li> <li> <p> <code>Cancelled</code> - When you conclude your experiment early using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows as cancelled. </p> </li> </ul>
-   * @public
-   */
-  Status: InferenceExperimentStatus | undefined;
-
-  /**
-   * <p> The error message or client-specified <code>Reason</code> from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a> API, that explains the status of the inference experiment. </p>
-   * @public
-   */
-  StatusReason?: string | undefined;
-
-  /**
-   * <p>The description of the inference experiment.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which you created the inference experiment.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p> The timestamp at which the inference experiment was completed. </p>
-   * @public
-   */
-  CompletionTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which you last modified the inference experiment.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p> The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment. </p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The metadata of the endpoint on which the inference experiment ran.</p>
-   * @public
-   */
-  EndpointMetadata: EndpointMetadata | undefined;
-
-  /**
-   * <p> An array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant in the inference experiment. Each <code>ModelVariantConfigSummary</code> object in the array describes the infrastructure configuration for deploying the corresponding variant. </p>
-   * @public
-   */
-  ModelVariants: ModelVariantConfigSummary[] | undefined;
-
-  /**
-   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
-   * @public
-   */
-  DataStorageConfig?: InferenceExperimentDataStorageConfig | undefined;
-
-  /**
-   * <p> The configuration of <code>ShadowMode</code> inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates. </p>
-   * @public
-   */
-  ShadowModeConfig?: ShadowModeConfig | undefined;
-
-  /**
-   * <p> The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>. </p>
-   * @public
-   */
-  KmsKey?: string | undefined;
 }
