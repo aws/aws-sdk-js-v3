@@ -3140,6 +3140,52 @@
         }
       }
     },
+    "com.amazonaws.observabilityadmin#MskEnhancedMonitoringLevel": {
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
+          }
+        },
+        "PER_BROKER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PER_BROKER"
+          }
+        },
+        "PER_TOPIC_PER_BROKER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PER_TOPIC_PER_BROKER"
+          }
+        },
+        "PER_TOPIC_PER_PARTITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PER_TOPIC_PER_PARTITION"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Enumeration of supported enhanced monitoring levels for Amazon MSK clusters: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. </p>"
+      }
+    },
+    "com.amazonaws.observabilityadmin#MskMonitoringParameters": {
+      "type": "structure",
+      "members": {
+        "EnhancedMonitoring": {
+          "target": "com.amazonaws.observabilityadmin#MskEnhancedMonitoringLevel",
+          "traits": {
+            "smithy.api#documentation": "<p> The level of enhanced monitoring for the MSK cluster. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Configuration parameters for Amazon MSK cluster monitoring, including enhanced monitoring level settings. </p>"
+      }
+    },
     "com.amazonaws.observabilityadmin#NextToken": {
       "type": "string"
     },
@@ -4218,6 +4264,12 @@
             "smithy.api#enumValue": "AWS::BedrockAgentCore::Memory"
           }
         },
+        "AWS_BEDROCK_AGENTCORE_WORKLOAD_IDENTITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS::BedrockAgentCore::WorkloadIdentity"
+          }
+        },
         "AWS_SECURITY_HUB": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -4234,6 +4286,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "AWS::SecurityHub::HubV2"
+          }
+        },
+        "AWS_OTEL_ENRICHMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS::CloudWatch::OTelEnrichment"
+          }
+        },
+        "AWS_MSK_CLUSTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS::MSK::Cluster"
           }
         }
       }
@@ -4981,6 +5045,12 @@
           "target": "com.amazonaws.observabilityadmin#LogDeliveryParameters",
           "traits": {
             "smithy.api#documentation": "<p>Configuration parameters specific to Amazon Bedrock AgentCore logging when Amazon Bedrock AgentCore is the resource type.</p>"
+          }
+        },
+        "MskMonitoringParameters": {
+          "target": "com.amazonaws.observabilityadmin#MskMonitoringParameters",
+          "traits": {
+            "smithy.api#documentation": "<p> Configuration parameters specific to MSK monitoring when MSK is the resource type. </p>"
           }
         }
       },

@@ -10,6 +10,7 @@ import type {
   FilterRequirement,
   IntegrationStatus,
   LogType,
+  MskEnhancedMonitoringLevel,
   OutputFormat,
   RecordFormat,
   ResourceType,
@@ -631,6 +632,18 @@ export interface LogDeliveryParameters {
 }
 
 /**
+ * <p> Configuration parameters for Amazon MSK cluster monitoring, including enhanced monitoring level settings. </p>
+ * @public
+ */
+export interface MskMonitoringParameters {
+  /**
+   * <p> The level of enhanced monitoring for the MSK cluster. </p>
+   * @public
+   */
+  EnhancedMonitoring?: MskEnhancedMonitoringLevel | undefined;
+}
+
+/**
  * <p> Configuration parameters specific to VPC Flow Logs. </p>
  * @public
  */
@@ -814,6 +827,12 @@ export interface TelemetryDestinationConfiguration {
    * @public
    */
   LogDeliveryParameters?: LogDeliveryParameters | undefined;
+
+  /**
+   * <p> Configuration parameters specific to MSK monitoring when MSK is the resource type. </p>
+   * @public
+   */
+  MskMonitoringParameters?: MskMonitoringParameters | undefined;
 }
 
 /**

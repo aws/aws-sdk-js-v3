@@ -143,6 +143,21 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  * @public
  * @enum
  */
+export const MskEnhancedMonitoringLevel = {
+  DEFAULT: "DEFAULT",
+  PER_BROKER: "PER_BROKER",
+  PER_TOPIC_PER_BROKER: "PER_TOPIC_PER_BROKER",
+  PER_TOPIC_PER_PARTITION: "PER_TOPIC_PER_PARTITION",
+} as const;
+/**
+ * @public
+ */
+export type MskEnhancedMonitoringLevel = (typeof MskEnhancedMonitoringLevel)[keyof typeof MskEnhancedMonitoringLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const FilterBehavior = {
   DROP: "DROP",
   KEEP: "KEEP",
@@ -187,6 +202,7 @@ export const ResourceType = {
   AWS_BEDROCK_AGENTCORE_GATEWAY: "AWS::BedrockAgentCore::Gateway",
   AWS_BEDROCK_AGENTCORE_MEMORY: "AWS::BedrockAgentCore::Memory",
   AWS_BEDROCK_AGENTCORE_RUNTIME: "AWS::BedrockAgentCore::Runtime",
+  AWS_BEDROCK_AGENTCORE_WORKLOAD_IDENTITY: "AWS::BedrockAgentCore::WorkloadIdentity",
   AWS_CLOUDFRONT_DISTRIBUTION: "AWS::CloudFront::Distribution",
   AWS_CLOUDTRAIL: "AWS::CloudTrail",
   AWS_EC2_INSTANCE: "AWS::EC2::Instance",
@@ -194,6 +210,8 @@ export const ResourceType = {
   AWS_EKS_CLUSTER: "AWS::EKS::Cluster",
   AWS_ELB_LOADBALANCER: "AWS::ElasticLoadBalancingV2::LoadBalancer",
   AWS_LAMDBA_FUNCTION: "AWS::Lambda::Function",
+  AWS_MSK_CLUSTER: "AWS::MSK::Cluster",
+  AWS_OTEL_ENRICHMENT: "AWS::CloudWatch::OTelEnrichment",
   AWS_ROUTE53_RESOLVER_RESOLVER_ENDPOINT: "AWS::Route53Resolver::ResolverEndpoint",
   AWS_SECURITY_HUB: "AWS::SecurityHub::Hub",
   AWS_SECURITY_HUB_HUBV2: "AWS::SecurityHub::HubV2",

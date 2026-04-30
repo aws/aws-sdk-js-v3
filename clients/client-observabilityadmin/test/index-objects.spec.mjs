@@ -138,6 +138,8 @@ import {
   LogsBackupConfiguration$,
   LogsEncryptionConfiguration$,
   LogType,
+  MskEnhancedMonitoringLevel,
+  MskMonitoringParameters$,
   ObservabilityAdmin,
   ObservabilityAdminClient,
   ObservabilityAdminServiceException,
@@ -386,6 +388,7 @@ assert(typeof LoggingFilter$ === "object");
 assert(typeof LogGroupNameConfiguration$ === "object");
 assert(typeof LogsBackupConfiguration$ === "object");
 assert(typeof LogsEncryptionConfiguration$ === "object");
+assert(typeof MskMonitoringParameters$ === "object");
 assert(typeof PipelineOutput$ === "object");
 assert(typeof PipelineOutputError$ === "object");
 assert(typeof _Record$ === "object");
@@ -433,6 +436,7 @@ assert(typeof FilterBehavior === "object");
 assert(typeof FilterRequirement === "object");
 assert(typeof IntegrationStatus === "object");
 assert(typeof LogType === "object");
+assert(typeof MskEnhancedMonitoringLevel === "object");
 assert(typeof OutputFormat === "object");
 assert(typeof RecordFormat === "object");
 assert(typeof ResourceType === "object");
