@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetPublicKeyCertificateInput, GetPublicKeyCertificateOutput } from "../models/models_0";
+import type { DeleteResourcePolicyInput, DeleteResourcePolicyOutput } from "../models/models_0";
 import type {
   PaymentCryptographyClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { GetPublicKeyCertificate$ } from "../schemas/schemas_0";
+import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,46 +20,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetPublicKeyCertificateCommand}.
+ * The input for {@link DeleteResourcePolicyCommand}.
  */
-export interface GetPublicKeyCertificateCommandInput extends GetPublicKeyCertificateInput {}
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyInput {}
 /**
  * @public
  *
- * The output of {@link GetPublicKeyCertificateCommand}.
+ * The output of {@link DeleteResourcePolicyCommand}.
  */
-export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertificateOutput, __MetadataBearer {}
+export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the public key certificate of the asymmetric key pair that exists within Amazon Web Services Payment Cryptography.</p> <p>Unlike the private key of an asymmetric key, which never leaves Amazon Web Services Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code> permission can download the public key certificate of the asymmetric key. You can share the public key certificate to allow others to encrypt messages and verify signatures outside of Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based policies</a>.</p>
+ * <p>Removes the resource-based policy attached to an Amazon Web Services Payment Cryptography key.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetResourcePolicy.html">GetResourcePolicy</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PaymentCryptographyClient, GetPublicKeyCertificateCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
- * // const { PaymentCryptographyClient, GetPublicKeyCertificateCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * import { PaymentCryptographyClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
+ * // const { PaymentCryptographyClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
  * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
  * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
- * const input = { // GetPublicKeyCertificateInput
- *   KeyIdentifier: "STRING_VALUE", // required
+ * const input = { // DeleteResourcePolicyInput
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new GetPublicKeyCertificateCommand(input);
+ * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // GetPublicKeyCertificateOutput
- * //   KeyCertificate: "STRING_VALUE", // required
- * //   KeyCertificateChain: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetPublicKeyCertificateCommandInput - {@link GetPublicKeyCertificateCommandInput}
- * @returns {@link GetPublicKeyCertificateCommandOutput}
- * @see {@link GetPublicKeyCertificateCommandInput} for command's `input` shape.
- * @see {@link GetPublicKeyCertificateCommandOutput} for command's `response` shape.
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link PaymentCryptographyClientResolvedConfig | config} for PaymentCryptographyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
@@ -82,10 +82,10 @@ export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertif
  *
  * @public
  */
-export class GetPublicKeyCertificateCommand extends $Command
+export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<
-    GetPublicKeyCertificateCommandInput,
-    GetPublicKeyCertificateCommandOutput,
+    DeleteResourcePolicyCommandInput,
+    DeleteResourcePolicyCommandOutput,
     PaymentCryptographyClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +94,19 @@ export class GetPublicKeyCertificateCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PaymentCryptographyControlPlane", "GetPublicKeyCertificate", {})
-  .n("PaymentCryptographyClient", "GetPublicKeyCertificateCommand")
-  .sc(GetPublicKeyCertificate$)
+  .s("PaymentCryptographyControlPlane", "DeleteResourcePolicy", {})
+  .n("PaymentCryptographyClient", "DeleteResourcePolicyCommand")
+  .sc(DeleteResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetPublicKeyCertificateInput;
-      output: GetPublicKeyCertificateOutput;
+      input: DeleteResourcePolicyInput;
+      output: {};
     };
     sdk: {
-      input: GetPublicKeyCertificateCommandInput;
-      output: GetPublicKeyCertificateCommandOutput;
+      input: DeleteResourcePolicyCommandInput;
+      output: DeleteResourcePolicyCommandOutput;
     };
   };
 }

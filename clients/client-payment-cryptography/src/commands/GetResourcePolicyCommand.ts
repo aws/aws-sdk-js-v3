@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetPublicKeyCertificateInput, GetPublicKeyCertificateOutput } from "../models/models_0";
+import type { GetResourcePolicyInput, GetResourcePolicyOutput } from "../models/models_0";
 import type {
   PaymentCryptographyClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { GetPublicKeyCertificate$ } from "../schemas/schemas_0";
+import { GetResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetPublicKeyCertificateCommand}.
+ * The input for {@link GetResourcePolicyCommand}.
  */
-export interface GetPublicKeyCertificateCommandInput extends GetPublicKeyCertificateInput {}
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyInput {}
 /**
  * @public
  *
- * The output of {@link GetPublicKeyCertificateCommand}.
+ * The output of {@link GetResourcePolicyCommand}.
  */
-export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertificateOutput, __MetadataBearer {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the public key certificate of the asymmetric key pair that exists within Amazon Web Services Payment Cryptography.</p> <p>Unlike the private key of an asymmetric key, which never leaves Amazon Web Services Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code> permission can download the public key certificate of the asymmetric key. You can share the public key certificate to allow others to encrypt messages and verify signatures outside of Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based policies</a>.</p>
+ * <p>Returns the resource-based policy attached to an Amazon Web Services Payment Cryptography key.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteResourcePolicy.html">DeleteResourcePolicy</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PaymentCryptographyClient, GetPublicKeyCertificateCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
- * // const { PaymentCryptographyClient, GetPublicKeyCertificateCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * import { PaymentCryptographyClient, GetResourcePolicyCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
+ * // const { PaymentCryptographyClient, GetResourcePolicyCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
  * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
  * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
- * const input = { // GetPublicKeyCertificateInput
- *   KeyIdentifier: "STRING_VALUE", // required
+ * const input = { // GetResourcePolicyInput
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new GetPublicKeyCertificateCommand(input);
+ * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // GetPublicKeyCertificateOutput
- * //   KeyCertificate: "STRING_VALUE", // required
- * //   KeyCertificateChain: "STRING_VALUE", // required
+ * // { // GetResourcePolicyOutput
+ * //   ResourceArn: "STRING_VALUE", // required
+ * //   Policy: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param GetPublicKeyCertificateCommandInput - {@link GetPublicKeyCertificateCommandInput}
- * @returns {@link GetPublicKeyCertificateCommandOutput}
- * @see {@link GetPublicKeyCertificateCommandInput} for command's `input` shape.
- * @see {@link GetPublicKeyCertificateCommandOutput} for command's `response` shape.
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link PaymentCryptographyClientResolvedConfig | config} for PaymentCryptographyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -82,10 +82,10 @@ export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertif
  *
  * @public
  */
-export class GetPublicKeyCertificateCommand extends $Command
+export class GetResourcePolicyCommand extends $Command
   .classBuilder<
-    GetPublicKeyCertificateCommandInput,
-    GetPublicKeyCertificateCommandOutput,
+    GetResourcePolicyCommandInput,
+    GetResourcePolicyCommandOutput,
     PaymentCryptographyClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +94,19 @@ export class GetPublicKeyCertificateCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PaymentCryptographyControlPlane", "GetPublicKeyCertificate", {})
-  .n("PaymentCryptographyClient", "GetPublicKeyCertificateCommand")
-  .sc(GetPublicKeyCertificate$)
+  .s("PaymentCryptographyControlPlane", "GetResourcePolicy", {})
+  .n("PaymentCryptographyClient", "GetResourcePolicyCommand")
+  .sc(GetResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetPublicKeyCertificateInput;
-      output: GetPublicKeyCertificateOutput;
+      input: GetResourcePolicyInput;
+      output: GetResourcePolicyOutput;
     };
     sdk: {
-      input: GetPublicKeyCertificateCommandInput;
-      output: GetPublicKeyCertificateCommandOutput;
+      input: GetResourcePolicyCommandInput;
+      output: GetResourcePolicyCommandOutput;
     };
   };
 }

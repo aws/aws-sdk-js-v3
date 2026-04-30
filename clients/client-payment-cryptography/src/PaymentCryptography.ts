@@ -8,6 +8,11 @@ import {
   AddKeyReplicationRegionsCommand,
 } from "./commands/AddKeyReplicationRegionsCommand";
 import {
+  type AssociateMpaTeamCommandInput,
+  type AssociateMpaTeamCommandOutput,
+  AssociateMpaTeamCommand,
+} from "./commands/AssociateMpaTeamCommand";
+import {
   type CreateAliasCommandInput,
   type CreateAliasCommandOutput,
   CreateAliasCommand,
@@ -20,10 +25,20 @@ import {
 } from "./commands/DeleteAliasCommand";
 import { type DeleteKeyCommandInput, type DeleteKeyCommandOutput, DeleteKeyCommand } from "./commands/DeleteKeyCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
+  DeleteResourcePolicyCommand,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   type DisableDefaultKeyReplicationRegionsCommandInput,
   type DisableDefaultKeyReplicationRegionsCommandOutput,
   DisableDefaultKeyReplicationRegionsCommand,
 } from "./commands/DisableDefaultKeyReplicationRegionsCommand";
+import {
+  type DisassociateMpaTeamCommandInput,
+  type DisassociateMpaTeamCommandOutput,
+  DisassociateMpaTeamCommand,
+} from "./commands/DisassociateMpaTeamCommand";
 import {
   type EnableDefaultKeyReplicationRegionsCommandInput,
   type EnableDefaultKeyReplicationRegionsCommandOutput,
@@ -43,6 +58,11 @@ import {
 } from "./commands/GetDefaultKeyReplicationRegionsCommand";
 import { type GetKeyCommandInput, type GetKeyCommandOutput, GetKeyCommand } from "./commands/GetKeyCommand";
 import {
+  type GetMpaTeamAssociationCommandInput,
+  type GetMpaTeamAssociationCommandOutput,
+  GetMpaTeamAssociationCommand,
+} from "./commands/GetMpaTeamAssociationCommand";
+import {
   type GetParametersForExportCommandInput,
   type GetParametersForExportCommandOutput,
   GetParametersForExportCommand,
@@ -57,6 +77,11 @@ import {
   type GetPublicKeyCertificateCommandOutput,
   GetPublicKeyCertificateCommand,
 } from "./commands/GetPublicKeyCertificateCommand";
+import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
+  GetResourcePolicyCommand,
+} from "./commands/GetResourcePolicyCommand";
 import { type ImportKeyCommandInput, type ImportKeyCommandOutput, ImportKeyCommand } from "./commands/ImportKeyCommand";
 import {
   type ListAliasesCommandInput,
@@ -69,6 +94,11 @@ import {
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
+  PutResourcePolicyCommand,
+} from "./commands/PutResourcePolicyCommand";
 import {
   type RemoveKeyReplicationRegionsCommandInput,
   type RemoveKeyReplicationRegionsCommandOutput,
@@ -111,24 +141,30 @@ import { PaymentCryptographyClient } from "./PaymentCryptographyClient";
 
 const commands = {
   AddKeyReplicationRegionsCommand,
+  AssociateMpaTeamCommand,
   CreateAliasCommand,
   CreateKeyCommand,
   DeleteAliasCommand,
   DeleteKeyCommand,
+  DeleteResourcePolicyCommand,
   DisableDefaultKeyReplicationRegionsCommand,
+  DisassociateMpaTeamCommand,
   EnableDefaultKeyReplicationRegionsCommand,
   ExportKeyCommand,
   GetAliasCommand,
   GetCertificateSigningRequestCommand,
   GetDefaultKeyReplicationRegionsCommand,
   GetKeyCommand,
+  GetMpaTeamAssociationCommand,
   GetParametersForExportCommand,
   GetParametersForImportCommand,
   GetPublicKeyCertificateCommand,
+  GetResourcePolicyCommand,
   ImportKeyCommand,
   ListAliasesCommand,
   ListKeysCommand,
   ListTagsForResourceCommand,
+  PutResourcePolicyCommand,
   RemoveKeyReplicationRegionsCommand,
   RestoreKeyCommand,
   StartKeyUsageCommand,
@@ -159,6 +195,23 @@ export interface PaymentCryptography {
     args: AddKeyReplicationRegionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddKeyReplicationRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateMpaTeamCommand}
+   */
+  associateMpaTeam(
+    args: AssociateMpaTeamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateMpaTeamCommandOutput>;
+  associateMpaTeam(
+    args: AssociateMpaTeamCommandInput,
+    cb: (err: any, data?: AssociateMpaTeamCommandOutput) => void
+  ): void;
+  associateMpaTeam(
+    args: AssociateMpaTeamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateMpaTeamCommandOutput) => void
   ): void;
 
   /**
@@ -230,6 +283,23 @@ export interface PaymentCryptography {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableDefaultKeyReplicationRegionsCommand}
    */
   disableDefaultKeyReplicationRegions(
@@ -244,6 +314,23 @@ export interface PaymentCryptography {
     args: DisableDefaultKeyReplicationRegionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisableDefaultKeyReplicationRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateMpaTeamCommand}
+   */
+  disassociateMpaTeam(
+    args: DisassociateMpaTeamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateMpaTeamCommandOutput>;
+  disassociateMpaTeam(
+    args: DisassociateMpaTeamCommandInput,
+    cb: (err: any, data?: DisassociateMpaTeamCommandOutput) => void
+  ): void;
+  disassociateMpaTeam(
+    args: DisassociateMpaTeamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateMpaTeamCommandOutput) => void
   ): void;
 
   /**
@@ -350,6 +437,23 @@ export interface PaymentCryptography {
   ): void;
 
   /**
+   * @see {@link GetMpaTeamAssociationCommand}
+   */
+  getMpaTeamAssociation(
+    args: GetMpaTeamAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMpaTeamAssociationCommandOutput>;
+  getMpaTeamAssociation(
+    args: GetMpaTeamAssociationCommandInput,
+    cb: (err: any, data?: GetMpaTeamAssociationCommandOutput) => void
+  ): void;
+  getMpaTeamAssociation(
+    args: GetMpaTeamAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMpaTeamAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetParametersForExportCommand}
    */
   getParametersForExport(
@@ -398,6 +502,23 @@ export interface PaymentCryptography {
     args: GetPublicKeyCertificateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPublicKeyCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -468,6 +589,23 @@ export interface PaymentCryptography {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

@@ -113,6 +113,12 @@ export interface CreateKeyCommandOutput extends CreateKeyOutput, __MetadataBeare
  * //       },
  * //     },
  * //     UsingDefaultReplicationRegions: true || false,
+ * //     MpaStatus: { // MpaStatus
+ * //       MpaSessionArn: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       InitiationDate: new Date("TIMESTAMP"), // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -7,6 +7,11 @@ import {
   AddKeyReplicationRegionsOutput$,
   Alias$,
   As2805KeyVariant,
+  AssociateMpaTeam$,
+  AssociateMpaTeamCommand,
+  AssociateMpaTeamInput$,
+  AssociateMpaTeamOutput$,
+  AssociationState,
   CertificateSubjectType$,
   ConflictException,
   ConflictException$,
@@ -26,12 +31,20 @@ import {
   DeleteKeyCommand,
   DeleteKeyInput$,
   DeleteKeyOutput$,
+  DeleteResourcePolicy$,
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyInput$,
+  DeleteResourcePolicyOutput$,
   DeriveKeyUsage,
   DiffieHellmanDerivationData$,
   DisableDefaultKeyReplicationRegions$,
   DisableDefaultKeyReplicationRegionsCommand,
   DisableDefaultKeyReplicationRegionsInput$,
   DisableDefaultKeyReplicationRegionsOutput$,
+  DisassociateMpaTeam$,
+  DisassociateMpaTeamCommand,
+  DisassociateMpaTeamInput$,
+  DisassociateMpaTeamOutput$,
   EnableDefaultKeyReplicationRegions$,
   EnableDefaultKeyReplicationRegionsCommand,
   EnableDefaultKeyReplicationRegionsInput$,
@@ -64,6 +77,10 @@ import {
   GetKeyCommand,
   GetKeyInput$,
   GetKeyOutput$,
+  GetMpaTeamAssociation$,
+  GetMpaTeamAssociationCommand,
+  GetMpaTeamAssociationInput$,
+  GetMpaTeamAssociationOutput$,
   GetParametersForExport$,
   GetParametersForExportCommand,
   GetParametersForExportInput$,
@@ -76,6 +93,10 @@ import {
   GetPublicKeyCertificateCommand,
   GetPublicKeyCertificateInput$,
   GetPublicKeyCertificateOutput$,
+  GetResourcePolicy$,
+  GetResourcePolicyCommand,
+  GetResourcePolicyInput$,
+  GetResourcePolicyOutput$,
   ImportAs2805KeyCryptogram$,
   ImportDiffieHellmanTr31KeyBlock$,
   ImportKey$,
@@ -116,6 +137,9 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
+  MpaOperation,
+  MpaStatus$,
+  MpaTeamAssociation$,
   MultiRegionKeyType,
   paginateListAliases,
   paginateListKeys,
@@ -123,6 +147,12 @@ import {
   PaymentCryptography,
   PaymentCryptographyClient,
   PaymentCryptographyServiceException,
+  PublicPolicyException,
+  PublicPolicyException$,
+  PutResourcePolicy$,
+  PutResourcePolicyCommand,
+  PutResourcePolicyInput$,
+  PutResourcePolicyOutput$,
   RemoveKeyReplicationRegions$,
   RemoveKeyReplicationRegionsCommand,
   RemoveKeyReplicationRegionsInput$,
@@ -139,6 +169,7 @@ import {
   ServiceQuotaExceededException$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
+  SessionStatus,
   SigningAlgorithmType,
   StartKeyUsage$,
   StartKeyUsageCommand,
@@ -179,6 +210,8 @@ assert(typeof PaymentCryptography === "function");
 // commands
 assert(typeof AddKeyReplicationRegionsCommand === "function");
 assert(typeof AddKeyReplicationRegions$ === "object");
+assert(typeof AssociateMpaTeamCommand === "function");
+assert(typeof AssociateMpaTeam$ === "object");
 assert(typeof CreateAliasCommand === "function");
 assert(typeof CreateAlias$ === "object");
 assert(typeof CreateKeyCommand === "function");
@@ -187,8 +220,12 @@ assert(typeof DeleteAliasCommand === "function");
 assert(typeof DeleteAlias$ === "object");
 assert(typeof DeleteKeyCommand === "function");
 assert(typeof DeleteKey$ === "object");
+assert(typeof DeleteResourcePolicyCommand === "function");
+assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DisableDefaultKeyReplicationRegionsCommand === "function");
 assert(typeof DisableDefaultKeyReplicationRegions$ === "object");
+assert(typeof DisassociateMpaTeamCommand === "function");
+assert(typeof DisassociateMpaTeam$ === "object");
 assert(typeof EnableDefaultKeyReplicationRegionsCommand === "function");
 assert(typeof EnableDefaultKeyReplicationRegions$ === "object");
 assert(typeof ExportKeyCommand === "function");
@@ -201,12 +238,16 @@ assert(typeof GetDefaultKeyReplicationRegionsCommand === "function");
 assert(typeof GetDefaultKeyReplicationRegions$ === "object");
 assert(typeof GetKeyCommand === "function");
 assert(typeof GetKey$ === "object");
+assert(typeof GetMpaTeamAssociationCommand === "function");
+assert(typeof GetMpaTeamAssociation$ === "object");
 assert(typeof GetParametersForExportCommand === "function");
 assert(typeof GetParametersForExport$ === "object");
 assert(typeof GetParametersForImportCommand === "function");
 assert(typeof GetParametersForImport$ === "object");
 assert(typeof GetPublicKeyCertificateCommand === "function");
 assert(typeof GetPublicKeyCertificate$ === "object");
+assert(typeof GetResourcePolicyCommand === "function");
+assert(typeof GetResourcePolicy$ === "object");
 assert(typeof ImportKeyCommand === "function");
 assert(typeof ImportKey$ === "object");
 assert(typeof ListAliasesCommand === "function");
@@ -215,6 +256,8 @@ assert(typeof ListKeysCommand === "function");
 assert(typeof ListKeys$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof PutResourcePolicyCommand === "function");
+assert(typeof PutResourcePolicy$ === "object");
 assert(typeof RemoveKeyReplicationRegionsCommand === "function");
 assert(typeof RemoveKeyReplicationRegions$ === "object");
 assert(typeof RestoreKeyCommand === "function");
@@ -233,6 +276,8 @@ assert(typeof UpdateAlias$ === "object");
 assert(typeof AddKeyReplicationRegionsInput$ === "object");
 assert(typeof AddKeyReplicationRegionsOutput$ === "object");
 assert(typeof Alias$ === "object");
+assert(typeof AssociateMpaTeamInput$ === "object");
+assert(typeof AssociateMpaTeamOutput$ === "object");
 assert(typeof CertificateSubjectType$ === "object");
 assert(typeof CreateAliasInput$ === "object");
 assert(typeof CreateAliasOutput$ === "object");
@@ -242,9 +287,13 @@ assert(typeof DeleteAliasInput$ === "object");
 assert(typeof DeleteAliasOutput$ === "object");
 assert(typeof DeleteKeyInput$ === "object");
 assert(typeof DeleteKeyOutput$ === "object");
+assert(typeof DeleteResourcePolicyInput$ === "object");
+assert(typeof DeleteResourcePolicyOutput$ === "object");
 assert(typeof DiffieHellmanDerivationData$ === "object");
 assert(typeof DisableDefaultKeyReplicationRegionsInput$ === "object");
 assert(typeof DisableDefaultKeyReplicationRegionsOutput$ === "object");
+assert(typeof DisassociateMpaTeamInput$ === "object");
+assert(typeof DisassociateMpaTeamOutput$ === "object");
 assert(typeof EnableDefaultKeyReplicationRegionsInput$ === "object");
 assert(typeof EnableDefaultKeyReplicationRegionsOutput$ === "object");
 assert(typeof ExportAs2805KeyCryptogram$ === "object");
@@ -265,12 +314,16 @@ assert(typeof GetDefaultKeyReplicationRegionsInput$ === "object");
 assert(typeof GetDefaultKeyReplicationRegionsOutput$ === "object");
 assert(typeof GetKeyInput$ === "object");
 assert(typeof GetKeyOutput$ === "object");
+assert(typeof GetMpaTeamAssociationInput$ === "object");
+assert(typeof GetMpaTeamAssociationOutput$ === "object");
 assert(typeof GetParametersForExportInput$ === "object");
 assert(typeof GetParametersForExportOutput$ === "object");
 assert(typeof GetParametersForImportInput$ === "object");
 assert(typeof GetParametersForImportOutput$ === "object");
 assert(typeof GetPublicKeyCertificateInput$ === "object");
 assert(typeof GetPublicKeyCertificateOutput$ === "object");
+assert(typeof GetResourcePolicyInput$ === "object");
+assert(typeof GetResourcePolicyOutput$ === "object");
 assert(typeof ImportAs2805KeyCryptogram$ === "object");
 assert(typeof ImportDiffieHellmanTr31KeyBlock$ === "object");
 assert(typeof ImportKeyCryptogram$ === "object");
@@ -290,6 +343,10 @@ assert(typeof ListKeysInput$ === "object");
 assert(typeof ListKeysOutput$ === "object");
 assert(typeof ListTagsForResourceInput$ === "object");
 assert(typeof ListTagsForResourceOutput$ === "object");
+assert(typeof MpaStatus$ === "object");
+assert(typeof MpaTeamAssociation$ === "object");
+assert(typeof PutResourcePolicyInput$ === "object");
+assert(typeof PutResourcePolicyOutput$ === "object");
 assert(typeof RemoveKeyReplicationRegionsInput$ === "object");
 assert(typeof RemoveKeyReplicationRegionsOutput$ === "object");
 assert(typeof ReplicationStatusType$ === "object");
@@ -311,6 +368,7 @@ assert(typeof UpdateAliasOutput$ === "object");
 assert(typeof WrappedKey$ === "object");
 // enums
 assert(typeof As2805KeyVariant === "object");
+assert(typeof AssociationState === "object");
 assert(typeof DeriveKeyUsage === "object");
 assert(typeof KeyAlgorithm === "object");
 assert(typeof KeyCheckValueAlgorithm === "object");
@@ -323,7 +381,9 @@ assert(typeof KeyOrigin === "object");
 assert(typeof KeyReplicationState === "object");
 assert(typeof KeyState === "object");
 assert(typeof KeyUsage === "object");
+assert(typeof MpaOperation === "object");
 assert(typeof MultiRegionKeyType === "object");
+assert(typeof SessionStatus === "object");
 assert(typeof SigningAlgorithmType === "object");
 assert(typeof SymmetricKeyAlgorithm === "object");
 assert(typeof Tr34KeyBlockFormat === "object");
@@ -336,6 +396,8 @@ assert(ConflictException.prototype instanceof PaymentCryptographyServiceExceptio
 assert(typeof ConflictException$ === "object");
 assert(InternalServerException.prototype instanceof PaymentCryptographyServiceException);
 assert(typeof InternalServerException$ === "object");
+assert(PublicPolicyException.prototype instanceof PaymentCryptographyServiceException);
+assert(typeof PublicPolicyException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof PaymentCryptographyServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof PaymentCryptographyServiceException);

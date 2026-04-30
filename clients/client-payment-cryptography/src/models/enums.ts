@@ -152,6 +152,21 @@ export type KeyState = (typeof KeyState)[keyof typeof KeyState];
  * @public
  * @enum
  */
+export const SessionStatus = {
+  APPROVED: "APPROVED",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const MultiRegionKeyType = {
   PRIMARY: "PRIMARY",
   REPLICA: "REPLICA",
@@ -190,6 +205,32 @@ export const As2805KeyVariant = {
  * @public
  */
 export type As2805KeyVariant = (typeof As2805KeyVariant)[keyof typeof As2805KeyVariant];
+
+/**
+ * @public
+ * @enum
+ */
+export const MpaOperation = {
+  IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE: "IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE",
+} as const;
+/**
+ * @public
+ */
+export type MpaOperation = (typeof MpaOperation)[keyof typeof MpaOperation];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationState = {
+  ACTIVE: "ACTIVE",
+  DELETE_PENDING: "DELETE_PENDING",
+  UPDATE_PENDING: "UPDATE_PENDING",
+} as const;
+/**
+ * @public
+ */
+export type AssociationState = (typeof AssociationState)[keyof typeof AssociationState];
 
 /**
  * @public

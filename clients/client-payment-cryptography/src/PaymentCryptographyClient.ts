@@ -65,14 +65,23 @@ import type {
   AddKeyReplicationRegionsCommandInput,
   AddKeyReplicationRegionsCommandOutput,
 } from "./commands/AddKeyReplicationRegionsCommand";
+import type { AssociateMpaTeamCommandInput, AssociateMpaTeamCommandOutput } from "./commands/AssociateMpaTeamCommand";
 import type { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import type { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
 import type { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import type { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
 import type {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import type {
   DisableDefaultKeyReplicationRegionsCommandInput,
   DisableDefaultKeyReplicationRegionsCommandOutput,
 } from "./commands/DisableDefaultKeyReplicationRegionsCommand";
+import type {
+  DisassociateMpaTeamCommandInput,
+  DisassociateMpaTeamCommandOutput,
+} from "./commands/DisassociateMpaTeamCommand";
 import type {
   EnableDefaultKeyReplicationRegionsCommandInput,
   EnableDefaultKeyReplicationRegionsCommandOutput,
@@ -89,6 +98,10 @@ import type {
 } from "./commands/GetDefaultKeyReplicationRegionsCommand";
 import type { GetKeyCommandInput, GetKeyCommandOutput } from "./commands/GetKeyCommand";
 import type {
+  GetMpaTeamAssociationCommandInput,
+  GetMpaTeamAssociationCommandOutput,
+} from "./commands/GetMpaTeamAssociationCommand";
+import type {
   GetParametersForExportCommandInput,
   GetParametersForExportCommandOutput,
 } from "./commands/GetParametersForExportCommand";
@@ -100,6 +113,10 @@ import type {
   GetPublicKeyCertificateCommandInput,
   GetPublicKeyCertificateCommandOutput,
 } from "./commands/GetPublicKeyCertificateCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import type { ImportKeyCommandInput, ImportKeyCommandOutput } from "./commands/ImportKeyCommand";
 import type { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import type { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
@@ -107,6 +124,10 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import type {
   RemoveKeyReplicationRegionsCommandInput,
   RemoveKeyReplicationRegionsCommandOutput,
@@ -133,24 +154,30 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddKeyReplicationRegionsCommandInput
+  | AssociateMpaTeamCommandInput
   | CreateAliasCommandInput
   | CreateKeyCommandInput
   | DeleteAliasCommandInput
   | DeleteKeyCommandInput
+  | DeleteResourcePolicyCommandInput
   | DisableDefaultKeyReplicationRegionsCommandInput
+  | DisassociateMpaTeamCommandInput
   | EnableDefaultKeyReplicationRegionsCommandInput
   | ExportKeyCommandInput
   | GetAliasCommandInput
   | GetCertificateSigningRequestCommandInput
   | GetDefaultKeyReplicationRegionsCommandInput
   | GetKeyCommandInput
+  | GetMpaTeamAssociationCommandInput
   | GetParametersForExportCommandInput
   | GetParametersForImportCommandInput
   | GetPublicKeyCertificateCommandInput
+  | GetResourcePolicyCommandInput
   | ImportKeyCommandInput
   | ListAliasesCommandInput
   | ListKeysCommandInput
   | ListTagsForResourceCommandInput
+  | PutResourcePolicyCommandInput
   | RemoveKeyReplicationRegionsCommandInput
   | RestoreKeyCommandInput
   | StartKeyUsageCommandInput
@@ -164,24 +191,30 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddKeyReplicationRegionsCommandOutput
+  | AssociateMpaTeamCommandOutput
   | CreateAliasCommandOutput
   | CreateKeyCommandOutput
   | DeleteAliasCommandOutput
   | DeleteKeyCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DisableDefaultKeyReplicationRegionsCommandOutput
+  | DisassociateMpaTeamCommandOutput
   | EnableDefaultKeyReplicationRegionsCommandOutput
   | ExportKeyCommandOutput
   | GetAliasCommandOutput
   | GetCertificateSigningRequestCommandOutput
   | GetDefaultKeyReplicationRegionsCommandOutput
   | GetKeyCommandOutput
+  | GetMpaTeamAssociationCommandOutput
   | GetParametersForExportCommandOutput
   | GetParametersForImportCommandOutput
   | GetPublicKeyCertificateCommandOutput
+  | GetResourcePolicyCommandOutput
   | ImportKeyCommandOutput
   | ListAliasesCommandOutput
   | ListKeysCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutResourcePolicyCommandOutput
   | RemoveKeyReplicationRegionsCommandOutput
   | RestoreKeyCommandOutput
   | StartKeyUsageCommandOutput

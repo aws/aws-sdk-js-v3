@@ -182,3 +182,25 @@ export class ServiceUnavailableException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * <p>The resource-based policy would grant public access to the key.</p> <p>Modify the policy to restrict access to specific principals and resubmit the request.</p>
+ * @public
+ */
+export class PublicPolicyException extends __BaseException {
+  readonly name = "PublicPolicyException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PublicPolicyException, __BaseException>) {
+    super({
+      name: "PublicPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicPolicyException.prototype);
+    this.Message = opts.Message;
+  }
+}

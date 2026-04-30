@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetPublicKeyCertificateInput, GetPublicKeyCertificateOutput } from "../models/models_0";
+import type { DisassociateMpaTeamInput, DisassociateMpaTeamOutput } from "../models/models_0";
 import type {
   PaymentCryptographyClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { GetPublicKeyCertificate$ } from "../schemas/schemas_0";
+import { DisassociateMpaTeam$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,52 +20,68 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetPublicKeyCertificateCommand}.
+ * The input for {@link DisassociateMpaTeamCommand}.
  */
-export interface GetPublicKeyCertificateCommandInput extends GetPublicKeyCertificateInput {}
+export interface DisassociateMpaTeamCommandInput extends DisassociateMpaTeamInput {}
 /**
  * @public
  *
- * The output of {@link GetPublicKeyCertificateCommand}.
+ * The output of {@link DisassociateMpaTeamCommand}.
  */
-export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertificateOutput, __MetadataBearer {}
+export interface DisassociateMpaTeamCommandOutput extends DisassociateMpaTeamOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the public key certificate of the asymmetric key pair that exists within Amazon Web Services Payment Cryptography.</p> <p>Unlike the private key of an asymmetric key, which never leaves Amazon Web Services Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code> permission can download the public key certificate of the asymmetric key. You can share the public key certificate to allow others to encrypt messages and verify signatures outside of Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based policies</a>.</p>
+ * <p>Removes the association between a Multi-Party Approval (MPA) team and a protected operation.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AssociateMpaTeam.html">AssociateMpaTeam</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetMpaTeamAssociation.html">GetMpaTeamAssociation</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PaymentCryptographyClient, GetPublicKeyCertificateCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
- * // const { PaymentCryptographyClient, GetPublicKeyCertificateCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
+ * import { PaymentCryptographyClient, DisassociateMpaTeamCommand } from "@aws-sdk/client-payment-cryptography"; // ES Modules import
+ * // const { PaymentCryptographyClient, DisassociateMpaTeamCommand } = require("@aws-sdk/client-payment-cryptography"); // CommonJS import
  * // import type { PaymentCryptographyClientConfig } from "@aws-sdk/client-payment-cryptography";
  * const config = {}; // type is PaymentCryptographyClientConfig
  * const client = new PaymentCryptographyClient(config);
- * const input = { // GetPublicKeyCertificateInput
- *   KeyIdentifier: "STRING_VALUE", // required
+ * const input = { // DisassociateMpaTeamInput
+ *   Action: "STRING_VALUE", // required
+ *   RequesterComment: "STRING_VALUE",
  * };
- * const command = new GetPublicKeyCertificateCommand(input);
+ * const command = new DisassociateMpaTeamCommand(input);
  * const response = await client.send(command);
- * // { // GetPublicKeyCertificateOutput
- * //   KeyCertificate: "STRING_VALUE", // required
- * //   KeyCertificateChain: "STRING_VALUE", // required
+ * // { // DisassociateMpaTeamOutput
+ * //   MpaTeamAssociation: { // MpaTeamAssociation
+ * //     Action: "STRING_VALUE", // required
+ * //     MpaTeamArn: "STRING_VALUE", // required
+ * //     AssociationState: "STRING_VALUE", // required
+ * //     MpaStatus: { // MpaStatus
+ * //       MpaSessionArn: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       InitiationDate: new Date("TIMESTAMP"), // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```
  *
- * @param GetPublicKeyCertificateCommandInput - {@link GetPublicKeyCertificateCommandInput}
- * @returns {@link GetPublicKeyCertificateCommandOutput}
- * @see {@link GetPublicKeyCertificateCommandInput} for command's `input` shape.
- * @see {@link GetPublicKeyCertificateCommandOutput} for command's `response` shape.
+ * @param DisassociateMpaTeamCommandInput - {@link DisassociateMpaTeamCommandInput}
+ * @returns {@link DisassociateMpaTeamCommandOutput}
+ * @see {@link DisassociateMpaTeamCommandInput} for command's `input` shape.
+ * @see {@link DisassociateMpaTeamCommandOutput} for command's `response` shape.
  * @see {@link PaymentCryptographyClientResolvedConfig | config} for PaymentCryptographyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p> <p>This exception is thrown when the caller lacks the necessary IAM permissions to perform the requested operation. Verify that your IAM policy includes the required permissions for the specific Amazon Web Services Payment Cryptography action you're attempting.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This request can cause an inconsistent state for the resource.</p> <p>The requested operation conflicts with the current state of the resource. For example, attempting to delete a key that is currently being used, or trying to create a resource that already exists.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>This indicates a server-side error within the Amazon Web Services Payment Cryptography service. If this error persists, contact support for assistance.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was denied due to resource not found.</p> <p>The specified key, alias, or other resource does not exist in your account or region. Verify that the resource identifier is correct and that the resource exists in the expected region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This request would cause a service quota to be exceeded.</p> <p>You have reached the maximum number of keys, aliases, or other resources allowed in your account. Review your current usage and consider deleting unused resources or requesting a quota increase.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p> <p>The Amazon Web Services Payment Cryptography service is temporarily unavailable. This is typically a temporary condition - retry your request after a brief delay.</p>
@@ -82,10 +98,10 @@ export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertif
  *
  * @public
  */
-export class GetPublicKeyCertificateCommand extends $Command
+export class DisassociateMpaTeamCommand extends $Command
   .classBuilder<
-    GetPublicKeyCertificateCommandInput,
-    GetPublicKeyCertificateCommandOutput,
+    DisassociateMpaTeamCommandInput,
+    DisassociateMpaTeamCommandOutput,
     PaymentCryptographyClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +110,19 @@ export class GetPublicKeyCertificateCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PaymentCryptographyControlPlane", "GetPublicKeyCertificate", {})
-  .n("PaymentCryptographyClient", "GetPublicKeyCertificateCommand")
-  .sc(GetPublicKeyCertificate$)
+  .s("PaymentCryptographyControlPlane", "DisassociateMpaTeam", {})
+  .n("PaymentCryptographyClient", "DisassociateMpaTeamCommand")
+  .sc(DisassociateMpaTeam$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetPublicKeyCertificateInput;
-      output: GetPublicKeyCertificateOutput;
+      input: DisassociateMpaTeamInput;
+      output: DisassociateMpaTeamOutput;
     };
     sdk: {
-      input: GetPublicKeyCertificateCommandInput;
-      output: GetPublicKeyCertificateCommandOutput;
+      input: DisassociateMpaTeamCommandInput;
+      output: DisassociateMpaTeamCommandOutput;
     };
   };
 }

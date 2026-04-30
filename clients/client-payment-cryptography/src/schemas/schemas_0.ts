@@ -5,7 +5,12 @@ const _AKRR = "AddKeyReplicationRegions";
 const _AKRRI = "AddKeyReplicationRegionsInput";
 const _AKRRO = "AddKeyReplicationRegionsOutput";
 const _AKV = "As2805KeyVariant";
+const _AMT = "AssociateMpaTeam";
+const _AMTI = "AssociateMpaTeamInput";
+const _AMTO = "AssociateMpaTeamOutput";
 const _AN = "AliasName";
+const _AS = "AssociationState";
+const _Ac = "Action";
 const _Al = "Aliases";
 const _C = "City";
 const _CA = "CreateAlias";
@@ -40,7 +45,13 @@ const _DKID = "DeleteKeyInDays";
 const _DKO = "DeleteKeyOutput";
 const _DKU = "DeriveKeyUsage";
 const _DKe = "DeleteKey";
+const _DMT = "DisassociateMpaTeam";
+const _DMTI = "DisassociateMpaTeamInput";
+const _DMTO = "DisassociateMpaTeamOutput";
 const _DPT = "DeletePendingTimestamp";
+const _DRP = "DeleteResourcePolicy";
+const _DRPI = "DeleteResourcePolicyInput";
+const _DRPO = "DeleteResourcePolicyOutput";
 const _DT = "DeleteTimestamp";
 const _E = "Exportable";
 const _EA = "EmailAddress";
@@ -76,6 +87,9 @@ const _GDKRRO = "GetDefaultKeyReplicationRegionsOutput";
 const _GK = "GetKey";
 const _GKI = "GetKeyInput";
 const _GKO = "GetKeyOutput";
+const _GMTA = "GetMpaTeamAssociation";
+const _GMTAI = "GetMpaTeamAssociationInput";
+const _GMTAO = "GetMpaTeamAssociationOutput";
 const _GPFE = "GetParametersForExport";
 const _GPFEI = "GetParametersForExportInput";
 const _GPFEO = "GetParametersForExportOutput";
@@ -85,7 +99,11 @@ const _GPFIO = "GetParametersForImportOutput";
 const _GPKC = "GetPublicKeyCertificate";
 const _GPKCI = "GetPublicKeyCertificateInput";
 const _GPKCO = "GetPublicKeyCertificateOutput";
+const _GRP = "GetResourcePolicy";
+const _GRPI = "GetResourcePolicyInput";
+const _GRPO = "GetResourcePolicyOutput";
 const _IAKC = "ImportAs2805KeyCryptogram";
+const _ID = "InitiationDate";
 const _IDHTKB = "ImportDiffieHellmanTr31KeyBlock";
 const _IK = "ImportKey";
 const _IKC = "ImportKeyCryptogram";
@@ -134,7 +152,12 @@ const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
 const _M = "Message";
 const _MR = "MaxResults";
+const _MRC = "MpaRequesterComment";
 const _MRKT = "MultiRegionKeyType";
+const _MS = "MpaStatus";
+const _MSA = "MpaSessionArn";
+const _MTA = "MpaTeamArn";
+const _MTAp = "MpaTeamAssociation";
 const _NR = "NoRestrictions";
 const _NT = "NextToken";
 const _O = "Organization";
@@ -142,11 +165,17 @@ const _OB = "OptionalBlocks";
 const _OBI = "OptionalBlockId";
 const _OBV = "OptionalBlockValue";
 const _OU = "OrganizationUnit";
+const _P = "Policy";
 const _PKC = "PublicKeyCertificate";
 const _PKI = "PrivateKeyIdentifier";
+const _PPE = "PublicPolicyException";
 const _PR = "PrimaryRegion";
+const _PRP = "PutResourcePolicy";
+const _PRPI = "PutResourcePolicyInput";
+const _PRPO = "PutResourcePolicyOutput";
 const _PVUT = "ParametersValidUntilTimestamp";
 const _RA = "ResourceArn";
+const _RC = "RequesterComment";
 const _RCPK = "RootCertificatePublicKey";
 const _RI = "ResourceId";
 const _RK = "RestoreKey";
@@ -238,6 +267,7 @@ import {
   AccessDeniedException,
   ConflictException,
   InternalServerException,
+  PublicPolicyException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
@@ -269,6 +299,12 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   [0]
 ];
 n0_registry.registerError(InternalServerException$, InternalServerException);
+export var PublicPolicyException$: StaticErrorSchema = [-3, n0, _PPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PublicPolicyException$, PublicPolicyException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_RI],
@@ -310,6 +346,7 @@ export const errorTypeRegistries = [
 ]
 var CertificateSigningRequestType: StaticSimpleSchema = [0, n0, _CSRT, 8, 0];
 var KeyMaterial: StaticSimpleSchema = [0, n0, _KM, 8, 0];
+var MpaRequesterComment: StaticSimpleSchema = [0, n0, _MRC, 8, 0];
 var OptionalBlockId: StaticSimpleSchema = [0, n0, _OBI, 8, 0];
 var OptionalBlockValue: StaticSimpleSchema = [0, n0, _OBV, 8, 0];
 var Tr31WrappedKeyBlock: StaticSimpleSchema = [0, n0, _TWKB, 8, 0];
@@ -329,6 +366,16 @@ export var Alias$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AN, _KA],
   [0, 0], 1
+];
+export var AssociateMpaTeamInput$: StaticStructureSchema = [3, n0, _AMTI,
+  0,
+  [_Ac, _MTA, _RC],
+  [0, 0, [() => MpaRequesterComment, 0]], 2
+];
+export var AssociateMpaTeamOutput$: StaticStructureSchema = [3, n0, _AMTO,
+  0,
+  [_MTAp],
+  [() => MpaTeamAssociation$], 1
 ];
 export var CertificateSubjectType$: StaticStructureSchema = [3, n0, _CST,
   0,
@@ -375,6 +422,16 @@ export var DeleteKeyOutput$: StaticStructureSchema = [3, n0, _DKO,
   [_K],
   [() => Key$], 1
 ];
+export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
+  0,
+  [_RA],
+  [0], 1
+];
+export var DeleteResourcePolicyOutput$: StaticStructureSchema = [3, n0, _DRPO,
+  0,
+  [],
+  []
+];
 export var DisableDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _DDKRRI,
   0,
   [_RR],
@@ -384,6 +441,16 @@ export var DisableDefaultKeyReplicationRegionsOutput$: StaticStructureSchema = [
   0,
   [_ERR],
   [64 | 0], 1
+];
+export var DisassociateMpaTeamInput$: StaticStructureSchema = [3, n0, _DMTI,
+  0,
+  [_Ac, _RC],
+  [0, [() => MpaRequesterComment, 0]], 1
+];
+export var DisassociateMpaTeamOutput$: StaticStructureSchema = [3, n0, _DMTO,
+  0,
+  [_MTAp],
+  [() => MpaTeamAssociation$], 1
 ];
 export var EnableDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _EDKRRI,
   0,
@@ -480,6 +547,16 @@ export var GetKeyOutput$: StaticStructureSchema = [3, n0, _GKO,
   [_K],
   [() => Key$], 1
 ];
+export var GetMpaTeamAssociationInput$: StaticStructureSchema = [3, n0, _GMTAI,
+  0,
+  [_Ac],
+  [0], 1
+];
+export var GetMpaTeamAssociationOutput$: StaticStructureSchema = [3, n0, _GMTAO,
+  0,
+  [_MTAp],
+  [() => MpaTeamAssociation$], 1
+];
 export var GetParametersForExportInput$: StaticStructureSchema = [3, n0, _GPFEI,
   0,
   [_KMT, _SKA, _RLGT],
@@ -510,6 +587,16 @@ export var GetPublicKeyCertificateOutput$: StaticStructureSchema = [3, n0, _GPKC
   [_KC, _KCC],
   [0, 0], 2
 ];
+export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI,
+  0,
+  [_RA],
+  [0], 1
+];
+export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
+  0,
+  [_RA, _P],
+  [0, 0], 2
+];
 export var ImportAs2805KeyCryptogram$: StaticStructureSchema = [3, n0, _IAKC,
   0,
   [_AKV, _KMOU, _KAey, _E, _WKI, _WKC],
@@ -527,8 +614,8 @@ export var ImportKeyCryptogram$: StaticStructureSchema = [3, n0, _IKC,
 ];
 export var ImportKeyInput$: StaticStructureSchema = [3, n0, _IKI,
   0,
-  [_KM, _KCVA, _En, _T, _RR],
-  [[() => ImportKeyMaterial$, 0], 0, 2, () => Tags, 64 | 0], 1
+  [_KM, _KCVA, _En, _T, _RR, _RC],
+  [[() => ImportKeyMaterial$, 0], 0, 2, () => Tags, 64 | 0, [() => MpaRequesterComment, 0]], 1
 ];
 export var ImportKeyOutput$: StaticStructureSchema = [3, n0, _IKO,
   0,
@@ -547,8 +634,8 @@ export var ImportTr34KeyBlock$: StaticStructureSchema = [3, n0, _ITKBm,
 ];
 export var Key$: StaticStructureSchema = [3, n0, _K,
   0,
-  [_KA, _KAe, _KCV, _KCVA, _En, _E, _KS, _KO, _CT, _UST, _USTs, _DPT, _DT, _DKU, _MRKT, _PR, _RS, _UDRR],
-  [0, () => KeyAttributes$, 0, 0, 2, 2, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, () => ReplicationStatus, 2], 9
+  [_KA, _KAe, _KCV, _KCVA, _En, _E, _KS, _KO, _CT, _UST, _USTs, _DPT, _DT, _DKU, _MRKT, _PR, _RS, _UDRR, _MS],
+  [0, () => KeyAttributes$, 0, 0, 2, 2, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, () => ReplicationStatus, 2, () => MpaStatus$], 9
 ];
 export var KeyAttributes$: StaticStructureSchema = [3, n0, _KAe,
   0,
@@ -599,6 +686,26 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_T, _NT],
   [() => Tags, 0], 1
+];
+export var MpaStatus$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_MSA, _St, _ID, _SM],
+  [0, 0, 4, 0], 3
+];
+export var MpaTeamAssociation$: StaticStructureSchema = [3, n0, _MTAp,
+  0,
+  [_Ac, _MTA, _AS, _MS],
+  [0, 0, 0, () => MpaStatus$], 3
+];
+export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
+  0,
+  [_RA, _P],
+  [0, 0], 2
+];
+export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO,
+  0,
+  [_RA, _P],
+  [0, 0], 2
 ];
 export var RemoveKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _RKRRI,
   0,
@@ -733,6 +840,9 @@ export var ImportKeyMaterial$: StaticUnionSchema = [4, n0, _IKM,
 export var AddKeyReplicationRegions$: StaticOperationSchema = [9, n0, _AKRR,
   0, () => AddKeyReplicationRegionsInput$, () => AddKeyReplicationRegionsOutput$
 ];
+export var AssociateMpaTeam$: StaticOperationSchema = [9, n0, _AMT,
+  0, () => AssociateMpaTeamInput$, () => AssociateMpaTeamOutput$
+];
 export var CreateAlias$: StaticOperationSchema = [9, n0, _CA,
   2, () => CreateAliasInput$, () => CreateAliasOutput$
 ];
@@ -745,8 +855,14 @@ export var DeleteAlias$: StaticOperationSchema = [9, n0, _DA,
 export var DeleteKey$: StaticOperationSchema = [9, n0, _DKe,
   2, () => DeleteKeyInput$, () => DeleteKeyOutput$
 ];
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  2, () => DeleteResourcePolicyInput$, () => DeleteResourcePolicyOutput$
+];
 export var DisableDefaultKeyReplicationRegions$: StaticOperationSchema = [9, n0, _DDKRR,
   0, () => DisableDefaultKeyReplicationRegionsInput$, () => DisableDefaultKeyReplicationRegionsOutput$
+];
+export var DisassociateMpaTeam$: StaticOperationSchema = [9, n0, _DMT,
+  0, () => DisassociateMpaTeamInput$, () => DisassociateMpaTeamOutput$
 ];
 export var EnableDefaultKeyReplicationRegions$: StaticOperationSchema = [9, n0, _EDKRR,
   0, () => EnableDefaultKeyReplicationRegionsInput$, () => EnableDefaultKeyReplicationRegionsOutput$
@@ -766,6 +882,9 @@ export var GetDefaultKeyReplicationRegions$: StaticOperationSchema = [9, n0, _GD
 export var GetKey$: StaticOperationSchema = [9, n0, _GK,
   0, () => GetKeyInput$, () => GetKeyOutput$
 ];
+export var GetMpaTeamAssociation$: StaticOperationSchema = [9, n0, _GMTA,
+  0, () => GetMpaTeamAssociationInput$, () => GetMpaTeamAssociationOutput$
+];
 export var GetParametersForExport$: StaticOperationSchema = [9, n0, _GPFE,
   0, () => GetParametersForExportInput$, () => GetParametersForExportOutput$
 ];
@@ -774,6 +893,9 @@ export var GetParametersForImport$: StaticOperationSchema = [9, n0, _GPFI,
 ];
 export var GetPublicKeyCertificate$: StaticOperationSchema = [9, n0, _GPKC,
   0, () => GetPublicKeyCertificateInput$, () => GetPublicKeyCertificateOutput$
+];
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  0, () => GetResourcePolicyInput$, () => GetResourcePolicyOutput$
 ];
 export var ImportKey$: StaticOperationSchema = [9, n0, _IK,
   0, () => ImportKeyInput$, () => ImportKeyOutput$
@@ -786,6 +908,9 @@ export var ListKeys$: StaticOperationSchema = [9, n0, _LK,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  2, () => PutResourcePolicyInput$, () => PutResourcePolicyOutput$
 ];
 export var RemoveKeyReplicationRegions$: StaticOperationSchema = [9, n0, _RKRR,
   0, () => RemoveKeyReplicationRegionsInput$, () => RemoveKeyReplicationRegionsOutput$

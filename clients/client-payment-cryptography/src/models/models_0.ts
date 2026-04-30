@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   As2805KeyVariant,
+  AssociationState,
   DeriveKeyUsage,
   KeyAlgorithm,
   KeyCheckValueAlgorithm,
@@ -13,7 +14,9 @@ import type {
   KeyReplicationState,
   KeyState,
   KeyUsage,
+  MpaOperation,
   MultiRegionKeyType,
+  SessionStatus,
   SigningAlgorithmType,
   SymmetricKeyAlgorithm,
   Tr34KeyBlockFormat,
@@ -127,6 +130,36 @@ export interface KeyAttributes {
    * @public
    */
   KeyModesOfUse: KeyModesOfUse | undefined;
+}
+
+/**
+ * <p>The status of an MPA session.</p>
+ * @public
+ */
+export interface MpaStatus {
+  /**
+   * <p>The ARN of the MPA session.</p>
+   * @public
+   */
+  MpaSessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the MPA session.</p>
+   * @public
+   */
+  Status: SessionStatus | undefined;
+
+  /**
+   * <p>The date and time when the MPA session was initiated.</p>
+   * @public
+   */
+  InitiationDate: Date | undefined;
+
+  /**
+   * <p>The message providing additional information about the MPA session status.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -259,6 +292,12 @@ export interface Key {
    * @public
    */
   UsingDefaultReplicationRegions?: boolean | undefined;
+
+  /**
+   * <p>The Multi-Party Approval (MPA) status for the key, if applicable.</p>
+   * @public
+   */
+  MpaStatus?: MpaStatus | undefined;
 }
 
 /**
@@ -426,6 +465,70 @@ export interface UpdateAliasOutput {
 }
 
 /**
+ * @public
+ */
+export interface AssociateMpaTeamInput {
+  /**
+   * <p>The protected operation to associate with the MPA team. Currently, the only supported value is <code>IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE</code>.</p>
+   * @public
+   */
+  Action: MpaOperation | undefined;
+
+  /**
+   * <p>The ARN of the MPA team to associate with the protected operation.</p>
+   * @public
+   */
+  MpaTeamArn: string | undefined;
+
+  /**
+   * <p>The comment from the requester explaining the reason for the association.</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  RequesterComment?: string | undefined;
+}
+
+/**
+ * <p>The details of an MPA team association with a protected operation.</p>
+ * @public
+ */
+export interface MpaTeamAssociation {
+  /**
+   * <p>The protected operation associated with the MPA team.</p>
+   * @public
+   */
+  Action: MpaOperation | undefined;
+
+  /**
+   * <p>The ARN of the MPA team.</p>
+   * @public
+   */
+  MpaTeamArn: string | undefined;
+
+  /**
+   * <p>The state of the MPA team association.</p>
+   * @public
+   */
+  AssociationState: AssociationState | undefined;
+
+  /**
+   * <p>The MPA session status for the association, if applicable.</p>
+   * @public
+   */
+  MpaStatus?: MpaStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateMpaTeamOutput {
+  /**
+   * <p>The details of the MPA team association.</p>
+   * @public
+   */
+  MpaTeamAssociation: MpaTeamAssociation | undefined;
+}
+
+/**
  * <p>The metadata used to create the certificate signing request.</p>
  * @public
  */
@@ -578,6 +681,22 @@ export interface DeleteKeyOutput {
 }
 
 /**
+ * @public
+ */
+export interface DeleteResourcePolicyInput {
+  /**
+   * <p>The <code>KeyARN</code> of the key whose resource-based policy you want to delete.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyOutput {}
+
+/**
  * <p>The shared information used when deriving a key using ECDH.</p>
  * @public
  */
@@ -638,6 +757,34 @@ export interface DisableDefaultKeyReplicationRegionsOutput {
    * @public
    */
   EnabledReplicationRegions: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateMpaTeamInput {
+  /**
+   * <p>The protected operation to disassociate from the MPA team. Currently, the only supported value is <code>IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE</code>.</p>
+   * @public
+   */
+  Action: MpaOperation | undefined;
+
+  /**
+   * <p>The comment from the requester explaining the reason for the disassociation.</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  RequesterComment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateMpaTeamOutput {
+  /**
+   * <p>The details of the MPA team association.</p>
+   * @public
+   */
+  MpaTeamAssociation: MpaTeamAssociation | undefined;
 }
 
 /**
@@ -1146,6 +1293,28 @@ export interface GetKeyOutput {
 /**
  * @public
  */
+export interface GetMpaTeamAssociationInput {
+  /**
+   * <p>The protected operation whose MPA team association you want to retrieve. Currently, the only supported value is <code>IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE</code>.</p>
+   * @public
+   */
+  Action: MpaOperation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMpaTeamAssociationOutput {
+  /**
+   * <p>The details of the MPA team association.</p>
+   * @public
+   */
+  MpaTeamAssociation: MpaTeamAssociation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetParametersForExportInput {
   /**
    * <p>The key block format type (for example, TR-34 or TR-31) to use during key material export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>. Export token is not required for TR-31 key export.</p>
@@ -1285,6 +1454,34 @@ export interface GetPublicKeyCertificateOutput {
    * @public
    */
   KeyCertificateChain: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyInput {
+  /**
+   * <p>The <code>KeyARN</code> of the key whose resource-based policy you want to retrieve.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyOutput {
+  /**
+   * <p>The <code>KeyARN</code> of the key.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource-based policy attached to the key, in JSON format.</p>
+   * @public
+   */
+  Policy: string | undefined;
 }
 
 /**
@@ -1719,6 +1916,12 @@ export interface ImportKeyInput {
    * @public
    */
   ReplicationRegions?: string[] | undefined;
+
+  /**
+   * <p>The comment from the requester explaining the reason for the import.</p> <important> <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+   * @public
+   */
+  RequesterComment?: string | undefined;
 }
 
 /**
@@ -1960,6 +2163,40 @@ export interface ListTagsForResourceOutput {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyInput {
+  /**
+   * <p>The <code>KeyARN</code> of the key to attach the resource-based policy to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource-based policy to attach to the key, in JSON format.</p>
+   * @public
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyOutput {
+  /**
+   * <p>The <code>KeyARN</code> of the key that the resource-based policy was attached to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource-based policy that was attached to the key.</p>
+   * @public
+   */
+  Policy: string | undefined;
 }
 
 /**

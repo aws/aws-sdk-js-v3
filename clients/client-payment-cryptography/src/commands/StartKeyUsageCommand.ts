@@ -31,7 +31,7 @@ export interface StartKeyUsageCommandInput extends StartKeyUsageInput {}
 export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __MetadataBearer {}
 
 /**
- * <p>Enables an Amazon Web Services Payment Cryptography key, which makes it active for cryptographic operations within Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a> </p> </li> </ul>
+ * <p>Enables an Amazon Web Services Payment Cryptography key, which makes it active for cryptographic operations within Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation supports cross-account use when the key has a resource-based policy that grants access. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security_iam_resource-based-policies.html">Resource-based policies</a>.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +85,12 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  * //       },
  * //     },
  * //     UsingDefaultReplicationRegions: true || false,
+ * //     MpaStatus: { // MpaStatus
+ * //       MpaSessionArn: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       InitiationDate: new Date("TIMESTAMP"), // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
