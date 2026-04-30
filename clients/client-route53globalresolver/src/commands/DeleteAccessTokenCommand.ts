@@ -62,6 +62,9 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenOutput,
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Try again later.</p>
  *

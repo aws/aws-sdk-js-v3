@@ -46,6 +46,9 @@ export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverO
  *   observabilityRegion: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   ipAddressType: "IPV4" || "DUAL_STACK",
+ *   regions: [ // Regions
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateGlobalResolverCommand(input);
  * const response = await client.send(command);

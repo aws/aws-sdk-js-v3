@@ -888,8 +888,8 @@ export var UpdateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _UFRO,
 ];
 export var UpdateGlobalResolverInput$: StaticStructureSchema = [3, n0, _UGRI,
   0,
-  [_gRI, _n, _oR, _d, _iAT],
-  [[0, 1], 0, 0, 0, 0], 1
+  [_gRI, _n, _oR, _d, _iAT, _re],
+  [[0, 1], 0, 0, 0, 0, 64 | 0], 1
 ];
 export var UpdateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _UGRO,
   0,
