@@ -311,6 +311,7 @@ import type {
   GetMetadataGenerationRunCommandInput,
   GetMetadataGenerationRunCommandOutput,
 } from "./commands/GetMetadataGenerationRunCommand";
+import type { GetNotebookRunCommandInput, GetNotebookRunCommandOutput } from "./commands/GetNotebookRunCommand";
 import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import type {
   GetProjectProfileCommandInput,
@@ -395,6 +396,7 @@ import type {
   ListMetadataGenerationRunsCommandInput,
   ListMetadataGenerationRunsCommandOutput,
 } from "./commands/ListMetadataGenerationRunsCommand";
+import type { ListNotebookRunsCommandInput, ListNotebookRunsCommandOutput } from "./commands/ListNotebookRunsCommand";
 import type {
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
@@ -487,6 +489,8 @@ import type {
   StartMetadataGenerationRunCommandInput,
   StartMetadataGenerationRunCommandOutput,
 } from "./commands/StartMetadataGenerationRunCommand";
+import type { StartNotebookRunCommandInput, StartNotebookRunCommandOutput } from "./commands/StartNotebookRunCommand";
+import type { StopNotebookRunCommandInput, StopNotebookRunCommandOutput } from "./commands/StopNotebookRunCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -661,6 +665,7 @@ export type ServiceInputTypes =
   | GetLineageNodeCommandInput
   | GetListingCommandInput
   | GetMetadataGenerationRunCommandInput
+  | GetNotebookRunCommandInput
   | GetProjectCommandInput
   | GetProjectProfileCommandInput
   | GetRuleCommandInput
@@ -691,6 +696,7 @@ export type ServiceInputTypes =
   | ListLineageEventsCommandInput
   | ListLineageNodeHistoryCommandInput
   | ListMetadataGenerationRunsCommandInput
+  | ListNotebookRunsCommandInput
   | ListNotificationsCommandInput
   | ListPolicyGrantsCommandInput
   | ListProjectMembershipsCommandInput
@@ -720,6 +726,8 @@ export type ServiceInputTypes =
   | SearchUserProfilesCommandInput
   | StartDataSourceRunCommandInput
   | StartMetadataGenerationRunCommandInput
+  | StartNotebookRunCommandInput
+  | StopNotebookRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountPoolCommandInput
@@ -842,6 +850,7 @@ export type ServiceOutputTypes =
   | GetLineageNodeCommandOutput
   | GetListingCommandOutput
   | GetMetadataGenerationRunCommandOutput
+  | GetNotebookRunCommandOutput
   | GetProjectCommandOutput
   | GetProjectProfileCommandOutput
   | GetRuleCommandOutput
@@ -872,6 +881,7 @@ export type ServiceOutputTypes =
   | ListLineageEventsCommandOutput
   | ListLineageNodeHistoryCommandOutput
   | ListMetadataGenerationRunsCommandOutput
+  | ListNotebookRunsCommandOutput
   | ListNotificationsCommandOutput
   | ListPolicyGrantsCommandOutput
   | ListProjectMembershipsCommandOutput
@@ -901,6 +911,8 @@ export type ServiceOutputTypes =
   | SearchUserProfilesCommandOutput
   | StartDataSourceRunCommandOutput
   | StartMetadataGenerationRunCommandOutput
+  | StartNotebookRunCommandOutput
+  | StopNotebookRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountPoolCommandOutput

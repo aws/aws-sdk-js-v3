@@ -21,6 +21,7 @@ export * from "./ListJobRunsPaginator";
 export * from "./ListLineageEventsPaginator";
 export * from "./ListLineageNodeHistoryPaginator";
 export * from "./ListMetadataGenerationRunsPaginator";
+export * from "./ListNotebookRunsPaginator";
 export * from "./ListNotificationsPaginator";
 export * from "./ListPolicyGrantsPaginator";
 export * from "./ListProjectMembershipsPaginator";

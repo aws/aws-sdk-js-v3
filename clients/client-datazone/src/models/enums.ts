@@ -1343,6 +1343,102 @@ export type MetadataGenerationTargetType =
  * @public
  * @enum
  */
+export const PackageManager = {
+  /**
+   * <p>The UV package manager.</p>
+   */
+  UV: "UV",
+} as const;
+/**
+ * @public
+ */
+export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkAccessType = {
+  /**
+   * <p>The notebook run uses public internet access only.</p>
+   */
+  PUBLIC_INTERNET_ONLY: "PUBLIC_INTERNET_ONLY",
+  /**
+   * <p>The notebook run uses VPC access only.</p>
+   */
+  VPC_ONLY: "VPC_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type NetworkAccessType = (typeof NetworkAccessType)[keyof typeof NetworkAccessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookRunStatus = {
+  /**
+   * <p>The notebook run failed.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The notebook run is queued.</p>
+   */
+  QUEUED: "QUEUED",
+  /**
+   * <p>The notebook run is running.</p>
+   */
+  RUNNING: "RUNNING",
+  /**
+   * <p>The notebook run is starting.</p>
+   */
+  STARTING: "STARTING",
+  /**
+   * <p>The notebook run was stopped.</p>
+   */
+  STOPPED: "STOPPED",
+  /**
+   * <p>The notebook run is stopping.</p>
+   */
+  STOPPING: "STOPPING",
+  /**
+   * <p>The notebook run succeeded.</p>
+   */
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type NotebookRunStatus = (typeof NotebookRunStatus)[keyof typeof NotebookRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerSourceType = {
+  /**
+   * <p>The notebook run was triggered manually.</p>
+   */
+  MANUAL: "MANUAL",
+  /**
+   * <p>The notebook run was triggered by a schedule.</p>
+   */
+  SCHEDULED: "SCHEDULED",
+  /**
+   * <p>The notebook run was triggered by a workflow.</p>
+   */
+  WORKFLOW: "WORKFLOW",
+} as const;
+/**
+ * @public
+ */
+export type TriggerSourceType = (typeof TriggerSourceType)[keyof typeof TriggerSourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const GraphEntityType = {
   LINEAGE_NODE: "LINEAGE_NODE",
 } as const;

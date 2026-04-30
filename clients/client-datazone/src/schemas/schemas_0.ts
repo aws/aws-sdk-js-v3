@@ -113,9 +113,10 @@ const _CATO = "CreateAssetTypeOutput";
 const _CATPGD = "CreateAssetTypePolicyGrantDetail";
 const _CAr = "CreateAsset";
 const _CB = "Created-By";
-const _CC = "ConnectionCredentials";
+const _CC = "ComputeConfig";
 const _CCI = "CreateConnectionInput";
 const _CCO = "CreateConnectionOutput";
+const _CCo = "ConnectionCredentials";
 const _CCr = "CreateConnection";
 const _CD = "CreateDomain";
 const _CDI = "CreateDomainInput";
@@ -164,6 +165,7 @@ const _CGPO = "CreateGroupProfileOutput";
 const _CGT = "CreateGlossaryTerm";
 const _CGTI = "CreateGlossaryTermInput";
 const _CGTO = "CreateGlossaryTermOutput";
+const _CI = "CellInformation";
 const _CLCS = "CreateListingChangeSet";
 const _CLCSI = "CreateListingChangeSetInput";
 const _CLCSO = "CreateListingChangeSetOutput";
@@ -171,6 +173,7 @@ const _CM = "CredentialMap";
 const _CMGR = "CancelMetadataGenerationRun";
 const _CMGRI = "CancelMetadataGenerationRunInput";
 const _CMGRO = "CancelMetadataGenerationRunOutput";
+const _CO = "CellOrder";
 const _CP = "CustomParameter";
 const _CPFPPPGD = "CreateProjectFromProjectProfilePolicyGrantDetail";
 const _CPI = "CreateProjectInput";
@@ -348,7 +351,8 @@ const _ECPD = "EnvironmentConfigurationParametersDetails";
 const _ECPL = "EnvironmentConfigurationParametersList";
 const _ECUP = "EnvironmentConfigurationUserParameter";
 const _ECUPL = "EnvironmentConfigurationUserParametersList";
-const _ECn = "EnvironmentConfiguration";
+const _ECn = "EnvironmentConfig";
+const _ECnv = "EnvironmentConfiguration";
 const _EDD = "EnvironmentDeploymentDetails";
 const _EE = "EnvironmentError";
 const _EFR = "EnvironmentFailureReasons";
@@ -478,6 +482,9 @@ const _GMGR = "GetMetadataGenerationRun";
 const _GMGRI = "GetMetadataGenerationRunInput";
 const _GMGRO = "GetMetadataGenerationRunOutput";
 const _GN = "GlossaryName";
+const _GNR = "GetNotebookRun";
+const _GNRI = "GetNotebookRunInput";
+const _GNRO = "GetNotebookRunOutput";
 const _GOAC = "GlueOAuth2Credentials";
 const _GP = "GetProject";
 const _GPGP = "GroupPolicyGrantPrincipal";
@@ -617,7 +624,10 @@ const _LNI = "LineageNodeItem";
 const _LNIi = "ListNotificationsInput";
 const _LNO = "ListNotificationsOutput";
 const _LNR = "LineageNodeReference";
+const _LNRI = "ListNotebookRunsInput";
 const _LNRL = "LineageNodeReferenceList";
+const _LNRO = "ListNotebookRunsOutput";
+const _LNRi = "ListNotebookRuns";
 const _LNS = "LineageNodeSummary";
 const _LNSi = "LineageNodeSummaries";
 const _LNTI = "LineageNodeTypeItem";
@@ -692,9 +702,12 @@ const _MPO = "MlflowPropertiesOutput";
 const _MPP = "MlflowPropertiesPatch";
 const _MR = "MatchRationale";
 const _MRI = "MatchRationaleItem";
-const _Me = "Member";
+const _MV = "MetadataValue";
+const _Me = "Metadata";
+const _Mem = "Member";
 const _Mo = "Model";
 const _N = "Name";
+const _NC = "NetworkConfig";
 const _NETE = "NotEqualToExpression";
 const _NI = "NameIdentifier";
 const _NIE = "NotInExpression";
@@ -703,6 +716,9 @@ const _NL = "NotificationsList";
 const _NLE = "NotLikeExpression";
 const _NO = "NotificationOutput";
 const _NR = "NotificationResource";
+const _NRE = "NotebookRunError";
+const _NRS = "NotebookRunSummary";
+const _NRSL = "NotebookRunSummaryList";
 const _OACA = "OAuth2ClientApplication";
 const _OAP = "OAuth2Properties";
 const _ODUOPGD = "OverrideDomainUnitOwnersPolicyGrantDetail";
@@ -715,10 +731,11 @@ const _OPOPGD = "OverrideProjectOwnersPolicyGrantDetail";
 const _OUP = "OwnerUserProperties";
 const _OUPO = "OwnerUserPropertiesOutput";
 const _P = "Password";
-const _PC = "PredictionConfiguration";
+const _PC = "PackageConfig";
 const _PCL = "ProvisioningConfigurationList";
 const _PCR = "PhysicalConnectionRequirements";
-const _PCr = "ProvisioningConfiguration";
+const _PCr = "PredictionConfiguration";
+const _PCro = "ProvisioningConfiguration";
 const _PDE = "ProjectDeletionError";
 const _PDEC = "PutDataExportConfiguration";
 const _PDECI = "PutDataExportConfigurationInput";
@@ -754,6 +771,7 @@ const _PSro = "ProjectSummaries";
 const _PTSDP = "PostTimeSeriesDataPoints";
 const _PTSDPI = "PostTimeSeriesDataPointsInput";
 const _PTSDPO = "PostTimeSeriesDataPointsOutput";
+const _Pa = "Parameters";
 const _Pe = "Permissions";
 const _QG = "QueryGraph";
 const _QGI = "QueryGraphInput";
@@ -822,6 +840,7 @@ const _SA = "SubscribedAsset";
 const _SAL = "SubscribedAssetListing";
 const _SAu = "SubscribedAssets";
 const _SC = "ScheduleConfiguration";
+const _SCt = "StorageConfig";
 const _SD = "ShortDescription";
 const _SDSR = "StartDataSourceRun";
 const _SDSRI = "StartDataSourceRunInput";
@@ -862,6 +881,12 @@ const _SMGRI = "StartMetadataGenerationRunInput";
 const _SMGRO = "StartMetadataGenerationRunOutput";
 const _SMRCI = "SageMakerRunConfigurationInput";
 const _SMRCO = "SageMakerRunConfigurationOutput";
+const _SNR = "StartNotebookRun";
+const _SNRI = "StartNotebookRunInput";
+const _SNRIt = "StopNotebookRunInput";
+const _SNRO = "StartNotebookRunOutput";
+const _SNROt = "StopNotebookRunOutput";
+const _SNRt = "StopNotebookRun";
 const _SO = "SearchOutput";
 const _SP = "SubscribedProject";
 const _SPI = "S3PropertiesInput";
@@ -900,6 +925,7 @@ const _SUPO = "SearchUserProfilesOutput";
 const _Se = "Search";
 const _T = "Title";
 const _TA = "TrackingAssets";
+const _TC = "TimeoutConfig";
 const _TE = "ThrottlingException";
 const _TM = "TextMatches";
 const _TMI = "TextMatchItem";
@@ -907,6 +933,7 @@ const _TR = "TermRelations";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TRa = "TagResource";
+const _TS = "TriggerSource";
 const _TSDPFI = "TimeSeriesDataPointFormInput";
 const _TSDPFIL = "TimeSeriesDataPointFormInputList";
 const _TSDPFO = "TimeSeriesDataPointFormOutput";
@@ -1073,11 +1100,13 @@ const _cAC = "customAuthenticationCredentials";
 const _cAPH = "customAccountPoolHandler";
 const _cAT = "createAssetType";
 const _cAl = "clusterArn";
-const _cAo = "computeArn";
+const _cAo = "completedAt";
+const _cAom = "computeArn";
 const _cB = "createdBy";
 const _cC = "connectionCredentials";
 const _cCE = "compatibleComputeEnvironments";
-const _cCo = "columnConfiguration";
+const _cCo = "computeConfiguration";
+const _cCol = "columnConfiguration";
 const _cD = "certificateData";
 const _cDU = "createDomainUnit";
 const _cE = "credentialsExpiration";
@@ -1092,7 +1121,8 @@ const _cIo = "connectionIdentifier";
 const _cN = "columnName";
 const _cNa = "catalogName";
 const _cNl = "clusterName";
-const _cO = "currentOwner";
+const _cO = "cellOrder";
+const _cOu = "currentOwner";
 const _cP = "configurationParameters";
 const _cPFPP = "createProjectFromProjectProfile";
 const _cPo = "connectionProperties";
@@ -1167,6 +1197,7 @@ const _eCI = "environmentConfigurationId";
 const _eCN = "effectiveColumnNames";
 const _eCNn = "environmentConfigurationName";
 const _eCn = "encryptionConfiguration";
+const _eCnv = "environmentConfiguration";
 const _eD = "errorDetail";
 const _eDD = "environmentDeploymentDetails";
 const _eE = "enableExport";
@@ -1207,6 +1238,7 @@ const _eTve = "eventTimestamp";
 const _eTven = "eventType";
 const _eUR = "environmentUserRole";
 const _eV = "editedValue";
+const _eVn = "environmentVersion";
 const _en = "enabled";
 const _er = "errors";
 const _ev = "event";
@@ -1288,12 +1320,14 @@ const _iP = "iamProperties";
 const _iPA = "instanceProfileArn";
 const _iPS = "isProvisionedSecret";
 const _iS = "importStatus";
-const _iT = "itemType";
+const _iT = "instanceType";
 const _iTd = "idempotencyToken";
 const _iTdl = "idleTimeout";
+const _iTt = "itemType";
 const _iUS = "isUpdateSupported";
-const _iV = "intValue";
+const _iV = "imageVersion";
 const _iVE = "isValueEditable";
+const _iVn = "intValue";
 const _ia = "iam";
 const _id = "id";
 const _im = "imports";
@@ -1376,8 +1410,12 @@ const _mes = "messages";
 const _met = "metadata";
 const _mo = "model";
 const _n = "name";
+const _nAT = "networkAccessType";
+const _nC = "networkConfiguration";
 const _nET = "notEqualTo";
-const _nI = "notIn";
+const _nI = "notebookId";
+const _nIo = "notebookIdentifier";
+const _nIot = "notIn";
 const _nL = "notLike";
 const _nO = "newOwner";
 const _nOW = "numberOfWorkers";
@@ -1415,6 +1453,7 @@ const _pA = "profileArn";
 const _pAr = "principalArn";
 const _pC = "predictionChoice";
 const _pCR = "physicalConnectionRequirements";
+const _pCa = "packageConfig";
 const _pCr = "predictionConfiguration";
 const _pCre = "predictionChoices";
 const _pCro = "projectCategory";
@@ -1430,6 +1469,7 @@ const _pIr = "projectIdentifier";
 const _pIri = "principalId";
 const _pIro = "projectIds";
 const _pL = "productListing";
+const _pM = "packageManager";
 const _pO = "parameterOverrides";
 const _pOI = "publishOnImport";
 const _pP = "provisioningProperties";
@@ -1442,6 +1482,8 @@ const _pRA = "provisioningRoleArn";
 const _pRT = "projectResourceTags";
 const _pRTD = "projectResourceTagsDescription";
 const _pS = "projectStatus";
+const _pSP = "projectS3Path";
+const _pSa = "packageSpecification";
 const _pSr = "processingStatus";
 const _pT = "predictionTarget";
 const _pTo = "policyType";
@@ -1497,6 +1539,7 @@ const _rSS = "redshiftServerlessSource";
 const _rSe = "redshiftStorage";
 const _rT = "resourceTags";
 const _rTD = "redshiftTempDir";
+const _rTIM = "runTimeoutInMinutes";
 const _rTe = "refreshToken";
 const _rTel = "relationType";
 const _rTu = "ruleType";
@@ -1517,19 +1560,24 @@ const _sAs = "sseAlgorithm";
 const _sAt = "startedAt";
 const _sAto = "stoppedAt";
 const _sB = "sortBy";
+const _sC = "storageConfiguration";
 const _sD = "shortDescription";
 const _sDC = "skipDeletionCheck";
 const _sEP = "sparkEmrProperties";
 const _sGCM = "subscriptionGrantCreationMode";
+const _sGI = "securityGroupIds";
 const _sGIL = "securityGroupIdList";
 const _sGP = "sparkGlueProperties";
 const _sGS = "selfGrantStatus";
 const _sGSD = "selfGrantStatusDetails";
 const _sI = "subscriptionId";
 const _sIL = "subnetIdList";
+const _sIc = "scheduleId";
+const _sIch = "scheduleIdentifier";
 const _sIe = "searchIn";
 const _sIo = "sourceIdentifier";
-const _sIu = "subnetId";
+const _sIu = "subnetIds";
+const _sIub = "subnetId";
 const _sL = "subscribedListings";
 const _sLI = "subscribedListingId";
 const _sLu = "subscribedListing";
@@ -1582,6 +1630,7 @@ const _t = "threshold";
 const _tA = "timestampAfter";
 const _tAr = "trackingAssets";
 const _tB = "timestampBefore";
+const _tC = "timeoutConfiguration";
 const _tCSU = "trustedCertificatesS3Uri";
 const _tD = "technicalDescription";
 const _tGTE = "timestampGTE";
@@ -1600,6 +1649,7 @@ const _tRe = "termRelations";
 const _tS = "typeStats";
 const _tSA = "trackingServerArn";
 const _tSa = "taskStatus";
+const _tSr = "triggerSource";
 const _tT = "targetType";
 const _tU = "templateUrl";
 const _tUPM = "tokenUrlParametersMap";
@@ -1638,6 +1688,7 @@ const _use = "user";
 const _v = "value";
 const _vC = "validateCredentials";
 const _vFCE = "validateForComputeEnvironments";
+const _vI = "vpcId";
 const _va = "values";
 const _wMP = "workflowsMwaaProperties";
 const _wN = "workgroupName";
@@ -1761,6 +1812,7 @@ var LastName: StaticSimpleSchema = [0, n0, _LN, 8, 0];
 var LineageEvent: StaticSimpleSchema = [0, n0, _LE, 8, 21];
 var LongDescription: StaticSimpleSchema = [0, n0, _LD, 8, 0];
 var Message: StaticSimpleSchema = [0, n0, _M, 8, 0];
+var MetadataValue: StaticSimpleSchema = [0, n0, _MV, 8, 0];
 var Name: StaticSimpleSchema = [0, n0, _N, 8, 0];
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var ProjectName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
@@ -2092,6 +2144,11 @@ export var CancelSubscriptionOutput$: StaticStructureSchema = [3, n0, _CSO,
   [_id, _cB, _dIo, _st, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
   [0, 0, 0, 0, 4, 4, [() => SubscribedPrincipal$, 0], [() => SubscribedListing$, 0], 0, 0, 2], 8
 ];
+export var CellInformation$: StaticStructureSchema = [3, n0, _CI,
+  0,
+  [],
+  []
+];
 export var CloudFormationProperties$: StaticStructureSchema = [3, n0, _CFP,
   0,
   [_tU],
@@ -2101,6 +2158,11 @@ export var ColumnFilterConfiguration$: StaticStructureSchema = [3, n0, _CFC,
   0,
   [_iCN],
   [64 | 0]
+];
+export var ComputeConfig$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_iT, _eVn],
+  [0, 0]
 ];
 export var ConfigurableActionParameter$: StaticStructureSchema = [3, n0, _CAP,
   0,
@@ -2117,7 +2179,7 @@ export var Configuration$: StaticStructureSchema = [3, n0, _C,
   [_cl, _pr],
   [0, 128 | 0]
 ];
-export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
+export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CCo,
   8,
   [_aKI, _sAK, _sT, _ex],
   [0, 0, 0, 5]
@@ -2454,7 +2516,7 @@ export var CustomParameter$: StaticStructureSchema = [3, n0, _CP,
 ];
 export var DataProductItem$: StaticStructureSchema = [3, n0, _DPI,
   0,
-  [_iT, _i, _r, _gT],
+  [_iTt, _i, _r, _gT],
   [0, 0, 0, 64 | 0], 2
 ];
 export var DataProductItemAdditionalAttributes$: StaticStructureSchema = [3, n0, _DPIAA,
@@ -2842,7 +2904,12 @@ export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
   [_id, _n, _prov, _pP, _de, _cA, _uA],
   [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5], 4
 ];
-export var EnvironmentConfiguration$: StaticStructureSchema = [3, n0, _ECn,
+export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
+  0,
+  [_iV, _pCa],
+  [0, () => PackageConfig$]
+];
+export var EnvironmentConfiguration$: StaticStructureSchema = [3, n0, _ECnv,
   0,
   [_n, _eBIn, _id, _de, _dM, _cP, _aAw, _aPc, _aRw, _dO],
   [[() => EnvironmentConfigurationName, 0], 0, [() => EnvironmentConfigurationId, 0], [() => Description, 0], 0, () => EnvironmentConfigurationParametersDetails$, () => AwsAccount$, 64 | 0, () => Region$, 1], 2
@@ -2904,7 +2971,7 @@ export var FailureCause$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_a, _v, _iV, _op],
+  [_a, _v, _iVn, _op],
   [0, 0, 1, 0], 1
 ];
 export var FilterExpression$: StaticStructureSchema = [3, n0, _FE,
@@ -3206,6 +3273,16 @@ export var GetMetadataGenerationRunOutput$: StaticStructureSchema = [3, n0, _GMG
   0,
   [_dIo, _id, _oPI, _tar, _st, _ty, _typ, _cA, _cB, _tS],
   [0, 0, 0, () => MetadataGenerationRunTarget$, 0, 0, 64 | 0, 4, 0, () => MetadataGenerationRunTypeStats], 3
+];
+export var GetNotebookRunInput$: StaticStructureSchema = [3, n0, _GNRI,
+  0,
+  [_dI, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var GetNotebookRunOutput$: StaticStructureSchema = [3, n0, _GNRO,
+  0,
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _met, _par, _cCo, _nC, _tC, _eCnv, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var GetProjectInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
@@ -3762,6 +3839,16 @@ export var ListMetadataGenerationRunsOutput$: StaticStructureSchema = [3, n0, _L
   [_it, _nT],
   [() => MetadataGenerationRuns, 0]
 ];
+export var ListNotebookRunsInput$: StaticStructureSchema = [3, n0, _LNRI,
+  0,
+  [_dI, _oPIw, _nIo, _st, _sIch, _mRa, _sO, _nT],
+  [[0, 1], [0, { [_hQ]: _oPIw }], [0, { [_hQ]: _nIo }], [0, { [_hQ]: _st }], [0, { [_hQ]: _sIch }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _sO }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListNotebookRunsOutput$: StaticStructureSchema = [3, n0, _LNRO,
+  0,
+  [_it, _nT],
+  [() => NotebookRunSummaryList, 0]
+];
 export var ListNotificationsInput$: StaticStructureSchema = [3, n0, _LNIi,
   0,
   [_dI, _ty, _aTf, _bT, _su, _tSa, _mRa, _nT],
@@ -3942,6 +4029,21 @@ export var NameIdentifier$: StaticStructureSchema = [3, n0, _NI,
   [_n, _na],
   [0, 0]
 ];
+export var NetworkConfig$: StaticStructureSchema = [3, n0, _NC,
+  0,
+  [_nAT, _vI, _sIu, _sGI],
+  [0, 0, 64 | 0, 64 | 0], 1
+];
+export var NotebookRunError$: StaticStructureSchema = [3, n0, _NRE,
+  0,
+  [_m],
+  [0], 1
+];
+export var NotebookRunSummary$: StaticStructureSchema = [3, n0, _NRS,
+  0,
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _tSr, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => TriggerSource$, 4, 0, 4, 0, 4, 4], 5
+];
 export var NotEqualToExpression$: StaticStructureSchema = [3, n0, _NETE,
   0,
   [_cN, _v],
@@ -4012,9 +4114,14 @@ export var OwnerUserPropertiesOutput$: StaticStructureSchema = [3, n0, _OUPO,
   [_uIs],
   [0]
 ];
+export var PackageConfig$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_pM, _pSa],
+  [0, 0], 1
+];
 export var PhysicalConnectionRequirements$: StaticStructureSchema = [3, n0, _PCR,
   0,
-  [_sIu, _sIL, _sGIL, _aZ],
+  [_sIub, _sIL, _sGIL, _aZ],
   [0, 64 | 0, 64 | 0, 0]
 ];
 export var PhysicalEndpoint$: StaticStructureSchema = [3, n0, _PE,
@@ -4047,7 +4154,7 @@ export var PostTimeSeriesDataPointsOutput$: StaticStructureSchema = [3, n0, _PTS
   [_dIo, _eIn, _eT, _f],
   [0, 0, 0, () => TimeSeriesDataPointFormOutputList]
 ];
-export var PredictionConfiguration$: StaticStructureSchema = [3, n0, _PC,
+export var PredictionConfiguration$: StaticStructureSchema = [3, n0, _PCr,
   0,
   [_bNG],
   [() => BusinessNameGenerationConfiguration$]
@@ -4384,17 +4491,17 @@ export var SingleSignOn$: StaticStructureSchema = [3, n0, _SSO,
 ];
 export var SparkEmrPropertiesInput$: StaticStructureSchema = [3, n0, _SEPI,
   0,
-  [_cAo, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
+  [_cAom, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SparkEmrPropertiesOutput$: StaticStructureSchema = [3, n0, _SEPO,
   0,
-  [_cAo, _cr, _cE, _gTo, _iPA, _jVE, _lE, _lU, _pVE, _rRu, _tCSU, _cD, _mEA, _mEC],
+  [_cAom, _cr, _cE, _gTo, _iPA, _jVE, _lE, _lU, _pVE, _rRu, _tCSU, _cD, _mEA, _mEC],
   [0, [() => UsernamePassword$, 0], 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => ManagedEndpointCredentials$, 0]]
 ];
 export var SparkEmrPropertiesPatch$: StaticStructureSchema = [3, n0, _SEPP,
   0,
-  [_cAo, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
+  [_cAom, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SparkGlueArgs$: StaticStructureSchema = [3, n0, _SGA,
@@ -4436,6 +4543,31 @@ export var StartMetadataGenerationRunOutput$: StaticStructureSchema = [3, n0, _S
   0,
   [_dIo, _id, _st, _ty, _typ, _cA, _cB, _oPI],
   [0, 0, 0, 0, 64 | 0, 4, 0, 0], 2
+];
+export var StartNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRI,
+  0,
+  [_dI, _oPIw, _nIo, _sIch, _cCo, _nC, _tC, _tSr, _met, _par, _cT],
+  [[0, 1], 0, 0, 0, () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => TriggerSource$, [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
+];
+export var StartNotebookRunOutput$: StaticStructureSchema = [3, n0, _SNRO,
+  0,
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _met, _par, _cCo, _nC, _tC, _eCnv, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
+];
+export var StopNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRIt,
+  0,
+  [_dI, _i, _cT],
+  [[0, 1], [0, 1], [0, 4]], 2
+];
+export var StopNotebookRunOutput$: StaticStructureSchema = [3, n0, _SNROt,
+  0,
+  [_id, _dIo, _oPI, _st],
+  [0, 0, 0, 0], 4
+];
+export var StorageConfig$: StaticStructureSchema = [3, n0, _SCt,
+  0,
+  [_pSP, _kKA],
+  [0, 0]
 ];
 export var SubscribedAsset$: StaticStructureSchema = [3, n0, _SA,
   0,
@@ -4547,6 +4679,11 @@ export var TextMatchItem$: StaticStructureSchema = [3, n0, _TMI,
   [_a, _te, _mO],
   [0, 0, () => MatchOffsets]
 ];
+export var TimeoutConfig$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_rTIM],
+  [1]
+];
 export var TimeSeriesDataPointFormInput$: StaticStructureSchema = [3, n0, _TSDPFI,
   0,
   [_fNo, _tI, _ti, _tR, _cont],
@@ -4566,6 +4703,11 @@ export var Topic$: StaticStructureSchema = [3, n0, _To,
   0,
   [_sub, _res, _ro],
   [0, () => NotificationResource$, 0], 3
+];
+export var TriggerSource$: StaticStructureSchema = [3, n0, _TS,
+  0,
+  [_ty, _n],
+  [0, 0]
 ];
 export var Unit$: StaticStructureSchema = [3, n0, _U,
   0,
@@ -4734,7 +4876,7 @@ export var UpdateProjectProfileOutput$: StaticStructureSchema = [3, n0, _UPPO,
 ];
 export var UpdateRootDomainUnitOwnerInput$: StaticStructureSchema = [3, n0, _URDUOI,
   0,
-  [_dI, _cO, _nO, _cT],
+  [_dI, _cOu, _nO, _cT],
   [[0, 1], 0, 0, [0, 4]], 3
 ];
 export var UpdateRootDomainUnitOwnerOutput$: StaticStructureSchema = [3, n0, _URDUOO,
@@ -4892,6 +5034,9 @@ var BatchGetAttributeItems: StaticListSchema = [1, n0, _BGAI,
 ];
 var BatchPutAttributeItems: StaticListSchema = [1, n0, _BPAI,
   0, () => BatchPutAttributeOutput$
+];
+var CellOrder: StaticListSchema = [1, n0, _CO,
+  0, () => CellInformation$
 ];
 var ColumnNameList = 64 | 0;
 var ComputeEnvironmentsList = 64 | 0;
@@ -5071,6 +5216,9 @@ var MetadataGenerationRunTypeStats: StaticListSchema = [1, n0, _MGRTSe,
 var NameIdentifiers: StaticListSchema = [1, n0, _NIa,
   0, () => NameIdentifier$
 ];
+var NotebookRunSummaryList: StaticListSchema = [1, n0, _NRSL,
+  0, () => NotebookRunSummary$
+];
 var NotificationsList: StaticListSchema = [1, n0, _NL,
   0, [() => NotificationOutput$,
     0]
@@ -5153,11 +5301,13 @@ var SearchTypesResultItems: StaticListSchema = [1, n0, _STRI,
     0]
 ];
 var SecurityGroupIdList = 64 | 0;
+var SecurityGroupIds = 64 | 0;
 var SelfGrantStatusDetails: StaticListSchema = [1, n0, _SGSDe,
   0, () => SelfGrantStatusDetail$
 ];
 var StringList = 64 | 0;
 var SubnetIdList = 64 | 0;
+var SubnetIds = 64 | 0;
 var SubscribedAssets: StaticListSchema = [1, n0, _SAu,
   0, () => SubscribedAsset$
 ];
@@ -5228,7 +5378,16 @@ var FormsOutputMap: StaticMapSchema = [2, n0, _FOM,
     0]
 ];
 var GlobalParameterMap = 128 | 0;
+var Metadata: StaticMapSchema = [2, n0, _Me,
+  0, [0,
+    0]
+  , [() => MetadataValue,
+    0]
+];
 var MetadataMap = 128 | 0;
+var _Parameters: StaticMapSchema = [2, n0, _Pa,
+  8, 0, 0
+];
 var PropertyMap = 128 | 0;
 var RegionalParameter = 128 | 0;
 var RegionalParameterMap: StaticMapSchema = [2, n0, _RPM,
@@ -5251,7 +5410,7 @@ export var ActionParameters$: StaticUnionSchema = [4, n0, _APc,
 ];
 export var AssetFilterConfiguration$: StaticUnionSchema = [4, n0, _AFC,
   0,
-  [_cCo, _rCo],
+  [_cCol, _rCo],
   [() => ColumnFilterConfiguration$, () => RowFilterConfiguration$]
 ];
 export var AwsAccount$: StaticUnionSchema = [4, n0, _AAw,
@@ -5339,7 +5498,7 @@ export var MatchRationaleItem$: StaticUnionSchema = [4, n0, _MRI,
   [_tM],
   [() => TextMatches]
 ];
-export var Member$: StaticUnionSchema = [4, n0, _Me,
+export var Member$: StaticUnionSchema = [4, n0, _Mem,
   0,
   [_uI, _gIr],
   [0, 0]
@@ -5384,7 +5543,7 @@ export var ProjectGrantFilter$: StaticUnionSchema = [4, n0, _PGF,
   [_dUF],
   [() => DomainUnitFilterForProject$]
 ];
-export var ProvisioningConfiguration$: StaticUnionSchema = [4, n0, _PCr,
+export var ProvisioningConfiguration$: StaticUnionSchema = [4, n0, _PCro,
   0,
   [_lFC],
   [() => LakeFormationConfiguration$]
@@ -5426,7 +5585,7 @@ export var RowFilter$: StaticUnionSchema = [4, n0, _RF,
 ];
 export var RowFilterExpression$: StaticUnionSchema = [4, n0, _RFE,
   0,
-  [_eTq, _nET, _gTre, _lT, _gTOET, _lTOET, _iN, _iNN, _in_, _nI, _li, _nL],
+  [_eTq, _nET, _gTre, _lT, _gTOET, _lTOET, _iN, _iNN, _in_, _nIot, _li, _nL],
   [() => EqualToExpression$, () => NotEqualToExpression$, () => GreaterThanExpression$, () => LessThanExpression$, () => GreaterThanOrEqualToExpression$, () => LessThanOrEqualToExpression$, () => IsNullExpression$, () => IsNotNullExpression$, () => InExpression$, () => NotInExpression$, () => LikeExpression$, () => NotLikeExpression$]
 ];
 export var RuleDetail$: StaticUnionSchema = [4, n0, _RD,
@@ -5766,6 +5925,9 @@ export var GetListing$: StaticOperationSchema = [9, n0, _GL,
 export var GetMetadataGenerationRun$: StaticOperationSchema = [9, n0, _GMGR,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}", 200] }, () => GetMetadataGenerationRunInput$, () => GetMetadataGenerationRunOutput$
 ];
+export var GetNotebookRun$: StaticOperationSchema = [9, n0, _GNR,
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/notebook-runs/{identifier}", 200] }, () => GetNotebookRunInput$, () => GetNotebookRunOutput$
+];
 export var GetProject$: StaticOperationSchema = [9, n0, _GP,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/projects/{identifier}", 200] }, () => GetProjectInput$, () => GetProjectOutput$
 ];
@@ -5856,6 +6018,9 @@ export var ListLineageNodeHistory$: StaticOperationSchema = [9, n0, _LLNH,
 export var ListMetadataGenerationRuns$: StaticOperationSchema = [9, n0, _LMGR,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/metadata-generation-runs", 200] }, () => ListMetadataGenerationRunsInput$, () => ListMetadataGenerationRunsOutput$
 ];
+export var ListNotebookRuns$: StaticOperationSchema = [9, n0, _LNRi,
+  { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/notebook-runs", 200] }, () => ListNotebookRunsInput$, () => ListNotebookRunsOutput$
+];
 export var ListNotifications$: StaticOperationSchema = [9, n0, _LNi,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/notifications", 200] }, () => ListNotificationsInput$, () => ListNotificationsOutput$
 ];
@@ -5942,6 +6107,12 @@ export var StartDataSourceRun$: StaticOperationSchema = [9, n0, _SDSR,
 ];
 export var StartMetadataGenerationRun$: StaticOperationSchema = [9, n0, _SMGR,
   { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/metadata-generation-runs", 200] }, () => StartMetadataGenerationRunInput$, () => StartMetadataGenerationRunOutput$
+];
+export var StartNotebookRun$: StaticOperationSchema = [9, n0, _SNR,
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/notebook-runs", 201] }, () => StartNotebookRunInput$, () => StartNotebookRunOutput$
+];
+export var StopNotebookRun$: StaticOperationSchema = [9, n0, _SNRt,
+  { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/notebook-runs/{identifier}/stop", 200] }, () => StopNotebookRunInput$, () => StopNotebookRunOutput$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   { [_ht]: ["POST", "/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$

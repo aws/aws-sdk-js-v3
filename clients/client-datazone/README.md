@@ -839,6 +839,13 @@ GetMetadataGenerationRun
 </details>
 <details>
 <summary>
+GetNotebookRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/GetNotebookRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/GetNotebookRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/GetNotebookRunCommandOutput/)
+</details>
+<details>
+<summary>
 GetProject
 </summary>
 
@@ -1049,6 +1056,13 @@ ListMetadataGenerationRuns
 </details>
 <details>
 <summary>
+ListNotebookRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/ListNotebookRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/ListNotebookRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/ListNotebookRunsCommandOutput/)
+</details>
+<details>
+<summary>
 ListNotifications
 </summary>
 
@@ -1249,6 +1263,20 @@ StartMetadataGenerationRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/StartMetadataGenerationRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StartMetadataGenerationRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StartMetadataGenerationRunCommandOutput/)
+</details>
+<details>
+<summary>
+StartNotebookRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/StartNotebookRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StartNotebookRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StartNotebookRunCommandOutput/)
+</details>
+<details>
+<summary>
+StopNotebookRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/StopNotebookRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StopNotebookRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StopNotebookRunCommandOutput/)
 </details>
 <details>
 <summary>

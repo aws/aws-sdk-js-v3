@@ -32,18 +32,18 @@ import type {
   MetadataGenerationRunStatus,
   MetadataGenerationRunType,
   MetadataGenerationTargetType,
+  NetworkAccessType,
+  NotebookRunStatus,
   NotificationResourceType,
   NotificationRole,
   NotificationType,
   OpenLineageRunState,
+  PackageManager,
   ProjectStatus,
   RejectRuleBehavior,
   RelationDirection,
   RelationType,
   ResolutionStrategy,
-  RuleAction,
-  RuleTargetType,
-  RuleType,
   SelfGrantStatus,
   SortFieldAccountPool,
   SortFieldConnection,
@@ -58,6 +58,7 @@ import type {
   TargetEntityType,
   TaskStatus,
   TimeSeriesEntityType,
+  TriggerSourceType,
   UserDesignation,
   UserProfileStatus,
   UserProfileType,
@@ -73,6 +74,8 @@ import type {
   AssetListing,
   AssetPermission,
   AssetRevision,
+  CellInformation,
+  ComputeConfig,
   ConfigurableEnvironmentAction,
   Configuration,
   ConnectionCredentials,
@@ -106,9 +109,6 @@ import type {
   Resource,
   ResourceTag,
   ResourceTagParameter,
-  RuleDetail,
-  RuleScope,
-  RuleTarget,
   ScheduleConfiguration,
   SingleSignOn,
   SubscribedAsset,
@@ -117,12 +117,34 @@ import type {
   SubscribedListing,
   SubscribedListingInput,
   SubscribedPrincipal,
-  SubscribedProjectInput,
-  SubscribedUserInput,
   TermRelations,
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The project that is to be given a subscription grant.</p>
+ * @public
+ */
+export interface SubscribedProjectInput {
+  /**
+   * <p>The identifier of the project that is to be given a subscription grant.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
+
+/**
+ * <p>The subscribed user.</p>
+ * @public
+ */
+export interface SubscribedUserInput {
+  /**
+   * <p>The ID of the subscribed user.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
 
 /**
  * <p>The principal that is to be given a subscriptiong grant.</p>
@@ -9997,6 +10019,700 @@ export interface StartMetadataGenerationRunOutput {
 }
 
 /**
+ * <p>The package configuration for a notebook run environment in Amazon DataZone.</p>
+ * @public
+ */
+export interface PackageConfig {
+  /**
+   * <p>The package manager for the notebook run environment. The default value is <code>UV</code>.</p>
+   * @public
+   */
+  packageManager: PackageManager | undefined;
+
+  /**
+   * <p>The package specification content for the notebook run environment. The maximum length is 10240 characters.</p>
+   * @public
+   */
+  packageSpecification?: string | undefined;
+}
+
+/**
+ * <p>The environment configuration for a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface EnvironmentConfig {
+  /**
+   * <p>The image version for the notebook run environment.</p>
+   * @public
+   */
+  imageVersion?: string | undefined;
+
+  /**
+   * <p>The package configuration for the notebook run environment.</p>
+   * @public
+   */
+  packageConfig?: PackageConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNotebookRunInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the notebook run exists.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * <p>The error details of a failed notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface NotebookRunError {
+  /**
+   * <p>The error message. The maximum length is 1024 characters.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The network configuration for a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface NetworkConfig {
+  /**
+   * <p>The network access type for the notebook run. Valid values are <code>PUBLIC_INTERNET_ONLY</code> and <code>VPC_ONLY</code>.</p>
+   * @public
+   */
+  networkAccessType: NetworkAccessType | undefined;
+
+  /**
+   * <p>The identifier of the VPC for the notebook run. This is required when the network access type is <code>VPC_ONLY</code>.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The identifiers of the subnets for the notebook run. You can specify up to 10 subnets.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the security groups for the notebook run. You can specify up to 5 security groups.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+}
+
+/**
+ * <p>The storage configuration for a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface StorageConfig {
+  /**
+   * <p>The Amazon Simple Storage Service path for the project storage.</p>
+   * @public
+   */
+  projectS3Path?: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used for encryption.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The timeout configuration for a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface TimeoutConfig {
+  /**
+   * <p>The timeout for the notebook run, in minutes. The minimum value is 60 minutes (1 hour), the maximum value is 1440 minutes (24 hours), and the default value is 720 minutes (12 hours).</p>
+   * @public
+   */
+  runTimeoutInMinutes?: number | undefined;
+}
+
+/**
+ * <p>The source that triggered a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface TriggerSource {
+  /**
+   * <p>The type of the trigger source. Valid values are <code>MANUAL</code>, <code>SCHEDULED</code>, and <code>WORKFLOW</code>.</p>
+   * @public
+   */
+  type?: TriggerSourceType | undefined;
+
+  /**
+   * <p>The name of the trigger source.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNotebookRunOutput {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  notebookId: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The ordered list of cells in the notebook run.</p>
+   * @public
+   */
+  cellOrder?: CellInformation[] | undefined;
+
+  /**
+   * <p>The metadata of the notebook run.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters of the notebook run.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compute configuration of the notebook run.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfig | undefined;
+
+  /**
+   * <p>The network configuration of the notebook run.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfig | undefined;
+
+  /**
+   * <p>The timeout configuration of the notebook run.</p>
+   * @public
+   */
+  timeoutConfiguration?: TimeoutConfig | undefined;
+
+  /**
+   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
+   * @public
+   */
+  environmentConfiguration?: EnvironmentConfig | undefined;
+
+  /**
+   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The error details if the notebook run failed.</p>
+   * @public
+   */
+  error?: NotebookRunError | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook run.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run started executing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNotebookRunsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which to list notebook runs.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook runs.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook to filter runs by.</p>
+   * @public
+   */
+  notebookIdentifier?: string | undefined;
+
+  /**
+   * <p>The status to filter notebook runs by.</p>
+   * @public
+   */
+  status?: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The identifier of the schedule to filter notebook runs by.</p>
+   * @public
+   */
+  scheduleIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of notebook runs to return in a single call. When the number of notebook runs exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The sort order for the results.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary of a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface NotebookRunSummary {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  notebookId: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook run.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run started executing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNotebookRunsOutput {
+  /**
+   * <p>The results of the <code>ListNotebookRuns</code> action.</p>
+   * @public
+   */
+  items?: NotebookRunSummary[] | undefined;
+
+  /**
+   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookRunInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the notebook run is started.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook to run.</p>
+   * @public
+   */
+  notebookIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleIdentifier?: string | undefined;
+
+  /**
+   * <p>The compute configuration for the notebook run, including instance type and environment version.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfig | undefined;
+
+  /**
+   * <p>The network configuration for the notebook run, including network access type and optional VPC settings.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfig | undefined;
+
+  /**
+   * <p>The timeout configuration for the notebook run. The default timeout is 720 minutes (12 hours) and the maximum is 1440 minutes (24 hours).</p>
+   * @public
+   */
+  timeoutConfiguration?: TimeoutConfig | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The metadata for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookRunOutput {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  notebookId: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The ordered list of cells in the notebook run.</p>
+   * @public
+   */
+  cellOrder?: CellInformation[] | undefined;
+
+  /**
+   * <p>The metadata of the notebook run.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters of the notebook run.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compute configuration of the notebook run.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfig | undefined;
+
+  /**
+   * <p>The network configuration of the notebook run.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfig | undefined;
+
+  /**
+   * <p>The timeout configuration of the notebook run.</p>
+   * @public
+   */
+  timeoutConfiguration?: TimeoutConfig | undefined;
+
+  /**
+   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
+   * @public
+   */
+  environmentConfiguration?: EnvironmentConfig | undefined;
+
+  /**
+   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The error details if the notebook run failed.</p>
+   * @public
+   */
+  error?: NotebookRunError | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook run.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run started executing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopNotebookRunInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the notebook run is stopped.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook run to stop.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopNotebookRunOutput {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface PostLineageEventInput {
@@ -10673,743 +11389,4 @@ export interface RemovePolicyGrantInput {
    * @public
    */
   clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemovePolicyGrantOutput {}
-
-/**
- * @public
- */
-export interface RevokeSubscriptionInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the revoked subscription.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
-   * @public
-   */
-  retainPermissions?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeSubscriptionOutput {
-  /**
-   * <p>The identifier of the revoked subscription.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the user who revoked the subscription.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who revoked the subscription.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The status of the revoked subscription.</p>
-   * @public
-   */
-  status: SubscriptionStatus | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription was revoked.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription was revoked.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The subscribed principal of the revoked subscription.</p>
-   * @public
-   */
-  subscribedPrincipal: SubscribedPrincipal | undefined;
-
-  /**
-   * <p>The subscribed listing of the revoked subscription.</p>
-   * @public
-   */
-  subscribedListing: SubscribedListing | undefined;
-
-  /**
-   * <p>The identifier of the subscription request for the revoked subscription.</p>
-   * @public
-   */
-  subscriptionRequestId?: string | undefined;
-
-  /**
-   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
-   * @public
-   */
-  retainPermissions?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRuleInput {
-  /**
-   * <p>The ID of the domain that where the rule is to be deleted.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the rule that is to be deleted.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRuleOutput {}
-
-/**
- * @public
- */
-export interface GetRuleInput {
-  /**
-   * <p>The ID of the domain where the <code>GetRule</code> action is to be invoked.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The revision of the rule.</p>
-   * @public
-   */
-  revision?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRuleOutput {
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The revision of the rule.</p>
-   * @public
-   */
-  revision: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType: RuleType | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The target type of the rule.</p>
-   * @public
-   */
-  targetType?: RuleTargetType | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The user who created the rule.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  lastUpdatedBy: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRulesInput {
-  /**
-   * <p>The ID of the domain in which the rules are to be listed.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The target type of the rule.</p>
-   * @public
-   */
-  targetType: RuleTargetType | undefined;
-
-  /**
-   * <p>The target ID of the rule.</p>
-   * @public
-   */
-  targetIdentifier: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType?: RuleType | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action?: RuleAction | undefined;
-
-  /**
-   * <p>The IDs of projects in which rules are to be listed.</p>
-   * @public
-   */
-  projectIds?: string[] | undefined;
-
-  /**
-   * <p>The asset types of the rule.</p>
-   * @public
-   */
-  assetTypes?: string[] | undefined;
-
-  /**
-   * <p>The data product of the rule.</p>
-   * @public
-   */
-  dataProduct?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to include cascading rules in the results.</p>
-   * @public
-   */
-  includeCascaded?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of rules to return in a single call to <code>ListRules</code>. When the number of rules to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The summary of the rule.</p>
- * @public
- */
-export interface RuleSummary {
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier?: string | undefined;
-
-  /**
-   * <p>The revision of the rule.</p>
-   * @public
-   */
-  revision?: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType?: RuleType | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The target type of the rule.</p>
-   * @public
-   */
-  targetType?: RuleTargetType | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target?: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action?: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope?: RuleScope | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  lastUpdatedBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRulesOutput {
-  /**
-   * <p>The results of the <code>ListRules</code> action.</p>
-   * @public
-   */
-  items: RuleSummary[] | undefined;
-
-  /**
-   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRuleInput {
-  /**
-   * <p>The ID of the domain in which a rule is to be updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the rule that is to be updated</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The scrope of the rule.</p>
-   * @public
-   */
-  scope?: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail?: RuleDetail | undefined;
-
-  /**
-   * <p>Specifies whether to update this rule in the child domain units.</p>
-   * @public
-   */
-  includeChildDomainUnits?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRuleOutput {
-  /**
-   * <p>The ID of the rule.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The revision of the rule.</p>
-   * @public
-   */
-  revision: string | undefined;
-
-  /**
-   * <p>The name of the rule.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the rule.</p>
-   * @public
-   */
-  ruleType: RuleType | undefined;
-
-  /**
-   * <p>The target of the rule.</p>
-   * @public
-   */
-  target: RuleTarget | undefined;
-
-  /**
-   * <p>The action of the rule.</p>
-   * @public
-   */
-  action: RuleAction | undefined;
-
-  /**
-   * <p>The scope of the rule.</p>
-   * @public
-   */
-  scope: RuleScope | undefined;
-
-  /**
-   * <p>The detail of the rule.</p>
-   * @public
-   */
-  detail: RuleDetail | undefined;
-
-  /**
-   * <p>The description of the rule.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The user who created the rule.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp at which the rule was last updated.</p>
-   * @public
-   */
-  lastUpdatedBy: string | undefined;
-}
-
-/**
- * <p>The details of the search.</p>
- * @public
- */
-export interface SearchInItem {
-  /**
-   * <p>The search attribute.</p>
-   * @public
-   */
-  attribute: string | undefined;
-}
-
-/**
- * <p>The details of the way to sort search results.</p>
- * @public
- */
-export interface SearchSort {
-  /**
-   * <p>The attribute detail of the way to sort search results.</p>
-   * @public
-   */
-  attribute: string | undefined;
-
-  /**
-   * <p>The order detail of the wya to sort search results.</p>
-   * @public
-   */
-  order?: SortOrder | undefined;
-}
-
-/**
- * <p>The additional attributes of an Amazon DataZone glossary.</p>
- * @public
- */
-export interface GlossaryItemAdditionalAttributes {
-  /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
-   * @public
-   */
-  matchRationale?: MatchRationaleItem[] | undefined;
-}
-
-/**
- * <p>The details of a business glossary.</p>
- * @public
- */
-export interface GlossaryItem {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the glossary.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the glossary.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the business glosary.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The business glossary description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The business glossary status.</p>
-   * @public
-   */
-  status: GlossaryStatus | undefined;
-
-  /**
-   * <p>The usage restrictions associated with a goverened glossary term.</p>
-   * @public
-   */
-  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
-
-  /**
-   * <p>The timestamp of when the glossary was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the glossary.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the business glossary was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the business glossary.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The additional attributes of an Amazon DataZone glossary.</p>
-   * @public
-   */
-  additionalAttributes?: GlossaryItemAdditionalAttributes | undefined;
-}
-
-/**
- * <p>The additional attributes of an Amazon DataZone glossary term.</p>
- * @public
- */
-export interface GlossaryTermItemAdditionalAttributes {
-  /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
-   * @public
-   */
-  matchRationale?: MatchRationaleItem[] | undefined;
-}
-
-/**
- * <p>The details of a business glossary term.</p>
- * @public
- */
-export interface GlossaryTermItem {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the business glossary to which the term belongs.</p>
-   * @public
-   */
-  glossaryId: string | undefined;
-
-  /**
-   * <p>The identifier of the business glossary term.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the business glossary term.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The short description of the business glossary term.</p>
-   * @public
-   */
-  shortDescription?: string | undefined;
-
-  /**
-   * <p>The usage restrictions associated with a goverened glossary term.</p>
-   * @public
-   */
-  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
-
-  /**
-   * <p>The long description of the business glossary term.</p>
-   * @public
-   */
-  longDescription?: string | undefined;
-
-  /**
-   * <p>The relations of the business glossary term.</p>
-   * @public
-   */
-  termRelations?: TermRelations | undefined;
-
-  /**
-   * <p>The status of the business glossary term.</p>
-   * @public
-   */
-  status: GlossaryTermStatus | undefined;
-
-  /**
-   * <p>The timestamp of when a business glossary term was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the business glossary.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when a business glossary term was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the business glossary term.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The additional attributes of an Amazon DataZone glossary term.</p>
-   * @public
-   */
-  additionalAttributes?: GlossaryTermItemAdditionalAttributes | undefined;
 }

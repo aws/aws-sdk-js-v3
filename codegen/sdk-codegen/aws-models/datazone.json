@@ -3096,6 +3096,25 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.datazone#CellInformation": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>The information about a cell in a notebook run in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#CellOrder": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#CellInformation"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
     "com.amazonaws.datazone#ChangeAction": {
       "type": "enum",
       "members": {
@@ -3156,6 +3175,26 @@
       "type": "list",
       "member": {
         "target": "smithy.api#String"
+      }
+    },
+    "com.amazonaws.datazone#ComputeConfig": {
+      "type": "structure",
+      "members": {
+        "instanceType": {
+          "target": "com.amazonaws.datazone#InstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance type for the notebook run compute.</p>"
+          }
+        },
+        "environmentVersion": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The environment version for the notebook run compute.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The compute configuration for a notebook run in Amazon DataZone.</p>"
       }
     },
     "com.amazonaws.datazone#ComputeEnvironments": {
@@ -10908,6 +10947,9 @@
           "target": "com.amazonaws.datazone#MetadataGenerationRun"
         },
         {
+          "target": "com.amazonaws.datazone#NotebookRun"
+        },
+        {
           "target": "com.amazonaws.datazone#Rule"
         }
       ],
@@ -14742,6 +14784,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The details of an environment blueprint summary.</p>"
+      }
+    },
+    "com.amazonaws.datazone#EnvironmentConfig": {
+      "type": "structure",
+      "members": {
+        "imageVersion": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The image version for the notebook run environment.</p>"
+          }
+        },
+        "packageConfig": {
+          "target": "com.amazonaws.datazone#PackageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The package configuration for the notebook run environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The environment configuration for a notebook run in Amazon DataZone.</p>"
       }
     },
     "com.amazonaws.datazone#EnvironmentConfiguration": {
@@ -19920,6 +19982,210 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.datazone#GetNotebookRun": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.datazone#GetNotebookRunInput"
+      },
+      "output": {
+        "target": "com.amazonaws.datazone#GetNotebookRunOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.datazone#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.datazone#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets the details of a notebook run in an Amazon DataZone domain.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "GET",
+          "uri": "/v2/domains/{domainIdentifier}/notebook-runs/{identifier}"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.datazone#GetNotebookRunInput": {
+      "type": "structure",
+      "members": {
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain in which the notebook run exists.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "identifier": {
+          "target": "com.amazonaws.datazone#NotebookRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook run.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.datazone#GetNotebookRunOutput": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.datazone#NotebookRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "domainId": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "owningProjectId": {
+          "target": "com.amazonaws.datazone#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the project that owns the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "notebookId": {
+          "target": "com.amazonaws.datazone#NotebookId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "scheduleId": {
+          "target": "com.amazonaws.datazone#ScheduleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the schedule associated with the notebook run.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.datazone#NotebookRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "cellOrder": {
+          "target": "com.amazonaws.datazone#CellOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The ordered list of cells in the notebook run.</p>"
+          }
+        },
+        "metadata": {
+          "target": "com.amazonaws.datazone#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the notebook run.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.datazone#Parameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The sensitive parameters of the notebook run.</p>"
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.datazone#ComputeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration of the notebook run.</p>"
+          }
+        },
+        "networkConfiguration": {
+          "target": "com.amazonaws.datazone#NetworkConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The network configuration of the notebook run.</p>"
+          }
+        },
+        "timeoutConfiguration": {
+          "target": "com.amazonaws.datazone#TimeoutConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The timeout configuration of the notebook run.</p>"
+          }
+        },
+        "environmentConfiguration": {
+          "target": "com.amazonaws.datazone#EnvironmentConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The environment configuration of the notebook run, including image version and package settings.</p>"
+          }
+        },
+        "storageConfiguration": {
+          "target": "com.amazonaws.datazone#StorageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>"
+          }
+        },
+        "triggerSource": {
+          "target": "com.amazonaws.datazone#TriggerSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source that triggered the notebook run.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.datazone#NotebookRunError",
+          "traits": {
+            "smithy.api#documentation": "<p>The error details if the notebook run failed.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.datazone#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run was created.</p>"
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.datazone#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user who created the notebook run.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.datazone#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run was last updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.datazone#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user who last updated the notebook run.</p>"
+          }
+        },
+        "startedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run started executing.</p>"
+          }
+        },
+        "completedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run completed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.datazone#GetProject": {
       "type": "operation",
       "input": {
@@ -22811,6 +23077,12 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Specifies whether values are in the expression.</p>"
+      }
+    },
+    "com.amazonaws.datazone#InstanceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(ml|sc)\\.[a-z][0-9]+[a-z]*\\.[a-z0-9]+$"
       }
     },
     "com.amazonaws.datazone#InternalServerException": {
@@ -26130,6 +26402,130 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.datazone#ListNotebookRuns": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.datazone#ListNotebookRunsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.datazone#ListNotebookRunsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.datazone#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.datazone#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists notebook runs in an Amazon DataZone domain.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "GET",
+          "uri": "/v2/domains/{domainIdentifier}/notebook-runs"
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "items"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.datazone#ListNotebookRunsInput": {
+      "type": "structure",
+      "members": {
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain in which to list notebook runs.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "owningProjectIdentifier": {
+          "target": "com.amazonaws.datazone#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the project that owns the notebook runs.</p>",
+            "smithy.api#httpQuery": "owningProjectIdentifier",
+            "smithy.api#required": {}
+          }
+        },
+        "notebookIdentifier": {
+          "target": "com.amazonaws.datazone#NotebookId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook to filter runs by.</p>",
+            "smithy.api#httpQuery": "notebookIdentifier"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.datazone#NotebookRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status to filter notebook runs by.</p>",
+            "smithy.api#httpQuery": "status"
+          }
+        },
+        "scheduleIdentifier": {
+          "target": "com.amazonaws.datazone#ScheduleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the schedule to filter notebook runs by.</p>",
+            "smithy.api#httpQuery": "scheduleIdentifier"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.datazone#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of notebook runs to return in a single call. When the number of notebook runs exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "sortOrder": {
+          "target": "com.amazonaws.datazone#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The sort order for the results.</p>",
+            "smithy.api#httpQuery": "sortOrder"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.datazone#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.datazone#ListNotebookRunsOutput": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.datazone#NotebookRunSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>The results of the <code>ListNotebookRuns</code> action.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.datazone#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.datazone#ListNotifications": {
       "type": "operation",
       "input": {
@@ -28150,6 +28546,20 @@
         "smithy.api#sensitive": {}
       }
     },
+    "com.amazonaws.datazone#Metadata": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.datazone#MetadataKey"
+      },
+      "value": {
+        "target": "com.amazonaws.datazone#MetadataValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 50
+        }
+      }
+    },
     "com.amazonaws.datazone#MetadataFormEnforcementDetail": {
       "type": "structure",
       "members": {
@@ -28521,6 +28931,14 @@
         }
       }
     },
+    "com.amazonaws.datazone#MetadataKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 128
+        }
+      }
+    },
     "com.amazonaws.datazone#MetadataMap": {
       "type": "map",
       "key": {
@@ -28528,6 +28946,15 @@
       },
       "value": {
         "target": "smithy.api#String"
+      }
+    },
+    "com.amazonaws.datazone#MetadataValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 1024
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.datazone#MlflowPropertiesInput": {
@@ -28623,6 +29050,61 @@
         "target": "com.amazonaws.datazone#NameIdentifier"
       }
     },
+    "com.amazonaws.datazone#NetworkAccessType": {
+      "type": "enum",
+      "members": {
+        "PUBLIC_INTERNET_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run uses public internet access only.</p>",
+            "smithy.api#enumValue": "PUBLIC_INTERNET_ONLY"
+          }
+        },
+        "VPC_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run uses VPC access only.</p>",
+            "smithy.api#enumValue": "VPC_ONLY"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The network access type for a notebook run in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#NetworkConfig": {
+      "type": "structure",
+      "members": {
+        "networkAccessType": {
+          "target": "com.amazonaws.datazone#NetworkAccessType",
+          "traits": {
+            "smithy.api#documentation": "<p>The network access type for the notebook run. Valid values are <code>PUBLIC_INTERNET_ONLY</code> and <code>VPC_ONLY</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "vpcId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the VPC for the notebook run. This is required when the network access type is <code>VPC_ONLY</code>.</p>"
+          }
+        },
+        "subnetIds": {
+          "target": "com.amazonaws.datazone#SubnetIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the subnets for the notebook run. You can specify up to 10 subnets.</p>"
+          }
+        },
+        "securityGroupIds": {
+          "target": "com.amazonaws.datazone#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifiers of the security groups for the notebook run. You can specify up to 5 security groups.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The network configuration for a notebook run in Amazon DataZone.</p>"
+      }
+    },
     "com.amazonaws.datazone#NotEqualToExpression": {
       "type": "structure",
       "members": {
@@ -28687,6 +29169,292 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Specifies that a value might be not like the expression.</p>"
+      }
+    },
+    "com.amazonaws.datazone#NotebookId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]{1,36}$"
+      }
+    },
+    "com.amazonaws.datazone#NotebookRun": {
+      "type": "resource",
+      "identifiers": {
+        "identifier": {
+          "target": "com.amazonaws.datazone#NotebookRunId"
+        }
+      },
+      "properties": {
+        "id": {
+          "target": "com.amazonaws.datazone#NotebookRunId"
+        },
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId"
+        },
+        "domainId": {
+          "target": "com.amazonaws.datazone#DomainId"
+        },
+        "owningProjectIdentifier": {
+          "target": "com.amazonaws.datazone#ProjectId"
+        },
+        "owningProjectId": {
+          "target": "com.amazonaws.datazone#ProjectId"
+        },
+        "notebookIdentifier": {
+          "target": "com.amazonaws.datazone#NotebookId"
+        },
+        "notebookId": {
+          "target": "com.amazonaws.datazone#NotebookId"
+        },
+        "scheduleIdentifier": {
+          "target": "com.amazonaws.datazone#ScheduleId"
+        },
+        "scheduleId": {
+          "target": "com.amazonaws.datazone#ScheduleId"
+        },
+        "status": {
+          "target": "com.amazonaws.datazone#NotebookRunStatus"
+        },
+        "cellOrder": {
+          "target": "com.amazonaws.datazone#CellOrder"
+        },
+        "metadata": {
+          "target": "com.amazonaws.datazone#Metadata"
+        },
+        "parameters": {
+          "target": "com.amazonaws.datazone#Parameters"
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.datazone#ComputeConfig"
+        },
+        "networkConfiguration": {
+          "target": "com.amazonaws.datazone#NetworkConfig"
+        },
+        "timeoutConfiguration": {
+          "target": "com.amazonaws.datazone#TimeoutConfig"
+        },
+        "environmentConfiguration": {
+          "target": "com.amazonaws.datazone#EnvironmentConfig"
+        },
+        "storageConfiguration": {
+          "target": "com.amazonaws.datazone#StorageConfig"
+        },
+        "triggerSource": {
+          "target": "com.amazonaws.datazone#TriggerSource"
+        },
+        "error": {
+          "target": "com.amazonaws.datazone#NotebookRunError"
+        },
+        "createdBy": {
+          "target": "com.amazonaws.datazone#CreatedBy"
+        },
+        "createdAt": {
+          "target": "com.amazonaws.datazone#CreatedAt"
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.datazone#UpdatedAt"
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.datazone#UpdatedBy"
+        },
+        "startedAt": {
+          "target": "smithy.api#Timestamp"
+        },
+        "completedAt": {
+          "target": "smithy.api#Timestamp"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.datazone#StartNotebookRun"
+      },
+      "read": {
+        "target": "com.amazonaws.datazone#GetNotebookRun"
+      },
+      "list": {
+        "target": "com.amazonaws.datazone#ListNotebookRuns"
+      },
+      "operations": [
+        {
+          "target": "com.amazonaws.datazone#StopNotebookRun"
+        }
+      ]
+    },
+    "com.amazonaws.datazone#NotebookRunError": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message. The maximum length is 1024 characters.</p>",
+            "smithy.api#length": {
+              "max": 1024
+            },
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The error details of a failed notebook run in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#NotebookRunId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]{1,36}$"
+      }
+    },
+    "com.amazonaws.datazone#NotebookRunStatus": {
+      "type": "enum",
+      "members": {
+        "QUEUED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run is queued.</p>",
+            "smithy.api#enumValue": "QUEUED"
+          }
+        },
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run is starting.</p>",
+            "smithy.api#enumValue": "STARTING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run is running.</p>",
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run is stopping.</p>",
+            "smithy.api#enumValue": "STOPPING"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run was stopped.</p>",
+            "smithy.api#enumValue": "STOPPED"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run succeeded.</p>",
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run failed.</p>",
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of a notebook run in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#NotebookRunSummary": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.datazone#NotebookRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "domainId": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "owningProjectId": {
+          "target": "com.amazonaws.datazone#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the project that owns the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "notebookId": {
+          "target": "com.amazonaws.datazone#NotebookId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "scheduleId": {
+          "target": "com.amazonaws.datazone#ScheduleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the schedule associated with the notebook run.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.datazone#NotebookRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "triggerSource": {
+          "target": "com.amazonaws.datazone#TriggerSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source that triggered the notebook run.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.datazone#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run was created.</p>"
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.datazone#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user who created the notebook run.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.datazone#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run was last updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.datazone#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user who last updated the notebook run.</p>"
+          }
+        },
+        "startedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run started executing.</p>"
+          }
+        },
+        "completedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run completed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The summary of a notebook run in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#NotebookRunSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.datazone#NotebookRunSummary"
       }
     },
     "com.amazonaws.datazone#NotificationOutput": {
@@ -29214,12 +29982,60 @@
         "smithy.api#documentation": "<p>The properties of the owner user.</p>"
       }
     },
+    "com.amazonaws.datazone#PackageConfig": {
+      "type": "structure",
+      "members": {
+        "packageManager": {
+          "target": "com.amazonaws.datazone#PackageManager",
+          "traits": {
+            "smithy.api#default": "UV",
+            "smithy.api#documentation": "<p>The package manager for the notebook run environment. The default value is <code>UV</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "packageSpecification": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The package specification content for the notebook run environment. The maximum length is 10240 characters.</p>",
+            "smithy.api#length": {
+              "max": 10240
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The package configuration for a notebook run environment in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#PackageManager": {
+      "type": "enum",
+      "members": {
+        "UV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The UV package manager.</p>",
+            "smithy.api#enumValue": "UV"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The package manager for a notebook run environment in Amazon DataZone.</p>"
+      }
+    },
     "com.amazonaws.datazone#PaginationToken": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 8192
+        }
+      }
+    },
+    "com.amazonaws.datazone#ParameterKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 128
         }
       }
     },
@@ -29230,6 +30046,29 @@
           "min": 1,
           "max": 2048
         }
+      }
+    },
+    "com.amazonaws.datazone#ParameterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.datazone#Parameters": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.datazone#ParameterKey"
+      },
+      "value": {
+        "target": "com.amazonaws.datazone#ParameterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 50
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.datazone#Password": {
@@ -32666,6 +33505,16 @@
         }
       }
     },
+    "com.amazonaws.datazone#S3Path": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^s3://.+$"
+      }
+    },
     "com.amazonaws.datazone#S3Permission": {
       "type": "enum",
       "members": {
@@ -32880,6 +33729,12 @@
       "traits": {
         "smithy.api#documentation": "<p>The details of the schedule of the data source runs.</p>",
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.datazone#ScheduleId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]{1,36}$"
       }
     },
     "com.amazonaws.datazone#Search": {
@@ -33679,6 +34534,17 @@
         "smithy.api#length": {
           "min": 0,
           "max": 50
+        }
+      }
+    },
+    "com.amazonaws.datazone#SecurityGroupIds": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 5
         }
       }
     },
@@ -34680,6 +35546,271 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.datazone#StartNotebookRun": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.datazone#StartNotebookRunInput"
+      },
+      "output": {
+        "target": "com.amazonaws.datazone#StartNotebookRunOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.datazone#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.datazone#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts a notebook run in an Amazon DataZone domain. A notebook run represents the execution of a Amazon DataZone notebook within a project. You can configure compute, network, timeout, and environment settings for the run.</p>",
+        "smithy.api#http": {
+          "code": 201,
+          "method": "POST",
+          "uri": "/v2/domains/{domainIdentifier}/notebook-runs"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.datazone#StartNotebookRunInput": {
+      "type": "structure",
+      "members": {
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain in which the notebook run is started.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "owningProjectIdentifier": {
+          "target": "com.amazonaws.datazone#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the project that owns the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "notebookIdentifier": {
+          "target": "com.amazonaws.datazone#NotebookId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook to run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "scheduleIdentifier": {
+          "target": "com.amazonaws.datazone#ScheduleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the schedule associated with the notebook run.</p>"
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.datazone#ComputeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration for the notebook run, including instance type and environment version.</p>"
+          }
+        },
+        "networkConfiguration": {
+          "target": "com.amazonaws.datazone#NetworkConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The network configuration for the notebook run, including network access type and optional VPC settings.</p>"
+          }
+        },
+        "timeoutConfiguration": {
+          "target": "com.amazonaws.datazone#TimeoutConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The timeout configuration for the notebook run. The default timeout is 720 minutes (12 hours) and the maximum is 1440 minutes (24 hours).</p>"
+          }
+        },
+        "triggerSource": {
+          "target": "com.amazonaws.datazone#TriggerSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source that triggered the notebook run.</p>"
+          }
+        },
+        "metadata": {
+          "target": "com.amazonaws.datazone#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.datazone#Parameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The sensitive parameters for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.datazone#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.datazone#StartNotebookRunOutput": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.datazone#NotebookRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "domainId": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "owningProjectId": {
+          "target": "com.amazonaws.datazone#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the project that owns the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "notebookId": {
+          "target": "com.amazonaws.datazone#NotebookId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "scheduleId": {
+          "target": "com.amazonaws.datazone#ScheduleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the schedule associated with the notebook run.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.datazone#NotebookRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "cellOrder": {
+          "target": "com.amazonaws.datazone#CellOrder",
+          "traits": {
+            "smithy.api#documentation": "<p>The ordered list of cells in the notebook run.</p>"
+          }
+        },
+        "metadata": {
+          "target": "com.amazonaws.datazone#Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata of the notebook run.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.datazone#Parameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The sensitive parameters of the notebook run.</p>"
+          }
+        },
+        "computeConfiguration": {
+          "target": "com.amazonaws.datazone#ComputeConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The compute configuration of the notebook run.</p>"
+          }
+        },
+        "networkConfiguration": {
+          "target": "com.amazonaws.datazone#NetworkConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The network configuration of the notebook run.</p>"
+          }
+        },
+        "timeoutConfiguration": {
+          "target": "com.amazonaws.datazone#TimeoutConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The timeout configuration of the notebook run.</p>"
+          }
+        },
+        "environmentConfiguration": {
+          "target": "com.amazonaws.datazone#EnvironmentConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The environment configuration of the notebook run, including image version and package settings.</p>"
+          }
+        },
+        "storageConfiguration": {
+          "target": "com.amazonaws.datazone#StorageConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>"
+          }
+        },
+        "triggerSource": {
+          "target": "com.amazonaws.datazone#TriggerSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source that triggered the notebook run.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.datazone#NotebookRunError",
+          "traits": {
+            "smithy.api#documentation": "<p>The error details if the notebook run failed.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.datazone#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run was created.</p>"
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.datazone#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user who created the notebook run.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.datazone#UpdatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run was last updated.</p>"
+          }
+        },
+        "updatedBy": {
+          "target": "com.amazonaws.datazone#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user who last updated the notebook run.</p>"
+          }
+        },
+        "startedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run started executing.</p>"
+          }
+        },
+        "completedAt": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of when the notebook run completed.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.datazone#Status": {
       "type": "enum",
       "members": {
@@ -34695,6 +35826,131 @@
             "smithy.api#enumValue": "DISABLED"
           }
         }
+      }
+    },
+    "com.amazonaws.datazone#StopNotebookRun": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.datazone#StopNotebookRunInput"
+      },
+      "output": {
+        "target": "com.amazonaws.datazone#StopNotebookRunOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.datazone#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.datazone#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.datazone#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops a running notebook run in an Amazon DataZone domain.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "PUT",
+          "uri": "/v2/domains/{domainIdentifier}/notebook-runs/{identifier}/stop"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.datazone#StopNotebookRunInput": {
+      "type": "structure",
+      "members": {
+        "domainIdentifier": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain in which the notebook run is stopped.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "identifier": {
+          "target": "com.amazonaws.datazone#NotebookRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook run to stop.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.datazone#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.datazone#StopNotebookRunOutput": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazonaws.datazone#NotebookRunId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "domainId": {
+          "target": "com.amazonaws.datazone#DomainId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon DataZone domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "owningProjectId": {
+          "target": "com.amazonaws.datazone#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the project that owns the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.datazone#NotebookRunStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the notebook run.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.datazone#StorageConfig": {
+      "type": "structure",
+      "members": {
+        "projectS3Path": {
+          "target": "com.amazonaws.datazone#S3Path",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Simple Storage Service path for the project storage.</p>"
+          }
+        },
+        "kmsKeyArn": {
+          "target": "com.amazonaws.datazone#KmsKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the KMS key used for encryption.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The storage configuration for a notebook run in Amazon DataZone.</p>"
       }
     },
     "com.amazonaws.datazone#StringList": {
@@ -34721,6 +35977,17 @@
         "smithy.api#length": {
           "min": 1,
           "max": 50
+        }
+      }
+    },
+    "com.amazonaws.datazone#SubnetIds": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "max": 10
         }
       }
     },
@@ -36270,6 +37537,24 @@
         }
       }
     },
+    "com.amazonaws.datazone#TimeoutConfig": {
+      "type": "structure",
+      "members": {
+        "runTimeoutInMinutes": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The timeout for the notebook run, in minutes. The minimum value is 60 minutes (1 hour), the maximum value is 1440 minutes (24 hours), and the default value is 720 minutes (12 hours).</p>",
+            "smithy.api#range": {
+              "min": 60,
+              "max": 1440
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The timeout configuration for a notebook run in Amazon DataZone.</p>"
+      }
+    },
     "com.amazonaws.datazone#Timezone": {
       "type": "enum",
       "members": {
@@ -36742,6 +38027,55 @@
           "min": 1,
           "max": 1
         }
+      }
+    },
+    "com.amazonaws.datazone#TriggerSource": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.datazone#TriggerSourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the trigger source. Valid values are <code>MANUAL</code>, <code>SCHEDULED</code>, and <code>WORKFLOW</code>.</p>"
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the trigger source.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The source that triggered a notebook run in Amazon DataZone.</p>"
+      }
+    },
+    "com.amazonaws.datazone#TriggerSourceType": {
+      "type": "enum",
+      "members": {
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run was triggered manually.</p>",
+            "smithy.api#enumValue": "MANUAL"
+          }
+        },
+        "SCHEDULED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run was triggered by a schedule.</p>",
+            "smithy.api#enumValue": "SCHEDULED"
+          }
+        },
+        "WORKFLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#documentation": "<p>The notebook run was triggered by a workflow.</p>",
+            "smithy.api#enumValue": "WORKFLOW"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The type of trigger source for a notebook run in Amazon DataZone.</p>"
       }
     },
     "com.amazonaws.datazone#TypeName": {

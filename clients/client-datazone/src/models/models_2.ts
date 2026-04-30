@@ -5,18 +5,26 @@ import type {
   EnvironmentStatus,
   FilterStatus,
   FormTypeStatus,
+  GlossaryStatus,
+  GlossaryTermStatus,
+  GlossaryUsageRestriction,
   GraphEntityType,
   GroupProfileStatus,
   GroupSearchType,
   InventorySearchScope,
   ProjectStatus,
   ResolutionStrategy,
+  RuleAction,
+  RuleTargetType,
+  RuleType,
   SearchOutputAdditionalAttribute,
+  SortOrder,
   Status,
   SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
+  SubscriptionStatus,
   TypesSearchScope,
   UserProfileStatus,
   UserProfileType,
@@ -48,6 +56,7 @@ import type {
   FormEntryOutput,
   FormOutput,
   GrantedEntity,
+  MatchRationaleItem,
   Model,
   PhysicalEndpoint,
   ProjectDeletionError,
@@ -56,23 +65,762 @@ import type {
   ResourceTag,
   ResourceTagParameter,
   RowFilterExpression,
+  RuleDetail,
+  RuleScope,
+  RuleTarget,
   SubscribedAsset,
   SubscribedListing,
   SubscribedPrincipal,
+  TermRelations,
   UserProfileDetails,
 } from "./models_0";
 import type {
   DataProductListingItem,
   DataProductResultItem,
   Filter,
-  GlossaryItem,
-  GlossaryTermItem,
   Import,
   RelationPattern,
-  SearchInItem,
-  SearchSort,
   SubscriptionTargetForm,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface RemovePolicyGrantOutput {}
+
+/**
+ * @public
+ */
+export interface RevokeSubscriptionInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the revoked subscription.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * @public
+   */
+  retainPermissions?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeSubscriptionOutput {
+  /**
+   * <p>The identifier of the revoked subscription.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the user who revoked the subscription.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who revoked the subscription.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the revoked subscription.</p>
+   * @public
+   */
+  status: SubscriptionStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was revoked.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was revoked.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The subscribed principal of the revoked subscription.</p>
+   * @public
+   */
+  subscribedPrincipal: SubscribedPrincipal | undefined;
+
+  /**
+   * <p>The subscribed listing of the revoked subscription.</p>
+   * @public
+   */
+  subscribedListing: SubscribedListing | undefined;
+
+  /**
+   * <p>The identifier of the subscription request for the revoked subscription.</p>
+   * @public
+   */
+  subscriptionRequestId?: string | undefined;
+
+  /**
+   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * @public
+   */
+  retainPermissions?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuleInput {
+  /**
+   * <p>The ID of the domain that where the rule is to be deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the rule that is to be deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuleOutput {}
+
+/**
+ * @public
+ */
+export interface GetRuleInput {
+  /**
+   * <p>The ID of the domain where the <code>GetRule</code> action is to be invoked.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The user who created the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  lastUpdatedBy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRulesInput {
+  /**
+   * <p>The ID of the domain in which the rules are to be listed.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType: RuleTargetType | undefined;
+
+  /**
+   * <p>The target ID of the rule.</p>
+   * @public
+   */
+  targetIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType?: RuleType | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action?: RuleAction | undefined;
+
+  /**
+   * <p>The IDs of projects in which rules are to be listed.</p>
+   * @public
+   */
+  projectIds?: string[] | undefined;
+
+  /**
+   * <p>The asset types of the rule.</p>
+   * @public
+   */
+  assetTypes?: string[] | undefined;
+
+  /**
+   * <p>The data product of the rule.</p>
+   * @public
+   */
+  dataProduct?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to include cascading rules in the results.</p>
+   * @public
+   */
+  includeCascaded?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of rules to return in a single call to <code>ListRules</code>. When the number of rules to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary of the rule.</p>
+ * @public
+ */
+export interface RuleSummary {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision?: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType?: RuleType | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target?: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action?: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope?: RuleScope | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  lastUpdatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRulesOutput {
+  /**
+   * <p>The results of the <code>ListRules</code> action.</p>
+   * @public
+   */
+  items: RuleSummary[] | undefined;
+
+  /**
+   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuleInput {
+  /**
+   * <p>The ID of the domain in which a rule is to be updated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the rule that is to be updated</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The scrope of the rule.</p>
+   * @public
+   */
+  scope?: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail?: RuleDetail | undefined;
+
+  /**
+   * <p>Specifies whether to update this rule in the child domain units.</p>
+   * @public
+   */
+  includeChildDomainUnits?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the rule.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The user who created the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule was last updated.</p>
+   * @public
+   */
+  lastUpdatedBy: string | undefined;
+}
+
+/**
+ * <p>The details of the search.</p>
+ * @public
+ */
+export interface SearchInItem {
+  /**
+   * <p>The search attribute.</p>
+   * @public
+   */
+  attribute: string | undefined;
+}
+
+/**
+ * <p>The details of the way to sort search results.</p>
+ * @public
+ */
+export interface SearchSort {
+  /**
+   * <p>The attribute detail of the way to sort search results.</p>
+   * @public
+   */
+  attribute: string | undefined;
+
+  /**
+   * <p>The order detail of the wya to sort search results.</p>
+   * @public
+   */
+  order?: SortOrder | undefined;
+}
+
+/**
+ * <p>The additional attributes of an Amazon DataZone glossary.</p>
+ * @public
+ */
+export interface GlossaryItemAdditionalAttributes {
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
+ * <p>The details of a business glossary.</p>
+ * @public
+ */
+export interface GlossaryItem {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the glossary.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the glossary.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the business glosary.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The business glossary description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The business glossary status.</p>
+   * @public
+   */
+  status: GlossaryStatus | undefined;
+
+  /**
+   * <p>The usage restrictions associated with a goverened glossary term.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
+
+  /**
+   * <p>The timestamp of when the glossary was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the glossary.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the business glossary was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the business glossary.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The additional attributes of an Amazon DataZone glossary.</p>
+   * @public
+   */
+  additionalAttributes?: GlossaryItemAdditionalAttributes | undefined;
+}
+
+/**
+ * <p>The additional attributes of an Amazon DataZone glossary term.</p>
+ * @public
+ */
+export interface GlossaryTermItemAdditionalAttributes {
+  /**
+   * <p>List of rationales indicating why this item was matched by search.</p>
+   * @public
+   */
+  matchRationale?: MatchRationaleItem[] | undefined;
+}
+
+/**
+ * <p>The details of a business glossary term.</p>
+ * @public
+ */
+export interface GlossaryTermItem {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the business glossary to which the term belongs.</p>
+   * @public
+   */
+  glossaryId: string | undefined;
+
+  /**
+   * <p>The identifier of the business glossary term.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the business glossary term.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The short description of the business glossary term.</p>
+   * @public
+   */
+  shortDescription?: string | undefined;
+
+  /**
+   * <p>The usage restrictions associated with a goverened glossary term.</p>
+   * @public
+   */
+  usageRestrictions?: GlossaryUsageRestriction[] | undefined;
+
+  /**
+   * <p>The long description of the business glossary term.</p>
+   * @public
+   */
+  longDescription?: string | undefined;
+
+  /**
+   * <p>The relations of the business glossary term.</p>
+   * @public
+   */
+  termRelations?: TermRelations | undefined;
+
+  /**
+   * <p>The status of the business glossary term.</p>
+   * @public
+   */
+  status: GlossaryTermStatus | undefined;
+
+  /**
+   * <p>The timestamp of when a business glossary term was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the business glossary.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when a business glossary term was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the business glossary term.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The additional attributes of an Amazon DataZone glossary term.</p>
+   * @public
+   */
+  additionalAttributes?: GlossaryTermItemAdditionalAttributes | undefined;
+}
 
 /**
  * <p>The details of the search results.</p>

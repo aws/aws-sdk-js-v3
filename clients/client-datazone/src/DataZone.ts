@@ -461,6 +461,11 @@ import {
   GetMetadataGenerationRunCommand,
 } from "./commands/GetMetadataGenerationRunCommand";
 import {
+  type GetNotebookRunCommandInput,
+  type GetNotebookRunCommandOutput,
+  GetNotebookRunCommand,
+} from "./commands/GetNotebookRunCommand";
+import {
   type GetProjectCommandInput,
   type GetProjectCommandOutput,
   GetProjectCommand,
@@ -607,6 +612,11 @@ import {
   ListMetadataGenerationRunsCommand,
 } from "./commands/ListMetadataGenerationRunsCommand";
 import {
+  type ListNotebookRunsCommandInput,
+  type ListNotebookRunsCommandOutput,
+  ListNotebookRunsCommand,
+} from "./commands/ListNotebookRunsCommand";
+import {
   type ListNotificationsCommandInput,
   type ListNotificationsCommandOutput,
   ListNotificationsCommand,
@@ -743,6 +753,16 @@ import {
   type StartMetadataGenerationRunCommandOutput,
   StartMetadataGenerationRunCommand,
 } from "./commands/StartMetadataGenerationRunCommand";
+import {
+  type StartNotebookRunCommandInput,
+  type StartNotebookRunCommandOutput,
+  StartNotebookRunCommand,
+} from "./commands/StartNotebookRunCommand";
+import {
+  type StopNotebookRunCommandInput,
+  type StopNotebookRunCommandOutput,
+  StopNotebookRunCommand,
+} from "./commands/StopNotebookRunCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -882,6 +902,7 @@ import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
 import { paginateListLineageEvents } from "./pagination/ListLineageEventsPaginator";
 import { paginateListLineageNodeHistory } from "./pagination/ListLineageNodeHistoryPaginator";
 import { paginateListMetadataGenerationRuns } from "./pagination/ListMetadataGenerationRunsPaginator";
+import { paginateListNotebookRuns } from "./pagination/ListNotebookRunsPaginator";
 import { paginateListNotifications } from "./pagination/ListNotificationsPaginator";
 import { paginateListPolicyGrants } from "./pagination/ListPolicyGrantsPaginator";
 import { paginateListProjectMemberships } from "./pagination/ListProjectMembershipsPaginator";
@@ -995,6 +1016,7 @@ const commands = {
   GetLineageNodeCommand,
   GetListingCommand,
   GetMetadataGenerationRunCommand,
+  GetNotebookRunCommand,
   GetProjectCommand,
   GetProjectProfileCommand,
   GetRuleCommand,
@@ -1025,6 +1047,7 @@ const commands = {
   ListLineageEventsCommand,
   ListLineageNodeHistoryCommand,
   ListMetadataGenerationRunsCommand,
+  ListNotebookRunsCommand,
   ListNotificationsCommand,
   ListPolicyGrantsCommand,
   ListProjectMembershipsCommand,
@@ -1054,6 +1077,8 @@ const commands = {
   SearchUserProfilesCommand,
   StartDataSourceRunCommand,
   StartMetadataGenerationRunCommand,
+  StartNotebookRunCommand,
+  StopNotebookRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountPoolCommand,
@@ -1100,6 +1125,7 @@ const paginators = {
   paginateListLineageEvents,
   paginateListLineageNodeHistory,
   paginateListMetadataGenerationRuns,
+  paginateListNotebookRuns,
   paginateListNotifications,
   paginateListPolicyGrants,
   paginateListProjectMemberships,
@@ -2719,6 +2745,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link GetNotebookRunCommand}
+   */
+  getNotebookRun(
+    args: GetNotebookRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNotebookRunCommandOutput>;
+  getNotebookRun(
+    args: GetNotebookRunCommandInput,
+    cb: (err: any, data?: GetNotebookRunCommandOutput) => void
+  ): void;
+  getNotebookRun(
+    args: GetNotebookRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNotebookRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetProjectCommand}
    */
   getProject(
@@ -3230,6 +3273,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link ListNotebookRunsCommand}
+   */
+  listNotebookRuns(
+    args: ListNotebookRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebookRunsCommandOutput>;
+  listNotebookRuns(
+    args: ListNotebookRunsCommandInput,
+    cb: (err: any, data?: ListNotebookRunsCommandOutput) => void
+  ): void;
+  listNotebookRuns(
+    args: ListNotebookRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebookRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNotificationsCommand}
    */
   listNotifications(
@@ -3720,6 +3780,40 @@ export interface DataZone {
     args: StartMetadataGenerationRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartMetadataGenerationRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNotebookRunCommand}
+   */
+  startNotebookRun(
+    args: StartNotebookRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNotebookRunCommandOutput>;
+  startNotebookRun(
+    args: StartNotebookRunCommandInput,
+    cb: (err: any, data?: StartNotebookRunCommandOutput) => void
+  ): void;
+  startNotebookRun(
+    args: StartNotebookRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNotebookRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopNotebookRunCommand}
+   */
+  stopNotebookRun(
+    args: StopNotebookRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopNotebookRunCommandOutput>;
+  stopNotebookRun(
+    args: StopNotebookRunCommandInput,
+    cb: (err: any, data?: StopNotebookRunCommandOutput) => void
+  ): void;
+  stopNotebookRun(
+    args: StopNotebookRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopNotebookRunCommandOutput) => void
   ): void;
 
   /**
@@ -4343,6 +4437,17 @@ export interface DataZone {
     args: ListMetadataGenerationRunsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListMetadataGenerationRunsCommandOutput>;
+
+  /**
+   * @see {@link ListNotebookRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotebookRunsCommandOutput}.
+   */
+  paginateListNotebookRuns(
+    args: ListNotebookRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotebookRunsCommandOutput>;
 
   /**
    * @see {@link ListNotificationsCommand}

@@ -5028,6 +5028,12 @@ export interface CancelSubscriptionOutput {
 }
 
 /**
+ * <p>The information about a cell in a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface CellInformation {}
+
+/**
  * <p>Part of the provisioning properties of the environment blueprint.</p>
  * @public
  */
@@ -5037,6 +5043,24 @@ export interface CloudFormationProperties {
    * @public
    */
   templateUrl: string | undefined;
+}
+
+/**
+ * <p>The compute configuration for a notebook run in Amazon DataZone.</p>
+ * @public
+ */
+export interface ComputeConfig {
+  /**
+   * <p>The instance type for the notebook run compute.</p>
+   * @public
+   */
+  instanceType?: string | undefined;
+
+  /**
+   * <p>The environment version for the notebook run compute.</p>
+   * @public
+   */
+  environmentVersion?: string | undefined;
 }
 
 /**
@@ -11599,30 +11623,6 @@ export interface SubscribedGroupInput {
 export interface SubscribedIamPrincipalInput {
   /**
    * <p>The ARN of the subscribed IAM principal.</p>
-   * @public
-   */
-  identifier?: string | undefined;
-}
-
-/**
- * <p>The project that is to be given a subscription grant.</p>
- * @public
- */
-export interface SubscribedProjectInput {
-  /**
-   * <p>The identifier of the project that is to be given a subscription grant.</p>
-   * @public
-   */
-  identifier?: string | undefined;
-}
-
-/**
- * <p>The subscribed user.</p>
- * @public
- */
-export interface SubscribedUserInput {
-  /**
-   * <p>The ID of the subscribed user.</p>
    * @public
    */
   identifier?: string | undefined;

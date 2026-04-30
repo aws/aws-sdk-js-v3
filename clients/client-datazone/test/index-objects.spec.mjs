@@ -93,9 +93,11 @@ import {
   CancelSubscriptionCommand,
   CancelSubscriptionInput$,
   CancelSubscriptionOutput$,
+  CellInformation$,
   ChangeAction,
   CloudFormationProperties$,
   ColumnFilterConfiguration$,
+  ComputeConfig$,
   ComputeEnvironments,
   ConfigurableActionParameter$,
   ConfigurableActionTypeAuthorization,
@@ -393,6 +395,7 @@ import {
   EnvironmentActionSummary$,
   EnvironmentBlueprintConfigurationItem$,
   EnvironmentBlueprintSummary$,
+  EnvironmentConfig$,
   EnvironmentConfiguration$,
   EnvironmentConfigurationParameter$,
   EnvironmentConfigurationParametersDetails$,
@@ -527,6 +530,10 @@ import {
   GetMetadataGenerationRunCommand,
   GetMetadataGenerationRunInput$,
   GetMetadataGenerationRunOutput$,
+  GetNotebookRun$,
+  GetNotebookRunCommand,
+  GetNotebookRunInput$,
+  GetNotebookRunOutput$,
   GetProject$,
   GetProjectCommand,
   GetProjectInput$,
@@ -722,6 +729,10 @@ import {
   ListMetadataGenerationRunsCommand,
   ListMetadataGenerationRunsInput$,
   ListMetadataGenerationRunsOutput$,
+  ListNotebookRuns$,
+  ListNotebookRunsCommand,
+  ListNotebookRunsInput$,
+  ListNotebookRunsOutput$,
   ListNotifications$,
   ListNotificationsCommand,
   ListNotificationsInput$,
@@ -791,6 +802,11 @@ import {
   MlflowPropertiesPatch$,
   Model$,
   NameIdentifier$,
+  NetworkAccessType,
+  NetworkConfig$,
+  NotebookRunError$,
+  NotebookRunStatus,
+  NotebookRunSummary$,
   NotEqualToExpression$,
   NotificationOutput$,
   NotificationResource$,
@@ -813,6 +829,8 @@ import {
   OwnerPropertiesOutput$,
   OwnerUserProperties$,
   OwnerUserPropertiesOutput$,
+  PackageConfig$,
+  PackageManager,
   paginateListAccountPools,
   paginateListAccountsInAccountPool,
   paginateListAssetFilters,
@@ -834,6 +852,7 @@ import {
   paginateListLineageEvents,
   paginateListLineageNodeHistory,
   paginateListMetadataGenerationRuns,
+  paginateListNotebookRuns,
   paginateListNotifications,
   paginateListPolicyGrants,
   paginateListProjectMemberships,
@@ -1013,7 +1032,16 @@ import {
   StartMetadataGenerationRunCommand,
   StartMetadataGenerationRunInput$,
   StartMetadataGenerationRunOutput$,
+  StartNotebookRun$,
+  StartNotebookRunCommand,
+  StartNotebookRunInput$,
+  StartNotebookRunOutput$,
   Status,
+  StopNotebookRun$,
+  StopNotebookRunCommand,
+  StopNotebookRunInput$,
+  StopNotebookRunOutput$,
+  StorageConfig$,
   SubscribedAsset$,
   SubscribedAssetListing$,
   SubscribedGroup$,
@@ -1050,12 +1078,15 @@ import {
   TextMatchItem$,
   ThrottlingException,
   ThrottlingException$,
+  TimeoutConfig$,
   TimeSeriesDataPointFormInput$,
   TimeSeriesDataPointFormOutput$,
   TimeSeriesDataPointSummaryFormOutput$,
   TimeSeriesEntityType,
   Timezone,
   Topic$,
+  TriggerSource$,
+  TriggerSourceType,
   TypesSearchScope,
   UnauthorizedException,
   UnauthorizedException$,
@@ -1360,6 +1391,8 @@ assert(typeof GetListingCommand === "function");
 assert(typeof GetListing$ === "object");
 assert(typeof GetMetadataGenerationRunCommand === "function");
 assert(typeof GetMetadataGenerationRun$ === "object");
+assert(typeof GetNotebookRunCommand === "function");
+assert(typeof GetNotebookRun$ === "object");
 assert(typeof GetProjectCommand === "function");
 assert(typeof GetProject$ === "object");
 assert(typeof GetProjectProfileCommand === "function");
@@ -1420,6 +1453,8 @@ assert(typeof ListLineageNodeHistoryCommand === "function");
 assert(typeof ListLineageNodeHistory$ === "object");
 assert(typeof ListMetadataGenerationRunsCommand === "function");
 assert(typeof ListMetadataGenerationRuns$ === "object");
+assert(typeof ListNotebookRunsCommand === "function");
+assert(typeof ListNotebookRuns$ === "object");
 assert(typeof ListNotificationsCommand === "function");
 assert(typeof ListNotifications$ === "object");
 assert(typeof ListPolicyGrantsCommand === "function");
@@ -1478,6 +1513,10 @@ assert(typeof StartDataSourceRunCommand === "function");
 assert(typeof StartDataSourceRun$ === "object");
 assert(typeof StartMetadataGenerationRunCommand === "function");
 assert(typeof StartMetadataGenerationRun$ === "object");
+assert(typeof StartNotebookRunCommand === "function");
+assert(typeof StartNotebookRun$ === "object");
+assert(typeof StopNotebookRunCommand === "function");
+assert(typeof StopNotebookRun$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -1593,8 +1632,10 @@ assert(typeof CancelMetadataGenerationRunInput$ === "object");
 assert(typeof CancelMetadataGenerationRunOutput$ === "object");
 assert(typeof CancelSubscriptionInput$ === "object");
 assert(typeof CancelSubscriptionOutput$ === "object");
+assert(typeof CellInformation$ === "object");
 assert(typeof CloudFormationProperties$ === "object");
 assert(typeof ColumnFilterConfiguration$ === "object");
+assert(typeof ComputeConfig$ === "object");
 assert(typeof ConfigurableActionParameter$ === "object");
 assert(typeof ConfigurableEnvironmentAction$ === "object");
 assert(typeof Configuration$ === "object");
@@ -1750,6 +1791,7 @@ assert(typeof EntityPattern$ === "object");
 assert(typeof EnvironmentActionSummary$ === "object");
 assert(typeof EnvironmentBlueprintConfigurationItem$ === "object");
 assert(typeof EnvironmentBlueprintSummary$ === "object");
+assert(typeof EnvironmentConfig$ === "object");
 assert(typeof EnvironmentConfiguration$ === "object");
 assert(typeof EnvironmentConfigurationParameter$ === "object");
 assert(typeof EnvironmentConfigurationParametersDetails$ === "object");
@@ -1825,6 +1867,8 @@ assert(typeof GetListingInput$ === "object");
 assert(typeof GetListingOutput$ === "object");
 assert(typeof GetMetadataGenerationRunInput$ === "object");
 assert(typeof GetMetadataGenerationRunOutput$ === "object");
+assert(typeof GetNotebookRunInput$ === "object");
+assert(typeof GetNotebookRunOutput$ === "object");
 assert(typeof GetProjectInput$ === "object");
 assert(typeof GetProjectOutput$ === "object");
 assert(typeof GetProjectProfileInput$ === "object");
@@ -1941,6 +1985,8 @@ assert(typeof ListLineageNodeHistoryInput$ === "object");
 assert(typeof ListLineageNodeHistoryOutput$ === "object");
 assert(typeof ListMetadataGenerationRunsInput$ === "object");
 assert(typeof ListMetadataGenerationRunsOutput$ === "object");
+assert(typeof ListNotebookRunsInput$ === "object");
+assert(typeof ListNotebookRunsOutput$ === "object");
 assert(typeof ListNotificationsInput$ === "object");
 assert(typeof ListNotificationsOutput$ === "object");
 assert(typeof ListPolicyGrantsInput$ === "object");
@@ -1982,6 +2028,9 @@ assert(typeof MlflowPropertiesOutput$ === "object");
 assert(typeof MlflowPropertiesPatch$ === "object");
 assert(typeof Model$ === "object");
 assert(typeof NameIdentifier$ === "object");
+assert(typeof NetworkConfig$ === "object");
+assert(typeof NotebookRunError$ === "object");
+assert(typeof NotebookRunSummary$ === "object");
 assert(typeof NotEqualToExpression$ === "object");
 assert(typeof NotificationOutput$ === "object");
 assert(typeof NotificationResource$ === "object");
@@ -1998,6 +2047,7 @@ assert(typeof OwnerProperties$ === "object");
 assert(typeof OwnerPropertiesOutput$ === "object");
 assert(typeof OwnerUserProperties$ === "object");
 assert(typeof OwnerUserPropertiesOutput$ === "object");
+assert(typeof PackageConfig$ === "object");
 assert(typeof Permissions$ === "object");
 assert(typeof PhysicalConnectionRequirements$ === "object");
 assert(typeof PhysicalEndpoint$ === "object");
@@ -2102,6 +2152,11 @@ assert(typeof StartDataSourceRunInput$ === "object");
 assert(typeof StartDataSourceRunOutput$ === "object");
 assert(typeof StartMetadataGenerationRunInput$ === "object");
 assert(typeof StartMetadataGenerationRunOutput$ === "object");
+assert(typeof StartNotebookRunInput$ === "object");
+assert(typeof StartNotebookRunOutput$ === "object");
+assert(typeof StopNotebookRunInput$ === "object");
+assert(typeof StopNotebookRunOutput$ === "object");
+assert(typeof StorageConfig$ === "object");
 assert(typeof SubscribedAsset$ === "object");
 assert(typeof SubscribedAssetListing$ === "object");
 assert(typeof SubscribedGroup$ === "object");
@@ -2127,10 +2182,12 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TermRelations$ === "object");
 assert(typeof TextMatchItem$ === "object");
+assert(typeof TimeoutConfig$ === "object");
 assert(typeof TimeSeriesDataPointFormInput$ === "object");
 assert(typeof TimeSeriesDataPointFormOutput$ === "object");
 assert(typeof TimeSeriesDataPointSummaryFormOutput$ === "object");
 assert(typeof Topic$ === "object");
+assert(typeof TriggerSource$ === "object");
 assert(typeof Unit$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
@@ -2241,12 +2298,15 @@ assert(typeof ManagedPolicyType === "object");
 assert(typeof MetadataGenerationRunStatus === "object");
 assert(typeof MetadataGenerationRunType === "object");
 assert(typeof MetadataGenerationTargetType === "object");
+assert(typeof NetworkAccessType === "object");
+assert(typeof NotebookRunStatus === "object");
 assert(typeof NotificationResourceType === "object");
 assert(typeof NotificationRole === "object");
 assert(typeof NotificationType === "object");
 assert(typeof OAuth2GrantType === "object");
 assert(typeof OpenLineageRunState === "object");
 assert(typeof OverallDeploymentStatus === "object");
+assert(typeof PackageManager === "object");
 assert(typeof ProjectDesignation === "object");
 assert(typeof ProjectStatus === "object");
 assert(typeof Protocol === "object");
@@ -2277,6 +2337,7 @@ assert(typeof TargetEntityType === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof TimeSeriesEntityType === "object");
 assert(typeof Timezone === "object");
+assert(typeof TriggerSourceType === "object");
 assert(typeof TypesSearchScope === "object");
 assert(typeof UserAssignment === "object");
 assert(typeof UserDesignation === "object");
@@ -2324,6 +2385,7 @@ assert(typeof paginateListJobRuns === "function");
 assert(typeof paginateListLineageEvents === "function");
 assert(typeof paginateListLineageNodeHistory === "function");
 assert(typeof paginateListMetadataGenerationRuns === "function");
+assert(typeof paginateListNotebookRuns === "function");
 assert(typeof paginateListNotifications === "function");
 assert(typeof paginateListPolicyGrants === "function");
 assert(typeof paginateListProjectMemberships === "function");

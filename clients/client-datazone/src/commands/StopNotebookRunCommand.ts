@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteRuleInput, DeleteRuleOutput } from "../models/models_2";
-import { DeleteRule$ } from "../schemas/schemas_0";
+import type { StopNotebookRunInput, StopNotebookRunOutput } from "../models/models_1";
+import { StopNotebookRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,40 +16,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteRuleCommand}.
+ * The input for {@link StopNotebookRunCommand}.
  */
-export interface DeleteRuleCommandInput extends DeleteRuleInput {}
+export interface StopNotebookRunCommandInput extends StopNotebookRunInput {}
 /**
  * @public
  *
- * The output of {@link DeleteRuleCommand}.
+ * The output of {@link StopNotebookRunCommand}.
  */
-export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
+export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a rule in Amazon DataZone. A rule is a formal agreement that enforces specific requirements across user workflows (e.g., publishing assets to the catalog, requesting subscriptions, creating projects) within the Amazon DataZone data portal. These rules help maintain consistency, ensure compliance, and uphold governance standards in data management processes. For instance, a metadata enforcement rule can specify the required information for creating a subscription request or publishing a data asset to the catalog, ensuring alignment with organizational standards.</p>
+ * <p>Stops a running notebook run in an Amazon DataZone domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, DeleteRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, DeleteRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, StopNotebookRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, StopNotebookRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // DeleteRuleInput
+ * const input = { // StopNotebookRunInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new DeleteRuleCommand(input);
+ * const command = new StopNotebookRunCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StopNotebookRunOutput
+ * //   id: "STRING_VALUE", // required
+ * //   domainId: "STRING_VALUE", // required
+ * //   owningProjectId: "STRING_VALUE", // required
+ * //   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
+ * // };
  *
  * ```
  *
- * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
- * @returns {@link DeleteRuleCommandOutput}
- * @see {@link DeleteRuleCommandInput} for command's `input` shape.
- * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
+ * @param StopNotebookRunCommandInput - {@link StopNotebookRunCommandInput}
+ * @returns {@link StopNotebookRunCommandOutput}
+ * @see {@link StopNotebookRunCommandInput} for command's `input` shape.
+ * @see {@link StopNotebookRunCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -79,10 +85,10 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  *
  * @public
  */
-export class DeleteRuleCommand extends $Command
+export class StopNotebookRunCommand extends $Command
   .classBuilder<
-    DeleteRuleCommandInput,
-    DeleteRuleCommandOutput,
+    StopNotebookRunCommandInput,
+    StopNotebookRunCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -91,19 +97,19 @@ export class DeleteRuleCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "DeleteRule", {})
-  .n("DataZoneClient", "DeleteRuleCommand")
-  .sc(DeleteRule$)
+  .s("DataZone", "StopNotebookRun", {})
+  .n("DataZoneClient", "StopNotebookRunCommand")
+  .sc(StopNotebookRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteRuleInput;
-      output: {};
+      input: StopNotebookRunInput;
+      output: StopNotebookRunOutput;
     };
     sdk: {
-      input: DeleteRuleCommandInput;
-      output: DeleteRuleCommandOutput;
+      input: StopNotebookRunCommandInput;
+      output: StopNotebookRunCommandOutput;
     };
   };
 }

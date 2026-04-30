@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { RemovePolicyGrantInput, RemovePolicyGrantOutput } from "../models/models_1";
+import type { RemovePolicyGrantInput } from "../models/models_1";
+import type { RemovePolicyGrantOutput } from "../models/models_2";
 import { RemovePolicyGrant$ } from "../schemas/schemas_0";
 
 /**
