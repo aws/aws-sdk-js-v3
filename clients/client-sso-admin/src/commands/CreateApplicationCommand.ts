@@ -61,6 +61,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const response = await client.send(command);
  * // { // CreateApplicationResponse
  * //   ApplicationArn: "STRING_VALUE",
+ * //   InstanceArn: "STRING_VALUE",
+ * //   IdentityStoreArn: "STRING_VALUE",
  * // };
  *
  * ```

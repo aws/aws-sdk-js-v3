@@ -297,6 +297,12 @@ export interface Application {
   InstanceArn?: string | undefined;
 
   /**
+   * <p>The ARN of the identity store that is connected to the instance of IAM Identity Center.</p>
+   * @public
+   */
+  IdentityStoreArn?: string | undefined;
+
+  /**
    * <p>The current status of the application in this instance of IAM Identity Center.</p>
    * @public
    */
@@ -1247,6 +1253,18 @@ export interface CreateApplicationResponse {
    * @public
    */
   ApplicationArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  InstanceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the identity store that is connected to the instance of IAM Identity Center.</p>
+   * @public
+   */
+  IdentityStoreArn?: string | undefined;
 }
 
 /**
@@ -1870,6 +1888,12 @@ export interface DescribeApplicationResponse {
    * @public
    */
   InstanceArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the identity store that is connected to the instance of IAM Identity Center.</p>
+   * @public
+   */
+  IdentityStoreArn?: string | undefined;
 
   /**
    * <p>Specifies whether the application is enabled or disabled.</p>

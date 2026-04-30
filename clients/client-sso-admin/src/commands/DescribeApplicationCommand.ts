@@ -47,6 +47,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //   Name: "STRING_VALUE",
  * //   ApplicationAccount: "STRING_VALUE",
  * //   InstanceArn: "STRING_VALUE",
+ * //   IdentityStoreArn: "STRING_VALUE",
  * //   Status: "ENABLED" || "DISABLED",
  * //   PortalOptions: { // PortalOptions
  * //     SignInOptions: { // SignInOptions

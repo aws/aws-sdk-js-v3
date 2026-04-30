@@ -205,6 +205,7 @@ const _IL = "InstanceList";
 const _IM = "InstanceMetadata";
 const _IP = "InlinePolicy";
 const _IPR = "IsPrimaryRegion";
+const _ISA = "IdentityStoreArn";
 const _ISAP = "IdentityStoreAttributePath";
 const _ISE = "InternalServerException";
 const _ISI = "IdentityStoreId";
@@ -525,8 +526,8 @@ export var AddRegionResponse$: StaticStructureSchema = [3, n0, _ARRd,
 ];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD, _CF],
-  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4, 0]
+  [_AAp, _APA, _N, _AApp, _IA, _ISA, _St, _PO, _D, _CD, _CF],
+  [0, 0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4, 0]
 ];
 export var ApplicationAssignment$: StaticStructureSchema = [3, n0, _AAppl,
   0,
@@ -610,8 +611,8 @@ export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
-  [_AAp],
-  [0]
+  [_AAp, _IA, _ISA],
+  [0, 0, 0]
 ];
 export var CreateInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [3, n0, _CIACACR,
   0,
@@ -810,8 +811,8 @@ export var DescribeApplicationRequest$: StaticStructureSchema = [3, n0, _DARes,
 ];
 export var DescribeApplicationResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
-  [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD, _CF],
-  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4, 0]
+  [_AAp, _APA, _N, _AApp, _IA, _ISA, _St, _PO, _D, _CD, _CF],
+  [0, 0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4, 0]
 ];
 export var DescribeInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [3, n0, _DIACACRes,
   0,
