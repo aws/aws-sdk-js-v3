@@ -416,6 +416,7 @@ export type {
   VpcConnectivitySasl,
   VpcConnectivityScram,
   VpcConnectivityTls,
+  ZookeeperAccess,
   ZookeeperNodeInfo,
   BadRequestException,
   ClusterConnectivityException,

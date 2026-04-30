@@ -60,6 +60,9 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  *     NetworkType: "IPV4" || "DUAL",
  *   },
  *   CurrentVersion: "STRING_VALUE", // required
+ *   ZookeeperAccess: { // ZookeeperAccess
+ *     Enabled: true || false,
+ *   },
  * };
  * const command = new UpdateConnectivityCommand(input);
  * const response = await client.send(command);

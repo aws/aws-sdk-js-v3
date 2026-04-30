@@ -1087,6 +1087,18 @@ export interface ConfigurationInfo {
 }
 
 /**
+ * <p>Access control settings for zookeeper</p>
+ * @public
+ */
+export interface ZookeeperAccess {
+  /**
+   * <p>Zookeeper Access was on or off for the cluster</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
  * <p>Information about cluster attributes that can be updated via update APIs.</p>
  * @public
  */
@@ -1120,6 +1132,12 @@ export interface MutableClusterInfo {
    * @public
    */
   OpenMonitoring?: OpenMonitoring | undefined;
+
+  /**
+   * <p>Access control settings for zookeeper</p>
+   * @public
+   */
+  ZookeeperAccess?: ZookeeperAccess | undefined;
 
   /**
    * <p>The Apache Kafka version.</p>
@@ -4841,13 +4859,19 @@ export interface UpdateConnectivityRequest {
    * <p>Information about the broker access configuration.</p>
    * @public
    */
-  ConnectivityInfo: ConnectivityInfo | undefined;
+  ConnectivityInfo?: ConnectivityInfo | undefined;
 
   /**
    * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
    * @public
    */
   CurrentVersion: string | undefined;
+
+  /**
+   * <p>Access control settings for zookeeper</p>
+   * @public
+   */
+  ZookeeperAccess?: ZookeeperAccess | undefined;
 }
 
 /**

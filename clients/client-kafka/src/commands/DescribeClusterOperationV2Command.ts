@@ -90,6 +90,9 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //             },
  * //           },
  * //         },
+ * //         ZookeeperAccess: { // ZookeeperAccess
+ * //           Enabled: true || false,
+ * //         },
  * //         KafkaVersion: "STRING_VALUE",
  * //         LoggingInfo: { // LoggingInfo
  * //           BrokerLogs: { // BrokerLogs
@@ -197,6 +200,9 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //               EnabledInBroker: true || false, // required
  * //             },
  * //           },
+ * //         },
+ * //         ZookeeperAccess: {
+ * //           Enabled: true || false,
  * //         },
  * //         KafkaVersion: "STRING_VALUE",
  * //         LoggingInfo: {

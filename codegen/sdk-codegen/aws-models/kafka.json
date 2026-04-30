@@ -7381,6 +7381,13 @@
             "smithy.api#jsonName": "openMonitoring"
           }
         },
+        "ZookeeperAccess": {
+          "target": "com.amazonaws.kafka#ZookeeperAccess",
+          "traits": {
+            "smithy.api#documentation": "<p>Access control settings for zookeeper</p>",
+            "smithy.api#jsonName": "zookeeperAccess"
+          }
+        },
         "KafkaVersion": {
           "target": "com.amazonaws.kafka#__string",
           "traits": {
@@ -10034,10 +10041,8 @@
         "ConnectivityInfo": {
           "target": "com.amazonaws.kafka#ConnectivityInfo",
           "traits": {
-            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Information about the broker access configuration.</p>",
-            "smithy.api#jsonName": "connectivityInfo",
-            "smithy.api#required": {}
+            "smithy.api#jsonName": "connectivityInfo"
           }
         },
         "CurrentVersion": {
@@ -10047,6 +10052,13 @@
             "smithy.api#documentation": "<p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>",
             "smithy.api#jsonName": "currentVersion",
             "smithy.api#required": {}
+          }
+        },
+        "ZookeeperAccess": {
+          "target": "com.amazonaws.kafka#ZookeeperAccess",
+          "traits": {
+            "smithy.api#documentation": "<p>Access control settings for zookeeper</p>",
+            "smithy.api#jsonName": "zookeeperAccess"
           }
         }
       },
@@ -11100,6 +11112,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Details for TLS client authentication for VPC connectivity.</p>"
+      }
+    },
+    "com.amazonaws.kafka#ZookeeperAccess": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.kafka#__boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Zookeeper Access was on or off for the cluster</p>",
+            "smithy.api#jsonName": "enabled"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Access control settings for zookeeper</p>"
       }
     },
     "com.amazonaws.kafka#ZookeeperNodeInfo": {

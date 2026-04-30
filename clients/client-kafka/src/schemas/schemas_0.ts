@@ -463,6 +463,7 @@ const _VI = "VpcId";
 const _VS = "VolumeSize";
 const _VSGB = "VolumeSizeGB";
 const _VT = "VolumeThroughput";
+const _ZA = "ZookeeperAccess";
 const _ZCS = "ZookeeperConnectString";
 const _ZCST = "ZookeeperConnectStringTls";
 const _ZI = "ZoneIds";
@@ -721,6 +722,7 @@ const _vI = "vpcId";
 const _vS = "volumeSize";
 const _vSGB = "volumeSizeGB";
 const _vT = "volumeThroughput";
+const _zA = "zookeeperAccess";
 const _zCS = "zookeeperConnectString";
 const _zCST = "zookeeperConnectStringTls";
 const _zI = "zoneIds";
@@ -1523,8 +1525,8 @@ export var LoggingInfo$: StaticStructureSchema = [3, n0, _LI,
 ];
 export var MutableClusterInfo$: StaticStructureSchema = [3, n0, _MCI,
   0,
-  [_BEBSVI, _CIo, _NOBN, _EM, _OM, _KV, _LI, _IT, _CAl, _EI, _CI, _SM, _BCUI, _R],
-  [[() => __listOfBrokerEBSVolumeInfo, { [_jN]: _bEBSVI }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _iT }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _sM }], [() => BrokerCountUpdateInfo$, { [_jN]: _bCUI }], [() => Rebalancing$, { [_jN]: _r }]]
+  [_BEBSVI, _CIo, _NOBN, _EM, _OM, _ZA, _KV, _LI, _IT, _CAl, _EI, _CI, _SM, _BCUI, _R],
+  [[() => __listOfBrokerEBSVolumeInfo, { [_jN]: _bEBSVI }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => ZookeeperAccess$, { [_jN]: _zA }], [0, { [_jN]: _kV }], [() => LoggingInfo$, { [_jN]: _lI }], [0, { [_jN]: _iT }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => EncryptionInfo$, { [_jN]: _eI }], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _sM }], [() => BrokerCountUpdateInfo$, { [_jN]: _bCUI }], [() => Rebalancing$, { [_jN]: _r }]]
 ];
 export var NodeExporter$: StaticStructureSchema = [3, n0, _NE,
   0,
@@ -1828,8 +1830,8 @@ export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateConnectivityRequest$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
-  [_CA, _CI, _CV],
-  [[0, 1], [() => ConnectivityInfo$, { [_jN]: _cI }], [0, { [_jN]: _cV }]], 3
+  [_CA, _CV, _CI, _ZA],
+  [[0, 1], [0, { [_jN]: _cV }], [() => ConnectivityInfo$, { [_jN]: _cI }], [() => ZookeeperAccess$, { [_jN]: _zA }]], 2
 ];
 export var UpdateConnectivityResponse$: StaticStructureSchema = [3, n0, _UCRpda,
   0,
@@ -1947,6 +1949,11 @@ export var VpcConnectivityScram$: StaticStructureSchema = [3, n0, _VCSp,
   [[2, { [_jN]: _ena }]]
 ];
 export var VpcConnectivityTls$: StaticStructureSchema = [3, n0, _VCT,
+  0,
+  [_En],
+  [[2, { [_jN]: _ena }]]
+];
+export var ZookeeperAccess$: StaticStructureSchema = [3, n0, _ZA,
   0,
   [_En],
   [[2, { [_jN]: _ena }]]

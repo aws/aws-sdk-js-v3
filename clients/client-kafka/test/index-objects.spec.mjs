@@ -405,6 +405,7 @@ import {
   VpcConnectivitySasl$,
   VpcConnectivityScram$,
   VpcConnectivityTls$,
+  ZookeeperAccess$,
   ZookeeperNodeInfo$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -746,6 +747,7 @@ assert(typeof VpcConnectivityIam$ === "object");
 assert(typeof VpcConnectivitySasl$ === "object");
 assert(typeof VpcConnectivityScram$ === "object");
 assert(typeof VpcConnectivityTls$ === "object");
+assert(typeof ZookeeperAccess$ === "object");
 assert(typeof ZookeeperNodeInfo$ === "object");
 // enums
 assert(typeof BrokerAZDistribution === "object");
