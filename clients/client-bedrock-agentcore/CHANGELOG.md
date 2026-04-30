@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
+
+
+### Features
+
+* **client-bedrock-agentcore:** AgentCore Identity now supports on-behalf-of token exchange OAuth2. AgentCore Memory now supports metadata for LongTerm Memory Records. ([948fd09](https://github.com/aws/aws-sdk-js-v3/commit/948fd098ee4dfca06475b0f5e9e324f76a7fed90))
+
+
+
+
+
 # [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
 
 

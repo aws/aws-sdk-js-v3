@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
+
+
+### Features
+
+* **client-observabilityadmin:** Observability Admin enablement launch for AWS Kafka, Bedrock Agent Core Workload Identity and OTel metric enablement. ([8cea5eb](https://github.com/aws/aws-sdk-js-v3/commit/8cea5eb66cdb7a2ddc347fcf55f709253cfb336a))
+
+
+
+
+
 # [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

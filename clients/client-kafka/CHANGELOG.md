@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
+
+
+### Features
+
+* **client-kafka:** Adds support for ZookeeperAccess field to control the Client-Zookeeper connectivity. ([34de26b](https://github.com/aws/aws-sdk-js-v3/commit/34de26bd63a0087346fe33c6fb4720a80515b2f7))
+
+
+
+
+
 # [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

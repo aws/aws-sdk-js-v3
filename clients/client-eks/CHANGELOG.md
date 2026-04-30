@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
+
+
+### Features
+
+* **client-eks:** Vended logs update param for capability vended logs feature ([7741c8f](https://github.com/aws/aws-sdk-js-v3/commit/7741c8f535b0f0bb828a045e992c894b4c14476e))
+
+
+
+
+
 # [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** AgentCore Identity now supports on-behalf-of token exchange OAuth2. AgentCore Memory now supports metadata for LongTerm Memory Records. ([6b9d13e](https://github.com/aws/aws-sdk-js-v3/commit/6b9d13e32ec62f14899030b3b6555c6e4e6d555a))
+* **client-bedrock-agentcore:** AgentCore Identity now supports on-behalf-of token exchange OAuth2. AgentCore Memory now supports metadata for LongTerm Memory Records. ([948fd09](https://github.com/aws/aws-sdk-js-v3/commit/948fd098ee4dfca06475b0f5e9e324f76a7fed90))
+* **client-datazone:** Adds support for asynchronous notebook runs ([e562cc0](https://github.com/aws/aws-sdk-js-v3/commit/e562cc0f737781c005eedbf729c838144afaa49e))
+* **client-eks:** Vended logs update param for capability vended logs feature ([7741c8f](https://github.com/aws/aws-sdk-js-v3/commit/7741c8f535b0f0bb828a045e992c894b4c14476e))
+* **client-kafka:** Adds support for ZookeeperAccess field to control the Client-Zookeeper connectivity. ([34de26b](https://github.com/aws/aws-sdk-js-v3/commit/34de26bd63a0087346fe33c6fb4720a80515b2f7))
+* **client-observabilityadmin:** Observability Admin enablement launch for AWS Kafka, Bedrock Agent Core Workload Identity and OTel metric enablement. ([8cea5eb](https://github.com/aws/aws-sdk-js-v3/commit/8cea5eb66cdb7a2ddc347fcf55f709253cfb336a))
+* **client-payment-cryptography:** Adds support for resource-based policies on AWS Payment Cryptography keys, enabling cross-account key sharing. Also adds Multi-Party Approval (MPA) team association APIs for protecting sensitive import root public key operations. ([4d7fdfa](https://github.com/aws/aws-sdk-js-v3/commit/4d7fdfa8294313ab6d08b7cc223f09eec75685ad))
+* **client-route53globalresolver:** Adds support for regions in the UpdateGlobalResolver input. ([84b15b2](https://github.com/aws/aws-sdk-js-v3/commit/84b15b2ee5fd99a10ecf8bf9a995a42efc0c8cb1))
+* **client-sagemaker:** Add InstancePools support to Endpoint for flexible provisioning across a prioritized list of instance types. Add Specifications support to InferenceComponent for per-instance-type model configurations. ([05c49aa](https://github.com/aws/aws-sdk-js-v3/commit/05c49aa9feeaf33b3c8fa6bd30083348cac58426))
+* **client-sso-admin:** Add InstanceArn and IdentityStoreArn in the response of CreateApplication API and IdentityStoreArn in the response of DescribeApplication API ([d46aaf5](https://github.com/aws/aws-sdk-js-v3/commit/d46aaf53f9ebb9bf49a7c7b5b14d7f260786a5f0))
+* **clients:** update client endpoints as of 2026-04-30 ([2620ccb](https://github.com/aws/aws-sdk-js-v3/commit/2620ccbde703e7736c282c18f661b05057048919))
+
+
+
+
+
 # [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
 
 

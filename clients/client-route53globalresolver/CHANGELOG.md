@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
+
+
+### Features
+
+* **client-route53globalresolver:** Adds support for regions in the UpdateGlobalResolver input. ([84b15b2](https://github.com/aws/aws-sdk-js-v3/commit/84b15b2ee5fd99a10ecf8bf9a995a42efc0c8cb1))
+
+
+
+
+
 # [3.1039.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1038.0...v3.1039.0) (2026-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-route53globalresolver
