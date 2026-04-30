@@ -1,5 +1,7 @@
 // smithy-typescript generated code
 import type {
+  ActorTokenContentType,
+  ClientAuthenticationMethodType,
   CredentialProviderVendorType,
   DescriptorType,
   FilterOperator,
@@ -8,6 +10,7 @@ import type {
   MemoryStrategyStatus,
   MemoryStrategyType,
   MemoryView,
+  OnBehalfOfTokenExchangeGrantTypeType,
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
   OverrideType,
@@ -33,16 +36,18 @@ import type {
   ApiSchemaConfiguration,
   AuthorizationData,
   AuthorizerConfiguration,
+  ContentConfiguration,
   CredentialProviderConfiguration,
-  CustomConsolidationConfiguration,
   EpisodicOverrideConsolidationConfigurationInput,
   EpisodicOverrideExtractionConfigurationInput,
   EpisodicOverrideReflectionConfigurationInput,
   EpisodicReflectionConfigurationInput,
   HttpTargetConfiguration,
+  IndexedKey,
   KmsConfiguration,
   ManagedResourceDetails,
   McpServerTargetConfiguration,
+  MemoryRecordSchema,
   MemoryStrategyInput,
   MetadataConfiguration,
   PrivateEndpoint,
@@ -53,13 +58,305 @@ import type {
   SemanticOverrideExtractionConfigurationInput,
   SkillDefinition,
   SkillMdDefinition,
-  StreamDeliveryResources,
   SummaryOverrideConsolidationConfigurationInput,
   TriggerConditionInput,
   UpdatedAuthorizerConfiguration,
   UserPreferenceOverrideConsolidationConfigurationInput,
   UserPreferenceOverrideExtractionConfigurationInput,
 } from "./models_0";
+
+/**
+ * <p>Configuration for Kinesis Data Stream delivery.</p>
+ * @public
+ */
+export interface KinesisResource {
+  /**
+   * <p>ARN of the Kinesis Data Stream.</p>
+   * @public
+   */
+  dataStreamArn: string | undefined;
+
+  /**
+   * <p>Content configurations for stream delivery.</p>
+   * @public
+   */
+  contentConfigurations: ContentConfiguration[] | undefined;
+}
+
+/**
+ * <p>Supported stream delivery resource types.</p>
+ * @public
+ */
+export type StreamDeliveryResource =
+  | StreamDeliveryResource.KinesisMember
+  | StreamDeliveryResource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StreamDeliveryResource {
+  /**
+   * <p>Kinesis Data Stream configuration.</p>
+   * @public
+   */
+  export interface KinesisMember {
+    kinesis: KinesisResource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    kinesis?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    kinesis: (value: KinesisResource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for streaming memory record data to external resources.</p>
+ * @public
+ */
+export interface StreamDeliveryResources {
+  /**
+   * <p>List of stream delivery resource configurations.</p>
+   * @public
+   */
+  resources: StreamDeliveryResource[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMemoryInput {
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The name of the memory. The name must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the memory.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the memory data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the memory to access Amazon Web Services services.</p>
+   * @public
+   */
+  memoryExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The duration after which memory events expire. Specified as an ISO 8601 duration.</p>
+   * @public
+   */
+  eventExpiryDuration: number | undefined;
+
+  /**
+   * <p>The memory strategies to use for this memory. Strategies define how information is extracted, processed, and consolidated.</p>
+   * @public
+   */
+  memoryStrategies?: MemoryStrategyInput[] | undefined;
+
+  /**
+   * <p>Metadata keys to index for filtering. Once declared, indexed keys cannot be removed.</p>
+   * @public
+   */
+  indexedKeys?: IndexedKey[] | undefined;
+
+  /**
+   * <p>Configuration for streaming memory record data to external resources.</p>
+   * @public
+   */
+  streamDeliveryResources?: StreamDeliveryResources | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Memory. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains configurations to override the default consolidation step for the episodic memory strategy.</p>
+ * @public
+ */
+export interface EpisodicConsolidationOverride {
+  /**
+   * <p>The text appended to the prompt for the consolidation step of the episodic memory strategy.</p>
+   * @public
+   */
+  appendToPrompt: string | undefined;
+
+  /**
+   * <p>The model ID used for the consolidation step of the episodic memory strategy.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * <p>Contains semantic consolidation override configuration.</p>
+ * @public
+ */
+export interface SemanticConsolidationOverride {
+  /**
+   * <p>The text to append to the prompt for semantic consolidation.</p>
+   * @public
+   */
+  appendToPrompt: string | undefined;
+
+  /**
+   * <p>The model ID to use for semantic consolidation.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * <p>Contains summary consolidation override configuration.</p>
+ * @public
+ */
+export interface SummaryConsolidationOverride {
+  /**
+   * <p>The text to append to the prompt for summary consolidation.</p>
+   * @public
+   */
+  appendToPrompt: string | undefined;
+
+  /**
+   * <p>The model ID to use for summary consolidation.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * <p>Contains user preference consolidation override configuration.</p>
+ * @public
+ */
+export interface UserPreferenceConsolidationOverride {
+  /**
+   * <p>The text to append to the prompt for user preference consolidation.</p>
+   * @public
+   */
+  appendToPrompt: string | undefined;
+
+  /**
+   * <p>The model ID to use for user preference consolidation.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * <p>Contains custom consolidation configuration information.</p>
+ * @public
+ */
+export type CustomConsolidationConfiguration =
+  | CustomConsolidationConfiguration.EpisodicConsolidationOverrideMember
+  | CustomConsolidationConfiguration.SemanticConsolidationOverrideMember
+  | CustomConsolidationConfiguration.SummaryConsolidationOverrideMember
+  | CustomConsolidationConfiguration.UserPreferenceConsolidationOverrideMember
+  | CustomConsolidationConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomConsolidationConfiguration {
+  /**
+   * <p>The semantic consolidation override configuration.</p>
+   * @public
+   */
+  export interface SemanticConsolidationOverrideMember {
+    semanticConsolidationOverride: SemanticConsolidationOverride;
+    summaryConsolidationOverride?: never;
+    userPreferenceConsolidationOverride?: never;
+    episodicConsolidationOverride?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The summary consolidation override configuration.</p>
+   * @public
+   */
+  export interface SummaryConsolidationOverrideMember {
+    semanticConsolidationOverride?: never;
+    summaryConsolidationOverride: SummaryConsolidationOverride;
+    userPreferenceConsolidationOverride?: never;
+    episodicConsolidationOverride?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The user preference consolidation override configuration.</p>
+   * @public
+   */
+  export interface UserPreferenceConsolidationOverrideMember {
+    semanticConsolidationOverride?: never;
+    summaryConsolidationOverride?: never;
+    userPreferenceConsolidationOverride: UserPreferenceConsolidationOverride;
+    episodicConsolidationOverride?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configurations to override the default consolidation step for the episodic memory strategy.</p>
+   * @public
+   */
+  export interface EpisodicConsolidationOverrideMember {
+    semanticConsolidationOverride?: never;
+    summaryConsolidationOverride?: never;
+    userPreferenceConsolidationOverride?: never;
+    episodicConsolidationOverride: EpisodicConsolidationOverride;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    semanticConsolidationOverride?: never;
+    summaryConsolidationOverride?: never;
+    userPreferenceConsolidationOverride?: never;
+    episodicConsolidationOverride?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    semanticConsolidationOverride: (value: SemanticConsolidationOverride) => T;
+    summaryConsolidationOverride: (value: SummaryConsolidationOverride) => T;
+    userPreferenceConsolidationOverride: (value: UserPreferenceConsolidationOverride) => T;
+    episodicConsolidationOverride: (value: EpisodicConsolidationOverride) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Contains consolidation configuration information for a memory strategy.</p>
@@ -292,6 +589,12 @@ export interface EpisodicReflectionOverride {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this reflection override.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -351,6 +654,12 @@ export interface EpisodicReflectionConfiguration {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>"Schema for metadata fields on records generated by reflections.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -655,6 +964,12 @@ export interface MemoryStrategy {
    * @public
    */
   status?: MemoryStrategyStatus | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -733,6 +1048,12 @@ export interface Memory {
    * @public
    */
   strategies?: MemoryStrategy[] | undefined;
+
+  /**
+   * <p>The indexed metadata keys for this memory. Only indexed keys can be used in metadata filters.</p>
+   * @public
+   */
+  indexedKeys?: IndexedKey[] | undefined;
 
   /**
    * <p>Configuration for streaming memory record data to external resources.</p>
@@ -1330,6 +1651,12 @@ export interface ModifyMemoryStrategyInput {
    * @public
    */
   configuration?: ModifyStrategyConfiguration | undefined;
+
+  /**
+   * <p>Updated metadata schema for records generated by this strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -1395,6 +1722,12 @@ export interface UpdateMemoryInput {
    * @public
    */
   memoryStrategies?: ModifyMemoryStrategies | undefined;
+
+  /**
+   * <p>Additional metadata keys to index. Previously indexed keys cannot be removed.</p>
+   * @public
+   */
+  addIndexedKeys?: IndexedKey[] | undefined;
 
   /**
    * <p>Configuration for streaming memory record data to external resources.</p>
@@ -1522,6 +1855,42 @@ export namespace Oauth2Discovery {
 }
 
 /**
+ * Configuration for RFC 8693 Token Exchange
+ * @public
+ */
+export interface TokenExchangeGrantTypeConfigType {
+  /**
+   * <p>The content type for the actor token in the token exchange.</p>
+   * @public
+   */
+  actorTokenContent: ActorTokenContentType | undefined;
+
+  /**
+   * Only valid when actorTokenContent is M2M
+   * @public
+   */
+  actorTokenScopes?: string[] | undefined;
+}
+
+/**
+ * Configuration for on-behalf-of token exchange
+ * @public
+ */
+export interface OnBehalfOfTokenExchangeConfigType {
+  /**
+   * <p>The grant type for the on-behalf-of token exchange.</p>
+   * @public
+   */
+  grantType: OnBehalfOfTokenExchangeGrantTypeType | undefined;
+
+  /**
+   * Configuration specific to TOKEN_EXCHANGE grant type (RFC 8693)
+   * @public
+   */
+  tokenExchangeGrantTypeConfig?: TokenExchangeGrantTypeConfigType | undefined;
+}
+
+/**
  * <p>Input configuration for a custom OAuth2 provider.</p>
  * @public
  */
@@ -1536,13 +1905,13 @@ export interface CustomOauth2ProviderConfigInput {
    * <p>The client ID for the custom OAuth2 provider.</p>
    * @public
    */
-  clientId: string | undefined;
+  clientId?: string | undefined;
 
   /**
    * <p>The client secret for the custom OAuth2 provider.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
 
   /**
    * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
@@ -1555,6 +1924,18 @@ export interface CustomOauth2ProviderConfigInput {
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+
+  /**
+   * <p>The configuration for on-behalf-of token exchange. This enables authentication flows that use RFC 8693 token exchange or RFC 7523 JWT authorization grants.</p>
+   * @public
+   */
+  onBehalfOfTokenExchangeConfig?: OnBehalfOfTokenExchangeConfigType | undefined;
+
+  /**
+   * <p>The client authentication method to use when authenticating with the token endpoint.</p>
+   * @public
+   */
+  clientAuthenticationMethod?: ClientAuthenticationMethodType | undefined;
 }
 
 /**
@@ -1989,6 +2370,18 @@ export interface CustomOauth2ProviderConfigOutput {
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+
+  /**
+   * <p>The configuration for on-behalf-of token exchange.</p>
+   * @public
+   */
+  onBehalfOfTokenExchangeConfig?: OnBehalfOfTokenExchangeConfigType | undefined;
+
+  /**
+   * <p>The client authentication method used when authenticating with the token endpoint.</p>
+   * @public
+   */
+  clientAuthenticationMethod?: ClientAuthenticationMethodType | undefined;
 }
 
 /**

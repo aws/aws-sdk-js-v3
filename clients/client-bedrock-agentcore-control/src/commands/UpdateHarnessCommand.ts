@@ -209,7 +209,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *               customParameters: { // OAuthCustomParameters
  *                 "<keys>": "STRING_VALUE",
  *               },
- *               grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ *               grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE" || "TOKEN_EXCHANGE",
  *               defaultReturnUrl: "STRING_VALUE",
  *             },
  *           },
@@ -331,7 +331,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //                 customParameters: { // OAuthCustomParameters
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
- * //                 grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ * //                 grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE" || "TOKEN_EXCHANGE",
  * //                 defaultReturnUrl: "STRING_VALUE",
  * //               },
  * //             },

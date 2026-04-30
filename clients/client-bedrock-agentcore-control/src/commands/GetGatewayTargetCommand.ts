@@ -165,7 +165,7 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //           customParameters: { // OAuthCustomParameters
  * //             "<keys>": "STRING_VALUE",
  * //           },
- * //           grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE",
+ * //           grantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE" || "TOKEN_EXCHANGE",
  * //           defaultReturnUrl: "STRING_VALUE",
  * //         },
  * //         apiKeyCredentialProvider: { // GatewayApiKeyCredentialProvider

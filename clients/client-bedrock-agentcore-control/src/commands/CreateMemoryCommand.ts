@@ -9,8 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateMemoryInput } from "../models/models_0";
-import type { CreateMemoryOutput } from "../models/models_1";
+import type { CreateMemoryInput, CreateMemoryOutput } from "../models/models_1";
 import { CreateMemory$ } from "../schemas/schemas_0";
 
 /**
@@ -59,6 +58,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *         namespaceTemplates: [
  *           "STRING_VALUE",
  *         ],
+ *         memoryRecordSchema: { // MemoryRecordSchema
+ *           metadataSchema: [ // MetadataSchemaList
+ *             { // MetadataSchemaEntry
+ *               key: "STRING_VALUE", // required
+ *               type: "STRING" || "STRINGLIST" || "NUMBER",
+ *               extractionConfig: { // ExtractionConfig Union: only one key present
+ *                 llmExtractionConfig: { // LlmExtractionConfig
+ *                   llmExtractionInstruction: "STRING_VALUE",
+ *                   definition: "STRING_VALUE", // required
+ *                   validation: { // Validation Union: only one key present
+ *                     stringValidation: { // StringValidation
+ *                       allowedValues: [ // AllowedStringValuesList // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     stringListValidation: { // StringListValidation
+ *                       allowedValues: [ // AllowedStringListValuesList
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       maxItems: Number("int"),
+ *                     },
+ *                     numberValidation: { // NumberValidation
+ *                       minValue: Number("double"),
+ *                       maxValue: Number("double"),
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *         },
  *       },
  *       summaryMemoryStrategy: { // SummaryMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -69,6 +99,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *         namespaceTemplates: [
  *           "STRING_VALUE",
  *         ],
+ *         memoryRecordSchema: {
+ *           metadataSchema: [
+ *             {
+ *               key: "STRING_VALUE", // required
+ *               type: "STRING" || "STRINGLIST" || "NUMBER",
+ *               extractionConfig: {//  Union: only one key present
+ *                 llmExtractionConfig: {
+ *                   llmExtractionInstruction: "STRING_VALUE",
+ *                   definition: "STRING_VALUE", // required
+ *                   validation: {//  Union: only one key present
+ *                     stringValidation: {
+ *                       allowedValues: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     stringListValidation: {
+ *                       allowedValues: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       maxItems: Number("int"),
+ *                     },
+ *                     numberValidation: {
+ *                       minValue: Number("double"),
+ *                       maxValue: Number("double"),
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *         },
  *       },
  *       userPreferenceMemoryStrategy: { // UserPreferenceMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -77,6 +138,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *           "STRING_VALUE",
  *         ],
  *         namespaceTemplates: "<NamespacesList>",
+ *         memoryRecordSchema: {
+ *           metadataSchema: [
+ *             {
+ *               key: "STRING_VALUE", // required
+ *               type: "STRING" || "STRINGLIST" || "NUMBER",
+ *               extractionConfig: {//  Union: only one key present
+ *                 llmExtractionConfig: {
+ *                   llmExtractionInstruction: "STRING_VALUE",
+ *                   definition: "STRING_VALUE", // required
+ *                   validation: {//  Union: only one key present
+ *                     stringValidation: {
+ *                       allowedValues: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     stringListValidation: {
+ *                       allowedValues: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       maxItems: Number("int"),
+ *                     },
+ *                     numberValidation: {
+ *                       minValue: Number("double"),
+ *                       maxValue: Number("double"),
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *         },
  *       },
  *       customMemoryStrategy: { // CustomMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -124,6 +216,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *               modelId: "STRING_VALUE", // required
  *               namespaces: "<NamespacesList>",
  *               namespaceTemplates: "<NamespacesList>",
+ *               memoryRecordSchema: {
+ *                 metadataSchema: [
+ *                   {
+ *                     key: "STRING_VALUE", // required
+ *                     type: "STRING" || "STRINGLIST" || "NUMBER",
+ *                     extractionConfig: {//  Union: only one key present
+ *                       llmExtractionConfig: {
+ *                         llmExtractionInstruction: "STRING_VALUE",
+ *                         definition: "STRING_VALUE", // required
+ *                         validation: {//  Union: only one key present
+ *                           stringValidation: {
+ *                             allowedValues: [ // required
+ *                               "STRING_VALUE",
+ *                             ],
+ *                           },
+ *                           stringListValidation: {
+ *                             allowedValues: [
+ *                               "STRING_VALUE",
+ *                             ],
+ *                             maxItems: Number("int"),
+ *                           },
+ *                           numberValidation: {
+ *                             minValue: Number("double"),
+ *                             maxValue: Number("double"),
+ *                           },
+ *                         },
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *               },
  *             },
  *           },
  *           selfManagedConfiguration: { // SelfManagedConfigurationInput
@@ -147,6 +270,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *             historicalContextWindowSize: Number("int"),
  *           },
  *         },
+ *         memoryRecordSchema: {
+ *           metadataSchema: [
+ *             {
+ *               key: "STRING_VALUE", // required
+ *               type: "STRING" || "STRINGLIST" || "NUMBER",
+ *               extractionConfig: {//  Union: only one key present
+ *                 llmExtractionConfig: {
+ *                   llmExtractionInstruction: "STRING_VALUE",
+ *                   definition: "STRING_VALUE", // required
+ *                   validation: {//  Union: only one key present
+ *                     stringValidation: {
+ *                       allowedValues: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     stringListValidation: {
+ *                       allowedValues: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       maxItems: Number("int"),
+ *                     },
+ *                     numberValidation: {
+ *                       minValue: Number("double"),
+ *                       maxValue: Number("double"),
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *         },
  *       },
  *       episodicMemoryStrategy: { // EpisodicMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -156,8 +310,16 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *         reflectionConfiguration: { // EpisodicReflectionConfigurationInput
  *           namespaces: "<NamespacesList>",
  *           namespaceTemplates: "<NamespacesList>",
+ *           memoryRecordSchema: "<MemoryRecordSchema>",
  *         },
+ *         memoryRecordSchema: "<MemoryRecordSchema>",
  *       },
+ *     },
+ *   ],
+ *   indexedKeys: [ // IndexedKeysList
+ *     { // IndexedKey
+ *       key: "STRING_VALUE", // required
+ *       type: "STRING" || "STRINGLIST" || "NUMBER", // required
  *     },
  *   ],
  *   streamDeliveryResources: { // StreamDeliveryResources
@@ -248,6 +410,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //                 namespaceTemplates: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 memoryRecordSchema: { // MemoryRecordSchema
+ * //                   metadataSchema: [ // MetadataSchemaList
+ * //                     { // MetadataSchemaEntry
+ * //                       key: "STRING_VALUE", // required
+ * //                       type: "STRING" || "STRINGLIST" || "NUMBER",
+ * //                       extractionConfig: { // ExtractionConfig Union: only one key present
+ * //                         llmExtractionConfig: { // LlmExtractionConfig
+ * //                           llmExtractionInstruction: "STRING_VALUE",
+ * //                           definition: "STRING_VALUE", // required
+ * //                           validation: { // Validation Union: only one key present
+ * //                             stringValidation: { // StringValidation
+ * //                               allowedValues: [ // AllowedStringValuesList // required
+ * //                                 "STRING_VALUE",
+ * //                               ],
+ * //                             },
+ * //                             stringListValidation: { // StringListValidation
+ * //                               allowedValues: [ // AllowedStringListValuesList
+ * //                                 "STRING_VALUE",
+ * //                               ],
+ * //                               maxItems: Number("int"),
+ * //                             },
+ * //                             numberValidation: { // NumberValidation
+ * //                               minValue: Number("double"),
+ * //                               maxValue: Number("double"),
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                 },
  * //               },
  * //             },
  * //             episodicReflectionConfiguration: { // EpisodicReflectionConfiguration
@@ -257,6 +450,37 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //               namespaceTemplates: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               memoryRecordSchema: {
+ * //                 metadataSchema: [
+ * //                   {
+ * //                     key: "STRING_VALUE", // required
+ * //                     type: "STRING" || "STRINGLIST" || "NUMBER",
+ * //                     extractionConfig: {//  Union: only one key present
+ * //                       llmExtractionConfig: {
+ * //                         llmExtractionInstruction: "STRING_VALUE",
+ * //                         definition: "STRING_VALUE", // required
+ * //                         validation: {//  Union: only one key present
+ * //                           stringValidation: {
+ * //                             allowedValues: [ // required
+ * //                               "STRING_VALUE",
+ * //                             ],
+ * //                           },
+ * //                           stringListValidation: {
+ * //                             allowedValues: [
+ * //                               "STRING_VALUE",
+ * //                             ],
+ * //                             maxItems: Number("int"),
+ * //                           },
+ * //                           numberValidation: {
+ * //                             minValue: Number("double"),
+ * //                             maxValue: Number("double"),
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //               },
  * //             },
  * //           },
  * //           selfManagedConfiguration: { // SelfManagedConfiguration
@@ -286,6 +510,13 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //         memoryRecordSchema: "<MemoryRecordSchema>",
+ * //       },
+ * //     ],
+ * //     indexedKeys: [ // IndexedKeysList
+ * //       { // IndexedKey
+ * //         key: "STRING_VALUE", // required
+ * //         type: "STRING" || "STRINGLIST" || "NUMBER", // required
  * //       },
  * //     ],
  * //     streamDeliveryResources: { // StreamDeliveryResources

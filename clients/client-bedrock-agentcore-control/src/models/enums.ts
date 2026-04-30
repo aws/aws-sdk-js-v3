@@ -3,6 +3,20 @@
  * @public
  * @enum
  */
+export const ActorTokenContentType = {
+  AWS_IAM_ID_TOKEN_JWT: "AWS_IAM_ID_TOKEN_JWT",
+  M2M: "M2M",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type ActorTokenContentType = (typeof ActorTokenContentType)[keyof typeof ActorTokenContentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentRuntimeEndpointStatus = {
   CREATE_FAILED: "CREATE_FAILED",
   CREATING: "CREATING",
@@ -455,6 +469,7 @@ export type ApiKeyCredentialLocation = (typeof ApiKeyCredentialLocation)[keyof t
 export const OAuthGrantType = {
   AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+  TOKEN_EXCHANGE: "TOKEN_EXCHANGE",
 } as const;
 /**
  * @public
@@ -625,6 +640,20 @@ export type HarnessStatus = (typeof HarnessStatus)[keyof typeof HarnessStatus];
  * @public
  * @enum
  */
+export const MetadataValueType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  STRINGLIST: "STRINGLIST",
+} as const;
+/**
+ * @public
+ */
+export type MetadataValueType = (typeof MetadataValueType)[keyof typeof MetadataValueType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentLevel = {
   FULL_CONTENT: "FULL_CONTENT",
   METADATA_ONLY: "METADATA_ONLY",
@@ -757,6 +786,43 @@ export const CredentialProviderVendorType = {
  */
 export type CredentialProviderVendorType =
   (typeof CredentialProviderVendorType)[keyof typeof CredentialProviderVendorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientAuthenticationMethodType = {
+  AWS_IAM_ID_TOKEN_JWT: "AWS_IAM_ID_TOKEN_JWT",
+  CLIENT_SECRET_BASIC: "CLIENT_SECRET_BASIC",
+  CLIENT_SECRET_POST: "CLIENT_SECRET_POST",
+} as const;
+/**
+ * @public
+ */
+export type ClientAuthenticationMethodType =
+  (typeof ClientAuthenticationMethodType)[keyof typeof ClientAuthenticationMethodType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnBehalfOfTokenExchangeGrantTypeType = {
+  /**
+   * RFC 7523 - Adopted by Microsoft Entra ID
+   * grant type = urn:ietf:params:oauth:grant-type:jwt-bearer
+   */
+  JWT_AUTHORIZATION_GRANT: "JWT_AUTHORIZATION_GRANT",
+  /**
+   * RFC 8693 - Adopted by majority of IDPs supporting OBO
+   * grant type = urn:ietf:params:oauth:grant-type:token-exchange
+   */
+  TOKEN_EXCHANGE: "TOKEN_EXCHANGE",
+} as const;
+/**
+ * @public
+ */
+export type OnBehalfOfTokenExchangeGrantTypeType =
+  (typeof OnBehalfOfTokenExchangeGrantTypeType)[keyof typeof OnBehalfOfTokenExchangeGrantTypeType];
 
 /**
  * @public

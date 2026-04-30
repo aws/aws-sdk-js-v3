@@ -146,7 +146,7 @@ const _Co = "Conditions";
 const _Cod = "Code";
 const _Con = "Condition";
 const _Cont = "Content";
-const _D = "Description";
+const _D = "Definition";
 const _DAKCP = "DeleteApiKeyCredentialProvider";
 const _DAKCPR = "DeleteApiKeyCredentialProviderRequest";
 const _DAKCPRe = "DeleteApiKeyCredentialProviderResponse";
@@ -168,6 +168,7 @@ const _DCBRe = "DeleteConfigurationBundleResponse";
 const _DCI = "DeleteCodeInterpreter";
 const _DCIR = "DeleteCodeInterpreterRequest";
 const _DCIRe = "DeleteCodeInterpreterResponse";
+const _DCST = "DefaultClientSecretType";
 const _DE = "DeleteEvaluator";
 const _DER = "DeleteEvaluatorRequest";
 const _DERe = "DeleteEvaluatorResponse";
@@ -214,11 +215,13 @@ const _DSC = "DataSourceConfig";
 const _DWI = "DeleteWorkloadIdentity";
 const _DWIR = "DeleteWorkloadIdentityRequest";
 const _DWIRe = "DeleteWorkloadIdentityResponse";
-const _De = "Descriptors";
+const _De = "Description";
+const _Des = "Descriptors";
 const _EC = "EvaluatorConfig";
 const _ECD = "EvaluationConfigDescription";
 const _ECO = "EpisodicConsolidationOverride";
-const _ECx = "ExtractionConfiguration";
+const _ECx = "ExtractionConfig";
+const _ECxt = "ExtractionConfiguration";
 const _ED = "EvaluatorDescription";
 const _EEO = "EpisodicExtractionOverride";
 const _EF = "EncryptionFailure";
@@ -378,6 +381,8 @@ const _ICP = "IamCredentialProvider";
 const _ICn = "InvocationConfiguration";
 const _ICnt = "InterceptorConfiguration";
 const _IIC = "InterceptorInputConfiguration";
+const _IK = "IndexedKey";
+const _IKL = "IndexedKeysList";
 const _IOPCI = "IncludedOauth2ProviderConfigInput";
 const _IOPCO = "IncludedOauth2ProviderConfigOutput";
 const _IP = "InlinePayload";
@@ -416,6 +421,8 @@ const _LCIR = "ListCodeInterpretersRequest";
 const _LCIRi = "ListCodeInterpretersResponse";
 const _LE = "ListEvaluators";
 const _LEC = "LambdaEvaluatorConfig";
+const _LECl = "LlmExtractionConfig";
+const _LEI = "LlmExtractionInstruction";
 const _LER = "ListEvaluatorsRequest";
 const _LERi = "ListEvaluatorsResponse";
 const _LG = "ListGateways";
@@ -487,12 +494,15 @@ const _MPEa = "MatchPrincipalEntry";
 const _MPa = "MatchPrincipals";
 const _MRC = "ModifyReflectionConfiguration";
 const _MRD = "ManagedResourceDetails";
+const _MRS = "MemoryRecordSchema";
 const _MS = "MemoryStrategy";
 const _MSC = "ModifyStrategyConfiguration";
+const _MSE = "MetadataSchemaEntry";
 const _MSI = "MemoryStrategyInput";
 const _MSIL = "MemoryStrategyInputList";
 const _MSL = "MemoryStrategyList";
 const _MSLe = "MemorySummaryList";
+const _MSLet = "MetadataSchemaList";
 const _MSMC = "ModifySelfManagedConfiguration";
 const _MSTC = "McpServerTargetConfiguration";
 const _MSe = "MemorySummary";
@@ -502,11 +512,13 @@ const _MVR = "ManagedVpcResource";
 const _NC = "NetworkConfiguration";
 const _NSD = "NumericalScaleDefinition";
 const _NSDu = "NumericalScaleDefinitions";
+const _NV = "NumberValidation";
 const _OAAD = "OAuth2AuthorizationData";
 const _OACP = "OAuthCredentialProvider";
 const _OACPV = "OAuthCustomParametersValue";
 const _OACPu = "OAuthCustomParameters";
 const _OASM = "Oauth2AuthorizationServerMetadata";
+const _OBOTECT = "OnBehalfOfTokenExchangeConfigType";
 const _OC = "OutputConfig";
 const _OCP = "Oauth2CredentialProviders";
 const _OCPI = "Oauth2CredentialProviderItem";
@@ -576,6 +588,7 @@ const _SGTR = "SynchronizeGatewayTargetsRequest";
 const _SGTRy = "SynchronizeGatewayTargetsResponse";
 const _SJ = "SensitiveJson";
 const _SL = "S3Location";
+const _SLV = "StringListValidation";
 const _SMB = "SystemManagedBlock";
 const _SMC = "SelfManagedConfiguration";
 const _SMCI = "SelfManagedConfigurationInput";
@@ -608,6 +621,7 @@ const _ST = "SensitiveText";
 const _STVCMK = "SetTokenVaultCMK";
 const _STVCMKR = "SetTokenVaultCMKRequest";
 const _STVCMKRe = "SetTokenVaultCMKResponse";
+const _SV = "StringValidation";
 const _TBT = "TimeBasedTrigger";
 const _TBTI = "TimeBasedTriggerInput";
 const _TBTIo = "TokenBasedTriggerInput";
@@ -622,6 +636,7 @@ const _TDo = "ToolDefinition";
 const _TDoo = "ToolsDefinition";
 const _TDool = "ToolDefinitions";
 const _TE = "ThrottledException";
+const _TEGTCT = "TokenExchangeGrantTypeConfigType";
 const _TEh = "ThrottlingException";
 const _TN = "TargetName";
 const _TR = "TagResource";
@@ -717,6 +732,7 @@ const _UTD = "UpdatedToolsDefinition";
 const _UWI = "UpdateWorkloadIdentity";
 const _UWIR = "UpdateWorkloadIdentityRequest";
 const _UWIRp = "UpdateWorkloadIdentityResponse";
+const _V = "Validation";
 const _VC = "VpcConfig";
 const _VCBS = "VersionCreatedBySource";
 const _VE = "ValidationException";
@@ -747,6 +763,7 @@ const _aE = "authorizationEndpoint";
 const _aG = "apiGateway";
 const _aGTC = "apiGatewayToolConfiguration";
 const _aI = "actorId";
+const _aIK = "addIndexedKeys";
 const _aIw = "awsIam";
 const _aK = "apiKey";
 const _aKA = "apiKeyArn";
@@ -772,9 +789,12 @@ const _aS = "allowedScopes";
 const _aSM = "authorizationServerMetadata";
 const _aSg = "agentSkills";
 const _aT = "authorizerType";
+const _aTC = "actorTokenContent";
 const _aTP = "appendToPrompt";
+const _aTS = "actorTokenScopes";
 const _aTl = "allowedTools";
 const _aU = "authorizationUrl";
+const _aV = "allowedValues";
 const _aa = "a2a";
 const _ar = "arn";
 const _b = "bundles";
@@ -794,6 +814,7 @@ const _bVo = "booleanValue";
 const _bu = "bucket";
 const _c = "client";
 const _cA = "createdAt";
+const _cAM = "clientAuthenticationMethod";
 const _cB = "createdBy";
 const _cBN = "createdByName";
 const _cBo = "configurationBundle";
@@ -860,6 +881,7 @@ const _eA = "evaluatorArn";
 const _eAn = "environmentArtifact";
 const _eC = "evaluatorConfig";
 const _eCO = "episodicConsolidationOverride";
+const _eCx = "extractionConfig";
 const _eED = "eventExpiryDuration";
 const _eEO = "episodicExtractionOverride";
 const _eERA = "evaluationExecutionRoleArn";
@@ -920,6 +942,7 @@ const _iCnt = "interceptorConfigurations";
 const _iCnv = "invocationConfiguration";
 const _iD = "includedData";
 const _iF = "inlineFunction";
+const _iK = "indexedKeys";
 const _iOPC = "includedOauth2ProviderConfig";
 const _iP = "interceptionPoints";
 const _iPa = "iamPrincipal";
@@ -944,6 +967,8 @@ const _lA = "lambdaArn";
 const _lAAJ = "llmAsAJudge";
 const _lC = "lifecycleConfiguration";
 const _lCa = "lambdaConfig";
+const _lEC = "llmExtractionConfig";
+const _lEI = "llmExtractionInstruction";
 const _lFM = "lockedForModification";
 const _lGN = "logGroupNames";
 const _lGNo = "logGroupName";
@@ -973,6 +998,7 @@ const _mCo = "modelConfig";
 const _mERA = "memoryExecutionRoleArn";
 const _mI = "modelId";
 const _mIa = "maxIterations";
+const _mIax = "maxItems";
 const _mIe = "memoryId";
 const _mL = "maxLifetime";
 const _mMS = "modifyMemoryStrategies";
@@ -981,14 +1007,18 @@ const _mP = "mountPath";
 const _mPa = "matchPrincipals";
 const _mPat = "matchPaths";
 const _mR = "maxResults";
+const _mRS = "memoryRecordSchema";
 const _mS = "memoryStrategies";
 const _mSI = "memoryStrategyId";
 const _mSc = "mcpServer";
+const _mSe = "metadataSchema";
 const _mT = "maxTokens";
 const _mTS = "mcpToolSchema";
+const _mV = "minValue";
 const _mVR = "managedVpcResource";
 const _mVS = "matchValueString";
 const _mVSL = "matchValueStringList";
+const _mVa = "maxValue";
 const _mc = "mcp";
 const _me = "methods";
 const _mem = "memory";
@@ -1003,6 +1033,7 @@ const _nM = "networkMode";
 const _nMC = "networkModeConfig";
 const _nT = "namespaceTemplates";
 const _nTe = "nextToken";
+const _nV = "numberValidation";
 const _na = "namespaces";
 const _no = "none";
 const _nu = "numerical";
@@ -1010,6 +1041,7 @@ const _o = "operator";
 const _oA = "outboundAuth";
 const _oAMC = "openAiModelConfig";
 const _oAS = "openApiSchema";
+const _oBOTEC = "onBehalfOfTokenExchangeConfig";
 const _oC = "outputConfig";
 const _oCP = "oauthCredentialProvider";
 const _oD = "oauthDiscovery";
@@ -1109,6 +1141,7 @@ const _sGI = "securityGroupIds";
 const _sI = "strategyId";
 const _sIu = "subnetIds";
 const _sL = "s3Location";
+const _sLV = "stringListValidation";
 const _sM = "skillMd";
 const _sMC = "selfManagedConfiguration";
 const _sMLR = "selfManagedLatticeResource";
@@ -1137,6 +1170,7 @@ const _sTM = "sessionTimeoutMinutes";
 const _sTe = "searchType";
 const _sV = "schemaVersion";
 const _sVt = "stringValue";
+const _sVtr = "stringValidation";
 const _sVu = "supportedVersions";
 const _sW = "slidingWindow";
 const _s_ = "s3";
@@ -1161,6 +1195,7 @@ const _tCo = "tokenCount";
 const _tCr = "triggerConditions";
 const _tE = "tokenEndpoint";
 const _tEAM = "tokenEndpointAuthMethods";
+const _tEGTC = "tokenExchangeGrantTypeConfig";
 const _tF = "toolFilters";
 const _tI = "targetId";
 const _tIL = "targetIdList";
@@ -1197,6 +1232,7 @@ const _vCA = "versionCreatedAt";
 const _vI = "versionId";
 const _vIp = "vpcIdentifier";
 const _vM = "validationMode";
+const _va = "validation";
 const _ve = "version";
 const _ver = "versions";
 const _vi = "view";
@@ -1339,7 +1375,9 @@ export const errorTypeRegistries = [
 var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
 var ConfigurationBundleDescription: StaticSimpleSchema = [0, n0, _CBD, 8, 0];
-var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
+var DefaultClientSecretType: StaticSimpleSchema = [0, n0, _DCST, 8, 0];
+var Definition: StaticSimpleSchema = [0, n0, _D, 8, 0];
+var Description: StaticSimpleSchema = [0, n0, _De, 8, 0];
 var EndpointName: StaticSimpleSchema = [0, n0, _EN, 8, 0];
 var EvaluationConfigDescription: StaticSimpleSchema = [0, n0, _ECD, 8, 0];
 var EvaluatorDescription: StaticSimpleSchema = [0, n0, _ED, 8, 0];
@@ -1349,6 +1387,7 @@ var GatewayName: StaticSimpleSchema = [0, n0, _GN, 8, 0];
 var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var InlinePayload: StaticSimpleSchema = [0, n0, _IP, 8, 0];
+var LlmExtractionInstruction: StaticSimpleSchema = [0, n0, _LEI, 8, 0];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
@@ -1652,8 +1691,8 @@ export var CreateHarnessResponse$: StaticStructureSchema = [3, n0, _CHRr,
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
-  [_n, _eED, _cTl, _d, _eKA, _mERA, _mS, _sDR, _ta],
-  [0, 1, [0, 4], [() => Description, 0], 0, 0, [() => MemoryStrategyInputList, 0], () => StreamDeliveryResources$, 128 | 0], 2
+  [_n, _eED, _cTl, _d, _eKA, _mERA, _mS, _iK, _sDR, _ta],
+  [0, 1, [0, 4], [() => Description, 0], 0, 0, [() => MemoryStrategyInputList, 0], () => IndexedKeysList, () => StreamDeliveryResources$, 128 | 0], 2
 ];
 export var CreateMemoryOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
@@ -1752,18 +1791,18 @@ export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _C
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
-  [_n, _d, _na, _nT, _con],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => CustomConfigurationInput$, 0]], 1
+  [_n, _d, _na, _nT, _con, _mRS],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => CustomConfigurationInput$, 0], [() => MemoryRecordSchema$, 0]], 1
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
-  [_oD, _cI, _cS, _pE, _pEO],
-  [() => Oauth2Discovery$, 0, [() => ClientSecretType, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides], 3
+  [_oD, _cI, _cS, _pE, _pEO, _oBOTEC, _cAM],
+  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => OnBehalfOfTokenExchangeConfigType$, 0], 1
 ];
 export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _COPCO,
   0,
-  [_oD, _cI, _pE, _pEO],
-  [() => Oauth2Discovery$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
+  [_oD, _cI, _pE, _pEO, _oBOTEC, _cAM],
+  [() => Oauth2Discovery$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => OnBehalfOfTokenExchangeConfigType$, 0], 1
 ];
 export var DeleteAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _DARER,
   0,
@@ -1980,7 +2019,7 @@ export var DeleteWorkloadIdentityResponse$: StaticStructureSchema = [3, n0, _DWI
   [],
   []
 ];
-export var Descriptors$: StaticStructureSchema = [3, n0, _De,
+export var Descriptors$: StaticStructureSchema = [3, n0, _Des,
   0,
   [_mc, _aa, _cu, _aSg],
   [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
@@ -1997,8 +2036,8 @@ export var EpisodicExtractionOverride$: StaticStructureSchema = [3, n0, _EEO,
 ];
 export var EpisodicMemoryStrategyInput$: StaticStructureSchema = [3, n0, _EMSI,
   0,
-  [_n, _d, _na, _nT, _rC],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, () => EpisodicReflectionConfigurationInput$], 1
+  [_n, _d, _na, _nT, _rC, _mRS],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => EpisodicReflectionConfigurationInput$, 0], [() => MemoryRecordSchema$, 0]], 1
 ];
 export var EpisodicOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _EOCI,
   0,
@@ -2017,23 +2056,23 @@ export var EpisodicOverrideExtractionConfigurationInput$: StaticStructureSchema 
 ];
 export var EpisodicOverrideReflectionConfigurationInput$: StaticStructureSchema = [3, n0, _EORCI,
   0,
-  [_aTP, _mI, _na, _nT],
-  [[() => Prompt, 0], 0, 64 | 0, 64 | 0], 2
+  [_aTP, _mI, _na, _nT, _mRS],
+  [[() => Prompt, 0], 0, 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 2
 ];
 export var EpisodicReflectionConfiguration$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_na, _nT],
-  [64 | 0, 64 | 0]
+  [_na, _nT, _mRS],
+  [64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]]
 ];
 export var EpisodicReflectionConfigurationInput$: StaticStructureSchema = [3, n0, _ERCI,
   0,
-  [_na, _nT],
-  [64 | 0, 64 | 0]
+  [_na, _nT, _mRS],
+  [64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]]
 ];
 export var EpisodicReflectionOverride$: StaticStructureSchema = [3, n0, _ERO,
   0,
-  [_aTP, _mI, _na, _nT],
-  [[() => Prompt, 0], 0, 64 | 0, 64 | 0], 2
+  [_aTP, _mI, _na, _nT, _mRS],
+  [[() => Prompt, 0], 0, 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 2
 ];
 export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -2455,6 +2494,11 @@ export var IncludedOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, 
   [_oD, _cI],
   [() => Oauth2Discovery$, 0], 1
 ];
+export var IndexedKey$: StaticStructureSchema = [3, n0, _IK,
+  0,
+  [_k, _t],
+  [0, 0], 2
+];
 export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_mT, _te, _tP, _sS],
@@ -2765,6 +2809,11 @@ export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [3, n0, _LAAJEC,
   [_ins, _rSa, _mCo],
   [[() => EvaluatorInstructions, 0], [() => RatingScale$, 0], () => EvaluatorModelConfig$], 3
 ];
+export var LlmExtractionConfig$: StaticStructureSchema = [3, n0, _LECl,
+  0,
+  [_de, _lEI, _va],
+  [[() => Definition, 0], [() => LlmExtractionInstruction, 0], () => Validation$], 1
+];
 export var ManagedResourceDetails$: StaticStructureSchema = [3, n0, _MRD,
   0,
   [_do, _rGA, _rAA],
@@ -2807,13 +2856,18 @@ export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _stra, _sDR],
-  [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => StreamDeliveryResources$], 7
+  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _stra, _iK, _sDR],
+  [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => IndexedKeysList, () => StreamDeliveryResources$], 7
+];
+export var MemoryRecordSchema$: StaticStructureSchema = [3, n0, _MRS,
+  0,
+  [_mSe],
+  [[() => MetadataSchemaList, 0]]
 ];
 export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_sI, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st],
-  [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0], 5
+  [_sI, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st, _mRS],
+  [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0, [() => MemoryRecordSchema$, 0]], 5
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
   0,
@@ -2834,6 +2888,11 @@ export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_aRH, _aQP, _aRHl],
   [64 | 0, 64 | 0, 64 | 0]
+];
+export var MetadataSchemaEntry$: StaticStructureSchema = [3, n0, _MSE,
+  0,
+  [_k, _t, _eCx],
+  [0, 0, [() => ExtractionConfig$, 0]], 1
 ];
 export var MicrosoftOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _MOPCI,
   0,
@@ -2857,8 +2916,8 @@ export var ModifyMemoryStrategies$: StaticStructureSchema = [3, n0, _MMS,
 ];
 export var ModifyMemoryStrategyInput$: StaticStructureSchema = [3, n0, _MMSI,
   0,
-  [_mSI, _d, _na, _nT, _con],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => ModifyStrategyConfiguration$, 0]], 1
+  [_mSI, _d, _na, _nT, _con, _mRS],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => ModifyStrategyConfiguration$, 0], [() => MemoryRecordSchema$, 0]], 1
 ];
 export var ModifySelfManagedConfiguration$: StaticStructureSchema = [3, n0, _MSMC,
   0,
@@ -2874,6 +2933,11 @@ export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_nM, _nMC],
   [0, () => VpcConfig$], 1
+];
+export var NumberValidation$: StaticStructureSchema = [3, n0, _NV,
+  0,
+  [_mV, _mVa],
+  [1, 1]
 ];
 export var NumericalScaleDefinition$: StaticStructureSchema = [3, n0, _NSD,
   0,
@@ -2899,6 +2963,11 @@ export var OAuthCredentialProvider$: StaticStructureSchema = [3, n0, _OACP,
   0,
   [_pAr, _sc, _cPu, _gT, _dRU],
   [0, 64 | 0, [() => OAuthCustomParameters, 0], 0, 0], 2
+];
+export var OnBehalfOfTokenExchangeConfigType$: StaticStructureSchema = [3, n0, _OBOTECT,
+  0,
+  [_gT, _tEGTC],
+  [0, () => TokenExchangeGrantTypeConfigType$], 1
 ];
 export var OnlineEvaluationConfigSummary$: StaticStructureSchema = [3, n0, _OECS,
   0,
@@ -3062,8 +3131,8 @@ export var SemanticExtractionOverride$: StaticStructureSchema = [3, n0, _SEO,
 ];
 export var SemanticMemoryStrategyInput$: StaticStructureSchema = [3, n0, _SMSI,
   0,
-  [_n, _d, _na, _nT],
-  [0, [() => Description, 0], 64 | 0, 64 | 0], 1
+  [_n, _d, _na, _nT, _mRS],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 1
 ];
 export var SemanticOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _SOCI,
   0,
@@ -3155,6 +3224,16 @@ export var StreamDeliveryResources$: StaticStructureSchema = [3, n0, _SDR,
   [_reso],
   [() => StreamDeliveryResourcesList], 1
 ];
+export var StringListValidation$: StaticStructureSchema = [3, n0, _SLV,
+  0,
+  [_aV, _mIax],
+  [64 | 0, 1]
+];
+export var StringValidation$: StaticStructureSchema = [3, n0, _SV,
+  0,
+  [_aV],
+  [64 | 0], 1
+];
 export var SubmitRegistryRecordForApprovalRequest$: StaticStructureSchema = [3, n0, _SRRFAR,
   0,
   [_rIe, _rIec],
@@ -3172,8 +3251,8 @@ export var SummaryConsolidationOverride$: StaticStructureSchema = [3, n0, _SCOu,
 ];
 export var SummaryMemoryStrategyInput$: StaticStructureSchema = [3, n0, _SMSIu,
   0,
-  [_n, _d, _na, _nT],
-  [0, [() => Description, 0], 64 | 0, 64 | 0], 1
+  [_n, _d, _na, _nT, _mRS],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 1
 ];
 export var SummaryOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _SOCIu,
   0,
@@ -3244,6 +3323,11 @@ export var TokenBasedTriggerInput$: StaticStructureSchema = [3, n0, _TBTIo,
   0,
   [_tCo],
   [1]
+];
+export var TokenExchangeGrantTypeConfigType$: StaticStructureSchema = [3, n0, _TEGTCT,
+  0,
+  [_aTC, _aTS],
+  [0, 64 | 0], 1
 ];
 export var ToolDefinition$: StaticStructureSchema = [3, n0, _TDo,
   0,
@@ -3457,8 +3541,8 @@ export var UpdateHarnessResponse$: StaticStructureSchema = [3, n0, _UHRp,
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
-  [_mIe, _cTl, _d, _eED, _mERA, _mS, _sDR],
-  [[0, 1], [0, 4], [() => Description, 0], 1, 0, [() => ModifyMemoryStrategies$, 0], () => StreamDeliveryResources$], 1
+  [_mIe, _cTl, _d, _eED, _mERA, _mS, _aIK, _sDR],
+  [[0, 1], [0, 4], [() => Description, 0], 1, 0, [() => ModifyMemoryStrategies$, 0], () => IndexedKeysList, () => StreamDeliveryResources$], 1
 ];
 export var UpdateMemoryOutput$: StaticStructureSchema = [3, n0, _UMO,
   0,
@@ -3557,8 +3641,8 @@ export var UserPreferenceExtractionOverride$: StaticStructureSchema = [3, n0, _U
 ];
 export var UserPreferenceMemoryStrategyInput$: StaticStructureSchema = [3, n0, _UPMSI,
   0,
-  [_n, _d, _na, _nT],
-  [0, [() => Description, 0], 64 | 0, 64 | 0], 1
+  [_n, _d, _na, _nT, _mRS],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 1
 ];
 export var UserPreferenceOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _UPOCI,
   0,
@@ -3639,6 +3723,8 @@ var AllowedQueryParameters = 64 | 0;
 var AllowedRequestHeaders = 64 | 0;
 var AllowedResponseHeaders = 64 | 0;
 var AllowedScopesType = 64 | 0;
+var AllowedStringListValuesList = 64 | 0;
+var AllowedStringValuesList = 64 | 0;
 var ApiGatewayToolFilters: StaticListSchema = [1, n0, _AGTFp,
   0, () => ApiGatewayToolFilter$
 ];
@@ -3741,6 +3827,9 @@ var HarnessTools: StaticListSchema = [1, n0, _HTa,
   0, [() => HarnessTool$,
     0]
 ];
+var IndexedKeysList: StaticListSchema = [1, n0, _IKL,
+  0, () => IndexedKey$
+];
 var LogGroupNamesList = 64 | 0;
 var MatchPathPatterns = 64 | 0;
 var MatchPrincipalEntries: StaticListSchema = [1, n0, _MPE,
@@ -3758,6 +3847,10 @@ var MemoryStrategyList: StaticListSchema = [1, n0, _MSL,
 ];
 var MemorySummaryList: StaticListSchema = [1, n0, _MSLe,
   0, () => MemorySummary$
+];
+var MetadataSchemaList: StaticListSchema = [1, n0, _MSLet,
+  0, [() => MetadataSchemaEntry$,
+    0]
 ];
 var ModifyMemoryStrategiesList: StaticListSchema = [1, n0, _MMSL,
   0, [() => ModifyMemoryStrategyInput$,
@@ -3814,6 +3907,7 @@ var ResourceOauth2ReturnUrlListType = 64 | 0;
 var ResponseListType = 64 | 0;
 var RestApiMethods = 64 | 0;
 var ScopeList = 64 | 0;
+var ScopesListType = 64 | 0;
 var SecurityGroupIds = 64 | 0;
 var SecurityGroups = 64 | 0;
 var ServiceNamesList = 64 | 0;
@@ -4004,7 +4098,12 @@ export var EvaluatorReference$: StaticUnionSchema = [4, n0, _ER,
   [_eI],
   [0]
 ];
-export var ExtractionConfiguration$: StaticUnionSchema = [4, n0, _ECx,
+export var ExtractionConfig$: StaticUnionSchema = [4, n0, _ECx,
+  0,
+  [_lEC],
+  [[() => LlmExtractionConfig$, 0]]
+];
+export var ExtractionConfiguration$: StaticUnionSchema = [4, n0, _ECxt,
   0,
   [_cEC],
   [[() => CustomExtractionConfiguration$, 0]]
@@ -4117,7 +4216,7 @@ export var ModifyExtractionConfiguration$: StaticUnionSchema = [4, n0, _MEC,
 export var ModifyReflectionConfiguration$: StaticUnionSchema = [4, n0, _MRC,
   0,
   [_eRC, _cRC],
-  [() => EpisodicReflectionConfigurationInput$, [() => CustomReflectionConfigurationInput$, 0]]
+  [[() => EpisodicReflectionConfigurationInput$, 0], [() => CustomReflectionConfigurationInput$, 0]]
 ];
 export var Oauth2Discovery$: StaticUnionSchema = [4, n0, _OD,
   0,
@@ -4152,7 +4251,7 @@ export var RatingScale$: StaticUnionSchema = [4, n0, _RSa,
 export var ReflectionConfiguration$: StaticUnionSchema = [4, n0, _RCe,
   0,
   [_cRC, _eRC],
-  [[() => CustomReflectionConfiguration$, 0], () => EpisodicReflectionConfiguration$]
+  [[() => CustomReflectionConfiguration$, 0], [() => EpisodicReflectionConfiguration$, 0]]
 ];
 export var RegistryRecordCredentialProviderUnion$: StaticUnionSchema = [4, n0, _RRCPU,
   0,
@@ -4208,6 +4307,11 @@ export var TriggerConditionInput$: StaticUnionSchema = [4, n0, _TCI,
   0,
   [_mBT, _tBT, _tBTi],
   [() => MessageBasedTriggerInput$, () => TokenBasedTriggerInput$, () => TimeBasedTriggerInput$]
+];
+export var Validation$: StaticUnionSchema = [4, n0, _V,
+  0,
+  [_sVtr, _sLV, _nV],
+  [() => StringValidation$, () => StringListValidation$, () => NumberValidation$]
 ];
 export var CreateAgentRuntime$: StaticOperationSchema = [9, n0, _CAR,
   { [_ht]: ["PUT", "/runtimes/", 202] }, () => CreateAgentRuntimeRequest$, () => CreateAgentRuntimeResponse$

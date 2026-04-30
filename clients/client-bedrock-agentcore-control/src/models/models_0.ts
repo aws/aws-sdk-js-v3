@@ -35,6 +35,7 @@ import type {
   IncludedData,
   KeyType,
   ListingMode,
+  MetadataValueType,
   NetworkMode,
   OAuthGrantType,
   PrincipalMatchOperator,
@@ -8400,6 +8401,24 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * <p>A metadata key indexed for filtering.</p>
+ * @public
+ */
+export interface IndexedKey {
+  /**
+   * <p>The metadata key name to index.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The data type of the indexed key.</p>
+   * @public
+   */
+  type: MetadataValueType | undefined;
+}
+
+/**
  * <p>Configurations for overriding the consolidation step of the episodic memory strategy.</p>
  * @public
  */
@@ -8436,6 +8455,222 @@ export interface EpisodicOverrideExtractionConfigurationInput {
 }
 
 /**
+ * <p>Validation for NUMBER fields.</p>
+ * @public
+ */
+export interface NumberValidation {
+  /**
+   * <p>Minimum allowed value.</p>
+   * @public
+   */
+  minValue?: number | undefined;
+
+  /**
+   * <p>Maximum allowed value.</p>
+   * @public
+   */
+  maxValue?: number | undefined;
+}
+
+/**
+ * <p>Validation for STRINGLIST fields.</p>
+ * @public
+ */
+export interface StringListValidation {
+  /**
+   * <p>Allowed values for items in this STRINGLIST field.</p>
+   * @public
+   */
+  allowedValues?: string[] | undefined;
+
+  /**
+   * <p>Maximum number of items in the string list.</p>
+   * @public
+   */
+  maxItems?: number | undefined;
+}
+
+/**
+ * <p>Validation for STRING fields.</p>
+ * @public
+ */
+export interface StringValidation {
+  /**
+   * <p>Allowed values for this STRING field.</p>
+   * @public
+   */
+  allowedValues: string[] | undefined;
+}
+
+/**
+ * <p>Validation rules for extracted metadata values. Only one type can be specified, matching the field's data type.</p>
+ * @public
+ */
+export type Validation =
+  | Validation.NumberValidationMember
+  | Validation.StringListValidationMember
+  | Validation.StringValidationMember
+  | Validation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Validation {
+  /**
+   * <p>Validation for STRING fields.</p>
+   * @public
+   */
+  export interface StringValidationMember {
+    stringValidation: StringValidation;
+    stringListValidation?: never;
+    numberValidation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Validation for STRINGLIST fields.</p>
+   * @public
+   */
+  export interface StringListValidationMember {
+    stringValidation?: never;
+    stringListValidation: StringListValidation;
+    numberValidation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Validation for NUMBER fields.</p>
+   * @public
+   */
+  export interface NumberValidationMember {
+    stringValidation?: never;
+    stringListValidation?: never;
+    numberValidation: NumberValidation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValidation?: never;
+    stringListValidation?: never;
+    numberValidation?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValidation: (value: StringValidation) => T;
+    stringListValidation: (value: StringListValidation) => T;
+    numberValidation: (value: NumberValidation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Model-based metadata extraction configuration.</p>
+ * @public
+ */
+export interface LlmExtractionConfig {
+  /**
+   * <p>Instructions for extraction. Supports built-in operators like LATEST_VALUE or custom natural-language instructions.</p>
+   * @public
+   */
+  llmExtractionInstruction?: string | undefined;
+
+  /**
+   * <p>Description of what this metadata field represents.</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>Validation rules to constrain extracted values.</p>
+   * @public
+   */
+  validation?: Validation | undefined;
+}
+
+/**
+ * <p>Configuration for metadata extraction from conversational content.</p>
+ * @public
+ */
+export type ExtractionConfig =
+  | ExtractionConfig.LlmExtractionConfigMember
+  | ExtractionConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExtractionConfig {
+  /**
+   * <p>Model-based extraction using a definition and instructions.</p>
+   * @public
+   */
+  export interface LlmExtractionConfigMember {
+    llmExtractionConfig: LlmExtractionConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    llmExtractionConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    llmExtractionConfig: (value: LlmExtractionConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A metadata field definition within a strategy's schema.</p>
+ * @public
+ */
+export interface MetadataSchemaEntry {
+  /**
+   * <p>The metadata field name. Must match an indexed key to be queryable via metadata filters.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The MetadataValueType.</p>
+   * @public
+   */
+  type?: MetadataValueType | undefined;
+
+  /**
+   * <p>Configuration for extracting this metadata value from conversational content.</p>
+   * @public
+   */
+  extractionConfig?: ExtractionConfig | undefined;
+}
+
+/**
+ * <p>Schema for metadata on memory records generated by a strategy.</p>
+ * @public
+ */
+export interface MemoryRecordSchema {
+  /**
+   * <p>The metadata field definitions for this strategy.</p>
+   * @public
+   */
+  metadataSchema?: MetadataSchemaEntry[] | undefined;
+}
+
+/**
  * <p>Configurations for overriding the reflection step of the episodic memory strategy.</p>
  * @public
  */
@@ -8465,6 +8700,12 @@ export interface EpisodicOverrideReflectionConfigurationInput {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this reflection override.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -8919,6 +9160,12 @@ export interface CustomMemoryStrategyInput {
    * @public
    */
   configuration?: CustomConfigurationInput | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -8939,6 +9186,12 @@ export interface EpisodicReflectionConfigurationInput {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by reflections.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -8977,6 +9230,12 @@ export interface EpisodicMemoryStrategyInput {
    * @public
    */
   reflectionConfiguration?: EpisodicReflectionConfigurationInput | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -9009,6 +9268,12 @@ export interface SemanticMemoryStrategyInput {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>Schema for metadata on memory records generated by a strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -9041,6 +9306,12 @@ export interface SummaryMemoryStrategyInput {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -9073,6 +9344,12 @@ export interface UserPreferenceMemoryStrategyInput {
    * @public
    */
   namespaceTemplates?: string[] | undefined;
+
+  /**
+   * <p>Schema for metadata fields on records generated by this strategy.</p>
+   * @public
+   */
+  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }
 
 /**
@@ -9198,291 +9475,4 @@ export interface ContentConfiguration {
    * @public
    */
   level?: ContentLevel | undefined;
-}
-
-/**
- * <p>Configuration for Kinesis Data Stream delivery.</p>
- * @public
- */
-export interface KinesisResource {
-  /**
-   * <p>ARN of the Kinesis Data Stream.</p>
-   * @public
-   */
-  dataStreamArn: string | undefined;
-
-  /**
-   * <p>Content configurations for stream delivery.</p>
-   * @public
-   */
-  contentConfigurations: ContentConfiguration[] | undefined;
-}
-
-/**
- * <p>Supported stream delivery resource types.</p>
- * @public
- */
-export type StreamDeliveryResource =
-  | StreamDeliveryResource.KinesisMember
-  | StreamDeliveryResource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace StreamDeliveryResource {
-  /**
-   * <p>Kinesis Data Stream configuration.</p>
-   * @public
-   */
-  export interface KinesisMember {
-    kinesis: KinesisResource;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    kinesis?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    kinesis: (value: KinesisResource) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for streaming memory record data to external resources.</p>
- * @public
- */
-export interface StreamDeliveryResources {
-  /**
-   * <p>List of stream delivery resource configurations.</p>
-   * @public
-   */
-  resources: StreamDeliveryResource[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMemoryInput {
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The name of the memory. The name must be unique within your account.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the memory.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the memory data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the memory to access Amazon Web Services services.</p>
-   * @public
-   */
-  memoryExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>The duration after which memory events expire. Specified as an ISO 8601 duration.</p>
-   * @public
-   */
-  eventExpiryDuration: number | undefined;
-
-  /**
-   * <p>The memory strategies to use for this memory. Strategies define how information is extracted, processed, and consolidated.</p>
-   * @public
-   */
-  memoryStrategies?: MemoryStrategyInput[] | undefined;
-
-  /**
-   * <p>Configuration for streaming memory record data to external resources.</p>
-   * @public
-   */
-  streamDeliveryResources?: StreamDeliveryResources | undefined;
-
-  /**
-   * <p>A map of tag keys and values to assign to an AgentCore Memory. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Contains configurations to override the default consolidation step for the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicConsolidationOverride {
-  /**
-   * <p>The text appended to the prompt for the consolidation step of the episodic memory strategy.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID used for the consolidation step of the episodic memory strategy.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains semantic consolidation override configuration.</p>
- * @public
- */
-export interface SemanticConsolidationOverride {
-  /**
-   * <p>The text to append to the prompt for semantic consolidation.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for semantic consolidation.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains summary consolidation override configuration.</p>
- * @public
- */
-export interface SummaryConsolidationOverride {
-  /**
-   * <p>The text to append to the prompt for summary consolidation.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for summary consolidation.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains user preference consolidation override configuration.</p>
- * @public
- */
-export interface UserPreferenceConsolidationOverride {
-  /**
-   * <p>The text to append to the prompt for user preference consolidation.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for user preference consolidation.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Contains custom consolidation configuration information.</p>
- * @public
- */
-export type CustomConsolidationConfiguration =
-  | CustomConsolidationConfiguration.EpisodicConsolidationOverrideMember
-  | CustomConsolidationConfiguration.SemanticConsolidationOverrideMember
-  | CustomConsolidationConfiguration.SummaryConsolidationOverrideMember
-  | CustomConsolidationConfiguration.UserPreferenceConsolidationOverrideMember
-  | CustomConsolidationConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomConsolidationConfiguration {
-  /**
-   * <p>The semantic consolidation override configuration.</p>
-   * @public
-   */
-  export interface SemanticConsolidationOverrideMember {
-    semanticConsolidationOverride: SemanticConsolidationOverride;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The summary consolidation override configuration.</p>
-   * @public
-   */
-  export interface SummaryConsolidationOverrideMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride: SummaryConsolidationOverride;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The user preference consolidation override configuration.</p>
-   * @public
-   */
-  export interface UserPreferenceConsolidationOverrideMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride: UserPreferenceConsolidationOverride;
-    episodicConsolidationOverride?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The configurations to override the default consolidation step for the episodic memory strategy.</p>
-   * @public
-   */
-  export interface EpisodicConsolidationOverrideMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride: EpisodicConsolidationOverride;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    semanticConsolidationOverride?: never;
-    summaryConsolidationOverride?: never;
-    userPreferenceConsolidationOverride?: never;
-    episodicConsolidationOverride?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    semanticConsolidationOverride: (value: SemanticConsolidationOverride) => T;
-    summaryConsolidationOverride: (value: SummaryConsolidationOverride) => T;
-    userPreferenceConsolidationOverride: (value: UserPreferenceConsolidationOverride) => T;
-    episodicConsolidationOverride: (value: EpisodicConsolidationOverride) => T;
-    _: (name: string, value: any) => T;
-  }
 }

@@ -3,6 +3,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   Action$,
+  ActorTokenContentType,
   AgentCardDefinition$,
   AgentManagedRuntimeType,
   AgentRuntime$,
@@ -45,6 +46,7 @@ import {
   CertificateLocation$,
   ClaimMatchOperatorType,
   ClaimMatchValueType$,
+  ClientAuthenticationMethodType,
   CloudWatchLogsInputConfig$,
   CloudWatchOutputConfig$,
   Code$,
@@ -279,6 +281,7 @@ import {
   EvaluatorSummary$,
   EvaluatorType,
   ExceptionLevel,
+  ExtractionConfig$,
   ExtractionConfiguration$,
   FilesystemConfiguration$,
   Filter$,
@@ -437,6 +440,7 @@ import {
   IncludedData,
   IncludedOauth2ProviderConfigInput$,
   IncludedOauth2ProviderConfigOutput$,
+  IndexedKey$,
   InferenceConfiguration$,
   InterceptorConfiguration$,
   InterceptorInputConfiguration$,
@@ -554,6 +558,7 @@ import {
   ListWorkloadIdentitiesRequest$,
   ListWorkloadIdentitiesResponse$,
   LlmAsAJudgeEvaluatorConfig$,
+  LlmExtractionConfig$,
   ManagedResourceDetails$,
   ManagedVpcResource$,
   MatchPaths$,
@@ -566,6 +571,7 @@ import {
   McpTargetConfiguration$,
   McpToolSchemaConfiguration$,
   Memory$,
+  MemoryRecordSchema$,
   MemoryStatus,
   MemoryStrategy$,
   MemoryStrategyInput$,
@@ -576,6 +582,8 @@ import {
   MessageBasedTrigger$,
   MessageBasedTriggerInput$,
   MetadataConfiguration$,
+  MetadataSchemaEntry$,
+  MetadataValueType,
   MicrosoftOauth2ProviderConfigInput$,
   MicrosoftOauth2ProviderConfigOutput$,
   ModifyConsolidationConfiguration$,
@@ -588,6 +596,7 @@ import {
   ModifyStrategyConfiguration$,
   NetworkConfiguration$,
   NetworkMode,
+  NumberValidation$,
   NumericalScaleDefinition$,
   OAuth2AuthorizationData$,
   Oauth2AuthorizationServerMetadata$,
@@ -597,6 +606,8 @@ import {
   Oauth2ProviderConfigOutput$,
   OAuthCredentialProvider$,
   OAuthGrantType,
+  OnBehalfOfTokenExchangeConfigType$,
+  OnBehalfOfTokenExchangeGrantTypeType,
   OnlineEvaluationConfigStatus,
   OnlineEvaluationConfigSummary$,
   OnlineEvaluationExecutionStatus,
@@ -716,6 +727,8 @@ import {
   StrategyConfiguration$,
   StreamDeliveryResource$,
   StreamDeliveryResources$,
+  StringListValidation$,
+  StringValidation$,
   SubmitRegistryRecordForApproval$,
   SubmitRegistryRecordForApprovalCommand,
   SubmitRegistryRecordForApprovalRequest$,
@@ -748,6 +761,7 @@ import {
   TimeBasedTriggerInput$,
   TokenBasedTrigger$,
   TokenBasedTriggerInput$,
+  TokenExchangeGrantTypeConfigType$,
   ToolDefinition$,
   ToolSchema$,
   ToolsDefinition$,
@@ -857,6 +871,7 @@ import {
   UserPreferenceOverrideConfigurationInput$,
   UserPreferenceOverrideConsolidationConfigurationInput$,
   UserPreferenceOverrideExtractionConfigurationInput$,
+  Validation$,
   ValidationException,
   ValidationException$,
   ValidationExceptionField$,
@@ -1280,6 +1295,7 @@ assert(typeof EvaluatorConfig$ === "object");
 assert(typeof EvaluatorModelConfig$ === "object");
 assert(typeof EvaluatorReference$ === "object");
 assert(typeof EvaluatorSummary$ === "object");
+assert(typeof ExtractionConfig$ === "object");
 assert(typeof ExtractionConfiguration$ === "object");
 assert(typeof FilesystemConfiguration$ === "object");
 assert(typeof Filter$ === "object");
@@ -1378,6 +1394,7 @@ assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IamPrincipal$ === "object");
 assert(typeof IncludedOauth2ProviderConfigInput$ === "object");
 assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
+assert(typeof IndexedKey$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
 assert(typeof InterceptorConfiguration$ === "object");
 assert(typeof InterceptorInputConfiguration$ === "object");
@@ -1441,6 +1458,7 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListWorkloadIdentitiesRequest$ === "object");
 assert(typeof ListWorkloadIdentitiesResponse$ === "object");
 assert(typeof LlmAsAJudgeEvaluatorConfig$ === "object");
+assert(typeof LlmExtractionConfig$ === "object");
 assert(typeof ManagedResourceDetails$ === "object");
 assert(typeof ManagedVpcResource$ === "object");
 assert(typeof MatchPaths$ === "object");
@@ -1453,12 +1471,14 @@ assert(typeof McpServerTargetConfiguration$ === "object");
 assert(typeof McpTargetConfiguration$ === "object");
 assert(typeof McpToolSchemaConfiguration$ === "object");
 assert(typeof Memory$ === "object");
+assert(typeof MemoryRecordSchema$ === "object");
 assert(typeof MemoryStrategy$ === "object");
 assert(typeof MemoryStrategyInput$ === "object");
 assert(typeof MemorySummary$ === "object");
 assert(typeof MessageBasedTrigger$ === "object");
 assert(typeof MessageBasedTriggerInput$ === "object");
 assert(typeof MetadataConfiguration$ === "object");
+assert(typeof MetadataSchemaEntry$ === "object");
 assert(typeof MicrosoftOauth2ProviderConfigInput$ === "object");
 assert(typeof MicrosoftOauth2ProviderConfigOutput$ === "object");
 assert(typeof ModifyConsolidationConfiguration$ === "object");
@@ -1470,6 +1490,7 @@ assert(typeof ModifyReflectionConfiguration$ === "object");
 assert(typeof ModifySelfManagedConfiguration$ === "object");
 assert(typeof ModifyStrategyConfiguration$ === "object");
 assert(typeof NetworkConfiguration$ === "object");
+assert(typeof NumberValidation$ === "object");
 assert(typeof NumericalScaleDefinition$ === "object");
 assert(typeof OAuth2AuthorizationData$ === "object");
 assert(typeof Oauth2AuthorizationServerMetadata$ === "object");
@@ -1478,6 +1499,7 @@ assert(typeof Oauth2Discovery$ === "object");
 assert(typeof Oauth2ProviderConfigInput$ === "object");
 assert(typeof Oauth2ProviderConfigOutput$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
+assert(typeof OnBehalfOfTokenExchangeConfigType$ === "object");
 assert(typeof OnlineEvaluationConfigSummary$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof Policy$ === "object");
@@ -1540,6 +1562,8 @@ assert(typeof StaticRoute$ === "object");
 assert(typeof StrategyConfiguration$ === "object");
 assert(typeof StreamDeliveryResource$ === "object");
 assert(typeof StreamDeliveryResources$ === "object");
+assert(typeof StringListValidation$ === "object");
+assert(typeof StringValidation$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalRequest$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalResponse$ === "object");
 assert(typeof SummaryConsolidationOverride$ === "object");
@@ -1559,6 +1583,7 @@ assert(typeof TimeBasedTrigger$ === "object");
 assert(typeof TimeBasedTriggerInput$ === "object");
 assert(typeof TokenBasedTrigger$ === "object");
 assert(typeof TokenBasedTriggerInput$ === "object");
+assert(typeof TokenExchangeGrantTypeConfigType$ === "object");
 assert(typeof ToolDefinition$ === "object");
 assert(typeof ToolSchema$ === "object");
 assert(typeof ToolsDefinition$ === "object");
@@ -1628,6 +1653,7 @@ assert(typeof UserPreferenceMemoryStrategyInput$ === "object");
 assert(typeof UserPreferenceOverrideConfigurationInput$ === "object");
 assert(typeof UserPreferenceOverrideConsolidationConfigurationInput$ === "object");
 assert(typeof UserPreferenceOverrideExtractionConfigurationInput$ === "object");
+assert(typeof Validation$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VersionCreatedBySource$ === "object");
 assert(typeof VersionFilter$ === "object");
@@ -1638,6 +1664,7 @@ assert(typeof WeightedRoute$ === "object");
 assert(typeof WorkloadIdentityDetails$ === "object");
 assert(typeof WorkloadIdentityType$ === "object");
 // enums
+assert(typeof ActorTokenContentType === "object");
 assert(typeof AgentManagedRuntimeType === "object");
 assert(typeof AgentRuntimeEndpointStatus === "object");
 assert(typeof AgentRuntimeStatus === "object");
@@ -1648,6 +1675,7 @@ assert(typeof BrowserNetworkMode === "object");
 assert(typeof BrowserProfileStatus === "object");
 assert(typeof BrowserStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
+assert(typeof ClientAuthenticationMethodType === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
 assert(typeof CodeInterpreterStatus === "object");
 assert(typeof ConfigurationBundleStatus === "object");
@@ -1679,8 +1707,10 @@ assert(typeof MemoryStatus === "object");
 assert(typeof MemoryStrategyStatus === "object");
 assert(typeof MemoryStrategyType === "object");
 assert(typeof MemoryView === "object");
+assert(typeof MetadataValueType === "object");
 assert(typeof NetworkMode === "object");
 assert(typeof OAuthGrantType === "object");
+assert(typeof OnBehalfOfTokenExchangeGrantTypeType === "object");
 assert(typeof OnlineEvaluationConfigStatus === "object");
 assert(typeof OnlineEvaluationExecutionStatus === "object");
 assert(typeof OverrideType === "object");

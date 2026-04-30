@@ -59,8 +59,8 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  *           ],
  *         },
  *       },
- *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientId: "STRING_VALUE",
+ *       clientSecret: "STRING_VALUE",
  *       privateEndpoint: { // PrivateEndpoint Union: only one key present
  *         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
  *           resourceConfigurationIdentifier: "STRING_VALUE",
@@ -104,6 +104,16 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  *           },
  *         },
  *       ],
+ *       onBehalfOfTokenExchangeConfig: { // OnBehalfOfTokenExchangeConfigType
+ *         grantType: "TOKEN_EXCHANGE" || "JWT_AUTHORIZATION_GRANT", // required
+ *         tokenExchangeGrantTypeConfig: { // TokenExchangeGrantTypeConfigType
+ *           actorTokenContent: "NONE" || "M2M" || "AWS_IAM_ID_TOKEN_JWT", // required
+ *           actorTokenScopes: [ // ScopesListType
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT",
  *     },
  *     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
@@ -213,6 +223,16 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  * //           },
  * //         },
  * //       ],
+ * //       onBehalfOfTokenExchangeConfig: { // OnBehalfOfTokenExchangeConfigType
+ * //         grantType: "TOKEN_EXCHANGE" || "JWT_AUTHORIZATION_GRANT", // required
+ * //         tokenExchangeGrantTypeConfig: { // TokenExchangeGrantTypeConfigType
+ * //           actorTokenContent: "NONE" || "M2M" || "AWS_IAM_ID_TOKEN_JWT", // required
+ * //           actorTokenScopes: [ // ScopesListType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT",
  * //     },
  * //     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
