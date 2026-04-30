@@ -21,6 +21,7 @@ import type {
   HarnessToolUseStatus,
   HarnessToolUseType,
   LanguageRuntime,
+  MemoryRecordOperatorType,
   MemoryRecordStatus,
   MouseButton,
   Oauth2FlowType,
@@ -5784,6 +5785,18 @@ export interface GetResourceOauth2TokenRequest {
    * @public
    */
   customState?: string | undefined;
+
+  /**
+   * <p>The resources to include in the token request. These are used to specify the target resources for which the OAuth2 token is being requested.</p>
+   * @public
+   */
+  resources?: string[] | undefined;
+
+  /**
+   * <p>The audiences to include in the token request. These are used to specify the intended recipients of the OAuth2 token.</p>
+   * @public
+   */
+  audiences?: string[] | undefined;
 }
 
 /**
@@ -8046,6 +8059,93 @@ export namespace MemoryContent {
 }
 
 /**
+ * <p>The value of a memory record metadata entry.</p>
+ * @public
+ */
+export type MemoryRecordMetadataValue =
+  | MemoryRecordMetadataValue.DateTimeValueMember
+  | MemoryRecordMetadataValue.NumberValueMember
+  | MemoryRecordMetadataValue.StringListValueMember
+  | MemoryRecordMetadataValue.StringValueMember
+  | MemoryRecordMetadataValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryRecordMetadataValue {
+  /**
+   * <p>A string value.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    stringListValue?: never;
+    numberValue?: never;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of string values.</p>
+   * @public
+   */
+  export interface StringListValueMember {
+    stringValue?: never;
+    stringListValue: string[];
+    numberValue?: never;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A numeric value.</p>
+   * @public
+   */
+  export interface NumberValueMember {
+    stringValue?: never;
+    stringListValue?: never;
+    numberValue: number;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A timestamp value in ISO 8601 UTC format.</p>
+   * @public
+   */
+  export interface DateTimeValueMember {
+    stringValue?: never;
+    stringListValue?: never;
+    numberValue?: never;
+    dateTimeValue: Date;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    stringListValue?: never;
+    numberValue?: never;
+    dateTimeValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    stringListValue: (value: string[]) => T;
+    numberValue: (value: number) => T;
+    dateTimeValue: (value: Date) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Input structure to create a new memory record.</p>
  * @public
  */
@@ -8079,6 +8179,12 @@ export interface MemoryRecordCreateInput {
    * @public
    */
   memoryStrategyId?: string | undefined;
+
+  /**
+   * <p>Metadata key-value pairs to be stored with the memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
 }
 
 /**
@@ -8237,6 +8343,12 @@ export interface MemoryRecordUpdateInput {
    * @public
    */
   memoryStrategyId?: string | undefined;
+
+  /**
+   * <p>Metadata key-value pairs to be stored with the memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
 }
 
 /**
@@ -8722,7 +8834,7 @@ export interface MemoryRecord {
    * <p>A map of metadata key-value pairs associated with a memory record.</p>
    * @public
    */
-  metadata?: Record<string, MetadataValue> | undefined;
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
 }
 
 /**
@@ -9160,6 +9272,108 @@ export interface ListMemoryExtractionJobsOutput {
 }
 
 /**
+ * <p>The left-hand side of a memory record metadata filter expression.</p>
+ * @public
+ */
+export type MemoryRecordLeftExpression =
+  | MemoryRecordLeftExpression.MetadataKeyMember
+  | MemoryRecordLeftExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryRecordLeftExpression {
+  /**
+   * <p>The metadata key to filter on.</p>
+   * @public
+   */
+  export interface MetadataKeyMember {
+    metadataKey: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataKey?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataKey: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The right-hand side of a memory record metadata filter expression.</p>
+ * @public
+ */
+export type MemoryRecordRightExpression =
+  | MemoryRecordRightExpression.MetadataValueMember
+  | MemoryRecordRightExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryRecordRightExpression {
+  /**
+   * <p>The metadata value to compare against.</p>
+   * @public
+   */
+  export interface MetadataValueMember {
+    metadataValue: MemoryRecordMetadataValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataValue: (value: MemoryRecordMetadataValue) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Filters to apply to metadata associated with a memory. Specify the metadata key and value in the <code>left</code> and <code>right</code> fields and use the <code>operator</code> field to define the relationship to match.</p>
+ * @public
+ */
+export interface MemoryMetadataFilterExpression {
+  /**
+   * <p>The metadata key to evaluate.</p>
+   * @public
+   */
+  left: MemoryRecordLeftExpression | undefined;
+
+  /**
+   * <p>The relationship between the metadata key and value to match when applying the metadata filter.</p>
+   * @public
+   */
+  operator: MemoryRecordOperatorType | undefined;
+
+  /**
+   * <p>The value to compare against. Required for all operators except EXISTS and NOT_EXISTS.</p>
+   * @public
+   */
+  right?: MemoryRecordRightExpression | undefined;
+}
+
+/**
  * @public
  */
 export interface ListMemoryRecordsInput {
@@ -9198,6 +9412,12 @@ export interface ListMemoryRecordsInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>A list of metadata filter expressions to scope the returned memory records.</p>
+   * @public
+   */
+  metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
 }
 
 /**
@@ -9245,7 +9465,7 @@ export interface MemoryRecordSummary {
    * <p>A map of metadata key-value pairs associated with a memory record.</p>
    * @public
    */
-  metadata?: Record<string, MetadataValue> | undefined;
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
 }
 
 /**
@@ -9351,30 +9571,6 @@ export interface ListSessionsOutput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>Filters to apply to metadata associated with a memory. Specify the metadata key and value in the <code>left</code> and <code>right</code> fields and use the <code>operator</code> field to define the relationship to match.</p>
- * @public
- */
-export interface MemoryMetadataFilterExpression {
-  /**
-   * <p>Left expression of the event metadata filter.</p>
-   * @public
-   */
-  left: LeftExpression | undefined;
-
-  /**
-   * <p>The relationship between the metadata key and value to match when applying the metadata filter.</p>
-   * @public
-   */
-  operator: OperatorType | undefined;
-
-  /**
-   * <p>Right expression of the <code>eventMetadata</code>filter.</p>
-   * @public
-   */
-  right?: RightExpression | undefined;
 }
 
 /**
@@ -9550,58 +9746,4 @@ export interface CustomDescriptor {
    * @public
    */
   inlineContent?: string | undefined;
-}
-
-/**
- * <p> The MCP server definition with a schema version and inline content. The <code>schemaVersion</code> identifies the version of the MCP server configuration schema.</p>
- * @public
- */
-export interface ServerDefinition {
-  /**
-   * <p> The schema version of the MCP server configuration. The schema version identifies the format of the server definition content.</p>
-   * @public
-   */
-  schemaVersion?: string | undefined;
-
-  /**
-   * <p> The inline content of the server definition.</p>
-   * @public
-   */
-  inlineContent?: string | undefined;
-}
-
-/**
- * <p> The MCP tools definition with a protocol version and inline content. The <code>protocolVersion</code> identifies the MCP protocol version that the tools conform to. This differs from <code>schemaVersion</code> in the server definition, which identifies the server configuration schema format.</p>
- * @public
- */
-export interface ToolsDefinition {
-  /**
-   * <p> The MCP protocol version that the tools conform to. This differs from the <code>schemaVersion</code> field in the server definition, which identifies the server configuration schema format.</p>
-   * @public
-   */
-  protocolVersion?: string | undefined;
-
-  /**
-   * <p> The inline content of the tools definition.</p>
-   * @public
-   */
-  inlineContent?: string | undefined;
-}
-
-/**
- * <p> The MCP (Model Context Protocol) descriptor configuration for a registry record. Contains the server definition and tools definition.</p>
- * @public
- */
-export interface McpDescriptor {
-  /**
-   * <p> The MCP server definition that describes the server configuration.</p>
-   * @public
-   */
-  server: ServerDefinition | undefined;
-
-  /**
-   * <p> The MCP tools definition that describes the available tools.</p>
-   * @public
-   */
-  tools: ToolsDefinition | undefined;
 }

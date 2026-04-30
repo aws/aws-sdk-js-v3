@@ -318,7 +318,11 @@ import {
   MemoryRecord$,
   MemoryRecordCreateInput$,
   MemoryRecordDeleteInput$,
+  MemoryRecordLeftExpression$,
+  MemoryRecordMetadataValue$,
+  MemoryRecordOperatorType,
   MemoryRecordOutput$,
+  MemoryRecordRightExpression$,
   MemoryRecordStatus,
   MemoryRecordSummary$,
   MemoryRecordUpdateInput$,
@@ -807,7 +811,10 @@ assert(typeof MemoryMetadataFilterExpression$ === "object");
 assert(typeof MemoryRecord$ === "object");
 assert(typeof MemoryRecordCreateInput$ === "object");
 assert(typeof MemoryRecordDeleteInput$ === "object");
+assert(typeof MemoryRecordLeftExpression$ === "object");
+assert(typeof MemoryRecordMetadataValue$ === "object");
 assert(typeof MemoryRecordOutput$ === "object");
+assert(typeof MemoryRecordRightExpression$ === "object");
 assert(typeof MemoryRecordSummary$ === "object");
 assert(typeof MemoryRecordUpdateInput$ === "object");
 assert(typeof MessageMetadata$ === "object");
@@ -925,6 +932,7 @@ assert(typeof HarnessToolType === "object");
 assert(typeof HarnessToolUseStatus === "object");
 assert(typeof HarnessToolUseType === "object");
 assert(typeof LanguageRuntime === "object");
+assert(typeof MemoryRecordOperatorType === "object");
 assert(typeof MemoryRecordStatus === "object");
 assert(typeof MouseButton === "object");
 assert(typeof Oauth2FlowType === "object");

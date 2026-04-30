@@ -305,8 +305,12 @@ const _MRCI = "MemoryRecordCreateInput";
 const _MRCIL = "MemoryRecordsCreateInputList";
 const _MRDI = "MemoryRecordDeleteInput";
 const _MRDIL = "MemoryRecordsDeleteInputList";
+const _MRLE = "MemoryRecordLeftExpression";
+const _MRMM = "MemoryRecordMetadataMap";
+const _MRMV = "MemoryRecordMetadataValue";
 const _MRO = "MemoryRecordOutput";
 const _MROL = "MemoryRecordsOutputList";
+const _MRRE = "MemoryRecordRightExpression";
 const _MRS = "MemoryRecordSummary";
 const _MRSL = "MemoryRecordSummaryList";
 const _MRUI = "MemoryRecordUpdateInput";
@@ -480,6 +484,7 @@ const _ac = "accept";
 const _act = "action";
 const _ar = "arguments";
 const _as = "assertions";
+const _au = "audiences";
 const _b = "branch";
 const _bA = "bundleArn";
 const _bAa = "basicAuth";
@@ -541,6 +546,7 @@ const _dPi = "directoryPath";
 const _dRU = "defaultReturnUrl";
 const _dSC = "dataSourceConfig";
 const _dT = "descriptorType";
+const _dTV = "dateTimeValue";
 const _dV = "doubleValue";
 const _dX = "deltaX";
 const _dY = "deltaY";
@@ -676,6 +682,7 @@ const _nOSI = "numberOfSessionsIgnored";
 const _nOSIP = "numberOfSessionsInProgress";
 const _nP = "namespacePath";
 const _nT = "nextToken";
+const _nV = "numberValue";
 const _na = "namespace";
 const _nam = "namespaces";
 const _no = "none";
@@ -732,6 +739,7 @@ const _rTD = "recommendedToolDescription";
 const _rUI = "runtimeUserId";
 const _re = "records";
 const _res = "resource";
+const _reso = "resources";
 const _resp = "response";
 const _resu = "results";
 const _resul = "result";
@@ -755,6 +763,7 @@ const _sIe = "sessionIds";
 const _sIp = "spanId";
 const _sIpa = "spanIds";
 const _sIt = "strategyId";
+const _sLV = "stringListValue";
 const _sM = "skillMd";
 const _sMe = "secretsManager";
 const _sMes = "sessionMetadata";
@@ -1490,8 +1499,8 @@ export var GetResourceApiKeyResponse$: StaticStructureSchema = [3, n0, _GRAKRe,
 ];
 export var GetResourceOauth2TokenRequest$: StaticStructureSchema = [3, n0, _GROTR,
   0,
-  [_wIT, _rCPN, _sc, _oF, _sU, _rORU, _fA, _cP, _cSu],
-  [[() => WorkloadIdentityTokenType, 0], 0, 64 | 0, 0, 0, 0, 2, [() => CustomRequestParametersType, 0], [() => State, 0]], 4
+  [_wIT, _rCPN, _sc, _oF, _sU, _rORU, _fA, _cP, _cSu, _reso, _au],
+  [[() => WorkloadIdentityTokenType, 0], 0, 64 | 0, 0, 0, 0, 2, [() => CustomRequestParametersType, 0], [() => State, 0], 64 | 0, 64 | 0], 4
 ];
 export var GetResourceOauth2TokenResponse$: StaticStructureSchema = [3, n0, _GROTRe,
   0,
@@ -1820,8 +1829,8 @@ export var ListMemoryExtractionJobsOutput$: StaticStructureSchema = [3, n0, _LME
 ];
 export var ListMemoryRecordsInput$: StaticStructureSchema = [3, n0, _LMRI,
   0,
-  [_mI, _na, _nP, _mSIe, _mRa, _nT],
-  [[0, 1], 0, 0, 0, 1, 0], 1
+  [_mI, _na, _nP, _mSIe, _mRa, _nT, _mF],
+  [[0, 1], 0, 0, 0, 1, 0, () => MemoryMetadataFilterList], 1
 ];
 export var ListMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _LMRO,
   0,
@@ -1861,17 +1870,17 @@ export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
 export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMFE,
   0,
   [_le, _o, _ri],
-  [() => LeftExpression$, 0, () => RightExpression$], 2
+  [() => MemoryRecordLeftExpression$, 0, () => MemoryRecordRightExpression$], 2
 ];
 export var MemoryRecord$: StaticStructureSchema = [3, n0, _MR,
   0,
   [_mRI, _co, _mSIe, _nam, _cA, _met],
-  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, () => MetadataMap], 5
+  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, () => MemoryRecordMetadataMap], 5
 ];
 export var MemoryRecordCreateInput$: StaticStructureSchema = [3, n0, _MRCI,
   0,
-  [_rIe, _nam, _co, _tim, _mSIe],
-  [0, 64 | 0, [() => MemoryContent$, 0], 4, 0], 4
+  [_rIe, _nam, _co, _tim, _mSIe, _met],
+  [0, 64 | 0, [() => MemoryContent$, 0], 4, 0, () => MemoryRecordMetadataMap], 4
 ];
 export var MemoryRecordDeleteInput$: StaticStructureSchema = [3, n0, _MRDI,
   0,
@@ -1886,12 +1895,12 @@ export var MemoryRecordOutput$: StaticStructureSchema = [3, n0, _MRO,
 export var MemoryRecordSummary$: StaticStructureSchema = [3, n0, _MRS,
   0,
   [_mRI, _co, _mSIe, _nam, _cA, _sco, _met],
-  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 1, () => MetadataMap], 5
+  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 1, () => MemoryRecordMetadataMap], 5
 ];
 export var MemoryRecordUpdateInput$: StaticStructureSchema = [3, n0, _MRUI,
   0,
-  [_mRI, _tim, _co, _nam, _mSIe],
-  [0, 4, [() => MemoryContent$, 0], 64 | 0, 0], 2
+  [_mRI, _tim, _co, _nam, _mSIe, _met],
+  [0, 4, [() => MemoryContent$, 0], 64 | 0, 0, () => MemoryRecordMetadataMap], 2
 ];
 export var MessageMetadata$: StaticStructureSchema = [3, n0, _MM,
   0,
@@ -2300,6 +2309,7 @@ var ABTestSummaryList: StaticListSchema = [1, n0, _ABTSL,
 var ActorSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => ActorSummary$
 ];
+var AudiencesListType = 64 | 0;
 var BatchEvaluationSummaryList: StaticListSchema = [1, n0, _BESL,
   0, () => BatchEvaluationSummary$
 ];
@@ -2445,6 +2455,7 @@ var RegistryRecordSummaryList: StaticListSchema = [1, n0, _RRSL,
   0, [() => RegistryRecordSummary$,
     0]
 ];
+var ResourcesListType = 64 | 0;
 var ScopesListType = 64 | 0;
 var ServiceNameList = 64 | 0;
 var SessionMetadataList: StaticListSchema = [1, n0, _SMLe,
@@ -2458,6 +2469,7 @@ var Spans: StaticListSchema = [1, n0, _Sp,
   8, 15
 ];
 var StringList = 64 | 0;
+var StringValueList = 64 | 0;
 var TargetPathList = 64 | 0;
 var ToolDescriptionList: StaticListSchema = [1, n0, _TDL,
   0, [() => ToolDescriptionInput$,
@@ -2485,6 +2497,9 @@ var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT,
 ];
 var HttpHeadersMap: StaticMapSchema = [2, n0, _HHM,
   8, 0, 0
+];
+var MemoryRecordMetadataMap: StaticMapSchema = [2, n0, _MRMM,
+  0, 0, () => MemoryRecordMetadataValue$
 ];
 var MetadataMap: StaticMapSchema = [2, n0, _MMe,
   0, 0, () => MetadataValue$
@@ -2660,6 +2675,21 @@ export var MemoryContent$: StaticUnionSchema = [4, n0, _MC,
   0,
   [_te],
   [[() => SensitiveString, 0]]
+];
+export var MemoryRecordLeftExpression$: StaticUnionSchema = [4, n0, _MRLE,
+  0,
+  [_mK],
+  [0]
+];
+export var MemoryRecordMetadataValue$: StaticUnionSchema = [4, n0, _MRMV,
+  0,
+  [_sVt, _sLV, _nV, _dTV],
+  [0, 64 | 0, 1, 4]
+];
+export var MemoryRecordRightExpression$: StaticUnionSchema = [4, n0, _MRRE,
+  0,
+  [_mV],
+  [() => MemoryRecordMetadataValue$]
 ];
 export var MetadataValue$: StaticUnionSchema = [4, n0, _MV,
   0,

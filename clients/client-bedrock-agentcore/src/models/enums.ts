@@ -229,6 +229,7 @@ export type RecommendationType = (typeof RecommendationType)[keyof typeof Recomm
  */
 export const Oauth2FlowType = {
   M2M: "M2M",
+  ON_BEHALF_OF_TOKEN_EXCHANGE: "ON_BEHALF_OF_TOKEN_EXCHANGE",
   USER_FEDERATION: "USER_FEDERATION",
 } as const;
 /**
@@ -488,6 +489,27 @@ export const ExtractionJobStatus = {
  * @public
  */
 export type ExtractionJobStatus = (typeof ExtractionJobStatus)[keyof typeof ExtractionJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MemoryRecordOperatorType = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  CONTAINS: "CONTAINS",
+  EQUALS_TO: "EQUALS_TO",
+  EXISTS: "EXISTS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
+  NOT_EXISTS: "NOT_EXISTS",
+} as const;
+/**
+ * @public
+ */
+export type MemoryRecordOperatorType = (typeof MemoryRecordOperatorType)[keyof typeof MemoryRecordOperatorType];
 
 /**
  * @public

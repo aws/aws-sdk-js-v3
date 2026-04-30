@@ -50,13 +50,18 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  *     topK: Number("int"),
  *     metadataFilters: [ // MemoryMetadataFilterList
  *       { // MemoryMetadataFilterExpression
- *         left: { // LeftExpression Union: only one key present
+ *         left: { // MemoryRecordLeftExpression Union: only one key present
  *           metadataKey: "STRING_VALUE",
  *         },
- *         operator: "EQUALS_TO" || "EXISTS" || "NOT_EXISTS", // required
- *         right: { // RightExpression Union: only one key present
- *           metadataValue: { // MetadataValue Union: only one key present
+ *         operator: "EQUALS_TO" || "EXISTS" || "NOT_EXISTS" || "BEFORE" || "AFTER" || "CONTAINS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS", // required
+ *         right: { // MemoryRecordRightExpression Union: only one key present
+ *           metadataValue: { // MemoryRecordMetadataValue Union: only one key present
  *             stringValue: "STRING_VALUE",
+ *             stringListValue: [ // StringValueList
+ *               "STRING_VALUE",
+ *             ],
+ *             numberValue: Number("double"),
+ *             dateTimeValue: new Date("TIMESTAMP"),
  *           },
  *         },
  *       },
@@ -80,9 +85,14 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  * //       ],
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       score: Number("double"),
- * //       metadata: { // MetadataMap
- * //         "<keys>": { // MetadataValue Union: only one key present
+ * //       metadata: { // MemoryRecordMetadataMap
+ * //         "<keys>": { // MemoryRecordMetadataValue Union: only one key present
  * //           stringValue: "STRING_VALUE",
+ * //           stringListValue: [ // StringValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           numberValue: Number("double"),
+ * //           dateTimeValue: new Date("TIMESTAMP"),
  * //         },
  * //       },
  * //     },

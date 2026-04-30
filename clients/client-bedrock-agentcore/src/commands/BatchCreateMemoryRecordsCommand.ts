@@ -53,6 +53,16 @@ export interface BatchCreateMemoryRecordsCommandOutput extends BatchCreateMemory
  *       },
  *       timestamp: new Date("TIMESTAMP"), // required
  *       memoryStrategyId: "STRING_VALUE",
+ *       metadata: { // MemoryRecordMetadataMap
+ *         "<keys>": { // MemoryRecordMetadataValue Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           stringListValue: [ // StringValueList
+ *             "STRING_VALUE",
+ *           ],
+ *           numberValue: Number("double"),
+ *           dateTimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",

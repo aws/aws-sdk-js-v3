@@ -53,6 +53,16 @@ export interface BatchUpdateMemoryRecordsCommandOutput extends BatchUpdateMemory
  *         "STRING_VALUE",
  *       ],
  *       memoryStrategyId: "STRING_VALUE",
+ *       metadata: { // MemoryRecordMetadataMap
+ *         "<keys>": { // MemoryRecordMetadataValue Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           stringListValue: [ // StringValueList
+ *             "STRING_VALUE",
+ *           ],
+ *           numberValue: Number("double"),
+ *           dateTimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
  *     },
  *   ],
  * };

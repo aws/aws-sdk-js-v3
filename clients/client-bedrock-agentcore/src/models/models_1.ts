@@ -1,6 +1,60 @@
 // smithy-typescript generated code
 import type { DescriptorType, RegistryRecordStatus } from "./enums";
-import type { A2aDescriptor, AgentSkillsDescriptor, CustomDescriptor, McpDescriptor } from "./models_0";
+import type { A2aDescriptor, AgentSkillsDescriptor, CustomDescriptor } from "./models_0";
+
+/**
+ * <p> The MCP server definition with a schema version and inline content. The <code>schemaVersion</code> identifies the version of the MCP server configuration schema.</p>
+ * @public
+ */
+export interface ServerDefinition {
+  /**
+   * <p> The schema version of the MCP server configuration. The schema version identifies the format of the server definition content.</p>
+   * @public
+   */
+  schemaVersion?: string | undefined;
+
+  /**
+   * <p> The inline content of the server definition.</p>
+   * @public
+   */
+  inlineContent?: string | undefined;
+}
+
+/**
+ * <p> The MCP tools definition with a protocol version and inline content. The <code>protocolVersion</code> identifies the MCP protocol version that the tools conform to. This differs from <code>schemaVersion</code> in the server definition, which identifies the server configuration schema format.</p>
+ * @public
+ */
+export interface ToolsDefinition {
+  /**
+   * <p> The MCP protocol version that the tools conform to. This differs from the <code>schemaVersion</code> field in the server definition, which identifies the server configuration schema format.</p>
+   * @public
+   */
+  protocolVersion?: string | undefined;
+
+  /**
+   * <p> The inline content of the tools definition.</p>
+   * @public
+   */
+  inlineContent?: string | undefined;
+}
+
+/**
+ * <p> The MCP (Model Context Protocol) descriptor configuration for a registry record. Contains the server definition and tools definition.</p>
+ * @public
+ */
+export interface McpDescriptor {
+  /**
+   * <p> The MCP server definition that describes the server configuration.</p>
+   * @public
+   */
+  server: ServerDefinition | undefined;
+
+  /**
+   * <p> The MCP tools definition that describes the available tools.</p>
+   * @public
+   */
+  tools: ToolsDefinition | undefined;
+}
 
 /**
  * <p> Contains the descriptor configuration for a registry record. Only the field that matches the record's <code>descriptorType</code> is populated.</p>

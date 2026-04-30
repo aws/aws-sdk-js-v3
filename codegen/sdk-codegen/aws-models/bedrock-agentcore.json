@@ -1084,6 +1084,21 @@
         "smithy.api#sensitive": {}
       }
     },
+    "com.amazonaws.bedrockagentcore#AudienceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcore#AudiencesListType": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcore#AudienceType"
+      }
+    },
     "com.amazonaws.bedrockagentcore#AuthorizationUrlType": {
       "type": "string",
       "traits": {
@@ -5950,6 +5965,18 @@
           "traits": {
             "smithy.api#documentation": "<p>An opaque string that will be sent back to the callback URL provided in resourceOauth2ReturnUrl. This state should be used to protect the callback URL of your application against CSRF attacks by ensuring the response corresponds to the original request.</p>"
           }
+        },
+        "resources": {
+          "target": "com.amazonaws.bedrockagentcore#ResourcesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resources to include in the token request. These are used to specify the target resources for which the OAuth2 token is being requested.</p>"
+          }
+        },
+        "audiences": {
+          "target": "com.amazonaws.bedrockagentcore#AudiencesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The audiences to include in the token request. These are used to specify the intended recipients of the OAuth2 token.</p>"
+          }
         }
       },
       "traits": {
@@ -9479,6 +9506,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>"
           }
+        },
+        "metadataFilters": {
+          "target": "com.amazonaws.bedrockagentcore#MemoryMetadataFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of metadata filter expressions to scope the returned memory records.</p>"
+          }
         }
       },
       "traits": {
@@ -9805,20 +9838,24 @@
       "type": "structure",
       "members": {
         "left": {
-          "target": "com.amazonaws.bedrockagentcore#LeftExpression",
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordLeftExpression",
           "traits": {
+            "smithy.api#documentation": "<p>The metadata key to evaluate.</p>",
             "smithy.api#required": {}
           }
         },
         "operator": {
-          "target": "com.amazonaws.bedrockagentcore#OperatorType",
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordOperatorType",
           "traits": {
             "smithy.api#documentation": "<p>The relationship between the metadata key and value to match when applying the metadata filter.</p>",
             "smithy.api#required": {}
           }
         },
         "right": {
-          "target": "com.amazonaws.bedrockagentcore#RightExpression"
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordRightExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>The value to compare against. Required for all operators except EXISTS and NOT_EXISTS.</p>"
+          }
         }
       },
       "traits": {
@@ -9833,7 +9870,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 1
+          "max": 5
         }
       }
     },
@@ -9876,7 +9913,7 @@
           }
         },
         "metadata": {
-          "target": "com.amazonaws.bedrockagentcore#MetadataMap",
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordMetadataMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of metadata key-value pairs associated with a memory record.</p>"
           }
@@ -9922,6 +9959,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The ID of the memory strategy that defines how this memory record is grouped.</p>"
           }
+        },
+        "metadata": {
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordMetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata key-value pairs to be stored with the memory record.</p>"
+          }
         }
       },
       "traits": {
@@ -9951,6 +9994,132 @@
           "max": 50
         },
         "smithy.api#pattern": "^mem-[a-zA-Z0-9-_]*$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#MemoryRecordLeftExpression": {
+      "type": "union",
+      "members": {
+        "metadataKey": {
+          "target": "com.amazonaws.bedrockagentcore#MetadataKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata key to filter on.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The left-hand side of a memory record metadata filter expression.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#MemoryRecordMetadataMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.bedrockagentcore#MetadataKey"
+      },
+      "value": {
+        "target": "com.amazonaws.bedrockagentcore#MemoryRecordMetadataValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcore#MemoryRecordMetadataValue": {
+      "type": "union",
+      "members": {
+        "stringValue": {
+          "target": "com.amazonaws.bedrockagentcore#StringValue",
+          "traits": {
+            "smithy.api#documentation": "<p>A string value.</p>"
+          }
+        },
+        "stringListValue": {
+          "target": "com.amazonaws.bedrockagentcore#StringValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of string values.</p>"
+          }
+        },
+        "numberValue": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>A numeric value.</p>"
+          }
+        },
+        "dateTimeValue": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp value in ISO 8601 UTC format.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The value of a memory record metadata entry.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#MemoryRecordOperatorType": {
+      "type": "enum",
+      "members": {
+        "EQUALS_TO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUALS_TO"
+          }
+        },
+        "EXISTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXISTS"
+          }
+        },
+        "NOT_EXISTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EXISTS"
+          }
+        },
+        "BEFORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BEFORE"
+          }
+        },
+        "AFTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AFTER"
+          }
+        },
+        "CONTAINS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTAINS"
+          }
+        },
+        "GREATER_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN"
+          }
+        },
+        "GREATER_THAN_OR_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GREATER_THAN_OR_EQUALS"
+          }
+        },
+        "LESS_THAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN"
+          }
+        },
+        "LESS_THAN_OR_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LESS_THAN_OR_EQUALS"
+          }
+        }
       }
     },
     "com.amazonaws.bedrockagentcore#MemoryRecordOutput": {
@@ -9991,6 +10160,20 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Output information returned after processing a memory record operation.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#MemoryRecordRightExpression": {
+      "type": "union",
+      "members": {
+        "metadataValue": {
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordMetadataValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata value to compare against.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The right-hand side of a memory record metadata filter expression.</p>"
       }
     },
     "com.amazonaws.bedrockagentcore#MemoryRecordStatus": {
@@ -10055,7 +10238,7 @@
           }
         },
         "metadata": {
-          "target": "com.amazonaws.bedrockagentcore#MetadataMap",
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordMetadataMap",
           "traits": {
             "smithy.api#documentation": "<p>A map of metadata key-value pairs associated with a memory record.</p>"
           }
@@ -10104,6 +10287,12 @@
           "target": "com.amazonaws.bedrockagentcore#MemoryStrategyId",
           "traits": {
             "smithy.api#documentation": "<p>The updated ID of the memory strategy that defines how this memory record is grouped.</p>"
+          }
+        },
+        "metadata": {
+          "target": "com.amazonaws.bedrockagentcore#MemoryRecordMetadataMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Metadata key-value pairs to be stored with the memory record.</p>"
           }
         }
       },
@@ -10741,6 +10930,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "M2M"
+          }
+        },
+        "ON_BEHALF_OF_TOKEN_EXCHANGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ON_BEHALF_OF_TOKEN_EXCHANGE"
           }
         }
       }
@@ -11560,6 +11755,21 @@
           "max": 2048
         },
         "smithy.api#pattern": "^\\w+:(\\/?\\/?)[^\\s]+$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#ResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcore#ResourcesListType": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcore#ResourceType"
       }
     },
     "com.amazonaws.bedrockagentcore#ResponseChunk": {
@@ -13708,6 +13918,16 @@
         "target": "com.amazonaws.bedrockagentcore#MaxLenString"
       }
     },
+    "com.amazonaws.bedrockagentcore#StringListMemberValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\s._:/=+@-]*$"
+      }
+    },
     "com.amazonaws.bedrockagentcore#StringMap": {
       "type": "map",
       "key": {
@@ -13723,6 +13943,28 @@
         "smithy.api#length": {
           "min": 1,
           "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.bedrockagentcore#StringValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\s._:/=+@-]*$"
+      }
+    },
+    "com.amazonaws.bedrockagentcore#StringValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcore#StringListMemberValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 5
         }
       }
     },

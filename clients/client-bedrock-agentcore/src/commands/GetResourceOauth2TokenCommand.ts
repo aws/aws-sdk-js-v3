@@ -46,7 +46,7 @@ export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2To
  *   scopes: [ // ScopesListType // required
  *     "STRING_VALUE",
  *   ],
- *   oauth2Flow: "USER_FEDERATION" || "M2M", // required
+ *   oauth2Flow: "USER_FEDERATION" || "M2M" || "ON_BEHALF_OF_TOKEN_EXCHANGE", // required
  *   sessionUri: "STRING_VALUE",
  *   resourceOauth2ReturnUrl: "STRING_VALUE",
  *   forceAuthentication: true || false,
@@ -54,6 +54,12 @@ export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2To
  *     "<keys>": "STRING_VALUE",
  *   },
  *   customState: "STRING_VALUE",
+ *   resources: [ // ResourcesListType
+ *     "STRING_VALUE",
+ *   ],
+ *   audiences: [ // AudiencesListType
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new GetResourceOauth2TokenCommand(input);
  * const response = await client.send(command);
