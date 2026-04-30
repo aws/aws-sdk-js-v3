@@ -12909,6 +12909,12 @@
             "smithy.api#enumValue": "NodeRepairConfig"
           }
         },
+        "VENDED_LOGS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VendedLogs"
+          }
+        },
         "UPDATED_TIER": {
           "target": "smithy.api#Unit",
           "traits": {

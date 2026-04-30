@@ -198,6 +198,7 @@ export const UpdateParamType = {
   UPDATED_TIER: "UpdatedTier",
   UPDATE_STRATEGY: "UpdateStrategy",
   UPGRADE_POLICY: "UpgradePolicy",
+  VENDED_LOGS: "VendedLogs",
   VERSION: "Version",
   WARM_POOL_ENABLED: "WarmPoolEnabled",
   WARM_POOL_MAX_GROUP_PREPARED_CAPACITY: "WarmPoolMaxGroupPreparedCapacity",
