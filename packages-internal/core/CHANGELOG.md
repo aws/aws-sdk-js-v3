@@ -39,6 +39,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.8 (2026-05-01)
+### Chores
+* **core/client:** emit warning for Node.js 20.x end-of-support ([#7973](https://github.com/aws/aws-sdk-js-v3/issues/7973)) ([0038376](https://github.com/aws/aws-sdk-js-v3/commit/0038376702ea628e56dfd4da0887271355c28661))
+
+
+
 # 3.974.7 (2026-04-28)
 ### Chores
 * **codegen:** sync for adaptive retry fixes ([#7970](https://github.com/aws/aws-sdk-js-v3/issues/7970)) ([3dfb72b](https://github.com/aws/aws-sdk-js-v3/commit/3dfb72b7359b53da18c209e9211b38a1229357ac))

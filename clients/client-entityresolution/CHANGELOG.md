@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
+
+
+### Features
+
+* **client-entityresolution:** Add support for transitive matching in AWS Entity Resolution rule-based matching workflows. When enabled, records that match through different rules are grouped together into the same match group, allowing related records to be connected across rule levels. ([2048796](https://github.com/aws/aws-sdk-js-v3/commit/20487961bac124830a2163c24cb36b059bb56588))
+
+
+
+
+
 # [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
 
 **Note:** Version bump only for package @aws-sdk/client-entityresolution

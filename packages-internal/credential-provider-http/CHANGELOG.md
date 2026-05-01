@@ -38,6 +38,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.36 (2026-05-01)
+### Chores
+* **credential-provider-http:** update dependencies.
+
+
+
 # 3.972.35 (2026-04-29)
 ### Chores
 * **credential-provider-http:** update dependencies.

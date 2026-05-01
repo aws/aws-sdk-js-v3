@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
+
+
+### Bug Fixes
+
+* **lib-storage:** use Math.ceil in default partSize calculation to prevent exceeding 10,000 parts ([#7982](https://github.com/aws/aws-sdk-js-v3/issues/7982)) ([8a58046](https://github.com/aws/aws-sdk-js-v3/commit/8a58046be17e4b0c1aec704c3aff12a421567eb8))
+
+
+### Features
+
+* **client-appstream:** Amazon WorkSpaces Applications now enables AI agents to securely operate desktop applications. Administrators configure stacks to provide agents access to WorkSpaces. Agents can click, type, and take screenshots. Agents authenticate with AWS IAM credentials with activity logged in AWS CloudTrail. ([5ca40b4](https://github.com/aws/aws-sdk-js-v3/commit/5ca40b43d2ca97240646f06eb565b2a3cc2e461e))
+* **client-cloudwatch-logs:** Adds support for filtering log groups by tags in the ListLogGroups API via the new logGroupTags parameter. ([25dc6d2](https://github.com/aws/aws-sdk-js-v3/commit/25dc6d23e50df0bb6ad9c365e47e3f5a5056f254))
+* **client-cloudwatch:** This release adds tag support for CloudWatch Dashboards. The PutDashboard API now accepts a Tags parameter, allowing you to tag dashboards at creation time. Additionally, the TagResource, UntagResource, and ListTagsForResource APIs now support dashboard ARNs as resources. ([e87c147](https://github.com/aws/aws-sdk-js-v3/commit/e87c1479c6173e1e9f2b9f033825dbeded3614a6))
+* **client-entityresolution:** Add support for transitive matching in AWS Entity Resolution rule-based matching workflows. When enabled, records that match through different rules are grouped together into the same match group, allowing related records to be connected across rule levels. ([2048796](https://github.com/aws/aws-sdk-js-v3/commit/20487961bac124830a2163c24cb36b059bb56588))
+* **client-iot:** AWS IoT HTTP rule actions now support cross-topic batching, combining messages from different MQTT topics into single HTTP requests. ([82edd29](https://github.com/aws/aws-sdk-js-v3/commit/82edd29f8d3a7c61ab90ff4fd6f9a64e218d923a))
+* **client-qconnect:** Added reasoning details, statusDescription, and timeToFirstTokenMs fields to the ListSpans response in Amazon Q in Connect to provide visibility into model thinking, error diagnostics, and inference latency metrics. ([2c668c9](https://github.com/aws/aws-sdk-js-v3/commit/2c668c9d2f8791486d82a67c86dd74e9cb487122))
+* **client-quicksight:** Add IdentityProviderCACertificatesBundleS3Uri for private CA certs with OAuth datasources. 256-char limit for FontFamily in themes. ControlTitleFormatText on all 13 filters. ControlTitleFontConfiguration. ContextRegion for cross-region identity context. Story,scenario in CreateCustomCapability API. ([a625879](https://github.com/aws/aws-sdk-js-v3/commit/a625879c0d4b71c4bfa72984deccd6db2e212aa4))
+* **clients:** update client endpoints as of 2026-05-01 ([d48b40d](https://github.com/aws/aws-sdk-js-v3/commit/d48b40d58f158f50c193eebf42efb72ba6931c00))
+
+
+
+
+
 # [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
 
 

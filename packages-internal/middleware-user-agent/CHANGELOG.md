@@ -40,6 +40,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.38 (2026-05-01)
+### Chores
+* **middleware-user-agent:** update dependencies.
+
+
+
 # 3.972.37 (2026-04-28)
 ### Chores
 * **codegen:** sync for adaptive retry fixes ([#7970](https://github.com/aws/aws-sdk-js-v3/issues/7970)) ([3dfb72b](https://github.com/aws/aws-sdk-js-v3/commit/3dfb72b7359b53da18c209e9211b38a1229357ac))

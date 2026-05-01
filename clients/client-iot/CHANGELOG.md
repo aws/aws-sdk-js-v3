@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
+
+
+### Features
+
+* **client-iot:** AWS IoT HTTP rule actions now support cross-topic batching, combining messages from different MQTT topics into single HTTP requests. ([82edd29](https://github.com/aws/aws-sdk-js-v3/commit/82edd29f8d3a7c61ab90ff4fd6f9a64e218d923a))
+
+
+
+
+
 # [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
 
 **Note:** Version bump only for package @aws-sdk/client-iot

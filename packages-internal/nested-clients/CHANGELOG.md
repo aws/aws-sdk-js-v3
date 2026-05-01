@@ -30,6 +30,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.6 (2026-05-01)
+### Chores
+* **nested-clients:** update dependencies.
+
+
+
 # 3.997.5 (2026-04-28)
 ### Chores
 * **codegen:** sync for adaptive retry fixes ([#7970](https://github.com/aws/aws-sdk-js-v3/issues/7970)) ([3dfb72b](https://github.com/aws/aws-sdk-js-v3/commit/3dfb72b7359b53da18c209e9211b38a1229357ac))

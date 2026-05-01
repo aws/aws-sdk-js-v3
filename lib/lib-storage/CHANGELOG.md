@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
+
+
+### Bug Fixes
+
+* **lib-storage:** use Math.ceil in default partSize calculation to prevent exceeding 10,000 parts ([#7982](https://github.com/aws/aws-sdk-js-v3/issues/7982)) ([8a58046](https://github.com/aws/aws-sdk-js-v3/commit/8a58046be17e4b0c1aec704c3aff12a421567eb8))
+
+
+
+
+
 # [3.1040.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1039.0...v3.1040.0) (2026-04-30)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage
