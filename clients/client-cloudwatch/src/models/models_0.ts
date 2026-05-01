@@ -3608,6 +3608,14 @@ export interface ListTagsForResourceInput {
    *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i>
    *             </code>
    *          </p>
+   *          <p>The ARN format of a dashboard is
+   *             <code>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a metric stream is
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i>
+   *             </code>
+   *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web
    *                 Services General Reference</i>.</p>
    * @public
@@ -4121,6 +4129,20 @@ export interface PutDashboardInput {
    * @public
    */
   DashboardBody: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the dashboard. You can associate as many
+   *             as 50 tags with a dashboard.</p>
+   *          <p>Tags can help you organize and categorize your dashboards. You can also use them to
+   *             scope user permissions by granting a user permission to access or change only dashboards
+   *             with certain tag values.</p>
+   *          <p>You can use this parameter only when creating a new dashboard. If you specify
+   *             <code>Tags</code> when updating an existing dashboard, the tag updates are ignored. To
+   *             add or update tags on an existing dashboard, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>. To
+   *             remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5242,6 +5264,14 @@ export interface TagResourceInput {
    *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i>
    *             </code>
    *          </p>
+   *          <p>The ARN format of a dashboard is
+   *             <code>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a metric stream is
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i>
+   *             </code>
+   *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web
    *                 Services General Reference</i>.</p>
    * @public
@@ -5272,6 +5302,14 @@ export interface UntagResourceInput {
    *          </p>
    *          <p>The ARN format of a Contributor Insights rule is
    *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a dashboard is
+   *             <code>arn:aws:cloudwatch::<i>account-id</i>:dashboard/<i>dashboard-name</i>
+   *             </code>
+   *          </p>
+   *          <p>The ARN format of a metric stream is
+   *             <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:metric-stream/<i>metric-stream-name</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web

@@ -27,8 +27,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms and
- *             Contributor Insights rules support tagging.</p>
+ * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms,
+ *             dashboards, metric streams and Contributor Insights rules support tagging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

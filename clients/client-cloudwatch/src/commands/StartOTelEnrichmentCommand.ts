@@ -28,7 +28,7 @@ export interface StartOTelEnrichmentCommandOutput extends StartOTelEnrichmentOut
 
 /**
  * <p>Enables enrichment and PromQL access for CloudWatch vended metrics for
- *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported AWS resources</a> in the account. Once enabled, metrics that
+ *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">supported Amazon Web Services resources</a> in the account. Once enabled, metrics that
  *             contain a resource identifier dimension (for example, EC2
  *             <code>CPUUtilization</code> with an <code>InstanceId</code> dimension) are enriched
  *             with resource ARN and resource tag labels and become queryable using

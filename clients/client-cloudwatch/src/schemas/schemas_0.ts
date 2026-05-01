@@ -1005,8 +1005,8 @@ export var PutCompositeAlarmInput$: StaticStructureSchema = [3, n0, _PCAI,
 ];
 export var PutDashboardInput$: StaticStructureSchema = [3, n0, _PDI,
   0,
-  [_DN, _DB],
-  [0, 0], 2
+  [_DN, _DB, _Ta],
+  [0, 0, () => TagList], 2
 ];
 export var PutDashboardOutput$: StaticStructureSchema = [3, n0, _PDO,
   0,

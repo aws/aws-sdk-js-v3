@@ -30,7 +30,7 @@ export interface GetOTelEnrichmentCommandOutput extends GetOTelEnrichmentOutput,
  * <p>Returns the current status of vended metric enrichment for the account, including
  *             whether CloudWatch vended metrics are enriched with resource ARN and resource tag
  *             labels and queryable using PromQL. For the list of supported resources, see
- *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">Supported AWS infrastructure metrics</a>.</p>
+ *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">Supported Amazon Web Services infrastructure metrics</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

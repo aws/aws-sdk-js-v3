@@ -28,8 +28,8 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 
 /**
  * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource.
- *             Currently, the only CloudWatch resources that can be tagged are alarms and Contributor
- *             Insights rules.</p>
+ *             Currently, the only CloudWatch resources that can be tagged are alarms, dashboards,
+ *             metric streams and Contributor Insights rules.</p>
  *          <p>Tags can help you organize and categorize your resources. You can also use them to
  *             scope user permissions by granting a user permission to access or change only resources
  *             with certain tag values.</p>

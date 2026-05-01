@@ -27,7 +27,8 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource.</p>
+ * <p>Removes one or more tags from the specified resource. Currently, alarms, dashboards,
+ *             metric streams and Contributor Insights rules support tagging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

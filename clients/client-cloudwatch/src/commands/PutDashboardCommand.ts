@@ -54,6 +54,12 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * const input = { // PutDashboardInput
  *   DashboardName: "STRING_VALUE", // required
  *   DashboardBody: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new PutDashboardCommand(input);
  * const response = await client.send(command);
