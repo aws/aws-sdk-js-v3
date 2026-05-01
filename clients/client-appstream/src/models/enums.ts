@@ -34,6 +34,57 @@ export type Action = (typeof Action)[keyof typeof Action];
  * @public
  * @enum
  */
+export const ScreenImageFormat = {
+  JPEG: "JPEG",
+  PNG: "PNG",
+} as const;
+/**
+ * @public
+ */
+export type ScreenImageFormat = (typeof ScreenImageFormat)[keyof typeof ScreenImageFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScreenResolution = {
+  W_1280xH_720: "W_1280xH_720",
+} as const;
+/**
+ * @public
+ */
+export type ScreenResolution = (typeof ScreenResolution)[keyof typeof ScreenResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentAction = {
+  COMPUTER_INPUT: "COMPUTER_INPUT",
+  COMPUTER_VISION: "COMPUTER_VISION",
+} as const;
+/**
+ * @public
+ */
+export type AgentAction = (typeof AgentAction)[keyof typeof AgentAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentSoftwareVersion = {
   ALWAYS_LATEST: "ALWAYS_LATEST",
   CURRENT_LATEST: "CURRENT_LATEST",
@@ -485,19 +536,6 @@ export type PreferredProtocol = (typeof PreferredProtocol)[keyof typeof Preferre
  * @public
  * @enum
  */
-export const Permission = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type Permission = (typeof Permission)[keyof typeof Permission];
-
-/**
- * @public
- * @enum
- */
 export const StackErrorCode = {
   INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
   STORAGE_CONNECTOR_ERROR: "STORAGE_CONNECTOR_ERROR",
@@ -659,6 +697,7 @@ export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute
  */
 export const StackAttribute = {
   ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
+  AGENT_ACCESS_CONFIG: "AGENT_ACCESS_CONFIG",
   CONTENT_REDIRECTION: "CONTENT_REDIRECTION",
   EMBED_HOST_DOMAINS: "EMBED_HOST_DOMAINS",
   FEEDBACK_URL: "FEEDBACK_URL",

@@ -91,6 +91,18 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *       ],
  *     },
  *   },
+ *   AgentAccessConfig: { // AgentAccessConfig
+ *     Settings: [ // AgentAccessSettingList // required
+ *       { // AgentAccessSetting
+ *         AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT", // required
+ *         Permission: "ENABLED" || "DISABLED", // required
+ *       },
+ *     ],
+ *     S3BucketArn: "STRING_VALUE",
+ *     ScreenshotsUploadEnabled: true || false,
+ *     ScreenResolution: "W_1280xH_720", // required
+ *     ScreenImageFormat: "PNG" || "JPEG", // required
+ *   },
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
@@ -155,6 +167,18 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //     },
+ * //     AgentAccessConfig: { // AgentAccessConfig
+ * //       Settings: [ // AgentAccessSettingList // required
+ * //         { // AgentAccessSetting
+ * //           AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT", // required
+ * //           Permission: "ENABLED" || "DISABLED", // required
+ * //         },
+ * //       ],
+ * //       S3BucketArn: "STRING_VALUE",
+ * //       ScreenshotsUploadEnabled: true || false,
+ * //       ScreenResolution: "W_1280xH_720", // required
+ * //       ScreenImageFormat: "PNG" || "JPEG", // required
  * //     },
  * //   },
  * // };

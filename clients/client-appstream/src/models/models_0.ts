@@ -2,6 +2,7 @@
 import type {
   AccessEndpointType,
   Action,
+  AgentAction,
   AgentSoftwareVersion,
   AppBlockBuilderAttribute,
   AppBlockBuilderPlatformType,
@@ -31,6 +32,8 @@ import type {
   Permission,
   PlatformType,
   PreferredProtocol,
+  ScreenImageFormat,
+  ScreenResolution,
   SessionConnectionState,
   SessionState,
   SoftwareDeploymentStatus,
@@ -111,6 +114,96 @@ export interface AdminAppLicenseUsageRecord {
    * @public
    */
   UserId: string | undefined;
+}
+
+/**
+ * <p>A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.</p>
+ * @public
+ */
+export interface AgentAccessSetting {
+  /**
+   * <p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+   * @public
+   */
+  AgentAction: AgentAction | undefined;
+
+  /**
+   * <p>Whether the agent action is enabled or disabled.</p>
+   * @public
+   */
+  Permission: Permission | undefined;
+}
+
+/**
+ * <p>The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.</p>
+ * @public
+ */
+export interface AgentAccessConfig {
+  /**
+   * <p>The list of agent access settings that define permissions for each agent action. You must specify at least one setting.</p>
+   * @public
+   */
+  Settings: AgentAccessSetting[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.</p>
+   * @public
+   */
+  S3BucketArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.</p>
+   * @public
+   */
+  ScreenshotsUploadEnabled?: boolean | undefined;
+
+  /**
+   * <p>The screen resolution for the agent streaming environment.</p>
+   * @public
+   */
+  ScreenResolution: ScreenResolution | undefined;
+
+  /**
+   * <p>The image format for agent screen captures.</p>
+   * @public
+   */
+  ScreenImageFormat: ScreenImageFormat | undefined;
+}
+
+/**
+ * <p>The configuration for updating agent access on a stack. This type supports partial updates, so you only need to specify the fields you want to change.</p>
+ * @public
+ */
+export interface AgentAccessConfigForUpdate {
+  /**
+   * <p>The list of agent access settings that define permissions for each agent action.</p>
+   * @public
+   */
+  Settings?: AgentAccessSetting[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored.</p>
+   * @public
+   */
+  S3BucketArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.</p>
+   * @public
+   */
+  ScreenshotsUploadEnabled?: boolean | undefined;
+
+  /**
+   * <p>The screen resolution for the agent streaming environment.</p>
+   * @public
+   */
+  ScreenResolution?: ScreenResolution | undefined;
+
+  /**
+   * <p>The image format for agent screen captures.</p>
+   * @public
+   */
+  ScreenImageFormat?: ScreenImageFormat | undefined;
 }
 
 /**
@@ -3788,6 +3881,12 @@ export interface CreateStackRequest {
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
+
+  /**
+   * <p>The configuration for agent access on the stack. If specified, agent access is enabled for the stack.</p>
+   * @public
+   */
+  AgentAccessConfig?: AgentAccessConfig | undefined;
 }
 
 /**
@@ -3902,6 +4001,12 @@ export interface Stack {
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
+
+  /**
+   * <p>The agent access configuration of the stack, if agent access is enabled.</p>
+   * @public
+   */
+  AgentAccessConfig?: AgentAccessConfig | undefined;
 }
 
 /**
@@ -7062,6 +7167,12 @@ export interface UpdateStackRequest {
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
+
+  /**
+   * <p>The configuration for agent access on the stack. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value.</p>
+   * @public
+   */
+  AgentAccessConfig?: AgentAccessConfigForUpdate | undefined;
 }
 
 /**

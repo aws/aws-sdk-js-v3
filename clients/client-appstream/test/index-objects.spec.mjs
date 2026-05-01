@@ -3,6 +3,10 @@ import {
   AccessEndpointType,
   Action,
   AdminAppLicenseUsageRecord$,
+  AgentAccessConfig$,
+  AgentAccessConfigForUpdate$,
+  AgentAccessSetting$,
+  AgentAction,
   AgentSoftwareVersion,
   AppBlock$,
   AppBlockBuilder$,
@@ -390,6 +394,8 @@ import {
   ResourceNotFoundException$,
   RuntimeValidationConfig$,
   S3Location$,
+  ScreenImageFormat,
+  ScreenResolution,
   ScriptDetails$,
   ServiceAccountCredentials$,
   Session$,
@@ -682,6 +688,9 @@ assert(typeof UpdateThemeForStack$ === "object");
 // structural schemas
 assert(typeof AccessEndpoint$ === "object");
 assert(typeof AdminAppLicenseUsageRecord$ === "object");
+assert(typeof AgentAccessConfig$ === "object");
+assert(typeof AgentAccessConfigForUpdate$ === "object");
+assert(typeof AgentAccessSetting$ === "object");
 assert(typeof AppBlock$ === "object");
 assert(typeof AppBlockBuilder$ === "object");
 assert(typeof AppBlockBuilderAppBlockAssociation$ === "object");
@@ -915,6 +924,7 @@ assert(typeof VpcConfig$ === "object");
 // enums
 assert(typeof AccessEndpointType === "object");
 assert(typeof Action === "object");
+assert(typeof AgentAction === "object");
 assert(typeof AgentSoftwareVersion === "object");
 assert(typeof AppBlockBuilderAttribute === "object");
 assert(typeof AppBlockBuilderPlatformType === "object");
@@ -944,6 +954,8 @@ assert(typeof PackagingType === "object");
 assert(typeof Permission === "object");
 assert(typeof PlatformType === "object");
 assert(typeof PreferredProtocol === "object");
+assert(typeof ScreenImageFormat === "object");
+assert(typeof ScreenResolution === "object");
 assert(typeof SessionConnectionState === "object");
 assert(typeof SessionState === "object");
 assert(typeof SoftwareDeploymentStatus === "object");

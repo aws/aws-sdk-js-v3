@@ -107,6 +107,18 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //           ],
  * //         },
  * //       },
+ * //       AgentAccessConfig: { // AgentAccessConfig
+ * //         Settings: [ // AgentAccessSettingList // required
+ * //           { // AgentAccessSetting
+ * //             AgentAction: "COMPUTER_VISION" || "COMPUTER_INPUT", // required
+ * //             Permission: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //         ],
+ * //         S3BucketArn: "STRING_VALUE",
+ * //         ScreenshotsUploadEnabled: true || false,
+ * //         ScreenResolution: "W_1280xH_720", // required
+ * //         ScreenImageFormat: "PNG" || "JPEG", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
