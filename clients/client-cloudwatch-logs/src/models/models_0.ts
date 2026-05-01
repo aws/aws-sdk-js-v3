@@ -6807,6 +6807,47 @@ export interface ListLogAnomalyDetectorsResponse {
 }
 
 /**
+ * <p>A tag filter that specifies a tag key and optional tag values for filtering log
+ *       groups by tags.</p>
+ * @public
+ */
+export interface TagFilter {
+  /**
+   * <p>The tag key to filter on.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>An optional list of tag values to filter on.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify a filter that contains more than one value for a key,
+   *       the response returns log groups that match any of the specified values for that key.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you don't specify values, the response returns all log groups that are
+   *       tagged with that key, with any or no value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>*</code> for wildcard matching. For example,
+   *         <code>prod*</code> matches values that start with <code>prod</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use <code>!</code> as a prefix for negation. For example,
+   *         <code>!prod</code> matches values that are not <code>prod</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Exact matching and negation are case-sensitive. Wildcard matching is
+   *         case-insensitive.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface ListLogGroupsRequest {
@@ -6892,6 +6933,13 @@ export interface ListLogGroupsRequest {
    * @public
    */
   fieldIndexNames?: string[] | undefined;
+
+  /**
+   * <p>An array of tag filters to return only log groups that have specific tags. Multiple
+   *       filters are combined with AND logic.</p>
+   * @public
+   */
+  logGroupTags?: TagFilter[] | undefined;
 }
 
 /**
@@ -9339,36 +9387,4 @@ export interface UpdateLogAnomalyDetectorRequest {
    * @public
    */
   enabled: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateLookupTableRequest {
-  /**
-   * <p>The ARN of the lookup table to update.</p>
-   * @public
-   */
-  lookupTableArn: string | undefined;
-
-  /**
-   * <p>An updated description of the lookup table.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The new CSV content to replace the existing data. The first row must be a header row
-   *       with column names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
-   * @public
-   */
-  tableBody: string | undefined;
-
-  /**
-   * <p>The ARN of the KMS key to use to encrypt the lookup table data. You can
-   *       use this parameter to add, update, or remove the KMS key. To remove the KMS key and use an
-   *       Amazon Web Services-owned key instead, specify an empty string.</p>
-   * @public
-   */
-  kmsKeyId?: string | undefined;
 }

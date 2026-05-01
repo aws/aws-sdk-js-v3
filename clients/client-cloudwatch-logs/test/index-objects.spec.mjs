@@ -578,6 +578,7 @@ import {
   SuppressionState,
   SuppressionType,
   SuppressionUnit,
+  TagFilter$,
   TagLogGroup$,
   TagLogGroupCommand,
   TagLogGroupRequest$,
@@ -1148,6 +1149,7 @@ assert(typeof SubscriptionFilter$ === "object");
 assert(typeof SubstituteString$ === "object");
 assert(typeof SubstituteStringEntry$ === "object");
 assert(typeof SuppressionPeriod$ === "object");
+assert(typeof TagFilter$ === "object");
 assert(typeof TagLogGroupRequest$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TestMetricFilterRequest$ === "object");

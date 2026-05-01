@@ -457,6 +457,8 @@ const _TC = "TypeConverter";
 const _TCE = "TypeConverterEntry";
 const _TCEy = "TypeConverterEntries";
 const _TE = "ThrottlingException";
+const _TF = "TagFilter";
+const _TFa = "TagFilters";
 const _THR = "TriggerHistoryRecord";
 const _THRL = "TriggerHistoryRecordList";
 const _TL = "TransformedLogs";
@@ -699,6 +701,7 @@ const _lGNP = "logGroupNamePrefix";
 const _lGNPo = "logGroupNamePattern";
 const _lGNo = "logGroupNames";
 const _lGS = "logGroupsScanned";
+const _lGT = "logGroupTags";
 const _lIT = "lastIngestionTime";
 const _lM = "lastModified";
 const _lMT = "lastModifiedTime";
@@ -894,6 +897,7 @@ const _uST = "uploadSequenceToken";
 const _un = "unit";
 const _v = "value";
 const _vK = "valueKey";
+const _va = "values";
 const _w = "workspace";
 const _wI = "workspaceId";
 const _wK = "withKeys";
@@ -1917,8 +1921,8 @@ export var ListLogGroupsForQueryResponse$: StaticStructureSchema = [3, n0, _LLGF
 ];
 export var ListLogGroupsRequest$: StaticStructureSchema = [3, n0, _LLGR,
   0,
-  [_lGNPo, _lGCo, _iLA, _aIc, _nT, _li, _dSa, _fINi],
-  [0, 0, 2, 64 | 0, 0, 1, () => DataSourceFilters, 64 | 0]
+  [_lGNPo, _lGCo, _iLA, _aIc, _nT, _li, _dSa, _fINi, _lGT],
+  [0, 0, 2, 64 | 0, 0, 1, () => DataSourceFilters, 64 | 0, () => TagFilters]
 ];
 export var ListLogGroupsResponse$: StaticStructureSchema = [3, n0, _LLGRi,
   0,
@@ -2475,6 +2479,11 @@ export var SuppressionPeriod$: StaticStructureSchema = [3, n0, _SP,
   [_v, _sUu],
   [1, 0]
 ];
+export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
+  0,
+  [_k, _va],
+  [0, 64 | 0], 1
+];
 export var TagLogGroupRequest$: StaticStructureSchema = [3, n0, _TLGR,
   0,
   [_lGN, _ta],
@@ -2767,6 +2776,10 @@ var SubstituteStringEntries: StaticListSchema = [1, n0, _SSEub,
   0, () => SubstituteStringEntry$
 ];
 var TableFields = 64 | 0;
+var TagFilters: StaticListSchema = [1, n0, _TFa,
+  0, () => TagFilter$
+];
+var TagFilterValues = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList = 64 | 0;
 var TestEventMessages = 64 | 0;

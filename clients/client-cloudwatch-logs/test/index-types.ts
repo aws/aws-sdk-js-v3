@@ -662,6 +662,7 @@ export type {
   SubstituteString,
   SubstituteStringEntry,
   SuppressionPeriod,
+  TagFilter,
   TagLogGroupRequest,
   TagResourceRequest,
   TestMetricFilterRequest,

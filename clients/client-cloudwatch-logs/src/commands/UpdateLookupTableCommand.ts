@@ -9,8 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateLookupTableRequest } from "../models/models_0";
-import type { UpdateLookupTableResponse } from "../models/models_1";
+import type { UpdateLookupTableRequest, UpdateLookupTableResponse } from "../models/models_1";
 import { UpdateLookupTable$ } from "../schemas/schemas_0";
 
 /**

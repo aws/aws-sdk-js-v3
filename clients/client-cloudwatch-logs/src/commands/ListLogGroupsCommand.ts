@@ -36,11 +36,9 @@ export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __Met
  *       that are linked to the monitoring account. For more information about using cross-account
  *       observability to set up monitoring accounts and source accounts, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">
  *         CloudWatch cross-account observability</a>.</p>
- *          <p>You can optionally filter the list by log group class, by using regular expressions in
- *       your request to match strings in the log group names, by using the fieldIndexes parameter to
- *       filter log groups based on which field indexes are configured, by using the dataSources
- *       parameter to filter log groups by data source types, and by using the fieldIndexNames
- *       parameter to filter by specific field index names.</p>
+ *          <p>You can optionally filter the results by log group class, log group name pattern,
+ *       field indexes, data sources, field index names, or log group tags. If you specify more than
+ *       one filter type, the results include log groups that satisfy all filters.</p>
  *          <p>This operation is paginated. By default, your first use of this operation returns 50
  *       results, and includes a token to use in a subsequent operation to return more results.</p>
  * @example
@@ -68,6 +66,14 @@ export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __Met
  *   ],
  *   fieldIndexNames: [ // FieldIndexNames
  *     "STRING_VALUE",
+ *   ],
+ *   logGroupTags: [ // TagFilters
+ *     { // TagFilter
+ *       key: "STRING_VALUE", // required
+ *       values: [ // TagFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   ],
  * };
  * const command = new ListLogGroupsCommand(input);
