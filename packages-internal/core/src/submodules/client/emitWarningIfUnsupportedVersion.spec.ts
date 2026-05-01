@@ -4,7 +4,8 @@ import { emitWarningIfUnsupportedVersion, state } from "./emitWarningIfUnsupport
 
 describe("emitWarningIfUnsupportedVersion", () => {
   const emitWarning = process.emitWarning;
-  const supportedVersion = "20.0.0";
+  const supportedVersion = "22.0.0";
+  const supportedMajorVersion = parseInt(supportedVersion.substring(0, supportedVersion.indexOf(".")));
 
   beforeEach(() => {});
 
@@ -38,11 +39,12 @@ describe("emitWarningIfUnsupportedVersion", () => {
       // Verify that the warning was emitted.
       expect(process.emitWarning).toHaveBeenCalledTimes(1);
       expect(process.emitWarning).toHaveBeenCalledWith(
-        `NodeDeprecationWarning: The AWS SDK for JavaScript (v3) will
-no longer support Node.js ${unsupportedVersion} in January 2026.
+        `NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
+versions published after the first week of January 2027
+will require node >=${supportedMajorVersion}. You are running node ${unsupportedVersion}.
 
-To continue receiving updates to AWS services, bug fixes, and security
-updates please upgrade to a supported Node.js LTS version.
+To continue receiving updates to AWS services, bug fixes,
+and security updates please upgrade to node >=${supportedMajorVersion}.
 
 More information can be found at: https://a.co/c895JFp`
       );
