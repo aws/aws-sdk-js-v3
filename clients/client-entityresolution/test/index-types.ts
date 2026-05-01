@@ -216,6 +216,7 @@ export type {
   ListTagsForResourceOutput,
   MatchedRecord,
   MatchGroup,
+  MatchingConfig,
   MatchingWorkflowSummary,
   NamespaceProviderProperties,
   NamespaceRuleBasedProperties,

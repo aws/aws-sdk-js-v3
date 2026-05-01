@@ -162,6 +162,7 @@ import {
   ListTagsForResourceOutput$,
   MatchedRecord$,
   MatchGroup$,
+  MatchingConfig$,
   MatchingWorkflowSummary$,
   MatchPurpose,
   NamespaceProviderProperties$,
@@ -404,6 +405,7 @@ assert(typeof ListTagsForResourceInput$ === "object");
 assert(typeof ListTagsForResourceOutput$ === "object");
 assert(typeof MatchedRecord$ === "object");
 assert(typeof MatchGroup$ === "object");
+assert(typeof MatchingConfig$ === "object");
 assert(typeof MatchingWorkflowSummary$ === "object");
 assert(typeof NamespaceProviderProperties$ === "object");
 assert(typeof NamespaceRuleBasedProperties$ === "object");

@@ -94,6 +94,9 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  * //           condition: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       matchingConfig: { // MatchingConfig
+ * //         enableTransitiveMatching: true || false,
+ * //       },
  * //     },
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required

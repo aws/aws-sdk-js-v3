@@ -127,6 +127,7 @@ const _LSMO = "ListSchemaMappingsOutput";
 const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
+const _MC = "MatchingConfig";
 const _MG = "MatchGroup";
 const _MGL = "MatchGroupsList";
 const _MR = "MatchedRecord";
@@ -216,6 +217,7 @@ const _e = "error";
 const _eD = "errorDetails";
 const _eM = "errorMessage";
 const _eT = "errorType";
+const _eTM = "enableTransitiveMatching";
 const _eTn = "endTime";
 const _ef = "effect";
 const _er = "errors";
@@ -248,7 +250,8 @@ const _jI = "jobId";
 const _jT = "jobType";
 const _lI = "listingId";
 const _m = "message";
-const _mC = "marketplaceConfiguration";
+const _mC = "matchingConfig";
+const _mCa = "marketplaceConfiguration";
 const _mG = "matchGroups";
 const _mI = "matchId";
 const _mID = "matchIDs";
@@ -834,6 +837,11 @@ export var MatchGroup$: StaticStructureSchema = [3, n0, _MG,
   [_r, _mI, _mR],
   [() => MatchedRecordsList, 0, 0], 3
 ];
+export var MatchingConfig$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_eTM],
+  [2]
+];
 export var MatchingWorkflowSummary$: StaticStructureSchema = [3, n0, _MWS,
   0,
   [_wN, _wA, _cA, _uA, _rTe],
@@ -931,8 +939,8 @@ export var RuleCondition$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var RuleConditionProperties$: StaticStructureSchema = [3, n0, _RCP,
   0,
-  [_ru],
-  [() => RuleConditionList], 1
+  [_ru, _mC],
+  [() => RuleConditionList, () => MatchingConfig$], 1
 ];
 export var SchemaInputAttribute$: StaticStructureSchema = [3, n0, _SIA,
   0,
@@ -1126,7 +1134,7 @@ var RecordAttributeMapString255: StaticMapSchema = [2, n0, _RAMS,
 var TagMap = 128 | 0;
 export var ProviderEndpointConfiguration$: StaticUnionSchema = [4, n0, _PEC,
   0,
-  [_mC],
+  [_mCa],
   [() => ProviderMarketplaceConfiguration$]
 ];
 export var AddPolicyStatement$: StaticOperationSchema = [9, n0, _APS,

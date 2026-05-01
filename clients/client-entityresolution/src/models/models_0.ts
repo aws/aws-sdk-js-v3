@@ -770,6 +770,18 @@ export interface RuleBasedProperties {
 }
 
 /**
+ * <p>An object that contains configuration settings for the matching process in a rule-based matching workflow.</p>
+ * @public
+ */
+export interface MatchingConfig {
+  /**
+   * <p>Enables transitive matching for the rule-based matching workflow. When enabled, records that match through different rules are grouped together into the same match group.</p>
+   * @public
+   */
+  enableTransitiveMatching?: boolean | undefined;
+}
+
+/**
  * <p>An object that defines the <code>ruleCondition</code> and the <code>ruleName</code> to use in a matching workflow.</p>
  * @public
  */
@@ -797,6 +809,12 @@ export interface RuleConditionProperties {
    * @public
    */
   rules: RuleCondition[] | undefined;
+
+  /**
+   * <p>An object that contains configuration settings for the matching process.</p>
+   * @public
+   */
+  matchingConfig?: MatchingConfig | undefined;
 }
 
 /**

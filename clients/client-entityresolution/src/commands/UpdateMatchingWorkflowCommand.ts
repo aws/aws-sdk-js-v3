@@ -88,6 +88,9 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  *           condition: "STRING_VALUE", // required
  *         },
  *       ],
+ *       matchingConfig: { // MatchingConfig
+ *         enableTransitiveMatching: true || false,
+ *       },
  *     },
  *     providerProperties: { // ProviderProperties
  *       providerServiceArn: "STRING_VALUE", // required
@@ -152,6 +155,9 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * //           condition: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       matchingConfig: { // MatchingConfig
+ * //         enableTransitiveMatching: true || false,
+ * //       },
  * //     },
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required
