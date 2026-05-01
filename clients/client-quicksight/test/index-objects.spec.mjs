@@ -295,6 +295,8 @@ import {
   ContributionAnalysisTimeRanges$,
   ControlSortConfiguration$,
   ControlSortDirection,
+  ControlTitleFontConfiguration$,
+  ControlTitleFormatText$,
   Coordinate$,
   CreateAccountCustomization$,
   CreateAccountCustomizationCommand,
@@ -3041,6 +3043,8 @@ assert(typeof ContributionAnalysisDefault$ === "object");
 assert(typeof ContributionAnalysisFactor$ === "object");
 assert(typeof ContributionAnalysisTimeRanges$ === "object");
 assert(typeof ControlSortConfiguration$ === "object");
+assert(typeof ControlTitleFontConfiguration$ === "object");
+assert(typeof ControlTitleFormatText$ === "object");
 assert(typeof Coordinate$ === "object");
 assert(typeof CreateAccountCustomizationRequest$ === "object");
 assert(typeof CreateAccountCustomizationResponse$ === "object");

@@ -115,6 +115,7 @@ import type {
   ColumnSchema,
   ColumnTag,
   ComparativeOrder,
+  ControlTitleFontConfiguration,
   CreateColumnsOperation,
   DashboardPublishOptions,
   DashboardVersionDefinition,
@@ -125,11 +126,9 @@ import type {
   DataSetUsageConfiguration,
   DataSourceParameters,
   DisplayFormatOptions,
-  FieldFolder,
   FilterOperation,
   InputColumn,
   LinkSharingConfiguration,
-  NewDefaultValues,
   ProjectOperation,
   RenameColumnOperation,
   ResourcePermission,
@@ -144,6 +143,54 @@ import type {
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
+ * @public
+ */
+export interface FieldFolder {
+  /**
+   * <p>The description for a field folder.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A folder has a list of columns. A column can only be in one folder.</p>
+   * @public
+   */
+  columns?: string[] | undefined;
+}
+
+/**
+ * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
+ * @public
+ */
+export interface NewDefaultValues {
+  /**
+   * <p>A list of static default values for a given string parameter.</p>
+   * @public
+   */
+  StringStaticValues?: string[] | undefined;
+
+  /**
+   * <p>A list of static default values for a given decimal parameter.</p>
+   * @public
+   */
+  DecimalStaticValues?: number[] | undefined;
+
+  /**
+   * <p>A list of static default values for a given date time parameter.</p>
+   * @public
+   */
+  DateTimeStaticValues?: Date[] | undefined;
+
+  /**
+   * <p>A list of static default values for a given integer parameter.</p>
+   * @public
+   */
+  IntegerStaticValues?: number[] | undefined;
+}
 
 /**
  * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
@@ -2835,6 +2882,12 @@ export interface Typography {
    * @public
    */
   VisualSubtitleFontConfiguration?: VisualSubtitleFontConfiguration | undefined;
+
+  /**
+   * <p>Configures the display properties of the control title.</p>
+   * @public
+   */
+  ControlTitleFontConfiguration?: ControlTitleFontConfiguration | undefined;
 }
 
 /**
@@ -9644,56 +9697,4 @@ export interface DescribeRefreshScheduleRequest {
    * @public
    */
   ScheduleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRefreshScheduleResponse {
-  /**
-   * <p>The refresh schedule.</p>
-   * @public
-   */
-  RefreshSchedule?: RefreshSchedule | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRoleCustomPermissionRequest {
-  /**
-   * <p>The name of the role whose permissions you want described.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that contains the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
 }

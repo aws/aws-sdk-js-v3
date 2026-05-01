@@ -100,6 +100,7 @@ export interface GetIdentityContextCommandOutput extends GetIdentityContextRespo
  *   },
  *   Namespace: "STRING_VALUE",
  *   SessionExpiresAt: new Date("TIMESTAMP"),
+ *   ContextRegion: "STRING_VALUE",
  * };
  * const command = new GetIdentityContextCommand(input);
  * const response = await client.send(command);

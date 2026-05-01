@@ -35,6 +35,7 @@ import type {
   MaximumMinimumComputationType,
   MissingDataTreatmentOption,
   PivotTableConditionalFormattingScopeRole,
+  PivotTableDataPathType,
   PivotTableFieldCollapseState,
   PivotTableMetricPlacement,
   PivotTableRowsLayout,
@@ -81,7 +82,6 @@ import type {
   CustomActionSetParametersOperation,
   CustomActionURLOperation,
   DataLabelOptions,
-  DataPathType,
   DecalSettings,
   DimensionField,
   FieldSort,
@@ -99,6 +99,36 @@ import type {
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The type of the data path value.</p>
+ * @public
+ */
+export interface DataPathType {
+  /**
+   * <p>The type of data path value utilized in a pivot table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY_ROWS_LAYOUT_COLUMN</code> - The type of data path for the rows layout column, when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTIPLE_ROW_METRICS_COLUMN</code> - The type of data path for the metric column when the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMPTY_COLUMN_HEADER</code> - The type of data path for the column with empty column header, when there is no field in <code>ColumnsFieldWell</code> and the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT_METRIC_COLUMN</code> - The type of data path for the column with <code>COUNT</code> as the metric, when there is no field in the <code>ValuesFieldWell</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PivotTableDataPathType?: PivotTableDataPathType | undefined;
+}
 
 /**
  * <p>The data path that needs to be sorted.</p>
@@ -8394,16 +8424,4 @@ export interface WaterfallChartSortConfiguration {
    * @public
    */
   BreakdownItemsLimit?: ItemsLimitConfiguration | undefined;
-}
-
-/**
- * <p>The options that determine the presentation of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartOptions {
-  /**
-   * <p>This option determines the total bar label of a waterfall visual.</p>
-   * @public
-   */
-  TotalBarLabel?: string | undefined;
 }

@@ -48,7 +48,6 @@ import type {
   PaperOrientation,
   PaperSize,
   ParameterValueType,
-  PivotTableDataPathType,
   QBusinessInsightsStatus,
   QueryExecutionMode,
   ReferenceLineLabelHorizontalPosition,
@@ -3553,6 +3552,24 @@ export interface DefaultFilterControlOptions {
 }
 
 /**
+ * <p>The title format text configuration for a sheet control. This is a tagged union type. Specify either <code>PlainText</code> or <code>RichText</code>, but not both.</p>
+ * @public
+ */
+export interface ControlTitleFormatText {
+  /**
+   * <p>The plain text format of the title text.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+
+  /**
+   * <p>The rich text format of the title text.</p>
+   * @public
+   */
+  RichText?: string | undefined;
+}
+
+/**
  * <p>The default configuration for all dependent controls of the filter.</p>
  * @public
  */
@@ -3561,13 +3578,19 @@ export interface DefaultFilterControlConfiguration {
    * <p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The control option for the <code>DefaultFilterControlConfiguration</code>.</p>
    * @public
    */
   ControlOptions: DefaultFilterControlOptions | undefined;
+
+  /**
+   * <p>The title text format configuration for the default filter control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -4975,7 +4998,7 @@ export interface FilterDateTimePickerControl {
    * <p>The title of the <code>FilterDateTimePickerControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterDateTimePickerControl</code>.</p>
@@ -5010,6 +5033,12 @@ export interface FilterDateTimePickerControl {
    * @public
    */
   CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -5027,7 +5056,7 @@ export interface FilterDropDownControl {
    * <p>The title of the <code>FilterDropDownControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterDropDownControl</code>.</p>
@@ -5080,6 +5109,12 @@ export interface FilterDropDownControl {
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -5097,7 +5132,7 @@ export interface FilterListControl {
    * <p>The title of the <code>FilterListControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterListControl</code>.</p>
@@ -5144,6 +5179,12 @@ export interface FilterListControl {
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -5161,7 +5202,7 @@ export interface FilterRelativeDateTimeControl {
    * <p>The title of the <code>FilterTextAreaControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterTextAreaControl</code>.</p>
@@ -5180,6 +5221,12 @@ export interface FilterRelativeDateTimeControl {
    * @public
    */
   CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -5197,7 +5244,7 @@ export interface FilterSliderControl {
    * <p>The title of the <code>FilterSliderControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterSliderControl</code>.</p>
@@ -5244,6 +5291,12 @@ export interface FilterSliderControl {
    * @public
    */
   StepSize: number | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -5261,7 +5314,7 @@ export interface FilterTextAreaControl {
    * <p>The title of the <code>FilterTextAreaControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterTextAreaControl</code>.</p>
@@ -5280,6 +5333,12 @@ export interface FilterTextAreaControl {
    * @public
    */
   DisplayOptions?: TextAreaControlDisplayOptions | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -5297,7 +5356,7 @@ export interface FilterTextFieldControl {
    * <p>The title of the <code>FilterTextFieldControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source filter ID of the <code>FilterTextFieldControl</code>.</p>
@@ -5310,6 +5369,12 @@ export interface FilterTextFieldControl {
    * @public
    */
   DisplayOptions?: TextFieldControlDisplayOptions | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -6103,7 +6168,7 @@ export interface ParameterDateTimePickerControl {
    * <p>The title of the <code>ParameterDateTimePickerControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The name of the <code>ParameterDateTimePickerControl</code>.</p>
@@ -6116,6 +6181,12 @@ export interface ParameterDateTimePickerControl {
    * @public
    */
   DisplayOptions?: DateTimePickerControlDisplayOptions | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -6151,7 +6222,7 @@ export interface ParameterDropDownControl {
    * <p>The title of the <code>ParameterDropDownControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source parameter name of the <code>ParameterDropDownControl</code>.</p>
@@ -6194,6 +6265,12 @@ export interface ParameterDropDownControl {
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -6211,7 +6288,7 @@ export interface ParameterListControl {
    * <p>The title of the <code>ParameterListControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source parameter name of the <code>ParameterListControl</code>.</p>
@@ -6248,6 +6325,12 @@ export interface ParameterListControl {
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -6265,7 +6348,7 @@ export interface ParameterSliderControl {
    * <p>The title of the <code>ParameterSliderControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source parameter name of the <code>ParameterSliderControl</code>.</p>
@@ -6296,6 +6379,12 @@ export interface ParameterSliderControl {
    * @public
    */
   StepSize: number | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -6313,7 +6402,7 @@ export interface ParameterTextAreaControl {
    * <p>The title of the <code>ParameterTextAreaControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source parameter name of the <code>ParameterTextAreaControl</code>.</p>
@@ -6332,6 +6421,12 @@ export interface ParameterTextAreaControl {
    * @public
    */
   DisplayOptions?: TextAreaControlDisplayOptions | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -6349,7 +6444,7 @@ export interface ParameterTextFieldControl {
    * <p>The title of the <code>ParameterTextFieldControl</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>The source parameter name of the <code>ParameterTextFieldControl</code>.</p>
@@ -6362,6 +6457,12 @@ export interface ParameterTextFieldControl {
    * @public
    */
   DisplayOptions?: TextFieldControlDisplayOptions | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
@@ -8470,34 +8571,4 @@ export interface TooltipOptions {
    * @public
    */
   SheetTooltip?: SheetTooltip | undefined;
-}
-
-/**
- * <p>The type of the data path value.</p>
- * @public
- */
-export interface DataPathType {
-  /**
-   * <p>The type of data path value utilized in a pivot table. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HIERARCHY_ROWS_LAYOUT_COLUMN</code> - The type of data path for the rows layout column, when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTIPLE_ROW_METRICS_COLUMN</code> - The type of data path for the metric column when the row is set to Metric Placement.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EMPTY_COLUMN_HEADER</code> - The type of data path for the column with empty column header, when there is no field in <code>ColumnsFieldWell</code> and the row is set to Metric Placement.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT_METRIC_COLUMN</code> - The type of data path for the column with <code>COUNT</code> as the metric, when there is no field in the <code>ValuesFieldWell</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PivotTableDataPathType?: PivotTableDataPathType | undefined;
 }

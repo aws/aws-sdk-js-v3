@@ -261,6 +261,8 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *     Extension: "DENY",
  *     ManageSharedFolders: "DENY",
  *     GenerateAnalyses: "DENY",
+ *     Story: "DENY",
+ *     Scenario: "DENY",
  *   },
  *   Tags: [ // TagList
  *     { // Tag

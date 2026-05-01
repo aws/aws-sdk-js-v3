@@ -46,6 +46,7 @@ import type {
   FilterOperator,
   GeoSpatialCountryCode,
   GeoSpatialDataRole,
+  HorizontalTextAlignment,
   InputColumnDataType,
   JoinOperationType,
   LookbackWindowSizeUnit,
@@ -96,6 +97,7 @@ import type {
   FieldSortOptions,
   FilterControl,
   FilterGroup,
+  FontConfiguration,
   ItemsLimitConfiguration,
   Layout,
   LegendOptions,
@@ -142,9 +144,20 @@ import type {
   VisualTitleLabelOptions,
   WaterfallChartColorConfiguration,
   WaterfallChartFieldWells,
-  WaterfallChartOptions,
   WaterfallChartSortConfiguration,
 } from "./models_1";
+
+/**
+ * <p>The options that determine the presentation of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartOptions {
+  /**
+   * <p>This option determines the total bar label of a waterfall visual.</p>
+   * @public
+   */
+  TotalBarLabel?: string | undefined;
+}
 
 /**
  * <p>The configuration for a waterfall visual.</p>
@@ -3029,6 +3042,12 @@ export interface OAuthParameters {
    * @public
    */
   IdentityProviderResourceUri?: string | undefined;
+
+  /**
+   * <p>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this parameter to provide a custom CA certificate bundle for the identity provider when the default trust store does not include the required certificates.</p>
+   * @public
+   */
+  IdentityProviderCACertificatesBundleS3Uri?: string | undefined;
 }
 
 /**
@@ -8353,6 +8372,18 @@ export interface Capabilities {
    * @public
    */
   GenerateAnalyses?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform Story-related actions.</p>
+   * @public
+   */
+  Story?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform Scenario-related actions.</p>
+   * @public
+   */
+  Scenario?: CapabilityState | undefined;
 }
 
 /**
@@ -8631,6 +8662,24 @@ export interface ComparativeOrder {
    * @public
    */
   TreatUndefinedSpecifiedValues?: UndefinedSpecifiedValueType | undefined;
+}
+
+/**
+ * <p>Configures the display properties of the control title.</p>
+ * @public
+ */
+export interface ControlTitleFontConfiguration {
+  /**
+   * <p>Configures the font settings for the control title.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Determines the alignment of the control title.</p>
+   * @public
+   */
+  TextAlignment?: HorizontalTextAlignment | undefined;
 }
 
 /**
@@ -11067,52 +11116,4 @@ export interface DataSetUsageConfiguration {
    * @public
    */
   DisableUseAsImportedSource?: boolean | undefined;
-}
-
-/**
- * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
- * @public
- */
-export interface FieldFolder {
-  /**
-   * <p>The description for a field folder.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A folder has a list of columns. A column can only be in one folder.</p>
-   * @public
-   */
-  columns?: string[] | undefined;
-}
-
-/**
- * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
- * @public
- */
-export interface NewDefaultValues {
-  /**
-   * <p>A list of static default values for a given string parameter.</p>
-   * @public
-   */
-  StringStaticValues?: string[] | undefined;
-
-  /**
-   * <p>A list of static default values for a given decimal parameter.</p>
-   * @public
-   */
-  DecimalStaticValues?: number[] | undefined;
-
-  /**
-   * <p>A list of static default values for a given date time parameter.</p>
-   * @public
-   */
-  DateTimeStaticValues?: Date[] | undefined;
-
-  /**
-   * <p>A list of static default values for a given integer parameter.</p>
-   * @public
-   */
-  IntegerStaticValues?: number[] | undefined;
 }

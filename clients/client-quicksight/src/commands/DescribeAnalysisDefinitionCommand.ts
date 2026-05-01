@@ -83,7 +83,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //           { // ParameterControl
  * //             DateTimePicker: { // ParameterDateTimePickerControl
  * //               ParameterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceParameterName: "STRING_VALUE", // required
  * //               DisplayOptions: { // DateTimePickerControlDisplayOptions
  * //                 TitleOptions: { // LabelOptions
@@ -111,10 +111,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
  * //                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //               },
+ * //               ControlTitleFormatText: { // ControlTitleFormatText
+ * //                 PlainText: "STRING_VALUE",
+ * //                 RichText: "STRING_VALUE",
+ * //               },
  * //             },
  * //             List: { // ParameterListControl
  * //               ParameterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceParameterName: "STRING_VALUE", // required
  * //               DisplayOptions: { // ListControlDisplayOptions
  * //                 SearchOptions: { // ListControlSearchOptions
@@ -194,10 +198,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               ControlTitleFormatText: {
+ * //                 PlainText: "STRING_VALUE",
+ * //                 RichText: "STRING_VALUE",
+ * //               },
  * //             },
  * //             Dropdown: { // ParameterDropDownControl
  * //               ParameterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceParameterName: "STRING_VALUE", // required
  * //               DisplayOptions: { // DropDownControlDisplayOptions
  * //                 SelectAllOptions: {
@@ -272,10 +280,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               ControlTitleFormatText: {
+ * //                 PlainText: "STRING_VALUE",
+ * //                 RichText: "STRING_VALUE",
+ * //               },
  * //             },
  * //             TextField: { // ParameterTextFieldControl
  * //               ParameterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceParameterName: "STRING_VALUE", // required
  * //               DisplayOptions: { // TextFieldControlDisplayOptions
  * //                 TitleOptions: {
@@ -303,10 +315,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   InfoIconText: "STRING_VALUE",
  * //                 },
  * //               },
+ * //               ControlTitleFormatText: {
+ * //                 PlainText: "STRING_VALUE",
+ * //                 RichText: "STRING_VALUE",
+ * //               },
  * //             },
  * //             TextArea: { // ParameterTextAreaControl
  * //               ParameterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceParameterName: "STRING_VALUE", // required
  * //               Delimiter: "STRING_VALUE",
  * //               DisplayOptions: { // TextAreaControlDisplayOptions
@@ -335,10 +351,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   InfoIconText: "STRING_VALUE",
  * //                 },
  * //               },
+ * //               ControlTitleFormatText: {
+ * //                 PlainText: "STRING_VALUE",
+ * //                 RichText: "STRING_VALUE",
+ * //               },
  * //             },
  * //             Slider: { // ParameterSliderControl
  * //               ParameterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceParameterName: "STRING_VALUE", // required
  * //               DisplayOptions: { // SliderControlDisplayOptions
  * //                 TitleOptions: "<LabelOptions>",
@@ -347,6 +367,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               MaximumValue: Number("double"), // required
  * //               MinimumValue: Number("double"), // required
  * //               StepSize: Number("double"), // required
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //           },
  * //         ],
@@ -354,7 +375,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //           { // FilterControl
  * //             DateTimePicker: { // FilterDateTimePickerControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               DisplayOptions: {
  * //                 TitleOptions: "<LabelOptions>",
@@ -365,10 +386,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Type: "SINGLE_VALUED" || "DATE_RANGE",
  * //               CommitMode: "AUTO" || "MANUAL",
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             List: { // FilterListControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               DisplayOptions: {
  * //                 SearchOptions: {
@@ -419,10 +441,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             Dropdown: { // FilterDropDownControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               DisplayOptions: {
  * //                 SelectAllOptions: {
@@ -471,10 +494,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             TextField: { // FilterTextFieldControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               DisplayOptions: {
  * //                 TitleOptions: "<LabelOptions>",
@@ -483,10 +507,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 },
  * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //               },
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             TextArea: { // FilterTextAreaControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               Delimiter: "STRING_VALUE",
  * //               DisplayOptions: {
@@ -496,10 +521,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 },
  * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //               },
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             Slider: { // FilterSliderControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               DisplayOptions: {
  * //                 TitleOptions: "<LabelOptions>",
@@ -509,10 +535,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               MaximumValue: Number("double"), // required
  * //               MinimumValue: Number("double"), // required
  * //               StepSize: Number("double"), // required
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             RelativeDateTime: { // FilterRelativeDateTimeControl
  * //               FilterControlId: "STRING_VALUE", // required
- * //               Title: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
  * //               SourceFilterId: "STRING_VALUE", // required
  * //               DisplayOptions: { // RelativeDateTimeControlDisplayOptions
  * //                 TitleOptions: "<LabelOptions>",
@@ -520,6 +547,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //               },
  * //               CommitMode: "AUTO" || "MANUAL",
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
  * //             },
  * //             CrossSheet: { // FilterCrossSheetControl
  * //               FilterControlId: "STRING_VALUE", // required
@@ -7068,7 +7096,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 },
  * //               },
  * //               DefaultFilterControlConfiguration: { // DefaultFilterControlConfiguration
- * //                 Title: "STRING_VALUE", // required
+ * //                 Title: "STRING_VALUE",
  * //                 ControlOptions: { // DefaultFilterControlOptions
  * //                   DefaultDateTimePickerOptions: { // DefaultDateTimePickerControlOptions
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7160,6 +7188,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
+ * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
  * //             },
  * //             NumericRangeFilter: { // NumericRangeFilter
@@ -7179,7 +7208,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               AggregationFunction: "<AggregationFunction>",
  * //               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  * //               DefaultFilterControlConfiguration: {
- * //                 Title: "STRING_VALUE", // required
+ * //                 Title: "STRING_VALUE",
  * //                 ControlOptions: {
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7252,6 +7281,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
+ * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
  * //             },
  * //             NumericEqualityFilter: { // NumericEqualityFilter
@@ -7264,7 +7294,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               ParameterName: "STRING_VALUE",
  * //               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  * //               DefaultFilterControlConfiguration: {
- * //                 Title: "STRING_VALUE", // required
+ * //                 Title: "STRING_VALUE",
  * //                 ControlOptions: {
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7335,6 +7365,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
+ * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
  * //             },
  * //             TimeEqualityFilter: { // TimeEqualityFilter
@@ -7348,7 +7379,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Expression: "STRING_VALUE", // required
  * //               },
  * //               DefaultFilterControlConfiguration: {
- * //                 Title: "STRING_VALUE", // required
+ * //                 Title: "STRING_VALUE",
  * //                 ControlOptions: {
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7391,6 +7422,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
+ * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
  * //             },
  * //             TimeRangeFilter: { // TimeRangeFilter
@@ -7416,7 +7448,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  * //               DefaultFilterControlConfiguration: {
- * //                 Title: "STRING_VALUE", // required
+ * //                 Title: "STRING_VALUE",
  * //                 ControlOptions: {
  * //                   DefaultDateTimePickerOptions: {
  * //                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7455,6 +7487,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
  * //                 },
+ * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
  * //             },
  * //             RelativeDatesFilter: { // RelativeDatesFilter

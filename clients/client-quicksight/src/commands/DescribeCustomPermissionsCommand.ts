@@ -269,6 +269,8 @@ export interface DescribeCustomPermissionsCommandOutput extends DescribeCustomPe
  * //       Extension: "DENY",
  * //       ManageSharedFolders: "DENY",
  * //       GenerateAnalyses: "DENY",
+ * //       Story: "DENY",
+ * //       Scenario: "DENY",
  * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",

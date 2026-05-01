@@ -663,6 +663,7 @@ const _CRS = "CreateRefreshSchedule";
 const _CRSR = "CreateRefreshScheduleRequest";
 const _CRSRr = "CreateRefreshScheduleResponse";
 const _CRi = "CircleRadius";
+const _CRo = "ContextRegion";
 const _CS = "ClientSecret";
 const _CSA = "CopySourceArn";
 const _CSC = "ControlSortConfiguration";
@@ -701,6 +702,8 @@ const _CTARre = "CreateThemeAliasRequest";
 const _CTARrea = "CreateThemeAliasResponse";
 const _CTAr = "CreateThemeAlias";
 const _CTC = "CustomTextContent";
+const _CTFC = "ControlTitleFontConfiguration";
+const _CTFT = "ControlTitleFormatText";
 const _CTI = "ColumnTooltipItem";
 const _CTL = "ColumnTagList";
 const _CTM = "ColumnToMatch";
@@ -1765,6 +1768,7 @@ const _INV = "IncludeNullValue";
 const _IO = "IconOptions";
 const _IOP = "IncludeOutputPayload";
 const _IP = "IncludePermissions";
+const _IPCACBSU = "IdentityProviderCACertificatesBundleS3Uri";
 const _IPD = "IntegerParameterDeclaration";
 const _IPE = "InvalidParameterException";
 const _IPL = "IntegerParameterList";
@@ -3020,12 +3024,12 @@ const _SW = "StrokeWidth";
 const _SYADO = "SecondaryYAxisDisplayOptions";
 const _SYALO = "SecondaryYAxisLabelOptions";
 const _SZA = "ShareZendeskAction";
-const _Sc = "Schedule";
+const _Sc = "Scenario";
 const _Sca = "Scale";
 const _Scal = "Scaling";
-const _Sce = "Scenario";
-const _Sch = "Schedules";
-const _Sche = "Schema";
+const _Sch = "Schedule";
+const _Sche = "Schedules";
+const _Schem = "Schema";
 const _Sco = "Scope";
 const _Scop = "Scopes";
 const _Se = "Service";
@@ -3054,7 +3058,8 @@ const _Spac = "Spacing";
 const _Spar = "Sparklines";
 const _St = "Status";
 const _Sta = "State";
-const _Sto = "Stops";
+const _Sto = "Story";
+const _Stop = "Stops";
 const _Sty = "Style";
 const _Su = "Subtitle";
 const _Suc = "Success";
@@ -3076,8 +3081,8 @@ const _TAOr = "TrendArrowOptions";
 const _TAe = "TextractAction";
 const _TAem = "TemplateAlias";
 const _TAemp = "TemplateArn";
-const _TAex = "TextArea";
-const _TAext = "TextAlignment";
+const _TAex = "TextAlignment";
+const _TAext = "TextArea";
 const _TAh = "ThemeAlias";
 const _TAhr = "ThresholdAlerts";
 const _TAo = "TopicArn";
@@ -4761,8 +4766,8 @@ export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var Capabilities$: StaticStructureSchema = [3, n0, _Cap,
   0,
-  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Sp, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _MSF, _GAe],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Sp, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _MSF, _GAe, _Sto, _Sc],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CascadingControlConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
@@ -5064,6 +5069,16 @@ export var ControlSortConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   [_SVS, _CCSo],
   [() => SelectableValuesSort$, () => AggregationSortConfiguration$]
 ];
+export var ControlTitleFontConfiguration$: StaticStructureSchema = [3, n0, _CTFC,
+  0,
+  [_FCo, _TAex],
+  [() => FontConfiguration$, 0]
+];
+export var ControlTitleFormatText$: StaticStructureSchema = [3, n0, _CTFT,
+  0,
+  [_PT, _RTi],
+  [0, 0]
+];
 export var Coordinate$: StaticStructureSchema = [3, n0, _Coo,
   0,
   [_Lat, _Lon],
@@ -5236,7 +5251,7 @@ export var CreateNamespaceResponse$: StaticStructureSchema = [3, n0, _CNRr,
 ];
 export var CreateRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
-  [_DSI, _AAI, _Sc],
+  [_DSI, _AAI, _Sch],
   [[0, 1], [0, 1], () => RefreshSchedule$], 3
 ];
 export var CreateRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _CRSRr,
@@ -5886,8 +5901,8 @@ export var DefaultDateTimePickerControlOptions$: StaticStructureSchema = [3, n0,
 ];
 export var DefaultFilterControlConfiguration$: StaticStructureSchema = [3, n0, _DFCC,
   0,
-  [_Tit, _COo],
-  [0, () => DefaultFilterControlOptions$], 2
+  [_COo, _Tit, _CTFT],
+  [() => DefaultFilterControlOptions$, 0, () => ControlTitleFormatText$], 1
 ];
 export var DefaultFilterControlOptions$: StaticStructureSchema = [3, n0, _DFCO,
   0,
@@ -7056,7 +7071,7 @@ export var FilterAggMetrics$: StaticStructureSchema = [3, n0, _FAM,
 ];
 export var FilterControl$: StaticStructureSchema = [3, n0, _FCil,
   0,
-  [_DTPa, _Lis, _Dr, _TFe, _TAex, _Sl, _RDT, _CSro],
+  [_DTPa, _Lis, _Dr, _TFe, _TAext, _Sl, _RDT, _CSro],
   [() => FilterDateTimePickerControl$, () => FilterListControl$, () => FilterDropDownControl$, () => FilterTextFieldControl$, () => FilterTextAreaControl$, () => FilterSliderControl$, () => FilterRelativeDateTimeControl$, () => FilterCrossSheetControl$]
 ];
 export var FilterCrossSheetControl$: StaticStructureSchema = [3, n0, _FCSC,
@@ -7066,13 +7081,13 @@ export var FilterCrossSheetControl$: StaticStructureSchema = [3, n0, _FCSC,
 ];
 export var FilterDateTimePickerControl$: StaticStructureSchema = [3, n0, _FDTPC,
   0,
-  [_FCI, _Tit, _SFI, _DOi, _T, _CMom],
-  [0, 0, 0, () => DateTimePickerControlDisplayOptions$, 0, 0], 3
+  [_FCI, _SFI, _Tit, _DOi, _T, _CMom, _CTFT],
+  [0, 0, 0, () => DateTimePickerControlDisplayOptions$, 0, 0, () => ControlTitleFormatText$], 2
 ];
 export var FilterDropDownControl$: StaticStructureSchema = [3, n0, _FDDC,
   0,
-  [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC, _CMom, _CSCo],
-  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, 0, () => ControlSortConfigurationList], 3
+  [_FCI, _SFI, _Tit, _DOi, _T, _SVe, _CCC, _CMom, _CSCo, _CTFT],
+  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, 0, () => ControlSortConfigurationList, () => ControlTitleFormatText$], 2
 ];
 export var FilterGroup$: StaticStructureSchema = [3, n0, _FGil,
   0,
@@ -7086,8 +7101,8 @@ export var FilterListConfiguration$: StaticStructureSchema = [3, n0, _FLC,
 ];
 export var FilterListControl$: StaticStructureSchema = [3, n0, _FLCi,
   0,
-  [_FCI, _Tit, _SFI, _DOi, _T, _SVe, _CCC, _CSCo],
-  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, () => ControlSortConfigurationList], 3
+  [_FCI, _SFI, _Tit, _DOi, _T, _SVe, _CCC, _CSCo, _CTFT],
+  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => FilterSelectableValues$, () => CascadingControlConfiguration$, () => ControlSortConfigurationList, () => ControlTitleFormatText$], 2
 ];
 export var FilterOperation$: StaticStructureSchema = [3, n0, _FO,
   0,
@@ -7106,8 +7121,8 @@ export var FilterOperationTargetVisualsConfiguration$: StaticStructureSchema = [
 ];
 export var FilterRelativeDateTimeControl$: StaticStructureSchema = [3, n0, _FRDTC,
   0,
-  [_FCI, _Tit, _SFI, _DOi, _CMom],
-  [0, 0, 0, () => RelativeDateTimeControlDisplayOptions$, 0], 3
+  [_FCI, _SFI, _Tit, _DOi, _CMom, _CTFT],
+  [0, 0, 0, () => RelativeDateTimeControlDisplayOptions$, 0, () => ControlTitleFormatText$], 2
 ];
 export var FilterScopeConfiguration$: StaticStructureSchema = [3, n0, _FSC,
   0,
@@ -7121,8 +7136,8 @@ export var FilterSelectableValues$: StaticStructureSchema = [3, n0, _FSV,
 ];
 export var FilterSliderControl$: StaticStructureSchema = [3, n0, _FSCi,
   0,
-  [_FCI, _Tit, _SFI, _MV, _MVi, _SSt, _DOi, _T],
-  [0, 0, 0, 1, 1, 1, () => SliderControlDisplayOptions$, 0], 6
+  [_FCI, _SFI, _MV, _MVi, _SSt, _Tit, _DOi, _T, _CTFT],
+  [0, 0, 1, 1, 1, 0, () => SliderControlDisplayOptions$, 0, () => ControlTitleFormatText$], 5
 ];
 export var FiltersOperation$: StaticStructureSchema = [3, n0, _FOi,
   0,
@@ -7131,13 +7146,13 @@ export var FiltersOperation$: StaticStructureSchema = [3, n0, _FOi,
 ];
 export var FilterTextAreaControl$: StaticStructureSchema = [3, n0, _FTAC,
   0,
-  [_FCI, _Tit, _SFI, _Del, _DOi],
-  [0, 0, 0, 0, () => TextAreaControlDisplayOptions$], 3
+  [_FCI, _SFI, _Tit, _Del, _DOi, _CTFT],
+  [0, 0, 0, 0, () => TextAreaControlDisplayOptions$, () => ControlTitleFormatText$], 2
 ];
 export var FilterTextFieldControl$: StaticStructureSchema = [3, n0, _FTFC,
   0,
-  [_FCI, _Tit, _SFI, _DOi],
-  [0, 0, 0, () => TextFieldControlDisplayOptions$], 3
+  [_FCI, _SFI, _Tit, _DOi, _CTFT],
+  [0, 0, 0, () => TextFieldControlDisplayOptions$, () => ControlTitleFormatText$], 2
 ];
 export var FlowSummary$: StaticStructureSchema = [3, n0, _FSl,
   0,
@@ -7191,7 +7206,7 @@ export var ForecastComputation$: StaticStructureSchema = [3, n0, _FCore,
 ];
 export var ForecastConfiguration$: StaticStructureSchema = [3, n0, _FCorec,
   0,
-  [_FPo, _Sce],
+  [_FPo, _Sc],
   [() => TimeBasedForecastProperties$, () => ForecastScenario$]
 ];
 export var ForecastScenario$: StaticStructureSchema = [3, n0, _FSor,
@@ -7596,8 +7611,8 @@ export var GetFlowPermissionsOutput$: StaticStructureSchema = [3, n0, _GFPO,
 ];
 export var GetIdentityContextRequest$: StaticStructureSchema = [3, n0, _GICR,
   0,
-  [_AAI, _UIs, _Na, _SEAe],
-  [[0, 1], [() => UserIdentifier$, 0], 0, 4], 2
+  [_AAI, _UIs, _Na, _SEAe, _CRo],
+  [[0, 1], [() => UserIdentifier$, 0], 0, 4, 0], 2
 ];
 export var GetIdentityContextResponse$: StaticStructureSchema = [3, n0, _GICRe,
   0,
@@ -7621,7 +7636,7 @@ export var GlobalTableBorderOptions$: StaticStructureSchema = [3, n0, _GTBO,
 ];
 export var GradientColor$: StaticStructureSchema = [3, n0, _GCr,
   0,
-  [_Sto],
+  [_Stop],
   [() => GradientStopList]
 ];
 export var GradientStop$: StaticStructureSchema = [3, n0, _GSr,
@@ -8711,8 +8726,8 @@ export var OAuthClientCredentials$: StaticStructureSchema = [3, n0, _OACC,
 ];
 export var OAuthParameters$: StaticStructureSchema = [3, n0, _OAP,
   0,
-  [_TPU, _OAS, _IPVCP, _IPRU],
-  [0, 0, () => VpcConnectionProperties$, 0], 1
+  [_TPU, _OAS, _IPVCP, _IPRU, _IPCACBSU],
+  [0, 0, () => VpcConnectionProperties$, 0, 0], 1
 ];
 export var OracleParameters$: StaticStructureSchema = [3, n0, _OPr,
   0,
@@ -8756,13 +8771,13 @@ export var PanelTitleOptions$: StaticStructureSchema = [3, n0, _PTO,
 ];
 export var ParameterControl$: StaticStructureSchema = [3, n0, _PCar,
   0,
-  [_DTPa, _Lis, _Dr, _TFe, _TAex, _Sl],
+  [_DTPa, _Lis, _Dr, _TFe, _TAext, _Sl],
   [() => ParameterDateTimePickerControl$, () => ParameterListControl$, () => ParameterDropDownControl$, () => ParameterTextFieldControl$, () => ParameterTextAreaControl$, () => ParameterSliderControl$]
 ];
 export var ParameterDateTimePickerControl$: StaticStructureSchema = [3, n0, _PDTPC,
   0,
-  [_PCI, _Tit, _SPN, _DOi],
-  [0, 0, 0, () => DateTimePickerControlDisplayOptions$], 3
+  [_PCI, _SPN, _Tit, _DOi, _CTFT],
+  [0, 0, 0, () => DateTimePickerControlDisplayOptions$, () => ControlTitleFormatText$], 2
 ];
 export var ParameterDeclaration$: StaticStructureSchema = [3, n0, _PDa,
   0,
@@ -8771,13 +8786,13 @@ export var ParameterDeclaration$: StaticStructureSchema = [3, n0, _PDa,
 ];
 export var ParameterDropDownControl$: StaticStructureSchema = [3, n0, _PDDC,
   0,
-  [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC, _CMom, _CSCo],
-  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, 0, () => ControlSortConfigurationList], 3
+  [_PCI, _SPN, _Tit, _DOi, _T, _SVe, _CCC, _CMom, _CSCo, _CTFT],
+  [0, 0, 0, () => DropDownControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, 0, () => ControlSortConfigurationList, () => ControlTitleFormatText$], 2
 ];
 export var ParameterListControl$: StaticStructureSchema = [3, n0, _PLCa,
   0,
-  [_PCI, _Tit, _SPN, _DOi, _T, _SVe, _CCC, _CSCo],
-  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, () => ControlSortConfigurationList], 3
+  [_PCI, _SPN, _Tit, _DOi, _T, _SVe, _CCC, _CSCo, _CTFT],
+  [0, 0, 0, () => ListControlDisplayOptions$, 0, () => ParameterSelectableValues$, () => CascadingControlConfiguration$, () => ControlSortConfigurationList, () => ControlTitleFormatText$], 2
 ];
 export var _Parameters$: StaticStructureSchema = [3, n0, _Par,
   0,
@@ -8791,18 +8806,18 @@ export var ParameterSelectableValues$: StaticStructureSchema = [3, n0, _PSV,
 ];
 export var ParameterSliderControl$: StaticStructureSchema = [3, n0, _PSC,
   0,
-  [_PCI, _Tit, _SPN, _MV, _MVi, _SSt, _DOi],
-  [0, 0, 0, 1, 1, 1, () => SliderControlDisplayOptions$], 6
+  [_PCI, _SPN, _MV, _MVi, _SSt, _Tit, _DOi, _CTFT],
+  [0, 0, 1, 1, 1, 0, () => SliderControlDisplayOptions$, () => ControlTitleFormatText$], 5
 ];
 export var ParameterTextAreaControl$: StaticStructureSchema = [3, n0, _PTAC,
   0,
-  [_PCI, _Tit, _SPN, _Del, _DOi],
-  [0, 0, 0, 0, () => TextAreaControlDisplayOptions$], 3
+  [_PCI, _SPN, _Tit, _Del, _DOi, _CTFT],
+  [0, 0, 0, 0, () => TextAreaControlDisplayOptions$, () => ControlTitleFormatText$], 2
 ];
 export var ParameterTextFieldControl$: StaticStructureSchema = [3, n0, _PTFC,
   0,
-  [_PCI, _Tit, _SPN, _DOi],
-  [0, 0, 0, () => TextFieldControlDisplayOptions$], 3
+  [_PCI, _SPN, _Tit, _DOi, _CTFT],
+  [0, 0, 0, () => TextFieldControlDisplayOptions$, () => ControlTitleFormatText$], 2
 ];
 export var ParentDataSet$: StaticStructureSchema = [3, n0, _PDS,
   0,
@@ -9291,7 +9306,7 @@ export var RegisteredCustomerManagedKey$: StaticStructureSchema = [3, n0, _RCMK,
 ];
 export var RegisteredUserConsoleFeatureConfigurations$: StaticStructureSchema = [3, n0, _RUCFC,
   0,
-  [_SPta, _SV, _AQIQS, _Sch, _RSec, _TAhr, _DCS],
+  [_SPta, _SV, _AQIQS, _Sche, _RSec, _TAhr, _DCS],
   [() => StatePersistenceConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightConsoleConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$, () => DashboardCustomizationSummaryConfigurations$]
 ];
 export var RegisteredUserDashboardEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUDEC,
@@ -9301,7 +9316,7 @@ export var RegisteredUserDashboardEmbeddingConfiguration$: StaticStructureSchema
 ];
 export var RegisteredUserDashboardFeatureConfigurations$: StaticStructureSchema = [3, n0, _RUDFC,
   0,
-  [_SPta, _Boo, _SV, _AQIQS, _Sch, _RSec, _TAhr, _DCS],
+  [_SPta, _Boo, _SV, _AQIQS, _Sche, _RSec, _TAhr, _DCS],
   [() => StatePersistenceConfigurations$, () => BookmarksConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightDashboardConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$, () => DashboardCustomizationSummaryConfigurations$]
 ];
 export var RegisteredUserDashboardVisualEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUDVEC,
@@ -9351,7 +9366,7 @@ export var RegisterUserResponse$: StaticStructureSchema = [3, n0, _RURe,
 ];
 export var RelationalTable$: StaticStructureSchema = [3, n0, _RTel,
   0,
-  [_DSAa, _N, _ICnp, _Cata, _Sche],
+  [_DSAa, _N, _ICnp, _Cata, _Schem],
   [0, 0, () => InputColumnList, 0, 0], 3
 ];
 export var RelativeDatesFilter$: StaticStructureSchema = [3, n0, _RDF,
@@ -10716,8 +10731,8 @@ export var TwitterParameters$: StaticStructureSchema = [3, n0, _TPw,
 ];
 export var Typography$: StaticStructureSchema = [3, n0, _Ty,
   0,
-  [_FFon, _ATFC, _ALFC, _LTFC, _LVFC, _DLFC, _VTFC, _VSFC],
-  [() => FontList, () => FontConfiguration$, () => FontConfiguration$, () => FontConfiguration$, () => FontConfiguration$, () => FontConfiguration$, () => VisualTitleFontConfiguration$, () => VisualSubtitleFontConfiguration$]
+  [_FFon, _ATFC, _ALFC, _LTFC, _LVFC, _DLFC, _VTFC, _VSFC, _CTFC],
+  [() => FontList, () => FontConfiguration$, () => FontConfiguration$, () => FontConfiguration$, () => FontConfiguration$, () => FontConfiguration$, () => VisualTitleFontConfiguration$, () => VisualSubtitleFontConfiguration$, () => ControlTitleFontConfiguration$]
 ];
 export var UIColorPalette$: StaticStructureSchema = [3, n0, _UICP,
   0,
@@ -11091,7 +11106,7 @@ export var UpdateQuickSightQSearchConfigurationResponse$: StaticStructureSchema 
 ];
 export var UpdateRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
-  [_DSI, _AAI, _Sc],
+  [_DSI, _AAI, _Sch],
   [[0, 1], [0, 1], () => RefreshSchedule$], 3
 ];
 export var UpdateRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _URSRp,
@@ -11341,7 +11356,7 @@ export var VisualPalette$: StaticStructureSchema = [3, n0, _VP,
 ];
 export var VisualSubtitleFontConfiguration$: StaticStructureSchema = [3, n0, _VSFC,
   0,
-  [_FCo, _TAext, _TTex],
+  [_FCo, _TAex, _TTex],
   [() => FontConfiguration$, 0, 0]
 ];
 export var VisualSubtitleLabelOptions$: StaticStructureSchema = [3, n0, _VSLO,
@@ -11351,7 +11366,7 @@ export var VisualSubtitleLabelOptions$: StaticStructureSchema = [3, n0, _VSLO,
 ];
 export var VisualTitleFontConfiguration$: StaticStructureSchema = [3, n0, _VTFC,
   0,
-  [_FCo, _TAext, _TTex],
+  [_FCo, _TAex, _TTex],
   [() => FontConfiguration$, 0, 0]
 ];
 export var VisualTitleLabelOptions$: StaticStructureSchema = [3, n0, _VTLO,

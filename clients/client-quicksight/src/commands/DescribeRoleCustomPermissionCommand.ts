@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeRoleCustomPermissionRequest } from "../models/models_3";
-import type { DescribeRoleCustomPermissionResponse } from "../models/models_4";
+import type { DescribeRoleCustomPermissionRequest, DescribeRoleCustomPermissionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeRoleCustomPermission$ } from "../schemas/schemas_0";
 

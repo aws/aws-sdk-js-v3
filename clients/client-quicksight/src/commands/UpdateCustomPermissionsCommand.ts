@@ -261,6 +261,8 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     Extension: "DENY",
  *     ManageSharedFolders: "DENY",
  *     GenerateAnalyses: "DENY",
+ *     Story: "DENY",
+ *     Scenario: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);

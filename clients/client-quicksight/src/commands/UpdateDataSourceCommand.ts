@@ -146,6 +146,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *           VpcConnectionArn: "STRING_VALUE", // required
  *         },
  *         IdentityProviderResourceUri: "STRING_VALUE",
+ *         IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  *       },
  *     },
  *     SparkParameters: { // SparkParameters
@@ -192,6 +193,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *           VpcConnectionArn: "STRING_VALUE", // required
  *         },
  *         IdentityProviderResourceUri: "STRING_VALUE",
+ *         IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  *       },
  *     },
  *     TrinoParameters: { // TrinoParameters
@@ -340,6 +342,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *                 VpcConnectionArn: "STRING_VALUE", // required
  *               },
  *               IdentityProviderResourceUri: "STRING_VALUE",
+ *               IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  *             },
  *           },
  *           SparkParameters: {
@@ -386,6 +389,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *                 VpcConnectionArn: "STRING_VALUE", // required
  *               },
  *               IdentityProviderResourceUri: "STRING_VALUE",
+ *               IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  *             },
  *           },
  *           TrinoParameters: {

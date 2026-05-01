@@ -178,6 +178,10 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  *         TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *         TextTransform: "CAPITALIZE",
  *       },
+ *       ControlTitleFontConfiguration: { // ControlTitleFontConfiguration
+ *         FontConfiguration: "<FontConfiguration>",
+ *         TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ *       },
  *     },
  *   },
  *   Permissions: [ // ResourcePermissionList

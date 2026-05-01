@@ -205,6 +205,7 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * //                 VpcConnectionArn: "STRING_VALUE", // required
  * //               },
  * //               IdentityProviderResourceUri: "STRING_VALUE",
+ * //               IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  * //             },
  * //           },
  * //           SparkParameters: { // SparkParameters
@@ -251,6 +252,7 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * //                 VpcConnectionArn: "STRING_VALUE", // required
  * //               },
  * //               IdentityProviderResourceUri: "STRING_VALUE",
+ * //               IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  * //             },
  * //           },
  * //           TrinoParameters: { // TrinoParameters

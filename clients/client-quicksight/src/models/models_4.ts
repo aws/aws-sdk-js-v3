@@ -86,7 +86,6 @@ import type {
   DataSetRefreshProperties,
   DataSetUsageConfiguration,
   DataSourceParameters,
-  FieldFolder,
   LinkSharingConfiguration,
   ResourcePermission,
   SharedViewConfigurations,
@@ -110,6 +109,7 @@ import type {
   DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
+  FieldFolder,
   Group,
   GroupMember,
   Ingestion,
@@ -131,6 +131,58 @@ import type {
   TopicDetails,
   TopicRefreshSchedule,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeRefreshScheduleResponse {
+  /**
+   * <p>The refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRoleCustomPermissionRequest {
+  /**
+   * <p>The name of the role whose permissions you want described.</p>
+   * @public
+   */
+  Role: Role | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that contains the role.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
 
 /**
  * @public
@@ -2899,6 +2951,27 @@ export interface GetIdentityContextRequest {
    * @public
    */
   SessionExpiresAt?: Date | undefined;
+
+  /**
+   * <p>The region in which the context is to be used. Use this parameter to obtain an identity context for cross-region use.</p>
+   *          <p>The specified region must meet the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The region must be in the same Amazon Web Services partition as the region you are calling from. Cross-partition requests are not supported. For example, you cannot specify a region in the <code>aws-cn</code> partition when calling from a region in the <code>aws</code> partition.</p>
+   *             </li>
+   *             <li>
+   *                <p>It must be a valid Amazon QuickSight supported region.</p>
+   *             </li>
+   *             <li>
+   *                <p>The calling customer account must be enabled in the specified context region.</p>
+   *             </li>
+   *             <li>
+   *                <p>This parameter is not supported when calling from an opt-in region.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContextRegion?: string | undefined;
 }
 
 /**
@@ -9821,69 +9894,4 @@ export interface UpdateTopicPermissionsRequest {
    * @public
    */
   RevokePermissions?: ResourcePermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTopicPermissionsResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions on the topic.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTopicRefreshScheduleRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule
-   *          you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DatasetId: string | undefined;
-
-  /**
-   * <p>The definition of a refresh schedule.</p>
-   * @public
-   */
-  RefreshSchedule: TopicRefreshSchedule | undefined;
 }

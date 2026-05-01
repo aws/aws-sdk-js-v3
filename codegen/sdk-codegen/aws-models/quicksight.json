@@ -6761,6 +6761,16 @@
         }
       }
     },
+    "com.amazonaws.quicksight#CACertificatesBundleS3Uri": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^s3://.+/.+$"
+      }
+    },
     "com.amazonaws.quicksight#CIDR": {
       "type": "string",
       "traits": {
@@ -8323,6 +8333,18 @@
           "target": "com.amazonaws.quicksight#CapabilityState",
           "traits": {
             "smithy.api#documentation": "<p>The ability to generate analysis using AI</p>"
+          }
+        },
+        "Story": {
+          "target": "com.amazonaws.quicksight#CapabilityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The ability to perform Story-related actions.</p>"
+          }
+        },
+        "Scenario": {
+          "target": "com.amazonaws.quicksight#CapabilityState",
+          "traits": {
+            "smithy.api#documentation": "<p>The ability to perform Scenario-related actions.</p>"
           }
         }
       },
@@ -10910,6 +10932,66 @@
           "traits": {
             "smithy.api#enumValue": "USER_DEFINED_ORDER"
           }
+        }
+      }
+    },
+    "com.amazonaws.quicksight#ControlTitleFontConfiguration": {
+      "type": "structure",
+      "members": {
+        "FontConfiguration": {
+          "target": "com.amazonaws.quicksight#FontConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Configures the font settings for the control title.</p>"
+          }
+        },
+        "TextAlignment": {
+          "target": "com.amazonaws.quicksight#HorizontalTextAlignment",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines the alignment of the control title.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configures the display properties of the control title.</p>"
+      }
+    },
+    "com.amazonaws.quicksight#ControlTitleFormatText": {
+      "type": "structure",
+      "members": {
+        "PlainText": {
+          "target": "com.amazonaws.quicksight#ControlTitlePlainText",
+          "traits": {
+            "smithy.api#documentation": "<p>The plain text format of the title text.</p>"
+          }
+        },
+        "RichText": {
+          "target": "com.amazonaws.quicksight#ControlTitleRichText",
+          "traits": {
+            "smithy.api#documentation": "<p>The rich text format of the title text.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The title format text configuration for a sheet control. This is a tagged union type. Specify either <code>PlainText</code> or <code>RichText</code>, but not both.</p>"
+      }
+    },
+    "com.amazonaws.quicksight#ControlTitlePlainText": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "<p>The plain text title for a sheet control.</p>",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazonaws.quicksight#ControlTitleRichText": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "<p>The rich text title for a sheet control.</p>",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
         }
       }
     },
@@ -19841,8 +19923,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>"
           }
         },
         "ControlOptions": {
@@ -19850,6 +19933,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The control option for the <code>DefaultFilterControlConfiguration</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the default filter control.</p>"
           }
         }
       },
@@ -30870,8 +30959,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterDateTimePickerControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterDateTimePickerControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -30898,6 +30988,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The visibility configurationof the Apply button on a <code>DateTimePickerControl</code>.</p>"
           }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
+          }
         }
       },
       "traits": {
@@ -30917,8 +31013,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterDropDownControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterDropDownControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -30962,6 +31059,12 @@
           "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -31081,8 +31184,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterListControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterListControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -31120,6 +31224,12 @@
           "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -31264,8 +31374,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterTextAreaControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterTextAreaControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -31285,6 +31396,12 @@
           "target": "com.amazonaws.quicksight#CommitMode",
           "traits": {
             "smithy.api#documentation": "<p>The visibility configuration of the Apply button on a <code>FilterRelativeDateTimeControl</code>.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -31339,8 +31456,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterSliderControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterSliderControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -31385,6 +31503,12 @@
             "smithy.api#documentation": "<p>The number of increments that the slider bar is divided into.</p>",
             "smithy.api#required": {}
           }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
+          }
         }
       },
       "traits": {
@@ -31404,8 +31528,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterTextAreaControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterTextAreaControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -31426,6 +31551,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The display options of a control.</p>"
           }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
+          }
         }
       },
       "traits": {
@@ -31445,8 +31576,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>FilterTextFieldControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>FilterTextFieldControl</code>.</p>"
           }
         },
         "SourceFilterId": {
@@ -31460,6 +31592,12 @@
           "target": "com.amazonaws.quicksight#TextFieldControlDisplayOptions",
           "traits": {
             "smithy.api#documentation": "<p>The display options of a control.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -31971,7 +32109,7 @@
       "type": "structure",
       "members": {
         "FontFamily": {
-          "target": "com.amazonaws.quicksight#String",
+          "target": "com.amazonaws.quicksight#LimitedString",
           "traits": {
             "smithy.api#documentation": "<p>Determines the font family settings.</p>"
           }
@@ -32015,7 +32153,7 @@
           }
         },
         "FontFamily": {
-          "target": "com.amazonaws.quicksight#String",
+          "target": "com.amazonaws.quicksight#LimitedString",
           "traits": {
             "smithy.api#documentation": "<p>The font family that you want to use.</p>"
           }
@@ -35280,6 +35418,12 @@
           "target": "smithy.api#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The timestamp at which the session will expire.</p>"
+          }
+        },
+        "ContextRegion": {
+          "target": "com.amazonaws.quicksight#Region",
+          "traits": {
+            "smithy.api#documentation": "<p>The region in which the context is to be used. Use this parameter to obtain an identity context for cross-region use.</p>\n         <p>The specified region must meet the following conditions:</p>\n         <ul>\n            <li>\n               <p>The region must be in the same Amazon Web Services partition as the region you are calling from. Cross-partition requests are not supported. For example, you cannot specify a region in the <code>aws-cn</code> partition when calling from a region in the <code>aws</code> partition.</p>\n            </li>\n            <li>\n               <p>It must be a valid Amazon QuickSight supported region.</p>\n            </li>\n            <li>\n               <p>The calling customer account must be enabled in the specified context region.</p>\n            </li>\n            <li>\n               <p>This parameter is not supported when calling from an opt-in region.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -46228,6 +46372,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The resource uri of the identity provider.</p>"
           }
+        },
+        "IdentityProviderCACertificatesBundleS3Uri": {
+          "target": "com.amazonaws.quicksight#CACertificatesBundleS3Uri",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this parameter to provide a custom CA certificate bundle for the identity provider when the default trust store does not include the required certificates.</p>"
+          }
         }
       },
       "traits": {
@@ -46775,8 +46925,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>ParameterDateTimePickerControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>ParameterDateTimePickerControl</code>.</p>"
           }
         },
         "SourceParameterName": {
@@ -46790,6 +46941,12 @@
           "target": "com.amazonaws.quicksight#DateTimePickerControlDisplayOptions",
           "traits": {
             "smithy.api#documentation": "<p>The display options of a control.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -46854,8 +47011,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>ParameterDropDownControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>ParameterDropDownControl</code>.</p>"
           }
         },
         "SourceParameterName": {
@@ -46900,6 +47058,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
           }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
+          }
         }
       },
       "traits": {
@@ -46919,8 +47083,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>ParameterListControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>ParameterListControl</code>.</p>"
           }
         },
         "SourceParameterName": {
@@ -46958,6 +47123,12 @@
           "target": "com.amazonaws.quicksight#ControlSortConfigurationList",
           "traits": {
             "smithy.api#documentation": "<p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -47020,8 +47191,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>ParameterSliderControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>ParameterSliderControl</code>.</p>"
           }
         },
         "SourceParameterName": {
@@ -47060,6 +47232,12 @@
             "smithy.api#documentation": "<p>The number of increments that the slider bar is divided into.</p>",
             "smithy.api#required": {}
           }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
+          }
         }
       },
       "traits": {
@@ -47079,8 +47257,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>ParameterTextAreaControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>ParameterTextAreaControl</code>.</p>"
           }
         },
         "SourceParameterName": {
@@ -47101,6 +47280,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The display options of a control.</p>"
           }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
+          }
         }
       },
       "traits": {
@@ -47120,8 +47305,9 @@
         "Title": {
           "target": "com.amazonaws.quicksight#SheetControlTitle",
           "traits": {
-            "smithy.api#documentation": "<p>The title of the <code>ParameterTextFieldControl</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#addedDefault": {},
+            "smithy.api#default": "",
+            "smithy.api#documentation": "<p>The title of the <code>ParameterTextFieldControl</code>.</p>"
           }
         },
         "SourceParameterName": {
@@ -47135,6 +47321,12 @@
           "target": "com.amazonaws.quicksight#TextFieldControlDisplayOptions",
           "traits": {
             "smithy.api#documentation": "<p>The display options of a control.</p>"
+          }
+        },
+        "ControlTitleFormatText": {
+          "target": "com.amazonaws.quicksight#ControlTitleFormatText",
+          "traits": {
+            "smithy.api#documentation": "<p>The title text format configuration for the control.</p>"
           }
         }
       },
@@ -52552,6 +52744,12 @@
         }
       }
     },
+    "com.amazonaws.quicksight#Region": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-z]+-[a-z]+-[0-9]{1}$"
+      }
+    },
     "com.amazonaws.quicksight#RegisterUser": {
       "type": "operation",
       "input": {
@@ -56882,7 +57080,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 1,
+          "min": 0,
           "max": 2048
         }
       }
@@ -65323,6 +65521,12 @@
           "target": "com.amazonaws.quicksight#VisualSubtitleFontConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Configures the display properties of the visual sub-title.</p>"
+          }
+        },
+        "ControlTitleFontConfiguration": {
+          "target": "com.amazonaws.quicksight#ControlTitleFontConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Configures the display properties of the control title.</p>"
           }
         }
       },

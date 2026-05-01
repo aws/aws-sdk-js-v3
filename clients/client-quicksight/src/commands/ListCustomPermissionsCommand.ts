@@ -271,6 +271,8 @@ export interface ListCustomPermissionsCommandOutput extends ListCustomPermission
  * //         Extension: "DENY",
  * //         ManageSharedFolders: "DENY",
  * //         GenerateAnalyses: "DENY",
+ * //         Story: "DENY",
+ * //         Scenario: "DENY",
  * //       },
  * //     },
  * //   ],

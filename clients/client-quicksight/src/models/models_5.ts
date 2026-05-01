@@ -1,7 +1,73 @@
 // smithy-typescript generated code
 import type { UserRole, VisualRole, VPCConnectionAvailabilityStatus, VPCConnectionResourceStatus } from "./enums";
-import type { TopicIR, TopicTemplate } from "./models_2";
+import type { ResourcePermission, TopicIR, TopicTemplate } from "./models_2";
+import type { TopicRefreshSchedule } from "./models_3";
 import type { User } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateTopicPermissionsResponse {
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions on the topic.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTopicRefreshScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule
+   *          you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DatasetId: string | undefined;
+
+  /**
+   * <p>The definition of a refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule: TopicRefreshSchedule | undefined;
+}
 
 /**
  * @public

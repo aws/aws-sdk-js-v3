@@ -90,7 +90,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *           { // ParameterControl
  *             DateTimePicker: { // ParameterDateTimePickerControl
  *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceParameterName: "STRING_VALUE", // required
  *               DisplayOptions: { // DateTimePickerControlDisplayOptions
  *                 TitleOptions: { // LabelOptions
@@ -118,10 +118,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
  *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
+ *               ControlTitleFormatText: { // ControlTitleFormatText
+ *                 PlainText: "STRING_VALUE",
+ *                 RichText: "STRING_VALUE",
+ *               },
  *             },
  *             List: { // ParameterListControl
  *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceParameterName: "STRING_VALUE", // required
  *               DisplayOptions: { // ListControlDisplayOptions
  *                 SearchOptions: { // ListControlSearchOptions
@@ -201,10 +205,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 },
  *               ],
+ *               ControlTitleFormatText: {
+ *                 PlainText: "STRING_VALUE",
+ *                 RichText: "STRING_VALUE",
+ *               },
  *             },
  *             Dropdown: { // ParameterDropDownControl
  *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceParameterName: "STRING_VALUE", // required
  *               DisplayOptions: { // DropDownControlDisplayOptions
  *                 SelectAllOptions: {
@@ -279,10 +287,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 },
  *               ],
+ *               ControlTitleFormatText: {
+ *                 PlainText: "STRING_VALUE",
+ *                 RichText: "STRING_VALUE",
+ *               },
  *             },
  *             TextField: { // ParameterTextFieldControl
  *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceParameterName: "STRING_VALUE", // required
  *               DisplayOptions: { // TextFieldControlDisplayOptions
  *                 TitleOptions: {
@@ -310,10 +322,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   InfoIconText: "STRING_VALUE",
  *                 },
  *               },
+ *               ControlTitleFormatText: {
+ *                 PlainText: "STRING_VALUE",
+ *                 RichText: "STRING_VALUE",
+ *               },
  *             },
  *             TextArea: { // ParameterTextAreaControl
  *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceParameterName: "STRING_VALUE", // required
  *               Delimiter: "STRING_VALUE",
  *               DisplayOptions: { // TextAreaControlDisplayOptions
@@ -342,10 +358,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   InfoIconText: "STRING_VALUE",
  *                 },
  *               },
+ *               ControlTitleFormatText: {
+ *                 PlainText: "STRING_VALUE",
+ *                 RichText: "STRING_VALUE",
+ *               },
  *             },
  *             Slider: { // ParameterSliderControl
  *               ParameterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceParameterName: "STRING_VALUE", // required
  *               DisplayOptions: { // SliderControlDisplayOptions
  *                 TitleOptions: "<LabelOptions>",
@@ -354,6 +374,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               MaximumValue: Number("double"), // required
  *               MinimumValue: Number("double"), // required
  *               StepSize: Number("double"), // required
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *           },
  *         ],
@@ -361,7 +382,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *           { // FilterControl
  *             DateTimePicker: { // FilterDateTimePickerControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
  *                 TitleOptions: "<LabelOptions>",
@@ -372,10 +393,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
  *               CommitMode: "AUTO" || "MANUAL",
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             List: { // FilterListControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
  *                 SearchOptions: {
@@ -426,10 +448,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 },
  *               ],
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             Dropdown: { // FilterDropDownControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
  *                 SelectAllOptions: {
@@ -478,10 +501,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 },
  *               ],
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             TextField: { // FilterTextFieldControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
  *                 TitleOptions: "<LabelOptions>",
@@ -490,10 +514,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 },
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             TextArea: { // FilterTextAreaControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               Delimiter: "STRING_VALUE",
  *               DisplayOptions: {
@@ -503,10 +528,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 },
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             Slider: { // FilterSliderControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
  *                 TitleOptions: "<LabelOptions>",
@@ -516,10 +542,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               MaximumValue: Number("double"), // required
  *               MinimumValue: Number("double"), // required
  *               StepSize: Number("double"), // required
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             RelativeDateTime: { // FilterRelativeDateTimeControl
  *               FilterControlId: "STRING_VALUE", // required
- *               Title: "STRING_VALUE", // required
+ *               Title: "STRING_VALUE",
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: { // RelativeDateTimeControlDisplayOptions
  *                 TitleOptions: "<LabelOptions>",
@@ -527,6 +554,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *               CommitMode: "AUTO" || "MANUAL",
+ *               ControlTitleFormatText: "<ControlTitleFormatText>",
  *             },
  *             CrossSheet: { // FilterCrossSheetControl
  *               FilterControlId: "STRING_VALUE", // required
@@ -7075,7 +7103,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 },
  *               },
  *               DefaultFilterControlConfiguration: { // DefaultFilterControlConfiguration
- *                 Title: "STRING_VALUE", // required
+ *                 Title: "STRING_VALUE",
  *                 ControlOptions: { // DefaultFilterControlOptions
  *                   DefaultDateTimePickerOptions: { // DefaultDateTimePickerControlOptions
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7167,6 +7195,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
+ *                 ControlTitleFormatText: "<ControlTitleFormatText>",
  *               },
  *             },
  *             NumericRangeFilter: { // NumericRangeFilter
@@ -7186,7 +7215,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               AggregationFunction: "<AggregationFunction>",
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  *               DefaultFilterControlConfiguration: {
- *                 Title: "STRING_VALUE", // required
+ *                 Title: "STRING_VALUE",
  *                 ControlOptions: {
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7259,6 +7288,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
+ *                 ControlTitleFormatText: "<ControlTitleFormatText>",
  *               },
  *             },
  *             NumericEqualityFilter: { // NumericEqualityFilter
@@ -7271,7 +7301,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               ParameterName: "STRING_VALUE",
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
  *               DefaultFilterControlConfiguration: {
- *                 Title: "STRING_VALUE", // required
+ *                 Title: "STRING_VALUE",
  *                 ControlOptions: {
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7342,6 +7372,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
+ *                 ControlTitleFormatText: "<ControlTitleFormatText>",
  *               },
  *             },
  *             TimeEqualityFilter: { // TimeEqualityFilter
@@ -7355,7 +7386,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 Expression: "STRING_VALUE", // required
  *               },
  *               DefaultFilterControlConfiguration: {
- *                 Title: "STRING_VALUE", // required
+ *                 Title: "STRING_VALUE",
  *                 ControlOptions: {
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7398,6 +7429,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
+ *                 ControlTitleFormatText: "<ControlTitleFormatText>",
  *               },
  *             },
  *             TimeRangeFilter: { // TimeRangeFilter
@@ -7423,7 +7455,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               },
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *               DefaultFilterControlConfiguration: {
- *                 Title: "STRING_VALUE", // required
+ *                 Title: "STRING_VALUE",
  *                 ControlOptions: {
  *                   DefaultDateTimePickerOptions: {
  *                     Type: "SINGLE_VALUED" || "DATE_RANGE",
@@ -7462,6 +7494,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     CommitMode: "AUTO" || "MANUAL",
  *                   },
  *                 },
+ *                 ControlTitleFormatText: "<ControlTitleFormatText>",
  *               },
  *             },
  *             RelativeDatesFilter: { // RelativeDatesFilter

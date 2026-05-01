@@ -1203,6 +1203,8 @@ export type {
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
   ControlSortConfiguration,
+  ControlTitleFontConfiguration,
+  ControlTitleFormatText,
   Coordinate,
   CreateAccountCustomizationRequest,
   CreateAccountCustomizationResponse,

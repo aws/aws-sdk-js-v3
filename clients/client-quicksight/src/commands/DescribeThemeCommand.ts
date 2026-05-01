@@ -188,6 +188,10 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  * //             TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  * //             TextTransform: "CAPITALIZE",
  * //           },
+ * //           ControlTitleFontConfiguration: { // ControlTitleFontConfiguration
+ * //             FontConfiguration: "<FontConfiguration>",
+ * //             TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ * //           },
  * //         },
  * //       },
  * //       Errors: [ // ThemeErrorList

@@ -175,6 +175,10 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *         TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
  *         TextTransform: "CAPITALIZE",
  *       },
+ *       ControlTitleFontConfiguration: { // ControlTitleFontConfiguration
+ *         FontConfiguration: "<FontConfiguration>",
+ *         TextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
+ *       },
  *     },
  *   },
  * };
