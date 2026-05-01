@@ -582,6 +582,7 @@ import {
   SpanCitation$,
   SpanMessage$,
   SpanMessageValue$,
+  SpanReasoningValue$,
   SpanStatus,
   SpanTextValue$,
   SpanToolResultValue$,
@@ -1215,6 +1216,7 @@ assert(typeof SpanAttributes$ === "object");
 assert(typeof SpanCitation$ === "object");
 assert(typeof SpanMessage$ === "object");
 assert(typeof SpanMessageValue$ === "object");
+assert(typeof SpanReasoningValue$ === "object");
 assert(typeof SpanTextValue$ === "object");
 assert(typeof SpanToolResultValue$ === "object");
 assert(typeof SpanToolUseValue$ === "object");

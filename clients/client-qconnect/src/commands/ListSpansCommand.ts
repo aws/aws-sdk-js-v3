@@ -57,6 +57,7 @@ export interface ListSpansCommandOutput extends ListSpansResponse, __MetadataBea
  * //       startTimestamp: new Date("TIMESTAMP"), // required
  * //       endTimestamp: new Date("TIMESTAMP"), // required
  * //       status: "STRING_VALUE", // required
+ * //       statusDescription: "STRING_VALUE",
  * //       requestId: "STRING_VALUE", // required
  * //       originRequestId: "STRING_VALUE",
  * //       attributes: { // SpanAttributes
@@ -142,9 +143,15 @@ export interface ListSpansCommandOutput extends ListSpansResponse, __MetadataBea
  * //                         values: "<SpanMessageValueList>", // required
  * //                         error: "STRING_VALUE",
  * //                       },
+ * //                       reasoning: { // SpanReasoningValue
+ * //                         value: "STRING_VALUE", // required
+ * //                       },
  * //                     },
  * //                   ],
  * //                   error: "STRING_VALUE",
+ * //                 },
+ * //                 reasoning: {
+ * //                   value: "STRING_VALUE", // required
  * //                 },
  * //               },
  * //             ],
@@ -164,6 +171,7 @@ export interface ListSpansCommandOutput extends ListSpansResponse, __MetadataBea
  * //         promptType: "STRING_VALUE",
  * //         promptName: "STRING_VALUE",
  * //         promptVersion: Number("int"),
+ * //         timeToFirstTokenMs: Number("int"),
  * //       },
  * //     },
  * //   ],

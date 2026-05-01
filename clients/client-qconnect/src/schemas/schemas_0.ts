@@ -508,6 +508,7 @@ const _SQEE = "ServiceQuotaExceededException";
 const _SQR = "SearchQuickResponses";
 const _SQRR = "SearchQuickResponsesRequest";
 const _SQRRe = "SearchQuickResponsesResponse";
+const _SRV = "SpanReasoningValue";
 const _SS = "SensitiveString";
 const _SSAIAC = "SelfServiceAIAgentConfiguration";
 const _SSCH = "SelfServiceConversationHistory";
@@ -1002,6 +1003,7 @@ const _rSK = "removeShortcutKey";
 const _rT = "referenceType";
 const _rTe = "recommendationType";
 const _re = "reference";
+const _rea = "reasoning";
 const _rec = "recommendations";
 const _ref = "references";
 const _rel = "relevance";
@@ -1022,6 +1024,7 @@ const _sCh = "shippingCity";
 const _sChi = "shippingCounty";
 const _sChip = "shippingCountry";
 const _sCt = "stringContains";
+const _sD = "statusDescription";
 const _sDN = "sessionDataNamespace";
 const _sE = "searchExpression";
 const _sEy = "systemEndpoint";
@@ -1084,6 +1087,7 @@ const _tP = "topP";
 const _tPC = "topicPolicyConfig";
 const _tR = "toolResult";
 const _tT = "templateType";
+const _tTFTM = "timeToFirstTokenMs";
 const _tTa = "targetType";
 const _tTo = "toolType";
 const _tU = "templateUri";
@@ -2774,13 +2778,13 @@ export var SourceContentDataDetails$: StaticStructureSchema = [3, n0, _SCDD,
 ];
 export var Span$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_sIp, _aI, _sI, _sN, _sT, _sTt, _eT, _st, _rIeq, _attr, _pSI, _oRI],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, [() => SpanAttributes$, 0], 0, 0], 10
+  [_sIp, _aI, _sI, _sN, _sT, _sTt, _eT, _st, _rIeq, _attr, _pSI, _sD, _oRI],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, [() => SpanAttributes$, 0], 0, 0, 0], 10
 ];
 export var SpanAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1]
+  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV, _tTFTM],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1, 1]
 ];
 export var SpanCitation$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -2791,6 +2795,11 @@ export var SpanMessage$: StaticStructureSchema = [3, n0, _SM,
   0,
   [_mIe, _par, _tim, _va],
   [0, 0, 4, [() => SpanMessageValueList, 0]], 4
+];
+export var SpanReasoningValue$: StaticStructureSchema = [3, n0, _SRV,
+  0,
+  [_v],
+  [[() => NonEmptySensitiveString, 0]], 1
 ];
 export var SpanTextValue$: StaticStructureSchema = [3, n0, _STV,
   0,
@@ -3467,8 +3476,8 @@ export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SCo,
 ];
 export var SpanMessageValue$: StaticUnionSchema = [4, n0, _SMV,
   0,
-  [_tex, _tUo, _tR],
-  [[() => SpanTextValue$, 0], [() => SpanToolUseValue$, 0], [() => SpanToolResultValue$, 0]]
+  [_tex, _tUo, _tR, _rea],
+  [[() => SpanTextValue$, 0], [() => SpanToolUseValue$, 0], [() => SpanToolResultValue$, 0], [() => SpanReasoningValue$, 0]]
 ];
 export var TagFilter$: StaticUnionSchema = [4, n0, _TF,
   0,

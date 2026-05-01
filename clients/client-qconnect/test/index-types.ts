@@ -679,6 +679,7 @@ export type {
   SpanCitation,
   SpanMessage,
   SpanMessageValue,
+  SpanReasoningValue,
   SpanTextValue,
   SpanToolResultValue,
   SpanToolUseValue,

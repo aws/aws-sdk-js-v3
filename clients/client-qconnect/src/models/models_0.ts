@@ -5627,6 +5627,18 @@ export interface ListSpansRequest {
 }
 
 /**
+ * Model reasoning and it's internal decision making process
+ * @public
+ */
+export interface SpanReasoningValue {
+  /**
+   * The reasoning text content
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * <p>A citation that spans a specific range of text.</p>
  * @public
  */
@@ -9186,21 +9198,4 @@ export interface DeactivateMessageTemplateResponse {
    * @public
    */
   versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteImportJobRequest {
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the import job to be deleted.</p>
-   * @public
-   */
-  importJobId: string | undefined;
 }

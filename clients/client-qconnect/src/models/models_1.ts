@@ -56,11 +56,29 @@ import type {
   ServerSideEncryptionConfiguration,
   SourceConfiguration,
   SourceContentDataDetails,
+  SpanReasoningValue,
   SpanTextValue,
   SpanToolUseValue,
   SuggestedMessageDataDetails,
   VectorIngestionConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteImportJobRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the import job to be deleted.</p>
+   * @public
+   */
+  importJobId: string | undefined;
+}
 
 /**
  * @public
@@ -2000,10 +2018,11 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Message content value - can be text, tool invocation, or tool result</p>
+ * <p>Message content value - can be text, tool invocation, tool result, or reasoning</p>
  * @public
  */
 export type SpanMessageValue =
+  | SpanMessageValue.ReasoningMember
   | SpanMessageValue.TextMember
   | SpanMessageValue.ToolResultMember
   | SpanMessageValue.ToolUseMember
@@ -2021,6 +2040,7 @@ export namespace SpanMessageValue {
     text: SpanTextValue;
     toolUse?: never;
     toolResult?: never;
+    reasoning?: never;
     $unknown?: never;
   }
 
@@ -2032,6 +2052,7 @@ export namespace SpanMessageValue {
     text?: never;
     toolUse: SpanToolUseValue;
     toolResult?: never;
+    reasoning?: never;
     $unknown?: never;
   }
 
@@ -2043,6 +2064,19 @@ export namespace SpanMessageValue {
     text?: never;
     toolUse?: never;
     toolResult: SpanToolResultValue;
+    reasoning?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Model reasoning and it's internal decision making process
+   * @public
+   */
+  export interface ReasoningMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    reasoning: SpanReasoningValue;
     $unknown?: never;
   }
 
@@ -2053,6 +2087,7 @@ export namespace SpanMessageValue {
     text?: never;
     toolUse?: never;
     toolResult?: never;
+    reasoning?: never;
     $unknown: [string, any];
   }
 
@@ -2064,6 +2099,7 @@ export namespace SpanMessageValue {
     text: (value: SpanTextValue) => T;
     toolUse: (value: SpanToolUseValue) => T;
     toolResult: (value: SpanToolResultValue) => T;
+    reasoning: (value: SpanReasoningValue) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2455,7 +2491,7 @@ export interface SpanMessage {
   timestamp: Date | undefined;
 
   /**
-   * <p>Message content values (text, tool use, tool result)</p>
+   * <p>Message content values (text, tool use, tool result, reasoning)</p>
    * @public
    */
   values: SpanMessageValue[] | undefined;
@@ -3193,6 +3229,12 @@ export interface SpanAttributes {
    * @public
    */
   promptVersion?: number | undefined;
+
+  /**
+   * Time to first token in milliseconds, measured from when Amazon Bedrock was invoked to when the first token was returned
+   * @public
+   */
+  timeToFirstTokenMs?: number | undefined;
 }
 
 /**
@@ -3253,6 +3295,12 @@ export interface Span {
    * @public
    */
   status: SpanStatus | undefined;
+
+  /**
+   * Human-readable error description when status is ERROR or TIMEOUT
+   * @public
+   */
+  statusDescription?: string | undefined;
 
   /**
    * <p>The service request ID that initiated the operation</p>

@@ -16580,6 +16580,16 @@
             "smithy.api#required": {}
           }
         },
+        "statusDescription": {
+          "target": "com.amazonaws.qconnect#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "Human-readable error description when status is ERROR or TIMEOUT",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 1024
+            }
+          }
+        },
         "requestId": {
           "target": "com.amazonaws.qconnect#Uuid",
           "traits": {
@@ -16823,6 +16833,12 @@
           "traits": {
             "smithy.api#documentation": "<p>AI prompt version number</p>"
           }
+        },
+        "timeToFirstTokenMs": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Time to first token in milliseconds, measured from when Amazon Bedrock was invoked to when the first token was returned"
+          }
         }
       },
       "traits": {
@@ -16918,7 +16934,7 @@
         "values": {
           "target": "com.amazonaws.qconnect#SpanMessageValueList",
           "traits": {
-            "smithy.api#documentation": "<p>Message content values (text, tool use, tool result)</p>",
+            "smithy.api#documentation": "<p>Message content values (text, tool use, tool result, reasoning)</p>",
             "smithy.api#required": {}
           }
         }
@@ -16959,10 +16975,13 @@
           "traits": {
             "smithy.api#documentation": "<p>Tool result message content</p>"
           }
+        },
+        "reasoning": {
+          "target": "com.amazonaws.qconnect#SpanReasoningValue"
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Message content value - can be text, tool invocation, or tool result</p>"
+        "smithy.api#documentation": "<p>Message content value - can be text, tool invocation, tool result, or reasoning</p>"
       }
     },
     "com.amazonaws.qconnect#SpanMessageValueList": {
@@ -16975,6 +16994,21 @@
           "min": 1,
           "max": 10
         }
+      }
+    },
+    "com.amazonaws.qconnect#SpanReasoningValue": {
+      "type": "structure",
+      "members": {
+        "value": {
+          "target": "com.amazonaws.qconnect#NonEmptySensitiveString",
+          "traits": {
+            "smithy.api#documentation": "The reasoning text content",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Model reasoning and it's internal decision making process"
       }
     },
     "com.amazonaws.qconnect#SpanStatus": {
