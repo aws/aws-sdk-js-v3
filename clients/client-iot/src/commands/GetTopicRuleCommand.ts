@@ -226,6 +226,7 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * //             maxBatchOpenMs: Number("int"),
  * //             maxBatchSize: Number("int"),
  * //             maxBatchSizeBytes: Number("int"),
+ * //             batchAcrossTopics: true || false,
  * //           },
  * //         },
  * //         kafka: { // KafkaAction
@@ -441,6 +442,7 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * //           maxBatchOpenMs: Number("int"),
  * //           maxBatchSize: Number("int"),
  * //           maxBatchSizeBytes: Number("int"),
+ * //           batchAcrossTopics: true || false,
  * //         },
  * //       },
  * //       kafka: {

@@ -485,6 +485,13 @@ export interface BatchConfig {
    * @public
    */
   maxBatchSizeBytes?: number | undefined;
+
+  /**
+   * <p>Whether to allow batching messages from different MQTT topics into a single HTTP request.
+   *          By default, only messages from the same topic are batched together. The default value is <code>false</code>.</p>
+   * @public
+   */
+  batchAcrossTopics?: boolean | undefined;
 }
 
 /**

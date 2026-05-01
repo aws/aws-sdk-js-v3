@@ -1238,7 +1238,8 @@ const _au = "auth";
 const _aut = "authorizers";
 const _av = "average";
 const _b = "behavior";
-const _bAT = "bucketsAggregationType";
+const _bAT = "batchAcrossTopics";
+const _bATu = "bucketsAggregationType";
 const _bC = "batchConfig";
 const _bCT = "behaviorCriteriaType";
 const _bG = "billingGroups";
@@ -2458,8 +2459,8 @@ export var AwsJsonSubstitutionCommandPreprocessorConfig$: StaticStructureSchema 
 ];
 export var BatchConfig$: StaticStructureSchema = [3, n0, _BC,
   0,
-  [_mBOM, _mBS, _mBSB],
-  [1, 1, 1]
+  [_mBOM, _mBS, _mBSB, _bAT],
+  [1, 1, 1, 2]
 ];
 export var Behavior$: StaticStructureSchema = [3, n0, _B,
   0,
@@ -3853,7 +3854,7 @@ export var GetBehaviorModelTrainingSummariesResponse$: StaticStructureSchema = [
 ];
 export var GetBucketsAggregationRequest$: StaticStructureSchema = [3, n0, _GBAR,
   0,
-  [_qS, _aF, _bAT, _iN, _qV],
+  [_qS, _aF, _bATu, _iN, _qV],
   [0, 0, () => BucketsAggregationType$, 0, 0], 3
 ];
 export var GetBucketsAggregationResponse$: StaticStructureSchema = [3, n0, _GBARe,

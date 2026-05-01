@@ -220,6 +220,7 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *             maxBatchOpenMs: Number("int"),
  *             maxBatchSize: Number("int"),
  *             maxBatchSizeBytes: Number("int"),
+ *             batchAcrossTopics: true || false,
  *           },
  *         },
  *         kafka: { // KafkaAction
@@ -435,6 +436,7 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *           maxBatchOpenMs: Number("int"),
  *           maxBatchSize: Number("int"),
  *           maxBatchSizeBytes: Number("int"),
+ *           batchAcrossTopics: true || false,
  *         },
  *       },
  *       kafka: {
