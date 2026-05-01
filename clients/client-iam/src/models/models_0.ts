@@ -1132,6 +1132,11 @@ export interface CreateOpenIDConnectProviderRequest {
    *          <p>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining the
    *                 thumbprint for an OpenID Connect provider</a> in the <i>IAM user
    *                 Guide</i>.</p>
+   *          <note>
+   *             <p>If your OIDC provider's discovery endpoint and JWKS endpoint
+   *                 (<code>jwks_uri</code>) use different certificates or hosts, include the
+   *                 thumbprints for both endpoints in this list.</p>
+   *          </note>
    * @public
    */
   ThumbprintList?: string[] | undefined;
