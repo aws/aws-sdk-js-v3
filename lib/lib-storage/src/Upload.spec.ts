@@ -854,7 +854,7 @@ describe(Upload.name, () => {
 
       // Should use calculated part size based on total size and MAX_PARTS
       const MIN_PART_SIZE = 1024 * 1024 * 5; // 5MB - same as Upload.MIN_PART_SIZE
-      const expectedPartSize = Math.max(MIN_PART_SIZE, Math.floor(largeBuffer.length / 10_000));
+      const expectedPartSize = Math.max(MIN_PART_SIZE, Math.ceil(largeBuffer.length / 10_000));
       expect((upload as any).partSize).toBe(expectedPartSize);
     });
 
@@ -968,6 +968,15 @@ describe(Upload.name, () => {
           client: new S3({}),
         });
       }).toThrow("Queue size: Must have at least one uploading queue.");
+    });
+
+    it("should calculate default partSize using ceil so part count never exceeds 10,000", () => {
+      const totalBytes = 52_428_800_001; // 10,000 * 5 MiB + 1 byte
+      const upload = new Upload({
+        params: { ...params, Body: Buffer.alloc(0), ContentLength: totalBytes },
+        client: new S3({}),
+      });
+      expect((upload as any).expectedPartsCount).toBeLessThanOrEqual(10_000);
     });
   });
 
