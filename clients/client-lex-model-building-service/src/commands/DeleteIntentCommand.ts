@@ -48,6 +48,8 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *          </note>
  *          <p> This operation requires permission for the
  *         <code>lex:DeleteIntent</code> action. </p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -33,6 +33,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
 /**
  * <p>Exports the contents of a Amazon Lex resource in a specified format.
  *     </p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

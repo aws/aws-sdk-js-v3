@@ -33,6 +33,8 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
 /**
  * <p>Gets information about an import job started with the
  *         <code>StartImport</code> operation.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -35,6 +35,8 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  *       bot, use the <a>DeleteBot</a> operation. </p>
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteBotVersion</code> action.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

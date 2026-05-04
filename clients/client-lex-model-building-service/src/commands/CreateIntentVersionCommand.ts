@@ -45,6 +45,8 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  *       1. Subsequent versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
  *          <p>This operation requires permissions to perform the
  *         <code>lex:CreateIntentVersion</code> action. </p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

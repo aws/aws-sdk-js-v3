@@ -35,6 +35,8 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  *       a messaging platform.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotChannelAssociation</code> action.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

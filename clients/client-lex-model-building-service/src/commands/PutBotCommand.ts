@@ -48,6 +48,8 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *       exception.</p>
  *          <p>This operation requires permissions for the <code>lex:PutBot</code>
  *       action. For more information, see <a>security-iam</a>.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

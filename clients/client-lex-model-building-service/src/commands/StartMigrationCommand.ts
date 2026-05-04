@@ -35,6 +35,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  *       you want to take advantage of the new features of Amazon Lex V2.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
  *         developer guide</i>.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

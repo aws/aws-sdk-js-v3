@@ -33,6 +33,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Gets a list of tags associated with the specified resource. Only bots,
  *       bot aliases, and bot channels can have tags associated with them.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

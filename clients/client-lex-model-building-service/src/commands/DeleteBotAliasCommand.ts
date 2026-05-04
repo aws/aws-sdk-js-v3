@@ -40,6 +40,8 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  *       reference to the alias by deleting the channel association. If you get the
  *       same exception again, delete the referring association until the
  *         <code>DeleteBotAlias</code> operation is successful.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

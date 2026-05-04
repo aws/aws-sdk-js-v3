@@ -34,6 +34,8 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotAliases</code> action.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

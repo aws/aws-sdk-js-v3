@@ -33,6 +33,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds the specified tags to the specified resource. If a tag key
  *       already exists, the existing value is replaced with the new value.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

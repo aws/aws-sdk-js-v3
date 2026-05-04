@@ -26,6 +26,7 @@ import type {
 } from "./enums";
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface CreateBotVersionRequest {
@@ -147,6 +148,7 @@ export interface Intent {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface CreateBotVersionResponse {
@@ -295,6 +297,7 @@ export interface CreateBotVersionResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface CreateIntentVersionRequest {
@@ -624,6 +627,7 @@ export interface Slot {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface CreateIntentVersionResponse {
@@ -750,6 +754,7 @@ export interface CreateIntentVersionResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface CreateSlotTypeVersionRequest {
@@ -855,6 +860,7 @@ export interface SlotTypeConfiguration {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface CreateSlotTypeVersionResponse {
@@ -925,6 +931,7 @@ export interface CreateSlotTypeVersionResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteBotRequest {
@@ -958,6 +965,7 @@ export interface ResourceReference {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteBotAliasRequest {
@@ -976,6 +984,7 @@ export interface DeleteBotAliasRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteBotChannelAssociationRequest {
@@ -1000,6 +1009,7 @@ export interface DeleteBotChannelAssociationRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteBotVersionRequest {
@@ -1020,6 +1030,7 @@ export interface DeleteBotVersionRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteIntentRequest {
@@ -1031,6 +1042,7 @@ export interface DeleteIntentRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteIntentVersionRequest {
@@ -1051,6 +1063,7 @@ export interface DeleteIntentVersionRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteSlotTypeRequest {
@@ -1062,6 +1075,7 @@ export interface DeleteSlotTypeRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteSlotTypeVersionRequest {
@@ -1082,6 +1096,7 @@ export interface DeleteSlotTypeVersionRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface DeleteUtterancesRequest {
@@ -1101,6 +1116,7 @@ export interface DeleteUtterancesRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotRequest {
@@ -1118,6 +1134,7 @@ export interface GetBotRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotResponse {
@@ -1287,6 +1304,7 @@ export interface GetBotResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotAliasRequest {
@@ -1365,6 +1383,7 @@ export interface ConversationLogsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotAliasResponse {
@@ -1421,6 +1440,7 @@ export interface GetBotAliasResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotAliasesRequest {
@@ -1512,6 +1532,7 @@ export interface BotAliasMetadata {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotAliasesResponse {
@@ -1533,6 +1554,7 @@ export interface GetBotAliasesResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotChannelAssociationRequest {
@@ -1558,6 +1580,7 @@ export interface GetBotChannelAssociationRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotChannelAssociationResponse {
@@ -1641,6 +1664,7 @@ export interface GetBotChannelAssociationResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotChannelAssociationsRequest {
@@ -1775,6 +1799,7 @@ export interface BotChannelAssociation {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotChannelAssociationsResponse {
@@ -1797,6 +1822,7 @@ export interface GetBotChannelAssociationsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotsRequest {
@@ -1870,6 +1896,7 @@ export interface BotMetadata {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotsResponse {
@@ -1890,6 +1917,7 @@ export interface GetBotsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotVersionsRequest {
@@ -1918,6 +1946,7 @@ export interface GetBotVersionsRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBotVersionsResponse {
@@ -1940,6 +1969,7 @@ export interface GetBotVersionsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBuiltinIntentRequest {
@@ -1966,6 +1996,7 @@ export interface BuiltinIntentSlot {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBuiltinIntentResponse {
@@ -1990,6 +2021,7 @@ export interface GetBuiltinIntentResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBuiltinIntentsRequest {
@@ -2048,6 +2080,7 @@ export interface BuiltinIntentMetadata {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBuiltinIntentsResponse {
@@ -2069,6 +2102,7 @@ export interface GetBuiltinIntentsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBuiltinSlotTypesRequest {
@@ -2124,6 +2158,7 @@ export interface BuiltinSlotTypeMetadata {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetBuiltinSlotTypesResponse {
@@ -2144,6 +2179,7 @@ export interface GetBuiltinSlotTypesResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetExportRequest {
@@ -2173,6 +2209,7 @@ export interface GetExportRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetExportResponse {
@@ -2239,6 +2276,7 @@ export interface GetExportResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetImportRequest {
@@ -2250,6 +2288,7 @@ export interface GetImportRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetImportResponse {
@@ -2302,6 +2341,7 @@ export interface GetImportResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetIntentRequest {
@@ -2319,6 +2359,7 @@ export interface GetIntentRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetIntentResponse {
@@ -2446,6 +2487,7 @@ export interface GetIntentResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetIntentsRequest {
@@ -2512,6 +2554,7 @@ export interface IntentMetadata {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetIntentsResponse {
@@ -2532,6 +2575,7 @@ export interface GetIntentsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetIntentVersionsRequest {
@@ -2560,6 +2604,7 @@ export interface GetIntentVersionsRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetIntentVersionsResponse {
@@ -2582,6 +2627,7 @@ export interface GetIntentVersionsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetMigrationRequest {
@@ -2640,6 +2686,7 @@ export interface MigrationAlert {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetMigrationResponse {
@@ -2729,6 +2776,7 @@ export interface GetMigrationResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetMigrationsRequest {
@@ -2839,6 +2887,7 @@ export interface MigrationSummary {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetMigrationsResponse {
@@ -2861,6 +2910,7 @@ export interface GetMigrationsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetSlotTypeRequest {
@@ -2878,6 +2928,7 @@ export interface GetSlotTypeRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetSlotTypeResponse {
@@ -2948,6 +2999,7 @@ export interface GetSlotTypeResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetSlotTypesRequest {
@@ -3014,6 +3066,7 @@ export interface SlotTypeMetadata {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetSlotTypesResponse {
@@ -3035,6 +3088,7 @@ export interface GetSlotTypesResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetSlotTypeVersionsRequest {
@@ -3063,6 +3117,7 @@ export interface GetSlotTypeVersionsRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetSlotTypeVersionsResponse {
@@ -3085,6 +3140,7 @@ export interface GetSlotTypeVersionsResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetUtterancesViewRequest {
@@ -3172,6 +3228,7 @@ export interface UtteranceList {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface GetUtterancesViewResponse {
@@ -3195,6 +3252,7 @@ export interface GetUtterancesViewResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface ListTagsForResourceRequest {
@@ -3229,6 +3287,7 @@ export interface Tag {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface ListTagsForResourceResponse {
@@ -3240,6 +3299,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutBotRequest {
@@ -3536,6 +3596,7 @@ export interface PutBotRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutBotResponse {
@@ -3786,6 +3847,7 @@ export interface ConversationLogsRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutBotAliasRequest {
@@ -3847,6 +3909,7 @@ export interface PutBotAliasRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutBotAliasResponse {
@@ -3909,6 +3972,7 @@ export interface PutBotAliasResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutIntentRequest {
@@ -4109,6 +4173,7 @@ export interface PutIntentRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutIntentResponse {
@@ -4252,6 +4317,7 @@ export interface PutIntentResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutSlotTypeRequest {
@@ -4360,6 +4426,7 @@ export interface PutSlotTypeRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface PutSlotTypeResponse {
@@ -4441,6 +4508,7 @@ export interface PutSlotTypeResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface StartImportRequest {
@@ -4497,6 +4565,7 @@ export interface StartImportRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface StartImportResponse {
@@ -4547,6 +4616,7 @@ export interface StartImportResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface StartMigrationRequest {
@@ -4608,6 +4678,7 @@ export interface StartMigrationRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface StartMigrationResponse {
@@ -4661,6 +4732,7 @@ export interface StartMigrationResponse {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface TagResourceRequest {
@@ -4680,11 +4752,13 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface TagResourceResponse {}
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface UntagResourceRequest {
@@ -4704,6 +4778,7 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @public
  */
 export interface UntagResourceResponse {}

@@ -32,6 +32,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes tags from a bot, bot alias or bot channel.</p>
+ *
+ * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
