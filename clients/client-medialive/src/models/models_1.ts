@@ -71,7 +71,6 @@ import type {
   AvailBlanking,
   AvailConfiguration,
   BatchFailedResultModel,
-  BatchScheduleActionCreateRequest,
   BatchSuccessfulResultModel,
   CaptionDescription,
   CdiInputSpecification,
@@ -155,6 +154,18 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * A list of schedule actions to create (in a request) or that have been created (in a response).
+ * @public
+ */
+export interface BatchScheduleActionCreateRequest {
+  /**
+   * A list of schedule actions to create.
+   * @public
+   */
+  ScheduleActions: ScheduleAction[] | undefined;
+}
 
 /**
  * List of actions that have been created in the schedule.

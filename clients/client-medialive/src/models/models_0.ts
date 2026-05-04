@@ -5930,7 +5930,7 @@ export interface MediaConnectRouterContainerSettings {
  */
 export interface MediaConnectRouterOutputSettings {
   /**
-   * Shows the MediaConnect Router Inputs that are connected to this output. This parameter is purely informative, and editing it will have no effect. To connect or disconnect MediaConnect Router Inputs, go to MediaConnect.
+   * This parameter is deprecated and unused.
    * @public
    */
   ConnectedRouterInputs?: MediaConnectRouterOutputConnectionMap | undefined;
@@ -7526,6 +7526,18 @@ export interface OutputGroup {
 }
 
 /**
+ * Connection details for a single pipeline of a MediaConnect Router output.
+ * @public
+ */
+export interface MediaConnectRouterOutputConnection {
+  /**
+   * The ARN of the MediaConnect Router Input connected to this pipeline.
+   * @public
+   */
+  RouterInputArn?: string | undefined;
+}
+
+/**
  * Runtime details of a pipeline when a channel is running.
  * @public
  */
@@ -7565,6 +7577,12 @@ export interface PipelineDetail {
    * @public
    */
   ChannelEngineVersion?: ChannelEngineVersionResponse | undefined;
+
+  /**
+   * A map of output names to the MediaConnect Router connection for this pipeline. Only present for channels with MediaConnect Router outputs.
+   * @public
+   */
+  MediaConnectRouterOutputConnectionMap?: Record<string, MediaConnectRouterOutputConnection> | undefined;
 }
 
 /**
@@ -10309,16 +10327,4 @@ export interface BatchDeleteResponse {
    * @public
    */
   Successful?: BatchSuccessfulResultModel[] | undefined;
-}
-
-/**
- * A list of schedule actions to create (in a request) or that have been created (in a response).
- * @public
- */
-export interface BatchScheduleActionCreateRequest {
-  /**
-   * A list of schedule actions to create.
-   * @public
-   */
-  ScheduleActions: ScheduleAction[] | undefined;
 }

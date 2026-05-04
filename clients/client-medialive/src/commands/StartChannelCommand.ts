@@ -1389,6 +1389,11 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //         ExpirationDate: new Date("TIMESTAMP"),
  * //         Version: "STRING_VALUE",
  * //       },
+ * //       MediaConnectRouterOutputConnectionMap: { // MediaConnectRouterOutputConnections
+ * //         "<keys>": { // MediaConnectRouterOutputConnection
+ * //           RouterInputArn: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   PipelinesRunningCount: Number("int"),

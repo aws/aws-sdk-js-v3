@@ -828,7 +828,9 @@ const _MCFe = "MediaConnectFlow";
 const _MCPD = "MonitorChangesPendingDeployment";
 const _MCRCS = "MediaConnectRouterContainerSettings";
 const _MCRGS = "MediaConnectRouterGroupSettings";
+const _MCROC = "MediaConnectRouterOutputConnection";
 const _MCROCM = "MediaConnectRouterOutputConnectionMap";
+const _MCROCe = "MediaConnectRouterOutputConnections";
 const _MCRODS = "MediaConnectRouterOutputDestinationSettings";
 const _MCROS = "MediaConnectRouterOutputSettings";
 const _MCRS = "MediaConnectRouterSettings";
@@ -1066,6 +1068,7 @@ const _RF = "RawFormat";
 const _RFM = "RepeatFrameMsec";
 const _RGS = "RtmpGroupSettings";
 const _RI = "RolloverInterval";
+const _RIA = "RouterInputArn";
 const _RID = "RebootInputDevice";
 const _RIDR = "RebootInputDeviceRequest";
 const _RIDRe = "RebootInputDeviceResponse";
@@ -2023,6 +2026,7 @@ const _mC = "metadataControl";
 const _mCF = "mediaConnectFlows";
 const _mCPD = "monitorChangesPendingDeployment";
 const _mCRGS = "mediaConnectRouterGroupSettings";
+const _mCROCM = "mediaConnectRouterOutputConnectionMap";
 const _mCROS = "mediaConnectRouterOutputSettings";
 const _mCRS = "mediaConnectRouterSettings";
 const _mCS = "mediaConnectSettings";
@@ -2207,6 +2211,7 @@ const _rF = "rawFormat";
 const _rFM = "repeatFrameMsec";
 const _rGS = "rtmpGroupSettings";
 const _rI = "rolloverInterval";
+const _rIA = "routerInputArn";
 const _rIe = "requestId";
 const _rIep = "repInterval";
 const _rIes = "reservationId";
@@ -4341,6 +4346,11 @@ export var MediaConnectRouterGroupSettings$: StaticStructureSchema = [3, n0, _MC
   [_AZ],
   [[64 | 0, { [_jN]: _aZ }]]
 ];
+export var MediaConnectRouterOutputConnection$: StaticStructureSchema = [3, n0, _MCROC,
+  0,
+  [_RIA],
+  [[0, { [_jN]: _rIA }]]
+];
 export var MediaConnectRouterOutputConnectionMap$: StaticStructureSchema = [3, n0, _MCROCM,
   0,
   [_Pip, _Pipe],
@@ -4673,8 +4683,8 @@ export var PauseStateScheduleActionSettings$: StaticStructureSchema = [3, n0, _P
 ];
 export var PipelineDetail$: StaticStructureSchema = [3, n0, _PDip,
   0,
-  [_AIAN, _AISAN, _AMGAN, _AMGU, _PI, _CEV],
-  [[0, { [_jN]: _aIAN }], [0, { [_jN]: _aISAN }], [0, { [_jN]: _aMGAN }], [0, { [_jN]: _aMGU }], [0, { [_jN]: _pI }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }]]
+  [_AIAN, _AISAN, _AMGAN, _AMGU, _PI, _CEV, _MCROCM],
+  [[0, { [_jN]: _aIAN }], [0, { [_jN]: _aISAN }], [0, { [_jN]: _aMGAN }], [0, { [_jN]: _aMGU }], [0, { [_jN]: _pI }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => MediaConnectRouterOutputConnections, { [_jN]: _mCROCM }]]
 ];
 export var PipelineLockingSettings$: StaticStructureSchema = [3, n0, _PLS,
   0,
@@ -5891,6 +5901,12 @@ var FailedMediaResourceMap: StaticMapSchema = [2, n0, _FMRM,
   0, [0,
     0]
   , [() => MediaResource$,
+    0]
+];
+var MediaConnectRouterOutputConnections: StaticMapSchema = [2, n0, _MCROCe,
+  0, [0,
+    0]
+  , [() => MediaConnectRouterOutputConnection$,
     0]
 ];
 var MediaResourceMap: StaticMapSchema = [2, n0, _MRM,

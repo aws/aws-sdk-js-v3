@@ -796,6 +796,7 @@ import {
   MediaConnectFlowRequest$,
   MediaConnectRouterContainerSettings$,
   MediaConnectRouterGroupSettings$,
+  MediaConnectRouterOutputConnection$,
   MediaConnectRouterOutputConnectionMap$,
   MediaConnectRouterOutputDestinationSettings$,
   MediaConnectRouterOutputEncryptionType,
@@ -1871,6 +1872,7 @@ assert(typeof MediaConnectFlow$ === "object");
 assert(typeof MediaConnectFlowRequest$ === "object");
 assert(typeof MediaConnectRouterContainerSettings$ === "object");
 assert(typeof MediaConnectRouterGroupSettings$ === "object");
+assert(typeof MediaConnectRouterOutputConnection$ === "object");
 assert(typeof MediaConnectRouterOutputConnectionMap$ === "object");
 assert(typeof MediaConnectRouterOutputDestinationSettings$ === "object");
 assert(typeof MediaConnectRouterOutputSettings$ === "object");

@@ -1068,6 +1068,7 @@ export type {
   MediaConnectFlowRequest,
   MediaConnectRouterContainerSettings,
   MediaConnectRouterGroupSettings,
+  MediaConnectRouterOutputConnection,
   MediaConnectRouterOutputConnectionMap,
   MediaConnectRouterOutputDestinationSettings,
   MediaConnectRouterOutputSettings,
