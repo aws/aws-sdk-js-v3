@@ -8,6 +8,7 @@ import type {
   ListenerProtocol,
   PrivateDnsPreference,
   ProtocolType,
+  ResourceConfigDnsResolution,
   ResourceConfigurationIpAddressType,
   ResourceConfigurationStatus,
   ResourceConfigurationType,
@@ -1258,6 +1259,12 @@ export interface CreateResourceGatewayRequest {
   ipv4AddressesPerEni?: number | undefined;
 
   /**
+   * <p>Indicates how DNS is resolved for resource configurations associated to this resource gateway. ResourceConfigDnsResolution is set at creation time and cannot be changed.</p> <ul> <li> <p> <code>IN_VPC</code> - DNS resolution occurs privately within the resource gateway's VPC. DNS queries for resources behind this resource gateway resolve using the DNS resolvers defined in the VPC's DHCP option sets. Use this when your resource domain names are hosted in private Route 53 hosted zones or on-premises DNS servers reachable from the VPC.</p> </li> <li> <p> <code>PUBLIC</code> - DNS resolution occurs against public DNS resolvers. DNS queries for resources behind this resource gateway resolve using standard public DNS. Use this when your resource domain names are publicly resolvable.</p> </li> </ul>
+   * @public
+   */
+  resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
    * <p>The tags for the resource gateway.</p>
    * @public
    */
@@ -1321,6 +1328,12 @@ export interface CreateResourceGatewayResponse {
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
+
+  /**
+   * <p>The DNS resolution type for resource configurations that are associated with this resource gateway.</p>
+   * @public
+   */
+  resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
 }
 
 /**
@@ -3104,6 +3117,18 @@ export interface GetResourceGatewayResponse {
   subnetIds?: string[] | undefined;
 
   /**
+   * <p>Indicates whether the resource gateway is managed by an AWS service.</p>
+   * @public
+   */
+  serviceManaged?: boolean | undefined;
+
+  /**
+   * <p>The AWS service that manages the resource gateway.</p>
+   * @public
+   */
+  managedBy?: string | undefined;
+
+  /**
    * <p>The security group IDs associated with the resource gateway.</p>
    * @public
    */
@@ -3120,6 +3145,12 @@ export interface GetResourceGatewayResponse {
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
+
+  /**
+   * <p>The DNS resolution type for resource configurations that are associated with this resource gateway.</p>
+   * @public
+   */
+  resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
 
   /**
    * <p>The date and time that the resource gateway was created, in ISO-8601 format.</p>
@@ -4315,6 +4346,12 @@ export interface ResourceGatewaySummary {
   ipv4AddressesPerEni?: number | undefined;
 
   /**
+   * <p>The DNS resolution type for resource configurations that are associated with this resource gateway.</p>
+   * @public
+   */
+  resourceConfigDnsResolution?: ResourceConfigDnsResolution | undefined;
+
+  /**
    * <p>The date and time that the VPC endpoint association was created, in ISO-8601 format.</p>
    * @public
    */
@@ -5309,7 +5346,7 @@ export interface TargetSummary {
   port?: number | undefined;
 
   /**
-   * <p>The status of the target.</p> <ul> <li> <p> <code>DRAINING</code>: The target is being deregistered. No new connections are sent to this target while current connections are being drained. The default draining time is 5 minutes.</p> </li> <li> <p> <code>UNAVAILABLE</code>: Health checks are unavailable for the target group.</p> </li> <li> <p> <code>HEALTHY</code>: The target is healthy.</p> </li> <li> <p> <code>UNHEALTHY</code>: The target is unhealthy.</p> </li> <li> <p> <code>INITIAL</code>: Initial health checks on the target are being performed.</p> </li> <li> <p> <code>UNUSED</code>: Target group is not used in a service.</p> </li> </ul>
+   * <p>The status of the target.</p> <ul> <li> <p> <code>DRAINING</code>: The target is being deregistered. No new connections are sent to this target while current connections are being drained. The default draining time is 1 minute.</p> </li> <li> <p> <code>UNAVAILABLE</code>: Health checks are unavailable for the target group.</p> </li> <li> <p> <code>HEALTHY</code>: The target is healthy.</p> </li> <li> <p> <code>UNHEALTHY</code>: The target is unhealthy.</p> </li> <li> <p> <code>INITIAL</code>: Initial health checks on the target are being performed.</p> </li> <li> <p> <code>UNUSED</code>: Target group is not used in a service.</p> </li> </ul>
    * @public
    */
   status?: TargetStatus | undefined;

@@ -289,6 +289,7 @@ import {
   RegisterTargetsCommand,
   RegisterTargetsRequest$,
   RegisterTargetsResponse$,
+  ResourceConfigDnsResolution,
   ResourceConfigurationDefinition$,
   ResourceConfigurationIpAddressType,
   ResourceConfigurationStatus,
@@ -740,6 +741,7 @@ assert(typeof LambdaEventStructureVersion === "object");
 assert(typeof ListenerProtocol === "object");
 assert(typeof PrivateDnsPreference === "object");
 assert(typeof ProtocolType === "object");
+assert(typeof ResourceConfigDnsResolution === "object");
 assert(typeof ResourceConfigurationIpAddressType === "object");
 assert(typeof ResourceConfigurationStatus === "object");
 assert(typeof ResourceConfigurationType === "object");

@@ -63,7 +63,7 @@ export interface UpdateResourceConfigurationCommandOutput extends UpdateResource
  * //   arn: "STRING_VALUE",
  * //   resourceGatewayId: "STRING_VALUE",
  * //   resourceConfigurationGroupId: "STRING_VALUE",
- * //   type: "STRING_VALUE",
+ * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN",
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],

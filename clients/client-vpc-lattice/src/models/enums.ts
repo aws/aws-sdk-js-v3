@@ -216,6 +216,26 @@ export type ResourceGatewayIpAddressType =
  * @public
  * @enum
  */
+export const ResourceConfigDnsResolution = {
+  /**
+   * Enable private DNS resolution within VPC for resources behind this resource gateway
+   */
+  IN_VPC: "IN_VPC",
+  /**
+   * Use public DNS resolution for resources behind this resource gateway
+   */
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type ResourceConfigDnsResolution =
+  (typeof ResourceConfigDnsResolution)[keyof typeof ResourceConfigDnsResolution];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceGatewayStatus = {
   /**
    * Resource Gateway is active.

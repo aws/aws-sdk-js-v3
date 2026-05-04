@@ -38,7 +38,7 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateResourceConfigurationRequest
  *   name: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
+ *   type: "GROUP" || "CHILD" || "SINGLE" || "ARN", // required
  *   portRanges: [ // PortRangeList
  *     "STRING_VALUE",
  *   ],
@@ -74,7 +74,7 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  * //   arn: "STRING_VALUE",
  * //   resourceGatewayId: "STRING_VALUE",
  * //   resourceConfigurationGroupId: "STRING_VALUE",
- * //   type: "STRING_VALUE",
+ * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN",
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],

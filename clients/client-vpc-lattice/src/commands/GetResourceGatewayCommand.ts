@@ -50,11 +50,14 @@ export interface GetResourceGatewayCommandOutput extends GetResourceGatewayRespo
  * //   subnetIds: [ // SubnetList
  * //     "STRING_VALUE",
  * //   ],
+ * //   serviceManaged: true || false,
+ * //   managedBy: "STRING_VALUE",
  * //   securityGroupIds: [ // SecurityGroupList
  * //     "STRING_VALUE",
  * //   ],
  * //   ipAddressType: "STRING_VALUE",
  * //   ipv4AddressesPerEni: Number("int"),
+ * //   resourceConfigDnsResolution: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * // };

@@ -53,7 +53,7 @@ export interface ListResourceConfigurationsCommandOutput extends ListResourceCon
  * //       arn: "STRING_VALUE",
  * //       resourceGatewayId: "STRING_VALUE",
  * //       resourceConfigurationGroupId: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       type: "GROUP" || "CHILD" || "SINGLE" || "ARN",
  * //       status: "STRING_VALUE",
  * //       amazonManaged: true || false,
  * //       createdAt: new Date("TIMESTAMP"),

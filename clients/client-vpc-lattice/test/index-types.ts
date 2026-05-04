@@ -229,6 +229,7 @@ export type {
   ListenerProtocol,
   PrivateDnsPreference,
   ProtocolType,
+  ResourceConfigDnsResolution,
   ResourceConfigurationIpAddressType,
   ResourceConfigurationStatus,
   ResourceConfigurationType,

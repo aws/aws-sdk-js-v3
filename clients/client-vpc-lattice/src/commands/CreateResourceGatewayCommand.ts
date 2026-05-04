@@ -48,6 +48,7 @@ export interface CreateResourceGatewayCommandOutput extends CreateResourceGatewa
  *   ],
  *   ipAddressType: "STRING_VALUE",
  *   ipv4AddressesPerEni: Number("int"),
+ *   resourceConfigDnsResolution: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -68,6 +69,7 @@ export interface CreateResourceGatewayCommandOutput extends CreateResourceGatewa
  * //   ],
  * //   ipAddressType: "STRING_VALUE",
  * //   ipv4AddressesPerEni: Number("int"),
+ * //   resourceConfigDnsResolution: "STRING_VALUE",
  * // };
  *
  * ```

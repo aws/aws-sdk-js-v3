@@ -58,6 +58,7 @@ export interface ListResourceGatewaysCommandOutput extends ListResourceGatewaysR
  * //       ],
  * //       ipAddressType: "STRING_VALUE",
  * //       ipv4AddressesPerEni: Number("int"),
+ * //       resourceConfigDnsResolution: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //     },

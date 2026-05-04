@@ -352,6 +352,7 @@ const _lI = "listenerIdentifier";
 const _lUA = "lastUpdatedAt";
 const _lVT = "lastVerifiedTime";
 const _m = "message";
+const _mB = "managedBy";
 const _mR = "maxResults";
 const _ma = "match";
 const _mat = "matcher";
@@ -381,6 +382,7 @@ const _rAS = "retryAfterSeconds";
 const _rC = "reasonCode";
 const _rCA = "resourceConfigurationArn";
 const _rCD = "resourceConfigurationDefinition";
+const _rCDR = "resourceConfigDnsResolution";
 const _rCGI = "resourceConfigurationGroupIdentifier";
 const _rCGIe = "resourceConfigurationGroupId";
 const _rCI = "resourceConfigurationIdentifier";
@@ -404,6 +406,7 @@ const _sGI = "securityGroupIds";
 const _sI = "serviceIdentifier";
 const _sIe = "serviceId";
 const _sIu = "subnetIds";
+const _sM = "serviceManaged";
 const _sN = "serviceName";
 const _sNA = "serviceNetworkArn";
 const _sNI = "serviceNetworkIdentifier";
@@ -566,13 +569,13 @@ export var CreateResourceConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateResourceGatewayRequest$: StaticStructureSchema = [3, n0, _CRGR,
   0,
-  [_n, _cT, _vI, _sIu, _sGI, _iAT, _iAPE, _t],
-  [0, [0, 4], 0, 64 | 0, 64 | 0, 0, 1, 128 | 0], 1
+  [_n, _cT, _vI, _sIu, _sGI, _iAT, _iAPE, _rCDR, _t],
+  [0, [0, 4], 0, 64 | 0, 64 | 0, 0, 1, 0, 128 | 0], 1
 ];
 export var CreateResourceGatewayResponse$: StaticStructureSchema = [3, n0, _CRGRr,
   0,
-  [_n, _i, _a, _st, _vI, _sIu, _sGI, _iAT, _iAPE],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 1]
+  [_n, _i, _a, _st, _vI, _sIu, _sGI, _iAT, _iAPE, _rCDR],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 1, 0]
 ];
 export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
@@ -891,8 +894,8 @@ export var GetResourceGatewayRequest$: StaticStructureSchema = [3, n0, _GRGR,
 ];
 export var GetResourceGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRe,
   0,
-  [_n, _i, _a, _st, _vIp, _sIu, _sGI, _iAT, _iAPE, _cA, _lUA],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 1, 5, 5]
+  [_n, _i, _a, _st, _vIp, _sIu, _sM, _mB, _sGI, _iAT, _iAPE, _rCDR, _cA, _lUA],
+  [0, 0, 0, 0, 0, 64 | 0, 2, 0, 64 | 0, 0, 1, 0, 5, 5]
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
@@ -1206,8 +1209,8 @@ export var ResourceEndpointAssociationSummary$: StaticStructureSchema = [3, n0, 
 ];
 export var ResourceGatewaySummary$: StaticStructureSchema = [3, n0, _RGS,
   0,
-  [_n, _i, _a, _st, _vI, _sIu, _sGI, _iAT, _iAPE, _cA, _lUA],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 1, 5, 5]
+  [_n, _i, _a, _st, _vI, _sIu, _sGI, _iAT, _iAPE, _rCDR, _cA, _lUA],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 1, 0, 5, 5]
 ];
 export var RuleSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
