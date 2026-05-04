@@ -27,7 +27,7 @@ export interface UpdateTargetDomainCommandInput extends UpdateTargetDomainInput 
 export interface UpdateTargetDomainCommandOutput extends UpdateTargetDomainOutput, __MetadataBearer {}
 
 /**
- * Updates a target domain record
+ * <p>Updates the verification method for a target domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +38,7 @@ export interface UpdateTargetDomainCommandOutput extends UpdateTargetDomainOutpu
  * const client = new SecurityAgentClient(config);
  * const input = { // UpdateTargetDomainInput
  *   targetDomainId: "STRING_VALUE", // required
- *   verificationMethod: "DNS_TXT" || "HTTP_ROUTE", // required
+ *   verificationMethod: "DNS_TXT" || "HTTP_ROUTE" || "PRIVATE_VPC", // required
  * };
  * const command = new UpdateTargetDomainCommand(input);
  * const response = await client.send(command);
@@ -46,8 +46,9 @@ export interface UpdateTargetDomainCommandOutput extends UpdateTargetDomainOutpu
  * //   targetDomainId: "STRING_VALUE", // required
  * //   domainName: "STRING_VALUE", // required
  * //   verificationStatus: "PENDING" || "VERIFIED" || "FAILED" || "UNREACHABLE", // required
+ * //   verificationStatusReason: "STRING_VALUE",
  * //   verificationDetails: { // VerificationDetails
- * //     method: "DNS_TXT" || "HTTP_ROUTE",
+ * //     method: "DNS_TXT" || "HTTP_ROUTE" || "PRIVATE_VPC",
  * //     dnsTxt: { // DnsVerification
  * //       token: "STRING_VALUE",
  * //       dnsRecordName: "STRING_VALUE",

@@ -27,7 +27,7 @@ export interface CreateAgentSpaceCommandInput extends CreateAgentSpaceInput {}
 export interface CreateAgentSpaceCommandOutput extends CreateAgentSpaceOutput, __MetadataBearer {}
 
 /**
- * Creates an agent space record
+ * <p>Creates a new agent space. An agent space is a dedicated workspace for securing a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

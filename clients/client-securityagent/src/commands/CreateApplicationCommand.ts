@@ -27,7 +27,7 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * Creates a new application
+ * <p>Creates a new application. An application is the top-level organizational unit that supports IAM Identity Center integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

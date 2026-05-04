@@ -27,7 +27,7 @@ export interface StartCodeRemediationCommandInput extends StartCodeRemediationIn
 export interface StartCodeRemediationCommandOutput extends StartCodeRemediationOutput, __MetadataBearer {}
 
 /**
- * Starts code remediation for the specified findings
+ * <p>Initiates code remediation for one or more security findings. This creates pull requests in integrated repositories to fix the identified vulnerabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

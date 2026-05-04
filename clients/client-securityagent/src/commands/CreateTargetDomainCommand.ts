@@ -27,7 +27,7 @@ export interface CreateTargetDomainCommandInput extends CreateTargetDomainInput 
 export interface CreateTargetDomainCommandOutput extends CreateTargetDomainOutput, __MetadataBearer {}
 
 /**
- * Creates a target domain record
+ * <p>Creates a new target domain for penetration testing. A target domain is a web domain that must be registered and verified before it can be tested.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +38,7 @@ export interface CreateTargetDomainCommandOutput extends CreateTargetDomainOutpu
  * const client = new SecurityAgentClient(config);
  * const input = { // CreateTargetDomainInput
  *   targetDomainName: "STRING_VALUE", // required
- *   verificationMethod: "DNS_TXT" || "HTTP_ROUTE", // required
+ *   verificationMethod: "DNS_TXT" || "HTTP_ROUTE" || "PRIVATE_VPC", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -49,8 +49,9 @@ export interface CreateTargetDomainCommandOutput extends CreateTargetDomainOutpu
  * //   targetDomainId: "STRING_VALUE", // required
  * //   domainName: "STRING_VALUE", // required
  * //   verificationStatus: "PENDING" || "VERIFIED" || "FAILED" || "UNREACHABLE", // required
+ * //   verificationStatusReason: "STRING_VALUE",
  * //   verificationDetails: { // VerificationDetails
- * //     method: "DNS_TXT" || "HTTP_ROUTE",
+ * //     method: "DNS_TXT" || "HTTP_ROUTE" || "PRIVATE_VPC",
  * //     dnsTxt: { // DnsVerification
  * //       token: "STRING_VALUE",
  * //       dnsRecordName: "STRING_VALUE",

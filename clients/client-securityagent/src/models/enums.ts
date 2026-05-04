@@ -5,11 +5,11 @@
  */
 export const AccessType = {
   /**
-   * Resource is private and has restricted access
+   * <p>Resource is private and has restricted access.</p>
    */
   PRIVATE: "PRIVATE",
   /**
-   * Resource is public and openly accessible
+   * <p>Resource is public and openly accessible.</p>
    */
   PUBLIC: "PUBLIC",
 } as const;
@@ -24,19 +24,19 @@ export type AccessType = (typeof AccessType)[keyof typeof AccessType];
  */
 export const AuthenticationProviderType = {
   /**
-   * Authentication using an AWS IAM role
+   * <p>Authentication using an AWS IAM role.</p>
    */
   AWS_IAM_ROLE: "AWS_IAM_ROLE",
   /**
-   * Internal AWS authentication
+   * <p>Internal AWS authentication.</p>
    */
   AWS_INTERNAL: "AWS_INTERNAL",
   /**
-   * Credentials retrieved via AWS Lambda function
+   * <p>Credentials retrieved via AWS Lambda function.</p>
    */
   AWS_LAMBDA: "AWS_LAMBDA",
   /**
-   * Credentials stored in AWS Secrets Manager
+   * <p>Credentials stored in AWS Secrets Manager.</p>
    */
   SECRETS_MANAGER: "SECRETS_MANAGER",
 } as const;
@@ -71,11 +71,11 @@ export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
  */
 export const CodeRemediationStrategy = {
   /**
-   * Automatically generate code remediation for findings
+   * <p>Automatically generate code remediation for findings.</p>
    */
   AUTOMATIC: "AUTOMATIC",
   /**
-   * Code remediation is disabled
+   * <p>Code remediation is disabled.</p>
    */
   DISABLED: "DISABLED",
 } as const;
@@ -90,115 +90,115 @@ export type CodeRemediationStrategy = (typeof CodeRemediationStrategy)[keyof typ
  */
 export const RiskType = {
   /**
-   * Arbitrary file upload vulnerability
+   * <p>Arbitrary file upload vulnerability.</p>
    */
   ARBITRARY_FILE_UPLOAD: "ARBITRARY_FILE_UPLOAD",
   /**
-   * Business logic vulnerability
+   * <p>Business logic vulnerability.</p>
    */
   BUSINESS_LOGIC_VULNERABILITIES: "BUSINESS_LOGIC_VULNERABILITIES",
   /**
-   * Code injection vulnerability
+   * <p>Code injection vulnerability.</p>
    */
   CODE_INJECTION: "CODE_INJECTION",
   /**
-   * Command injection vulnerability
+   * <p>Command injection vulnerability.</p>
    */
   COMMAND_INJECTION: "COMMAND_INJECTION",
   /**
-   * Cross-site scripting vulnerability
+   * <p>Cross-site scripting vulnerability.</p>
    */
   CROSS_SITE_SCRIPTING: "CROSS_SITE_SCRIPTING",
   /**
-   * Cryptographic vulnerability
+   * <p>Cryptographic vulnerability.</p>
    */
   CRYPTOGRAPHIC_VULNERABILITIES: "CRYPTOGRAPHIC_VULNERABILITIES",
   /**
-   * Unauthorized database access
+   * <p>Unauthorized database access.</p>
    */
   DATABASE_ACCESS: "DATABASE_ACCESS",
   /**
-   * Unauthorized database modification
+   * <p>Unauthorized database modification.</p>
    */
   DATABASE_MODIFICATION: "DATABASE_MODIFICATION",
   /**
-   * Default or weak credentials detected
+   * <p>Default or weak credentials detected.</p>
    */
   DEFAULT_CREDENTIALS: "DEFAULT_CREDENTIALS",
   /**
-   * Denial of service vulnerability
+   * <p>Denial of service vulnerability.</p>
    */
   DENIAL_OF_SERVICE: "DENIAL_OF_SERVICE",
   /**
-   * Unauthorized file access vulnerability
+   * <p>Unauthorized file access vulnerability.</p>
    */
   FILE_ACCESS: "FILE_ACCESS",
   /**
-   * Unauthorized file creation vulnerability
+   * <p>Unauthorized file creation vulnerability.</p>
    */
   FILE_CREATION: "FILE_CREATION",
   /**
-   * File deletion vulnerability
+   * <p>File deletion vulnerability.</p>
    */
   FILE_DELETION: "FILE_DELETION",
   /**
-   * GraphQL-specific vulnerability
+   * <p>GraphQL-specific vulnerability.</p>
    */
   GRAPHQL_VULNERABILITIES: "GRAPHQL_VULNERABILITIES",
   /**
-   * Information disclosure vulnerability
+   * <p>Information disclosure vulnerability.</p>
    */
   INFORMATION_DISCLOSURE: "INFORMATION_DISCLOSURE",
   /**
-   * Insecure deserialization vulnerability
+   * <p>Insecure deserialization vulnerability.</p>
    */
   INSECURE_DESERIALIZATION: "INSECURE_DESERIALIZATION",
   /**
-   * Insecure direct object reference vulnerability
+   * <p>Insecure direct object reference vulnerability.</p>
    */
   INSECURE_DIRECT_OBJECT_REFERENCE: "INSECURE_DIRECT_OBJECT_REFERENCE",
   /**
-   * JSON Web Token vulnerability
+   * <p>JSON Web Token vulnerability.</p>
    */
   JSON_WEB_TOKEN_VULNERABILITIES: "JSON_WEB_TOKEN_VULNERABILITIES",
   /**
-   * Local file inclusion vulnerability
+   * <p>Local file inclusion vulnerability.</p>
    */
   LOCAL_FILE_INCLUSION: "LOCAL_FILE_INCLUSION",
   /**
-   * Other risk type not covered by specific categories
+   * <p>Other risk type not covered by specific categories.</p>
    */
   OTHER: "OTHER",
   /**
-   * Outbound service request vulnerability
+   * <p>Outbound service request vulnerability.</p>
    */
   OUTBOUND_SERVICE_REQUEST: "OUTBOUND_SERVICE_REQUEST",
   /**
-   * Path traversal vulnerability
+   * <p>Path traversal vulnerability.</p>
    */
   PATH_TRAVERSAL: "PATH_TRAVERSAL",
   /**
-   * Privilege escalation vulnerability
+   * <p>Privilege escalation vulnerability.</p>
    */
   PRIVILEGE_ESCALATION: "PRIVILEGE_ESCALATION",
   /**
-   * Server-side request forgery vulnerability
+   * <p>Server-side request forgery vulnerability.</p>
    */
   SERVER_SIDE_REQUEST_FORGERY: "SERVER_SIDE_REQUEST_FORGERY",
   /**
-   * Server-side template injection vulnerability
+   * <p>Server-side template injection vulnerability.</p>
    */
   SERVER_SIDE_TEMPLATE_INJECTION: "SERVER_SIDE_TEMPLATE_INJECTION",
   /**
-   * SQL injection vulnerability
+   * <p>SQL injection vulnerability.</p>
    */
   SQL_INJECTION: "SQL_INJECTION",
   /**
-   * Unknown risk type
+   * <p>Unknown risk type.</p>
    */
   UNKNOWN: "UNKNOWN",
   /**
-   * XML external entity vulnerability
+   * <p>XML external entity vulnerability.</p>
    */
   XML_EXTERNAL_ENTITY: "XML_EXTERNAL_ENTITY",
 } as const;
@@ -213,11 +213,11 @@ export type RiskType = (typeof RiskType)[keyof typeof RiskType];
  */
 export const NetworkTrafficRuleEffect = {
   /**
-   * Allow matching traffic
+   * <p>Allow matching traffic.</p>
    */
   ALLOW: "ALLOW",
   /**
-   * Deny matching traffic
+   * <p>Deny matching traffic.</p>
    */
   DENY: "DENY",
 } as const;
@@ -232,7 +232,7 @@ export type NetworkTrafficRuleEffect = (typeof NetworkTrafficRuleEffect)[keyof t
  */
 export const NetworkTrafficRuleType = {
   /**
-   * URL-based traffic rule
+   * <p>URL-based traffic rule.</p>
    */
   URL: "URL",
 } as const;
@@ -309,15 +309,15 @@ export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
  */
 export const ErrorCode = {
   /**
-   * Failure caused by a client-side error
+   * <p>Failure caused by a client-side error.</p>
    */
   CLIENT_ERROR: "CLIENT_ERROR",
   /**
-   * Failure caused by an internal error
+   * <p>Failure caused by an internal error.</p>
    */
   INTERNAL_ERROR: "INTERNAL_ERROR",
   /**
-   * Pentest job was stopped by the user
+   * <p>Pentest job was stopped by the user.</p>
    */
   STOPPED_BY_USER: "STOPPED_BY_USER",
 } as const;
@@ -332,19 +332,19 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
  */
 export const ContextType = {
   /**
-   * Client-side error encountered during execution
+   * <p>Client-side error encountered during execution.</p>
    */
   CLIENT_ERROR: "CLIENT_ERROR",
   /**
-   * Error encountered during execution
+   * <p>Error encountered during execution.</p>
    */
   ERROR: "ERROR",
   /**
-   * Informational message during execution
+   * <p>Informational message during execution.</p>
    */
   INFO: "INFO",
   /**
-   * Warning encountered during execution
+   * <p>Warning encountered during execution.</p>
    */
   WARNING: "WARNING",
 } as const;
@@ -359,23 +359,23 @@ export type ContextType = (typeof ContextType)[keyof typeof ContextType];
  */
 export const JobStatus = {
   /**
-   * Pentest job completed successfully
+   * <p>Pentest job completed successfully.</p>
    */
   COMPLETED: "COMPLETED",
   /**
-   * Pentest job failed during execution
+   * <p>Pentest job failed during execution.</p>
    */
   FAILED: "FAILED",
   /**
-   * Pentest job is currently running
+   * <p>Pentest job is currently running.</p>
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * Pentest job was stopped by the user
+   * <p>Pentest job was stopped by the user.</p>
    */
   STOPPED: "STOPPED",
   /**
-   * Pentest job is being stopped
+   * <p>Pentest job is being stopped.</p>
    */
   STOPPING: "STOPPING",
 } as const;
@@ -390,19 +390,19 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export const StepName = {
   /**
-   * Cleanup of infrastructure and resources created by the agent
+   * <p>Cleanup of infrastructure and resources created by the agent.</p>
    */
   FINALIZING: "FINALIZING",
   /**
-   * Active pentest step
+   * <p>Active pentest step.</p>
    */
   PENTEST: "PENTEST",
   /**
-   * Pre-flight validation and setup step
+   * <p>Pre-flight validation and setup step.</p>
    */
   PREFLIGHT: "PREFLIGHT",
   /**
-   * Static code and network scan analysis step
+   * <p>Static code and network scan analysis step.</p>
    */
   STATIC_ANALYSIS: "STATIC_ANALYSIS",
 } as const;
@@ -417,23 +417,23 @@ export type StepName = (typeof StepName)[keyof typeof StepName];
  */
 export const StepStatus = {
   /**
-   * Step completed successfully
+   * <p>Step completed successfully.</p>
    */
   COMPLETED: "COMPLETED",
   /**
-   * Step failed during execution
+   * <p>Step failed during execution.</p>
    */
   FAILED: "FAILED",
   /**
-   * Step is currently running
+   * <p>Step is currently running.</p>
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * Step has not started yet
+   * <p>Step has not started yet.</p>
    */
   NOT_STARTED: "NOT_STARTED",
   /**
-   * Step was stopped by the user
+   * <p>Step was stopped by the user.</p>
    */
   STOPPED: "STOPPED",
 } as const;
@@ -448,23 +448,23 @@ export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
  */
 export const TaskExecutionStatus = {
   /**
-   * Task was aborted
+   * <p>Task was aborted.</p>
    */
   ABORTED: "ABORTED",
   /**
-   * Task completed successfully
+   * <p>Task completed successfully.</p>
    */
   COMPLETED: "COMPLETED",
   /**
-   * Task failed during execution
+   * <p>Task failed during execution.</p>
    */
   FAILED: "FAILED",
   /**
-   * Task failed due to an internal error
+   * <p>Task failed due to an internal error.</p>
    */
   INTERNAL_ERROR: "INTERNAL_ERROR",
   /**
-   * Task is currently running
+   * <p>Task is currently running.</p>
    */
   IN_PROGRESS: "IN_PROGRESS",
 } as const;
@@ -479,7 +479,7 @@ export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof Task
  */
 export const LogType = {
   /**
-   * Logs stored in CloudWatch
+   * <p>Logs stored in CloudWatch.</p>
    */
   CLOUDWATCH: "CLOUDWATCH",
 } as const;
@@ -494,7 +494,7 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  */
 export const DNSRecordType = {
   /**
-   * DNS TXT record
+   * <p>DNS TXT record.</p>
    */
   TXT: "TXT",
 } as const;
@@ -509,13 +509,17 @@ export type DNSRecordType = (typeof DNSRecordType)[keyof typeof DNSRecordType];
  */
 export const DomainVerificationMethod = {
   /**
-   * Verify ownership via DNS TXT record
+   * <p>Verify ownership via DNS TXT record.</p>
    */
   DNS_TXT: "DNS_TXT",
   /**
-   * Verify ownership via HTTP route
+   * <p>Verify ownership via HTTP route.</p>
    */
   HTTP_ROUTE: "HTTP_ROUTE",
+  /**
+   * <p>Verify ownership via IP for private VPC pentests.</p>
+   */
+  PRIVATE_VPC: "PRIVATE_VPC",
 } as const;
 /**
  * @public
@@ -528,19 +532,19 @@ export type DomainVerificationMethod = (typeof DomainVerificationMethod)[keyof t
  */
 export const TargetDomainStatus = {
   /**
-   * Domain verification failed
+   * <p>Domain verification failed.</p>
    */
   FAILED: "FAILED",
   /**
-   * Domain verification is pending
+   * <p>Domain verification is pending.</p>
    */
   PENDING: "PENDING",
   /**
-   * Domain is unreachable for verification
+   * <p>Domain is unreachable for verification.</p>
    */
   UNREACHABLE: "UNREACHABLE",
   /**
-   * Domain ownership has been verified
+   * <p>Domain ownership has been verified.</p>
    */
   VERIFIED: "VERIFIED",
 } as const;
@@ -567,7 +571,7 @@ export type Provider = (typeof Provider)[keyof typeof Provider];
  */
 export const UserRole = {
   /**
-   * Default member role with standard permissions
+   * <p>Default member role with standard permissions.</p>
    */
   MEMBER: "MEMBER",
 } as const;
@@ -582,7 +586,7 @@ export type UserRole = (typeof UserRole)[keyof typeof UserRole];
  */
 export const MembershipType = {
   /**
-   * Human user member
+   * <p>Human user member.</p>
    */
   USER: "USER",
 } as const;
@@ -622,11 +626,11 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export const MembershipTypeFilter = {
   /**
-   * Show all member types
+   * <p>Show all member types.</p>
    */
   ALL: "ALL",
   /**
-   * Show only user members
+   * <p>Show only user members.</p>
    */
   USER: "USER",
 } as const;

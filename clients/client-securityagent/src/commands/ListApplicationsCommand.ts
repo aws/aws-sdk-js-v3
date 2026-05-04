@@ -27,7 +27,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * Lists all applications in the account
+ * <p>Returns a paginated list of application summaries in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

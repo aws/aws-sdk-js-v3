@@ -30,48 +30,48 @@ import type {
 } from "./enums";
 
 /**
- * Authentication information used to access protected resources
+ * <p>The authentication configuration for an actor, specifying the provider type and credentials.</p>
  * @public
  */
 export interface Authentication {
   /**
-   * Provider type for the authentication credentials
+   * <p>The type of authentication provider. Valid values include SECRETS_MANAGER, AWS_LAMBDA, AWS_IAM_ROLE, and AWS_INTERNAL.</p>
    * @public
    */
   providerType?: AuthenticationProviderType | undefined;
 
   /**
-   * Authentication credential value or reference
+   * <p>The authentication value, such as a secret ARN, Lambda function ARN, or IAM role ARN, depending on the provider type.</p>
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * Represents an entity that interacts with the system during security testing
+ * <p>Represents an actor used during penetration testing. An actor defines a user or entity that interacts with the target application, including authentication credentials and target URIs.</p>
  * @public
  */
 export interface Actor {
   /**
-   * Unique identifier for the actor (case-insensitive)
+   * <p>The unique identifier for the actor.</p>
    * @public
    */
   identifier?: string | undefined;
 
   /**
-   * List of URIs accessible with the actor's credentials
+   * <p>The list of URIs that the actor targets during testing.</p>
    * @public
    */
   uris?: string[] | undefined;
 
   /**
-   * Authentication information used by the actor to access resources
+   * <p>The authentication configuration for the actor.</p>
    * @public
    */
   authentication?: Authentication | undefined;
 
   /**
-   * Additional description or details about the actor
+   * <p>A description of the actor.</p>
    * @public
    */
   description?: string | undefined;
@@ -82,25 +82,25 @@ export interface Actor {
  */
 export interface AddArtifactInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space to add the artifact to.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Binary content of the artifact
+   * <p>The binary content of the artifact to upload.</p>
    * @public
    */
   artifactContent: Uint8Array | undefined;
 
   /**
-   * Type of the artifact file
+   * <p>The file type of the artifact. Valid values include TXT, PNG, JPEG, MD, PDF, DOCX, DOC, JSON, and YAML.</p>
    * @public
    */
   artifactType: ArtifactType | undefined;
 
   /**
-   * Name of the artifact file
+   * <p>The file name of the artifact.</p>
    * @public
    */
   fileName: string | undefined;
@@ -111,493 +111,493 @@ export interface AddArtifactInput {
  */
 export interface AddArtifactOutput {
   /**
-   * Unique identifier of the created artifact
+   * <p>The unique identifier assigned to the uploaded artifact.</p>
    * @public
    */
   artifactId: string | undefined;
 }
 
 /**
- * Describes one specific validation failure for an input member.
+ * <p>Describes one specific validation failure for an input member.</p>
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.
+   * <p>A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraint.</p>
    * @public
    */
   path: string | undefined;
 
   /**
-   * A detailed description of the validation failure.
+   * <p>A detailed description of the validation failure.</p>
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * Customer VPC configuration that the Security Agent accesses
+ * <p>The VPC configuration for a pentest, specifying the VPC, security groups, and subnets to use during testing.</p>
  * @public
  */
 export interface VpcConfig {
   /**
-   * ARN or ID of the customer VPC
+   * <p>The Amazon Resource Name (ARN) of the VPC.</p>
    * @public
    */
   vpcArn?: string | undefined;
 
   /**
-   * List of security group ARNs or IDs in the customer VPC
+   * <p>The Amazon Resource Names (ARNs) of the security groups for the VPC configuration.</p>
    * @public
    */
   securityGroupArns?: string[] | undefined;
 
   /**
-   * List of subnet ARNs or IDs in the customer VPC
+   * <p>The Amazon Resource Names (ARNs) of the subnets for the VPC configuration.</p>
    * @public
    */
   subnetArns?: string[] | undefined;
 }
 
 /**
- * AWS resource configurations associated with the agent space
+ * <p>The AWS resources associated with an agent space, including VPCs, log groups, S3 buckets, secrets, Lambda functions, and IAM roles.</p>
  * @public
  */
 export interface AWSResources {
   /**
-   * VPC configurations that the Security Agent accesses in the customer environment
+   * <p>The VPC configurations associated with the agent space.</p>
    * @public
    */
   vpcs?: VpcConfig[] | undefined;
 
   /**
-   * CloudWatch log group ARNs or names used to store Security Agent logs
+   * <p>The Amazon Resource Names (ARNs) of the CloudWatch log groups associated with the agent space.</p>
    * @public
    */
   logGroups?: string[] | undefined;
 
   /**
-   * S3 bucket ARNs or names used to store Security Agent artifacts
+   * <p>The Amazon Resource Names (ARNs) of the S3 buckets associated with the agent space.</p>
    * @public
    */
   s3Buckets?: string[] | undefined;
 
   /**
-   * SecretsManager secret ARNs or names used to store tester credentials for pentests
+   * <p>The Amazon Resource Names (ARNs) of the Secrets Manager secrets associated with the agent space.</p>
    * @public
    */
   secretArns?: string[] | undefined;
 
   /**
-   * Lambda function ARNs or names used to retrieve tester credentials for pentests
+   * <p>The Amazon Resource Names (ARNs) of the Lambda functions associated with the agent space.</p>
    * @public
    */
   lambdaFunctionArns?: string[] | undefined;
 
   /**
-   * IAM role ARNs that the Security Agent can assume to access customer resources
+   * <p>The IAM roles associated with the agent space.</p>
    * @public
    */
   iamRoles?: string[] | undefined;
 }
 
 /**
- * Details of code review settings
+ * <p>The code review settings for an agent space, controlling which types of scanning are enabled.</p>
  * @public
  */
 export interface CodeReviewSettings {
   /**
-   * Whether Controls are utilized for code review analysis
+   * <p>Indicates whether controls scanning is enabled for code reviews.</p>
    * @public
    */
   controlsScanning: boolean | undefined;
 
   /**
-   * Whether general purpose analysis is performed for code review
+   * <p>Indicates whether general-purpose scanning is enabled for code reviews.</p>
    * @public
    */
   generalPurposeScanning: boolean | undefined;
 }
 
 /**
- * Agent space structure
+ * <p>Represents an agent space, which is a dedicated workspace for securing a specific application. An agent space contains the configuration, resources, and settings needed for security testing.</p>
  * @public
  */
 export interface AgentSpace {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Name of the agent space
+   * <p>The name of the agent space.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the agent space
+   * <p>A description of the agent space.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * AWS resource configurations
+   * <p>The AWS resources associated with the agent space.</p>
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * List of target domain IDs registered with the agent space
+   * <p>The list of target domain identifiers associated with the agent space.</p>
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * Configuration for code review analysis, including controls scanning and general purpose scanning settings
+   * <p>The code review settings for the agent space.</p>
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
+   * <p>The identifier of the AWS KMS key used to encrypt data in the agent space.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * Timestamp when the agent space was created
+   * <p>The date and time the agent space was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the agent space was last updated
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Input for batch retrieving agent spaces
+ * <p>Input for batch retrieving agent spaces.</p>
  * @public
  */
 export interface BatchGetAgentSpacesInput {
   /**
-   * List of agent space IDs to retrieve
+   * <p>The list of agent space identifiers to retrieve.</p>
    * @public
    */
   agentSpaceIds: string[] | undefined;
 }
 
 /**
- * Output for the BatchGetAgentSpaces operation
+ * <p>Output for the BatchGetAgentSpaces operation.</p>
  * @public
  */
 export interface BatchGetAgentSpacesOutput {
   /**
-   * List of agent spaces that were successfully retrieved
+   * <p>The list of agent spaces that were found.</p>
    * @public
    */
   agentSpaces?: AgentSpace[] | undefined;
 
   /**
-   * List of agent space IDs that could not be found
+   * <p>The list of agent space identifiers that were not found.</p>
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * Input for creating a new agent space
+ * <p>Input for creating a new agent space.</p>
  * @public
  */
 export interface CreateAgentSpaceInput {
   /**
-   * Name of the agent space
+   * <p>The name of the agent space.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the agent space
+   * <p>A description of the agent space.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * AWS resource configurations associated with the agent space
+   * <p>The AWS resources to associate with the agent space.</p>
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * Target domain IDs to associate with the agent space
+   * <p>The list of target domain identifiers to associate with the agent space.</p>
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * Configuration for code review analysis, including controls scanning and general purpose scanning settings
+   * <p>The code review settings for the agent space.</p>
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
+   * <p>The identifier of the AWS KMS key to use for encrypting data in the agent space.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * Tags to associate with the agent space
+   * <p>The tags to associate with the agent space.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Output for the CreateAgentSpace operation
+ * <p>Output for the CreateAgentSpace operation.</p>
  * @public
  */
 export interface CreateAgentSpaceOutput {
   /**
-   * Unique identifier of the created agent space
+   * <p>The unique identifier of the created agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Name of the created agent space
+   * <p>The name of the agent space.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the created agent space
+   * <p>The description of the agent space.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * AWS resource configurations associated with the agent space
+   * <p>The AWS resources associated with the agent space.</p>
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * List of target domain IDs registered with the agent space
+   * <p>The list of target domain identifiers associated with the agent space.</p>
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * Configuration for code review analysis, including controls scanning and general purpose scanning settings
+   * <p>The code review settings for the agent space.</p>
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
+   * <p>The identifier of the AWS KMS key used to encrypt data in the agent space.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * Timestamp when the agent space was created
+   * <p>The date and time the agent space was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the agent space was last updated
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Input for deleting an agent space
+ * <p>Input for deleting an agent space.</p>
  * @public
  */
 export interface DeleteAgentSpaceInput {
   /**
-   * Unique identifier of the agent space to delete
+   * <p>The unique identifier of the agent space to delete.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Output for the DeleteAgentSpace operation
+ * <p>Output for the DeleteAgentSpace operation.</p>
  * @public
  */
 export interface DeleteAgentSpaceOutput {
   /**
-   * Unique identifier of the deleted agent space
+   * <p>The unique identifier of the deleted agent space.</p>
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * Input for listing agent spaces
+ * <p>Input for listing agent spaces.</p>
  * @public
  */
 export interface ListAgentSpacesInput {
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of agent spaces to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Summary information for an agent space
+ * <p>Contains summary information about an agent space.</p>
  * @public
  */
 export interface AgentSpaceSummary {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Name of the agent space
+   * <p>The name of the agent space.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Timestamp when the agent space was created
+   * <p>The date and time the agent space was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the agent space was last updated
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the ListAgentSpaces operation
+ * <p>Output for the ListAgentSpaces operation.</p>
  * @public
  */
 export interface ListAgentSpacesOutput {
   /**
-   * List of agent space summaries
+   * <p>The list of agent space summaries.</p>
    * @public
    */
   agentSpaceSummaries?: AgentSpaceSummary[] | undefined;
 
   /**
-   * Token for next page of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for updating an agent space
+ * <p>Input for updating an agent space.</p>
  * @public
  */
 export interface UpdateAgentSpaceInput {
   /**
-   * ID of the agent space to update
+   * <p>The unique identifier of the agent space to update.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Name of the agent space
+   * <p>The updated name of the agent space.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Description of the agent space
+   * <p>The updated description of the agent space.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * AWS resource configurations associated with the agent space
+   * <p>The updated AWS resources to associate with the agent space.</p>
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * Target domain IDs to associate with the agent space
+   * <p>The updated list of target domain identifiers to associate with the agent space.</p>
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * Configuration for code review analysis, including controls scanning and general purpose scanning settings
+   * <p>The updated code review settings for the agent space.</p>
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 }
 
 /**
- * Output for the UpdateAgentSpace operation
+ * <p>Output for the UpdateAgentSpace operation.</p>
  * @public
  */
 export interface UpdateAgentSpaceOutput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the updated agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Name of the agent space
+   * <p>The name of the agent space.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the agent space
+   * <p>The description of the agent space.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * AWS resource configurations associated with the agent space
+   * <p>The AWS resources associated with the agent space.</p>
    * @public
    */
   awsResources?: AWSResources | undefined;
 
   /**
-   * List of target domain IDs registered with the agent space
+   * <p>The list of target domain identifiers associated with the agent space.</p>
    * @public
    */
   targetDomainIds?: string[] | undefined;
 
   /**
-   * Configuration for code review analysis, including controls scanning and general purpose scanning settings
+   * <p>The code review settings for the agent space.</p>
    * @public
    */
   codeReviewSettings?: CodeReviewSettings | undefined;
 
   /**
-   * Timestamp when the agent space was created
+   * <p>The date and time the agent space was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the agent space was last updated
+   * <p>The date and time the agent space was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
@@ -608,25 +608,25 @@ export interface UpdateAgentSpaceOutput {
  */
 export interface CreateApplicationRequest {
   /**
-   * ARN of the IAM Identity Center instance used for user authentication. Optional for non-IdC applications
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to associate with the application.</p>
    * @public
    */
   idcInstanceArn?: string | undefined;
 
   /**
-   * ARN of the IAM role that the application uses to access AWS resources on your behalf
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the application.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * Default KMS key identifier used to encrypt application data
+   * <p>The identifier of the default AWS KMS key to use for encrypting data in the application.</p>
    * @public
    */
   defaultKmsKeyId?: string | undefined;
 
   /**
-   * Tags to associate with the application
+   * <p>The tags to associate with the application.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -637,7 +637,7 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * Application ID
+   * <p>The unique identifier of the created application.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -648,7 +648,7 @@ export interface CreateApplicationResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * Application ID
+   * <p>The unique identifier of the application to delete.</p>
    * @public
    */
   applicationId: string | undefined;
@@ -659,25 +659,25 @@ export interface DeleteApplicationRequest {
  */
 export interface GetApplicationRequest {
   /**
-   * Application ID
+   * <p>The unique identifier of the application to retrieve.</p>
    * @public
    */
   applicationId: string | undefined;
 }
 
 /**
- * IdC configuration containing application and instance ARNs
+ * <p>The IAM Identity Center configuration for an application.</p>
  * @public
  */
 export interface IdCConfiguration {
   /**
-   * ARN of the IAM Identity Center application associated with this application
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center application.</p>
    * @public
    */
   idcApplicationArn?: string | undefined;
 
   /**
-   * ARN of the IAM Identity Center instance used for user authentication
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
    * @public
    */
   idcInstanceArn?: string | undefined;
@@ -688,37 +688,37 @@ export interface IdCConfiguration {
  */
 export interface GetApplicationResponse {
   /**
-   * Application ID
+   * <p>The unique identifier of the application.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * Domain where the application is available
+   * <p>The domain associated with the application.</p>
    * @public
    */
   domain: string | undefined;
 
   /**
-   * Name of the application, automatically assigned by the service
+   * <p>The name of the application.</p>
    * @public
    */
   applicationName?: string | undefined;
 
   /**
-   * IAM Identity Center configuration for the application
+   * <p>The IAM Identity Center configuration for the application.</p>
    * @public
    */
   idcConfiguration?: IdCConfiguration | undefined;
 
   /**
-   * ARN of the IAM role that the application uses to access AWS resources on your behalf
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the application.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * Default KMS key identifier used to encrypt application data
+   * <p>The identifier of the default AWS KMS key used to encrypt data for the application.</p>
    * @public
    */
   defaultKmsKeyId?: string | undefined;
@@ -729,43 +729,43 @@ export interface GetApplicationResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of results to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Application summary for list operations
+ * <p>Contains summary information about an application.</p>
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * Unique identifier of the application
+   * <p>The unique identifier of the application.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * Name of the application, automatically assigned by the service
+   * <p>The name of the application.</p>
    * @public
    */
   applicationName: string | undefined;
 
   /**
-   * Domain where the application is available
+   * <p>The domain associated with the application.</p>
    * @public
    */
   domain: string | undefined;
 
   /**
-   * Default KMS key identifier used to encrypt application data
+   * <p>The identifier of the default AWS KMS key used to encrypt data for the application.</p>
    * @public
    */
   defaultKmsKeyId?: string | undefined;
@@ -776,13 +776,13 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * List of application summaries
+   * <p>The list of application summaries.</p>
    * @public
    */
   applicationSummaries: ApplicationSummary[] | undefined;
 
   /**
-   * Token for next page of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -793,19 +793,19 @@ export interface ListApplicationsResponse {
  */
 export interface UpdateApplicationRequest {
   /**
-   * Application ID
+   * <p>The unique identifier of the application to update.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * ARN of the IAM role that the application uses to access AWS resources on your behalf
+   * <p>The updated Amazon Resource Name (ARN) of the IAM role for the application.</p>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * Default KMS key identifier. Use an empty string to remove the default KMS key.
+   * <p>The updated identifier of the default AWS KMS key for the application.</p>
    * @public
    */
   defaultKmsKeyId?: string | undefined;
@@ -816,385 +816,385 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
-   * Application ID
+   * <p>The unique identifier of the updated application.</p>
    * @public
    */
   applicationId: string | undefined;
 }
 
 /**
- * Files containing relevant data for review
+ * <p>Represents an artifact that provides context for security testing, such as documentation, diagrams, or configuration files.</p>
  * @public
  */
 export interface Artifact {
   /**
-   * The content of the artifact
+   * <p>The content of the artifact.</p>
    * @public
    */
   contents: string | undefined;
 
   /**
-   * The file type of the artifact
+   * <p>The file type of the artifact.</p>
    * @public
    */
   type: ArtifactType | undefined;
 }
 
 /**
- * Metadata in relation to the artifact
+ * <p>Contains metadata about an artifact.</p>
  * @public
  */
 export interface ArtifactMetadataItem {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Unique identifier of the artifact
+   * <p>The unique identifier of the artifact.</p>
    * @public
    */
   artifactId: string | undefined;
 
   /**
-   * Name of the artifact file
+   * <p>The file name of the artifact.</p>
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * Timestamp when the artifact was last updated
+   * <p>The date and time the artifact was last updated, in UTC format.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * Summary information about an artifact
+ * <p>Contains summary information about an artifact.</p>
  * @public
  */
 export interface ArtifactSummary {
   /**
-   * Unique identifier of the artifact
+   * <p>The unique identifier of the artifact.</p>
    * @public
    */
   artifactId: string | undefined;
 
   /**
-   * Name of the artifact file
+   * <p>The file name of the artifact.</p>
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * Type of the artifact file
+   * <p>The file type of the artifact.</p>
    * @public
    */
   artifactType: ArtifactType | undefined;
 }
 
 /**
- * Information about a document relevant to security testing
+ * <p>Represents a document that provides context for security testing.</p>
  * @public
  */
 export interface DocumentInfo {
   /**
-   * S3 storage location of the document
+   * <p>The Amazon S3 location of the document.</p>
    * @public
    */
   s3Location?: string | undefined;
 
   /**
-   * Artifact ID of the document
+   * <p>The unique identifier of the artifact associated with the document.</p>
    * @public
    */
   artifactId?: string | undefined;
 }
 
 /**
- * Represents a web application endpoint to be tested
+ * <p>Represents a target endpoint for penetration testing.</p>
  * @public
  */
 export interface Endpoint {
   /**
-   * URI of the endpoint to test
+   * <p>The URI of the endpoint.</p>
    * @public
    */
   uri?: string | undefined;
 }
 
 /**
- * Information about an integrated repository
+ * <p>Represents a code repository that is integrated with the service through a third-party provider.</p>
  * @public
  */
 export interface IntegratedRepository {
   /**
-   * Integration identifier
+   * <p>The unique identifier of the integration that provides access to the repository.</p>
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * External provider resource identifier, e.g., Github repository identifier
+   * <p>The provider-specific resource identifier for the repository.</p>
    * @public
    */
   providerResourceId: string | undefined;
 }
 
 /**
- * Information about a source code repository for static analysis
+ * <p>Represents a source code repository used for security analysis during a pentest.</p>
  * @public
  */
 export interface SourceCodeRepository {
   /**
-   * S3 storage location of the repository
+   * <p>The Amazon S3 location of the source code repository archive.</p>
    * @public
    */
   s3Location?: string | undefined;
 }
 
 /**
- * Collection of assets to be tested or used during a pentest
+ * <p>The collection of assets used in a pentest configuration, including endpoints, actors, documents, source code repositories, and integrated repositories.</p>
  * @public
  */
 export interface Assets {
   /**
-   * List of web application endpoints to test
+   * <p>The list of endpoints to test during the pentest.</p>
    * @public
    */
   endpoints?: Endpoint[] | undefined;
 
   /**
-   * List of actors that interact with the system
+   * <p>The list of actors used during penetration testing.</p>
    * @public
    */
   actors?: Actor[] | undefined;
 
   /**
-   * List of documents providing context for testing
+   * <p>The list of documents that provide context for the pentest.</p>
    * @public
    */
   documents?: DocumentInfo[] | undefined;
 
   /**
-   * List of source code repositories for static analysis
+   * <p>The list of source code repositories to analyze during the pentest.</p>
    * @public
    */
   sourceCode?: SourceCodeRepository[] | undefined;
 
   /**
-   * List of integrated code repositories
+   * <p>The list of integrated repositories associated with the pentest.</p>
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
 }
 
 /**
- * Input for deleting multiple pentests
+ * <p>Input for deleting multiple pentests.</p>
  * @public
  */
 export interface BatchDeletePentestsInput {
   /**
-   * List of pentest IDs to delete
+   * <p>The list of pentest identifiers to delete.</p>
    * @public
    */
   pentestIds: string[] | undefined;
 
   /**
-   * ID of the agent space where the pentests exist
+   * <p>The unique identifier of the agent space that contains the pentests to delete.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Reference to logs stored in CloudWatch
+ * <p>The Amazon CloudWatch Logs configuration for pentest job logging.</p>
  * @public
  */
 export interface CloudWatchLog {
   /**
-   * Name of the CloudWatch log group
+   * <p>The name of the CloudWatch log group.</p>
    * @public
    */
   logGroup?: string | undefined;
 
   /**
-   * Name of the CloudWatch log stream
+   * <p>The name of the CloudWatch log stream.</p>
    * @public
    */
   logStream?: string | undefined;
 }
 
 /**
- * Custom headers to be set for network requests
+ * <p>A custom HTTP header to include in network traffic during penetration testing.</p>
  * @public
  */
 export interface CustomHeader {
   /**
-   * Name of header to set value for
+   * <p>The name of the custom header.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Value to set for header
+   * <p>The value of the custom header.</p>
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * Network traffic filtering rule
+ * <p>A rule that controls network traffic during penetration testing by allowing or denying traffic to specific URL patterns.</p>
  * @public
  */
 export interface NetworkTrafficRule {
   /**
-   * Action to take when the rule matches
+   * <p>The effect of the rule. Valid values are ALLOW and DENY.</p>
    * @public
    */
   effect?: NetworkTrafficRuleEffect | undefined;
 
   /**
-   * Pattern to match against
+   * <p>The URL pattern to match for the rule.</p>
    * @public
    */
   pattern?: string | undefined;
 
   /**
-   * Type of network traffic rule
+   * <p>The type of the network traffic rule. Currently, only URL is supported.</p>
    * @public
    */
   networkTrafficRuleType?: NetworkTrafficRuleType | undefined;
 }
 
 /**
- * Configuration for network traffic filtering
+ * <p>The network traffic configuration for a pentest, including custom headers and traffic rules.</p>
  * @public
  */
 export interface NetworkTrafficConfig {
   /**
-   * Traffic filtering rules
+   * <p>The list of network traffic rules that control which URLs are allowed or denied during testing.</p>
    * @public
    */
   rules?: NetworkTrafficRule[] | undefined;
 
   /**
-   * Custom headers for requests
+   * <p>The list of custom HTTP headers to include in network traffic during testing.</p>
    * @public
    */
   customHeaders?: CustomHeader[] | undefined;
 }
 
 /**
- * Represents a pentest configuration and execution details
+ * <p>Represents a pentest configuration that defines the parameters for security testing, including target assets, risk type exclusions, and infrastructure settings.</p>
  * @public
  */
 export interface Pentest {
   /**
-   * Unique identifier for the pentest
+   * <p>The unique identifier of the pentest.</p>
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the pentest.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Title or name of the pentest
+   * <p>The title of the pentest.</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * Collection of assets to be tested or used during the pentest
+   * <p>The assets included in the pentest.</p>
    * @public
    */
   assets: Assets | undefined;
 
   /**
-   * A list of risk types excluded from the pentest execution
+   * <p>The list of risk types excluded from the pentest.</p>
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * Service role ARN for accessing customer resources
+   * <p>The IAM service role used for the pentest.</p>
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * CloudWatch log group and stream prefix where pentest execution logs are stored
+   * <p>The CloudWatch Logs configuration for the pentest.</p>
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * VPC configuration that the Security Agent accesses
+   * <p>The VPC configuration for the pentest.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * Configuration for network traffic filtering
+   * <p>The network traffic configuration for the pentest.</p>
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * Strategy for code remediation on findings
+   * <p>The code remediation strategy for the pentest.</p>
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * Timestamp when the pentest was created
+   * <p>The date and time the pentest was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest was last updated
+   * <p>The date and time the pentest was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Information about a failed pentest deletion attempt
+ * <p>Contains information about a pentest that failed to delete.</p>
  * @public
  */
 export interface DeletePentestFailure {
   /**
-   * Identifier of the pentest that failed to delete
+   * <p>The unique identifier of the pentest that failed to delete.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Reason for the deletion failure
+   * <p>The reason the pentest failed to delete.</p>
    * @public
    */
   reason?: string | undefined;
 }
 
 /**
- * Output for the BatchDeletePentests operation
+ * <p>Output for the BatchDeletePentests operation.</p>
  * @public
  */
 export interface BatchDeletePentestsOutput {
   /**
-   * List of successfully deleted pentests
+   * <p>The list of pentests that were successfully deleted.</p>
    * @public
    */
   deleted?: Pentest[] | undefined;
 
   /**
-   * List of pentests that could not be deleted and the reasons for failure
+   * <p>The list of pentests that failed to delete, including the reason for each failure.</p>
    * @public
    */
   failed?: DeletePentestFailure[] | undefined;
@@ -1205,13 +1205,13 @@ export interface BatchDeletePentestsOutput {
  */
 export interface BatchGetArtifactMetadataInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space that contains the artifacts.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * List of artifact identifiers
+   * <p>The list of artifact identifiers to retrieve metadata for.</p>
    * @public
    */
   artifactIds: string[] | undefined;
@@ -1222,818 +1222,824 @@ export interface BatchGetArtifactMetadataInput {
  */
 export interface BatchGetArtifactMetadataOutput {
   /**
-   * List of artifact metadata
+   * <p>The list of artifact metadata items that were found.</p>
    * @public
    */
   artifactMetadataList: ArtifactMetadataItem[] | undefined;
 }
 
 /**
- * Input for BatchGetFindings operation
+ * <p>Input for BatchGetFindings operation.</p>
  * @public
  */
 export interface BatchGetFindingsInput {
   /**
-   * List of finding IDs to retrieve
+   * <p>The list of finding identifiers to retrieve.</p>
    * @public
    */
   findingIds: string[] | undefined;
 
   /**
-   * ID of the agent space where the findings exist
+   * <p>The unique identifier of the agent space that contains the findings.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Code remediation details for a single repository
+ * <p>Contains details about a code remediation task, including links to the code diff and pull request.</p>
  * @public
  */
 export interface CodeRemediationTaskDetails {
   /**
-   * Name of the repository
+   * <p>The name of the repository where the remediation was applied.</p>
    * @public
    */
   repoName?: string | undefined;
 
   /**
-   * Link to the code diff for the remediation
+   * <p>The link to the code diff for the remediation.</p>
    * @public
    */
   codeDiffLink?: string | undefined;
 
   /**
-   * Link to the pull request for the remediation
+   * <p>The link to the pull request created for the remediation.</p>
    * @public
    */
   pullRequestLink?: string | undefined;
 }
 
 /**
- * Information about task for code remediation
+ * <p>Represents a code remediation task that was initiated to fix a security finding.</p>
  * @public
  */
 export interface CodeRemediationTask {
   /**
-   * Current status of the code remediation task
+   * <p>The current status of the code remediation task.</p>
    * @public
    */
   status: CodeRemediationTaskStatus | undefined;
 
   /**
-   * Reason for the current code remediation task status
+   * <p>The reason for the current status of the code remediation task.</p>
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * Details of the code remediation for each repository
+   * <p>The list of details for the code remediation task, including repository name, code diff link, and pull request link.</p>
    * @public
    */
   taskDetails?: CodeRemediationTaskDetails[] | undefined;
 }
 
 /**
- * Represents a security vulnerability or issue discovered during testing
+ * <p>Represents a security finding discovered during a pentest job. A finding contains details about a vulnerability, including its risk level, confidence, and remediation status.</p>
  * @public
  */
 export interface Finding {
   /**
-   * Unique identifier for the finding
+   * <p>The unique identifier of the finding.</p>
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * Identifier of the agent space that created this finding
+   * <p>The unique identifier of the agent space associated with the finding.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Identifier of the parent pentest
+   * <p>The unique identifier of the pentest associated with the finding.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Identifier of the pentest job
+   * <p>The unique identifier of the pentest job that produced the finding.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * Identifier of the associated task
+   * <p>The unique identifier of the task that produced the finding.</p>
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * Name or title of the finding
+   * <p>The name of the finding.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Detailed description of the security vulnerability
+   * <p>A description of the finding.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Current status of the finding
+   * <p>The current status of the finding. Valid values include ACTIVE, RESOLVED, ACCEPTED, and FALSE_POSITIVE.</p>
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * Type of security risk identified
+   * <p>The type of security risk identified by the finding.</p>
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * Severity level of the identified risk
+   * <p>The risk level of the finding. Valid values include UNKNOWN, INFORMATIONAL, LOW, MEDIUM, HIGH, and CRITICAL.</p>
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * Risk score associated with the finding
+   * <p>The numerical risk score of the finding.</p>
    * @public
    */
   riskScore?: string | undefined;
 
   /**
-   * Justification for the assigned risk score
+   * <p>The reasoning behind the finding, explaining why it was identified as a vulnerability.</p>
    * @public
    */
   reasoning?: string | undefined;
 
   /**
-   * Confidence level of the finding
+   * <p>The confidence level of the finding. Valid values include FALSE_POSITIVE, UNCONFIRMED, LOW, MEDIUM, and HIGH.</p>
    * @public
    */
   confidence?: ConfidenceLevel | undefined;
 
   /**
-   * Proof-of-concept code demonstrating the vulnerability
+   * <p>The attack script used to reproduce the finding.</p>
    * @public
    */
   attackScript?: string | undefined;
 
   /**
-   * Code remediation task associated with this finding
+   * <p>The code remediation task associated with the finding, if code remediation was initiated.</p>
    * @public
    */
   codeRemediationTask?: CodeRemediationTask | undefined;
 
   /**
-   * Identifier of the task or agent that last updated this finding
+   * <p>The identifier of the entity that last updated the finding.</p>
    * @public
    */
   lastUpdatedBy?: string | undefined;
 
   /**
-   * Timestamp when the finding was created
+   * <p>The date and time the finding was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the finding was last updated
+   * <p>The date and time the finding was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the BatchGetFindings operation
+ * <p>Output for the BatchGetFindings operation.</p>
  * @public
  */
 export interface BatchGetFindingsOutput {
   /**
-   * List of successfully retrieved findings
+   * <p>The list of findings that were found.</p>
    * @public
    */
   findings?: Finding[] | undefined;
 
   /**
-   * List of finding IDs that could not be found
+   * <p>The list of finding identifiers that were not found.</p>
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * Input for BatchGetPentestJobs operation
+ * <p>Input for BatchGetPentestJobs operation.</p>
  * @public
  */
 export interface BatchGetPentestJobsInput {
   /**
-   * List of pentest job IDs to retrieve
+   * <p>The list of pentest job identifiers to retrieve.</p>
    * @public
    */
   pentestJobIds: string[] | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the pentest jobs.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Error information regarding the pentest job
+ * <p>Contains error information for a pentest job that encountered an error.</p>
  * @public
  */
 export interface ErrorInformation {
   /**
-   * Pentest job failure error code
+   * <p>The error code. Valid values include CLIENT_ERROR, INTERNAL_ERROR, and STOPPED_BY_USER.</p>
    * @public
    */
   code?: ErrorCode | undefined;
 
   /**
-   * Pentest job failure error message
+   * <p>A message describing the error.</p>
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * Additional context about a pentest or task execution
+ * <p>Contains contextual information about the execution of a pentest job, such as errors, warnings, or informational messages.</p>
  * @public
  */
 export interface ExecutionContext {
   /**
-   * The category of context
+   * <p>The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and INFO.</p>
    * @public
    */
   contextType?: ContextType | undefined;
 
   /**
-   * Context associated with a pentest or task execution
+   * <p>The context message.</p>
    * @public
    */
   context?: string | undefined;
 
   /**
-   * Timestamp associated with a pentest or task execution
+   * <p>The date and time the context was recorded, in UTC format.</p>
    * @public
    */
   timestamp?: Date | undefined;
 }
 
 /**
- * Represents a single step in pentest job execution
+ * <p>Represents a step in the pentest job execution pipeline. Steps include preflight, static analysis, pentest, and finalizing.</p>
  * @public
  */
 export interface Step {
   /**
-   * Name of the execution step
+   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
    * @public
    */
   name?: StepName | undefined;
 
   /**
-   * Current status of the step
+   * <p>The current status of the step.</p>
    * @public
    */
   status?: StepStatus | undefined;
 
   /**
-   * Timestamp when the step was created
+   * <p>The date and time the step was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the step was last updated
+   * <p>The date and time the step was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Represents a pentest job
+ * <p>Represents a pentest job, which is an execution instance of a pentest. A pentest job progresses through preflight, static analysis, pentest, and finalizing steps.</p>
  * @public
  */
 export interface PentestJob {
   /**
-   * Unique identifier of the pentest job
+   * <p>The unique identifier of the pentest job.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * Identifier of the parent pentest
+   * <p>The unique identifier of the pentest associated with the job.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Title or name of the pentest
+   * <p>The title of the pentest job.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Overview or description of the pentest job
+   * <p>An overview of the pentest job results.</p>
    * @public
    */
   overview?: string | undefined;
 
   /**
-   * Current status of the pentest job
+   * <p>The current status of the pentest job.</p>
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * List of web application endpoints to test
+   * <p>The list of endpoints being tested in the pentest job.</p>
    * @public
    */
   endpoints?: Endpoint[] | undefined;
 
   /**
-   * List of actors that interact with the system
+   * <p>The list of actors used during the pentest job.</p>
    * @public
    */
   actors?: Actor[] | undefined;
 
   /**
-   * List of documents providing context for testing
+   * <p>The list of documents providing context for the pentest job.</p>
    * @public
    */
   documents?: DocumentInfo[] | undefined;
 
   /**
-   * List of source code repositories for static analysis
+   * <p>The list of source code repositories analyzed during the pentest job.</p>
    * @public
    */
   sourceCode?: SourceCodeRepository[] | undefined;
 
   /**
-   * List of URL paths to exclude from testing
+   * <p>The list of paths excluded from the pentest job.</p>
    * @public
    */
   excludePaths?: Endpoint[] | undefined;
 
   /**
-   * List of allowed domains for network access
+   * <p>The list of domains allowed during the pentest job.</p>
    * @public
    */
   allowedDomains?: Endpoint[] | undefined;
 
   /**
-   * A list of risk types excluded from the pentest job
+   * <p>The list of risk types excluded from the pentest job.</p>
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * List of execution steps for the pentest job
+   * <p>The list of steps in the pentest job execution.</p>
    * @public
    */
   steps?: Step[] | undefined;
 
   /**
-   * A list of execution context messages associated with the pentest job
+   * <p>The execution context messages for the pentest job.</p>
    * @public
    */
   executionContext?: ExecutionContext[] | undefined;
 
   /**
-   * Service role ARN for accessing customer resources
+   * <p>The IAM service role used for the pentest job.</p>
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * CloudWatch log group and stream prefix where pentest job logs are stored
+   * <p>The CloudWatch Logs configuration for the pentest job.</p>
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * VPC configuration that the Security Agent accesses
+   * <p>The VPC configuration for the pentest job.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * Configuration for network traffic filtering
+   * <p>The network traffic configuration for the pentest job.</p>
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * Error information regarding the pentest job
+   * <p>Error information if the pentest job encountered an error.</p>
    * @public
    */
   errorInformation?: ErrorInformation | undefined;
 
   /**
-   * List of integrated code repositories
+   * <p>The list of integrated repositories associated with the pentest job.</p>
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
 
   /**
-   * Strategy for code remediation on findings
+   * <p>The code remediation strategy for the pentest job.</p>
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
-   * Timestamp when the pentest job was created
+   * <p>The date and time the pentest job was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest job was last updated
+   * <p>The date and time the pentest job was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the BatchGetPentestJobs operation
+ * <p>Output for the BatchGetPentestJobs operation.</p>
  * @public
  */
 export interface BatchGetPentestJobsOutput {
   /**
-   * List of successfully retrieved pentest jobs
+   * <p>The list of pentest jobs that were found.</p>
    * @public
    */
   pentestJobs?: PentestJob[] | undefined;
 
   /**
-   * List of pentest job IDs that could not be found
+   * <p>The list of pentest job identifiers that were not found.</p>
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * Input for retrieving multiple tasks by their IDs for a pentest job
+ * <p>Input for retrieving multiple tasks associated with a pentest job.</p>
  * @public
  */
 export interface BatchGetPentestJobTasksInput {
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the tasks.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * List of task IDs to retrieve
+   * <p>The list of task identifiers to retrieve.</p>
    * @public
    */
   taskIds: string[] | undefined;
 }
 
 /**
- * Represents a category classification for tasks
+ * <p>Represents a category assigned to a security testing task.</p>
  * @public
  */
 export interface Category {
   /**
-   * Name of the category
+   * <p>The name of the category.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Whether this is the primary category for the task
+   * <p>Indicates whether this is the primary category for the task.</p>
    * @public
    */
   isPrimary?: boolean | undefined;
 }
 
 /**
- * Location information for execution logs
+ * <p>The log location for a task, specifying where task execution logs are stored.</p>
  * @public
  */
 export interface LogLocation {
   /**
-   * Type of log storage
+   * <p>The type of log storage. Currently, only CLOUDWATCH is supported.</p>
    * @public
    */
   logType?: LogType | undefined;
 
   /**
-   * CloudWatch log information if logs are stored in CloudWatch
+   * <p>The CloudWatch Logs location for the task logs.</p>
    * @public
    */
   cloudWatchLog?: CloudWatchLog | undefined;
 }
 
 /**
- * Represents a task within a pentest job
+ * <p>Represents an individual security test task within a pentest job. Each task targets a specific risk type or endpoint and executes independently.</p>
  * @public
  */
 export interface Task {
   /**
-   * Unique identifier for the task
+   * <p>The unique identifier of the task.</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * Identifier of the parent pentest
+   * <p>The unique identifier of the pentest associated with the task.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Identifier of the pentest job this task belongs to
+   * <p>The unique identifier of the pentest job that contains the task.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * Identifier of the agent space this task belongs to
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * Title or name of the task
+   * <p>The title of the task.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Detailed description of the task's purpose and scope
+   * <p>A description of the task.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * List of categories associated with this task
+   * <p>The list of categories assigned to the task.</p>
    * @public
    */
   categories?: Category[] | undefined;
 
   /**
-   * Type of security risk this task is designed to test
+   * <p>The type of security risk the task is testing for.</p>
    * @public
    */
   riskType?: RiskType | undefined;
 
   /**
-   * Target endpoint for this security test
+   * <p>The target endpoint being tested by the task.</p>
    * @public
    */
   targetEndpoint?: Endpoint | undefined;
 
   /**
-   * Current status of the task execution
+   * <p>The current execution status of the task.</p>
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * Location of execution logs for auditing and review
+   * <p>The location of the task execution logs.</p>
    * @public
    */
   logsLocation?: LogLocation | undefined;
 
   /**
-   * Timestamp when the task was created
+   * <p>The date and time the task was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the task was last updated
+   * <p>The date and time the task was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the BatchGetPentestJobTasks operation
+ * <p>Output for the BatchGetPentestJobTasks operation.</p>
  * @public
  */
 export interface BatchGetPentestJobTasksOutput {
   /**
-   * List of successfully retrieved tasks
+   * <p>The list of tasks that were found.</p>
    * @public
    */
   tasks?: Task[] | undefined;
 
   /**
-   * List of task IDs that could not be found
+   * <p>The list of task identifiers that were not found.</p>
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * Input for retrieving multiple pentests by their IDs
+ * <p>Input for retrieving multiple pentests by their IDs.</p>
  * @public
  */
 export interface BatchGetPentestsInput {
   /**
-   * List of pentest IDs to retrieve
+   * <p>The list of pentest identifiers to retrieve.</p>
    * @public
    */
   pentestIds: string[] | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the pentests.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Output for the BatchGetPentests operation
+ * <p>Output for the BatchGetPentests operation.</p>
  * @public
  */
 export interface BatchGetPentestsOutput {
   /**
-   * List of successfully retrieved pentests
+   * <p>The list of pentests that were found.</p>
    * @public
    */
   pentests?: Pentest[] | undefined;
 
   /**
-   * List of pentest IDs that could not be found
+   * <p>The list of pentest identifiers that were not found.</p>
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * Input for batch retrieving target domains
+ * <p>Input for batch retrieving target domains.</p>
  * @public
  */
 export interface BatchGetTargetDomainsInput {
   /**
-   * List of target domain IDs to retrieve
+   * <p>The list of target domain identifiers to retrieve.</p>
    * @public
    */
   targetDomainIds: string[] | undefined;
 }
 
 /**
- * Represents dns txt verification details
+ * <p>Contains DNS verification details for a target domain, including the DNS record to create for domain ownership verification.</p>
  * @public
  */
 export interface DnsVerification {
   /**
-   * Token used to verify domain ownership
+   * <p>The verification token to include in the DNS record value.</p>
    * @public
    */
   token?: string | undefined;
 
   /**
-   * Record name to be added in DNS for target domain
+   * <p>The name of the DNS record to create for verification.</p>
    * @public
    */
   dnsRecordName?: string | undefined;
 
   /**
-   * Type of record to be added in DNS for target domain
+   * <p>The type of DNS record to create. Currently, only TXT is supported.</p>
    * @public
    */
   dnsRecordType?: DNSRecordType | undefined;
 }
 
 /**
- * Represents http route verification details
+ * <p>Contains HTTP route verification details for a target domain, including the route path and token to serve for domain ownership verification.</p>
  * @public
  */
 export interface HttpVerification {
   /**
-   * Token used to verify domain ownership
+   * <p>The verification token to serve at the specified route path.</p>
    * @public
    */
   token?: string | undefined;
 
   /**
-   * Route path where verification token should be placed
+   * <p>The HTTP route path where the verification token must be served.</p>
    * @public
    */
   routePath?: string | undefined;
 }
 
 /**
- * Verification details to verify registered target domain
+ * <p>Contains the verification details for a target domain, including the verification method and provider-specific details.</p>
  * @public
  */
 export interface VerificationDetails {
   /**
-   * Type of domain ownership verification method
+   * <p>The verification method used for the target domain.</p>
    * @public
    */
   method?: DomainVerificationMethod | undefined;
 
   /**
-   * Represents dns txt verification details
+   * <p>The DNS TXT verification details.</p>
    * @public
    */
   dnsTxt?: DnsVerification | undefined;
 
   /**
-   * Represents http route verification details
+   * <p>The HTTP route verification details.</p>
    * @public
    */
   httpRoute?: HttpVerification | undefined;
 }
 
 /**
- * Represents a target domain
+ * <p>Represents a target domain registered for penetration testing. A target domain must be verified through DNS TXT or HTTP route verification before it can be used in pentests.</p>
  * @public
  */
 export interface TargetDomain {
   /**
-   * Unique identifier of the target domain
+   * <p>The unique identifier of the target domain.</p>
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * Name of the registered target domain
+   * <p>The domain name of the target domain.</p>
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * Current verification status of the registered target domain
+   * <p>The current verification status of the target domain.</p>
    * @public
    */
   verificationStatus?: TargetDomainStatus | undefined;
 
   /**
-   * Verification details to verify registered target domain
+   * <p>The reason for the current target domain verification status.</p>
+   * @public
+   */
+  verificationStatusReason?: string | undefined;
+
+  /**
+   * <p>The verification details for the target domain.</p>
    * @public
    */
   verificationDetails?: VerificationDetails | undefined;
 
   /**
-   * Timestamp when the target domain was registered
+   * <p>The date and time the target domain was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the target domain was last successfully verified
+   * <p>The date and time the target domain was verified, in UTC format.</p>
    * @public
    */
   verifiedAt?: Date | undefined;
 }
 
 /**
- * Output for the BatchGetTargetDomains operation
+ * <p>Output for the BatchGetTargetDomains operation.</p>
  * @public
  */
 export interface BatchGetTargetDomainsOutput {
   /**
-   * List of target domains that were successfully retrieved
+   * <p>The list of target domains that were found.</p>
    * @public
    */
   targetDomains?: TargetDomain[] | undefined;
 
   /**
-   * List of target domain IDs that could not be found
+   * <p>The list of target domain identifiers that were not found.</p>
    * @public
    */
   notFound?: string[] | undefined;
 }
 
 /**
- * Input parameters for GitHub integration
+ * <p>The input required to create a GitHub integration, including the OAuth authorization code and CSRF state.</p>
  * @public
  */
 export interface GitHubIntegrationInput {
   /**
-   * Authorization code from OAuth flow
+   * <p>The OAuth authorization code received from GitHub.</p>
    * @public
    */
   code: string | undefined;
 
   /**
-   * CSRF state token for OAuth security
+   * <p>The CSRF state token for validating the OAuth flow.</p>
    * @public
    */
   state: string | undefined;
 
   /**
-   * Name of the GitHub organization
+   * <p>The name of the GitHub organization to integrate with.</p>
    * @public
    */
   organizationName?: string | undefined;
 }
 
 /**
- * Provider-specific input parameters for integration
+ * <p>The provider-specific input for creating an integration. This is a union type that contains provider-specific configuration.</p>
  * @public
  */
 export type ProviderInput =
@@ -2045,7 +2051,7 @@ export type ProviderInput =
  */
 export namespace ProviderInput {
   /**
-   * GitHub integration input
+   * <p>The GitHub-specific input for creating an integration.</p>
    * @public
    */
   export interface GithubMember {
@@ -2076,31 +2082,31 @@ export namespace ProviderInput {
  */
 export interface CreateIntegrationInput {
   /**
-   * Provider to integrate with
+   * <p>The integration provider. Currently, only GITHUB is supported.</p>
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * Provider-specific input parameters
+   * <p>The provider-specific input required to create the integration.</p>
    * @public
    */
   input: ProviderInput | undefined;
 
   /**
-   * Display name for the integration
+   * <p>The display name for the integration.</p>
    * @public
    */
   integrationDisplayName: string | undefined;
 
   /**
-   * KMS key ID for encrypting integration details
+   * <p>The identifier of the AWS KMS key to use for encrypting data associated with the integration.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * Tags to associate with the integration
+   * <p>The tags to associate with the integration.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2111,26 +2117,26 @@ export interface CreateIntegrationInput {
  */
 export interface CreateIntegrationOutput {
   /**
-   * Unique identifier of the created integration
+   * <p>The unique identifier of the created integration.</p>
    * @public
    */
   integrationId: string | undefined;
 }
 
 /**
- * User membership configuration
+ * <p>The configuration for a user membership, including the role assigned to the user within the agent space.</p>
  * @public
  */
 export interface UserConfig {
   /**
-   * Role of the user associated to the agent space
+   * <p>The role assigned to the user. Currently, only MEMBER is supported.</p>
    * @public
    */
   role?: UserRole | undefined;
 }
 
 /**
- * Member-specific configuration
+ * <p>The configuration for a membership. This is a union type that contains member-type-specific configuration.</p>
  * @public
  */
 export type MembershipConfig =
@@ -2142,7 +2148,7 @@ export type MembershipConfig =
  */
 export namespace MembershipConfig {
   /**
-   * Configuration for user members
+   * <p>The user configuration for the membership.</p>
    * @public
    */
   export interface UserMember {
@@ -2169,228 +2175,234 @@ export namespace MembershipConfig {
 }
 
 /**
- * Request structure for adding a single member to an agent space
+ * <p>Request structure for adding a single member to an agent space.</p>
  * @public
  */
 export interface CreateMembershipRequest {
   /**
-   * Application identifier
+   * <p>The unique identifier of the application that contains the agent space.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * Agent space identifier
+   * <p>The unique identifier of the agent space to grant access to.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Member identifier (userId or agentSpaceId)
+   * <p>The unique identifier for the membership.</p>
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * Type of member (USER or AGENT_SPACE)
+   * <p>The type of member. Currently, only USER is supported.</p>
    * @public
    */
   memberType: MembershipType | undefined;
 
   /**
-   * Membership details (user or agent specific)
+   * <p>The configuration for the membership, such as the user role.</p>
    * @public
    */
   config?: MembershipConfig | undefined;
 }
 
 /**
- * Response structure for adding a single member to an agent space
+ * <p>Response structure for adding a single member to an agent space.</p>
  * @public
  */
 export interface CreateMembershipResponse {}
 
 /**
- * Input for creating a new pentest
+ * <p>Input for creating a new pentest.</p>
  * @public
  */
 export interface CreatePentestInput {
   /**
-   * Title of the pentest
+   * <p>The title of the pentest.</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * ID of the agent space where the pentest should be created
+   * <p>The unique identifier of the agent space to create the pentest in.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Assets to be tested during the pentest
+   * <p>The assets to include in the pentest, such as endpoints, actors, documents, and source code.</p>
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * A list of risk types excluded from the pentest execution
+   * <p>The list of risk types to exclude from the pentest.</p>
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * Service role ARN for accessing customer resources
+   * <p>The IAM service role to use for the pentest.</p>
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * CloudWatch log group and stream prefix where pentest execution logs are stored
+   * <p>The CloudWatch Logs configuration for the pentest.</p>
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * VPC configuration that the Security Agent accesses
+   * <p>The VPC configuration for the pentest.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * Configuration for network traffic filtering
+   * <p>The network traffic configuration for the pentest, including custom headers and traffic rules.</p>
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * Strategy for code remediation on findings
+   * <p>The code remediation strategy for the pentest. Valid values are AUTOMATIC and DISABLED.</p>
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 }
 
 /**
- * Output for the CreatePentest operation
+ * <p>Output for the CreatePentest operation.</p>
  * @public
  */
 export interface CreatePentestOutput {
   /**
-   * Unique identifier of the created pentest
+   * <p>The unique identifier of the created pentest.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Title of the created pentest
+   * <p>The title of the pentest.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Timestamp when the pentest was created
+   * <p>The date and time the pentest was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest was last updated
+   * <p>The date and time the pentest was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * Assets to be tested in the created pentest
+   * <p>The assets included in the pentest.</p>
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * A list of risk types excluded from the pentest execution
+   * <p>The list of risk types excluded from the pentest.</p>
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * Service role ARN for accessing customer resources
+   * <p>The IAM service role used for the pentest.</p>
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * CloudWatch log group and stream prefix where pentest execution logs are stored
+   * <p>The CloudWatch Logs configuration for the pentest.</p>
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * ID of the agent space where the pentest was created
+   * <p>The unique identifier of the agent space that contains the pentest.</p>
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * Input for creating a new target domain
+ * <p>Input for creating a new target domain.</p>
  * @public
  */
 export interface CreateTargetDomainInput {
   /**
-   * Domain name of the target domain
+   * <p>The domain name to register as a target domain.</p>
    * @public
    */
   targetDomainName: string | undefined;
 
   /**
-   * Verification method for the target domain
+   * <p>The method to use for verifying domain ownership. Valid values are DNS_TXT, HTTP_ROUTE, and PRIVATE_VPC.</p>
    * @public
    */
   verificationMethod: DomainVerificationMethod | undefined;
 
   /**
-   * Tags to associate with the target domain
+   * <p>The tags to associate with the target domain.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Output for the CreateTargetDomain operation
+ * <p>Output for the CreateTargetDomain operation.</p>
  * @public
  */
 export interface CreateTargetDomainOutput {
   /**
-   * Unique identifier of the created target domain
+   * <p>The unique identifier of the created target domain.</p>
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * Name of the created target domain
+   * <p>The domain name of the target domain.</p>
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * Current verification status of the registered target domain
+   * <p>The current verification status of the target domain.</p>
    * @public
    */
   verificationStatus: TargetDomainStatus | undefined;
 
   /**
-   * Verification details to verify registered target domain
+   * <p>The reason for the current target domain verification status.</p>
+   * @public
+   */
+  verificationStatusReason?: string | undefined;
+
+  /**
+   * <p>The verification details for the target domain, including the verification token and instructions.</p>
    * @public
    */
   verificationDetails?: VerificationDetails | undefined;
 
   /**
-   * Timestamp when the target domain was registered
+   * <p>The date and time the target domain was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the target domain was last successfully verified
+   * <p>The date and time the target domain was verified, in UTC format.</p>
    * @public
    */
   verifiedAt?: Date | undefined;
@@ -2401,13 +2413,13 @@ export interface CreateTargetDomainOutput {
  */
 export interface DeleteArtifactInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Unique identifier of the artifact
+   * <p>The unique identifier of the artifact to delete.</p>
    * @public
    */
   artifactId: string | undefined;
@@ -2423,7 +2435,7 @@ export interface DeleteArtifactOutput {}
  */
 export interface DeleteIntegrationInput {
   /**
-   * Unique identifier of the integration
+   * <p>The unique identifier of the integration to delete.</p>
    * @public
    */
   integrationId: string | undefined;
@@ -2435,180 +2447,180 @@ export interface DeleteIntegrationInput {
 export interface DeleteIntegrationOutput {}
 
 /**
- * Request structure for removing a single member from an agent space
+ * <p>Request structure for removing a single member from an agent space.</p>
  * @public
  */
 export interface DeleteMembershipRequest {
   /**
-   * Application identifier
+   * <p>The unique identifier of the application that contains the agent space.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * Agent space identifier
+   * <p>The unique identifier of the agent space to revoke access from.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Member identifier (userId or agentSpaceId)
+   * <p>The unique identifier of the membership to delete.</p>
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * Type of member (USER or AGENT_SPACE)
+   * <p>The type of member to remove.</p>
    * @public
    */
   memberType?: MembershipType | undefined;
 }
 
 /**
- * Response structure for removing a single member from an agent space
+ * <p>Response structure for removing a single member from an agent space.</p>
  * @public
  */
 export interface DeleteMembershipResponse {}
 
 /**
- * Input for deleting a target domain
+ * <p>Input for deleting a target domain.</p>
  * @public
  */
 export interface DeleteTargetDomainInput {
   /**
-   * Unique identifier of the target domain to delete
+   * <p>The unique identifier of the target domain to delete.</p>
    * @public
    */
   targetDomainId: string | undefined;
 }
 
 /**
- * Output for the DeleteTargetDomain operation
+ * <p>Output for the DeleteTargetDomain operation.</p>
  * @public
  */
 export interface DeleteTargetDomainOutput {
   /**
-   * Unique identifier of the deleted target domain
+   * <p>The unique identifier of the deleted target domain.</p>
    * @public
    */
   targetDomainId?: string | undefined;
 }
 
 /**
- * Represents a discovered endpoint during pentest execution
+ * <p>Represents an endpoint discovered during a pentest job.</p>
  * @public
  */
 export interface DiscoveredEndpoint {
   /**
-   * The URI of the discovered endpoint
+   * <p>The URI of the discovered endpoint.</p>
    * @public
    */
   uri: string | undefined;
 
   /**
-   * Identifier of the pentest job that discovered this endpoint
+   * <p>The unique identifier of the pentest job that discovered the endpoint.</p>
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * Identifier of the task that discovered this endpoint
+   * <p>The unique identifier of the task that discovered the endpoint.</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * Identifier of the agent space where the endpoint was discovered
+   * <p>The unique identifier of the agent space associated with the discovered endpoint.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Optional evidence or additional information about the endpoint
+   * <p>The evidence that led to the discovery of the endpoint.</p>
    * @public
    */
   evidence?: string | undefined;
 
   /**
-   * Operation or action associated with the endpoint
+   * <p>The HTTP operation associated with the discovered endpoint.</p>
    * @public
    */
   operation?: string | undefined;
 
   /**
-   * Additional description of the endpoint
+   * <p>A description of the discovered endpoint.</p>
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * Summary information for a security finding
+ * <p>Contains summary information about a security finding.</p>
  * @public
  */
 export interface FindingSummary {
   /**
-   * Unique identifier for the finding
+   * <p>The unique identifier of the finding.</p>
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * Identifier of the agent space that created this finding
+   * <p>The unique identifier of the agent space associated with the finding.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Identifier of the parent pentest
+   * <p>The unique identifier of the pentest associated with the finding.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Identifier of the pentest job
+   * <p>The unique identifier of the pentest job that produced the finding.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * Name or title of the finding
+   * <p>The name of the finding.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Current status of the finding
+   * <p>The current status of the finding.</p>
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * Type of security risk identified
+   * <p>The type of security risk identified by the finding.</p>
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * Severity level of the identified risk
+   * <p>The risk level of the finding.</p>
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * Confidence level of the finding
+   * <p>The confidence level of the finding.</p>
    * @public
    */
   confidence?: ConfidenceLevel | undefined;
 
   /**
-   * Timestamp when the finding was created
+   * <p>The date and time the finding was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the finding was last updated
+   * <p>The date and time the finding was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2619,13 +2631,13 @@ export interface FindingSummary {
  */
 export interface GetArtifactInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Unique identifier of the artifact
+   * <p>The unique identifier of the artifact to retrieve.</p>
    * @public
    */
   artifactId: string | undefined;
@@ -2636,31 +2648,31 @@ export interface GetArtifactInput {
  */
 export interface GetArtifactOutput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space that contains the artifact.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Unique identifier of the artifact
+   * <p>The unique identifier of the artifact.</p>
    * @public
    */
   artifactId: string | undefined;
 
   /**
-   * Artifact details
+   * <p>The artifact content and type.</p>
    * @public
    */
   artifact: Artifact | undefined;
 
   /**
-   * Name of the artifact file
+   * <p>The file name of the artifact.</p>
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * Timestamp when the artifact was last updated
+   * <p>The date and time the artifact was last updated, in UTC format.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -2671,7 +2683,7 @@ export interface GetArtifactOutput {
  */
 export interface GetIntegrationInput {
   /**
-   * Unique identifier of the integration
+   * <p>The unique identifier of the integration to retrieve.</p>
    * @public
    */
   integrationId: string | undefined;
@@ -2682,103 +2694,103 @@ export interface GetIntegrationInput {
  */
 export interface GetIntegrationOutput {
   /**
-   * Unique identifier of the integration
+   * <p>The unique identifier of the integration.</p>
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * Installation identifier from the provider
+   * <p>The installation identifier from the integration provider.</p>
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * Provider type
+   * <p>The integration provider.</p>
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * Type of provider integration
+   * <p>The type of the integration provider.</p>
    * @public
    */
   providerType: ProviderType | undefined;
 
   /**
-   * Display name for the integration
+   * <p>The display name of the integration.</p>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * KMS key ID for encrypting integration details
+   * <p>The identifier of the AWS KMS key used to encrypt data associated with the integration.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * Metadata specific to a GitHub repository integrated resource
+ * <p>Contains metadata about a GitHub repository that is integrated with the service.</p>
  * @public
  */
 export interface GitHubRepositoryMetadata {
   /**
-   * Name of the resource e.g. repository name, etc
+   * <p>The name of the GitHub repository.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Unique resource identifier from the vendor
+   * <p>The provider-specific resource identifier for the GitHub repository.</p>
    * @public
    */
   providerResourceId: string | undefined;
 
   /**
-   * Owner of the repository
+   * <p>The owner of the GitHub repository.</p>
    * @public
    */
   owner: string | undefined;
 
   /**
-   * Access / Visibility Type of the integrated resource
+   * <p>The access type of the GitHub repository. Valid values are PRIVATE and PUBLIC.</p>
    * @public
    */
   accessType?: AccessType | undefined;
 }
 
 /**
- * GitHub repository resource details
+ * <p>Represents a GitHub repository resource used in an integration.</p>
  * @public
  */
 export interface GitHubRepositoryResource {
   /**
-   * Name of the resource e.g. repository name, etc
+   * <p>The name of the GitHub repository.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Owner of the repository
+   * <p>The owner of the GitHub repository.</p>
    * @public
    */
   owner: string | undefined;
 }
 
 /**
- * Capabilities for GitHub repositories
+ * <p>The capabilities enabled for a GitHub resource integration.</p>
  * @public
  */
 export interface GitHubResourceCapabilities {
   /**
-   * Post code review comments on pull requests
+   * <p>Indicates whether the integration can leave comments on pull requests.</p>
    * @public
    */
   leaveComments?: boolean | undefined;
 
   /**
-   * Create pull requests with automated fixes
+   * <p>Indicates whether the integration can create code remediation pull requests.</p>
    * @public
    */
   remediateCode?: boolean | undefined;
@@ -2789,7 +2801,7 @@ export interface GitHubResourceCapabilities {
  */
 export interface InitiateProviderRegistrationInput {
   /**
-   * Provider to register with
+   * <p>The provider to initiate registration with. Currently, only GITHUB is supported.</p>
    * @public
    */
   provider: Provider | undefined;
@@ -2800,20 +2812,20 @@ export interface InitiateProviderRegistrationInput {
  */
 export interface InitiateProviderRegistrationOutput {
   /**
-   * OAuth redirect URL
+   * <p>The URL to redirect the user to for completing the OAuth authorization.</p>
    * @public
    */
   redirectTo: string | undefined;
 
   /**
-   * CSRF state token for OAuth security
+   * <p>The CSRF state token to use when completing the OAuth flow.</p>
    * @public
    */
   csrfState: string | undefined;
 }
 
 /**
- * Integrated resource details from a provider
+ * <p>Represents an integrated resource from a third-party provider. This is a union type that contains provider-specific resource information.</p>
  * @public
  */
 export type IntegratedResource =
@@ -2825,7 +2837,7 @@ export type IntegratedResource =
  */
 export namespace IntegratedResource {
   /**
-   * GitHub repository resource
+   * <p>The GitHub repository resource information.</p>
    * @public
    */
   export interface GithubRepositoryMember {
@@ -2852,7 +2864,7 @@ export namespace IntegratedResource {
 }
 
 /**
- * Provider-specific capabilities for integrated resources
+ * <p>The capabilities for an integrated resource from a third-party provider. This is a union type that contains provider-specific capabilities.</p>
  * @public
  */
 export type ProviderResourceCapabilities =
@@ -2864,7 +2876,7 @@ export type ProviderResourceCapabilities =
  */
 export namespace ProviderResourceCapabilities {
   /**
-   * Capabilities for GitHub repositories
+   * <p>The GitHub-specific resource capabilities.</p>
    * @public
    */
   export interface GithubMember {
@@ -2891,25 +2903,25 @@ export namespace ProviderResourceCapabilities {
 }
 
 /**
- * Input item for updating an integrated resource
+ * <p>Represents an input item for updating integrated resources, including the resource and its capabilities.</p>
  * @public
  */
 export interface IntegratedResourceInputItem {
   /**
-   * Configuration of the resource
+   * <p>The integrated resource to update.</p>
    * @public
    */
   resource: IntegratedResource | undefined;
 
   /**
-   * Provider-specific capabilities for the resource
+   * <p>The capabilities to enable for the integrated resource.</p>
    * @public
    */
   capabilities?: ProviderResourceCapabilities | undefined;
 }
 
 /**
- * Metadata about an integrated resource
+ * <p>Contains metadata about an integrated resource. This is a union type that contains provider-specific metadata.</p>
  * @public
  */
 export type IntegratedResourceMetadata =
@@ -2921,7 +2933,7 @@ export type IntegratedResourceMetadata =
  */
 export namespace IntegratedResourceMetadata {
   /**
-   * Metadata for a GitHub repository resource
+   * <p>The GitHub repository metadata.</p>
    * @public
    */
   export interface GithubRepositoryMember {
@@ -2948,31 +2960,31 @@ export namespace IntegratedResourceMetadata {
 }
 
 /**
- * Summary information about an integrated resource
+ * <p>Contains summary information about an integrated resource.</p>
  * @public
  */
 export interface IntegratedResourceSummary {
   /**
-   * Unique identifier of the integration
+   * <p>The unique identifier of the integration that provides access to the resource.</p>
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * The integrated resource details
+   * <p>The metadata for the integrated resource.</p>
    * @public
    */
   resource: IntegratedResourceMetadata | undefined;
 
   /**
-   * Capabilities of the integrated resource
+   * <p>The capabilities enabled for the integrated resource.</p>
    * @public
    */
   capabilities?: ProviderResourceCapabilities | undefined;
 }
 
 /**
- * Filter criteria for integrations
+ * <p>A filter for listing integrations. This is a union type where you can filter by provider or provider type.</p>
  * @public
  */
 export type IntegrationFilter =
@@ -2985,7 +2997,7 @@ export type IntegrationFilter =
  */
 export namespace IntegrationFilter {
   /**
-   * Filter by provider
+   * <p>Filter integrations by provider.</p>
    * @public
    */
   export interface ProviderMember {
@@ -2995,7 +3007,7 @@ export namespace IntegrationFilter {
   }
 
   /**
-   * Filter by provider type
+   * <p>Filter integrations by provider type.</p>
    * @public
    */
   export interface ProviderTypeMember {
@@ -3029,55 +3041,55 @@ export namespace IntegrationFilter {
  */
 export interface ListIntegrationsInput {
   /**
-   * Filter criteria for integrations
+   * <p>A filter to apply to the list of integrations.</p>
    * @public
    */
   filter?: IntegrationFilter | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of results to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Summary information about an integration
+ * <p>Contains summary information about an integration.</p>
  * @public
  */
 export interface IntegrationSummary {
   /**
-   * Unique identifier of the integration
+   * <p>The unique identifier of the integration.</p>
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * Installation identifier from the provider
+   * <p>The installation identifier from the integration provider.</p>
    * @public
    */
   installationId: string | undefined;
 
   /**
-   * Provider type
+   * <p>The integration provider.</p>
    * @public
    */
   provider: Provider | undefined;
 
   /**
-   * Type of provider integration
+   * <p>The type of the integration provider.</p>
    * @public
    */
   providerType: ProviderType | undefined;
 
   /**
-   * Display name for the integration
+   * <p>The display name of the integration.</p>
    * @public
    */
   displayName: string | undefined;
@@ -3088,13 +3100,13 @@ export interface IntegrationSummary {
  */
 export interface ListIntegrationsOutput {
   /**
-   * List of integration summaries
+   * <p>The list of integration summaries.</p>
    * @public
    */
   integrationSummaries: IntegrationSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3105,19 +3117,19 @@ export interface ListIntegrationsOutput {
  */
 export interface ListArtifactsInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space to list artifacts for.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of results to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3128,145 +3140,145 @@ export interface ListArtifactsInput {
  */
 export interface ListArtifactsOutput {
   /**
-   * List of artifact summaries
+   * <p>The list of artifact summaries.</p>
    * @public
    */
   artifactSummaries: ArtifactSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for ListDiscoveredEndpoints operation
+ * <p>Input for ListDiscoveredEndpoints operation.</p>
  * @public
  */
 export interface ListDiscoveredEndpointsInput {
   /**
-   * Maximum number of discovered endpoints to return in a single request (default: 50)
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Identifier of the pentest job for which to retrieve discovered endpoints
+   * <p>The unique identifier of the pentest job to list discovered endpoints for.</p>
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * ID of the agent space where the pentest job exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Optional URI prefix filter to narrow down results
+   * <p>A prefix to filter discovered endpoints by URI.</p>
    * @public
    */
   prefix?: string | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Output for the ListDiscoveredEndpoints operation
+ * <p>Output for the ListDiscoveredEndpoints operation.</p>
  * @public
  */
 export interface ListDiscoveredEndpointsOutput {
   /**
-   * List of discovered endpoints for the pentest job
+   * <p>The list of discovered endpoints.</p>
    * @public
    */
   discoveredEndpoints?: DiscoveredEndpoint[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for ListFindings operation with filtering support
+ * <p>Input for ListFindings operation with filtering support.</p>
  * @public
  */
 export interface ListFindingsInput {
   /**
-   * Maximum number of findings to return in a single request (default: 50)
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Identifier of the pentest job for which to retrieve associated findings
+   * <p>The unique identifier of the pentest job to list findings for.</p>
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * ID of the agent space where the pentest job exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Filter findings by risk type
+   * <p>Filter findings by risk type.</p>
    * @public
    */
   riskType?: string | undefined;
 
   /**
-   * Filter findings by risk level
+   * <p>Filter findings by risk level.</p>
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * Filter findings by status
+   * <p>Filter findings by status.</p>
    * @public
    */
   status?: FindingStatus | undefined;
 
   /**
-   * Filter findings by confidence level
+   * <p>Filter findings by confidence level.</p>
    * @public
    */
   confidence?: ConfidenceLevel | undefined;
 
   /**
-   * Filter findings by name (case-insensitive substring search)
+   * <p>Filter findings by name.</p>
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * Output for the ListFindings operation
+ * <p>Output for the ListFindings operation.</p>
  * @public
  */
 export interface ListFindingsOutput {
   /**
-   * List of finding summaries matching the filter criteria
+   * <p>The list of finding summaries.</p>
    * @public
    */
   findingsSummaries?: FindingSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3277,31 +3289,31 @@ export interface ListFindingsOutput {
  */
 export interface ListIntegratedResourcesInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space to list integrated resources for.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Filter integrated resources by a specific integration
+   * <p>The unique identifier of the integration to filter by.</p>
    * @public
    */
   integrationId?: string | undefined;
 
   /**
-   * Filter integrated resources by resource type
+   * <p>The type of resource to filter by.</p>
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of results to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -3312,74 +3324,74 @@ export interface ListIntegratedResourcesInput {
  */
 export interface ListIntegratedResourcesOutput {
   /**
-   * List of integrated resources
+   * <p>The list of integrated resource summaries.</p>
    * @public
    */
   integratedResourceSummaries: IntegratedResourceSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Request structure for listing agent space members
+ * <p>Request structure for listing agent space members.</p>
  * @public
  */
 export interface ListMembershipsRequest {
   /**
-   * Application identifier
+   * <p>The unique identifier of the application that contains the agent space.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * Agent space identifier
+   * <p>The unique identifier of the agent space to list memberships for.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Filter by member type
+   * <p>Filter memberships by member type.</p>
    * @public
    */
   memberType?: MembershipTypeFilter | undefined;
 
   /**
-   * Maximum number of results to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * User-specific metadata
+ * <p>Contains metadata about a user member, including the username and email address.</p>
  * @public
  */
 export interface UserMetadata {
   /**
-   * User name/display name
+   * <p>The username of the user.</p>
    * @public
    */
   username: string | undefined;
 
   /**
-   * User email address
+   * <p>The email address of the user.</p>
    * @public
    */
   email: string | undefined;
 }
 
 /**
- * Metadata associated with the member
+ * <p>Contains metadata about a member. This is a union type that contains member-type-specific metadata.</p>
  * @public
  */
 export type MemberMetadata =
@@ -3391,7 +3403,7 @@ export type MemberMetadata =
  */
 export namespace MemberMetadata {
   /**
-   * User metadata for USER members
+   * <p>The user metadata for the member.</p>
    * @public
    */
   export interface UserMember {
@@ -3418,721 +3430,727 @@ export namespace MemberMetadata {
 }
 
 /**
- * Membership summary for list operations
+ * <p>Contains summary information about a membership.</p>
  * @public
  */
 export interface MembershipSummary {
   /**
-   * Member identifier (userId or agentSpaceId)
+   * <p>The unique identifier of the membership.</p>
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * Application identifier
+   * <p>The unique identifier of the application.</p>
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * Agent space identifier
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Type of member
+   * <p>The type of member.</p>
    * @public
    */
   memberType: MembershipType | undefined;
 
   /**
-   * Configuration specific to the member type
+   * <p>The configuration for the membership.</p>
    * @public
    */
   config?: MembershipConfig | undefined;
 
   /**
-   * Member-specific metadata
+   * <p>The metadata for the member.</p>
    * @public
    */
   metadata?: MemberMetadata | undefined;
 
   /**
-   * Timestamp when the membership was created (ISO 8601)
+   * <p>The date and time the membership was created, in UTC format.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Timestamp when the membership was last updated (ISO 8601)
+   * <p>The date and time the membership was last updated, in UTC format.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * User ID who created the membership
+   * <p>The identifier of the entity that created the membership.</p>
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * User ID who last updated the membership
+   * <p>The identifier of the entity that last updated the membership.</p>
    * @public
    */
   updatedBy: string | undefined;
 }
 
 /**
- * Response structure for listing members associated to an agent space
+ * <p>Response structure for listing members associated to an agent space.</p>
  * @public
  */
 export interface ListMembershipsResponse {
   /**
-   * List of membership summaries
+   * <p>The list of membership summaries.</p>
    * @public
    */
   membershipSummaries: MembershipSummary[] | undefined;
 
   /**
-   * Token for next page of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for ListPentestJobsForPentest operation
+ * <p>Input for ListPentestJobsForPentest operation.</p>
  * @public
  */
 export interface ListPentestJobsForPentestInput {
   /**
-   * Maximum number of pentest jobs to return in a single request
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Identifier of the pentest for which to retrieve associated jobs
+   * <p>The unique identifier of the pentest to list jobs for.</p>
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Summary information for a pentest job
+ * <p>Contains summary information about a pentest job.</p>
  * @public
  */
 export interface PentestJobSummary {
   /**
-   * Unique identifier of the pentest job
+   * <p>The unique identifier of the pentest job.</p>
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * Identifier of the parent pentest
+   * <p>The unique identifier of the pentest associated with the job.</p>
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * Title or name of the pentest
+   * <p>The title of the pentest job.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Current status of the pentest job
+   * <p>The current status of the pentest job.</p>
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * Timestamp when the pentest job was created
+   * <p>The date and time the pentest job was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest job was last updated
+   * <p>The date and time the pentest job was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the ListPentestJobsForPentest operation
+ * <p>Output for the ListPentestJobsForPentest operation.</p>
  * @public
  */
 export interface ListPentestJobsForPentestOutput {
   /**
-   * List of pentest job summaries associated with the pentest
+   * <p>The list of pentest job summaries.</p>
    * @public
    */
   pentestJobSummaries?: PentestJobSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for listing tasks associated with a specific pentest job
+ * <p>Input for listing tasks associated with a pentest job.</p>
  * @public
  */
 export interface ListPentestJobTasksInput {
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Maximum number of tasks to return in a single request
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Identifier of the pentest job whose tasks to list
+   * <p>The unique identifier of the pentest job to list tasks for.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * Filter tasks by step name
+   * <p>Filter tasks by step name. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
    * @public
    */
   stepName?: StepName | undefined;
 
   /**
-   * Filter tasks by category name.
+   * <p>Filter tasks by category name.</p>
    * @public
    */
   categoryName?: string | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Summary information for a task
+ * <p>Contains summary information about a task.</p>
  * @public
  */
 export interface TaskSummary {
   /**
-   * Unique identifier for the task
+   * <p>The unique identifier of the task.</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * Identifier of the parent pentest
+   * <p>The unique identifier of the pentest associated with the task.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Identifier of the pentest job this task belongs to
+   * <p>The unique identifier of the pentest job that contains the task.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * Identifier of the agent space this task belongs to
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId?: string | undefined;
 
   /**
-   * Title or name of the task
+   * <p>The title of the task.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Type of security risk this task is designed to test
+   * <p>The type of security risk the task is testing for.</p>
    * @public
    */
   riskType?: RiskType | undefined;
 
   /**
-   * Current status of the task execution
+   * <p>The current execution status of the task.</p>
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
 
   /**
-   * Timestamp when the task was created
+   * <p>The date and time the task was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the task was last updated
+   * <p>The date and time the task was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the ListPentestJobTasks operation
+ * <p>Output for the ListPentestJobTasks operation.</p>
  * @public
  */
 export interface ListPentestJobTasksOutput {
   /**
-   * List of task summaries associated with the specified pentest job
+   * <p>The list of task summaries.</p>
    * @public
    */
   taskSummaries?: TaskSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for listing pentests with optional filtering
+ * <p>Input for listing pentests with optional filtering.</p>
  * @public
  */
 export interface ListPentestsInput {
   /**
-   * Maximum number of pentests to return in a single request
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space to list pentests for.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Summary information for a pentest
+ * <p>Contains summary information about a pentest.</p>
  * @public
  */
 export interface PentestSummary {
   /**
-   * Unique identifier for the pentest
+   * <p>The unique identifier of the pentest.</p>
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the pentest.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Title or name of the pentest
+   * <p>The title of the pentest.</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * Timestamp when the pentest was created
+   * <p>The date and time the pentest was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest was last updated
+   * <p>The date and time the pentest was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output for the ListPentests operation
+ * <p>Output for the ListPentests operation.</p>
  * @public
  */
 export interface ListPentestsOutput {
   /**
-   * List of pentest summaries matching the filter criteria
+   * <p>The list of pentest summaries.</p>
    * @public
    */
   pentestSummaries?: PentestSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for ListTagsForResource operation
+ * <p>Input for ListTagsForResource operation.</p>
  * @public
  */
 export interface ListTagsForResourceInput {
   /**
-   * ARN of the resource to list tags for
+   * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * Output for ListTagsForResource operation
+ * <p>Output for ListTagsForResource operation.</p>
  * @public
  */
 export interface ListTagsForResourceOutput {
   /**
-   * Tags associated with the resource
+   * <p>The tags associated with the resource.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Input for listing target domains
+ * <p>Input for listing target domains.</p>
  * @public
  */
 export interface ListTargetDomainsInput {
   /**
-   * Token for pagination
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of target domains to return
+   * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Summary information for a target domain
+ * <p>Contains summary information about a target domain.</p>
  * @public
  */
 export interface TargetDomainSummary {
   /**
-   * Unique identifier of the target domain
+   * <p>The unique identifier of the target domain.</p>
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * Name of the registered target domain
+   * <p>The domain name of the target domain.</p>
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * Current verification status of the registered target domain
+   * <p>The current verification status of the target domain.</p>
    * @public
    */
   verificationStatus?: TargetDomainStatus | undefined;
 }
 
 /**
- * Output for the ListTargetDomains operation
+ * <p>Output for the ListTargetDomains operation.</p>
  * @public
  */
 export interface ListTargetDomainsOutput {
   /**
-   * List of target domain summaries
+   * <p>The list of target domain summaries.</p>
    * @public
    */
   targetDomainSummaries?: TargetDomainSummary[] | undefined;
 
   /**
-   * Token for next page of results
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Input for the StartCodeRemediation operation
+ * <p>Input for the StartCodeRemediation operation.</p>
  * @public
  */
 export interface StartCodeRemediationInput {
   /**
-   * ID of the agent space where the pentest job exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Identifier of the pentest job to start code remediation for
+   * <p>The unique identifier of the pentest job that produced the findings.</p>
    * @public
    */
   pentestJobId: string | undefined;
 
   /**
-   * Identifiers of the findings to start code remediation for
+   * <p>The list of finding identifiers to initiate code remediation for.</p>
    * @public
    */
   findingIds: string[] | undefined;
 }
 
 /**
- * Output for the StartCodeRemediation operation
+ * <p>Output for the StartCodeRemediation operation.</p>
  * @public
  */
 export interface StartCodeRemediationOutput {}
 
 /**
- * Input for starting the execution of a pentest
+ * <p>Input for starting the execution of a pentest.</p>
  * @public
  */
 export interface StartPentestJobInput {
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Identifier of the pentest to execute
+   * <p>The unique identifier of the pentest to start a job for.</p>
    * @public
    */
   pentestId: string | undefined;
 }
 
 /**
- * Output for the StartPentestJob operation
+ * <p>Output for the StartPentestJob operation.</p>
  * @public
  */
 export interface StartPentestJobOutput {
   /**
-   * Title of the pentest job
+   * <p>The title of the pentest job.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Current status of the pentest job
+   * <p>The current status of the pentest job.</p>
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * Timestamp when the pentest job was created
+   * <p>The date and time the pentest job was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest job was last updated
+   * <p>The date and time the pentest job was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * Unique identifier of the pentest
+   * <p>The unique identifier of the pentest.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Unique identifier of the pentest job
+   * <p>The unique identifier of the started pentest job.</p>
    * @public
    */
   pentestJobId?: string | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * Input for stopping the execution of a pentest
+ * <p>Input for stopping the execution of a pentest.</p>
  * @public
  */
 export interface StopPentestJobInput {
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Identifier of the pentest job to stop
+   * <p>The unique identifier of the pentest job to stop.</p>
    * @public
    */
   pentestJobId: string | undefined;
 }
 
 /**
- * Output for the StopPentestJob operation
+ * <p>Output for the StopPentestJob operation.</p>
  * @public
  */
 export interface StopPentestJobOutput {}
 
 /**
- * Input for TagResource operation
+ * <p>Input for TagResource operation.</p>
  * @public
  */
 export interface TagResourceInput {
   /**
-   * ARN of the resource to tag
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * Tags to add to the resource
+   * <p>The tags to add to the resource.</p>
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * Output for TagResource operation
+ * <p>Output for TagResource operation.</p>
  * @public
  */
 export interface TagResourceOutput {}
 
 /**
- * Input for updating a target domain
+ * <p>Input for updating a target domain.</p>
  * @public
  */
 export interface UpdateTargetDomainInput {
   /**
-   * Unique identifier of the target domain to update
+   * <p>The unique identifier of the target domain to update.</p>
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * Verification method for the target domain
+   * <p>The updated verification method for the target domain.</p>
    * @public
    */
   verificationMethod: DomainVerificationMethod | undefined;
 }
 
 /**
- * Output for the UpdateTargetDomain operation
+ * <p>Output for the UpdateTargetDomain operation.</p>
  * @public
  */
 export interface UpdateTargetDomainOutput {
   /**
-   * Unique identifier of the target domain
+   * <p>The unique identifier of the target domain.</p>
    * @public
    */
   targetDomainId: string | undefined;
 
   /**
-   * Name of the target domain
+   * <p>The domain name of the target domain.</p>
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * Current verification status of the registered target domain
+   * <p>The current verification status of the target domain.</p>
    * @public
    */
   verificationStatus: TargetDomainStatus | undefined;
 
   /**
-   * Verification details to verify registered target domain
+   * <p>The reason for the current target domain verification status.</p>
+   * @public
+   */
+  verificationStatusReason?: string | undefined;
+
+  /**
+   * <p>The updated verification details for the target domain.</p>
    * @public
    */
   verificationDetails?: VerificationDetails | undefined;
 
   /**
-   * Timestamp when the target domain was registered
+   * <p>The date and time the target domain was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the target domain was last successfully verified
+   * <p>The date and time the target domain was verified, in UTC format.</p>
    * @public
    */
   verifiedAt?: Date | undefined;
 }
 
 /**
- * Input for UntagResource operation
+ * <p>Input for UntagResource operation.</p>
  * @public
  */
 export interface UntagResourceInput {
   /**
-   * ARN of the resource to untag
+   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * List of tag keys to remove from the resource
+   * <p>The list of tag keys to remove from the resource.</p>
    * @public
    */
   tagKeys: string[] | undefined;
 }
 
 /**
- * Output for UntagResource operation
+ * <p>Output for UntagResource operation.</p>
  * @public
  */
 export interface UntagResourceOutput {}
 
 /**
- * Input for updating an existing security finding
+ * <p>Input for updating an existing security finding.</p>
  * @public
  */
 export interface UpdateFindingInput {
   /**
-   * Identifier of the finding to update
+   * <p>The unique identifier of the finding to update.</p>
    * @public
    */
   findingId: string | undefined;
 
   /**
-   * ID of the agent space where the finding exists
+   * <p>The unique identifier of the agent space that contains the finding.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Updated severity level of the identified risk
+   * <p>The updated risk level for the finding.</p>
    * @public
    */
   riskLevel?: RiskLevel | undefined;
 
   /**
-   * Updated status of the finding
+   * <p>The updated status for the finding.</p>
    * @public
    */
   status?: FindingStatus | undefined;
 }
 
 /**
- * Output for the UpdateFinding operation
+ * <p>Output for the UpdateFinding operation.</p>
  * @public
  */
 export interface UpdateFindingOutput {}
@@ -4142,19 +4160,19 @@ export interface UpdateFindingOutput {}
  */
 export interface UpdateIntegratedResourcesInput {
   /**
-   * Unique identifier of the agent space
+   * <p>The unique identifier of the agent space.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Unique identifier of the integration
+   * <p>The unique identifier of the integration.</p>
    * @public
    */
   integrationId: string | undefined;
 
   /**
-   * List of integrated resources to update
+   * <p>The list of integrated resource items to update.</p>
    * @public
    */
   items: IntegratedResourceInputItem[] | undefined;
@@ -4166,181 +4184,187 @@ export interface UpdateIntegratedResourcesInput {
 export interface UpdateIntegratedResourcesOutput {}
 
 /**
- * Input for updating an existing pentest
+ * <p>Input for updating an existing pentest.</p>
  * @public
  */
 export interface UpdatePentestInput {
   /**
-   * Identifier of the pentest to update
+   * <p>The unique identifier of the pentest to update.</p>
    * @public
    */
   pentestId: string | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the pentest.</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * New title for the pentest
+   * <p>The updated title of the pentest.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Updated assets to be tested
+   * <p>The updated assets for the pentest.</p>
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * A list of risk types excluded from the pentest execution
+   * <p>The updated list of risk types to exclude from the pentest.</p>
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * Updated service role ARN for accessing customer resources
+   * <p>The updated IAM service role for the pentest.</p>
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * CloudWatch log group and stream prefix where pentest execution logs are stored
+   * <p>The updated CloudWatch Logs configuration for the pentest.</p>
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * VPC configuration that the Security Agent accesses
+   * <p>The updated VPC configuration for the pentest.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * Configuration for network traffic filtering
+   * <p>The updated network traffic configuration for the pentest.</p>
    * @public
    */
   networkTrafficConfig?: NetworkTrafficConfig | undefined;
 
   /**
-   * Strategy for code remediation on findings
+   * <p>The updated code remediation strategy for the pentest.</p>
    * @public
    */
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 }
 
 /**
- * Output for the UpdatePentest operation
+ * <p>Output for the UpdatePentest operation.</p>
  * @public
  */
 export interface UpdatePentestOutput {
   /**
-   * Unique identifier of the updated pentest
+   * <p>The unique identifier of the pentest.</p>
    * @public
    */
   pentestId?: string | undefined;
 
   /**
-   * Title of the updated pentest
+   * <p>The title of the pentest.</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * Timestamp when the pentest was created
+   * <p>The date and time the pentest was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the pentest was last updated
+   * <p>The date and time the pentest was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * Assets to be tested in the updated pentest
+   * <p>The assets included in the pentest.</p>
    * @public
    */
   assets?: Assets | undefined;
 
   /**
-   * A list of risk types excluded from the pentest execution
+   * <p>The list of risk types excluded from the pentest.</p>
    * @public
    */
   excludeRiskTypes?: RiskType[] | undefined;
 
   /**
-   * Service role ARN for accessing customer resources
+   * <p>The IAM service role used for the pentest.</p>
    * @public
    */
   serviceRole?: string | undefined;
 
   /**
-   * CloudWatch log group and stream prefix where pentest execution logs are stored
+   * <p>The CloudWatch Logs configuration for the pentest.</p>
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
 
   /**
-   * ID of the agent space where the pentest exists
+   * <p>The unique identifier of the agent space that contains the pentest.</p>
    * @public
    */
   agentSpaceId?: string | undefined;
 }
 
 /**
- * Input for verifying ownership for a registered target domain in an agent space
+ * <p>Input for verifying ownership for a registered target domain in an agent space.</p>
  * @public
  */
 export interface VerifyTargetDomainInput {
   /**
-   * Unique identifier of the target domain
+   * <p>The unique identifier of the target domain to verify.</p>
    * @public
    */
   targetDomainId: string | undefined;
 }
 
 /**
- * Output for verifying ownership for a registered target domain in an agent space
+ * <p>Output for verifying ownership for a registered target domain in an agent space.</p>
  * @public
  */
 export interface VerifyTargetDomainOutput {
   /**
-   * Unique identifier of the target domain
+   * <p>The unique identifier of the target domain.</p>
    * @public
    */
   targetDomainId?: string | undefined;
 
   /**
-   * Name of the registered target domain
+   * <p>The domain name of the target domain.</p>
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * Timestamp when the target domain was registered
+   * <p>The date and time the target domain was created, in UTC format.</p>
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * Timestamp when the target domain was last updated
+   * <p>The date and time the target domain was last updated, in UTC format.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * Timestamp when the target domain was last successfully verified
+   * <p>The date and time the target domain was verified, in UTC format.</p>
    * @public
    */
   verifiedAt?: Date | undefined;
 
   /**
-   * Current verification status of the registered target domain
+   * <p>The verification status of the target domain.</p>
    * @public
    */
   status?: TargetDomainStatus | undefined;
+
+  /**
+   * <p>The reason for the current target domain verification status.</p>
+   * @public
+   */
+  verificationStatusReason?: string | undefined;
 }

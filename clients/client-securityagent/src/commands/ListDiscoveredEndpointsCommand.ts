@@ -27,7 +27,7 @@ export interface ListDiscoveredEndpointsCommandInput extends ListDiscoveredEndpo
 export interface ListDiscoveredEndpointsCommandOutput extends ListDiscoveredEndpointsOutput, __MetadataBearer {}
 
 /**
- * Lists discovered endpoints associated with a pentest job with optional URI prefix filtering
+ * <p>Returns a paginated list of endpoints discovered during a pentest job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

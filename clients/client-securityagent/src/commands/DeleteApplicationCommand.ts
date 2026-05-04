@@ -27,7 +27,7 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes an application
+ * <p>Deletes an application and its associated configuration, including IAM Identity Center settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

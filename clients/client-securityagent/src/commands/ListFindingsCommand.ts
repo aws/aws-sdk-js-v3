@@ -27,7 +27,7 @@ export interface ListFindingsCommandInput extends ListFindingsInput {}
 export interface ListFindingsCommandOutput extends ListFindingsOutput, __MetadataBearer {}
 
 /**
- * Lists findings with filtering and pagination support. When filters are applied, the actual number of results returned may be less than the specified limit
+ * <p>Lists the security findings for a pentest job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

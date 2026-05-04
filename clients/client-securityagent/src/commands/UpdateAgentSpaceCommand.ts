@@ -27,7 +27,7 @@ export interface UpdateAgentSpaceCommandInput extends UpdateAgentSpaceInput {}
 export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, __MetadataBearer {}
 
 /**
- * Updates an agent space record
+ * <p>Updates the configuration of an existing agent space, including its name, description, AWS resources, target domains, and code review settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

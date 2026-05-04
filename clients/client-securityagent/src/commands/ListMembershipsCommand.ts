@@ -27,7 +27,7 @@ export interface ListMembershipsCommandInput extends ListMembershipsRequest {}
 export interface ListMembershipsCommandOutput extends ListMembershipsResponse, __MetadataBearer {}
 
 /**
- * Lists all members associated to an agent space with pagination support
+ * <p>Returns a paginated list of membership summaries for the specified agent space within an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

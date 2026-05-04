@@ -27,7 +27,7 @@ export interface BatchGetTargetDomainsCommandInput extends BatchGetTargetDomains
 export interface BatchGetTargetDomainsCommandOutput extends BatchGetTargetDomainsOutput, __MetadataBearer {}
 
 /**
- * Retrieves multiple target domains in a single request
+ * <p>Retrieves information about one or more target domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +49,9 @@ export interface BatchGetTargetDomainsCommandOutput extends BatchGetTargetDomain
  * //       targetDomainId: "STRING_VALUE", // required
  * //       domainName: "STRING_VALUE", // required
  * //       verificationStatus: "PENDING" || "VERIFIED" || "FAILED" || "UNREACHABLE",
+ * //       verificationStatusReason: "STRING_VALUE",
  * //       verificationDetails: { // VerificationDetails
- * //         method: "DNS_TXT" || "HTTP_ROUTE",
+ * //         method: "DNS_TXT" || "HTTP_ROUTE" || "PRIVATE_VPC",
  * //         dnsTxt: { // DnsVerification
  * //           token: "STRING_VALUE",
  * //           dnsRecordName: "STRING_VALUE",

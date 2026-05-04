@@ -27,7 +27,7 @@ export interface DeleteAgentSpaceCommandInput extends DeleteAgentSpaceInput {}
 export interface DeleteAgentSpaceCommandOutput extends DeleteAgentSpaceOutput, __MetadataBearer {}
 
 /**
- * Deletes an agent space record
+ * <p>Deletes an agent space and all of its associated resources, including pentests, findings, and artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

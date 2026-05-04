@@ -27,7 +27,7 @@ export interface DeleteMembershipCommandInput extends DeleteMembershipRequest {}
 export interface DeleteMembershipCommandOutput extends DeleteMembershipResponse, __MetadataBearer {}
 
 /**
- * Removes a single member associated to an agent space
+ * <p>Deletes a membership, revoking a user's access to an agent space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

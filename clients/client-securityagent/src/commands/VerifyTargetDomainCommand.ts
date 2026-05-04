@@ -27,7 +27,7 @@ export interface VerifyTargetDomainCommandInput extends VerifyTargetDomainInput 
 export interface VerifyTargetDomainCommandOutput extends VerifyTargetDomainOutput, __MetadataBearer {}
 
 /**
- * Verifies ownership for a registered target domain
+ * <p>Initiates verification of a target domain. This checks whether the domain ownership verification token has been properly configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,7 @@ export interface VerifyTargetDomainCommandOutput extends VerifyTargetDomainOutpu
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   verifiedAt: new Date("TIMESTAMP"),
  * //   status: "PENDING" || "VERIFIED" || "FAILED" || "UNREACHABLE",
+ * //   verificationStatusReason: "STRING_VALUE",
  * // };
  *
  * ```

@@ -27,7 +27,7 @@ export interface UpdateFindingCommandInput extends UpdateFindingInput {}
 export interface UpdateFindingCommandOutput extends UpdateFindingOutput, __MetadataBearer {}
 
 /**
- * Updates an existing security finding with new details or status
+ * <p>Updates the status or risk level of a security finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * Adds tags to a Security Agent resource
+ * <p>Adds tags to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

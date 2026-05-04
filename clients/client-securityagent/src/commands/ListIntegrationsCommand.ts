@@ -27,7 +27,7 @@ export interface ListIntegrationsCommandInput extends ListIntegrationsInput {}
 export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, __MetadataBearer {}
 
 /**
- * Retrieves the Integrations associated with the user's account
+ * <p>Lists the integrations in your account, optionally filtered by provider or provider type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,16 +68,19 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, _
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  Request denied due to insufficient permissions
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected server error occurred
+ *  <p>An unexpected error occurred during the processing of your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  Specified resource was not found
+ *  <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request denied due to throttling
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
  * @throws {@link SecurityAgentServiceException}
  * <p>Base exception class for all service exceptions from SecurityAgent service.</p>

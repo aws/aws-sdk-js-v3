@@ -27,7 +27,7 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * Updates application configuration
+ * <p>Updates the configuration of an existing application, including the IAM role and default KMS key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

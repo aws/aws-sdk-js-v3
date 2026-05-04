@@ -27,7 +27,7 @@ export interface DeleteTargetDomainCommandInput extends DeleteTargetDomainInput 
 export interface DeleteTargetDomainCommandOutput extends DeleteTargetDomainOutput, __MetadataBearer {}
 
 /**
- * Deletes a target domain record
+ * <p>Deletes a target domain registration. After deletion, the domain can no longer be used for penetration testing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

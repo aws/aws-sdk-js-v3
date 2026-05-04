@@ -27,7 +27,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * Lists tags for a Security Agent resource
+ * <p>Returns the tags associated with the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

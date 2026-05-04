@@ -27,7 +27,7 @@ export interface BatchGetFindingsCommandInput extends BatchGetFindingsInput {}
 export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, __MetadataBearer {}
 
 /**
- * Retrieves multiple findings in a single request
+ * <p>Retrieves information about one or more security findings in an agent space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

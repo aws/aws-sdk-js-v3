@@ -441,6 +441,7 @@ const _vC = "vpcConfig";
 const _vD = "verificationDetails";
 const _vM = "verificationMethod";
 const _vS = "verificationStatus";
+const _vSR = "verificationStatusReason";
 const _vp = "vpcs";
 const n0 = "com.amazonaws.securityagent";
 
@@ -737,8 +738,8 @@ export var CreateTargetDomainInput$: StaticStructureSchema = [3, n0, _CTDI,
 ];
 export var CreateTargetDomainOutput$: StaticStructureSchema = [3, n0, _CTDO,
   0,
-  [_tDIa, _dN, _vS, _vD, _cA, _vA],
-  [0, 0, 0, () => VerificationDetails$, 5, 5], 3
+  [_tDIa, _dN, _vS, _vSR, _vD, _cA, _vA],
+  [0, 0, 0, 0, () => VerificationDetails$, 5, 5], 3
 ];
 export var CustomHeader$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -1157,8 +1158,8 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 ];
 export var TargetDomain$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_tDIa, _dN, _vS, _vD, _cA, _vA],
-  [0, 0, 0, () => VerificationDetails$, 5, 5], 2
+  [_tDIa, _dN, _vS, _vSR, _vD, _cA, _vA],
+  [0, 0, 0, 0, () => VerificationDetails$, 5, 5], 2
 ];
 export var TargetDomainSummary$: StaticStructureSchema = [3, n0, _TDS,
   0,
@@ -1242,8 +1243,8 @@ export var UpdateTargetDomainInput$: StaticStructureSchema = [3, n0, _UTDI,
 ];
 export var UpdateTargetDomainOutput$: StaticStructureSchema = [3, n0, _UTDO,
   0,
-  [_tDIa, _dN, _vS, _vD, _cA, _vA],
-  [0, 0, 0, () => VerificationDetails$, 5, 5], 3
+  [_tDIa, _dN, _vS, _vSR, _vD, _cA, _vA],
+  [0, 0, 0, 0, () => VerificationDetails$, 5, 5], 3
 ];
 export var UserConfig$: StaticStructureSchema = [3, n0, _UC,
   0,
@@ -1272,8 +1273,8 @@ export var VerifyTargetDomainInput$: StaticStructureSchema = [3, n0, _VTDI,
 ];
 export var VerifyTargetDomainOutput$: StaticStructureSchema = [3, n0, _VTDO,
   0,
-  [_tDIa, _dN, _cA, _uA, _vA, _st],
-  [0, 0, 5, 5, 5, 0]
+  [_tDIa, _dN, _cA, _uA, _vA, _st, _vSR],
+  [0, 0, 5, 5, 5, 0, 0]
 ];
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,

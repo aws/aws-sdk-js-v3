@@ -27,7 +27,7 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * Retrieves application details by application ID
+ * <p>Retrieves information about an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

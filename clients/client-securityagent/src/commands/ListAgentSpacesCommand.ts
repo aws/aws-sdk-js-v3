@@ -27,7 +27,7 @@ export interface ListAgentSpacesCommandInput extends ListAgentSpacesInput {}
 export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __MetadataBearer {}
 
 /**
- * Lists agent spaces
+ * <p>Returns a paginated list of agent space summaries in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

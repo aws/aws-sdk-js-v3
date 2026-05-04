@@ -27,7 +27,7 @@ export interface BatchGetAgentSpacesCommandInput extends BatchGetAgentSpacesInpu
 export interface BatchGetAgentSpacesCommandOutput extends BatchGetAgentSpacesOutput, __MetadataBearer {}
 
 /**
- * Retrieves multiple agent spaces in a single request
+ * <p>Retrieves information about one or more agent spaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

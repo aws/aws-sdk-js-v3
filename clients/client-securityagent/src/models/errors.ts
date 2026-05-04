@@ -5,7 +5,7 @@ import type { ValidationExceptionField } from "./models_0";
 import { SecurityAgentServiceException as __BaseException } from "./SecurityAgentServiceException";
 
 /**
- * Request denied due to insufficient permissions
+ * <p>You do not have sufficient access to perform this action.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * Unexpected server error occurred
+ * <p>An unexpected error occurred during the processing of your request.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -45,7 +45,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * Specified resource was not found
+ * <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -65,20 +65,20 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * Request denied due to throttling
+ * <p>The request was denied due to request throttling.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * Service code for throttling limit
+   * <p>Service code for throttling limit.</p>
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * Quota code for throttling limit
+   * <p>Quota code for throttling limit.</p>
    * @public
    */
   quotaCode?: string | undefined;
@@ -99,17 +99,14 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * A standard error for input validation failures.
- * This should be thrown by services when a member of the input structure
- * falls outside of the modeled or documented constraints.
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * A list of specific failures encountered while validating the input.
-   * A member can appear in this list more than once if it failed to satisfy multiple constraints.
+   * <p>A list of specific failures encountered during validation.</p>
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -129,7 +126,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * Request conflicts with current resource state
+ * <p>The request could not be completed due to a conflict with the current state of the resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {

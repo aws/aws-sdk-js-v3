@@ -27,7 +27,7 @@ export interface ListTargetDomainsCommandInput extends ListTargetDomainsInput {}
 export interface ListTargetDomainsCommandOutput extends ListTargetDomainsOutput, __MetadataBearer {}
 
 /**
- * Lists target domains
+ * <p>Returns a paginated list of target domain summaries in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
