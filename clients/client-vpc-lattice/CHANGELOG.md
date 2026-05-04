@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1042.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1041.0...v3.1042.0) (2026-05-04)
+
+
+### Features
+
+* **client-vpc-lattice:** Amazon VPC Lattice now supports privately resolvable DNS resources ([6b1b6ab](https://github.com/aws/aws-sdk-js-v3/commit/6b1b6abacb278e2a3e026b460c6b11cc0c2627c8))
+
+
+
+
+
 # [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice

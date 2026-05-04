@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1042.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1041.0...v3.1042.0) (2026-05-04)
+
+
+### Features
+
+* **client-lex-model-building-service:** Lex V1 is deprecated, use Lex V2 instead ([1c35eb7](https://github.com/aws/aws-sdk-js-v3/commit/1c35eb7aae19964e66c4eaba663ca750145a8bc8))
+
+
+
+
+
 # [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-model-building-service

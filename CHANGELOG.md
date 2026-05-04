@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1042.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1041.0...v3.1042.0) (2026-05-04)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore gateways now support MCP Sessions and response streaming from MCP targets. Session timeouts can be set between 15 minutes and 8 hours, and response streaming enables forwarding stream events sent by MCP targets to gateway users. ([7d8baef](https://github.com/aws/aws-sdk-js-v3/commit/7d8baefc796b7e2b0504fe1c88c821070b46822d))
+* **client-cloudwatch-logs:** Adding an additional optional deliverySourceConfiguration field to PutDeliverySource API. This enables customers to pass service-specific configurations through IngestionHub such as tracing enablement or sampling rates that will be propagated to the source resource. ([fa70b57](https://github.com/aws/aws-sdk-js-v3/commit/fa70b5707ddbac451c9281f18a93fc33b40004a3))
+* **client-ec2:** This feature allows customers to change the tunnel bandwidth on existing VPN connections using the ModifyVpnConnectionOptions API ([e37b846](https://github.com/aws/aws-sdk-js-v3/commit/e37b846c2470541a174027772d9c4f2dd14eebf3))
+* **client-geo-routes:** Added support for TravelTimeExceedsDriverWorkHours, ViolatedBlockedRoad, and ViolatedVehicleRestriction notice codes to the CalculateRoutes API response. ([6b35d38](https://github.com/aws/aws-sdk-js-v3/commit/6b35d3837d773eeb050f89c756f8f0955a5991f4))
+* **client-lex-model-building-service:** Lex V1 is deprecated, use Lex V2 instead ([1c35eb7](https://github.com/aws/aws-sdk-js-v3/commit/1c35eb7aae19964e66c4eaba663ca750145a8bc8))
+* **client-medialive:** Updates the type of the MediaLiveRouterOutputConnectionMap. ([6a558da](https://github.com/aws/aws-sdk-js-v3/commit/6a558da2679ce6e5395c215b398b67ffaf8ac52a))
+* **client-securityagent:** AWS Security Agent is adding a new target domain verification method for private VPC penetration testing. Additionally, the target domain resource will now have a verification status reason field to surface additional details about domain verification ([c3570ea](https://github.com/aws/aws-sdk-js-v3/commit/c3570eac7ed21a5f819808662831373eaf96dc25))
+* **client-vpc-lattice:** Amazon VPC Lattice now supports privately resolvable DNS resources ([6b1b6ab](https://github.com/aws/aws-sdk-js-v3/commit/6b1b6abacb278e2a3e026b460c6b11cc0c2627c8))
+
+
+
+
+
 # [3.1041.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1040.0...v3.1041.0) (2026-05-01)
 
 
