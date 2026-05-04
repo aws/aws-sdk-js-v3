@@ -708,6 +708,7 @@ import {
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SessionConfig$,
+  SessionConfiguration$,
   SessionStorageConfiguration$,
   SetTokenVaultCMK$,
   SetTokenVaultCMKCommand,
@@ -727,6 +728,7 @@ import {
   StrategyConfiguration$,
   StreamDeliveryResource$,
   StreamDeliveryResources$,
+  StreamingConfiguration$,
   StringListValidation$,
   StringValidation$,
   SubmitRegistryRecordForApproval$,
@@ -1548,6 +1550,7 @@ assert(typeof SemanticOverrideConsolidationConfigurationInput$ === "object");
 assert(typeof SemanticOverrideExtractionConfigurationInput$ === "object");
 assert(typeof ServerDefinition$ === "object");
 assert(typeof SessionConfig$ === "object");
+assert(typeof SessionConfiguration$ === "object");
 assert(typeof SessionStorageConfiguration$ === "object");
 assert(typeof SetTokenVaultCMKRequest$ === "object");
 assert(typeof SetTokenVaultCMKResponse$ === "object");
@@ -1562,6 +1565,7 @@ assert(typeof StaticRoute$ === "object");
 assert(typeof StrategyConfiguration$ === "object");
 assert(typeof StreamDeliveryResource$ === "object");
 assert(typeof StreamDeliveryResources$ === "object");
+assert(typeof StreamingConfiguration$ === "object");
 assert(typeof StringListValidation$ === "object");
 assert(typeof StringValidation$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalRequest$ === "object");

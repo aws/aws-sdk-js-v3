@@ -2,6 +2,8 @@
 import type {
   ActorTokenContentType,
   ClientAuthenticationMethodType,
+  ContentLevel,
+  ContentType,
   CredentialProviderVendorType,
   DescriptorType,
   FilterOperator,
@@ -36,8 +38,9 @@ import type {
   ApiSchemaConfiguration,
   AuthorizationData,
   AuthorizerConfiguration,
-  ContentConfiguration,
   CredentialProviderConfiguration,
+  CustomMemoryStrategyInput,
+  EpisodicMemoryStrategyInput,
   EpisodicOverrideConsolidationConfigurationInput,
   EpisodicOverrideExtractionConfigurationInput,
   EpisodicOverrideReflectionConfigurationInput,
@@ -48,22 +51,149 @@ import type {
   ManagedResourceDetails,
   McpServerTargetConfiguration,
   MemoryRecordSchema,
-  MemoryStrategyInput,
   MetadataConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
   S3Configuration,
   Secret,
+  SemanticMemoryStrategyInput,
   SemanticOverrideConsolidationConfigurationInput,
   SemanticOverrideExtractionConfigurationInput,
   SkillDefinition,
   SkillMdDefinition,
+  SummaryMemoryStrategyInput,
   SummaryOverrideConsolidationConfigurationInput,
   TriggerConditionInput,
   UpdatedAuthorizerConfiguration,
+  UserPreferenceMemoryStrategyInput,
   UserPreferenceOverrideConsolidationConfigurationInput,
   UserPreferenceOverrideExtractionConfigurationInput,
 } from "./models_0";
+
+/**
+ * <p>Contains input information for creating a memory strategy.</p>
+ * @public
+ */
+export type MemoryStrategyInput =
+  | MemoryStrategyInput.CustomMemoryStrategyMember
+  | MemoryStrategyInput.EpisodicMemoryStrategyMember
+  | MemoryStrategyInput.SemanticMemoryStrategyMember
+  | MemoryStrategyInput.SummaryMemoryStrategyMember
+  | MemoryStrategyInput.UserPreferenceMemoryStrategyMember
+  | MemoryStrategyInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MemoryStrategyInput {
+  /**
+   * <p>Input for creating a semantic memory strategy.</p>
+   * @public
+   */
+  export interface SemanticMemoryStrategyMember {
+    semanticMemoryStrategy: SemanticMemoryStrategyInput;
+    summaryMemoryStrategy?: never;
+    userPreferenceMemoryStrategy?: never;
+    customMemoryStrategy?: never;
+    episodicMemoryStrategy?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input for creating a summary memory strategy.</p>
+   * @public
+   */
+  export interface SummaryMemoryStrategyMember {
+    semanticMemoryStrategy?: never;
+    summaryMemoryStrategy: SummaryMemoryStrategyInput;
+    userPreferenceMemoryStrategy?: never;
+    customMemoryStrategy?: never;
+    episodicMemoryStrategy?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input for creating a user preference memory strategy.</p>
+   * @public
+   */
+  export interface UserPreferenceMemoryStrategyMember {
+    semanticMemoryStrategy?: never;
+    summaryMemoryStrategy?: never;
+    userPreferenceMemoryStrategy: UserPreferenceMemoryStrategyInput;
+    customMemoryStrategy?: never;
+    episodicMemoryStrategy?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input for creating a custom memory strategy.</p>
+   * @public
+   */
+  export interface CustomMemoryStrategyMember {
+    semanticMemoryStrategy?: never;
+    summaryMemoryStrategy?: never;
+    userPreferenceMemoryStrategy?: never;
+    customMemoryStrategy: CustomMemoryStrategyInput;
+    episodicMemoryStrategy?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input for creating an episodic memory strategy</p>
+   * @public
+   */
+  export interface EpisodicMemoryStrategyMember {
+    semanticMemoryStrategy?: never;
+    summaryMemoryStrategy?: never;
+    userPreferenceMemoryStrategy?: never;
+    customMemoryStrategy?: never;
+    episodicMemoryStrategy: EpisodicMemoryStrategyInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    semanticMemoryStrategy?: never;
+    summaryMemoryStrategy?: never;
+    userPreferenceMemoryStrategy?: never;
+    customMemoryStrategy?: never;
+    episodicMemoryStrategy?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    semanticMemoryStrategy: (value: SemanticMemoryStrategyInput) => T;
+    summaryMemoryStrategy: (value: SummaryMemoryStrategyInput) => T;
+    userPreferenceMemoryStrategy: (value: UserPreferenceMemoryStrategyInput) => T;
+    customMemoryStrategy: (value: CustomMemoryStrategyInput) => T;
+    episodicMemoryStrategy: (value: EpisodicMemoryStrategyInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines what content to stream and at what level of detail.</p>
+ * @public
+ */
+export interface ContentConfiguration {
+  /**
+   * <p>Type of content to stream.</p>
+   * @public
+   */
+  type: ContentType | undefined;
+
+  /**
+   * <p>Level of detail for streamed content.</p>
+   * @public
+   */
+  level?: ContentLevel | undefined;
+}
 
 /**
  * <p>Configuration for Kinesis Data Stream delivery.</p>
@@ -1855,7 +1985,7 @@ export namespace Oauth2Discovery {
 }
 
 /**
- * Configuration for RFC 8693 Token Exchange
+ * <p>Configuration for RFC 8693 token exchange.</p>
  * @public
  */
 export interface TokenExchangeGrantTypeConfigType {
@@ -1866,14 +1996,14 @@ export interface TokenExchangeGrantTypeConfigType {
   actorTokenContent: ActorTokenContentType | undefined;
 
   /**
-   * Only valid when actorTokenContent is M2M
+   * <p>The scopes for the actor token. Only valid when actorTokenContent is M2M.</p>
    * @public
    */
   actorTokenScopes?: string[] | undefined;
 }
 
 /**
- * Configuration for on-behalf-of token exchange
+ * <p>Configuration for on-behalf-of token exchange.</p>
  * @public
  */
 export interface OnBehalfOfTokenExchangeConfigType {
@@ -1884,7 +2014,7 @@ export interface OnBehalfOfTokenExchangeConfigType {
   grantType: OnBehalfOfTokenExchangeGrantTypeType | undefined;
 
   /**
-   * Configuration specific to TOKEN_EXCHANGE grant type (RFC 8693)
+   * <p>Configuration specific to the TOKEN_EXCHANGE grant type (RFC 8693).</p>
    * @public
    */
   tokenExchangeGrantTypeConfig?: TokenExchangeGrantTypeConfigType | undefined;

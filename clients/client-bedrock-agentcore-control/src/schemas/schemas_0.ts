@@ -573,7 +573,9 @@ const _SCO = "SemanticConsolidationOverride";
 const _SCOu = "SummaryConsolidationOverride";
 const _SCa = "SamplingConfig";
 const _SCe = "SessionConfig";
+const _SCes = "SessionConfiguration";
 const _SCt = "StrategyConfiguration";
+const _SCtr = "StreamingConfiguration";
 const _SCy = "SynchronizationConfiguration";
 const _SD = "SchemaDefinition";
 const _SDR = "StreamDeliveryResources";
@@ -899,6 +901,7 @@ const _ePn = "enterprisePolicies";
 const _eRA = "executionRoleArn";
 const _eRC = "episodicReflectionConfiguration";
 const _eRO = "episodicReflectionOverride";
+const _eRS = "enableResponseStreaming";
 const _eS = "executionStatus";
 const _eT = "evaluatorType";
 const _eV = "environmentVariables";
@@ -1132,7 +1135,9 @@ const _sC = "synchronizationConfiguration";
 const _sCO = "semanticConsolidationOverride";
 const _sCOu = "summaryConsolidationOverride";
 const _sCa = "samplingConfig";
-const _sCe = "sessionConfig";
+const _sCe = "sessionConfiguration";
+const _sCes = "sessionConfig";
+const _sCt = "streamingConfiguration";
 const _sD = "skillDefinition";
 const _sDR = "streamDeliveryResources";
 const _sEO = "semanticExtractionOverride";
@@ -1166,6 +1171,7 @@ const _sS = "stopSequences";
 const _sSP = "summarizationSystemPrompt";
 const _sSe = "sessionStorage";
 const _sT = "synchronizationType";
+const _sTIS = "sessionTimeoutInSeconds";
 const _sTM = "sessionTimeoutMinutes";
 const _sTe = "searchType";
 const _sV = "schemaVersion";
@@ -2841,8 +2847,8 @@ export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
 ];
 export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC,
   0,
-  [_sVu, _ins, _sTe],
-  [64 | 0, 0, 0]
+  [_sVu, _ins, _sTe, _sCe, _sCt],
+  [64 | 0, 0, 0, () => SessionConfiguration$, () => StreamingConfiguration$]
 ];
 export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
   0,
@@ -3056,7 +3062,7 @@ export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_sCa, _fil, _sCe],
+  [_sCa, _fil, _sCes],
   [() => SamplingConfig$, () => FilterList, () => SessionConfig$], 1
 ];
 export var RuntimeMetadataConfiguration$: StaticStructureSchema = [3, n0, _RMC,
@@ -3159,6 +3165,11 @@ export var SessionConfig$: StaticStructureSchema = [3, n0, _SCe,
   [_sTM],
   [1], 1
 ];
+export var SessionConfiguration$: StaticStructureSchema = [3, n0, _SCes,
+  0,
+  [_sTIS],
+  [1]
+];
 export var SessionStorageConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_mP],
@@ -3223,6 +3234,11 @@ export var StreamDeliveryResources$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_reso],
   [() => StreamDeliveryResourcesList], 1
+];
+export var StreamingConfiguration$: StaticStructureSchema = [3, n0, _SCtr,
+  0,
+  [_eRS],
+  [2]
 ];
 export var StringListValidation$: StaticStructureSchema = [3, n0, _SLV,
   0,

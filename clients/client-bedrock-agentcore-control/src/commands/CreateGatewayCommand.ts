@@ -53,6 +53,12 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       ],
  *       instructions: "STRING_VALUE",
  *       searchType: "SEMANTIC",
+ *       sessionConfiguration: { // SessionConfiguration
+ *         sessionTimeoutInSeconds: Number("int"),
+ *       },
+ *       streamingConfiguration: { // StreamingConfiguration
+ *         enableResponseStreaming: true || false,
+ *       },
  *     },
  *   },
  *   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required
@@ -174,6 +180,12 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       ],
  * //       instructions: "STRING_VALUE",
  * //       searchType: "SEMANTIC",
+ * //       sessionConfiguration: { // SessionConfiguration
+ * //         sessionTimeoutInSeconds: Number("int"),
+ * //       },
+ * //       streamingConfiguration: { // StreamingConfiguration
+ * //         enableResponseStreaming: true || false,
+ * //       },
  * //     },
  * //   },
  * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM" || "NONE" || "AUTHENTICATE_ONLY", // required

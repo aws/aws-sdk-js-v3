@@ -15,8 +15,6 @@ import type {
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
   ConfigurationBundleStatus,
-  ContentLevel,
-  ContentType,
   CredentialProviderType,
   EndpointIpAddressType,
   EvaluatorLevel,
@@ -1090,7 +1088,7 @@ export interface ManagedVpcResource {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint. Required when your private endpoint uses a domain that is not publicly resolvable.</p>
+   * <p>An intermediate domain to use as the resource configuration endpoint instead of the actual target domain. Use this when you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer. For more information, see xref:lattice-vpc-egress-routing-domain[Route traffic through an intermediate domain].</p>
    * @public
    */
   routingDomain?: string | undefined;
@@ -4805,6 +4803,30 @@ export interface GatewayPolicyEngineConfiguration {
 }
 
 /**
+ * <p>The session configuration for an MCP gateway. This structure defines settings that control session behavior.</p>
+ * @public
+ */
+export interface SessionConfiguration {
+  /**
+   * <p>The session timeout in seconds. After this timeout, the session expires and subsequent requests to this session will receive an error. The minimum value is 900 seconds (15 minutes), the maximum value is 28800 seconds (8 hours), and the default value is 3600 seconds (1 hour).</p>
+   * @public
+   */
+  sessionTimeoutInSeconds?: number | undefined;
+}
+
+/**
+ * <p>The streaming configuration for an MCP gateway. This structure defines settings that control response streaming behavior.</p>
+ * @public
+ */
+export interface StreamingConfiguration {
+  /**
+   * <p>Indicates whether response streaming is enabled for the gateway. When set to <code>true</code>, the gateway streams responses from targets back to the client.</p>
+   * @public
+   */
+  enableResponseStreaming?: boolean | undefined;
+}
+
+/**
  * <p>The configuration for a Model Context Protocol (MCP) gateway. This structure defines how the gateway implements the MCP protocol.</p>
  * @public
  */
@@ -4826,6 +4848,18 @@ export interface MCPGatewayConfiguration {
    * @public
    */
   searchType?: SearchType | undefined;
+
+  /**
+   * <p>The session configuration for the MCP gateway. This configuration controls session behavior, including session timeout settings.</p>
+   * @public
+   */
+  sessionConfiguration?: SessionConfiguration | undefined;
+
+  /**
+   * <p>The streaming configuration for the MCP gateway. This configuration controls whether response streaming is enabled for the gateway.</p>
+   * @public
+   */
+  streamingConfiguration?: StreamingConfiguration | undefined;
 }
 
 /**
@@ -9350,129 +9384,4 @@ export interface UserPreferenceMemoryStrategyInput {
    * @public
    */
   memoryRecordSchema?: MemoryRecordSchema | undefined;
-}
-
-/**
- * <p>Contains input information for creating a memory strategy.</p>
- * @public
- */
-export type MemoryStrategyInput =
-  | MemoryStrategyInput.CustomMemoryStrategyMember
-  | MemoryStrategyInput.EpisodicMemoryStrategyMember
-  | MemoryStrategyInput.SemanticMemoryStrategyMember
-  | MemoryStrategyInput.SummaryMemoryStrategyMember
-  | MemoryStrategyInput.UserPreferenceMemoryStrategyMember
-  | MemoryStrategyInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemoryStrategyInput {
-  /**
-   * <p>Input for creating a semantic memory strategy.</p>
-   * @public
-   */
-  export interface SemanticMemoryStrategyMember {
-    semanticMemoryStrategy: SemanticMemoryStrategyInput;
-    summaryMemoryStrategy?: never;
-    userPreferenceMemoryStrategy?: never;
-    customMemoryStrategy?: never;
-    episodicMemoryStrategy?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Input for creating a summary memory strategy.</p>
-   * @public
-   */
-  export interface SummaryMemoryStrategyMember {
-    semanticMemoryStrategy?: never;
-    summaryMemoryStrategy: SummaryMemoryStrategyInput;
-    userPreferenceMemoryStrategy?: never;
-    customMemoryStrategy?: never;
-    episodicMemoryStrategy?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Input for creating a user preference memory strategy.</p>
-   * @public
-   */
-  export interface UserPreferenceMemoryStrategyMember {
-    semanticMemoryStrategy?: never;
-    summaryMemoryStrategy?: never;
-    userPreferenceMemoryStrategy: UserPreferenceMemoryStrategyInput;
-    customMemoryStrategy?: never;
-    episodicMemoryStrategy?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Input for creating a custom memory strategy.</p>
-   * @public
-   */
-  export interface CustomMemoryStrategyMember {
-    semanticMemoryStrategy?: never;
-    summaryMemoryStrategy?: never;
-    userPreferenceMemoryStrategy?: never;
-    customMemoryStrategy: CustomMemoryStrategyInput;
-    episodicMemoryStrategy?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Input for creating an episodic memory strategy</p>
-   * @public
-   */
-  export interface EpisodicMemoryStrategyMember {
-    semanticMemoryStrategy?: never;
-    summaryMemoryStrategy?: never;
-    userPreferenceMemoryStrategy?: never;
-    customMemoryStrategy?: never;
-    episodicMemoryStrategy: EpisodicMemoryStrategyInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    semanticMemoryStrategy?: never;
-    summaryMemoryStrategy?: never;
-    userPreferenceMemoryStrategy?: never;
-    customMemoryStrategy?: never;
-    episodicMemoryStrategy?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    semanticMemoryStrategy: (value: SemanticMemoryStrategyInput) => T;
-    summaryMemoryStrategy: (value: SummaryMemoryStrategyInput) => T;
-    userPreferenceMemoryStrategy: (value: UserPreferenceMemoryStrategyInput) => T;
-    customMemoryStrategy: (value: CustomMemoryStrategyInput) => T;
-    episodicMemoryStrategy: (value: EpisodicMemoryStrategyInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Defines what content to stream and at what level of detail.</p>
- * @public
- */
-export interface ContentConfiguration {
-  /**
-   * <p>Type of content to stream.</p>
-   * @public
-   */
-  type: ContentType | undefined;
-
-  /**
-   * <p>Level of detail for streamed content.</p>
-   * @public
-   */
-  level?: ContentLevel | undefined;
 }
