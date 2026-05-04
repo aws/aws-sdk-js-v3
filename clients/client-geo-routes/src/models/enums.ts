@@ -164,17 +164,7 @@ export type IsolineTruckType = (typeof IsolineTruckType)[keyof typeof IsolineTru
  * @enum
  */
 export const ValidationExceptionReason = {
-  /**
-   *     The input cannot be parsed. For example a required JSON document, ARN identifier,
-   *     date value, or numeric field cannot be parsed.
-   *
-   */
   CANNOT_PARSE: "CannotParse",
-  /**
-   *     The input is present and parsable, but it is otherwise invalid. For example, a
-   *     required numeric argument is outside the allowed range.
-   *
-   */
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
   /**
    * The required input is missing.
@@ -519,8 +509,10 @@ export const RouteFerryNoticeCode = {
   OTHER: "Other",
   POTENTIAL_VIOLATED_VEHICLE_RESTRICTION_USAGE: "PotentialViolatedVehicleRestrictionUsage",
   SEASONAL_CLOSURE: "SeasonalClosure",
+  VIOLATED_AVOID_AREAS: "ViolatedAvoidAreas",
   VIOLATED_AVOID_FERRY: "ViolatedAvoidFerry",
   VIOLATED_AVOID_RAIL_FERRY: "ViolatedAvoidRailFerry",
+  VIOLATED_VEHICLE_RESTRICTION: "ViolatedVehicleRestriction",
 } as const;
 /**
  * @public
@@ -561,6 +553,7 @@ export type RouteSideOfStreet = (typeof RouteSideOfStreet)[keyof typeof RouteSid
 export const RoutePedestrianNoticeCode = {
   ACCURATE_POLYLINE_UNAVAILABLE: "AccuratePolylineUnavailable",
   OTHER: "Other",
+  VIOLATED_AVOID_AREAS: "ViolatedAvoidAreas",
   VIOLATED_AVOID_DIRT_ROAD: "ViolatedAvoidDirtRoad",
   VIOLATED_AVOID_TUNNEL: "ViolatedAvoidTunnel",
   VIOLATED_PEDESTRIAN_OPTION: "ViolatedPedestrianOption",
@@ -773,6 +766,7 @@ export const RouteVehicleNoticeCode = {
   TOLLS_DATA_TEMPORARILY_UNAVAILABLE: "TollsDataTemporarilyUnavailable",
   TOLLS_DATA_UNAVAILABLE: "TollsDataUnavailable",
   TOLL_TRANSPONDER: "TollTransponder",
+  TRAVEL_TIME_EXCEEDS_DRIVER_WORK_HOURS: "TravelTimeExceedsDriverWorkHours",
   VIOLATED_AVOID_CONTROLLED_ACCESS_HIGHWAY: "ViolatedAvoidControlledAccessHighway",
   VIOLATED_AVOID_DIFFICULT_TURNS: "ViolatedAvoidDifficultTurns",
   VIOLATED_AVOID_DIRT_ROAD: "ViolatedAvoidDirtRoad",

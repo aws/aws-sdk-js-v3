@@ -1602,7 +1602,7 @@ export var WaypointOptimizationAvoidanceOptions$: StaticStructureSchema = [3, n0
 export var WaypointOptimizationClusteringOptions$: StaticStructureSchema = [3, n0, _WOCO,
   0,
   [_Al, _DDO],
-  [[() => WaypointOptimizationClusteringAlgorithm, 0], [() => WaypointOptimizationDrivingDistanceOptions$, 0]], 1
+  [[() => WaypointOptimizationClusteringAlgorithm, 0], () => WaypointOptimizationDrivingDistanceOptions$], 1
 ];
 export var WaypointOptimizationConnection$: StaticStructureSchema = [3, n0, _WOCa,
   0,
@@ -1622,7 +1622,7 @@ export var WaypointOptimizationDriverOptions$: StaticStructureSchema = [3, n0, _
 export var WaypointOptimizationDrivingDistanceOptions$: StaticStructureSchema = [3, n0, _WODDO,
   0,
   [_DDr],
-  [[() => DistanceMeters, 0]], 1
+  [1], 1
 ];
 export var WaypointOptimizationExclusionOptions$: StaticStructureSchema = [3, n0, _WOEO,
   0,

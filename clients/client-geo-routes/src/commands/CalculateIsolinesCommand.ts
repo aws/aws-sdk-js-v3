@@ -138,7 +138,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *       UseWith: "STRING_VALUE",
  *     },
  *   },
- *   IsolineGeometryFormat: "STRING_VALUE",
+ *   IsolineGeometryFormat: "FlexiblePolyline" || "Simple",
  *   IsolineGranularity: { // IsolineGranularityOptions
  *     MaxPoints: Number("int"),
  *     MaxResolution: Number("long"),
@@ -232,7 +232,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  * // { // CalculateIsolinesResponse
  * //   ArrivalTime: "STRING_VALUE",
  * //   DepartureTime: "STRING_VALUE",
- * //   IsolineGeometryFormat: "STRING_VALUE", // required
+ * //   IsolineGeometryFormat: "FlexiblePolyline" || "Simple", // required
  * //   Isolines: [ // IsolineList // required
  * //     { // Isoline
  * //       Connections: [ // IsolineConnectionList // required

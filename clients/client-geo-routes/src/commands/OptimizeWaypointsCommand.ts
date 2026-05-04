@@ -56,7 +56,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     UTurns: true || false,
  *   },
  *   Clustering: { // WaypointOptimizationClusteringOptions
- *     Algorithm: "STRING_VALUE", // required
+ *     Algorithm: "DrivingDistance" || "TopologySegment", // required
  *     DrivingDistanceOptions: { // WaypointOptimizationDrivingDistanceOptions
  *       DrivingDistance: Number("long"), // required
  *     },
@@ -68,11 +68,11 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *   DestinationOptions: { // WaypointOptimizationDestinationOptions
  *     AccessHours: { // WaypointOptimizationAccessHours
  *       From: { // WaypointOptimizationAccessHoursEntry
- *         DayOfWeek: "STRING_VALUE", // required
+ *         DayOfWeek: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
  *         TimeOfDay: "STRING_VALUE", // required
  *       },
  *       To: {
- *         DayOfWeek: "STRING_VALUE", // required
+ *         DayOfWeek: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
  *         TimeOfDay: "STRING_VALUE", // required
  *       },
  *     },
@@ -144,11 +144,11 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *     { // WaypointOptimizationWaypoint
  *       AccessHours: {
  *         From: {
- *           DayOfWeek: "STRING_VALUE", // required
+ *           DayOfWeek: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
  *           TimeOfDay: "STRING_VALUE", // required
  *         },
  *         To: {
- *           DayOfWeek: "STRING_VALUE", // required
+ *           DayOfWeek: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
  *           TimeOfDay: "STRING_VALUE", // required
  *         },
  *       },

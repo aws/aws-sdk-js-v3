@@ -38,7 +38,7 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  * const client = new GeoRoutesClient(config);
  * const input = { // SnapToRoadsRequest
  *   Key: "STRING_VALUE",
- *   SnappedGeometryFormat: "STRING_VALUE",
+ *   SnappedGeometryFormat: "FlexiblePolyline" || "Simple",
  *   SnapRadius: Number("long"),
  *   TracePoints: [ // RoadSnapTracePointList // required
  *     { // RoadSnapTracePoint
@@ -88,7 +88,7 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  * //     ],
  * //     Polyline: "STRING_VALUE",
  * //   },
- * //   SnappedGeometryFormat: "STRING_VALUE", // required
+ * //   SnappedGeometryFormat: "FlexiblePolyline" || "Simple", // required
  * //   SnappedTracePoints: [ // RoadSnapSnappedTracePointList // required
  * //     { // RoadSnapSnappedTracePoint
  * //       Confidence: Number("double"), // required

@@ -153,7 +153,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
- *   InstructionsMeasurementSystem: "STRING_VALUE",
+ *   InstructionsMeasurementSystem: "Metric" || "Imperial",
  *   Key: "STRING_VALUE",
  *   Languages: [ // LanguageTagList
  *     "STRING_VALUE",
@@ -161,7 +161,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  *   LegAdditionalFeatures: [ // RouteLegAdditionalFeatureList
  *     "STRING_VALUE",
  *   ],
- *   LegGeometryFormat: "STRING_VALUE",
+ *   LegGeometryFormat: "FlexiblePolyline" || "Simple",
  *   MaxAlternatives: Number("int"),
  *   OptimizeRoutingFor: "STRING_VALUE",
  *   Origin: "<Position>", // required
@@ -278,7 +278,7 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * const command = new CalculateRoutesCommand(input);
  * const response = await client.send(command);
  * // { // CalculateRoutesResponse
- * //   LegGeometryFormat: "STRING_VALUE", // required
+ * //   LegGeometryFormat: "FlexiblePolyline" || "Simple", // required
  * //   Notices: [ // RouteResponseNoticeList // required
  * //     { // RouteResponseNotice
  * //       Code: "STRING_VALUE", // required
