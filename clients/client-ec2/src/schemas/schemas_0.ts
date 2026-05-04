@@ -20442,8 +20442,8 @@ export var ModifyManagedPrefixListResult$: StaticStructureSchema = [3, n0, _MMPL
 ];
 export var ModifyManagedResourceVisibilityRequest$: StaticStructureSchema = [3, n0, _MMRVR,
   0,
-  [_DR, _DVefa],
-  [2, 0]
+  [_DVefa, _DR],
+  [0, 2], 1
 ];
 export var ModifyManagedResourceVisibilityResult$: StaticStructureSchema = [3, n0, _MMRVRo,
   0,
@@ -20900,8 +20900,8 @@ export var ModifyVpcTenancyResult$: StaticStructureSchema = [3, n0, _MVTRo,
 ];
 export var ModifyVpnConnectionOptionsRequest$: StaticStructureSchema = [3, n0, _MVCOR,
   0,
-  [_VCIp, _LINC, _RINC, _LINCo, _RINCe, _DR],
-  [0, 0, 0, 0, 0, 2], 1
+  [_VCIp, _LINC, _RINC, _LINCo, _RINCe, _TB, _DR],
+  [0, 0, 0, 0, 0, 0, 2], 1
 ];
 export var ModifyVpnConnectionOptionsResult$: StaticStructureSchema = [3, n0, _MVCORo,
   0,

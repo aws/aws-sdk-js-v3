@@ -64,6 +64,7 @@ import type {
   VpcEncryptionControlMode,
   VpcTenancy,
   VpnEcmpSupportValue,
+  VpnTunnelBandwidth,
 } from "./enums";
 import type {
   AddedPrincipal,
@@ -2767,6 +2768,12 @@ export interface ModifyVpnConnectionOptionsRequest {
    * @public
    */
   RemoteIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The desired bandwidth specification for the VPN connection. <code>standard</code> supports up to 1.25 Gbps per tunnel, while <code>large</code> supports up to 5 Gbps per tunnel. Large bandwidth is only available for VPN connections attached to a transit gateway or to Cloud WAN. The default value is <code>standard</code>.</p>
+   * @public
+   */
+  TunnelBandwidth?: VpnTunnelBandwidth | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>

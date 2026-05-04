@@ -41,7 +41,7 @@ export interface ModifyManagedResourceVisibilityCommandOutput extends ModifyMana
  * const client = new EC2Client(config);
  * const input = { // ModifyManagedResourceVisibilityRequest
  *   DryRun: true || false,
- *   DefaultVisibility: "hidden" || "visible",
+ *   DefaultVisibility: "hidden" || "visible", // required
  * };
  * const command = new ModifyManagedResourceVisibilityCommand(input);
  * const response = await client.send(command);

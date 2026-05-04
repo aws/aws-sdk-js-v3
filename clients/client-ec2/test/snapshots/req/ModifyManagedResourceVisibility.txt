@@ -9,11 +9,11 @@ host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 761b96707cab2f3bed89e4c8566842efc360ee8e220e09b6d6265b302d88a3b6
+x-amz-content-sha256: e3d2ad2ddbc5c5ca9464c6808655bb3ae088ec4c0eca7e40e660f3faf5e28c63
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
 Action=ModifyManagedResourceVisibility&
 Version=2016-11-15&
-DryRun=false&
-DefaultVisibility=__DefaultVisibility__
+DefaultVisibility=__DefaultVisibility__&
+DryRun=false

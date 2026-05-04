@@ -16200,7 +16200,6 @@ export interface EC2 {
   /**
    * @see {@link ModifyManagedResourceVisibilityCommand}
    */
-  modifyManagedResourceVisibility(): Promise<ModifyManagedResourceVisibilityCommandOutput>;
   modifyManagedResourceVisibility(
     args: ModifyManagedResourceVisibilityCommandInput,
     options?: __HttpHandlerOptions

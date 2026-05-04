@@ -46,6 +46,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  *   RemoteIpv4NetworkCidr: "STRING_VALUE",
  *   LocalIpv6NetworkCidr: "STRING_VALUE",
  *   RemoteIpv6NetworkCidr: "STRING_VALUE",
+ *   TunnelBandwidth: "standard" || "large",
  *   DryRun: true || false,
  * };
  * const command = new ModifyVpnConnectionOptionsCommand(input);

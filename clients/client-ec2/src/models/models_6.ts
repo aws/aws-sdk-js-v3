@@ -9624,7 +9624,7 @@ export interface ModifyManagedResourceVisibilityRequest {
    *             <code>hidden</code> | <code>visible</code>.</p>
    * @public
    */
-  DefaultVisibility?: ManagedResourceDefaultVisibility | undefined;
+  DefaultVisibility: ManagedResourceDefaultVisibility | undefined;
 }
 
 /**
