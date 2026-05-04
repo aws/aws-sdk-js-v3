@@ -1,6 +1,54 @@
 // smithy-typescript generated code
-import type { ExecutionStatus, QueryLanguage, ScheduledQueryState } from "./enums";
+import type { EvaluationFrequency, ExecutionStatus, QueryLanguage, ScheduledQueryState } from "./enums";
 import type { DestinationConfiguration } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateDeliveryConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateLogAnomalyDetectorRequest {
+  /**
+   * <p>The ARN of the anomaly detector that you want to update.</p>
+   * @public
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
+   *       according to the frequency that the log group receives new logs. For example, if the log group
+   *       receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
+   *         <code>FIFTEEN_MIN</code> might be appropriate.</p>
+   * @public
+   */
+  evaluationFrequency?: EvaluationFrequency | undefined;
+
+  /**
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   * @public
+   */
+  filterPattern?: string | undefined;
+
+  /**
+   * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are
+   *       automatically baselined and the anomaly detector model will treat new occurrences of similar
+   *       event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it
+   *       will be considered normal going forward and will not be detected.</p>
+   * @public
+   */
+  anomalyVisibilityTime?: number | undefined;
+
+  /**
+   * <p>Use this parameter to pause or restart the anomaly detector. </p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
 
 /**
  * @public

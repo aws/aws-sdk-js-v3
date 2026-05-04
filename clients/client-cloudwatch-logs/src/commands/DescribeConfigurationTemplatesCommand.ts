@@ -91,6 +91,22 @@ export interface DescribeConfigurationTemplatesCommandOutput extends DescribeCon
  * //       allowedSuffixPathFields: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       deliverySourceConfiguration: [ // DeliverySourceConfigurationSchemas
+ * //         { // DeliverySourceConfigurationSchema
+ * //           keyName: "STRING_VALUE", // required
+ * //           valueType: "string" || "boolean" || "int" || "double" || "long", // required
+ * //           defaultValue: "STRING_VALUE", // required
+ * //           supportedValues: [ // DeliverySourceConfigurationSupportedValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           minValue: Number("double"),
+ * //           maxValue: Number("double"),
+ * //         },
+ * //       ],
+ * //       s3TablesIntegration: { // S3TablesIntegration
+ * //         datasourceName: "STRING_VALUE",
+ * //         datasourceType: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

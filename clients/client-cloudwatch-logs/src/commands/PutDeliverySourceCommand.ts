@@ -80,6 +80,9 @@ export interface PutDeliverySourceCommandOutput extends PutDeliverySourceRespons
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   deliverySourceConfiguration: { // DeliverySourceConfiguration
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new PutDeliverySourceCommand(input);
  * const response = await client.send(command);
@@ -95,6 +98,11 @@ export interface PutDeliverySourceCommandOutput extends PutDeliverySourceRespons
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     deliverySourceConfiguration: { // DeliverySourceConfiguration
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     status: "ACTIVE" || "INACTIVE",
+ * //     statusReason: "RESOURCE_DELETED",
  * //   },
  * // };
  *

@@ -139,6 +139,10 @@ import {
   DeliveryDestinationConfiguration$,
   DeliveryDestinationType,
   DeliverySource$,
+  DeliverySourceConfigurationSchema$,
+  DeliverySourceConfigurationSchemaValueType,
+  DeliverySourceStatus,
+  DeliverySourceStatusReason,
   DescribeAccountPolicies$,
   DescribeAccountPoliciesCommand,
   DescribeAccountPoliciesRequest$,
@@ -540,6 +544,7 @@ import {
   S3DeliveryConfiguration$,
   S3TableIntegrationSource$,
   S3TableIntegrationSourceStatus,
+  S3TablesIntegration$,
   ScheduledQueryDestination$,
   ScheduledQueryDestinationType,
   ScheduledQueryState,
@@ -928,6 +933,7 @@ assert(typeof Delivery$ === "object");
 assert(typeof DeliveryDestination$ === "object");
 assert(typeof DeliveryDestinationConfiguration$ === "object");
 assert(typeof DeliverySource$ === "object");
+assert(typeof DeliverySourceConfigurationSchema$ === "object");
 assert(typeof DescribeAccountPoliciesRequest$ === "object");
 assert(typeof DescribeAccountPoliciesResponse$ === "object");
 assert(typeof DescribeConfigurationTemplatesRequest$ === "object");
@@ -1133,6 +1139,7 @@ assert(typeof ResultField$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3DeliveryConfiguration$ === "object");
 assert(typeof S3TableIntegrationSource$ === "object");
+assert(typeof S3TablesIntegration$ === "object");
 assert(typeof ScheduledQueryDestination$ === "object");
 assert(typeof ScheduledQuerySummary$ === "object");
 assert(typeof SearchedLogStream$ === "object");
@@ -1177,6 +1184,9 @@ assert(typeof ActionStatus === "object");
 assert(typeof AnomalyDetectorStatus === "object");
 assert(typeof DataProtectionStatus === "object");
 assert(typeof DeliveryDestinationType === "object");
+assert(typeof DeliverySourceConfigurationSchemaValueType === "object");
+assert(typeof DeliverySourceStatus === "object");
+assert(typeof DeliverySourceStatusReason === "object");
 assert(typeof Distribution === "object");
 assert(typeof EntityRejectionErrorType === "object");
 assert(typeof EvaluationFrequency === "object");

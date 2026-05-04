@@ -4,6 +4,9 @@ import type {
   AnomalyDetectorStatus,
   DataProtectionStatus,
   DeliveryDestinationType,
+  DeliverySourceConfigurationSchemaValueType,
+  DeliverySourceStatus,
+  DeliverySourceStatusReason,
   Distribution,
   EntityRejectionErrorType,
   EvaluationFrequency,
@@ -695,6 +698,73 @@ export interface ConfigurationTemplateDeliveryConfigValues {
 }
 
 /**
+ * <p>A structure that describes a single configuration for a log type,
+ *       including its name, value type, default value, and the range of supported values.</p>
+ * @public
+ */
+export interface DeliverySourceConfigurationSchema {
+  /**
+   * <p>The name of the configuration.</p>
+   * @public
+   */
+  keyName: string | undefined;
+
+  /**
+   * <p>The data type of the configuration value. Valid values are <code>string</code>,
+   *       <code>boolean</code>, <code>int</code>, <code>double</code>, and
+   *       <code>long</code>.</p>
+   * @public
+   */
+  valueType: DeliverySourceConfigurationSchemaValueType | undefined;
+
+  /**
+   * <p>The default value of the configuration that is used when a value is not
+   *       specified in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a> request.</p>
+   * @public
+   */
+  defaultValue: string | undefined;
+
+  /**
+   * <p>The list of allowed values for the configuration. Empty for free-form configuration.</p>
+   * @public
+   */
+  supportedValues?: string[] | undefined;
+
+  /**
+   * <p>The minimum numeric value allowed for the configuration. This applies only when
+   *       the <code>valueType</code> is a numeric type.</p>
+   * @public
+   */
+  minValue?: number | undefined;
+
+  /**
+   * <p>The maximum numeric value allowed for the configuration. This applies only when
+   *       the <code>valueType</code> is a numeric type.</p>
+   * @public
+   */
+  maxValue?: number | undefined;
+}
+
+/**
+ * <p>Contains information about the S3 Tables integration configuration for a configuration
+ *       template.</p>
+ * @public
+ */
+export interface S3TablesIntegration {
+  /**
+   * <p>The name of the S3 Tables datasource.</p>
+   * @public
+   */
+  datasourceName?: string | undefined;
+
+  /**
+   * <p>The type of the S3 Tables datasource.</p>
+   * @public
+   */
+  datasourceType?: string | undefined;
+}
+
+/**
  * <p>A structure containing information about the deafult settings and available settings that
  *       you can use to configure a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a> or a
  *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeliveryDestination.html">delivery
@@ -769,6 +839,20 @@ export interface ConfigurationTemplate {
    * @public
    */
   allowedSuffixPathFields?: string[] | undefined;
+
+  /**
+   * <p>The schema of the delivery source configuration that is available for this log type.
+   *       Each element describes a configuration that can be set when calling <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>, including the configuration name, type, and default value.</p>
+   * @public
+   */
+  deliverySourceConfiguration?: DeliverySourceConfigurationSchema[] | undefined;
+
+  /**
+   * <p>The S3 Tables integration configuration for this configuration template, including the
+   *       datasource name and type.</p>
+   * @public
+   */
+  s3TablesIntegration?: S3TablesIntegration | undefined;
 }
 
 /**
@@ -2047,6 +2131,27 @@ export interface DeliverySource {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The map of key-value pairs that configure the delivery source.</p>
+   * @public
+   */
+  deliverySourceConfiguration?: Record<string, string> | undefined;
+
+  /**
+   * <p>The status of the delivery source. A delivery source can have the status
+   *       <code>ACTIVE</code> or <code>INACTIVE</code>. Note: This value is defined for selective log types.</p>
+   * @public
+   */
+  status?: DeliverySourceStatus | undefined;
+
+  /**
+   * <p>The reason for the status of the delivery source. A status reason of
+   *       <code>RESOURCE_DELETED</code> indicates that the resource associated with the delivery
+   *       source has been deleted. Note: This value is defined for selective log types.</p>
+   * @public
+   */
+  statusReason?: DeliverySourceStatusReason | undefined;
 }
 
 /**
@@ -7972,6 +8077,14 @@ export interface PutDeliverySourceRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of key-value pairs to configure the delivery source. Both keys and values must be
+   *       between 1 and 255 characters in length. For example,
+   *       <code>\{"samplingRate": "50"\}</code>.</p>
+   * @public
+   */
+  deliverySourceConfiguration?: Record<string, string> | undefined;
 }
 
 /**
@@ -9339,52 +9452,4 @@ export interface UpdateDeliveryConfigurationRequest {
    * @public
    */
   s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDeliveryConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateLogAnomalyDetectorRequest {
-  /**
-   * <p>The ARN of the anomaly detector that you want to update.</p>
-   * @public
-   */
-  anomalyDetectorArn: string | undefined;
-
-  /**
-   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
-   *       according to the frequency that the log group receives new logs. For example, if the log group
-   *       receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
-   *         <code>FIFTEEN_MIN</code> might be appropriate.</p>
-   * @public
-   */
-  evaluationFrequency?: EvaluationFrequency | undefined;
-
-  /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
-   * @public
-   */
-  filterPattern?: string | undefined;
-
-  /**
-   * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are
-   *       automatically baselined and the anomaly detector model will treat new occurrences of similar
-   *       event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it
-   *       will be considered normal going forward and will not be detected.</p>
-   * @public
-   */
-  anomalyVisibilityTime?: number | undefined;
-
-  /**
-   * <p>Use this parameter to pause or restart the anomaly detector. </p>
-   * @public
-   */
-  enabled: boolean | undefined;
 }

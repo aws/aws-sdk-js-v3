@@ -59,6 +59,11 @@ export interface DescribeDeliverySourcesCommandOutput extends DescribeDeliverySo
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       deliverySourceConfiguration: { // DeliverySourceConfiguration
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       status: "ACTIVE" || "INACTIVE",
+ * //       statusReason: "RESOURCE_DELETED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

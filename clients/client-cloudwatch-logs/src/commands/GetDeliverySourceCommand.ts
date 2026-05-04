@@ -57,6 +57,11 @@ export interface GetDeliverySourceCommandOutput extends GetDeliverySourceRespons
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     deliverySourceConfiguration: { // DeliverySourceConfiguration
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     status: "ACTIVE" || "INACTIVE",
+ * //     statusReason: "RESOURCE_DELETED",
  * //   },
  * // };
  *

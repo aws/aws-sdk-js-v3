@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateDeliveryConfigurationRequest, UpdateDeliveryConfigurationResponse } from "../models/models_0";
+import type { UpdateDeliveryConfigurationRequest } from "../models/models_0";
+import type { UpdateDeliveryConfigurationResponse } from "../models/models_1";
 import { UpdateDeliveryConfiguration$ } from "../schemas/schemas_0";
 
 /**

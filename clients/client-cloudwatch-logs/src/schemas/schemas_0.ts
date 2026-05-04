@@ -153,6 +153,8 @@ const _DRPResc = "DescribeResourcePoliciesResponse";
 const _DRPe = "DeleteRetentionPolicy";
 const _DRPes = "DescribeResourcePolicies";
 const _DS = "DataSource";
+const _DSCS = "DeliverySourceConfigurationSchema";
+const _DSCSe = "DeliverySourceConfigurationSchemas";
 const _DSF = "DataSourceFilter";
 const _DSFR = "DeleteSubscriptionFilterRequest";
 const _DSFRe = "DescribeSubscriptionFiltersRequest";
@@ -450,6 +452,7 @@ const _SSEu = "SubstituteStringEntry";
 const _SSEub = "SubstituteStringEntries";
 const _SSu = "SubstituteString";
 const _STE = "SessionTimeoutException";
+const _STI = "S3TablesIntegration";
 const _STIS = "S3TableIntegrationSource";
 const _STISa = "S3TableIntegrationSources";
 const _SUE = "ServiceUnavailableException";
@@ -558,12 +561,14 @@ const _dDe = "deliveryDestination";
 const _dI = "destinationIdentifier";
 const _dK = "deleteKeys";
 const _dN = "detectorName";
+const _dNa = "datasourceName";
 const _dNe = "destinationName";
 const _dP = "destinationPrefix";
 const _dPE = "deletionProtectionEnabled";
 const _dPS = "dataProtectionStatus";
 const _dRA = "destinationResourceArn";
 const _dS = "dataSource";
+const _dSC = "deliverySourceConfiguration";
 const _dSN = "deliverySourceName";
 const _dSNa = "dataSourceName";
 const _dSRA = "dataSourceRoleArn";
@@ -571,9 +576,10 @@ const _dST = "dataSourceType";
 const _dSa = "dataSources";
 const _dSe = "deliverySources";
 const _dSel = "deliverySource";
-const _dT = "destinationType";
+const _dT = "datasourceType";
 const _dTC = "dateTimeConverter";
 const _dTP = "dynamicTokenPosition";
+const _dTe = "destinationType";
 const _dV = "defaultValue";
 const _dVP = "dashboardViewerPrincipals";
 const _da = "data";
@@ -675,6 +681,7 @@ const _k = "key";
 const _kA = "keyAttributes";
 const _kKA = "kmsKeyArn";
 const _kKI = "kmsKeyId";
+const _kN = "keyName";
 const _kP = "keyPrefix";
 const _kVD = "keyValueDelimiter";
 const _l = "locale";
@@ -740,8 +747,10 @@ const _mNe = "metricNamespace";
 const _mP = "matchPatterns";
 const _mR = "maxResults";
 const _mT = "metricTransformations";
-const _mV = "metricValue";
-const _mVa = "mappingVersion";
+const _mV = "minValue";
+const _mVa = "maxValue";
+const _mVap = "mappingVersion";
+const _mVe = "metricValue";
 const _ma = "match";
 const _man = "mandatory";
 const _mat = "matches";
@@ -838,14 +847,15 @@ const _sP = "suffixPath";
 const _sPu = "suppressionPeriod";
 const _sQ = "scheduledQueries";
 const _sQA = "scheduledQueryArn";
-const _sR = "sessionResults";
-const _sRt = "statusReason";
+const _sR = "statusReason";
+const _sRe = "sessionResults";
 const _sS = "suppressionState";
 const _sST = "scheduleStartTime";
 const _sSe = "sessionStart";
 const _sSp = "splitString";
 const _sSu = "substituteString";
 const _sT = "sourceTimezone";
+const _sTI = "s3TablesIntegration";
 const _sTO = "startTimeOffset";
 const _sTe = "sequenceToken";
 const _sTt = "startTime";
@@ -853,6 +863,7 @@ const _sTu = "suppressionType";
 const _sU = "suppressedUntil";
 const _sUe = "sessionUpdate";
 const _sUu = "suppressionUnit";
+const _sV = "supportedValues";
 const _sa = "sampled";
 const _sc = "scope";
 const _se = "server";
@@ -897,6 +908,7 @@ const _uST = "uploadSequenceToken";
 const _un = "unit";
 const _v = "value";
 const _vK = "valueKey";
+const _vT = "valueType";
 const _va = "values";
 const _w = "workspace";
 const _wI = "workspaceId";
@@ -1141,8 +1153,8 @@ export var CancelImportTaskResponse$: StaticStructureSchema = [3, n0, _CITRa,
 ];
 export var ConfigurationTemplate$: StaticStructureSchema = [3, n0, _CT,
   0,
-  [_ser, _lT, _rT, _dDT, _dDCV, _aF, _aOF, _aAFAVLDFR, _aFD, _aSPF],
-  [0, 0, 0, 0, () => ConfigurationTemplateDeliveryConfigValues$, () => AllowedFields, 64 | 0, 0, 64 | 0, 64 | 0]
+  [_ser, _lT, _rT, _dDT, _dDCV, _aF, _aOF, _aAFAVLDFR, _aFD, _aSPF, _dSC, _sTI],
+  [0, 0, 0, 0, () => ConfigurationTemplateDeliveryConfigValues$, () => AllowedFields, 64 | 0, 0, 64 | 0, 64 | 0, () => DeliverySourceConfigurationSchemas, () => S3TablesIntegration$]
 ];
 export var ConfigurationTemplateDeliveryConfigValues$: StaticStructureSchema = [3, n0, _CTDCV,
   0,
@@ -1391,8 +1403,13 @@ export var DeliveryDestinationConfiguration$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeliverySource$: StaticStructureSchema = [3, n0, _DSe,
   0,
-  [_n, _ar, _rAe, _ser, _lT, _ta],
-  [0, 0, 64 | 0, 0, 0, 128 | 0]
+  [_n, _ar, _rAe, _ser, _lT, _ta, _dSC, _sta, _sR],
+  [0, 0, 64 | 0, 0, 0, 128 | 0, 128 | 0, 0, 0]
+];
+export var DeliverySourceConfigurationSchema$: StaticStructureSchema = [3, n0, _DSCS,
+  0,
+  [_kN, _vT, _dV, _sV, _mV, _mVa],
+  [0, 0, 0, 64 | 0, 1, 1], 3
 ];
 export var DescribeAccountPoliciesRequest$: StaticStructureSchema = [3, n0, _DAPRe,
   0,
@@ -1991,7 +2008,7 @@ export var LiveTailSessionStart$: StaticStructureSchema = [3, n0, _LTSS,
 ];
 export var LiveTailSessionUpdate$: StaticStructureSchema = [3, n0, _LTSU,
   0,
-  [_sM, _sR],
+  [_sM, _sRe],
   [() => LiveTailSessionMetadata$, () => LiveTailSessionResults]
 ];
 export var LogEvent$: StaticStructureSchema = [3, n0, _LE,
@@ -2051,7 +2068,7 @@ export var MetricFilterMatchRecord$: StaticStructureSchema = [3, n0, _MFMR,
 ];
 export var MetricTransformation$: StaticStructureSchema = [3, n0, _MT,
   0,
-  [_mN, _mNe, _mV, _dV, _di, _un],
+  [_mN, _mNe, _mVe, _dV, _di, _un],
   [0, 0, 0, 1, 128 | 0, 0], 3
 ];
 export var MoveKeyEntry$: StaticStructureSchema = [3, n0, _MKE,
@@ -2151,7 +2168,7 @@ export var ParseRoute53$: StaticStructureSchema = [3, n0, _PR,
 ];
 export var ParseToOCSF$: StaticStructureSchema = [3, n0, _PTOCSF,
   0,
-  [_eSv, _oV, _so, _mVa],
+  [_eSv, _oV, _so, _mVap],
   [0, 0, 0, 0], 2
 ];
 export var ParseVPC$: StaticStructureSchema = [3, n0, _PVPC,
@@ -2226,8 +2243,8 @@ export var PutDeliveryDestinationResponse$: StaticStructureSchema = [3, n0, _PDD
 ];
 export var PutDeliverySourceRequest$: StaticStructureSchema = [3, n0, _PDSR,
   0,
-  [_n, _rA, _lT, _ta],
-  [0, 0, 0, 128 | 0], 3
+  [_n, _rA, _lT, _ta, _dSC],
+  [0, 0, 0, 128 | 0, 128 | 0], 3
 ];
 export var PutDeliverySourceResponse$: StaticStructureSchema = [3, n0, _PDSRu,
   0,
@@ -2401,12 +2418,17 @@ export var S3DeliveryConfiguration$: StaticStructureSchema = [3, n0, _SDC,
 ];
 export var S3TableIntegrationSource$: StaticStructureSchema = [3, n0, _STIS,
   0,
-  [_i, _dS, _sta, _sRt, _cTSr, _pSI],
+  [_i, _dS, _sta, _sR, _cTSr, _pSI],
   [0, () => DataSource$, 0, 0, 1, 0]
+];
+export var S3TablesIntegration$: StaticStructureSchema = [3, n0, _STI,
+  0,
+  [_dNa, _dT],
+  [0, 0]
 ];
 export var ScheduledQueryDestination$: StaticStructureSchema = [3, n0, _SQD,
   0,
-  [_dT, _dI, _sta, _pIr, _eM],
+  [_dTe, _dI, _sta, _pIr, _eM],
   [0, 0, 0, 0, 0]
 ];
 export var ScheduledQuerySummary$: StaticStructureSchema = [3, n0, _SQS,
@@ -2634,6 +2656,10 @@ var DeliveryDestinations: StaticListSchema = [1, n0, _DDe,
   0, () => DeliveryDestination$
 ];
 var DeliveryDestinationTypes = 64 | 0;
+var DeliverySourceConfigurationSchemas: StaticListSchema = [1, n0, _DSCSe,
+  0, () => DeliverySourceConfigurationSchema$
+];
+var DeliverySourceConfigurationSupportedValues = 64 | 0;
 var DeliverySources: StaticListSchema = [1, n0, _DSel,
   0, () => DeliverySource$
 ];
@@ -2794,6 +2820,7 @@ var TypeConverterEntries: StaticListSchema = [1, n0, _TCEy,
   0, () => TypeConverterEntry$
 ];
 var UpperCaseStringWithKeys = 64 | 0;
+var DeliverySourceConfiguration = 128 | 0;
 var Dimensions = 128 | 0;
 var EntityAttributes = 128 | 0;
 var EntityKeyAttributes = 128 | 0;

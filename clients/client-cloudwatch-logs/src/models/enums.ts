@@ -140,6 +140,23 @@ export type DeliveryDestinationType = (typeof DeliveryDestinationType)[keyof typ
  * @public
  * @enum
  */
+export const DeliverySourceConfigurationSchemaValueType = {
+  BOOLEAN: "boolean",
+  DOUBLE: "double",
+  INT: "int",
+  LONG: "long",
+  STRING: "string",
+} as const;
+/**
+ * @public
+ */
+export type DeliverySourceConfigurationSchemaValueType =
+  (typeof DeliverySourceConfigurationSchemaValueType)[keyof typeof DeliverySourceConfigurationSchemaValueType];
+
+/**
+ * @public
+ * @enum
+ */
 export const LogGroupClass = {
   DELIVERY: "DELIVERY",
   INFREQUENT_ACCESS: "INFREQUENT_ACCESS",
@@ -191,6 +208,31 @@ export const DataProtectionStatus = {
  * @public
  */
 export type DataProtectionStatus = (typeof DataProtectionStatus)[keyof typeof DataProtectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeliverySourceStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type DeliverySourceStatus = (typeof DeliverySourceStatus)[keyof typeof DeliverySourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeliverySourceStatusReason = {
+  RESOURCE_DELETED: "RESOURCE_DELETED",
+} as const;
+/**
+ * @public
+ */
+export type DeliverySourceStatusReason = (typeof DeliverySourceStatusReason)[keyof typeof DeliverySourceStatusReason];
 
 /**
  * @public

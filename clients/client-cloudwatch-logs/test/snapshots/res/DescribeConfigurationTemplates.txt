@@ -75,7 +75,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "deliverySourceConfiguration": [
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        },
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        },
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        }
+      ],
+      "s3TablesIntegration": {
+        "datasourceName": "__datasourceName__",
+        "datasourceType": "__datasourceType__"
+      }
     },
     {
       "service": "__service__",
@@ -123,7 +165,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "deliverySourceConfiguration": [
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        },
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        },
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        }
+      ],
+      "s3TablesIntegration": {
+        "datasourceName": "__datasourceName__",
+        "datasourceType": "__datasourceType__"
+      }
     },
     {
       "service": "__service__",
@@ -171,7 +255,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      "deliverySourceConfiguration": [
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        },
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        },
+        {
+          "keyName": "__keyName__",
+          "valueType": "__valueType__",
+          "defaultValue": "__defaultValue__",
+          "supportedValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "minValue": 0,
+          "maxValue": 0
+        }
+      ],
+      "s3TablesIntegration": {
+        "datasourceName": "__datasourceName__",
+        "datasourceType": "__datasourceType__"
+      }
     }
   ],
   "nextToken": "__nextToken__"
@@ -227,7 +353,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      deliverySourceConfiguration: [
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        },
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        },
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        }
+      ],
+      s3TablesIntegration: {
+        datasourceName: "__datasourceName__",
+        datasourceType: "__datasourceType__"
+      }
     },
     {
       service: "__service__",
@@ -275,7 +443,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      deliverySourceConfiguration: [
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        },
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        },
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        }
+      ],
+      s3TablesIntegration: {
+        datasourceName: "__datasourceName__",
+        datasourceType: "__datasourceType__"
+      }
     },
     {
       service: "__service__",
@@ -323,7 +533,49 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      deliverySourceConfiguration: [
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        },
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        },
+        {
+          keyName: "__keyName__",
+          valueType: "__valueType__",
+          defaultValue: "__defaultValue__",
+          supportedValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          minValue: (number) 0,
+          maxValue: (number) 0
+        }
+      ],
+      s3TablesIntegration: {
+        datasourceName: "__datasourceName__",
+        datasourceType: "__datasourceType__"
+      }
     }
   ],
   nextToken: "__nextToken__",
