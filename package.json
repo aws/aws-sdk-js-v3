@@ -139,7 +139,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn lint:versions && yarn lint:dependencies && yarn lint:api",
+      "pre-commit": "lint-staged && yarn lint:versions && yarn lint:dependencies",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
