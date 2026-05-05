@@ -7,20 +7,25 @@ import type {
   AlertCategory,
   ChannelState,
   CompressionMethod,
+  EventName,
   FillPolicy,
+  FunctionType,
   InsertionMode,
   ListPrefetchScheduleType,
   LoggingStrategy,
   LogType,
   ManifestServiceExcludeEventType,
+  ManifestServicePublishOptInEventType,
   MessageType,
   Method,
+  MethodType,
   Mode,
   Operator,
   OriginManifestType,
   PlaybackMode,
   PrefetchScheduleType,
   RelativePosition,
+  RuntimeType,
   ScheduleEntryType,
   StreamingMediaFileConditioning,
   Tier,
@@ -521,6 +526,174 @@ export interface Channel {
 }
 
 /**
+ * <p>A reference to a child function within a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+ * @public
+ */
+export interface FunctionRef {
+  /**
+   * <p>An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the step, using the accumulated state at that point in the sequence. If the expression evaluates to <code>false</code>, MediaTailor skips the step and moves to the next one. If omitted, the step always runs.</p>
+   * @public
+   */
+  RunCondition?: string | undefined;
+
+  /**
+   * <p>The identifier of the child function to execute in this step.</p>
+   * @public
+   */
+  FunctionId?: string | undefined;
+}
+
+/**
+ * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. MediaTailor evaluates the output expressions against the current session state and commits the results as output bindings. <code>CUSTOM_OUTPUT</code> functions do not make external calls. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-custom-output.html">CUSTOM_OUTPUT</a> in the <i>MediaTailor User Guide</i>.</p>
+ * @public
+ */
+export interface CustomOutputConfiguration {
+  /**
+   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * @public
+   */
+  Runtime: RuntimeType | undefined;
+
+  /**
+   * <p>A map of output bindings. Each key is a namespaced output path (such as <code>player_params.device_type</code> or <code>temp.variant</code>), and each value is an expression that MediaTailor evaluates at runtime against the current session state. For more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  Output?: Record<string, string> | undefined;
+}
+
+/**
+ * -- Function Configuration DataStructure
+ * @public
+ */
+export interface HttpRequestConfiguration {
+  /**
+   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * @public
+   */
+  Runtime: RuntimeType | undefined;
+
+  /**
+   * <p>A map of output bindings. Each key is a namespaced output path (such as <code>player_params.device_type</code> or <code>temp.identity</code>), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in an <code>HTTP_REQUEST</code> function can reference the <code>response</code> object returned by the HTTP call. For more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  Output?: Record<string, string> | undefined;
+
+  /**
+   * <p>The HTTP method for the request. Valid values: <code>GET</code> and <code>POST</code>.</p>
+   * @public
+   */
+  MethodType: MethodType | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the external service. If the call exceeds this timeout, MediaTailor sets the response status code to <code>null</code> and proceeds with output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
+   * @public
+   */
+  RequestTimeoutMilliseconds: number | undefined;
+
+  /**
+   * <p>An expression that evaluates to the request URL. Use <code>\{%...%\}</code> delimiters for dynamic expressions. The maximum length after evaluation is 2,048 characters.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>An expression that evaluates to the request body. Used with <code>POST</code> requests. The maximum size after evaluation is 64 KB.</p>
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound HTTP request. Maximum 50 headers.</p>
+   * @public
+   */
+  Headers?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function. A <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-sequential-executor.html">SEQUENTIAL_EXECUTOR</a> in the <i>MediaTailor User Guide</i>.</p>
+ * @public
+ */
+export interface SequentialExecutorConfiguration {
+  /**
+   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * @public
+   */
+  Runtime: RuntimeType | undefined;
+
+  /**
+   * <p>An optional map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. If omitted, MediaTailor commits all accumulated output bindings from all child steps.</p>
+   * @public
+   */
+  Output?: Record<string, string> | undefined;
+
+  /**
+   * <p>An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes steps in order, passing data between steps through temporary data.</p>
+   * @public
+   */
+  FunctionList: FunctionRef[] | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior.</p>
+   * @public
+   */
+  TimeoutMilliseconds: number | undefined;
+}
+
+/**
+ * -- Define Mixin --
+ * @public
+ */
+export interface Function {
+  /**
+   * <p>The identifier of the function.</p>
+   * @public
+   */
+  FunctionId: string | undefined;
+
+  /**
+   * <p>The type of the function.</p>
+   * @public
+   */
+  FunctionType: FunctionType | undefined;
+
+  /**
+   * <p>A description of the function.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
+   * @public
+   */
+  HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
+   * @public
+   */
+  CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+   * @public
+   */
+  SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>The HTTP package configuration properties for the requested VOD source.</p>
  * @public
  */
@@ -784,6 +957,12 @@ export interface AdsInteractionLog {
  */
 export interface ManifestServiceInteractionLog {
   /**
+   * <p>Indicates that MediaTailor will emit the selected events in the logs for playback sessions that are initialized with this configuration. These events are not emitted by default and must be explicitly opted in.</p>
+   * @public
+   */
+  PublishOptInEventTypes?: ManifestServicePublishOptInEventType[] | undefined;
+
+  /**
    * <p>Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.</p>
    * @public
    */
@@ -980,6 +1159,12 @@ export interface PlaybackConfiguration {
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 }
 
 /**
@@ -2180,7 +2365,7 @@ export interface CreateProgramResponse {
   AudienceMedia?: AudienceMedia[] | undefined;
 
   /**
-   * <p>The tags to assign to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * <p>The tags assigned to the program. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2859,7 +3044,7 @@ export interface CreatePrefetchScheduleResponse {
   StreamId?: string | undefined;
 
   /**
-   * <p>The tags to assign to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * <p>The tags assigned to the prefetch schedule. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3058,6 +3243,22 @@ export interface DashConfigurationForPut {
    */
   OriginManifestType?: OriginManifestType | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteFunctionRequest {
+  /**
+   * <p>The identifier of the function to delete.</p>
+   * @public
+   */
+  FunctionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionResponse {}
 
 /**
  * @public
@@ -3362,6 +3563,208 @@ export interface DescribeVodSourceResponse {
 }
 
 /**
+ * -- Request/Response DataStructures --
+ * @public
+ */
+export interface GetFunctionRequest {
+  /**
+   * <p>The identifier of the function.</p>
+   * @public
+   */
+  FunctionId: string | undefined;
+}
+
+/**
+ * -- Define Mixin --
+ * @public
+ */
+export interface GetFunctionResponse {
+  /**
+   * <p>The identifier of the function.</p>
+   * @public
+   */
+  FunctionId: string | undefined;
+
+  /**
+   * <p>The type of the function.</p>
+   * @public
+   */
+  FunctionType: FunctionType | undefined;
+
+  /**
+   * <p>A description of the function.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
+   * @public
+   */
+  HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
+   * @public
+   */
+  CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+   * @public
+   */
+  SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionsRequest {
+  /**
+   * <p>The maximum number of functions that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> functions, use the value of <code>NextToken</code> in the response to get the next page of results.</p> <p>The default value is 100. MediaTailor uses token-based pagination, which means that a response might contain fewer than <code>MaxResults</code> items, including 0 items, even when more results are available. To retrieve all results, you must continue making requests using the <code>NextToken</code> value from each response until the response no longer includes a <code>NextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListFunctions</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionsResponse {
+  /**
+   * <p>A list of functions associated with your account in the current Region.</p>
+   * @public
+   */
+  Items?: Function[] | undefined;
+
+  /**
+   * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p> <p>For the first <code>ListFunctions</code> request, omit this value. For subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value for <code>NextToken</code> in the request. Continue making requests until the response no longer includes a <code>NextToken</code> value, which indicates that all results have been retrieved.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * -- Define Mixin --
+ * @public
+ */
+export interface PutFunctionRequest {
+  /**
+   * <p>The identifier of the function. The identifier must be unique within your account.</p>
+   * @public
+   */
+  FunctionId: string | undefined;
+
+  /**
+   * <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  FunctionType: FunctionType | undefined;
+
+  /**
+   * <p>A description of the function.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>HTTP_REQUEST</code>.</p>
+   * @public
+   */
+  HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. Specifies the runtime and output expressions. Required when <code>FunctionType</code> is <code>CUSTOM_OUTPUT</code>.</p>
+   * @public
+   */
+  CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function. Specifies the ordered list of child functions to execute, an optional output block, and a timeout. Required when <code>FunctionType</code> is <code>SEQUENTIAL_EXECUTOR</code>.</p>
+   * @public
+   */
+  SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The tags to assign to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * -- Define Mixin --
+ * @public
+ */
+export interface PutFunctionResponse {
+  /**
+   * <p>The identifier of the function.</p>
+   * @public
+   */
+  FunctionId: string | undefined;
+
+  /**
+   * <p>The type of the function.</p>
+   * @public
+   */
+  FunctionType: FunctionType | undefined;
+
+  /**
+   * <p>A description of the function.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for an <code>HTTP_REQUEST</code> function.</p>
+   * @public
+   */
+  HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
+   * @public
+   */
+  CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
+   * @public
+   */
+  SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetPlaybackConfigurationRequest {
@@ -3507,6 +3910,12 @@ export interface GetPlaybackConfigurationResponse {
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 }
 
 /**
@@ -4022,6 +4431,12 @@ export interface PutPlaybackConfigurationRequest {
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 }
 
 /**
@@ -4159,6 +4574,12 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  FunctionMapping?: Partial<Record<EventName, string>> | undefined;
 }
 
 /**

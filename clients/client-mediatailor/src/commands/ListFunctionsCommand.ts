@@ -1,0 +1,133 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import type { ListFunctionsRequest, ListFunctionsResponse } from "../models/models_0";
+import { ListFunctions$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListFunctionsCommand}.
+ */
+export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListFunctionsCommand}.
+ */
+export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
+
+/**
+ * <p>Retrieves all functions associated with your AWS account in the current Region. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, ListFunctionsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, ListFunctionsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * // import type { MediaTailorClientConfig } from "@aws-sdk/client-mediatailor";
+ * const config = {}; // type is MediaTailorClientConfig
+ * const client = new MediaTailorClient(config);
+ * const input = { // ListFunctionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new ListFunctionsCommand(input);
+ * const response = await client.send(command);
+ * // { // ListFunctionsResponse
+ * //   Items: [ // __listOfFunctionsResponse
+ * //     { // Function
+ * //       FunctionId: "STRING_VALUE", // required
+ * //       FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "SEQUENTIAL_EXECUTOR", // required
+ * //       Description: "STRING_VALUE",
+ * //       HttpRequestConfiguration: { // HttpRequestConfiguration
+ * //         Runtime: "JSONATA", // required
+ * //         Output: { // __mapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         MethodType: "GET" || "POST", // required
+ * //         RequestTimeoutMilliseconds: Number("int"), // required
+ * //         Url: "STRING_VALUE", // required
+ * //         Body: "STRING_VALUE",
+ * //         Headers: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       CustomOutputConfiguration: { // CustomOutputConfiguration
+ * //         Runtime: "JSONATA", // required
+ * //         Output: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
+ * //         Runtime: "JSONATA", // required
+ * //         Output: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         FunctionList: [ // __listOfFunctionsRef // required
+ * //           { // FunctionRef
+ * //             RunCondition: "STRING_VALUE",
+ * //             FunctionId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         TimeoutMilliseconds: Number("int"), // required
+ * //       },
+ * //       Tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
+ * @returns {@link ListFunctionsCommandOutput}
+ * @see {@link ListFunctionsCommandInput} for command's `input` shape.
+ * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
+ *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
+ *
+ *
+ * @public
+ */
+export class ListFunctionsCommand extends $Command
+  .classBuilder<
+    ListFunctionsCommandInput,
+    ListFunctionsCommandOutput,
+    MediaTailorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep(commonParams)
+  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+  })
+  .s("MediaTailor", "ListFunctions", {})
+  .n("MediaTailorClient", "ListFunctionsCommand")
+  .sc(ListFunctions$)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionsRequest;
+      output: ListFunctionsResponse;
+    };
+    sdk: {
+      input: ListFunctionsCommandInput;
+      output: ListFunctionsCommandOutput;
+    };
+  };
+}

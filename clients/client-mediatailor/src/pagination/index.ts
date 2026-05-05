@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./GetChannelSchedulePaginator";
 export * from "./ListAlertsPaginator";
 export * from "./ListChannelsPaginator";
+export * from "./ListFunctionsPaginator";
 export * from "./ListLiveSourcesPaginator";
 export * from "./ListPlaybackConfigurationsPaginator";
 export * from "./ListPrefetchSchedulesPaginator";

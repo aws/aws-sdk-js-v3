@@ -53,6 +53,11 @@ import {
   DeleteChannelPolicyCommand,
 } from "./commands/DeleteChannelPolicyCommand";
 import {
+  type DeleteFunctionCommandInput,
+  type DeleteFunctionCommandOutput,
+  DeleteFunctionCommand,
+} from "./commands/DeleteFunctionCommand";
+import {
   type DeleteLiveSourceCommandInput,
   type DeleteLiveSourceCommandOutput,
   DeleteLiveSourceCommand,
@@ -118,6 +123,11 @@ import {
   GetChannelScheduleCommand,
 } from "./commands/GetChannelScheduleCommand";
 import {
+  type GetFunctionCommandInput,
+  type GetFunctionCommandOutput,
+  GetFunctionCommand,
+} from "./commands/GetFunctionCommand";
+import {
   type GetPlaybackConfigurationCommandInput,
   type GetPlaybackConfigurationCommandOutput,
   GetPlaybackConfigurationCommand,
@@ -137,6 +147,11 @@ import {
   type ListChannelsCommandOutput,
   ListChannelsCommand,
 } from "./commands/ListChannelsCommand";
+import {
+  type ListFunctionsCommandInput,
+  type ListFunctionsCommandOutput,
+  ListFunctionsCommand,
+} from "./commands/ListFunctionsCommand";
 import {
   type ListLiveSourcesCommandInput,
   type ListLiveSourcesCommandOutput,
@@ -172,6 +187,11 @@ import {
   type PutChannelPolicyCommandOutput,
   PutChannelPolicyCommand,
 } from "./commands/PutChannelPolicyCommand";
+import {
+  type PutFunctionCommandInput,
+  type PutFunctionCommandOutput,
+  PutFunctionCommand,
+} from "./commands/PutFunctionCommand";
 import {
   type PutPlaybackConfigurationCommandInput,
   type PutPlaybackConfigurationCommandOutput,
@@ -226,6 +246,7 @@ import { MediaTailorClient } from "./MediaTailorClient";
 import { paginateGetChannelSchedule } from "./pagination/GetChannelSchedulePaginator";
 import { paginateListAlerts } from "./pagination/ListAlertsPaginator";
 import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListFunctions } from "./pagination/ListFunctionsPaginator";
 import { paginateListLiveSources } from "./pagination/ListLiveSourcesPaginator";
 import { paginateListPlaybackConfigurations } from "./pagination/ListPlaybackConfigurationsPaginator";
 import { paginateListPrefetchSchedules } from "./pagination/ListPrefetchSchedulesPaginator";
@@ -243,6 +264,7 @@ const commands = {
   CreateVodSourceCommand,
   DeleteChannelCommand,
   DeleteChannelPolicyCommand,
+  DeleteFunctionCommand,
   DeleteLiveSourceCommand,
   DeletePlaybackConfigurationCommand,
   DeletePrefetchScheduleCommand,
@@ -256,10 +278,12 @@ const commands = {
   DescribeVodSourceCommand,
   GetChannelPolicyCommand,
   GetChannelScheduleCommand,
+  GetFunctionCommand,
   GetPlaybackConfigurationCommand,
   GetPrefetchScheduleCommand,
   ListAlertsCommand,
   ListChannelsCommand,
+  ListFunctionsCommand,
   ListLiveSourcesCommand,
   ListPlaybackConfigurationsCommand,
   ListPrefetchSchedulesCommand,
@@ -267,6 +291,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListVodSourcesCommand,
   PutChannelPolicyCommand,
+  PutFunctionCommand,
   PutPlaybackConfigurationCommand,
   StartChannelCommand,
   StopChannelCommand,
@@ -282,6 +307,7 @@ const paginators = {
   paginateGetChannelSchedule,
   paginateListAlerts,
   paginateListChannels,
+  paginateListFunctions,
   paginateListLiveSources,
   paginateListPlaybackConfigurations,
   paginateListPrefetchSchedules,
@@ -458,6 +484,23 @@ export interface MediaTailor {
     args: DeleteChannelPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteChannelPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFunctionCommand}
+   */
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFunctionCommandOutput>;
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
+  deleteFunction(
+    args: DeleteFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -682,6 +725,23 @@ export interface MediaTailor {
   ): void;
 
   /**
+   * @see {@link GetFunctionCommand}
+   */
+  getFunction(
+    args: GetFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionCommandOutput>;
+  getFunction(
+    args: GetFunctionCommandInput,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
+  getFunction(
+    args: GetFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPlaybackConfigurationCommand}
    */
   getPlaybackConfiguration(
@@ -748,6 +808,24 @@ export interface MediaTailor {
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFunctionsCommand}
+   */
+  listFunctions(): Promise<ListFunctionsCommandOutput>;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionsCommandOutput>;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
+  listFunctions(
+    args: ListFunctionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
   ): void;
 
   /**
@@ -869,6 +947,23 @@ export interface MediaTailor {
     args: PutChannelPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutChannelPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutFunctionCommand}
+   */
+  putFunction(
+    args: PutFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFunctionCommandOutput>;
+  putFunction(
+    args: PutFunctionCommandInput,
+    cb: (err: any, data?: PutFunctionCommandOutput) => void
+  ): void;
+  putFunction(
+    args: PutFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFunctionCommandOutput) => void
   ): void;
 
   /**
@@ -1073,6 +1168,17 @@ export interface MediaTailor {
     args?: ListChannelsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionsCommandOutput}.
+   */
+  paginateListFunctions(
+    args?: ListFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionsCommandOutput>;
 
   /**
    * @see {@link ListLiveSourcesCommand}

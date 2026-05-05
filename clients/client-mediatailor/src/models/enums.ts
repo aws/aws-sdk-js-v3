@@ -36,6 +36,8 @@ export const AdsInteractionExcludeEventType = {
   MAKING_ADS_REQUEST: "MAKING_ADS_REQUEST",
   MODIFIED_TARGET_URL: "MODIFIED_TARGET_URL",
   NON_AD_MARKER_FOUND: "NON_AD_MARKER_FOUND",
+  PRE_ADS_REQUEST_FUNCTION_ERROR: "PRE_ADS_REQUEST_FUNCTION_ERROR",
+  PRE_ADS_REQUEST_HOOK_ERROR: "PRE_ADS_REQUEST_HOOK_ERROR",
   REDIRECTED_VAST_RESPONSE: "REDIRECTED_VAST_RESPONSE",
   VAST_REDIRECT: "VAST_REDIRECT",
   VAST_RESPONSE: "VAST_RESPONSE",
@@ -57,6 +59,8 @@ export type AdsInteractionExcludeEventType =
  * @enum
  */
 export const AdsInteractionPublishOptInEventType = {
+  PRE_ADS_REQUEST_FUNCTION_COMPLETED: "PRE_ADS_REQUEST_FUNCTION_COMPLETED",
+  PRE_ADS_REQUEST_HOOK_SUMMARY: "PRE_ADS_REQUEST_HOOK_SUMMARY",
   RAW_ADS_REQUEST: "RAW_ADS_REQUEST",
   RAW_ADS_RESPONSE: "RAW_ADS_RESPONSE",
 } as const;
@@ -129,6 +133,45 @@ export const AdMarkupType = {
  * @public
  */
 export type AdMarkupType = (typeof AdMarkupType)[keyof typeof AdMarkupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuntimeType = {
+  JSONATA: "JSONATA",
+} as const;
+/**
+ * @public
+ */
+export type RuntimeType = (typeof RuntimeType)[keyof typeof RuntimeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FunctionType = {
+  CUSTOM_OUTPUT: "CUSTOM_OUTPUT",
+  HTTP_REQUEST: "HTTP_REQUEST",
+  SEQUENTIAL_EXECUTOR: "SEQUENTIAL_EXECUTOR",
+} as const;
+/**
+ * @public
+ */
+export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MethodType = {
+  GET: "GET",
+  POST: "POST",
+} as const;
+/**
+ * @public
+ */
+export type MethodType = (typeof MethodType)[keyof typeof MethodType];
 
 /**
  * @public
@@ -240,6 +283,19 @@ export type OriginManifestType = (typeof OriginManifestType)[keyof typeof Origin
  * @public
  * @enum
  */
+export const EventName = {
+  PRE_ADS_REQUEST: "PRE_ADS_REQUEST",
+  PRE_SESSION_INITIALIZATION: "PRE_SESSION_INITIALIZATION",
+} as const;
+/**
+ * @public
+ */
+export type EventName = (typeof EventName)[keyof typeof EventName];
+
+/**
+ * @public
+ * @enum
+ */
 export const InsertionMode = {
   PLAYER_SELECT: "PLAYER_SELECT",
   STITCHED_ONLY: "STITCHED_ONLY",
@@ -279,6 +335,8 @@ export const ManifestServiceExcludeEventType = {
   NO_MEDIA_PLAYLIST: "NO_MEDIA_PLAYLIST",
   ORIGIN_MANIFEST: "ORIGIN_MANIFEST",
   PARSING_ERROR: "PARSING_ERROR",
+  PRE_SESSION_INIT_FUNCTION_ERROR: "PRE_SESSION_INIT_FUNCTION_ERROR",
+  PRE_SESSION_INIT_HOOK_ERROR: "PRE_SESSION_INIT_HOOK_ERROR",
   SCTE35_PARSING_ERROR: "SCTE35_PARSING_ERROR",
   SESSION_INITIALIZED: "SESSION_INITIALIZED",
   TIMEOUT_ERROR: "TIMEOUT_ERROR",
@@ -292,6 +350,20 @@ export const ManifestServiceExcludeEventType = {
  */
 export type ManifestServiceExcludeEventType =
   (typeof ManifestServiceExcludeEventType)[keyof typeof ManifestServiceExcludeEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManifestServicePublishOptInEventType = {
+  PRE_SESSION_INIT_FUNCTION_COMPLETED: "PRE_SESSION_INIT_FUNCTION_COMPLETED",
+  PRE_SESSION_INIT_HOOK_SUMMARY: "PRE_SESSION_INIT_HOOK_SUMMARY",
+} as const;
+/**
+ * @public
+ */
+export type ManifestServicePublishOptInEventType =
+  (typeof ManifestServicePublishOptInEventType)[keyof typeof ManifestServicePublishOptInEventType];
 
 /**
  * @public

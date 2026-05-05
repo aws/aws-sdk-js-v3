@@ -56,6 +56,7 @@ import {
   CreateVodSourceCommand,
   CreateVodSourceRequest$,
   CreateVodSourceResponse$,
+  CustomOutputConfiguration$,
   DashConfiguration$,
   DashConfigurationForPut$,
   DashPlaylistSettings$,
@@ -68,6 +69,10 @@ import {
   DeleteChannelPolicyResponse$,
   DeleteChannelRequest$,
   DeleteChannelResponse$,
+  DeleteFunction$,
+  DeleteFunctionCommand,
+  DeleteFunctionRequest$,
+  DeleteFunctionResponse$,
   DeleteLiveSource$,
   DeleteLiveSourceCommand,
   DeleteLiveSourceRequest$,
@@ -112,7 +117,11 @@ import {
   DescribeVodSourceCommand,
   DescribeVodSourceRequest$,
   DescribeVodSourceResponse$,
+  EventName,
   FillPolicy,
+  Function$,
+  FunctionRef$,
+  FunctionType,
   GetChannelPolicy$,
   GetChannelPolicyCommand,
   GetChannelPolicyRequest$,
@@ -121,6 +130,10 @@ import {
   GetChannelScheduleCommand,
   GetChannelScheduleRequest$,
   GetChannelScheduleResponse$,
+  GetFunction$,
+  GetFunctionCommand,
+  GetFunctionRequest$,
+  GetFunctionResponse$,
   GetPlaybackConfiguration$,
   GetPlaybackConfigurationCommand,
   GetPlaybackConfigurationRequest$,
@@ -134,6 +147,7 @@ import {
   HttpConfiguration$,
   HttpPackageConfiguration$,
   HttpRequest$,
+  HttpRequestConfiguration$,
   InsertionMode,
   KeyValuePair$,
   ListAlerts$,
@@ -144,6 +158,10 @@ import {
   ListChannelsCommand,
   ListChannelsRequest$,
   ListChannelsResponse$,
+  ListFunctions$,
+  ListFunctionsCommand,
+  ListFunctionsRequest$,
+  ListFunctionsResponse$,
   ListLiveSources$,
   ListLiveSourcesCommand,
   ListLiveSourcesRequest$,
@@ -178,17 +196,20 @@ import {
   ManifestProcessingRules$,
   ManifestServiceExcludeEventType,
   ManifestServiceInteractionLog$,
+  ManifestServicePublishOptInEventType,
   MediaTailor,
   MediaTailorClient,
   MediaTailorServiceException,
   MessageType,
   Method,
+  MethodType,
   Mode,
   Operator,
   OriginManifestType,
   paginateGetChannelSchedule,
   paginateListAlerts,
   paginateListChannels,
+  paginateListFunctions,
   paginateListLiveSources,
   paginateListPlaybackConfigurations,
   paginateListPrefetchSchedules,
@@ -204,6 +225,10 @@ import {
   PutChannelPolicyCommand,
   PutChannelPolicyRequest$,
   PutChannelPolicyResponse$,
+  PutFunction$,
+  PutFunctionCommand,
+  PutFunctionRequest$,
+  PutFunctionResponse$,
   PutPlaybackConfiguration$,
   PutPlaybackConfigurationCommand,
   PutPlaybackConfigurationRequest$,
@@ -214,6 +239,7 @@ import {
   RelativePosition,
   RequestOutputItem$,
   ResponseOutputItem$,
+  RuntimeType,
   ScheduleAdBreak$,
   ScheduleConfiguration$,
   ScheduleEntry$,
@@ -221,6 +247,7 @@ import {
   SecretsManagerAccessTokenConfiguration$,
   SegmentationDescriptor$,
   SegmentDeliveryConfiguration$,
+  SequentialExecutorConfiguration$,
   SlateSource$,
   SourceLocation$,
   SpliceInsertMessage$,
@@ -296,6 +323,8 @@ assert(typeof DeleteChannelCommand === "function");
 assert(typeof DeleteChannel$ === "object");
 assert(typeof DeleteChannelPolicyCommand === "function");
 assert(typeof DeleteChannelPolicy$ === "object");
+assert(typeof DeleteFunctionCommand === "function");
+assert(typeof DeleteFunction$ === "object");
 assert(typeof DeleteLiveSourceCommand === "function");
 assert(typeof DeleteLiveSource$ === "object");
 assert(typeof DeletePlaybackConfigurationCommand === "function");
@@ -322,6 +351,8 @@ assert(typeof GetChannelPolicyCommand === "function");
 assert(typeof GetChannelPolicy$ === "object");
 assert(typeof GetChannelScheduleCommand === "function");
 assert(typeof GetChannelSchedule$ === "object");
+assert(typeof GetFunctionCommand === "function");
+assert(typeof GetFunction$ === "object");
 assert(typeof GetPlaybackConfigurationCommand === "function");
 assert(typeof GetPlaybackConfiguration$ === "object");
 assert(typeof GetPrefetchScheduleCommand === "function");
@@ -330,6 +361,8 @@ assert(typeof ListAlertsCommand === "function");
 assert(typeof ListAlerts$ === "object");
 assert(typeof ListChannelsCommand === "function");
 assert(typeof ListChannels$ === "object");
+assert(typeof ListFunctionsCommand === "function");
+assert(typeof ListFunctions$ === "object");
 assert(typeof ListLiveSourcesCommand === "function");
 assert(typeof ListLiveSources$ === "object");
 assert(typeof ListPlaybackConfigurationsCommand === "function");
@@ -344,6 +377,8 @@ assert(typeof ListVodSourcesCommand === "function");
 assert(typeof ListVodSources$ === "object");
 assert(typeof PutChannelPolicyCommand === "function");
 assert(typeof PutChannelPolicy$ === "object");
+assert(typeof PutFunctionCommand === "function");
+assert(typeof PutFunction$ === "object");
 assert(typeof PutPlaybackConfigurationCommand === "function");
 assert(typeof PutPlaybackConfiguration$ === "object");
 assert(typeof StartChannelCommand === "function");
@@ -397,6 +432,7 @@ assert(typeof CreateSourceLocationRequest$ === "object");
 assert(typeof CreateSourceLocationResponse$ === "object");
 assert(typeof CreateVodSourceRequest$ === "object");
 assert(typeof CreateVodSourceResponse$ === "object");
+assert(typeof CustomOutputConfiguration$ === "object");
 assert(typeof DashConfiguration$ === "object");
 assert(typeof DashConfigurationForPut$ === "object");
 assert(typeof DashPlaylistSettings$ === "object");
@@ -405,6 +441,8 @@ assert(typeof DeleteChannelPolicyRequest$ === "object");
 assert(typeof DeleteChannelPolicyResponse$ === "object");
 assert(typeof DeleteChannelRequest$ === "object");
 assert(typeof DeleteChannelResponse$ === "object");
+assert(typeof DeleteFunctionRequest$ === "object");
+assert(typeof DeleteFunctionResponse$ === "object");
 assert(typeof DeleteLiveSourceRequest$ === "object");
 assert(typeof DeleteLiveSourceResponse$ === "object");
 assert(typeof DeletePlaybackConfigurationRequest$ === "object");
@@ -427,10 +465,14 @@ assert(typeof DescribeSourceLocationRequest$ === "object");
 assert(typeof DescribeSourceLocationResponse$ === "object");
 assert(typeof DescribeVodSourceRequest$ === "object");
 assert(typeof DescribeVodSourceResponse$ === "object");
+assert(typeof Function$ === "object");
+assert(typeof FunctionRef$ === "object");
 assert(typeof GetChannelPolicyRequest$ === "object");
 assert(typeof GetChannelPolicyResponse$ === "object");
 assert(typeof GetChannelScheduleRequest$ === "object");
 assert(typeof GetChannelScheduleResponse$ === "object");
+assert(typeof GetFunctionRequest$ === "object");
+assert(typeof GetFunctionResponse$ === "object");
 assert(typeof GetPlaybackConfigurationRequest$ === "object");
 assert(typeof GetPlaybackConfigurationResponse$ === "object");
 assert(typeof GetPrefetchScheduleRequest$ === "object");
@@ -440,11 +482,14 @@ assert(typeof HlsPlaylistSettings$ === "object");
 assert(typeof HttpConfiguration$ === "object");
 assert(typeof HttpPackageConfiguration$ === "object");
 assert(typeof HttpRequest$ === "object");
+assert(typeof HttpRequestConfiguration$ === "object");
 assert(typeof KeyValuePair$ === "object");
 assert(typeof ListAlertsRequest$ === "object");
 assert(typeof ListAlertsResponse$ === "object");
 assert(typeof ListChannelsRequest$ === "object");
 assert(typeof ListChannelsResponse$ === "object");
+assert(typeof ListFunctionsRequest$ === "object");
+assert(typeof ListFunctionsResponse$ === "object");
 assert(typeof ListLiveSourcesRequest$ === "object");
 assert(typeof ListLiveSourcesResponse$ === "object");
 assert(typeof ListPlaybackConfigurationsRequest$ === "object");
@@ -469,6 +514,8 @@ assert(typeof PrefetchRetrieval$ === "object");
 assert(typeof PrefetchSchedule$ === "object");
 assert(typeof PutChannelPolicyRequest$ === "object");
 assert(typeof PutChannelPolicyResponse$ === "object");
+assert(typeof PutFunctionRequest$ === "object");
+assert(typeof PutFunctionResponse$ === "object");
 assert(typeof PutPlaybackConfigurationRequest$ === "object");
 assert(typeof PutPlaybackConfigurationResponse$ === "object");
 assert(typeof RecurringConsumption$ === "object");
@@ -482,6 +529,7 @@ assert(typeof ScheduleEntry$ === "object");
 assert(typeof SecretsManagerAccessTokenConfiguration$ === "object");
 assert(typeof SegmentationDescriptor$ === "object");
 assert(typeof SegmentDeliveryConfiguration$ === "object");
+assert(typeof SequentialExecutorConfiguration$ === "object");
 assert(typeof SlateSource$ === "object");
 assert(typeof SourceLocation$ === "object");
 assert(typeof SpliceInsertMessage$ === "object");
@@ -517,20 +565,25 @@ assert(typeof AdsInteractionPublishOptInEventType === "object");
 assert(typeof AlertCategory === "object");
 assert(typeof ChannelState === "object");
 assert(typeof CompressionMethod === "object");
+assert(typeof EventName === "object");
 assert(typeof FillPolicy === "object");
+assert(typeof FunctionType === "object");
 assert(typeof InsertionMode === "object");
 assert(typeof ListPrefetchScheduleType === "object");
 assert(typeof LoggingStrategy === "object");
 assert(typeof LogType === "object");
 assert(typeof ManifestServiceExcludeEventType === "object");
+assert(typeof ManifestServicePublishOptInEventType === "object");
 assert(typeof MessageType === "object");
 assert(typeof Method === "object");
+assert(typeof MethodType === "object");
 assert(typeof Mode === "object");
 assert(typeof Operator === "object");
 assert(typeof OriginManifestType === "object");
 assert(typeof PlaybackMode === "object");
 assert(typeof PrefetchScheduleType === "object");
 assert(typeof RelativePosition === "object");
+assert(typeof RuntimeType === "object");
 assert(typeof ScheduleEntryType === "object");
 assert(typeof StreamingMediaFileConditioning === "object");
 assert(typeof Tier === "object");
@@ -544,6 +597,7 @@ assert(MediaTailorServiceException.prototype instanceof Error);
 assert(typeof paginateGetChannelSchedule === "function");
 assert(typeof paginateListAlerts === "function");
 assert(typeof paginateListChannels === "function");
+assert(typeof paginateListFunctions === "function");
 assert(typeof paginateListLiveSources === "function");
 assert(typeof paginateListPlaybackConfigurations === "function");
 assert(typeof paginateListPrefetchSchedules === "function");

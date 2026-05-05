@@ -86,6 +86,7 @@ import type {
   DeleteChannelPolicyCommandInput,
   DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
+import type { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
 import type { DeleteLiveSourceCommandInput, DeleteLiveSourceCommandOutput } from "./commands/DeleteLiveSourceCommand";
 import type {
   DeletePlaybackConfigurationCommandInput,
@@ -120,6 +121,7 @@ import type {
   GetChannelScheduleCommandInput,
   GetChannelScheduleCommandOutput,
 } from "./commands/GetChannelScheduleCommand";
+import type { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import type {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
@@ -130,6 +132,7 @@ import type {
 } from "./commands/GetPrefetchScheduleCommand";
 import type { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import type { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
 import type { ListLiveSourcesCommandInput, ListLiveSourcesCommandOutput } from "./commands/ListLiveSourcesCommand";
 import type {
   ListPlaybackConfigurationsCommandInput,
@@ -149,6 +152,7 @@ import type {
 } from "./commands/ListTagsForResourceCommand";
 import type { ListVodSourcesCommandInput, ListVodSourcesCommandOutput } from "./commands/ListVodSourcesCommand";
 import type { PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput } from "./commands/PutChannelPolicyCommand";
+import type { PutFunctionCommandInput, PutFunctionCommandOutput } from "./commands/PutFunctionCommand";
 import type {
   PutPlaybackConfigurationCommandInput,
   PutPlaybackConfigurationCommandOutput,
@@ -190,6 +194,7 @@ export type ServiceInputTypes =
   | CreateVodSourceCommandInput
   | DeleteChannelCommandInput
   | DeleteChannelPolicyCommandInput
+  | DeleteFunctionCommandInput
   | DeleteLiveSourceCommandInput
   | DeletePlaybackConfigurationCommandInput
   | DeletePrefetchScheduleCommandInput
@@ -203,10 +208,12 @@ export type ServiceInputTypes =
   | DescribeVodSourceCommandInput
   | GetChannelPolicyCommandInput
   | GetChannelScheduleCommandInput
+  | GetFunctionCommandInput
   | GetPlaybackConfigurationCommandInput
   | GetPrefetchScheduleCommandInput
   | ListAlertsCommandInput
   | ListChannelsCommandInput
+  | ListFunctionsCommandInput
   | ListLiveSourcesCommandInput
   | ListPlaybackConfigurationsCommandInput
   | ListPrefetchSchedulesCommandInput
@@ -214,6 +221,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListVodSourcesCommandInput
   | PutChannelPolicyCommandInput
+  | PutFunctionCommandInput
   | PutPlaybackConfigurationCommandInput
   | StartChannelCommandInput
   | StopChannelCommandInput
@@ -239,6 +247,7 @@ export type ServiceOutputTypes =
   | CreateVodSourceCommandOutput
   | DeleteChannelCommandOutput
   | DeleteChannelPolicyCommandOutput
+  | DeleteFunctionCommandOutput
   | DeleteLiveSourceCommandOutput
   | DeletePlaybackConfigurationCommandOutput
   | DeletePrefetchScheduleCommandOutput
@@ -252,10 +261,12 @@ export type ServiceOutputTypes =
   | DescribeVodSourceCommandOutput
   | GetChannelPolicyCommandOutput
   | GetChannelScheduleCommandOutput
+  | GetFunctionCommandOutput
   | GetPlaybackConfigurationCommandOutput
   | GetPrefetchScheduleCommandOutput
   | ListAlertsCommandOutput
   | ListChannelsCommandOutput
+  | ListFunctionsCommandOutput
   | ListLiveSourcesCommandOutput
   | ListPlaybackConfigurationsCommandOutput
   | ListPrefetchSchedulesCommandOutput
@@ -263,6 +274,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListVodSourcesCommandOutput
   | PutChannelPolicyCommandOutput
+  | PutFunctionCommandOutput
   | PutPlaybackConfigurationCommandOutput
   | StartChannelCommandOutput
   | StopChannelCommandOutput
