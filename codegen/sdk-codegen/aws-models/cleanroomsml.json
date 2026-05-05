@@ -10296,7 +10296,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 250
+          "max": 1000
         }
       }
     },
@@ -11586,7 +11586,7 @@
       "traits": {
         "smithy.api#range": {
           "min": 0.01,
-          "max": 10.0
+          "max": 100.0
         }
       }
     },
@@ -11782,7 +11782,7 @@
       "traits": {
         "smithy.api#range": {
           "min": 0.01,
-          "max": 10.0
+          "max": 50.0
         }
       }
     },
@@ -12060,7 +12060,7 @@
       "traits": {
         "smithy.api#range": {
           "min": 0.01,
-          "max": 50.0
+          "max": 100.0
         }
       }
     },
@@ -12583,7 +12583,7 @@
             "smithy.api#documentation": "<p>The number of compute workers that are used.</p>",
             "smithy.api#range": {
               "min": 2,
-              "max": 400
+              "max": 1024
             }
           }
         },
