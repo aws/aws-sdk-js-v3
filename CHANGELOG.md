@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1043.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1042.0...v3.1043.0) (2026-05-05)
+
+
+### Features
+
+* **client-cleanroomsml:** Increase max configurable output limits in the Clean Rooms ML configured model algorithm association resource. ([73fa973](https://github.com/aws/aws-sdk-js-v3/commit/73fa9731ac7db1c4152f7f3831399ba3ba5e00a8))
+* **client-cloudfront:** Adds support for tagging CloudFront Functions and KeyValueStores resources. ([cb71d30](https://github.com/aws/aws-sdk-js-v3/commit/cb71d306ef0d83818e90e7ce8b31689362605542))
+* **client-marketplace-agreement:** With this release, Agreements API provides a programmatic way to generate quotes, accept offers, track charges and entitlements, manage renewals and cancellations, and streamline operations entirely through APIs without navigating to the AWS Marketplace website or AWS Management Console. ([a4c2d76](https://github.com/aws/aws-sdk-js-v3/commit/a4c2d76fb186b377283218ffe507be92d9c5a125))
+* **client-mediatailor:** Added support for Monetization Functions. Monetization Functions let you enrich ad requests with external data and transform session parameters using JSONata expressions, without deploying custom infrastructure. ([5e80d37](https://github.com/aws/aws-sdk-js-v3/commit/5e80d370c96c356b7ab2ab7c603d138ec682a05b))
+* **client-medical-imaging:** Add support for DICOM Json Metadata Override features in startDICOMImportJob API ([008d261](https://github.com/aws/aws-sdk-js-v3/commit/008d261373642a9d4dd879554c808a6139849ced))
+* **client-opensearch:** Amazon OpenSearch Service now supports VPC egress, enabling outbound traffic from your OpenSearch domain to route privately through your VPC instead of the public internet. ([4de6b07](https://github.com/aws/aws-sdk-js-v3/commit/4de6b07e92169f18fdd9b9c265a03476632cb648))
+* **client-route-53-domains:** This release adds the TLDInMaintenance exception. ([31c38a3](https://github.com/aws/aws-sdk-js-v3/commit/31c38a3e958873a55e7949b80f178e5bf4498114))
+* **client-sagemaker:** Adds support for ml.p5.4xlarge instance type for SageMaker Studio JupyterLab and CodeEditor apps for IAD (us-east-1), NRT (ap-northeast-1), BOM (ap-south-1), CGK (ap-southeast-3), GRU (sa-east-1), PDX (us-west-2), CMH (us-east-2). ([e737436](https://github.com/aws/aws-sdk-js-v3/commit/e737436dd3446e6a479679e4e3eb070bf306e1eb))
+* **clients:** update client endpoints as of 2026-05-05 ([f577bd7](https://github.com/aws/aws-sdk-js-v3/commit/f577bd742cc58b4a2f936c5906a1e5889025b340))
+
+
+
+
+
 # [3.1042.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1041.0...v3.1042.0) (2026-05-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1043.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1042.0...v3.1043.0) (2026-05-05)
+
+
+### Features
+
+* **client-mediatailor:** Added support for Monetization Functions. Monetization Functions let you enrich ad requests with external data and transform session parameters using JSONata expressions, without deploying custom infrastructure. ([5e80d37](https://github.com/aws/aws-sdk-js-v3/commit/5e80d370c96c356b7ab2ab7c603d138ec682a05b))
+
+
+
+
+
 # [3.1042.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1041.0...v3.1042.0) (2026-05-04)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor
