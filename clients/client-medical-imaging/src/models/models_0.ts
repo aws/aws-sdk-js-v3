@@ -547,6 +547,81 @@ export interface GetDICOMImportJobRequest {
 }
 
 /**
+ * <p>Maps DCM files to their metadata.</p>
+ * @public
+ */
+export interface DicomMetadataMapping {
+  /**
+   * <p>The Study Instance UID that identifies the study.</p>
+   * @public
+   */
+  studyInstanceUID: string | undefined;
+
+  /**
+   * <p>The Series Instance UID that identifies the series. This parameter is optional because the mapping might be at the study level.</p>
+   * @public
+   */
+  seriesInstanceUID?: string | undefined;
+
+  /**
+   * <p>The path to the JSON metadata file relative to inputS3Uri.</p>
+   * @public
+   */
+  metadataFilePath: string | undefined;
+}
+
+/**
+ * <p>The configuration parameters that are specific to DICOM JSON metadata import operations.</p>
+ * @public
+ */
+export interface DicomJsonMetadataImportConfiguration {
+  /**
+   * <p>Maps DCM files to their metadata.</p>
+   * @public
+   */
+  dicomMetadataMappings: DicomMetadataMapping[] | undefined;
+}
+
+/**
+ * <p>The configuration options for different types of import operations.</p>
+ * @public
+ */
+export type ImportConfiguration =
+  | ImportConfiguration.DicomJsonMetadataImportConfigurationMember
+  | ImportConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImportConfiguration {
+  /**
+   * <p>The configuration parameters that are specific to DICOM JSON metadata import operations.</p>
+   * @public
+   */
+  export interface DicomJsonMetadataImportConfigurationMember {
+    dicomJsonMetadataImportConfiguration: DicomJsonMetadataImportConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    dicomJsonMetadataImportConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    dicomJsonMetadataImportConfiguration: (value: DicomJsonMetadataImportConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Properties of the import job.</p>
  * @public
  */
@@ -610,6 +685,12 @@ export interface DICOMImportJobProperties {
    * @public
    */
   message?: string | undefined;
+
+  /**
+   * <p>The object containing <code>DicomJsonMetadataImportConfiguration</code>.</p>
+   * @public
+   */
+  importConfiguration?: ImportConfiguration | undefined;
 }
 
 /**
@@ -1611,6 +1692,12 @@ export interface StartDICOMImportJobRequest {
    * @public
    */
   inputOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The import configuration for the import job.</p>
+   * @public
+   */
+  importConfiguration?: ImportConfiguration | undefined;
 }
 
 /**

@@ -45,6 +45,9 @@ const _DICOMU = "DICOMUpdates";
 const _DIS = "DeleteImageSet";
 const _DISR = "DeleteImageSetRequest";
 const _DISRe = "DeleteImageSetResponse";
+const _DJMIC = "DicomJsonMetadataImportConfiguration";
+const _DMM = "DicomMetadataMapping";
+const _DMMi = "DicomMetadataMappings";
 const _DP = "DatastoreProperties";
 const _DS = "DatastoreSummary";
 const _DSa = "DatastoreSummaries";
@@ -63,6 +66,7 @@ const _GISMR = "GetImageSetMetadataRequest";
 const _GISMRe = "GetImageSetMetadataResponse";
 const _GISR = "GetImageSetRequest";
 const _GISRe = "GetImageSetResponse";
+const _IC = "ImportConfiguration";
 const _IFI = "ImageFrameInformation";
 const _ISE = "InternalServerException";
 const _ISMB = "ImageSetMetadataBlob";
@@ -126,6 +130,8 @@ const _dAe = "deletedAt";
 const _dI = "datastoreId";
 const _dIS = "destinationImageSet";
 const _dISP = "destinationImageSetProperties";
+const _dJMIC = "dicomJsonMetadataImportConfiguration";
+const _dMM = "dicomMetadataMappings";
 const _dN = "datastoreName";
 const _dP = "datastoreProperties";
 const _dS = "datastoreStatus";
@@ -140,6 +146,7 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
+const _iC = "importConfiguration";
 const _iFB = "imageFrameBlob";
 const _iFI = "imageFrameInformation";
 const _iFIm = "imageFrameId";
@@ -166,6 +173,7 @@ const _lSF = "losslessStorageFormat";
 const _lV = "latestVersion";
 const _lVI = "latestVersionId";
 const _m = "message";
+const _mFP = "metadataFilePath";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _o = "overrides";
@@ -182,6 +190,8 @@ const _sF = "sortField";
 const _sIS = "sourceImageSet";
 const _sISI = "sourceImageSetId";
 const _sISP = "sourceImageSetProperties";
+const _sIUID = "studyInstanceUID";
+const _sIUIDe = "seriesInstanceUID";
 const _sO = "sortOrder";
 const _sT = "storageTier";
 const _se = "server";
@@ -385,13 +395,23 @@ export var DeleteImageSetResponse$: StaticStructureSchema = [3, n0, _DISRe,
 ];
 export var DICOMImportJobProperties$: StaticStructureSchema = [3, n0, _DICOMIJP,
   0,
-  [_jI, _jN, _jS, _dI, _dARA, _iSU, _oSU, _eA, _sA, _m],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0], 7
+  [_jI, _jN, _jS, _dI, _dARA, _iSU, _oSU, _eA, _sA, _m, _iC],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, [() => ImportConfiguration$, 0]], 7
 ];
 export var DICOMImportJobSummary$: StaticStructureSchema = [3, n0, _DICOMIJS,
   0,
   [_jI, _jN, _jS, _dI, _dARA, _eA, _sA, _m],
   [0, 0, 0, 0, 0, 4, 4, 0], 4
+];
+export var DicomJsonMetadataImportConfiguration$: StaticStructureSchema = [3, n0, _DJMIC,
+  0,
+  [_dMM],
+  [[() => DicomMetadataMappings, 0]], 1
+];
+export var DicomMetadataMapping$: StaticStructureSchema = [3, n0, _DMM,
+  0,
+  [_sIUID, _mFP, _sIUIDe],
+  [[() => DICOMStudyInstanceUID, 0], 0, [() => DICOMSeriesInstanceUID, 0]], 2
 ];
 export var DICOMStudyDateAndTime$: StaticStructureSchema = [3, n0, _DICOMSDAT,
   0,
@@ -426,7 +446,7 @@ export var GetDICOMImportJobRequest$: StaticStructureSchema = [3, n0, _GDICOMIJR
 export var GetDICOMImportJobResponse$: StaticStructureSchema = [3, n0, _GDICOMIJRe,
   0,
   [_jP],
-  [() => DICOMImportJobProperties$], 1
+  [[() => DICOMImportJobProperties$, 0]], 1
 ];
 export var GetImageFrameRequest$: StaticStructureSchema = [3, n0, _GIFR,
   0,
@@ -550,8 +570,8 @@ export var Sort$: StaticStructureSchema = [3, n0, _S,
 ];
 export var StartDICOMImportJobRequest$: StaticStructureSchema = [3, n0, _SDICOMIJR,
   0,
-  [_dARA, _dI, _iSU, _oSU, _jN, _cT, _iOAI],
-  [0, [0, 1], 0, 0, 0, [0, 4], 0], 4
+  [_dARA, _dI, _iSU, _oSU, _jN, _cT, _iOAI, _iC],
+  [0, [0, 1], 0, 0, 0, [0, 4], 0, [() => ImportConfiguration$, 0]], 4
 ];
 export var StartDICOMImportJobResponse$: StaticStructureSchema = [3, n0, _SDICOMIJRt,
   0,
@@ -594,6 +614,10 @@ var DatastoreSummaries: StaticListSchema = [1, n0, _DSa,
 var DICOMImportJobSummaries: StaticListSchema = [1, n0, _DICOMIJSm,
   0, () => DICOMImportJobSummary$
 ];
+var DicomMetadataMappings: StaticListSchema = [1, n0, _DMMi,
+  0, [() => DicomMetadataMapping$,
+    0]
+];
 var ImageSetPropertiesList: StaticListSchema = [1, n0, _ISPL,
   0, () => ImageSetProperties$
 ];
@@ -611,6 +635,11 @@ var SearchFilters: StaticListSchema = [1, n0, _SFe,
 ];
 var TagKeyList = 64 | 0;
 var TagMap = 128 | 0;
+export var ImportConfiguration$: StaticUnionSchema = [4, n0, _IC,
+  0,
+  [_dJMIC],
+  [[() => DicomJsonMetadataImportConfiguration$, 0]]
+];
 export var MetadataUpdates$: StaticUnionSchema = [4, n0, _MU,
   0,
   [_DICOMU, _rTVI],

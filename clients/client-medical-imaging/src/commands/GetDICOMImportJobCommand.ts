@@ -58,6 +58,17 @@ export interface GetDICOMImportJobCommandOutput extends GetDICOMImportJobRespons
  * //     inputS3Uri: "STRING_VALUE", // required
  * //     outputS3Uri: "STRING_VALUE", // required
  * //     message: "STRING_VALUE",
+ * //     importConfiguration: { // ImportConfiguration Union: only one key present
+ * //       dicomJsonMetadataImportConfiguration: { // DicomJsonMetadataImportConfiguration
+ * //         dicomMetadataMappings: [ // DicomMetadataMappings // required
+ * //           { // DicomMetadataMapping
+ * //             studyInstanceUID: "STRING_VALUE", // required
+ * //             seriesInstanceUID: "STRING_VALUE",
+ * //             metadataFilePath: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
  * //   },
  * // };
  *

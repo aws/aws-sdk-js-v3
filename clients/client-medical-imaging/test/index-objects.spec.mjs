@@ -31,6 +31,8 @@ import {
   DeleteImageSetResponse$,
   DICOMImportJobProperties$,
   DICOMImportJobSummary$,
+  DicomJsonMetadataImportConfiguration$,
+  DicomMetadataMapping$,
   DICOMStudyDateAndTime$,
   DICOMTags$,
   DICOMUpdates$,
@@ -59,6 +61,7 @@ import {
   ImageSetsMetadataSummary$,
   ImageSetState,
   ImageSetWorkflowStatus,
+  ImportConfiguration$,
   InternalServerException,
   InternalServerException$,
   JobStatus,
@@ -187,6 +190,8 @@ assert(typeof DeleteImageSetRequest$ === "object");
 assert(typeof DeleteImageSetResponse$ === "object");
 assert(typeof DICOMImportJobProperties$ === "object");
 assert(typeof DICOMImportJobSummary$ === "object");
+assert(typeof DicomJsonMetadataImportConfiguration$ === "object");
+assert(typeof DicomMetadataMapping$ === "object");
 assert(typeof DICOMStudyDateAndTime$ === "object");
 assert(typeof DICOMTags$ === "object");
 assert(typeof DICOMUpdates$ === "object");
@@ -203,6 +208,7 @@ assert(typeof GetImageSetResponse$ === "object");
 assert(typeof ImageFrameInformation$ === "object");
 assert(typeof ImageSetProperties$ === "object");
 assert(typeof ImageSetsMetadataSummary$ === "object");
+assert(typeof ImportConfiguration$ === "object");
 assert(typeof ListDatastoresRequest$ === "object");
 assert(typeof ListDatastoresResponse$ === "object");
 assert(typeof ListDICOMImportJobsRequest$ === "object");

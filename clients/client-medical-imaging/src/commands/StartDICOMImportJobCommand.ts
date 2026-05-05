@@ -31,7 +31,7 @@ export interface StartDICOMImportJobCommandInput extends StartDICOMImportJobRequ
 export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports DICOM P10 files found in the S3 prefix specified by the <code>inputS3Uri</code> parameter. The import job stores processing results in the file specified by the <code>outputS3Uri</code> parameter.</p>
+ * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The <code>importConfiguration</code> parameter specifies the import type. The data is found in the S3 prefix specified by the <code>inputS3Uri</code> parameter. The import job stores processing results in the file specified by the <code>outputS3Uri</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,17 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  *   inputS3Uri: "STRING_VALUE", // required
  *   outputS3Uri: "STRING_VALUE", // required
  *   inputOwnerAccountId: "STRING_VALUE",
+ *   importConfiguration: { // ImportConfiguration Union: only one key present
+ *     dicomJsonMetadataImportConfiguration: { // DicomJsonMetadataImportConfiguration
+ *       dicomMetadataMappings: [ // DicomMetadataMappings // required
+ *         { // DicomMetadataMapping
+ *           studyInstanceUID: "STRING_VALUE", // required
+ *           seriesInstanceUID: "STRING_VALUE",
+ *           metadataFilePath: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new StartDICOMImportJobCommand(input);
  * const response = await client.send(command);
