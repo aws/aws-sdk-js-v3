@@ -3518,6 +3518,12 @@
           "traits": {
             "smithy.api#enumValue": "ml.r6id.32xlarge"
           }
+        },
+        "ML_P5_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p5.4xlarge"
+          }
         }
       }
     },
