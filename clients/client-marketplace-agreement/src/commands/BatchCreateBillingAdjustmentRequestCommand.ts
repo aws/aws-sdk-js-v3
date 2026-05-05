@@ -34,7 +34,7 @@ export interface BatchCreateBillingAdjustmentRequestCommandInput extends BatchCr
 export interface BatchCreateBillingAdjustmentRequestCommandOutput extends BatchCreateBillingAdjustmentRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Allows sellers (proposers) to submit billing adjustment requests for one or more invoices within an agreement. Each entry in the batch specifies an invoice and the adjustment amount. The operation returns successfully created adjustment request IDs and any errors for entries that failed validation.</p> <note> <p>Each entry requires a unique <code>clientToken</code> for idempotency. A <code>ValidationException</code> is returned if the adjustment amount exceeds the maximum refundable amount for the invoice.</p> </note>
+ * <p>Allows sellers (proposers) to submit billing adjustment requests for one or more invoices within an agreement. Each entry in the batch specifies an invoice and the adjustment amount. The operation returns successfully created adjustment request IDs and any errors for entries that failed to process.</p> <note> <p>Each entry requires a unique <code>clientToken</code> for idempotency.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +86,7 @@ export interface BatchCreateBillingAdjustmentRequestCommandOutput extends BatchC
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *  <p>Request was denied due to a resource conflict.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>

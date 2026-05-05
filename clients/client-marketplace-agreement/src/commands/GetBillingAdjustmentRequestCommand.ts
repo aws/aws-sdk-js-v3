@@ -31,7 +31,7 @@ export interface GetBillingAdjustmentRequestCommandInput extends GetBillingAdjus
 export interface GetBillingAdjustmentRequestCommandOutput extends GetBillingAdjustmentRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific billing adjustment request. Sellers (proposers) can use this operation to view the status and details of a billing adjustment request they submitted.</p> <note> <p>A <code>ResourceNotFoundException</code> is returned if the billing adjustment request does not exist or the caller does not have permission to access it.</p> </note>
+ * <p>Retrieves detailed information about a specific billing adjustment request. Sellers (proposers) can use this operation to view the status and details of a billing adjustment request they submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

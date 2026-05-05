@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import type { ResourceType, ValidationExceptionReason } from "./enums";
+import type { AccessDeniedExceptionReason, ResourceType, ValidationExceptionReason } from "./enums";
 import { MarketplaceAgreementServiceException as __BaseException } from "./MarketplaceAgreementServiceException";
 import type { ValidationExceptionField } from "./models_0";
 
@@ -19,6 +19,12 @@ export class AccessDeniedException extends __BaseException {
   requestId?: string | undefined;
 
   /**
+   * <p>The reason for the access denied exception.</p>
+   * @public
+   */
+  reason?: AccessDeniedExceptionReason | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
@@ -29,11 +35,12 @@ export class AccessDeniedException extends __BaseException {
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.requestId = opts.requestId;
+    this.reason = opts.reason;
   }
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ * <p>Request was denied due to a resource conflict.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,13 +53,13 @@ export class ConflictException extends __BaseException {
   requestId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource.</p>
+   * <p>The unique identifier of the resource involved in the conflict.</p>
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * <p>The type of the resource involved in the conflict.</p>
    * @public
    */
   resourceType?: ResourceType | undefined;
@@ -97,6 +104,47 @@ export class InternalServerException extends __BaseException {
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
     this.requestId = opts.requestId;
+  }
+}
+
+/**
+ * <p>Request references a resource which does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The unique identifier for the error.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.requestId = opts.requestId;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
   }
 }
 
@@ -169,11 +217,11 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Request references a resource which does not exist.</p>
+ * <p>Request exceeded the maximum allowed limit (quota) for a specific resource or API operation.</p>
  * @public
  */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
    * <p>The unique identifier for the error.</p>
@@ -182,29 +230,43 @@ export class ResourceNotFoundException extends __BaseException {
   requestId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource.</p>
+   * <p>The code of the quota that was exceeded.</p>
+   * @public
+   */
+  quotaCode?: string | undefined;
+
+  /**
+   * <p>The code of the service whose quota was exceeded.</p>
+   * @public
+   */
+  serviceCode?: string | undefined;
+
+  /**
+   * <p>The type of the resource that exceeded the quota.</p>
+   * @public
+   */
+  resourceType?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the resource that exceeded the quota.</p>
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
     super({
-      name: "ResourceNotFoundException",
+      name: "ServiceQuotaExceededException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.requestId = opts.requestId;
-    this.resourceId = opts.resourceId;
+    this.quotaCode = opts.quotaCode;
+    this.serviceCode = opts.serviceCode;
     this.resourceType = opts.resourceType;
+    this.resourceId = opts.resourceId;
   }
 }

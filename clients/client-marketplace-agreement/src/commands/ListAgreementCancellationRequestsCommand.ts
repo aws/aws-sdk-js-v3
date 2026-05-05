@@ -34,7 +34,7 @@ export interface ListAgreementCancellationRequestsCommandInput extends ListAgree
 export interface ListAgreementCancellationRequestsCommandOutput extends ListAgreementCancellationRequestsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists agreement cancellation requests available to you as a seller or buyer. Both sellers (proposers) and buyers (acceptors) can use this operation to find cancellation requests by specifying their party type and applying optional filters.</p> <note> <p> <code>PartyType</code> is a required parameter. A <code>ValidationException</code> is returned if <code>PartyType</code> is not provided. Pagination is supported through <code>maxResults</code> (1-50, default 20) and <code>nextToken</code> parameters.</p> </note>
+ * <p>Lists agreement cancellation requests available to you as a seller or buyer. Both sellers (proposers) and buyers (acceptors) can use this operation to find cancellation requests by specifying their party type and applying optional filters.</p> <note> <p> <code>PartyType</code> is a required parameter. A <code>ValidationException</code> is returned if <code>PartyType</code> is not provided.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

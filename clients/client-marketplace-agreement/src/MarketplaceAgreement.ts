@@ -3,6 +3,21 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AcceptAgreementCancellationRequestCommandInput,
+  type AcceptAgreementCancellationRequestCommandOutput,
+  AcceptAgreementCancellationRequestCommand,
+} from "./commands/AcceptAgreementCancellationRequestCommand";
+import {
+  type AcceptAgreementPaymentRequestCommandInput,
+  type AcceptAgreementPaymentRequestCommandOutput,
+  AcceptAgreementPaymentRequestCommand,
+} from "./commands/AcceptAgreementPaymentRequestCommand";
+import {
+  type AcceptAgreementRequestCommandInput,
+  type AcceptAgreementRequestCommandOutput,
+  AcceptAgreementRequestCommand,
+} from "./commands/AcceptAgreementRequestCommand";
+import {
   type BatchCreateBillingAdjustmentRequestCommandInput,
   type BatchCreateBillingAdjustmentRequestCommandOutput,
   BatchCreateBillingAdjustmentRequestCommand,
@@ -13,10 +28,20 @@ import {
   CancelAgreementCancellationRequestCommand,
 } from "./commands/CancelAgreementCancellationRequestCommand";
 import {
+  type CancelAgreementCommandInput,
+  type CancelAgreementCommandOutput,
+  CancelAgreementCommand,
+} from "./commands/CancelAgreementCommand";
+import {
   type CancelAgreementPaymentRequestCommandInput,
   type CancelAgreementPaymentRequestCommandOutput,
   CancelAgreementPaymentRequestCommand,
 } from "./commands/CancelAgreementPaymentRequestCommand";
+import {
+  type CreateAgreementRequestCommandInput,
+  type CreateAgreementRequestCommandOutput,
+  CreateAgreementRequestCommand,
+} from "./commands/CreateAgreementRequestCommand";
 import {
   type DescribeAgreementCommandInput,
   type DescribeAgreementCommandOutput,
@@ -27,6 +52,11 @@ import {
   type GetAgreementCancellationRequestCommandOutput,
   GetAgreementCancellationRequestCommand,
 } from "./commands/GetAgreementCancellationRequestCommand";
+import {
+  type GetAgreementEntitlementsCommandInput,
+  type GetAgreementEntitlementsCommandOutput,
+  GetAgreementEntitlementsCommand,
+} from "./commands/GetAgreementEntitlementsCommand";
 import {
   type GetAgreementPaymentRequestCommandInput,
   type GetAgreementPaymentRequestCommandOutput,
@@ -48,6 +78,11 @@ import {
   ListAgreementCancellationRequestsCommand,
 } from "./commands/ListAgreementCancellationRequestsCommand";
 import {
+  type ListAgreementChargesCommandInput,
+  type ListAgreementChargesCommandOutput,
+  ListAgreementChargesCommand,
+} from "./commands/ListAgreementChargesCommand";
+import {
   type ListAgreementInvoiceLineItemsCommandInput,
   type ListAgreementInvoiceLineItemsCommandOutput,
   ListAgreementInvoiceLineItemsCommand,
@@ -63,6 +98,16 @@ import {
   ListBillingAdjustmentRequestsCommand,
 } from "./commands/ListBillingAdjustmentRequestsCommand";
 import {
+  type RejectAgreementCancellationRequestCommandInput,
+  type RejectAgreementCancellationRequestCommandOutput,
+  RejectAgreementCancellationRequestCommand,
+} from "./commands/RejectAgreementCancellationRequestCommand";
+import {
+  type RejectAgreementPaymentRequestCommandInput,
+  type RejectAgreementPaymentRequestCommandOutput,
+  RejectAgreementPaymentRequestCommand,
+} from "./commands/RejectAgreementPaymentRequestCommand";
+import {
   type SearchAgreementsCommandInput,
   type SearchAgreementsCommandOutput,
   SearchAgreementsCommand,
@@ -77,34 +122,53 @@ import {
   type SendAgreementPaymentRequestCommandOutput,
   SendAgreementPaymentRequestCommand,
 } from "./commands/SendAgreementPaymentRequestCommand";
+import {
+  type UpdatePurchaseOrdersCommandInput,
+  type UpdatePurchaseOrdersCommandOutput,
+  UpdatePurchaseOrdersCommand,
+} from "./commands/UpdatePurchaseOrdersCommand";
 import { MarketplaceAgreementClient } from "./MarketplaceAgreementClient";
+import { paginateGetAgreementEntitlements } from "./pagination/GetAgreementEntitlementsPaginator";
 import { paginateGetAgreementTerms } from "./pagination/GetAgreementTermsPaginator";
 import { paginateListAgreementCancellationRequests } from "./pagination/ListAgreementCancellationRequestsPaginator";
+import { paginateListAgreementCharges } from "./pagination/ListAgreementChargesPaginator";
 import { paginateListAgreementInvoiceLineItems } from "./pagination/ListAgreementInvoiceLineItemsPaginator";
 import { paginateListAgreementPaymentRequests } from "./pagination/ListAgreementPaymentRequestsPaginator";
 import { paginateListBillingAdjustmentRequests } from "./pagination/ListBillingAdjustmentRequestsPaginator";
 import { paginateSearchAgreements } from "./pagination/SearchAgreementsPaginator";
 
 const commands = {
+  AcceptAgreementCancellationRequestCommand,
+  AcceptAgreementPaymentRequestCommand,
+  AcceptAgreementRequestCommand,
   BatchCreateBillingAdjustmentRequestCommand,
+  CancelAgreementCommand,
   CancelAgreementCancellationRequestCommand,
   CancelAgreementPaymentRequestCommand,
+  CreateAgreementRequestCommand,
   DescribeAgreementCommand,
   GetAgreementCancellationRequestCommand,
+  GetAgreementEntitlementsCommand,
   GetAgreementPaymentRequestCommand,
   GetAgreementTermsCommand,
   GetBillingAdjustmentRequestCommand,
   ListAgreementCancellationRequestsCommand,
+  ListAgreementChargesCommand,
   ListAgreementInvoiceLineItemsCommand,
   ListAgreementPaymentRequestsCommand,
   ListBillingAdjustmentRequestsCommand,
+  RejectAgreementCancellationRequestCommand,
+  RejectAgreementPaymentRequestCommand,
   SearchAgreementsCommand,
   SendAgreementCancellationRequestCommand,
   SendAgreementPaymentRequestCommand,
+  UpdatePurchaseOrdersCommand,
 };
 const paginators = {
+  paginateGetAgreementEntitlements,
   paginateGetAgreementTerms,
   paginateListAgreementCancellationRequests,
+  paginateListAgreementCharges,
   paginateListAgreementInvoiceLineItems,
   paginateListAgreementPaymentRequests,
   paginateListBillingAdjustmentRequests,
@@ -112,6 +176,57 @@ const paginators = {
 };
 
 export interface MarketplaceAgreement {
+  /**
+   * @see {@link AcceptAgreementCancellationRequestCommand}
+   */
+  acceptAgreementCancellationRequest(
+    args: AcceptAgreementCancellationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAgreementCancellationRequestCommandOutput>;
+  acceptAgreementCancellationRequest(
+    args: AcceptAgreementCancellationRequestCommandInput,
+    cb: (err: any, data?: AcceptAgreementCancellationRequestCommandOutput) => void
+  ): void;
+  acceptAgreementCancellationRequest(
+    args: AcceptAgreementCancellationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAgreementCancellationRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcceptAgreementPaymentRequestCommand}
+   */
+  acceptAgreementPaymentRequest(
+    args: AcceptAgreementPaymentRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAgreementPaymentRequestCommandOutput>;
+  acceptAgreementPaymentRequest(
+    args: AcceptAgreementPaymentRequestCommandInput,
+    cb: (err: any, data?: AcceptAgreementPaymentRequestCommandOutput) => void
+  ): void;
+  acceptAgreementPaymentRequest(
+    args: AcceptAgreementPaymentRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAgreementPaymentRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcceptAgreementRequestCommand}
+   */
+  acceptAgreementRequest(
+    args: AcceptAgreementRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAgreementRequestCommandOutput>;
+  acceptAgreementRequest(
+    args: AcceptAgreementRequestCommandInput,
+    cb: (err: any, data?: AcceptAgreementRequestCommandOutput) => void
+  ): void;
+  acceptAgreementRequest(
+    args: AcceptAgreementRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAgreementRequestCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchCreateBillingAdjustmentRequestCommand}
    */
@@ -127,6 +242,23 @@ export interface MarketplaceAgreement {
     args: BatchCreateBillingAdjustmentRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchCreateBillingAdjustmentRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelAgreementCommand}
+   */
+  cancelAgreement(
+    args: CancelAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelAgreementCommandOutput>;
+  cancelAgreement(
+    args: CancelAgreementCommandInput,
+    cb: (err: any, data?: CancelAgreementCommandOutput) => void
+  ): void;
+  cancelAgreement(
+    args: CancelAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelAgreementCommandOutput) => void
   ): void;
 
   /**
@@ -164,6 +296,23 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link CreateAgreementRequestCommand}
+   */
+  createAgreementRequest(
+    args: CreateAgreementRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgreementRequestCommandOutput>;
+  createAgreementRequest(
+    args: CreateAgreementRequestCommandInput,
+    cb: (err: any, data?: CreateAgreementRequestCommandOutput) => void
+  ): void;
+  createAgreementRequest(
+    args: CreateAgreementRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgreementRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAgreementCommand}
    */
   describeAgreement(
@@ -195,6 +344,23 @@ export interface MarketplaceAgreement {
     args: GetAgreementCancellationRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAgreementCancellationRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgreementEntitlementsCommand}
+   */
+  getAgreementEntitlements(
+    args: GetAgreementEntitlementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgreementEntitlementsCommandOutput>;
+  getAgreementEntitlements(
+    args: GetAgreementEntitlementsCommandInput,
+    cb: (err: any, data?: GetAgreementEntitlementsCommandOutput) => void
+  ): void;
+  getAgreementEntitlements(
+    args: GetAgreementEntitlementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgreementEntitlementsCommandOutput) => void
   ): void;
 
   /**
@@ -266,6 +432,24 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link ListAgreementChargesCommand}
+   */
+  listAgreementCharges(): Promise<ListAgreementChargesCommandOutput>;
+  listAgreementCharges(
+    args: ListAgreementChargesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgreementChargesCommandOutput>;
+  listAgreementCharges(
+    args: ListAgreementChargesCommandInput,
+    cb: (err: any, data?: ListAgreementChargesCommandOutput) => void
+  ): void;
+  listAgreementCharges(
+    args: ListAgreementChargesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgreementChargesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAgreementInvoiceLineItemsCommand}
    */
   listAgreementInvoiceLineItems(
@@ -315,6 +499,40 @@ export interface MarketplaceAgreement {
     args: ListBillingAdjustmentRequestsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBillingAdjustmentRequestsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectAgreementCancellationRequestCommand}
+   */
+  rejectAgreementCancellationRequest(
+    args: RejectAgreementCancellationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectAgreementCancellationRequestCommandOutput>;
+  rejectAgreementCancellationRequest(
+    args: RejectAgreementCancellationRequestCommandInput,
+    cb: (err: any, data?: RejectAgreementCancellationRequestCommandOutput) => void
+  ): void;
+  rejectAgreementCancellationRequest(
+    args: RejectAgreementCancellationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectAgreementCancellationRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectAgreementPaymentRequestCommand}
+   */
+  rejectAgreementPaymentRequest(
+    args: RejectAgreementPaymentRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectAgreementPaymentRequestCommandOutput>;
+  rejectAgreementPaymentRequest(
+    args: RejectAgreementPaymentRequestCommandInput,
+    cb: (err: any, data?: RejectAgreementPaymentRequestCommandOutput) => void
+  ): void;
+  rejectAgreementPaymentRequest(
+    args: RejectAgreementPaymentRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectAgreementPaymentRequestCommandOutput) => void
   ): void;
 
   /**
@@ -370,6 +588,34 @@ export interface MarketplaceAgreement {
   ): void;
 
   /**
+   * @see {@link UpdatePurchaseOrdersCommand}
+   */
+  updatePurchaseOrders(
+    args: UpdatePurchaseOrdersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePurchaseOrdersCommandOutput>;
+  updatePurchaseOrders(
+    args: UpdatePurchaseOrdersCommandInput,
+    cb: (err: any, data?: UpdatePurchaseOrdersCommandOutput) => void
+  ): void;
+  updatePurchaseOrders(
+    args: UpdatePurchaseOrdersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePurchaseOrdersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgreementEntitlementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAgreementEntitlementsCommandOutput}.
+   */
+  paginateGetAgreementEntitlements(
+    args: GetAgreementEntitlementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAgreementEntitlementsCommandOutput>;
+
+  /**
    * @see {@link GetAgreementTermsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -390,6 +636,17 @@ export interface MarketplaceAgreement {
     args: ListAgreementCancellationRequestsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAgreementCancellationRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListAgreementChargesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgreementChargesCommandOutput}.
+   */
+  paginateListAgreementCharges(
+    args?: ListAgreementChargesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgreementChargesCommandOutput>;
 
   /**
    * @see {@link ListAgreementInvoiceLineItemsCommand}
@@ -437,7 +694,7 @@ export interface MarketplaceAgreement {
 }
 
 /**
- * <p>AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. The AWS Marketplace Agreement Service provides an API interface that helps AWS Marketplace sellers manage their product-related agreements, including listing, searching, and filtering agreements.</p> <p>To manage agreements in AWS Marketplace, you must ensure that your AWS Identity and Access Management (IAM) policies and roles are set up. The user must have the required policies/permissions that allow them to carry out the actions in AWS:</p> <ul> <li> <p> <code>DescribeAgreement</code> – Grants permission to users to obtain detailed meta data about any of their agreements.</p> </li> <li> <p> <code>GetAgreementTerms</code> – Grants permission to users to obtain details about the terms of an agreement.</p> </li> <li> <p> <code>SearchAgreements</code> – Grants permission to users to search through all their agreements.</p> </li> </ul>
+ * <p>AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. The AWS Marketplace Agreement Service provides an API interface that helps AWS Marketplace sellers and buyers manage their product-related agreements, including listing, searching, creating, and filtering agreements.</p> <p>To manage agreements in AWS Marketplace, you must ensure that your AWS Identity and Access Management (IAM) policies and roles are set up. The user must have the required policies/permissions that allow them to carry out the actions in AWS:</p> <ul> <li> <p> <code>DescribeAgreement</code> – Grants permission to users to obtain detailed meta data about any of their agreements.</p> </li> <li> <p> <code>GetAgreementTerms</code> – Grants permission to users to obtain details about the terms of an agreement.</p> </li> <li> <p> <code>SearchAgreements</code> – Grants permission to users to search through all their agreements.</p> </li> </ul>
  * @public
  */
 export class MarketplaceAgreement extends MarketplaceAgreementClient implements MarketplaceAgreement {}

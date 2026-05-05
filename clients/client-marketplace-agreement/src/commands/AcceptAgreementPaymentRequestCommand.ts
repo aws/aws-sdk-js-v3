@@ -9,8 +9,8 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceAgreementClient";
-import type { SendAgreementPaymentRequestInput, SendAgreementPaymentRequestOutput } from "../models/models_0";
-import { SendAgreementPaymentRequest$ } from "../schemas/schemas_0";
+import type { AcceptAgreementPaymentRequestInput, AcceptAgreementPaymentRequestOutput } from "../models/models_0";
+import { AcceptAgreementPaymentRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,37 +20,34 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link SendAgreementPaymentRequestCommand}.
+ * The input for {@link AcceptAgreementPaymentRequestCommand}.
  */
-export interface SendAgreementPaymentRequestCommandInput extends SendAgreementPaymentRequestInput {}
+export interface AcceptAgreementPaymentRequestCommandInput extends AcceptAgreementPaymentRequestInput {}
 /**
  * @public
  *
- * The output of {@link SendAgreementPaymentRequestCommand}.
+ * The output of {@link AcceptAgreementPaymentRequestCommand}.
  */
-export interface SendAgreementPaymentRequestCommandOutput extends SendAgreementPaymentRequestOutput, __MetadataBearer {}
+export interface AcceptAgreementPaymentRequestCommandOutput extends AcceptAgreementPaymentRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Allows sellers (proposers) to submit a payment request to buyers (acceptors) for a specific charge amount for an agreement that includes a <code>VariablePaymentTerm</code>. The payment request is created in <code>PENDING_APPROVAL</code> status, at which point the buyer can accept or reject it.</p> <note> <p>The agreement must be active and have a <code>VariablePaymentTerm</code> to support payment requests. The <code>chargeAmount</code> must not exceed the remaining available balance under the <code>VariablePaymentTerm</code> <code>maxTotalChargeAmount</code>.</p> </note>
+ * <p>Allows buyers (acceptors) to accept a payment request that is in <code>PENDING_APPROVAL</code> status. Once accepted, the payment request transitions to <code>APPROVED</code> status and the charge will be processed. Buyers can optionally provide a purchase order reference for their internal tracking.</p> <note> <p>Only payment requests in <code>PENDING_APPROVAL</code> status can be accepted. A <code>ConflictException</code> is thrown if the payment request is in any other status.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceAgreementClient, SendAgreementPaymentRequestCommand } from "@aws-sdk/client-marketplace-agreement"; // ES Modules import
- * // const { MarketplaceAgreementClient, SendAgreementPaymentRequestCommand } = require("@aws-sdk/client-marketplace-agreement"); // CommonJS import
+ * import { MarketplaceAgreementClient, AcceptAgreementPaymentRequestCommand } from "@aws-sdk/client-marketplace-agreement"; // ES Modules import
+ * // const { MarketplaceAgreementClient, AcceptAgreementPaymentRequestCommand } = require("@aws-sdk/client-marketplace-agreement"); // CommonJS import
  * // import type { MarketplaceAgreementClientConfig } from "@aws-sdk/client-marketplace-agreement";
  * const config = {}; // type is MarketplaceAgreementClientConfig
  * const client = new MarketplaceAgreementClient(config);
- * const input = { // SendAgreementPaymentRequestInput
- *   clientToken: "STRING_VALUE",
+ * const input = { // AcceptAgreementPaymentRequestInput
+ *   paymentRequestId: "STRING_VALUE", // required
  *   agreementId: "STRING_VALUE", // required
- *   termId: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   chargeAmount: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   purchaseOrderReference: "STRING_VALUE",
  * };
- * const command = new SendAgreementPaymentRequestCommand(input);
+ * const command = new AcceptAgreementPaymentRequestCommand(input);
  * const response = await client.send(command);
- * // { // SendAgreementPaymentRequestOutput
+ * // { // AcceptAgreementPaymentRequestOutput
  * //   paymentRequestId: "STRING_VALUE",
  * //   agreementId: "STRING_VALUE",
  * //   status: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "CANCELLED",
@@ -59,14 +56,15 @@ export interface SendAgreementPaymentRequestCommandOutput extends SendAgreementP
  * //   chargeAmount: "STRING_VALUE",
  * //   currencyCode: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
+ * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param SendAgreementPaymentRequestCommandInput - {@link SendAgreementPaymentRequestCommandInput}
- * @returns {@link SendAgreementPaymentRequestCommandOutput}
- * @see {@link SendAgreementPaymentRequestCommandInput} for command's `input` shape.
- * @see {@link SendAgreementPaymentRequestCommandOutput} for command's `response` shape.
+ * @param AcceptAgreementPaymentRequestCommandInput - {@link AcceptAgreementPaymentRequestCommandInput}
+ * @returns {@link AcceptAgreementPaymentRequestCommandOutput}
+ * @see {@link AcceptAgreementPaymentRequestCommandInput} for command's `input` shape.
+ * @see {@link AcceptAgreementPaymentRequestCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceAgreementClientResolvedConfig | config} for MarketplaceAgreementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -93,10 +91,10 @@ export interface SendAgreementPaymentRequestCommandOutput extends SendAgreementP
  *
  * @public
  */
-export class SendAgreementPaymentRequestCommand extends $Command
+export class AcceptAgreementPaymentRequestCommand extends $Command
   .classBuilder<
-    SendAgreementPaymentRequestCommandInput,
-    SendAgreementPaymentRequestCommandOutput,
+    AcceptAgreementPaymentRequestCommandInput,
+    AcceptAgreementPaymentRequestCommandOutput,
     MarketplaceAgreementClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -105,19 +103,19 @@ export class SendAgreementPaymentRequestCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSMPCommerceService_v20200301", "SendAgreementPaymentRequest", {})
-  .n("MarketplaceAgreementClient", "SendAgreementPaymentRequestCommand")
-  .sc(SendAgreementPaymentRequest$)
+  .s("AWSMPCommerceService_v20200301", "AcceptAgreementPaymentRequest", {})
+  .n("MarketplaceAgreementClient", "AcceptAgreementPaymentRequestCommand")
+  .sc(AcceptAgreementPaymentRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: SendAgreementPaymentRequestInput;
-      output: SendAgreementPaymentRequestOutput;
+      input: AcceptAgreementPaymentRequestInput;
+      output: AcceptAgreementPaymentRequestOutput;
     };
     sdk: {
-      input: SendAgreementPaymentRequestCommandInput;
-      output: SendAgreementPaymentRequestCommandOutput;
+      input: AcceptAgreementPaymentRequestCommandInput;
+      output: AcceptAgreementPaymentRequestCommandOutput;
     };
   };
 }

@@ -70,7 +70,7 @@ export interface SendAgreementCancellationRequestCommandOutput extends SendAgree
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *  <p>Request was denied due to a resource conflict.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>

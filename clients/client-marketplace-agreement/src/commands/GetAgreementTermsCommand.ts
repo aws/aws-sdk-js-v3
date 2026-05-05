@@ -52,6 +52,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //     { // AcceptedTerm Union: only one key present
  * //       legalTerm: { // LegalTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         documents: [ // DocumentList
  * //           { // DocumentItem
  * //             type: "STRING_VALUE",
@@ -62,16 +63,19 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //       },
  * //       supportTerm: { // SupportTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         refundPolicy: "STRING_VALUE",
  * //       },
  * //       renewalTerm: { // RenewalTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         configuration: { // RenewalTermConfiguration
  * //           enableAutoRenew: true || false, // required
  * //         },
  * //       },
  * //       usageBasedPricingTerm: { // UsageBasedPricingTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         currencyCode: "STRING_VALUE",
  * //         rateCards: [ // UsageBasedRateCardList
  * //           { // UsageBasedRateCardItem
@@ -86,6 +90,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //       },
  * //       configurableUpfrontPricingTerm: { // ConfigurableUpfrontPricingTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         currencyCode: "STRING_VALUE",
  * //         rateCards: [ // ConfigurableUpfrontRateCardList
  * //           { // ConfigurableUpfrontRateCardItem
@@ -117,21 +122,25 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //       },
  * //       byolPricingTerm: { // ByolPricingTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //       },
  * //       recurringPaymentTerm: { // RecurringPaymentTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         currencyCode: "STRING_VALUE",
  * //         billingPeriod: "STRING_VALUE",
  * //         price: "STRING_VALUE",
  * //       },
  * //       validityTerm: { // ValidityTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         agreementDuration: "STRING_VALUE",
  * //         agreementStartDate: new Date("TIMESTAMP"),
  * //         agreementEndDate: new Date("TIMESTAMP"),
  * //       },
  * //       paymentScheduleTerm: { // PaymentScheduleTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         currencyCode: "STRING_VALUE",
  * //         schedule: [ // ScheduleList
  * //           { // ScheduleItem
@@ -142,6 +151,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //       },
  * //       freeTrialPricingTerm: { // FreeTrialPricingTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         duration: "STRING_VALUE",
  * //         grants: [ // GrantList
  * //           { // GrantItem
@@ -152,6 +162,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //       },
  * //       fixedUpfrontPricingTerm: { // FixedUpfrontPricingTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         currencyCode: "STRING_VALUE",
  * //         duration: "STRING_VALUE",
  * //         price: "STRING_VALUE",
@@ -164,6 +175,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //       },
  * //       variablePaymentTerm: { // VariablePaymentTerm
  * //         type: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
  * //         currencyCode: "STRING_VALUE",
  * //         maxTotalChargeAmount: "STRING_VALUE",
  * //         configuration: { // VariablePaymentTermConfiguration

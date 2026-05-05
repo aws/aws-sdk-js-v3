@@ -31,7 +31,7 @@ export interface ListAgreementInvoiceLineItemsCommandInput extends ListAgreement
 export interface ListAgreementInvoiceLineItemsCommandOutput extends ListAgreementInvoiceLineItemsOutput, __MetadataBearer {}
 
 /**
- * <p>Allows sellers (proposers) to retrieve aggregated billing data from AWS Marketplace agreements using flexible grouping. Supports invoice-level aggregation with filtering by billing period, invoice type, and issued date.</p> <note> <p>The <code>groupBy</code> parameter is required and currently supports only <code>INVOICE_ID</code> as a value. The <code>agreementId</code> parameter is required.</p> </note>
+ * <p>Allows sellers (proposers) to retrieve aggregated billing data from AWS Marketplace agreements using flexible grouping. Supports invoice-level aggregation with filtering by billing period, invoice type, and issued date.</p> <note> <p>The <code>groupBy</code> parameter is required and supports only <code>INVOICE_ID</code> as a value. The <code>agreementId</code> parameter is required.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

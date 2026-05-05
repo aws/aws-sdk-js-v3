@@ -62,6 +62,18 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AcceptAgreementCancellationRequestCommandInput,
+  AcceptAgreementCancellationRequestCommandOutput,
+} from "./commands/AcceptAgreementCancellationRequestCommand";
+import type {
+  AcceptAgreementPaymentRequestCommandInput,
+  AcceptAgreementPaymentRequestCommandOutput,
+} from "./commands/AcceptAgreementPaymentRequestCommand";
+import type {
+  AcceptAgreementRequestCommandInput,
+  AcceptAgreementRequestCommandOutput,
+} from "./commands/AcceptAgreementRequestCommand";
+import type {
   BatchCreateBillingAdjustmentRequestCommandInput,
   BatchCreateBillingAdjustmentRequestCommandOutput,
 } from "./commands/BatchCreateBillingAdjustmentRequestCommand";
@@ -69,10 +81,15 @@ import type {
   CancelAgreementCancellationRequestCommandInput,
   CancelAgreementCancellationRequestCommandOutput,
 } from "./commands/CancelAgreementCancellationRequestCommand";
+import type { CancelAgreementCommandInput, CancelAgreementCommandOutput } from "./commands/CancelAgreementCommand";
 import type {
   CancelAgreementPaymentRequestCommandInput,
   CancelAgreementPaymentRequestCommandOutput,
 } from "./commands/CancelAgreementPaymentRequestCommand";
+import type {
+  CreateAgreementRequestCommandInput,
+  CreateAgreementRequestCommandOutput,
+} from "./commands/CreateAgreementRequestCommand";
 import type {
   DescribeAgreementCommandInput,
   DescribeAgreementCommandOutput,
@@ -81,6 +98,10 @@ import type {
   GetAgreementCancellationRequestCommandInput,
   GetAgreementCancellationRequestCommandOutput,
 } from "./commands/GetAgreementCancellationRequestCommand";
+import type {
+  GetAgreementEntitlementsCommandInput,
+  GetAgreementEntitlementsCommandOutput,
+} from "./commands/GetAgreementEntitlementsCommand";
 import type {
   GetAgreementPaymentRequestCommandInput,
   GetAgreementPaymentRequestCommandOutput,
@@ -98,6 +119,10 @@ import type {
   ListAgreementCancellationRequestsCommandOutput,
 } from "./commands/ListAgreementCancellationRequestsCommand";
 import type {
+  ListAgreementChargesCommandInput,
+  ListAgreementChargesCommandOutput,
+} from "./commands/ListAgreementChargesCommand";
+import type {
   ListAgreementInvoiceLineItemsCommandInput,
   ListAgreementInvoiceLineItemsCommandOutput,
 } from "./commands/ListAgreementInvoiceLineItemsCommand";
@@ -109,6 +134,14 @@ import type {
   ListBillingAdjustmentRequestsCommandInput,
   ListBillingAdjustmentRequestsCommandOutput,
 } from "./commands/ListBillingAdjustmentRequestsCommand";
+import type {
+  RejectAgreementCancellationRequestCommandInput,
+  RejectAgreementCancellationRequestCommandOutput,
+} from "./commands/RejectAgreementCancellationRequestCommand";
+import type {
+  RejectAgreementPaymentRequestCommandInput,
+  RejectAgreementPaymentRequestCommandOutput,
+} from "./commands/RejectAgreementPaymentRequestCommand";
 import type { SearchAgreementsCommandInput, SearchAgreementsCommandOutput } from "./commands/SearchAgreementsCommand";
 import type {
   SendAgreementCancellationRequestCommandInput,
@@ -118,6 +151,10 @@ import type {
   SendAgreementPaymentRequestCommandInput,
   SendAgreementPaymentRequestCommandOutput,
 } from "./commands/SendAgreementPaymentRequestCommand";
+import type {
+  UpdatePurchaseOrdersCommandInput,
+  UpdatePurchaseOrdersCommandOutput,
+} from "./commands/UpdatePurchaseOrdersCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -133,41 +170,61 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptAgreementCancellationRequestCommandInput
+  | AcceptAgreementPaymentRequestCommandInput
+  | AcceptAgreementRequestCommandInput
   | BatchCreateBillingAdjustmentRequestCommandInput
   | CancelAgreementCancellationRequestCommandInput
+  | CancelAgreementCommandInput
   | CancelAgreementPaymentRequestCommandInput
+  | CreateAgreementRequestCommandInput
   | DescribeAgreementCommandInput
   | GetAgreementCancellationRequestCommandInput
+  | GetAgreementEntitlementsCommandInput
   | GetAgreementPaymentRequestCommandInput
   | GetAgreementTermsCommandInput
   | GetBillingAdjustmentRequestCommandInput
   | ListAgreementCancellationRequestsCommandInput
+  | ListAgreementChargesCommandInput
   | ListAgreementInvoiceLineItemsCommandInput
   | ListAgreementPaymentRequestsCommandInput
   | ListBillingAdjustmentRequestsCommandInput
+  | RejectAgreementCancellationRequestCommandInput
+  | RejectAgreementPaymentRequestCommandInput
   | SearchAgreementsCommandInput
   | SendAgreementCancellationRequestCommandInput
-  | SendAgreementPaymentRequestCommandInput;
+  | SendAgreementPaymentRequestCommandInput
+  | UpdatePurchaseOrdersCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptAgreementCancellationRequestCommandOutput
+  | AcceptAgreementPaymentRequestCommandOutput
+  | AcceptAgreementRequestCommandOutput
   | BatchCreateBillingAdjustmentRequestCommandOutput
   | CancelAgreementCancellationRequestCommandOutput
+  | CancelAgreementCommandOutput
   | CancelAgreementPaymentRequestCommandOutput
+  | CreateAgreementRequestCommandOutput
   | DescribeAgreementCommandOutput
   | GetAgreementCancellationRequestCommandOutput
+  | GetAgreementEntitlementsCommandOutput
   | GetAgreementPaymentRequestCommandOutput
   | GetAgreementTermsCommandOutput
   | GetBillingAdjustmentRequestCommandOutput
   | ListAgreementCancellationRequestsCommandOutput
+  | ListAgreementChargesCommandOutput
   | ListAgreementInvoiceLineItemsCommandOutput
   | ListAgreementPaymentRequestsCommandOutput
   | ListBillingAdjustmentRequestsCommandOutput
+  | RejectAgreementCancellationRequestCommandOutput
+  | RejectAgreementPaymentRequestCommandOutput
   | SearchAgreementsCommandOutput
   | SendAgreementCancellationRequestCommandOutput
-  | SendAgreementPaymentRequestCommandOutput;
+  | SendAgreementPaymentRequestCommandOutput
+  | UpdatePurchaseOrdersCommandOutput;
 
 /**
  * @public
@@ -360,7 +417,7 @@ export type MarketplaceAgreementClientResolvedConfigType = __SmithyResolvedConfi
 export interface MarketplaceAgreementClientResolvedConfig extends MarketplaceAgreementClientResolvedConfigType {}
 
 /**
- * <p>AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. The AWS Marketplace Agreement Service provides an API interface that helps AWS Marketplace sellers manage their product-related agreements, including listing, searching, and filtering agreements.</p> <p>To manage agreements in AWS Marketplace, you must ensure that your AWS Identity and Access Management (IAM) policies and roles are set up. The user must have the required policies/permissions that allow them to carry out the actions in AWS:</p> <ul> <li> <p> <code>DescribeAgreement</code> – Grants permission to users to obtain detailed meta data about any of their agreements.</p> </li> <li> <p> <code>GetAgreementTerms</code> – Grants permission to users to obtain details about the terms of an agreement.</p> </li> <li> <p> <code>SearchAgreements</code> – Grants permission to users to search through all their agreements.</p> </li> </ul>
+ * <p>AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. The AWS Marketplace Agreement Service provides an API interface that helps AWS Marketplace sellers and buyers manage their product-related agreements, including listing, searching, creating, and filtering agreements.</p> <p>To manage agreements in AWS Marketplace, you must ensure that your AWS Identity and Access Management (IAM) policies and roles are set up. The user must have the required policies/permissions that allow them to carry out the actions in AWS:</p> <ul> <li> <p> <code>DescribeAgreement</code> – Grants permission to users to obtain detailed meta data about any of their agreements.</p> </li> <li> <p> <code>GetAgreementTerms</code> – Grants permission to users to obtain details about the terms of an agreement.</p> </li> <li> <p> <code>SearchAgreements</code> – Grants permission to users to search through all their agreements.</p> </li> </ul>
  * @public
  */
 export class MarketplaceAgreementClient extends __Client<

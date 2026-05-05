@@ -31,7 +31,7 @@ export interface GetAgreementCancellationRequestCommandInput extends GetAgreemen
 export interface GetAgreementCancellationRequestCommandOutput extends GetAgreementCancellationRequestOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific agreement cancellation request. Both sellers (proposers) and buyers (acceptors) can use this operation to view cancellation requests associated with their agreements.</p> <note> <p>The calling identity must be either the acceptor or proposer of the agreement. A <code>ResourceNotFoundException</code> is returned if the cancellation request does not exist.</p> </note>
+ * <p>Retrieves detailed information about a specific agreement cancellation request. Both sellers (proposers) and buyers (acceptors) can use this operation to view cancellation requests associated with their agreements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

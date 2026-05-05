@@ -31,7 +31,7 @@ export interface ListBillingAdjustmentRequestsCommandInput extends ListBillingAd
 export interface ListBillingAdjustmentRequestsCommandOutput extends ListBillingAdjustmentRequestsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists billing adjustment requests for a specific agreement. Sellers (proposers) can use this operation to view all billing adjustment requests associated with an agreement.</p> <note> <p>Pagination is supported through <code>maxResults</code> and <code>nextToken</code> parameters.</p> </note>
+ * <p>Lists billing adjustment requests for a specific agreement. Sellers (proposers) can use this operation to view all billing adjustment requests associated with an agreement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
