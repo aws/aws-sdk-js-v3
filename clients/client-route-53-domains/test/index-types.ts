@@ -204,6 +204,7 @@ export type {
   DuplicateRequest,
   InvalidInput,
   OperationLimitExceeded,
+  TLDInMaintenance,
   TLDRulesViolation,
   UnsupportedTLD,
   Route53DomainsServiceException,

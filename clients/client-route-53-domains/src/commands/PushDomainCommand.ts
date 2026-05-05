@@ -73,6 +73,9 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  *  <p>The number of operations or jobs running exceeded the allowed threshold for the
  * 			account.</p>
  *
+ * @throws {@link TLDInMaintenance} (client fault)
+ *  <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ *
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *

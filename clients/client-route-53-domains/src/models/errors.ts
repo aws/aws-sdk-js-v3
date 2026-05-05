@@ -155,3 +155,30 @@ export class TLDRulesViolation extends __BaseException {
     Object.setPrototypeOf(this, TLDRulesViolation.prototype);
   }
 }
+
+/**
+ * <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ * @public
+ */
+export class TLDInMaintenance extends __BaseException {
+  readonly name = "TLDInMaintenance" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The top-level domain that is currently undergoing maintenance.</p>
+   * @public
+   */
+  tld?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TLDInMaintenance, __BaseException>) {
+    super({
+      name: "TLDInMaintenance",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TLDInMaintenance.prototype);
+    this.tld = opts.tld;
+  }
+}

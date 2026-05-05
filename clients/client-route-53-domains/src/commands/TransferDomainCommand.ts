@@ -80,7 +80,7 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * const input = { // TransferDomainRequest
  *   DomainName: "STRING_VALUE", // required
  *   IdnLangCode: "STRING_VALUE",
- *   DurationInYears: Number("int"), // required
+ *   DurationInYears: Number("int"),
  *   Nameservers: [ // NameserverList
  *     { // Nameserver
  *       Name: "STRING_VALUE", // required

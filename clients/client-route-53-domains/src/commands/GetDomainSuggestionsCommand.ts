@@ -70,6 +70,9 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
  *
+ * @throws {@link TLDInMaintenance} (client fault)
+ *  <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ *
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *

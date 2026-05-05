@@ -208,6 +208,7 @@ const _TDTAAA = "TransferDomainToAnotherAwsAccount";
 const _TDTAAAR = "TransferDomainToAnotherAwsAccountRequest";
 const _TDTAAARr = "TransferDomainToAnotherAwsAccountResponse";
 const _TL = "TransferLock";
+const _TLDIM = "TLDInMaintenance";
 const _TLDRV = "TLDRulesViolation";
 const _TLa = "TagList";
 const _TP = "TransferPrice";
@@ -250,6 +251,7 @@ const _m = "message";
 const _rI = "requestId";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53domains";
 const _st = "status";
+const _t = "tld";
 const n0 = "com.amazonaws.route53domains";
 
 // smithy-typescript generated code
@@ -268,6 +270,7 @@ import {
   DuplicateRequest,
   InvalidInput,
   OperationLimitExceeded,
+  TLDInMaintenance,
   TLDRulesViolation,
   UnsupportedTLD,
 } from "../models/errors";
@@ -308,6 +311,12 @@ export var OperationLimitExceeded$: StaticErrorSchema = [-3, n0, _OLE,
   [0]
 ];
 n0_registry.registerError(OperationLimitExceeded$, OperationLimitExceeded);
+export var TLDInMaintenance$: StaticErrorSchema = [-3, n0, _TLDIM,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _t],
+  [0, 0]
+];
+n0_registry.registerError(TLDInMaintenance$, TLDInMaintenance);
 export var TLDRulesViolation$: StaticErrorSchema = [-3, n0, _TLDRV,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -683,8 +692,8 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 ];
 export var TransferDomainRequest$: StaticStructureSchema = [3, n0, _TDR,
   0,
-  [_DN, _DIY, _ACd, _RC, _TC, _ILC, _Na, _AC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
-  [0, 1, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, () => NameserverList, [() => DomainAuthCode, 0], 2, 2, 2, 2, [() => ContactDetail$, 0], 2], 5
+  [_DN, _ACd, _RC, _TC, _ILC, _DIY, _Na, _AC, _AR, _PPAC, _PPRC, _PPTC, _BC, _PPBC],
+  [0, [() => ContactDetail$, 0], [() => ContactDetail$, 0], [() => ContactDetail$, 0], 0, 1, () => NameserverList, [() => DomainAuthCode, 0], 2, 2, 2, 2, [() => ContactDetail$, 0], 2], 4
 ];
 export var TransferDomainResponse$: StaticStructureSchema = [3, n0, _TDRr,
   0,

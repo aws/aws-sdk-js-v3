@@ -50,7 +50,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  *                <p>When the registration has been deleted, we'll send you a confirmation to the
  * 					registrant contact. The email will come from
  * 						<code>noreply@domainnameverification.net</code> or
- * 						<code>noreply@registrar.amazon.com</code>.</p>
+ * 						<code>noreply@emailverification.info</code> or
+ * 						<code>noreply@registrar.amazon</code>.</p>
  *             </li>
  *          </ol>
  * @example

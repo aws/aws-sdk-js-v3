@@ -150,6 +150,8 @@ import {
   SortOrder,
   StatusFlag,
   Tag$,
+  TLDInMaintenance,
+  TLDInMaintenance$,
   TLDRulesViolation,
   TLDRulesViolation$,
   Transferable,
@@ -365,6 +367,8 @@ assert(InvalidInput.prototype instanceof Route53DomainsServiceException);
 assert(typeof InvalidInput$ === "object");
 assert(OperationLimitExceeded.prototype instanceof Route53DomainsServiceException);
 assert(typeof OperationLimitExceeded$ === "object");
+assert(TLDInMaintenance.prototype instanceof Route53DomainsServiceException);
+assert(typeof TLDInMaintenance$ === "object");
 assert(TLDRulesViolation.prototype instanceof Route53DomainsServiceException);
 assert(typeof TLDRulesViolation$ === "object");
 assert(UnsupportedTLD.prototype instanceof Route53DomainsServiceException);

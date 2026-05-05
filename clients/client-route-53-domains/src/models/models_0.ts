@@ -351,7 +351,7 @@ export interface DomainTransferability {
    *             </dd>
    *             <dt>DONT_KNOW</dt>
    *             <dd>
-   *                <p>Reserved for future use.</p>
+   *                <p>The TLD registry didn't respond in time or didn't provide a definitive answer about domain transferability, which can occur due to registry maintenance or temporary delays.</p>
    *             </dd>
    *             <dt>DOMAIN_IN_OWN_ACCOUNT</dt>
    *             <dd>
@@ -418,9 +418,14 @@ export interface ExtraParam {
    * 			the top-level domains that require additional parameters and the names of the parameters
    * 			that they require:</p>
    *          <dl>
-   *             <dt>.com.au and .net.au</dt>
+   *             <dt>.au, .com.au, and .net.au</dt>
    *             <dd>
    *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>AU_REGISTRANT_NAME</code>
+   *                      </p>
+   *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>AU_ID_NUMBER</code>
@@ -443,6 +448,159 @@ export interface ExtraParam {
    *                         <li>
    *                            <p>
    *                               <code>TM</code> (Trademark number)</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AU_ELIGIBILITY_TYPE</code>
+   *                      </p>
+   *                      <p>Valid values include the following:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>CHARITABLE_TRUST (Charitable trust)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>CHARITY (Charity)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>CHILD_CARE_CENTRE (Child care centre)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>CLUB (Club)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>COMMERCIAL_STATUTORY_BODY (Commercial statutory body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>COMMONWEALTH_ENTITY (Commonwealth entity)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>COMPANY (Company)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>COMPANY_LIMITED_BY_GUARANTEE (Company limited by guarantee)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>EDUCATIONAL_INSTITUTION (Educational institution)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>GOVERNMENT_SCHOOL (Government school)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>HIGHER_EDUCATION_INSTITUTION (Higher education institution)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>INCORPORATED_ASSOCIATION (Incorporated association)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>INDIGENOUS_CORPORATION (Indigenous corporation)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>INDUSTRY_BODY (Industry body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>INDUSTRY_ORGANISATION (Industry association)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>NATIONAL_BODY (National body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>NON_DISTRIBUTING_COOPERATIVE (Non-distributing cooperative)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>NON_GOVERNMENT_SCHOOL (Non-government school)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>NON_PROFIT_ORGANISATION (Non-profit organisation)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>NON_TRADING_COOPERATIVE (Non-trading cooperative)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>NOT_FOR_PROFIT_COMMUNITY_GROUP (Not-for-profit community group)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>PARTNERSHIP (Partnership)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>PEAK_STATE_TERRITORY_BODY (Peak state/territory body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>PENDING_TM_OWNER (Pending TM owner)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>POLITICAL_PARTY (Political party)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>PRESCHOOL (Pre-school)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>PUBLIC_PRIVATE_ANCILLARY_FUND (Public/private ancillary fund)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>REGISTERED_BUSINESS (Registered business)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>REGISTERED_ORGANISATION (Registered organisation)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>REGISTRABLE_BODY (Registrable body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>RESEARCH_ORGANISATION (Research organisation)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>STATUTORY_BODY (Statutory body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>TRADE_UNION (Trade union)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>TRADEMARK_OWNER (Trademark owner)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>TRADING_COOPERATIVE (Trading cooperative)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>TRAINING_ORGANISATION (Training organisation)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>TRUST (Trust)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>UNINCORPORATED_ASSOCIATION (Unincorporated association)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>EDUCATION_AND_CARE_SERVICES_CHILDCARE (Education and care services (child care))</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>GOVERNMENT_BODY (Government body)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>PROVIDER_OF_NON_ACCREDITED_TRAINING (Provider of non-accredited training)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>RELIGIOUS_CHURCH_GROUP (Religious/church group)</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>SOLE_TRADER (Sole trader)</p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AU_POLICY_REASON</code>
+   *                      </p>
+   *                      <p>Valid values include the following:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>
+   *                               <code>POLICY_REASON_1</code>
+   *                            </p>
+   *                            <p>
+   *                               <code>POLICY_REASON_2</code>
+   *                            </p>
    *                         </li>
    *                      </ul>
    *                   </li>
@@ -1987,8 +2145,7 @@ export interface GetDomainDetailResponse {
   ExpirationDate?: Date | undefined;
 
   /**
-   * <p>Reseller of the domain. Domains registered or transferred using Route 53 domains will
-   * 			have <code>"Amazon"</code> as the reseller. </p>
+   * <p>Reserved for future use.</p>
    * @public
    */
   Reseller?: string | undefined;
@@ -2075,7 +2232,7 @@ export interface GetDomainSuggestionsRequest {
 
   /**
    * <p>The number of suggested domain names that you want Route 53 to return. Specify a value
-   * 			between 1 and 50.</p>
+   * 			between 1 and 50. Note that fewer than the requested number might be returned.</p>
    * @public
    */
   SuggestionCount: number | undefined;
@@ -2914,12 +3071,12 @@ export interface TransferDomainRequest {
   IdnLangCode?: string | undefined;
 
   /**
-   * <p>The number of years that you want to register the domain for. Domains are registered
-   * 			for a minimum of one year. The maximum period depends on the top-level domain.</p>
+   * <p>Reserved for future use.</p>
+   *          <p>Currently, the effect of a domain transfer on the registration period varies by TLD. For information about how transferring a domain affects the expiration date, see the Transfer Term column in the pricing information at <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
    *          <p>Default: 1</p>
    * @public
    */
-  DurationInYears: number | undefined;
+  DurationInYears?: number | undefined;
 
   /**
    * <p>Contains details for the host and glue IP addresses.</p>
