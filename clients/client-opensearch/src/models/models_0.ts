@@ -2474,9 +2474,9 @@ export interface SoftwareUpdateOptions {
  */
 export interface VPCOptions {
   /**
-   * <p>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain
-   *             uses multiple Availability Zones, you need to provide two subnet IDs, one per zone.
-   *             Otherwise, provide only one.</p>
+   * <p>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses
+   *         multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide
+   *         only one.</p>
    * @public
    */
   SubnetIds?: string[] | undefined;
@@ -2488,6 +2488,14 @@ export interface VPCOptions {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Controls whether egress traffic from the domain is routed through the customer VPC.
+   *             When <code>true</code>, outbound traffic flows through the VPC. When
+   *             <code>false</code>, outbound traffic goes through the public internet.</p>
+   * @public
+   */
+  EgressEnabled?: boolean | undefined;
 }
 
 /**
@@ -2879,6 +2887,14 @@ export interface VPCDerivedInfo {
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether egress traffic from the domain is routed through the customer VPC.
+   *             When <code>true</code>, outbound traffic flows through the VPC. When
+   *             <code>false</code>, outbound traffic goes through the public internet.</p>
+   * @public
+   */
+  EgressEnabled?: boolean | undefined;
 }
 
 /**

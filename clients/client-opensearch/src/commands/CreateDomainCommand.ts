@@ -87,6 +87,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
  *     ],
+ *     EgressEnabled: true || false,
  *   },
  *   CognitoOptions: { // CognitoOptions
  *     Enabled: true || false,
@@ -275,6 +276,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       SecurityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       EgressEnabled: true || false,
  * //     },
  * //     CognitoOptions: { // CognitoOptions
  * //       Enabled: true || false,

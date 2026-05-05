@@ -84,6 +84,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
  *     ],
+ *     EgressEnabled: true || false,
  *   },
  *   CognitoOptions: { // CognitoOptions
  *     Enabled: true || false,
@@ -307,6 +308,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         SecurityGroupIds: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         EgressEnabled: true || false,
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },

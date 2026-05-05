@@ -45,6 +45,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
  *     ],
+ *     EgressEnabled: true || false,
  *   },
  *   ClientToken: "STRING_VALUE",
  * };
@@ -66,6 +67,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * //       SecurityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       EgressEnabled: true || false,
  * //     },
  * //     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
  * //     Endpoint: "STRING_VALUE",

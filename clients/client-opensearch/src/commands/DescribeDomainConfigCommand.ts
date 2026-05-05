@@ -144,6 +144,7 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //         SecurityGroupIds: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         EgressEnabled: true || false,
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },

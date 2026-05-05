@@ -45,6 +45,7 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
  *     ],
+ *     EgressEnabled: true || false,
  *   },
  * };
  * const command = new UpdateVpcEndpointCommand(input);
@@ -65,6 +66,7 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * //       SecurityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       EgressEnabled: true || false,
  * //     },
  * //     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
  * //     Endpoint: "STRING_VALUE",

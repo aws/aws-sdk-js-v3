@@ -109,6 +109,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //       SecurityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       EgressEnabled: true || false,
  * //     },
  * //     CognitoOptions: { // CognitoOptions
  * //       Enabled: true || false,

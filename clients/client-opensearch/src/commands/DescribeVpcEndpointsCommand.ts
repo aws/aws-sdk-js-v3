@@ -60,6 +60,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //         SecurityGroupIds: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         EgressEnabled: true || false,
  * //       },
  * //       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
  * //       Endpoint: "STRING_VALUE",

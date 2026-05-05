@@ -123,6 +123,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //       SecurityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
+ * //       EgressEnabled: true || false,
  * //     },
  * //     CognitoOptions: { // CognitoOptions
  * //       Enabled: true || false,

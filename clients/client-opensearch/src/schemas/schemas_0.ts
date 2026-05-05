@@ -322,6 +322,7 @@ const _EBSOS = "EBSOptionsStatus";
 const _EC = "ErrorCode";
 const _ED = "ErrorDetails";
 const _EE = "EncryptionEnabled";
+const _EEg = "EgressEnabled";
 const _EHTTPS = "EnforceHTTPS";
 const _EI = "EnvironmentInformation";
 const _EIL = "EnvironmentInfoList";
@@ -2523,8 +2524,8 @@ export var VersionStatus$: StaticStructureSchema = [3, n0, _VSe,
 ];
 export var VPCDerivedInfo$: StaticStructureSchema = [3, n0, _VPCDI,
   0,
-  [_VPCI, _SI, _AZv, _SGI],
-  [0, 64 | 0, 64 | 0, 64 | 0]
+  [_VPCI, _SI, _AZv, _SGI, _EEg],
+  [0, 64 | 0, 64 | 0, 64 | 0, 2]
 ];
 export var VPCDerivedInfoStatus$: StaticStructureSchema = [3, n0, _VPCDIS,
   0,
@@ -2548,8 +2549,8 @@ export var VpcEndpointSummary$: StaticStructureSchema = [3, n0, _VES,
 ];
 export var VPCOptions$: StaticStructureSchema = [3, n0, _VPCO,
   0,
-  [_SI, _SGI],
-  [64 | 0, 64 | 0]
+  [_SI, _SGI, _EEg],
+  [64 | 0, 64 | 0, 2]
 ];
 export var WindowStartTime$: StaticStructureSchema = [3, n0, _WST,
   0,
