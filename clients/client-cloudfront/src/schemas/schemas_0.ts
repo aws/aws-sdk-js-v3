@@ -2639,8 +2639,8 @@ export var CreateFieldLevelEncryptionProfileResult$: StaticStructureSchema = [3,
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_N, _FC, _FCu],
-  [0, [() => FunctionConfig$, 0], [() => FunctionBlob, 0]], 3
+  [_N, _FC, _FCu, _Ta],
+  [0, [() => FunctionConfig$, 0], [() => FunctionBlob, 0], [() => Tags$, 0]], 3
 ];
 export var CreateFunctionResult$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -2679,8 +2679,8 @@ export var CreateKeyGroupResult$: StaticStructureSchema = [3, n0, _CKGRr,
 ];
 export var CreateKeyValueStoreRequest$: StaticStructureSchema = [3, n0, _CKVSR,
   0,
-  [_N, _Co, _IS],
-  [0, 0, () => ImportSource$], 1
+  [_N, _Co, _IS, _Ta],
+  [0, 0, () => ImportSource$, [() => Tags$, 0]], 1
 ];
 export var CreateKeyValueStoreResult$: StaticStructureSchema = [3, n0, _CKVSRr,
   0,

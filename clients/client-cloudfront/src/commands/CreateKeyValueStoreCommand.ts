@@ -43,6 +43,14 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  *     SourceType: "S3", // required
  *     SourceARN: "STRING_VALUE", // required
  *   },
+ *   Tags: { // Tags
+ *     Items: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateKeyValueStoreCommand(input);
  * const response = await client.send(command);

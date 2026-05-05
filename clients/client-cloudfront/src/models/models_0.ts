@@ -3749,6 +3749,12 @@ export interface CreateFunctionRequest {
    * @public
    */
   FunctionCode: Uint8Array | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
 }
 
 /**
@@ -4091,6 +4097,12 @@ export interface CreateKeyValueStoreRequest {
    * @public
    */
   ImportSource?: ImportSource | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
 }
 
 /**

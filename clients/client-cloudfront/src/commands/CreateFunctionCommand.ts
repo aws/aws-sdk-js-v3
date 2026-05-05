@@ -51,6 +51,14 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  *     },
  *   },
  *   FunctionCode: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   Tags: { // Tags
+ *     Items: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
