@@ -1,6 +1,7 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { CredentialsProviderError } from "@smithy/property-provider";
+import type { HttpHandler } from "@smithy/protocol-http";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 import fs from "node:fs/promises";
 
@@ -14,6 +15,20 @@ const DEFAULT_LINK_LOCAL_HOST = "http://169.254.170.2";
 const AWS_CONTAINER_CREDENTIALS_FULL_URI = "AWS_CONTAINER_CREDENTIALS_FULL_URI";
 const AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE = "AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE";
 const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
+
+/**
+ * Module-level cache of the default {@link NodeHttpHandler}, keyed by
+ * timeout. Callers (e.g. EKS Pod Identity) may invoke `fromHttp` repeatedly
+ * across credential refreshes; constructing a new handler each time leaks
+ * sockets/file descriptors because the previous handler is never destroyed.
+ *
+ * Memoizing on first use keeps a single shared handler/socket pool for the
+ * lifetime of the process. Caller-supplied handlers are respected and never
+ * cached here.
+ *
+ * @internal
+ */
+const defaultRequestHandlerCache = new Map<number, HttpHandler<any>>();
 
 /**
  * Creates a provider that gets credentials via HTTP request.
@@ -66,10 +81,23 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   // throws if not to spec for provider.
   checkUrl(url, options.logger);
 
-  const requestHandler = NodeHttpHandler.create({
-    requestTimeout: options.timeout ?? 1000,
-    connectionTimeout: options.timeout ?? 1000,
-  });
+  // Respect a caller-supplied handler; otherwise reuse a single SDK-default
+  // handler across calls to avoid leaking sockets on credential refresh.
+  let requestHandler: HttpHandler<any>;
+  if (options.requestHandler) {
+    requestHandler = options.requestHandler;
+  } else {
+    const timeout = options.timeout ?? 1000;
+    let cached = defaultRequestHandlerCache.get(timeout);
+    if (!cached) {
+      cached = NodeHttpHandler.create({
+        requestTimeout: timeout,
+        connectionTimeout: timeout,
+      });
+      defaultRequestHandlerCache.set(timeout, cached);
+    }
+    requestHandler = cached;
+  }
 
   return retryWrapper(
     async (): Promise<AwsCredentialIdentity> => {

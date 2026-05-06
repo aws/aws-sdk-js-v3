@@ -1,4 +1,5 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { HttpHandler } from "@smithy/protocol-http";
 
 /**
  * @public
@@ -64,6 +65,17 @@ export interface FromHttpOptions extends CredentialProviderOptions {
    * Default is 1000ms. Time in milliseconds to spend waiting between retry attempts.
    */
   timeout?: number;
+
+  /**
+   * Optional HTTP handler to use for credential requests.
+   *
+   * When omitted (the typical case), a single SDK-default handler is created
+   * and reused across calls to avoid leaking sockets in long-running processes
+   * that refresh credentials (e.g., EKS Pod Identity token rotation).
+   *
+   * When supplied, the caller takes ownership of the handler's lifecycle.
+   */
+  requestHandler?: HttpHandler<any>;
 }
 
 /**
