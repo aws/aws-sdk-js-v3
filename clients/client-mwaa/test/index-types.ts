@@ -87,6 +87,7 @@ export type {
   ResourceNotFoundException,
   RestApiClientException,
   RestApiServerException,
+  ServiceUnavailableException,
   ValidationException,
   MWAAServiceException,
   paginateListEnvironments,

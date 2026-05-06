@@ -57,6 +57,9 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>ResourceNotFoundException: The resource is not available.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>ServiceUnavailableException: The service is currently unavailable.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *

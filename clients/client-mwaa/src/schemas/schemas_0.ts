@@ -98,6 +98,7 @@ const _SRA = "ServiceRoleArn";
 const _SS = "StatisticSet";
 const _SSSOV = "StartupScriptS3ObjectVersion";
 const _SSSP = "StartupScriptS3Path";
+const _SUE = "ServiceUnavailableException";
 const _SV = "StatisticValues";
 const _So = "Source";
 const _St = "Status";
@@ -158,6 +159,7 @@ import {
   ResourceNotFoundException,
   RestApiClientException,
   RestApiServerException,
+  ServiceUnavailableException,
   ValidationException,
 } from "../models/errors";
 import { MWAAServiceException } from "../models/MWAAServiceException";
@@ -197,6 +199,12 @@ export var RestApiServerException$: StaticErrorSchema = [-3, n0, _RASE,
   [1, [() => RestApiResponse, 0]]
 ];
 n0_registry.registerError(RestApiServerException$, RestApiServerException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],

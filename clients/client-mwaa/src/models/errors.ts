@@ -67,6 +67,26 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>ServiceUnavailableException: The service is currently unavailable.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name = "ServiceUnavailableException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
  * <p>ValidationException: The provided input is not valid.</p>
  * @public
  */
@@ -87,8 +107,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating that a client-side error occurred during the Apache Airflow
- *             REST API call.</p>
+ * <p>An exception indicating that a client-side error occurred during the Apache Airflow REST API call.</p>
  * @public
  */
 export class RestApiClientException extends __BaseException {
@@ -101,8 +120,7 @@ export class RestApiClientException extends __BaseException {
   RestApiStatusCode?: number | undefined;
 
   /**
-   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON
-   *             object.</p>
+   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON object.</p>
    * @public
    */
   RestApiResponse?: __DocumentType | undefined;
@@ -122,8 +140,7 @@ export class RestApiClientException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating that a server-side error occurred during the Apache Airflow
- *             REST API call.</p>
+ * <p>An exception indicating that a server-side error occurred during the Apache Airflow REST API call.</p>
  * @public
  */
 export class RestApiServerException extends __BaseException {
@@ -136,8 +153,7 @@ export class RestApiServerException extends __BaseException {
   RestApiStatusCode?: number | undefined;
 
   /**
-   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON
-   *             object.</p>
+   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON object.</p>
    * @public
    */
   RestApiResponse?: __DocumentType | undefined;

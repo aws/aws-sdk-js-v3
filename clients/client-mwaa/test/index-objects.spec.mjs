@@ -62,6 +62,8 @@ import {
   RestApiMethod,
   RestApiServerException,
   RestApiServerException$,
+  ServiceUnavailableException,
+  ServiceUnavailableException$,
   StatisticSet$,
   TagResource$,
   TagResourceCommand,
@@ -170,6 +172,8 @@ assert(RestApiClientException.prototype instanceof MWAAServiceException);
 assert(typeof RestApiClientException$ === "object");
 assert(RestApiServerException.prototype instanceof MWAAServiceException);
 assert(typeof RestApiServerException$ === "object");
+assert(ServiceUnavailableException.prototype instanceof MWAAServiceException);
+assert(typeof ServiceUnavailableException$ === "object");
 assert(ValidationException.prototype instanceof MWAAServiceException);
 assert(typeof ValidationException$ === "object");
 assert(MWAAServiceException.prototype instanceof Error);

@@ -112,6 +112,9 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @throws {@link InternalServerException} (server fault)
  *  <p>InternalServerException: An internal error has occurred.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>ServiceUnavailableException: The service is currently unavailable.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *

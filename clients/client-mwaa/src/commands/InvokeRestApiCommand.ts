@@ -27,9 +27,7 @@ export interface InvokeRestApiCommandInput extends InvokeRestApiRequest {}
 export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __MetadataBearer {}
 
 /**
- * <p>Invokes the Apache Airflow REST API on the webserver with the specified inputs. To
- *             learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html">Using the Apache Airflow REST API</a>
- *          </p>
+ * <p>Invokes the Apache Airflow REST API on the webserver with the specified inputs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html">Using the Apache Airflow REST API</a> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,12 +68,10 @@ export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __Met
  *  <p>ResourceNotFoundException: The resource is not available.</p>
  *
  * @throws {@link RestApiClientException} (client fault)
- *  <p>An exception indicating that a client-side error occurred during the Apache Airflow
- *             REST API call.</p>
+ *  <p>An exception indicating that a client-side error occurred during the Apache Airflow REST API call.</p>
  *
  * @throws {@link RestApiServerException} (client fault)
- *  <p>An exception indicating that a server-side error occurred during the Apache Airflow
- *             REST API call.</p>
+ *  <p>An exception indicating that a server-side error occurred during the Apache Airflow REST API call.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>

@@ -34,6 +34,7 @@ export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
  */
 export const WebserverAccessMode = {
   PRIVATE_ONLY: "PRIVATE_ONLY",
+  PUBLIC_AND_PRIVATE: "PUBLIC_AND_PRIVATE",
   PUBLIC_ONLY: "PUBLIC_ONLY",
 } as const;
 /**
