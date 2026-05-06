@@ -7762,6 +7762,12 @@ export interface DataQualityEvaluationRunAdditionalRunOptions {
    * @public
    */
   CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod | undefined;
+
+  /**
+   * <p>A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to <code><CustomLogGroupPrefix>/error</code> and <code><CustomLogGroupPrefix>/output</code> instead of the default <code>/aws-glue/data-quality/error</code> and <code>/aws-glue/data-quality/output</code> log groups.</p>
+   * @public
+   */
+  CustomLogGroupPrefix?: string | undefined;
 }
 
 /**

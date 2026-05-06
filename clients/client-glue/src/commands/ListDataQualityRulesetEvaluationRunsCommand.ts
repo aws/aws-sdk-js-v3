@@ -64,6 +64,7 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput extends ListD
  *     },
  *     StartedBefore: new Date("TIMESTAMP"),
  *     StartedAfter: new Date("TIMESTAMP"),
+ *     RulesetName: "STRING_VALUE",
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),

@@ -74,6 +74,7 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput extends GetData
  * //     CloudWatchMetricsEnabled: true || false,
  * //     ResultsS3Prefix: "STRING_VALUE",
  * //     CompositeRuleEvaluationMethod: "COLUMN" || "ROW",
+ * //     CustomLogGroupPrefix: "STRING_VALUE",
  * //   },
  * //   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
  * //   ErrorString: "STRING_VALUE",

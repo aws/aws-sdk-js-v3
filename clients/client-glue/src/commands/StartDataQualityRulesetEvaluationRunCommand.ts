@@ -69,6 +69,7 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput extends Start
  *     CloudWatchMetricsEnabled: true || false,
  *     ResultsS3Prefix: "STRING_VALUE",
  *     CompositeRuleEvaluationMethod: "COLUMN" || "ROW",
+ *     CustomLogGroupPrefix: "STRING_VALUE",
  *   },
  *   RulesetNames: [ // RulesetNames // required
  *     "STRING_VALUE",

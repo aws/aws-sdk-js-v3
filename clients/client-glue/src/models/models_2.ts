@@ -4225,6 +4225,12 @@ export interface DataQualityRulesetEvaluationRunFilter {
    * @public
    */
   StartedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter results by the name of the ruleset.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
 }
 
 /**

@@ -305,6 +305,7 @@ const _CJRr = "CreateJobResponse";
 const _CKS = "CatalogKafkaSource";
 const _CKSa = "CatalogKinesisSource";
 const _CL = "ConnectionsList";
+const _CLGP = "CustomLogGroupPrefix";
 const _CLS = "CrawlerLineageSettings";
 const _CLa = "CatalogList";
 const _CLl = "ClassifierList";
@@ -3877,8 +3878,8 @@ export var DataQualityEncryption$: StaticStructureSchema = [3, n0, _DQE,
 ];
 export var DataQualityEvaluationRunAdditionalRunOptions$: StaticStructureSchema = [3, n0, _DQERARO,
   0,
-  [_CWME, _RSP, _CREM],
-  [2, 0, 0]
+  [_CWME, _RSP, _CREM, _CLGP],
+  [2, 0, 0, 0]
 ];
 export var DataQualityGlueTable$: StaticStructureSchema = [3, n0, _DQGT,
   0,
@@ -3932,8 +3933,8 @@ export var DataQualityRulesetEvaluationRunDescription$: StaticStructureSchema = 
 ];
 export var DataQualityRulesetEvaluationRunFilter$: StaticStructureSchema = [3, n0, _DQRERF,
   0,
-  [_DSa, _SB, _SAt],
-  [() => DataSource$, 4, 4], 1
+  [_DSa, _SB, _SAt, _RNu],
+  [() => DataSource$, 4, 4, 0], 1
 ];
 export var DataQualityRulesetFilterCriteria$: StaticStructureSchema = [3, n0, _DQRFCa,
   0,
