@@ -81,6 +81,9 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  * @see {@link ImportDiskImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permissions to perform the requested operation.</p>
+ *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action, such as using an action or
  * 			resource on behalf of a user that doesn't have permissions to use the action or
@@ -92,6 +95,9 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You have attempted too many requests for the specific operation.</p>
  *
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
