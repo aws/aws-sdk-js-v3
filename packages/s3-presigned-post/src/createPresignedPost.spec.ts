@@ -106,6 +106,49 @@ describe("createPresignedPost", () => {
     expect(conditions).toContainEqual(["starts-with", "$key", "path/to/"]);
   });
 
+  it("should emit a starts-with condition when ${filename} is used in a non-key field (issue #7191)", async () => {
+    //@ts-ignore mock s3 client
+    const { fields } = await createPresignedPost(mockS3Client, {
+      Bucket,
+      Key,
+      Fields: {
+        success_action_redirect: "https://example.com/success?file=${filename}",
+      },
+    });
+
+    // Field value with ${filename} is preserved verbatim in the returned form fields,
+    // matching how the existing key field is preserved.
+    expect(fields).toMatchObject({
+      success_action_redirect: "https://example.com/success?file=${filename}",
+    });
+
+    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
+    // Instead of an exact-match condition (which S3 would invalidate after substituting
+    // ${filename}), a starts-with condition on the literal prefix is expected.
+    expect(conditions).toContainEqual([
+      "starts-with",
+      "$success_action_redirect",
+      "https://example.com/success?file=",
+    ]);
+    expect(conditions).not.toContainEqual({
+      success_action_redirect: "https://example.com/success?file=${filename}",
+    });
+  });
+
+  it("should emit a starts-with condition for arbitrary user-metadata fields containing ${filename}", async () => {
+    //@ts-ignore mock s3 client
+    await createPresignedPost(mockS3Client, {
+      Bucket,
+      Key,
+      Fields: {
+        "x-amz-meta-original-name": "${filename}",
+      },
+    });
+
+    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
+    expect(conditions).toContainEqual(["starts-with", "$x-amz-meta-original-name", ""]);
+  });
+
   it("should default expiration at 3600 seconds later", async () => {
     //@ts-ignore mock s3 client
     await createPresignedPost(mockS3Client, {
