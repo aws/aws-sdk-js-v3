@@ -25,6 +25,7 @@ import type {
   AnalyticsUtteranceMetricName,
   AssistedNluMode,
   AssociatedTranscriptFilterName,
+  AudioFillerType,
   AudioRecognitionStrategy,
   BedrockTraceStatus,
   BotAliasReplicationStatus,
@@ -60,7 +61,6 @@ import type {
   ImportExportFileFormat,
   ImportFilterName,
   ImportFilterOperator,
-  ImportSortAttribute,
   ImportStatus,
   MergeStrategy,
   MessageSelectionStrategy,
@@ -2036,6 +2036,61 @@ export interface AudioAndDTMFInputSpecification {
 }
 
 /**
+ * <p>Configuration that plays background filler audio during speech-to-speech
+ *          interactions to mask processing delays and improve the perceived
+ *          responsiveness of the bot.</p>
+ *          <p>Audio filler requires <code>unifiedSpeechSettings</code> (speech-to-speech)
+ *          to be enabled on the bot locale when <code>enabled</code> is
+ *          <code>true</code>.</p>
+ * @public
+ */
+export interface AudioFillerSettings {
+  /**
+   * <p>Specifies whether audio filler playback is enabled for the bot locale.
+   *          Set to <code>true</code> to play filler audio while Amazon Lex processes a
+   *          user utterance. Set to <code>false</code> to disable filler audio.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>The identifier of the audio filler to play while Amazon Lex processes the
+   *          user's input. This field is required when <code>enabled</code> is
+   *          <code>true</code>.</p>
+   * @public
+   */
+  audioType?: AudioFillerType | undefined;
+
+  /**
+   * <p>The time, in milliseconds, to wait after the end of the user's
+   *          utterance before starting audio filler playback. Valid range is
+   *          <code>500</code> to <code>5000</code> milliseconds. If not specified,
+   *          Amazon Lex uses a default of <code>2500</code> milliseconds.</p>
+   * @public
+   */
+  startDelayInMilliseconds?: number | undefined;
+
+  /**
+   * <p>The minimum time, in milliseconds, that audio filler plays once it
+   *          has started, even if the bot response becomes ready sooner. Valid range
+   *          is <code>1000</code> to <code>5000</code> milliseconds. If not
+   *          specified, Amazon Lex uses a default of <code>3000</code>
+   *          milliseconds.</p>
+   * @public
+   */
+  minimumPlayDurationInMilliseconds?: number | undefined;
+
+  /**
+   * <p>The silent delay, in milliseconds, inserted between the end of audio
+   *          filler playback and the start of the bot's response. Valid range is
+   *          <code>200</code> to <code>1000</code> milliseconds. If not specified,
+   *          Amazon Lex uses a default of <code>500</code> milliseconds.</p>
+   * @public
+   */
+  responseDeliveryDelayInMilliseconds?: number | undefined;
+}
+
+/**
  * <p>Specifies an Amazon S3 bucket for logging audio conversations</p>
  * @public
  */
@@ -3266,6 +3321,15 @@ export interface BotLocaleImportSpecification {
    * @public
    */
   unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>Audio filler settings to apply when importing the bot locale
+   *          configuration. Audio filler requires <code>unifiedSpeechSettings</code>
+   *          (speech-to-speech) to be enabled when <code>enabled</code> is
+   *          <code>true</code>.</p>
+   * @public
+   */
+  audioFillerSettings?: AudioFillerSettings | undefined;
 }
 
 /**
@@ -4915,6 +4979,16 @@ export interface CreateBotLocaleRequest {
   unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
 
   /**
+   * <p>Audio filler settings to configure for the new bot locale. When
+   *          enabled, Amazon Lex plays a brief background audio filler during
+   *          speech-to-speech interactions to mask processing delays. Requires
+   *          <code>unifiedSpeechSettings</code> (speech-to-speech) to be configured
+   *          on the bot locale.</p>
+   * @public
+   */
+  audioFillerSettings?: AudioFillerSettings | undefined;
+
+  /**
    * <p>Speech-to-text settings to configure for the new bot locale.</p>
    * @public
    */
@@ -4987,6 +5061,12 @@ export interface CreateBotLocaleResponse {
    * @public
    */
   unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>The audio filler settings configured for the created bot locale.</p>
+   * @public
+   */
+  audioFillerSettings?: AudioFillerSettings | undefined;
 
   /**
    * <p>The speech-to-text settings configured for the created bot locale.</p>
@@ -7627,6 +7707,12 @@ export interface DescribeBotLocaleResponse {
   unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
 
   /**
+   * <p>The audio filler settings configured for the bot locale.</p>
+   * @public
+   */
+  audioFillerSettings?: AudioFillerSettings | undefined;
+
+  /**
    * <p>The speech-to-text settings configured for the bot locale.</p>
    * @public
    */
@@ -9469,22 +9555,4 @@ export interface ImportFilter {
    * @public
    */
   operator: ImportFilterOperator | undefined;
-}
-
-/**
- * <p>Provides information for sorting a list of imports.</p>
- * @public
- */
-export interface ImportSortBy {
-  /**
-   * <p>The export field to use for sorting.</p>
-   * @public
-   */
-  attribute: ImportSortAttribute | undefined;
-
-  /**
-   * <p>The order to sort the list.</p>
-   * @public
-   */
-  order: SortOrder | undefined;
 }

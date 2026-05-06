@@ -86,6 +86,13 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //           voiceId: "STRING_VALUE",
  * //         },
  * //       },
+ * //       audioFillerSettings: { // AudioFillerSettings
+ * //         enabled: true || false,
+ * //         audioType: "MELODY_CHIPPER_CHIME" || "MELODY_CURIOUS_CRAWL" || "MELODY_RISING_RIPPLE" || "MELODY_PATIENT_PING" || "MELODY_PONDERING_PONG" || "TYPING_KINETIC_KEYS" || "TYPING_QUIET_QWERTY",
+ * //         startDelayInMilliseconds: Number("int"),
+ * //         minimumPlayDurationInMilliseconds: Number("int"),
+ * //         responseDeliveryDelayInMilliseconds: Number("int"),
+ * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
  * //       botId: "STRING_VALUE", // required

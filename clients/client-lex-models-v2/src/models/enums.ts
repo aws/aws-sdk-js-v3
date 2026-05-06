@@ -462,6 +462,24 @@ export type AssociatedTranscriptFilterName =
  * @public
  * @enum
  */
+export const AudioFillerType = {
+  MELODY_CHIPPER_CHIME: "MELODY_CHIPPER_CHIME",
+  MELODY_CURIOUS_CRAWL: "MELODY_CURIOUS_CRAWL",
+  MELODY_PATIENT_PING: "MELODY_PATIENT_PING",
+  MELODY_PONDERING_PONG: "MELODY_PONDERING_PONG",
+  MELODY_RISING_RIPPLE: "MELODY_RISING_RIPPLE",
+  TYPING_KINETIC_KEYS: "TYPING_KINETIC_KEYS",
+  TYPING_QUIET_QWERTY: "TYPING_QUIET_QWERTY",
+} as const;
+/**
+ * @public
+ */
+export type AudioFillerType = (typeof AudioFillerType)[keyof typeof AudioFillerType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   DUPLICATE_INPUT: "DUPLICATE_INPUT",
   INTERNAL_SERVER_FAILURE: "INTERNAL_SERVER_FAILURE",

@@ -69,6 +69,8 @@ import {
   AssociatedTranscriptFilter$,
   AssociatedTranscriptFilterName,
   AudioAndDTMFInputSpecification$,
+  AudioFillerSettings$,
+  AudioFillerType,
   AudioLogDestination$,
   AudioLogSetting$,
   AudioRecognitionStrategy,
@@ -1123,6 +1125,7 @@ assert(typeof AnalyticsUtteranceResult$ === "object");
 assert(typeof AssociatedTranscript$ === "object");
 assert(typeof AssociatedTranscriptFilter$ === "object");
 assert(typeof AudioAndDTMFInputSpecification$ === "object");
+assert(typeof AudioFillerSettings$ === "object");
 assert(typeof AudioLogDestination$ === "object");
 assert(typeof AudioLogSetting$ === "object");
 assert(typeof AudioSpecification$ === "object");
@@ -1590,6 +1593,7 @@ assert(typeof AnalyticsUtteranceMetricName === "object");
 assert(typeof AnalyticsUtteranceSortByName === "object");
 assert(typeof AssistedNluMode === "object");
 assert(typeof AssociatedTranscriptFilterName === "object");
+assert(typeof AudioFillerType === "object");
 assert(typeof AudioRecognitionStrategy === "object");
 assert(typeof BedrockTraceStatus === "object");
 assert(typeof BotAliasReplicationStatus === "object");

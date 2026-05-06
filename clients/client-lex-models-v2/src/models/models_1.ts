@@ -16,6 +16,7 @@ import type {
   GenerationStatus,
   ImportExportFileFormat,
   ImportResourceType,
+  ImportSortAttribute,
   ImportStatus,
   IntentFilterName,
   IntentFilterOperator,
@@ -76,6 +77,7 @@ import type {
   AnalyticsUtteranceResult,
   AssociatedTranscript,
   AssociatedTranscriptFilter,
+  AudioFillerSettings,
   BotAliasLocaleSettings,
   BotAliasReplicaSummary,
   BotAliasSummary,
@@ -123,7 +125,6 @@ import type {
   ImageResponseCard,
   ImportFilter,
   ImportResourceSpecification,
-  ImportSortBy,
   InputContext,
   KendraConfiguration,
   MultipleValuesSetting,
@@ -151,6 +152,24 @@ import type {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>Provides information for sorting a list of imports.</p>
+ * @public
+ */
+export interface ImportSortBy {
+  /**
+   * <p>The export field to use for sorting.</p>
+   * @public
+   */
+  attribute: ImportSortAttribute | undefined;
+
+  /**
+   * <p>The order to sort the list.</p>
+   * @public
+   */
+  order: SortOrder | undefined;
+}
 
 /**
  * <p>Provides summary information about an import in an import
@@ -5133,6 +5152,14 @@ export interface UpdateBotLocaleRequest {
   unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
 
   /**
+   * <p>Updated audio filler settings to apply to the bot locale. When
+   *          enabled, requires <code>unifiedSpeechSettings</code> (speech-to-speech)
+   *          to be configured on the bot locale.</p>
+   * @public
+   */
+  audioFillerSettings?: AudioFillerSettings | undefined;
+
+  /**
    * <p>Updated speech-to-text settings to apply to the bot locale.</p>
    * @public
    */
@@ -5207,6 +5234,12 @@ export interface UpdateBotLocaleResponse {
    * @public
    */
   unifiedSpeechSettings?: UnifiedSpeechSettings | undefined;
+
+  /**
+   * <p>The updated audio filler settings for the bot locale.</p>
+   * @public
+   */
+  audioFillerSettings?: AudioFillerSettings | undefined;
 
   /**
    * <p>The updated speech-to-text settings for the bot locale.</p>

@@ -5,6 +5,7 @@ const _ABK = "AnalyticsBinKey";
 const _ABKn = "AnalyticsBinKeys";
 const _AC = "ActiveContext";
 const _ACL = "ActiveContextList";
+const _AFS = "AudioFillerSettings";
 const _AIF = "AnalyticsIntentFilter";
 const _AIFn = "AnalyticsIntentFilters";
 const _AIGBK = "AnalyticsIntentGroupByKey";
@@ -717,6 +718,7 @@ const _aD = "aggregationDuration";
 const _aDTMFI = "allowDTMFInput";
 const _aES = "actualElicitedSlot";
 const _aF = "answerField";
+const _aFS = "audioFillerSettings";
 const _aFSL = "audioFileS3Location";
 const _aI = "actualIntent";
 const _aIN = "associatedIntentName";
@@ -736,11 +738,12 @@ const _aRSd = "advancedRecognitionSetting";
 const _aS = "audioSpecification";
 const _aSN = "associatedSlotName";
 const _aSn = "analysisScope";
-const _aT = "associatedTranscripts";
+const _aT = "audioType";
 const _aTP = "associatedTranscriptsPassword";
 const _aTSA = "apiTokenSecretArn";
 const _aTU = "associatedTranscriptsUrl";
 const _aTg = "agentTurn";
+const _aTs = "associatedTranscripts";
 const _aUS = "aggregatedUtterancesSummaries";
 const _aVDM = "audioVoiceDurationMillis";
 const _aWET = "aggregationWindowEndTime";
@@ -1007,6 +1010,7 @@ const _mG = "messageGroups";
 const _mI = "modelId";
 const _mL = "maxLength";
 const _mLM = "maxLengthMs";
+const _mPDIM = "minimumPlayDurationInMilliseconds";
 const _mR = "metricsResults";
 const _mRa = "matchResult";
 const _mRax = "maxResults";
@@ -1068,6 +1072,7 @@ const _rAe = "resourceArn";
 const _rAec = "recommendedActions";
 const _rAeq = "requestAttributes";
 const _rC = "resultCounts";
+const _rDDIM = "responseDeliveryDelayInMilliseconds";
 const _rF = "regexFilter";
 const _rFB = "resultFilterBy";
 const _rH = "runtimeHints";
@@ -1094,6 +1099,7 @@ const _sC = "successConditional";
 const _sCS = "slotCaptureSetting";
 const _sCl = "slotConstraint";
 const _sD = "startDate";
+const _sDIM = "startDelayInMilliseconds";
 const _sDS = "speechDetectionSensitivity";
 const _sDT = "startDateTime";
 const _sDl = "slotDiscrepancies";
@@ -1521,6 +1527,11 @@ export var AudioAndDTMFInputSpecification$: StaticStructureSchema = [3, n0, _AAD
   [_sTM, _aS, _dS],
   [1, () => AudioSpecification$, () => DTMFSpecification$], 1
 ];
+export var AudioFillerSettings$: StaticStructureSchema = [3, n0, _AFS,
+  0,
+  [_en, _aT, _sDIM, _mPDIM, _rDDIM],
+  [2, 0, 1, 1, 1]
+];
 export var AudioLogDestination$: StaticStructureSchema = [3, n0, _ALD,
   0,
   [_sB],
@@ -1653,8 +1664,8 @@ export var BotLocaleHistoryEvent$: StaticStructureSchema = [3, n0, _BLHE,
 ];
 export var BotLocaleImportSpecification$: StaticStructureSchema = [3, n0, _BLIS,
   0,
-  [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS],
-  [0, 0, 0, 1, () => VoiceSettings$, () => SpeechRecognitionSettings$, 0, () => UnifiedSpeechSettings$], 3
+  [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS, _aFS],
+  [0, 0, 0, 1, () => VoiceSettings$, () => SpeechRecognitionSettings$, 0, () => UnifiedSpeechSettings$, () => AudioFillerSettings$], 3
 ];
 export var BotLocaleSortBy$: StaticStructureSchema = [3, n0, _BLSB,
   0,
@@ -1853,13 +1864,13 @@ export var CreateBotAliasResponse$: StaticStructureSchema = [3, n0, _CBARr,
 ];
 export var CreateBotLocaleRequest$: StaticStructureSchema = [3, n0, _CBLR,
   0,
-  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _sRS, _gAIS, _sDS],
-  [[0, 1], [0, 1], 0, 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0], 4
+  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _aFS, _sRS, _gAIS, _sDS],
+  [[0, 1], [0, 1], 0, 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0], 4
 ];
 export var CreateBotLocaleResponse$: StaticStructureSchema = [3, n0, _CBLRr,
   0,
-  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _uSS, _sRS, _bLS, _cDT, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => SpeechRecognitionSettings$, 0, 4, () => GenerativeAISettings$, 0]
+  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _uSS, _aFS, _sRS, _bLS, _cDT, _gAIS, _sDS],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 0, 4, () => GenerativeAISettings$, 0]
 ];
 export var CreateBotReplicaRequest$: StaticStructureSchema = [3, n0, _CBRR,
   0,
@@ -2188,8 +2199,8 @@ export var DescribeBotLocaleRequest$: StaticStructureSchema = [3, n0, _DBLRes,
 ];
 export var DescribeBotLocaleResponse$: StaticStructureSchema = [3, n0, _DBLResc,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _sRS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => SpeechRecognitionSettings$, 1, 1, 0, 64 | 0, 4, 4, 4, () => BotLocaleHistoryEventsList, 64 | 0, () => GenerativeAISettings$, 0]
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _aFS, _sRS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 1, 1, 0, 64 | 0, 4, 4, 4, () => BotLocaleHistoryEventsList, 64 | 0, () => GenerativeAISettings$, 0]
 ];
 export var DescribeBotRecommendationRequest$: StaticStructureSchema = [3, n0, _DBRRes,
   0,
@@ -3128,7 +3139,7 @@ export var SearchAssociatedTranscriptsRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var SearchAssociatedTranscriptsResponse$: StaticStructureSchema = [3, n0, _SATRe,
   0,
-  [_bI, _bV, _lI, _bRI, _nIe, _aT, _tRo],
+  [_bI, _bV, _lI, _bRI, _nIe, _aTs, _tRo],
   [0, 0, 0, 0, 1, () => AssociatedTranscriptList, 1]
 ];
 export var SentimentAnalysisSettings$: StaticStructureSchema = [3, n0, _SAS,
@@ -3538,13 +3549,13 @@ export var UpdateBotAliasResponse$: StaticStructureSchema = [3, n0, _UBARp,
 ];
 export var UpdateBotLocaleRequest$: StaticStructureSchema = [3, n0, _UBLR,
   0,
-  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _sRS, _gAIS, _sDS],
-  [[0, 1], [0, 1], [0, 1], 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0], 4
+  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _aFS, _sRS, _gAIS, _sDS],
+  [[0, 1], [0, 1], [0, 1], 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0], 4
 ];
 export var UpdateBotLocaleResponse$: StaticStructureSchema = [3, n0, _UBLRp,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _sRS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => SpeechRecognitionSettings$, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings$, 0]
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _aFS, _sRS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings$, 0]
 ];
 export var UpdateBotRecommendationRequest$: StaticStructureSchema = [3, n0, _UBRR,
   0,
