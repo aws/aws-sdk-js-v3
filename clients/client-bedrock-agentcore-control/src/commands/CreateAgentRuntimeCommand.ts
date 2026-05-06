@@ -166,6 +166,14 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *       sessionStorage: { // SessionStorageConfiguration
  *         mountPath: "STRING_VALUE", // required
  *       },
+ *       s3FilesAccessPoint: { // S3FilesAccessPointConfiguration
+ *         accessPointArn: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *       },
+ *       efsAccessPoint: { // EfsAccessPointConfiguration
+ *         accessPointArn: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   tags: "<TagsMap>",

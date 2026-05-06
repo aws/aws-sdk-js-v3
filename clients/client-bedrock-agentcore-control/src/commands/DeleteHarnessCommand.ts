@@ -171,6 +171,14 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //             sessionStorage: { // SessionStorageConfiguration
  * //               mountPath: "STRING_VALUE", // required
  * //             },
+ * //             s3FilesAccessPoint: { // S3FilesAccessPointConfiguration
+ * //               accessPointArn: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
+ * //             efsAccessPoint: { // EfsAccessPointConfiguration
+ * //               accessPointArn: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //         ],
  * //       },

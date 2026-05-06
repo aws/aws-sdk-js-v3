@@ -66,6 +66,14 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  *           sessionStorage: { // SessionStorageConfiguration
  *             mountPath: "STRING_VALUE", // required
  *           },
+ *           s3FilesAccessPoint: { // S3FilesAccessPointConfiguration
+ *             accessPointArn: "STRING_VALUE", // required
+ *             mountPath: "STRING_VALUE", // required
+ *           },
+ *           efsAccessPoint: { // EfsAccessPointConfiguration
+ *             accessPointArn: "STRING_VALUE", // required
+ *             mountPath: "STRING_VALUE", // required
+ *           },
  *         },
  *       ],
  *     },
@@ -385,6 +393,14 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //         filesystemConfigurations: [ // FilesystemConfigurations
  * //           { // FilesystemConfiguration Union: only one key present
  * //             sessionStorage: { // SessionStorageConfiguration
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
+ * //             s3FilesAccessPoint: { // S3FilesAccessPointConfiguration
+ * //               accessPointArn: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
+ * //             efsAccessPoint: { // EfsAccessPointConfiguration
+ * //               accessPointArn: "STRING_VALUE", // required
  * //               mountPath: "STRING_VALUE", // required
  * //             },
  * //           },

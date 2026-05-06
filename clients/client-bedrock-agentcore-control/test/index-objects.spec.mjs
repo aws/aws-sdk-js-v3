@@ -260,6 +260,7 @@ import {
   DeleteWorkloadIdentityResponse$,
   Descriptors$,
   DescriptorType,
+  EfsAccessPointConfiguration$,
   EncryptionFailure,
   EncryptionFailure$,
   EndpointIpAddressType,
@@ -683,6 +684,7 @@ import {
   RuntimeMetadataConfiguration$,
   RuntimeTargetConfiguration$,
   S3Configuration$,
+  S3FilesAccessPointConfiguration$,
   S3Location$,
   SalesforceOauth2ProviderConfigInput$,
   SalesforceOauth2ProviderConfigOutput$,
@@ -1283,6 +1285,7 @@ assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeleteWorkloadIdentityRequest$ === "object");
 assert(typeof DeleteWorkloadIdentityResponse$ === "object");
 assert(typeof Descriptors$ === "object");
+assert(typeof EfsAccessPointConfiguration$ === "object");
 assert(typeof EpisodicConsolidationOverride$ === "object");
 assert(typeof EpisodicExtractionOverride$ === "object");
 assert(typeof EpisodicMemoryStrategyInput$ === "object");
@@ -1532,6 +1535,7 @@ assert(typeof Rule$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof RuntimeTargetConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
+assert(typeof S3FilesAccessPointConfiguration$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigInput$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigOutput$ === "object");

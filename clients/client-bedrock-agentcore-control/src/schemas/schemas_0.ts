@@ -217,6 +217,7 @@ const _DWIR = "DeleteWorkloadIdentityRequest";
 const _DWIRe = "DeleteWorkloadIdentityResponse";
 const _De = "Description";
 const _Des = "Descriptors";
+const _EAPC = "EfsAccessPointConfiguration";
 const _EC = "EvaluatorConfig";
 const _ECD = "EvaluationConfigDescription";
 const _ECO = "EpisodicConsolidationOverride";
@@ -585,6 +586,7 @@ const _SDe = "ServerDefinition";
 const _SDk = "SkillDefinition";
 const _SE = "ServiceException";
 const _SEO = "SemanticExtractionOverride";
+const _SFAPC = "S3FilesAccessPointConfiguration";
 const _SGT = "SynchronizeGatewayTargets";
 const _SGTR = "SynchronizeGatewayTargetsRequest";
 const _SGTRy = "SynchronizeGatewayTargetsResponse";
@@ -775,6 +777,7 @@ const _aMRF = "additionalModelRequestFields";
 const _aMS = "addMemoryStrategies";
 const _aO = "anyOf";
 const _aOPC = "atlassianOauth2ProviderConfig";
+const _aPA = "accessPointArn";
 const _aQP = "allowedQueryParameters";
 const _aR = "agentRuntimes";
 const _aRA = "agentRuntimeArn";
@@ -880,6 +883,7 @@ const _des = "descriptors";
 const _do = "domain";
 const _e = "error";
 const _eA = "evaluatorArn";
+const _eAP = "efsAccessPoint";
 const _eAn = "environmentArtifact";
 const _eC = "evaluatorConfig";
 const _eCO = "episodicConsolidationOverride";
@@ -1141,6 +1145,7 @@ const _sCt = "streamingConfiguration";
 const _sD = "skillDefinition";
 const _sDR = "streamDeliveryResources";
 const _sEO = "semanticExtractionOverride";
+const _sFAP = "s3FilesAccessPoint";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
 const _sI = "strategyId";
@@ -2029,6 +2034,11 @@ export var Descriptors$: StaticStructureSchema = [3, n0, _Des,
   0,
   [_mc, _aa, _cu, _aSg],
   [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
+];
+export var EfsAccessPointConfiguration$: StaticStructureSchema = [3, n0, _EAPC,
+  0,
+  [_aPA, _mP],
+  [0, 0], 2
 ];
 export var EpisodicConsolidationOverride$: StaticStructureSchema = [3, n0, _ECO,
   0,
@@ -3080,6 +3090,11 @@ export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   [_ur, _bOAI],
   [0, 0]
 ];
+export var S3FilesAccessPointConfiguration$: StaticStructureSchema = [3, n0, _SFAPC,
+  0,
+  [_aPA, _mP],
+  [0, 0], 2
+];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bu, _pre, _vI],
@@ -4126,8 +4141,8 @@ export var ExtractionConfiguration$: StaticUnionSchema = [4, n0, _ECxt,
 ];
 export var FilesystemConfiguration$: StaticUnionSchema = [4, n0, _FCi,
   0,
-  [_sSe],
-  [() => SessionStorageConfiguration$]
+  [_sSe, _sFAP, _eAP],
+  [() => SessionStorageConfiguration$, () => S3FilesAccessPointConfiguration$, () => EfsAccessPointConfiguration$]
 ];
 export var FilterValue$: StaticUnionSchema = [4, n0, _FV,
   0,
