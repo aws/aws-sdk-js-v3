@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
+
+
+### Features
+
+* **client-mwaa:** Amazon MWAA now supports a PublicAndPrivate webserver access mode. The Airflow web server is accessible over both public and private endpoints, enabling workers in VPCs without internet access to reach the Task API privately while retaining public access to the Airflow UI. ([3a6054e](https://github.com/aws/aws-sdk-js-v3/commit/3a6054ef54e1f8afbc167fa27761c1cd36dffa5e))
+
+
+
+
+
 # [3.1043.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1042.0...v3.1043.0) (2026-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa

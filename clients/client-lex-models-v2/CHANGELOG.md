@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
+
+
+### Features
+
+* **client-lex-models-v2:** Amazon Lex V2 introduces audio filler support for speech-to-speech bots. Configure melody or typing sounds that play during backend processing to reduce perceived latency and maintain a natural conversational experience for callers. ([01426f8](https://github.com/aws/aws-sdk-js-v3/commit/01426f8e5c9073cdf81e7bd2a6d816156bd81249))
+
+
+
+
+
 # [3.1043.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1042.0...v3.1043.0) (2026-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for bring-your-own file system in AgentCore Runtime. Developers can mount Amazon S3 Files and Amazon EFS access points directly into agent sessions using filesystemConfigurations. ([e20f24d](https://github.com/aws/aws-sdk-js-v3/commit/e20f24d92f340e25371fa4b00e1321b627211b98))
+* **client-glue:** Adds support for a CustomLogGroupPrefix parameter in StartDataQualityRulesetEvaluationRun to specify custom CloudWatch log group paths, and a RulesetName filter in ListDataQualityRulesetEvaluationRuns to filter evaluation runs by ruleset name. ([b95d850](https://github.com/aws/aws-sdk-js-v3/commit/b95d850bd64dae6c73588e9035803b9924781a4d))
+* **client-imagebuilder:** The ImportDiskImage API now enforces a maximum character limit of 128 characters on the image name field. ([7fc2565](https://github.com/aws/aws-sdk-js-v3/commit/7fc2565c6b8b25d3257729b962125cffe00e5c42))
+* **client-lex-models-v2:** Amazon Lex V2 introduces audio filler support for speech-to-speech bots. Configure melody or typing sounds that play during backend processing to reduce perceived latency and maintain a natural conversational experience for callers. ([01426f8](https://github.com/aws/aws-sdk-js-v3/commit/01426f8e5c9073cdf81e7bd2a6d816156bd81249))
+* **client-mwaa:** Amazon MWAA now supports a PublicAndPrivate webserver access mode. The Airflow web server is accessible over both public and private endpoints, enabling workers in VPCs without internet access to reach the Task API privately while retaining public access to the Airflow UI. ([3a6054e](https://github.com/aws/aws-sdk-js-v3/commit/3a6054ef54e1f8afbc167fa27761c1cd36dffa5e))
+* **client-s3:** Validate outpost access point resource name ([bee88a5](https://github.com/aws/aws-sdk-js-v3/commit/bee88a56c5d1e8ffe9b2953117d81f4fc221ac68))
+* **client-sagemaker:** Amazon SageMaker HyperPod now returns ImageVersionStatus in DescribeCluster, DescribeClusterNode, and ListClusterNodes responses, indicating whether cluster instances are running the latest available image version. ([2be7e6b](https://github.com/aws/aws-sdk-js-v3/commit/2be7e6b4b07f9732823fbb6b9b6e0c78b640e44f))
+* **client-securityhub:** Release GenerateRecommendedPolicyV2 and GetRecommendedPolicyV2 APIs. This supports generating and retrieving policy recommendations to remediate unused permissions findings that are now being supported on Security Hub. ([772b862](https://github.com/aws/aws-sdk-js-v3/commit/772b8629c270edee6fb4bb6874bb4036102d0f60))
+
+
+
+
+
 # [3.1043.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1042.0...v3.1043.0) (2026-05-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
+
+
+### Features
+
+* **client-s3:** Validate outpost access point resource name ([bee88a5](https://github.com/aws/aws-sdk-js-v3/commit/bee88a56c5d1e8ffe9b2953117d81f4fc221ac68))
+
+
+
+
+
 # [3.1043.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1042.0...v3.1043.0) (2026-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-s3
