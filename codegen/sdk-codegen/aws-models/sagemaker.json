@@ -10124,6 +10124,26 @@
         "smithy.api#documentation": "<p>Defines the configuration for attaching an Amazon FSx for OpenZFS file system to instances in a SageMaker HyperPod cluster instance group.</p>"
       }
     },
+    "com.amazonaws.sagemaker#ClusterImageVersionStatus": {
+      "type": "enum",
+      "members": {
+        "UP_TO_DATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UpToDate"
+          }
+        },
+        "UPDATE_AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UpdateAvailable"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of the Amazon Machine Image (AMI) version for the HyperPod cluster instance group, node, or cluster. The AMI version is determined at the instance group level, and all nodes within an instance group run the same AMI. The cluster-level status is aggregated across all instance groups.</p> <ul> <li> <p> <code>UpToDate</code>: The resource is running the latest available AMI version.</p> </li> <li> <p> <code>UpdateAvailable</code>: A newer AMI version is available for the resource.</p> </li> </ul>"
+      }
+    },
     "com.amazonaws.sagemaker#ClusterInstanceCount": {
       "type": "integer",
       "traits": {
@@ -10248,6 +10268,12 @@
           "target": "com.amazonaws.sagemaker#ImageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the Amazon Machine Image (AMI) desired for the instance group.</p>"
+          }
+        },
+        "ImageVersionStatus": {
+          "target": "com.amazonaws.sagemaker#ClusterImageVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the image version for the instance group. Indicates whether the instance group is running the latest image version or if an update is available.</p>"
           }
         },
         "ActiveOperations": {
@@ -11870,6 +11896,12 @@
             "smithy.api#documentation": "<p>The ID of the Amazon Machine Image (AMI) desired for the node.</p>"
           }
         },
+        "ImageVersionStatus": {
+          "target": "com.amazonaws.sagemaker#ClusterImageVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the image version for the cluster node.</p>"
+          }
+        },
         "UltraServerInfo": {
           "target": "com.amazonaws.sagemaker#UltraServerInfo",
           "traits": {
@@ -12046,6 +12078,12 @@
           "traits": {
             "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>"
+          }
+        },
+        "ImageVersionStatus": {
+          "target": "com.amazonaws.sagemaker#ClusterImageVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the image version for the cluster node.</p>"
           }
         }
       },

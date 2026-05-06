@@ -254,6 +254,7 @@ import {
   ClusterEventSummary$,
   ClusterFsxLustreConfig$,
   ClusterFsxOpenZfsConfig$,
+  ClusterImageVersionStatus,
   ClusterInstanceGroupDetails$,
   ClusterInstanceGroupSpecification$,
   ClusterInstancePlacement$,
@@ -5152,6 +5153,7 @@ assert(typeof ClusterAutoScalingStatus === "object");
 assert(typeof ClusterCapacityType === "object");
 assert(typeof ClusterConfigMode === "object");
 assert(typeof ClusterEventResourceType === "object");
+assert(typeof ClusterImageVersionStatus === "object");
 assert(typeof ClusterInstanceStatus === "object");
 assert(typeof ClusterInstanceType === "object");
 assert(typeof ClusterInterfaceType === "object");

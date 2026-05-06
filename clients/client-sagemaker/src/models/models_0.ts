@@ -52,6 +52,7 @@ import type {
   ClusterCapacityType,
   ClusterConfigMode,
   ClusterEventResourceType,
+  ClusterImageVersionStatus,
   ClusterInstanceStatus,
   ClusterInstanceType,
   ClusterInterfaceType,
@@ -6807,6 +6808,12 @@ export interface ClusterInstanceGroupDetails {
   DesiredImageId?: string | undefined;
 
   /**
+   * <p>The status of the image version for the instance group. Indicates whether the instance group is running the latest image version or if an update is available.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
+
+  /**
    * <p>A map indicating active operations currently in progress for the instance group of a SageMaker HyperPod cluster. When there is a scaling operation in progress, this map contains a key <code>Scaling</code> with value 1. </p>
    * @public
    */
@@ -7221,6 +7228,12 @@ export interface ClusterNodeDetails {
   DesiredImageId?: string | undefined;
 
   /**
+   * <p>The status of the image version for the cluster node.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
+
+  /**
    * <p>Contains information about the UltraServer.</p>
    * @public
    */
@@ -7303,6 +7316,12 @@ export interface ClusterNodeSummary {
    * @public
    */
   PrivateDnsHostname?: string | undefined;
+
+  /**
+   * <p>The status of the image version for the cluster node.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
 }
 
 /**

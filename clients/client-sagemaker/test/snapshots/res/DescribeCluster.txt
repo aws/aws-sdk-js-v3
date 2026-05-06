@@ -227,6 +227,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "CurrentImageId": "__CurrentImageId__",
       "DesiredImageId": "__DesiredImageId__",
+      "ImageVersionStatus": "__ImageVersionStatus__",
       "ActiveOperations": {
         "key1": 0,
         "key2": 0,
@@ -433,6 +434,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "CurrentImageId": "__CurrentImageId__",
       "DesiredImageId": "__DesiredImageId__",
+      "ImageVersionStatus": "__ImageVersionStatus__",
       "ActiveOperations": {
         "key1": 0,
         "key2": 0,
@@ -639,6 +641,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "CurrentImageId": "__CurrentImageId__",
       "DesiredImageId": "__DesiredImageId__",
+      "ImageVersionStatus": "__ImageVersionStatus__",
       "ActiveOperations": {
         "key1": 0,
         "key2": 0,
@@ -1144,6 +1147,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       CurrentImageId: "__CurrentImageId__",
       DesiredImageId: "__DesiredImageId__",
+      ImageVersionStatus: "__ImageVersionStatus__",
       ActiveOperations: {
         key1: (number) 0,
         key2: (number) 0,
@@ -1350,6 +1354,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       CurrentImageId: "__CurrentImageId__",
       DesiredImageId: "__DesiredImageId__",
+      ImageVersionStatus: "__ImageVersionStatus__",
       ActiveOperations: {
         key1: (number) 0,
         key2: (number) 0,
@@ -1556,6 +1561,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       CurrentImageId: "__CurrentImageId__",
       DesiredImageId: "__DesiredImageId__",
+      ImageVersionStatus: "__ImageVersionStatus__",
       ActiveOperations: {
         key1: (number) 0,
         key2: (number) 0,

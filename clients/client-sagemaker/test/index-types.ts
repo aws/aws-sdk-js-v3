@@ -1259,6 +1259,7 @@ export type {
   ClusterCapacityType,
   ClusterConfigMode,
   ClusterEventResourceType,
+  ClusterImageVersionStatus,
   ClusterInstanceStatus,
   ClusterInstanceType,
   ClusterInterfaceType,

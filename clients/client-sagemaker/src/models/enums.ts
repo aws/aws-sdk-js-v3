@@ -2440,6 +2440,19 @@ export type ClusterEventResourceType = (typeof ClusterEventResourceType)[keyof t
  * @public
  * @enum
  */
+export const ClusterImageVersionStatus = {
+  UPDATE_AVAILABLE: "UpdateAvailable",
+  UP_TO_DATE: "UpToDate",
+} as const;
+/**
+ * @public
+ */
+export type ClusterImageVersionStatus = (typeof ClusterImageVersionStatus)[keyof typeof ClusterImageVersionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterKubernetesTaintEffect = {
   NO_EXECUTE: "NoExecute",
   NO_SCHEDULE: "NoSchedule",

@@ -131,6 +131,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       },
  * //       CurrentImageId: "STRING_VALUE",
  * //       DesiredImageId: "STRING_VALUE",
+ * //       ImageVersionStatus: "UpToDate" || "UpdateAvailable",
  * //       ActiveOperations: { // ActiveOperations
  * //         "<keys>": Number("int"),
  * //       },

@@ -19,7 +19,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "NodeLogicalId": "__NodeLogicalId__",
       "LastSoftwareUpdateTime": 946702799.999,
       "UltraServerInfo": {},
-      "PrivateDnsHostname": "__PrivateDnsHostname__"
+      "PrivateDnsHostname": "__PrivateDnsHostname__",
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
@@ -33,7 +34,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "NodeLogicalId": "__NodeLogicalId__",
       "LastSoftwareUpdateTime": 946702799.999,
       "UltraServerInfo": {},
-      "PrivateDnsHostname": "__PrivateDnsHostname__"
+      "PrivateDnsHostname": "__PrivateDnsHostname__",
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
@@ -47,7 +49,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "NodeLogicalId": "__NodeLogicalId__",
       "LastSoftwareUpdateTime": 946702799.999,
       "UltraServerInfo": {},
-      "PrivateDnsHostname": "__PrivateDnsHostname__"
+      "PrivateDnsHostname": "__PrivateDnsHostname__",
+      "ImageVersionStatus": "__ImageVersionStatus__"
     }
   ],
   "NextToken": "__NextToken__"
@@ -69,7 +72,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       NodeLogicalId: "__NodeLogicalId__",
       LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       UltraServerInfo: {},
-      PrivateDnsHostname: "__PrivateDnsHostname__"
+      PrivateDnsHostname: "__PrivateDnsHostname__",
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
@@ -83,7 +87,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       NodeLogicalId: "__NodeLogicalId__",
       LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       UltraServerInfo: {},
-      PrivateDnsHostname: "__PrivateDnsHostname__"
+      PrivateDnsHostname: "__PrivateDnsHostname__",
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
@@ -97,7 +102,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       NodeLogicalId: "__NodeLogicalId__",
       LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       UltraServerInfo: {},
-      PrivateDnsHostname: "__PrivateDnsHostname__"
+      PrivateDnsHostname: "__PrivateDnsHostname__",
+      ImageVersionStatus: "__ImageVersionStatus__"
     }
   ],
   NextToken: "__NextToken__",
@@ -135,7 +141,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "Id": "__Id__",
         "Type": "__Type__"
       },
-      "PrivateDnsHostname": "__PrivateDnsHostname__"
+      "PrivateDnsHostname": "__PrivateDnsHostname__",
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
@@ -152,7 +159,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "Id": "__Id__",
         "Type": "__Type__"
       },
-      "PrivateDnsHostname": "__PrivateDnsHostname__"
+      "PrivateDnsHostname": "__PrivateDnsHostname__",
+      "ImageVersionStatus": "__ImageVersionStatus__"
     },
     {
       "InstanceGroupName": "__InstanceGroupName__",
@@ -169,7 +177,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "Id": "__Id__",
         "Type": "__Type__"
       },
-      "PrivateDnsHostname": "__PrivateDnsHostname__"
+      "PrivateDnsHostname": "__PrivateDnsHostname__",
+      "ImageVersionStatus": "__ImageVersionStatus__"
     }
   ],
   "NextToken": "__NextToken__"
@@ -194,7 +203,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Id: "__Id__",
         Type: "__Type__"
       },
-      PrivateDnsHostname: "__PrivateDnsHostname__"
+      PrivateDnsHostname: "__PrivateDnsHostname__",
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
@@ -211,7 +221,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Id: "__Id__",
         Type: "__Type__"
       },
-      PrivateDnsHostname: "__PrivateDnsHostname__"
+      PrivateDnsHostname: "__PrivateDnsHostname__",
+      ImageVersionStatus: "__ImageVersionStatus__"
     },
     {
       InstanceGroupName: "__InstanceGroupName__",
@@ -228,7 +239,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         Id: "__Id__",
         Type: "__Type__"
       },
-      PrivateDnsHostname: "__PrivateDnsHostname__"
+      PrivateDnsHostname: "__PrivateDnsHostname__",
+      ImageVersionStatus: "__ImageVersionStatus__"
     }
   ],
   NextToken: "__NextToken__",

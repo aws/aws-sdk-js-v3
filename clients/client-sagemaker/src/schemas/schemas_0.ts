@@ -4510,8 +4510,8 @@ export var ClusterFsxOpenZfsConfig$: StaticStructureSchema = [3, n0, _CFOZC,
 ];
 export var ClusterInstanceGroupDetails$: StaticStructureSchema = [3, n0, _CIGD,
   0,
-  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _CII, _DII, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
-  [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$, () => ClusterNetworkInterfaceDetails$]
+  [_CCu, _TCa, _MCi, _IGN, _ITn, _IRn, _ITD, _LCC, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _CII, _DII, _IVS, _AO, _KC, _CRa, _TSC, _SUS, _ASUC, _SCl, _NIe],
+  [1, 1, 1, 0, 0, () => ClusterInstanceRequirementDetails$, () => ClusterInstanceTypeDetails, () => ClusterLifeCycleConfig$, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, 0, 0, 0, 128 | 1, () => ClusterKubernetesConfigDetails$, () => ClusterCapacityRequirements$, 1, 0, () => DeploymentConfiguration$, () => ClusterSlurmConfigDetails$, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CIGS,
   0,
@@ -4585,13 +4585,13 @@ export var ClusterNetworkInterfaceDetails$: StaticStructureSchema = [3, n0, _CNI
 ];
 export var ClusterNodeDetails$: StaticStructureSchema = [3, n0, _CND,
   0,
-  [_IGN, _II, _NLI, _ISns, _ITn, _LT, _LSUT, _LCC, _OVC, _TPC, _ISC, _PPI, _PPIr, _PDH, _Pl, _CII, _DII, _USI, _KC, _CTap, _NIe],
-  [0, 0, 0, () => ClusterInstanceStatusDetails$, 0, 4, 4, () => ClusterLifeCycleConfig$, () => VpcConfig$, 1, () => ClusterInstanceStorageConfigs, 0, 0, 0, () => ClusterInstancePlacement$, 0, 0, () => UltraServerInfo$, () => ClusterKubernetesConfigNodeDetails$, 0, () => ClusterNetworkInterfaceDetails$]
+  [_IGN, _II, _NLI, _ISns, _ITn, _LT, _LSUT, _LCC, _OVC, _TPC, _ISC, _PPI, _PPIr, _PDH, _Pl, _CII, _DII, _IVS, _USI, _KC, _CTap, _NIe],
+  [0, 0, 0, () => ClusterInstanceStatusDetails$, 0, 4, 4, () => ClusterLifeCycleConfig$, () => VpcConfig$, 1, () => ClusterInstanceStorageConfigs, 0, 0, 0, () => ClusterInstancePlacement$, 0, 0, 0, () => UltraServerInfo$, () => ClusterKubernetesConfigNodeDetails$, 0, () => ClusterNetworkInterfaceDetails$]
 ];
 export var ClusterNodeSummary$: StaticStructureSchema = [3, n0, _CNS,
   0,
-  [_IGN, _II, _ITn, _LT, _ISns, _NLI, _LSUT, _USI, _PDH],
-  [0, 0, 0, 4, () => ClusterInstanceStatusDetails$, 0, 4, () => UltraServerInfo$, 0], 5
+  [_IGN, _II, _ITn, _LT, _ISns, _NLI, _LSUT, _USI, _PDH, _IVS],
+  [0, 0, 0, 4, () => ClusterInstanceStatusDetails$, 0, 4, () => UltraServerInfo$, 0, 0], 5
 ];
 export var ClusterOnDemandOptions$: StaticStructureSchema = [3, n0, _CODO,
   0,

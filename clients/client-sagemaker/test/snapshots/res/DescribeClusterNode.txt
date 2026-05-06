@@ -91,6 +91,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     },
     "CurrentImageId": "__CurrentImageId__",
     "DesiredImageId": "__DesiredImageId__",
+    "ImageVersionStatus": "__ImageVersionStatus__",
     "UltraServerInfo": {
       "Id": "__Id__",
       "Type": "__Type__"
@@ -211,6 +212,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     },
     CurrentImageId: "__CurrentImageId__",
     DesiredImageId: "__DesiredImageId__",
+    ImageVersionStatus: "__ImageVersionStatus__",
     UltraServerInfo: {
       Id: "__Id__",
       Type: "__Type__"

@@ -68,6 +68,7 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * //         Type: "STRING_VALUE",
  * //       },
  * //       PrivateDnsHostname: "STRING_VALUE",
+ * //       ImageVersionStatus: "UpToDate" || "UpdateAvailable",
  * //     },
  * //   ],
  * // };
