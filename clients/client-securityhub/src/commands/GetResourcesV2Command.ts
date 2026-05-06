@@ -61,6 +61,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *               DateRange: { // DateRange
  *                 Value: Number("int"),
  *                 Unit: "DAYS",
+ *                 Comparison: "WITHIN" || "OLDER_THAN",
  *               },
  *             },
  *           },
@@ -107,6 +108,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *                   DateRange: {
  *                     Value: Number("int"),
  *                     Unit: "DAYS",
+ *                     Comparison: "WITHIN" || "OLDER_THAN",
  *                   },
  *                 },
  *               },

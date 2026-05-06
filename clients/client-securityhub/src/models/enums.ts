@@ -186,6 +186,19 @@ export type StringFilterComparison = (typeof StringFilterComparison)[keyof typeo
  * @public
  * @enum
  */
+export const DateRangeComparison = {
+  OLDER_THAN: "OLDER_THAN",
+  WITHIN: "WITHIN",
+} as const;
+/**
+ * @public
+ */
+export type DateRangeComparison = (typeof DateRangeComparison)[keyof typeof DateRangeComparison];
+
+/**
+ * @public
+ * @enum
+ */
 export const DateRangeUnit = {
   DAYS: "DAYS",
 } as const;
@@ -1009,6 +1022,32 @@ export const GranularityField = {
  * @public
  */
 export type GranularityField = (typeof GranularityField)[keyof typeof GranularityField];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationType = {
+  UNUSED_PERMISSION_RECOMMENDATION: "UNUSED_PERMISSION_RECOMMENDATION",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
 
 /**
  * @public

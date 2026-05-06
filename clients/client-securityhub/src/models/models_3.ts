@@ -11,15 +11,17 @@ import type {
   RecordState,
   ResourceGroupByField,
   RuleStatusV2,
+  SecurityHubFeature,
   SortOrder,
   TargetType,
 } from "./enums";
-import type { AutomationRulesActionV2, NoteUpdate } from "./models_0";
+import type { AdminAccount, AutomationRulesActionV2, NoteUpdate } from "./models_0";
 import type {
   AwsSecurityFindingFilters,
   FindingScopes,
   FindingsTrendsStringFilter,
   JiraCloudUpdateConfiguration,
+  Member,
   OcsfBooleanFilter,
   OcsfDateFilter,
   OcsfIpFilter,
@@ -35,9 +37,195 @@ import type {
   ResourcesNumberFilter,
   ResourcesStringFilter,
   ResourcesTrendsStringFilter,
+  SecurityControlDefinition,
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ListMembersRequest {
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   * @public
+   */
+  OnlyAssociated?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListMembers</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersResponse {
+  /**
+   * <p>Member details returned by the operation.</p>
+   * @public
+   */
+  Members?: Member[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
+   *          the value of this parameter to the value returned from the previous response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The feature where the delegated administrator account is listed.
+   *          Defaults to Security Hub CSPM if not specified.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * <p>The list of Security Hub CSPM administrator accounts.</p>
+   * @public
+   */
+  AdminAccounts?: AdminAccount[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The feature where the delegated administrator account is listed.
+   *          Defaults to Security Hub CSPM CSPM if not specified.</p>
+   * @public
+   */
+  Feature?: SecurityHubFeature | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityControlDefinitionsRequest {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the standard that you want to view controls for.
+   *       </p>
+   * @public
+   */
+  StandardsArn?: string | undefined;
+
+  /**
+   * <p>
+   *          Optional pagination parameter.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> An optional parameter that limits the total results of the API response to the
+   *          specified number. If this parameter isn't provided in the request, the results include the
+   *          first 25 security controls that apply to the specified standard. The results also include a
+   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+   *          next 25 controls. This repeats until all controls for the standard are returned. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityControlDefinitionsResponse {
+  /**
+   * <p>
+   *          An array of controls that apply to the specified standard.
+   *       </p>
+   * @public
+   */
+  SecurityControlDefinitions: SecurityControlDefinition[] | undefined;
+
+  /**
+   * <p> A pagination parameter that's included in the response only if it was included in the
+   *          request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStandardsControlAssociationsRequest {
+  /**
+   * <p>
+   *          The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you
+   *          want to determine the enablement status of in each enabled standard.
+   *       </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          Optional pagination parameter.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> An optional parameter that limits the total results of the API response to the
+   *          specified number. If this parameter isn't provided in the request, the results include the
+   *          first 25 standard and control associations. The results also include a
+   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+   *          next 25 associations. This repeats until all associations for the specified control are
+   *          returned. The number of results is limited by the number of supported Security Hub CSPM
+   *          standards that you've enabled in the calling account. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p> An array that provides the enablement status and other details for each control that

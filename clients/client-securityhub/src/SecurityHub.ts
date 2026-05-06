@@ -268,6 +268,11 @@ import {
   EnableSecurityHubV2Command,
 } from "./commands/EnableSecurityHubV2Command";
 import {
+  type GenerateRecommendedPolicyV2CommandInput,
+  type GenerateRecommendedPolicyV2CommandOutput,
+  GenerateRecommendedPolicyV2Command,
+} from "./commands/GenerateRecommendedPolicyV2Command";
+import {
   type GetAdministratorAccountCommandInput,
   type GetAdministratorAccountCommandOutput,
   GetAdministratorAccountCommand,
@@ -357,6 +362,11 @@ import {
   type GetMembersCommandOutput,
   GetMembersCommand,
 } from "./commands/GetMembersCommand";
+import {
+  type GetRecommendedPolicyV2CommandInput,
+  type GetRecommendedPolicyV2CommandOutput,
+  GetRecommendedPolicyV2Command,
+} from "./commands/GetRecommendedPolicyV2Command";
 import {
   type GetResourcesStatisticsV2CommandInput,
   type GetResourcesStatisticsV2CommandOutput,
@@ -548,6 +558,7 @@ import { paginateGetFindings } from "./pagination/GetFindingsPaginator";
 import { paginateGetFindingsTrendsV2 } from "./pagination/GetFindingsTrendsV2Paginator";
 import { paginateGetFindingsV2 } from "./pagination/GetFindingsV2Paginator";
 import { paginateGetInsights } from "./pagination/GetInsightsPaginator";
+import { paginateGetRecommendedPolicyV2 } from "./pagination/GetRecommendedPolicyV2Paginator";
 import { paginateGetResourcesTrendsV2 } from "./pagination/GetResourcesTrendsV2Paginator";
 import { paginateGetResourcesV2 } from "./pagination/GetResourcesV2Paginator";
 import { paginateListAggregatorsV2 } from "./pagination/ListAggregatorsV2Paginator";
@@ -616,6 +627,7 @@ const commands = {
   EnableOrganizationAdminAccountCommand,
   EnableSecurityHubCommand,
   EnableSecurityHubV2Command,
+  GenerateRecommendedPolicyV2Command,
   GetAdministratorAccountCommand,
   GetAggregatorV2Command,
   GetAutomationRuleV2Command,
@@ -634,6 +646,7 @@ const commands = {
   GetInvitationsCountCommand,
   GetMasterAccountCommand,
   GetMembersCommand,
+  GetRecommendedPolicyV2Command,
   GetResourcesStatisticsV2Command,
   GetResourcesTrendsV2Command,
   GetResourcesV2Command,
@@ -683,6 +696,7 @@ const paginators = {
   paginateGetFindingsTrendsV2,
   paginateGetFindingsV2,
   paginateGetInsights,
+  paginateGetRecommendedPolicyV2,
   paginateGetResourcesTrendsV2,
   paginateGetResourcesV2,
   paginateListAggregatorsV2,
@@ -1614,6 +1628,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GenerateRecommendedPolicyV2Command}
+   */
+  generateRecommendedPolicyV2(
+    args: GenerateRecommendedPolicyV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateRecommendedPolicyV2CommandOutput>;
+  generateRecommendedPolicyV2(
+    args: GenerateRecommendedPolicyV2CommandInput,
+    cb: (err: any, data?: GenerateRecommendedPolicyV2CommandOutput) => void
+  ): void;
+  generateRecommendedPolicyV2(
+    args: GenerateRecommendedPolicyV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateRecommendedPolicyV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAdministratorAccountCommand}
    */
   getAdministratorAccount(): Promise<GetAdministratorAccountCommandOutput>;
@@ -1924,6 +1955,23 @@ export interface SecurityHub {
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecommendedPolicyV2Command}
+   */
+  getRecommendedPolicyV2(
+    args: GetRecommendedPolicyV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecommendedPolicyV2CommandOutput>;
+  getRecommendedPolicyV2(
+    args: GetRecommendedPolicyV2CommandInput,
+    cb: (err: any, data?: GetRecommendedPolicyV2CommandOutput) => void
+  ): void;
+  getRecommendedPolicyV2(
+    args: GetRecommendedPolicyV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecommendedPolicyV2CommandOutput) => void
   ): void;
 
   /**
@@ -2672,6 +2720,17 @@ export interface SecurityHub {
     args?: GetInsightsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetInsightsCommandOutput>;
+
+  /**
+   * @see {@link GetRecommendedPolicyV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRecommendedPolicyV2CommandOutput}.
+   */
+  paginateGetRecommendedPolicyV2(
+    args: GetRecommendedPolicyV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRecommendedPolicyV2CommandOutput>;
 
   /**
    * @see {@link GetResourcesTrendsV2Command}

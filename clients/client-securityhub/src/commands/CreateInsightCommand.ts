@@ -80,6 +80,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *         DateRange: { // DateRange
  *           Value: Number("int"),
  *           Unit: "DAYS",
+ *           Comparison: "WITHIN" || "OLDER_THAN",
  *         },
  *       },
  *     ],
@@ -90,6 +91,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *         DateRange: {
  *           Value: Number("int"),
  *           Unit: "DAYS",
+ *           Comparison: "WITHIN" || "OLDER_THAN",
  *         },
  *       },
  *     ],
@@ -100,6 +102,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *         DateRange: {
  *           Value: Number("int"),
  *           Unit: "DAYS",
+ *           Comparison: "WITHIN" || "OLDER_THAN",
  *         },
  *       },
  *     ],
@@ -110,6 +113,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *         DateRange: {
  *           Value: Number("int"),
  *           Unit: "DAYS",
+ *           Comparison: "WITHIN" || "OLDER_THAN",
  *         },
  *       },
  *     ],
@@ -220,6 +224,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *         DateRange: {
  *           Value: Number("int"),
  *           Unit: "DAYS",
+ *           Comparison: "WITHIN" || "OLDER_THAN",
  *         },
  *       },
  *     ],

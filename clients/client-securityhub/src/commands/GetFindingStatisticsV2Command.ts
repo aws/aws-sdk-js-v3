@@ -65,6 +65,7 @@ export interface GetFindingStatisticsV2CommandOutput extends GetFindingStatistic
  *                   DateRange: { // DateRange
  *                     Value: Number("int"),
  *                     Unit: "DAYS",
+ *                     Comparison: "WITHIN" || "OLDER_THAN",
  *                   },
  *                 },
  *               },
@@ -127,6 +128,7 @@ export interface GetFindingStatisticsV2CommandOutput extends GetFindingStatistic
  *                       DateRange: {
  *                         Value: Number("int"),
  *                         Unit: "DAYS",
+ *                         Comparison: "WITHIN" || "OLDER_THAN",
  *                       },
  *                     },
  *                   },

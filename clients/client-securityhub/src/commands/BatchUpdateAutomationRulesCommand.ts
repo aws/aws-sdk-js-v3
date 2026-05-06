@@ -86,6 +86,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *             DateRange: { // DateRange
  *               Value: Number("int"),
  *               Unit: "DAYS",
+ *               Comparison: "WITHIN" || "OLDER_THAN",
  *             },
  *           },
  *         ],
@@ -96,6 +97,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *             DateRange: {
  *               Value: Number("int"),
  *               Unit: "DAYS",
+ *               Comparison: "WITHIN" || "OLDER_THAN",
  *             },
  *           },
  *         ],
@@ -106,6 +108,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *             DateRange: {
  *               Value: Number("int"),
  *               Unit: "DAYS",
+ *               Comparison: "WITHIN" || "OLDER_THAN",
  *             },
  *           },
  *         ],
@@ -116,6 +119,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *             DateRange: {
  *               Value: Number("int"),
  *               Unit: "DAYS",
+ *               Comparison: "WITHIN" || "OLDER_THAN",
  *             },
  *           },
  *         ],
@@ -177,6 +181,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *             DateRange: {
  *               Value: Number("int"),
  *               Unit: "DAYS",
+ *               Comparison: "WITHIN" || "OLDER_THAN",
  *             },
  *           },
  *         ],

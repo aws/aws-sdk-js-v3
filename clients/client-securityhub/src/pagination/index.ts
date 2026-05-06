@@ -11,6 +11,7 @@ export * from "./GetFindingsPaginator";
 export * from "./GetFindingsTrendsV2Paginator";
 export * from "./GetFindingsV2Paginator";
 export * from "./GetInsightsPaginator";
+export * from "./GetRecommendedPolicyV2Paginator";
 export * from "./GetResourcesTrendsV2Paginator";
 export * from "./GetResourcesV2Paginator";
 export * from "./ListAggregatorsV2Paginator";

@@ -1618,7 +1618,9 @@ const _EOn = "EncryptionOption";
 const _EOnc = "EnclaveOptions";
 const _EP = "EvaluationPeriods";
 const _EPA = "EndpointPublicAccess";
+const _EPI = "ExistingPolicyId";
 const _EPn = "EntryPoint";
+const _EPx = "ExistingPolicy";
 const _ER = "ExcludedRules";
 const _ERA = "ExecutionRoleArn";
 const _ERNDAAAAR = "EnableResourceNameDnsAAAARecord";
@@ -1840,6 +1842,12 @@ const _GMR = "GetMembersRequest";
 const _GMRe = "GetMembersResponse";
 const _GN = "GroupName";
 const _GPL = "GroupPolicyList";
+const _GRPV = "GenerateRecommendedPolicyV2";
+const _GRPVR = "GenerateRecommendedPolicyV2Request";
+const _GRPVRe = "GenerateRecommendedPolicyV2Response";
+const _GRPVRet = "GetRecommendedPolicyV2Request";
+const _GRPVRete = "GetRecommendedPolicyV2Response";
+const _GRPVe = "GetRecommendedPolicyV2";
 const _GRSV = "GetResourcesStatisticsV2";
 const _GRSVR = "GetResourcesStatisticsV2Request";
 const _GRSVRe = "GetResourcesStatisticsV2Response";
@@ -2583,6 +2591,7 @@ const _PTrop = "PropagateTags";
 const _PTrov = "ProviderType";
 const _PTs = "PseudoTerminal";
 const _PU = "PosixUser";
+const _PUA = "PolicyUpdatedAt";
 const _PUC = "ProviderUpdateConfiguration";
 const _PV = "PlatformVersion";
 const _PVL = "PolicyVersionList";
@@ -2646,6 +2655,7 @@ const _RART = "RedirectAllRequestsTo";
 const _RASBOI = "ResourceAwsS3BucketOwnerId";
 const _RASBON = "ResourceAwsS3BucketOwnerName";
 const _RAe = "ResourceArn";
+const _RAec = "RecommendedAction";
 const _RAeg = "RegistryArn";
 const _RAo = "RoleArn";
 const _RAoo = "RootAccess";
@@ -2686,6 +2696,7 @@ const _RDe = "ResourceDetails";
 const _RDu = "RuleDefinition";
 const _RE = "RenewalEligibility";
 const _REe = "ReaderEndpoint";
+const _REec = "RecommendationError";
 const _REex = "Re2Expression";
 const _REo = "RotationEnabled";
 const _RF = "RelatedFindings";
@@ -2786,6 +2797,7 @@ const _RPH = "RetentionPeriodHours";
 const _RPL = "RolePolicyList";
 const _RPT = "RepositoryPolicyText";
 const _RPe = "ResourcePath";
+const _RPec = "RecommendedPolicy";
 const _RPet = "RetentionPeriod";
 const _RR = "ResourceRegion";
 const _RRDBCI = "ReadReplicaDBClusterIdentifiers";
@@ -2815,6 +2827,8 @@ const _RSM = "RoleSearchMatching";
 const _RSR = "RenewalStatusReason";
 const _RSS = "RoleSearchSubtree";
 const _RSe = "RecordState";
+const _RSec = "RecommendationSteps";
+const _RSeco = "RecommendationStep";
 const _RSen = "RenewalSummary";
 const _RSene = "RenewalStatus";
 const _RSep = "ReplicaStatus";
@@ -2842,6 +2856,7 @@ const _RTSFL = "ResourcesTrendsStringFilterList";
 const _RTV = "ResourcesTrendsValues";
 const _RTe = "ResourceTags";
 const _RTec = "RecommendationText";
+const _RTeco = "RecommendationType";
 const _RTes = "ResizeType";
 const _RTeso = "ResourceTag";
 const _RU = "RemediationUrl";
@@ -3295,9 +3310,11 @@ const _UN = "UserName";
 const _UOC = "UpdateOrganizationConfiguration";
 const _UOCR = "UpdateOrganizationConfigurationRequest";
 const _UOCRp = "UpdateOrganizationConfigurationResponse";
+const _UP = "UnusedPermissions";
 const _UPC = "UserPoolConfig";
 const _UPI = "UserPoolId";
 const _UPL = "UserPolicyList";
+const _UPRS = "UnusedPermissionsRecommendationStep";
 const _UR = "UpdatedReason";
 const _URN = "UserRoleName";
 const _URR = "UntagResourceRequest";
@@ -6558,8 +6575,8 @@ export var DateFilter$: StaticStructureSchema = [3, n0, _DFa,
 ];
 export var DateRange$: StaticStructureSchema = [3, n0, _DRa,
   0,
-  [_Val, _Un],
-  [1, 0]
+  [_Val, _Un, _Compa],
+  [1, 0, 0]
 ];
 export var DeclineInvitationsRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
@@ -6956,6 +6973,16 @@ export var FirewallPolicyStatelessRuleGroupReferencesDetails$: StaticStructureSc
   [_Prio, _RAe],
   [1, 0]
 ];
+export var GenerateRecommendedPolicyV2Request$: StaticStructureSchema = [3, n0, _GRPVR,
+  0,
+  [_MUe],
+  [[0, 1]], 1
+];
+export var GenerateRecommendedPolicyV2Response$: StaticStructureSchema = [3, n0, _GRPVRe,
+  0,
+  [],
+  []
+];
 export var GeneratorDetails$: StaticStructureSchema = [3, n0, _GD,
   0,
   [_N, _D, _La],
@@ -7145,6 +7172,16 @@ export var GetMembersResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
   [_Memb, _UAnp],
   [() => MemberList, () => ResultList]
+];
+export var GetRecommendedPolicyV2Request$: StaticStructureSchema = [3, n0, _GRPVRet,
+  0,
+  [_MUe, _NTe, _MRa],
+  [[0, 1], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]], 1
+];
+export var GetRecommendedPolicyV2Response$: StaticStructureSchema = [3, n0, _GRPVRete,
+  0,
+  [_NTe, _RTeco, _RSec, _Er, _St, _RAe],
+  [0, 0, () => RecommendationSteps, () => RecommendationError$, 0, 0]
 ];
 export var GetResourcesStatisticsV2Request$: StaticStructureSchema = [3, n0, _GRSVR,
   0,
@@ -7641,6 +7678,11 @@ export var Recommendation$: StaticStructureSchema = [3, n0, _Reco,
   [_Tex, _Ur],
   [0, 0]
 ];
+export var RecommendationError$: StaticStructureSchema = [3, n0, _REec,
+  0,
+  [_C, _M],
+  [0, 0]
+];
 export var _Record$: StaticStructureSchema = [3, n0, _Recor,
   0,
   [_JP, _RIec],
@@ -8130,6 +8172,11 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
   [],
   []
+];
+export var UnusedPermissionsRecommendationStep$: StaticStructureSchema = [3, n0, _UPRS,
+  0,
+  [_RAec, _EPx, _EPI, _PUA, _RPec],
+  [0, 0, 0, 5, 0]
 ];
 export var UpdateActionTargetRequest$: StaticStructureSchema = [3, n0, _UATR,
   0,
@@ -8993,6 +9040,9 @@ var PropagatingVgwSetList: StaticListSchema = [1, n0, _PVSL,
 var Ranges: StaticListSchema = [1, n0, _Ran,
   0, () => Range$
 ];
+var RecommendationSteps: StaticListSchema = [1, n0, _RSec,
+  0, () => RecommendationStep$
+];
 var Records: StaticListSchema = [1, n0, _Rec,
   0, () => _Record$
 ];
@@ -9229,6 +9279,11 @@ export var ProviderUpdateConfiguration$: StaticUnionSchema = [4, n0, _PUC,
   [_JC, _SNer],
   [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$]
 ];
+export var RecommendationStep$: StaticUnionSchema = [4, n0, _RSeco,
+  0,
+  [_UP],
+  [() => UnusedPermissionsRecommendationStep$]
+];
 export var Target$: StaticUnionSchema = [4, n0, _Ta,
   0,
   [_AIc, _OUI, _RIoo],
@@ -9393,6 +9448,9 @@ export var EnableSecurityHub$: StaticOperationSchema = [9, n0, _ESH,
 export var EnableSecurityHubV2$: StaticOperationSchema = [9, n0, _ESHV,
   { [_h]: ["POST", "/hubv2", 200] }, () => EnableSecurityHubV2Request$, () => EnableSecurityHubV2Response$
 ];
+export var GenerateRecommendedPolicyV2$: StaticOperationSchema = [9, n0, _GRPV,
+  { [_h]: ["POST", "/recommendedPolicyV2/{MetadataUid}", 200] }, () => GenerateRecommendedPolicyV2Request$, () => GenerateRecommendedPolicyV2Response$
+];
 export var GetAdministratorAccount$: StaticOperationSchema = [9, n0, _GAA,
   { [_h]: ["GET", "/administrator", 200] }, () => GetAdministratorAccountRequest$, () => GetAdministratorAccountResponse$
 ];
@@ -9446,6 +9504,9 @@ export var GetMasterAccount$: StaticOperationSchema = [9, n0, _GMA,
 ];
 export var GetMembers$: StaticOperationSchema = [9, n0, _GM,
   { [_h]: ["POST", "/members/get", 200] }, () => GetMembersRequest$, () => GetMembersResponse$
+];
+export var GetRecommendedPolicyV2$: StaticOperationSchema = [9, n0, _GRPVe,
+  { [_h]: ["GET", "/recommendedPolicyV2/{MetadataUid}", 200] }, () => GetRecommendedPolicyV2Request$, () => GetRecommendedPolicyV2Response$
 ];
 export var GetResourcesStatisticsV2$: StaticOperationSchema = [9, n0, _GRSV,
   { [_h]: ["POST", "/resourcesv2/statistics", 200] }, () => GetResourcesStatisticsV2Request$, () => GetResourcesStatisticsV2Response$

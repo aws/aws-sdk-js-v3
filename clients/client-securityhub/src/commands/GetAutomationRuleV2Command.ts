@@ -71,6 +71,7 @@ export interface GetAutomationRuleV2CommandOutput extends GetAutomationRuleV2Res
  * //                 DateRange: { // DateRange
  * //                   Value: Number("int"),
  * //                   Unit: "DAYS",
+ * //                   Comparison: "WITHIN" || "OLDER_THAN",
  * //                 },
  * //               },
  * //             },
@@ -133,6 +134,7 @@ export interface GetAutomationRuleV2CommandOutput extends GetAutomationRuleV2Res
  * //                     DateRange: {
  * //                       Value: Number("int"),
  * //                       Unit: "DAYS",
+ * //                       Comparison: "WITHIN" || "OLDER_THAN",
  * //                     },
  * //                   },
  * //                 },

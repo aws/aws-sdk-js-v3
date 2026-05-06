@@ -672,6 +672,7 @@ import {
   DataClassificationDetails$,
   DateFilter$,
   DateRange$,
+  DateRangeComparison,
   DateRangeUnit,
   DeclineInvitations$,
   DeclineInvitationsCommand,
@@ -812,6 +813,10 @@ import {
   FirewallPolicyStatefulRuleGroupReferencesDetails$,
   FirewallPolicyStatelessCustomActionsDetails$,
   FirewallPolicyStatelessRuleGroupReferencesDetails$,
+  GenerateRecommendedPolicyV2$,
+  GenerateRecommendedPolicyV2Command,
+  GenerateRecommendedPolicyV2Request$,
+  GenerateRecommendedPolicyV2Response$,
   GeneratorDetails$,
   GeoLocation$,
   GetAdministratorAccount$,
@@ -886,6 +891,10 @@ import {
   GetMembersCommand,
   GetMembersRequest$,
   GetMembersResponse$,
+  GetRecommendedPolicyV2$,
+  GetRecommendedPolicyV2Command,
+  GetRecommendedPolicyV2Request$,
+  GetRecommendedPolicyV2Response$,
   GetResourcesStatisticsV2$,
   GetResourcesStatisticsV2Command,
   GetResourcesStatisticsV2Request$,
@@ -1050,6 +1059,7 @@ import {
   paginateGetFindingsTrendsV2,
   paginateGetFindingsV2,
   paginateGetInsights,
+  paginateGetRecommendedPolicyV2,
   paginateGetResourcesTrendsV2,
   paginateGetResourcesV2,
   paginateListAggregatorsV2,
@@ -1083,6 +1093,10 @@ import {
   ProviderUpdateConfiguration$,
   Range$,
   Recommendation$,
+  RecommendationError$,
+  RecommendationStatus,
+  RecommendationStep$,
+  RecommendationType,
   RecordState,
   RegionAvailabilityStatus,
   RegisterConnectorV2$,
@@ -1229,6 +1243,7 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UnusedPermissionsRecommendationStep$,
   UpdateActionTarget$,
   UpdateActionTargetCommand,
   UpdateActionTargetRequest$,
@@ -1411,6 +1426,8 @@ assert(typeof EnableSecurityHubCommand === "function");
 assert(typeof EnableSecurityHub$ === "object");
 assert(typeof EnableSecurityHubV2Command === "function");
 assert(typeof EnableSecurityHubV2$ === "object");
+assert(typeof GenerateRecommendedPolicyV2Command === "function");
+assert(typeof GenerateRecommendedPolicyV2$ === "object");
 assert(typeof GetAdministratorAccountCommand === "function");
 assert(typeof GetAdministratorAccount$ === "object");
 assert(typeof GetAggregatorV2Command === "function");
@@ -1447,6 +1464,8 @@ assert(typeof GetMasterAccountCommand === "function");
 assert(typeof GetMasterAccount$ === "object");
 assert(typeof GetMembersCommand === "function");
 assert(typeof GetMembers$ === "object");
+assert(typeof GetRecommendedPolicyV2Command === "function");
+assert(typeof GetRecommendedPolicyV2$ === "object");
 assert(typeof GetResourcesStatisticsV2Command === "function");
 assert(typeof GetResourcesStatisticsV2$ === "object");
 assert(typeof GetResourcesTrendsV2Command === "function");
@@ -2200,6 +2219,8 @@ assert(typeof FirewallPolicyDetails$ === "object");
 assert(typeof FirewallPolicyStatefulRuleGroupReferencesDetails$ === "object");
 assert(typeof FirewallPolicyStatelessCustomActionsDetails$ === "object");
 assert(typeof FirewallPolicyStatelessRuleGroupReferencesDetails$ === "object");
+assert(typeof GenerateRecommendedPolicyV2Request$ === "object");
+assert(typeof GenerateRecommendedPolicyV2Response$ === "object");
 assert(typeof GeneratorDetails$ === "object");
 assert(typeof GeoLocation$ === "object");
 assert(typeof GetAdministratorAccountRequest$ === "object");
@@ -2238,6 +2259,8 @@ assert(typeof GetMasterAccountRequest$ === "object");
 assert(typeof GetMasterAccountResponse$ === "object");
 assert(typeof GetMembersRequest$ === "object");
 assert(typeof GetMembersResponse$ === "object");
+assert(typeof GetRecommendedPolicyV2Request$ === "object");
+assert(typeof GetRecommendedPolicyV2Response$ === "object");
 assert(typeof GetResourcesStatisticsV2Request$ === "object");
 assert(typeof GetResourcesStatisticsV2Response$ === "object");
 assert(typeof GetResourcesTrendsV2Request$ === "object");
@@ -2342,6 +2365,8 @@ assert(typeof ProviderSummary$ === "object");
 assert(typeof ProviderUpdateConfiguration$ === "object");
 assert(typeof Range$ === "object");
 assert(typeof Recommendation$ === "object");
+assert(typeof RecommendationError$ === "object");
+assert(typeof RecommendationStep$ === "object");
 assert(typeof _Record$ === "object");
 assert(typeof RegisterConnectorV2Request$ === "object");
 assert(typeof RegisterConnectorV2Response$ === "object");
@@ -2441,6 +2466,7 @@ assert(typeof UnprocessedStandardsControlAssociation$ === "object");
 assert(typeof UnprocessedStandardsControlAssociationUpdate$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UnusedPermissionsRecommendationStep$ === "object");
 assert(typeof UpdateActionTargetRequest$ === "object");
 assert(typeof UpdateActionTargetResponse$ === "object");
 assert(typeof UpdateAggregatorV2Request$ === "object");
@@ -2499,6 +2525,7 @@ assert(typeof ConnectorProviderName === "object");
 assert(typeof ConnectorStatus === "object");
 assert(typeof ControlFindingGenerator === "object");
 assert(typeof ControlStatus === "object");
+assert(typeof DateRangeComparison === "object");
 assert(typeof DateRangeUnit === "object");
 assert(typeof FindingHistoryUpdateSourceType === "object");
 assert(typeof FindingsTrendsStringField === "object");
@@ -2520,6 +2547,8 @@ assert(typeof OrganizationConfigurationConfigurationType === "object");
 assert(typeof OrganizationConfigurationStatus === "object");
 assert(typeof ParameterValueType === "object");
 assert(typeof Partition === "object");
+assert(typeof RecommendationStatus === "object");
+assert(typeof RecommendationType === "object");
 assert(typeof RecordState === "object");
 assert(typeof RegionAvailabilityStatus === "object");
 assert(typeof ResourceCategory === "object");
@@ -2595,6 +2624,7 @@ assert(typeof paginateGetFindings === "function");
 assert(typeof paginateGetFindingsTrendsV2 === "function");
 assert(typeof paginateGetFindingsV2 === "function");
 assert(typeof paginateGetInsights === "function");
+assert(typeof paginateGetRecommendedPolicyV2 === "function");
 assert(typeof paginateGetResourcesTrendsV2 === "function");
 assert(typeof paginateGetResourcesV2 === "function");
 assert(typeof paginateListAggregatorsV2 === "function");

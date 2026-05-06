@@ -93,6 +93,7 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //             DateRange: { // DateRange
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -103,6 +104,7 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -113,6 +115,7 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -123,6 +126,7 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -184,6 +188,7 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],

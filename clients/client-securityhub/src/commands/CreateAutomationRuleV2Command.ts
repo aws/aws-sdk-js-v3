@@ -64,6 +64,7 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  *                 DateRange: { // DateRange
  *                   Value: Number("int"),
  *                   Unit: "DAYS",
+ *                   Comparison: "WITHIN" || "OLDER_THAN",
  *                 },
  *               },
  *             },
@@ -126,6 +127,7 @@ export interface CreateAutomationRuleV2CommandOutput extends CreateAutomationRul
  *                     DateRange: {
  *                       Value: Number("int"),
  *                       Unit: "DAYS",
+ *                       Comparison: "WITHIN" || "OLDER_THAN",
  *                     },
  *                   },
  *                 },

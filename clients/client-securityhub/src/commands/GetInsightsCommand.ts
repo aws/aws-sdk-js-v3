@@ -89,6 +89,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //             DateRange: { // DateRange
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -99,6 +100,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -109,6 +111,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -119,6 +122,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],
@@ -229,6 +233,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //             DateRange: {
  * //               Value: Number("int"),
  * //               Unit: "DAYS",
+ * //               Comparison: "WITHIN" || "OLDER_THAN",
  * //             },
  * //           },
  * //         ],

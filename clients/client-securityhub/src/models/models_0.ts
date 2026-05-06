@@ -6,6 +6,7 @@ import type {
   AutomationRulesActionType,
   AutomationRulesActionTypeV2,
   ConfigurationPolicyAssociationStatus,
+  DateRangeComparison,
   DateRangeUnit,
   MapFilterComparison,
   RuleStatus,
@@ -1293,9 +1294,9 @@ export interface StringFilter {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>
-   *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules V1.
-   *           <code>CONTAINS_WORD</code> operator is only supported in <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>, <code>GetResourcesV2</code>, and <code>GetResourcesStatisticsV2</code> APIs.
+   *          <p>The <code>CONTAINS</code> operator works with automation rules V1 and V2.
+   *           The <code>NOT_CONTAINS</code> operator works only with automation rules V1.
+   *           The <code>CONTAINS_WORD</code> operator works only in the <code>GetFindingsV2</code>, <code>GetFindingStatisticsV2</code>, <code>GetResourcesV2</code>, and <code>GetResourcesStatisticsV2</code> APIs.
    *           For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub CSPM User Guide</i>.</p>
    * @public
    */
@@ -1361,6 +1362,12 @@ export interface DateRange {
    * @public
    */
   Unit?: DateRangeUnit | undefined;
+
+  /**
+   * <p>The condition to apply to a date range filter. If you specify <code>WITHIN</code>, Security Hub filters for dates within the specified date range. If you specify <code>OLDER_THAN</code>, Security Hub filters for dates before the specified date range. If you don't specify a value, the default is <code>WITHIN</code>.</p>
+   * @public
+   */
+  Comparison?: DateRangeComparison | undefined;
 }
 
 /**

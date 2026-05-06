@@ -250,6 +250,10 @@ import type {
   EnableSecurityHubV2CommandOutput,
 } from "./commands/EnableSecurityHubV2Command";
 import type {
+  GenerateRecommendedPolicyV2CommandInput,
+  GenerateRecommendedPolicyV2CommandOutput,
+} from "./commands/GenerateRecommendedPolicyV2Command";
+import type {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
@@ -300,6 +304,10 @@ import type {
 } from "./commands/GetInvitationsCountCommand";
 import type { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import type { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import type {
+  GetRecommendedPolicyV2CommandInput,
+  GetRecommendedPolicyV2CommandOutput,
+} from "./commands/GetRecommendedPolicyV2Command";
 import type {
   GetResourcesStatisticsV2CommandInput,
   GetResourcesStatisticsV2CommandOutput,
@@ -485,6 +493,7 @@ export type ServiceInputTypes =
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
   | EnableSecurityHubV2CommandInput
+  | GenerateRecommendedPolicyV2CommandInput
   | GetAdministratorAccountCommandInput
   | GetAggregatorV2CommandInput
   | GetAutomationRuleV2CommandInput
@@ -503,6 +512,7 @@ export type ServiceInputTypes =
   | GetInvitationsCountCommandInput
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
+  | GetRecommendedPolicyV2CommandInput
   | GetResourcesStatisticsV2CommandInput
   | GetResourcesTrendsV2CommandInput
   | GetResourcesV2CommandInput
@@ -597,6 +607,7 @@ export type ServiceOutputTypes =
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
   | EnableSecurityHubV2CommandOutput
+  | GenerateRecommendedPolicyV2CommandOutput
   | GetAdministratorAccountCommandOutput
   | GetAggregatorV2CommandOutput
   | GetAutomationRuleV2CommandOutput
@@ -615,6 +626,7 @@ export type ServiceOutputTypes =
   | GetInvitationsCountCommandOutput
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
+  | GetRecommendedPolicyV2CommandOutput
   | GetResourcesStatisticsV2CommandOutput
   | GetResourcesTrendsV2CommandOutput
   | GetResourcesV2CommandOutput

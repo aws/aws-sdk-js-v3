@@ -64,6 +64,7 @@ export interface GetFindingsV2CommandOutput extends GetFindingsV2Response, __Met
  *               DateRange: { // DateRange
  *                 Value: Number("int"),
  *                 Unit: "DAYS",
+ *                 Comparison: "WITHIN" || "OLDER_THAN",
  *               },
  *             },
  *           },
@@ -126,6 +127,7 @@ export interface GetFindingsV2CommandOutput extends GetFindingsV2Response, __Met
  *                   DateRange: {
  *                     Value: Number("int"),
  *                     Unit: "DAYS",
+ *                     Comparison: "WITHIN" || "OLDER_THAN",
  *                   },
  *                 },
  *               },

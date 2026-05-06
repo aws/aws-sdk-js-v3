@@ -27,6 +27,8 @@ import type {
   OrganizationConfigurationStatus,
   ParameterValueType,
   Partition,
+  RecommendationStatus,
+  RecommendationType,
   RecordState,
   RegionAvailabilityStatus,
   ResourceCategory,
@@ -61,7 +63,6 @@ import type {
   Action,
   ActionTarget,
   Adjustment,
-  AdminAccount,
   AggregatorV2,
   AssociationFilters,
   AutomationRulesAction,
@@ -7910,6 +7911,22 @@ export interface FindingsTrendsStringFilter {
 /**
  * @public
  */
+export interface GenerateRecommendedPolicyV2Request {
+  /**
+   * <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
+   * @public
+   */
+  MetadataUid: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateRecommendedPolicyV2Response {}
+
+/**
+ * @public
+ */
 export interface GetAdministratorAccountRequest {}
 
 /**
@@ -9081,6 +9098,168 @@ export interface GetMembersResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetRecommendedPolicyV2Request {
+  /**
+   * <p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>
+   * @public
+   */
+  MetadataUid: string | undefined;
+
+  /**
+   * <p>The token used to paginate the <code>RecommendationSteps</code> list returned.
+   *            On your first call to <code>GetRecommendedPolicyV2</code>, omit this parameter or set it
+   *            to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
+   *            the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of recommendation steps to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about the reason that the retrieval of a recommended policy for a finding failed.</p>
+ * @public
+ */
+export interface RecommendationError {
+  /**
+   * <p>The error code for a failed retrieval of a recommended policy for a finding.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The error message for a failed retrieval of a recommended policy for a finding.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the action to take for a policy in an unused permissions finding.</p>
+ * @public
+ */
+export interface UnusedPermissionsRecommendationStep {
+  /**
+   * <p>A recommendation of whether to create or detach a policy for an unused permissions finding.</p>
+   * @public
+   */
+  RecommendedAction?: string | undefined;
+
+  /**
+   * <p>The contents of the existing policy identified by <code>ExistingPolicyId</code> which needs to be replaced,
+   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
+   * @public
+   */
+  ExistingPolicy?: string | undefined;
+
+  /**
+   * <p>The ID of an existing policy to be replaced or detached.</p>
+   * @public
+   */
+  ExistingPolicyId?: string | undefined;
+
+  /**
+   * <p>The time at which the existing policy for the unused permissions finding was last updated.</p>
+   * @public
+   */
+  PolicyUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The contents of the least-privileged recommended replacement for <code>ExistingPolicyId</code>,
+   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
+   * @public
+   */
+  RecommendedPolicy?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a recommended step to remediate a Security Hub finding.</p>
+ * @public
+ */
+export type RecommendationStep =
+  | RecommendationStep.UnusedPermissionsMember
+  | RecommendationStep.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecommendationStep {
+  /**
+   * <p>A recommended step to remediate an unused permissions finding.</p>
+   * @public
+   */
+  export interface UnusedPermissionsMember {
+    UnusedPermissions: UnusedPermissionsRecommendationStep;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    UnusedPermissions?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    UnusedPermissions: (value: UnusedPermissionsRecommendationStep) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetRecommendedPolicyV2Response {
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The type of recommendation for the finding.</p>
+   * @public
+   */
+  RecommendationType?: RecommendationType | undefined;
+
+  /**
+   * <p>The recommended steps to take to resolve the finding.</p>
+   * @public
+   */
+  RecommendationSteps?: RecommendationStep[] | undefined;
+
+  /**
+   * <p>Detailed information for a <code>FAILED</code> retrieval status.</p>
+   * @public
+   */
+  Error?: RecommendationError | undefined;
+
+  /**
+   * <p>The current status of the recommended policy retrieval.</p>
+   * @public
+   */
+  Status?: RecommendationStatus | undefined;
+
+  /**
+   * <p>The ARN of the resource of the finding.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+}
+
+/**
  * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
  * @public
  */
@@ -10011,189 +10190,4 @@ export interface ListInvitationsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMembersRequest {
-  /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
-   * @public
-   */
-  OnlyAssociated?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListMembers</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMembersResponse {
-  /**
-   * <p>Member details returned by the operation.</p>
-   * @public
-   */
-  Members?: Member[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsRequest {
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
-   *             <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
-   *          the value of this parameter to the value returned from the previous response. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The feature where the delegated administrator account is listed.
-   *          Defaults to Security Hub CSPM if not specified.</p>
-   * @public
-   */
-  Feature?: SecurityHubFeature | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsResponse {
-  /**
-   * <p>The list of Security Hub CSPM administrator accounts.</p>
-   * @public
-   */
-  AdminAccounts?: AdminAccount[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The feature where the delegated administrator account is listed.
-   *          Defaults to Security Hub CSPM CSPM if not specified.</p>
-   * @public
-   */
-  Feature?: SecurityHubFeature | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityControlDefinitionsRequest {
-  /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the standard that you want to view controls for.
-   *       </p>
-   * @public
-   */
-  StandardsArn?: string | undefined;
-
-  /**
-   * <p>
-   *          Optional pagination parameter.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> An optional parameter that limits the total results of the API response to the
-   *          specified number. If this parameter isn't provided in the request, the results include the
-   *          first 25 security controls that apply to the specified standard. The results also include a
-   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-   *          next 25 controls. This repeats until all controls for the standard are returned. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSecurityControlDefinitionsResponse {
-  /**
-   * <p>
-   *          An array of controls that apply to the specified standard.
-   *       </p>
-   * @public
-   */
-  SecurityControlDefinitions: SecurityControlDefinition[] | undefined;
-
-  /**
-   * <p> A pagination parameter that's included in the response only if it was included in the
-   *          request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStandardsControlAssociationsRequest {
-  /**
-   * <p>
-   *          The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you
-   *          want to determine the enablement status of in each enabled standard.
-   *       </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p>
-   *          Optional pagination parameter.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> An optional parameter that limits the total results of the API response to the
-   *          specified number. If this parameter isn't provided in the request, the results include the
-   *          first 25 standard and control associations. The results also include a
-   *             <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-   *          next 25 associations. This repeats until all associations for the specified control are
-   *          returned. The number of results is limited by the number of supported Security Hub CSPM
-   *          standards that you've enabled in the calling account. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
