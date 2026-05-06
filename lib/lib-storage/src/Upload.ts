@@ -306,9 +306,15 @@ export class Upload extends EventEmitter {
 
       this.__validateUploadPart(dataPart);
 
+      // The user-supplied file-level ContentMD5 represents the MD5 of the entire
+      // object and must not be propagated to per-part UploadPart commands; doing
+      // so causes S3 to reject the upload (e.g. with MalformedXML). See issue
+      // aws/aws-sdk-js-v3#4321.
+      const { ContentMD5: _fileLevelContentMD5, ...partParams } = this.params;
+
       const partResult = await this.client.send(
         new UploadPartCommand({
-          ...this.params,
+          ...partParams,
           // dataPart.data is chunked into a non-streaming buffer
           // so the ContentLength from the input should not be used for MPU.
           ContentLength: undefined,
@@ -400,8 +406,14 @@ to input.params.ContentLength in bytes.
 
       this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
 
+      // The user-supplied file-level ContentMD5 is the legacy MD5 of the entire
+      // object and is not valid for CompleteMultipartUpload, which derives the
+      // ETag from the assembled part list. Strip it so multipart uploads with
+      // a user-provided ContentMD5 succeed. See issue aws/aws-sdk-js-v3#4321.
+      const { ContentMD5: _fileLevelContentMD5, ...completeParams } = this.params;
+
       const uploadCompleteParams = {
-        ...this.params,
+        ...completeParams,
         Body: undefined,
         UploadId: this.uploadId,
         MultipartUpload: {
