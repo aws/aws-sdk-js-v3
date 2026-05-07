@@ -12,18 +12,22 @@ const _Ac = "Accounts";
 const _B = "Breakdown";
 const _BCA = "BaseCurrencyAmount";
 const _BD = "BuyerDomain";
+const _BE = "BillingEntity";
 const _BGIP = "BatchGetInvoiceProfile";
 const _BGIPR = "BatchGetInvoiceProfileRequest";
 const _BGIPRa = "BatchGetInvoiceProfileResponse";
 const _BI = "BuyerIdentifier";
 const _BP = "BillingPeriod";
 const _BSA = "BillSourceAccounts";
+const _BSATC = "BillSourceAccountsTotalCount";
+const _BT = "BillType";
 const _C = "Contact";
 const _CC = "CurrencyCode";
 const _CCo = "CountryCode";
 const _CD = "CreateDate";
 const _CE = "ConflictException";
 const _CED = "CurrencyExchangeDetails";
+const _CII = "CommercialInvoiceId";
 const _CIU = "CreateInvoiceUnit";
 const _CIUR = "CreateInvoiceUnitRequest";
 const _CIURr = "CreateInvoiceUnitResponse";
@@ -44,10 +48,12 @@ const _DI = "DateInterval";
 const _DIU = "DeleteInvoiceUnit";
 const _DIUR = "DeleteInvoiceUnitRequest";
 const _DIURe = "DeleteInvoiceUnitResponse";
+const _DIo = "DocumentId";
 const _DOC = "DistrictOrCounty";
 const _DPPP = "DeleteProcurementPortalPreference";
 const _DPPPR = "DeleteProcurementPortalPreferenceRequest";
 const _DPPPRe = "DeleteProcurementPortalPreferenceResponse";
+const _DT = "DocumentType";
 const _DU = "DocumentUrl";
 const _DUED = "DocumentUrlExpirationDate";
 const _De = "Description";
@@ -61,6 +67,7 @@ const _EDE = "EinvoiceDeliveryEnabled";
 const _EDP = "EinvoiceDeliveryPreference";
 const _EDPS = "EinvoiceDeliveryPreferenceStatus";
 const _EDPSR = "EinvoiceDeliveryPreferenceStatusReason";
+const _EDS = "EinvoiceDeliveryStatus";
 const _En = "Entity";
 const _F = "Fees";
 const _FB = "FeesBreakdown";
@@ -81,6 +88,7 @@ const _I = "Issuer";
 const _ICA = "InvoiceCurrencyAmount";
 const _ID = "IssuedDate";
 const _IE = "InvoicingEntity";
+const _IF = "InvoiceFrequency";
 const _II = "InvoiceId";
 const _IP = "InvoiceProfile";
 const _IPDF = "InvoicePDF";
@@ -151,6 +159,7 @@ const _RAes = "ResourceArn";
 const _RE = "ReceiverEmail";
 const _RN = "ReceiverName";
 const _RNFE = "ResourceNotFoundException";
+const _RR = "ReceiverRole";
 const _RT = "ResourceTags";
 const _RTK = "ResourceTagKeys";
 const _RTL = "ResourceTagList";
@@ -172,6 +181,7 @@ const _STA = "SubTotalAmount";
 const _T = "Taxes";
 const _TA = "TotalAmount";
 const _TABT = "TotalAmountBeforeTax";
+const _TAS = "TaxAuthorityStatus";
 const _TB = "TaxesBreakdown";
 const _TBA = "TaxesBreakdownAmount";
 const _TBAL = "TaxesBreakdownAmountList";
@@ -388,8 +398,8 @@ export var EinvoiceDeliveryPreference$: StaticStructureSchema = [3, n0, _EDP,
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _En,
   0,
-  [_IE],
-  [0]
+  [_IE, _BE],
+  [0, 0]
 ];
 export var FeesBreakdown$: StaticStructureSchema = [3, n0, _FB,
   0,
@@ -453,8 +463,8 @@ export var InvoiceProfile$: StaticStructureSchema = [3, n0, _IP,
 ];
 export var InvoiceSummariesFilter$: StaticStructureSchema = [3, n0, _ISF,
   0,
-  [_TI, _BP, _IE],
-  [() => DateInterval$, () => BillingPeriod$, 0]
+  [_TI, _BP, _IE, _RR],
+  [() => DateInterval$, () => BillingPeriod$, 0, 0]
 ];
 export var InvoiceSummariesSelector$: StaticStructureSchema = [3, n0, _ISS,
   0,
@@ -463,8 +473,8 @@ export var InvoiceSummariesSelector$: StaticStructureSchema = [3, n0, _ISS,
 ];
 export var InvoiceSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_AIc, _II, _ID, _DD, _En, _BP, _IT, _OII, _PON, _BCA, _TCA, _PCA],
-  [0, 0, 4, 4, () => Entity$, () => BillingPeriod$, 0, 0, 0, () => InvoiceCurrencyAmount$, () => InvoiceCurrencyAmount$, () => InvoiceCurrencyAmount$]
+  [_AIc, _II, _ID, _DD, _BSA, _BSATC, _RR, _En, _BP, _IF, _BT, _IT, _CII, _OII, _PON, _EDS, _TAS, _BCA, _TCA, _PCA],
+  [0, 0, 4, 4, 64 | 0, 1, 0, () => Entity$, () => BillingPeriod$, 0, 0, 0, 0, 0, 0, 0, 0, () => InvoiceCurrencyAmount$, () => InvoiceCurrencyAmount$, () => InvoiceCurrencyAmount$]
 ];
 export var InvoiceUnit$: StaticStructureSchema = [3, n0, _IU,
   0,
@@ -558,8 +568,8 @@ export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
 ];
 export var SupplementalDocument$: StaticStructureSchema = [3, n0, _SDup,
   0,
-  [_DU, _DUED],
-  [0, 4]
+  [_DT, _DIo, _DU, _DUED],
+  [0, 0, 0, 4]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -627,6 +637,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [0, 0], 2
 ];
 var AccountIdList = 64 | 0;
+var BillSourceAccountList = 64 | 0;
 var Contacts: StaticListSchema = [1, n0, _Co,
   0, [() => Contact$,
     0]

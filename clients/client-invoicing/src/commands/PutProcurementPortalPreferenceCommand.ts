@@ -27,7 +27,7 @@ export interface PutProcurementPortalPreferenceCommandInput extends PutProcureme
 export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurementPortalPreferenceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing procurement portal preference configuration. This operation can modify settings for e-invoice delivery and purchase order retrieval.</p>
+ * <p> <i> <b>This feature API is subject to changing at any time. For more information, see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Betas and Previews).</b> </i> </p> <p>Updates an existing procurement portal preference configuration. This operation can modify settings for e-invoice delivery and purchase order retrieval.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

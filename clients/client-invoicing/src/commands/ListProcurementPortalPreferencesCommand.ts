@@ -30,7 +30,7 @@ export interface ListProcurementPortalPreferencesCommandInput extends ListProcur
 export interface ListProcurementPortalPreferencesCommandOutput extends ListProcurementPortalPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of procurement portal preferences associated with the Amazon Web Services account.</p>
+ * <p> <i> <b>This feature API is subject to changing at any time. For more information, see the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Betas and Previews).</b> </i> </p> <p>Retrieves a list of procurement portal preferences associated with the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

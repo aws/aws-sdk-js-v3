@@ -1,16 +1,23 @@
 // smithy-typescript generated code
 import type {
+  BillingEntity,
+  BillType,
   BuyerDomain,
   ConnectionTestingMethod,
   EinvoiceDeliveryAttachmentType,
   EinvoiceDeliveryDocumentType,
+  EinvoiceDeliveryStatus,
+  InvoiceFrequency,
   InvoiceType,
   ListInvoiceSummariesResourceType,
   ProcurementPortalName,
   ProcurementPortalPreferenceStatus,
   Protocol,
   PurchaseOrderDataSourceType,
+  ReceiverRole,
+  SupplementalDocumentType,
   SupplierDomain,
+  TaxAuthorityStatus,
 } from "./enums";
 
 /**
@@ -377,7 +384,7 @@ export interface InvoiceUnitRule {
   LinkedAccounts?: string[] | undefined;
 
   /**
-   * <p> A list of Amazon Web Services account account IDs that have delegated their billing responsibility to the receiver account through transfer billing. Unlike linked accounts, these bill source accounts can be payer accounts from other organizations that have authorized billing transfer to this account. </p>
+   * <p> A list of Amazon Web Services account IDs that have delegated their billing responsibility to the receiver account through transfer billing. Unlike linked accounts, these bill source accounts can be payer accounts from other organizations that have authorized billing transfer to this account. </p>
    * @public
    */
   BillSourceAccounts?: string[] | undefined;
@@ -757,6 +764,12 @@ export interface Entity {
    * @public
    */
   InvoicingEntity?: string | undefined;
+
+  /**
+   * <p>Helps you identify whether your invoices are for Amazon Web Services Marketplace or for purchases of other Amazon Web Services services.</p>
+   * @public
+   */
+  BillingEntity?: BillingEntity | undefined;
 }
 
 /**
@@ -783,7 +796,7 @@ export interface Filters {
   Accounts?: string[] | undefined;
 
   /**
-   * <p> A list of Amazon Web Services account account IDs used to filter invoice units. These are payer accounts from other Organizations that have delegated their billing responsibility to the receiver account through the billing transfer feature. </p>
+   * <p> A list of Amazon Web Services account IDs used to filter invoice units. These are payer accounts from other Organizations that have delegated their billing responsibility to the receiver account through the billing transfer feature. </p>
    * @public
    */
   BillSourceAccounts?: string[] | undefined;
@@ -805,6 +818,18 @@ export interface GetInvoicePDFRequest {
  * @public
  */
 export interface SupplementalDocument {
+  /**
+   * <p>The type of supplemental document.</p>
+   * @public
+   */
+  DocumentType?: SupplementalDocumentType | undefined;
+
+  /**
+   * <p>The ID of the supplemental document.</p>
+   * @public
+   */
+  DocumentId?: string | undefined;
+
   /**
    * <p>The pre-signed URL to download invoice supplemental document.</p>
    * @public
@@ -1203,6 +1228,24 @@ export interface InvoiceSummary {
   DueDate?: Date | undefined;
 
   /**
+   * <p> The list of Amazon Web Services account IDs that are the bill source of the invoice. Currently, only a single bill source account is returned.</p>
+   * @public
+   */
+  BillSourceAccounts?: string[] | undefined;
+
+  /**
+   * <p> The total number of accounts that are the bill source of the invoice. </p>
+   * @public
+   */
+  BillSourceAccountsTotalCount?: number | undefined;
+
+  /**
+   * <p>The role of the invoice receiver.</p>
+   * @public
+   */
+  ReceiverRole?: ReceiverRole | undefined;
+
+  /**
    * <p>The organization name providing Amazon Web Services services.</p>
    * @public
    */
@@ -1215,10 +1258,28 @@ export interface InvoiceSummary {
   BillingPeriod?: BillingPeriod | undefined;
 
   /**
+   * <p> The frequency of the invoice. </p>
+   * @public
+   */
+  InvoiceFrequency?: InvoiceFrequency | undefined;
+
+  /**
+   * <p> The type of the bill. </p>
+   * @public
+   */
+  BillType?: BillType | undefined;
+
+  /**
    * <p> The type of invoice. </p>
    * @public
    */
   InvoiceType?: InvoiceType | undefined;
+
+  /**
+   * <p> The commercial invoice ID. This is only applicable for tax invoices and identifies the associated commercial invoice. </p>
+   * @public
+   */
+  CommercialInvoiceId?: string | undefined;
 
   /**
    * <p>The initial or original invoice ID. </p>
@@ -1231,6 +1292,18 @@ export interface InvoiceSummary {
    * @public
    */
   PurchaseOrderNumber?: string | undefined;
+
+  /**
+   * <p> The e-invoice delivery status. </p>
+   * @public
+   */
+  EinvoiceDeliveryStatus?: EinvoiceDeliveryStatus | undefined;
+
+  /**
+   * <p> The current status of an invoice as reported to the tax authority. This captures scenarios where an invoice may be cancelled after issuance. </p>
+   * @public
+   */
+  TaxAuthorityStatus?: TaxAuthorityStatus | undefined;
 
   /**
    * <p> The summary with the product and service currency. </p>
@@ -1273,6 +1346,12 @@ export interface InvoiceSummariesFilter {
    * @public
    */
   InvoicingEntity?: string | undefined;
+
+  /**
+   * <p>The role of the invoice receiver to filter by.</p> <note> <p>When <code>ReceiverRole</code> is specified:</p> <ul> <li> <p>Data is available starting <code>2025-06-01</code>. Queries for periods before <code>2025-06-01</code> return a validation error.</p> </li> <li> <p> <code>TimeInterval</code> supports a time interval of up to 5 years. Without <code>ReceiverRole</code>, <code>TimeInterval</code> is limited to one month.</p> </li> </ul> </note>
+   * @public
+   */
+  ReceiverRole?: ReceiverRole | undefined;
 }
 
 /**

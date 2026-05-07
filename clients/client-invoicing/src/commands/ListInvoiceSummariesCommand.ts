@@ -51,6 +51,7 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *       Year: Number("int"), // required
  *     },
  *     InvoicingEntity: "STRING_VALUE",
+ *     ReceiverRole: "SELLER" || "RESELLER" || "BUYER",
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -64,16 +65,27 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  * //       InvoiceId: "STRING_VALUE",
  * //       IssuedDate: new Date("TIMESTAMP"),
  * //       DueDate: new Date("TIMESTAMP"),
+ * //       BillSourceAccounts: [ // BillSourceAccountList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       BillSourceAccountsTotalCount: Number("int"),
+ * //       ReceiverRole: "SELLER" || "RESELLER" || "BUYER",
  * //       Entity: { // Entity
  * //         InvoicingEntity: "STRING_VALUE",
+ * //         BillingEntity: "AWS" || "AWS_MARKETPLACE",
  * //       },
  * //       BillingPeriod: { // BillingPeriod
  * //         Month: Number("int"), // required
  * //         Year: Number("int"), // required
  * //       },
- * //       InvoiceType: "INVOICE" || "CREDIT_MEMO",
+ * //       InvoiceFrequency: "ONE_TIME" || "RECURRING",
+ * //       BillType: "ANNIVERSARY" || "PURCHASE" || "REFUND",
+ * //       InvoiceType: "INVOICE" || "CREDIT_MEMO" || "PAYMENT_RECEIPT",
+ * //       CommercialInvoiceId: "STRING_VALUE",
  * //       OriginalInvoiceId: "STRING_VALUE",
  * //       PurchaseOrderNumber: "STRING_VALUE",
+ * //       EinvoiceDeliveryStatus: "DELIVERED" || "NOT_DELIVERED",
+ * //       TaxAuthorityStatus: "ISSUED" || "CANCELLED",
  * //       BaseCurrencyAmount: { // InvoiceCurrencyAmount
  * //         TotalAmount: "STRING_VALUE",
  * //         TotalAmountBeforeTax: "STRING_VALUE",
@@ -265,17 +277,27 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       BillSourceAccounts: [
+ *         "111111111111"
+ *       ],
+ *       BillSourceAccountsTotalCount: 1,
+ *       BillType: "ANNIVERSARY",
  *       BillingPeriod: {
  *         Month: 1,
  *         Year: 2025
  *       },
+ *       CommercialInvoiceId: "2222222222",
  *       DueDate: "2025-04-01T01:00:00.000Z",
+ *       EinvoiceDeliveryStatus: "DELIVERED",
  *       Entity: {
+ *         BillingEntity: "AWS",
  *         InvoicingEntity: "Amazon Web Services, Inc."
  *       },
+ *       InvoiceFrequency: "RECURRING",
  *       InvoiceId: "1111111111",
  *       InvoiceType: "INVOICE",
  *       IssuedDate: "2025-04-01T01:00:00.000Z",
+ *       OriginalInvoiceId: "1111111111",
  *       PaymentCurrencyAmount: {
  *         AmountBreakdown: {
  *           Discounts: {
@@ -302,6 +324,9 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       PurchaseOrderNumber: "PO-12345",
+ *       ReceiverRole: "BUYER",
+ *       TaxAuthorityStatus: "ISSUED",
  *       TaxCurrencyAmount: {
  *         AmountBreakdown: {
  *           Discounts: {
@@ -370,14 +395,22 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       BillSourceAccounts: [
+ *         "111111111111"
+ *       ],
+ *       BillSourceAccountsTotalCount: 1,
+ *       BillType: "ANNIVERSARY",
  *       BillingPeriod: {
  *         Month: 1,
  *         Year: 2025
  *       },
  *       DueDate: "2025-04-01T01:00:00.000Z",
+ *       EinvoiceDeliveryStatus: "DELIVERED",
  *       Entity: {
+ *         BillingEntity: "AWS",
  *         InvoicingEntity: "Amazon Web Services, Inc."
  *       },
+ *       InvoiceFrequency: "RECURRING",
  *       InvoiceId: "1111111111",
  *       InvoiceType: "INVOICE",
  *       IssuedDate: "2025-04-01T01:00:00.000Z",
@@ -407,6 +440,8 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       ReceiverRole: "BUYER",
+ *       TaxAuthorityStatus: "ISSUED",
  *       TaxCurrencyAmount: {
  *         AmountBreakdown: {
  *           Discounts: {
@@ -475,14 +510,22 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       BillSourceAccounts: [
+ *         "111111111111"
+ *       ],
+ *       BillSourceAccountsTotalCount: 1,
+ *       BillType: "ANNIVERSARY",
  *       BillingPeriod: {
  *         Month: 1,
  *         Year: 2025
  *       },
  *       DueDate: "2025-04-01T01:00:00.000Z",
+ *       EinvoiceDeliveryStatus: "DELIVERED",
  *       Entity: {
+ *         BillingEntity: "AWS",
  *         InvoicingEntity: "Amazon Web Services, Inc."
  *       },
+ *       InvoiceFrequency: "RECURRING",
  *       InvoiceId: "1111111111",
  *       InvoiceType: "INVOICE",
  *       IssuedDate: "2025-04-01T01:00:00.000Z",
@@ -512,6 +555,124 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       ReceiverRole: "BUYER",
+ *       TaxAuthorityStatus: "ISSUED",
+ *       TaxCurrencyAmount: {
+ *         AmountBreakdown: {
+ *           Discounts: {
+ *             TotalAmount: "1.00"
+ *           },
+ *           SubTotalAmount: "1.00",
+ *           Taxes: {
+ *             Breakdown: [
+ *               {
+ *                 Amount: "1",
+ *                 Description: "VAT",
+ *                 Rate: "1.0"
+ *               }
+ *             ],
+ *             TotalAmount: "1.00"
+ *           }
+ *         },
+ *         CurrencyCode: "USD",
+ *         CurrencyExchangeDetails: {
+ *           Rate: "1.0",
+ *           SourceCurrencyCode: "USD",
+ *           TargetCurrencyCode: "USD"
+ *         },
+ *         TotalAmount: "1.00",
+ *         TotalAmountBeforeTax: "1.00"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example ListInvoiceSummaries filtered by ReceiverRole
+ * ```javascript
+ * //
+ * const input = {
+ *   Filter: {
+ *     ReceiverRole: "SELLER",
+ *     TimeInterval: {
+ *       EndDate: 1751328000,
+ *       StartDate: 1748736000
+ *     }
+ *   },
+ *   Selector: {
+ *     ResourceType: "ACCOUNT_ID",
+ *     Value: "111111111111"
+ *   }
+ * };
+ * const command = new ListInvoiceSummariesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   InvoiceSummaries: [
+ *     {
+ *       AccountId: "111111111111",
+ *       BaseCurrencyAmount: {
+ *         AmountBreakdown: {
+ *           Discounts: {
+ *             TotalAmount: "1.00"
+ *           },
+ *           SubTotalAmount: "1.00",
+ *           Taxes: {
+ *             TotalAmount: "1.00"
+ *           }
+ *         },
+ *         CurrencyCode: "USD",
+ *         TotalAmount: "1.00",
+ *         TotalAmountBeforeTax: "1.00"
+ *       },
+ *       BillSourceAccounts: [
+ *         "222222222222"
+ *       ],
+ *       BillSourceAccountsTotalCount: 1,
+ *       BillType: "ANNIVERSARY",
+ *       BillingPeriod: {
+ *         Month: 6,
+ *         Year: 2025
+ *       },
+ *       DueDate: "2025-07-15T01:00:00.000Z",
+ *       EinvoiceDeliveryStatus: "DELIVERED",
+ *       Entity: {
+ *         BillingEntity: "AWS_MARKETPLACE",
+ *         InvoicingEntity: "Amazon Web Services, Inc."
+ *       },
+ *       InvoiceFrequency: "RECURRING",
+ *       InvoiceId: "1111111111",
+ *       InvoiceType: "INVOICE",
+ *       IssuedDate: "2025-06-15T01:00:00.000Z",
+ *       PaymentCurrencyAmount: {
+ *         AmountBreakdown: {
+ *           Discounts: {
+ *             TotalAmount: "1.00"
+ *           },
+ *           SubTotalAmount: "1.00",
+ *           Taxes: {
+ *             Breakdown: [
+ *               {
+ *                 Amount: "1",
+ *                 Description: "VAT",
+ *                 Rate: "1.0"
+ *               }
+ *             ],
+ *             TotalAmount: "1.00"
+ *           }
+ *         },
+ *         CurrencyCode: "USD",
+ *         CurrencyExchangeDetails: {
+ *           Rate: "1.0",
+ *           SourceCurrencyCode: "USD",
+ *           TargetCurrencyCode: "USD"
+ *         },
+ *         TotalAmount: "1.00",
+ *         TotalAmountBeforeTax: "1.00"
+ *       },
+ *       ReceiverRole: "SELLER",
+ *       TaxAuthorityStatus: "ISSUED",
  *       TaxCurrencyAmount: {
  *         AmountBreakdown: {
  *           Discounts: {
@@ -581,14 +742,22 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       BillSourceAccounts: [
+ *         "111111111111"
+ *       ],
+ *       BillSourceAccountsTotalCount: 1,
+ *       BillType: "ANNIVERSARY",
  *       BillingPeriod: {
  *         Month: 1,
  *         Year: 2025
  *       },
  *       DueDate: "2025-04-01T01:00:00.000Z",
+ *       EinvoiceDeliveryStatus: "DELIVERED",
  *       Entity: {
+ *         BillingEntity: "AWS",
  *         InvoicingEntity: "Amazon Web Services, Inc."
  *       },
+ *       InvoiceFrequency: "RECURRING",
  *       InvoiceId: "1111111111",
  *       InvoiceType: "INVOICE",
  *       IssuedDate: "2025-04-01T01:00:00.000Z",
@@ -618,6 +787,8 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       ReceiverRole: "BUYER",
+ *       TaxAuthorityStatus: "ISSUED",
  *       TaxCurrencyAmount: {
  *         AmountBreakdown: {
  *           Discounts: {
@@ -688,14 +859,22 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       BillSourceAccounts: [
+ *         "111111111111"
+ *       ],
+ *       BillSourceAccountsTotalCount: 1,
+ *       BillType: "ANNIVERSARY",
  *       BillingPeriod: {
  *         Month: 1,
  *         Year: 2025
  *       },
  *       DueDate: "2025-04-01T01:00:00.000Z",
+ *       EinvoiceDeliveryStatus: "DELIVERED",
  *       Entity: {
+ *         BillingEntity: "AWS",
  *         InvoicingEntity: "Amazon Web Services, Inc."
  *       },
+ *       InvoiceFrequency: "RECURRING",
  *       InvoiceId: "1111111111",
  *       InvoiceType: "INVOICE",
  *       IssuedDate: "2025-04-01T01:00:00.000Z",
@@ -725,6 +904,8 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *         TotalAmount: "1.00",
  *         TotalAmountBeforeTax: "1.00"
  *       },
+ *       ReceiverRole: "BUYER",
+ *       TaxAuthorityStatus: "ISSUED",
  *       TaxCurrencyAmount: {
  *         AmountBreakdown: {
  *           Discounts: {

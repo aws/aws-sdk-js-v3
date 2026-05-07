@@ -6,7 +6,9 @@ import {
   BatchGetInvoiceProfileCommand,
   BatchGetInvoiceProfileRequest$,
   BatchGetInvoiceProfileResponse$,
+  BillingEntity,
   BillingPeriod$,
+  BillType,
   BuyerDomain,
   ConflictException,
   ConflictException$,
@@ -35,6 +37,7 @@ import {
   EinvoiceDeliveryAttachmentType,
   EinvoiceDeliveryDocumentType,
   EinvoiceDeliveryPreference$,
+  EinvoiceDeliveryStatus,
   Entity$,
   FeesBreakdown$,
   FeesBreakdownAmount$,
@@ -54,6 +57,7 @@ import {
   InternalServerException,
   InternalServerException$,
   InvoiceCurrencyAmount$,
+  InvoiceFrequency,
   InvoicePDF$,
   InvoiceProfile$,
   InvoiceSummariesFilter$,
@@ -98,17 +102,20 @@ import {
   PutProcurementPortalPreferenceRequest$,
   PutProcurementPortalPreferenceResponse$,
   ReceiverAddress$,
+  ReceiverRole,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceTag$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SupplementalDocument$,
+  SupplementalDocumentType,
   SupplierDomain,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TaxAuthorityStatus,
   TaxesBreakdown$,
   TaxesBreakdownAmount$,
   TestEnvPreference$,
@@ -239,17 +246,24 @@ assert(typeof UpdateProcurementPortalPreferenceStatusRequest$ === "object");
 assert(typeof UpdateProcurementPortalPreferenceStatusResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
+assert(typeof BillingEntity === "object");
+assert(typeof BillType === "object");
 assert(typeof BuyerDomain === "object");
 assert(typeof ConnectionTestingMethod === "object");
 assert(typeof EinvoiceDeliveryAttachmentType === "object");
 assert(typeof EinvoiceDeliveryDocumentType === "object");
+assert(typeof EinvoiceDeliveryStatus === "object");
+assert(typeof InvoiceFrequency === "object");
 assert(typeof InvoiceType === "object");
 assert(typeof ListInvoiceSummariesResourceType === "object");
 assert(typeof ProcurementPortalName === "object");
 assert(typeof ProcurementPortalPreferenceStatus === "object");
 assert(typeof Protocol === "object");
 assert(typeof PurchaseOrderDataSourceType === "object");
+assert(typeof ReceiverRole === "object");
+assert(typeof SupplementalDocumentType === "object");
 assert(typeof SupplierDomain === "object");
+assert(typeof TaxAuthorityStatus === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof InvoicingServiceException);

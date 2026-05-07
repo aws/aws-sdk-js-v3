@@ -28,6 +28,33 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const BillingEntity = {
+  AWS: "AWS",
+  AWS_MARKETPLACE: "AWS_MARKETPLACE",
+} as const;
+/**
+ * @public
+ */
+export type BillingEntity = (typeof BillingEntity)[keyof typeof BillingEntity];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillType = {
+  ANNIVERSARY: "ANNIVERSARY",
+  PURCHASE: "PURCHASE",
+  REFUND: "REFUND",
+} as const;
+/**
+ * @public
+ */
+export type BillType = (typeof BillType)[keyof typeof BillType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BuyerDomain = {
   NetworkID: "NetworkID",
 } as const;
@@ -135,6 +162,34 @@ export type SupplierDomain = (typeof SupplierDomain)[keyof typeof SupplierDomain
  * @public
  * @enum
  */
+export const EinvoiceDeliveryStatus = {
+  DELIVERED: "DELIVERED",
+  NOT_DELIVERED: "NOT_DELIVERED",
+} as const;
+/**
+ * @public
+ */
+export type EinvoiceDeliveryStatus = (typeof EinvoiceDeliveryStatus)[keyof typeof EinvoiceDeliveryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupplementalDocumentType = {
+  GOVERNMENT_INVOICE: "GOVERNMENT_INVOICE",
+  PAYMENT_RECEIPT: "PAYMENT_RECEIPT",
+  SUPPLEMENT: "SUPPLEMENT",
+  TAX_E_INVOICE: "TAX_E_INVOICE",
+} as const;
+/**
+ * @public
+ */
+export type SupplementalDocumentType = (typeof SupplementalDocumentType)[keyof typeof SupplementalDocumentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProcurementPortalPreferenceStatus = {
   ACTIVE: "ACTIVE",
   PENDING_VERIFICATION: "PENDING_VERIFICATION",
@@ -153,14 +208,55 @@ export type ProcurementPortalPreferenceStatus =
  * @public
  * @enum
  */
+export const InvoiceFrequency = {
+  ONE_TIME: "ONE_TIME",
+  RECURRING: "RECURRING",
+} as const;
+/**
+ * @public
+ */
+export type InvoiceFrequency = (typeof InvoiceFrequency)[keyof typeof InvoiceFrequency];
+
+/**
+ * @public
+ * @enum
+ */
 export const InvoiceType = {
   CREDIT_MEMO: "CREDIT_MEMO",
   INVOICE: "INVOICE",
+  PAYMENT_RECEIPT: "PAYMENT_RECEIPT",
 } as const;
 /**
  * @public
  */
 export type InvoiceType = (typeof InvoiceType)[keyof typeof InvoiceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReceiverRole = {
+  BUYER: "BUYER",
+  RESELLER: "RESELLER",
+  SELLER: "SELLER",
+} as const;
+/**
+ * @public
+ */
+export type ReceiverRole = (typeof ReceiverRole)[keyof typeof ReceiverRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaxAuthorityStatus = {
+  CANCELLED: "CANCELLED",
+  ISSUED: "ISSUED",
+} as const;
+/**
+ * @public
+ */
+export type TaxAuthorityStatus = (typeof TaxAuthorityStatus)[keyof typeof TaxAuthorityStatus];
 
 /**
  * @public

@@ -48,6 +48,8 @@ export interface GetInvoicePDFCommandOutput extends GetInvoicePDFResponse, __Met
  * //     DocumentUrlExpirationDate: new Date("TIMESTAMP"),
  * //     SupplementalDocuments: [ // SupplementalDocuments
  * //       { // SupplementalDocument
+ * //         DocumentType: "GOVERNMENT_INVOICE" || "TAX_E_INVOICE" || "PAYMENT_RECEIPT" || "SUPPLEMENT",
+ * //         DocumentId: "STRING_VALUE",
  * //         DocumentUrl: "STRING_VALUE",
  * //         DocumentUrlExpirationDate: new Date("TIMESTAMP"),
  * //       },
@@ -118,6 +120,8 @@ export interface GetInvoicePDFCommandOutput extends GetInvoicePDFResponse, __Met
  *     InvoiceId: "abc123",
  *     SupplementalDocuments: [
  *       {
+ *         DocumentId: "supp-doc-1",
+ *         DocumentType: "TAX_E_INVOICE",
  *         DocumentUrl: "https://abcd123.com?securityTokenForSupplementalDoc",
  *         DocumentUrlExpirationDate: "2025-04-01T01:00:00.000Z"
  *       }
