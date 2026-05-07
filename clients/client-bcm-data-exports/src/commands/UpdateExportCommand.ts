@@ -61,7 +61,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *         S3Prefix: "STRING_VALUE", // required
  *         S3Region: "STRING_VALUE", // required
  *         S3OutputConfigurations: { // S3OutputConfigurations
- *           OutputType: "CUSTOM", // required
+ *           OutputType: "CUSTOM" || "ATHENA" || "REDSHIFT", // required
  *           Format: "TEXT_OR_CSV" || "PARQUET", // required
  *           Compression: "GZIP" || "PARQUET", // required
  *           Overwrite: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT", // required

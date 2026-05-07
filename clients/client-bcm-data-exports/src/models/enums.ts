@@ -30,7 +30,9 @@ export type FormatOption = (typeof FormatOption)[keyof typeof FormatOption];
  * @enum
  */
 export const S3OutputType = {
+  ATHENA: "ATHENA",
   CUSTOM: "CUSTOM",
+  REDSHIFT: "REDSHIFT",
 } as const;
 /**
  * @public
