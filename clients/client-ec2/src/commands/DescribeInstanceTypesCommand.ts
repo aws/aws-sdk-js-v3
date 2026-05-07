@@ -28,7 +28,9 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
 
 /**
  * <p>Describes the specified instance types. By default, all instance types for the current
- *    Region are described. Alternatively, you can filter the results.</p>
+ *    Region are described. Alternatively, you can filter the results. To include instance types
+ *    that are not supported in the current Region, set <code>IncludeUnsupportedInRegion</code>
+ *    to <code>true</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeUnsupportedInRegion: true || false,
  * };
  * const command = new DescribeInstanceTypesCommand(input);
  * const response = await client.send(command);
@@ -271,6 +274,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //       },
  * //       PhcSupport: "unsupported" || "supported",
  * //       RebootMigrationSupport: "unsupported" || "supported",
+ * //       SupportedInRegion: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -3462,6 +3462,7 @@ const _ITnstan = "InstanceTag";
 const _ITnstanc = "InstanceTopology";
 const _ITnt = "InterfaceType";
 const _IU = "InstanceUsages";
+const _IUIR = "IncludeUnsupportedInRegion";
 const _IUR = "ImageUsageReports";
 const _IURE = "ImageUsageReportEntries";
 const _IUREL = "ImageUsageReportEntryList";
@@ -5244,6 +5245,7 @@ const _SIRt = "StartInstancesRequest";
 const _SIRta = "StartInstancesResult";
 const _SIRto = "StopInstancesRequest";
 const _SIRtop = "StopInstancesResult";
+const _SIRu = "SupportedInRegion";
 const _SIS = "ScheduledInstanceSet";
 const _SISF = "SpotInstanceStateFault";
 const _SISGIS = "ScheduledInstancesSecurityGroupIdSet";
@@ -7742,6 +7744,7 @@ const _sIPI = "sourceIpamPoolId";
 const _sIR = "sourceImageRegion";
 const _sIRI = "spotInstanceRequestId";
 const _sIRS = "spotInstanceRequestSet";
+const _sIRu = "supportedInRegion";
 const _sIS = "scheduledInstanceSet";
 const _sISe = "secondaryInterfaceSet";
 const _sISu = "subnetIdSet";
@@ -13523,8 +13526,8 @@ export var DescribeInstanceTypeOfferingsResult$: StaticStructureSchema = [3, n0,
 ];
 export var DescribeInstanceTypesRequest$: StaticStructureSchema = [3, n0, _DITRes,
   0,
-  [_DR, _ITnst, _Fi, _MR, _NTe],
-  [2, [64 | 0, { [_xN]: _IT }], [() => FilterList, { [_xN]: _Fil }], 1, 0]
+  [_DR, _ITnst, _Fi, _MR, _NTe, _IUIR],
+  [2, [64 | 0, { [_xN]: _IT }], [() => FilterList, { [_xN]: _Fil }], 1, 0, 2]
 ];
 export var DescribeInstanceTypesResult$: StaticStructureSchema = [3, n0, _DITResc,
   0,
@@ -18667,7 +18670,7 @@ export var InstanceTopology$: StaticStructureSchema = [3, n0, _ITnstanc,
 ];
 export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITIn,
   0,
-  [_IT, _CGur, _FTE, _SUC, _SRDT, _SVT, _BMa, _Hy, _PIro, _VCIpu, _MIe, _ISSn, _ISIns, _EIb, _NIetw, _GIp, _FIpga, _PGI, _IAIn, _HS, _BPS, _DHS, _ARS, _SBM, _NES, _NTS, _NTI, _MAIe, _NIeu, _PSh, _RMS],
+  [_IT, _CGur, _FTE, _SUC, _SRDT, _SVT, _BMa, _Hy, _PIro, _VCIpu, _MIe, _ISSn, _ISIns, _EIb, _NIetw, _GIp, _FIpga, _PGI, _IAIn, _HS, _BPS, _DHS, _ARS, _SBM, _NES, _NTS, _NTI, _MAIe, _NIeu, _PSh, _RMS, _SIRu],
   [[0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [2, { [_eQN]: `CurrentGeneration`
   , [_xN]: _cGur }], [2, { [_eQN]: `FreeTierEligible`
@@ -18699,7 +18702,8 @@ export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITIn,
   , [_xN]: _mAIe }], [() => NeuronInfo$, { [_eQN]: `NeuronInfo`
   , [_xN]: _nIeu }], [0, { [_eQN]: `PhcSupport`
   , [_xN]: _pSh }], [0, { [_eQN]: `RebootMigrationSupport`
-  , [_xN]: _rMS }]]
+  , [_xN]: _rMS }], [2, { [_eQN]: `SupportedInRegion`
+  , [_xN]: _sIRu }]]
 ];
 export var InstanceTypeInfoFromInstanceRequirements$: StaticStructureSchema = [3, n0, _ITIFIR,
   0,

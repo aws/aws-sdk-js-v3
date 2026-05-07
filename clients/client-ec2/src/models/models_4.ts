@@ -4002,6 +4002,13 @@ export interface DescribeInstanceTypesRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the response includes instance types that are not supported
+   *    in the current Region, in addition to the supported types. Default: <code>false</code>.</p>
+   * @public
+   */
+  IncludeUnsupportedInRegion?: boolean | undefined;
 }
 
 /**
@@ -5086,6 +5093,12 @@ export interface InstanceTypeInfo {
    * @public
    */
   RebootMigrationSupport?: RebootMigrationSupport | undefined;
+
+  /**
+   * <p>Indicates whether the instance type is supported in the current Region.</p>
+   * @public
+   */
+  SupportedInRegion?: boolean | undefined;
 }
 
 /**

@@ -871,6 +871,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <rebootMigrationSupport>
                 __RebootMigrationSupport__
             </rebootMigrationSupport>
+            <supportedInRegion>
+                false
+            </supportedInRegion>
         </item>
         <item>
             <instanceType>
@@ -1714,6 +1717,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <rebootMigrationSupport>
                 __RebootMigrationSupport__
             </rebootMigrationSupport>
+            <supportedInRegion>
+                false
+            </supportedInRegion>
         </item>
         <item>
             <instanceType>
@@ -2557,6 +2563,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <rebootMigrationSupport>
                 __RebootMigrationSupport__
             </rebootMigrationSupport>
+            <supportedInRegion>
+                false
+            </supportedInRegion>
         </item>
     </instanceTypeSet>
     <nextToken>
@@ -2955,7 +2964,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         TotalNeuronDeviceMemoryInMiB: (number) 0
       },
       PhcSupport: "__PhcSupport__",
-      RebootMigrationSupport: "__RebootMigrationSupport__"
+      RebootMigrationSupport: "__RebootMigrationSupport__",
+      SupportedInRegion: (boolean) false
     },
     {
       InstanceType: "__InstanceType__",
@@ -3344,7 +3354,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         TotalNeuronDeviceMemoryInMiB: (number) 0
       },
       PhcSupport: "__PhcSupport__",
-      RebootMigrationSupport: "__RebootMigrationSupport__"
+      RebootMigrationSupport: "__RebootMigrationSupport__",
+      SupportedInRegion: (boolean) false
     },
     {
       InstanceType: "__InstanceType__",
@@ -3733,7 +3744,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         TotalNeuronDeviceMemoryInMiB: (number) 0
       },
       PhcSupport: "__PhcSupport__",
-      RebootMigrationSupport: "__RebootMigrationSupport__"
+      RebootMigrationSupport: "__RebootMigrationSupport__",
+      SupportedInRegion: (boolean) false
     }
   ],
   NextToken: "__NextToken__",
