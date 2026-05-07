@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
+
+
+### Features
+
+* **client-invoicing:** Updated ListInvoiceSummaries API to add new ReceiverRole filter in Request and Response ([60a448c](https://github.com/aws/aws-sdk-js-v3/commit/60a448cbfb17643b0b93c0bf72848b404dc31a83))
+
+
+
+
+
 # [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
 
 **Note:** Version bump only for package @aws-sdk/client-invoicing

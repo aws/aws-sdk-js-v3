@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
+
+
+### Features
+
+* **client-ec2:** DescribeInstanceTypes now accepts an IncludeUnsupportedInRegion parameter. When set, the response also lists instance types that are not available in the current Region. Each instance type includes a SupportedInRegion field indicating its regional availability. ([7026243](https://github.com/aws/aws-sdk-js-v3/commit/7026243303994e24be2996bf169b6acd50d5b081))
+
+
+
+
+
 # [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

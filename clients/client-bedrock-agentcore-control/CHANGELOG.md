@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Launching AgentCore payments - a capability that provides secure, instant microtransaction payments for AI agents to access paid APIs, MCP servers, and content. It handles payment processing for x402 protocol, payment limits, and 3P wallet integrations with Coinbase CDP and Stripe (Privy). ([fe5861a](https://github.com/aws/aws-sdk-js-v3/commit/fe5861ae18b0b71616398dcbb54936a919af1d8f))
+
+
+
+
+
 # [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
+
+
+### Features
+
+* **client-bcm-data-exports:** With this release, customers can configure their data exports to generate additional integration artifacts for Athena and Redshift. ([238da2c](https://github.com/aws/aws-sdk-js-v3/commit/238da2c16c5885ef9051c2798c0bec4a5c10fa9f))
+* **client-bedrock-agentcore-control:** Launching AgentCore payments - a capability that provides secure, instant microtransaction payments for AI agents to access paid APIs, MCP servers, and content. It handles payment processing for x402 protocol, payment limits, and 3P wallet integrations with Coinbase CDP and Stripe (Privy). ([fe5861a](https://github.com/aws/aws-sdk-js-v3/commit/fe5861ae18b0b71616398dcbb54936a919af1d8f))
+* **client-bedrock-agentcore:** Launching AgentCore payments - a capability that provides secure, instant microtransaction payments for AI agents to access paid APIs, MCP servers, and content. It handles payment processing for x402 protocol, payment limits, and 3P wallet integrations with Coinbase CDP and Stripe (Privy). ([1e1031a](https://github.com/aws/aws-sdk-js-v3/commit/1e1031a7c070e56c2c781df05af75baf543e65ca))
+* **client-ec2:** DescribeInstanceTypes now accepts an IncludeUnsupportedInRegion parameter. When set, the response also lists instance types that are not available in the current Region. Each instance type includes a SupportedInRegion field indicating its regional availability. ([7026243](https://github.com/aws/aws-sdk-js-v3/commit/7026243303994e24be2996bf169b6acd50d5b081))
+* **client-invoicing:** Updated ListInvoiceSummaries API to add new ReceiverRole filter in Request and Response ([60a448c](https://github.com/aws/aws-sdk-js-v3/commit/60a448cbfb17643b0b93c0bf72848b404dc31a83))
+* **client-route53resolver:** Adds supports for DNS64 on inbound endpoints and IPv6 forwarding through the internet gateway (IGW) on outbound endpoints, making it easier to manage hybrid DNS across IPv4 and IPv6 networks. ([8e6e18c](https://github.com/aws/aws-sdk-js-v3/commit/8e6e18c603f2392b7b61d5f2efdfc54dab0d8126))
+* **clients:** update client endpoints as of 2026-05-07 ([8131076](https://github.com/aws/aws-sdk-js-v3/commit/81310767bd884df988d524faf7d1f131f15c6197))
+
+
+
+
+
 # [3.1044.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1043.0...v3.1044.0) (2026-05-06)
 
 
