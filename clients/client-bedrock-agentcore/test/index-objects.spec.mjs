@@ -11,9 +11,11 @@ import {
   AgentCardDefinition$,
   AgentSkillsDescriptor$,
   AgentTracesConfig$,
+  Amount$,
   AutomationStream$,
   AutomationStreamStatus,
   AutomationStreamUpdate$,
+  AvailableLimits$,
   BasicAuth$,
   BatchCreateMemoryRecords$,
   BatchCreateMemoryRecordsCommand,
@@ -32,6 +34,7 @@ import {
   BedrockAgentCore,
   BedrockAgentCoreClient,
   BedrockAgentCoreServiceException,
+  BlockchainChainId,
   Branch$,
   BranchFilter$,
   BrowserAction$,
@@ -57,6 +60,8 @@ import {
   CodeInterpreterSessionStatus,
   CodeInterpreterSessionSummary$,
   CodeInterpreterStreamOutput$,
+  CoinbaseCdpTokenRequestInput$,
+  CoinbaseCdpTokenResponseOutput$,
   CommandExecutionStatus,
   CompleteResourceTokenAuth$,
   CompleteResourceTokenAuthCommand,
@@ -84,6 +89,18 @@ import {
   CreateEventCommand,
   CreateEventInput$,
   CreateEventOutput$,
+  CreatePaymentInstrument$,
+  CreatePaymentInstrumentCommand,
+  CreatePaymentInstrumentRequest$,
+  CreatePaymentInstrumentResponse$,
+  CreatePaymentSession$,
+  CreatePaymentSessionCommand,
+  CreatePaymentSessionRequest$,
+  CreatePaymentSessionResponse$,
+  CryptoWalletNetwork,
+  CryptoX402PaymentInput$,
+  CryptoX402PaymentOutput$,
+  Currency,
   CustomDescriptor$,
   DataSourceConfig$,
   DeleteABTest$,
@@ -102,6 +119,14 @@ import {
   DeleteMemoryRecordCommand,
   DeleteMemoryRecordInput$,
   DeleteMemoryRecordOutput$,
+  DeletePaymentInstrument$,
+  DeletePaymentInstrumentCommand,
+  DeletePaymentInstrumentRequest$,
+  DeletePaymentInstrumentResponse$,
+  DeletePaymentSession$,
+  DeletePaymentSessionCommand,
+  DeletePaymentSessionRequest$,
+  DeletePaymentSessionResponse$,
   DeleteRecommendation$,
   DeleteRecommendationCommand,
   DeleteRecommendationRequest$,
@@ -110,6 +135,7 @@ import {
   DescriptorType,
   DuplicateIdException,
   DuplicateIdException$,
+  EmbeddedCryptoWallet$,
   Evaluate$,
   EvaluateCommand,
   EvaluateRequest$,
@@ -166,6 +192,18 @@ import {
   GetMemoryRecordCommand,
   GetMemoryRecordInput$,
   GetMemoryRecordOutput$,
+  GetPaymentInstrument$,
+  GetPaymentInstrumentBalance$,
+  GetPaymentInstrumentBalanceCommand,
+  GetPaymentInstrumentBalanceRequest$,
+  GetPaymentInstrumentBalanceResponse$,
+  GetPaymentInstrumentCommand,
+  GetPaymentInstrumentRequest$,
+  GetPaymentInstrumentResponse$,
+  GetPaymentSession$,
+  GetPaymentSessionCommand,
+  GetPaymentSessionRequest$,
+  GetPaymentSessionResponse$,
   GetRecommendation$,
   GetRecommendationCommand,
   GetRecommendationRequest$,
@@ -178,6 +216,10 @@ import {
   GetResourceOauth2TokenCommand,
   GetResourceOauth2TokenRequest$,
   GetResourceOauth2TokenResponse$,
+  GetResourcePaymentToken$,
+  GetResourcePaymentTokenCommand,
+  GetResourcePaymentTokenRequest$,
+  GetResourcePaymentTokenResponse$,
   GetWorkloadAccessToken$,
   GetWorkloadAccessTokenCommand,
   GetWorkloadAccessTokenForJWT$,
@@ -236,6 +278,7 @@ import {
   HarnessToolUseType,
   InlineGroundTruth$,
   InputContentBlock$,
+  InstrumentBalanceToken,
   InternalServerException,
   InternalServerException$,
   InvalidInputException,
@@ -271,6 +314,11 @@ import {
   KeyTypeResult$,
   LanguageRuntime,
   LeftExpression$,
+  LinkedAccount$,
+  LinkedAccountDeveloperJwt$,
+  LinkedAccountEmail$,
+  LinkedAccountOAuth2$,
+  LinkedAccountSms$,
   ListABTests$,
   ListABTestsCommand,
   ListABTestsRequest$,
@@ -303,6 +351,14 @@ import {
   ListMemoryRecordsCommand,
   ListMemoryRecordsInput$,
   ListMemoryRecordsOutput$,
+  ListPaymentInstruments$,
+  ListPaymentInstrumentsCommand,
+  ListPaymentInstrumentsRequest$,
+  ListPaymentInstrumentsResponse$,
+  ListPaymentSessions$,
+  ListPaymentSessionsCommand,
+  ListPaymentSessionsRequest$,
+  ListPaymentSessionsResponse$,
   ListRecommendations$,
   ListRecommendationsCommand,
   ListRecommendationsRequest$,
@@ -337,6 +393,7 @@ import {
   MouseMoveResult$,
   MouseScrollArguments$,
   MouseScrollResult$,
+  OAuth2Authentication$,
   Oauth2FlowType,
   OAuthCredentialProvider$,
   OAuthGrantType,
@@ -348,11 +405,32 @@ import {
   paginateListEvents,
   paginateListMemoryExtractionJobs,
   paginateListMemoryRecords,
+  paginateListPaymentInstruments,
+  paginateListPaymentSessions,
   paginateListRecommendations,
   paginateListSessions,
   paginateRetrieveMemoryRecords,
   PayloadType$,
+  PaymentHttpMethodType,
+  PaymentInput$,
+  PaymentInstrument$,
+  PaymentInstrumentDetails$,
+  PaymentInstrumentStatus,
+  PaymentInstrumentSummary$,
+  PaymentInstrumentType,
+  PaymentOutput$,
+  PaymentSession$,
+  PaymentSessionStatus,
+  PaymentSessionSummary$,
+  PaymentStatus,
+  PaymentTokenRequestInput$,
+  PaymentTokenResponseOutput$,
+  PaymentType,
   PerVariantOnlineEvaluationConfig$,
+  ProcessPayment$,
+  ProcessPaymentCommand,
+  ProcessPaymentRequest$,
+  ProcessPaymentResponse$,
   ProgrammingLanguage,
   Proxy$,
   ProxyBypass$,
@@ -405,6 +483,7 @@ import {
   ServiceQuotaExceededException$,
   SessionFilter$,
   SessionFilterConfig$,
+  SessionLimits$,
   SessionMetadataShape$,
   SessionStatus,
   SessionSummary$,
@@ -448,6 +527,8 @@ import {
   StopRuntimeSessionRequest$,
   StopRuntimeSessionResponse$,
   StreamUpdate$,
+  StripePrivyTokenRequestInput$,
+  StripePrivyTokenResponseOutput$,
   SystemPromptConfig$,
   SystemPromptConfigurationBundle$,
   SystemPromptRecommendationConfig$,
@@ -458,6 +539,7 @@ import {
   ThrottledException$,
   ThrottlingException,
   ThrottlingException$,
+  TokenBalance$,
   TokenUsage$,
   ToolArguments$,
   ToolDescriptionConfig$,
@@ -508,6 +590,10 @@ assert(typeof CreateABTestCommand === "function");
 assert(typeof CreateABTest$ === "object");
 assert(typeof CreateEventCommand === "function");
 assert(typeof CreateEvent$ === "object");
+assert(typeof CreatePaymentInstrumentCommand === "function");
+assert(typeof CreatePaymentInstrument$ === "object");
+assert(typeof CreatePaymentSessionCommand === "function");
+assert(typeof CreatePaymentSession$ === "object");
 assert(typeof DeleteABTestCommand === "function");
 assert(typeof DeleteABTest$ === "object");
 assert(typeof DeleteBatchEvaluationCommand === "function");
@@ -516,6 +602,10 @@ assert(typeof DeleteEventCommand === "function");
 assert(typeof DeleteEvent$ === "object");
 assert(typeof DeleteMemoryRecordCommand === "function");
 assert(typeof DeleteMemoryRecord$ === "object");
+assert(typeof DeletePaymentInstrumentCommand === "function");
+assert(typeof DeletePaymentInstrument$ === "object");
+assert(typeof DeletePaymentSessionCommand === "function");
+assert(typeof DeletePaymentSession$ === "object");
 assert(typeof DeleteRecommendationCommand === "function");
 assert(typeof DeleteRecommendation$ === "object");
 assert(typeof EvaluateCommand === "function");
@@ -534,12 +624,20 @@ assert(typeof GetEventCommand === "function");
 assert(typeof GetEvent$ === "object");
 assert(typeof GetMemoryRecordCommand === "function");
 assert(typeof GetMemoryRecord$ === "object");
+assert(typeof GetPaymentInstrumentCommand === "function");
+assert(typeof GetPaymentInstrument$ === "object");
+assert(typeof GetPaymentInstrumentBalanceCommand === "function");
+assert(typeof GetPaymentInstrumentBalance$ === "object");
+assert(typeof GetPaymentSessionCommand === "function");
+assert(typeof GetPaymentSession$ === "object");
 assert(typeof GetRecommendationCommand === "function");
 assert(typeof GetRecommendation$ === "object");
 assert(typeof GetResourceApiKeyCommand === "function");
 assert(typeof GetResourceApiKey$ === "object");
 assert(typeof GetResourceOauth2TokenCommand === "function");
 assert(typeof GetResourceOauth2Token$ === "object");
+assert(typeof GetResourcePaymentTokenCommand === "function");
+assert(typeof GetResourcePaymentToken$ === "object");
 assert(typeof GetWorkloadAccessTokenCommand === "function");
 assert(typeof GetWorkloadAccessToken$ === "object");
 assert(typeof GetWorkloadAccessTokenForJWTCommand === "function");
@@ -572,10 +670,16 @@ assert(typeof ListMemoryExtractionJobsCommand === "function");
 assert(typeof ListMemoryExtractionJobs$ === "object");
 assert(typeof ListMemoryRecordsCommand === "function");
 assert(typeof ListMemoryRecords$ === "object");
+assert(typeof ListPaymentInstrumentsCommand === "function");
+assert(typeof ListPaymentInstruments$ === "object");
+assert(typeof ListPaymentSessionsCommand === "function");
+assert(typeof ListPaymentSessions$ === "object");
 assert(typeof ListRecommendationsCommand === "function");
 assert(typeof ListRecommendations$ === "object");
 assert(typeof ListSessionsCommand === "function");
 assert(typeof ListSessions$ === "object");
+assert(typeof ProcessPaymentCommand === "function");
+assert(typeof ProcessPayment$ === "object");
 assert(typeof RetrieveMemoryRecordsCommand === "function");
 assert(typeof RetrieveMemoryRecords$ === "object");
 assert(typeof SaveBrowserSessionProfileCommand === "function");
@@ -613,8 +717,10 @@ assert(typeof ActorSummary$ === "object");
 assert(typeof AgentCardDefinition$ === "object");
 assert(typeof AgentSkillsDescriptor$ === "object");
 assert(typeof AgentTracesConfig$ === "object");
+assert(typeof Amount$ === "object");
 assert(typeof AutomationStream$ === "object");
 assert(typeof AutomationStreamUpdate$ === "object");
+assert(typeof AvailableLimits$ === "object");
 assert(typeof BasicAuth$ === "object");
 assert(typeof BatchCreateMemoryRecordsInput$ === "object");
 assert(typeof BatchCreateMemoryRecordsOutput$ === "object");
@@ -643,6 +749,8 @@ assert(typeof CloudWatchOutputConfig$ === "object");
 assert(typeof CodeInterpreterResult$ === "object");
 assert(typeof CodeInterpreterSessionSummary$ === "object");
 assert(typeof CodeInterpreterStreamOutput$ === "object");
+assert(typeof CoinbaseCdpTokenRequestInput$ === "object");
+assert(typeof CoinbaseCdpTokenResponseOutput$ === "object");
 assert(typeof CompleteResourceTokenAuthRequest$ === "object");
 assert(typeof CompleteResourceTokenAuthResponse$ === "object");
 assert(typeof ConfidenceInterval$ === "object");
@@ -660,6 +768,12 @@ assert(typeof CreateABTestRequest$ === "object");
 assert(typeof CreateABTestResponse$ === "object");
 assert(typeof CreateEventInput$ === "object");
 assert(typeof CreateEventOutput$ === "object");
+assert(typeof CreatePaymentInstrumentRequest$ === "object");
+assert(typeof CreatePaymentInstrumentResponse$ === "object");
+assert(typeof CreatePaymentSessionRequest$ === "object");
+assert(typeof CreatePaymentSessionResponse$ === "object");
+assert(typeof CryptoX402PaymentInput$ === "object");
+assert(typeof CryptoX402PaymentOutput$ === "object");
 assert(typeof CustomDescriptor$ === "object");
 assert(typeof DataSourceConfig$ === "object");
 assert(typeof DeleteABTestRequest$ === "object");
@@ -670,9 +784,14 @@ assert(typeof DeleteEventInput$ === "object");
 assert(typeof DeleteEventOutput$ === "object");
 assert(typeof DeleteMemoryRecordInput$ === "object");
 assert(typeof DeleteMemoryRecordOutput$ === "object");
+assert(typeof DeletePaymentInstrumentRequest$ === "object");
+assert(typeof DeletePaymentInstrumentResponse$ === "object");
+assert(typeof DeletePaymentSessionRequest$ === "object");
+assert(typeof DeletePaymentSessionResponse$ === "object");
 assert(typeof DeleteRecommendationRequest$ === "object");
 assert(typeof DeleteRecommendationResponse$ === "object");
 assert(typeof Descriptors$ === "object");
+assert(typeof EmbeddedCryptoWallet$ === "object");
 assert(typeof EvaluateRequest$ === "object");
 assert(typeof EvaluateResponse$ === "object");
 assert(typeof EvaluationContent$ === "object");
@@ -711,12 +830,20 @@ assert(typeof GetEventInput$ === "object");
 assert(typeof GetEventOutput$ === "object");
 assert(typeof GetMemoryRecordInput$ === "object");
 assert(typeof GetMemoryRecordOutput$ === "object");
+assert(typeof GetPaymentInstrumentBalanceRequest$ === "object");
+assert(typeof GetPaymentInstrumentBalanceResponse$ === "object");
+assert(typeof GetPaymentInstrumentRequest$ === "object");
+assert(typeof GetPaymentInstrumentResponse$ === "object");
+assert(typeof GetPaymentSessionRequest$ === "object");
+assert(typeof GetPaymentSessionResponse$ === "object");
 assert(typeof GetRecommendationRequest$ === "object");
 assert(typeof GetRecommendationResponse$ === "object");
 assert(typeof GetResourceApiKeyRequest$ === "object");
 assert(typeof GetResourceApiKeyResponse$ === "object");
 assert(typeof GetResourceOauth2TokenRequest$ === "object");
 assert(typeof GetResourceOauth2TokenResponse$ === "object");
+assert(typeof GetResourcePaymentTokenRequest$ === "object");
+assert(typeof GetResourcePaymentTokenResponse$ === "object");
 assert(typeof GetWorkloadAccessTokenForJWTRequest$ === "object");
 assert(typeof GetWorkloadAccessTokenForJWTResponse$ === "object");
 assert(typeof GetWorkloadAccessTokenForUserIdRequest$ === "object");
@@ -784,6 +911,11 @@ assert(typeof KeyShortcutResult$ === "object");
 assert(typeof KeyTypeArguments$ === "object");
 assert(typeof KeyTypeResult$ === "object");
 assert(typeof LeftExpression$ === "object");
+assert(typeof LinkedAccount$ === "object");
+assert(typeof LinkedAccountDeveloperJwt$ === "object");
+assert(typeof LinkedAccountEmail$ === "object");
+assert(typeof LinkedAccountOAuth2$ === "object");
+assert(typeof LinkedAccountSms$ === "object");
 assert(typeof ListABTestsRequest$ === "object");
 assert(typeof ListABTestsResponse$ === "object");
 assert(typeof ListActorsInput$ === "object");
@@ -800,6 +932,10 @@ assert(typeof ListMemoryExtractionJobsInput$ === "object");
 assert(typeof ListMemoryExtractionJobsOutput$ === "object");
 assert(typeof ListMemoryRecordsInput$ === "object");
 assert(typeof ListMemoryRecordsOutput$ === "object");
+assert(typeof ListPaymentInstrumentsRequest$ === "object");
+assert(typeof ListPaymentInstrumentsResponse$ === "object");
+assert(typeof ListPaymentSessionsRequest$ === "object");
+assert(typeof ListPaymentSessionsResponse$ === "object");
 assert(typeof ListRecommendationsRequest$ === "object");
 assert(typeof ListRecommendationsResponse$ === "object");
 assert(typeof ListSessionsInput$ === "object");
@@ -827,10 +963,22 @@ assert(typeof MouseMoveArguments$ === "object");
 assert(typeof MouseMoveResult$ === "object");
 assert(typeof MouseScrollArguments$ === "object");
 assert(typeof MouseScrollResult$ === "object");
+assert(typeof OAuth2Authentication$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PayloadType$ === "object");
+assert(typeof PaymentInput$ === "object");
+assert(typeof PaymentInstrument$ === "object");
+assert(typeof PaymentInstrumentDetails$ === "object");
+assert(typeof PaymentInstrumentSummary$ === "object");
+assert(typeof PaymentOutput$ === "object");
+assert(typeof PaymentSession$ === "object");
+assert(typeof PaymentSessionSummary$ === "object");
+assert(typeof PaymentTokenRequestInput$ === "object");
+assert(typeof PaymentTokenResponseOutput$ === "object");
 assert(typeof PerVariantOnlineEvaluationConfig$ === "object");
+assert(typeof ProcessPaymentRequest$ === "object");
+assert(typeof ProcessPaymentResponse$ === "object");
 assert(typeof Proxy$ === "object");
 assert(typeof ProxyBypass$ === "object");
 assert(typeof ProxyConfiguration$ === "object");
@@ -860,6 +1008,7 @@ assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof ServerDefinition$ === "object");
 assert(typeof SessionFilter$ === "object");
 assert(typeof SessionFilterConfig$ === "object");
+assert(typeof SessionLimits$ === "object");
 assert(typeof SessionMetadataShape$ === "object");
 assert(typeof SessionSummary$ === "object");
 assert(typeof SkillDefinition$ === "object");
@@ -884,11 +1033,14 @@ assert(typeof StopCodeInterpreterSessionResponse$ === "object");
 assert(typeof StopRuntimeSessionRequest$ === "object");
 assert(typeof StopRuntimeSessionResponse$ === "object");
 assert(typeof StreamUpdate$ === "object");
+assert(typeof StripePrivyTokenRequestInput$ === "object");
+assert(typeof StripePrivyTokenResponseOutput$ === "object");
 assert(typeof SystemPromptConfig$ === "object");
 assert(typeof SystemPromptConfigurationBundle$ === "object");
 assert(typeof SystemPromptRecommendationConfig$ === "object");
 assert(typeof SystemPromptRecommendationResult$ === "object");
 assert(typeof TargetRef$ === "object");
+assert(typeof TokenBalance$ === "object");
 assert(typeof TokenUsage$ === "object");
 assert(typeof ToolArguments$ === "object");
 assert(typeof ToolDescriptionConfig$ === "object");
@@ -916,6 +1068,7 @@ assert(typeof ABTestExecutionStatus === "object");
 assert(typeof ABTestStatus === "object");
 assert(typeof AutomationStreamStatus === "object");
 assert(typeof BatchEvaluationStatus === "object");
+assert(typeof BlockchainChainId === "object");
 assert(typeof BrowserActionStatus === "object");
 assert(typeof BrowserEnterprisePolicyType === "object");
 assert(typeof BrowserSessionStatus === "object");
@@ -923,6 +1076,8 @@ assert(typeof CloudWatchLogsFilterOperator === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
 assert(typeof CommandExecutionStatus === "object");
 assert(typeof ContentBlockType === "object");
+assert(typeof CryptoWalletNetwork === "object");
+assert(typeof Currency === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
@@ -931,6 +1086,7 @@ assert(typeof HarnessStopReason === "object");
 assert(typeof HarnessToolType === "object");
 assert(typeof HarnessToolUseStatus === "object");
 assert(typeof HarnessToolUseType === "object");
+assert(typeof InstrumentBalanceToken === "object");
 assert(typeof LanguageRuntime === "object");
 assert(typeof MemoryRecordOperatorType === "object");
 assert(typeof MemoryRecordStatus === "object");
@@ -938,6 +1094,12 @@ assert(typeof MouseButton === "object");
 assert(typeof Oauth2FlowType === "object");
 assert(typeof OAuthGrantType === "object");
 assert(typeof OperatorType === "object");
+assert(typeof PaymentHttpMethodType === "object");
+assert(typeof PaymentInstrumentStatus === "object");
+assert(typeof PaymentInstrumentType === "object");
+assert(typeof PaymentSessionStatus === "object");
+assert(typeof PaymentStatus === "object");
+assert(typeof PaymentType === "object");
 assert(typeof ProgrammingLanguage === "object");
 assert(typeof RecommendationStatus === "object");
 assert(typeof RecommendationType === "object");
@@ -986,6 +1148,8 @@ assert(typeof paginateListBatchEvaluations === "function");
 assert(typeof paginateListEvents === "function");
 assert(typeof paginateListMemoryExtractionJobs === "function");
 assert(typeof paginateListMemoryRecords === "function");
+assert(typeof paginateListPaymentInstruments === "function");
+assert(typeof paginateListPaymentSessions === "function");
 assert(typeof paginateListRecommendations === "function");
 assert(typeof paginateListSessions === "function");
 assert(typeof paginateRetrieveMemoryRecords === "function");

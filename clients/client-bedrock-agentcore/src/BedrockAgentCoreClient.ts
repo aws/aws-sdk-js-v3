@@ -86,6 +86,14 @@ import type {
 } from "./commands/CompleteResourceTokenAuthCommand";
 import type { CreateABTestCommandInput, CreateABTestCommandOutput } from "./commands/CreateABTestCommand";
 import type { CreateEventCommandInput, CreateEventCommandOutput } from "./commands/CreateEventCommand";
+import type {
+  CreatePaymentInstrumentCommandInput,
+  CreatePaymentInstrumentCommandOutput,
+} from "./commands/CreatePaymentInstrumentCommand";
+import type {
+  CreatePaymentSessionCommandInput,
+  CreatePaymentSessionCommandOutput,
+} from "./commands/CreatePaymentSessionCommand";
 import type { DeleteABTestCommandInput, DeleteABTestCommandOutput } from "./commands/DeleteABTestCommand";
 import type {
   DeleteBatchEvaluationCommandInput,
@@ -96,6 +104,14 @@ import type {
   DeleteMemoryRecordCommandInput,
   DeleteMemoryRecordCommandOutput,
 } from "./commands/DeleteMemoryRecordCommand";
+import type {
+  DeletePaymentInstrumentCommandInput,
+  DeletePaymentInstrumentCommandOutput,
+} from "./commands/DeletePaymentInstrumentCommand";
+import type {
+  DeletePaymentSessionCommandInput,
+  DeletePaymentSessionCommandOutput,
+} from "./commands/DeletePaymentSessionCommand";
 import type {
   DeleteRecommendationCommandInput,
   DeleteRecommendationCommandOutput,
@@ -118,6 +134,18 @@ import type {
 import type { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
 import type { GetMemoryRecordCommandInput, GetMemoryRecordCommandOutput } from "./commands/GetMemoryRecordCommand";
 import type {
+  GetPaymentInstrumentBalanceCommandInput,
+  GetPaymentInstrumentBalanceCommandOutput,
+} from "./commands/GetPaymentInstrumentBalanceCommand";
+import type {
+  GetPaymentInstrumentCommandInput,
+  GetPaymentInstrumentCommandOutput,
+} from "./commands/GetPaymentInstrumentCommand";
+import type {
+  GetPaymentSessionCommandInput,
+  GetPaymentSessionCommandOutput,
+} from "./commands/GetPaymentSessionCommand";
+import type {
   GetRecommendationCommandInput,
   GetRecommendationCommandOutput,
 } from "./commands/GetRecommendationCommand";
@@ -129,6 +157,10 @@ import type {
   GetResourceOauth2TokenCommandInput,
   GetResourceOauth2TokenCommandOutput,
 } from "./commands/GetResourceOauth2TokenCommand";
+import type {
+  GetResourcePaymentTokenCommandInput,
+  GetResourcePaymentTokenCommandOutput,
+} from "./commands/GetResourcePaymentTokenCommand";
 import type {
   GetWorkloadAccessTokenCommandInput,
   GetWorkloadAccessTokenCommandOutput,
@@ -179,10 +211,19 @@ import type {
   ListMemoryRecordsCommandOutput,
 } from "./commands/ListMemoryRecordsCommand";
 import type {
+  ListPaymentInstrumentsCommandInput,
+  ListPaymentInstrumentsCommandOutput,
+} from "./commands/ListPaymentInstrumentsCommand";
+import type {
+  ListPaymentSessionsCommandInput,
+  ListPaymentSessionsCommandOutput,
+} from "./commands/ListPaymentSessionsCommand";
+import type {
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import type { ProcessPaymentCommandInput, ProcessPaymentCommandOutput } from "./commands/ProcessPaymentCommand";
 import type {
   RetrieveMemoryRecordsCommandInput,
   RetrieveMemoryRecordsCommandOutput,
@@ -257,10 +298,14 @@ export type ServiceInputTypes =
   | CompleteResourceTokenAuthCommandInput
   | CreateABTestCommandInput
   | CreateEventCommandInput
+  | CreatePaymentInstrumentCommandInput
+  | CreatePaymentSessionCommandInput
   | DeleteABTestCommandInput
   | DeleteBatchEvaluationCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
+  | DeletePaymentInstrumentCommandInput
+  | DeletePaymentSessionCommandInput
   | DeleteRecommendationCommandInput
   | EvaluateCommandInput
   | GetABTestCommandInput
@@ -270,9 +315,13 @@ export type ServiceInputTypes =
   | GetCodeInterpreterSessionCommandInput
   | GetEventCommandInput
   | GetMemoryRecordCommandInput
+  | GetPaymentInstrumentBalanceCommandInput
+  | GetPaymentInstrumentCommandInput
+  | GetPaymentSessionCommandInput
   | GetRecommendationCommandInput
   | GetResourceApiKeyCommandInput
   | GetResourceOauth2TokenCommandInput
+  | GetResourcePaymentTokenCommandInput
   | GetWorkloadAccessTokenCommandInput
   | GetWorkloadAccessTokenForJWTCommandInput
   | GetWorkloadAccessTokenForUserIdCommandInput
@@ -289,8 +338,11 @@ export type ServiceInputTypes =
   | ListEventsCommandInput
   | ListMemoryExtractionJobsCommandInput
   | ListMemoryRecordsCommandInput
+  | ListPaymentInstrumentsCommandInput
+  | ListPaymentSessionsCommandInput
   | ListRecommendationsCommandInput
   | ListSessionsCommandInput
+  | ProcessPaymentCommandInput
   | RetrieveMemoryRecordsCommandInput
   | SaveBrowserSessionProfileCommandInput
   | SearchRegistryRecordsCommandInput
@@ -316,10 +368,14 @@ export type ServiceOutputTypes =
   | CompleteResourceTokenAuthCommandOutput
   | CreateABTestCommandOutput
   | CreateEventCommandOutput
+  | CreatePaymentInstrumentCommandOutput
+  | CreatePaymentSessionCommandOutput
   | DeleteABTestCommandOutput
   | DeleteBatchEvaluationCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput
+  | DeletePaymentInstrumentCommandOutput
+  | DeletePaymentSessionCommandOutput
   | DeleteRecommendationCommandOutput
   | EvaluateCommandOutput
   | GetABTestCommandOutput
@@ -329,9 +385,13 @@ export type ServiceOutputTypes =
   | GetCodeInterpreterSessionCommandOutput
   | GetEventCommandOutput
   | GetMemoryRecordCommandOutput
+  | GetPaymentInstrumentBalanceCommandOutput
+  | GetPaymentInstrumentCommandOutput
+  | GetPaymentSessionCommandOutput
   | GetRecommendationCommandOutput
   | GetResourceApiKeyCommandOutput
   | GetResourceOauth2TokenCommandOutput
+  | GetResourcePaymentTokenCommandOutput
   | GetWorkloadAccessTokenCommandOutput
   | GetWorkloadAccessTokenForJWTCommandOutput
   | GetWorkloadAccessTokenForUserIdCommandOutput
@@ -348,8 +408,11 @@ export type ServiceOutputTypes =
   | ListEventsCommandOutput
   | ListMemoryExtractionJobsCommandOutput
   | ListMemoryRecordsCommandOutput
+  | ListPaymentInstrumentsCommandOutput
+  | ListPaymentSessionsCommandOutput
   | ListRecommendationsCommandOutput
   | ListSessionsCommandOutput
+  | ProcessPaymentCommandOutput
   | RetrieveMemoryRecordsCommandOutput
   | SaveBrowserSessionProfileCommandOutput
   | SearchRegistryRecordsCommandOutput

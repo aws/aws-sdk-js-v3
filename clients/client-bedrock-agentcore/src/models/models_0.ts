@@ -27,6 +27,7 @@ import type {
   Oauth2FlowType,
   OAuthGrantType,
   OperatorType,
+  PaymentHttpMethodType,
   ProgrammingLanguage,
   RecommendationStatus,
   RecommendationType,
@@ -5829,6 +5830,262 @@ export interface GetResourceOauth2TokenResponse {
 }
 
 /**
+ * Coinbase CDP token request parameters
+ * @public
+ */
+export interface CoinbaseCdpTokenRequestInput {
+  /**
+   * The HTTP method for the payment API request.
+   * @public
+   */
+  requestMethod: PaymentHttpMethodType | undefined;
+
+  /**
+   * Optional - defaults to "api.cdp.coinbase.com"
+   * @public
+   */
+  requestHost?: string | undefined;
+
+  /**
+   * The path of the payment API request.
+   * @public
+   */
+  requestPath: string | undefined;
+
+  /**
+   * Set to true for wallet write operations (requires walletSecret configured)
+   * @public
+   */
+  includeWalletAuthToken?: boolean | undefined;
+
+  /**
+   * Request body JSON - used to generate wallet auth JWT
+   * @public
+   */
+  requestBody?: string | undefined;
+}
+
+/**
+ * StripePrivy token request parameters
+ * @public
+ */
+export interface StripePrivyTokenRequestInput {
+  /**
+   * Optional - defaults to "api.privy.io"
+   * @public
+   */
+  requestHost?: string | undefined;
+
+  /**
+   * The path of the Stripe Privy API request.
+   * @public
+   */
+  requestPath: string | undefined;
+
+  /**
+   * Request body JSON for the Privy API call
+   * @public
+   */
+  requestBody: string | undefined;
+
+  /**
+   * Set to true to generate privy-authorization-signature
+   * @public
+   */
+  includeAuthorizationSignature?: boolean | undefined;
+}
+
+/**
+ * VENDOR-SPECIFIC TOKEN REQUEST CONFIGURATION - Input
+ * @public
+ */
+export type PaymentTokenRequestInput =
+  | PaymentTokenRequestInput.CoinbaseCdpTokenRequestMember
+  | PaymentTokenRequestInput.StripePrivyTokenRequestMember
+  | PaymentTokenRequestInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PaymentTokenRequestInput {
+  /**
+   * Coinbase CDP token request parameters
+   * @public
+   */
+  export interface CoinbaseCdpTokenRequestMember {
+    coinbaseCdpTokenRequest: CoinbaseCdpTokenRequestInput;
+    stripePrivyTokenRequest?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * StripePrivy token request parameters
+   * @public
+   */
+  export interface StripePrivyTokenRequestMember {
+    coinbaseCdpTokenRequest?: never;
+    stripePrivyTokenRequest: StripePrivyTokenRequestInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    coinbaseCdpTokenRequest?: never;
+    stripePrivyTokenRequest?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    coinbaseCdpTokenRequest: (value: CoinbaseCdpTokenRequestInput) => T;
+    stripePrivyTokenRequest: (value: StripePrivyTokenRequestInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePaymentTokenRequest {
+  /**
+   * Workload access token for authorization. Named workloadIdentityToken for consistency with APIKey and OAuth2CredentialProvider.
+   * @public
+   */
+  workloadIdentityToken: string | undefined;
+
+  /**
+   * Name of the payment credential provider to use
+   * @public
+   */
+  resourceCredentialProviderName: string | undefined;
+
+  /**
+   * Vendor-specific token request input
+   * Contains all request parameters in a type-safe, vendor-specific structure
+   * @public
+   */
+  paymentTokenRequest: PaymentTokenRequestInput | undefined;
+}
+
+/**
+ * Coinbase CDP token response
+ * @public
+ */
+export interface CoinbaseCdpTokenResponseOutput {
+  /**
+   * Bearer Token for Authorization header
+   * @public
+   */
+  bearerToken: string | undefined;
+
+  /**
+   * Wallet Auth Token for X-Wallet-Auth header
+   * @public
+   */
+  walletAuthToken?: string | undefined;
+}
+
+/**
+ * StripePrivy token response containing appId, basicAuthToken, and optionally authorizationSignature
+ * @public
+ */
+export interface StripePrivyTokenResponseOutput {
+  /**
+   * Base64-encoded ECDSA P-256 authorization signature (only present when includeAuthorizationSignature is true)
+   * @public
+   */
+  authorizationSignature?: string | undefined;
+
+  /**
+   * Unix timestamp in milliseconds when the authorization signature expires. Set as privy-request-expiry header.
+   * @public
+   */
+  requestExpiry?: number | undefined;
+
+  /**
+   * The Privy app ID for the privy-app-id header
+   * @public
+   */
+  appId: string | undefined;
+
+  /**
+   * Base64-encoded Basic Auth token (appId:appSecret) for the Authorization header
+   * @public
+   */
+  basicAuthToken: string | undefined;
+}
+
+/**
+ * VENDOR-SPECIFIC TOKEN RESPONSE CONFIGURATION - Output
+ * @public
+ */
+export type PaymentTokenResponseOutput =
+  | PaymentTokenResponseOutput.CoinbaseCdpTokenResponseMember
+  | PaymentTokenResponseOutput.StripePrivyTokenResponseMember
+  | PaymentTokenResponseOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PaymentTokenResponseOutput {
+  /**
+   * Coinbase CDP token response
+   * @public
+   */
+  export interface CoinbaseCdpTokenResponseMember {
+    coinbaseCdpTokenResponse: CoinbaseCdpTokenResponseOutput;
+    stripePrivyTokenResponse?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * StripePrivy token response containing appId, basicAuthToken, and optionally authorizationSignature
+   * @public
+   */
+  export interface StripePrivyTokenResponseMember {
+    coinbaseCdpTokenResponse?: never;
+    stripePrivyTokenResponse: StripePrivyTokenResponseOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    coinbaseCdpTokenResponse?: never;
+    stripePrivyTokenResponse?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    coinbaseCdpTokenResponse: (value: CoinbaseCdpTokenResponseOutput) => T;
+    stripePrivyTokenResponse: (value: StripePrivyTokenResponseOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePaymentTokenResponse {
+  /**
+   * Vendor-specific token response output
+   * Contains all response data in a type-safe, vendor-specific structure
+   * @public
+   */
+  paymentTokenResponse: PaymentTokenResponseOutput | undefined;
+}
+
+/**
  * @public
  */
 export interface GetWorkloadAccessTokenRequest {
@@ -9571,179 +9828,4 @@ export interface ListSessionsOutput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains search criteria for retrieving memory records.</p>
- * @public
- */
-export interface SearchCriteria {
-  /**
-   * <p>The search query to use for finding relevant memory records.</p>
-   * @public
-   */
-  searchQuery: string | undefined;
-
-  /**
-   * <p>The memory strategy identifier to filter memory records by.</p>
-   * @public
-   */
-  memoryStrategyId?: string | undefined;
-
-  /**
-   * <p>The maximum number of top-scoring memory records to return. This value is used for semantic search ranking.</p>
-   * @public
-   */
-  topK?: number | undefined;
-
-  /**
-   * <p>Filters to apply to metadata associated with a memory.</p>
-   * @public
-   */
-  metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveMemoryRecordsInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource from which to retrieve memory records.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix.</p>
-   * @public
-   */
-  namespace?: string | undefined;
-
-  /**
-   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>
-   * @public
-   */
-  namespacePath?: string | undefined;
-
-  /**
-   * <p>The search criteria to use for finding relevant memory records. This includes the search query, memory strategy ID, and other search parameters.</p>
-   * @public
-   */
-  searchCriteria: SearchCriteria | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveMemoryRecordsOutput {
-  /**
-   * <p>The list of memory record summaries that match the search criteria, ordered by relevance.</p>
-   * @public
-   */
-  memoryRecordSummaries: MemoryRecordSummary[] | undefined;
-
-  /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Represents the metadata of a memory extraction job such as the message identifiers that compose this job.</p>
- * @public
- */
-export interface ExtractionJob {
-  /**
-   * <p>The unique identifier of the extraction job.</p>
-   * @public
-   */
-  jobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMemoryExtractionJobInput {
-  /**
-   * <p>The unique identifier of the memory for which to start extraction jobs.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>Extraction job to start in this operation.</p>
-   * @public
-   */
-  extractionJob: ExtractionJob | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMemoryExtractionJobOutput {
-  /**
-   * <p>Extraction Job ID that was attempted to start.</p>
-   * @public
-   */
-  jobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchRegistryRecordsRequest {
-  /**
-   * <p> The search query to find matching registry records.</p>
-   * @public
-   */
-  searchQuery: string | undefined;
-
-  /**
-   * <p> The list of registry identifiers to search within. Currently, you can specify exactly one registry identifier. You can provide either the full Amazon Web Services Resource Name (ARN) or the 12-character alphanumeric registry ID.</p>
-   * @public
-   */
-  registryIds: string[] | undefined;
-
-  /**
-   * <p> The maximum number of records to return in a single call. Valid values are 1 through 20. The default value is 10.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p> A metadata filter expression to narrow search results. Uses structured JSON operators including field-level operators (<code>$eq</code>, <code>$ne</code>, <code>$in</code>) and logical operators (<code>$and</code>, <code>$or</code>) on filterable fields (<code>name</code>, <code>descriptorType</code>, <code>version</code>). For example, to filter by descriptor type: <code>\{"descriptorType": \{"$eq": "MCP"\}\}</code>. To combine filters: <code>\{"$and": [\{"descriptorType": \{"$eq": "MCP"\}\}, \{"name": \{"$eq": "my-tool"\}\}]\}</code>.</p>
-   * @public
-   */
-  filters?: __DocumentType | undefined;
-}
-
-/**
- * <p> A custom descriptor configuration for a registry record.</p>
- * @public
- */
-export interface CustomDescriptor {
-  /**
-   * <p> The inline content of the custom descriptor.</p>
-   * @public
-   */
-  inlineContent?: string | undefined;
 }

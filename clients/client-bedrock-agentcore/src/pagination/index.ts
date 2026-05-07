@@ -6,6 +6,8 @@ export * from "./ListBatchEvaluationsPaginator";
 export * from "./ListEventsPaginator";
 export * from "./ListMemoryExtractionJobsPaginator";
 export * from "./ListMemoryRecordsPaginator";
+export * from "./ListPaymentInstrumentsPaginator";
+export * from "./ListPaymentSessionsPaginator";
 export * from "./ListRecommendationsPaginator";
 export * from "./ListSessionsPaginator";
 export * from "./RetrieveMemoryRecordsPaginator";

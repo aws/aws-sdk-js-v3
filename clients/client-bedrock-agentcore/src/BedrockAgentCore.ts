@@ -34,6 +34,16 @@ import {
   CreateEventCommand,
 } from "./commands/CreateEventCommand";
 import {
+  type CreatePaymentInstrumentCommandInput,
+  type CreatePaymentInstrumentCommandOutput,
+  CreatePaymentInstrumentCommand,
+} from "./commands/CreatePaymentInstrumentCommand";
+import {
+  type CreatePaymentSessionCommandInput,
+  type CreatePaymentSessionCommandOutput,
+  CreatePaymentSessionCommand,
+} from "./commands/CreatePaymentSessionCommand";
+import {
   type DeleteABTestCommandInput,
   type DeleteABTestCommandOutput,
   DeleteABTestCommand,
@@ -53,6 +63,16 @@ import {
   type DeleteMemoryRecordCommandOutput,
   DeleteMemoryRecordCommand,
 } from "./commands/DeleteMemoryRecordCommand";
+import {
+  type DeletePaymentInstrumentCommandInput,
+  type DeletePaymentInstrumentCommandOutput,
+  DeletePaymentInstrumentCommand,
+} from "./commands/DeletePaymentInstrumentCommand";
+import {
+  type DeletePaymentSessionCommandInput,
+  type DeletePaymentSessionCommandOutput,
+  DeletePaymentSessionCommand,
+} from "./commands/DeletePaymentSessionCommand";
 import {
   type DeleteRecommendationCommandInput,
   type DeleteRecommendationCommandOutput,
@@ -87,6 +107,21 @@ import {
   GetMemoryRecordCommand,
 } from "./commands/GetMemoryRecordCommand";
 import {
+  type GetPaymentInstrumentBalanceCommandInput,
+  type GetPaymentInstrumentBalanceCommandOutput,
+  GetPaymentInstrumentBalanceCommand,
+} from "./commands/GetPaymentInstrumentBalanceCommand";
+import {
+  type GetPaymentInstrumentCommandInput,
+  type GetPaymentInstrumentCommandOutput,
+  GetPaymentInstrumentCommand,
+} from "./commands/GetPaymentInstrumentCommand";
+import {
+  type GetPaymentSessionCommandInput,
+  type GetPaymentSessionCommandOutput,
+  GetPaymentSessionCommand,
+} from "./commands/GetPaymentSessionCommand";
+import {
   type GetRecommendationCommandInput,
   type GetRecommendationCommandOutput,
   GetRecommendationCommand,
@@ -101,6 +136,11 @@ import {
   type GetResourceOauth2TokenCommandOutput,
   GetResourceOauth2TokenCommand,
 } from "./commands/GetResourceOauth2TokenCommand";
+import {
+  type GetResourcePaymentTokenCommandInput,
+  type GetResourcePaymentTokenCommandOutput,
+  GetResourcePaymentTokenCommand,
+} from "./commands/GetResourcePaymentTokenCommand";
 import {
   type GetWorkloadAccessTokenCommandInput,
   type GetWorkloadAccessTokenCommandOutput,
@@ -182,6 +222,16 @@ import {
   ListMemoryRecordsCommand,
 } from "./commands/ListMemoryRecordsCommand";
 import {
+  type ListPaymentInstrumentsCommandInput,
+  type ListPaymentInstrumentsCommandOutput,
+  ListPaymentInstrumentsCommand,
+} from "./commands/ListPaymentInstrumentsCommand";
+import {
+  type ListPaymentSessionsCommandInput,
+  type ListPaymentSessionsCommandOutput,
+  ListPaymentSessionsCommand,
+} from "./commands/ListPaymentSessionsCommand";
+import {
   type ListRecommendationsCommandInput,
   type ListRecommendationsCommandOutput,
   ListRecommendationsCommand,
@@ -191,6 +241,11 @@ import {
   type ListSessionsCommandOutput,
   ListSessionsCommand,
 } from "./commands/ListSessionsCommand";
+import {
+  type ProcessPaymentCommandInput,
+  type ProcessPaymentCommandOutput,
+  ProcessPaymentCommand,
+} from "./commands/ProcessPaymentCommand";
 import {
   type RetrieveMemoryRecordsCommandInput,
   type RetrieveMemoryRecordsCommandOutput,
@@ -267,6 +322,8 @@ import { paginateListBatchEvaluations } from "./pagination/ListBatchEvaluationsP
 import { paginateListEvents } from "./pagination/ListEventsPaginator";
 import { paginateListMemoryExtractionJobs } from "./pagination/ListMemoryExtractionJobsPaginator";
 import { paginateListMemoryRecords } from "./pagination/ListMemoryRecordsPaginator";
+import { paginateListPaymentInstruments } from "./pagination/ListPaymentInstrumentsPaginator";
+import { paginateListPaymentSessions } from "./pagination/ListPaymentSessionsPaginator";
 import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
 import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 import { paginateRetrieveMemoryRecords } from "./pagination/RetrieveMemoryRecordsPaginator";
@@ -278,10 +335,14 @@ const commands = {
   CompleteResourceTokenAuthCommand,
   CreateABTestCommand,
   CreateEventCommand,
+  CreatePaymentInstrumentCommand,
+  CreatePaymentSessionCommand,
   DeleteABTestCommand,
   DeleteBatchEvaluationCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
+  DeletePaymentInstrumentCommand,
+  DeletePaymentSessionCommand,
   DeleteRecommendationCommand,
   EvaluateCommand,
   GetABTestCommand,
@@ -291,9 +352,13 @@ const commands = {
   GetCodeInterpreterSessionCommand,
   GetEventCommand,
   GetMemoryRecordCommand,
+  GetPaymentInstrumentCommand,
+  GetPaymentInstrumentBalanceCommand,
+  GetPaymentSessionCommand,
   GetRecommendationCommand,
   GetResourceApiKeyCommand,
   GetResourceOauth2TokenCommand,
+  GetResourcePaymentTokenCommand,
   GetWorkloadAccessTokenCommand,
   GetWorkloadAccessTokenForJWTCommand,
   GetWorkloadAccessTokenForUserIdCommand,
@@ -310,8 +375,11 @@ const commands = {
   ListEventsCommand,
   ListMemoryExtractionJobsCommand,
   ListMemoryRecordsCommand,
+  ListPaymentInstrumentsCommand,
+  ListPaymentSessionsCommand,
   ListRecommendationsCommand,
   ListSessionsCommand,
+  ProcessPaymentCommand,
   RetrieveMemoryRecordsCommand,
   SaveBrowserSessionProfileCommand,
   SearchRegistryRecordsCommand,
@@ -334,6 +402,8 @@ const paginators = {
   paginateListEvents,
   paginateListMemoryExtractionJobs,
   paginateListMemoryRecords,
+  paginateListPaymentInstruments,
+  paginateListPaymentSessions,
   paginateListRecommendations,
   paginateListSessions,
   paginateRetrieveMemoryRecords,
@@ -443,6 +513,40 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link CreatePaymentInstrumentCommand}
+   */
+  createPaymentInstrument(
+    args: CreatePaymentInstrumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePaymentInstrumentCommandOutput>;
+  createPaymentInstrument(
+    args: CreatePaymentInstrumentCommandInput,
+    cb: (err: any, data?: CreatePaymentInstrumentCommandOutput) => void
+  ): void;
+  createPaymentInstrument(
+    args: CreatePaymentInstrumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePaymentInstrumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePaymentSessionCommand}
+   */
+  createPaymentSession(
+    args: CreatePaymentSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePaymentSessionCommandOutput>;
+  createPaymentSession(
+    args: CreatePaymentSessionCommandInput,
+    cb: (err: any, data?: CreatePaymentSessionCommandOutput) => void
+  ): void;
+  createPaymentSession(
+    args: CreatePaymentSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePaymentSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteABTestCommand}
    */
   deleteABTest(
@@ -508,6 +612,40 @@ export interface BedrockAgentCore {
     args: DeleteMemoryRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteMemoryRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePaymentInstrumentCommand}
+   */
+  deletePaymentInstrument(
+    args: DeletePaymentInstrumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePaymentInstrumentCommandOutput>;
+  deletePaymentInstrument(
+    args: DeletePaymentInstrumentCommandInput,
+    cb: (err: any, data?: DeletePaymentInstrumentCommandOutput) => void
+  ): void;
+  deletePaymentInstrument(
+    args: DeletePaymentInstrumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePaymentInstrumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePaymentSessionCommand}
+   */
+  deletePaymentSession(
+    args: DeletePaymentSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePaymentSessionCommandOutput>;
+  deletePaymentSession(
+    args: DeletePaymentSessionCommandInput,
+    cb: (err: any, data?: DeletePaymentSessionCommandOutput) => void
+  ): void;
+  deletePaymentSession(
+    args: DeletePaymentSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePaymentSessionCommandOutput) => void
   ): void;
 
   /**
@@ -664,6 +802,57 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link GetPaymentInstrumentCommand}
+   */
+  getPaymentInstrument(
+    args: GetPaymentInstrumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPaymentInstrumentCommandOutput>;
+  getPaymentInstrument(
+    args: GetPaymentInstrumentCommandInput,
+    cb: (err: any, data?: GetPaymentInstrumentCommandOutput) => void
+  ): void;
+  getPaymentInstrument(
+    args: GetPaymentInstrumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPaymentInstrumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPaymentInstrumentBalanceCommand}
+   */
+  getPaymentInstrumentBalance(
+    args: GetPaymentInstrumentBalanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPaymentInstrumentBalanceCommandOutput>;
+  getPaymentInstrumentBalance(
+    args: GetPaymentInstrumentBalanceCommandInput,
+    cb: (err: any, data?: GetPaymentInstrumentBalanceCommandOutput) => void
+  ): void;
+  getPaymentInstrumentBalance(
+    args: GetPaymentInstrumentBalanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPaymentInstrumentBalanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPaymentSessionCommand}
+   */
+  getPaymentSession(
+    args: GetPaymentSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPaymentSessionCommandOutput>;
+  getPaymentSession(
+    args: GetPaymentSessionCommandInput,
+    cb: (err: any, data?: GetPaymentSessionCommandOutput) => void
+  ): void;
+  getPaymentSession(
+    args: GetPaymentSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPaymentSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRecommendationCommand}
    */
   getRecommendation(
@@ -712,6 +901,23 @@ export interface BedrockAgentCore {
     args: GetResourceOauth2TokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourceOauth2TokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePaymentTokenCommand}
+   */
+  getResourcePaymentToken(
+    args: GetResourcePaymentTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePaymentTokenCommandOutput>;
+  getResourcePaymentToken(
+    args: GetResourcePaymentTokenCommandInput,
+    cb: (err: any, data?: GetResourcePaymentTokenCommandOutput) => void
+  ): void;
+  getResourcePaymentToken(
+    args: GetResourcePaymentTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePaymentTokenCommandOutput) => void
   ): void;
 
   /**
@@ -989,6 +1195,40 @@ export interface BedrockAgentCore {
   ): void;
 
   /**
+   * @see {@link ListPaymentInstrumentsCommand}
+   */
+  listPaymentInstruments(
+    args: ListPaymentInstrumentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPaymentInstrumentsCommandOutput>;
+  listPaymentInstruments(
+    args: ListPaymentInstrumentsCommandInput,
+    cb: (err: any, data?: ListPaymentInstrumentsCommandOutput) => void
+  ): void;
+  listPaymentInstruments(
+    args: ListPaymentInstrumentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPaymentInstrumentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPaymentSessionsCommand}
+   */
+  listPaymentSessions(
+    args: ListPaymentSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPaymentSessionsCommandOutput>;
+  listPaymentSessions(
+    args: ListPaymentSessionsCommandInput,
+    cb: (err: any, data?: ListPaymentSessionsCommandOutput) => void
+  ): void;
+  listPaymentSessions(
+    args: ListPaymentSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPaymentSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRecommendationsCommand}
    */
   listRecommendations(): Promise<ListRecommendationsCommandOutput>;
@@ -1021,6 +1261,23 @@ export interface BedrockAgentCore {
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ProcessPaymentCommand}
+   */
+  processPayment(
+    args: ProcessPaymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProcessPaymentCommandOutput>;
+  processPayment(
+    args: ProcessPaymentCommandInput,
+    cb: (err: any, data?: ProcessPaymentCommandOutput) => void
+  ): void;
+  processPayment(
+    args: ProcessPaymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProcessPaymentCommandOutput) => void
   ): void;
 
   /**
@@ -1326,6 +1583,28 @@ export interface BedrockAgentCore {
     args: ListMemoryRecordsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListMemoryRecordsCommandOutput>;
+
+  /**
+   * @see {@link ListPaymentInstrumentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPaymentInstrumentsCommandOutput}.
+   */
+  paginateListPaymentInstruments(
+    args: ListPaymentInstrumentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPaymentInstrumentsCommandOutput>;
+
+  /**
+   * @see {@link ListPaymentSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPaymentSessionsCommandOutput}.
+   */
+  paginateListPaymentSessions(
+    args: ListPaymentSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPaymentSessionsCommandOutput>;
 
   /**
    * @see {@link ListRecommendationsCommand}

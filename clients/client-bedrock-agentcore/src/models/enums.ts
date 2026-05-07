@@ -254,6 +254,22 @@ export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
  * @public
  * @enum
  */
+export const PaymentHttpMethodType = {
+  DELETE: "DELETE",
+  GET: "GET",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+} as const;
+/**
+ * @public
+ */
+export type PaymentHttpMethodType = (typeof PaymentHttpMethodType)[keyof typeof PaymentHttpMethodType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProgrammingLanguage = {
   JAVASCRIPT: "javascript",
   PYTHON: "python",
@@ -389,6 +405,7 @@ export type HarnessConversationRole = (typeof HarnessConversationRole)[keyof typ
 export const OAuthGrantType = {
   AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+  TOKEN_EXCHANGE: "TOKEN_EXCHANGE",
 } as const;
 /**
  * @public
@@ -522,6 +539,139 @@ export const EventFilterCondition = {
  * @public
  */
 export type EventFilterCondition = (typeof EventFilterCondition)[keyof typeof EventFilterCondition];
+
+/**
+ * @public
+ * @enum
+ */
+export const CryptoWalletNetwork = {
+  ETHEREUM: "ETHEREUM",
+  SOLANA: "SOLANA",
+} as const;
+/**
+ * @public
+ */
+export type CryptoWalletNetwork = (typeof CryptoWalletNetwork)[keyof typeof CryptoWalletNetwork];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentInstrumentType = {
+  EMBEDDED_CRYPTO_WALLET: "EMBEDDED_CRYPTO_WALLET",
+} as const;
+/**
+ * @public
+ */
+export type PaymentInstrumentType = (typeof PaymentInstrumentType)[keyof typeof PaymentInstrumentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentInstrumentStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INITIATED: "INITIATED",
+} as const;
+/**
+ * @public
+ */
+export type PaymentInstrumentStatus = (typeof PaymentInstrumentStatus)[keyof typeof PaymentInstrumentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BlockchainChainId = {
+  /**
+   * Base Mainnet (EVM L2)
+   */
+  BASE: "BASE",
+  /**
+   * Base Sepolia testnet (EVM L2)
+   */
+  BASE_SEPOLIA: "BASE_SEPOLIA",
+  /**
+   * Ethereum Mainnet (EVM L1)
+   */
+  ETHEREUM: "ETHEREUM",
+  /**
+   * Solana Mainnet
+   */
+  SOLANA: "SOLANA",
+  /**
+   * Solana Devnet testnet
+   */
+  SOLANA_DEVNET: "SOLANA_DEVNET",
+} as const;
+/**
+ * @public
+ */
+export type BlockchainChainId = (typeof BlockchainChainId)[keyof typeof BlockchainChainId];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstrumentBalanceToken = {
+  USDC: "USDC",
+} as const;
+/**
+ * @public
+ */
+export type InstrumentBalanceToken = (typeof InstrumentBalanceToken)[keyof typeof InstrumentBalanceToken];
+
+/**
+ * @public
+ * @enum
+ */
+export const Currency = {
+  USD: "USD",
+} as const;
+/**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentSessionStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  EXPIRED: "EXPIRED",
+} as const;
+/**
+ * @public
+ */
+export type PaymentSessionStatus = (typeof PaymentSessionStatus)[keyof typeof PaymentSessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentType = {
+  CRYPTO_X402: "CRYPTO_X402",
+} as const;
+/**
+ * @public
+ */
+export type PaymentType = (typeof PaymentType)[keyof typeof PaymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentStatus = {
+  PROOF_GENERATED: "PROOF_GENERATED",
+} as const;
+/**
+ * @public
+ */
+export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus];
 
 /**
  * @public

@@ -9,8 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { SearchRegistryRecordsRequest } from "../models/models_0";
-import type { SearchRegistryRecordsResponse } from "../models/models_1";
+import type { SearchRegistryRecordsRequest, SearchRegistryRecordsResponse } from "../models/models_1";
 import { SearchRegistryRecords$ } from "../schemas/schemas_0";
 
 /**

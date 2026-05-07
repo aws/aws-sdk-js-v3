@@ -1,4 +1,4 @@
-const _A = "Accept";
+const _A = "Amount";
 const _ABTEC = "ABTestEvaluationConfig";
 const _ABTR = "ABTestResults";
 const _ABTS = "ABTestSummary";
@@ -7,6 +7,7 @@ const _ACD = "AgentCardDefinition";
 const _AD = "A2aDescriptor";
 const _ADE = "AccessDeniedException";
 const _AKT = "ApiKeyType";
+const _AL = "AvailableLimits";
 const _AS = "ActorSummary";
 const _ASD = "AgentSkillsDescriptor";
 const _ASL = "ActorSummaryList";
@@ -15,6 +16,7 @@ const _ASu = "AutomationStream";
 const _ATC = "AgentTracesConfig";
 const _ATT = "AccessTokenType";
 const _AUT = "AuthorizationUrlType";
+const _Ac = "Accept";
 const _B = "Body";
 const _BA = "BasicAuth";
 const _BAR = "BrowserActionResult";
@@ -49,6 +51,9 @@ const _CBL = "ContentBlockList";
 const _CBR = "ConfigurationBundleRef";
 const _CBTE = "ConfigurationBundleToolEntry";
 const _CBTEL = "ConfigurationBundleToolEntryList";
+const _CCPJTT = "CoinbaseCdpPaymentJwtTokenType";
+const _CCTRI = "CoinbaseCdpTokenRequestInput";
+const _CCTRO = "CoinbaseCdpTokenResponseOutput";
 const _CD = "CustomDescriptor";
 const _CDE = "ContentDeltaEvent";
 const _CE = "ConflictException";
@@ -61,6 +66,12 @@ const _CISO = "CodeInterpreterStreamOutput";
 const _CISS = "CodeInterpreterSessionSummary";
 const _CISSo = "CodeInterpreterSessionSummaries";
 const _CL = "CertificateLocation";
+const _CPI = "CreatePaymentInstrument";
+const _CPIR = "CreatePaymentInstrumentRequest";
+const _CPIRr = "CreatePaymentInstrumentResponse";
+const _CPS = "CreatePaymentSession";
+const _CPSR = "CreatePaymentSessionRequest";
+const _CPSRr = "CreatePaymentSessionResponse";
 const _CRPT = "CustomRequestParametersType";
 const _CRTA = "CompleteResourceTokenAuth";
 const _CRTAR = "CompleteResourceTokenAuthRequest";
@@ -77,6 +88,8 @@ const _CWLR = "CloudWatchLogsRule";
 const _CWLS = "CloudWatchLogsSource";
 const _CWLTC = "CloudWatchLogsTraceConfig";
 const _CWOC = "CloudWatchOutputConfig";
+const _CXPI = "CryptoX402PaymentInput";
+const _CXPO = "CryptoX402PaymentOutput";
 const _Ce = "Certificates";
 const _Co = "Conversational";
 const _Con = "Content";
@@ -95,15 +108,22 @@ const _DIE = "DuplicateIdException";
 const _DMR = "DeleteMemoryRecord";
 const _DMRI = "DeleteMemoryRecordInput";
 const _DMRO = "DeleteMemoryRecordOutput";
+const _DPI = "DeletePaymentInstrument";
+const _DPIR = "DeletePaymentInstrumentRequest";
+const _DPIRe = "DeletePaymentInstrumentResponse";
+const _DPS = "DeletePaymentSession";
+const _DPSR = "DeletePaymentSessionRequest";
+const _DPSRe = "DeletePaymentSessionResponse";
 const _DR = "DeleteRecommendation";
 const _DRR = "DeleteRecommendationRequest";
 const _DRRe = "DeleteRecommendationResponse";
 const _DSC = "DataSourceConfig";
 const _De = "Descriptors";
 const _Do = "Document";
-const _E = "Evaluator";
+const _E = "Email";
 const _EC = "EvaluationContent";
 const _ECL = "EvaluationContentList";
+const _ECW = "EmbeddedCryptoWallet";
 const _EE = "EvaluationExplanation";
 const _EET = "EvaluationExpectedTrajectory";
 const _EI = "EvaluationInput";
@@ -131,8 +151,9 @@ const _ES = "EvaluatorStatistics";
 const _ESL = "EvaluatorSummaryList";
 const _ESv = "EvaluatorSummary";
 const _ET = "EvaluationTarget";
-const _Ev = "Event";
+const _Ev = "Evaluator";
 const _Eva = "Evaluate";
+const _Eve = "Event";
 const _FI = "FilterInput";
 const _FV = "FilterValue";
 const _GABT = "GetABTest";
@@ -157,6 +178,15 @@ const _GF = "GatewayFilter";
 const _GMR = "GetMemoryRecord";
 const _GMRI = "GetMemoryRecordInput";
 const _GMRO = "GetMemoryRecordOutput";
+const _GPI = "GetPaymentInstrument";
+const _GPIB = "GetPaymentInstrumentBalance";
+const _GPIBR = "GetPaymentInstrumentBalanceRequest";
+const _GPIBRe = "GetPaymentInstrumentBalanceResponse";
+const _GPIR = "GetPaymentInstrumentRequest";
+const _GPIRe = "GetPaymentInstrumentResponse";
+const _GPS = "GetPaymentSession";
+const _GPSR = "GetPaymentSessionRequest";
+const _GPSRe = "GetPaymentSessionResponse";
 const _GR = "GetRecommendation";
 const _GRAK = "GetResourceApiKey";
 const _GRAKR = "GetResourceApiKeyRequest";
@@ -164,6 +194,9 @@ const _GRAKRe = "GetResourceApiKeyResponse";
 const _GROT = "GetResourceOauth2Token";
 const _GROTR = "GetResourceOauth2TokenRequest";
 const _GROTRe = "GetResourceOauth2TokenResponse";
+const _GRPT = "GetResourcePaymentToken";
+const _GRPTR = "GetResourcePaymentTokenRequest";
+const _GRPTRe = "GetResourcePaymentTokenResponse";
 const _GRR = "GetRecommendationRequest";
 const _GRRe = "GetRecommendationResponse";
 const _GTS = "GroundTruthSource";
@@ -254,12 +287,18 @@ const _KSA = "KeyShortcutArguments";
 const _KSR = "KeyShortcutResult";
 const _KTA = "KeyTypeArguments";
 const _KTR = "KeyTypeResult";
-const _LA = "ListActors";
+const _LA = "LinkedAccount";
 const _LABT = "ListABTests";
 const _LABTR = "ListABTestsRequest";
 const _LABTRi = "ListABTestsResponse";
+const _LADJ = "LinkedAccountDeveloperJwt";
+const _LAE = "LinkedAccountEmail";
 const _LAI = "ListActorsInput";
+const _LAL = "LinkedAccountList";
 const _LAO = "ListActorsOutput";
+const _LAOA = "LinkedAccountOAuth2";
+const _LAS = "LinkedAccountSms";
+const _LAi = "ListActors";
 const _LBE = "ListBatchEvaluations";
 const _LBER = "ListBatchEvaluationsRequest";
 const _LBERi = "ListBatchEvaluationsResponse";
@@ -279,6 +318,12 @@ const _LMEJO = "ListMemoryExtractionJobsOutput";
 const _LMR = "ListMemoryRecords";
 const _LMRI = "ListMemoryRecordsInput";
 const _LMRO = "ListMemoryRecordsOutput";
+const _LPI = "ListPaymentInstruments";
+const _LPIR = "ListPaymentInstrumentsRequest";
+const _LPIRi = "ListPaymentInstrumentsResponse";
+const _LPS = "ListPaymentSessions";
+const _LPSR = "ListPaymentSessionsRequest";
+const _LPSRi = "ListPaymentSessionsResponse";
 const _LR = "ListRecommendations";
 const _LRR = "ListRecommendationsRequest";
 const _LRRi = "ListRecommendationsResponse";
@@ -319,6 +364,7 @@ const _MSA = "MouseScrollArguments";
 const _MSI = "Mcp-Session-Id";
 const _MSR = "MouseScrollResult";
 const _MV = "MetadataValue";
+const _OAA = "OAuth2Authentication";
 const _OACP = "OAuthCredentialProvider";
 const _OACPV = "OAuthCustomParametersValue";
 const _OACPu = "OAuthCustomParameters";
@@ -327,8 +373,24 @@ const _P = "Proxies";
 const _PB = "ProxyBypass";
 const _PC = "ProxyConfiguration";
 const _PCr = "ProxyCredentials";
+const _PD = "PaymentDocument";
+const _PI = "PaymentInstrument";
+const _PID = "PaymentInstrumentDetails";
+const _PIS = "PaymentInstrumentSummary";
+const _PISL = "PaymentInstrumentSummaryList";
+const _PIa = "PaymentInput";
+const _PN = "PhoneNumber";
+const _PO = "PaymentOutput";
+const _PP = "ProcessPayment";
+const _PPR = "ProcessPaymentRequest";
+const _PPRr = "ProcessPaymentResponse";
+const _PS = "PaymentSession";
+const _PSS = "PaymentSessionSummary";
+const _PSSL = "PaymentSessionSummaryList";
 const _PT = "PayloadType";
 const _PTL = "PayloadTypeList";
+const _PTRI = "PaymentTokenRequestInput";
+const _PTRO = "PaymentTokenResponseOutput";
 const _PVOEC = "PerVariantOnlineEvaluationConfig";
 const _PVOECL = "PerVariantOnlineEvaluationConfigList";
 const _Pr = "Proxy";
@@ -385,6 +447,7 @@ const _SF = "SessionFilter";
 const _SFC = "SessionFilterConfig";
 const _SJ = "SensitiveJson";
 const _SL = "S3Location";
+const _SLe = "SessionLimits";
 const _SMD = "SkillMdDefinition";
 const _SMEJ = "StartMemoryExtractionJob";
 const _SMEJI = "StartMemoryExtractionJobInput";
@@ -392,11 +455,16 @@ const _SMEJO = "StartMemoryExtractionJobOutput";
 const _SML = "SecretsManagerLocation";
 const _SMLe = "SessionMetadataList";
 const _SMS = "SessionMetadataShape";
+const _SPAST = "StripePrivyAuthorizationSignatureType";
+const _SPBATT = "StripePrivyBasicAuthTokenType";
 const _SPC = "SystemPromptConfig";
 const _SPCB = "SystemPromptConfigurationBundle";
+const _SPRBT = "StripePrivyRequestBodyType";
 const _SPRC = "SystemPromptRecommendationConfig";
 const _SPRR = "SystemPromptRecommendationResult";
 const _SPT = "SystemPromptText";
+const _SPTRI = "StripePrivyTokenRequestInput";
+const _SPTRO = "StripePrivyTokenResponseOutput";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "ScreenshotResult";
 const _SRR = "StartRecommendationRequest";
@@ -415,6 +483,7 @@ const _ST = "SensitiveText";
 const _SU = "StreamUpdate";
 const _Sp = "Spans";
 const _TA = "ToolArguments";
+const _TB = "TokenBalance";
 const _TD = "ToolsDefinition";
 const _TDC = "ToolDescriptionConfig";
 const _TDCB = "ToolDescriptionConfigurationBundle";
@@ -451,6 +520,8 @@ const _VP = "ViewPort";
 const _VR = "VariantResult";
 const _VRL = "VariantResultList";
 const _WITT = "WorkloadIdentityTokenType";
+const _XABAPAN = "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name";
+const _XABAPUI = "X-Amzn-Bedrock-AgentCore-Payments-User-Id";
 const _XABARSI = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id";
 const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
@@ -463,14 +534,19 @@ const _aCb = "absoluteChange";
 const _aDE = "accessDeniedException";
 const _aI = "actorId";
 const _aIc = "accountId";
+const _aIp = "appId";
 const _aIw = "awsIam";
 const _aK = "apiKey";
 const _aKA = "apiKeyArn";
+const _aL = "availableLimits";
+const _aN = "agentName";
 const _aRA = "agentRuntimeArn";
 const _aS = "automationStream";
+const _aSA = "availableSpendAmount";
 const _aSU = "automationStreamUpdate";
 const _aSc = "actorSummaries";
 const _aSg = "agentSkills";
+const _aSu = "authorizationSignature";
 const _aSv = "averageScore";
 const _aT = "analysisTimestamp";
 const _aTA = "abTestArn";
@@ -482,11 +558,14 @@ const _aTl = "allowedTools";
 const _aU = "authorizationUrl";
 const _ac = "accept";
 const _act = "action";
+const _am = "amount";
+const _ap = "apple";
 const _ar = "arguments";
 const _as = "assertions";
 const _au = "audiences";
 const _b = "branch";
 const _bA = "bundleArn";
+const _bAT = "basicAuthToken";
 const _bAa = "basicAuth";
 const _bAr = "browserArn";
 const _bE = "batchEvaluations";
@@ -495,6 +574,7 @@ const _bEI = "batchEvaluationId";
 const _bEN = "batchEvaluationName";
 const _bI = "browserIdentifier";
 const _bMC = "bedrockModelConfig";
+const _bT = "bearerToken";
 const _bV = "bundleVersion";
 const _bVo = "booleanValue";
 const _ba = "baggage";
@@ -511,6 +591,8 @@ const _cBI = "contentBlockIndex";
 const _cBS = "contentBlockStart";
 const _cBSo = "contentBlockStop";
 const _cC = "clickCount";
+const _cCTR = "coinbaseCdpTokenRequest";
+const _cCTRo = "coinbaseCdpTokenResponse";
 const _cCl = "clearContext";
 const _cD = "contentDelta";
 const _cE = "conflictException";
@@ -530,8 +612,10 @@ const _cTo = "contentType";
 const _cWC = "cloudWatchConfig";
 const _cWIT = "cacheWriteInputTokens";
 const _cWL = "cloudWatchLogs";
+const _cX = "cryptoX402";
 const _ce = "certificates";
-const _ch = "chunk";
+const _ch = "chain";
+const _chu = "chunk";
 const _co = "content";
 const _cod = "code";
 const _com = "command";
@@ -539,8 +623,10 @@ const _con = "context";
 const _conf = "config";
 const _conv = "conversational";
 const _cr = "credentials";
-const _cu = "custom";
+const _cu = "currency";
+const _cus = "custom";
 const _d = "description";
+const _dJ = "developerJwt";
 const _dP = "domainPatterns";
 const _dPi = "directoryPath";
 const _dRU = "defaultReturnUrl";
@@ -552,10 +638,13 @@ const _dX = "deltaX";
 const _dY = "deltaY";
 const _da = "data";
 const _de = "delta";
+const _dec = "decimals";
 const _des = "descriptors";
 const _e = "error";
 const _eA = "evaluatorArn";
+const _eAm = "emailAddress";
 const _eC = "exitCode";
+const _eCW = "embeddedCryptoWallet";
 const _eCr = "errorCode";
 const _eCv = "evaluationConfig";
 const _eD = "errorDetails";
@@ -578,12 +667,14 @@ const _eRx = "expectedResponse";
 const _eS = "executionStatus";
 const _eSv = "evaluatorSummaries";
 const _eT = "endTime";
+const _eTIM = "expiryTimeInMinutes";
 const _eTv = "eventTimestamp";
 const _eTva = "evaluationTarget";
 const _eTx = "expectedTrajectory";
 const _eTxe = "executionTime";
 const _eX = "endX";
 const _eY = "endY";
+const _em = "email";
 const _ev = "evaluators";
 const _eve = "event";
 const _even = "events";
@@ -597,11 +688,13 @@ const _fR = "failedRecords";
 const _fRa = "failureReason";
 const _fi = "filter";
 const _fo = "format";
+const _g = "google";
 const _gA = "gatewayArn";
 const _gF = "gatewayFilter";
 const _gMC = "geminiModelConfig";
 const _gT = "grantType";
 const _gTr = "groundTruth";
+const _gi = "github";
 const _h = "headers";
 const _hA = "harnessArn";
 const _hE = "httpError";
@@ -610,6 +703,7 @@ const _hQ = "httpQuery";
 const _he = "height";
 const _ht = "http";
 const _i = "input";
+const _iAS = "includeAuthorizationSignature";
 const _iC = "inlineContent";
 const _iE = "isError";
 const _iF = "inlineFunction";
@@ -621,6 +715,7 @@ const _iSE = "internalServerException";
 const _iSs = "isSignificant";
 const _iT = "idempotencyToken";
 const _iTn = "inputTokens";
+const _iWAT = "includeWalletAuthToken";
 const _in = "inline";
 const _it = "items";
 const _j = "jobs";
@@ -632,7 +727,9 @@ const _kP = "keyPress";
 const _kS = "keyShortcut";
 const _kT = "keyType";
 const _ke = "keys";
+const _ki = "kid";
 const _l = "location";
+const _lA = "linkedAccounts";
 const _lGA = "logGroupArns";
 const _lGN = "logGroupNames";
 const _lGNo = "logGroupName";
@@ -643,6 +740,7 @@ const _lVS = "liveViewStream";
 const _la = "label";
 const _lan = "language";
 const _le = "left";
+const _li = "limits";
 const _lo = "lower";
 const _m = "message";
 const _mC = "mouseClick";
@@ -662,6 +760,7 @@ const _mRI = "memoryRecordId";
 const _mRS = "memoryRecordSummaries";
 const _mRa = "maxResults";
 const _mS = "mouseScroll";
+const _mSA = "maxSpendAmount";
 const _mSI = "mcpSessionId";
 const _mSIe = "memoryStrategyId";
 const _mSe = "messageStart";
@@ -685,10 +784,12 @@ const _nT = "nextToken";
 const _nV = "numberValue";
 const _na = "namespace";
 const _nam = "namespaces";
+const _ne = "network";
 const _no = "none";
 const _o = "operator";
 const _oA = "outboundAuth";
 const _oAMC = "openAiModelConfig";
+const _oAu = "oAuth2";
 const _oC = "outputConfig";
 const _oECA = "onlineEvaluationConfigArn";
 const _oF = "oauth2Flow";
@@ -697,9 +798,26 @@ const _oa = "oauth";
 const _p = "payload";
 const _pA = "providerArn";
 const _pC = "profileConfiguration";
+const _pCI = "paymentConnectorId";
 const _pCe = "percentChange";
 const _pCr = "proxyConfiguration";
 const _pI = "profileIdentifier";
+const _pID = "paymentInstrumentDetails";
+const _pII = "paymentInstrumentId";
+const _pIT = "paymentInstrumentType";
+const _pIa = "paymentInstrument";
+const _pIay = "paymentInstruments";
+const _pIaym = "paymentInput";
+const _pMA = "paymentManagerArn";
+const _pN = "phoneNumber";
+const _pO = "paymentOutput";
+const _pPI = "processPaymentId";
+const _pS = "paymentSession";
+const _pSI = "paymentSessionId";
+const _pSa = "paymentSessions";
+const _pT = "paymentType";
+const _pTR = "paymentTokenRequest";
+const _pTRa = "paymentTokenResponse";
 const _pV = "protocolVersion";
 const _pVOEC = "perVariantOnlineEvaluationConfig";
 const _pVa = "pValue";
@@ -716,19 +834,24 @@ const _rA = "roleArn";
 const _rAe = "recommendationArn";
 const _rAec = "recordArn";
 const _rAeg = "registryArn";
+const _rB = "requestBody";
 const _rC = "recommendationConfig";
 const _rCE = "runtimeClientError";
 const _rCPN = "resourceCredentialProviderName";
 const _rCe = "reasoningContent";
 const _rCed = "redactedContent";
+const _rE = "requestExpiry";
 const _rEI = "rootEventId";
+const _rH = "requestHost";
 const _rI = "recommendationId";
 const _rIe = "requestIdentifier";
 const _rIec = "recordId";
 const _rIeg = "registryIds";
-const _rM = "remoteMcp";
+const _rM = "requestMethod";
+const _rMe = "remoteMcp";
 const _rNFE = "resourceNotFoundException";
 const _rORU = "resourceOauth2ReturnUrl";
+const _rP = "requestPath";
 const _rR = "recommendationResult";
 const _rRe = "registryRecords";
 const _rS = "recommendationSummaries";
@@ -736,6 +859,7 @@ const _rSI = "runtimeSessionId";
 const _rSP = "recommendedSystemPrompt";
 const _rT = "reasoningText";
 const _rTD = "recommendedToolDescription";
+const _rU = "redirectUrl";
 const _rUI = "runtimeUserId";
 const _re = "records";
 const _res = "resource";
@@ -773,6 +897,8 @@ const _sP = "systemPrompt";
 const _sPJP = "systemPromptJsonPath";
 const _sPRC = "systemPromptRecommendationConfig";
 const _sPRR = "systemPromptRecommendationResult";
+const _sPTR = "stripePrivyTokenRequest";
+const _sPTRt = "stripePrivyTokenResponse";
 const _sQ = "searchQuery";
 const _sQEE = "serviceQuotaExceededException";
 const _sR = "successfulRecords";
@@ -800,6 +926,7 @@ const _sen = "sensitive";
 const _si = "size";
 const _sig = "signature";
 const _sk = "skills";
+const _sm = "sms";
 const _st = "streaming";
 const _sta = "status";
 const _star = "start";
@@ -808,7 +935,9 @@ const _std = "stdout";
 const _stde = "stderr";
 const _str = "streams";
 const _stre = "stream";
+const _su = "sub";
 const _t = "type";
+const _tB = "tokenBalance";
 const _tD = "toolDescription";
 const _tDJP = "toolDescriptionJsonPath";
 const _tDRC = "toolDescriptionRecommendationConfig";
@@ -839,10 +968,12 @@ const _tUI = "toolUseId";
 const _tUo = "toolUse";
 const _ta = "target";
 const _te = "text";
+const _tel = "telegram";
 const _tem = "temperature";
 const _ti = "timeout";
 const _tim = "timestamp";
-const _to = "tools";
+const _to = "token";
+const _too = "tools";
 const _tr = "traceparent";
 const _tra = "tracestate";
 const _tu = "turns";
@@ -854,6 +985,7 @@ const _uT = "userToken";
 const _ur = "uri";
 const _url = "url";
 const _us = "usage";
+const _use = "username";
 const _v = "value";
 const _vC = "variantConfiguration";
 const _vE = "validationException";
@@ -864,7 +996,9 @@ const _vR = "variantResults";
 const _va = "variants";
 const _ve = "version";
 const _w = "weight";
-const _wAT = "workloadAccessToken";
+const _wA = "walletAddress";
+const _wAT = "walletAuthToken";
+const _wATo = "workloadAccessToken";
 const _wIT = "workloadIdentityToken";
 const _wN = "workloadName";
 const _wi = "width";
@@ -1006,18 +1140,25 @@ var AccessTokenType: StaticSimpleSchema = [0, n0, _ATT, 8, 0];
 var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var AuthorizationUrlType: StaticSimpleSchema = [0, n0, _AUT, 8, 0];
 var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
+var CoinbaseCdpPaymentJwtTokenType: StaticSimpleSchema = [0, n0, _CCPJTT, 8, 0];
 var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
 var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
+var PaymentDocument: StaticSimpleSchema = [0, n0, _PD, 8, 15];
+var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var ResponseStream: StaticSimpleSchema = [0, n0, _RS, { [_sen]: 1, [_st]: 1 }, 42];
 var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var SensitiveText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 var State: StaticSimpleSchema = [0, n0, _S, 8, 0];
+var StripePrivyAuthorizationSignatureType: StaticSimpleSchema = [0, n0, _SPAST, 8, 0];
+var StripePrivyBasicAuthTokenType: StaticSimpleSchema = [0, n0, _SPBATT, 8, 0];
+var StripePrivyRequestBodyType: StaticSimpleSchema = [0, n0, _SPRBT, 8, 0];
 var SystemPromptText: StaticSimpleSchema = [0, n0, _SPT, 8, 0];
 var ToolDescriptionText: StaticSimpleSchema = [0, n0, _TDT, 8, 0];
 var UserTokenType: StaticSimpleSchema = [0, n0, _UTT, 8, 0];
@@ -1052,6 +1193,11 @@ export var AgentSkillsDescriptor$: StaticStructureSchema = [3, n0, _ASD,
   [_sM, _sD],
   [() => SkillMdDefinition$, () => SkillDefinition$], 1
 ];
+export var Amount$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_v, _cu],
+  [0, 0], 2
+];
 export var AutomationStream$: StaticStructureSchema = [3, n0, _ASu,
   0,
   [_sE, _sS],
@@ -1061,6 +1207,11 @@ export var AutomationStreamUpdate$: StaticStructureSchema = [3, n0, _ASU,
   0,
   [_sS],
   [0]
+];
+export var AvailableLimits$: StaticStructureSchema = [3, n0, _AL,
+  0,
+  [_aSA, _uA],
+  [() => Amount$, 5]
 ];
 export var BasicAuth$: StaticStructureSchema = [3, n0, _BA,
   0,
@@ -1182,6 +1333,16 @@ export var CodeInterpreterSessionSummary$: StaticStructureSchema = [3, n0, _CISS
   [_cII, _sI, _sta, _cA, _n, _lUA],
   [0, 0, 0, 5, 0, 5], 4
 ];
+export var CoinbaseCdpTokenRequestInput$: StaticStructureSchema = [3, n0, _CCTRI,
+  0,
+  [_rM, _rP, _rH, _iWAT, _rB],
+  [0, 0, 0, 2, 0], 2
+];
+export var CoinbaseCdpTokenResponseOutput$: StaticStructureSchema = [3, n0, _CCTRO,
+  0,
+  [_bT, _wAT],
+  [[() => CoinbaseCdpPaymentJwtTokenType, 0], [() => CoinbaseCdpPaymentJwtTokenType, 0]], 1
+];
 export var CompleteResourceTokenAuthRequest$: StaticStructureSchema = [3, n0, _CRTAR,
   0,
   [_uI, _sU],
@@ -1257,6 +1418,36 @@ export var CreateEventOutput$: StaticStructureSchema = [3, n0, _CEO,
   [_eve],
   [[() => Event$, 0]], 1
 ];
+export var CreatePaymentInstrumentRequest$: StaticStructureSchema = [3, n0, _CPIR,
+  0,
+  [_pMA, _pCI, _pIT, _pID, _uIs, _aN, _cT],
+  [0, 0, 0, [() => PaymentInstrumentDetails$, 0], [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], [0, 4]], 4
+];
+export var CreatePaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _CPIRr,
+  0,
+  [_pIa],
+  [[() => PaymentInstrument$, 0]], 1
+];
+export var CreatePaymentSessionRequest$: StaticStructureSchema = [3, n0, _CPSR,
+  0,
+  [_pMA, _eTIM, _uIs, _aN, _li, _cT],
+  [0, 1, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], () => SessionLimits$, [0, 4]], 2
+];
+export var CreatePaymentSessionResponse$: StaticStructureSchema = [3, n0, _CPSRr,
+  0,
+  [_pS],
+  [() => PaymentSession$], 1
+];
+export var CryptoX402PaymentInput$: StaticStructureSchema = [3, n0, _CXPI,
+  0,
+  [_ve, _p],
+  [0, [() => PaymentDocument, 0]], 2
+];
+export var CryptoX402PaymentOutput$: StaticStructureSchema = [3, n0, _CXPO,
+  0,
+  [_ve, _p],
+  [0, [() => PaymentDocument, 0]], 2
+];
 export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_iC],
@@ -1302,6 +1493,26 @@ export var DeleteMemoryRecordOutput$: StaticStructureSchema = [3, n0, _DMRO,
   [_mRI],
   [0], 1
 ];
+export var DeletePaymentInstrumentRequest$: StaticStructureSchema = [3, n0, _DPIR,
+  0,
+  [_pMA, _pCI, _pII, _uIs],
+  [0, 0, 0, [0, { [_hH]: _XABAPUI }]], 3
+];
+export var DeletePaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _DPIRe,
+  0,
+  [_sta],
+  [0], 1
+];
+export var DeletePaymentSessionRequest$: StaticStructureSchema = [3, n0, _DPSR,
+  0,
+  [_pMA, _pSI, _uIs],
+  [0, 0, [0, { [_hH]: _XABAPUI }]], 2
+];
+export var DeletePaymentSessionResponse$: StaticStructureSchema = [3, n0, _DPSRe,
+  0,
+  [_sta],
+  [0], 1
+];
 export var DeleteRecommendationRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_rI],
@@ -1314,8 +1525,13 @@ export var DeleteRecommendationResponse$: StaticStructureSchema = [3, n0, _DRRe,
 ];
 export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_mc, _a, _cu, _aSg],
+  [_mc, _a, _cus, _aSg],
   [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
+];
+export var EmbeddedCryptoWallet$: StaticStructureSchema = [3, n0, _ECW,
+  0,
+  [_ne, _lA, _wA, _rU],
+  [0, [() => LinkedAccountList, 0], 0, 0], 2
 ];
 export var EvaluateRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
@@ -1347,7 +1563,7 @@ export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
   [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eMr, _eCr, _iRIF],
   [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0, 64 | 0], 4
 ];
-export var Evaluator$: StaticStructureSchema = [3, n0, _E,
+export var Evaluator$: StaticStructureSchema = [3, n0, _Ev,
   0,
   [_eIv],
   [0], 1
@@ -1367,7 +1583,7 @@ export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ESv,
   [_eIv, _stat, _tE, _tF],
   [0, () => EvaluatorStatistics$, 1, 1]
 ];
-export var Event$: StaticStructureSchema = [3, n0, _Ev,
+export var Event$: StaticStructureSchema = [3, n0, _Eve,
   0,
   [_mI, _aI, _sI, _eI, _eTv, _p, _b, _met],
   [0, 0, 0, 0, 4, [() => PayloadTypeList, 0], () => Branch$, () => MetadataMap], 6
@@ -1477,6 +1693,36 @@ export var GetMemoryRecordOutput$: StaticStructureSchema = [3, n0, _GMRO,
   [_mR],
   [[() => MemoryRecord$, 0]], 1
 ];
+export var GetPaymentInstrumentBalanceRequest$: StaticStructureSchema = [3, n0, _GPIBR,
+  0,
+  [_pMA, _pCI, _pII, _ch, _to, _uIs, _aN],
+  [0, 0, 0, 0, 0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }]], 5
+];
+export var GetPaymentInstrumentBalanceResponse$: StaticStructureSchema = [3, n0, _GPIBRe,
+  0,
+  [_pII, _tB],
+  [0, () => TokenBalance$], 2
+];
+export var GetPaymentInstrumentRequest$: StaticStructureSchema = [3, n0, _GPIR,
+  0,
+  [_pMA, _pII, _uIs, _aN, _pCI],
+  [0, 0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], 0], 2
+];
+export var GetPaymentInstrumentResponse$: StaticStructureSchema = [3, n0, _GPIRe,
+  0,
+  [_pIa],
+  [[() => PaymentInstrument$, 0]], 1
+];
+export var GetPaymentSessionRequest$: StaticStructureSchema = [3, n0, _GPSR,
+  0,
+  [_pMA, _pSI, _uIs, _aN],
+  [0, 0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }]], 2
+];
+export var GetPaymentSessionResponse$: StaticStructureSchema = [3, n0, _GPSRe,
+  0,
+  [_pS],
+  [() => PaymentSession$], 1
+];
 export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_rI],
@@ -1507,6 +1753,16 @@ export var GetResourceOauth2TokenResponse$: StaticStructureSchema = [3, n0, _GRO
   [_aU, _aTc, _sU, _sSe],
   [[() => AuthorizationUrlType, 0], [() => AccessTokenType, 0], 0, 0]
 ];
+export var GetResourcePaymentTokenRequest$: StaticStructureSchema = [3, n0, _GRPTR,
+  0,
+  [_wIT, _rCPN, _pTR],
+  [[() => WorkloadIdentityTokenType, 0], 0, [() => PaymentTokenRequestInput$, 0]], 3
+];
+export var GetResourcePaymentTokenResponse$: StaticStructureSchema = [3, n0, _GRPTRe,
+  0,
+  [_pTRa],
+  [[() => PaymentTokenResponseOutput$, 0]], 1
+];
 export var GetWorkloadAccessTokenForJWTRequest$: StaticStructureSchema = [3, n0, _GWATFJWTR,
   0,
   [_wN, _uT],
@@ -1514,7 +1770,7 @@ export var GetWorkloadAccessTokenForJWTRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetWorkloadAccessTokenForJWTResponse$: StaticStructureSchema = [3, n0, _GWATFJWTRe,
   0,
-  [_wAT],
+  [_wATo],
   [[() => WorkloadIdentityTokenType, 0]], 1
 ];
 export var GetWorkloadAccessTokenForUserIdRequest$: StaticStructureSchema = [3, n0, _GWATFUIR,
@@ -1524,7 +1780,7 @@ export var GetWorkloadAccessTokenForUserIdRequest$: StaticStructureSchema = [3, 
 ];
 export var GetWorkloadAccessTokenForUserIdResponse$: StaticStructureSchema = [3, n0, _GWATFUIRe,
   0,
-  [_wAT],
+  [_wATo],
   [[() => WorkloadIdentityTokenType, 0]], 1
 ];
 export var GetWorkloadAccessTokenRequest$: StaticStructureSchema = [3, n0, _GWATR,
@@ -1534,7 +1790,7 @@ export var GetWorkloadAccessTokenRequest$: StaticStructureSchema = [3, n0, _GWAT
 ];
 export var GetWorkloadAccessTokenResponse$: StaticStructureSchema = [3, n0, _GWATRe,
   0,
-  [_wAT],
+  [_wATo],
   [[() => WorkloadIdentityTokenType, 0]], 1
 ];
 export var GroundTruthTurn$: StaticStructureSchema = [3, n0, _GTT,
@@ -1675,7 +1931,7 @@ export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
 export var InvokeAgentRuntimeCommandRequest$: StaticStructureSchema = [3, n0, _IARCR,
   0,
   [_aRA, _bo, _cTo, _ac, _rSI, _tI, _tPr, _tS, _ba, _q, _aIc],
-  [[0, 1], [() => InvokeAgentRuntimeCommandRequestBody$, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
+  [[0, 1], [() => InvokeAgentRuntimeCommandRequestBody$, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0, _IARCRB,
   0,
@@ -1690,7 +1946,7 @@ export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
   [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
-  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   0,
@@ -1719,7 +1975,7 @@ export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIR
 ];
 export var InvokeHarnessRequest$: StaticStructureSchema = [3, n0, _IHR,
   0,
-  [_hA, _rSI, _mes, _mo, _sP, _to, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
+  [_hA, _rSI, _mes, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
   [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], () => HarnessModelConfiguration$, [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
 ];
 export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
@@ -1756,6 +2012,21 @@ export var KeyTypeResult$: StaticStructureSchema = [3, n0, _KTR,
   0,
   [_sta, _e],
   [0, 0], 1
+];
+export var LinkedAccountDeveloperJwt$: StaticStructureSchema = [3, n0, _LADJ,
+  0,
+  [_ki, _su],
+  [0, 0], 2
+];
+export var LinkedAccountEmail$: StaticStructureSchema = [3, n0, _LAE,
+  8,
+  [_eAm],
+  [[() => Email, 0]], 1
+];
+export var LinkedAccountSms$: StaticStructureSchema = [3, n0, _LAS,
+  8,
+  [_pN],
+  [[() => PhoneNumber, 0]], 1
 ];
 export var ListABTestsRequest$: StaticStructureSchema = [3, n0, _LABTR,
   0,
@@ -1837,6 +2108,26 @@ export var ListMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _LMRO,
   [_mRS, _nT],
   [[() => MemoryRecordSummaryList, 0], 0], 1
 ];
+export var ListPaymentInstrumentsRequest$: StaticStructureSchema = [3, n0, _LPIR,
+  0,
+  [_pMA, _uIs, _aN, _pCI, _nT, _mRa],
+  [0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], 0, 0, 1], 1
+];
+export var ListPaymentInstrumentsResponse$: StaticStructureSchema = [3, n0, _LPIRi,
+  0,
+  [_pIay, _nT],
+  [() => PaymentInstrumentSummaryList, 0], 1
+];
+export var ListPaymentSessionsRequest$: StaticStructureSchema = [3, n0, _LPSR,
+  0,
+  [_pMA, _uIs, _aN, _nT, _mRa],
+  [0, [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], 0, 1], 1
+];
+export var ListPaymentSessionsResponse$: StaticStructureSchema = [3, n0, _LPSRi,
+  0,
+  [_pSa, _nT],
+  [() => PaymentSessionSummaryList, 0], 1
+];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_mRa, _nT, _sF],
@@ -1864,7 +2155,7 @@ export var LiveViewStream$: StaticStructureSchema = [3, n0, _LVS,
 ];
 export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
   0,
-  [_se, _to],
+  [_se, _too],
   [() => ServerDefinition$, () => ToolsDefinition$], 2
 ];
 export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMFE,
@@ -1947,15 +2238,50 @@ export var MouseScrollResult$: StaticStructureSchema = [3, n0, _MSR,
   [_sta, _e],
   [0, 0], 1
 ];
+export var OAuth2Authentication$: StaticStructureSchema = [3, n0, _OAA,
+  8,
+  [_su, _eAm, _n, _use],
+  [0, [() => Email, 0], 0, 0], 1
+];
 export var OAuthCredentialProvider$: StaticStructureSchema = [3, n0, _OACP,
   0,
   [_pA, _sc, _cP, _gT, _dRU],
   [0, 64 | 0, [() => OAuthCustomParameters, 0], 0, 0], 2
 ];
+export var PaymentInstrument$: StaticStructureSchema = [3, n0, _PI,
+  0,
+  [_pII, _pMA, _pCI, _uIs, _pIT, _pID, _cA, _sta, _uA],
+  [0, 0, 0, 0, 0, [() => PaymentInstrumentDetails$, 0], 5, 0, 5], 9
+];
+export var PaymentInstrumentSummary$: StaticStructureSchema = [3, n0, _PIS,
+  0,
+  [_pII, _pMA, _pCI, _uIs, _pIT, _sta, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 5, 5], 8
+];
+export var PaymentSession$: StaticStructureSchema = [3, n0, _PS,
+  0,
+  [_pSI, _pMA, _uIs, _eTIM, _cA, _uA, _li, _aL],
+  [0, 0, 0, 1, 5, 5, () => SessionLimits$, () => AvailableLimits$], 6
+];
+export var PaymentSessionSummary$: StaticStructureSchema = [3, n0, _PSS,
+  0,
+  [_pSI, _pMA, _uIs, _eTIM, _cA, _uA],
+  [0, 0, 0, 1, 5, 5], 6
+];
 export var PerVariantOnlineEvaluationConfig$: StaticStructureSchema = [3, n0, _PVOEC,
   0,
   [_n, _oECA],
   [0, 0], 2
+];
+export var ProcessPaymentRequest$: StaticStructureSchema = [3, n0, _PPR,
+  0,
+  [_pMA, _pSI, _pII, _pT, _pIaym, _uIs, _aN, _cT],
+  [0, 0, 0, 0, [() => PaymentInput$, 0], [0, { [_hH]: _XABAPUI }], [0, { [_hH]: _XABAPAN }], [0, 4]], 5
+];
+export var ProcessPaymentResponse$: StaticStructureSchema = [3, n0, _PPRr,
+  0,
+  [_pPI, _pMA, _pSI, _pII, _pT, _sta, _pO, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, [() => PaymentOutput$, 0], 5, 5], 9
 ];
 export var ProxyBypass$: StaticStructureSchema = [3, n0, _PB,
   0,
@@ -2072,6 +2398,11 @@ export var SessionFilterConfig$: StaticStructureSchema = [3, n0, _SFC,
   [_sT, _eT],
   [5, 5]
 ];
+export var SessionLimits$: StaticStructureSchema = [3, n0, _SLe,
+  0,
+  [_mSA],
+  [() => Amount$], 1
+];
 export var SessionMetadataShape$: StaticStructureSchema = [3, n0, _SMS,
   0,
   [_sI, _tSI, _gTr, _met],
@@ -2187,6 +2518,16 @@ export var StopRuntimeSessionResponse$: StaticStructureSchema = [3, n0, _SRSRt,
   [_rSI, _sCt],
   [[0, { [_hH]: _XABARSI }], [1, 32]]
 ];
+export var StripePrivyTokenRequestInput$: StaticStructureSchema = [3, n0, _SPTRI,
+  0,
+  [_rP, _rB, _rH, _iAS],
+  [0, [() => StripePrivyRequestBodyType, 0], 0, 2], 2
+];
+export var StripePrivyTokenResponseOutput$: StaticStructureSchema = [3, n0, _SPTRO,
+  0,
+  [_aIp, _bAT, _aSu, _rE],
+  [0, [() => StripePrivyBasicAuthTokenType, 0], [() => StripePrivyAuthorizationSignatureType, 0], 1], 2
+];
 export var SystemPromptConfigurationBundle$: StaticStructureSchema = [3, n0, _SPCB,
   0,
   [_bA, _vI, _sPJP],
@@ -2207,6 +2548,11 @@ export var TargetRef$: StaticStructureSchema = [3, n0, _TR,
   [_n],
   [0], 1
 ];
+export var TokenBalance$: StaticStructureSchema = [3, n0, _TB,
+  0,
+  [_am, _dec, _to, _ne, _ch],
+  [0, 1, 0, 0, 0], 5
+];
 export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
   0,
   [_iTn, _oT, _tT],
@@ -2219,7 +2565,7 @@ export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
 ];
 export var ToolDescriptionConfigurationBundle$: StaticStructureSchema = [3, n0, _TDCB,
   0,
-  [_bA, _vI, _to],
+  [_bA, _vI, _too],
   [0, 0, () => ConfigurationBundleToolEntryList], 3
 ];
 export var ToolDescriptionInput$: StaticStructureSchema = [3, n0, _TDI,
@@ -2239,12 +2585,12 @@ export var ToolDescriptionRecommendationConfig$: StaticStructureSchema = [3, n0,
 ];
 export var ToolDescriptionRecommendationResult$: StaticStructureSchema = [3, n0, _TDRR,
   0,
-  [_to, _cB, _eCr, _eMr],
+  [_too, _cB, _eCr, _eMr],
   [[() => ToolDescriptionResultList, 0], () => RecommendationResultConfigurationBundle$, 0, 0]
 ];
 export var ToolDescriptionTextInput$: StaticStructureSchema = [3, n0, _TDTI,
   0,
-  [_to],
+  [_too],
   [[() => ToolDescriptionList, 0]], 1
 ];
 export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
@@ -2407,6 +2753,10 @@ var InputContentBlockList: StaticListSchema = [1, n0, _ICBL,
     0]
 ];
 var KeyList = 64 | 0;
+var LinkedAccountList: StaticListSchema = [1, n0, _LAL,
+  0, [() => LinkedAccount$,
+    0]
+];
 var LogGroupArnList = 64 | 0;
 var MemoryMetadataFilterList: StaticListSchema = [1, n0, _MMFL,
   0, () => MemoryMetadataFilterExpression$
@@ -2437,6 +2787,12 @@ var OAuthScopes = 64 | 0;
 var PayloadTypeList: StaticListSchema = [1, n0, _PTL,
   0, [() => PayloadType$,
     0]
+];
+var PaymentInstrumentSummaryList: StaticListSchema = [1, n0, _PISL,
+  0, () => PaymentInstrumentSummary$
+];
+var PaymentSessionSummaryList: StaticListSchema = [1, n0, _PSSL,
+  0, () => PaymentSessionSummary$
 ];
 var PerVariantOnlineEvaluationConfigList: StaticListSchema = [1, n0, _PVOECL,
   0, () => PerVariantOnlineEvaluationConfig$
@@ -2643,7 +2999,7 @@ export var HarnessSystemContentBlock$: StaticUnionSchema = [4, n0, _HSCB,
 ];
 export var HarnessToolConfiguration$: StaticUnionSchema = [4, n0, _HTC,
   0,
-  [_rM, _aCB, _aCG, _iF, _aCCI],
+  [_rMe, _aCB, _aCG, _iF, _aCCI],
   [[() => HarnessRemoteMcpConfig$, 0], () => HarnessAgentCoreBrowserConfig$, [() => HarnessAgentCoreGatewayConfig$, 0], [() => HarnessInlineFunctionConfig$, 0], () => HarnessAgentCoreCodeInterpreterConfig$]
 ];
 export var HarnessToolResultBlockDelta$: StaticUnionSchema = [4, n0, _HTRBDa,
@@ -2658,7 +3014,7 @@ export var HarnessToolResultContentBlock$: StaticUnionSchema = [4, n0, _HTRCBa,
 ];
 export var InvokeAgentRuntimeCommandStreamOutput$: StaticUnionSchema = [4, n0, _IARCSO,
   { [_st]: 1 },
-  [_ch, _aDE, _iSE, _rNFE, _sQEE, _tEh, _vE, _rCE],
+  [_chu, _aDE, _iSE, _rNFE, _sQEE, _tEh, _vE, _rCE],
   [() => ResponseChunk$, [() => AccessDeniedException$, 0], [() => InternalServerException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => ValidationException$, 0], [() => RuntimeClientError$, 0]]
 ];
 export var InvokeHarnessStreamOutput$: StaticUnionSchema = [4, n0, _IHSO,
@@ -2670,6 +3026,16 @@ export var LeftExpression$: StaticUnionSchema = [4, n0, _LE,
   0,
   [_mK],
   [0]
+];
+export var LinkedAccount$: StaticUnionSchema = [4, n0, _LA,
+  8,
+  [_em, _sm, _dJ, _oAu],
+  [[() => LinkedAccountEmail$, 0], [() => LinkedAccountSms$, 0], () => LinkedAccountDeveloperJwt$, [() => LinkedAccountOAuth2$, 0]]
+];
+export var LinkedAccountOAuth2$: StaticUnionSchema = [4, n0, _LAOA,
+  0,
+  [_g, _ap, _x, _tel, _gi],
+  [[() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0]]
 ];
 export var MemoryContent$: StaticUnionSchema = [4, n0, _MC,
   0,
@@ -2705,6 +3071,31 @@ export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
   0,
   [_conv, _bl],
   [[() => Conversational$, 0], [() => Document, 0]]
+];
+export var PaymentInput$: StaticUnionSchema = [4, n0, _PIa,
+  0,
+  [_cX],
+  [[() => CryptoX402PaymentInput$, 0]]
+];
+export var PaymentInstrumentDetails$: StaticUnionSchema = [4, n0, _PID,
+  0,
+  [_eCW],
+  [[() => EmbeddedCryptoWallet$, 0]]
+];
+export var PaymentOutput$: StaticUnionSchema = [4, n0, _PO,
+  0,
+  [_cX],
+  [[() => CryptoX402PaymentOutput$, 0]]
+];
+export var PaymentTokenRequestInput$: StaticUnionSchema = [4, n0, _PTRI,
+  0,
+  [_cCTR, _sPTR],
+  [() => CoinbaseCdpTokenRequestInput$, [() => StripePrivyTokenRequestInput$, 0]]
+];
+export var PaymentTokenResponseOutput$: StaticUnionSchema = [4, n0, _PTRO,
+  0,
+  [_cCTRo, _sPTRt],
+  [[() => CoinbaseCdpTokenResponseOutput$, 0], [() => StripePrivyTokenResponseOutput$, 0]]
 ];
 export var Proxy$: StaticUnionSchema = [4, n0, _Pr,
   0,
@@ -2779,6 +3170,12 @@ export var CreateABTest$: StaticOperationSchema = [9, n0, _CABT,
 export var CreateEvent$: StaticOperationSchema = [9, n0, _CEr,
   { [_ht]: ["POST", "/memories/{memoryId}/events", 201] }, () => CreateEventInput$, () => CreateEventOutput$
 ];
+export var CreatePaymentInstrument$: StaticOperationSchema = [9, n0, _CPI,
+  { [_ht]: ["POST", "/payments/createPaymentInstrument", 201] }, () => CreatePaymentInstrumentRequest$, () => CreatePaymentInstrumentResponse$
+];
+export var CreatePaymentSession$: StaticOperationSchema = [9, n0, _CPS,
+  { [_ht]: ["POST", "/payments/createPaymentSession", 201] }, () => CreatePaymentSessionRequest$, () => CreatePaymentSessionResponse$
+];
 export var DeleteABTest$: StaticOperationSchema = [9, n0, _DABT,
   { [_ht]: ["DELETE", "/ab-tests/{abTestId}", 202] }, () => DeleteABTestRequest$, () => DeleteABTestResponse$
 ];
@@ -2790,6 +3187,12 @@ export var DeleteEvent$: StaticOperationSchema = [9, n0, _DE,
 ];
 export var DeleteMemoryRecord$: StaticOperationSchema = [9, n0, _DMR,
   { [_ht]: ["DELETE", "/memories/{memoryId}/memoryRecords/{memoryRecordId}", 200] }, () => DeleteMemoryRecordInput$, () => DeleteMemoryRecordOutput$
+];
+export var DeletePaymentInstrument$: StaticOperationSchema = [9, n0, _DPI,
+  { [_ht]: ["POST", "/payments/deletePaymentInstrument", 200] }, () => DeletePaymentInstrumentRequest$, () => DeletePaymentInstrumentResponse$
+];
+export var DeletePaymentSession$: StaticOperationSchema = [9, n0, _DPS,
+  { [_ht]: ["POST", "/payments/deletePaymentSession", 200] }, () => DeletePaymentSessionRequest$, () => DeletePaymentSessionResponse$
 ];
 export var DeleteRecommendation$: StaticOperationSchema = [9, n0, _DR,
   { [_ht]: ["DELETE", "/recommendations/{recommendationId}", 202] }, () => DeleteRecommendationRequest$, () => DeleteRecommendationResponse$
@@ -2818,6 +3221,15 @@ export var GetEvent$: StaticOperationSchema = [9, n0, _GE,
 export var GetMemoryRecord$: StaticOperationSchema = [9, n0, _GMR,
   { [_ht]: ["GET", "/memories/{memoryId}/memoryRecord/{memoryRecordId}", 200] }, () => GetMemoryRecordInput$, () => GetMemoryRecordOutput$
 ];
+export var GetPaymentInstrument$: StaticOperationSchema = [9, n0, _GPI,
+  { [_ht]: ["POST", "/payments/getPaymentInstrument", 200] }, () => GetPaymentInstrumentRequest$, () => GetPaymentInstrumentResponse$
+];
+export var GetPaymentInstrumentBalance$: StaticOperationSchema = [9, n0, _GPIB,
+  { [_ht]: ["POST", "/payments/getPaymentInstrumentBalance", 200] }, () => GetPaymentInstrumentBalanceRequest$, () => GetPaymentInstrumentBalanceResponse$
+];
+export var GetPaymentSession$: StaticOperationSchema = [9, n0, _GPS,
+  { [_ht]: ["POST", "/payments/getPaymentSession", 200] }, () => GetPaymentSessionRequest$, () => GetPaymentSessionResponse$
+];
 export var GetRecommendation$: StaticOperationSchema = [9, n0, _GR,
   { [_ht]: ["GET", "/recommendations/{recommendationId}", 200] }, () => GetRecommendationRequest$, () => GetRecommendationResponse$
 ];
@@ -2826,6 +3238,9 @@ export var GetResourceApiKey$: StaticOperationSchema = [9, n0, _GRAK,
 ];
 export var GetResourceOauth2Token$: StaticOperationSchema = [9, n0, _GROT,
   { [_ht]: ["POST", "/identities/oauth2/token", 200] }, () => GetResourceOauth2TokenRequest$, () => GetResourceOauth2TokenResponse$
+];
+export var GetResourcePaymentToken$: StaticOperationSchema = [9, n0, _GRPT,
+  { [_ht]: ["POST", "/identities/payment/token", 200] }, () => GetResourcePaymentTokenRequest$, () => GetResourcePaymentTokenResponse$
 ];
 export var GetWorkloadAccessToken$: StaticOperationSchema = [9, n0, _GWAT,
   { [_ht]: ["POST", "/identities/GetWorkloadAccessToken", 200] }, () => GetWorkloadAccessTokenRequest$, () => GetWorkloadAccessTokenResponse$
@@ -2854,7 +3269,7 @@ export var InvokeHarness$: StaticOperationSchema = [9, n0, _IH,
 export var ListABTests$: StaticOperationSchema = [9, n0, _LABT,
   { [_ht]: ["GET", "/ab-tests", 200] }, () => ListABTestsRequest$, () => ListABTestsResponse$
 ];
-export var ListActors$: StaticOperationSchema = [9, n0, _LA,
+export var ListActors$: StaticOperationSchema = [9, n0, _LAi,
   { [_ht]: ["POST", "/memories/{memoryId}/actors", 200] }, () => ListActorsInput$, () => ListActorsOutput$
 ];
 export var ListBatchEvaluations$: StaticOperationSchema = [9, n0, _LBE,
@@ -2875,11 +3290,20 @@ export var ListMemoryExtractionJobs$: StaticOperationSchema = [9, n0, _LMEJ,
 export var ListMemoryRecords$: StaticOperationSchema = [9, n0, _LMR,
   { [_ht]: ["POST", "/memories/{memoryId}/memoryRecords", 200] }, () => ListMemoryRecordsInput$, () => ListMemoryRecordsOutput$
 ];
+export var ListPaymentInstruments$: StaticOperationSchema = [9, n0, _LPI,
+  { [_ht]: ["POST", "/payments/listPaymentInstruments", 200] }, () => ListPaymentInstrumentsRequest$, () => ListPaymentInstrumentsResponse$
+];
+export var ListPaymentSessions$: StaticOperationSchema = [9, n0, _LPS,
+  { [_ht]: ["POST", "/payments/listPaymentSessions", 200] }, () => ListPaymentSessionsRequest$, () => ListPaymentSessionsResponse$
+];
 export var ListRecommendations$: StaticOperationSchema = [9, n0, _LR,
   { [_ht]: ["GET", "/recommendations", 200] }, () => ListRecommendationsRequest$, () => ListRecommendationsResponse$
 ];
 export var ListSessions$: StaticOperationSchema = [9, n0, _LS,
   { [_ht]: ["POST", "/memories/{memoryId}/actor/{actorId}/sessions", 200] }, () => ListSessionsInput$, () => ListSessionsOutput$
+];
+export var ProcessPayment$: StaticOperationSchema = [9, n0, _PP,
+  { [_ht]: ["POST", "/payments/processPayment", 200] }, () => ProcessPaymentRequest$, () => ProcessPaymentResponse$
 ];
 export var RetrieveMemoryRecords$: StaticOperationSchema = [9, n0, _RMR,
   { [_ht]: ["POST", "/memories/{memoryId}/retrieve", 200] }, () => RetrieveMemoryRecordsInput$, () => RetrieveMemoryRecordsOutput$
