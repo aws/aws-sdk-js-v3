@@ -56,6 +56,8 @@ import {
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
   CodeInterpreterSummary$,
+  CoinbaseCdpConfigurationInput$,
+  CoinbaseCdpConfigurationOutput$,
   ComponentConfiguration$,
   ConcurrentModificationException,
   ConcurrentModificationException$,
@@ -133,6 +135,18 @@ import {
   CreateOnlineEvaluationConfigCommand,
   CreateOnlineEvaluationConfigRequest$,
   CreateOnlineEvaluationConfigResponse$,
+  CreatePaymentConnector$,
+  CreatePaymentConnectorCommand,
+  CreatePaymentConnectorRequest$,
+  CreatePaymentConnectorResponse$,
+  CreatePaymentCredentialProvider$,
+  CreatePaymentCredentialProviderCommand,
+  CreatePaymentCredentialProviderRequest$,
+  CreatePaymentCredentialProviderResponse$,
+  CreatePaymentManager$,
+  CreatePaymentManagerCommand,
+  CreatePaymentManagerRequest$,
+  CreatePaymentManagerResponse$,
   CreatePolicy$,
   CreatePolicyCommand,
   CreatePolicyEngine$,
@@ -157,6 +171,7 @@ import {
   CredentialProviderConfiguration$,
   CredentialProviderType,
   CredentialProviderVendorType,
+  CredentialsProviderConfiguration$,
   CustomClaimValidationType$,
   CustomConfigurationInput$,
   CustomConsolidationConfiguration$,
@@ -234,6 +249,18 @@ import {
   DeleteOnlineEvaluationConfigCommand,
   DeleteOnlineEvaluationConfigRequest$,
   DeleteOnlineEvaluationConfigResponse$,
+  DeletePaymentConnector$,
+  DeletePaymentConnectorCommand,
+  DeletePaymentConnectorRequest$,
+  DeletePaymentConnectorResponse$,
+  DeletePaymentCredentialProvider$,
+  DeletePaymentCredentialProviderCommand,
+  DeletePaymentCredentialProviderRequest$,
+  DeletePaymentCredentialProviderResponse$,
+  DeletePaymentManager$,
+  DeletePaymentManagerCommand,
+  DeletePaymentManagerRequest$,
+  DeletePaymentManagerResponse$,
   DeletePolicy$,
   DeletePolicyCommand,
   DeletePolicyEngine$,
@@ -367,6 +394,18 @@ import {
   GetOnlineEvaluationConfigCommand,
   GetOnlineEvaluationConfigRequest$,
   GetOnlineEvaluationConfigResponse$,
+  GetPaymentConnector$,
+  GetPaymentConnectorCommand,
+  GetPaymentConnectorRequest$,
+  GetPaymentConnectorResponse$,
+  GetPaymentCredentialProvider$,
+  GetPaymentCredentialProviderCommand,
+  GetPaymentCredentialProviderRequest$,
+  GetPaymentCredentialProviderResponse$,
+  GetPaymentManager$,
+  GetPaymentManagerCommand,
+  GetPaymentManagerRequest$,
+  GetPaymentManagerResponse$,
   GetPolicy$,
   GetPolicyCommand,
   GetPolicyEngine$,
@@ -526,6 +565,18 @@ import {
   ListOnlineEvaluationConfigsCommand,
   ListOnlineEvaluationConfigsRequest$,
   ListOnlineEvaluationConfigsResponse$,
+  ListPaymentConnectors$,
+  ListPaymentConnectorsCommand,
+  ListPaymentConnectorsRequest$,
+  ListPaymentConnectorsResponse$,
+  ListPaymentCredentialProviders$,
+  ListPaymentCredentialProvidersCommand,
+  ListPaymentCredentialProvidersRequest$,
+  ListPaymentCredentialProvidersResponse$,
+  ListPaymentManagers$,
+  ListPaymentManagersCommand,
+  ListPaymentManagersRequest$,
+  ListPaymentManagersResponse$,
   ListPolicies$,
   ListPoliciesCommand,
   ListPoliciesRequest$,
@@ -631,6 +682,9 @@ import {
   paginateListMemories,
   paginateListOauth2CredentialProviders,
   paginateListOnlineEvaluationConfigs,
+  paginateListPaymentConnectors,
+  paginateListPaymentCredentialProviders,
+  paginateListPaymentManagers,
   paginateListPolicies,
   paginateListPolicyEngines,
   paginateListPolicyGenerationAssets,
@@ -638,6 +692,17 @@ import {
   paginateListRegistries,
   paginateListRegistryRecords,
   paginateListWorkloadIdentities,
+  PaymentConnectorStatus,
+  PaymentConnectorSummary$,
+  PaymentConnectorType,
+  PaymentCredentialProviderConfiguration$,
+  PaymentCredentialProviderItem$,
+  PaymentCredentialProviderVendorType,
+  PaymentManagerStatus,
+  PaymentManagerSummary$,
+  PaymentProviderConfigurationInput$,
+  PaymentProviderConfigurationOutput$,
+  PaymentsAuthorizerType,
   Policy$,
   PolicyDefinition$,
   PolicyEngine$,
@@ -733,6 +798,8 @@ import {
   StreamingConfiguration$,
   StringListValidation$,
   StringValidation$,
+  StripePrivyConfigurationInput$,
+  StripePrivyConfigurationOutput$,
   SubmitRegistryRecordForApproval$,
   SubmitRegistryRecordForApprovalCommand,
   SubmitRegistryRecordForApprovalRequest$,
@@ -845,6 +912,18 @@ import {
   UpdateOnlineEvaluationConfigCommand,
   UpdateOnlineEvaluationConfigRequest$,
   UpdateOnlineEvaluationConfigResponse$,
+  UpdatePaymentConnector$,
+  UpdatePaymentConnectorCommand,
+  UpdatePaymentConnectorRequest$,
+  UpdatePaymentConnectorResponse$,
+  UpdatePaymentCredentialProvider$,
+  UpdatePaymentCredentialProviderCommand,
+  UpdatePaymentCredentialProviderRequest$,
+  UpdatePaymentCredentialProviderResponse$,
+  UpdatePaymentManager$,
+  UpdatePaymentManagerCommand,
+  UpdatePaymentManagerRequest$,
+  UpdatePaymentManagerResponse$,
   UpdatePolicy$,
   UpdatePolicyCommand,
   UpdatePolicyEngine$,
@@ -936,6 +1015,12 @@ assert(typeof CreateOauth2CredentialProviderCommand === "function");
 assert(typeof CreateOauth2CredentialProvider$ === "object");
 assert(typeof CreateOnlineEvaluationConfigCommand === "function");
 assert(typeof CreateOnlineEvaluationConfig$ === "object");
+assert(typeof CreatePaymentConnectorCommand === "function");
+assert(typeof CreatePaymentConnector$ === "object");
+assert(typeof CreatePaymentCredentialProviderCommand === "function");
+assert(typeof CreatePaymentCredentialProvider$ === "object");
+assert(typeof CreatePaymentManagerCommand === "function");
+assert(typeof CreatePaymentManager$ === "object");
 assert(typeof CreatePolicyCommand === "function");
 assert(typeof CreatePolicy$ === "object");
 assert(typeof CreatePolicyEngineCommand === "function");
@@ -976,6 +1061,12 @@ assert(typeof DeleteOauth2CredentialProviderCommand === "function");
 assert(typeof DeleteOauth2CredentialProvider$ === "object");
 assert(typeof DeleteOnlineEvaluationConfigCommand === "function");
 assert(typeof DeleteOnlineEvaluationConfig$ === "object");
+assert(typeof DeletePaymentConnectorCommand === "function");
+assert(typeof DeletePaymentConnector$ === "object");
+assert(typeof DeletePaymentCredentialProviderCommand === "function");
+assert(typeof DeletePaymentCredentialProvider$ === "object");
+assert(typeof DeletePaymentManagerCommand === "function");
+assert(typeof DeletePaymentManager$ === "object");
 assert(typeof DeletePolicyCommand === "function");
 assert(typeof DeletePolicy$ === "object");
 assert(typeof DeletePolicyEngineCommand === "function");
@@ -1020,6 +1111,12 @@ assert(typeof GetOauth2CredentialProviderCommand === "function");
 assert(typeof GetOauth2CredentialProvider$ === "object");
 assert(typeof GetOnlineEvaluationConfigCommand === "function");
 assert(typeof GetOnlineEvaluationConfig$ === "object");
+assert(typeof GetPaymentConnectorCommand === "function");
+assert(typeof GetPaymentConnector$ === "object");
+assert(typeof GetPaymentCredentialProviderCommand === "function");
+assert(typeof GetPaymentCredentialProvider$ === "object");
+assert(typeof GetPaymentManagerCommand === "function");
+assert(typeof GetPaymentManager$ === "object");
 assert(typeof GetPolicyCommand === "function");
 assert(typeof GetPolicy$ === "object");
 assert(typeof GetPolicyEngineCommand === "function");
@@ -1070,6 +1167,12 @@ assert(typeof ListOauth2CredentialProvidersCommand === "function");
 assert(typeof ListOauth2CredentialProviders$ === "object");
 assert(typeof ListOnlineEvaluationConfigsCommand === "function");
 assert(typeof ListOnlineEvaluationConfigs$ === "object");
+assert(typeof ListPaymentConnectorsCommand === "function");
+assert(typeof ListPaymentConnectors$ === "object");
+assert(typeof ListPaymentCredentialProvidersCommand === "function");
+assert(typeof ListPaymentCredentialProviders$ === "object");
+assert(typeof ListPaymentManagersCommand === "function");
+assert(typeof ListPaymentManagers$ === "object");
 assert(typeof ListPoliciesCommand === "function");
 assert(typeof ListPolicies$ === "object");
 assert(typeof ListPolicyEnginesCommand === "function");
@@ -1124,6 +1227,12 @@ assert(typeof UpdateOauth2CredentialProviderCommand === "function");
 assert(typeof UpdateOauth2CredentialProvider$ === "object");
 assert(typeof UpdateOnlineEvaluationConfigCommand === "function");
 assert(typeof UpdateOnlineEvaluationConfig$ === "object");
+assert(typeof UpdatePaymentConnectorCommand === "function");
+assert(typeof UpdatePaymentConnector$ === "object");
+assert(typeof UpdatePaymentCredentialProviderCommand === "function");
+assert(typeof UpdatePaymentCredentialProvider$ === "object");
+assert(typeof UpdatePaymentManagerCommand === "function");
+assert(typeof UpdatePaymentManager$ === "object");
 assert(typeof UpdatePolicyCommand === "function");
 assert(typeof UpdatePolicy$ === "object");
 assert(typeof UpdatePolicyEngineCommand === "function");
@@ -1175,6 +1284,8 @@ assert(typeof CodeBasedEvaluatorConfig$ === "object");
 assert(typeof CodeConfiguration$ === "object");
 assert(typeof CodeInterpreterNetworkConfiguration$ === "object");
 assert(typeof CodeInterpreterSummary$ === "object");
+assert(typeof CoinbaseCdpConfigurationInput$ === "object");
+assert(typeof CoinbaseCdpConfigurationOutput$ === "object");
 assert(typeof ComponentConfiguration$ === "object");
 assert(typeof Condition$ === "object");
 assert(typeof ConfigurationBundleAction$ === "object");
@@ -1215,6 +1326,12 @@ assert(typeof CreateOauth2CredentialProviderRequest$ === "object");
 assert(typeof CreateOauth2CredentialProviderResponse$ === "object");
 assert(typeof CreateOnlineEvaluationConfigRequest$ === "object");
 assert(typeof CreateOnlineEvaluationConfigResponse$ === "object");
+assert(typeof CreatePaymentConnectorRequest$ === "object");
+assert(typeof CreatePaymentConnectorResponse$ === "object");
+assert(typeof CreatePaymentCredentialProviderRequest$ === "object");
+assert(typeof CreatePaymentCredentialProviderResponse$ === "object");
+assert(typeof CreatePaymentManagerRequest$ === "object");
+assert(typeof CreatePaymentManagerResponse$ === "object");
 assert(typeof CreatePolicyEngineRequest$ === "object");
 assert(typeof CreatePolicyEngineResponse$ === "object");
 assert(typeof CreatePolicyRequest$ === "object");
@@ -1227,6 +1344,7 @@ assert(typeof CreateWorkloadIdentityRequest$ === "object");
 assert(typeof CreateWorkloadIdentityResponse$ === "object");
 assert(typeof CredentialProvider$ === "object");
 assert(typeof CredentialProviderConfiguration$ === "object");
+assert(typeof CredentialsProviderConfiguration$ === "object");
 assert(typeof CustomClaimValidationType$ === "object");
 assert(typeof CustomConfigurationInput$ === "object");
 assert(typeof CustomConsolidationConfiguration$ === "object");
@@ -1272,6 +1390,12 @@ assert(typeof DeleteOauth2CredentialProviderRequest$ === "object");
 assert(typeof DeleteOauth2CredentialProviderResponse$ === "object");
 assert(typeof DeleteOnlineEvaluationConfigRequest$ === "object");
 assert(typeof DeleteOnlineEvaluationConfigResponse$ === "object");
+assert(typeof DeletePaymentConnectorRequest$ === "object");
+assert(typeof DeletePaymentConnectorResponse$ === "object");
+assert(typeof DeletePaymentCredentialProviderRequest$ === "object");
+assert(typeof DeletePaymentCredentialProviderResponse$ === "object");
+assert(typeof DeletePaymentManagerRequest$ === "object");
+assert(typeof DeletePaymentManagerResponse$ === "object");
 assert(typeof DeletePolicyEngineRequest$ === "object");
 assert(typeof DeletePolicyEngineResponse$ === "object");
 assert(typeof DeletePolicyRequest$ === "object");
@@ -1346,6 +1470,12 @@ assert(typeof GetOauth2CredentialProviderRequest$ === "object");
 assert(typeof GetOauth2CredentialProviderResponse$ === "object");
 assert(typeof GetOnlineEvaluationConfigRequest$ === "object");
 assert(typeof GetOnlineEvaluationConfigResponse$ === "object");
+assert(typeof GetPaymentConnectorRequest$ === "object");
+assert(typeof GetPaymentConnectorResponse$ === "object");
+assert(typeof GetPaymentCredentialProviderRequest$ === "object");
+assert(typeof GetPaymentCredentialProviderResponse$ === "object");
+assert(typeof GetPaymentManagerRequest$ === "object");
+assert(typeof GetPaymentManagerResponse$ === "object");
 assert(typeof GetPolicyEngineRequest$ === "object");
 assert(typeof GetPolicyEngineResponse$ === "object");
 assert(typeof GetPolicyGenerationRequest$ === "object");
@@ -1446,6 +1576,12 @@ assert(typeof ListOauth2CredentialProvidersRequest$ === "object");
 assert(typeof ListOauth2CredentialProvidersResponse$ === "object");
 assert(typeof ListOnlineEvaluationConfigsRequest$ === "object");
 assert(typeof ListOnlineEvaluationConfigsResponse$ === "object");
+assert(typeof ListPaymentConnectorsRequest$ === "object");
+assert(typeof ListPaymentConnectorsResponse$ === "object");
+assert(typeof ListPaymentCredentialProvidersRequest$ === "object");
+assert(typeof ListPaymentCredentialProvidersResponse$ === "object");
+assert(typeof ListPaymentManagersRequest$ === "object");
+assert(typeof ListPaymentManagersResponse$ === "object");
 assert(typeof ListPoliciesRequest$ === "object");
 assert(typeof ListPoliciesResponse$ === "object");
 assert(typeof ListPolicyEnginesRequest$ === "object");
@@ -1507,6 +1643,12 @@ assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OnBehalfOfTokenExchangeConfigType$ === "object");
 assert(typeof OnlineEvaluationConfigSummary$ === "object");
 assert(typeof OutputConfig$ === "object");
+assert(typeof PaymentConnectorSummary$ === "object");
+assert(typeof PaymentCredentialProviderConfiguration$ === "object");
+assert(typeof PaymentCredentialProviderItem$ === "object");
+assert(typeof PaymentManagerSummary$ === "object");
+assert(typeof PaymentProviderConfigurationInput$ === "object");
+assert(typeof PaymentProviderConfigurationOutput$ === "object");
 assert(typeof Policy$ === "object");
 assert(typeof PolicyDefinition$ === "object");
 assert(typeof PolicyEngine$ === "object");
@@ -1572,6 +1714,8 @@ assert(typeof StreamDeliveryResources$ === "object");
 assert(typeof StreamingConfiguration$ === "object");
 assert(typeof StringListValidation$ === "object");
 assert(typeof StringValidation$ === "object");
+assert(typeof StripePrivyConfigurationInput$ === "object");
+assert(typeof StripePrivyConfigurationOutput$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalRequest$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalResponse$ === "object");
 assert(typeof SummaryConsolidationOverride$ === "object");
@@ -1643,6 +1787,12 @@ assert(typeof UpdateOauth2CredentialProviderRequest$ === "object");
 assert(typeof UpdateOauth2CredentialProviderResponse$ === "object");
 assert(typeof UpdateOnlineEvaluationConfigRequest$ === "object");
 assert(typeof UpdateOnlineEvaluationConfigResponse$ === "object");
+assert(typeof UpdatePaymentConnectorRequest$ === "object");
+assert(typeof UpdatePaymentConnectorResponse$ === "object");
+assert(typeof UpdatePaymentCredentialProviderRequest$ === "object");
+assert(typeof UpdatePaymentCredentialProviderResponse$ === "object");
+assert(typeof UpdatePaymentManagerRequest$ === "object");
+assert(typeof UpdatePaymentManagerResponse$ === "object");
 assert(typeof UpdatePolicyEngineRequest$ === "object");
 assert(typeof UpdatePolicyEngineResponse$ === "object");
 assert(typeof UpdatePolicyRequest$ === "object");
@@ -1722,6 +1872,11 @@ assert(typeof OnBehalfOfTokenExchangeGrantTypeType === "object");
 assert(typeof OnlineEvaluationConfigStatus === "object");
 assert(typeof OnlineEvaluationExecutionStatus === "object");
 assert(typeof OverrideType === "object");
+assert(typeof PaymentConnectorStatus === "object");
+assert(typeof PaymentConnectorType === "object");
+assert(typeof PaymentCredentialProviderVendorType === "object");
+assert(typeof PaymentManagerStatus === "object");
+assert(typeof PaymentsAuthorizerType === "object");
 assert(typeof PolicyEngineStatus === "object");
 assert(typeof PolicyGenerationStatus === "object");
 assert(typeof PolicyStatus === "object");
@@ -1803,6 +1958,9 @@ assert(typeof paginateListHarnesses === "function");
 assert(typeof paginateListMemories === "function");
 assert(typeof paginateListOauth2CredentialProviders === "function");
 assert(typeof paginateListOnlineEvaluationConfigs === "function");
+assert(typeof paginateListPaymentConnectors === "function");
+assert(typeof paginateListPaymentCredentialProviders === "function");
+assert(typeof paginateListPaymentManagers === "function");
 assert(typeof paginateListPolicies === "function");
 assert(typeof paginateListPolicyEngines === "function");
 assert(typeof paginateListPolicyGenerationAssets === "function");

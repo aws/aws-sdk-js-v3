@@ -60,11 +60,14 @@ const _CBSL = "ConfigurationBundleSummaryList";
 const _CBVS = "ConfigurationBundleVersionSummary";
 const _CBVSL = "ConfigurationBundleVersionSummaryList";
 const _CC = "CodeConfiguration";
+const _CCAKST = "CoinbaseCdpApiKeySecretType";
 const _CCB = "CreateConfigurationBundle";
 const _CCBR = "CreateConfigurationBundleRequest";
 const _CCBRr = "CreateConfigurationBundleResponse";
 const _CCC = "CustomConsolidationConfiguration";
-const _CCCI = "CustomConsolidationConfigurationInput";
+const _CCCI = "CoinbaseCdpConfigurationInput";
+const _CCCIu = "CustomConsolidationConfigurationInput";
+const _CCCO = "CoinbaseCdpConfigurationOutput";
 const _CCI = "CustomConfigurationInput";
 const _CCIR = "CreateCodeInterpreterRequest";
 const _CCIRr = "CreateCodeInterpreterResponse";
@@ -73,6 +76,7 @@ const _CCL = "ContentConfigurationList";
 const _CCM = "ComponentConfigurationMap";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
+const _CCWST = "CoinbaseCdpWalletSecretType";
 const _CCo = "ComponentConfiguration";
 const _CCon = "ContainerConfiguration";
 const _CCons = "ConsolidationConfiguration";
@@ -117,10 +121,21 @@ const _COPCI = "CustomOauth2ProviderConfigInput";
 const _COPCO = "CustomOauth2ProviderConfigOutput";
 const _CP = "CedarPolicy";
 const _CPC = "CredentialProviderConfiguration";
+const _CPCP = "CreatePaymentCredentialProvider";
+const _CPCPR = "CreatePaymentCredentialProviderRequest";
+const _CPCPRr = "CreatePaymentCredentialProviderResponse";
+const _CPCR = "CreatePaymentConnectorRequest";
+const _CPCRr = "CreatePaymentConnectorResponse";
 const _CPCr = "CredentialProviderConfigurations";
+const _CPCre = "CredentialsProviderConfigurations";
+const _CPCrea = "CreatePaymentConnector";
+const _CPCred = "CredentialsProviderConfiguration";
 const _CPE = "CreatePolicyEngine";
 const _CPER = "CreatePolicyEngineRequest";
 const _CPERr = "CreatePolicyEngineResponse";
+const _CPM = "CreatePaymentManager";
+const _CPMR = "CreatePaymentManagerRequest";
+const _CPMRr = "CreatePaymentManagerResponse";
 const _CPR = "CreatePolicyRequest";
 const _CPRr = "CreatePolicyResponse";
 const _CPr = "CredentialProvider";
@@ -197,9 +212,18 @@ const _DOEC = "DeleteOnlineEvaluationConfig";
 const _DOECR = "DeleteOnlineEvaluationConfigRequest";
 const _DOECRe = "DeleteOnlineEvaluationConfigResponse";
 const _DP = "DeletePolicy";
+const _DPC = "DeletePaymentConnector";
+const _DPCP = "DeletePaymentCredentialProvider";
+const _DPCPR = "DeletePaymentCredentialProviderRequest";
+const _DPCPRe = "DeletePaymentCredentialProviderResponse";
+const _DPCR = "DeletePaymentConnectorRequest";
+const _DPCRe = "DeletePaymentConnectorResponse";
 const _DPE = "DeletePolicyEngine";
 const _DPER = "DeletePolicyEngineRequest";
 const _DPERe = "DeletePolicyEngineResponse";
+const _DPM = "DeletePaymentManager";
+const _DPMR = "DeletePaymentManagerRequest";
+const _DPMRe = "DeletePaymentManagerResponse";
 const _DPR = "DeletePolicyRequest";
 const _DPRe = "DeletePolicyResponse";
 const _DR = "DeleteRegistry";
@@ -309,6 +333,12 @@ const _GOPCO = "GithubOauth2ProviderConfigOutput";
 const _GOPCOo = "GoogleOauth2ProviderConfigOutput";
 const _GP = "GetPolicy";
 const _GPC = "GatewayProtocolConfiguration";
+const _GPCP = "GetPaymentCredentialProvider";
+const _GPCPR = "GetPaymentCredentialProviderRequest";
+const _GPCPRe = "GetPaymentCredentialProviderResponse";
+const _GPCR = "GetPaymentConnectorRequest";
+const _GPCRe = "GetPaymentConnectorResponse";
+const _GPCe = "GetPaymentConnector";
 const _GPE = "GetPolicyEngine";
 const _GPEC = "GatewayPolicyEngineConfiguration";
 const _GPER = "GetPolicyEngineRequest";
@@ -316,6 +346,9 @@ const _GPERe = "GetPolicyEngineResponse";
 const _GPG = "GetPolicyGeneration";
 const _GPGR = "GetPolicyGenerationRequest";
 const _GPGRe = "GetPolicyGenerationResponse";
+const _GPM = "GetPaymentManager";
+const _GPMR = "GetPaymentManagerRequest";
+const _GPMRe = "GetPaymentManagerResponse";
 const _GPR = "GetPolicyRequest";
 const _GPRe = "GetPolicyResponse";
 const _GR = "GatewayRules";
@@ -451,6 +484,12 @@ const _LOECRi = "ListOnlineEvaluationConfigsResponse";
 const _LOPCI = "LinkedinOauth2ProviderConfigInput";
 const _LOPCO = "LinkedinOauth2ProviderConfigOutput";
 const _LP = "ListPolicies";
+const _LPC = "ListPaymentConnectors";
+const _LPCP = "ListPaymentCredentialProviders";
+const _LPCPR = "ListPaymentCredentialProvidersRequest";
+const _LPCPRi = "ListPaymentCredentialProvidersResponse";
+const _LPCR = "ListPaymentConnectorsRequest";
+const _LPCRi = "ListPaymentConnectorsResponse";
 const _LPE = "ListPolicyEngines";
 const _LPER = "ListPolicyEnginesRequest";
 const _LPERi = "ListPolicyEnginesResponse";
@@ -460,6 +499,9 @@ const _LPGAR = "ListPolicyGenerationAssetsRequest";
 const _LPGARi = "ListPolicyGenerationAssetsResponse";
 const _LPGR = "ListPolicyGenerationsRequest";
 const _LPGRi = "ListPolicyGenerationsResponse";
+const _LPM = "ListPaymentManagers";
+const _LPMR = "ListPaymentManagersRequest";
+const _LPMRi = "ListPaymentManagersResponse";
 const _LPR = "ListPoliciesRequest";
 const _LPRi = "ListPoliciesResponse";
 const _LR = "ListRegistries";
@@ -530,6 +572,11 @@ const _OPCI = "Oauth2ProviderConfigInput";
 const _OPCO = "Oauth2ProviderConfigOutput";
 const _P = "Prompt";
 const _PC = "ProtocolConfiguration";
+const _PCP = "PaymentCredentialProviders";
+const _PCPC = "PaymentCredentialProviderConfiguration";
+const _PCPI = "PaymentCredentialProviderItem";
+const _PCS = "PaymentConnectorSummary";
+const _PCSa = "PaymentConnectorSummaries";
 const _PD = "PolicyDefinition";
 const _PE = "PolicyEngine";
 const _PEMR = "PrivateEndpointManagedResources";
@@ -542,6 +589,10 @@ const _PGA = "PolicyGenerationAsset";
 const _PGAo = "PolicyGenerationAssets";
 const _PGD = "PolicyGenerationDetails";
 const _PGo = "PolicyGenerations";
+const _PMS = "PaymentManagerSummary";
+const _PMSa = "PaymentManagerSummaries";
+const _PPCI = "PaymentProviderConfigurationInput";
+const _PPCO = "PaymentProviderConfigurationOutput";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
@@ -612,6 +663,10 @@ const _SOPCIl = "SlackOauth2ProviderConfigInput";
 const _SOPCO = "SalesforceOauth2ProviderConfigOutput";
 const _SOPCOl = "SlackOauth2ProviderConfigOutput";
 const _SP = "SchemaProperties";
+const _SPAPKT = "StripePrivyAuthorizationPrivateKeyType";
+const _SPAST = "StripePrivyAppSecretType";
+const _SPCI = "StripePrivyConfigurationInput";
+const _SPCO = "StripePrivyConfigurationOutput";
 const _SPG = "StartPolicyGeneration";
 const _SPGR = "StartPolicyGenerationRequest";
 const _SPGRt = "StartPolicyGenerationResponse";
@@ -704,11 +759,20 @@ const _UOEC = "UpdateOnlineEvaluationConfig";
 const _UOECR = "UpdateOnlineEvaluationConfigRequest";
 const _UOECRp = "UpdateOnlineEvaluationConfigResponse";
 const _UP = "UpdatePolicy";
+const _UPC = "UpdatePaymentConnector";
 const _UPCO = "UserPreferenceConsolidationOverride";
+const _UPCP = "UpdatePaymentCredentialProvider";
+const _UPCPR = "UpdatePaymentCredentialProviderRequest";
+const _UPCPRp = "UpdatePaymentCredentialProviderResponse";
+const _UPCR = "UpdatePaymentConnectorRequest";
+const _UPCRp = "UpdatePaymentConnectorResponse";
 const _UPE = "UpdatePolicyEngine";
 const _UPEO = "UserPreferenceExtractionOverride";
 const _UPER = "UpdatePolicyEngineRequest";
 const _UPERp = "UpdatePolicyEngineResponse";
+const _UPM = "UpdatePaymentManager";
+const _UPMR = "UpdatePaymentManagerRequest";
+const _UPMRp = "UpdatePaymentManagerResponse";
 const _UPMSI = "UserPreferenceMemoryStrategyInput";
 const _UPOCCI = "UserPreferenceOverrideConsolidationConfigurationInput";
 const _UPOCI = "UserPreferenceOverrideConfigurationInput";
@@ -768,16 +832,22 @@ const _aG = "apiGateway";
 const _aGTC = "apiGatewayToolConfiguration";
 const _aI = "actorId";
 const _aIK = "addIndexedKeys";
+const _aIp = "appId";
+const _aIu = "authorizationId";
 const _aIw = "awsIam";
 const _aK = "apiKey";
 const _aKA = "apiKeyArn";
 const _aKCP = "apiKeyCredentialProvider";
+const _aKI = "apiKeyId";
+const _aKS = "apiKeySecret";
 const _aKSA = "apiKeySecretArn";
 const _aMRF = "additionalModelRequestFields";
 const _aMS = "addMemoryStrategies";
 const _aO = "anyOf";
 const _aOPC = "atlassianOauth2ProviderConfig";
 const _aPA = "accessPointArn";
+const _aPK = "authorizationPrivateKey";
+const _aPKA = "authorizationPrivateKeyArn";
 const _aQP = "allowedQueryParameters";
 const _aR = "agentRuntimes";
 const _aRA = "agentRuntimeArn";
@@ -791,8 +861,10 @@ const _aRORU = "allowedResourceOauth2ReturnUrls";
 const _aRV = "agentRuntimeVersion";
 const _aRg = "agentcoreRuntime";
 const _aS = "allowedScopes";
+const _aSA = "appSecretArn";
 const _aSM = "authorizationServerMetadata";
 const _aSg = "agentSkills";
+const _aSp = "appSecret";
 const _aT = "authorizerType";
 const _aTC = "actorTokenContent";
 const _aTP = "appendToPrompt";
@@ -826,6 +898,8 @@ const _cBo = "configurationBundle";
 const _cBod = "codeBased";
 const _cC = "customClaims";
 const _cCC = "customConsolidationConfiguration";
+const _cCCo = "coinbaseCdpConfiguration";
+const _cCDP = "coinbaseCDP";
 const _cCo = "contentConfigurations";
 const _cCod = "codeConfiguration";
 const _cCon = "containerConfiguration";
@@ -1067,6 +1141,10 @@ const _pA = "profileArn";
 const _pAo = "policyArn";
 const _pAr = "providerArn";
 const _pC = "protocolConfiguration";
+const _pCI = "paymentConnectorId";
+const _pCIr = "providerConfigurationInput";
+const _pCO = "providerConfigurationOutput";
+const _pCa = "paymentConnectors";
 const _pDBN = "payloadDeliveryBucketName";
 const _pE = "privateEndpoint";
 const _pEA = "policyEngineArn";
@@ -1083,6 +1161,9 @@ const _pGI = "policyGenerationId";
 const _pGo = "policyGeneration";
 const _pI = "profileId";
 const _pIo = "policyId";
+const _pM = "paymentManagers";
+const _pMA = "paymentManagerArn";
+const _pMI = "paymentManagerId";
 const _pRH = "passRequestHeaders";
 const _pRM = "preserveRecentMessages";
 const _pS = "profileSummaries";
@@ -1166,8 +1247,10 @@ const _sOPCa = "salesforceOauth2ProviderConfig";
 const _sOe = "semanticOverride";
 const _sOu = "summaryOverride";
 const _sP = "systemPrompt";
+const _sPC = "stripePrivyConfiguration";
 const _sPa = "samplingPercentage";
 const _sPe = "serverProtocol";
+const _sPt = "stripePrivy";
 const _sR = "statusReasons";
 const _sRt = "statusReason";
 const _sRta = "staticRoute";
@@ -1253,6 +1336,8 @@ const _wIA = "workloadIdentityArn";
 const _wID = "workloadIdentityDetails";
 const _wO = "weightedOverride";
 const _wR = "weightedRoute";
+const _wS = "walletSecret";
+const _wSA = "walletSecretArn";
 const n0 = "com.amazonaws.bedrockagentcorecontrol";
 
 // smithy-typescript generated code
@@ -1385,6 +1470,8 @@ export const errorTypeRegistries = [
 ]
 var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
+var CoinbaseCdpApiKeySecretType: StaticSimpleSchema = [0, n0, _CCAKST, 8, 0];
+var CoinbaseCdpWalletSecretType: StaticSimpleSchema = [0, n0, _CCWST, 8, 0];
 var ConfigurationBundleDescription: StaticSimpleSchema = [0, n0, _CBD, 8, 0];
 var DefaultClientSecretType: StaticSimpleSchema = [0, n0, _DCST, 8, 0];
 var Definition: StaticSimpleSchema = [0, n0, _D, 8, 0];
@@ -1403,6 +1490,8 @@ var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
 var SensitiveText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
+var StripePrivyAppSecretType: StaticSimpleSchema = [0, n0, _SPAST, 8, 0];
+var StripePrivyAuthorizationPrivateKeyType: StaticSimpleSchema = [0, n0, _SPAPKT, 8, 0];
 var TargetDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 var TargetName: StaticSimpleSchema = [0, n0, _TN, 8, 0];
 export var A2aDescriptor$: StaticStructureSchema = [3, n0, _AD,
@@ -1549,6 +1638,16 @@ export var CodeInterpreterSummary$: StaticStructureSchema = [3, n0, _CIS,
   0,
   [_cII, _cIA, _st, _cA, _n, _d, _lUA],
   [0, 0, 0, 5, 0, [() => Description, 0], 5], 4
+];
+export var CoinbaseCdpConfigurationInput$: StaticStructureSchema = [3, n0, _CCCI,
+  0,
+  [_aKI, _aKS, _wS],
+  [0, [() => CoinbaseCdpApiKeySecretType, 0], [() => CoinbaseCdpWalletSecretType, 0]], 3
+];
+export var CoinbaseCdpConfigurationOutput$: StaticStructureSchema = [3, n0, _CCCO,
+  0,
+  [_aKI, _aKSA, _wSA],
+  [0, () => Secret$, () => Secret$], 3
 ];
 export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   8,
@@ -1729,6 +1828,36 @@ export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
   0,
   [_oECA, _oECI, _cA, _st, _eS, _oC, _fR],
   [0, 0, 4, 0, 0, () => OutputConfig$, 0], 5
+];
+export var CreatePaymentConnectorRequest$: StaticStructureSchema = [3, n0, _CPCR,
+  0,
+  [_pMI, _n, _t, _cPC, _d, _cTl],
+  [[0, 1], 0, 0, () => CredentialsProviderConfigurations, 0, [0, 4]], 4
+];
+export var CreatePaymentConnectorResponse$: StaticStructureSchema = [3, n0, _CPCRr,
+  0,
+  [_pCI, _pMI, _n, _t, _cPC, _cA, _st],
+  [0, 0, 0, 0, () => CredentialsProviderConfigurations, 5, 0], 7
+];
+export var CreatePaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _CPCPR,
+  0,
+  [_n, _cPV, _pCIr, _ta],
+  [0, 0, [() => PaymentProviderConfigurationInput$, 0], 128 | 0], 3
+];
+export var CreatePaymentCredentialProviderResponse$: StaticStructureSchema = [3, n0, _CPCPRr,
+  0,
+  [_n, _cPV, _cPA, _pCO],
+  [0, 0, 0, () => PaymentProviderConfigurationOutput$], 4
+];
+export var CreatePaymentManagerRequest$: StaticStructureSchema = [3, n0, _CPMR,
+  0,
+  [_n, _aT, _rA, _d, _aCu, _cTl, _ta],
+  [0, 0, 0, 0, () => AuthorizerConfiguration$, [0, 4], 128 | 0], 3
+];
+export var CreatePaymentManagerResponse$: StaticStructureSchema = [3, n0, _CPMRr,
+  0,
+  [_pMA, _pMI, _n, _aT, _rA, _cA, _st, _aCu, _wID, _ta],
+  [0, 0, 0, 0, 0, 5, 0, () => AuthorizerConfiguration$, () => WorkloadIdentityDetails$, 128 | 0], 7
 ];
 export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
@@ -1969,6 +2098,36 @@ export var DeleteOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
   0,
   [_oECA, _oECI, _st],
   [0, 0, 0], 3
+];
+export var DeletePaymentConnectorRequest$: StaticStructureSchema = [3, n0, _DPCR,
+  0,
+  [_pMI, _pCI, _cTl],
+  [[0, 1], [0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 2
+];
+export var DeletePaymentConnectorResponse$: StaticStructureSchema = [3, n0, _DPCRe,
+  0,
+  [_st, _pCI],
+  [0, 0], 1
+];
+export var DeletePaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _DPCPR,
+  0,
+  [_n],
+  [0], 1
+];
+export var DeletePaymentCredentialProviderResponse$: StaticStructureSchema = [3, n0, _DPCPRe,
+  0,
+  [],
+  []
+];
+export var DeletePaymentManagerRequest$: StaticStructureSchema = [3, n0, _DPMR,
+  0,
+  [_pMI, _cTl],
+  [[0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 1
+];
+export var DeletePaymentManagerResponse$: StaticStructureSchema = [3, n0, _DPMRe,
+  0,
+  [_st, _pMI],
+  [0, 0], 1
 ];
 export var DeletePolicyEngineRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
@@ -2299,6 +2458,36 @@ export var GetOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _
   0,
   [_oECA, _oECI, _oECN, _rul, _dSC, _ev, _st, _eS, _cA, _uA, _d, _oC, _eERA, _fR],
   [0, 0, 0, () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], () => OutputConfig$, 0, 0], 10
+];
+export var GetPaymentConnectorRequest$: StaticStructureSchema = [3, n0, _GPCR,
+  0,
+  [_pMI, _pCI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetPaymentConnectorResponse$: StaticStructureSchema = [3, n0, _GPCRe,
+  0,
+  [_pCI, _n, _t, _cPC, _cA, _lUA, _st, _d],
+  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0], 7
+];
+export var GetPaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GPCPR,
+  0,
+  [_n],
+  [0], 1
+];
+export var GetPaymentCredentialProviderResponse$: StaticStructureSchema = [3, n0, _GPCPRe,
+  0,
+  [_n, _cPA, _cPV, _pCO, _cT, _lUT, _ta],
+  [0, 0, 0, () => PaymentProviderConfigurationOutput$, 4, 4, 128 | 0], 6
+];
+export var GetPaymentManagerRequest$: StaticStructureSchema = [3, n0, _GPMR,
+  0,
+  [_pMI],
+  [[0, 1]], 1
+];
+export var GetPaymentManagerResponse$: StaticStructureSchema = [3, n0, _GPMRe,
+  0,
+  [_pMA, _pMI, _n, _aT, _rA, _cA, _lUA, _st, _d, _aCu, _wID, _ta],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, () => AuthorizerConfiguration$, () => WorkloadIdentityDetails$, 128 | 0], 8
 ];
 export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
   0,
@@ -2740,6 +2929,36 @@ export var ListOnlineEvaluationConfigsResponse$: StaticStructureSchema = [3, n0,
   [_oEC, _nTe],
   [[() => OnlineEvaluationConfigSummaryList, 0], 0], 1
 ];
+export var ListPaymentConnectorsRequest$: StaticStructureSchema = [3, n0, _LPCR,
+  0,
+  [_pMI, _mR, _nTe],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
+];
+export var ListPaymentConnectorsResponse$: StaticStructureSchema = [3, n0, _LPCRi,
+  0,
+  [_pCa, _nTe],
+  [() => PaymentConnectorSummaries, 0], 1
+];
+export var ListPaymentCredentialProvidersRequest$: StaticStructureSchema = [3, n0, _LPCPR,
+  0,
+  [_nTe, _mR],
+  [0, 1]
+];
+export var ListPaymentCredentialProvidersResponse$: StaticStructureSchema = [3, n0, _LPCPRi,
+  0,
+  [_cPre, _nTe],
+  [() => PaymentCredentialProviders, 0], 1
+];
+export var ListPaymentManagersRequest$: StaticStructureSchema = [3, n0, _LPMR,
+  0,
+  [_mR, _nTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
+];
+export var ListPaymentManagersResponse$: StaticStructureSchema = [3, n0, _LPMRi,
+  0,
+  [_pM, _nTe],
+  [() => PaymentManagerSummaries, 0], 1
+];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_pEI, _nTe, _mR, _tRS],
@@ -2994,6 +3213,26 @@ export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_cWC],
   [() => CloudWatchOutputConfig$], 1
+];
+export var PaymentConnectorSummary$: StaticStructureSchema = [3, n0, _PCS,
+  0,
+  [_pCI, _n, _t, _st, _lUA],
+  [0, 0, 0, 0, 5], 5
+];
+export var PaymentCredentialProviderConfiguration$: StaticStructureSchema = [3, n0, _PCPC,
+  0,
+  [_cPA],
+  [0], 1
+];
+export var PaymentCredentialProviderItem$: StaticStructureSchema = [3, n0, _PCPI,
+  0,
+  [_n, _cPV, _cPA, _cT, _lUT],
+  [0, 0, 0, 4, 4], 5
+];
+export var PaymentManagerSummary$: StaticStructureSchema = [3, n0, _PMS,
+  0,
+  [_pMA, _pMI, _n, _aT, _rA, _st, _lUA, _d, _cA],
+  [0, 0, 0, 0, 0, 0, 5, 0, 5], 7
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
@@ -3264,6 +3503,16 @@ export var StringValidation$: StaticStructureSchema = [3, n0, _SV,
   0,
   [_aV],
   [64 | 0], 1
+];
+export var StripePrivyConfigurationInput$: StaticStructureSchema = [3, n0, _SPCI,
+  0,
+  [_aIp, _aSp, _aPK, _aIu],
+  [0, [() => StripePrivyAppSecretType, 0], [() => StripePrivyAuthorizationPrivateKeyType, 0], 0], 4
+];
+export var StripePrivyConfigurationOutput$: StaticStructureSchema = [3, n0, _SPCO,
+  0,
+  [_aIp, _aSA, _aPKA, _aIu],
+  [0, () => Secret$, () => Secret$, 0], 4
 ];
 export var SubmitRegistryRecordForApprovalRequest$: StaticStructureSchema = [3, n0, _SRRFAR,
   0,
@@ -3600,6 +3849,36 @@ export var UpdateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
   [_oECA, _oECI, _uA, _st, _eS, _fR],
   [0, 0, 4, 0, 0, 0], 5
 ];
+export var UpdatePaymentConnectorRequest$: StaticStructureSchema = [3, n0, _UPCR,
+  0,
+  [_pMI, _pCI, _d, _t, _cPC, _cTl],
+  [[0, 1], [0, 1], 0, 0, () => CredentialsProviderConfigurations, [0, 4]], 2
+];
+export var UpdatePaymentConnectorResponse$: StaticStructureSchema = [3, n0, _UPCRp,
+  0,
+  [_pCI, _pMI, _n, _t, _cPC, _lUA, _st],
+  [0, 0, 0, 0, () => CredentialsProviderConfigurations, 5, 0], 7
+];
+export var UpdatePaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _UPCPR,
+  0,
+  [_n, _cPV, _pCIr],
+  [0, 0, [() => PaymentProviderConfigurationInput$, 0]], 3
+];
+export var UpdatePaymentCredentialProviderResponse$: StaticStructureSchema = [3, n0, _UPCPRp,
+  0,
+  [_n, _cPV, _cPA, _pCO, _cT, _lUT],
+  [0, 0, 0, () => PaymentProviderConfigurationOutput$, 4, 4], 6
+];
+export var UpdatePaymentManagerRequest$: StaticStructureSchema = [3, n0, _UPMR,
+  0,
+  [_pMI, _d, _aT, _aCu, _rA, _cTl],
+  [[0, 1], 0, 0, () => AuthorizerConfiguration$, 0, [0, 4]], 1
+];
+export var UpdatePaymentManagerResponse$: StaticStructureSchema = [3, n0, _UPMRp,
+  0,
+  [_pMA, _pMI, _n, _aT, _rA, _lUA, _st, _wID],
+  [0, 0, 0, 0, 0, 5, 0, () => WorkloadIdentityDetails$], 7
+];
 export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
   0,
   [_pEI, _d],
@@ -3804,6 +4083,9 @@ var CredentialProviderConfigurations: StaticListSchema = [1, n0, _CPCr,
   0, [() => CredentialProviderConfiguration$,
     0]
 ];
+var CredentialsProviderConfigurations: StaticListSchema = [1, n0, _CPCre,
+  0, () => CredentialsProviderConfiguration$
+];
 var CustomClaimValidationsType: StaticListSchema = [1, n0, _CCVTu,
   0, () => CustomClaimValidationType$
 ];
@@ -3899,6 +4181,15 @@ var OAuthScopes = 64 | 0;
 var OnlineEvaluationConfigSummaryList: StaticListSchema = [1, n0, _OECSL,
   0, [() => OnlineEvaluationConfigSummary$,
     0]
+];
+var PaymentConnectorSummaries: StaticListSchema = [1, n0, _PCSa,
+  0, () => PaymentConnectorSummary$
+];
+var PaymentCredentialProviders: StaticListSchema = [1, n0, _PCP,
+  0, () => PaymentCredentialProviderItem$
+];
+var PaymentManagerSummaries: StaticListSchema = [1, n0, _PMSa,
+  0, () => PaymentManagerSummary$
 ];
 var Policies: StaticListSchema = [1, n0, _Pol,
   0, [() => Policy$,
@@ -4074,6 +4365,11 @@ export var CredentialProvider$: StaticUnionSchema = [4, n0, _CPr,
   [_oCP, _aKCP, _iCP],
   [[() => OAuthCredentialProvider$, 0], () => GatewayApiKeyCredentialProvider$, () => IamCredentialProvider$]
 ];
+export var CredentialsProviderConfiguration$: StaticUnionSchema = [4, n0, _CPCred,
+  0,
+  [_cCDP, _sPt],
+  [() => PaymentCredentialProviderConfiguration$, () => PaymentCredentialProviderConfiguration$]
+];
 export var CustomConfigurationInput$: StaticUnionSchema = [4, n0, _CCI,
   0,
   [_sOe, _sOu, _uPO, _eO, _sMC],
@@ -4084,7 +4380,7 @@ export var CustomConsolidationConfiguration$: StaticUnionSchema = [4, n0, _CCC,
   [_sCO, _sCOu, _uPCO, _eCO],
   [[() => SemanticConsolidationOverride$, 0], [() => SummaryConsolidationOverride$, 0], [() => UserPreferenceConsolidationOverride$, 0], [() => EpisodicConsolidationOverride$, 0]]
 ];
-export var CustomConsolidationConfigurationInput$: StaticUnionSchema = [4, n0, _CCCI,
+export var CustomConsolidationConfigurationInput$: StaticUnionSchema = [4, n0, _CCCIu,
   0,
   [_sCO, _sCOu, _uPCO, _eCO],
   [[() => SemanticOverrideConsolidationConfigurationInput$, 0], [() => SummaryOverrideConsolidationConfigurationInput$, 0], [() => UserPreferenceOverrideConsolidationConfigurationInput$, 0], [() => EpisodicOverrideConsolidationConfigurationInput$, 0]]
@@ -4264,6 +4560,16 @@ export var Oauth2ProviderConfigOutput$: StaticUnionSchema = [4, n0, _OPCO,
   [_cOPC, _gOPC, _gOPCi, _sOPC, _sOPCa, _mOPC, _aOPC, _lOPC, _iOPC],
   [() => CustomOauth2ProviderConfigOutput$, () => GoogleOauth2ProviderConfigOutput$, () => GithubOauth2ProviderConfigOutput$, () => SlackOauth2ProviderConfigOutput$, () => SalesforceOauth2ProviderConfigOutput$, () => MicrosoftOauth2ProviderConfigOutput$, () => AtlassianOauth2ProviderConfigOutput$, () => LinkedinOauth2ProviderConfigOutput$, () => IncludedOauth2ProviderConfigOutput$]
 ];
+export var PaymentProviderConfigurationInput$: StaticUnionSchema = [4, n0, _PPCI,
+  0,
+  [_cCCo, _sPC],
+  [[() => CoinbaseCdpConfigurationInput$, 0], [() => StripePrivyConfigurationInput$, 0]]
+];
+export var PaymentProviderConfigurationOutput$: StaticUnionSchema = [4, n0, _PPCO,
+  0,
+  [_cCCo, _sPC],
+  [() => CoinbaseCdpConfigurationOutput$, () => StripePrivyConfigurationOutput$]
+];
 export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
   0,
   [_ced, _pGo],
@@ -4389,6 +4695,15 @@ export var CreateOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _COC
 export var CreateOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _COEC,
   { [_ht]: ["POST", "/online-evaluation-configs/create", 202] }, () => CreateOnlineEvaluationConfigRequest$, () => CreateOnlineEvaluationConfigResponse$
 ];
+export var CreatePaymentConnector$: StaticOperationSchema = [9, n0, _CPCrea,
+  { [_ht]: ["POST", "/payments/managers/{paymentManagerId}/connectors", 202] }, () => CreatePaymentConnectorRequest$, () => CreatePaymentConnectorResponse$
+];
+export var CreatePaymentCredentialProvider$: StaticOperationSchema = [9, n0, _CPCP,
+  { [_ht]: ["POST", "/identities/CreatePaymentCredentialProvider", 201] }, () => CreatePaymentCredentialProviderRequest$, () => CreatePaymentCredentialProviderResponse$
+];
+export var CreatePaymentManager$: StaticOperationSchema = [9, n0, _CPM,
+  { [_ht]: ["POST", "/payments/managers", 202] }, () => CreatePaymentManagerRequest$, () => CreatePaymentManagerResponse$
+];
 export var CreatePolicy$: StaticOperationSchema = [9, n0, _CPre,
   { [_ht]: ["POST", "/policy-engines/{policyEngineId}/policies", 202] }, () => CreatePolicyRequest$, () => CreatePolicyResponse$
 ];
@@ -4448,6 +4763,15 @@ export var DeleteOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _DOC
 ];
 export var DeleteOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _DOEC,
   { [_ht]: ["DELETE", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => DeleteOnlineEvaluationConfigRequest$, () => DeleteOnlineEvaluationConfigResponse$
+];
+export var DeletePaymentConnector$: StaticOperationSchema = [9, n0, _DPC,
+  { [_ht]: ["DELETE", "/payments/managers/{paymentManagerId}/connectors/{paymentConnectorId}", 202] }, () => DeletePaymentConnectorRequest$, () => DeletePaymentConnectorResponse$
+];
+export var DeletePaymentCredentialProvider$: StaticOperationSchema = [9, n0, _DPCP,
+  { [_ht]: ["POST", "/identities/DeletePaymentCredentialProvider", 204] }, () => DeletePaymentCredentialProviderRequest$, () => DeletePaymentCredentialProviderResponse$
+];
+export var DeletePaymentManager$: StaticOperationSchema = [9, n0, _DPM,
+  { [_ht]: ["DELETE", "/payments/managers/{paymentManagerId}", 202] }, () => DeletePaymentManagerRequest$, () => DeletePaymentManagerResponse$
 ];
 export var DeletePolicy$: StaticOperationSchema = [9, n0, _DP,
   { [_ht]: ["DELETE", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => DeletePolicyRequest$, () => DeletePolicyResponse$
@@ -4514,6 +4838,15 @@ export var GetOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _GOCP,
 ];
 export var GetOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _GOEC,
   { [_ht]: ["GET", "/online-evaluation-configs/{onlineEvaluationConfigId}", 200] }, () => GetOnlineEvaluationConfigRequest$, () => GetOnlineEvaluationConfigResponse$
+];
+export var GetPaymentConnector$: StaticOperationSchema = [9, n0, _GPCe,
+  { [_ht]: ["GET", "/payments/managers/{paymentManagerId}/connectors/{paymentConnectorId}", 200] }, () => GetPaymentConnectorRequest$, () => GetPaymentConnectorResponse$
+];
+export var GetPaymentCredentialProvider$: StaticOperationSchema = [9, n0, _GPCP,
+  { [_ht]: ["POST", "/identities/GetPaymentCredentialProvider", 200] }, () => GetPaymentCredentialProviderRequest$, () => GetPaymentCredentialProviderResponse$
+];
+export var GetPaymentManager$: StaticOperationSchema = [9, n0, _GPM,
+  { [_ht]: ["GET", "/payments/managers/{paymentManagerId}", 200] }, () => GetPaymentManagerRequest$, () => GetPaymentManagerResponse$
 ];
 export var GetPolicy$: StaticOperationSchema = [9, n0, _GP,
   { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policies/{policyId}", 200] }, () => GetPolicyRequest$, () => GetPolicyResponse$
@@ -4589,6 +4922,15 @@ export var ListOauth2CredentialProviders$: StaticOperationSchema = [9, n0, _LOCP
 ];
 export var ListOnlineEvaluationConfigs$: StaticOperationSchema = [9, n0, _LOEC,
   { [_ht]: ["POST", "/online-evaluation-configs", 200] }, () => ListOnlineEvaluationConfigsRequest$, () => ListOnlineEvaluationConfigsResponse$
+];
+export var ListPaymentConnectors$: StaticOperationSchema = [9, n0, _LPC,
+  { [_ht]: ["POST", "/payments/managers/{paymentManagerId}/connectors-list", 200] }, () => ListPaymentConnectorsRequest$, () => ListPaymentConnectorsResponse$
+];
+export var ListPaymentCredentialProviders$: StaticOperationSchema = [9, n0, _LPCP,
+  { [_ht]: ["POST", "/identities/ListPaymentCredentialProviders", 200] }, () => ListPaymentCredentialProvidersRequest$, () => ListPaymentCredentialProvidersResponse$
+];
+export var ListPaymentManagers$: StaticOperationSchema = [9, n0, _LPM,
+  { [_ht]: ["POST", "/payments/managers-list", 200] }, () => ListPaymentManagersRequest$, () => ListPaymentManagersResponse$
 ];
 export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
   { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policies", 200] }, () => ListPoliciesRequest$, () => ListPoliciesResponse$
@@ -4670,6 +5012,15 @@ export var UpdateOauth2CredentialProvider$: StaticOperationSchema = [9, n0, _UOC
 ];
 export var UpdateOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _UOEC,
   { [_ht]: ["PUT", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => UpdateOnlineEvaluationConfigRequest$, () => UpdateOnlineEvaluationConfigResponse$
+];
+export var UpdatePaymentConnector$: StaticOperationSchema = [9, n0, _UPC,
+  { [_ht]: ["PATCH", "/payments/managers/{paymentManagerId}/connectors/{paymentConnectorId}", 202] }, () => UpdatePaymentConnectorRequest$, () => UpdatePaymentConnectorResponse$
+];
+export var UpdatePaymentCredentialProvider$: StaticOperationSchema = [9, n0, _UPCP,
+  { [_ht]: ["POST", "/identities/UpdatePaymentCredentialProvider", 200] }, () => UpdatePaymentCredentialProviderRequest$, () => UpdatePaymentCredentialProviderResponse$
+];
+export var UpdatePaymentManager$: StaticOperationSchema = [9, n0, _UPM,
+  { [_ht]: ["PATCH", "/payments/managers/{paymentManagerId}", 202] }, () => UpdatePaymentManagerRequest$, () => UpdatePaymentManagerResponse$
 ];
 export var UpdatePolicy$: StaticOperationSchema = [9, n0, _UP,
   { [_ht]: ["PATCH", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => UpdatePolicyRequest$, () => UpdatePolicyResponse$

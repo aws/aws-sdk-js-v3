@@ -106,6 +106,18 @@ import type {
   CreateOnlineEvaluationConfigCommandInput,
   CreateOnlineEvaluationConfigCommandOutput,
 } from "./commands/CreateOnlineEvaluationConfigCommand";
+import type {
+  CreatePaymentConnectorCommandInput,
+  CreatePaymentConnectorCommandOutput,
+} from "./commands/CreatePaymentConnectorCommand";
+import type {
+  CreatePaymentCredentialProviderCommandInput,
+  CreatePaymentCredentialProviderCommandOutput,
+} from "./commands/CreatePaymentCredentialProviderCommand";
+import type {
+  CreatePaymentManagerCommandInput,
+  CreatePaymentManagerCommandOutput,
+} from "./commands/CreatePaymentManagerCommand";
 import type { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import type {
   CreatePolicyEngineCommandInput,
@@ -165,6 +177,18 @@ import type {
   DeleteOnlineEvaluationConfigCommandInput,
   DeleteOnlineEvaluationConfigCommandOutput,
 } from "./commands/DeleteOnlineEvaluationConfigCommand";
+import type {
+  DeletePaymentConnectorCommandInput,
+  DeletePaymentConnectorCommandOutput,
+} from "./commands/DeletePaymentConnectorCommand";
+import type {
+  DeletePaymentCredentialProviderCommandInput,
+  DeletePaymentCredentialProviderCommandOutput,
+} from "./commands/DeletePaymentCredentialProviderCommand";
+import type {
+  DeletePaymentManagerCommandInput,
+  DeletePaymentManagerCommandOutput,
+} from "./commands/DeletePaymentManagerCommand";
 import type { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import type {
   DeletePolicyEngineCommandInput,
@@ -223,6 +247,18 @@ import type {
   GetOnlineEvaluationConfigCommandInput,
   GetOnlineEvaluationConfigCommandOutput,
 } from "./commands/GetOnlineEvaluationConfigCommand";
+import type {
+  GetPaymentConnectorCommandInput,
+  GetPaymentConnectorCommandOutput,
+} from "./commands/GetPaymentConnectorCommand";
+import type {
+  GetPaymentCredentialProviderCommandInput,
+  GetPaymentCredentialProviderCommandOutput,
+} from "./commands/GetPaymentCredentialProviderCommand";
+import type {
+  GetPaymentManagerCommandInput,
+  GetPaymentManagerCommandOutput,
+} from "./commands/GetPaymentManagerCommand";
 import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import type { GetPolicyEngineCommandInput, GetPolicyEngineCommandOutput } from "./commands/GetPolicyEngineCommand";
 import type {
@@ -293,6 +329,18 @@ import type {
   ListOnlineEvaluationConfigsCommandInput,
   ListOnlineEvaluationConfigsCommandOutput,
 } from "./commands/ListOnlineEvaluationConfigsCommand";
+import type {
+  ListPaymentConnectorsCommandInput,
+  ListPaymentConnectorsCommandOutput,
+} from "./commands/ListPaymentConnectorsCommand";
+import type {
+  ListPaymentCredentialProvidersCommandInput,
+  ListPaymentCredentialProvidersCommandOutput,
+} from "./commands/ListPaymentCredentialProvidersCommand";
+import type {
+  ListPaymentManagersCommandInput,
+  ListPaymentManagersCommandOutput,
+} from "./commands/ListPaymentManagersCommand";
 import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import type {
   ListPolicyEnginesCommandInput,
@@ -374,6 +422,18 @@ import type {
   UpdateOnlineEvaluationConfigCommandInput,
   UpdateOnlineEvaluationConfigCommandOutput,
 } from "./commands/UpdateOnlineEvaluationConfigCommand";
+import type {
+  UpdatePaymentConnectorCommandInput,
+  UpdatePaymentConnectorCommandOutput,
+} from "./commands/UpdatePaymentConnectorCommand";
+import type {
+  UpdatePaymentCredentialProviderCommandInput,
+  UpdatePaymentCredentialProviderCommandOutput,
+} from "./commands/UpdatePaymentCredentialProviderCommand";
+import type {
+  UpdatePaymentManagerCommandInput,
+  UpdatePaymentManagerCommandOutput,
+} from "./commands/UpdatePaymentManagerCommand";
 import type { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
 import type {
   UpdatePolicyEngineCommandInput,
@@ -422,6 +482,9 @@ export type ServiceInputTypes =
   | CreateMemoryCommandInput
   | CreateOauth2CredentialProviderCommandInput
   | CreateOnlineEvaluationConfigCommandInput
+  | CreatePaymentConnectorCommandInput
+  | CreatePaymentCredentialProviderCommandInput
+  | CreatePaymentManagerCommandInput
   | CreatePolicyCommandInput
   | CreatePolicyEngineCommandInput
   | CreateRegistryCommandInput
@@ -442,6 +505,9 @@ export type ServiceInputTypes =
   | DeleteMemoryCommandInput
   | DeleteOauth2CredentialProviderCommandInput
   | DeleteOnlineEvaluationConfigCommandInput
+  | DeletePaymentConnectorCommandInput
+  | DeletePaymentCredentialProviderCommandInput
+  | DeletePaymentManagerCommandInput
   | DeletePolicyCommandInput
   | DeletePolicyEngineCommandInput
   | DeleteRegistryCommandInput
@@ -464,6 +530,9 @@ export type ServiceInputTypes =
   | GetMemoryCommandInput
   | GetOauth2CredentialProviderCommandInput
   | GetOnlineEvaluationConfigCommandInput
+  | GetPaymentConnectorCommandInput
+  | GetPaymentCredentialProviderCommandInput
+  | GetPaymentManagerCommandInput
   | GetPolicyCommandInput
   | GetPolicyEngineCommandInput
   | GetPolicyGenerationCommandInput
@@ -489,6 +558,9 @@ export type ServiceInputTypes =
   | ListMemoriesCommandInput
   | ListOauth2CredentialProvidersCommandInput
   | ListOnlineEvaluationConfigsCommandInput
+  | ListPaymentConnectorsCommandInput
+  | ListPaymentCredentialProvidersCommandInput
+  | ListPaymentManagersCommandInput
   | ListPoliciesCommandInput
   | ListPolicyEnginesCommandInput
   | ListPolicyGenerationAssetsCommandInput
@@ -516,6 +588,9 @@ export type ServiceInputTypes =
   | UpdateMemoryCommandInput
   | UpdateOauth2CredentialProviderCommandInput
   | UpdateOnlineEvaluationConfigCommandInput
+  | UpdatePaymentConnectorCommandInput
+  | UpdatePaymentCredentialProviderCommandInput
+  | UpdatePaymentManagerCommandInput
   | UpdatePolicyCommandInput
   | UpdatePolicyEngineCommandInput
   | UpdateRegistryCommandInput
@@ -542,6 +617,9 @@ export type ServiceOutputTypes =
   | CreateMemoryCommandOutput
   | CreateOauth2CredentialProviderCommandOutput
   | CreateOnlineEvaluationConfigCommandOutput
+  | CreatePaymentConnectorCommandOutput
+  | CreatePaymentCredentialProviderCommandOutput
+  | CreatePaymentManagerCommandOutput
   | CreatePolicyCommandOutput
   | CreatePolicyEngineCommandOutput
   | CreateRegistryCommandOutput
@@ -562,6 +640,9 @@ export type ServiceOutputTypes =
   | DeleteMemoryCommandOutput
   | DeleteOauth2CredentialProviderCommandOutput
   | DeleteOnlineEvaluationConfigCommandOutput
+  | DeletePaymentConnectorCommandOutput
+  | DeletePaymentCredentialProviderCommandOutput
+  | DeletePaymentManagerCommandOutput
   | DeletePolicyCommandOutput
   | DeletePolicyEngineCommandOutput
   | DeleteRegistryCommandOutput
@@ -584,6 +665,9 @@ export type ServiceOutputTypes =
   | GetMemoryCommandOutput
   | GetOauth2CredentialProviderCommandOutput
   | GetOnlineEvaluationConfigCommandOutput
+  | GetPaymentConnectorCommandOutput
+  | GetPaymentCredentialProviderCommandOutput
+  | GetPaymentManagerCommandOutput
   | GetPolicyCommandOutput
   | GetPolicyEngineCommandOutput
   | GetPolicyGenerationCommandOutput
@@ -609,6 +693,9 @@ export type ServiceOutputTypes =
   | ListMemoriesCommandOutput
   | ListOauth2CredentialProvidersCommandOutput
   | ListOnlineEvaluationConfigsCommandOutput
+  | ListPaymentConnectorsCommandOutput
+  | ListPaymentCredentialProvidersCommandOutput
+  | ListPaymentManagersCommandOutput
   | ListPoliciesCommandOutput
   | ListPolicyEnginesCommandOutput
   | ListPolicyGenerationAssetsCommandOutput
@@ -636,6 +723,9 @@ export type ServiceOutputTypes =
   | UpdateMemoryCommandOutput
   | UpdateOauth2CredentialProviderCommandOutput
   | UpdateOnlineEvaluationConfigCommandOutput
+  | UpdatePaymentConnectorCommandOutput
+  | UpdatePaymentCredentialProviderCommandOutput
+  | UpdatePaymentManagerCommandOutput
   | UpdatePolicyCommandOutput
   | UpdatePolicyEngineCommandOutput
   | UpdateRegistryCommandOutput

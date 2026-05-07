@@ -1,0 +1,199 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { Command as $Command } from "@smithy/smithy-client";
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import type {
+  BedrockAgentCoreControlClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../BedrockAgentCoreControlClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import type { UpdatePaymentManagerRequest, UpdatePaymentManagerResponse } from "../models/models_1";
+import { UpdatePaymentManager$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdatePaymentManagerCommand}.
+ */
+export interface UpdatePaymentManagerCommandInput extends UpdatePaymentManagerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePaymentManagerCommand}.
+ */
+export interface UpdatePaymentManagerCommandOutput extends UpdatePaymentManagerResponse, __MetadataBearer {}
+
+/**
+ * <p>Updates an existing payment manager. This operation uses PATCH semantics, so you only need to specify the fields you want to change.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BedrockAgentCoreControlClient, UpdatePaymentManagerCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, UpdatePaymentManagerCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
+ * const config = {}; // type is BedrockAgentCoreControlClientConfig
+ * const client = new BedrockAgentCoreControlClient(config);
+ * const input = { // UpdatePaymentManagerRequest
+ *   paymentManagerId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   authorizerType: "CUSTOM_JWT" || "AWS_IAM",
+ *   authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
+ *     customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
+ *       discoveryUrl: "STRING_VALUE", // required
+ *       allowedAudience: [ // AllowedAudienceList
+ *         "STRING_VALUE",
+ *       ],
+ *       allowedClients: [ // AllowedClientsList
+ *         "STRING_VALUE",
+ *       ],
+ *       allowedScopes: [ // AllowedScopesType
+ *         "STRING_VALUE",
+ *       ],
+ *       customClaims: [ // CustomClaimValidationsType
+ *         { // CustomClaimValidationType
+ *           inboundTokenClaimName: "STRING_VALUE", // required
+ *           inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ *           authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ *             claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ *               matchValueString: "STRING_VALUE",
+ *               matchValueStringList: [ // MatchValueStringList
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ *           },
+ *         },
+ *       ],
+ *       privateEndpoint: { // PrivateEndpoint Union: only one key present
+ *         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ *           resourceConfigurationIdentifier: "STRING_VALUE",
+ *         },
+ *         managedVpcResource: { // ManagedVpcResource
+ *           vpcIdentifier: "STRING_VALUE", // required
+ *           subnetIds: [ // SubnetIds // required
+ *             "STRING_VALUE",
+ *           ],
+ *           endpointIpAddressType: "IPV4" || "IPV6", // required
+ *           securityGroupIds: [ // SecurityGroupIds
+ *             "STRING_VALUE",
+ *           ],
+ *           tags: { // TagsMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           routingDomain: "STRING_VALUE",
+ *         },
+ *       },
+ *       privateEndpointOverrides: [ // PrivateEndpointOverrides
+ *         { // PrivateEndpointOverride
+ *           domain: "STRING_VALUE", // required
+ *           privateEndpoint: {//  Union: only one key present
+ *             selfManagedLatticeResource: {//  Union: only one key present
+ *               resourceConfigurationIdentifier: "STRING_VALUE",
+ *             },
+ *             managedVpcResource: {
+ *               vpcIdentifier: "STRING_VALUE", // required
+ *               subnetIds: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *               endpointIpAddressType: "IPV4" || "IPV6", // required
+ *               securityGroupIds: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               tags: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               routingDomain: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
+ * const command = new UpdatePaymentManagerCommand(input);
+ * const response = await client.send(command);
+ * // { // UpdatePaymentManagerResponse
+ * //   paymentManagerArn: "STRING_VALUE", // required
+ * //   paymentManagerId: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   authorizerType: "CUSTOM_JWT" || "AWS_IAM", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   workloadIdentityDetails: { // WorkloadIdentityDetails
+ * //     workloadIdentityArn: "STRING_VALUE", // required
+ * //   },
+ * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * // };
+ *
+ * ```
+ *
+ * @param UpdatePaymentManagerCommandInput - {@link UpdatePaymentManagerCommandInput}
+ * @returns {@link UpdatePaymentManagerCommandOutput}
+ * @see {@link UpdatePaymentManagerCommandInput} for command's `input` shape.
+ * @see {@link UpdatePaymentManagerCommandOutput} for command's `response` shape.
+ * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when there is a conflict performing an operation</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This exception is thrown when the number of requests exceeds the limit</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * @throws {@link BedrockAgentCoreControlServiceException}
+ * <p>Base exception class for all service exceptions from BedrockAgentCoreControl service.</p>
+ *
+ *
+ * @public
+ */
+export class UpdatePaymentManagerCommand extends $Command
+  .classBuilder<
+    UpdatePaymentManagerCommandInput,
+    UpdatePaymentManagerCommandOutput,
+    BedrockAgentCoreControlClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep(commonParams)
+  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
+  })
+  .s("AmazonBedrockAgentCoreControl", "UpdatePaymentManager", {})
+  .n("BedrockAgentCoreControlClient", "UpdatePaymentManagerCommand")
+  .sc(UpdatePaymentManager$)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePaymentManagerRequest;
+      output: UpdatePaymentManagerResponse;
+    };
+    sdk: {
+      input: UpdatePaymentManagerCommandInput;
+      output: UpdatePaymentManagerCommandOutput;
+    };
+  };
+}

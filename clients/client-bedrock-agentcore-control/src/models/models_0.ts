@@ -1246,7 +1246,7 @@ export interface CustomJWTAuthorizerConfiguration {
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>A list of private endpoint overrides for the JWT authorizer. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.</p>
+   * <p>The private endpoint overrides for the custom JWT authorizer configuration.</p>
    * @public
    */
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;

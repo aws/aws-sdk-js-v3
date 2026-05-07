@@ -896,6 +896,88 @@ export type OnlineEvaluationConfigStatus =
  * @public
  * @enum
  */
+export const PaymentCredentialProviderVendorType = {
+  /**
+   * Coinbase Developer Platform - https://docs.cdp.coinbase.com/
+   */
+  CoinbaseCDP: "CoinbaseCDP",
+  /**
+   * Stripe + Privy - https://docs.privy.io/
+   */
+  StripePrivy: "StripePrivy",
+} as const;
+/**
+ * @public
+ */
+export type PaymentCredentialProviderVendorType =
+  (typeof PaymentCredentialProviderVendorType)[keyof typeof PaymentCredentialProviderVendorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentsAuthorizerType = {
+  AWS_IAM: "AWS_IAM",
+  CUSTOM_JWT: "CUSTOM_JWT",
+} as const;
+/**
+ * @public
+ */
+export type PaymentsAuthorizerType = (typeof PaymentsAuthorizerType)[keyof typeof PaymentsAuthorizerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentManagerStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type PaymentManagerStatus = (typeof PaymentManagerStatus)[keyof typeof PaymentManagerStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentConnectorType = {
+  COINBASE_CDP: "CoinbaseCDP",
+  STRIPE_PRIVY: "StripePrivy",
+} as const;
+/**
+ * @public
+ */
+export type PaymentConnectorType = (typeof PaymentConnectorType)[keyof typeof PaymentConnectorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentConnectorStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type PaymentConnectorStatus = (typeof PaymentConnectorStatus)[keyof typeof PaymentConnectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const PolicyEngineStatus = {
   ACTIVE: "ACTIVE",
   CREATE_FAILED: "CREATE_FAILED",

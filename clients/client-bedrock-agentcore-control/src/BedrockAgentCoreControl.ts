@@ -85,6 +85,21 @@ import {
   CreateOnlineEvaluationConfigCommand,
 } from "./commands/CreateOnlineEvaluationConfigCommand";
 import {
+  type CreatePaymentConnectorCommandInput,
+  type CreatePaymentConnectorCommandOutput,
+  CreatePaymentConnectorCommand,
+} from "./commands/CreatePaymentConnectorCommand";
+import {
+  type CreatePaymentCredentialProviderCommandInput,
+  type CreatePaymentCredentialProviderCommandOutput,
+  CreatePaymentCredentialProviderCommand,
+} from "./commands/CreatePaymentCredentialProviderCommand";
+import {
+  type CreatePaymentManagerCommandInput,
+  type CreatePaymentManagerCommandOutput,
+  CreatePaymentManagerCommand,
+} from "./commands/CreatePaymentManagerCommand";
+import {
   type CreatePolicyCommandInput,
   type CreatePolicyCommandOutput,
   CreatePolicyCommand,
@@ -184,6 +199,21 @@ import {
   type DeleteOnlineEvaluationConfigCommandOutput,
   DeleteOnlineEvaluationConfigCommand,
 } from "./commands/DeleteOnlineEvaluationConfigCommand";
+import {
+  type DeletePaymentConnectorCommandInput,
+  type DeletePaymentConnectorCommandOutput,
+  DeletePaymentConnectorCommand,
+} from "./commands/DeletePaymentConnectorCommand";
+import {
+  type DeletePaymentCredentialProviderCommandInput,
+  type DeletePaymentCredentialProviderCommandOutput,
+  DeletePaymentCredentialProviderCommand,
+} from "./commands/DeletePaymentCredentialProviderCommand";
+import {
+  type DeletePaymentManagerCommandInput,
+  type DeletePaymentManagerCommandOutput,
+  DeletePaymentManagerCommand,
+} from "./commands/DeletePaymentManagerCommand";
 import {
   type DeletePolicyCommandInput,
   type DeletePolicyCommandOutput,
@@ -290,6 +320,21 @@ import {
   type GetOnlineEvaluationConfigCommandOutput,
   GetOnlineEvaluationConfigCommand,
 } from "./commands/GetOnlineEvaluationConfigCommand";
+import {
+  type GetPaymentConnectorCommandInput,
+  type GetPaymentConnectorCommandOutput,
+  GetPaymentConnectorCommand,
+} from "./commands/GetPaymentConnectorCommand";
+import {
+  type GetPaymentCredentialProviderCommandInput,
+  type GetPaymentCredentialProviderCommandOutput,
+  GetPaymentCredentialProviderCommand,
+} from "./commands/GetPaymentCredentialProviderCommand";
+import {
+  type GetPaymentManagerCommandInput,
+  type GetPaymentManagerCommandOutput,
+  GetPaymentManagerCommand,
+} from "./commands/GetPaymentManagerCommand";
 import { type GetPolicyCommandInput, type GetPolicyCommandOutput, GetPolicyCommand } from "./commands/GetPolicyCommand";
 import {
   type GetPolicyEngineCommandInput,
@@ -411,6 +456,21 @@ import {
   type ListOnlineEvaluationConfigsCommandOutput,
   ListOnlineEvaluationConfigsCommand,
 } from "./commands/ListOnlineEvaluationConfigsCommand";
+import {
+  type ListPaymentConnectorsCommandInput,
+  type ListPaymentConnectorsCommandOutput,
+  ListPaymentConnectorsCommand,
+} from "./commands/ListPaymentConnectorsCommand";
+import {
+  type ListPaymentCredentialProvidersCommandInput,
+  type ListPaymentCredentialProvidersCommandOutput,
+  ListPaymentCredentialProvidersCommand,
+} from "./commands/ListPaymentCredentialProvidersCommand";
+import {
+  type ListPaymentManagersCommandInput,
+  type ListPaymentManagersCommandOutput,
+  ListPaymentManagersCommand,
+} from "./commands/ListPaymentManagersCommand";
 import {
   type ListPoliciesCommandInput,
   type ListPoliciesCommandOutput,
@@ -547,6 +607,21 @@ import {
   UpdateOnlineEvaluationConfigCommand,
 } from "./commands/UpdateOnlineEvaluationConfigCommand";
 import {
+  type UpdatePaymentConnectorCommandInput,
+  type UpdatePaymentConnectorCommandOutput,
+  UpdatePaymentConnectorCommand,
+} from "./commands/UpdatePaymentConnectorCommand";
+import {
+  type UpdatePaymentCredentialProviderCommandInput,
+  type UpdatePaymentCredentialProviderCommandOutput,
+  UpdatePaymentCredentialProviderCommand,
+} from "./commands/UpdatePaymentCredentialProviderCommand";
+import {
+  type UpdatePaymentManagerCommandInput,
+  type UpdatePaymentManagerCommandOutput,
+  UpdatePaymentManagerCommand,
+} from "./commands/UpdatePaymentManagerCommand";
+import {
   type UpdatePolicyCommandInput,
   type UpdatePolicyCommandOutput,
   UpdatePolicyCommand,
@@ -595,6 +670,9 @@ import { paginateListHarnesses } from "./pagination/ListHarnessesPaginator";
 import { paginateListMemories } from "./pagination/ListMemoriesPaginator";
 import { paginateListOauth2CredentialProviders } from "./pagination/ListOauth2CredentialProvidersPaginator";
 import { paginateListOnlineEvaluationConfigs } from "./pagination/ListOnlineEvaluationConfigsPaginator";
+import { paginateListPaymentConnectors } from "./pagination/ListPaymentConnectorsPaginator";
+import { paginateListPaymentCredentialProviders } from "./pagination/ListPaymentCredentialProvidersPaginator";
+import { paginateListPaymentManagers } from "./pagination/ListPaymentManagersPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
 import { paginateListPolicyEngines } from "./pagination/ListPolicyEnginesPaginator";
 import { paginateListPolicyGenerationAssets } from "./pagination/ListPolicyGenerationAssetsPaginator";
@@ -625,6 +703,9 @@ const commands = {
   CreateMemoryCommand,
   CreateOauth2CredentialProviderCommand,
   CreateOnlineEvaluationConfigCommand,
+  CreatePaymentConnectorCommand,
+  CreatePaymentCredentialProviderCommand,
+  CreatePaymentManagerCommand,
   CreatePolicyCommand,
   CreatePolicyEngineCommand,
   CreateRegistryCommand,
@@ -645,6 +726,9 @@ const commands = {
   DeleteMemoryCommand,
   DeleteOauth2CredentialProviderCommand,
   DeleteOnlineEvaluationConfigCommand,
+  DeletePaymentConnectorCommand,
+  DeletePaymentCredentialProviderCommand,
+  DeletePaymentManagerCommand,
   DeletePolicyCommand,
   DeletePolicyEngineCommand,
   DeleteRegistryCommand,
@@ -667,6 +751,9 @@ const commands = {
   GetMemoryCommand,
   GetOauth2CredentialProviderCommand,
   GetOnlineEvaluationConfigCommand,
+  GetPaymentConnectorCommand,
+  GetPaymentCredentialProviderCommand,
+  GetPaymentManagerCommand,
   GetPolicyCommand,
   GetPolicyEngineCommand,
   GetPolicyGenerationCommand,
@@ -692,6 +779,9 @@ const commands = {
   ListMemoriesCommand,
   ListOauth2CredentialProvidersCommand,
   ListOnlineEvaluationConfigsCommand,
+  ListPaymentConnectorsCommand,
+  ListPaymentCredentialProvidersCommand,
+  ListPaymentManagersCommand,
   ListPoliciesCommand,
   ListPolicyEnginesCommand,
   ListPolicyGenerationAssetsCommand,
@@ -719,6 +809,9 @@ const commands = {
   UpdateMemoryCommand,
   UpdateOauth2CredentialProviderCommand,
   UpdateOnlineEvaluationConfigCommand,
+  UpdatePaymentConnectorCommand,
+  UpdatePaymentCredentialProviderCommand,
+  UpdatePaymentManagerCommand,
   UpdatePolicyCommand,
   UpdatePolicyEngineCommand,
   UpdateRegistryCommand,
@@ -744,6 +837,9 @@ const paginators = {
   paginateListMemories,
   paginateListOauth2CredentialProviders,
   paginateListOnlineEvaluationConfigs,
+  paginateListPaymentConnectors,
+  paginateListPaymentCredentialProviders,
+  paginateListPaymentManagers,
   paginateListPolicies,
   paginateListPolicyEngines,
   paginateListPolicyGenerationAssets,
@@ -1015,6 +1111,57 @@ export interface BedrockAgentCoreControl {
     args: CreateOnlineEvaluationConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePaymentConnectorCommand}
+   */
+  createPaymentConnector(
+    args: CreatePaymentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePaymentConnectorCommandOutput>;
+  createPaymentConnector(
+    args: CreatePaymentConnectorCommandInput,
+    cb: (err: any, data?: CreatePaymentConnectorCommandOutput) => void
+  ): void;
+  createPaymentConnector(
+    args: CreatePaymentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePaymentConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePaymentCredentialProviderCommand}
+   */
+  createPaymentCredentialProvider(
+    args: CreatePaymentCredentialProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePaymentCredentialProviderCommandOutput>;
+  createPaymentCredentialProvider(
+    args: CreatePaymentCredentialProviderCommandInput,
+    cb: (err: any, data?: CreatePaymentCredentialProviderCommandOutput) => void
+  ): void;
+  createPaymentCredentialProvider(
+    args: CreatePaymentCredentialProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePaymentCredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePaymentManagerCommand}
+   */
+  createPaymentManager(
+    args: CreatePaymentManagerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePaymentManagerCommandOutput>;
+  createPaymentManager(
+    args: CreatePaymentManagerCommandInput,
+    cb: (err: any, data?: CreatePaymentManagerCommandOutput) => void
+  ): void;
+  createPaymentManager(
+    args: CreatePaymentManagerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePaymentManagerCommandOutput) => void
   ): void;
 
   /**
@@ -1355,6 +1502,57 @@ export interface BedrockAgentCoreControl {
     args: DeleteOnlineEvaluationConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePaymentConnectorCommand}
+   */
+  deletePaymentConnector(
+    args: DeletePaymentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePaymentConnectorCommandOutput>;
+  deletePaymentConnector(
+    args: DeletePaymentConnectorCommandInput,
+    cb: (err: any, data?: DeletePaymentConnectorCommandOutput) => void
+  ): void;
+  deletePaymentConnector(
+    args: DeletePaymentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePaymentConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePaymentCredentialProviderCommand}
+   */
+  deletePaymentCredentialProvider(
+    args: DeletePaymentCredentialProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePaymentCredentialProviderCommandOutput>;
+  deletePaymentCredentialProvider(
+    args: DeletePaymentCredentialProviderCommandInput,
+    cb: (err: any, data?: DeletePaymentCredentialProviderCommandOutput) => void
+  ): void;
+  deletePaymentCredentialProvider(
+    args: DeletePaymentCredentialProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePaymentCredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePaymentManagerCommand}
+   */
+  deletePaymentManager(
+    args: DeletePaymentManagerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePaymentManagerCommandOutput>;
+  deletePaymentManager(
+    args: DeletePaymentManagerCommandInput,
+    cb: (err: any, data?: DeletePaymentManagerCommandOutput) => void
+  ): void;
+  deletePaymentManager(
+    args: DeletePaymentManagerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePaymentManagerCommandOutput) => void
   ): void;
 
   /**
@@ -1729,6 +1927,57 @@ export interface BedrockAgentCoreControl {
     args: GetOnlineEvaluationConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOnlineEvaluationConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPaymentConnectorCommand}
+   */
+  getPaymentConnector(
+    args: GetPaymentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPaymentConnectorCommandOutput>;
+  getPaymentConnector(
+    args: GetPaymentConnectorCommandInput,
+    cb: (err: any, data?: GetPaymentConnectorCommandOutput) => void
+  ): void;
+  getPaymentConnector(
+    args: GetPaymentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPaymentConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPaymentCredentialProviderCommand}
+   */
+  getPaymentCredentialProvider(
+    args: GetPaymentCredentialProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPaymentCredentialProviderCommandOutput>;
+  getPaymentCredentialProvider(
+    args: GetPaymentCredentialProviderCommandInput,
+    cb: (err: any, data?: GetPaymentCredentialProviderCommandOutput) => void
+  ): void;
+  getPaymentCredentialProvider(
+    args: GetPaymentCredentialProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPaymentCredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPaymentManagerCommand}
+   */
+  getPaymentManager(
+    args: GetPaymentManagerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPaymentManagerCommandOutput>;
+  getPaymentManager(
+    args: GetPaymentManagerCommandInput,
+    cb: (err: any, data?: GetPaymentManagerCommandOutput) => void
+  ): void;
+  getPaymentManager(
+    args: GetPaymentManagerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPaymentManagerCommandOutput) => void
   ): void;
 
   /**
@@ -2167,6 +2416,59 @@ export interface BedrockAgentCoreControl {
     args: ListOnlineEvaluationConfigsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListOnlineEvaluationConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPaymentConnectorsCommand}
+   */
+  listPaymentConnectors(
+    args: ListPaymentConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPaymentConnectorsCommandOutput>;
+  listPaymentConnectors(
+    args: ListPaymentConnectorsCommandInput,
+    cb: (err: any, data?: ListPaymentConnectorsCommandOutput) => void
+  ): void;
+  listPaymentConnectors(
+    args: ListPaymentConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPaymentConnectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPaymentCredentialProvidersCommand}
+   */
+  listPaymentCredentialProviders(): Promise<ListPaymentCredentialProvidersCommandOutput>;
+  listPaymentCredentialProviders(
+    args: ListPaymentCredentialProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPaymentCredentialProvidersCommandOutput>;
+  listPaymentCredentialProviders(
+    args: ListPaymentCredentialProvidersCommandInput,
+    cb: (err: any, data?: ListPaymentCredentialProvidersCommandOutput) => void
+  ): void;
+  listPaymentCredentialProviders(
+    args: ListPaymentCredentialProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPaymentCredentialProvidersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPaymentManagersCommand}
+   */
+  listPaymentManagers(): Promise<ListPaymentManagersCommandOutput>;
+  listPaymentManagers(
+    args: ListPaymentManagersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPaymentManagersCommandOutput>;
+  listPaymentManagers(
+    args: ListPaymentManagersCommandInput,
+    cb: (err: any, data?: ListPaymentManagersCommandOutput) => void
+  ): void;
+  listPaymentManagers(
+    args: ListPaymentManagersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPaymentManagersCommandOutput) => void
   ): void;
 
   /**
@@ -2632,6 +2934,57 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdatePaymentConnectorCommand}
+   */
+  updatePaymentConnector(
+    args: UpdatePaymentConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePaymentConnectorCommandOutput>;
+  updatePaymentConnector(
+    args: UpdatePaymentConnectorCommandInput,
+    cb: (err: any, data?: UpdatePaymentConnectorCommandOutput) => void
+  ): void;
+  updatePaymentConnector(
+    args: UpdatePaymentConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePaymentConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePaymentCredentialProviderCommand}
+   */
+  updatePaymentCredentialProvider(
+    args: UpdatePaymentCredentialProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePaymentCredentialProviderCommandOutput>;
+  updatePaymentCredentialProvider(
+    args: UpdatePaymentCredentialProviderCommandInput,
+    cb: (err: any, data?: UpdatePaymentCredentialProviderCommandOutput) => void
+  ): void;
+  updatePaymentCredentialProvider(
+    args: UpdatePaymentCredentialProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePaymentCredentialProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePaymentManagerCommand}
+   */
+  updatePaymentManager(
+    args: UpdatePaymentManagerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePaymentManagerCommandOutput>;
+  updatePaymentManager(
+    args: UpdatePaymentManagerCommandInput,
+    cb: (err: any, data?: UpdatePaymentManagerCommandOutput) => void
+  ): void;
+  updatePaymentManager(
+    args: UpdatePaymentManagerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePaymentManagerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePolicyCommand}
    */
   updatePolicy(
@@ -2919,6 +3272,39 @@ export interface BedrockAgentCoreControl {
     args?: ListOnlineEvaluationConfigsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListOnlineEvaluationConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListPaymentConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPaymentConnectorsCommandOutput}.
+   */
+  paginateListPaymentConnectors(
+    args: ListPaymentConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPaymentConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListPaymentCredentialProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPaymentCredentialProvidersCommandOutput}.
+   */
+  paginateListPaymentCredentialProviders(
+    args?: ListPaymentCredentialProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPaymentCredentialProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListPaymentManagersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPaymentManagersCommandOutput}.
+   */
+  paginateListPaymentManagers(
+    args?: ListPaymentManagersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPaymentManagersCommandOutput>;
 
   /**
    * @see {@link ListPoliciesCommand}
