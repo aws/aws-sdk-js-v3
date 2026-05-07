@@ -407,8 +407,8 @@ describe("getSignedUrl", () => {
       privateKey,
       passphrase,
     });
-    expect(result).toContain("path%20with%20spaces");
-    expect(result).not.toContain("path with spaces");
+    expect(result).toContain("file%5B1%5D.pdf");
+    expect(result).not.toContain("file[1].pdf");
   });
 
   it("should not double-encode already-encoded URLs", () => {
