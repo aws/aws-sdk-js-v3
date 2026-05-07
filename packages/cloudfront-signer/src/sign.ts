@@ -275,10 +275,9 @@ function encodeUrlPath(url: string): string {
   // Re-encode query parameters if present
   let encodedQuery = "";
   if (rawQuery) {
-    const params = [...new URLSearchParams(rawQuery.slice(1)).entries()]
-      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-      .join("&");
-    encodedQuery = `?${params}`;
+    for (const [key, value] of new URLSearchParams(rawQuery.slice(1)).entries()) {
+      encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+    }
   }
 
   return origin + encodedPath + encodedQuery;
