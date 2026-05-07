@@ -149,7 +149,14 @@ export const flexibleChecksumsMiddleware =
         };
         delete updatedHeaders["content-length"];
       } else if (!hasHeader(checksumLocationName, headers)) {
-        const rawChecksum = await stringHasher(checksumAlgorithmFn, requestBody);
+        // Blob/File are bounded but cannot be passed directly to stringHasher.
+        // Read them into a Uint8Array first.
+        // See: https://github.com/aws/aws-sdk-js-v3/issues/6834
+        const hashableBody =
+          typeof Blob !== "undefined" && requestBody instanceof Blob
+            ? new Uint8Array(await requestBody.arrayBuffer())
+            : requestBody;
+        const rawChecksum = await stringHasher(checksumAlgorithmFn, hashableBody);
         updatedHeaders = {
           ...headers,
           [checksumLocationName]: base64Encoder(rawChecksum),
