@@ -16,6 +16,12 @@ const AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE = "AWS_CONTAINER_AUTHORIZATION_TOKE
 const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
 
 /**
+ * Cached request handler shared across all fromHttp provider instances.
+ * This prevents socket leaks from creating a new NodeHttpHandler (and http.Agent) per credential refresh.
+ */
+let cachedHandler: InstanceType<typeof NodeHttpHandler> | undefined;
+
+/**
  * Creates a provider that gets credentials via HTTP request.
  */
 export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
@@ -66,10 +72,13 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   // throws if not to spec for provider.
   checkUrl(url, options.logger);
 
-  const requestHandler = NodeHttpHandler.create({
-    requestTimeout: options.timeout ?? 1000,
-    connectionTimeout: options.timeout ?? 1000,
-  });
+  if (!cachedHandler) {
+    cachedHandler = NodeHttpHandler.create({ connectionTimeout: options.timeout ?? 1000 }) as InstanceType<
+      typeof NodeHttpHandler
+    >;
+  }
+  const requestHandler = cachedHandler;
+  const requestTimeout = options.timeout ?? 1000;
 
   return retryWrapper(
     async (): Promise<AwsCredentialIdentity> => {
@@ -83,7 +92,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         request.headers.Authorization = (await fs.readFile(tokenFile)).toString();
       }
       try {
-        const result = await requestHandler.handle(request);
+        const result = await requestHandler.handle(request, { requestTimeout });
         return getCredentials(result.response).then((creds) => setCredentialFeature(creds, "CREDENTIALS_HTTP", "z"));
       } catch (e: unknown) {
         throw new CredentialsProviderError(String(e), { logger: options.logger });

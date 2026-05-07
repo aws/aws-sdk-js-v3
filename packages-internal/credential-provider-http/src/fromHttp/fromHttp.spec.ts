@@ -24,6 +24,8 @@ const mockHandle = vi.fn().mockResolvedValue({
   }),
 });
 
+let createCallCount = 0;
+
 vi.mock("@smithy/node-http-handler", () => ({
   NodeHttpHandler: (() => {
     const getImpl = () => ({
@@ -31,7 +33,10 @@ vi.mock("@smithy/node-http-handler", () => ({
       handle: mockHandle,
     });
     const impl = Object.assign(vi.fn().mockImplementation(getImpl), {
-      create: () => getImpl(),
+      create: () => {
+        createCallCount++;
+        return getImpl();
+      },
     });
     return impl;
   })(),
@@ -61,7 +66,9 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("https://u1.aws")));
+    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("https://u1.aws")), {
+      requestTimeout: 1000,
+    });
   });
 
   it("uses the relative uri", async () => {
@@ -72,7 +79,9 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("http://169.254.170.2/some-path")));
+    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("http://169.254.170.2/some-path")), {
+      requestTimeout: 1000,
+    });
   });
 
   it("can use the token", async () => {
@@ -86,7 +95,7 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(request);
+    expect(mockHandle).toHaveBeenCalledWith(request, { requestTimeout: 1000 });
   });
 
   it("can use the token file", async () => {
@@ -100,6 +109,31 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(request);
+    expect(mockHandle).toHaveBeenCalledWith(request, { requestTimeout: 1000 });
+  });
+
+  it("passes custom timeout as requestTimeout to handle()", async () => {
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+      timeout: 5000,
+    });
+
+    await provider();
+
+    expect(mockHandle).toHaveBeenCalledWith(expect.anything(), { requestTimeout: 5000 });
+  });
+
+  it("reuses a single NodeHttpHandler instance across multiple calls", async () => {
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+    });
+
+    await provider();
+    await provider();
+    await provider();
+
+    // NodeHttpHandler.create() should only be called once (cached at module level)
+    // across all tests in this file
+    expect(createCallCount).toBe(1);
   });
 });
