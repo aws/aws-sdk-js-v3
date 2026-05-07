@@ -495,6 +495,20 @@ export interface ResolverEndpoint {
    * @public
    */
   TargetNameServerMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether DNS64 is enabled for the inbound Resolver endpoint. When <code>true</code>, Route 53 Resolver
+   * 			synthesizes AAAA (IPv6) records for IPv4-only services by prepending the <code>64:ff9b::/96</code> prefix to the IPv4 address.</p>
+   * @public
+   */
+  Dns64Enabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether IPv6 internet access is enabled for the outbound Resolver endpoint. When <code>true</code>,
+   * 			the endpoint elastic network interfaces (ENIs) can forward DNS queries to public IPv6 targets through an internet gateway.</p>
+   * @public
+   */
+  Ipv6InternetAccessEnabled?: boolean | undefined;
 }
 
 /**
@@ -1698,6 +1712,30 @@ export interface CreateResolverEndpointRequest {
    * @public
    */
   TargetNameServerMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether DNS64 is enabled for the inbound Resolver endpoint. When set to <code>true</code>, Route 53 Resolver
+   * 			synthesizes AAAA (IPv6) records for IPv4-only services by prepending the <code>64:ff9b::/96</code> prefix to the IPv4 address.
+   * 			This enables IPv6-only clients that send queries through the inbound endpoint to reach IPv4-only services.
+   * 			DNS64 works with NAT64 to provide complete IPv6-to-IPv4 translation. Default is false.</p>
+   * @public
+   */
+  Dns64Enabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IPv6 internet access is enabled for the outbound Resolver endpoint. When set to <code>true</code>,
+   * 			the endpoint elastic network interfaces (ENIs) can forward DNS queries to public IPv6 targets through an internet gateway.
+   * 			Default is false.</p>
+   *          <important>
+   *             <p>When you enable IPv6 internet access, use network controls like security groups, NACLs, or egress-only internet gateways
+   * 				to protect the endpoint ENIs from unsolicited ingress traffic. Be aware that some network controls can affect DNS query
+   * 				throughput due to connection tracking. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/ec2/latest/userguide/security-group-connection-tracking.html">Amazon EC2 security group connection tracking</a>
+   * 				and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver-endpoint-scaling.html">Resolver endpoint scaling</a>.</p>
+   *          </important>
+   * @public
+   */
+  Ipv6InternetAccessEnabled?: boolean | undefined;
 }
 
 /**
@@ -5373,6 +5411,29 @@ export interface UpdateResolverEndpointRequest {
    * @public
    */
   TargetNameServerMetricsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether DNS64 is enabled for the inbound Resolver endpoint. When set to <code>true</code>, Route 53 Resolver
+   * 			synthesizes AAAA (IPv6) records for IPv4-only services by prepending the <code>64:ff9b::/96</code> prefix to the IPv4 address.
+   * 			This enables IPv6-only clients that send queries through the inbound endpoint to reach IPv4-only services.
+   * 			DNS64 works with NAT64 to provide complete IPv6-to-IPv4 translation.</p>
+   * @public
+   */
+  Dns64Enabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IPv6 internet access is enabled for the outbound Resolver endpoint. When set to <code>true</code>,
+   * 			the endpoint elastic network interfaces (ENIs) can forward DNS queries to public IPv6 targets through an internet gateway.</p>
+   *          <important>
+   *             <p>When you enable IPv6 internet access, use network controls like security groups, NACLs, or egress-only internet gateways
+   * 				to protect the endpoint ENIs from unsolicited ingress traffic. Be aware that some network controls can affect DNS query
+   * 				throughput due to connection tracking. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/ec2/latest/userguide/security-group-connection-tracking.html">Amazon EC2 security group connection tracking</a>
+   * 				and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver-endpoint-scaling.html">Resolver endpoint scaling</a>.</p>
+   *          </important>
+   * @public
+   */
+  Ipv6InternetAccessEnabled?: boolean | undefined;
 }
 
 /**

@@ -56,6 +56,8 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  *   ],
  *   RniEnhancedMetricsEnabled: true || false,
  *   TargetNameServerMetricsEnabled: true || false,
+ *   Dns64Enabled: true || false,
+ *   Ipv6InternetAccessEnabled: true || false,
  * };
  * const command = new UpdateResolverEndpointCommand(input);
  * const response = await client.send(command);
@@ -83,6 +85,8 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * //     ],
  * //     RniEnhancedMetricsEnabled: true || false,
  * //     TargetNameServerMetricsEnabled: true || false,
+ * //     Dns64Enabled: true || false,
+ * //     Ipv6InternetAccessEnabled: true || false,
  * //   },
  * // };
  *

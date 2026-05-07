@@ -89,6 +89,9 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters in this request are not valid.</p>
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you tried to update or delete is currently in use.</p>
  *

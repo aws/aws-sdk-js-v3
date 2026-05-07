@@ -70,6 +70,8 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  * //     ],
  * //     RniEnhancedMetricsEnabled: true || false,
  * //     TargetNameServerMetricsEnabled: true || false,
+ * //     Dns64Enabled: true || false,
+ * //     Ipv6InternetAccessEnabled: true || false,
  * //   },
  * // };
  *

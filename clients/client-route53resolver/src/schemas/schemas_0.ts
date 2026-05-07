@@ -49,6 +49,7 @@ const _CTr = "CreationTime";
 const _D = "Direction";
 const _DA = "DestinationArn";
 const _DC = "DomainCount";
+const _DE = "Dns64Enabled";
 const _DFDL = "DeleteFirewallDomainList";
 const _DFDLR = "DeleteFirewallDomainListRequest";
 const _DFDLRe = "DeleteFirewallDomainListResponse";
@@ -174,6 +175,7 @@ const _IFD = "ImportFirewallDomains";
 const _IFDR = "ImportFirewallDomainsRequest";
 const _IFDRm = "ImportFirewallDomainsResponse";
 const _II = "IpId";
+const _IIAE = "Ipv6InternetAccessEnabled";
 const _INTE = "InvalidNextTokenException";
 const _IPD = "InvalidPolicyDocument";
 const _IPE = "InvalidParameterException";
@@ -590,8 +592,8 @@ export var CreateOutpostResolverResponse$: StaticStructureSchema = [3, n0, _CORR
 ];
 export var CreateResolverEndpointRequest$: StaticStructureSchema = [3, n0, _CRER,
   0,
-  [_CRI, _SGI, _D, _IAp, _N, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME],
-  [0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, 0, () => TagList, 0, 64 | 0, 2, 2], 4
+  [_CRI, _SGI, _D, _IAp, _N, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME, _DE, _IIAE],
+  [0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, 0, () => TagList, 0, 64 | 0, 2, 2, 2, 2], 4
 ];
 export var CreateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _CRERr,
   0,
@@ -1150,8 +1152,8 @@ export var ResolverDnssecConfig$: StaticStructureSchema = [3, n0, _RDCe,
 ];
 export var ResolverEndpoint$: StaticStructureSchema = [3, n0, _RE,
   0,
-  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME],
-  [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 2]
+  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME, _DE, _IIAE],
+  [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 2, 2, 2]
 ];
 export var ResolverQueryLogConfig$: StaticStructureSchema = [3, n0, _RQLC,
   0,
@@ -1285,8 +1287,8 @@ export var UpdateResolverDnssecConfigResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateResolverEndpointRequest$: StaticStructureSchema = [3, n0, _URER,
   0,
-  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME],
-  [0, 0, 0, () => UpdateIpAddresses, 64 | 0, 2, 2], 1
+  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME, _DE, _IIAE],
+  [0, 0, 0, () => UpdateIpAddresses, 64 | 0, 2, 2, 2, 2], 1
 ];
 export var UpdateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _URERp,
   0,

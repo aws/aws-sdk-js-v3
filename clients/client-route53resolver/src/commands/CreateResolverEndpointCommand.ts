@@ -78,6 +78,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *   ],
  *   RniEnhancedMetricsEnabled: true || false,
  *   TargetNameServerMetricsEnabled: true || false,
+ *   Dns64Enabled: true || false,
+ *   Ipv6InternetAccessEnabled: true || false,
  * };
  * const command = new CreateResolverEndpointCommand(input);
  * const response = await client.send(command);
@@ -105,6 +107,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * //     ],
  * //     RniEnhancedMetricsEnabled: true || false,
  * //     TargetNameServerMetricsEnabled: true || false,
+ * //     Dns64Enabled: true || false,
+ * //     Ipv6InternetAccessEnabled: true || false,
  * //   },
  * // };
  *

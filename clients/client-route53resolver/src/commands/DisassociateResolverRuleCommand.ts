@@ -75,6 +75,9 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters in this request are not valid.</p>
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
