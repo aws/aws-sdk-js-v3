@@ -193,12 +193,12 @@ export interface AccessKeyDetails {
 }
 
 /**
- * <p>Contains information about the account.</p>
+ * <p>Contains information about the Amazon Web Services account within which the activity took place.</p>
  * @public
  */
 export interface Account {
   /**
-   * <p>ID of the member's Amazon Web Services account</p>
+   * <p>The Amazon Web Services account ID within which the activity took place. This may differ from the account that owns the user identity.</p>
    * @public
    */
   Uid: string | undefined;
@@ -1172,7 +1172,7 @@ export interface User {
   CredentialUid?: string | undefined;
 
   /**
-   * <p>Contains information about the Amazon Web Services account.</p>
+   * <p>Contains information about the Amazon Web Services account within which the activity took place. This is not necessarily the account that owns the user identity.</p>
    * @public
    */
   Account?: Account | undefined;
