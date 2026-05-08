@@ -1,6 +1,6 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue } from "@smithy/core/serde";
+import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue, toBase64 } from "@smithy/core/serde";
 import type {
   DocumentSchema,
   Schema,
@@ -9,7 +9,6 @@ import type {
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
 } from "@smithy/types";
-import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
 import type { JsonSettings } from "../JsonCodec";

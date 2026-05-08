@@ -1,5 +1,5 @@
-import type { SSOToken } from "@smithy/shared-ini-file-loader";
-import { getSSOTokenFilepath } from "@smithy/shared-ini-file-loader";
+import type { SSOToken } from "@smithy/core/config";
+import { getSSOTokenFilepath } from "@smithy/core/config";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises as fsPromises } from "node:fs";
 

@@ -4,8 +4,16 @@
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": "./dist-es/index.browser.js",
-  "react-native": "./dist-es/index.browser.js",
+  "browser": {
+    "./dist-es/fromTemporaryCredentials": "./dist-es/fromTemporaryCredentials.browser",
+    "./dist-es/index": "./dist-es/index.browser"
+  },
+  "react-native": {
+    "./dist-es/fromTemporaryCredentials": "./dist-es/fromTemporaryCredentials.browser",
+    "./dist-cjs/fromTemporaryCredentials": "./dist-cjs/fromTemporaryCredentials.browser",
+    "./dist-es/index": "./dist-es/index.browser",
+    "./dist-cjs/index": "./dist-cjs/index.browser"
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline credential-providers",
@@ -44,11 +52,8 @@
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.38",
     "@aws-sdk/nested-clients": "workspace:^3.997.6",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/config-resolver": "^4.4.17",
-    "@smithy/core": "^3.23.17",
-    "@smithy/credential-provider-imds": "^4.2.14",
-    "@smithy/node-config-provider": "^4.3.14",
-    "@smithy/property-provider": "^4.2.14",
+    "@smithy/core": "^3.24.0",
+    "@smithy/credential-provider-imds": "^4.3.0",
     "@smithy/types": "^4.14.1",
     "tslib": "^2.6.2"
   },

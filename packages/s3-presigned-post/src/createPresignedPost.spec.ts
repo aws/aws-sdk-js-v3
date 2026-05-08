@@ -18,8 +18,9 @@ vi.mock("@smithy/signature-v4", () => ({
   SignatureV4: class {},
 }));
 
-vi.mock("@smithy/util-hex-encoding", () => ({
+vi.mock("@smithy/core/serde", () => ({
   toHex: vi.fn().mockReturnValue("mock_hex_encoded"),
+  toUint8Array: vi.fn().mockImplementation((v) => v),
 }));
 
 const endpoint: HttpRequest = {

@@ -1,7 +1,7 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { loadConfig } from "@smithy/node-config-provider";
-import { HttpRequest } from "@smithy/protocol-http";
+import { loadConfig } from "@smithy/core/config";
+import { HttpRequest } from "@smithy/core/protocols";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -17,8 +17,7 @@ vi.mock("@smithy/signature-v4", function () {
   };
 });
 
-vi.mock("@smithy/node-config-provider");
-vi.mock("@smithy/config-resolver");
+vi.mock("@smithy/core/config");
 vi.mock("@aws-sdk/credential-providers");
 vi.mock("@aws-sdk/util-format-url");
 

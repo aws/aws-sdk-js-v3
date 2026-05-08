@@ -26,10 +26,10 @@
     "@aws-sdk/client-sagemaker": "workspace:3.1045.0",
     "@aws-sdk/client-sagemaker-runtime": "workspace:3.1045.0",
     "@aws-sdk/client-xray": "workspace:3.1045.0",
-    "@smithy/protocol-http": "^5.3.14",
+    "@smithy/protocol-http": "^5.4.0",
     "@smithy/types": "^4.14.1",
-    "@smithy/util-stream": "^4.5.25",
-    "@smithy/util-utf8": "^4.2.2",
+    "@smithy/util-stream": "^4.6.0",
+    "@smithy/util-utf8": "^4.3.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

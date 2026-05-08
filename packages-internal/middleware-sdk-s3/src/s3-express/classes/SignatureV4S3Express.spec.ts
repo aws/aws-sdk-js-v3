@@ -1,7 +1,7 @@
 import { describe, expect, test as it } from "vitest";
 
-// import { Hash } from "@smithy/hash-node";
-// import { HttpRequest } from "@smithy/protocol-http";
+// import { Hash } from "@smithy/core/serde";
+// import { HttpRequest } from "@smithy/core/protocols";
 // import { SignatureV4 } from "@smithy/signature-v4";
 // import { SESSION_TOKEN_HEADER } from "../constants";
 import { SignatureV4S3Express } from "./SignatureV4S3Express";

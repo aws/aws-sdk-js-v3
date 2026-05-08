@@ -1,6 +1,6 @@
 import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import type { SourceProfileInit } from "@smithy/core/config";
+import { getProfileName, parseKnownFiles } from "@smithy/core/config";
 
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 

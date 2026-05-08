@@ -1,6 +1,6 @@
-import { constructStack } from "@smithy/middleware-stack";
-import { HttpRequest } from "@smithy/protocol-http";
-import type { Client, Command } from "@smithy/smithy-client";
+import type { Client, Command } from "@smithy/core/client";
+import { constructStack } from "@smithy/core/client";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   BuildHandlerArguments,
   FinalizeHandlerArguments,

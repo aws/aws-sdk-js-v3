@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { BuildHandlerArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -14,7 +14,7 @@ import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFuncti
 import { stringHasher } from "./stringHasher";
 
 vi.mock("@aws-sdk/core");
-vi.mock("@smithy/protocol-http");
+vi.mock("@smithy/core/protocols");
 vi.mock("./getChecksumAlgorithmForRequest");
 vi.mock("./getChecksumLocationName");
 vi.mock("./hasHeader");

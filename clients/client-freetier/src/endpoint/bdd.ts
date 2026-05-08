@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { BinaryDecisionDiagram } from "@smithy/util-endpoints";
+import { BinaryDecisionDiagram } from "@smithy/core/endpoints";
 
 const n="ref";
 const a=true,

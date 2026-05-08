@@ -1,5 +1,5 @@
 import { setPartitionInfo, useDefaultPartitionInfo } from "@aws-sdk/util-endpoints";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { UserAgentPair } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 

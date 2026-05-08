@@ -1,11 +1,11 @@
-import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import { getProfileName, parseKnownFiles } from "@smithy/core/config";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromProcess } from "./fromProcess";
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config");
 vi.mock("./resolveProcessCredentials");
 
 describe(fromProcess.name, () => {

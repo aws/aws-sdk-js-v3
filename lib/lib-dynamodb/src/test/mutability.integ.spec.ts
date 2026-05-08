@@ -1,7 +1,9 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB, ScanCommand } from "@aws-sdk/client-dynamodb";
-import { HeadBucketCommand, HeadBucketCommandInput, S3Client } from "@aws-sdk/client-s3";
-import { DynamoDBDocument, ScanCommand as DocumentScanCommand, ScanCommandInput } from "@aws-sdk/lib-dynamodb";
+import type { HeadBucketCommandInput } from "@aws-sdk/client-s3";
+import { HeadBucketCommand, S3Client } from "@aws-sdk/client-s3";
+import type { ScanCommandInput } from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocument, ScanCommand as DocumentScanCommand } from "@aws-sdk/lib-dynamodb";
 import { describe, expect, test as it } from "vitest";
 
 describe("DynamoDBDocument command mutability", () => {

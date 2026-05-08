@@ -15,6 +15,7 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -51,10 +52,9 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             writerFactory.accept(
                 Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
                 writer -> {
-                    writer.addDependency(TypeScriptDependency.UTIL_ENDPOINTS);
                     writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
 
-                    writer.addImport("customEndpointFunctions", null, TypeScriptDependency.UTIL_ENDPOINTS);
+                    writer.addImportSubmodule("customEndpointFunctions", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.ENDPOINTS);
                     writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
                     writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
                 }

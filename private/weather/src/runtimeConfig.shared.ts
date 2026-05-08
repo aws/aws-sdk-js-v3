@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner } from "@smithy/core";
+import { NoOpLogger } from "@smithy/core/client";
+import { parseUrl } from "@smithy/core/protocols";
+import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
 import { SigV4Signer } from "@smithy/experimental-identity-and-auth";
-import { NoOpLogger } from "@smithy/smithy-client";
 import type { IdentityProviderConfig } from "@smithy/types";
-import { parseUrl } from "@smithy/url-parser";
-import { fromBase64, toBase64 } from "@smithy/util-base64";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWeatherHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";

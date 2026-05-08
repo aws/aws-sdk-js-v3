@@ -1,6 +1,7 @@
 import { auth as crtAuth, http as crtHttp, io as crtIO } from "@aws-sdk/crt-loader";
 import type { AwsCredentialIdentity } from "@aws-sdk/types";
-import { parseQueryString } from "@smithy/querystring-parser";
+import { normalizeProvider } from "@smithy/core/client";
+import { parseQueryString } from "@smithy/core/protocols";
 import type { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import { getCanonicalQuery, getPayloadHash, moveHeadersToQuery, prepareRequest } from "@smithy/signature-v4";
 import type {
@@ -12,7 +13,6 @@ import type {
   RequestSigner,
   RequestSigningArguments,
 } from "@smithy/types";
-import { normalizeProvider } from "@smithy/util-middleware";
 
 import { MAX_PRESIGNED_TTL, SHA256_HEADER } from "./constants";
 import { deleteHeader } from "./headerUtil";

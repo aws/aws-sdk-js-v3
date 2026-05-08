@@ -1,7 +1,7 @@
+import type { ServiceExceptionOptions } from "@smithy/core/client";
+import { ServiceException } from "@smithy/core/client";
+import { HttpResponse } from "@smithy/core/protocols";
 import { TypeRegistry } from "@smithy/core/schema";
-import { HttpResponse } from "@smithy/protocol-http";
-import type { ServiceExceptionOptions } from "@smithy/smithy-client";
-import { ServiceException } from "@smithy/smithy-client";
 import type { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 

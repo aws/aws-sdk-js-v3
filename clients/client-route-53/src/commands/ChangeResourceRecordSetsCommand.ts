@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { getChangeResourceRecordSetsPlugin, getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { Command as $Command } from "@smithy/smithy-client";
+import { Command as $Command } from "@smithy/core/client";
+import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";

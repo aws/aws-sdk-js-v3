@@ -1,5 +1,5 @@
+import { ServiceException } from "@smithy/core/client";
 import { TypeRegistry } from "@smithy/core/schema";
-import { ServiceException } from "@smithy/smithy-client";
 import type { HttpResponse as IHttpResponse, StaticErrorSchema } from "@smithy/types";
 import { afterEach, describe, expect, test as it } from "vitest";
 

@@ -1,38 +1,40 @@
 // smithy-typescript generated code
 import { parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core/protocols";
 import {
+  decorateServiceException as __decorateServiceException,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
+  withBaseException,
+} from "@smithy/core/client";
+import {
+  collectBody,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   HttpRequest,
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@smithy/protocol-http";
+} from "@smithy/core/protocols";
 import {
-  collectBody,
-  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
-  serializeDateTime as __serializeDateTime,
-  serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   strictParseShort as __strictParseShort,
-  withBaseException,
-} from "@smithy/smithy-client";
+  v4 as generateIdempotencyToken,
+} from "@smithy/core/serde";
 import type {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import type { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import type {

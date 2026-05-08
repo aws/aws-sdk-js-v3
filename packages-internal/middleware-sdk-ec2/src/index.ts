@@ -1,8 +1,8 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
-import { HttpRequest } from "@smithy/protocol-http";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/core/endpoints";
+import { extendedEncodeURIComponent } from "@smithy/core/protocols";
+import { HttpRequest } from "@smithy/core/protocols";
 import { SignatureV4 } from "@smithy/signature-v4";
-import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type {
   AwsCredentialIdentity,
   ChecksumConstructor,

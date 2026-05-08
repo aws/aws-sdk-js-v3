@@ -24,6 +24,7 @@ import software.amazon.smithy.model.traits.RequiredTrait;
 import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -149,11 +150,11 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "useArnRegion",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                            .addImport(
+                        writer.addImportSubmodule(
                                 "loadConfig",
                                 "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                TypeScriptDependency.SMITHY_CORE,
+                                SmithyCoreSubmodules.CONFIG
                             )
                             .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                             .addImport(

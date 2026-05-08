@@ -4,16 +4,19 @@ import {
   parseJsonBody as parseBody,
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core/protocols";
-import { HttpRequest, HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
-  collectBody,
   decorateServiceException as __decorateServiceException,
-  expectString as __expectString,
-  limitedParseFloat32 as __limitedParseFloat32,
   take,
   withBaseException,
-} from "@smithy/smithy-client";
+} from "@smithy/core/client";
+import {
+  collectBody,
+  HttpRequest,
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+} from "@smithy/core/protocols";
+import { expectString as __expectString, limitedParseFloat32 as __limitedParseFloat32 } from "@smithy/core/serde";
 import {
   type Endpoint as __Endpoint,
   type ResponseMetadata as __ResponseMetadata,

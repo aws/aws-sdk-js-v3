@@ -5,9 +5,9 @@ import { expect, test as it } from "vitest";
 import { UploadArchiveCommand } from "../../src/commands/UploadArchiveCommand";
 import { UploadMultipartPartCommand } from "../../src/commands/UploadMultipartPartCommand";
 import { GlacierClient } from "../../src/GlacierClient";
-import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "node:stream";
+import { HttpRequest, HttpResponse, type HttpHandler } from "@smithy/core/protocols";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 
 /**
  * Throws an expected exception that contains the serialized request.

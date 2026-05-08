@@ -13,6 +13,7 @@ import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -79,11 +80,11 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                     },
                     "userAgentAppId",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "loadConfig",
                             "loadNodeConfig",
-                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
                         writer.addImport(

@@ -16,7 +16,7 @@ import {
   UniqueItemsValidator as __UniqueItemsValidator,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
+import { SENSITIVE_STRING } from "@smithy/core/client";
 
 import { EnumString, EnumTraitString, FooEnum, IntegerEnum, RecursiveEnumString } from "./enums";
 

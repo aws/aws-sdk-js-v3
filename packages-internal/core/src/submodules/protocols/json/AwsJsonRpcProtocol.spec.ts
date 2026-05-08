@@ -1,7 +1,7 @@
+import { HttpResponse } from "@smithy/core/protocols";
 import { TypeRegistry } from "@smithy/core/schema";
-import { HttpResponse } from "@smithy/protocol-http";
+import { fromUtf8 } from "@smithy/core/serde";
 import type { NumericSchema, StaticErrorSchema, StringSchema, TimestampEpochSecondsSchema } from "@smithy/types";
-import { fromUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
 import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";

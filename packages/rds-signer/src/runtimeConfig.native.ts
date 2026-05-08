@@ -1,5 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { invalidProvider } from "@smithy/invalid-dependency";
+import { invalidProvider } from "@smithy/core/client";
 
 import type { SignerConfig } from "./Signer";
 

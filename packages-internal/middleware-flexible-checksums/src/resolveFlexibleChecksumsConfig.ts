@@ -1,5 +1,5 @@
+import { normalizeProvider } from "@smithy/core/client";
 import type { ChecksumConstructor, Provider } from "@smithy/types";
-import { normalizeProvider } from "@smithy/util-middleware";
 
 import type { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 import { DEFAULT_REQUEST_CHECKSUM_CALCULATION, DEFAULT_RESPONSE_CHECKSUM_VALIDATION } from "./constants";

@@ -5,8 +5,7 @@ import type {
   CredentialProviderOptions,
   RuntimeConfigAwsCredentialIdentityProvider,
 } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError, externalDataInterceptor } from "@smithy/core/config";
 import { readFileSync } from "node:fs";
 
 import type { FromWebTokenInit } from "./fromWebToken";

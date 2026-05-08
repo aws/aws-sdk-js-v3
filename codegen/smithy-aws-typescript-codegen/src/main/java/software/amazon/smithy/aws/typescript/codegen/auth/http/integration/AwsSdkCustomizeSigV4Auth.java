@@ -25,6 +25,7 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -126,11 +127,11 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         map.put(
                             "sigv4aSigningRegionSet",
                             writer -> {
-                                writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                                writer.addImport(
+                                writer.addImportSubmodule(
                                     "loadConfig",
                                     "loadNodeConfig",
-                                    TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                    TypeScriptDependency.SMITHY_CORE,
+                                    SmithyCoreSubmodules.CONFIG
                                 );
                                 writer.addImportSubmodule(
                                     "NODE_SIGV4A_CONFIG_OPTIONS",

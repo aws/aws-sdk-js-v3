@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
-This script uses the JSON file scripts/validation/api.json to validate that previously present symbols
-are still exported by the packages within the assessed group.
+ This script uses the JSON file api-snapshot/api.json to validate that previously present symbols
+ are still exported by the packages within the assessed group.
 
-Data may only be deleted from api.json in an intentional backwards-incompatible change.
+ Data may only be deleted from api.json in an intentional backwards-incompatible change.
  */
 
 const fs = require("node:fs");
@@ -25,7 +25,7 @@ const packageDirs = [
 const errors = [];
 
 // Collect all .d.ts entry points upfront.
-const dtsEntries = []; // { dtsPath, name, version, cjsPath }
+const dtsEntries = []; // { dtsPath, name, version, cjsPath, exportConfig? }
 
 for (const packageRoot of packageDirs) {
   const pkgJsonPath = path.join(packageRoot, "package.json");
@@ -55,10 +55,63 @@ for (const packageRoot of packageDirs) {
 }
 
 // Create a single TypeScript program with all entry points.
+const submodulePaths = {};
+
+// @smithy/core submodules (from node_modules)
+const smithyCoreSubmodulesDir = path.join(root, "node_modules", "@smithy", "core", "dist-types", "submodules");
+if (fs.existsSync(smithyCoreSubmodulesDir)) {
+  for (const dir of fs.readdirSync(smithyCoreSubmodulesDir, { withFileTypes: true })) {
+    if (dir.isDirectory()) {
+      submodulePaths[`@smithy/core/${dir.name}`] = [
+        `node_modules/@smithy/core/dist-types/submodules/${dir.name}/index.d.ts`,
+      ];
+    }
+  }
+}
+
+// @aws-sdk/core submodules (packages-internal/core)
+const awsCoreSubmodulesDir = path.join(root, "packages-internal", "core", "src", "submodules");
+if (fs.existsSync(awsCoreSubmodulesDir)) {
+  for (const dir of fs.readdirSync(awsCoreSubmodulesDir, { withFileTypes: true })) {
+    if (dir.isDirectory()) {
+      submodulePaths[`@aws-sdk/core/${dir.name}`] = [
+        `packages-internal/core/dist-types/submodules/${dir.name}/index.d.ts`,
+      ];
+    }
+  }
+}
+
+// @aws-sdk/config submodules (packages/config)
+const configSubmodulesDir = path.join(root, "packages", "config", "src", "submodules");
+if (fs.existsSync(configSubmodulesDir)) {
+  for (const dir of fs.readdirSync(configSubmodulesDir, { withFileTypes: true })) {
+    if (dir.isDirectory()) {
+      submodulePaths[`@aws-sdk/config/${dir.name}`] = [`packages/config/dist-types/submodules/${dir.name}/index.d.ts`];
+    }
+  }
+}
+
+// @aws-sdk/nested-clients submodules (packages-internal/nested-clients)
+const nestedClientsSubmodulesDir = path.join(root, "packages-internal", "nested-clients", "src", "submodules");
+if (fs.existsSync(nestedClientsSubmodulesDir)) {
+  for (const dir of fs.readdirSync(nestedClientsSubmodulesDir, { withFileTypes: true })) {
+    if (dir.isDirectory()) {
+      submodulePaths[`@aws-sdk/nested-clients/${dir.name}`] = [
+        `packages-internal/nested-clients/dist-types/submodules/${dir.name}/index.d.ts`,
+      ];
+    }
+  }
+}
+
 const allDtsPaths = dtsEntries.map((e) => e.dtsPath);
 const program = ts.createProgram(allDtsPaths, {
   moduleResolution: ts.ModuleResolutionKind.NodeJs,
   baseUrl: root,
+  paths: {
+    ...submodulePaths,
+    "@smithy/*": ["node_modules/@smithy/*/dist-types"],
+    "@aws-sdk/*": ["packages/*/dist-types", "packages-internal/*/dist-types"],
+  },
 });
 const checker = program.getTypeChecker();
 
@@ -98,7 +151,7 @@ function getTypeExports(dtsPath) {
         else if (type.flags & ts.TypeFlags.Object) kind = "type(object)";
         else kind = "type(alias)";
       } else {
-        kind = "type(enum)";
+        kind = "type(?)";
       }
       typeExports.set(sym.getName(), kind);
     }
@@ -146,11 +199,104 @@ function checkModule(name, version, module, typeExports) {
       if (inCurrent && inSnapshot) {
         const expectedKind = api[name][symbol];
         const actualKind = inRuntime ? typeof module[symbol] : typeExports.get(symbol);
-        if (expectedKind !== actualKind) {
+        const baseExpectedKind = expectedKind.replace("(node-only)", "");
+        if (baseExpectedKind !== actualKind) {
           errors.push(
             `Symbol [${symbol}] has a different type than expected in ${name}, actual=${actualKind} expected=${expectedKind}.`
           );
         }
+      }
+    }
+  }
+}
+
+// Validate submodule variant indexes export the same symbols as the node canonical.
+const coreDir = path.join(root, "packages-internal", "core");
+const coreSubmodulesDir = awsCoreSubmodulesDir;
+
+// Create separate TS programs for browser and native variant type checking.
+function createVariantProgram(variant) {
+  const variantDtsPaths = [];
+  for (const dir of fs.readdirSync(coreSubmodulesDir, { withFileTypes: true })) {
+    if (!dir.isDirectory()) continue;
+    const variantDts = path.join(coreDir, "dist-types", "submodules", dir.name, `index.${variant}.d.ts`);
+    const nodeDts = path.join(coreDir, "dist-types", "submodules", dir.name, "index.d.ts");
+    variantDtsPaths.push(fs.existsSync(variantDts) ? variantDts : nodeDts);
+  }
+  return ts.createProgram(variantDtsPaths, {
+    moduleResolution: ts.ModuleResolutionKind.NodeJs,
+    baseUrl: root,
+    paths: {
+      ...submodulePaths,
+      "@smithy/*": ["node_modules/@smithy/*/dist-types"],
+      "@aws-sdk/*": ["packages/*/dist-types", "packages-internal/*/dist-types"],
+    },
+  });
+}
+
+const variantPrograms = {
+  browser: createVariantProgram("browser"),
+  native: createVariantProgram("native"),
+};
+
+for (const dir of fs.readdirSync(coreSubmodulesDir, { withFileTypes: true })) {
+  if (!dir.isDirectory()) continue;
+  const sub = dir.name;
+  const nodeIndex = path.join(coreDir, "dist-cjs", "submodules", sub, "index.js");
+  if (!fs.existsSync(nodeIndex)) continue;
+
+  const nodeModule = require(nodeIndex);
+  const snapshotName = `@aws-sdk/core/${sub}`;
+  const nodeTypeExports = getTypeExports(path.join(coreDir, "dist-types", "submodules", sub, "index.d.ts"));
+
+  for (const variant of ["browser", "native"]) {
+    const variantIndex = path.join(coreDir, "dist-cjs", "submodules", sub, `index.${variant}.js`);
+    if (!fs.existsSync(variantIndex)) continue;
+
+    const variantModule = require(variantIndex);
+
+    // Check runtime exports match 1:1.
+    for (const key of Object.keys(nodeModule)) {
+      if (!(key in variantModule)) {
+        errors.push(`Symbol [${key}] is missing from ${snapshotName} index.${variant}.js`);
+      }
+    }
+    for (const key of Object.keys(variantModule)) {
+      if (!(key in nodeModule)) {
+        errors.push(`Symbol [${key}] in ${snapshotName} index.${variant}.js is not in the node index`);
+      }
+    }
+
+    // Check type exports match 1:1.
+    const variantDts = path.join(coreDir, "dist-types", "submodules", sub, `index.${variant}.d.ts`);
+    if (fs.existsSync(variantDts)) {
+      const variantChecker = variantPrograms[variant].getTypeChecker();
+      const variantSourceFile = variantPrograms[variant].getSourceFile(variantDts);
+      if (variantSourceFile) {
+        const variantModuleSymbol = variantChecker.getSymbolAtLocation(variantSourceFile);
+        const variantTypeNames = new Set(
+          variantModuleSymbol ? variantChecker.getExportsOfModule(variantModuleSymbol).map((s) => s.getName()) : []
+        );
+        for (const [typeName] of nodeTypeExports) {
+          if (!variantTypeNames.has(typeName)) {
+            errors.push(`Type [${typeName}] is missing from ${snapshotName} index.${variant}.d.ts`);
+          }
+        }
+        for (const typeName of variantTypeNames) {
+          if (!nodeTypeExports.has(typeName) && !(typeName in nodeModule)) {
+            errors.push(`Type [${typeName}] in ${snapshotName} index.${variant}.d.ts is not in the node index`);
+          }
+        }
+      }
+    }
+
+    // Mark node-only symbols (Symbol.for("node-only") in variant) in the snapshot.
+    const nodeOnlySymbol = Symbol.for("node-only");
+    for (const key of Object.keys(variantModule)) {
+      if (variantModule[key] === nodeOnlySymbol && nodeModule[key] != null && api[snapshotName]) {
+        const baseKind = typeof nodeModule[key];
+        const nodeOnlyKind = `${baseKind}(node-only)`;
+        api[snapshotName][key] = nodeOnlyKind;
       }
     }
   }

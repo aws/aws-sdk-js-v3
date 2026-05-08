@@ -1,6 +1,5 @@
-import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
-import { buildQueryString } from "@smithy/querystring-builder";
+import type { HttpHandler, HttpRequest } from "@smithy/core/protocols";
+import { buildQueryString, HttpResponse } from "@smithy/core/protocols";
 import type { HttpHandlerOptions, Provider } from "@smithy/types";
 // eslint-disable-next-line n/prefer-node-protocol
 import { EventEmitter } from "events";

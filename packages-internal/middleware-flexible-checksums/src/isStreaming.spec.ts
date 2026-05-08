@@ -1,9 +1,9 @@
-import { isArrayBuffer } from "@smithy/is-array-buffer";
+import { isArrayBuffer } from "@smithy/core/serde";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isStreaming } from "./isStreaming";
 
-vi.mock("@smithy/is-array-buffer");
+vi.mock("@smithy/core/serde");
 
 describe(isStreaming.name, () => {
   beforeEach(() => {

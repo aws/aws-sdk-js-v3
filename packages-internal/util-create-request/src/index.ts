@@ -1,4 +1,4 @@
-import type { Client, Command } from "@smithy/smithy-client";
+import type { Client, Command } from "@smithy/core/client";
 import type { BuildMiddleware, HttpRequest, MetadataBearer } from "@smithy/types";
 
 export async function createRequest<

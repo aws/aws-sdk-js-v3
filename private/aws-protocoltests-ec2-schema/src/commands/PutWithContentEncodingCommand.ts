@@ -1,7 +1,7 @@
 // smithy-typescript generated code
+import { Command as $Command } from "@smithy/core/client";
+import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { getCompressionPlugin } from "@smithy/middleware-compression";
-import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";

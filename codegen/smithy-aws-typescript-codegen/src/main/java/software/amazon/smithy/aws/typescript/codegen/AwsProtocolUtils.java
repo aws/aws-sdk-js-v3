@@ -34,6 +34,7 @@ import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.protocoltests.traits.HttpMalformedRequestTestCase;
 import software.amazon.smithy.protocoltests.traits.HttpMessageTestCase;
 import software.amazon.smithy.typescript.codegen.HttpProtocolTestGenerator;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -170,10 +171,11 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Write a single function to handle combining a map in to a valid query string.
-        writer.addImport(
+        writer.addImportSubmodule(
             "extendedEncodeURIComponent",
             "__extendedEncodeURIComponent",
-            TypeScriptDependency.AWS_SMITHY_CLIENT
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.PROTOCOLS
         );
         writer.openBlock(
             "const buildFormUrlencodedString = (formEntries: Record<string, string>): "
@@ -254,7 +256,12 @@ final class AwsProtocolUtils {
     static void writeIdempotencyAutofill(GenerationContext context, MemberShape memberShape, String inputLocation) {
         if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
             TypeScriptWriter writer = context.getWriter();
-            writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
+            writer.addImportSubmodule(
+                "v4",
+                "generateIdempotencyToken",
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
+            );
             writer.openBlock(
                 "if ($L === undefined) {",
                 "}",

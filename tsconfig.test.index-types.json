@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "noCheck": false,
+    "skipLibCheck": true
+  },
+  "extends": "./tsconfig.cjs.json",
+  "include": ["clients/**/test/index-types.ts"],
+  "exclude": ["node_modules/"]
+}

@@ -5,18 +5,21 @@ import {
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core/protocols";
 import { requestBuilder as rb } from "@smithy/core";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
-  collectBody,
   decorateServiceException as __decorateServiceException,
-  expectString as __expectString,
   isSerializableHeaderValue,
   map,
-  resolvedPath as __resolvedPath,
   take,
   withBaseException,
-} from "@smithy/smithy-client";
+} from "@smithy/core/client";
+import {
+  collectBody,
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  resolvedPath as __resolvedPath,
+} from "@smithy/core/protocols";
+import { expectString as __expectString } from "@smithy/core/serde";
 import type {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,

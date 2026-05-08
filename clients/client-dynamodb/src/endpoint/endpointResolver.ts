@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { awsEndpointFunctions } from "@aws-sdk/util-endpoints";
+import { type EndpointParams, customEndpointFunctions, decideEndpoint, EndpointCache } from "@smithy/core/endpoints";
 import type { EndpointV2, Logger } from "@smithy/types";
-import { type EndpointParams, customEndpointFunctions, decideEndpoint, EndpointCache } from "@smithy/util-endpoints";
 
 import { bdd } from "./bdd";
 import type { EndpointParameters } from "./EndpointParameters";

@@ -3,9 +3,9 @@
 // https://github.com/smithy-lang/smithy-typescript/blob/main/smithy-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/integration/http-api-key-auth.ts
 // derived from https://github.com/aws/aws-sdk-js-v3/blob/e35f78c97fa6710ff9c444351893f0f06755e771/packages/middleware-endpoint-discovery/src/endpointDiscoveryMiddleware.ts
 
-import { HttpRequest } from "@smithy/protocol-http";
+import { normalizeProvider } from "@smithy/core/client";
+import { HttpRequest } from "@smithy/core/protocols";
 import { BuildMiddleware, Pluggable, Provider, RelativeMiddlewareOptions } from "@smithy/types";
-import { normalizeProvider } from "@smithy/util-middleware";
 
 interface HttpApiKeyAuthMiddlewareConfig {
   /**
@@ -54,7 +54,7 @@ export interface HttpApiKeyAuthResolvedConfig {
 // or resolveFunction are set, then all of inputConfig, resolvedConfig, and
 // resolveFunction must be set."
 export function resolveHttpApiKeyAuthConfig<T>(
-  input: T & ApiKeyPreviouslyResolved & HttpApiKeyAuthInputConfig,
+  input: T & ApiKeyPreviouslyResolved & HttpApiKeyAuthInputConfig
 ): T & HttpApiKeyAuthResolvedConfig {
   return {
     ...input,
@@ -78,7 +78,7 @@ export function resolveHttpApiKeyAuthConfig<T>(
 export const httpApiKeyAuthMiddleware =
   <Input extends object, Output extends object>(
     pluginConfig: HttpApiKeyAuthResolvedConfig,
-    middlewareConfig: HttpApiKeyAuthMiddlewareConfig,
+    middlewareConfig: HttpApiKeyAuthMiddlewareConfig
   ): BuildMiddleware<Input, Output> =>
   (next) =>
   async (args) => {
@@ -125,12 +125,12 @@ export const httpApiKeyAuthMiddlewareOptions: RelativeMiddlewareOptions = {
 
 export const getHttpApiKeyAuthPlugin = (
   pluginConfig: HttpApiKeyAuthResolvedConfig,
-  middlewareConfig: HttpApiKeyAuthMiddlewareConfig,
+  middlewareConfig: HttpApiKeyAuthMiddlewareConfig
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(
       httpApiKeyAuthMiddleware(pluginConfig, middlewareConfig),
-      httpApiKeyAuthMiddlewareOptions,
+      httpApiKeyAuthMiddlewareOptions
     );
   },
 });

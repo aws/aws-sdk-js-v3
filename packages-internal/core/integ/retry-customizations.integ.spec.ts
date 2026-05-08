@@ -2,8 +2,8 @@ import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBStreams } from "@aws-sdk/client-dynamodb-streams";
 import { STS } from "@aws-sdk/client-sts";
-import { HttpResponse } from "@smithy/protocol-http";
-import { AdaptiveRetryStrategy, Retry, StandardRetryStrategy } from "@smithy/util-retry";
+import { HttpResponse } from "@smithy/core/protocols";
+import { AdaptiveRetryStrategy, Retry, StandardRetryStrategy } from "@smithy/core/retry";
 import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it } from "vitest";
 

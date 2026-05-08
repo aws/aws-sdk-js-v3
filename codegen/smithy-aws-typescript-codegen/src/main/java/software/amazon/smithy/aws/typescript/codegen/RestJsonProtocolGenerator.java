@@ -26,6 +26,7 @@ import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -77,7 +78,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addImportSubmodule("take", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
         writer.addImportSubmodule("loadRestJsonErrorCode", null, AwsDependency.AWS_SDK_CORE, "/protocols");
 
         writer.write(
@@ -321,7 +322,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     private void serializeDocumentBody(GenerationContext context, List<HttpBinding> documentBindings) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
-        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addImportSubmodule("take", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
         writer.openBlock("body = JSON.stringify(take(input, {", "}));", () -> {
             for (HttpBinding binding : documentBindings) {
                 MemberShape memberShape = binding.getMember();
@@ -347,7 +348,12 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
+                        writer.addImportSubmodule(
+                            "v4",
+                            "generateIdempotencyToken",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.SERDE
+                        );
                         writer.write(
                             "'$L': [true,_ => _ ?? generateIdempotencyToken(),`$L`],",
                             wireName,
@@ -362,7 +368,12 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                     }
                 } else {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
+                        writer.addImportSubmodule(
+                            "v4",
+                            "generateIdempotencyToken",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.SERDE
+                        );
                         writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken()],", wireName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
@@ -417,7 +428,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
-        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addImportSubmodule("take", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
 
         writer.openBlock("const doc = take(data, {", "});", () -> {
             for (HttpBinding binding : documentBindings) {

@@ -1,10 +1,10 @@
+import { CredentialsProviderError } from "@smithy/core/config";
 import {
   ENV_CMDS_FULL_URI,
   ENV_CMDS_RELATIVE_URI,
   fromContainerMetadata,
   fromInstanceMetadata,
 } from "@smithy/credential-provider-imds";
-import { CredentialsProviderError } from "@smithy/property-provider";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { ENV_IMDS_DISABLED, remoteProvider } from "./remoteProvider";

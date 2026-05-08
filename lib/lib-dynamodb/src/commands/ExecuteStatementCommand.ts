@@ -1,11 +1,16 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/smithy-client";
-import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
+import { ExecuteStatementCommand as __ExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@smithy/core/client";
+import type { Handler, MiddlewareStack } from "@smithy/types";
+import { type HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
-import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
-import { ExecuteStatementCommand as __ExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
+import type {
+  DynamoDBDocumentClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../DynamoDBDocumentClient";
 
 /**
  * @public
@@ -15,33 +20,16 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, 'Parameters'> & {
-  Parameters?:
-    (
-      NativeAttributeValue
-    )[]
-     | undefined
-  ;
+export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, "Parameters"> & {
+  Parameters?: NativeAttributeValue[] | undefined;
 };
 
 /**
  * @public
  */
-export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, 'Items' | 'LastEvaluatedKey'> & {
-  Items?:
-    (
-      Record<string,
-        NativeAttributeValue
-      >
-    )[]
-     | undefined
-  ;
-  LastEvaluatedKey?:
-    Record<string,
-      NativeAttributeValue
-    >
-     | undefined
-  ;
+export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items" | "LastEvaluatedKey"> & {
+  Items?: Record<string, NativeAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
@@ -53,27 +41,28 @@ export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput
  *
  * @public
  */
-export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<ExecuteStatementCommandInput, ExecuteStatementCommandOutput, __ExecuteStatementCommandInput, __ExecuteStatementCommandOutput, DynamoDBDocumentClientResolvedConfig> {
+export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
+  ExecuteStatementCommandInput,
+  ExecuteStatementCommandOutput,
+  __ExecuteStatementCommandInput,
+  __ExecuteStatementCommandOutput,
+  DynamoDBDocumentClientResolvedConfig
+> {
   protected readonly inputKeyNodes = {
-    'Parameters':
-      ALL_MEMBERS // set/list of AttributeValue
-    ,
+    Parameters: ALL_MEMBERS, // set/list of AttributeValue
   };
   protected readonly outputKeyNodes = {
-    'Items':
-      {
-        '*':
-        ALL_VALUES // map with AttributeValue
-      }
-    ,
-    'LastEvaluatedKey':
-      ALL_VALUES // map with AttributeValue
-    ,
+    Items: {
+      "*": ALL_VALUES, // map with AttributeValue
+    },
+    LastEvaluatedKey: ALL_VALUES, // map with AttributeValue
   };
 
   protected readonly clientCommand: __ExecuteStatementCommand;
-  public readonly middlewareStack: MiddlewareStack<ExecuteStatementCommandInput | __ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput | __ExecuteStatementCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<
+    ExecuteStatementCommandInput | __ExecuteStatementCommandInput,
+    ExecuteStatementCommandOutput | __ExecuteStatementCommandOutput
+  >;
 
   constructor(readonly input: ExecuteStatementCommandInput) {
     super();
@@ -89,23 +78,16 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<Execu
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExecuteStatementCommandInput, ExecuteStatementCommandOutput> {
-    this.addMarshallingMiddleware(
-      configuration
-    );
+    this.addMarshallingMiddleware(configuration);
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand)
+    return async () => handler(this.clientCommand);
   }
 }
 
 import type {
   ExecuteStatementCommandInput as __ExecuteStatementCommandInput,
-
   ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput,
-
 } from "@aws-sdk/client-dynamodb";
-
-import type {
-  NativeAttributeValue,
-} from "@aws-sdk/util-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

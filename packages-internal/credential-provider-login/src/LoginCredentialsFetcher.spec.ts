@@ -1,4 +1,4 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/core/config";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { LoginCredentialsFetcher } from "./LoginCredentialsFetcher";

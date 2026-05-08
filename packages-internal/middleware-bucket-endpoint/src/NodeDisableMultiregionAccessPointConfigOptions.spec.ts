@@ -1,4 +1,4 @@
-import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
+import { booleanSelector, SelectorType } from "@smithy/core/config";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import {
@@ -7,7 +7,7 @@ import {
   NODE_DISABLE_MULTIREGION_ACCESS_POINT_INI_NAME,
 } from "./NodeDisableMultiregionAccessPointConfigOptions";
 
-vi.mock("@smithy/util-config-provider");
+vi.mock("@smithy/core/config");
 
 describe("NODE_USE_ARN_REGION_CONFIG_OPTIONS", () => {
   afterEach(() => {

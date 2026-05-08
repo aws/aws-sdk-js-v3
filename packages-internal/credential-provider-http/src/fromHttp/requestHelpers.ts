@@ -1,9 +1,9 @@
 import type { AwsCredentialIdentity } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { HttpRequest } from "@smithy/protocol-http";
-import { parseRfc3339DateTime } from "@smithy/smithy-client";
+import { CredentialsProviderError } from "@smithy/core/config";
+import { HttpRequest } from "@smithy/core/protocols";
+import { parseRfc3339DateTime } from "@smithy/core/serde";
+import { sdkStreamMixin } from "@smithy/core/serde";
 import type { HttpResponse, Logger } from "@smithy/types";
-import { sdkStreamMixin } from "@smithy/util-stream";
 
 import type { HttpProviderCredentials } from "./fromHttpTypes";
 

@@ -1,10 +1,10 @@
-import { TokenProviderError } from "@smithy/property-provider";
 import {
   getProfileName,
   getSSOTokenFromFile,
   loadSsoSessionData,
   parseKnownFiles,
-} from "@smithy/shared-ini-file-loader";
+  TokenProviderError,
+} from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
@@ -14,7 +14,13 @@ import { validateTokenExpiry } from "./validateTokenExpiry";
 import { validateTokenKey } from "./validateTokenKey";
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config", async (importActual) => ({
+  ...(await importActual<any>()),
+  getProfileName: vi.fn(),
+  getSSOTokenFromFile: vi.fn(),
+  loadSsoSessionData: vi.fn(),
+  parseKnownFiles: vi.fn(),
+}));
 vi.mock("./getNewSsoOidcToken");
 vi.mock("./validateTokenExpiry");
 vi.mock("./validateTokenKey");

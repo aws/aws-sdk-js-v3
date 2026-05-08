@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.DynamicTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -235,13 +236,14 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         Paths.get(".", serviceSymbol.getNamespace())
                     );
                     w.addTypeImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES);
-                    w.addImport("getSmithyContext", null, TypeScriptDependency.UTIL_MIDDLEWARE);
-                    w.addTypeImport(
+                    w.addImportSubmodule("getSmithyContext", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
+                    w.addTypeImportSubmodule(
                         "EndpointParameterInstructions",
                         null,
-                        TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.ENDPOINTS
                     );
-                    w.addImport("resolveParams", null, TypeScriptDependency.MIDDLEWARE_ENDPOINTS_V2);
+                    w.addImportSubmodule("resolveParams", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.ENDPOINTS);
                     w.writeDocs("@internal");
                     w.write("""
                             interface EndpointRuleSetSmithyContext {

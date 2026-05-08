@@ -9,9 +9,9 @@ import {
 } from "@aws-sdk/credential-providers";
 import { assumeRoleArns, MockNodeHttpHandler } from "@aws-sdk/credential-providers/tests/_test-lib";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
+import { externalDataInterceptor } from "@smithy/core/config";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
-import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
+import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/core/retry";
 import child_process from "node:child_process";
 import { createHash } from "node:crypto";
 import { homedir } from "node:os";

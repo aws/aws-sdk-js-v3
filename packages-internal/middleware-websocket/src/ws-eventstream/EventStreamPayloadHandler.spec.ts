@@ -1,5 +1,5 @@
+import { fromUtf8, toUtf8 } from "@smithy/core/serde";
 import type { FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { DirectoryServiceDataServiceException as __BaseException } from "./DirectoryServiceDataServiceException";
 import type { AccessDeniedReason, DirectoryUnavailableReason, ValidationExceptionReason } from "./enums";

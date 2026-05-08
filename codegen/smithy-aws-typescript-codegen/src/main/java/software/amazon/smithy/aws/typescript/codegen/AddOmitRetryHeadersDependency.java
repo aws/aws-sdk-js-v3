@@ -30,7 +30,8 @@ public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    TypeScriptDependency.MIDDLEWARE_RETRY.dependency,
+                    "@smithy/core/retry",
+                    TypeScriptDependency.SMITHY_CORE.dependency.getVersion(),
                     "OmitRetryHeaders",
                     HAS_MIDDLEWARE
                 )

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { getCopySnapshotPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-ec2";
-import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { Command as $Command } from "@smithy/smithy-client";
+import { Command as $Command } from "@smithy/core/client";
+import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { AmpServiceException as __BaseException } from "./AmpServiceException";
 import type { ValidationExceptionReason } from "./enums";

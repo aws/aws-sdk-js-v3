@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import type { ComplexNestedErrorData, ValidationExceptionField } from "./models_0";
 import { RpcV2ProtocolServiceException as __BaseException } from "./RpcV2ProtocolServiceException";

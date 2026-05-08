@@ -17,6 +17,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.shapes.StringShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -39,7 +40,7 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
     JsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
         TypeScriptWriter writer = context.getWriter();
-        writer.addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addImportSubmodule("_json", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
         this.isAwsQueryCompat = context.getService().hasTrait(AwsQueryCompatibleTrait.class);
         this.serdeElisionEnabled = !this.isAwsQueryCompat && !context.getSettings().generateServerSdk();
         if (isAwsQueryCompat) {

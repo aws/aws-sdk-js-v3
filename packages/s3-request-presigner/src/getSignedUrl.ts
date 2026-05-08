@@ -1,8 +1,8 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
-import type { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
-import { getEndpointFromInstructions } from "@smithy/middleware-endpoint";
-import { HttpRequest } from "@smithy/protocol-http";
-import type { Client, Command } from "@smithy/smithy-client";
+import type { Client, Command } from "@smithy/core/client";
+import type { EndpointParameterInstructionsSupplier } from "@smithy/core/endpoints";
+import { getEndpointFromInstructions } from "@smithy/core/endpoints";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   BuildMiddleware,
   EndpointV2,

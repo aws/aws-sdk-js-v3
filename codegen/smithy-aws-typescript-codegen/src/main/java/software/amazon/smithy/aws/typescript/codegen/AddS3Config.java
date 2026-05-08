@@ -44,6 +44,7 @@ import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.rulesengine.traits.ContextParamTrait;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -348,11 +349,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                 return MapUtils.of(
                     "useArnRegion",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                            .addImport(
+                        writer.addImportSubmodule(
                                 "loadConfig",
                                 "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                TypeScriptDependency.SMITHY_CORE,
+                                SmithyCoreSubmodules.CONFIG
                             )
                             .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                             .addImport(
@@ -364,11 +365,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                     },
                     "disableS3ExpressSessionAuth",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
-                            .addImport(
+                        writer.addImportSubmodule(
                                 "loadConfig",
                                 "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                TypeScriptDependency.SMITHY_CORE,
+                                SmithyCoreSubmodules.CONFIG
                             )
                             .addDependency(AwsDependency.S3_MIDDLEWARE)
                             .addImport(

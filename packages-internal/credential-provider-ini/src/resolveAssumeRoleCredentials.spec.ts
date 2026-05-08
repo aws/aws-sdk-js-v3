@@ -1,5 +1,4 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { getProfileName } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError, getProfileName } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
@@ -11,7 +10,10 @@ vi.mock("@aws-sdk/nested-clients/sts", () => {
     getDefaultRoleAssumer: vi.fn().mockReturnValue(async () => ({})),
   };
 });
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config", async (importActual) => ({
+  ...(await importActual<any>()),
+  getProfileName: vi.fn(),
+}));
 vi.mock("./resolveCredentialSource");
 vi.mock("./resolveProfileData");
 

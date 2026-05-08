@@ -23,7 +23,7 @@ import type {
   UpdateCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
 import { DynamoDBDocument, NumberValue } from "@aws-sdk/lib-dynamodb";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 // expected running time: table creation (~20s) + operations 10s

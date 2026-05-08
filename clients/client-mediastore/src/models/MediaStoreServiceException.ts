@@ -2,7 +2,7 @@
 import {
   type ServiceExceptionOptions as __ServiceExceptionOptions,
   ServiceException as __ServiceException,
-} from "@smithy/smithy-client";
+} from "@smithy/core/client";
 
 export type { __ServiceExceptionOptions };
 

@@ -1,5 +1,5 @@
+import { booleanSelector, SelectorType } from "@smithy/core/config";
 import type { UserAgentPair } from "@smithy/types";
-import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 

@@ -1,5 +1,5 @@
 import type { AwsIdentityProperties } from "@aws-sdk/types";
-import type { SSOToken } from "@smithy/shared-ini-file-loader";
+import type { SSOToken } from "@smithy/core/config";
 
 import type { FromSsoInit } from "./fromSso";
 import { getSsoOidcClient } from "./getSsoOidcClient";

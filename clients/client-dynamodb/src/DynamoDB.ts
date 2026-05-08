@@ -1,12 +1,11 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/smithy-client";
+import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
 } from "@smithy/types";
-import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   type BatchExecuteStatementCommandInput,

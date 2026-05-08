@@ -17,6 +17,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShortShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
@@ -55,17 +56,18 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     @Override
     public String booleanShape(BooleanShape shape) {
-        getContext().getWriter().addImport("parseBoolean", "__parseBoolean", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        getContext().getWriter().addImportSubmodule("parseBoolean", "__parseBoolean", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__parseBoolean(" + getDataSource() + ")";
     }
 
     @Override
     public String byteShape(ByteShape shape) {
         getContext().getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "strictParseByte",
                 "__strictParseByte",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__strictParseByte(" + getDataSource() + ") as number";
     }
@@ -73,10 +75,11 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     @Override
     public String shortShape(ShortShape shape) {
         getContext().getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "strictParseShort",
                 "__strictParseShort",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__strictParseShort(" + getDataSource() + ") as number";
     }
@@ -84,10 +87,11 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     @Override
     public String integerShape(IntegerShape shape) {
         getContext().getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "strictParseInt32",
                 "__strictParseInt32",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__strictParseInt32(" + getDataSource() + ") as number";
     }
@@ -95,10 +99,11 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
     @Override
     public String longShape(LongShape shape) {
         getContext().getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "strictParseLong",
                 "__strictParseLong",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__strictParseLong(" + getDataSource() + ") as number";
     }
@@ -142,10 +147,11 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     private String deserializeFloat() {
         getContext().getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "strictParseFloat",
                 "__strictParseFloat",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__strictParseFloat(" + getDataSource() + ") as number";
     }

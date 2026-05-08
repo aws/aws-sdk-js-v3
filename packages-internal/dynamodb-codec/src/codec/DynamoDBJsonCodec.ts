@@ -1,7 +1,7 @@
 import { JsonCodec, JsonShapeDeserializer, JsonShapeSerializer } from "@aws-sdk/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
+import { fromBase64, toBase64 } from "@smithy/core/serde";
 import type { Schema } from "@smithy/types";
-import { fromBase64, toBase64 } from "@smithy/util-base64";
 
 /**
  * A throughput optimized version of the AWS JSON Codec

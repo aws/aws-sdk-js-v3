@@ -2,14 +2,15 @@
 import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
-import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
+import type { ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
+import { ScanCommand } from "../commands/ScanCommand";
 import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
-import { DynamoDBDocumentPaginationConfiguration } from "./Interfaces";
+import type { DynamoDBDocumentPaginationConfiguration } from "./Interfaces";
 
 /**
  * @public
  */
-export { Paginator }
+export { Paginator };
 /**
  * @public
  */

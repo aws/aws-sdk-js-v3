@@ -18,10 +18,10 @@ import {
   PutObjectTaggingCommand,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import type { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
-import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
-import type { HttpRequest } from "@smithy/protocol-http";
-import { extendedEncodeURIComponent } from "@smithy/smithy-client";
+import type { EndpointParameterInstructionsSupplier } from "@smithy/core/endpoints";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/core/endpoints";
+import type { HttpRequest } from "@smithy/core/protocols";
+import { extendedEncodeURIComponent } from "@smithy/core/protocols";
 import type {
   AbortController as AbortControllerPolyfill,
   AbortSignal as AbortSignalPolyfill,

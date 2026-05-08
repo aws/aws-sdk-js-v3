@@ -1,12 +1,12 @@
 import type { CredentialProviderOptions, RuntimeConfigIdentityProvider, TokenIdentity } from "@aws-sdk/types";
-import { TokenProviderError } from "@smithy/property-provider";
-import type { SourceProfileInit, SSOToken } from "@smithy/shared-ini-file-loader";
+import type { SourceProfileInit, SSOToken } from "@smithy/core/config";
 import {
   getProfileName,
   getSSOTokenFromFile,
   loadSsoSessionData,
   parseKnownFiles,
-} from "@smithy/shared-ini-file-loader";
+  TokenProviderError,
+} from "@smithy/core/config";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";

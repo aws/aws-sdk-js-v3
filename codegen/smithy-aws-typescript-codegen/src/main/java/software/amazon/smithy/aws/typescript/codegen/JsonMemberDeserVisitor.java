@@ -12,6 +12,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -39,7 +40,7 @@ final class JsonMemberDeserVisitor extends MemberDeserVisitor {
         this.dataSource = dataSource;
         this.context = context;
         this.memberShape = memberShape;
-        context.getWriter().addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("_json", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
         this.serdeElisionEnabled = !context.getSettings().generateServerSdk();
     }
 

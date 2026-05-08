@@ -1,6 +1,6 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface FromEnvInit extends CredentialProviderOptions {}

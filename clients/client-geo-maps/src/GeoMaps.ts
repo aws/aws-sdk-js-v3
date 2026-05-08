@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/smithy-client";
+import { createAggregatedClient } from "@smithy/core/client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { type GetGlyphsCommandInput, type GetGlyphsCommandOutput, GetGlyphsCommand } from "./commands/GetGlyphsCommand";

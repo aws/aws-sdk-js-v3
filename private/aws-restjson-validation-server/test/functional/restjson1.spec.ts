@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
+import { toUtf8 as __utf8Encoder } from "@smithy/core/serde";
 import { expect, test as it } from "vitest";
 
 import { getRestJsonValidationServiceHandler } from "../../src/server";
@@ -16,9 +16,9 @@ import { MalformedUniqueItems } from "../../src/server/operations/MalformedUniqu
 import { RecursiveStructures } from "../../src/server/operations/RecursiveStructures";
 import { SensitiveValidation } from "../../src/server/operations/SensitiveValidation";
 import { RestJsonValidationService } from "../../src/server/RestJsonValidationService";
-import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "node:stream";
+import { HttpRequest, HttpResponse, type HttpHandler } from "@smithy/core/protocols";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 
 /**
  * Throws an expected exception that contains the serialized request.

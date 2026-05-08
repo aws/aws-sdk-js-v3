@@ -1,9 +1,11 @@
-import { isIpAddress, isValidHostLabel } from "@smithy/util-endpoints";
+import { isValidHostLabel } from "@smithy/core/endpoints";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
+import { isIpAddress } from "../isIpAddress";
 import { isVirtualHostableS3Bucket } from "./isVirtualHostableS3Bucket";
 
-vi.mock("@smithy/util-endpoints");
+vi.mock("@smithy/core/endpoints");
+vi.mock("../isIpAddress");
 
 describe(isVirtualHostableS3Bucket.name, () => {
   const mockValue = "mockvalue";

@@ -1,7 +1,7 @@
 import type { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
-import { memoize } from "@smithy/property-provider";
+import { normalizeProvider } from "@smithy/core/client";
+import { memoize } from "@smithy/core/config";
 import type { MemoizedProvider } from "@smithy/types";
-import { normalizeProvider } from "@smithy/util-middleware";
 
 const isTokenWithExpiry = (token: TokenIdentity) => token.expiration !== undefined;
 const isTokenExpiringWithinFiveMins = (token: TokenIdentity) =>

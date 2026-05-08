@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { BedrockDataAutomationServiceException as __BaseException } from "./BedrockDataAutomationServiceException";
 import type { ValidationExceptionField } from "./models_0";

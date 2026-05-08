@@ -1,4 +1,4 @@
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 
 /**
  * @internal

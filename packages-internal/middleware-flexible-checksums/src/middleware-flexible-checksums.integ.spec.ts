@@ -1,12 +1,12 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import type { S3ExtensionConfiguration } from "@aws-sdk/client-s3";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
-import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler, HttpRequest } from "@smithy/core/protocols";
+import { HttpResponse } from "@smithy/core/protocols";
+import { toBase64 } from "@smithy/core/serde";
+import { ChecksumStream } from "@smithy/core/serde";
+import { fromUtf8 } from "@smithy/core/serde";
 import type { Checksum } from "@smithy/types";
-import { toBase64 } from "@smithy/util-base64";
-import { ChecksumStream } from "@smithy/util-stream";
-import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable, Transform } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 

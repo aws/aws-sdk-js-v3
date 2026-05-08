@@ -71,6 +71,96 @@ module.exports = {
       },
     },
     {
+      files: [
+        "lib/*/src/**/*.ts",
+        "clients/*/src/**/*.ts",
+        "packages/*/src/**/*.ts",
+        "packages-internal/*/src/**/*.ts",
+        "private/*/src/**/*.ts",
+      ],
+      rules: {
+        "no-restricted-imports": [
+          "error",
+          {
+            patterns: [
+              {
+                group: [
+                  "@smithy/util-hex-encoding",
+                  "@smithy/util-base64",
+                  "@smithy/util-body-length-browser",
+                  "@smithy/util-body-length-node",
+                  "@smithy/util-utf8",
+                  "@smithy/util-buffer-from",
+                  "@smithy/is-array-buffer",
+                  "@smithy/middleware-serde",
+                  "@smithy/hash-node",
+                  "@smithy/hash-blob-browser",
+                  "@smithy/hash-stream-node",
+                  "@smithy/md5-js",
+                  "@smithy/chunked-blob-reader",
+                  "@smithy/chunked-blob-reader-native",
+                  "@smithy/util-stream",
+                  "@smithy/uuid",
+                ],
+                message: "This package has been consolidated into @smithy/core/serde.",
+              },
+              {
+                group: [
+                  "@smithy/smithy-client",
+                  "@smithy/middleware-stack",
+                  "@smithy/util-middleware",
+                  "@smithy/invalid-dependency",
+                  "@smithy/util-waiter",
+                ],
+                message: "This package has been consolidated into @smithy/core/client.",
+              },
+              {
+                group: [
+                  "@smithy/config-resolver",
+                  "@smithy/util-config-provider",
+                  "@smithy/node-config-provider",
+                  "@smithy/shared-ini-file-loader",
+                  "@smithy/property-provider",
+                  "@smithy/util-defaults-mode-browser",
+                  "@smithy/util-defaults-mode-node",
+                ],
+                message: "This package has been consolidated into @smithy/core/config.",
+              },
+              {
+                group: [
+                  "@smithy/protocol-http",
+                  "@smithy/middleware-content-length",
+                  "@smithy/util-uri-escape",
+                  "@smithy/querystring-builder",
+                  "@smithy/querystring-parser",
+                  "@smithy/url-parser",
+                ],
+                message: "This package has been consolidated into @smithy/core/protocols.",
+              },
+              {
+                group: ["@smithy/util-retry", "@smithy/middleware-retry", "@smithy/service-error-classification"],
+                message: "This package has been consolidated into @smithy/core/retry.",
+              },
+              {
+                group: ["@smithy/util-endpoints", "@smithy/middleware-endpoint"],
+                message: "This package has been consolidated into @smithy/core/endpoints.",
+              },
+              {
+                group: [
+                  "@smithy/eventstream-codec",
+                  "@smithy/eventstream-serde-universal",
+                  "@smithy/eventstream-serde-browser",
+                  "@smithy/eventstream-serde-node",
+                  "@smithy/eventstream-serde-config-resolver",
+                ],
+                message: "This package has been consolidated into @smithy/core/event-streams.",
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
       files: ["**/*.js"],
       rules: {
         "tsdoc/syntax": "off",

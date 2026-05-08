@@ -6,8 +6,8 @@ vi.mock("@smithy/credential-provider-imds");
 
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromHttp } from "@aws-sdk/credential-provider-http";
+import { CredentialsProviderError } from "@smithy/core/config";
 import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
-import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { resolveCredentialSource } from "./resolveCredentialSource";
 

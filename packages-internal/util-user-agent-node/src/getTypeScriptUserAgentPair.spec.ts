@@ -1,4 +1,4 @@
-import { booleanSelector } from "@smithy/util-config-provider";
+import { booleanSelector } from "@smithy/core/config";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -7,7 +7,7 @@ import { getNodeModulesParentDirs } from "./getNodeModulesParentDirs";
 import { getSanitizedDevTypeScriptVersion } from "./getSanitizedDevTypeScriptVersion";
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
 
-vi.mock("@smithy/util-config-provider");
+vi.mock("@smithy/core/config");
 vi.mock("node:fs/promises");
 vi.mock("./getNodeModulesParentDirs");
 vi.mock("./getSanitizedDevTypeScriptVersion");

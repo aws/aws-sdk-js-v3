@@ -1,4 +1,5 @@
 import { NormalizedSchema } from "@smithy/core/schema";
+import { fromUtf8 } from "@smithy/core/serde";
 import { SnapshotProtocol } from "@smithy/snapshot-testing";
 import type {
   $Codec,
@@ -8,7 +9,6 @@ import type {
   StaticErrorSchema,
   StaticOperationSchema,
 } from "@smithy/types";
-import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "node:stream";
 
 import { setResponseBody } from "./setResponseBody";

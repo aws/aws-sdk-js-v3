@@ -5,15 +5,20 @@ import packageInfo from "../package.json"; // eslint-disable-line
 import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
-import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
-import { Hash } from "@smithy/hash-node";
-import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
-import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
+import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
+import {
+  loadConfig as loadNodeConfig,
+  NODE_REGION_CONFIG_FILE_OPTIONS,
+  NODE_REGION_CONFIG_OPTIONS,
+  resolveDefaultsModeConfig,
+} from "@smithy/core/config";
+import {
+  DEFAULT_RETRY_MODE,
+  NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
+  NODE_RETRY_MODE_CONFIG_OPTIONS,
+} from "@smithy/core/retry";
+import { calculateBodyLength, Hash } from "@smithy/core/serde";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
-import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/smithy-client";
-import { calculateBodyLength } from "@smithy/util-body-length-node";
-import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
-import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import type { WeatherClientConfig } from "./WeatherClient";

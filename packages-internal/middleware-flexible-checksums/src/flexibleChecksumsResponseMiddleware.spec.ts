@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { DeserializeHandlerArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -11,7 +11,7 @@ import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { isStreaming } from "./isStreaming";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
-vi.mock("@smithy/protocol-http");
+vi.mock("@smithy/core/protocols");
 vi.mock("./isChecksumWithPartNumber");
 vi.mock("./isStreaming");
 vi.mock("./getChecksumLocationName");

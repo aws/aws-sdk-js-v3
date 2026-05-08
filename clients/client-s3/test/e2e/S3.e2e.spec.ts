@@ -2,8 +2,8 @@ import "@aws-sdk/signature-v4-crt";
 
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
+import { blobHasher } from "@smithy/core/checksum";
 import { FetchHttpHandler, streamCollector } from "@smithy/fetch-http-handler";
-import { blobHasher } from "@smithy/hash-blob-browser";
 import { Readable } from "node:stream";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -141,7 +141,7 @@ describe("@aws-sdk/client-s3", () => {
 
       expect(result.$metadata.httpStatusCode).toEqual(200);
       expect(result.ChecksumCRC32).toEqual(bodyChecksum);
-      const { Readable } = require("stream");
+      const { Readable } = require("node:stream");
       expect(result.Body).toBeInstanceOf(Readable);
     });
   });

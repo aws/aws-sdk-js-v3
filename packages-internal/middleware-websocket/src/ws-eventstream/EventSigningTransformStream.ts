@@ -1,7 +1,7 @@
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
-import type { EventStreamCodec } from "@smithy/eventstream-codec";
+import type { EventStreamCodec } from "@smithy/core/event-streams";
+import { fromHex } from "@smithy/core/serde";
 import type { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
-import { fromHex } from "@smithy/util-hex-encoding";
 
 /**
  * A transform stream that signs the eventstream.

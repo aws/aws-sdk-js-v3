@@ -1,3 +1,4 @@
+import { v4 } from "@smithy/core/serde";
 import type {
   InitializeHandler,
   InitializeHandlerArguments,
@@ -5,7 +6,6 @@ import type {
   InitializeMiddleware,
   RequestHandler,
 } from "@smithy/types";
-import { v4 } from "@smithy/uuid";
 
 type WithSession = {
   SessionId?: string;

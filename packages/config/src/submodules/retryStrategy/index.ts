@@ -7,4 +7,4 @@ export {
   AdaptiveRetryStrategy,
   ConfiguredRetryStrategy,
   type DefaultRateLimiterOptions,
-} from "@smithy/util-retry";
+} from "@smithy/core/retry";

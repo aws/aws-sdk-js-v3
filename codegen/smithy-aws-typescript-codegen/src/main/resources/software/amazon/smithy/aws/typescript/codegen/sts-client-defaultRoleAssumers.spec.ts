@@ -1,5 +1,5 @@
 import { NodeHttp2Handler, NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "stream";
 import { afterAll, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 

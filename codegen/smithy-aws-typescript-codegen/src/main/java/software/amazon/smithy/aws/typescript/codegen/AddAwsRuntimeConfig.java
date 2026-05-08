@@ -20,6 +20,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -187,33 +188,34 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             switch (target) {
                 case BROWSER:
                     return MapUtils.of("region", writer -> {
-                        writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "invalidProvider",
                             "invalidProvider",
-                            TypeScriptDependency.INVALID_DEPENDENCY
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CLIENT
                         );
                         writer.write("invalidProvider(\"Region is missing\")");
                     });
                 case NODE:
                     Map<String, Consumer<TypeScriptWriter>> nodeConfig = new HashMap<>();
                     nodeConfig.put("region", writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "loadConfig",
                             "loadNodeConfig",
-                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_REGION_CONFIG_OPTIONS",
                             "NODE_REGION_CONFIG_OPTIONS",
-                            TypeScriptDependency.CONFIG_RESOLVER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_REGION_CONFIG_FILE_OPTIONS",
                             "NODE_REGION_CONFIG_FILE_OPTIONS",
-                            TypeScriptDependency.CONFIG_RESOLVER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.write(
                             """
@@ -225,10 +227,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     });
                     if (!settings.useLegacyAuth()) {
                         nodeConfig.put("authSchemePreference", writer -> {
-                            writer.addImport(
+                            writer.addImportSubmodule(
                                 "loadConfig",
                                 "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                TypeScriptDependency.SMITHY_CORE,
+                                SmithyCoreSubmodules.CONFIG
                             );
                             writer.addImportSubmodule(
                                 "NODE_AUTH_SCHEME_PREFERENCE_OPTIONS",
@@ -260,21 +263,21 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 return MapUtils.of(
                     "useDualstackEndpoint",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "DEFAULT_USE_DUALSTACK_ENDPOINT",
                             "DEFAULT_USE_DUALSTACK_ENDPOINT",
-                            TypeScriptDependency.CONFIG_RESOLVER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.write("(() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT))");
                     },
                     "useFipsEndpoint",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "DEFAULT_USE_FIPS_ENDPOINT",
                             "DEFAULT_USE_FIPS_ENDPOINT",
-                            TypeScriptDependency.CONFIG_RESOLVER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.write("(() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT))");
                     }
@@ -283,33 +286,33 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 return MapUtils.of(
                     "useDualstackEndpoint",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "loadConfig",
                             "loadNodeConfig",
-                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
                             "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
-                            TypeScriptDependency.CONFIG_RESOLVER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig)");
                     },
                     "useFipsEndpoint",
                     writer -> {
-                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "loadConfig",
                             "loadNodeConfig",
-                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
                             "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
-                            TypeScriptDependency.CONFIG_RESOLVER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig)");
                     }

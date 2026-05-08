@@ -1,5 +1,7 @@
+import { HttpResponse } from "@smithy/core/protocols";
 import { TypeRegistry } from "@smithy/core/schema";
-import { HttpResponse } from "@smithy/protocol-http";
+import { toBase64 } from "@smithy/core/serde";
+import { toUtf8 } from "@smithy/core/serde";
 import type {
   BlobSchema,
   BooleanSchema,
@@ -15,8 +17,6 @@ import type {
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
 } from "@smithy/types";
-import { toBase64 } from "@smithy/util-base64";
-import { toUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
 import { context } from "../test-schema.spec";

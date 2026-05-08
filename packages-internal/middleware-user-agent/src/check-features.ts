@@ -5,9 +5,9 @@ import type {
   AwsHandlerExecutionContext,
   AwsSdkCredentialsFeatures,
 } from "@aws-sdk/types";
-import type { IHttpRequest } from "@smithy/protocol-http";
+import type { IHttpRequest } from "@smithy/core/protocols";
+import { RETRY_MODES } from "@smithy/core/retry";
 import type { AwsCredentialIdentityProvider, BuildHandlerArguments, Provider } from "@smithy/types";
-import { RETRY_MODES } from "@smithy/util-retry";
 
 /**
  * @internal

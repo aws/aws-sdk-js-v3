@@ -1,5 +1,5 @@
+import { fromUtf8 } from "@smithy/core/serde";
 import type { $ShapeSerializer, HttpResponse } from "@smithy/types";
-import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "node:stream";
 
 export function setResponseBody(serializer: $ShapeSerializer<any>, response: HttpResponse) {

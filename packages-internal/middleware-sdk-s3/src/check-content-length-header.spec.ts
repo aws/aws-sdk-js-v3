@@ -1,4 +1,4 @@
-import { NoOpLogger } from "@smithy/smithy-client";
+import { NoOpLogger } from "@smithy/core/client";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { checkContentLengthHeader } from "./check-content-length-header";

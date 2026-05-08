@@ -1,5 +1,5 @@
-import { Hash } from "@smithy/hash-node";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
+import { Hash } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
 
 import {

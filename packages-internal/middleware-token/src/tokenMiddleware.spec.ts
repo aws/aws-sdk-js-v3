@@ -1,9 +1,9 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { tokenMiddleware } from "./tokenMiddleware";
 
-vi.mock("@smithy/protocol-http");
+vi.mock("@smithy/core/protocols");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 

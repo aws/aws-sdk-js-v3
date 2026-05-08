@@ -16,6 +16,7 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -128,8 +129,9 @@ public class AddSqsDependency implements TypeScriptIntegration {
                 });
             case BROWSER:
                 return MapUtils.of("md5", writer -> {
-                    writer.addDependency(TypeScriptDependency.MD5_BROWSER);
-                    writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER);
+                    writer.addDependency(TypeScriptDependency.SMITHY_CORE);
+                    writer
+                        .addImportSubmodule("Md5", "Md5", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CHECKSUM);
                     writer.write("Md5");
                 });
             default:

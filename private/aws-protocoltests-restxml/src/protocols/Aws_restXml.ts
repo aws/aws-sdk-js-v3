@@ -7,30 +7,33 @@ import {
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { requestBuilder as rb } from "@smithy/core";
 import {
+  convertMap,
+  decorateServiceException as __decorateServiceException,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  isSerializableHeaderValue,
+  map,
+  serializeDateTime as __serializeDateTime,
+  withBaseException,
+} from "@smithy/core/client";
+import {
+  collectBody,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@smithy/protocol-http";
+  resolvedPath as __resolvedPath,
+} from "@smithy/core/protocols";
 import {
-  collectBody,
-  convertMap,
   dateToUtcString as __dateToUtcString,
-  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   expectUnion as __expectUnion,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  isSerializableHeaderValue,
-  map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   quoteHeader as __quoteHeader,
-  resolvedPath as __resolvedPath,
-  serializeDateTime as __serializeDateTime,
   splitEvery as __splitEvery,
   splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
@@ -39,14 +42,13 @@ import {
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   strictParseShort as __strictParseShort,
-  withBaseException,
-} from "@smithy/smithy-client";
+  v4 as generateIdempotencyToken,
+} from "@smithy/core/serde";
 import type {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import type {
   AllQueryStringTypesCommandInput,

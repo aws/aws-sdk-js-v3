@@ -6,15 +6,20 @@ import {
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core/protocols";
 import {
+  _json,
+  decorateServiceException as __decorateServiceException,
+  serializeFloat as __serializeFloat,
+  take,
+  withBaseException,
+} from "@smithy/core/client";
+import {
+  collectBody,
   HttpRequest,
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@smithy/protocol-http";
+} from "@smithy/core/protocols";
 import {
-  _json,
-  collectBody,
-  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
   expectInt32 as __expectInt32,
@@ -26,10 +31,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
-  serializeFloat as __serializeFloat,
-  take,
-  withBaseException,
-} from "@smithy/smithy-client";
+} from "@smithy/core/serde";
 import {
   type DocumentType as __DocumentType,
   type Endpoint as __Endpoint,

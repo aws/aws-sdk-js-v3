@@ -1,9 +1,9 @@
 import { parseXML } from "@aws-sdk/xml-builder";
+import { getValueFromTextNode } from "@smithy/core/client";
 import { FromStringShapeDeserializer } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import { getValueFromTextNode } from "@smithy/smithy-client";
+import { toUtf8 } from "@smithy/core/serde";
 import type { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
-import { toUtf8 } from "@smithy/util-utf8";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { UnionSerde } from "../UnionSerde";

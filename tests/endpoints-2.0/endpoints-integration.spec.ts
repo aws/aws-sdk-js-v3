@@ -1,12 +1,13 @@
-import { resolveParams } from "@smithy/middleware-endpoint";
-import { EndpointV2, RelativeMiddlewareOptions } from "@smithy/types";
-import { EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
-import { existsSync, readdirSync } from "fs";
-import { join } from "path";
+import type { EndpointParams } from "@smithy/core/endpoints";
+import { resolveParams } from "@smithy/core/endpoints";
+import { resolveEndpoint } from "@smithy/core/endpoints";
+import { HttpRequest } from "@smithy/core/protocols";
+import type { EndpointV2, RelativeMiddlewareOptions } from "@smithy/types";
+import { existsSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
-import { HttpRequest } from "@smithy/protocol-http";
+import type { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
 
 describe("client list", () => {
   const root = join(__dirname, "..", "..");

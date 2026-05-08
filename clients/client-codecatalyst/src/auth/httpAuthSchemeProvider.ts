@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type { FromSsoInit } from "@aws-sdk/token-providers";
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
+import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
 import {
   type HandlerExecutionContext,
   type HttpAuthOption,
@@ -12,7 +13,6 @@ import {
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
-import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
 import type { CodeCatalystClientResolvedConfig } from "../CodeCatalystClient";
 

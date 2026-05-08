@@ -1,5 +1,6 @@
 import { setFeature } from "@aws-sdk/core/client";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
+import { createBufferedReadable } from "@smithy/core/serde";
 import type {
   BuildHandler,
   BuildHandlerArguments,
@@ -9,7 +10,6 @@ import type {
   HandlerExecutionContext,
   MetadataBearer,
 } from "@smithy/types";
-import { createBufferedReadable } from "@smithy/util-stream";
 
 import type { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";

@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
 import type {
   EventSigner,

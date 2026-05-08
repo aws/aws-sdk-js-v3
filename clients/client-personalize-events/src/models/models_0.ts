@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/core/serde";
 
 /**
  * <p>Represents action metadata added to an Action dataset using the

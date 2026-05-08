@@ -5,7 +5,7 @@ import {
   checkExceptions,
   createWaiter,
   WaiterState,
-} from "@smithy/util-waiter";
+} from "@smithy/core/client";
 
 import { type GetLinkCommandInput, type GetLinkCommandOutput, GetLinkCommand } from "../commands/GetLinkCommand";
 import type { RTBFabricServiceException } from "../models/RTBFabricServiceException";

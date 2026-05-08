@@ -3,8 +3,8 @@ import {
   getAwsRegionExtensionConfiguration,
   resolveAwsRegionExtensionConfiguration,
 } from "@aws-sdk/region-config-resolver";
-import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
-import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/core/client";
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/core/protocols";
 
 import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
 import type { BedrockAgentExtensionConfiguration } from "./extensionConfiguration";

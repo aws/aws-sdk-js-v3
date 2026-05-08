@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/smithy-client";
+import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/core/serde";
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type { FooEnum, IntegerEnum } from "./enums";

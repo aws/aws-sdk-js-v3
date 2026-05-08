@@ -1,7 +1,7 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { SQS } from "@aws-sdk/client-sqs";
-import type { HttpHandler } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler } from "@smithy/core/protocols";
+import { HttpResponse } from "@smithy/core/protocols";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import crypto from "node:crypto";
 import { Readable } from "node:stream";

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
-import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
-import { Command as $Command } from "@smithy/smithy-client";
+import { Command as $Command } from "@smithy/core/client";
+import { getEndpointPlugin } from "@smithy/core/endpoints";
+import { getSerdePlugin } from "@smithy/core/serde";
 import type {
   MetadataBearer as __MetadataBearer,
   StreamingBlobPayloadInputTypes,

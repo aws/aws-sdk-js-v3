@@ -1,4 +1,4 @@
-import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/core/config";
 
 import { DEFAULT_RESPONSE_CHECKSUM_VALIDATION, ResponseChecksumValidation } from "./constants";
 import { SelectorType, stringUnionSelector } from "./stringUnionSelector";

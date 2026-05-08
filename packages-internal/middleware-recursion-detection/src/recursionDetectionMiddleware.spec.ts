@@ -1,6 +1,6 @@
 // @ts-ignore
 import { InvokeStore } from "@aws/lambda-invoke-store";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { recursionDetectionMiddleware } from "./recursionDetectionMiddleware";

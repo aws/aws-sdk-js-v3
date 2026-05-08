@@ -19,6 +19,7 @@ import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -114,11 +115,11 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                  * See the websocket customization in AddWebsocketPlugin.
                  */
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
-                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport(
+                    writer.addImportSubmodule(
                         "invalidFunction",
                         "invalidFunction",
-                        TypeScriptDependency.INVALID_DEPENDENCY
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.CLIENT
                     );
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
@@ -131,11 +132,11 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                  * in RN has to implement a customization providing its own eventStreamSignerProvider
                  */
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
-                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport(
+                    writer.addImportSubmodule(
                         "invalidFunction",
                         "invalidFunction",
-                        TypeScriptDependency.INVALID_DEPENDENCY
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.CLIENT
                     );
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write(

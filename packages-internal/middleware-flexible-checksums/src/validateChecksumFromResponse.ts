@@ -1,6 +1,6 @@
-import type { HttpResponse } from "@smithy/protocol-http";
+import type { HttpResponse } from "@smithy/core/protocols";
+import { createChecksumStream } from "@smithy/core/serde";
 import type { Checksum, ChecksumConstructor, HashConstructor, Logger } from "@smithy/types";
-import { createChecksumStream } from "@smithy/util-stream";
 
 import type { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";

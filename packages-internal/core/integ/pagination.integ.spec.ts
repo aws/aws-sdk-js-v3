@@ -1,6 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB, paginateScan, ScanCommandInput } from "@aws-sdk/client-dynamodb";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { describe, expect, test as it } from "vitest";
 
 describe("pagination", () => {

@@ -1,4 +1,4 @@
-import type { EnvOptions, LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { EnvOptions, LoadedConfigSelectors } from "@smithy/core/config";
 
 import { getArrayForCommaSeparatedString } from "../utils/getArrayForCommaSeparatedString";
 import { getBearerTokenEnvKey } from "../utils/getBearerTokenEnvKey";

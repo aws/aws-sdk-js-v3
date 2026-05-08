@@ -19,6 +19,7 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -95,10 +96,11 @@ public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIn
                             break;
                         case NODE:
                             runtimeConfigs.put("accountIdEndpointMode", writer -> {
-                                writer.addImport(
+                                writer.addImportSubmodule(
                                     "loadConfig",
                                     "loadNodeConfig",
-                                    TypeScriptDependency.NODE_CONFIG_PROVIDER
+                                    TypeScriptDependency.SMITHY_CORE,
+                                    SmithyCoreSubmodules.CONFIG
                                 );
                                 writer.addImportSubmodule(
                                     "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",

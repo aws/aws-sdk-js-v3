@@ -9,7 +9,7 @@ import type {
   Provider,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
-import { NoOpLogger } from "@smithy/smithy-client";
+import { NoOpLogger } from "@smithy/core/client";
 
 /**
  * @public

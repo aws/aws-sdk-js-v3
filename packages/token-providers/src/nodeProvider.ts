@@ -1,5 +1,5 @@
 import type { TokenIdentityProvider } from "@aws-sdk/types";
-import { chain, memoize, TokenProviderError } from "@smithy/property-provider";
+import { chain, memoize, TokenProviderError } from "@smithy/core/config";
 
 import type { FromSsoInit } from "./fromSso";
 import { fromSso } from "./fromSso";

@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { AwsCredentialIdentity, HttpRequest as IHttpRequest } from "@smithy/types";
 
 import { getSkewCorrectedDate } from "../utils";
