@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { BinaryDecisionDiagram } from "@smithy/util-endpoints";
+import { BinaryDecisionDiagram } from "@smithy/core/endpoints";
 
 const s="ref",
 t="authSchemes",

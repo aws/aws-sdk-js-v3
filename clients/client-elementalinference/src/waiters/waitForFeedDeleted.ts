@@ -5,7 +5,7 @@ import {
   checkExceptions,
   createWaiter,
   WaiterState,
-} from "@smithy/util-waiter";
+} from "@smithy/core/client";
 
 import { type GetFeedCommandInput, type GetFeedCommandOutput, GetFeedCommand } from "../commands/GetFeedCommand";
 import type { ElementalInferenceClient } from "../ElementalInferenceClient";

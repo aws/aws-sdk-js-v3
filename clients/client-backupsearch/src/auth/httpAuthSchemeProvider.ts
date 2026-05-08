@@ -5,6 +5,7 @@ import {
   AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
+import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
 import type {
   HandlerExecutionContext,
   HttpAuthOption,
@@ -14,7 +15,6 @@ import type {
   HttpAuthSchemeProvider,
   Provider,
 } from "@smithy/types";
-import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
 import { type BackupSearchClientResolvedConfig, BackupSearchClientConfig } from "../BackupSearchClient";
 

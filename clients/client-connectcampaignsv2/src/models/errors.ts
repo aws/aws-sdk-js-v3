@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { ConnectCampaignsV2ServiceException as __BaseException } from "./ConnectCampaignsV2ServiceException";
 import type { CampaignState } from "./enums";

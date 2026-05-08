@@ -6,18 +6,28 @@ import {
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core/protocols";
 import { requestBuilder as rb } from "@smithy/core";
-import { Int64 as __Int64 } from "@smithy/eventstream-codec";
 import {
+  _json,
+  convertMap,
+  decorateServiceException as __decorateServiceException,
+  isSerializableHeaderValue,
+  map,
+  serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
+  take,
+  withBaseException,
+} from "@smithy/core/client";
+import { Int64 as __Int64 } from "@smithy/core/event-streams";
+import {
+  collectBody,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@smithy/protocol-http";
+  resolvedPath as __resolvedPath,
+} from "@smithy/core/protocols";
 import {
-  _json,
-  collectBody,
-  convertMap,
   dateToUtcString as __dateToUtcString,
-  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
   expectInt32 as __expectInt32,
@@ -27,20 +37,14 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   quoteHeader as __quoteHeader,
-  resolvedPath as __resolvedPath,
-  serializeDateTime as __serializeDateTime,
-  serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
   splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
@@ -49,9 +53,8 @@ import {
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   strictParseShort as __strictParseShort,
-  take,
-  withBaseException,
-} from "@smithy/smithy-client";
+  v4 as generateIdempotencyToken,
+} from "@smithy/core/serde";
 import type {
   DocumentType as __DocumentType,
   Endpoint as __Endpoint,
@@ -62,7 +65,6 @@ import type {
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import type {
   AllQueryStringTypesCommandInput,

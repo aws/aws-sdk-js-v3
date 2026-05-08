@@ -5,7 +5,7 @@ import {
   checkExceptions,
   createWaiter,
   WaiterState,
-} from "@smithy/util-waiter";
+} from "@smithy/core/client";
 
 import { type GetFleetCommandInput, type GetFleetCommandOutput, GetFleetCommand } from "../commands/GetFleetCommand";
 import type { DeadlineClient } from "../DeadlineClient";

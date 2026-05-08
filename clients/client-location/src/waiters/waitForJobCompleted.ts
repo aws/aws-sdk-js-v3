@@ -5,7 +5,7 @@ import {
   checkExceptions,
   createWaiter,
   WaiterState,
-} from "@smithy/util-waiter";
+} from "@smithy/core/client";
 
 import { type GetJobCommandInput, type GetJobCommandOutput, GetJobCommand } from "../commands/GetJobCommand";
 import type { LocationClient } from "../LocationClient";

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import type { RejectedRecord } from "./models_0";
 import { TimestreamWriteServiceException as __BaseException } from "./TimestreamWriteServiceException";

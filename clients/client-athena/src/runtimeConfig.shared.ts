@@ -1,11 +1,10 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsJson1_1Protocol } from "@aws-sdk/core/protocols";
-import { NoOpLogger } from "@smithy/smithy-client";
+import { NoOpLogger } from "@smithy/core/client";
+import { parseUrl } from "@smithy/core/protocols";
+import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
 import type { IdentityProviderConfig } from "@smithy/types";
-import { parseUrl } from "@smithy/url-parser";
-import { fromBase64, toBase64 } from "@smithy/util-base64";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import type { AthenaClientConfig } from "./AthenaClient";
 import { defaultAthenaHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";

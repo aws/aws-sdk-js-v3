@@ -5,7 +5,7 @@ import {
   checkExceptions,
   createWaiter,
   WaiterState,
-} from "@smithy/util-waiter";
+} from "@smithy/core/client";
 
 import { type GetUserCommandInput, type GetUserCommandOutput, GetUserCommand } from "../commands/GetUserCommand";
 import type { IAMClient } from "../IAMClient";

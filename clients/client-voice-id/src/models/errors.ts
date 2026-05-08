@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import type { ConflictType, ResourceType } from "./enums";
 import { VoiceIDServiceException as __BaseException } from "./VoiceIDServiceException";

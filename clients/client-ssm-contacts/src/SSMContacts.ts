@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/smithy-client";
+import { createAggregatedClient } from "@smithy/core/client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {

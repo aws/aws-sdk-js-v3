@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import type { ConflictExceptionReason, UnprocessableExceptionReason, ValidationExceptionReason } from "./enums";
 import { NeptuneGraphServiceException as __BaseException } from "./NeptuneGraphServiceException";

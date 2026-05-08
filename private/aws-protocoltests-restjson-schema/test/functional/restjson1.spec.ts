@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { buildQueryString } from "@smithy/querystring-builder";
+import { buildQueryString } from "@smithy/core/protocols";
 import type { Encoder as __Encoder } from "@smithy/types";
 import { expect, test as it } from "vitest";
 
@@ -75,9 +75,9 @@ import { TestPostNoPayloadCommand } from "../../src/commands/TestPostNoPayloadCo
 import { TimestampFormatHeadersCommand } from "../../src/commands/TimestampFormatHeadersCommand";
 import { UnitInputAndOutputCommand } from "../../src/commands/UnitInputAndOutputCommand";
 import { RestJsonProtocolClient } from "../../src/RestJsonProtocolClient";
-import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "node:stream";
+import { HttpRequest, HttpResponse, type HttpHandler } from "@smithy/core/protocols";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 
 /**
  * Throws an expected exception that contains the serialized request.

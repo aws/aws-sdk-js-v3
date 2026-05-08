@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { doesIdentityRequireRefresh, isIdentityExpired, memoizeIdentityProvider } from "@smithy/core";
+import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
 import {
   type ApiKeyIdentity,
   type ApiKeyIdentityProvider,
@@ -17,7 +18,6 @@ import {
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
-import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
 import type { WeatherClientResolvedConfig } from "../WeatherClient";
 

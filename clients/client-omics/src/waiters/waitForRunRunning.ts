@@ -5,7 +5,7 @@ import {
   checkExceptions,
   createWaiter,
   WaiterState,
-} from "@smithy/util-waiter";
+} from "@smithy/core/client";
 
 import { type GetRunCommandInput, type GetRunCommandOutput, GetRunCommand } from "../commands/GetRunCommand";
 import type { OmicsServiceException } from "../models/OmicsServiceException";

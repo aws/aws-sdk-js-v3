@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { CloudDirectoryServiceException as __BaseException } from "./CloudDirectoryServiceException";
 import type { BatchWriteExceptionType } from "./enums";

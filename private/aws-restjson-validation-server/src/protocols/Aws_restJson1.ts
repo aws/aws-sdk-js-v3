@@ -14,10 +14,10 @@ import {
   SmithyFrameworkException as __SmithyFrameworkException,
   UnsupportedMediaTypeException as __UnsupportedMediaTypeException,
 } from "@aws-smithy/server-common";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { _json, isSerializableHeaderValue, map, take } from "@smithy/core/client";
+import { collectBody, HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/core/protocols";
 import {
-  _json,
-  collectBody,
+  calculateBodyLength,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
   expectInt32 as __expectInt32,
@@ -27,20 +27,16 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
-  isSerializableHeaderValue,
   limitedParseFloat32 as __limitedParseFloat32,
-  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
-  take,
-} from "@smithy/smithy-client";
+} from "@smithy/core/serde";
 import type {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { calculateBodyLength } from "@smithy/util-body-length-node";
 
 import { EnumString, FooEnum, IntegerEnum } from "../models/enums";
 import { ValidationException } from "../models/errors";

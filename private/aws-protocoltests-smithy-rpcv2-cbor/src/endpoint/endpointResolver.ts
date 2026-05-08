@@ -1,6 +1,6 @@
 // smithy-typescript generated code
+import { type EndpointParams, EndpointCache, resolveEndpoint } from "@smithy/core/endpoints";
 import type { EndpointV2, Logger } from "@smithy/types";
-import { type EndpointParams, EndpointCache, resolveEndpoint } from "@smithy/util-endpoints";
 
 import type { EndpointParameters } from "./EndpointParameters";
 import { ruleSet } from "./ruleset";

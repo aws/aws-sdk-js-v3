@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { buildQueryString } from "@smithy/querystring-builder";
+import { buildQueryString } from "@smithy/core/protocols";
 import type { Encoder as __Encoder } from "@smithy/types";
 import { decodeHTML } from "entities";
 import { XMLParser } from "fast-xml-parser";
@@ -75,9 +75,9 @@ import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
 import { XmlUnionsCommand } from "../../src/commands/XmlUnionsCommand";
 import { RestXmlProtocolClient } from "../../src/RestXmlProtocolClient";
-import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "node:stream";
+import { HttpRequest, HttpResponse, type HttpHandler } from "@smithy/core/protocols";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 
 /**
  * Throws an expected exception that contains the serialized request.

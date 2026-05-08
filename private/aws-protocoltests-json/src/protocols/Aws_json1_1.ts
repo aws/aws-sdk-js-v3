@@ -6,16 +6,22 @@ import {
   parseJsonErrorBody as parseErrorBody,
 } from "@aws-sdk/core/protocols";
 import {
+  _json,
+  decorateServiceException as __decorateServiceException,
+  serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
+  take,
+  withBaseException,
+} from "@smithy/core/client";
+import {
+  collectBody,
   HttpRequest,
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
   isValidHostname as __isValidHostname,
-} from "@smithy/protocol-http";
+} from "@smithy/core/protocols";
 import {
-  _json,
-  collectBody,
   dateToUtcString as __dateToUtcString,
-  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -28,11 +34,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
-  serializeDateTime as __serializeDateTime,
-  serializeFloat as __serializeFloat,
-  take,
-  withBaseException,
-} from "@smithy/smithy-client";
+} from "@smithy/core/serde";
 import {
   type DocumentType as __DocumentType,
   type Endpoint as __Endpoint,

@@ -6,9 +6,9 @@ import {
   ServiceException as __ServiceException,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
+import { toUtf8 as __utf8Encoder } from "@smithy/core/serde";
 import { streamCollector as __streamCollector } from "@smithy/node-http-handler";
 import type { Encoder as __Encoder } from "@smithy/types";
-import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { expect, test as it } from "vitest";
 
 import { ComplexError, InvalidGreeting } from "../../src/models/errors";
@@ -255,9 +255,9 @@ import {
   UnitInputAndOutputServerOutput,
 } from "../../src/server/operations/UnitInputAndOutput";
 import { RestJsonService, RestJsonServiceHandler, RestJsonServiceOperations } from "../../src/server/RestJsonService";
-import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "node:stream";
+import { HttpRequest, HttpResponse, type HttpHandler } from "@smithy/core/protocols";
+import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 
 /**
  * Throws an expected exception that contains the serialized request.

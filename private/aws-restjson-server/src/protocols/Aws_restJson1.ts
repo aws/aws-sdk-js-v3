@@ -14,13 +14,20 @@ import {
   SmithyFrameworkException as __SmithyFrameworkException,
   UnsupportedMediaTypeException as __UnsupportedMediaTypeException,
 } from "@aws-smithy/server-common";
-import { Int64 as __Int64 } from "@smithy/eventstream-codec";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
-  collectBody,
-  dateToUtcString as __dateToUtcString,
   decorateServiceException as __decorateServiceException,
+  isSerializableHeaderValue,
+  map,
+  serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
+  take,
+} from "@smithy/core/client";
+import { Int64 as __Int64 } from "@smithy/core/event-streams";
+import { collectBody, HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/core/protocols";
+import {
+  calculateBodyLength,
+  dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
   expectInt32 as __expectInt32,
@@ -30,18 +37,14 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
-  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   quoteHeader as __quoteHeader,
-  serializeDateTime as __serializeDateTime,
-  serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
   splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
@@ -50,8 +53,7 @@ import {
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   strictParseShort as __strictParseShort,
-  take,
-} from "@smithy/smithy-client";
+} from "@smithy/core/serde";
 import {
   type Endpoint as __Endpoint,
   type EventStreamSerdeContext as __EventStreamSerdeContext,
@@ -61,7 +63,6 @@ import {
   type SerdeContext as __SerdeContext,
   DocumentType as __DocumentType,
 } from "@smithy/types";
-import { calculateBodyLength } from "@smithy/util-body-length-node";
 
 import { FooEnum, IntegerEnum } from "../models/enums";
 import { ComplexError, ErrorEvent, FooError, InvalidGreeting, ServiceUnavailableError } from "../models/errors";

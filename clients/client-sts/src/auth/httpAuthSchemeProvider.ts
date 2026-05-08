@@ -10,7 +10,8 @@ import {
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
-import { type EndpointParameterInstructions, resolveParams } from "@smithy/middleware-endpoint";
+import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
+import { type EndpointParameterInstructions, resolveParams } from "@smithy/core/endpoints";
 import type {
   Client,
   EndpointV2,
@@ -24,7 +25,6 @@ import type {
   Logger,
   Provider,
 } from "@smithy/types";
-import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
 import { EndpointParameters } from "../endpoint/EndpointParameters";
 import { defaultEndpointResolver } from "../endpoint/endpointResolver";

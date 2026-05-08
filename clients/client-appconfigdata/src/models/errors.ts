@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { AppConfigDataServiceException as __BaseException } from "./AppConfigDataServiceException";
 import type { BadRequestReason, ResourceType } from "./enums";

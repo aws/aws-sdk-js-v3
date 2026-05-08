@@ -17,10 +17,9 @@ import {
   ValidationCustomizer as __ValidationCustomizer,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/core/protocols";
+import { fromBase64, fromUtf8, toBase64, toUtf8 } from "@smithy/core/serde";
 import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
-import { fromBase64, toBase64 } from "@smithy/util-base64";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { MalformedTimestampHeaderEpochInput } from "../../models/models_0";
 import {
