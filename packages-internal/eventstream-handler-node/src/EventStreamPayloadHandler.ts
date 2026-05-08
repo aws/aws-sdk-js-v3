@@ -1,5 +1,5 @@
 import type { AwsCredentialIdentityProvider } from "@aws-sdk/types";
-import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { EventStreamCodec } from "@smithy/core/event-streams";
 import type {
   Decoder,
   Encoder,

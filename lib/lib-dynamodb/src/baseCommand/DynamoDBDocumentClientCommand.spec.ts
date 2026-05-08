@@ -1,7 +1,7 @@
-import { Handler, MiddlewareStack } from "@smithy/types";
+import type { Handler, MiddlewareStack } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { KeyNodeChildren } from "../commands/utils";
+import type { KeyNodeChildren } from "../commands/utils";
 import { DynamoDBDocumentClientCommand } from "./DynamoDBDocumentClientCommand";
 
 class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {

@@ -1,4 +1,4 @@
-import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/core/config";
 
 import type { AccountIdEndpointMode } from "./AccountIdEndpointModeConstants";
 import { DEFAULT_ACCOUNT_ID_ENDPOINT_MODE, validateAccountIdEndpointMode } from "./AccountIdEndpointModeConstants";

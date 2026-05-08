@@ -15,7 +15,7 @@ import {
 import { CreateHealthCheckCommand, Route53Client } from "@aws-sdk/client-route-53";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 const LONG_TIMEOUT = 5 * 60 * 1000;

@@ -1,5 +1,5 @@
+import { HttpRequest } from "@smithy/core/protocols";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { HttpRequest } from "@smithy/protocol-http";
 import { WebSocket } from "mock-socket";
 import { PassThrough } from "node:stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";

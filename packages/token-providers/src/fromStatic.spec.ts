@@ -1,4 +1,4 @@
-import { TokenProviderError } from "@smithy/property-provider";
+import { TokenProviderError } from "@smithy/core/config";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromStatic } from "./fromStatic";

@@ -8,7 +8,7 @@ import { AwsRestXmlProtocol, AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/
 import { FetchHttpHandler, NodeHttpHandler } from "@aws-sdk/config/requestHandler";
 import { ConfiguredRetryStrategy } from "@aws-sdk/config/retryStrategy";
 import { getRuntimeTypecheckPlugin, validateSchema } from "@aws-sdk/config/typecheck";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { describe, expect, test as it, vi } from "vitest";
 
 describe("@aws-sdk/config", () => {

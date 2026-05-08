@@ -1,5 +1,5 @@
 import { GetCredentialsForIdentityCommand } from "@aws-sdk/nested-clients/cognito-identity";
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/core/config";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromCognitoIdentity } from "./fromCognitoIdentity";

@@ -1,7 +1,7 @@
 import { STS } from "@aws-sdk/client-sts";
-import type { HttpRequest } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
+import { externalDataInterceptor } from "@smithy/core/config";
+import type { HttpRequest } from "@smithy/core/protocols";
+import { HttpResponse } from "@smithy/core/protocols";
 import type { NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { homedir } from "node:os";
 import { join } from "node:path";

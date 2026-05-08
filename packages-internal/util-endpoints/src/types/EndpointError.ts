@@ -1,1 +1,1 @@
-export { EndpointError } from "@smithy/util-endpoints";
+export { EndpointError } from "@smithy/core/endpoints";

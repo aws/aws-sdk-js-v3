@@ -84,17 +84,9 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.8",
     "@aws-sdk/xml-builder": "workspace:^3.972.22",
-    "@smithy/core": "^3.23.17",
-    "@smithy/node-config-provider": "^4.3.14",
-    "@smithy/property-provider": "^4.2.14",
-    "@smithy/protocol-http": "^5.3.14",
-    "@smithy/signature-v4": "^5.3.14",
-    "@smithy/smithy-client": "^4.12.13",
+    "@smithy/core": "^3.24.0",
+    "@smithy/signature-v4": "^5.4.0",
     "@smithy/types": "^4.14.1",
-    "@smithy/util-base64": "^4.3.2",
-    "@smithy/util-middleware": "^4.2.14",
-    "@smithy/util-retry": "^4.3.6",
-    "@smithy/util-utf8": "^4.2.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

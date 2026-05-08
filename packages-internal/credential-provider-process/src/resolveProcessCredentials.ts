@@ -1,5 +1,4 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError, externalDataInterceptor } from "@smithy/core/config";
 import type { AwsCredentialIdentity, Logger, ParsedIniData } from "@smithy/types";
 import { exec } from "node:child_process";
 import { promisify } from "node:util";

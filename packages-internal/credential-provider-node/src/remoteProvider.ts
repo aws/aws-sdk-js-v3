@@ -1,6 +1,6 @@
 import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
+import { chain, CredentialsProviderError } from "@smithy/core/config";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
-import { chain, CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**

@@ -1,4 +1,4 @@
-import { isValidHostLabel } from "@smithy/util-endpoints";
+import { isValidHostLabel } from "@smithy/core/endpoints";
 
 import { isIpAddress } from "../isIpAddress";
 

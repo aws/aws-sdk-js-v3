@@ -1,7 +1,7 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
-import { retryMiddleware } from "@smithy/middleware-retry";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
+import { retryMiddleware } from "@smithy/core/retry";
 import { describe, expect, test as it } from "vitest";
 
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { httpSigningMiddlewareOptions } from "@smithy/core";
-import type { IHttpRequest } from "@smithy/protocol-http";
-import { HttpRequest } from "@smithy/protocol-http";
+import { getSmithyContext } from "@smithy/core/client";
+import type { IHttpRequest } from "@smithy/core/protocols";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   AuthScheme,
   AwsCredentialIdentity,
@@ -17,7 +18,6 @@ import type {
   SMITHY_CONTEXT_KEY,
   SuccessHandler,
 } from "@smithy/types";
-import { getSmithyContext } from "@smithy/util-middleware";
 
 import { signS3Express } from "./signS3Express";
 

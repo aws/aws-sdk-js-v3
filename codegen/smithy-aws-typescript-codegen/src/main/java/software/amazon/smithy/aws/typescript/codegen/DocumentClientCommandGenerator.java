@@ -26,6 +26,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -114,7 +115,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             "DynamoDBDocumentClientCommand",
             "./baseCommand/DynamoDBDocumentClientCommand"
         );
-        writer.addImport("Command", "$Command", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addImportSubmodule("Command", "$Command", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
 
         writer.writeDocs("@public");
         writer.write("export { DynamoDBDocumentClientCommand, $$Command };");

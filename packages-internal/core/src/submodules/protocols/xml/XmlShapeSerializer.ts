@@ -1,8 +1,8 @@
 import { XmlNode, XmlText } from "@aws-sdk/xml-builder";
 import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import { generateIdempotencyToken, NumericValue } from "@smithy/core/serde";
-import { dateToUtcString } from "@smithy/smithy-client";
+import { dateToUtcString } from "@smithy/core/serde";
+import { fromBase64, generateIdempotencyToken, NumericValue, toBase64 } from "@smithy/core/serde";
 import type {
   Schema as ISchema,
   ShapeSerializer,
@@ -11,7 +11,6 @@ import type {
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
 } from "@smithy/types";
-import { fromBase64, toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import type { XmlSettings } from "./XmlCodec";

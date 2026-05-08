@@ -1,5 +1,5 @@
+import { CredentialsProviderError } from "@smithy/core/config";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { checkUrl } from "./checkUrl";

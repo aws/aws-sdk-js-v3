@@ -1,5 +1,5 @@
 import type { EndpointCache } from "@aws-sdk/endpoint-cache";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { BuildHandlerArguments, MiddlewareStack } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -9,7 +9,7 @@ import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCac
 
 vi.mock("./updateDiscoveredEndpointInCache");
 vi.mock("./getCacheKey");
-vi.mock("@smithy/protocol-http");
+vi.mock("@smithy/core/protocols");
 
 describe(endpointDiscoveryMiddleware.name, () => {
   const cacheKey = "cacheKey";

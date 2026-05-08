@@ -1,10 +1,10 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { iterableToReadableStream, readableStreamtoIterable } from "@smithy/eventstream-serde-browser";
+import { iterableToReadableStream, readableStreamToIterable } from "@smithy/core/event-streams";
+import type { HttpRequest } from "@smithy/core/protocols";
+import { HttpResponse } from "@smithy/core/protocols";
+import { fromBase64 } from "@smithy/core/serde";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import type { HttpRequest } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
 import type { Logger, Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
-import { fromBase64 } from "@smithy/util-base64";
 
 import { isWebSocketRequest } from "./utils";
 
@@ -304,7 +304,7 @@ const getIterator = (stream: any): AsyncIterable<any> => {
 
   if (isReadableStream(stream)) {
     // If stream is a ReadableStream, transfer the ReadableStream to async iterable.
-    return readableStreamtoIterable(stream);
+    return readableStreamToIterable(stream);
   }
 
   // For other types, just wrap them with an async iterable.

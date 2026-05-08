@@ -1,7 +1,7 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { randomBytes } from "node:crypto";
 import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";

@@ -1,4 +1,4 @@
-import { toBase64 } from "@smithy/util-base64";
+import { toBase64 } from "@smithy/core/serde";
 import { describe, expect, it } from "vitest";
 
 import { CrtCrc64Nvme } from "./CrtCrc64Nvme";

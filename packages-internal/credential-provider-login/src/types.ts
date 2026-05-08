@@ -1,6 +1,6 @@
 import type { SigninClientConfig } from "@aws-sdk/nested-clients/signin";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
-import type { SharedConfigInit } from "@smithy/shared-ini-file-loader";
+import type { SharedConfigInit } from "@smithy/core/config";
 
 /**
  * Configuration options for the Login credential provider

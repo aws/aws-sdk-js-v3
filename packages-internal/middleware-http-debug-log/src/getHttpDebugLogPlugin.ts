@@ -1,4 +1,5 @@
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/core/protocols";
+import { fromUtf8, headStream, toUtf8 } from "@smithy/core/serde";
 import type {
   DeserializeHandler,
   DeserializeHandlerArguments,
@@ -6,8 +7,6 @@ import type {
   Logger,
   MiddlewareStack,
 } from "@smithy/types";
-import { headStream } from "@smithy/util-stream";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 /**
  * FOR DEBUG USE ONLY.

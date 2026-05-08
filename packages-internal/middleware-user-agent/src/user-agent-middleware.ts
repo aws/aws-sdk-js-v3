@@ -1,6 +1,6 @@
 import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
 import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   AbsoluteLocation,
   BuildHandler,

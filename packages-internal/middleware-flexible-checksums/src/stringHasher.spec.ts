@@ -1,4 +1,4 @@
-import { toUint8Array } from "@smithy/util-utf8";
+import { toUint8Array } from "@smithy/core/serde";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { stringHasher } from "./stringHasher";

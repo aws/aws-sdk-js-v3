@@ -1,6 +1,6 @@
-import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { EventStreamCodec } from "@smithy/core/event-streams";
+import { fromUtf8, toUtf8 } from "@smithy/core/serde";
 import type { Message, MessageHeaders, SignedMessage } from "@smithy/types";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { EventSigningTransformStream } from "./EventSigningTransformStream";

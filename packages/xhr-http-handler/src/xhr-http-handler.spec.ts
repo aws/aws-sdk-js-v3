@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 import { XhrHttpHandler } from "./xhr-http-handler";

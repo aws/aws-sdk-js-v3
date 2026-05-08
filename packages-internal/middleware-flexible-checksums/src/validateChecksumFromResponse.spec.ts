@@ -1,6 +1,6 @@
-import type { HttpResponse } from "@smithy/protocol-http";
+import type { HttpResponse } from "@smithy/core/protocols";
+import { createChecksumStream } from "@smithy/core/serde";
 import type { Logger } from "@smithy/types";
-import { createChecksumStream } from "@smithy/util-stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { PreviouslyResolved } from "./configuration";
@@ -12,7 +12,7 @@ import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
-vi.mock("@smithy/util-stream");
+vi.mock("@smithy/core/serde");
 vi.mock("./getChecksum");
 vi.mock("./getChecksumLocationName");
 vi.mock("./getChecksumAlgorithmListForResponse");

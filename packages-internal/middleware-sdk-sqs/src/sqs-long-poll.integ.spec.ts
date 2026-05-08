@@ -2,8 +2,8 @@ import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { SQS } from "@aws-sdk/client-sqs";
 import { HttpResponse } from "@aws-sdk/config/requestHandler";
 import { StandardRetryStrategy } from "@aws-sdk/config/retryStrategy";
+import { Retry } from "@smithy/core/retry";
 import type { RetryErrorInfo, StandardRetryBackoffStrategy, StandardRetryToken } from "@smithy/types";
-import { Retry } from "@smithy/util-retry";
 import { performance } from "node:perf_hooks";
 import { beforeEach, describe, expect, test as it } from "vitest";
 

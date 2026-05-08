@@ -7,7 +7,9 @@ describe("emitWarningIfUnsupportedVersion", () => {
   const supportedVersion = "22.0.0";
   const supportedMajorVersion = parseInt(supportedVersion.substring(0, supportedVersion.indexOf(".")));
 
-  beforeEach(() => {});
+  beforeEach(() => {
+    process.env.AWS_SDK_JS_NODE_VERSION_SUPPORT_WARNING_DISABLED = "false";
+  });
 
   afterEach(() => {
     vi.clearAllMocks();

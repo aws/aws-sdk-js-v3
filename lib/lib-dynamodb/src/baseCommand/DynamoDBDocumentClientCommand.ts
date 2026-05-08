@@ -1,6 +1,6 @@
-import { setFeature } from "@aws-sdk/core";
-import { Command as $Command } from "@smithy/smithy-client";
-import {
+import { setFeature } from "@aws-sdk/core/client";
+import { Command as $Command } from "@smithy/core/client";
+import type {
   DeserializeHandler,
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
@@ -11,8 +11,9 @@ import {
   MiddlewareStack,
 } from "@smithy/types";
 
-import { KeyNodeChildren, marshallInput, unmarshallOutput } from "../commands/utils";
-import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import type { KeyNodeChildren } from "../commands/utils";
+import { marshallInput, unmarshallOutput } from "../commands/utils";
+import type { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
 // /** @public */
 // export { $Command, DynamoDBDocumentClientResolvedConfig };

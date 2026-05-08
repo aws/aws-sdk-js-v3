@@ -3,8 +3,8 @@ import { fromIni } from "@aws-sdk/credential-provider-ini";
 import { fromProcess } from "@aws-sdk/credential-provider-process";
 import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { ENV_PROFILE, loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError } from "@smithy/core/config";
+import { ENV_PROFILE, loadSharedConfigFiles } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentialsTreatedAsExpired, credentialsWillNeedRefresh, defaultProvider } from "./defaultProvider";
@@ -16,7 +16,13 @@ vi.mock("@aws-sdk/credential-provider-ini");
 vi.mock("@aws-sdk/credential-provider-process");
 vi.mock("@aws-sdk/credential-provider-sso");
 vi.mock("@aws-sdk/credential-provider-web-identity");
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config", async (importOriginal) => {
+  const actual = await importOriginal<any>();
+  return {
+    ...actual,
+    loadSharedConfigFiles: vi.fn(),
+  };
+});
 vi.mock("./remoteProvider");
 
 describe(defaultProvider.name, () => {

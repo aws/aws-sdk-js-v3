@@ -7,16 +7,16 @@ export {
   REGION_INI_NAME,
   NODE_REGION_CONFIG_OPTIONS,
   NODE_REGION_CONFIG_FILE_OPTIONS,
-} from "@smithy/config-resolver";
+} from "@smithy/core/config";
 
 /**
  * Backward compatibility re-export alias.
  * @internal
  */
-export type { RegionInputConfig, RegionResolvedConfig } from "@smithy/config-resolver";
+export type { RegionInputConfig, RegionResolvedConfig } from "@smithy/core/config";
 
 /**
  * Backward compatibility re-export alias.
  * @internal
  */
-export { resolveRegionConfig } from "@smithy/config-resolver";
+export { resolveRegionConfig } from "@smithy/core/config";

@@ -10,13 +10,13 @@ vi.mock("@aws-sdk/util-format-url", () => ({
 
 vi.mock("./presigner");
 
-import type { HttpRequest } from "@smithy/protocol-http";
+import type { HttpRequest } from "@smithy/core/protocols";
 import type { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrl";
 
-vi.mock("@smithy/middleware-endpoint", async () => {
-  const originalModule: any = await vi.importActual("@smithy/middleware-endpoint");
+vi.mock("@smithy/core/endpoints", async () => {
+  const originalModule: any = await vi.importActual("@smithy/core/endpoints");
   return {
     ...originalModule,
     getEndpointFromInstructions: vi.fn(() =>

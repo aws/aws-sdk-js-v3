@@ -20,6 +20,7 @@ import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.model.node.ObjectNode;
 import software.amazon.smithy.model.node.StringNode;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.IoUtils;
@@ -146,7 +147,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeRegionHash() {
-        writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER);
+        writer.addImportSubmodule("RegionHash", "RegionHash", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CONFIG);
         writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
             for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
                 writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
@@ -156,7 +157,7 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writePartitionHash() {
-        writer.addImport("PartitionHash", "PartitionHash", TypeScriptDependency.CONFIG_RESOLVER);
+        writer.addImportSubmodule("PartitionHash", "PartitionHash", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CONFIG);
         writer.openBlock("const partitionHash: PartitionHash = {", "};", () -> {
             partitions.values().forEach(partition -> {
                 writer.openBlock("$S: {", "},", partition.identifier, () -> {
@@ -184,7 +185,7 @@ final class EndpointGenerator implements Runnable {
             "RegionInfoProviderOptions",
             AwsDependency.TYPES
         );
-        writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER);
+        writer.addImportSubmodule("getRegionInfo", "getRegionInfo", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CONFIG);
         writer.openBlock(
             "export const defaultRegionInfoProvider: RegionInfoProvider = async (\n"
                 + "  region: string,\n"

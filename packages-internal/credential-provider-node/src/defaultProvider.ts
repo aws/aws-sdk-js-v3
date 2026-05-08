@@ -5,9 +5,8 @@ import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
+import { CredentialsProviderError, ENV_PROFILE } from "@smithy/core/config";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { ENV_PROFILE } from "@smithy/shared-ini-file-loader";
 import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";

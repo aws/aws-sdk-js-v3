@@ -9,4 +9,4 @@ export {
   EndpointResolverOptions,
   ReferenceRecord,
   EvaluateOptions,
-} from "@smithy/util-endpoints";
+} from "@smithy/core/endpoints";

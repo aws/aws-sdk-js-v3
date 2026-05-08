@@ -1,5 +1,5 @@
 import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
-import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/core/config";
 import type { ParsedIniData } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -33,7 +33,7 @@ vi.mock("@aws-sdk/nested-clients/sts", () => ({
 }));
 
 let iniProfileData: ParsedIniData = null as any;
-vi.mock(import("@smithy/node-config-provider"), async (importOriginal) => {
+vi.mock(import("@smithy/core/config"), async (importOriginal) => {
   return {
     ...(await importOriginal()),
     loadConfig: ((

@@ -1,6 +1,6 @@
+import type { ServiceException as SDKBaseServiceException } from "@smithy/core/client";
+import { decorateServiceException } from "@smithy/core/client";
 import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
-import type { ServiceException as SDKBaseServiceException } from "@smithy/smithy-client";
-import { decorateServiceException } from "@smithy/smithy-client";
 import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata, StaticErrorSchema } from "@smithy/types";
 
 /**

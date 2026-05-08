@@ -1,5 +1,5 @@
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   BuildHandler,
   BuildHandlerArguments,

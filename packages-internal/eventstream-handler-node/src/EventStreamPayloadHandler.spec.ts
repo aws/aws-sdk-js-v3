@@ -1,4 +1,4 @@
-import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { EventStreamCodec } from "@smithy/core/event-streams";
 import type {
   Decoder,
   Encoder,
@@ -14,7 +14,7 @@ import { EventSigningTransformStream } from "./EventSigningTransformStream";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
 vi.mock("./EventSigningTransformStream");
-vi.mock("@smithy/eventstream-codec");
+vi.mock("@smithy/core/event-streams");
 
 describe(EventStreamPayloadHandler.name, () => {
   const collectData = (stream: Readable) => {

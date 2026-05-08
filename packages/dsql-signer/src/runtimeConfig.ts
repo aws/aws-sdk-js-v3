@@ -1,7 +1,6 @@
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
-import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
-import { Hash } from "@smithy/hash-node";
-import { loadConfig } from "@smithy/node-config-provider";
+import { loadConfig, NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/core/config";
+import { Hash } from "@smithy/core/serde";
 
 import type { DsqlSignerConfig } from "./Signer";
 

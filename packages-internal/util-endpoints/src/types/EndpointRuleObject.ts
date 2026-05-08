@@ -3,4 +3,4 @@ export {
   EndpointObjectHeaders,
   EndpointObject,
   EndpointRuleObject,
-} from "@smithy/util-endpoints";
+} from "@smithy/core/endpoints";

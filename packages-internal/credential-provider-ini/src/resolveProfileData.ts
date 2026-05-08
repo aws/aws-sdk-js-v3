@@ -1,5 +1,5 @@
 import type { AwsIdentityProperties } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import type { FromIniInit } from "./fromIni";

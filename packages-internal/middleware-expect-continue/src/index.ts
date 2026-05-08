@@ -1,5 +1,5 @@
-import type { HttpHandler } from "@smithy/protocol-http";
-import { HttpRequest } from "@smithy/protocol-http";
+import type { HttpHandler } from "@smithy/core/protocols";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   BodyLengthCalculator,
   BuildHandler,

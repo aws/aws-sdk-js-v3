@@ -1,6 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { HttpRequest } from "@smithy/protocol-http";
-import { fromUtf8 } from "@smithy/util-utf8";
+import { HttpRequest } from "@smithy/core/protocols";
+import { fromUtf8 } from "@smithy/core/serde";
 import { createReadStream, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";

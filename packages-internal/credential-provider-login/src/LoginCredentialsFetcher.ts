@@ -1,8 +1,7 @@
 import type { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
 import type { AwsCredentialIdentity, AwsIdentityProperties, Logger } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { HttpRequest } from "@smithy/protocol-http";
-import { readFile } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError, readFile } from "@smithy/core/config";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   FinalizeHandler,
   FinalizeHandlerArguments,

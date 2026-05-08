@@ -1,5 +1,5 @@
 import type { CredentialProviderOptions, TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
-import { TokenProviderError } from "@smithy/property-provider";
+import { TokenProviderError } from "@smithy/core/config";
 
 export interface FromStaticInit extends CredentialProviderOptions {
   token?: TokenIdentity;

@@ -1,5 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-browser";
-import { invalidProvider } from "@smithy/invalid-dependency";
+import { invalidProvider } from "@smithy/core/client";
 
 import type { DsqlSignerConfig } from "./Signer";
 

@@ -1,6 +1,6 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { HttpResponse } from "@smithy/protocol-http";
-import { parseRfc3339DateTime } from "@smithy/smithy-client";
+import { CredentialsProviderError } from "@smithy/core/config";
+import { HttpResponse } from "@smithy/core/protocols";
+import { parseRfc3339DateTime } from "@smithy/core/serde";
 import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 

@@ -7,6 +7,7 @@ import {
   parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime,
 } from "@smithy/core/serde";
+import { fromBase64 } from "@smithy/core/serde";
 import type {
   DocumentType,
   Schema,
@@ -15,7 +16,6 @@ import type {
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
 } from "@smithy/types";
-import { fromBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { UnionSerde } from "../UnionSerde";

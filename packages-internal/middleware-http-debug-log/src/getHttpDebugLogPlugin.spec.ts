@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
 import { describe, expect, test as it, vi } from "vitest";
 

@@ -1,11 +1,11 @@
-import { memoize } from "@smithy/property-provider";
-import { normalizeProvider } from "@smithy/util-middleware";
+import { normalizeProvider } from "@smithy/core/client";
+import { memoize } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { normalizeTokenProvider } from "./normalizeTokenProvider";
 
-vi.mock("@smithy/property-provider");
-vi.mock("@smithy/util-middleware");
+vi.mock("@smithy/core/config");
+vi.mock("@smithy/core/client");
 
 const ONE_SECOND_IN_MS = 1000;
 const ONE_HOUR_IN_MS = 3600 * ONE_SECOND_IN_MS;

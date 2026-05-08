@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "noEmit": true,
-    "noCheck": false
+    "noCheck": false,
+    "moduleResolution": "bundler",
+    "module": "preserve",
+    "skipLibCheck": true
   },
   "extends": "./tsconfig.cjs.json",
   "include": [
@@ -12,8 +15,7 @@
     "packages-internal/**/*.spec.ts",
     "lib/**/*.spec.ts",
     "clients/**/*.spec.ts",
-    "private/**/*.spec.ts",
-    "clients/**/test/index-types.ts"
+    "private/**/*.spec.ts"
   ],
   "exclude": [
     "node_modules/",

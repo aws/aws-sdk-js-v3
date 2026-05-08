@@ -1,6 +1,5 @@
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import { NODE_REGION_CONFIG_FILE_OPTIONS } from "@smithy/config-resolver";
-import { loadConfig } from "@smithy/node-config-provider";
+import { loadConfig, NODE_REGION_CONFIG_FILE_OPTIONS } from "@smithy/core/config";
 
 import { fromNodeProviderChain } from "./fromNodeProviderChain";
 import type { FromTemporaryCredentialsOptions } from "./fromTemporaryCredentials.base";

@@ -5,7 +5,7 @@ import {
   waitUntilClusterCreated,
 } from "@aws-sdk/client-route53-recovery-control-config";
 import { type HeadObjectCommandInput, S3, waitUntilObjectExists } from "@aws-sdk/client-s3";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
 import { describe, test as it } from "vitest";
 

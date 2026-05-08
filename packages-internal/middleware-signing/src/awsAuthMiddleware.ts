@@ -1,5 +1,5 @@
 import type { AwsCredentialIdentity } from "@aws-sdk/types";
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/core/protocols";
 import type {
   AuthScheme,
   FinalizeHandler,

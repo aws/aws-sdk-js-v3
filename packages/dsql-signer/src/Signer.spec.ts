@@ -1,14 +1,13 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
-import { loadConfig } from "@smithy/node-config-provider";
+import { loadConfig } from "@smithy/core/config";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { DsqlSignerConfig } from "./Signer";
 import { DsqlSigner } from "./Signer";
 
-vi.mock("@smithy/node-config-provider");
-vi.mock("@smithy/config-resolver");
+vi.mock("@smithy/core/config");
 vi.mock("@aws-sdk/credential-provider-node");
 
 describe("dsql-signer", () => {

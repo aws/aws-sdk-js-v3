@@ -1,6 +1,6 @@
 import { cbor } from "@smithy/core/cbor";
+import { HttpResponse } from "@smithy/core/protocols";
 import { error as registerError, TypeRegistry } from "@smithy/core/schema";
-import { HttpResponse } from "@smithy/protocol-http";
 import type { NumericSchema, StaticErrorSchema, StringSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 

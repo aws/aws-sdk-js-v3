@@ -1,5 +1,5 @@
-import type { EndpointFunctions } from "@smithy/util-endpoints";
-import { customEndpointFunctions } from "@smithy/util-endpoints";
+import type { EndpointFunctions } from "@smithy/core/endpoints";
+import { customEndpointFunctions } from "@smithy/core/endpoints";
 
 import { isVirtualHostableS3Bucket } from "./lib/aws/isVirtualHostableS3Bucket";
 import { parseArn } from "./lib/aws/parseArn";

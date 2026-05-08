@@ -1,5 +1,5 @@
+import { toUint8Array } from "@smithy/core/serde";
 import type { ChecksumConstructor, HashConstructor } from "@smithy/types";
-import { toUint8Array } from "@smithy/util-utf8";
 
 /**
  * A function that, given a hash constructor and a string, calculates the hash of the string.

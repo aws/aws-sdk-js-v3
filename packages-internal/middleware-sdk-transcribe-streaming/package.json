@@ -26,11 +26,9 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.8",
     "@aws-sdk/util-format-url": "workspace:^3.972.10",
-    "@smithy/eventstream-serde-browser": "^4.2.14",
-    "@smithy/protocol-http": "^5.3.14",
-    "@smithy/signature-v4": "^5.3.14",
+    "@smithy/core": "^3.24.0",
+    "@smithy/signature-v4": "^5.4.0",
     "@smithy/types": "^4.14.1",
-    "@smithy/uuid": "^1.1.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

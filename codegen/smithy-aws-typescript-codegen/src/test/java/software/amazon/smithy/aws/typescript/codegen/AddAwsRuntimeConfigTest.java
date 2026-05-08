@@ -43,11 +43,7 @@ public class AddAwsRuntimeConfigTest {
         // Check dependencies
         assertThat(
             manifest.getFileString("package.json").get(),
-            containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName)
-        );
-        assertThat(
-            manifest.getFileString("package.json").get(),
-            containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName)
+            containsString(TypeScriptDependency.SMITHY_CORE.packageName)
         );
 
         // Check config interface fields
@@ -132,11 +128,7 @@ public class AddAwsRuntimeConfigTest {
         // Check dependencies
         assertThat(
             manifest.getFileString("package.json").get(),
-            containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName)
-        );
-        assertThat(
-            manifest.getFileString("package.json").get(),
-            containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName)
+            containsString(TypeScriptDependency.SMITHY_CORE.packageName)
         );
 
         // Check config interface fields
@@ -213,11 +205,7 @@ public class AddAwsRuntimeConfigTest {
         // Check dependencies
         assertThat(
             manifest.getFileString("package.json").get(),
-            containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName)
-        );
-        assertThat(
-            manifest.getFileString("package.json").get(),
-            containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName)
+            containsString(TypeScriptDependency.SMITHY_CORE.packageName)
         );
 
         // Check config interface fields

@@ -1,5 +1,6 @@
 import type { AwsCredentialIdentityProvider, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import { memoize } from "@smithy/property-provider";
+import { normalizeProvider } from "@smithy/core/client";
+import { memoize } from "@smithy/core/config";
 import type { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import { SignatureV4 } from "@smithy/signature-v4";
 import type {
@@ -14,7 +15,6 @@ import type {
   RegionInfoProvider,
   RequestSigner,
 } from "@smithy/types";
-import { normalizeProvider } from "@smithy/util-middleware";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;

@@ -1,6 +1,6 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { toEndpointV1 } from "@smithy/middleware-endpoint";
-import { HttpRequest } from "@smithy/protocol-http";
+import { toEndpointV1 } from "@smithy/core/endpoints";
+import { HttpRequest } from "@smithy/core/protocols";
 import { SignatureV4 } from "@smithy/signature-v4";
 import type {
   AwsCredentialIdentity,

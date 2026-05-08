@@ -1,12 +1,14 @@
-import { chain, memoize, TokenProviderError } from "@smithy/property-provider";
-import { loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
+import { chain, memoize, TokenProviderError } from "@smithy/core/config";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromSso } from "./fromSso";
 import { nodeProvider } from "./nodeProvider";
 
-vi.mock("@smithy/property-provider");
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config", async (importActual) => ({
+  ...(await importActual<any>()),
+  chain: vi.fn(),
+  memoize: vi.fn(),
+}));
 vi.mock("./fromSso");
 
 describe(nodeProvider.name, () => {
@@ -58,8 +60,6 @@ describe(nodeProvider.name, () => {
     for (const fromFn of [fromSso]) {
       expect(fromFn).toHaveBeenCalledWith(mockInit);
     }
-
-    expect(loadSharedConfigFiles).not.toHaveBeenCalled();
   });
 
   describe("memoize isExpired", () => {

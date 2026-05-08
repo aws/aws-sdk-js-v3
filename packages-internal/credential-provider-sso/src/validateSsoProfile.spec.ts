@@ -1,4 +1,4 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/core/config";
 import { describe, expect, test as it } from "vitest";
 
 import { validateSsoProfile } from "./validateSsoProfile";

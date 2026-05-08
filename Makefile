@@ -34,6 +34,7 @@ test-codegen:
 # typecheck for test code.
 test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.json
+	npx tsc -p tsconfig.test.index-types.json
 
 test-indices:
 	node ./scripts/validation/client-index-tests.mjs

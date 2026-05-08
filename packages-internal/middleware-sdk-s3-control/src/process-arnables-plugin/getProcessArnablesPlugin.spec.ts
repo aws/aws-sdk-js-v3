@@ -1,5 +1,5 @@
-import { constructStack } from "@smithy/middleware-stack";
-import { HttpRequest } from "@smithy/protocol-http";
+import { constructStack } from "@smithy/core/client";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { Provider, RegionInfo } from "@smithy/types";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 

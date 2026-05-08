@@ -1,5 +1,9 @@
-import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@smithy/config-resolver";
-import { type LocalConfigOptions, loadConfig } from "@smithy/node-config-provider";
+import {
+  type LocalConfigOptions,
+  loadConfig,
+  NODE_REGION_CONFIG_FILE_OPTIONS,
+  NODE_REGION_CONFIG_OPTIONS,
+} from "@smithy/core/config";
 
 /**
  * Default region provider for STS when used as an inner client.

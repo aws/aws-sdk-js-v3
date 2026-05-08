@@ -16,6 +16,7 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -57,8 +58,8 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
             return Map.of(
                 "retryStrategy",
                 (w) -> {
-                    w.addImport("StandardRetryStrategy", null, TypeScriptDependency.UTIL_RETRY);
-                    w.addImport("Retry", null, TypeScriptDependency.UTIL_RETRY);
+                    w.addImportSubmodule("StandardRetryStrategy", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
+                    w.addImportSubmodule("Retry", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
 
                     // todo(retry): Retry.v2026 condition can be removed when made permanent.
                     w.write("""

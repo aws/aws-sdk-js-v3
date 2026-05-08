@@ -1,6 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { fromLoginCredentials } from "@aws-sdk/credential-providers";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
+import { externalDataInterceptor } from "@smithy/core/config";
 import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { join } from "node:path";

@@ -1,4 +1,4 @@
-import { parseUrl } from "@smithy/url-parser";
+import { parseUrl } from "@smithy/core/protocols";
 import { createSign, createVerify } from "node:crypto";
 import { describe, expect, test as it } from "vitest";
 

@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { Checksum } from "@smithy/types";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 

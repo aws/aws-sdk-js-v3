@@ -1,1 +1,1 @@
-export { isIpAddress } from "@smithy/util-endpoints";
+export { isIpAddress } from "@smithy/core/endpoints";

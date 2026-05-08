@@ -1,7 +1,6 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError, getProfileName, parseKnownFiles } from "@smithy/core/config";
 
 import { LoginCredentialsFetcher } from "./LoginCredentialsFetcher";
 import type { FromLoginCredentialsInit } from "./types";

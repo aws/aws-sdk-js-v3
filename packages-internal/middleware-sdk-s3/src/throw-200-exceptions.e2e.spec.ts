@@ -1,7 +1,7 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 

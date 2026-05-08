@@ -3,8 +3,8 @@ import "@aws-sdk/crc64-nvme-crt";
 
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
-import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
-import { HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler, HttpRequest } from "@smithy/core/protocols";
+import { HttpResponse } from "@smithy/core/protocols";
 import { Readable, Transform } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 

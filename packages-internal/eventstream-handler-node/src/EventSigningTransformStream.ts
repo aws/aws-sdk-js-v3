@@ -1,5 +1,5 @@
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
-import type { EventStreamCodec } from "@smithy/eventstream-codec";
+import type { EventStreamCodec } from "@smithy/core/event-streams";
 import type { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
 import { type TransformCallback, type TransformOptions, Transform } from "node:stream";
 

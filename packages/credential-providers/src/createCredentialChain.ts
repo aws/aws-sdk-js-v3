@@ -3,7 +3,7 @@ import type {
   RuntimeConfigAwsCredentialIdentityProvider,
   RuntimeConfigIdentityProvider,
 } from "@aws-sdk/types";
-import { ProviderError } from "@smithy/property-provider";
+import { ProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface CustomCredentialChainOptions {

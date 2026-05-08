@@ -1,4 +1,4 @@
-import { expectUnion } from "@smithy/smithy-client";
+import { expectUnion } from "@smithy/core/serde";
 
 /**
  * @internal

@@ -1,1 +1,1 @@
-export { DeprecatedObject, ParameterObject, RuleSetObject } from "@smithy/util-endpoints";
+export { DeprecatedObject, ParameterObject, RuleSetObject } from "@smithy/core/endpoints";

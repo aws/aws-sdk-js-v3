@@ -1,5 +1,5 @@
 import type { AwsHandlerExecutionContext, AwsSdkFeatures } from "@aws-sdk/types";
-import { Retry } from "@smithy/util-retry";
+import { Retry } from "@smithy/core/retry";
 
 /**
  * This is temporary code which reads AWS_NEW_RETRIES_2026

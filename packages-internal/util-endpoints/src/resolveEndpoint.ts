@@ -1,1 +1,1 @@
-export { resolveEndpoint } from "@smithy/util-endpoints";
+export { resolveEndpoint } from "@smithy/core/endpoints";

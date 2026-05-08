@@ -1,3 +1,4 @@
+import { toHex, toUint8Array } from "@smithy/core/serde";
 import type {
   InitializeHandler,
   InitializeHandlerArguments,
@@ -7,8 +8,6 @@ import type {
   MetadataBearer,
   Pluggable,
 } from "@smithy/types";
-import { toHex } from "@smithy/util-hex-encoding";
-import { toUint8Array } from "@smithy/util-utf8";
 
 import type { PreviouslyResolved } from "./configurations";
 

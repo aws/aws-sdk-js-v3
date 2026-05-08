@@ -1,4 +1,4 @@
-import { buildQueryString } from "@smithy/querystring-builder";
+import { buildQueryString } from "@smithy/core/protocols";
 import type { HttpRequest } from "@smithy/types";
 
 export function formatUrl(request: Omit<HttpRequest, "headers" | "method">): string {

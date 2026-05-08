@@ -1,5 +1,5 @@
 import type { AwsIdentityProperties, CredentialProviderOptions, RuntimeConfigIdentityProvider } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 
 import type { CognitoProviderParameters } from "./CognitoProviderParameters";

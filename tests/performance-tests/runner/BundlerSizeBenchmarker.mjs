@@ -40,6 +40,9 @@ export class BundlerSizeBenchmarker {
     const outfile = path.resolve(DIST_DIR, `rollup-${this.application}.js`);
     await build({
       logLevel: "silent",
+      resolve: {
+        conditions: ["browser", "module", "import"],
+      },
       build: {
         outDir: DIST_DIR,
         lib: {

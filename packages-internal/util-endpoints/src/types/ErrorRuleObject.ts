@@ -1,1 +1,1 @@
-export { ErrorRuleObject } from "@smithy/util-endpoints";
+export { ErrorRuleObject } from "@smithy/core/endpoints";

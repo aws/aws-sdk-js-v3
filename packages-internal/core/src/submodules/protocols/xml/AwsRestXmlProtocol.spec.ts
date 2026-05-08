@@ -1,7 +1,7 @@
+import { HttpRequest, HttpResponse } from "@smithy/core/protocols";
 import { TypeRegistry } from "@smithy/core/schema";
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { toUtf8 } from "@smithy/core/serde";
 import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
-import { toUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
 import { context, deleteObjects } from "../test-schema.spec";

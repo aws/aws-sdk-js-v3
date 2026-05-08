@@ -1,4 +1,4 @@
-import { normalizeProvider } from "@smithy/util-middleware";
+import { normalizeProvider } from "@smithy/core/client";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import {
@@ -9,7 +9,7 @@ import {
 } from "./constants";
 import { resolveFlexibleChecksumsConfig } from "./resolveFlexibleChecksumsConfig";
 
-vi.mock("@smithy/util-middleware");
+vi.mock("@smithy/core/client");
 
 describe(resolveFlexibleChecksumsConfig.name, () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
+import { parseUrl } from "@smithy/core/protocols";
 import type { Endpoint, EndpointParameters, EndpointV2, Logger, Provider } from "@smithy/types";
-import { parseUrl } from "@smithy/url-parser";
 
 /**
  * This is an additional config resolver layer for clients using the default

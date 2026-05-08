@@ -1,12 +1,11 @@
 import type { S3Client } from "@aws-sdk/client-s3";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import type { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
-import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
+import type { EndpointParameterInstructionsSupplier } from "@smithy/core/endpoints";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/core/endpoints";
+import { toHex, toUint8Array } from "@smithy/core/serde";
 import { createScope, getSigningKey } from "@smithy/signature-v4";
 import type { ChecksumConstructor, HashConstructor, SourceData } from "@smithy/types";
-import { toHex } from "@smithy/util-hex-encoding";
-import { toUint8Array } from "@smithy/util-utf8";
 
 import {
   ALGORITHM_IDENTIFIER,

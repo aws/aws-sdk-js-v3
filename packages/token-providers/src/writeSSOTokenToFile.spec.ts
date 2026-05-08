@@ -1,4 +1,4 @@
-import { getSSOTokenFilepath } from "@smithy/shared-ini-file-loader";
+import { getSSOTokenFilepath } from "@smithy/core/config";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises } from "node:fs";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest"
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
 vi.mock("fs", () => ({ promises: { writeFile: vi.fn() } }));
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config");
 
 describe(writeSSOTokenToFile.name, () => {
   const mockSsoStartUrl = "mock_sso_start_url";

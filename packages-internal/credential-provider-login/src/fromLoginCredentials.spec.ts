@@ -1,11 +1,14 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import { CredentialsProviderError, getProfileName, parseKnownFiles } from "@smithy/core/config";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { fromLoginCredentials } from "./fromLoginCredentials";
 import { LoginCredentialsFetcher } from "./LoginCredentialsFetcher";
 
-vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("@smithy/core/config", async (importActual) => ({
+  ...(await importActual<any>()),
+  getProfileName: vi.fn(),
+  parseKnownFiles: vi.fn(),
+}));
 vi.mock("./LoginCredentialsFetcher");
 
 describe("fromLoginCredentials", () => {

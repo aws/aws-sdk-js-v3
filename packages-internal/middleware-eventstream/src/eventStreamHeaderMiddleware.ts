@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/core/protocols";
 import type { BuildHandlerOptions, BuildMiddleware } from "@smithy/types";
 export const eventStreamHeaderMiddleware: BuildMiddleware<any, any> = (next) => async (args) => {
   const { request } = args;

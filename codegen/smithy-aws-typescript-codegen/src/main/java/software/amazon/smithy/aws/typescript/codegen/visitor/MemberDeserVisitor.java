@@ -38,6 +38,7 @@ import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
@@ -77,41 +78,42 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
 
     @Override
     public String booleanShape(BooleanShape shape) {
-        context.getWriter().addImport("expectBoolean", "__expectBoolean", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectBoolean", "__expectBoolean", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__expectBoolean(" + dataSource + ")";
     }
 
     @Override
     public String byteShape(ByteShape shape) {
-        context.getWriter().addImport("expectByte", "__expectByte", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectByte", "__expectByte", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__expectByte(" + dataSource + ")";
     }
 
     @Override
     public String shortShape(ShortShape shape) {
-        context.getWriter().addImport("expectShort", "__expectShort", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectShort", "__expectShort", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__expectShort(" + dataSource + ")";
     }
 
     @Override
     public String integerShape(IntegerShape shape) {
-        context.getWriter().addImport("expectInt32", "__expectInt32", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectInt32", "__expectInt32", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__expectInt32(" + dataSource + ")";
     }
 
     @Override
     public String longShape(LongShape shape) {
-        context.getWriter().addImport("expectLong", "__expectLong", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectLong", "__expectLong", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__expectLong(" + dataSource + ")";
     }
 
     @Override
     public String floatShape(FloatShape shape) {
         context.getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "limitedParseFloat32",
                 "__limitedParseFloat32",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__limitedParseFloat32(" + dataSource + ")";
     }
@@ -119,10 +121,11 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
     @Override
     public String doubleShape(DoubleShape shape) {
         context.getWriter()
-            .addImport(
+            .addImportSubmodule(
                 "limitedParseDouble",
                 "__limitedParseDouble",
-                TypeScriptDependency.AWS_SMITHY_CLIENT
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
             );
         return "__limitedParseDouble(" + dataSource + ")";
     }
@@ -134,12 +137,12 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
             String mediaType = ((MediaTypeTrait) mediaTypeTrait.get()).getValue();
             if (CodegenUtils.isJsonMediaType(mediaType)) {
                 TypeScriptWriter writer = context.getWriter();
-                writer.addImport("LazyJsonString", "__LazyJsonString", TypeScriptDependency.AWS_SMITHY_CLIENT);
+                writer.addImportSubmodule("LazyJsonString", "__LazyJsonString", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
                 return "__LazyJsonString.from(" + dataSource + ")";
             }
         }
 
-        context.getWriter().addImport("expectString", "__expectString", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectString", "__expectString", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return "__expectString(" + dataSource + ")";
     }
 
@@ -224,7 +227,7 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
 
     @Override
     public String unionShape(UnionShape shape) {
-        context.getWriter().addImport("expectUnion", "__expectUnion", TypeScriptDependency.AWS_SMITHY_CLIENT);
+        context.getWriter().addImportSubmodule("expectUnion", "__expectUnion", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
         return getDelegateDeserializer(shape, "__expectUnion(" + dataSource + ")");
     }
 
@@ -276,7 +279,7 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
                 && !disableDeserializationFunctionElision
                 && serdeElisionIndex.mayElide(shape)
         ) {
-            context.getWriter().addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+            context.getWriter().addImportSubmodule("_json", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
             return "_json(" + customDataSource + ")";
         }
 

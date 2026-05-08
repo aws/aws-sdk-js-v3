@@ -1,5 +1,5 @@
-import type { HttpResponse } from "@smithy/protocol-http";
-import { HttpRequest } from "@smithy/protocol-http";
+import type { HttpResponse } from "@smithy/core/protocols";
+import { HttpRequest } from "@smithy/core/protocols";
 import type {
   DeserializeHandler,
   DeserializeHandlerArguments,

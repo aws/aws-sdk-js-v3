@@ -1,7 +1,7 @@
 import { describe, test as it, expect, beforeEach, afterAll } from "vitest";
 
 import { CloudWatch } from "@aws-sdk/client-cloudwatch";
-import type { DefaultsMode } from "@smithy/smithy-client";
+import type { DefaultsMode } from "@smithy/core/client";
 import type { NodeHttpHandlerOptions, Provider } from "@smithy/types";
 import type { Agent as hAgent } from "http";
 import type { Agent as hsAgent } from "https";

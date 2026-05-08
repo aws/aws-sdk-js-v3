@@ -23,6 +23,7 @@ import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
@@ -145,7 +146,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     public void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
+        writer.addImportSubmodule("take", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
         writer.openBlock("return take(input, {", "});", () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
@@ -169,7 +170,12 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
                 if (hasJsonName) {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
+                        writer.addImportSubmodule(
+                            "v4",
+                            "generateIdempotencyToken",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.SERDE
+                        );
                         writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken(), `$L`],", wireName, memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {
@@ -187,7 +193,12 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                     }
                 } else {
                     if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                        writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
+                        writer.addImportSubmodule(
+                            "v4",
+                            "generateIdempotencyToken",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.SERDE
+                        );
                         writer.write("'$L': [true, _ => _ ?? generateIdempotencyToken()],", memberName);
                     } else {
                         if (valueProvider.equals("_ => _")) {

@@ -1,7 +1,7 @@
 import { setTokenFeature } from "@aws-sdk/core/client";
 import { getBearerTokenEnvKey } from "@aws-sdk/core/httpAuthSchemes";
 import type { AttributedTokenIdentity, CredentialProviderOptions, TokenIdentityProvider } from "@aws-sdk/types";
-import { TokenProviderError } from "@smithy/property-provider";
+import { TokenProviderError } from "@smithy/core/config";
 
 /**
  * @public

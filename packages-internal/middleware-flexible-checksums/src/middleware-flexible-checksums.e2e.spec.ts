@@ -2,9 +2,9 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import type { UploadPartCommandOutput } from "@aws-sdk/client-s3";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
+import { ChecksumStream, headStream } from "@smithy/core/serde";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import type { HttpRequest, HttpResponse } from "@smithy/types";
-import { ChecksumStream, headStream } from "@smithy/util-stream";
 import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it, vi } from "vitest";
 

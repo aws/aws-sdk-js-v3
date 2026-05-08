@@ -25,6 +25,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -123,10 +124,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "getAwsChunkedEncodingStream",
                     writer -> {
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "getAwsChunkedEncodingStream",
                             "getAwsChunkedEncodingStream",
-                            TypeScriptDependency.UTIL_STREAM
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.SERDE
                         );
                         writer.write("getAwsChunkedEncodingStream");
                     }
@@ -135,10 +137,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "streamHasher",
                     writer -> {
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "readableStreamHasher",
                             "streamHasher",
-                            TypeScriptDependency.STREAM_HASHER_NODE
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CHECKSUM
                         );
                         writer.write("streamHasher");
                     },
@@ -172,10 +175,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                     },
                     "requestChecksumCalculation",
                     writer -> {
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "loadConfig",
                             "loadNodeConfig",
-                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.addImport(
                             "NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS",
@@ -186,10 +190,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                     },
                     "responseChecksumValidation",
                     writer -> {
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "loadConfig",
                             "loadNodeConfig",
-                            TypeScriptDependency.NODE_CONFIG_PROVIDER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
                         );
                         writer.addImport(
                             "NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS",
@@ -203,16 +208,22 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "streamHasher",
                     writer -> {
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "blobHasher",
                             "streamHasher",
-                            TypeScriptDependency.STREAM_HASHER_BROWSER
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CHECKSUM
                         );
                         writer.write("streamHasher");
                     },
                     "md5",
                     writer -> {
-                        writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER);
+                        writer.addImportSubmodule(
+                            "Md5",
+                            "Md5",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CHECKSUM
+                        );
                         writer.write("Md5");
                     },
                     "sha1",

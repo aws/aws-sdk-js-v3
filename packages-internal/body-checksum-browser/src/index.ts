@@ -1,8 +1,7 @@
 import { TreeHash } from "@aws-sdk/sha256-tree-hash";
-import { blobReader } from "@smithy/chunked-blob-reader";
+import { blobReader } from "@smithy/core/checksum";
+import { toHex, toUint8Array } from "@smithy/core/serde";
 import type { ChecksumConstructor, Decoder, HashConstructor, HttpRequest } from "@smithy/types";
-import { toHex } from "@smithy/util-hex-encoding";
-import { toUint8Array } from "@smithy/util-utf8";
 
 const MiB = 1024 * 1024;
 
