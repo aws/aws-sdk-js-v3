@@ -57,8 +57,7 @@ test-schema: bundles
 test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
 	node ./scripts/validation/no-generic-byte-arrays.js
-	node ./scripts/validation/api-snapshot-validation.js
-	git diff --exit-code scripts/validation/api.json
+	make api-snapshot
 	node ./scripts/compilation/Inliner.spec.js
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
@@ -66,6 +65,10 @@ test-integration: bundles
 	make snapshot-compare
 	make test-indices
 	make test-endpoints
+
+api-snapshot:
+	node ./scripts/validation/api-snapshot-validation.js
+	git diff --exit-code scripts/validation/api.json
 
 test-endpoints:
 	npx vitest run -c ./tests/endpoints-2.0/vitest.config.mts

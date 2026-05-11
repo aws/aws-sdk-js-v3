@@ -1012,7 +1012,8 @@
     "OptionalCrtSignerV4": "type(object)",
     "signatureV4CrtContainer": "object",
     "SignatureV4MultiRegion": "function",
-    "SignatureV4MultiRegionInit": "type(intersection)"
+    "SignatureV4MultiRegionInit": "type(intersection)",
+    "SignatureV4SignWithCredentials": "function"
   },
   "@aws-sdk/signature-v4a": {
     "SignatureV4a": "function"

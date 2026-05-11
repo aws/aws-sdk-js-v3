@@ -1,4 +1,3 @@
-import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
 import type { OptionalSigV4aSigner, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
 import { signatureV4aContainer } from "@smithy/signature-v4";
 import type {
@@ -12,6 +11,7 @@ import type {
 
 import type { OptionalCrtSignerV4 } from "./signature-v4-crt-container";
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
+import { SignatureV4SignWithCredentials } from "./SignatureV4SignWithCredentials";
 
 /**
  * @internal
@@ -22,7 +22,7 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
   };
 
 /**
- * A SigV4-compatible signer for S3 service. In order to support SigV4a algorithm according to the operation input
+ * A SigV4-compatible signer for Sigv4a. In order to support SigV4a algorithm according to the operation input
  * dynamically, the signer wraps native module SigV4a signer and JS SigV4 signer. It signs the request with SigV4a
  * algorithm if the request needs to be signed with `*` region. Otherwise, it signs the request with normal SigV4
  * signer.
@@ -30,7 +30,7 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
  */
 export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   private sigv4aSigner?: InstanceType<OptionalCrtSignerV4> | InstanceType<OptionalSigV4aSigner>;
-  private readonly sigv4Signer: SignatureV4S3Express;
+  private readonly sigv4Signer: SignatureV4SignWithCredentials;
   private readonly signerOptions: SignatureV4MultiRegionInit;
 
   public static sigv4aDependency(): "none" | "js" | "crt" {
@@ -43,7 +43,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   }
 
   constructor(options: SignatureV4MultiRegionInit) {
-    this.sigv4Signer = new SignatureV4S3Express(options);
+    this.sigv4Signer = new SignatureV4SignWithCredentials(options);
     this.signerOptions = options;
   }
 

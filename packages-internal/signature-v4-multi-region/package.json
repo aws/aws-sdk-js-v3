@@ -25,7 +25,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.37",
     "@aws-sdk/types": "workspace:^3.973.8",
     "@smithy/core": "^3.24.0",
     "@smithy/signature-v4": "^5.4.0",
