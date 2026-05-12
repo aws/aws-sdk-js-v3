@@ -93,7 +93,12 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         }
 
         TypeScriptWriter writer = context.getWriter();
-        writer.addImportSubmodule("getArrayIfSingleItem", "__getArrayIfSingleItem", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
+        writer.addImportSubmodule(
+            "getArrayIfSingleItem",
+            "__getArrayIfSingleItem",
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.CLIENT
+        );
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
         // Update the target element if we target another level of collection.
@@ -265,7 +270,12 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         }
 
         TypeScriptWriter writer = context.getWriter();
-        writer.addImportSubmodule("getArrayIfSingleItem", "__getArrayIfSingleItem", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
+        writer.addImportSubmodule(
+            "getArrayIfSingleItem",
+            "__getArrayIfSingleItem",
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.CLIENT
+        );
         // The XML parser will set one K:V for a member that could
         // return multiple entries but only has one.
         return String.format("__getArrayIfSingleItem(%s)", dataSource);

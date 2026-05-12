@@ -350,11 +350,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                     "useArnRegion",
                     writer -> {
                         writer.addImportSubmodule(
-                                "loadConfig",
-                                "loadNodeConfig",
-                                TypeScriptDependency.SMITHY_CORE,
-                                SmithyCoreSubmodules.CONFIG
-                            )
+                            "loadConfig",
+                            "loadNodeConfig",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
+                        )
                             .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                             .addImport(
                                 "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
@@ -366,11 +366,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                     "disableS3ExpressSessionAuth",
                     writer -> {
                         writer.addImportSubmodule(
-                                "loadConfig",
-                                "loadNodeConfig",
-                                TypeScriptDependency.SMITHY_CORE,
-                                SmithyCoreSubmodules.CONFIG
-                            )
+                            "loadConfig",
+                            "loadNodeConfig",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
+                        )
                             .addDependency(AwsDependency.S3_MIDDLEWARE)
                             .addImport(
                                 "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",

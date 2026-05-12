@@ -40,7 +40,8 @@ final class JsonMemberDeserVisitor extends MemberDeserVisitor {
         this.dataSource = dataSource;
         this.context = context;
         this.memberShape = memberShape;
-        context.getWriter().addImportSubmodule("_json", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
+        context.getWriter()
+            .addImportSubmodule("_json", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
         this.serdeElisionEnabled = !context.getSettings().generateServerSdk();
     }
 

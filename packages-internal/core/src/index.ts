@@ -3,6 +3,7 @@
  * They are exported from the package's root index to preserve backwards compatibility.
  *
  * New development should go in a proper submodule and not be exported from the root index.
+ * There is an eslint rule banning imports from `@aws-sdk/core` without a submodule e.g. `@aws-sdk/core/protocols`.
  */
 
 /**

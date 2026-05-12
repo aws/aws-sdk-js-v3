@@ -64,6 +64,8 @@
       "require": "./dist-cjs/submodules/protocols/index.js"
     }
   },
+  "browser": {},
+  "react-native": {},
   "files": [
     "./account-id-endpoint.d.ts",
     "./account-id-endpoint.js",
