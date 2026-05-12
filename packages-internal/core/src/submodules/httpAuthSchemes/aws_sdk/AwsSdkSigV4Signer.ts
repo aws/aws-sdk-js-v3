@@ -44,6 +44,20 @@ interface AwsSdkSigV4AuthSigningProperties {
 
 /**
  * @internal
+ * Parses the compact AWS server timestamp from a clock-skew error message.
+ * AWS embeds the server time as e.g. "(20251224T185913Z - 5 min.)" in the message
+ * for services that omit a Date response header and ServerTime body field.
+ */
+const getServerTimeFromSkewMessage = (message: string | undefined): string | undefined => {
+  if (!message) return undefined;
+  const match = message.match(/\((\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/);
+  if (!match) return undefined;
+  const [, year, month, day, hour, min, sec] = match;
+  return `${year}-${month}-${day}T${hour}:${min}:${sec}Z`;
+};
+
+/**
+ * @internal
  */
 interface AwsSdkSigV4Exception extends ServiceException {
   ServerTime?: string;
@@ -116,6 +130,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       }
     }
 
+    // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
+    signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,
@@ -126,17 +142,23 @@ export class AwsSdkSigV4Signer implements HttpSigner {
 
   errorHandler(signingProperties: Record<string, unknown>): (error: Error) => never {
     return (error: Error) => {
+      const errorException = error as AwsSdkSigV4Exception;
+      const messageServerTime = getServerTimeFromSkewMessage(error.message);
       const serverTime: string | undefined =
-        (error as AwsSdkSigV4Exception).ServerTime ?? getDateHeader((error as AwsSdkSigV4Exception).$response);
+        errorException.ServerTime ?? getDateHeader(errorException.$response) ?? messageServerTime;
       if (serverTime) {
         const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
         const initialSystemClockOffset = config.systemClockOffset;
         config.systemClockOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
+        // If a concurrent request already corrected the offset, systemClockOffset won't change here.
+        // Use the pre-request offset (stored in sign()) so we can detect that case precisely.
+        const preRequestOffset = (signingProperties._preRequestSystemClockOffset as number | undefined) ?? 0;
+        const isKnownClockSkewError = !!(errorException.ServerTime ?? messageServerTime);
         const clockSkewCorrected =
           config.systemClockOffset !== initialSystemClockOffset ||
-          (!!(error as AwsSdkSigV4Exception).ServerTime && config.systemClockOffset !== 0);
-        if (clockSkewCorrected && (error as AwsSdkSigV4Exception).$metadata) {
-          (error as AwsSdkSigV4Exception).$metadata.clockSkewCorrected = true;
+          (isKnownClockSkewError && config.systemClockOffset !== preRequestOffset);
+        if (clockSkewCorrected && errorException.$metadata) {
+          errorException.$metadata.clockSkewCorrected = true;
         }
       }
       throw error;
