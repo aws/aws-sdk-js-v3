@@ -51,7 +51,6 @@ ValidationException: __message__
     totalRetryDelay: (number) 0
   },
   name: "ValidationException",
-  message: "__message__",
   fieldList: [
     {
       path: "__path__",
@@ -66,6 +65,7 @@ ValidationException: __message__
       message: "__message__"
     }
   ],
+  message: "__message__",
   __type: "smithy.framework#ValidationException"
 }
 
@@ -122,7 +122,6 @@ ValidationException: __message__
     totalRetryDelay: (number) 0
   },
   name: "ValidationException",
-  message: "__message__",
   fieldList: [
     {
       path: "__path__",
@@ -137,6 +136,7 @@ ValidationException: __message__
       message: "__message__"
     }
   ],
+  message: "__message__",
   __type: "smithy.framework#ValidationException"
 }
 

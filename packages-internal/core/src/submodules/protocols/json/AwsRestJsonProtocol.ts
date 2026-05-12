@@ -140,7 +140,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
     const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-    const exception = new ErrorCtor(message);
+    const exception = new ErrorCtor({});
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
