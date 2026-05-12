@@ -3,10 +3,9 @@ import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 vi.mock("@smithy/signature-v4");
 vi.mock("@aws-sdk/signature-v4a");
-vi.mock("@aws-sdk/middleware-sdk-s3");
+vi.mock("./SignatureV4CredentialSigner");
 vi.mock("@aws-sdk/signature-v4-crt");
 
-import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
 import { SignatureV4a } from "@aws-sdk/signature-v4a";
 import { signatureV4aContainer } from "@smithy/signature-v4";
@@ -15,6 +14,7 @@ import type { Checksum } from "@smithy/types";
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
 import type { SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
 import { SignatureV4MultiRegion } from "./SignatureV4MultiRegion";
+import { SignatureV4SignWithCredentials } from "./SignatureV4SignWithCredentials";
 
 describe("SignatureV4MultiRegion", () => {
   const params: SignatureV4MultiRegionInit = {
@@ -83,7 +83,7 @@ describe("SignatureV4MultiRegion", () => {
     await signer.sign(minimalRequest);
 
     //@ts-ignore
-    expect(SignatureV4S3Express.mock.instances[0].sign).toBeCalledTimes(1);
+    expect(SignatureV4SignWithCredentials.mock.instances[0].sign).toBeCalledTimes(1);
   });
 
   it("should presign with SigV4 signer", async () => {
@@ -91,7 +91,7 @@ describe("SignatureV4MultiRegion", () => {
     await signer.presign(minimalRequest);
 
     //@ts-ignore
-    expect(SignatureV4S3Express.mock.instances[0].presign).toBeCalledTimes(1);
+    expect(SignatureV4SignWithCredentials.mock.instances[0].presign).toBeCalledTimes(1);
   });
 
   it("should presign with SigV4 signer", async () => {

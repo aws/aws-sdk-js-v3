@@ -15054,6 +15054,7 @@ __metadata:
   resolution: "@aws-sdk/middleware-sdk-s3@workspace:packages-internal/middleware-sdk-s3"
   dependencies:
     "@aws-sdk/core": "workspace:^3.974.8"
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.25"
     "@aws-sdk/types": "workspace:^3.973.8"
     "@aws-sdk/util-arn-parser": "workspace:^3.972.3"
     "@smithy/core": "npm:^3.24.0"
@@ -15387,7 +15388,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/signature-v4-multi-region@workspace:packages-internal/signature-v4-multi-region"
   dependencies:
-    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.37"
     "@aws-sdk/types": "workspace:^3.973.8"
     "@smithy/core": "npm:^3.24.0"
     "@smithy/signature-v4": "npm:^5.4.0"
