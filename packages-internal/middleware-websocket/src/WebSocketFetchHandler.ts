@@ -1,4 +1,4 @@
-import { formatUrl } from "@aws-sdk/util-format-url";
+import { formatUrl } from "@aws-sdk/core/util";
 import { iterableToReadableStream, readableStreamToIterable } from "@smithy/core/event-streams";
 import type { HttpRequest } from "@smithy/core/protocols";
 import { HttpResponse } from "@smithy/core/protocols";

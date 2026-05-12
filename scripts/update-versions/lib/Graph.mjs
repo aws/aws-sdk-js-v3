@@ -19,7 +19,10 @@ export class Graph {
    */
   static toposort(_list) {
     const list = [..._list].sort((a, b) => {
-      return a.name < b.name;
+      const aIsClient = a.location.startsWith("clients/") ? 1 : 0;
+      const bIsClient = b.location.startsWith("clients/") ? 1 : 0;
+      if (aIsClient !== bIsClient) return aIsClient - bIsClient;
+      return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
     });
 
     const graph = new Graph();

@@ -224,6 +224,13 @@
     "XmlShapeDeserializer": "function",
     "XmlShapeSerializer": "function"
   },
+  "@aws-sdk/core/util": {
+    "ARN": "type(interface)",
+    "build": "function",
+    "formatUrl": "function",
+    "parse": "function",
+    "validate": "function"
+  },
   "@aws-sdk/crc64-nvme": {
     "Crc64Nvme": "function",
     "crc64NvmeCrtContainer": "object"

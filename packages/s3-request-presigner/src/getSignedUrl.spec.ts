@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest"
 
 import { S3RequestPresigner } from "./presigner";
 
-vi.mock("@aws-sdk/util-format-url", () => ({
+vi.mock("@aws-sdk/core/util", () => ({
   formatUrl: (url: any) => url,
 }));
 

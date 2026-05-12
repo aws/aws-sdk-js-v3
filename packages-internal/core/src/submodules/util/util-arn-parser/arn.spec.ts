@@ -1,6 +1,6 @@
 import { describe, expect, test as it } from "vitest";
 
-import { build, parse, validate } from "./index";
+import { build, parse, validate } from "./arn";
 
 describe("validate", () => {
   it("should validate whether input is a qualified resource ARN", () => {

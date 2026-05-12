@@ -1,4 +1,4 @@
-import { parse as parseArn } from "@aws-sdk/util-arn-parser";
+import { parse as parseArn } from "@aws-sdk/core/util";
 import { describe, expect, test as it } from "vitest";
 
 import { bucketHostname } from "./bucketHostname";

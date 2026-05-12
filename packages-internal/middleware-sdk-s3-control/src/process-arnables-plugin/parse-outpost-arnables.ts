@@ -1,11 +1,11 @@
+import type { ARN } from "@aws-sdk/core/util";
+import { parse as parseArn, validate as validateArn } from "@aws-sdk/core/util";
 import {
   getArnResources as getS3AccesspointArnResources,
   validateAccountId,
   validateOutpostService,
   validatePartition,
 } from "@aws-sdk/middleware-bucket-endpoint";
-import type { ARN } from "@aws-sdk/util-arn-parser";
-import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 import { partition } from "@aws-sdk/util-endpoints";
 import type { RelativeMiddlewareOptions, SerializeMiddleware } from "@smithy/types";
 

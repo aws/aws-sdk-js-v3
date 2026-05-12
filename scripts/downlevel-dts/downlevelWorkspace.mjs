@@ -14,6 +14,12 @@ const execPromise = promisify(exec);
 
 export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   const workspaceDir = join(workspacesDir, workspaceName);
+
+  const pkgJson = JSON.parse(await readFile(join(workspaceDir, "package.json"), "utf8"));
+  if (!pkgJson.scripts?.["build:types:downlevel"]) {
+    return;
+  }
+
   const downlevelDirname = await getDownlevelDirname(workspaceDir);
   const declarationDirname = await getDeclarationDirname(workspaceDir);
 

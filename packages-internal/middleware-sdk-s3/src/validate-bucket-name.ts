@@ -1,4 +1,4 @@
-import { validate as validateArn } from "@aws-sdk/util-arn-parser";
+import { validate as validateArn } from "@aws-sdk/core/util";
 import type {
   InitializeHandler,
   InitializeHandlerArguments,

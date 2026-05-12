@@ -10,10 +10,7 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
-    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
-    "test": "yarn g:vitest run",
-    "test:watch": "yarn g:vitest watch"
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo"
   },
   "sideEffects": false,
   "author": {
@@ -22,6 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "workspace:^3.974.8",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -35,13 +33,6 @@
   "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
   },
   "files": [
     "dist-*/**"
