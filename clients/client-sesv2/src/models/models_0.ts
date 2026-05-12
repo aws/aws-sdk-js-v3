@@ -570,7 +570,7 @@ export interface EmailTemplateContent {
    * <p>The subject line of the email.</p>
    * @public
    */
-  Subject?: string | undefined;
+  Subject: string | undefined;
 
   /**
    * <p>The email body that will be visible to recipients whose email clients do not display

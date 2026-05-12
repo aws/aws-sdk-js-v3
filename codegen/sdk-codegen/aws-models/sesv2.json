@@ -4231,7 +4231,8 @@
         "Subject": {
           "target": "com.amazonaws.sesv2#EmailTemplateSubject",
           "traits": {
-            "smithy.api#documentation": "<p>The subject line of the email.</p>"
+            "smithy.api#documentation": "<p>The subject line of the email.</p>",
+            "smithy.api#required": {}
           }
         },
         "Text": {
