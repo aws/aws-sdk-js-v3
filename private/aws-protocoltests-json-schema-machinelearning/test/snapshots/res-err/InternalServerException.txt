@@ -44,7 +44,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-0: __message__
+InternalServerException: __message__
 
 --- [error object] ---
 {
@@ -58,10 +58,10 @@ content-type: application/x-amz-json-1.1
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "0",
-  __type: "com.amazonaws.machinelearning#InternalServerException",
+  name: "InternalServerException",
+  code: (number) 0,
   message: "__message__",
-  code: (number) 0
+  __type: "com.amazonaws.machinelearning#InternalServerException"
 }
 
 ======================== frontend error ========================

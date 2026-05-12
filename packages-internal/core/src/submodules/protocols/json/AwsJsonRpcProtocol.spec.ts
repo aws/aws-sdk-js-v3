@@ -17,7 +17,7 @@ describe(AwsJsonRpcProtocol.name, () => {
     }
 
     protected getJsonRpcVersion(): "1.1" | "1.0" {
-      throw new Error("Method not implemented.");
+      return "1.1";
     }
   })();
 

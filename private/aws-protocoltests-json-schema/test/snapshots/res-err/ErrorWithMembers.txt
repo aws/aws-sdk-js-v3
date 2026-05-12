@@ -966,7 +966,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-__Code__: __Message__
+ErrorWithMembers: __Message__
 
 --- [error object] ---
 {
@@ -980,19 +980,41 @@ __Code__: __Message__
     attempts: (number) 1,
     totalRetryDelay: (number) 0
   },
-  name: "__Code__",
-  __type: "aws.protocoltests.json#ErrorWithMembers",
+  name: "ErrorWithMembers",
   Code: "__Code__",
   ComplexData: {
-    Blob: "AQAAAQ==",
+    Blob: (Uint8Array) bytes[1, 0, 0, 1],
     Boolean: (boolean) false,
     Double: (number) 0,
     EmptyStruct: {},
     Float: (number) 0,
-    HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+    HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
     Integer: (number) 0,
-    Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-    JsonValue: "__JsonValue__",
+    Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    JsonValue: {
+      0: "_",
+      1: "_",
+      2: "J",
+      3: "s",
+      4: "o",
+      5: "n",
+      6: "V",
+      7: "a",
+      8: "l",
+      9: "u",
+      10: "e",
+      11: "_",
+      12: "_",
+      deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+      toString: (function) toString() {
+            return String(val);
+        },
+      toJSON: (function) toJSON() {
+            return String(val);
+        }
+    },
     ListOfLists: [
       [
         "__member__",
@@ -1096,15 +1118,38 @@ __Code__: __Message__
     },
     RecursiveList: [
       {
-        Blob: "AQAAAQ==",
+        Blob: (Uint8Array) bytes[1, 0, 0, 1],
         Boolean: (boolean) false,
         Double: (number) 0,
         EmptyStruct: {},
         Float: (number) 0,
-        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
         Integer: (number) 0,
-        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-        JsonValue: "__JsonValue__",
+        Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JsonValue: {
+          0: "_",
+          1: "_",
+          2: "J",
+          3: "s",
+          4: "o",
+          5: "n",
+          6: "V",
+          7: "a",
+          8: "l",
+          9: "u",
+          10: "e",
+          11: "_",
+          12: "_",
+          deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+          toString: (function) toString() {
+            return String(val);
+        },
+          toJSON: (function) toJSON() {
+            return String(val);
+        }
+        },
         ListOfLists: [
           [],
           [],
@@ -1200,19 +1245,42 @@ __Code__: __Message__
         StructWithJsonName: {
           Value: "__Value__"
         },
-        Timestamp: (number) 946702799.999,
-        UnixTimestamp: (number) 946702799.999
+        Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
       },
       {
-        Blob: "AQAAAQ==",
+        Blob: (Uint8Array) bytes[1, 0, 0, 1],
         Boolean: (boolean) false,
         Double: (number) 0,
         EmptyStruct: {},
         Float: (number) 0,
-        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
         Integer: (number) 0,
-        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-        JsonValue: "__JsonValue__",
+        Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JsonValue: {
+          0: "_",
+          1: "_",
+          2: "J",
+          3: "s",
+          4: "o",
+          5: "n",
+          6: "V",
+          7: "a",
+          8: "l",
+          9: "u",
+          10: "e",
+          11: "_",
+          12: "_",
+          deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+          toString: (function) toString() {
+            return String(val);
+        },
+          toJSON: (function) toJSON() {
+            return String(val);
+        }
+        },
         ListOfLists: [
           [],
           [],
@@ -1308,19 +1376,42 @@ __Code__: __Message__
         StructWithJsonName: {
           Value: "__Value__"
         },
-        Timestamp: (number) 946702799.999,
-        UnixTimestamp: (number) 946702799.999
+        Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
       },
       {
-        Blob: "AQAAAQ==",
+        Blob: (Uint8Array) bytes[1, 0, 0, 1],
         Boolean: (boolean) false,
         Double: (number) 0,
         EmptyStruct: {},
         Float: (number) 0,
-        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
         Integer: (number) 0,
-        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-        JsonValue: "__JsonValue__",
+        Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JsonValue: {
+          0: "_",
+          1: "_",
+          2: "J",
+          3: "s",
+          4: "o",
+          5: "n",
+          6: "V",
+          7: "a",
+          8: "l",
+          9: "u",
+          10: "e",
+          11: "_",
+          12: "_",
+          deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+          toString: (function) toString() {
+            return String(val);
+        },
+          toJSON: (function) toJSON() {
+            return String(val);
+        }
+        },
         ListOfLists: [
           [],
           [],
@@ -1416,21 +1507,44 @@ __Code__: __Message__
         StructWithJsonName: {
           Value: "__Value__"
         },
-        Timestamp: (number) 946702799.999,
-        UnixTimestamp: (number) 946702799.999
+        Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
       }
     ],
     RecursiveMap: {
       key1: {
-        Blob: "AQAAAQ==",
+        Blob: (Uint8Array) bytes[1, 0, 0, 1],
         Boolean: (boolean) false,
         Double: (number) 0,
         EmptyStruct: {},
         Float: (number) 0,
-        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
         Integer: (number) 0,
-        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-        JsonValue: "__JsonValue__",
+        Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JsonValue: {
+          0: "_",
+          1: "_",
+          2: "J",
+          3: "s",
+          4: "o",
+          5: "n",
+          6: "V",
+          7: "a",
+          8: "l",
+          9: "u",
+          10: "e",
+          11: "_",
+          12: "_",
+          deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+          toString: (function) toString() {
+            return String(val);
+        },
+          toJSON: (function) toJSON() {
+            return String(val);
+        }
+        },
         ListOfLists: [
           [
             "__member__",
@@ -1526,19 +1640,42 @@ __Code__: __Message__
         StructWithJsonName: {
           Value: "__Value__"
         },
-        Timestamp: (number) 946702799.999,
-        UnixTimestamp: (number) 946702799.999
+        Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
       },
       key2: {
-        Blob: "AQAAAQ==",
+        Blob: (Uint8Array) bytes[1, 0, 0, 1],
         Boolean: (boolean) false,
         Double: (number) 0,
         EmptyStruct: {},
         Float: (number) 0,
-        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
         Integer: (number) 0,
-        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-        JsonValue: "__JsonValue__",
+        Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JsonValue: {
+          0: "_",
+          1: "_",
+          2: "J",
+          3: "s",
+          4: "o",
+          5: "n",
+          6: "V",
+          7: "a",
+          8: "l",
+          9: "u",
+          10: "e",
+          11: "_",
+          12: "_",
+          deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+          toString: (function) toString() {
+            return String(val);
+        },
+          toJSON: (function) toJSON() {
+            return String(val);
+        }
+        },
         ListOfLists: [
           [
             "__member__",
@@ -1634,19 +1771,42 @@ __Code__: __Message__
         StructWithJsonName: {
           Value: "__Value__"
         },
-        Timestamp: (number) 946702799.999,
-        UnixTimestamp: (number) 946702799.999
+        Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
       },
       key3: {
-        Blob: "AQAAAQ==",
+        Blob: (Uint8Array) bytes[1, 0, 0, 1],
         Boolean: (boolean) false,
         Double: (number) 0,
         EmptyStruct: {},
         Float: (number) 0,
-        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
         Integer: (number) 0,
-        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-        JsonValue: "__JsonValue__",
+        Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        JsonValue: {
+          0: "_",
+          1: "_",
+          2: "J",
+          3: "s",
+          4: "o",
+          5: "n",
+          6: "V",
+          7: "a",
+          8: "l",
+          9: "u",
+          10: "e",
+          11: "_",
+          12: "_",
+          deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+          toString: (function) toString() {
+            return String(val);
+        },
+          toJSON: (function) toJSON() {
+            return String(val);
+        }
+        },
         ListOfLists: [
           [
             "__member__",
@@ -1742,20 +1902,43 @@ __Code__: __Message__
         StructWithJsonName: {
           Value: "__Value__"
         },
-        Timestamp: (number) 946702799.999,
-        UnixTimestamp: (number) 946702799.999
+        Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
       }
     },
     RecursiveStruct: {
-      Blob: "AQAAAQ==",
+      Blob: (Uint8Array) bytes[1, 0, 0, 1],
       Boolean: (boolean) false,
       Double: (number) 0,
       EmptyStruct: {},
       Float: (number) 0,
-      HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+      HttpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       Integer: (number) 0,
-      Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
-      JsonValue: "__JsonValue__",
+      Iso8601Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      JsonValue: {
+        0: "_",
+        1: "_",
+        2: "J",
+        3: "s",
+        4: "o",
+        5: "n",
+        6: "V",
+        7: "a",
+        8: "l",
+        9: "u",
+        10: "e",
+        11: "_",
+        12: "_",
+        deserializeJSON: (function) deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+        toString: (function) toString() {
+            return String(val);
+        },
+        toJSON: (function) toJSON() {
+            return String(val);
+        }
+      },
       ListOfLists: [
         [
           "__member__",
@@ -1875,8 +2058,8 @@ __Code__: __Message__
       StructWithJsonName: {
         Value: "__Value__"
       },
-      Timestamp: (number) 946702799.999,
-      UnixTimestamp: (number) 946702799.999
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
     },
     SimpleStruct: {
       Value: "__Value__"
@@ -1885,8 +2068,8 @@ __Code__: __Message__
     StructWithJsonName: {
       Value: "__Value__"
     },
-    Timestamp: (number) 946702799.999,
-    UnixTimestamp: (number) 946702799.999
+    Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    UnixTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
   },
   IntegerField: (number) 0,
   ListField: [
@@ -1900,7 +2083,8 @@ __Code__: __Message__
     key3: "__value__"
   },
   StringField: "__StringField__",
-  message: "__Message__"
+  message: "__Message__",
+  __type: "aws.protocoltests.json#ErrorWithMembers"
 }
 
 ======================== frontend error ========================

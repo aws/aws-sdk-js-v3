@@ -16,7 +16,7 @@ import type {
 
 import { ProtocolLib } from "../ProtocolLib";
 import { JsonCodec } from "./JsonCodec";
-import { loadRestJsonErrorCode } from "./parseJsonBody";
+import { loadJsonRpcErrorCode } from "./parseJsonBody";
 
 /**
  * @public
@@ -101,11 +101,12 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     dataObject: any,
     metadata: ResponseMetadata
   ): Promise<never> {
-    if (this.awsQueryCompatible) {
+    const { awsQueryCompatible } = this;
+    if (awsQueryCompatible) {
       this.mixin.setQueryCompatError(dataObject, response);
     }
-    // loadRestJsonErrorCode is still used in JSON RPC.
-    const errorIdentifier = loadRestJsonErrorCode(response, dataObject) ?? "Unknown";
+    const errorIdentifier =
+      loadJsonRpcErrorCode(response, dataObject, this.getJsonRpcVersion() === "1.1", awsQueryCompatible) ?? "Unknown";
     this.mixin.compose(this.compositeErrorRegistry, errorIdentifier, this.options.defaultNamespace);
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
@@ -114,7 +115,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       response,
       dataObject,
       metadata,
-      this.awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined
+      awsQueryCompatible ? this.mixin.findQueryCompatibleError : undefined
     );
 
     const ns = NormalizedSchema.of(errorSchema);
@@ -130,7 +131,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       }
     }
 
-    if (this.awsQueryCompatible) {
+    if (awsQueryCompatible) {
       this.mixin.queryCompatOutput(dataObject, output);
     }
 
