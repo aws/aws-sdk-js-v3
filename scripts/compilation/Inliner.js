@@ -233,6 +233,7 @@ module.exports = class Inliner {
       exports: "named",
       preserveModules: false,
       externalLiveBindings: false,
+      dynamicImportInCjs: false,
     };
 
     const bundle = await rollup.rollup(inputOptions(variantExternalsForRollup));
