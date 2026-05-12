@@ -155,6 +155,23 @@ module.exports = {
                 ],
                 message: "This package has been consolidated into @smithy/core/event-streams.",
               },
+              {
+                group: [
+                  "@aws-sdk/middleware-host-header",
+                  "@aws-sdk/middleware-logger",
+                  "@aws-sdk/middleware-recursion-detection",
+                  "@aws-sdk/middleware-user-agent",
+                  "@aws-sdk/util-user-agent-node",
+                  "@aws-sdk/util-user-agent-browser",
+                  "@aws-sdk/util-endpoints",
+                  "@aws-sdk/region-config-resolver",
+                ],
+                message: "This package has been consolidated into @aws-sdk/core/client.",
+              },
+              {
+                group: ["@aws-sdk/util-arn-parser", "@aws-sdk/util-format-url"],
+                message: "This package has been consolidated into @aws-sdk/core/util.",
+              },
             ],
           },
         ],

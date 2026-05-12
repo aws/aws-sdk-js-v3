@@ -2,7 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declarationDir": "dist-types",
-    "rootDir": "src"
+    "rootDir": "src",
+    "paths": {
+      "@aws-sdk/core/client": ["../../node_modules/@aws-sdk/core/dist-types/submodules/client/index.d.ts"],
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
+    }
   },
   "extends": "../../tsconfig.types.json",
   "include": ["src/"]

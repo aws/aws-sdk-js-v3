@@ -1,2 +1,5 @@
-export * from "./getRecursionDetectionPlugin";
-export * from "./recursionDetectionMiddleware";
+export {
+  getRecursionDetectionPlugin,
+  recursionDetectionMiddleware,
+  recursionDetectionMiddlewareOptions,
+} from "@aws-sdk/core/client";

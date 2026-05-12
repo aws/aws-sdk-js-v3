@@ -3,7 +3,8 @@
   "version": "3.974.10",
   "description": "Core functions & classes shared by multiple AWS SDK clients.",
   "scripts": {
-    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build": "yarn prebuild && yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "prebuild": "node -e \"const j=require('../util-endpoints/src/lib/aws/partitions.json');require('fs').writeFileSync('src/submodules/client/util-endpoints/lib/aws/partitions.ts','export const partitionsInfo = '+JSON.stringify(j)+';\\n')\"",
     "build:cjs": "node ../../scripts/compilation/inline core && premove ./dist-cjs/api-extractor-type-index.js",
     "build:es": "tsc -p tsconfig.es.json && premove ./dist-es/api-extractor-type-index.js",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
@@ -37,6 +38,14 @@
     },
     "./client": {
       "types": "./dist-types/submodules/client/index.d.ts",
+      "react-native": {
+        "import": "./dist-es/submodules/client/index.native.js",
+        "require": "./dist-cjs/submodules/client/index.native.js"
+      },
+      "browser": {
+        "import": "./dist-es/submodules/client/index.browser.js",
+        "require": "./dist-cjs/submodules/client/index.browser.js"
+      },
       "module": "./dist-es/submodules/client/index.js",
       "node": "./dist-cjs/submodules/client/index.js",
       "import": "./dist-es/submodules/client/index.js",
@@ -71,8 +80,13 @@
       "require": "./dist-cjs/submodules/util/index.js"
     }
   },
-  "browser": {},
-  "react-native": {},
+  "browser": {
+    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.browser.js"
+  },
+  "react-native": {
+    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.native.js",
+    "./dist-cjs/submodules/client/index.js": "./dist-cjs/submodules/client/index.native.js"
+  },
   "files": [
     "./account-id-endpoint.d.ts",
     "./account-id-endpoint.js",
@@ -86,7 +100,10 @@
     "./util.js",
     "dist-*/**"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "./dist-es/submodules/client/util-endpoints/aws.js",
+    "./dist-cjs/submodules/client/util-endpoints/aws.js"
+  ],
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -95,9 +112,11 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.8",
     "@aws-sdk/xml-builder": "workspace:^3.972.24",
+    "@aws/lambda-invoke-store": "^0.2.2",
     "@smithy/core": "^3.24.2",
     "@smithy/signature-v4": "^5.4.2",
     "@smithy/types": "^4.14.1",
+    "bowser": "^2.11.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

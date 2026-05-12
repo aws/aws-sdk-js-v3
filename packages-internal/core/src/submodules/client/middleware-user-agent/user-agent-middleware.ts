@@ -1,5 +1,4 @@
 import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
-import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 import { HttpRequest } from "@smithy/core/protocols";
 import type {
   AbsoluteLocation,
@@ -13,6 +12,7 @@ import type {
   UserAgentPair,
 } from "@smithy/types";
 
+import { getUserAgentPrefix } from "../util-endpoints/lib/aws/partition";
 import { checkFeatures } from "./check-features";
 import type { UserAgentResolvedConfig } from "./configurations";
 import {

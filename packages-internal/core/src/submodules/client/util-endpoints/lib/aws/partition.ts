@@ -1,6 +1,6 @@
 import type { EndpointPartition } from "@smithy/types";
 
-import partitionsInfo from "./partitions.json";
+import { partitionsInfo } from "./partitions";
 
 export type PartitionsInfo = {
   partitions: Array<{

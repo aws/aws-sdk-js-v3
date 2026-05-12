@@ -1,6 +1,7 @@
+// @vitest-environment happy-dom
 import { describe, expect, test as it, vi } from "vitest";
 
-import { createDefaultUserAgentProvider, fallback } from "./index";
+import { createDefaultUserAgentProvider, fallback } from "./defaultUserAgent";
 
 type NavigatorTestAugment = {
   userAgentData?: {

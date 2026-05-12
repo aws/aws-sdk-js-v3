@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-s3": "file:../../clients/client-s3",
+    "@aws-sdk/client-dynamodb": "file:../../clients/client-dynamodb",
+    "@aws-sdk/lib-storage": "file:../../lib/lib-storage",
+    "@aws-sdk/lib-dynamodb": "file:../../lib/lib-dynamodb"
+  },
+  "overrides": {
+    "@aws-sdk/core": "file:../../packages-internal/core",
+    "@aws-sdk/crc64-nvme": "file:../../packages-internal/crc64-nvme",
+    "@aws-sdk/credential-provider-env": "file:../../packages-internal/credential-provider-env",
+    "@aws-sdk/credential-provider-http": "file:../../packages-internal/credential-provider-http",
+    "@aws-sdk/credential-provider-ini": "file:../../packages-internal/credential-provider-ini",
+    "@aws-sdk/credential-provider-login": "file:../../packages-internal/credential-provider-login",
+    "@aws-sdk/credential-provider-node": "file:../../packages-internal/credential-provider-node",
+    "@aws-sdk/credential-provider-process": "file:../../packages-internal/credential-provider-process",
+    "@aws-sdk/credential-provider-sso": "file:../../packages-internal/credential-provider-sso",
+    "@aws-sdk/credential-provider-web-identity": "file:../../packages-internal/credential-provider-web-identity",
+    "@aws-sdk/dynamodb-codec": "file:../../packages-internal/dynamodb-codec",
+    "@aws-sdk/endpoint-cache": "file:../../packages-internal/endpoint-cache",
+    "@aws-sdk/middleware-bucket-endpoint": "file:../../packages-internal/middleware-bucket-endpoint",
+    "@aws-sdk/middleware-endpoint-discovery": "file:../../packages-internal/middleware-endpoint-discovery",
+    "@aws-sdk/middleware-expect-continue": "file:../../packages-internal/middleware-expect-continue",
+    "@aws-sdk/middleware-flexible-checksums": "file:../../packages-internal/middleware-flexible-checksums",
+    "@aws-sdk/middleware-host-header": "file:../../packages-internal/middleware-host-header",
+    "@aws-sdk/middleware-location-constraint": "file:../../packages-internal/middleware-location-constraint",
+    "@aws-sdk/middleware-logger": "file:../../packages-internal/middleware-logger",
+    "@aws-sdk/middleware-recursion-detection": "file:../../packages-internal/middleware-recursion-detection",
+    "@aws-sdk/middleware-sdk-s3": "file:../../packages-internal/middleware-sdk-s3",
+    "@aws-sdk/middleware-ssec": "file:../../packages-internal/middleware-ssec",
+    "@aws-sdk/middleware-user-agent": "file:../../packages-internal/middleware-user-agent",
+    "@aws-sdk/nested-clients": "file:../../packages-internal/nested-clients",
+    "@aws-sdk/region-config-resolver": "file:../../packages-internal/region-config-resolver",
+    "@aws-sdk/signature-v4-multi-region": "file:../../packages-internal/signature-v4-multi-region",
+    "@aws-sdk/token-providers": "file:../../packages/token-providers",
+    "@aws-sdk/types": "file:../../packages-internal/types",
+    "@aws-sdk/util-dynamodb": "file:../../packages-internal/util-dynamodb",
+    "@aws-sdk/util-endpoints": "file:../../packages-internal/util-endpoints",
+    "@aws-sdk/util-user-agent-browser": "file:../../packages-internal/util-user-agent-browser",
+    "@aws-sdk/util-user-agent-node": "file:../../packages-internal/util-user-agent-node",
+    "@aws-sdk/xml-builder": "file:../../packages-internal/xml-builder"
+  }
+}

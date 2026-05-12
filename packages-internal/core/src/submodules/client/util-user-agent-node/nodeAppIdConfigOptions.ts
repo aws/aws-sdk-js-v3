@@ -1,5 +1,6 @@
-import { DEFAULT_UA_APP_ID } from "@aws-sdk/middleware-user-agent";
 import type { LoadedConfigSelectors } from "@smithy/core/config";
+
+import { DEFAULT_UA_APP_ID } from "../middleware-user-agent/configurations";
 
 /**
  * @internal

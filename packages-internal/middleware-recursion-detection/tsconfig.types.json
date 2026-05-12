@@ -4,7 +4,8 @@
     "declarationDir": "dist-types",
     "rootDir": "src",
     "paths": {
-      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"],
+      "@aws-sdk/core/*": ["../core/dist-types/submodules/*/index.d.ts"]
     }
   },
   "extends": "../../tsconfig.types.json",

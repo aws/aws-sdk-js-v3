@@ -93,7 +93,11 @@ reset-test-credentials:
 	echo "export const testCredentials = {}" > ./scripts/browser-testing/aws.testCredentials.browser.ts
 
 test-canary:
+	make test-bundlers;
 	node ./tests/canary/canary-runner.js
+
+test-bundlers:
+	node ./tests/bundlers/bundler-canary.mjs
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild

@@ -1,6 +1,7 @@
+// @vitest-environment happy-dom
 import { expect, test as it, vi } from "vitest";
 
-import { defaultUserAgent } from "./index.native";
+import { defaultUserAgent } from "./defaultUserAgent.native";
 
 it("should response basic browser default user agent", async () => {
   // RN doesn't have userAgent in window.navigator.

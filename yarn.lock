@@ -14332,10 +14332,12 @@ __metadata:
   dependencies:
     "@aws-sdk/types": "workspace:^3.973.8"
     "@aws-sdk/xml-builder": "workspace:^3.972.24"
+    "@aws/lambda-invoke-store": "npm:^0.2.2"
     "@smithy/core": "npm:^3.24.2"
     "@smithy/signature-v4": "npm:^5.4.2"
     "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
+    bowser: "npm:^2.11.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
@@ -14855,12 +14857,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-host-header@workspace:packages-internal/middleware-host-header"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@smithy/core": "npm:^3.24.2"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -14902,12 +14901,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-logger@workspace:packages-internal/middleware-logger"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
-    "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -14918,13 +14914,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-recursion-detection@workspace:packages-internal/middleware-recursion-detection"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws/lambda-invoke-store": "npm:^0.2.2"
-    "@smithy/core": "npm:^3.24.2"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -15174,13 +15166,8 @@ __metadata:
   resolution: "@aws-sdk/middleware-user-agent@workspace:packages-internal/middleware-user-agent"
   dependencies:
     "@aws-sdk/core": "workspace:^3.974.10"
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-endpoints": "workspace:^3.996.9"
-    "@smithy/core": "npm:^3.24.2"
-    "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -15292,12 +15279,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/region-config-resolver@workspace:packages-internal/region-config-resolver"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@smithy/core": "npm:^3.24.2"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -15557,12 +15541,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@smithy/core": "npm:^3.24.2"
-    "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -15601,12 +15583,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-user-agent-browser@workspace:packages-internal/util-user-agent-browser"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
-    bowser: "npm:^2.11.0"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -15617,22 +15596,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-user-agent-node@workspace:packages-internal/util-user-agent-node"
   dependencies:
-    "@aws-sdk/middleware-user-agent": "workspace:^3.972.40"
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@smithy/core": "npm:^3.24.2"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
-    "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-  peerDependencies:
-    aws-crt: ">=1.0.0"
-  peerDependenciesMeta:
-    aws-crt:
-      optional: true
   languageName: unknown
   linkType: soft
 
