@@ -132,7 +132,9 @@ export class AwsSdkSigV4Signer implements HttpSigner {
         const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
         const initialSystemClockOffset = config.systemClockOffset;
         config.systemClockOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
-        const clockSkewCorrected = config.systemClockOffset !== initialSystemClockOffset;
+        const clockSkewCorrected =
+          config.systemClockOffset !== initialSystemClockOffset ||
+          (!!(error as AwsSdkSigV4Exception).ServerTime && config.systemClockOffset !== 0);
         if (clockSkewCorrected && (error as AwsSdkSigV4Exception).$metadata) {
           (error as AwsSdkSigV4Exception).$metadata.clockSkewCorrected = true;
         }
