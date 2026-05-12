@@ -13,7 +13,6 @@ import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
 import { type EndpointParameterInstructions, resolveParams } from "@smithy/core/endpoints";
 import type {
-  Client,
   EndpointV2,
   HandlerExecutionContext,
   HttpAuthOption,
@@ -28,7 +27,7 @@ import type {
 
 import { EndpointParameters } from "../endpoint/EndpointParameters";
 import { defaultEndpointResolver } from "../endpoint/endpointResolver";
-import { STSClient, STSClientConfig, STSClientResolvedConfig } from "../STSClient";
+import { STSClientConfig, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @internal
@@ -297,28 +296,10 @@ export const defaultSTSHttpAuthSchemeProvider: STSHttpAuthSchemeProvider = creat
     "smithy.api#noAuth": createSmithyApiNoAuthHttpAuthOption,
   });
 
-export interface StsAuthInputConfig {}
-
-export interface StsAuthResolvedConfig {
-  /**
-   * Reference to STSClient class constructor.
-   * @internal
-   */
-  stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
-}
-
-export const resolveStsAuthConfig = <T>(
-  input: T & StsAuthInputConfig
-): T & StsAuthResolvedConfig => Object.assign(input, {
-
-  stsClientCtor: STSClient,
-
-});
-
 /**
  * @public
  */
-export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
+export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -343,7 +324,7 @@ export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSig
 /**
  * @internal
  */
-export interface HttpAuthSchemeResolvedConfig extends StsAuthResolvedConfig, AwsSdkSigV4AuthResolvedConfig, AwsSdkSigV4AAuthResolvedConfig {
+export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig, AwsSdkSigV4AAuthResolvedConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -371,10 +352,9 @@ export interface HttpAuthSchemeResolvedConfig extends StsAuthResolvedConfig, Aws
 export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved & AwsSdkSigV4APreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
-  const config_0 = resolveStsAuthConfig(config);
-  const config_1 = resolveAwsSdkSigV4Config(config_0);
-  const config_2 = resolveAwsSdkSigV4AConfig(config_1);
-  return Object.assign(config_2, {
+  const config_0 = resolveAwsSdkSigV4Config(config);
+  const config_1 = resolveAwsSdkSigV4AConfig(config_0);
+  return Object.assign(config_1, {
     authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
   }) as T & HttpAuthSchemeResolvedConfig;
 };

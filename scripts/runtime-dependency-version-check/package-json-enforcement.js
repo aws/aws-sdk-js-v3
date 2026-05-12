@@ -61,6 +61,37 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
     errors.push(`no files entry in ${pkgJson.name}`);
   }
 
+  // For submodule carriers, ensure browser and react-native fields exist as objects
+  // so that variant enforcement can populate them.
+  if (submoduleCarriers.includes(pkgJson.name)) {
+    const pkgDirCheck = path.dirname(pkgJsonFilePath);
+    const submodulesDirCheck = path.join(pkgDirCheck, "src", "submodules");
+    if (fs.existsSync(submodulesDirCheck)) {
+      const hasAnyVariant = fs.readdirSync(submodulesDirCheck).some((sub) => {
+        const subPath = path.join(submodulesDirCheck, sub);
+        return (
+          fs.lstatSync(subPath).isDirectory() &&
+          (fs.existsSync(path.join(subPath, "index.browser.ts")) ||
+            fs.existsSync(path.join(subPath, "index.native.ts")))
+        );
+      });
+      if (hasAnyVariant) {
+        if (typeof pkgJson.browser !== "object") {
+          if (overwrite) {
+            pkgJson.browser = {};
+          }
+          errors.push(`${pkgJson.name} browser field should be an object (has submodule variants)`);
+        }
+        if (typeof pkgJson["react-native"] !== "object") {
+          if (overwrite) {
+            pkgJson["react-native"] = {};
+          }
+          errors.push(`${pkgJson.name} react-native field should be an object (has submodule variants)`);
+        }
+      }
+    }
+  }
+
   if (typeof pkgJson.browser === "object" && typeof pkgJson["react-native"] === "object") {
     // Skip canonicalization for packages with submodules — they manage their own fields.
     const pkgDirEarly = path.dirname(pkgJsonFilePath);

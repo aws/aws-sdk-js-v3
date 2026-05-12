@@ -236,14 +236,24 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         Paths.get(".", serviceSymbol.getNamespace())
                     );
                     w.addTypeImport("HandlerExecutionContext", null, TypeScriptDependency.SMITHY_TYPES);
-                    w.addImportSubmodule("getSmithyContext", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
+                    w.addImportSubmodule(
+                        "getSmithyContext",
+                        null,
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.CLIENT
+                    );
                     w.addTypeImportSubmodule(
                         "EndpointParameterInstructions",
                         null,
                         TypeScriptDependency.SMITHY_CORE,
                         SmithyCoreSubmodules.ENDPOINTS
                     );
-                    w.addImportSubmodule("resolveParams", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.ENDPOINTS);
+                    w.addImportSubmodule(
+                        "resolveParams",
+                        null,
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.ENDPOINTS
+                    );
                     w.writeDocs("@internal");
                     w.write("""
                             interface EndpointRuleSetSmithyContext {

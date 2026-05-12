@@ -147,7 +147,12 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeRegionHash() {
-        writer.addImportSubmodule("RegionHash", "RegionHash", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CONFIG);
+        writer.addImportSubmodule(
+            "RegionHash",
+            "RegionHash",
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.CONFIG
+        );
         writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
             for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
                 writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
@@ -157,7 +162,12 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writePartitionHash() {
-        writer.addImportSubmodule("PartitionHash", "PartitionHash", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CONFIG);
+        writer.addImportSubmodule(
+            "PartitionHash",
+            "PartitionHash",
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.CONFIG
+        );
         writer.openBlock("const partitionHash: PartitionHash = {", "};", () -> {
             partitions.values().forEach(partition -> {
                 writer.openBlock("$S: {", "},", partition.identifier, () -> {
@@ -185,7 +195,12 @@ final class EndpointGenerator implements Runnable {
             "RegionInfoProviderOptions",
             AwsDependency.TYPES
         );
-        writer.addImportSubmodule("getRegionInfo", "getRegionInfo", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CONFIG);
+        writer.addImportSubmodule(
+            "getRegionInfo",
+            "getRegionInfo",
+            TypeScriptDependency.SMITHY_CORE,
+            SmithyCoreSubmodules.CONFIG
+        );
         writer.openBlock(
             "export const defaultRegionInfoProvider: RegionInfoProvider = async (\n"
                 + "  region: string,\n"

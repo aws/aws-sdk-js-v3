@@ -131,7 +131,12 @@ public class AddSqsDependency implements TypeScriptIntegration {
                 return MapUtils.of("md5", writer -> {
                     writer.addDependency(TypeScriptDependency.SMITHY_CORE);
                     writer
-                        .addImportSubmodule("Md5", "Md5", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CHECKSUM);
+                        .addImportSubmodule(
+                            "Md5",
+                            "Md5",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CHECKSUM
+                        );
                     writer.write("Md5");
                 });
             default:

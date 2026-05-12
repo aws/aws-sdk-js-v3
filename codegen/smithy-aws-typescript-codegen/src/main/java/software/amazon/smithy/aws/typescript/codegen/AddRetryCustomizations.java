@@ -58,7 +58,12 @@ public class AddRetryCustomizations implements TypeScriptIntegration {
             return Map.of(
                 "retryStrategy",
                 (w) -> {
-                    w.addImportSubmodule("StandardRetryStrategy", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
+                    w.addImportSubmodule(
+                        "StandardRetryStrategy",
+                        null,
+                        TypeScriptDependency.SMITHY_CORE,
+                        SmithyCoreSubmodules.RETRY
+                    );
                     w.addImportSubmodule("Retry", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.RETRY);
 
                     // todo(retry): Retry.v2026 condition can be removed when made permanent.

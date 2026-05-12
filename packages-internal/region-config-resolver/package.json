@@ -57,5 +57,8 @@
   "browser": {
     "./dist-es/regionConfig/stsRegionDefaultResolver": "./dist-es/regionConfig/stsRegionDefaultResolver.browser"
   },
-  "react-native": {}
+  "react-native": {
+    "./dist-es/regionConfig/stsRegionDefaultResolver": "./dist-es/regionConfig/stsRegionDefaultResolver.native",
+    "./dist-cjs/regionConfig/stsRegionDefaultResolver": "./dist-cjs/regionConfig/stsRegionDefaultResolver.native"
+  }
 }

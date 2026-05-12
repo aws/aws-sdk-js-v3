@@ -4,8 +4,16 @@
   "description": "AWS credential provider for containers and HTTP sources",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": "./dist-es/index.browser.js",
-  "react-native": "./dist-es/index.browser.js",
+  "browser": {
+    "./dist-es/fromHttp/fromHttp": "./dist-es/fromHttp/fromHttp.browser",
+    "./dist-es/index": "./dist-es/index.browser"
+  },
+  "react-native": {
+    "./dist-es/index": "./dist-es/index.browser",
+    "./dist-cjs/index": "./dist-cjs/index.browser",
+    "./dist-es/fromHttp/fromHttp": "./dist-es/fromHttp/fromHttp.browser",
+    "./dist-cjs/fromHttp/fromHttp": "./dist-cjs/fromHttp/fromHttp.browser"
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline credential-provider-http",

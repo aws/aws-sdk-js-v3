@@ -56,7 +56,13 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     @Override
     public String booleanShape(BooleanShape shape) {
-        getContext().getWriter().addImportSubmodule("parseBoolean", "__parseBoolean", TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.SERDE);
+        getContext().getWriter()
+            .addImportSubmodule(
+                "parseBoolean",
+                "__parseBoolean",
+                TypeScriptDependency.SMITHY_CORE,
+                SmithyCoreSubmodules.SERDE
+            );
         return "__parseBoolean(" + getDataSource() + ")";
     }
 

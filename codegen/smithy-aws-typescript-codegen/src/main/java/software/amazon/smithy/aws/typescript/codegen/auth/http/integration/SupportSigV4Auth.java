@@ -118,7 +118,12 @@ public final class SupportSigV4Auth implements HttpAuthTypeScriptIntegration {
                         .name("region")
                         .type(w -> w.write("string"))
                         .source(w -> {
-                            w.addImportSubmodule("normalizeProvider", null, TypeScriptDependency.SMITHY_CORE, SmithyCoreSubmodules.CLIENT);
+                            w.addImportSubmodule(
+                                "normalizeProvider",
+                                null,
+                                TypeScriptDependency.SMITHY_CORE,
+                                SmithyCoreSubmodules.CLIENT
+                            );
                             w.openBlock("await normalizeProvider(config.region)() || (() => {", "})()", () -> {
                                 w.write(
                                     "throw new Error(\"expected `region` to be configured for `aws.auth#sigv4`\");"

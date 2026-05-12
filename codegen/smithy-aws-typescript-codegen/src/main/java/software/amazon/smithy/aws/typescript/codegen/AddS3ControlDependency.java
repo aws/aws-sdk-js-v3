@@ -151,11 +151,11 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                     "useArnRegion",
                     writer -> {
                         writer.addImportSubmodule(
-                                "loadConfig",
-                                "loadNodeConfig",
-                                TypeScriptDependency.SMITHY_CORE,
-                                SmithyCoreSubmodules.CONFIG
-                            )
+                            "loadConfig",
+                            "loadNodeConfig",
+                            TypeScriptDependency.SMITHY_CORE,
+                            SmithyCoreSubmodules.CONFIG
+                        )
                             .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                             .addImport(
                                 "NODE_USE_ARN_REGION_CONFIG_OPTIONS",

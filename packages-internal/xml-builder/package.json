@@ -45,8 +45,8 @@
     "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
   },
   "react-native": {
-    "./dist-es/xml-parser": "./dist-es/xml-parser",
-    "./dist-cjs/xml-parser": "./dist-cjs/xml-parser"
+    "./dist-es/xml-parser": "./dist-es/xml-parser.browser",
+    "./dist-cjs/xml-parser": "./dist-cjs/xml-parser.browser"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/xml-builder",
   "repository": {

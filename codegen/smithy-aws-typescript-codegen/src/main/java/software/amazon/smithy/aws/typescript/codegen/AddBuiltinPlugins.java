@@ -34,7 +34,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         return List.of(
             // AWS or SigV4
             RuntimeClientPlugin.builder()
-                .withConventions("@smithy/core/config", TypeScriptDependency.SMITHY_CORE.dependency.getVersion(), "Region", HAS_CONFIG)
+                .withConventions(
+                    "@smithy/core/config",
+                    TypeScriptDependency.SMITHY_CORE.dependency.getVersion(),
+                    "Region",
+                    HAS_CONFIG
+                )
                 .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
                 .build(),
             // Can be in smithy-typescript, but the NPM package is in @aws-sdk

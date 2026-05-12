@@ -59,5 +59,8 @@
   "browser": {
     "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.browser"
   },
-  "react-native": {}
+  "react-native": {
+    "./dist-es/recursionDetectionMiddleware": "./dist-es/recursionDetectionMiddleware.native",
+    "./dist-cjs/recursionDetectionMiddleware": "./dist-cjs/recursionDetectionMiddleware.native"
+  }
 }
