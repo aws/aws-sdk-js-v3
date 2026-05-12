@@ -144,7 +144,7 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
       dataObject.Message ??
       "UnknownError";
     const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-    const exception = new ErrorCtor(message);
+    const exception = new ErrorCtor({});
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;

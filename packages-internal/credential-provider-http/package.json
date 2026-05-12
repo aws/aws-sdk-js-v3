@@ -38,9 +38,9 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.974.8",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/core": "^3.24.0",
-    "@smithy/fetch-http-handler": "^5.4.0",
-    "@smithy/node-http-handler": "^4.7.0",
+    "@smithy/core": "^3.24.1",
+    "@smithy/fetch-http-handler": "^5.4.1",
+    "@smithy/node-http-handler": "^4.7.1",
     "@smithy/types": "^4.14.1",
     "tslib": "^2.6.2"
   },

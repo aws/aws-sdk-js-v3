@@ -166,7 +166,7 @@ export class AwsQueryProtocol extends RpcProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-    const exception = new ErrorCtor(message);
+    const exception = new ErrorCtor({});
 
     const output = {
       Type: errorData.Error.Type,

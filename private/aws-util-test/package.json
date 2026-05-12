@@ -24,8 +24,8 @@
     "@aws-sdk/client-s3": "workspace:3.1045.0",
     "@aws-sdk/client-s3-control": "workspace:3.1045.0",
     "@aws-sdk/client-sts": "workspace:3.1045.0",
-    "@smithy/protocol-http": "^5.4.0",
-    "@smithy/shared-ini-file-loader": "^4.5.0",
+    "@smithy/protocol-http": "^5.4.1",
+    "@smithy/shared-ini-file-loader": "^4.5.1",
     "@smithy/types": "^4.14.1",
     "tslib": "^2.6.2"
   },

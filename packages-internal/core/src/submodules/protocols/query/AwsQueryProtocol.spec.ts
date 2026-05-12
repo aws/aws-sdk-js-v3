@@ -1,4 +1,4 @@
-import type { ServiceExceptionOptions } from "@smithy/core/client";
+import type { ExceptionOptionType, ServiceExceptionOptions } from "@smithy/core/client";
 import { ServiceException } from "@smithy/core/client";
 import { HttpResponse } from "@smithy/core/protocols";
 import { TypeRegistry } from "@smithy/core/schema";
@@ -9,9 +9,22 @@ import { context } from "../test-schema.spec";
 import { AwsQueryProtocol } from "./AwsQueryProtocol";
 
 describe(AwsQueryProtocol.name, () => {
+  // synthetic base.
   class GiraffeServiceException extends ServiceException {
     constructor(options: ServiceExceptionOptions) {
       super(options);
+      Object.setPrototypeOf(this, GiraffeServiceException.prototype);
+    }
+  }
+
+  // modeled error.
+  class SpecificGiraffeServiceException extends GiraffeServiceException {
+    constructor(options: ExceptionOptionType<SpecificGiraffeServiceException, GiraffeServiceException>) {
+      super({
+        name: "SpecificGiraffeServiceException",
+        $fault: "client",
+        ...options,
+      });
       Object.setPrototypeOf(this, GiraffeServiceException.prototype);
     }
   }
@@ -104,7 +117,7 @@ describe(AwsQueryProtocol.name, () => {
         "<Exception>" +
           "<Error>" +
           "<Type>Sender</Type>" +
-          "<Code>GiraffeServiceException</Code>" +
+          "<Code>SpecificGiraffeServiceException</Code>" +
           "<Message>A giraffe has eaten your umbrella</Message>" +
           "</Error>" +
           "</Exception>"
@@ -134,9 +147,7 @@ describe(AwsQueryProtocol.name, () => {
       });
 
     const expected = Object.assign(
-      new GiraffeServiceException({
-        name: "GiraffeServiceException",
-        $fault: "client",
+      new SpecificGiraffeServiceException({
         message: "A giraffe has eaten your umbrella",
         $metadata: {
           cfId: undefined,
@@ -147,9 +158,9 @@ describe(AwsQueryProtocol.name, () => {
       }),
       {
         Type: "Sender",
-        Code: "GiraffeServiceException",
+        Code: "SpecificGiraffeServiceException",
         Error: {
-          Code: "GiraffeServiceException",
+          Code: "SpecificGiraffeServiceException",
           Message: "A giraffe has eaten your umbrella",
           Type: "Sender",
         },

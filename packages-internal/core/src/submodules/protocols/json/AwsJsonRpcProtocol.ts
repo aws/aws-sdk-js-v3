@@ -121,7 +121,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
     const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
-    const exception = new ErrorCtor(message);
+    const exception = new ErrorCtor({});
 
     const output = {} as any;
     const errorDeserializer = this.codec.createDeserializer();
