@@ -32,7 +32,11 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent")
+                .withConventions(
+                    "@aws-sdk/core" + AwsSdkCoreSubmodules.CLIENT,
+                    AwsDependency.AWS_SDK_CORE.dependency.getVersion(),
+                    "UserAgent"
+                )
                 .build()
         );
     }
@@ -65,11 +69,11 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "defaultUserAgentProvider",
                     writer -> {
-                        writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.dependency);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "createDefaultUserAgentProvider",
                             "createDefaultUserAgentProvider",
-                            AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE
+                            AwsDependency.AWS_SDK_CORE,
+                            AwsSdkCoreSubmodules.CLIENT
                         );
                         writer.addIgnoredDefaultImport(
                             "packageInfo",
@@ -86,11 +90,11 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             TypeScriptDependency.SMITHY_CORE,
                             SmithyCoreSubmodules.CONFIG
                         );
-                        writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "NODE_APP_ID_CONFIG_OPTIONS",
                             "NODE_APP_ID_CONFIG_OPTIONS",
-                            AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE
+                            AwsDependency.AWS_SDK_CORE,
+                            AwsSdkCoreSubmodules.CLIENT
                         );
                         writer.write(
                             "loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig)"
@@ -101,11 +105,11 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "defaultUserAgentProvider",
                     writer -> {
-                        writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.dependency);
-                        writer.addImport(
+                        writer.addImportSubmodule(
                             "createDefaultUserAgentProvider",
                             "createDefaultUserAgentProvider",
-                            AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER
+                            AwsDependency.AWS_SDK_CORE,
+                            AwsSdkCoreSubmodules.CLIENT
                         );
                         writer.addIgnoredDefaultImport(
                             "packageInfo",

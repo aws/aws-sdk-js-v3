@@ -42,7 +42,7 @@ public class AddUserAgentDependencyTest {
         // Check dependencies
         assertThat(
             manifest.getFileString("package.json").get(),
-            containsString(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName)
+            containsString(AwsDependency.AWS_SDK_CORE.packageName)
         );
 
         // Check config interface fields
@@ -114,7 +114,7 @@ public class AddUserAgentDependencyTest {
         // Check dependencies
         assertThat(
             manifest.getFileString("package.json").get(),
-            containsString(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName)
+            containsString(AwsDependency.AWS_SDK_CORE.packageName)
         );
 
         // Check config interface fields

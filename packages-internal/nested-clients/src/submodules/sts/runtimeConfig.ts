@@ -2,7 +2,11 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../../../package.json"; // eslint-disable-line
 
-import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core/client";
+import {
+  createDefaultUserAgentProvider,
+  emitWarningIfUnsupportedVersion as awsCheckVersion,
+  NODE_APP_ID_CONFIG_OPTIONS,
+} from "@aws-sdk/core/client";
 import {
   AwsSdkSigV4ASigner,
   AwsSdkSigV4Signer,
@@ -10,7 +14,6 @@ import {
   NODE_SIGV4A_CONFIG_OPTIONS,
 } from "@aws-sdk/core/httpAuthSchemes";
 
-import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
 import { NoAuthSigner } from "@smithy/core";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {

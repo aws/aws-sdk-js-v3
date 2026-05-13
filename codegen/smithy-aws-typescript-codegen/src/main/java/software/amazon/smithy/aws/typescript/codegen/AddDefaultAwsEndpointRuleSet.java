@@ -48,7 +48,8 @@ public class AddDefaultAwsEndpointRuleSet implements TypeScriptIntegration {
         */
         RuntimeClientPlugin defaultAwsRegionalEndpoints = RuntimeClientPlugin.builder()
             .withConventions(
-                AwsDependency.UTIL_ENDPOINTS.dependency,
+                "@aws-sdk/core" + AwsSdkCoreSubmodules.CLIENT,
+                AwsDependency.AWS_SDK_CORE.dependency.getVersion(),
                 "DefaultAwsRegionalEndpoints",
                 RuntimeClientPlugin.Convention.HAS_CONFIG
             )

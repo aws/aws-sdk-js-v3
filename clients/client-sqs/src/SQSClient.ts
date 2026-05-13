@@ -2,23 +2,21 @@
 import {
   type HostHeaderInputConfig,
   type HostHeaderResolvedConfig,
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
   getHostHeaderPlugin,
+  getLoggerPlugin,
+  getRecursionDetectionPlugin,
+  getUserAgentPlugin,
   resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
+  resolveUserAgentConfig,
+} from "@aws-sdk/core/client";
 import {
   type QueueUrlInputConfig,
   type QueueUrlResolvedConfig,
   getQueueUrlPlugin,
   resolveQueueUrlConfig,
 } from "@aws-sdk/middleware-sdk-sqs";
-import {
-  type UserAgentInputConfig,
-  type UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,

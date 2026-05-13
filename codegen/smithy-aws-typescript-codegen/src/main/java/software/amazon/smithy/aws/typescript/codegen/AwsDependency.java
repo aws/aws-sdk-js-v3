@@ -42,7 +42,6 @@ public enum AwsDependency implements Dependency {
     ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53"),
     EC2_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-ec2"),
     BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint"),
-    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header"),
     SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs"),
     BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser"),
     BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node"),
@@ -64,14 +63,9 @@ public enum AwsDependency implements Dependency {
     STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts"),
     STS_CLIENT_PEER(PEER_DEPENDENCY, "@aws-sdk/client-sts"),
     SSO_OIDC_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sso-oidc"),
-    MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger"),
-    MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent"),
-    AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser"),
-    AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
     MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery"),
     AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "5.2.0"),
     SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
-    RECURSION_DETECTION_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-recursion-detection"),
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
 
     // Conditionally added when httpChecksum trait is present
@@ -86,17 +80,55 @@ public enum AwsDependency implements Dependency {
     // Conditionally added when auth trait is present
     MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key"),
 
-    // Conditionally added when EndpointRuleSetTrait is present
-    UTIL_ENDPOINTS(NORMAL_DEPENDENCY, "@aws-sdk/util-endpoints"),
-
     // Conditionally added when @httpBearerAuth is used in an AWS service
     TOKEN_PROVIDERS(NORMAL_DEPENDENCY, "@aws-sdk/token-providers"),
     TYPES(NORMAL_DEPENDENCY, "@aws-sdk/types"),
-    REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver"),
 
     CLIENT_DYNAMODB_PEER(PEER_DEPENDENCY, "@aws-sdk/client-dynamodb", "^3.0.0"),
     UTIL_DYNAMODB(NORMAL_DEPENDENCY, "@aws-sdk/util-dynamodb", "*"),
-    DYNAMODB_CODEC(NORMAL_DEPENDENCY, "@aws-sdk/dynamodb-codec");
+    DYNAMODB_CODEC(NORMAL_DEPENDENCY, "@aws-sdk/dynamodb-codec"),
+
+    // Deprecated: migrated into @aws-sdk/core/client
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    RECURSION_DETECTION_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-recursion-detection"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    UTIL_ENDPOINTS(NORMAL_DEPENDENCY, "@aws-sdk/util-endpoints"),
+    /**
+     * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
+     */
+    @Deprecated
+    REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver");
 
     public final String packageName;
     public final String version;

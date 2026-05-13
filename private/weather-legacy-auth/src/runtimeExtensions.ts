@@ -1,8 +1,5 @@
 // smithy-typescript generated code
-import {
-  getAwsRegionExtensionConfiguration,
-  resolveAwsRegionExtensionConfiguration,
-} from "@aws-sdk/region-config-resolver";
+import { getAwsRegionExtensionConfiguration, resolveAwsRegionExtensionConfiguration } from "@aws-sdk/core/client";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/core/client";
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/core/protocols";
 import type { WeatherExtensionConfiguration } from "./extensionConfiguration";

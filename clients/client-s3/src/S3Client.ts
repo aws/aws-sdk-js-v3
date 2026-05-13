@@ -1,18 +1,22 @@
 // smithy-typescript generated code
+import {
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
+  getHostHeaderPlugin,
+  getLoggerPlugin,
+  getRecursionDetectionPlugin,
+  getUserAgentPlugin,
+  resolveHostHeaderConfig,
+  resolveUserAgentConfig,
+} from "@aws-sdk/core/client";
 import { getAddExpectContinuePlugin } from "@aws-sdk/middleware-expect-continue";
 import {
   type FlexibleChecksumsInputConfig,
   type FlexibleChecksumsResolvedConfig,
   resolveFlexibleChecksumsConfig,
 } from "@aws-sdk/middleware-flexible-checksums";
-import {
-  type HostHeaderInputConfig,
-  type HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   type S3InputConfig,
   type S3ResolvedConfig,
@@ -22,12 +26,6 @@ import {
   getValidateBucketNamePlugin,
   resolveS3Config,
 } from "@aws-sdk/middleware-sdk-s3";
-import {
-  type UserAgentInputConfig,
-  type UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
 import type { GetAwsChunkedEncodingStream } from "@aws-sdk/types";
 import {
   DefaultIdentityProviderConfig,
