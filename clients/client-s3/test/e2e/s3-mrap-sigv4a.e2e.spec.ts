@@ -15,6 +15,7 @@ import {
   S3ControlClient,
 } from "@aws-sdk/client-s3-control";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 const MRAP_NAME = "jsv3-e2e-mrap-sigv4a-min";
@@ -47,7 +48,7 @@ describe("S3 MRAP SigV4a E2E Test", () => {
   };
 
   const ensureBucket = async (bucketName: string, region: string): Promise<void> => {
-    const s3 = new S3Client({ region, credentials: aws?.testCredentials });
+    const s3 = new S3Client({ region, credentials: aws?.testCredentials, requestHandler: new UndiciHttpHandler() });
     try {
       await s3.send(new HeadBucketCommand({ Bucket: bucketName }));
     } catch (error: any) {
@@ -63,8 +64,16 @@ describe("S3 MRAP SigV4a E2E Test", () => {
   };
 
   beforeAll(async () => {
-    const stsClient = new STSClient({ region: REGION_1, credentials: aws?.testCredentials });
-    s3ControlClient = new S3ControlClient({ region: REGION_1, credentials: aws?.testCredentials });
+    const stsClient = new STSClient({
+      region: REGION_1,
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
+    s3ControlClient = new S3ControlClient({
+      region: REGION_1,
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
     try {
       const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
       if (!Account) throw new Error("Could not determine AWS Account ID.");
@@ -117,7 +126,11 @@ describe("S3 MRAP SigV4a E2E Test", () => {
   it("should successfully ListObjectsV2 against MRAP using SigV4a", async () => {
     expect(mrapArn).toBeDefined();
 
-    const s3SigV4aClient = new S3Client({ region: REGION_1, credentials: aws?.testCredentials });
+    const s3SigV4aClient = new S3Client({
+      region: REGION_1,
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
 
     try {
       const command = new ListObjectsV2Command({ Bucket: mrapArn! });

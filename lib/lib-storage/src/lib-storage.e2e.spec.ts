@@ -1,6 +1,7 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { randomBytes } from "node:crypto";
 import fs from "node:fs";
 import { Readable } from "node:stream";
@@ -40,6 +41,7 @@ describe("@aws-sdk/lib-storage", () => {
             client = new S3({
               region,
               requestChecksumCalculation,
+              requestHandler: new UndiciHttpHandler(),
             });
             Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
           } catch (error) {
@@ -101,7 +103,7 @@ describe("@aws-sdk/lib-storage", () => {
             }
           }
 
-          const client = new MockFailureS3({ region });
+          const client = new MockFailureS3({ region, requestHandler: new UndiciHttpHandler() });
 
           const requestLog = [] as string[];
 
@@ -190,6 +192,7 @@ describe("@aws-sdk/lib-storage", () => {
     it("should throw an informative error about the correct override if the SDK infers the byte count incorrectly", async () => {
       const s3 = new S3({
         region: process.env.AWS_SMOKE_TEST_REGION,
+        requestHandler: new UndiciHttpHandler(),
       });
 
       const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
@@ -217,6 +220,7 @@ to input.params.ContentLength in bytes.
     it("should use the input ContentLength as the total byte count if supplied by the caller", async () => {
       const s3 = new S3({
         region: process.env.AWS_SMOKE_TEST_REGION,
+        requestHandler: new UndiciHttpHandler(),
       });
 
       const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });

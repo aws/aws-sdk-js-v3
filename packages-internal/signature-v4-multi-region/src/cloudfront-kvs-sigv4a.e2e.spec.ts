@@ -9,6 +9,7 @@ import {
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/core/protocols";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 const LONG_TIMEOUT = 300000;
@@ -67,12 +68,14 @@ describe("CloudFront KeyValue Store with SignatureV4a (JS Implementation)", () =
     cfClient = new CloudFrontClient({
       region: "us-west-2",
       disableHostPrefix: true,
+      requestHandler: new UndiciHttpHandler(),
     });
 
     kvsClient = new CloudFrontKeyValueStoreClient({
       region: "us-west-2",
       signer,
       disableHostPrefix: true,
+      requestHandler: new UndiciHttpHandler(),
     });
 
     // Try to get the existing key value store

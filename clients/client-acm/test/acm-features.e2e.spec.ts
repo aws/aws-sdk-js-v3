@@ -1,11 +1,16 @@
 import { ACM } from "@aws-sdk/client-acm";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(ACM.name, () => {
   let client: ACM;
 
   beforeAll(async () => {
-    client = new ACM({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new ACM({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Making a request to ACM service", () => {

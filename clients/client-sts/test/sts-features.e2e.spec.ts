@@ -1,11 +1,16 @@
 import { STS } from "@aws-sdk/client-sts";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(STS.name, () => {
   let client: STS;
 
   beforeAll(async () => {
-    client = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new STS({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Get caller identity", () => {

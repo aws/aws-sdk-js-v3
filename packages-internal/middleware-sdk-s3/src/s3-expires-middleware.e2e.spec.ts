@@ -1,6 +1,7 @@
 import { S3 } from "@aws-sdk/client-s3";
 import type { GetCallerIdentityCommandOutput } from "@aws-sdk/client-sts";
 import { STS } from "@aws-sdk/client-sts";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 describe("S3 Expires e2e test", () => {
@@ -13,8 +14,9 @@ describe("S3 Expires e2e test", () => {
       warn: vi.fn(),
       error() {},
     },
+    requestHandler: new UndiciHttpHandler(),
   });
-  const stsClient = new STS({ region: "us-west-2" });
+  const stsClient = new STS({ region: "us-west-2", requestHandler: new UndiciHttpHandler() });
 
   let callerID = null as unknown as GetCallerIdentityCommandOutput;
   let Bucket: string;

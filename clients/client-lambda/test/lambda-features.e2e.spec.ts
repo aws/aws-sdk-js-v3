@@ -1,11 +1,16 @@
 import { Lambda } from "@aws-sdk/client-lambda";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(Lambda.name, () => {
   let client: Lambda;
 
   beforeAll(async () => {
-    client = new Lambda({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new Lambda({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Listing functions", () => {

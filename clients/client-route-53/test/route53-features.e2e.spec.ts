@@ -1,11 +1,16 @@
 import { Route53 } from "@aws-sdk/client-route-53";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(Route53.name, () => {
   let client: Route53;
 
   beforeAll(async () => {
-    client = new Route53({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new Route53({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Making a request", () => {

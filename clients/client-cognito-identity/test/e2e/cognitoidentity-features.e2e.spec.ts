@@ -1,4 +1,5 @@
 import { CognitoIdentity } from "@aws-sdk/client-cognito-identity";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(CognitoIdentity.name, () => {
@@ -6,7 +7,11 @@ describe(CognitoIdentity.name, () => {
   let createdIdentityPoolId: string;
 
   beforeAll(async () => {
-    client = new CognitoIdentity({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new CognitoIdentity({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   afterAll(async () => {

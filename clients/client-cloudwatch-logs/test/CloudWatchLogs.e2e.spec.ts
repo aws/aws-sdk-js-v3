@@ -1,5 +1,6 @@
 import { CloudWatchLogs } from "@aws-sdk/client-cloudwatch-logs";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { describe, expect, test as it } from "vitest";
 
 describe(
@@ -9,10 +10,18 @@ describe(
     retry: 4,
   },
   () => {
-    const cwlDefault = new CloudWatchLogs({ region: "us-west-2", credentials: aws?.testCredentials });
+    const cwlDefault = new CloudWatchLogs({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
 
     it("should be able to use an event stream to tail logs", async () => {
-      const sts = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
+      const sts = new STS({
+        region: "us-west-2",
+        credentials: aws?.testCredentials,
+        requestHandler: new UndiciHttpHandler(),
+      });
       const id: GetCallerIdentityCommandOutput = await sts.getCallerIdentity();
       const accountId = id.Account;
 

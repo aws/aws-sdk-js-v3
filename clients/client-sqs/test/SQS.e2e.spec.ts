@@ -1,5 +1,6 @@
 import { SQS } from "@aws-sdk/client-sqs";
 import { AwsJson1_0Protocol, AwsQueryProtocol } from "@aws-sdk/core/protocols";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { describe, expect, test as it } from "vitest";
 
 describe(
@@ -10,11 +11,13 @@ describe(
         region: "us-west-2",
         protocol: AwsQueryProtocol,
         credentials: aws?.testCredentials,
+        requestHandler: new UndiciHttpHandler(),
       }),
       json: new SQS({
         region: "us-west-2",
         protocol: AwsJson1_0Protocol,
         credentials: aws?.testCredentials,
+        requestHandler: new UndiciHttpHandler(),
       }),
     };
 

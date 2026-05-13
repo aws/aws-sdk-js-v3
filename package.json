@@ -76,6 +76,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.2",
     "@rollup/plugin-typescript": "^12.1.4",
+    "@trivikr-test/undici-http-handler": "latest",
     "@tsconfig/recommended": "1.0.1",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "29.5.11",

@@ -1,4 +1,5 @@
 import { CloudWatchLogs, InvalidParameterException } from "@aws-sdk/client-cloudwatch-logs";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(CloudWatchLogs.name, () => {
@@ -6,7 +7,11 @@ describe(CloudWatchLogs.name, () => {
   const createdLogGroups: string[] = [];
 
   beforeAll(async () => {
-    client = new CloudWatchLogs({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new CloudWatchLogs({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   const generateLogGroupName = (prefix: string) => {

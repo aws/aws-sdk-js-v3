@@ -1,6 +1,7 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -18,7 +19,7 @@ describe("@aws-sdk/client-s3", () => {
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
 
-    client = new S3({ region, credentials: aws?.testCredentials });
+    client = new S3({ region, credentials: aws?.testCredentials, requestHandler: new UndiciHttpHandler() });
   });
 
   async function putObject(Body: string, Key: string) {

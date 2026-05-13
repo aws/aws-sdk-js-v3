@@ -4,6 +4,7 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { blobHasher } from "@smithy/core/checksum";
 import { FetchHttpHandler, streamCollector } from "@smithy/fetch-http-handler";
+import { UndiciHttpHandler } from "@trivikr-test/undici-http-handler";
 import { Readable } from "node:stream";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -27,7 +28,7 @@ describe("@aws-sdk/client-s3", () => {
 
     Key = ``;
 
-    client = new S3({ region, credentials: aws?.testCredentials });
+    client = new S3({ region, credentials: aws?.testCredentials, requestHandler: new UndiciHttpHandler() });
   });
 
   describe("PutObject", () => {
