@@ -138,6 +138,8 @@ turbo-clean:
 	@read -p "Are you sure you want to delete your local cache? [y/N]: " ans && [ $${ans:-N} = y ]
 	@echo "\nDeleted cache folders: \n--------"
 	@find . -name '.turbo' -type d -prune -print -exec rm -rf '{}' + && echo '\n'
+	@echo "Deleted tsbuildinfo files: \n--------"
+	@find . -name '*.tsbuildinfo' -type f -print -delete && echo '\n'
 
 server-protocols:
 	yarn generate-clients -s

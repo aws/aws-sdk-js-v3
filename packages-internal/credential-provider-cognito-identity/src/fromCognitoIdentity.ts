@@ -31,7 +31,7 @@ export type CognitoIdentityCredentialProvider = RuntimeConfigIdentityProvider<Co
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
   return async (awsIdentityProperties?: AwsIdentityProperties): Promise<CognitoIdentityCredentials> => {
     parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
-    const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
+    const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity.js");
 
     const fromConfigs = (property: "region" | "profile" | "userAgentAppId"): any =>
       parameters.clientConfig?.[property] ??
