@@ -19978,16 +19978,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trivikr-test/undici-http-handler@npm:latest":
-  version: 0.4.0
-  resolution: "@trivikr-test/undici-http-handler@npm:0.4.0"
+"@trivikr-test/undici-http-handler@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@trivikr-test/undici-http-handler@npm:0.5.0"
   dependencies:
     "@smithy/protocol-http": "npm:^5.0.0"
     "@smithy/querystring-builder": "npm:^4.0.0"
     "@smithy/types": "npm:^4.0.0"
     tslib: "npm:^2.6.2"
     undici: "npm:^7.0.0"
-  checksum: 10c0/e8af481c144ba311424856780713ab0b8ddeaf499ec40b6ac997a0e2db6ef7e3bc8619c4bfb4f372434e6c7aeaf35a60532e0e093566fe2b74d0f744ff7b37d9
+  checksum: 10c0/1347126c05479a401dbb2161039c107f041c46e2f2cd4acf27db1e27637be0af6d39e6924c9785744b32b357d63b1c78ab38504d0ed148b6bc2308d26366cf7d
   languageName: node
   linkType: hard
 
@@ -21627,7 +21627,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^6.1.0"
     "@rollup/plugin-node-resolve": "npm:^16.0.2"
     "@rollup/plugin-typescript": "npm:^12.1.4"
-    "@trivikr-test/undici-http-handler": "npm:latest"
+    "@trivikr-test/undici-http-handler": "npm:^0.5.0"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/fs-extra": "npm:^8.0.1"
     "@types/jest": "npm:29.5.11"
