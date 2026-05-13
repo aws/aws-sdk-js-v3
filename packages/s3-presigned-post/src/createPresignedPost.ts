@@ -1,6 +1,6 @@
 import type { S3Client } from "@aws-sdk/client-s3";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { formatUrl } from "@aws-sdk/util-format-url";
+import { formatUrl } from "@aws-sdk/core/util";
 import type { EndpointParameterInstructionsSupplier } from "@smithy/core/endpoints";
 import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/core/endpoints";
 import { toHex, toUint8Array } from "@smithy/core/serde";

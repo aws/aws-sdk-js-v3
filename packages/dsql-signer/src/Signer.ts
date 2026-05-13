@@ -1,4 +1,4 @@
-import { formatUrl } from "@aws-sdk/util-format-url";
+import { formatUrl } from "@aws-sdk/core/util";
 import { HttpRequest } from "@smithy/core/protocols";
 import { SignatureV4 } from "@smithy/signature-v4";
 import type {

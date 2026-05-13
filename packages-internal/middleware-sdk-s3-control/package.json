@@ -25,9 +25,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "workspace:^3.974.8",
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.10",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@aws-sdk/util-arn-parser": "workspace:^3.972.3",
     "@aws-sdk/util-endpoints": "workspace:^3.996.8",
     "@smithy/core": "^3.24.1",
     "@smithy/types": "^4.14.1",

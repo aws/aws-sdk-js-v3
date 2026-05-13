@@ -24,8 +24,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "workspace:^3.974.8",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@aws-sdk/util-format-url": "workspace:^3.972.10",
     "@smithy/core": "^3.24.1",
     "@smithy/fetch-http-handler": "^5.4.1",
     "@smithy/signature-v4": "^5.4.1",

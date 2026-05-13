@@ -14607,8 +14607,8 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/credential-provider-node": "workspace:^3.972.39"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -14768,8 +14768,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-bucket-endpoint@workspace:packages-internal/middleware-bucket-endpoint"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-arn-parser": "workspace:^3.972.3"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -14951,8 +14951,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-ec2@workspace:packages-internal/middleware-sdk-ec2"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15001,8 +15001,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-rds@workspace:packages-internal/middleware-sdk-rds"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15034,9 +15034,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.10"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-arn-parser": "workspace:^3.972.3"
     "@aws-sdk/util-endpoints": "workspace:^3.996.8"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15056,7 +15056,6 @@ __metadata:
     "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.25"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-arn-parser": "workspace:^3.972.3"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15105,8 +15104,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-transcribe-streaming@workspace:packages-internal/middleware-sdk-transcribe-streaming"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15192,8 +15191,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-websocket@workspace:packages-internal/middleware-websocket"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/fetch-http-handler": "npm:^5.4.1"
     "@smithy/signature-v4": "npm:^5.4.1"
@@ -15243,8 +15242,8 @@ __metadata:
   resolution: "@aws-sdk/polly-request-presigner@workspace:packages/polly-request-presigner"
   dependencies:
     "@aws-sdk/client-polly": "workspace:3.1045.0"
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15274,9 +15273,9 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/credential-providers": "workspace:3.1045.0"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15310,8 +15309,8 @@ __metadata:
   resolution: "@aws-sdk/s3-presigned-post@workspace:packages/s3-presigned-post"
   dependencies:
     "@aws-sdk/client-s3": "workspace:3.1045.0"
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/signature-v4": "npm:^5.4.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15331,9 +15330,9 @@ __metadata:
   resolution: "@aws-sdk/s3-request-presigner@workspace:packages/s3-request-presigner"
   dependencies:
     "@aws-sdk/client-s3": "workspace:3.1045.0"
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.25"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-format-url": "workspace:^3.972.10"
     "@smithy/core": "npm:^3.24.1"
     "@smithy/hash-node": "npm:^4.3.1"
     "@smithy/types": "npm:^4.14.1"
@@ -15491,10 +15490,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-arn-parser@workspace:^3.972.3, @aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser":
+"@aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser"
   dependencies:
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
@@ -15569,13 +15569,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-format-url@workspace:^3.972.10, @aws-sdk/util-format-url@workspace:packages-internal/util-format-url":
+"@aws-sdk/util-format-url@workspace:packages-internal/util-format-url":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-format-url@workspace:packages-internal/util-format-url"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.8"
-    "@smithy/core": "npm:^3.24.1"
-    "@smithy/types": "npm:^4.14.1"
+    "@aws-sdk/core": "workspace:^3.974.8"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"

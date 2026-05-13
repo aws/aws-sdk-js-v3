@@ -31,8 +31,8 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
+    "@aws-sdk/core": "workspace:^3.974.8",
     "@aws-sdk/credential-providers": "workspace:3.1045.0",
-    "@aws-sdk/util-format-url": "workspace:^3.972.10",
     "@smithy/core": "^3.24.1",
     "@smithy/signature-v4": "^5.4.1",
     "@smithy/types": "^4.14.1",

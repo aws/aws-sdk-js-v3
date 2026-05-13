@@ -1,4 +1,4 @@
-import { formatUrl } from "@aws-sdk/util-format-url";
+import { formatUrl } from "@aws-sdk/core/util";
 import type { Client, Command } from "@smithy/core/client";
 import type { EndpointParameterInstructionsSupplier } from "@smithy/core/endpoints";
 import { getEndpointFromInstructions } from "@smithy/core/endpoints";

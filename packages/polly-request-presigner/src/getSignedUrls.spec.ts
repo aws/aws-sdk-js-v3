@@ -2,7 +2,7 @@ import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-vi.mock("@aws-sdk/util-format-url", () => ({
+vi.mock("@aws-sdk/core/util", () => ({
   formatUrl: (url: any) => url,
 }));
 

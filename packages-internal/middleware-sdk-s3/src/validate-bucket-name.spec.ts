@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
-vi.mock("@aws-sdk/util-arn-parser", () => ({ validate: vi.fn() }));
+vi.mock("@aws-sdk/core/util", () => ({ validate: vi.fn() }));
 
-import { validate } from "@aws-sdk/util-arn-parser";
+import { validate } from "@aws-sdk/core/util";
 
 import { validateBucketNameMiddleware } from "./validate-bucket-name";
 

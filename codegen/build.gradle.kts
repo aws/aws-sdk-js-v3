@@ -283,7 +283,8 @@ subprojects {
                 custom(
                     "Long literal fix",
                     object : Serializable, FormatterFunc {
-                        override fun apply(input: String): String = Pattern.compile("([0-9_]+) [Ll]").matcher(input).replaceAll("\$1L")
+                        override fun apply(input: String): String =
+                            Pattern.compile("([0-9_]+) [Ll]").matcher(input).replaceAll("\$1L")
                     },
                 )
 

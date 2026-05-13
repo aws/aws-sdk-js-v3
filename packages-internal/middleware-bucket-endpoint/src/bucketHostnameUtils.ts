@@ -1,4 +1,4 @@
-import type { ARN } from "@aws-sdk/util-arn-parser";
+import type { ARN } from "@aws-sdk/core/util";
 
 /**
  * @deprecated unused as of EndpointsV2.

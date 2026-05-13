@@ -1,4 +1,4 @@
-import { formatUrl } from "@aws-sdk/util-format-url";
+import { formatUrl } from "@aws-sdk/core/util";
 import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/core/endpoints";
 import { extendedEncodeURIComponent } from "@smithy/core/protocols";
 import { HttpRequest } from "@smithy/core/protocols";

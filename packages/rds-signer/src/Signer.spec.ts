@@ -1,5 +1,5 @@
+import { formatUrl } from "@aws-sdk/core/util";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { formatUrl } from "@aws-sdk/util-format-url";
 import { loadConfig } from "@smithy/core/config";
 import { HttpRequest } from "@smithy/core/protocols";
 import { SignatureV4 } from "@smithy/signature-v4";
@@ -19,7 +19,7 @@ vi.mock("@smithy/signature-v4", function () {
 
 vi.mock("@smithy/core/config");
 vi.mock("@aws-sdk/credential-providers");
-vi.mock("@aws-sdk/util-format-url");
+vi.mock("@aws-sdk/core/util");
 
 describe("rds-signer", () => {
   const minimalParams: SignerConfig = {

@@ -1,7 +1,7 @@
 import type { HttpRequest } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { formatUrl } from "./";
+import { formatUrl } from "./format-url";
 
 describe("format url", () => {
   const requestTemplate: HttpRequest = {

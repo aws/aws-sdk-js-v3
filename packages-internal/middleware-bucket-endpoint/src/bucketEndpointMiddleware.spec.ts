@@ -9,12 +9,12 @@ vi.mock("./bucketHostname", () => ({
   bucketHostname: vi.fn(),
 }));
 
-vi.mock("@aws-sdk/util-arn-parser", () => ({
+vi.mock("@aws-sdk/core/util", () => ({
   parse: vi.fn().mockReturnValue("an ARN structure"),
   validate: vi.fn(),
 }));
 
-import { parse, validate } from "@aws-sdk/util-arn-parser";
+import { parse, validate } from "@aws-sdk/core/util";
 
 import { bucketEndpointMiddleware } from "./bucketEndpointMiddleware";
 import { bucketHostname } from "./bucketHostname";
