@@ -22,12 +22,21 @@ const clients = [
 ];
 
 const { join, relative, normalize } = require("node:path");
-const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync, writeFileSync, readFileSync } = require("fs-extra");
+const {
+  emptyDirSync,
+  copyFileSync,
+  copySync,
+  rmdirSync,
+  writeFileSync,
+  readFileSync,
+  existsSync,
+} = require("fs-extra");
 const { copyToClients } = require("../copy-to-clients");
 const { spawnProcess } = require("../../utils/spawn-process");
 const {
   CODE_GEN_ROOT,
   CODE_GEN_SDK_ROOT,
+  CODE_GEN_SDK_OUTPUT_DIR,
   DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("../code-gen-dir");
@@ -42,13 +51,17 @@ const NESTED_SDK_CLIENTS_DIR = normalize(
  *
  */
 async function generateNestedClients() {
+  // Prepare all nested client models into a single temp directory.
+  emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
   for (const { name, operations } of clients) {
-    await generateNestedClient(name, operations);
-    await copyToClients(
-      normalize(join(__dirname, "..", "..", "..", "codegen", "sdk-codegen", "build-single", name)),
-      NESTED_SDK_CLIENTS_DIR,
-      name
-    );
+    prepareNestedClientModel(name, operations);
+  }
+
+  // Single Gradle invocation generates all nested clients at once.
+  await generateAllNestedClientsBatch();
+
+  for (const { name } of clients) {
+    await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, NESTED_SDK_CLIENTS_DIR, name);
 
     const srcFolder = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`, "src");
     const srcContainer = join(NESTED_SDK_CLIENTS_DIR, `client-${name}`);
@@ -70,43 +83,45 @@ async function generateNestedClients() {
 module.exports = generateNestedClients;
 
 /**
- * @param clientName - client to generate.
- * @param operations - operations to include.
+ * Prepares the trimmed model file for a nested client in the shared temp directory.
  */
-async function generateNestedClient(clientName, operations) {
-  const TEMP_CODE_GEN_INPUT_DIR_SERVICE = join(TEMP_CODE_GEN_INPUT_DIR, clientName);
-
-  emptyDirSync(normalize(join(__dirname, "..", "..", "..", "codegen", "sdk-codegen", "build-single", clientName)));
-
-  const options = [
-    ":sdk-codegen:clean",
-    ":sdk-codegen:build",
-    "--stacktrace",
-    `-PmodelsDirProp=${relative(CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR_SERVICE)}`,
-    `-PclientNameProp=${clientName}`,
-  ];
-
-  emptyDirSync(TEMP_CODE_GEN_INPUT_DIR_SERVICE);
-
+function prepareNestedClientModel(clientName, operations) {
   const filename = `${clientName}.json`;
-  const targetModelPath = join(TEMP_CODE_GEN_INPUT_DIR_SERVICE, filename);
+  const targetModelPath = join(TEMP_CODE_GEN_INPUT_DIR, filename);
   copyFileSync(join(DEFAULT_CODE_GEN_INPUT_DIR, filename), targetModelPath);
 
-  const model = require(targetModelPath);
+  const model = JSON.parse(readFileSync(targetModelPath, "utf-8"));
   Object.entries(model.shapes).forEach(([key, value]) => {
     if (value.type === "service") {
-      // remove operations not in list.
       value.operations = value.operations.filter((operationObj) => {
         return !!operations.find((opName) => operationObj.target.endsWith(`#${opName}`));
       });
-      // prevent validation from complaining about unused operations.
       delete value.traits["smithy.rules#endpointTests"];
     }
   });
   writeFileSync(targetModelPath, JSON.stringify(model, null, 2) + "\n");
+}
+
+/**
+ * Generates all nested clients in a single Smithy CLI / Gradle invocation.
+ * All trimmed models are in TEMP_CODE_GEN_INPUT_DIR; Gradle generates
+ * projections for all of them at once.
+ */
+async function generateAllNestedClientsBatch() {
+  // Clean only the smithyprojections output.
+  const outputDir = join(CODE_GEN_ROOT, "sdk-codegen", "build", "smithyprojections");
+  if (existsSync(outputDir)) {
+    emptyDirSync(outputDir);
+  }
+
+  const options = [
+    ":sdk-codegen:build",
+    "--no-rebuild",
+    "--stacktrace",
+    `-PmodelsDirProp=${relative(CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR)}`,
+  ];
 
   await spawnProcess("./gradlew", options, { cwd: CODE_GEN_ROOT });
-  rmSync(join(__dirname, "..", "..", "..", "codegen", "sdk-codegen", `smithy-build-${clientName}.json`));
 }
 
 /**
