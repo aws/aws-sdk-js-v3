@@ -68,7 +68,7 @@ const {
   .describe("b", "Batchsize for generating clients")
   .number("b")
   .alias("b", "batch-size")
-  .default("b", 50)
+  .default("b", 200)
   .describe("r", "The location where smithy-typescript is cloned.")
   .string("r")
   .alias("r", "repo")
