@@ -1178,6 +1178,7 @@ export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePubl
  * @enum
  */
 export const EventSourceName = {
+  OnAlertUpdate: "OnAlertUpdate",
   OnCaseCreate: "OnCaseCreate",
   OnCaseUpdate: "OnCaseUpdate",
   OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
@@ -1188,6 +1189,9 @@ export const EventSourceName = {
   OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
   OnRealTimeChatAnalysisAvailable: "OnRealTimeChatAnalysisAvailable",
   OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+  OnSchedulePublish: "OnSchedulePublish",
+  OnScheduleTimeOffRequestActivity: "OnScheduleTimeOffRequestActivity",
+  OnScheduleUpdate: "OnScheduleUpdate",
   OnSlaBreach: "OnSlaBreach",
   OnZendeskTicketCreate: "OnZendeskTicketCreate",
   OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",

@@ -42,7 +42,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   TriggerEventSource: { // RuleTriggerEventSource
- *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach", // required
+ *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach" || "OnAlertUpdate" || "OnSchedulePublish" || "OnScheduleUpdate" || "OnScheduleTimeOffRequestActivity", // required
  *     IntegrationAssociationId: "STRING_VALUE",
  *   },
  *   Function: "STRING_VALUE", // required
