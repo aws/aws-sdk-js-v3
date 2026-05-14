@@ -72,6 +72,9 @@ export interface PutProfileVisibilityCommandOutput extends PutProfileVisibilityR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. This may occur when referencing a resource that does not exist or has been deleted.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
  *
