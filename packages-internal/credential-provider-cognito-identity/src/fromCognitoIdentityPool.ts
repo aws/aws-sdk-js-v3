@@ -37,7 +37,7 @@ export function fromCognitoIdentityPool({
     : undefined;
 
   let provider: CognitoIdentityCredentialProvider = async (awsIdentityProperties?: AwsIdentityProperties) => {
-    const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
+    const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity.js");
 
     const fromConfigs = (property: "region" | "profile" | "userAgentAppId"): any =>
       clientConfig?.[property] ??

@@ -69,7 +69,7 @@ export const resolveSSOCredentials = async ({
 
   const { accessToken } = token;
 
-  const { SSOClient, GetRoleCredentialsCommand } = await import("./loadSso");
+  const { SSOClient, GetRoleCredentialsCommand } = await import("./loadSso.js");
 
   const sso =
     ssoClient ||

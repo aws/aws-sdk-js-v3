@@ -52,7 +52,7 @@ export const fromTemporaryCredentials = (
       params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
     }
 
-    const { AssumeRoleCommand, STSClient } = await import("./loadSts");
+    const { AssumeRoleCommand, STSClient } = await import("./loadSts.js");
 
     if (!stsClient) {
       const defaultCredentialsOrError =

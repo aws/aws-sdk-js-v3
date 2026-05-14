@@ -316,6 +316,19 @@ module.exports = class Inliner {
       return this;
     }
 
+    // Collect files that are targets of dynamic import() from variant externals.
+    const dynamicImportTargets = new Set();
+    for (const external of this.variantExternals) {
+      const externalFile = path.join(this.packageDirectory, "dist-cjs", external);
+      if (fs.existsSync(externalFile)) {
+        const contents = fs.readFileSync(externalFile, "utf-8");
+        for (const match of contents.matchAll(/import\("(\.[^"]*?)"\)/g)) {
+          const resolved = path.normalize(path.join(path.dirname(external), match[1]));
+          dynamicImportTargets.add(resolved.endsWith(".js") ? resolved : resolved + ".js");
+        }
+      }
+    }
+
     for await (const file of walk(path.join(this.packageDirectory, "dist-cjs"))) {
       const relativePath = file.replace(path.join(this.packageDirectory, "dist-cjs"), "").slice(1);
 
@@ -340,6 +353,13 @@ module.exports = class Inliner {
       if (this.variantExternals.find((external) => relativePath.endsWith(external))) {
         if (this.verbose) {
           console.log("Not rewriting.", relativePath, "is variant.");
+        }
+        continue;
+      }
+
+      if (dynamicImportTargets.has(relativePath)) {
+        if (this.verbose) {
+          console.log("Not rewriting.", relativePath, "is a dynamic import target.");
         }
         continue;
       }
