@@ -51,6 +51,7 @@ import type {
   ClusterAutoScalingStatus,
   ClusterCapacityType,
   ClusterConfigMode,
+  ClusterEventLevel,
   ClusterEventResourceType,
   ClusterImageVersionStatus,
   ClusterInstanceStatus,
@@ -75,7 +76,6 @@ import type {
   MetricSetSource,
   MIGProfileType,
   ModelApprovalStatus,
-  ModelCacheSetting,
   ModelCompressionType,
   ModelPackageRegistrationType,
   ModelPackageStatus,
@@ -2322,6 +2322,12 @@ export interface ResourceSpec {
    * @public
    */
   LifecycleConfigArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the SageMaker AI Training Plan to use for this app. When you specify a training plan, the app launches on reserved GPU capacity. This field is supported for JupyterLab and CodeEditor app types.</p> <p>For more information about how to reserve GPU capacity with SageMaker AI Training Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/training-plan-utilization-for-studio-apps.html">Using training plans in Studio applications</a>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
 }
 
 /**
@@ -6041,6 +6047,24 @@ export interface ClusterMetadata {
 }
 
 /**
+ * <p>The customer ENI and additional ENIs associated with a network interface category.</p>
+ * @public
+ */
+export interface InstanceRequirementsEniConfiguration {
+  /**
+   * <p>The ID of the customer-managed Elastic Network Interface (ENI) associated with the instance type category.</p>
+   * @public
+   */
+  CustomerEni?: string | undefined;
+
+  /**
+   * <p>Information about additional Elastic Network Interfaces (ENIs) associated with the instance type category.</p>
+   * @public
+   */
+  AdditionalEnis?: AdditionalEnis | undefined;
+}
+
+/**
  * <p>Metadata information about an instance in a HyperPod cluster.</p>
  * @public
  */
@@ -6056,6 +6080,12 @@ export interface InstanceMetadata {
    * @public
    */
   AdditionalEnis?: AdditionalEnis | undefined;
+
+  /**
+   * <p>The ENI configurations for the instance types in the instance requirements, grouped by network interface category (for example, ENI-only or EFA with ENIs). At most one configuration per category.</p>
+   * @public
+   */
+  InstanceRequirementsEniConfigurations?: InstanceRequirementsEniConfiguration[] | undefined;
 
   /**
    * <p>Information about the Capacity Reservation used by the instance.</p>
@@ -6311,6 +6341,12 @@ export interface ClusterEventDetail {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The severity level of the event. Valid values are <code>Info</code>, <code>Warn</code>, and <code>Error</code>.</p>
+   * @public
+   */
+  EventLevel?: ClusterEventLevel | undefined;
 }
 
 /**
@@ -6365,6 +6401,12 @@ export interface ClusterEventSummary {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The severity level of the event. Valid values are <code>Info</code>, <code>Warn</code>, and <code>Error</code>.</p>
+   * @public
+   */
+  EventLevel?: ClusterEventLevel | undefined;
 }
 
 /**
@@ -8177,16 +8219,4 @@ export interface ImageConfig {
    * @public
    */
   RepositoryAuthConfig?: RepositoryAuthConfig | undefined;
-}
-
-/**
- * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
- * @public
- */
-export interface MultiModelConfig {
-  /**
-   * <p>Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to <code>Disabled</code>.</p>
-   * @public
-   */
-  ModelCacheSetting?: ModelCacheSetting | undefined;
 }

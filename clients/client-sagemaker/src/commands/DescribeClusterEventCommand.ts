@@ -86,6 +86,16 @@ export interface DescribeClusterEventCommandOutput extends DescribeClusterEventR
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           InstanceRequirementsEniConfigurations: [ // InstanceRequirementsEniConfigurations
+ * //             { // InstanceRequirementsEniConfiguration
+ * //               CustomerEni: "STRING_VALUE",
+ * //               AdditionalEnis: {
+ * //                 EfaEnis: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
  * //           CapacityReservation: {
  * //             Arn: "STRING_VALUE",
  * //             Type: "ODCR" || "CRG",
@@ -97,6 +107,7 @@ export interface DescribeClusterEventCommandOutput extends DescribeClusterEventR
  * //       },
  * //     },
  * //     Description: "STRING_VALUE",
+ * //     EventLevel: "Info" || "Warn" || "Error",
  * //   },
  * // };
  *

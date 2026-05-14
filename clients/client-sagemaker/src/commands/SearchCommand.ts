@@ -208,6 +208,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             ],
  * //           },
  * //         },
+ * //         WarmPoolStatus: { // WarmPoolStatus
+ * //           Status: "Available" || "Terminated" || "Reused" || "InUse", // required
+ * //           ResourceRetainedBillableTimeInSeconds: Number("int"),
+ * //           ReusedByJob: "STRING_VALUE",
+ * //         },
  * //         VpcConfig: { // VpcConfig
  * //           SecurityGroupIds: [ // VpcSecurityGroupIds // required
  * //             "STRING_VALUE",
@@ -590,6 +595,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   },
  * //                 ],
  * //               },
+ * //             },
+ * //             WarmPoolStatus: {
+ * //               Status: "Available" || "Terminated" || "Reused" || "InUse", // required
+ * //               ResourceRetainedBillableTimeInSeconds: Number("int"),
+ * //               ReusedByJob: "STRING_VALUE",
  * //             },
  * //             VpcConfig: {
  * //               SecurityGroupIds: [ // required

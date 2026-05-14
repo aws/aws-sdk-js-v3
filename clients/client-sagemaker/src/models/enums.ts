@@ -2426,6 +2426,20 @@ export type ClusterConfigMode = (typeof ClusterConfigMode)[keyof typeof ClusterC
  * @public
  * @enum
  */
+export const ClusterEventLevel = {
+  ERROR: "Error",
+  INFO: "Info",
+  WARN: "Warn",
+} as const;
+/**
+ * @public
+ */
+export type ClusterEventLevel = (typeof ClusterEventLevel)[keyof typeof ClusterEventLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterEventResourceType = {
   CLUSTER: "Cluster",
   INSTANCE: "Instance",
@@ -3198,6 +3212,20 @@ export type StudioWebPortal = (typeof StudioWebPortal)[keyof typeof StudioWebPor
  * @public
  * @enum
  */
+export const ExecutionRoleSessionNameMode = {
+  Static: "STATIC",
+  UserIdentity: "USER_IDENTITY",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionRoleSessionNameMode =
+  (typeof ExecutionRoleSessionNameMode)[keyof typeof ExecutionRoleSessionNameMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const MlTools = {
   AUTO_ML: "AutoMl",
   COMET: "Comet",
@@ -3608,6 +3636,211 @@ export type ModelInfrastructureType = (typeof ModelInfrastructureType)[keyof typ
  * @public
  * @enum
  */
+export const InferenceExperimentType = {
+  SHADOW_MODE: "ShadowMode",
+} as const;
+/**
+ * @public
+ */
+export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationJobSupportedEndpointType = {
+  REALTIME: "RealTime",
+  SERVERLESS: "Serverless",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationJobSupportedEndpointType =
+  (typeof RecommendationJobSupportedEndpointType)[keyof typeof RecommendationJobSupportedEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficType = {
+  PHASES: "PHASES",
+  STAIRS: "STAIRS",
+} as const;
+/**
+ * @public
+ */
+export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationJobType = {
+  ADVANCED: "Advanced",
+  DEFAULT: "Default",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationJobType = (typeof RecommendationJobType)[keyof typeof RecommendationJobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlatInvocations = {
+  CONTINUE: "Continue",
+  STOP: "Stop",
+} as const;
+/**
+ * @public
+ */
+export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocations];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelRegistrationMode = {
+  AUTO_MODEL_REGISTRATION_DISABLED: "AutoModelRegistrationDisabled",
+  AUTO_MODEL_REGISTRATION_ENABLED: "AutoModelRegistrationEnabled",
+} as const;
+/**
+ * @public
+ */
+export type ModelRegistrationMode = (typeof ModelRegistrationMode)[keyof typeof ModelRegistrationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrackingServerSize = {
+  L: "Large",
+  M: "Medium",
+  S: "Small",
+} as const;
+/**
+ * @public
+ */
+export type TrackingServerSize = (typeof TrackingServerSize)[keyof typeof TrackingServerSize];
+
+/**
+ * @public
+ * @enum
+ */
+export const InferenceExecutionMode = {
+  DIRECT: "Direct",
+  SERIAL: "Serial",
+} as const;
+/**
+ * @public
+ */
+export type InferenceExecutionMode = (typeof InferenceExecutionMode)[keyof typeof InferenceExecutionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardStatus = {
+  APPROVED: "Approved",
+  ARCHIVED: "Archived",
+  DRAFT: "Draft",
+  PENDINGREVIEW: "PendingReview",
+} as const;
+/**
+ * @public
+ */
+export type ModelCardStatus = (typeof ModelCardStatus)[keyof typeof ModelCardStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedStorageType = {
+  RESTRICTED: "Restricted",
+} as const;
+/**
+ * @public
+ */
+export type ManagedStorageType = (typeof ManagedStorageType)[keyof typeof ManagedStorageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SkipModelValidation = {
+  ALL: "All",
+  NONE: "None",
+} as const;
+/**
+ * @public
+ */
+export type SkipModelValidation = (typeof SkipModelValidation)[keyof typeof SkipModelValidation];
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+} as const;
+/**
+ * @public
+ */
+export type MonitoringProblemType = (typeof MonitoringProblemType)[keyof typeof MonitoringProblemType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringType = {
+  DATA_QUALITY: "DataQuality",
+  MODEL_BIAS: "ModelBias",
+  MODEL_EXPLAINABILITY: "ModelExplainability",
+  MODEL_QUALITY: "ModelQuality",
+} as const;
+/**
+ * @public
+ */
+export type MonitoringType = (typeof MonitoringType)[keyof typeof MonitoringType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceAcceleratorType = {
+  ML_EIA1_LARGE: "ml.eia1.large",
+  ML_EIA1_MEDIUM: "ml.eia1.medium",
+  ML_EIA1_XLARGE: "ml.eia1.xlarge",
+  ML_EIA2_LARGE: "ml.eia2.large",
+  ML_EIA2_MEDIUM: "ml.eia2.medium",
+  ML_EIA2_XLARGE: "ml.eia2.xlarge",
+} as const;
+/**
+ * @public
+ */
+export type NotebookInstanceAcceleratorType =
+  (typeof NotebookInstanceAcceleratorType)[keyof typeof NotebookInstanceAcceleratorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DirectInternetAccess = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type DirectInternetAccess = (typeof DirectInternetAccess)[keyof typeof DirectInternetAccess];
+
+/**
+ * @public
+ * @enum
+ */
 export const _InstanceType = {
   ML_C4_2XLARGE: "ml.c4.2xlarge",
   ML_C4_4XLARGE: "ml.c4.4xlarge",
@@ -3787,199 +4020,6 @@ export const _InstanceType = {
  * @public
  */
 export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
-
-/**
- * @public
- * @enum
- */
-export const InferenceExperimentType = {
-  SHADOW_MODE: "ShadowMode",
-} as const;
-/**
- * @public
- */
-export type InferenceExperimentType = (typeof InferenceExperimentType)[keyof typeof InferenceExperimentType];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationJobSupportedEndpointType = {
-  REALTIME: "RealTime",
-  SERVERLESS: "Serverless",
-} as const;
-/**
- * @public
- */
-export type RecommendationJobSupportedEndpointType =
-  (typeof RecommendationJobSupportedEndpointType)[keyof typeof RecommendationJobSupportedEndpointType];
-
-/**
- * @public
- * @enum
- */
-export const TrafficType = {
-  PHASES: "PHASES",
-  STAIRS: "STAIRS",
-} as const;
-/**
- * @public
- */
-export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
-
-/**
- * @public
- * @enum
- */
-export const RecommendationJobType = {
-  ADVANCED: "Advanced",
-  DEFAULT: "Default",
-} as const;
-/**
- * @public
- */
-export type RecommendationJobType = (typeof RecommendationJobType)[keyof typeof RecommendationJobType];
-
-/**
- * @public
- * @enum
- */
-export const FlatInvocations = {
-  CONTINUE: "Continue",
-  STOP: "Stop",
-} as const;
-/**
- * @public
- */
-export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocations];
-
-/**
- * @public
- * @enum
- */
-export const ModelRegistrationMode = {
-  AUTO_MODEL_REGISTRATION_DISABLED: "AutoModelRegistrationDisabled",
-  AUTO_MODEL_REGISTRATION_ENABLED: "AutoModelRegistrationEnabled",
-} as const;
-/**
- * @public
- */
-export type ModelRegistrationMode = (typeof ModelRegistrationMode)[keyof typeof ModelRegistrationMode];
-
-/**
- * @public
- * @enum
- */
-export const TrackingServerSize = {
-  L: "Large",
-  M: "Medium",
-  S: "Small",
-} as const;
-/**
- * @public
- */
-export type TrackingServerSize = (typeof TrackingServerSize)[keyof typeof TrackingServerSize];
-
-/**
- * @public
- * @enum
- */
-export const InferenceExecutionMode = {
-  DIRECT: "Direct",
-  SERIAL: "Serial",
-} as const;
-/**
- * @public
- */
-export type InferenceExecutionMode = (typeof InferenceExecutionMode)[keyof typeof InferenceExecutionMode];
-
-/**
- * @public
- * @enum
- */
-export const ModelCardStatus = {
-  APPROVED: "Approved",
-  ARCHIVED: "Archived",
-  DRAFT: "Draft",
-  PENDINGREVIEW: "PendingReview",
-} as const;
-/**
- * @public
- */
-export type ModelCardStatus = (typeof ModelCardStatus)[keyof typeof ModelCardStatus];
-
-/**
- * @public
- * @enum
- */
-export const SkipModelValidation = {
-  ALL: "All",
-  NONE: "None",
-} as const;
-/**
- * @public
- */
-export type SkipModelValidation = (typeof SkipModelValidation)[keyof typeof SkipModelValidation];
-
-/**
- * @public
- * @enum
- */
-export const MonitoringProblemType = {
-  BINARY_CLASSIFICATION: "BinaryClassification",
-  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
-  REGRESSION: "Regression",
-} as const;
-/**
- * @public
- */
-export type MonitoringProblemType = (typeof MonitoringProblemType)[keyof typeof MonitoringProblemType];
-
-/**
- * @public
- * @enum
- */
-export const MonitoringType = {
-  DATA_QUALITY: "DataQuality",
-  MODEL_BIAS: "ModelBias",
-  MODEL_EXPLAINABILITY: "ModelExplainability",
-  MODEL_QUALITY: "ModelQuality",
-} as const;
-/**
- * @public
- */
-export type MonitoringType = (typeof MonitoringType)[keyof typeof MonitoringType];
-
-/**
- * @public
- * @enum
- */
-export const NotebookInstanceAcceleratorType = {
-  ML_EIA1_LARGE: "ml.eia1.large",
-  ML_EIA1_MEDIUM: "ml.eia1.medium",
-  ML_EIA1_XLARGE: "ml.eia1.xlarge",
-  ML_EIA2_LARGE: "ml.eia2.large",
-  ML_EIA2_MEDIUM: "ml.eia2.medium",
-  ML_EIA2_XLARGE: "ml.eia2.xlarge",
-} as const;
-/**
- * @public
- */
-export type NotebookInstanceAcceleratorType =
-  (typeof NotebookInstanceAcceleratorType)[keyof typeof NotebookInstanceAcceleratorType];
-
-/**
- * @public
- * @enum
- */
-export const DirectInternetAccess = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-/**
- * @public
- */
-export type DirectInternetAccess = (typeof DirectInternetAccess)[keyof typeof DirectInternetAccess];
 
 /**
  * @public
@@ -5262,6 +5302,7 @@ export type TrainingPlanStatus = (typeof TrainingPlanStatus)[keyof typeof Traini
 export const SageMakerResourceName = {
   ENDPOINT: "endpoint",
   HYPERPOD_CLUSTER: "hyperpod-cluster",
+  STUDIO_APPS: "studio-apps",
   TRAINING_JOB: "training-job",
 } as const;
 /**

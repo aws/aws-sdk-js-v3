@@ -356,6 +356,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *     StageStatus: "STRING_VALUE", // required
  *     StageDescription: "STRING_VALUE",
  *   },
+ *   ManagedStorageType: "Restricted",
  * };
  * const command = new CreateModelPackageCommand(input);
  * const response = await client.send(command);

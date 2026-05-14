@@ -25,6 +25,7 @@ import type {
   DirectInternetAccess,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
+  ExecutionRoleSessionNameMode,
   FailureHandlingPolicy,
   FairShare,
   FeatureStatus,
@@ -45,9 +46,11 @@ import type {
   JobType,
   ManagedInstanceScalingScaleInStrategy,
   ManagedInstanceScalingStatus,
+  ManagedStorageType,
   MetricPublishFrequencyInSeconds,
   MlTools,
   ModelApprovalStatus,
+  ModelCacheSetting,
   ModelCardStatus,
   ModelInfrastructureType,
   ModelPackageRegistrationType,
@@ -163,7 +166,6 @@ import type {
   MetricDefinition,
   MetricsSource,
   ModelDataSource,
-  MultiModelConfig,
   OutputDataConfig,
   ResourceConfig,
   ResourceSpec,
@@ -172,6 +174,18 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
+ * @public
+ */
+export interface MultiModelConfig {
+  /**
+   * <p>Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to <code>Disabled</code>.</p>
+   * @public
+   */
+  ModelCacheSetting?: ModelCacheSetting | undefined;
+}
 
 /**
  * <p>Describes the container, as part of model definition.</p>
@@ -2605,6 +2619,12 @@ export interface StudioWebPortalSettings {
    * @public
    */
   HiddenSageMakerImageVersionAliases?: HiddenSageMakerImage[] | undefined;
+
+  /**
+   * <p>The execution role session name mode. If this value is set to <code>USER_IDENTITY</code>, the session name of the execution role corresponds to the user's identity. For IAM domains, the session name is the IAM session name used to generate the presigned URL. For IAM Identity Center domains, the session name is the username of the associated IAM Identity Center user. If this value is set to <code>STATIC</code> or is not set, the session name defaults to <code>SageMaker</code>.</p>
+   * @public
+   */
+  ExecutionRoleSessionNameMode?: ExecutionRoleSessionNameMode | undefined;
 }
 
 /**
@@ -5400,7 +5420,7 @@ export interface RealTimeInferenceConfig {
    * <p>The instance type the model is deployed to.</p>
    * @public
    */
-  InstanceType: _InstanceType | undefined;
+  InstanceType: ProductionVariantInstanceType | undefined;
 
   /**
    * <p>The number of instances of the type specified by <code>InstanceType</code>.</p>
@@ -7468,6 +7488,12 @@ export interface CreateModelPackageInput {
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
+
+  /**
+   * <p>The storage type of the model package.</p>
+   * @public
+   */
+  ManagedStorageType?: ManagedStorageType | undefined;
 }
 
 /**
@@ -7479,6 +7505,18 @@ export interface CreateModelPackageOutput {
    * @public
    */
   ModelPackageArn: string | undefined;
+}
+
+/**
+ * <p>The managed configuration of a model package group.</p>
+ * @public
+ */
+export interface ManagedConfiguration {
+  /**
+   * <p>The storage type of the model package.</p>
+   * @public
+   */
+  ManagedStorageType?: ManagedStorageType | undefined;
 }
 
 /**
@@ -7502,6 +7540,12 @@ export interface CreateModelPackageGroupInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The managed configuration of the model package group.</p>
+   * @public
+   */
+  ManagedConfiguration?: ManagedConfiguration | undefined;
 }
 
 /**
@@ -8461,33 +8505,4 @@ export interface CreateOptimizationJobRequest {
    * @public
    */
   VpcConfig?: OptimizationVpcConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOptimizationJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the optimization job.</p>
-   * @public
-   */
-  OptimizationJobArn: string | undefined;
-}
-
-/**
- * <p>Defines the mapping between an in-app role and the Amazon Web Services IAM Identity Center group patterns that should be assigned to that role within the SageMaker Partner AI App.</p>
- * @public
- */
-export interface RoleGroupAssignment {
-  /**
-   * <p>The name of the in-app role within the SageMaker Partner AI App. The specific roles available depend on the app type and version.</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p>A list of Amazon Web Services IAM Identity Center group patterns that should be assigned to the specified role. Group patterns support wildcard matching using <code>*</code>.</p>
-   * @public
-   */
-  GroupPatterns: string[] | undefined;
 }

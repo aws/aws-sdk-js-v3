@@ -12,21 +12,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelPackageGroupArn": "__ModelPackageGroupArn__",
       "CreationTime": 946702799.999,
       "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+      "ManagedConfiguration": {}
     },
     {
       "ModelPackageGroupName": "__ModelPackageGroupName__",
       "ModelPackageGroupArn": "__ModelPackageGroupArn__",
       "CreationTime": 946702799.999,
       "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+      "ManagedConfiguration": {}
     },
     {
       "ModelPackageGroupName": "__ModelPackageGroupName__",
       "ModelPackageGroupArn": "__ModelPackageGroupArn__",
       "CreationTime": 946702799.999,
       "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+      "ManagedConfiguration": {}
     }
   ],
   "NextToken": "__NextToken__"
@@ -41,21 +44,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelPackageGroupArn: "__ModelPackageGroupArn__",
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
-      ModelPackageGroupDescription: "__ModelPackageGroupDescription__"
+      ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+      ManagedConfiguration: {}
     },
     {
       ModelPackageGroupName: "__ModelPackageGroupName__",
       ModelPackageGroupArn: "__ModelPackageGroupArn__",
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
-      ModelPackageGroupDescription: "__ModelPackageGroupDescription__"
+      ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+      ManagedConfiguration: {}
     },
     {
       ModelPackageGroupName: "__ModelPackageGroupName__",
       ModelPackageGroupArn: "__ModelPackageGroupArn__",
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
-      ModelPackageGroupDescription: "__ModelPackageGroupDescription__"
+      ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+      ManagedConfiguration: {}
     }
   ],
   NextToken: "__NextToken__",
@@ -83,21 +89,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ModelPackageGroupArn": "__ModelPackageGroupArn__",
       "CreationTime": 946702799.999,
       "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+      "ManagedConfiguration": {
+        "ManagedStorageType": "__ManagedStorageType__"
+      }
     },
     {
       "ModelPackageGroupName": "__ModelPackageGroupName__",
       "ModelPackageGroupArn": "__ModelPackageGroupArn__",
       "CreationTime": 946702799.999,
       "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+      "ManagedConfiguration": {
+        "ManagedStorageType": "__ManagedStorageType__"
+      }
     },
     {
       "ModelPackageGroupName": "__ModelPackageGroupName__",
       "ModelPackageGroupArn": "__ModelPackageGroupArn__",
       "CreationTime": 946702799.999,
       "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+      "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+      "ManagedConfiguration": {
+        "ManagedStorageType": "__ManagedStorageType__"
+      }
     }
   ],
   "NextToken": "__NextToken__"
@@ -112,21 +127,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ModelPackageGroupArn: "__ModelPackageGroupArn__",
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
-      ModelPackageGroupDescription: "__ModelPackageGroupDescription__"
+      ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+      ManagedConfiguration: {
+        ManagedStorageType: "__ManagedStorageType__"
+      }
     },
     {
       ModelPackageGroupName: "__ModelPackageGroupName__",
       ModelPackageGroupArn: "__ModelPackageGroupArn__",
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
-      ModelPackageGroupDescription: "__ModelPackageGroupDescription__"
+      ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+      ManagedConfiguration: {
+        ManagedStorageType: "__ManagedStorageType__"
+      }
     },
     {
       ModelPackageGroupName: "__ModelPackageGroupName__",
       ModelPackageGroupArn: "__ModelPackageGroupArn__",
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
-      ModelPackageGroupDescription: "__ModelPackageGroupDescription__"
+      ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+      ManagedConfiguration: {
+        ManagedStorageType: "__ManagedStorageType__"
+      }
     }
   ],
   NextToken: "__NextToken__",

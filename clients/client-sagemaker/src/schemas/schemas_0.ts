@@ -1395,6 +1395,7 @@ const _EIn = "EndpointInput";
 const _EInd = "EndpointInfo";
 const _EInv = "EnvironmentId";
 const _EIr = "ErrorInfo";
+const _EL = "EventLevel";
 const _EM = "EndpointMetadata";
 const _EMJ = "EnableMultipleJobs";
 const _EMR = "EMR";
@@ -1440,6 +1441,7 @@ const _ERARN = "ExecutionRoleARN";
 const _ERAx = "ExecutionRoleArns";
 const _ERD = "EnableRemoteDebug";
 const _ERIC = "ExecutionRoleIdentityConfig";
+const _ERSNM = "ExecutionRoleSessionNameMode";
 const _ERVP = "ExcludeRetainedVariantProperties";
 const _ERx = "ExecutionRole";
 const _ES = "EndpointStatus";
@@ -1778,6 +1780,8 @@ const _IPn = "InstancePools";
 const _IPnr = "InProgress";
 const _IR = "IsRequired";
 const _IRA = "IotRoleAlias";
+const _IREC = "InstanceRequirementsEniConfigurations";
+const _IRECn = "InstanceRequirementsEniConfiguration";
 const _IRJ = "InferenceRecommendationsJob";
 const _IRJN = "InferenceRecommendationsJobName";
 const _IRJS = "InferenceRecommendationsJobStep";
@@ -2246,7 +2250,8 @@ const _MCTC = "MaxConcurrentTaskCount";
 const _MCV = "ModelCardVersion";
 const _MCVS = "ModelCardVersionSummary";
 const _MCVSL = "ModelCardVersionSummaryList";
-const _MCa = "MaintenanceConfig";
+const _MCa = "ManagedConfiguration";
+const _MCai = "MaintenanceConfig";
 const _MCax = "MaxCapacity";
 const _MCaxo = "MaxConcurrency";
 const _MCe = "MetricsConfig";
@@ -2439,7 +2444,8 @@ const _MSSL = "MonitoringScheduleSummaryList";
 const _MSSa = "MaximumStepSize";
 const _MSSo = "MonitoringScheduleSummaries";
 const _MSSon = "MonitoringScheduleSummary";
-const _MST = "ModelSetupTime";
+const _MST = "ManagedStorageType";
+const _MSTo = "ModelSetupTime";
 const _MSU = "ManifestS3Uri";
 const _MSV = "MaxSchemaVersion";
 const _MSa = "MaintenanceStatus";
@@ -4490,13 +4496,13 @@ export var ClusterEbsVolumeConfig$: StaticStructureSchema = [3, n0, _CEVC,
 ];
 export var ClusterEventDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
-  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _ED, _D],
-  [0, 0, 0, 0, 4, 0, 0, () => EventDetails$, 0], 5
+  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _ED, _D, _EL],
+  [0, 0, 0, 0, 4, 0, 0, () => EventDetails$, 0, 0], 5
 ];
 export var ClusterEventSummary$: StaticStructureSchema = [3, n0, _CES,
   0,
-  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _D],
-  [0, 0, 0, 0, 4, 0, 0, 0], 5
+  [_EI, _CAl, _CNl, _RT, _ETv, _IGN, _II, _D, _EL],
+  [0, 0, 0, 0, 4, 0, 0, 0, 0], 5
 ];
 export var ClusterFsxLustreConfig$: StaticStructureSchema = [3, n0, _CFLC,
   0,
@@ -5190,8 +5196,8 @@ export var CreateModelOutput$: StaticStructureSchema = [3, n0, _CMO,
 ];
 export var CreateModelPackageGroupInput$: StaticStructureSchema = [3, n0, _CMPGI,
   0,
-  [_MPGN, _MPGD, _Ta],
-  [0, 0, () => TagList], 1
+  [_MPGN, _MPGD, _Ta, _MCa],
+  [0, 0, () => TagList, () => ManagedConfiguration$], 1
 ];
 export var CreateModelPackageGroupOutput$: StaticStructureSchema = [3, n0, _CMPGO,
   0,
@@ -5200,8 +5206,8 @@ export var CreateModelPackageGroupOutput$: StaticStructureSchema = [3, n0, _CMPG
 ];
 export var CreateModelPackageInput$: StaticStructureSchema = [3, n0, _CMPI,
   0,
-  [_MPN, _MPGN, _MPD, _MPRT, _ISn, _VSa, _SAS, _CFM, _Ta, _MAS, _MPe, _MM, _CTl, _Do, _Tas, _SPU, _CMP, _DCB, _AIS, _SMV, _SU, _SC, _MCod, _MLC],
-  [0, 0, 0, 0, () => InferenceSpecification$, () => ModelPackageValidationSpecification$, () => SourceAlgorithmSpecification$, 2, () => TagList, 0, () => MetadataProperties$, () => ModelMetrics$, [0, 4], 0, 0, 0, 128 | 0, () => DriftCheckBaselines$, () => AdditionalInferenceSpecifications, 0, 0, () => ModelPackageSecurityConfig$, [() => ModelPackageModelCard$, 0], () => ModelLifeCycle$]
+  [_MPN, _MPGN, _MPD, _MPRT, _ISn, _VSa, _SAS, _CFM, _Ta, _MAS, _MPe, _MM, _CTl, _Do, _Tas, _SPU, _CMP, _DCB, _AIS, _SMV, _SU, _SC, _MCod, _MLC, _MST],
+  [0, 0, 0, 0, () => InferenceSpecification$, () => ModelPackageValidationSpecification$, () => SourceAlgorithmSpecification$, 2, () => TagList, 0, () => MetadataProperties$, () => ModelMetrics$, [0, 4], 0, 0, 0, 128 | 0, () => DriftCheckBaselines$, () => AdditionalInferenceSpecifications, 0, 0, () => ModelPackageSecurityConfig$, [() => ModelPackageModelCard$, 0], () => ModelLifeCycle$, 0]
 ];
 export var CreateModelPackageOutput$: StaticStructureSchema = [3, n0, _CMPO,
   0,
@@ -5270,7 +5276,7 @@ export var CreatePartnerAppPresignedUrlResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreatePartnerAppRequest$: StaticStructureSchema = [3, n0, _CPAR,
   0,
-  [_N, _T, _ERA, _Ti, _ATu, _KKI, _MCa, _ACp, _EISBI, _EAMVU, _CTl, _Ta],
+  [_N, _T, _ERA, _Ti, _ATu, _KKI, _MCai, _ACp, _EISBI, _EAMVU, _CTl, _Ta],
   [0, 0, 0, 0, 0, 0, () => PartnerAppMaintenanceConfig$, () => PartnerAppConfig$, 2, 2, [0, 4], () => TagList], 5
 ];
 export var CreatePartnerAppResponse$: StaticStructureSchema = [3, n0, _CPARr,
@@ -6495,8 +6501,8 @@ export var DescribeModelPackageGroupInput$: StaticStructureSchema = [3, n0, _DMP
 ];
 export var DescribeModelPackageGroupOutput$: StaticStructureSchema = [3, n0, _DMPGO,
   0,
-  [_MPGN, _MPGA, _CT, _CB, _MPGS, _MPGD],
-  [0, 0, 4, () => UserContext$, 0, 0], 5
+  [_MPGN, _MPGA, _CT, _CB, _MPGS, _MPGD, _MCa],
+  [0, 0, 4, () => UserContext$, 0, 0, () => ManagedConfiguration$], 5
 ];
 export var DescribeModelPackageInput$: StaticStructureSchema = [3, n0, _DMPIe,
   0,
@@ -6505,8 +6511,8 @@ export var DescribeModelPackageInput$: StaticStructureSchema = [3, n0, _DMPIe,
 ];
 export var DescribeModelPackageOutput$: StaticStructureSchema = [3, n0, _DMPO,
   0,
-  [_MPN, _MPA, _CT, _MPSo, _MPSD, _MPGN, _MPV, _MPRT, _MPD, _ISn, _SAS, _VSa, _CFM, _MAS, _CB, _MPe, _MM, _LMT, _LMB, _ADpp, _Do, _Tas, _SPU, _CMP, _DCB, _AIS, _SMV, _SU, _SC, _MCod, _MLC],
-  [0, 0, 4, 0, () => ModelPackageStatusDetails$, 0, 1, 0, 0, () => InferenceSpecification$, () => SourceAlgorithmSpecification$, () => ModelPackageValidationSpecification$, 2, 0, () => UserContext$, () => MetadataProperties$, () => ModelMetrics$, 4, () => UserContext$, 0, 0, 0, 0, 128 | 0, () => DriftCheckBaselines$, () => AdditionalInferenceSpecifications, 0, 0, () => ModelPackageSecurityConfig$, [() => ModelPackageModelCard$, 0], () => ModelLifeCycle$], 5
+  [_MPN, _MPA, _CT, _MPSo, _MPSD, _MPGN, _MPV, _MPRT, _MPD, _ISn, _SAS, _VSa, _CFM, _MAS, _CB, _MPe, _MM, _LMT, _LMB, _ADpp, _Do, _Tas, _SPU, _CMP, _DCB, _AIS, _SMV, _SU, _SC, _MCod, _MLC, _MST],
+  [0, 0, 4, 0, () => ModelPackageStatusDetails$, 0, 1, 0, 0, () => InferenceSpecification$, () => SourceAlgorithmSpecification$, () => ModelPackageValidationSpecification$, 2, 0, () => UserContext$, () => MetadataProperties$, () => ModelMetrics$, 4, () => UserContext$, 0, 0, 0, 0, 128 | 0, () => DriftCheckBaselines$, () => AdditionalInferenceSpecifications, 0, 0, () => ModelPackageSecurityConfig$, [() => ModelPackageModelCard$, 0], () => ModelLifeCycle$, 0], 5
 ];
 export var DescribeModelQualityJobDefinitionRequest$: StaticStructureSchema = [3, n0, _DMQJDRe,
   0,
@@ -6565,7 +6571,7 @@ export var DescribePartnerAppRequest$: StaticStructureSchema = [3, n0, _DPARes,
 ];
 export var DescribePartnerAppResponse$: StaticStructureSchema = [3, n0, _DPAResc,
   0,
-  [_Ar, _N, _T, _St, _CT, _LMT, _ERA, _KKI, _BU, _MCa, _Ti, _V, _ACp, _ATu, _EISBI, _Er, _EAMVU, _CVED, _AUv],
+  [_Ar, _N, _T, _St, _CT, _LMT, _ERA, _KKI, _BU, _MCai, _Ti, _V, _ACp, _ATu, _EISBI, _Er, _EAMVU, _CVED, _AUv],
   [0, 0, 0, 0, 4, 4, 0, 0, 0, () => PartnerAppMaintenanceConfig$, 0, 0, () => PartnerAppConfig$, 0, 2, () => ErrorInfo$, 2, 4, () => AvailableUpgrade$]
 ];
 export var DescribePipelineDefinitionForExecutionRequest$: StaticStructureSchema = [3, n0, _DPDFER,
@@ -7620,8 +7626,8 @@ export var InstanceGroupScalingMetadata$: StaticStructureSchema = [3, n0, _IGSM,
 ];
 export var InstanceMetadata$: StaticStructureSchema = [3, n0, _IMns,
   0,
-  [_CEu, _AE, _CR, _FM, _LES, _NLI],
-  [0, () => AdditionalEnis$, () => CapacityReservation$, 0, 0, 0]
+  [_CEu, _AE, _IREC, _CR, _FM, _LES, _NLI],
+  [0, () => AdditionalEnis$, () => InstanceRequirementsEniConfigurations, () => CapacityReservation$, 0, 0, 0]
 ];
 export var InstanceMetadataServiceConfiguration$: StaticStructureSchema = [3, n0, _IMSC,
   0,
@@ -7642,6 +7648,11 @@ export var InstancePoolSummary$: StaticStructureSchema = [3, n0, _IPS,
   0,
   [_ITn, _CICu],
   [0, 1], 2
+];
+export var InstanceRequirementsEniConfiguration$: StaticStructureSchema = [3, n0, _IRECn,
+  0,
+  [_CEu, _AE],
+  [0, () => AdditionalEnis$]
 ];
 export var IntegerParameterRange$: StaticStructureSchema = [3, n0, _IPR,
   0,
@@ -8658,6 +8669,11 @@ export var ListWorkteamsResponse$: StaticStructureSchema = [3, n0, _LWRist,
   [_Work, _NTe],
   [() => Workteams, 0], 1
 ];
+export var ManagedConfiguration$: StaticStructureSchema = [3, n0, _MCa,
+  0,
+  [_MST],
+  [0]
+];
 export var MemberDefinition$: StaticStructureSchema = [3, n0, _MDemb,
   0,
   [_CMD, _OMD],
@@ -8920,8 +8936,8 @@ export var ModelPackageGroup$: StaticStructureSchema = [3, n0, _MPG,
 ];
 export var ModelPackageGroupSummary$: StaticStructureSchema = [3, n0, _MPGSo,
   0,
-  [_MPGN, _MPGA, _CT, _MPGS, _MPGD],
-  [0, 0, 4, 0, 0], 4
+  [_MPGN, _MPGA, _CT, _MPGS, _MPGD, _MCa],
+  [0, 0, 4, 0, 0, () => ManagedConfiguration$], 4
 ];
 export var ModelPackageModelCard$: StaticStructureSchema = [3, n0, _MPMC,
   0,
@@ -9690,7 +9706,7 @@ export var RecommendationJobVpcConfig$: StaticStructureSchema = [3, n0, _RJVC,
 ];
 export var RecommendationMetrics$: StaticStructureSchema = [3, n0, _RMec,
   0,
-  [_CPH, _CPIo, _MIax, _ML, _CUp, _MU, _MST],
+  [_CPH, _CPIo, _MIax, _ML, _CUp, _MU, _MSTo],
   [1, 1, 1, 1, 1, 1, 1]
 ];
 export var RedshiftDatasetDefinition$: StaticStructureSchema = [3, n0, _RDD,
@@ -9785,8 +9801,8 @@ export var ResourceSharingConfig$: StaticStructureSchema = [3, n0, _RSC,
 ];
 export var ResourceSpec$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_SMIA, _SMIVAa, _SMIVAag, _ITn, _LCAi],
-  [0, 0, 0, 0, 0]
+  [_SMIA, _SMIVAa, _SMIVAag, _ITn, _LCAi, _TPA],
+  [0, 0, 0, 0, 0, 0]
 ];
 export var RetentionPolicy$: StaticStructureSchema = [3, n0, _RPe,
   0,
@@ -10275,8 +10291,8 @@ export var StudioLifecycleConfigDetails$: StaticStructureSchema = [3, n0, _SLCD,
 ];
 export var StudioWebPortalSettings$: StaticStructureSchema = [3, n0, _SWPS,
   0,
-  [_HMT, _HAT, _HIT, _HSMIVA],
-  [64 | 0, 64 | 0, 64 | 0, () => HiddenSageMakerImageVersionAliasesList]
+  [_HMT, _HAT, _HIT, _HSMIVA, _ERSNM],
+  [64 | 0, 64 | 0, 64 | 0, () => HiddenSageMakerImageVersionAliasesList, 0]
 ];
 export var SubscribedWorkteam$: StaticStructureSchema = [3, n0, _SW,
   0,
@@ -10405,8 +10421,8 @@ export var TrainingImageConfig$: StaticStructureSchema = [3, n0, _TIC,
 ];
 export var TrainingJob$: StaticStructureSchema = [3, n0, _TJ,
   0,
-  [_TJN, _TJA, _TJAu, _LJA, _AMLJAu, _MAo, _TJS, _SSe, _FR, _HP, _ASl, _RAo, _IDC, _ODC, _RCe, _VC, _SCt, _CT, _TST, _TET, _LMT, _SST, _FMDL, _ENI, _EICTE, _EMST, _CCh, _TTIS, _BTIS, _DHC, _ECxp, _DRC, _TBOC, _DRESe, _OMPA, _MPC, _PCr, _E, _RSe, _Ta],
-  [0, 0, 0, 0, 0, () => ModelArtifacts$, 0, 0, 0, 128 | 0, () => AlgorithmSpecification$, 0, () => InputDataConfig, () => OutputDataConfig$, () => ResourceConfig$, () => VpcConfig$, () => StoppingCondition$, 4, 4, 4, 4, () => SecondaryStatusTransitions, () => FinalMetricDataList, 2, 2, 2, () => CheckpointConfig$, 1, 1, () => DebugHookConfig$, () => ExperimentConfig$, () => DebugRuleConfigurations, () => TensorBoardOutputConfig$, () => DebugRuleEvaluationStatuses, 0, () => ModelPackageConfig$, () => ProfilerConfig$, 128 | 0, () => RetryStrategy$, () => TagList]
+  [_TJN, _TJA, _TJAu, _LJA, _AMLJAu, _MAo, _TJS, _SSe, _FR, _HP, _ASl, _RAo, _IDC, _ODC, _RCe, _WPS, _VC, _SCt, _CT, _TST, _TET, _LMT, _SST, _FMDL, _ENI, _EICTE, _EMST, _CCh, _TTIS, _BTIS, _DHC, _ECxp, _DRC, _TBOC, _DRESe, _OMPA, _MPC, _PCr, _E, _RSe, _Ta],
+  [0, 0, 0, 0, 0, () => ModelArtifacts$, 0, 0, 0, 128 | 0, () => AlgorithmSpecification$, 0, () => InputDataConfig, () => OutputDataConfig$, () => ResourceConfig$, () => WarmPoolStatus$, () => VpcConfig$, () => StoppingCondition$, 4, 4, 4, 4, () => SecondaryStatusTransitions, () => FinalMetricDataList, 2, 2, 2, () => CheckpointConfig$, 1, 1, () => DebugHookConfig$, () => ExperimentConfig$, () => DebugRuleConfigurations, () => TensorBoardOutputConfig$, () => DebugRuleEvaluationStatuses, 0, () => ModelPackageConfig$, () => ProfilerConfig$, 128 | 0, () => RetryStrategy$, () => TagList]
 ];
 export var TrainingJobDefinition$: StaticStructureSchema = [3, n0, _TJD,
   0,
@@ -10945,7 +10961,7 @@ export var UpdateNotebookInstanceOutput$: StaticStructureSchema = [3, n0, _UNIO,
 ];
 export var UpdatePartnerAppRequest$: StaticStructureSchema = [3, n0, _UPAR,
   0,
-  [_Ar, _MCa, _Ti, _ACp, _EISBI, _EAMVU, _AVp, _CTl, _Ta],
+  [_Ar, _MCai, _Ti, _ACp, _EISBI, _EAMVU, _AVp, _CTl, _Ta],
   [0, () => PartnerAppMaintenanceConfig$, 0, () => PartnerAppConfig$, 2, 2, 0, [0, 4], () => TagList], 1
 ];
 export var UpdatePartnerAppResponse$: StaticStructureSchema = [3, n0, _UPARp,
@@ -11615,6 +11631,9 @@ var InstancePoolList: StaticListSchema = [1, n0, _IPL,
 ];
 var InstancePoolSummaryList: StaticListSchema = [1, n0, _IPSL,
   0, () => InstancePoolSummary$
+];
+var InstanceRequirementsEniConfigurations: StaticListSchema = [1, n0, _IREC,
+  0, () => InstanceRequirementsEniConfiguration$
 ];
 var IntegerParameterRanges: StaticListSchema = [1, n0, _IPRn,
   0, () => IntegerParameterRange$

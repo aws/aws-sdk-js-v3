@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateSpace
-content-length: 2500
+content-length: 2660
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 03567d00324063769d8efa152be26e0f1ee7a100328d6b2b5fbccbdb9438e9e8
+x-amz-content-sha256: 73b88542b3dfb627eb1d2aa7dd9ea928f7a9c25115158039ccdc3dc7b3558a6a
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -24,7 +24,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "LifecycleConfigArns": [
         "__member__",
@@ -49,7 +50,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -80,7 +82,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "AppLifecycleManagement": {
         "IdleSettings": {
@@ -94,7 +97,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CodeRepositories": [
         {

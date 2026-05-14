@@ -44,7 +44,6 @@ import type {
   ImageStatus,
   ImageVersionStatus,
   InferenceComponentCapacitySizeType,
-  InferenceComponentStatus,
   InputMode,
   JobType,
   JoinSource,
@@ -199,11 +198,39 @@ import type {
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
   RetryStrategy,
-  RoleGroupAssignment,
   SchedulerConfig,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateOptimizationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the optimization job.</p>
+   * @public
+   */
+  OptimizationJobArn: string | undefined;
+}
+
+/**
+ * <p>Defines the mapping between an in-app role and the Amazon Web Services IAM Identity Center group patterns that should be assigned to that role within the SageMaker Partner AI App.</p>
+ * @public
+ */
+export interface RoleGroupAssignment {
+  /**
+   * <p>The name of the in-app role within the SageMaker Partner AI App. The specific roles available depend on the app type and version.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services IAM Identity Center group patterns that should be assigned to the specified role. Group patterns support wildcard matching using <code>*</code>.</p>
+   * @public
+   */
+  GroupPatterns: string[] | undefined;
+}
 
 /**
  * <p>Configuration settings for the SageMaker Partner AI App.</p>
@@ -8417,98 +8444,4 @@ export interface InferenceComponentSpecificationSummary {
    * @public
    */
   SchedulingConfig?: InferenceComponentSchedulingConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInferenceComponentOutput {
-  /**
-   * <p>The name of the inference component.</p>
-   * @public
-   */
-  InferenceComponentName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
-   * @public
-   */
-  InferenceComponentArn: string | undefined;
-
-  /**
-   * <p>The name of the endpoint that hosts the inference component.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.</p>
-   * @public
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * <p>The name of the production variant that hosts the inference component.</p>
-   * @public
-   */
-  VariantName?: string | undefined;
-
-  /**
-   * <p>If the inference component status is <code>Failed</code>, the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Details about the resources that are deployed with this inference component.</p>
-   * @public
-   */
-  Specification?: InferenceComponentSpecificationSummary | undefined;
-
-  /**
-   * <p>A list of specification summaries for the inference component, one per instance type. This parameter is populated when the inference component was created with multiple specifications. When this parameter is populated, the singular <code>Specification</code> parameter is not returned.</p>
-   * @public
-   */
-  Specifications?: InferenceComponentSpecificationSummary[] | undefined;
-
-  /**
-   * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
-   * @public
-   */
-  RuntimeConfig?: InferenceComponentRuntimeConfigSummary | undefined;
-
-  /**
-   * <p>The time when the inference component was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time when the inference component was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The status of the inference component.</p>
-   * @public
-   */
-  InferenceComponentStatus?: InferenceComponentStatus | undefined;
-
-  /**
-   * <p>The deployment and rollback settings that you assigned to the inference component.</p>
-   * @public
-   */
-  LastDeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to describe.</p>
-   * @public
-   */
-  Name: string | undefined;
 }

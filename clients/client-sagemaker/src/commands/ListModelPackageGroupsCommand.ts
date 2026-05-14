@@ -56,6 +56,9 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * //       ModelPackageGroupDescription: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       ModelPackageGroupStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting" || "DeleteFailed", // required
+ * //       ManagedConfiguration: { // ManagedConfiguration
+ * //         ManagedStorageType: "Restricted",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

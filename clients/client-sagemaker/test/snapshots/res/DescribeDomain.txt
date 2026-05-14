@@ -58,7 +58,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "LifecycleConfigArns": [
         "__member__",
@@ -83,7 +84,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -114,7 +116,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       }
     },
     "RStudioServerProAppSettings": {
@@ -127,7 +130,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -197,7 +201,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -237,7 +242,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -355,7 +361,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "SageMakerImageName": "__SageMakerImageName__",
           "VersionAliases": []
         }
-      ]
+      ],
+      "ExecutionRoleSessionNameMode": "__ExecutionRoleSessionNameMode__"
     },
     "AutoMountHomeEFS": "__AutoMountHomeEFS__"
   },
@@ -374,7 +381,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       }
     },
     "ExecutionRoleIdentityConfig": "__ExecutionRoleIdentityConfig__",
@@ -431,7 +439,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "LifecycleConfigArns": [
         "__member__",
@@ -456,7 +465,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -487,7 +497,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -610,7 +621,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       LifecycleConfigArns: [
         "__member__",
@@ -635,7 +647,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       CustomImages: [
         {
@@ -666,7 +679,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       }
     },
     RStudioServerProAppSettings: {
@@ -679,7 +693,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       CustomImages: [
         {
@@ -749,7 +764,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       CustomImages: [
         {
@@ -789,7 +805,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       CustomImages: [
         {
@@ -907,7 +924,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           SageMakerImageName: "__SageMakerImageName__",
           VersionAliases: []
         }
-      ]
+      ],
+      ExecutionRoleSessionNameMode: "__ExecutionRoleSessionNameMode__"
     },
     AutoMountHomeEFS: "__AutoMountHomeEFS__"
   },
@@ -926,7 +944,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       }
     },
     ExecutionRoleIdentityConfig: "__ExecutionRoleIdentityConfig__",
@@ -983,7 +1002,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       LifecycleConfigArns: [
         "__member__",
@@ -1008,7 +1028,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       CustomImages: [
         {
@@ -1039,7 +1060,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
         SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
         InstanceType: "__InstanceType__",
-        LifecycleConfigArn: "__LifecycleConfigArn__"
+        LifecycleConfigArn: "__LifecycleConfigArn__",
+        TrainingPlanArn: "__TrainingPlanArn__"
       },
       CustomImages: [
         {

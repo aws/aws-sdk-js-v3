@@ -4,7 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListModelCardExportJobsRequest, ListModelCardExportJobsResponse } from "../models/models_3";
+import type { ListModelCardExportJobsRequest } from "../models/models_3";
+import type { ListModelCardExportJobsResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListModelCardExportJobs$ } from "../schemas/schemas_0";
 

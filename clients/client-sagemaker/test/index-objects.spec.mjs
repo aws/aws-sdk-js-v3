@@ -250,6 +250,7 @@ import {
   ClusterConfigMode,
   ClusterEbsVolumeConfig$,
   ClusterEventDetail$,
+  ClusterEventLevel,
   ClusterEventResourceType,
   ClusterEventSummary$,
   ClusterFsxLustreConfig$,
@@ -1235,6 +1236,7 @@ import {
   EventMetadata$,
   EventSortBy,
   ExecutionRoleIdentityConfig,
+  ExecutionRoleSessionNameMode,
   ExecutionStatus,
   Experiment$,
   ExperimentConfig$,
@@ -1413,6 +1415,7 @@ import {
   InstancePlacementConfig$,
   InstancePool$,
   InstancePoolSummary$,
+  InstanceRequirementsEniConfiguration$,
   IntegerParameterRange$,
   IntegerParameterRangeSpecification$,
   IPAddressType,
@@ -1813,8 +1816,10 @@ import {
   ListWorkteamsResponse$,
   ListWorkteamsSortByOptions,
   MaintenanceStatus,
+  ManagedConfiguration$,
   ManagedInstanceScalingScaleInStrategy,
   ManagedInstanceScalingStatus,
+  ManagedStorageType,
   MemberDefinition$,
   MetadataProperties$,
   MetricData$,
@@ -4377,6 +4382,7 @@ assert(typeof InstanceMetadataServiceConfiguration$ === "object");
 assert(typeof InstancePlacementConfig$ === "object");
 assert(typeof InstancePool$ === "object");
 assert(typeof InstancePoolSummary$ === "object");
+assert(typeof InstanceRequirementsEniConfiguration$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
 assert(typeof JupyterLabAppImageConfig$ === "object");
@@ -4580,6 +4586,7 @@ assert(typeof ListWorkforcesRequest$ === "object");
 assert(typeof ListWorkforcesResponse$ === "object");
 assert(typeof ListWorkteamsRequest$ === "object");
 assert(typeof ListWorkteamsResponse$ === "object");
+assert(typeof ManagedConfiguration$ === "object");
 assert(typeof MemberDefinition$ === "object");
 assert(typeof MetadataProperties$ === "object");
 assert(typeof MetricData$ === "object");
@@ -5152,6 +5159,7 @@ assert(typeof ClusterAutoScalingMode === "object");
 assert(typeof ClusterAutoScalingStatus === "object");
 assert(typeof ClusterCapacityType === "object");
 assert(typeof ClusterConfigMode === "object");
+assert(typeof ClusterEventLevel === "object");
 assert(typeof ClusterEventResourceType === "object");
 assert(typeof ClusterImageVersionStatus === "object");
 assert(typeof ClusterInstanceStatus === "object");
@@ -5195,6 +5203,7 @@ assert(typeof EndpointStatus === "object");
 assert(typeof EvaluationType === "object");
 assert(typeof EventSortBy === "object");
 assert(typeof ExecutionRoleIdentityConfig === "object");
+assert(typeof ExecutionRoleSessionNameMode === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof FailureHandlingPolicy === "object");
 assert(typeof FairShare === "object");
@@ -5264,6 +5273,7 @@ assert(typeof ListWorkteamsSortByOptions === "object");
 assert(typeof MaintenanceStatus === "object");
 assert(typeof ManagedInstanceScalingScaleInStrategy === "object");
 assert(typeof ManagedInstanceScalingStatus === "object");
+assert(typeof ManagedStorageType === "object");
 assert(typeof MetricPublishFrequencyInSeconds === "object");
 assert(typeof MetricSetSource === "object");
 assert(typeof MIGProfileType === "object");

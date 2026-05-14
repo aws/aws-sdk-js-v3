@@ -25,6 +25,7 @@ import type {
   ListWorkforcesSortByOptions,
   ListWorkteamsSortByOptions,
   ModelApprovalStatus,
+  ModelCardSortBy,
   ModelCardSortOrder,
   ModelCardStatus,
   ModelCardVersionSortBy,
@@ -100,7 +101,6 @@ import type {
   VariantPropertyType,
   VendorGuidance,
   WarmPoolResourceStatus,
-  WorkforceIpAddressType,
 } from "./enums";
 import type {
   AdditionalInferenceSpecificationDefinition,
@@ -156,6 +156,7 @@ import type {
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
+  ManagedConfiguration,
   MetadataProperties,
   ModelCardSecurityConfig,
   ModelLifeCycle,
@@ -189,7 +190,6 @@ import type {
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
-  OidcConfig,
   ParallelismConfiguration,
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
@@ -202,14 +202,12 @@ import type {
   ProfilerRuleConfiguration,
   ProvisioningParameter,
   ServiceCatalogProvisioningDetails,
-  SourceIpConfig,
   SpaceSettings,
   SpaceStorageSettings,
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  WorkforceVpcConfigRequest,
 } from "./models_2";
 import type {
   DesiredWeightAndCapacity,
@@ -232,6 +230,7 @@ import type {
   LambdaStepMetadata,
   LineageMetadata,
   MetricData,
+  ModelCardExportJobSummary,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSummary,
@@ -249,6 +248,76 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListModelCardExportJobsResponse {
+  /**
+   * <p>The summaries of the listed model card export jobs.</p>
+   * @public
+   */
+  ModelCardExportJobSummaries: ModelCardExportJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model card export jobs, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCardsRequest {
+  /**
+   * <p>Only list model cards that were created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Only list model cards that were created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of model cards to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Only list model cards with names that contain the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Only list model cards with the specified approval status.</p>
+   * @public
+   */
+  ModelCardStatus?: ModelCardStatus | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListModelCards</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model cards, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
+   * @public
+   */
+  SortBy?: ModelCardSortBy | undefined;
+
+  /**
+   * <p>Sort model cards by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: ModelCardSortOrder | undefined;
+}
 
 /**
  * <p>A summary of the model card.</p>
@@ -678,6 +747,12 @@ export interface ModelPackageGroupSummary {
    * @public
    */
   ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
+
+  /**
+   * <p>The managed configuration of the model package group.</p>
+   * @public
+   */
+  ManagedConfiguration?: ManagedConfiguration | undefined;
 }
 
 /**
@@ -3890,7 +3965,7 @@ export interface TrainingPlanSummary {
   TotalUltraServerCount?: number | undefined;
 
   /**
-   * <p>The target resources (e.g., training jobs, HyperPod clusters, Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
+   * <p>The target resources (e.g., training jobs, HyperPod clusters, Endpoints, Studio apps) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
    * @public
    */
   TargetResources?: SageMakerResourceName[] | undefined;
@@ -6470,6 +6545,12 @@ export interface TrainingJob {
   ResourceConfig?: ResourceConfig | undefined;
 
   /**
+   * <p>The status of the warm pool associated with the training job.</p>
+   * @public
+   */
+  WarmPoolStatus?: WarmPoolStatus | undefined;
+
+  /**
    * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has access to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
    * @public
    */
@@ -7086,7 +7167,7 @@ export interface SearchTrainingPlanOfferingsRequest {
   DurationHours?: number | undefined;
 
   /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints, Studio apps) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
    * @public
    */
   TargetResources?: SageMakerResourceName[] | undefined;
@@ -7158,7 +7239,7 @@ export interface TrainingPlanOffering {
   TrainingPlanOfferingId: string | undefined;
 
   /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) for this training plan offering.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints, Studio apps) for this training plan offering.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
    * @public
    */
   TargetResources: SageMakerResourceName[] | undefined;
@@ -9949,50 +10030,4 @@ export interface UpdateUserProfileRequest {
    * @public
    */
   UserSettings?: UserSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserProfileResponse {
-  /**
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  UserProfileArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkforceRequest {
-  /**
-   * <p>The name of the private workforce that you want to update. You can find your workforce name by using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html">ListWorkforces</a> operation.</p>
-   * @public
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to access tasks assigned to this workforce.</p> <p>Maximum: Ten CIDR values</p>
-   * @public
-   */
-  SourceIpConfig?: SourceIpConfig | undefined;
-
-  /**
-   * <p>Use this parameter to update your OIDC Identity Provider (IdP) configuration for a workforce made using your own IdP.</p>
-   * @public
-   */
-  OidcConfig?: OidcConfig | undefined;
-
-  /**
-   * <p>Use this parameter to update your VPC configuration for a workforce.</p>
-   * @public
-   */
-  WorkforceVpcConfig?: WorkforceVpcConfigRequest | undefined;
-
-  /**
-   * <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
-   * @public
-   */
-  IpAddressType?: WorkforceIpAddressType | undefined;
 }

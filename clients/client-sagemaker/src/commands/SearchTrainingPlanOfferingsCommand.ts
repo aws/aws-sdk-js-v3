@@ -45,7 +45,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput extends SearchTraining
  *   EndTimeBefore: new Date("TIMESTAMP"),
  *   DurationHours: Number("long"),
  *   TargetResources: [ // SageMakerResourceNames
- *     "training-job" || "hyperpod-cluster" || "endpoint",
+ *     "training-job" || "hyperpod-cluster" || "endpoint" || "studio-apps",
  *   ],
  *   TrainingPlanArn: "STRING_VALUE",
  * };
@@ -56,7 +56,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput extends SearchTraining
  * //     { // TrainingPlanOffering
  * //       TrainingPlanOfferingId: "STRING_VALUE", // required
  * //       TargetResources: [ // SageMakerResourceNames // required
- * //         "training-job" || "hyperpod-cluster" || "endpoint",
+ * //         "training-job" || "hyperpod-cluster" || "endpoint" || "studio-apps",
  * //       ],
  * //       RequestedStartTimeAfter: new Date("TIMESTAMP"),
  * //       RequestedEndTimeBefore: new Date("TIMESTAMP"),

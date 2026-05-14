@@ -1,8 +1,67 @@
 // smithy-typescript generated code
-import type { BooleanOperator, CrossAccountFilterOption, ResourceType, SearchSortOrder } from "./enums";
-import type { MemberDefinition, NotificationConfiguration, WorkerAccessConfiguration } from "./models_2";
+import type {
+  BooleanOperator,
+  CrossAccountFilterOption,
+  ResourceType,
+  SearchSortOrder,
+  WorkforceIpAddressType,
+} from "./enums";
+import type {
+  MemberDefinition,
+  NotificationConfiguration,
+  OidcConfig,
+  SourceIpConfig,
+  WorkerAccessConfiguration,
+  WorkforceVpcConfigRequest,
+} from "./models_2";
 import type { Filter, Workforce, Workteam } from "./models_3";
 import type { NestedFilters, VisibilityConditions } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateUserProfileResponse {
+  /**
+   * <p>The user profile Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  UserProfileArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkforceRequest {
+  /**
+   * <p>The name of the private workforce that you want to update. You can find your workforce name by using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html">ListWorkforces</a> operation.</p>
+   * @public
+   */
+  WorkforceName: string | undefined;
+
+  /**
+   * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to access tasks assigned to this workforce.</p> <p>Maximum: Ten CIDR values</p>
+   * @public
+   */
+  SourceIpConfig?: SourceIpConfig | undefined;
+
+  /**
+   * <p>Use this parameter to update your OIDC Identity Provider (IdP) configuration for a workforce made using your own IdP.</p>
+   * @public
+   */
+  OidcConfig?: OidcConfig | undefined;
+
+  /**
+   * <p>Use this parameter to update your VPC configuration for a workforce.</p>
+   * @public
+   */
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest | undefined;
+
+  /**
+   * <p>Use this parameter to specify whether you want <code>IPv4</code> only or <code>dualstack</code> (<code>IPv4</code> and <code>IPv6</code>) to support your labeling workforce.</p>
+   * @public
+   */
+  IpAddressType?: WorkforceIpAddressType | undefined;
+}
 
 /**
  * @public

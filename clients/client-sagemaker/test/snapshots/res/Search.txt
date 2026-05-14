@@ -259,6 +259,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ]
           }
         },
+        "WarmPoolStatus": {
+          "Status": "__Status__",
+          "ResourceRetainedBillableTimeInSeconds": 0,
+          "ReusedByJob": "__ReusedByJob__"
+        },
         "VpcConfig": {
           "SecurityGroupIds": [
             "__member__",
@@ -976,6 +981,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   }
                 ]
               }
+            },
+            "WarmPoolStatus": {
+              "Status": "__Status__",
+              "ResourceRetainedBillableTimeInSeconds": 0,
+              "ReusedByJob": "__ReusedByJob__"
             },
             "VpcConfig": {
               "SecurityGroupIds": [
@@ -8203,6 +8213,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ]
           }
         },
+        "WarmPoolStatus": {
+          "Status": "__Status__",
+          "ResourceRetainedBillableTimeInSeconds": 0,
+          "ReusedByJob": "__ReusedByJob__"
+        },
         "VpcConfig": {
           "SecurityGroupIds": [
             "__member__",
@@ -8920,6 +8935,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   }
                 ]
               }
+            },
+            "WarmPoolStatus": {
+              "Status": "__Status__",
+              "ResourceRetainedBillableTimeInSeconds": 0,
+              "ReusedByJob": "__ReusedByJob__"
             },
             "VpcConfig": {
               "SecurityGroupIds": [
@@ -16147,6 +16167,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ]
           }
         },
+        "WarmPoolStatus": {
+          "Status": "__Status__",
+          "ResourceRetainedBillableTimeInSeconds": 0,
+          "ReusedByJob": "__ReusedByJob__"
+        },
         "VpcConfig": {
           "SecurityGroupIds": [
             "__member__",
@@ -16864,6 +16889,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   }
                 ]
               }
+            },
+            "WarmPoolStatus": {
+              "Status": "__Status__",
+              "ResourceRetainedBillableTimeInSeconds": 0,
+              "ReusedByJob": "__ReusedByJob__"
             },
             "VpcConfig": {
               "SecurityGroupIds": [
@@ -24103,6 +24133,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ]
           }
         },
+        WarmPoolStatus: {
+          Status: "__Status__",
+          ResourceRetainedBillableTimeInSeconds: (number) 0,
+          ReusedByJob: "__ReusedByJob__"
+        },
         VpcConfig: {
           SecurityGroupIds: [
             "__member__",
@@ -24820,6 +24855,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   }
                 ]
               }
+            },
+            WarmPoolStatus: {
+              Status: "__Status__",
+              ResourceRetainedBillableTimeInSeconds: (number) 0,
+              ReusedByJob: "__ReusedByJob__"
             },
             VpcConfig: {
               SecurityGroupIds: [
@@ -32047,6 +32087,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ]
           }
         },
+        WarmPoolStatus: {
+          Status: "__Status__",
+          ResourceRetainedBillableTimeInSeconds: (number) 0,
+          ReusedByJob: "__ReusedByJob__"
+        },
         VpcConfig: {
           SecurityGroupIds: [
             "__member__",
@@ -32764,6 +32809,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   }
                 ]
               }
+            },
+            WarmPoolStatus: {
+              Status: "__Status__",
+              ResourceRetainedBillableTimeInSeconds: (number) 0,
+              ReusedByJob: "__ReusedByJob__"
             },
             VpcConfig: {
               SecurityGroupIds: [
@@ -39991,6 +40041,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ]
           }
         },
+        WarmPoolStatus: {
+          Status: "__Status__",
+          ResourceRetainedBillableTimeInSeconds: (number) 0,
+          ReusedByJob: "__ReusedByJob__"
+        },
         VpcConfig: {
           SecurityGroupIds: [
             "__member__",
@@ -40708,6 +40763,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                   }
                 ]
               }
+            },
+            WarmPoolStatus: {
+              Status: "__Status__",
+              ResourceRetainedBillableTimeInSeconds: (number) 0,
+              ReusedByJob: "__ReusedByJob__"
             },
             VpcConfig: {
               SecurityGroupIds: [

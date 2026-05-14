@@ -59,7 +59,7 @@ export interface DescribeTrainingPlanCommandOutput extends DescribeTrainingPlanR
  * //   AvailableSpareInstanceCount: Number("int"),
  * //   TotalUltraServerCount: Number("int"),
  * //   TargetResources: [ // SageMakerResourceNames
- * //     "training-job" || "hyperpod-cluster" || "endpoint",
+ * //     "training-job" || "hyperpod-cluster" || "endpoint" || "studio-apps",
  * //   ],
  * //   ReservedCapacitySummaries: [ // ReservedCapacitySummaries
  * //     { // ReservedCapacitySummary

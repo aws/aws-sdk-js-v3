@@ -313,7 +313,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "Stage": "__Stage__",
     "StageStatus": "__StageStatus__",
     "StageDescription": "__StageDescription__"
-  }
+  },
+  "ManagedStorageType": "__ManagedStorageType__"
 }
 
 
@@ -627,6 +628,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     StageStatus: "__StageStatus__",
     StageDescription: "__StageDescription__"
   },
+  ManagedStorageType: "__ManagedStorageType__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -2269,7 +2271,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "Stage": "__Stage__",
     "StageStatus": "__StageStatus__",
     "StageDescription": "__StageDescription__"
-  }
+  },
+  "ManagedStorageType": "__ManagedStorageType__"
 }
 
 
@@ -3900,6 +3903,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     StageStatus: "__StageStatus__",
     StageDescription: "__StageDescription__"
   },
+  ManagedStorageType: "__ManagedStorageType__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

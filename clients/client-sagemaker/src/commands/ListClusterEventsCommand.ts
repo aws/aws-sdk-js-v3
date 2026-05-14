@@ -62,6 +62,7 @@ export interface ListClusterEventsCommandOutput extends ListClusterEventsRespons
  * //       ResourceType: "Cluster" || "InstanceGroup" || "Instance", // required
  * //       EventTime: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE",
+ * //       EventLevel: "Info" || "Warn" || "Error",
  * //     },
  * //   ],
  * // };

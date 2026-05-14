@@ -57,6 +57,9 @@ export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPac
  * //     },
  * //   },
  * //   ModelPackageGroupStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting" || "DeleteFailed", // required
+ * //   ManagedConfiguration: { // ManagedConfiguration
+ * //     ManagedStorageType: "Restricted",
+ * //   },
  * // };
  *
  * ```

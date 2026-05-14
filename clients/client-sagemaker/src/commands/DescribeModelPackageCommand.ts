@@ -396,6 +396,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //     StageStatus: "STRING_VALUE", // required
  * //     StageDescription: "STRING_VALUE",
  * //   },
+ * //   ManagedStorageType: "Restricted",
  * // };
  *
  * ```

@@ -67,14 +67,13 @@ import type {
   ListInferenceRecommendationsJobsSortBy,
   ListLabelingJobsForWorkteamSortByOptions,
   MaintenanceStatus,
+  ManagedStorageType,
   MlflowAppStatus,
   ModelApprovalStatus,
   ModelCardExportJobSortBy,
   ModelCardExportJobSortOrder,
   ModelCardExportJobStatus,
   ModelCardProcessingStatus,
-  ModelCardSortBy,
-  ModelCardSortOrder,
   ModelCardStatus,
   ModelPackageGroupStatus,
   ModelPackageRegistrationType,
@@ -205,6 +204,7 @@ import type {
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
+  ManagedConfiguration,
   MetadataProperties,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
@@ -261,6 +261,9 @@ import type {
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
+  InferenceComponentDeploymentConfig,
+  InferenceComponentRuntimeConfigSummary,
+  InferenceComponentSpecificationSummary,
   InfraCheckConfig,
   LastUpdateStatus,
   MemberDefinition,
@@ -295,6 +298,100 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeInferenceComponentOutput {
+  /**
+   * <p>The name of the inference component.</p>
+   * @public
+   */
+  InferenceComponentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
+   * @public
+   */
+  InferenceComponentArn: string | undefined;
+
+  /**
+   * <p>The name of the endpoint that hosts the inference component.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * <p>The name of the production variant that hosts the inference component.</p>
+   * @public
+   */
+  VariantName?: string | undefined;
+
+  /**
+   * <p>If the inference component status is <code>Failed</code>, the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Details about the resources that are deployed with this inference component.</p>
+   * @public
+   */
+  Specification?: InferenceComponentSpecificationSummary | undefined;
+
+  /**
+   * <p>A list of specification summaries for the inference component, one per instance type. This parameter is populated when the inference component was created with multiple specifications. When this parameter is populated, the singular <code>Specification</code> parameter is not returned.</p>
+   * @public
+   */
+  Specifications?: InferenceComponentSpecificationSummary[] | undefined;
+
+  /**
+   * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
+   * @public
+   */
+  RuntimeConfig?: InferenceComponentRuntimeConfigSummary | undefined;
+
+  /**
+   * <p>The time when the inference component was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time when the inference component was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The status of the inference component.</p>
+   * @public
+   */
+  InferenceComponentStatus?: InferenceComponentStatus | undefined;
+
+  /**
+   * <p>The deployment and rollback settings that you assigned to the inference component.</p>
+   * @public
+   */
+  LastDeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to describe.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
 
 /**
  * <p>The metadata of the endpoint.</p>
@@ -1897,6 +1994,12 @@ export interface DescribeModelPackageOutput {
    * @public
    */
   ModelLifeCycle?: ModelLifeCycle | undefined;
+
+  /**
+   * <p>The storage type of the model package.</p>
+   * @public
+   */
+  ManagedStorageType?: ManagedStorageType | undefined;
 }
 
 /**
@@ -1949,6 +2052,12 @@ export interface DescribeModelPackageGroupOutput {
    * @public
    */
   ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
+
+  /**
+   * <p>The managed configuration of the model package group.</p>
+   * @public
+   */
+  ManagedConfiguration?: ManagedConfiguration | undefined;
 }
 
 /**
@@ -4251,7 +4360,7 @@ export interface DescribeTrainingPlanResponse {
   TotalUltraServerCount?: number | undefined;
 
   /**
-   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints, Studio apps) that can use this training plan.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
    * @public
    */
   TargetResources?: SageMakerResourceName[] | undefined;
@@ -11778,74 +11887,4 @@ export interface ModelCardExportJobSummary {
    * @public
    */
   LastModifiedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelCardExportJobsResponse {
-  /**
-   * <p>The summaries of the listed model card export jobs.</p>
-   * @public
-   */
-  ModelCardExportJobSummaries: ModelCardExportJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of model card export jobs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelCardsRequest {
-  /**
-   * <p>Only list model cards that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Only list model cards that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of model cards to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Only list model cards with names that contain the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Only list model cards with the specified approval status.</p>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListModelCards</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model cards, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
-   * @public
-   */
-  SortBy?: ModelCardSortBy | undefined;
-
-  /**
-   * <p>Sort model cards by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: ModelCardSortOrder | undefined;
 }

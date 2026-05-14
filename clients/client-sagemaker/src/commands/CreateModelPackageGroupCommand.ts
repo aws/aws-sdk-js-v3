@@ -45,6 +45,9 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   ManagedConfiguration: { // ManagedConfiguration
+ *     ManagedStorageType: "Restricted",
+ *   },
  * };
  * const command = new CreateModelPackageGroupCommand(input);
  * const response = await client.send(command);

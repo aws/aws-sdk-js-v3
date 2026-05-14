@@ -38,7 +38,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EventTime": 946702799.999,
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceId": "__InstanceId__",
-      "Description": "__Description__"
+      "Description": "__Description__",
+      "EventLevel": "__EventLevel__"
     },
     {
       "EventId": "__EventId__",
@@ -48,7 +49,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EventTime": 946702799.999,
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceId": "__InstanceId__",
-      "Description": "__Description__"
+      "Description": "__Description__",
+      "EventLevel": "__EventLevel__"
     },
     {
       "EventId": "__EventId__",
@@ -58,7 +60,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EventTime": 946702799.999,
       "InstanceGroupName": "__InstanceGroupName__",
       "InstanceId": "__InstanceId__",
-      "Description": "__Description__"
+      "Description": "__Description__",
+      "EventLevel": "__EventLevel__"
     }
   ]
 }
@@ -76,7 +79,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EventTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       InstanceGroupName: "__InstanceGroupName__",
       InstanceId: "__InstanceId__",
-      Description: "__Description__"
+      Description: "__Description__",
+      EventLevel: "__EventLevel__"
     },
     {
       EventId: "__EventId__",
@@ -86,7 +90,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EventTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       InstanceGroupName: "__InstanceGroupName__",
       InstanceId: "__InstanceId__",
-      Description: "__Description__"
+      Description: "__Description__",
+      EventLevel: "__EventLevel__"
     },
     {
       EventId: "__EventId__",
@@ -96,7 +101,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EventTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       InstanceGroupName: "__InstanceGroupName__",
       InstanceId: "__InstanceId__",
-      Description: "__Description__"
+      Description: "__Description__",
+      EventLevel: "__EventLevel__"
     }
   ],
   $metadata: {

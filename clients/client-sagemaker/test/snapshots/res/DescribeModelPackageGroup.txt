@@ -11,7 +11,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "CreationTime": 946702799.999,
   "CreatedBy": {},
   "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-  "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+  "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+  "ManagedConfiguration": {}
 }
 
 
@@ -23,6 +24,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   CreatedBy: {},
   ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
   ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+  ManagedConfiguration: {},
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -55,7 +57,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     }
   },
   "ModelPackageGroupStatus": "__ModelPackageGroupStatus__",
-  "ModelPackageGroupDescription": "__ModelPackageGroupDescription__"
+  "ModelPackageGroupDescription": "__ModelPackageGroupDescription__",
+  "ManagedConfiguration": {
+    "ManagedStorageType": "__ManagedStorageType__"
+  }
 }
 
 
@@ -76,6 +81,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   },
   ModelPackageGroupStatus: "__ModelPackageGroupStatus__",
   ModelPackageGroupDescription: "__ModelPackageGroupDescription__",
+  ManagedConfiguration: {
+    ManagedStorageType: "__ManagedStorageType__"
+  },
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

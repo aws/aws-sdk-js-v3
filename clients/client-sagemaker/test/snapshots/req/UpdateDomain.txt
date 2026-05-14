@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateDomain
-content-length: 10902
+content-length: 11368
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 0505f1cf61a5b461659419b2e6a1656cb75be6f60bf15d678be5b6200235cb4a
+x-amz-content-sha256: 941e47cefeb2c7c7d8c65fc4c4760ca6a26611820977b927200130f00968c2ea
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -34,7 +34,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "LifecycleConfigArns": [
         "__member__",
@@ -59,7 +60,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -90,7 +92,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       }
     },
     "RStudioServerProAppSettings": {
@@ -103,7 +106,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -173,7 +177,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -213,7 +218,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -331,7 +337,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
           "SageMakerImageName": "__SageMakerImageName__",
           "VersionAliases": []
         }
-      ]
+      ],
+      "ExecutionRoleSessionNameMode": "__ExecutionRoleSessionNameMode__"
     },
     "AutoMountHomeEFS": "__AutoMountHomeEFS__"
   },
@@ -343,7 +350,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "RStudioConnectUrl": "__RStudioConnectUrl__",
       "RStudioPackageManagerUrl": "__RStudioPackageManagerUrl__"
@@ -396,7 +404,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "LifecycleConfigArns": [
         "__member__",
@@ -421,7 +430,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
@@ -452,7 +462,8 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
         "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
         "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
         "InstanceType": "__InstanceType__",
-        "LifecycleConfigArn": "__LifecycleConfigArn__"
+        "LifecycleConfigArn": "__LifecycleConfigArn__",
+        "TrainingPlanArn": "__TrainingPlanArn__"
       },
       "CustomImages": [
         {
