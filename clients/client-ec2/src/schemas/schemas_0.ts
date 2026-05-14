@@ -3203,6 +3203,7 @@ const _IMm = "ImageMetadata";
 const _IMn = "InstanceMonitoring";
 const _IMns = "InstanceMonitorings";
 const _IN = "Ipv6Native";
+const _INCRL = "ImageNameCriteriaRequestList";
 const _INI = "InstanceNetworkInterface";
 const _INIA = "InstanceNetworkInterfaceAssociation";
 const _INIAn = "InstanceNetworkInterfaceAttachment";
@@ -3214,7 +3215,6 @@ const _INLm = "ImageNameList";
 const _INLp = "Ipv4NetmaskLength";
 const _INPO = "InstanceNetworkPerformanceOptions";
 const _INPOR = "InstanceNetworkPerformanceOptionsRequest";
-const _INRL = "ImageNameRequestList";
 const _INm = "ImageNames";
 const _INma = "ImageName";
 const _IOA = "ImageOwnerAlias";
@@ -17791,7 +17791,7 @@ export var ImageCriterion$: StaticStructureSchema = [3, n0, _ICma,
 export var ImageCriterionRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
   [_IPm, _MPC, _INm, _DTC, _CDC],
-  [[() => ImageProviderRequestList, { [_xN]: _IPma }], [() => MarketplaceProductCodeRequestList, { [_xN]: _MPCa }], [() => ImageNameRequestList, { [_xN]: _INma }], () => DeprecationTimeConditionRequest$, () => CreationDateConditionRequest$]
+  [[() => ImageProviderRequestList, { [_xN]: _IPma }], [() => MarketplaceProductCodeRequestList, { [_xN]: _MPCa }], [() => ImageNameCriteriaRequestList, { [_xN]: _INma }], () => DeprecationTimeConditionRequest$, () => CreationDateConditionRequest$]
 ];
 export var ImageDiskContainer$: StaticStructureSchema = [3, n0, _IDC,
   0,
@@ -25238,7 +25238,7 @@ export var VolumeDetail$: StaticStructureSchema = [3, n0, _VDo,
 ];
 export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   0,
-  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd, _Op],
+  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd],
   [[0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `ModificationState`
   , [_xN]: _mSod }], [0, { [_eQN]: `StatusMessage`
@@ -25255,8 +25255,7 @@ export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   , [_xN]: _oMAE }], [1, { [_eQN]: `Progress`
   , [_xN]: _pro }], [4, { [_eQN]: `StartTime`
   , [_xN]: _sT }], [4, { [_eQN]: `EndTime`
-  , [_xN]: _eTn }], [() => OperatorResponse$, { [_eQN]: `Operator`
-  , [_xN]: _ope }]]
+  , [_xN]: _eTn }]]
 ];
 export var VolumeRecycleBinInfo$: StaticStructureSchema = [3, n0, _VRBI,
   0,
@@ -26494,11 +26493,11 @@ var ImageList: StaticListSchema = [1, n0, _ILm,
   0, [() => Image$,
     { [_xN]: _it }]
 ];
-var ImageNameList: StaticListSchema = [1, n0, _INLm,
+var ImageNameCriteriaRequestList: StaticListSchema = [1, n0, _INCRL,
   0, [0,
     { [_xN]: _it }]
 ];
-var ImageNameRequestList: StaticListSchema = [1, n0, _INRL,
+var ImageNameList: StaticListSchema = [1, n0, _INLm,
   0, [0,
     { [_xN]: _it }]
 ];

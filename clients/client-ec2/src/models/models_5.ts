@@ -2327,13 +2327,6 @@ export interface VolumeModification {
    * @public
    */
   EndTime?: Date | undefined;
-
-  /**
-   * <p>Describes whether the resource is managed by a service provider and, if so, describes
-   *             the service provider that manages it.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
 }
 
 /**

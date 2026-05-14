@@ -56,7 +56,7 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput extend
  *       MarketplaceProductCodes: [ // MarketplaceProductCodeRequestList
  *         "STRING_VALUE",
  *       ],
- *       ImageNames: [ // ImageNameRequestList
+ *       ImageNames: [ // ImageNameCriteriaRequestList
  *         "STRING_VALUE",
  *       ],
  *       DeprecationTimeCondition: { // DeprecationTimeConditionRequest
