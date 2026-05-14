@@ -71,6 +71,20 @@ export type LocalTimeZoneDetectionType = (typeof LocalTimeZoneDetectionType)[key
  * @public
  * @enum
  */
+export const LocalTimeZoneDetectionScope = {
+  ALL_AVAILABLE: "ALL_AVAILABLE",
+  PRIMARY_ONLY: "PRIMARY_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type LocalTimeZoneDetectionScope =
+  (typeof LocalTimeZoneDetectionScope)[keyof typeof LocalTimeZoneDetectionScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExternalCampaignType = {
   JOURNEY: "JOURNEY",
   MANAGED: "MANAGED",

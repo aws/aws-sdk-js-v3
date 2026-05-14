@@ -130,6 +130,7 @@ export type {
   InstanceLimitsHandling,
   InstanceOnboardingJobFailureCode,
   InstanceOnboardingJobStatusCode,
+  LocalTimeZoneDetectionScope,
   LocalTimeZoneDetectionType,
   ProfileOutboundRequestFailureCode,
   AgentlessConfig,

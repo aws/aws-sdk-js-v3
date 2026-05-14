@@ -253,6 +253,7 @@ const _kBA = "knowledgeBaseArn";
 const _l = "lambda";
 const _lTZC = "localTimeZoneConfig";
 const _lTZD = "localTimeZoneDetection";
+const _lTZDS = "localTimeZoneDetectionScope";
 const _m = "message";
 const _mCPR = "maxCountPerRecipient";
 const _mEC = "maxEntryCount";
@@ -680,8 +681,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var LocalTimeZoneConfig$: StaticStructureSchema = [3, n0, _LTZC,
   0,
-  [_dTZ, _lTZD],
-  [0, 64 | 0]
+  [_dTZ, _lTZD, _lTZDS],
+  [0, 64 | 0, 0]
 ];
 export var OutboundRequest$: StaticStructureSchema = [3, n0, _OR,
   0,

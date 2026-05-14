@@ -128,6 +128,7 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   LocalTimeZoneConfig$,
+  LocalTimeZoneDetectionScope,
   LocalTimeZoneDetectionType,
   OpenHours$,
   OutboundRequest$,
@@ -446,6 +447,7 @@ assert(typeof InstanceIdFilterOperator === "object");
 assert(typeof InstanceLimitsHandling === "object");
 assert(typeof InstanceOnboardingJobFailureCode === "object");
 assert(typeof InstanceOnboardingJobStatusCode === "object");
+assert(typeof LocalTimeZoneDetectionScope === "object");
 assert(typeof LocalTimeZoneDetectionType === "object");
 assert(typeof ProfileOutboundRequestFailureCode === "object");
 // errors

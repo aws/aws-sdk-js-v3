@@ -48,6 +48,7 @@ export interface UpdateCampaignCommunicationTimeCommandOutput extends __Metadata
  *       localTimeZoneDetection: [ // LocalTimeZoneDetection
  *         "STRING_VALUE",
  *       ],
+ *       localTimeZoneDetectionScope: "STRING_VALUE",
  *     },
  *     telephony: { // TimeWindow
  *       openHours: { // OpenHours Union: only one key present

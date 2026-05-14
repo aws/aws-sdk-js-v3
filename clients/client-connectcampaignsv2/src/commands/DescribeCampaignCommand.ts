@@ -138,6 +138,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //         localTimeZoneDetection: [ // LocalTimeZoneDetection
  * //           "STRING_VALUE",
  * //         ],
+ * //         localTimeZoneDetectionScope: "STRING_VALUE",
  * //       },
  * //       telephony: { // TimeWindow
  * //         openHours: { // OpenHours Union: only one key present

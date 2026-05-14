@@ -17,6 +17,7 @@ import type {
   InstanceLimitsHandling,
   InstanceOnboardingJobFailureCode,
   InstanceOnboardingJobStatusCode,
+  LocalTimeZoneDetectionScope,
   LocalTimeZoneDetectionType,
   ProfileOutboundRequestFailureCode,
 } from "./enums";
@@ -766,6 +767,12 @@ export interface LocalTimeZoneConfig {
    * @public
    */
   localTimeZoneDetection?: LocalTimeZoneDetectionType[] | undefined;
+
+  /**
+   * Local TimeZone Detection scope.
+   * @public
+   */
+  localTimeZoneDetectionScope?: LocalTimeZoneDetectionScope | undefined;
 }
 
 /**
