@@ -3346,8 +3346,8 @@ export interface CreateClusterMessage {
    *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
    *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
    *          <p>Valid Values:
-   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *             <code>ra3.large</code> |  <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code>| <code>rg.xlarge</code> | <code>rg.4xlarge</code> |
+   *             <code>ra3.large</code> | <code>ra3.xlplus</code> | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public
    */
@@ -3485,7 +3485,7 @@ export interface CreateClusterMessage {
    * <p>The number of days that automated snapshots are retained. If the value is 0,
    *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
    *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *          <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
+   *          <p>You can't disable automated snapshots for RG or RA3 node types. Set the automated retention period from 1-35 days.</p>
    *          <p>Default: <code>1</code>
    *          </p>
    *          <p>Constraints: Must be a value from 0 to 35.</p>
@@ -3513,8 +3513,8 @@ export interface CreateClusterMessage {
    *         </p>
    *          <ul>
    *             <li>
-   *                <p>For clusters with ra3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
-   *                 with ra3 nodes, it isn't required that you change the port to these ranges.)</p>
+   *                <p>For clusters with RG or RA3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
+   *                 with RG or RA3 nodes, it isn't required that you change the port to these ranges.)</p>
    *             </li>
    *             <li>
    *                <p>For clusters with dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
@@ -10173,8 +10173,8 @@ export interface ModifyClusterMessage {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    *          <p>Valid Values:
-   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *             <code>ra3.large</code> |  <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code>| <code>rg.xlarge</code> | <code>rg.4xlarge</code> |
+   *             <code>ra3.large</code> | <code>ra3.xlplus</code> | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public
    */
@@ -10272,7 +10272,7 @@ export interface ModifyClusterMessage {
    *          <p>If you decrease the automated snapshot retention period from its current value,
    *             existing automated snapshots that fall outside of the new retention period will be
    *             immediately deleted.</p>
-   *          <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
+   *          <p>You can't disable automated snapshots for RG or RA3 node types. Set the automated retention period from 1-35 days.</p>
    *          <p>Default: Uses existing setting.</p>
    *          <p>Constraints: Must be a value from 0 to 35.</p>
    * @public
@@ -10444,8 +10444,8 @@ export interface ModifyClusterMessage {
    *         </p>
    *          <ul>
    *             <li>
-   *                <p>For clusters with ra3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
-   *                 with ra3 nodes, it isn't required that you change the port to these ranges.)</p>
+   *                <p>For clusters with RG or RA3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
+   *                 with RG or RA3 nodes, it isn't required that you change the port to these ranges.)</p>
    *             </li>
    *             <li>
    *                <p>For clusters with dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
