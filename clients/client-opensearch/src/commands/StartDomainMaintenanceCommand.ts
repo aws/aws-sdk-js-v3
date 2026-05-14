@@ -4,7 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartDomainMaintenanceRequest, StartDomainMaintenanceResponse } from "../models/models_0";
+import type { StartDomainMaintenanceRequest, StartDomainMaintenanceResponse } from "../models/models_1";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { StartDomainMaintenance$ } from "../schemas/schemas_0";
 

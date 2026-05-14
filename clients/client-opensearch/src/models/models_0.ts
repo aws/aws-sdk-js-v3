@@ -50,13 +50,13 @@ import type {
   OverallChangeStatus,
   PackageStatus,
   PackageType,
+  PauseState,
   PrincipalType,
   PropertyValueType,
   RequirementLevel,
   ReservedInstancePaymentOption,
   RolesKeyIdCOption,
   RollbackOnDisable,
-  ScheduleAt,
   ScheduledAutoTuneActionType,
   ScheduledAutoTuneSeverityType,
   ScheduledBy,
@@ -1879,6 +1879,37 @@ export interface CreateApplicationResponse {
 }
 
 /**
+ * <p>Specifies the automated snapshot pause request options for the domain.</p>
+ *          <important>
+ *             <p>Suspending snapshots reduces data protection. You cannot restore your domain to
+ *                 points in time when snapshots are suspended. Use this feature only for short-term
+ *                 operational needs such as migrations or maintenance windows.</p>
+ *          </important>
+ *          <p>Maximum suspension duration: 3 days.</p>
+ * @public
+ */
+export interface AutomatedSnapshotPauseRequestOptions {
+  /**
+   * <p>Whether to enable or disable automated snapshot pause for the domain.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause should begin.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause should end. The maximum allowed
+   *             duration between <code>StartTime</code> and <code>EndTime</code> is 3 days.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
  * <p>The duration of a maintenance schedule. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch Service</a>.</p>
  * @public
  */
@@ -2686,6 +2717,48 @@ export interface CreateDomainRequest {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>Specifies the automated snapshot pause options for the domain.</p>
+   *          <important>
+   *             <p>Suspending snapshots reduces data protection. You cannot restore your domain to
+   *                 points in time when snapshots are suspended. Use this feature only for short-term
+   *                 operational needs such as migrations or maintenance windows.</p>
+   *          </important>
+   *          <p>Maximum suspension duration: 3 days.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
+}
+
+/**
+ * <p>Specifies the automated snapshot pause options for the domain. These options allow you to temporarily pause automated snapshots for a specified time period.</p>
+ * @public
+ */
+export interface AutomatedSnapshotPauseOptions {
+  /**
+   * <p>Whether automated snapshot pause is enabled for the domain.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause begins.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause ends.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The current state of the automated snapshot pause. Valid values are <code>Active</code>, <code>Completed</code>, <code>Scheduled</code>, and <code>Disabled</code>.</p>
+   * @public
+   */
+  State?: PauseState | undefined;
 }
 
 /**
@@ -3143,6 +3216,12 @@ export interface DomainStatus {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>The current status of the domain's automated snapshot pause options.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptions | undefined;
 }
 
 /**
@@ -4362,6 +4441,24 @@ export interface DescribeDomainConfigRequest {
 }
 
 /**
+ * <p>The status of automated snapshot pause options for the domain.</p>
+ * @public
+ */
+export interface AutomatedSnapshotPauseOptionsStatus {
+  /**
+   * <p>Automated snapshot pause options for the domain.</p>
+   * @public
+   */
+  Options: AutomatedSnapshotPauseOptions | undefined;
+
+  /**
+   * <p>The current status of the automated snapshot pause options for the domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
  * <p>Auto-Tune settings when updating a domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch Service</a>.</p>
  * @public
  */
@@ -4879,6 +4976,12 @@ export interface DomainConfig {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptionsStatus | undefined;
+
+  /**
+   * <p>Specifies <code>AutomatedSnapshotPauseOptions</code> for the domain.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptionsStatus | undefined;
 }
 
 /**
@@ -8333,91 +8436,4 @@ export interface RollbackServiceSoftwareUpdateResponse {
    * @public
    */
   RollbackServiceSoftwareOptions?: RollbackServiceSoftwareOptions | undefined;
-}
-
-/**
- * <p>Container for the parameters to the <code>StartDomainMaintenance</code>
- *             operation.</p>
- * @public
- */
-export interface StartDomainMaintenanceRequest {
-  /**
-   * <p>The name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The name of the action.</p>
-   * @public
-   */
-  Action: MaintenanceType | undefined;
-
-  /**
-   * <p>The ID of the data node.</p>
-   * @public
-   */
-  NodeId?: string | undefined;
-}
-
-/**
- * <p>The result of a <code>StartDomainMaintenance</code> request that information about the
- *             requested action. </p>
- * @public
- */
-export interface StartDomainMaintenanceResponse {
-  /**
-   * <p>The request ID of requested action.</p>
-   * @public
-   */
-  MaintenanceId?: string | undefined;
-}
-
-/**
- * <p>Container for the request parameters to the <code>StartServiceSoftwareUpdate</code>
- *             operation.</p>
- * @public
- */
-export interface StartServiceSoftwareUpdateRequest {
-  /**
-   * <p>The name of the domain that you want to update to the latest service software.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>When to start the service software update.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NOW</code> - Immediately schedules the update to happen in the current
-   *                     hour if there's capacity available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the
-   *                     update. If you specify this value, you must also provide a value for
-   *                         <code>DesiredStartTime</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an
-   *                     upcoming off-peak window. There's no guarantee that the update will happen
-   *                     during the next immediate window. Depending on capacity, it might happen in
-   *                     subsequent days.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>NOW</code> if you don't specify a value for
-   *                 <code>DesiredStartTime</code>, and <code>TIMESTAMP</code> if you do.</p>
-   * @public
-   */
-  ScheduleAt?: ScheduleAt | undefined;
-
-  /**
-   * <p>The Epoch timestamp when you want the service software update to start. You only need
-   *             to specify this parameter if you set <code>ScheduleAt</code> to
-   *             <code>TIMESTAMP</code>.</p>
-   * @public
-   */
-  DesiredStartTime?: number | undefined;
 }

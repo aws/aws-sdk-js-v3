@@ -48,6 +48,9 @@ const _ASE = "AdvancedSecurityEnabled";
 const _ASO = "AdvancedSecurityOptions";
 const _ASOI = "AdvancedSecurityOptionsInput";
 const _ASOS = "AdvancedSecurityOptionsStatus";
+const _ASPO = "AutomatedSnapshotPauseOptions";
+const _ASPOS = "AutomatedSnapshotPauseOptionsStatus";
+const _ASPRO = "AutomatedSnapshotPauseRequestOptions";
 const _ASSH = "AutomatedSnapshotStartHour";
 const _ASUE = "AutoSoftwareUpdateEnabled";
 const _ASp = "ApplicationSummaries";
@@ -329,7 +332,8 @@ const _EIL = "EnvironmentInfoList";
 const _EIn = "EnvironmentInfo";
 const _EInt = "EntityId";
 const _EM = "ErrorMessage";
-const _ET = "EngineType";
+const _ET = "EndTime";
+const _ETn = "EngineType";
 const _ETr = "ErrorType";
 const _EV = "EngineVersion";
 const _EVn = "EndpointV2";
@@ -1112,6 +1116,21 @@ export var AuthorizeVpcEndpointAccessResponse$: StaticStructureSchema = [3, n0, 
   [_AP],
   [() => AuthorizedPrincipal$], 1
 ];
+export var AutomatedSnapshotPauseOptions$: StaticStructureSchema = [3, n0, _ASPO,
+  0,
+  [_E, _ST, _ET, _St],
+  [2, 4, 4, 0], 1
+];
+export var AutomatedSnapshotPauseOptionsStatus$: StaticStructureSchema = [3, n0, _ASPOS,
+  0,
+  [_O, _S],
+  [() => AutomatedSnapshotPauseOptions$, () => OptionStatus$], 2
+];
+export var AutomatedSnapshotPauseRequestOptions$: StaticStructureSchema = [3, n0, _ASPRO,
+  0,
+  [_E, _ST, _ET],
+  [2, 4, 4], 1
+];
 export var AutoTune$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_ATT, _ATD],
@@ -1259,8 +1278,8 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_DN, _EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _TL, _ATO, _OPWO, _SUO, _AIMLO, _DSO],
-  [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$], 1
+  [_DN, _EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _TL, _ATO, _OPWO, _SUO, _AIMLO, _DSO, _ASPO],
+  [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$], 1
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -1619,8 +1638,8 @@ export var DissociatePackagesResponse$: StaticStructureSchema = [3, n0, _DPRisso
 ];
 export var DomainConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _MP, _AIMLO, _DSO],
-  [() => VersionStatus$, () => ClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => IPAddressTypeStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => IdentityCenterOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => OffPeakWindowOptionsStatus$, () => SoftwareUpdateOptionsStatus$, () => ModifyingPropertiesList, () => AIMLOptionsStatus$, () => DeploymentStrategyOptionsStatus$]
+  [_EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _MP, _AIMLO, _DSO, _ASPO],
+  [() => VersionStatus$, () => ClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => IPAddressTypeStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => IdentityCenterOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => OffPeakWindowOptionsStatus$, () => SoftwareUpdateOptionsStatus$, () => ModifyingPropertiesList, () => AIMLOptionsStatus$, () => DeploymentStrategyOptionsStatus$, () => AutomatedSnapshotPauseOptionsStatus$]
 ];
 export var DomainEndpointOptions$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -1634,7 +1653,7 @@ export var DomainEndpointOptionsStatus$: StaticStructureSchema = [3, n0, _DEOS,
 ];
 export var DomainInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
-  [_DN, _ET],
+  [_DN, _ETn],
   [0, 0]
 ];
 export var DomainInformationContainer$: StaticStructureSchema = [3, n0, _DIC,
@@ -1659,8 +1678,8 @@ export var DomainPackageDetails$: StaticStructureSchema = [3, n0, _DPD,
 ];
 export var DomainStatus$: StaticStructureSchema = [3, n0, _DSo,
   0,
-  [_DIo, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO, _DSO],
-  [0, 0, 0, () => ClusterConfig$, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$, () => DeploymentStrategyOptions$], 4
+  [_DIo, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO, _DSO, _ASPO],
+  [0, 0, 0, () => ClusterConfig$, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseOptions$], 4
 ];
 export var DryRunProgressStatus$: StaticStructureSchema = [3, n0, _DRPS,
   0,
@@ -1969,7 +1988,7 @@ export var ListDomainMaintenancesResponse$: StaticStructureSchema = [3, n0, _LDM
 ];
 export var ListDomainNamesRequest$: StaticStructureSchema = [3, n0, _LDNR,
   0,
-  [_ET],
+  [_ETn],
   [[0, { [_hQ]: _eT }]]
 ];
 export var ListDomainNamesResponse$: StaticStructureSchema = [3, n0, _LDNRi,
@@ -2434,8 +2453,8 @@ export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateDomainConfigRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
-  [_DN, _CC, _EBSO, _SOn, _VPCO, _CO, _AO, _APc, _IPAT, _LPO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO, _DSO],
-  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$], 1
+  [_DN, _CC, _EBSO, _SOn, _VPCO, _CO, _AO, _APc, _IPAT, _LPO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO, _DSO, _ASPO],
+  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$], 1
 ];
 export var UpdateDomainConfigResponse$: StaticStructureSchema = [3, n0, _UDCRp,
   0,

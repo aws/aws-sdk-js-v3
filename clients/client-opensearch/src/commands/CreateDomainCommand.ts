@@ -206,6 +206,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
  *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
  *   },
+ *   AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseRequestOptions
+ *     Enabled: true || false, // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
@@ -403,6 +408,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     },
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
  * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptions
+ * //       Enabled: true || false, // required
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //     },
  * //   },
  * // };

@@ -319,6 +319,15 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptionsStatus
+ * //       Options: { // AutomatedSnapshotPauseOptions
+ * //         Enabled: true || false, // required
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //         State: "Active" || "Completed" || "Scheduled" || "Disabled",
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
  * //   },
  * // };
  *

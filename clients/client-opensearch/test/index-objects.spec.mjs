@@ -46,6 +46,9 @@ import {
   AuthorizeVpcEndpointAccessCommand,
   AuthorizeVpcEndpointAccessRequest$,
   AuthorizeVpcEndpointAccessResponse$,
+  AutomatedSnapshotPauseOptions$,
+  AutomatedSnapshotPauseOptionsStatus$,
+  AutomatedSnapshotPauseRequestOptions$,
   AutoTune$,
   AutoTuneDesiredState,
   AutoTuneDetails$,
@@ -471,6 +474,7 @@ import {
   paginateListPackagesForDomain,
   paginateListScheduledActions,
   paginateListVersions,
+  PauseState,
   PluginProperties$,
   PrincipalType,
   PrometheusDirectQueryDataSource$,
@@ -823,6 +827,9 @@ assert(typeof AssociatePackagesResponse$ === "object");
 assert(typeof AuthorizedPrincipal$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessRequest$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessResponse$ === "object");
+assert(typeof AutomatedSnapshotPauseOptions$ === "object");
+assert(typeof AutomatedSnapshotPauseOptionsStatus$ === "object");
+assert(typeof AutomatedSnapshotPauseRequestOptions$ === "object");
 assert(typeof AutoTune$ === "object");
 assert(typeof AutoTuneDetails$ === "object");
 assert(typeof AutoTuneMaintenanceSchedule$ === "object");
@@ -1169,6 +1176,7 @@ assert(typeof OverallChangeStatus === "object");
 assert(typeof PackageScopeOperationEnum === "object");
 assert(typeof PackageStatus === "object");
 assert(typeof PackageType === "object");
+assert(typeof PauseState === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof PropertyValueType === "object");
 assert(typeof RequirementLevel === "object");

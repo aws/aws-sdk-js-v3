@@ -8,6 +8,7 @@ import type {
   IndexStatus,
   IPAddressType,
   LogType,
+  MaintenanceType,
   PackageScopeOperationEnum,
   ScheduleAt,
 } from "./enums";
@@ -15,6 +16,7 @@ import type {
   AdvancedSecurityOptionsInput,
   AIMLOptionsInput,
   AppConfig,
+  AutomatedSnapshotPauseRequestOptions,
   AutoTuneOptions,
   ChangeProgressDetails,
   ClusterConfig,
@@ -45,6 +47,93 @@ import type {
   VpcEndpoint,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * <p>Container for the parameters to the <code>StartDomainMaintenance</code>
+ *             operation.</p>
+ * @public
+ */
+export interface StartDomainMaintenanceRequest {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the action.</p>
+   * @public
+   */
+  Action: MaintenanceType | undefined;
+
+  /**
+   * <p>The ID of the data node.</p>
+   * @public
+   */
+  NodeId?: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>StartDomainMaintenance</code> request that information about the
+ *             requested action. </p>
+ * @public
+ */
+export interface StartDomainMaintenanceResponse {
+  /**
+   * <p>The request ID of requested action.</p>
+   * @public
+   */
+  MaintenanceId?: string | undefined;
+}
+
+/**
+ * <p>Container for the request parameters to the <code>StartServiceSoftwareUpdate</code>
+ *             operation.</p>
+ * @public
+ */
+export interface StartServiceSoftwareUpdateRequest {
+  /**
+   * <p>The name of the domain that you want to update to the latest service software.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>When to start the service software update.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOW</code> - Immediately schedules the update to happen in the current
+   *                     hour if there's capacity available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the
+   *                     update. If you specify this value, you must also provide a value for
+   *                         <code>DesiredStartTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an
+   *                     upcoming off-peak window. There's no guarantee that the update will happen
+   *                     during the next immediate window. Depending on capacity, it might happen in
+   *                     subsequent days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>NOW</code> if you don't specify a value for
+   *                 <code>DesiredStartTime</code>, and <code>TIMESTAMP</code> if you do.</p>
+   * @public
+   */
+  ScheduleAt?: ScheduleAt | undefined;
+
+  /**
+   * <p>The Epoch timestamp when you want the service software update to start. You only need
+   *             to specify this parameter if you set <code>ScheduleAt</code> to
+   *             <code>TIMESTAMP</code>.</p>
+   * @public
+   */
+  DesiredStartTime?: number | undefined;
+}
 
 /**
  * <p>Represents the output of a <code>StartServiceSoftwareUpdate</code> operation. Contains
@@ -422,6 +511,18 @@ export interface UpdateDomainConfigRequest {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>Specifies the automated snapshot pause options for the domain.</p>
+   *          <important>
+   *             <p>Suspending snapshots reduces data protection. You cannot restore your domain to
+   *                 points in time when snapshots are suspended. Use this feature only for short-term
+   *                 operational needs such as migrations or maintenance windows.</p>
+   *          </important>
+   *          <p>Maximum suspension duration: 3 days.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
 }
 
 /**

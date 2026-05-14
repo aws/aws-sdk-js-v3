@@ -251,6 +251,12 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
  * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
  * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptions
+ * //       Enabled: true || false, // required
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
+ * //     },
  * //   },
  * //   DryRunResults: { // DryRunResults
  * //     DeploymentType: "STRING_VALUE",

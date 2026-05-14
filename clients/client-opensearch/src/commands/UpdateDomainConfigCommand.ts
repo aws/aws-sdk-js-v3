@@ -202,6 +202,11 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
  *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
  *   },
+ *   AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseRequestOptions
+ *     Enabled: true || false, // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
  * };
  * const command = new UpdateDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -480,6 +485,15 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptionsStatus
  * //       Options: { // DeploymentStrategyOptions
  * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptionsStatus
+ * //       Options: { // AutomatedSnapshotPauseOptions
+ * //         Enabled: true || false, // required
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //         State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },

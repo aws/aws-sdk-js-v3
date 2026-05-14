@@ -237,6 +237,12 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
  * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
  * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptions
+ * //       Enabled: true || false, // required
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
+ * //     },
  * //   },
  * // };
  *
