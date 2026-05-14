@@ -181,6 +181,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchDeleteAdvancedPromptOptimizationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/BatchDeleteAdvancedPromptOptimizationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/BatchDeleteAdvancedPromptOptimizationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/BatchDeleteAdvancedPromptOptimizationJobCommandOutput/)
+</details>
+<details>
+<summary>
 BatchDeleteEvaluationJob
 </summary>
 
@@ -192,6 +199,13 @@ CancelAutomatedReasoningPolicyBuildWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/CancelAutomatedReasoningPolicyBuildWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CancelAutomatedReasoningPolicyBuildWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput/)
+</details>
+<details>
+<summary>
+CreateAdvancedPromptOptimizationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/CreateAdvancedPromptOptimizationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateAdvancedPromptOptimizationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateAdvancedPromptOptimizationJobCommandOutput/)
 </details>
 <details>
 <summary>
@@ -433,6 +447,13 @@ ExportAutomatedReasoningPolicyVersion
 </details>
 <details>
 <summary>
+GetAdvancedPromptOptimizationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetAdvancedPromptOptimizationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetAdvancedPromptOptimizationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetAdvancedPromptOptimizationJobCommandOutput/)
+</details>
+<details>
+<summary>
 GetAutomatedReasoningPolicy
 </summary>
 
@@ -605,6 +626,13 @@ GetUseCaseForModelAccess
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetUseCaseForModelAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetUseCaseForModelAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetUseCaseForModelAccessCommandOutput/)
+</details>
+<details>
+<summary>
+ListAdvancedPromptOptimizationJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListAdvancedPromptOptimizationJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListAdvancedPromptOptimizationJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListAdvancedPromptOptimizationJobsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -801,6 +829,13 @@ StartAutomatedReasoningPolicyTestWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/StartAutomatedReasoningPolicyTestWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/StartAutomatedReasoningPolicyTestWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/StartAutomatedReasoningPolicyTestWorkflowCommandOutput/)
+</details>
+<details>
+<summary>
+StopAdvancedPromptOptimizationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/StopAdvancedPromptOptimizationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/StopAdvancedPromptOptimizationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/StopAdvancedPromptOptimizationJobCommandOutput/)
 </details>
 <details>
 <summary>

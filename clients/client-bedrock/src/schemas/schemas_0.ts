@@ -7,6 +7,10 @@ const _AECMS = "AutomatedEvaluationCustomMetricSource";
 const _AEGIIC = "AccountEnforcedGuardrailInferenceInputConfiguration";
 const _AEGOC = "AccountEnforcedGuardrailOutputConfiguration";
 const _AEGOCc = "AccountEnforcedGuardrailsOutputConfiguration";
+const _APOIC = "AdvancedPromptOptimizationInputConfig";
+const _APOJS = "AdvancedPromptOptimizationJobSummary";
+const _APOJSd = "AdvancedPromptOptimizationJobSummaries";
+const _APOOC = "AdvancedPromptOptimizationOutputConfig";
 const _ARCDSL = "AutomatedReasoningCheckDifferenceScenarioList";
 const _ARCF = "AutomatedReasoningCheckFinding";
 const _ARCFL = "AutomatedReasoningCheckFindingList";
@@ -156,6 +160,13 @@ const _ARPVRM = "AutomatedReasoningPolicyVariableReportMap";
 const _ARPWTC = "AutomatedReasoningPolicyWorkflowTypeContent";
 const _BCB = "ByteContentBlob";
 const _BCD = "ByteContentDoc";
+const _BDAPOJ = "BatchDeleteAdvancedPromptOptimizationJob";
+const _BDAPOJE = "BatchDeleteAdvancedPromptOptimizationJobError";
+const _BDAPOJEa = "BatchDeleteAdvancedPromptOptimizationJobErrors";
+const _BDAPOJI = "BatchDeleteAdvancedPromptOptimizationJobItem";
+const _BDAPOJIa = "BatchDeleteAdvancedPromptOptimizationJobItems";
+const _BDAPOJR = "BatchDeleteAdvancedPromptOptimizationJobRequest";
+const _BDAPOJRa = "BatchDeleteAdvancedPromptOptimizationJobResponse";
 const _BDEJ = "BatchDeleteEvaluationJob";
 const _BDEJE = "BatchDeleteEvaluationJobError";
 const _BDEJEa = "BatchDeleteEvaluationJobErrors";
@@ -165,6 +176,9 @@ const _BDEJR = "BatchDeleteEvaluationJobRequest";
 const _BDEJRa = "BatchDeleteEvaluationJobResponse";
 const _BEM = "BedrockEvaluatorModel";
 const _BEMe = "BedrockEvaluatorModels";
+const _CAPOJ = "CreateAdvancedPromptOptimizationJob";
+const _CAPOJR = "CreateAdvancedPromptOptimizationJobRequest";
+const _CAPOJRr = "CreateAdvancedPromptOptimizationJobResponse";
 const _CARP = "CreateAutomatedReasoningPolicy";
 const _CARPBW = "CancelAutomatedReasoningPolicyBuildWorkflow";
 const _CARPBWR = "CancelAutomatedReasoningPolicyBuildWorkflowRequest";
@@ -326,6 +340,9 @@ const _FMD = "FoundationModelDetails";
 const _FML = "FoundationModelLifecycle";
 const _FMS = "FoundationModelSummary";
 const _FMSL = "FoundationModelSummaryList";
+const _GAPOJ = "GetAdvancedPromptOptimizationJob";
+const _GAPOJR = "GetAdvancedPromptOptimizationJobRequest";
+const _GAPOJRe = "GetAdvancedPromptOptimizationJobResponse";
 const _GARP = "GuardrailAutomatedReasoningPolicy";
 const _GARPA = "GetAutomatedReasoningPolicyAnnotations";
 const _GARPAR = "GetAutomatedReasoningPolicyAnnotationsRequest";
@@ -477,6 +494,7 @@ const _HECMu = "HumanEvaluationCustomMetrics";
 const _HTI = "HumanTaskInstructions";
 const _HWC = "HumanWorkflowConfig";
 const _I = "Identifier";
+const _IC = "InferenceConfiguration";
 const _IFC = "ImplicitFilterConfiguration";
 const _ILC = "InvocationLogsConfig";
 const _ILS = "InvocationLogSource";
@@ -494,6 +512,9 @@ const _KBRAGC = "KnowledgeBaseRetrieveAndGenerateConfiguration";
 const _KBRC = "KnowledgeBaseRetrievalConfiguration";
 const _KBVSC = "KnowledgeBaseVectorSearchConfiguration";
 const _KIC = "KbInferenceConfig";
+const _LAPOJ = "ListAdvancedPromptOptimizationJobs";
+const _LAPOJR = "ListAdvancedPromptOptimizationJobsRequest";
+const _LAPOJRi = "ListAdvancedPromptOptimizationJobsResponse";
 const _LARP = "ListAutomatedReasoningPolicies";
 const _LARPBW = "ListAutomatedReasoningPolicyBuildWorkflows";
 const _LARPBWR = "ListAutomatedReasoningPolicyBuildWorkflowsRequest";
@@ -563,11 +584,13 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
 const _MAS = "MetadataAttributeSchema";
 const _MASL = "MetadataAttributeSchemaList";
+const _MC = "ModelConfiguration";
 const _MCFR = "MetadataConfigurationForReranking";
 const _MCJS = "ModelCopyJobSummary";
 const _MCJSo = "ModelCustomizationJobSummary";
 const _MCJSod = "ModelCopyJobSummaries";
 const _MCJSode = "ModelCustomizationJobSummaries";
+const _MCo = "ModelConfigurations";
 const _MDS = "ModelDataSource";
 const _ME = "ModelEnforcement";
 const _MIJIDC = "ModelInvocationJobInputDataConfig";
@@ -632,6 +655,9 @@ const _RNFE = "ResourceNotFoundException";
 const _RS = "RatingScale";
 const _RSI = "RatingScaleItem";
 const _RSIV = "RatingScaleItemValue";
+const _SAPOJ = "StopAdvancedPromptOptimizationJob";
+const _SAPOJR = "StopAdvancedPromptOptimizationJobRequest";
+const _SAPOJRt = "StopAdvancedPromptOptimizationJobResponse";
 const _SARPBW = "StartAutomatedReasoningPolicyBuildWorkflow";
 const _SARPBWR = "StartAutomatedReasoningPolicyBuildWorkflowRequest";
 const _SARPBWRt = "StartAutomatedReasoningPolicyBuildWorkflowResponse";
@@ -718,6 +744,7 @@ const _aJ = "accuracyJustification";
 const _aM = "assetManifest";
 const _aMRF = "additionalModelRequestFields";
 const _aN = "assetName";
+const _aPOJ = "advancedPromptOptimizationJobs";
 const _aR = "addRule";
 const _aRFNL = "addRuleFromNaturalLanguage";
 const _aRP = "automatedReasoningPolicy";
@@ -799,12 +826,13 @@ const _cRT = "clientRequestToken";
 const _cRo = "conflictingRules";
 const _cS = "coverageScore";
 const _cSu = "customizationsSupported";
-const _cT = "confidenceThreshold";
+const _cT = "creationTime";
 const _cTA = "creationTimeAfter";
 const _cTB = "creationTimeBefore";
 const _cTS = "claimsTrueScenario";
-const _cTo = "contentType";
-const _cTr = "creationTime";
+const _cTl = "clientToken";
+const _cTo = "confidenceThreshold";
+const _cTon = "contentType";
 const _cTu = "customizationType";
 const _cWC = "cloudWatchConfig";
 const _cl = "claims";
@@ -852,6 +880,7 @@ const _eDDE = "embeddingDataDeliveryEnabled";
 const _eI = "endpointIdentifier";
 const _eIv = "evalInterval";
 const _eJ = "evaluationJobs";
+const _eKA = "encryptionKeyArn";
 const _eM = "errorMessage";
 const _eMC = "evaluatorModelConfig";
 const _eMI = "evaluatorModelIdentifiers";
@@ -919,9 +948,10 @@ const _hWC = "humanWorkflowConfig";
 const _ht = "http";
 const _i = "id";
 const _iA = "inputAction";
-const _iC = "inferenceConfig";
+const _iC = "inputConfig";
 const _iCS = "inferenceConfigSummary";
-const _iCn = "ingestContent";
+const _iCn = "inferenceConfig";
+const _iCng = "ingestContent";
 const _iDC = "inputDataConfig";
 const _iDDE = "imageDataDeliveryEnabled";
 const _iE = "inputEnabled";
@@ -1005,11 +1035,12 @@ const _mA = "modelArn";
 const _mAE = "modelArnEquals";
 const _mAe = "metadataAttributes";
 const _mAo = "modelArchitecture";
-const _mC = "modelConfiguration";
+const _mC = "modelConfigurations";
 const _mCJS = "modelCopyJobSummaries";
 const _mCJSo = "modelCustomizationJobSummaries";
 const _mCS = "modelConfigSummary";
 const _mCe = "metadataConfiguration";
+const _mCo = "modelConfiguration";
 const _mD = "modelDetails";
 const _mDN = "modelDeploymentName";
 const _mDS = "modelDataSource";
@@ -1060,7 +1091,8 @@ const _o = "owner";
 const _oA = "outputAction";
 const _oAI = "ownerAccountId";
 const _oAr = "orAll";
-const _oC = "orchestrationConfiguration";
+const _oC = "outputConfig";
+const _oCr = "orchestrationConfiguration";
 const _oDC = "outputDataConfig";
 const _oE = "outputEnabled";
 const _oI = "offerId";
@@ -1459,6 +1491,21 @@ export var AccountEnforcedGuardrailOutputConfiguration$: StaticStructureSchema =
   [_cI, _gA, _gIu, _iT, _sCG, _gV, _cA, _cB, _uA, _uB, _o, _mE],
   [0, 0, 0, 0, () => SelectiveContentGuarding$, 0, 5, 0, 5, 0, 0, () => ModelEnforcement$]
 ];
+export var AdvancedPromptOptimizationInputConfig$: StaticStructureSchema = [3, n0, _APOIC,
+  0,
+  [_sU],
+  [0], 1
+];
+export var AdvancedPromptOptimizationJobSummary$: StaticStructureSchema = [3, n0, _APOJS,
+  0,
+  [_jA, _jN, _jS, _cT, _lMT],
+  [0, 0, 0, 5, 5], 4
+];
+export var AdvancedPromptOptimizationOutputConfig$: StaticStructureSchema = [3, n0, _APOOC,
+  0,
+  [_sU],
+  [0], 1
+];
 export var AgreementAvailability$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_st, _eM],
@@ -1791,7 +1838,7 @@ export var AutomatedReasoningPolicySummary$: StaticStructureSchema = [3, n0, _AR
 ];
 export var AutomatedReasoningPolicyTestCase$: StaticStructureSchema = [3, n0, _ARPTC,
   0,
-  [_tCI, _gC, _cA, _uA, _qC, _eAFR, _cT],
+  [_tCI, _gC, _cA, _uA, _qC, _eAFR, _cTo],
   [0, [() => AutomatedReasoningPolicyTestGuardContent, 0], 5, 5, [() => AutomatedReasoningPolicyTestQueryContent, 0], 0, 1], 4
 ];
 export var AutomatedReasoningPolicyTestResult$: StaticStructureSchema = [3, n0, _ARPTR,
@@ -1849,6 +1896,26 @@ export var AutomatedReasoningPolicyVariableReport$: StaticStructureSchema = [3, 
   [_pV, _gS, _gJ, _aS, _aJ],
   [[() => AutomatedReasoningPolicyDefinitionVariableName, 0], () => AutomatedReasoningPolicyStatementReferenceList, [() => AutomatedReasoningPolicyJustificationList, 0], 1, [() => AutomatedReasoningPolicyJustificationText, 0]], 1
 ];
+export var BatchDeleteAdvancedPromptOptimizationJobError$: StaticStructureSchema = [3, n0, _BDAPOJE,
+  0,
+  [_jI, _cod, _m],
+  [0, 0, 0], 2
+];
+export var BatchDeleteAdvancedPromptOptimizationJobItem$: StaticStructureSchema = [3, n0, _BDAPOJI,
+  0,
+  [_jI, _jS],
+  [0, 0], 2
+];
+export var BatchDeleteAdvancedPromptOptimizationJobRequest$: StaticStructureSchema = [3, n0, _BDAPOJR,
+  0,
+  [_jIo],
+  [64 | 0], 1
+];
+export var BatchDeleteAdvancedPromptOptimizationJobResponse$: StaticStructureSchema = [3, n0, _BDAPOJRa,
+  0,
+  [_er, _aPOJ],
+  [() => BatchDeleteAdvancedPromptOptimizationJobErrors, () => BatchDeleteAdvancedPromptOptimizationJobItems], 2
+];
 export var BatchDeleteEvaluationJobError$: StaticStructureSchema = [3, n0, _BDEJE,
   0,
   [_jI, _cod, _m],
@@ -1876,7 +1943,7 @@ export var BedrockEvaluatorModel$: StaticStructureSchema = [3, n0, _BEM,
 ];
 export var ByteContentDoc$: StaticStructureSchema = [3, n0, _BCD,
   0,
-  [_id, _cTo, _da],
+  [_id, _cTon, _da],
   [[() => Identifier, 0], 0, [() => ByteContentBlob, 0]], 3
 ];
 export var CancelAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _CARPBWR,
@@ -1894,6 +1961,16 @@ export var CloudWatchConfig$: StaticStructureSchema = [3, n0, _CWC,
   [_lGN, _rA, _lDDSC],
   [0, 0, () => S3Config$], 2
 ];
+export var CreateAdvancedPromptOptimizationJobRequest$: StaticStructureSchema = [3, n0, _CAPOJR,
+  0,
+  [_jN, _iC, _oC, _mC, _jD, _cTl, _eKA, _ta],
+  [0, () => AdvancedPromptOptimizationInputConfig$, () => AdvancedPromptOptimizationOutputConfig$, () => ModelConfigurations, 0, [0, 4], 0, () => TagList], 4
+];
+export var CreateAdvancedPromptOptimizationJobResponse$: StaticStructureSchema = [3, n0, _CAPOJRr,
+  0,
+  [_jA],
+  [0], 1
+];
 export var CreateAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n0, _CARPR,
   0,
   [_n, _d, _cRT, _pD, _kKI, _ta],
@@ -1906,7 +1983,7 @@ export var CreateAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [3, n0, _CARPTCR,
   0,
-  [_pA, _gC, _eAFR, _qC, _cRT, _cT],
+  [_pA, _gC, _eAFR, _qC, _cRT, _cTo],
   [[0, 1], [() => AutomatedReasoningPolicyTestGuardContent, 0], 0, [() => AutomatedReasoningPolicyTestQueryContent, 0], [0, 4], 1], 3
 ];
 export var CreateAutomatedReasoningPolicyTestCaseResponse$: StaticStructureSchema = [3, n0, _CARPTCRr,
@@ -1946,7 +2023,7 @@ export var CreateCustomModelResponse$: StaticStructureSchema = [3, n0, _CCMRr,
 ];
 export var CreateEvaluationJobRequest$: StaticStructureSchema = [3, n0, _CEJR,
   0,
-  [_jN, _rA, _eC, _iC, _oDC, _jD, _cRT, _cEKI, _jT, _aTp],
+  [_jN, _rA, _eC, _iCn, _oDC, _jD, _cRT, _cEKI, _jT, _aTp],
   [0, 0, [() => EvaluationConfig$, 0], [() => EvaluationInferenceConfig$, 0], () => EvaluationOutputDataConfig$, [() => EvaluationJobDescription, 0], [0, 4], 0, () => TagList, 0], 5
 ];
 export var CreateEvaluationJobResponse$: StaticStructureSchema = [3, n0, _CEJRr,
@@ -2091,7 +2168,7 @@ export var CustomModelDeploymentUpdateDetails$: StaticStructureSchema = [3, n0, 
 ];
 export var CustomModelSummary$: StaticStructureSchema = [3, n0, _CMS,
   0,
-  [_mA, _mN, _cTr, _bMA, _bMN, _cTu, _oAI, _mSo],
+  [_mA, _mN, _cT, _bMA, _bMN, _cTu, _oAI, _mSo],
   [0, 0, 5, 0, 0, 0, 0, 0], 5
 ];
 export var CustomModelUnits$: StaticStructureSchema = [3, n0, _CMU,
@@ -2101,7 +2178,7 @@ export var CustomModelUnits$: StaticStructureSchema = [3, n0, _CMU,
 ];
 export var DataProcessingDetails$: StaticStructureSchema = [3, n0, _DPD,
   0,
-  [_st, _cTr, _lMT],
+  [_st, _cT, _lMT],
   [0, 5, 5]
 ];
 export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _DARPBWR,
@@ -2326,7 +2403,7 @@ export var EvaluationRagConfigSummary$: StaticStructureSchema = [3, n0, _ERCS,
 ];
 export var EvaluationSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_jA, _jN, _st, _cTr, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aTp],
+  [_jA, _jN, _st, _cT, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aTp],
   [0, 0, 0, 5, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => EvaluationInferenceConfigSummary$, 0], 6
 ];
 export var ExportAutomatedReasoningPolicyVersionRequest$: StaticStructureSchema = [3, n0, _EARPVR,
@@ -2383,6 +2460,16 @@ export var GenerationConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_pT, _gCu, _kIC, _aMRF],
   [[() => PromptTemplate$, 0], () => GuardrailConfiguration$, () => KbInferenceConfig$, 128 | 15]
+];
+export var GetAdvancedPromptOptimizationJobRequest$: StaticStructureSchema = [3, n0, _GAPOJR,
+  0,
+  [_jI],
+  [[0, 1]], 1
+];
+export var GetAdvancedPromptOptimizationJobResponse$: StaticStructureSchema = [3, n0, _GAPOJRe,
+  0,
+  [_jA, _jN, _jS, _iC, _oC, _cT, _mC, _jD, _eKA, _lMT, _fMa],
+  [0, 0, 0, () => AdvancedPromptOptimizationInputConfig$, () => AdvancedPromptOptimizationOutputConfig$, 5, () => ModelConfigurations, 0, 0, 5, 0], 7
 ];
 export var GetAutomatedReasoningPolicyAnnotationsRequest$: StaticStructureSchema = [3, n0, _GARPAR,
   0,
@@ -2471,7 +2558,7 @@ export var GetCustomModelRequest$: StaticStructureSchema = [3, n0, _GCMR,
 ];
 export var GetCustomModelResponse$: StaticStructureSchema = [3, n0, _GCMRe,
   0,
-  [_mA, _mN, _cTr, _jN, _jA, _bMA, _cTu, _mKKA, _hP, _tDC, _vDC, _oDC, _tM, _vM, _cC, _mSo, _fMa],
+  [_mA, _mN, _cT, _jN, _jA, _bMA, _cTu, _mKKA, _hP, _tDC, _vDC, _oDC, _tM, _vM, _cC, _mSo, _fMa],
   [0, 0, 5, 0, 0, 0, 0, 0, 128 | 0, [() => TrainingDataConfig$, 0], () => ValidationDataConfig$, () => OutputDataConfig$, () => TrainingMetrics$, () => ValidationMetrics, () => CustomizationConfig$, 0, 0], 3
 ];
 export var GetEvaluationJobRequest$: StaticStructureSchema = [3, n0, _GEJR,
@@ -2481,7 +2568,7 @@ export var GetEvaluationJobRequest$: StaticStructureSchema = [3, n0, _GEJR,
 ];
 export var GetEvaluationJobResponse$: StaticStructureSchema = [3, n0, _GEJRe,
   0,
-  [_jN, _st, _jA, _rA, _jTo, _eC, _iC, _oDC, _cTr, _jD, _cEKI, _aTp, _lMT, _fMai],
+  [_jN, _st, _jA, _rA, _jTo, _eC, _iCn, _oDC, _cT, _jD, _cEKI, _aTp, _lMT, _fMai],
   [0, 0, 0, 0, 0, [() => EvaluationConfig$, 0], [() => EvaluationInferenceConfig$, 0], () => EvaluationOutputDataConfig$, 5, [() => EvaluationJobDescription, 0], 0, 0, 5, 64 | 0], 9
 ];
 export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n0, _GFMAR,
@@ -2521,7 +2608,7 @@ export var GetImportedModelRequest$: StaticStructureSchema = [3, n0, _GIMR,
 ];
 export var GetImportedModelResponse$: StaticStructureSchema = [3, n0, _GIMRe,
   0,
-  [_mA, _mN, _jN, _jA, _mDS, _cTr, _mAo, _mKKA, _iS, _cMU],
+  [_mA, _mN, _jN, _jA, _mDS, _cT, _mAo, _mKKA, _iS, _cMU],
   [0, 0, 0, 0, () => ModelDataSource$, 5, 0, 0, 2, () => CustomModelUnits$]
 ];
 export var GetInferenceProfileRequest$: StaticStructureSchema = [3, n0, _GIPR,
@@ -2551,7 +2638,7 @@ export var GetModelCopyJobRequest$: StaticStructureSchema = [3, n0, _GMCJR,
 ];
 export var GetModelCopyJobResponse$: StaticStructureSchema = [3, n0, _GMCJRe,
   0,
-  [_jA, _st, _cTr, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
+  [_jA, _st, _cT, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
   [0, 0, 5, 0, 0, 0, 0, 0, () => TagList, 0, 0], 6
 ];
 export var GetModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _GMCJRet,
@@ -2561,7 +2648,7 @@ export var GetModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _GM
 ];
 export var GetModelCustomizationJobResponse$: StaticStructureSchema = [3, n0, _GMCJReto,
   0,
-  [_jA, _jN, _oMN, _rA, _cTr, _bMA, _tDC, _vDC, _oDC, _oMA, _cRT, _st, _sD, _fMa, _lMT, _eT, _hP, _cTu, _oMKKA, _tM, _vM, _vCp, _cC],
+  [_jA, _jN, _oMN, _rA, _cT, _bMA, _tDC, _vDC, _oDC, _oMA, _cRT, _st, _sD, _fMa, _lMT, _eT, _hP, _cTu, _oMKKA, _tM, _vM, _vCp, _cC],
   [0, 0, 0, 0, 5, 0, [() => TrainingDataConfig$, 0], () => ValidationDataConfig$, () => OutputDataConfig$, 0, 0, 0, () => StatusDetails$, 0, 5, 5, 128 | 0, 0, 0, () => TrainingMetrics$, () => ValidationMetrics, () => VpcConfig$, () => CustomizationConfig$], 9
 ];
 export var GetModelImportJobRequest$: StaticStructureSchema = [3, n0, _GMIJR,
@@ -2571,7 +2658,7 @@ export var GetModelImportJobRequest$: StaticStructureSchema = [3, n0, _GMIJR,
 ];
 export var GetModelImportJobResponse$: StaticStructureSchema = [3, n0, _GMIJRe,
   0,
-  [_jA, _jN, _iMN, _iMA, _rA, _mDS, _st, _fMa, _cTr, _lMT, _eT, _vCp, _iMKKA],
+  [_jA, _jN, _iMN, _iMA, _rA, _mDS, _st, _fMa, _cT, _lMT, _eT, _vCp, _iMKKA],
   [0, 0, 0, 0, 0, () => ModelDataSource$, 0, 0, 5, 5, 5, () => VpcConfig$, 0]
 ];
 export var GetModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _GMIJRet,
@@ -2611,7 +2698,7 @@ export var GetProvisionedModelThroughputRequest$: StaticStructureSchema = [3, n0
 ];
 export var GetProvisionedModelThroughputResponse$: StaticStructureSchema = [3, n0, _GPMTRe,
   0,
-  [_mU, _dMU, _pMN, _pMA, _mA, _dMA, _fMA, _st, _cTr, _lMT, _fMa, _cD, _cET],
+  [_mU, _dMU, _pMN, _pMA, _mA, _dMA, _fMA, _st, _cT, _lMT, _fMa, _cD, _cET],
   [1, 1, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 5], 10
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
@@ -2636,12 +2723,12 @@ export var GetUseCaseForModelAccessResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var GuardrailAutomatedReasoningPolicy$: StaticStructureSchema = [3, n0, _GARP,
   0,
-  [_po, _cT],
+  [_po, _cTo],
   [64 | 0, 1], 1
 ];
 export var GuardrailAutomatedReasoningPolicyConfig$: StaticStructureSchema = [3, n0, _GARPC,
   0,
-  [_po, _cT],
+  [_po, _cTo],
   [64 | 0, 1], 1
 ];
 export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GCu,
@@ -2826,8 +2913,13 @@ export var ImplicitFilterConfiguration$: StaticStructureSchema = [3, n0, _IFC,
 ];
 export var ImportedModelSummary$: StaticStructureSchema = [3, n0, _IMS,
   0,
-  [_mA, _mN, _cTr, _iS, _mAo],
+  [_mA, _mN, _cT, _iS, _mAo],
   [0, 0, 5, 2, 0], 3
+];
+export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_mTa, _tem, _tPo, _sS],
+  [1, 1, 1, 64 | 0]
 ];
 export var InferenceProfileModel$: StaticStructureSchema = [3, n0, _IPM,
   0,
@@ -2856,7 +2948,7 @@ export var KnowledgeBaseRetrievalConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var KnowledgeBaseRetrieveAndGenerateConfiguration$: StaticStructureSchema = [3, n0, _KBRAGC,
   0,
-  [_kBI, _mA, _rCet, _gCe, _oC],
+  [_kBI, _mA, _rCet, _gCe, _oCr],
   [0, 0, [() => KnowledgeBaseRetrievalConfiguration$, 0], [() => GenerationConfiguration$, 0], () => OrchestrationConfiguration$], 2
 ];
 export var KnowledgeBaseVectorSearchConfiguration$: StaticStructureSchema = [3, n0, _KBVSC,
@@ -2873,6 +2965,16 @@ export var LegalTerm$: StaticStructureSchema = [3, n0, _LT,
   0,
   [_ur],
   [0]
+];
+export var ListAdvancedPromptOptimizationJobsRequest$: StaticStructureSchema = [3, n0, _LAPOJR,
+  0,
+  [_mR, _nT, _sB, _sO],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }]]
+];
+export var ListAdvancedPromptOptimizationJobsResponse$: StaticStructureSchema = [3, n0, _LAPOJRi,
+  0,
+  [_jSo, _nT],
+  [() => AdvancedPromptOptimizationJobSummaries, 0]
 ];
 export var ListAutomatedReasoningPoliciesRequest$: StaticStructureSchema = [3, n0, _LARPR,
   0,
@@ -3109,14 +3211,19 @@ export var MetadataConfigurationForReranking$: StaticStructureSchema = [3, n0, _
   [_sMe, _sMC],
   [0, [() => RerankingMetadataSelectiveModeConfiguration$, 0]], 1
 ];
+export var ModelConfiguration$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_mIo, _iCn, _aMRF],
+  [0, () => InferenceConfiguration$, 128 | 15], 1
+];
 export var ModelCopyJobSummary$: StaticStructureSchema = [3, n0, _MCJS,
   0,
-  [_jA, _st, _cTr, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
+  [_jA, _st, _cT, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
   [0, 0, 5, 0, 0, 0, 0, 0, () => TagList, 0, 0], 6
 ];
 export var ModelCustomizationJobSummary$: StaticStructureSchema = [3, n0, _MCJSo,
   0,
-  [_jA, _bMA, _jN, _st, _cTr, _sD, _lMT, _eT, _cMA, _cMN, _cTu],
+  [_jA, _bMA, _jN, _st, _cT, _sD, _lMT, _eT, _cMA, _cMN, _cTu],
   [0, 0, 0, 0, 5, () => StatusDetails$, 5, 5, 0, 0, 0], 5
 ];
 export var ModelEnforcement$: StaticStructureSchema = [3, n0, _ME,
@@ -3126,7 +3233,7 @@ export var ModelEnforcement$: StaticStructureSchema = [3, n0, _ME,
 ];
 export var ModelImportJobSummary$: StaticStructureSchema = [3, n0, _MIJS,
   0,
-  [_jA, _jN, _st, _cTr, _lMT, _eT, _iMA, _iMN],
+  [_jA, _jN, _st, _cT, _lMT, _eT, _iMA, _iMN],
   [0, 0, 0, 5, 5, 5, 0, 0], 4
 ];
 export var ModelInvocationJobS3InputDataConfig$: StaticStructureSchema = [3, n0, _MIJSIDC,
@@ -3186,7 +3293,7 @@ export var PromptTemplate$: StaticStructureSchema = [3, n0, _PTr,
 ];
 export var ProvisionedModelSummary$: StaticStructureSchema = [3, n0, _PMS,
   0,
-  [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _st, _cTr, _lMT, _cD, _cET],
+  [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _st, _cT, _lMT, _cD, _cET],
   [0, 0, 0, 0, 0, 1, 1, 0, 5, 5, 0, 5], 10
 ];
 export var PutEnforcedGuardrailConfigurationRequest$: StaticStructureSchema = [3, n0, _PEGCR,
@@ -3329,6 +3436,16 @@ export var StatusDetails$: StaticStructureSchema = [3, n0, _SD,
   [_vD, _dPD, _tDr],
   [() => ValidationDetails$, () => DataProcessingDetails$, () => TrainingDetails$]
 ];
+export var StopAdvancedPromptOptimizationJobRequest$: StaticStructureSchema = [3, n0, _SAPOJR,
+  0,
+  [_jI],
+  [[0, 1]], 1
+];
+export var StopAdvancedPromptOptimizationJobResponse$: StaticStructureSchema = [3, n0, _SAPOJRt,
+  0,
+  [],
+  []
+];
 export var StopEvaluationJobRequest$: StaticStructureSchema = [3, n0, _SEJR,
   0,
   [_jI],
@@ -3401,7 +3518,7 @@ export var TrainingDataConfig$: StaticStructureSchema = [3, n0, _TDC,
 ];
 export var TrainingDetails$: StaticStructureSchema = [3, n0, _TDr,
   0,
-  [_st, _cTr, _lMT],
+  [_st, _cT, _lMT],
   [0, 5, 5]
 ];
 export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM,
@@ -3441,7 +3558,7 @@ export var UpdateAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [3, n0, _UARPTCR,
   0,
-  [_pA, _tCI, _gC, _lUA, _eAFR, _qC, _cT, _cRT],
+  [_pA, _tCI, _gC, _lUA, _eAFR, _qC, _cTo, _cRT],
   [[0, 1], [0, 1], [() => AutomatedReasoningPolicyTestGuardContent, 0], 5, 0, [() => AutomatedReasoningPolicyTestQueryContent, 0], 1, [0, 4]], 5
 ];
 export var UpdateAutomatedReasoningPolicyTestCaseResponse$: StaticStructureSchema = [3, n0, _UARPTCRp,
@@ -3496,7 +3613,7 @@ export var ValidationDataConfig$: StaticStructureSchema = [3, n0, _VDC,
 ];
 export var ValidationDetails$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_st, _cTr, _lMT],
+  [_st, _cT, _lMT],
   [0, 5, 5]
 ];
 export var Validator$: StaticStructureSchema = [3, n0, _V,
@@ -3516,7 +3633,7 @@ export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
 ];
 export var VectorSearchBedrockRerankingConfiguration$: StaticStructureSchema = [3, n0, _VSBRC,
   0,
-  [_mC, _nORR, _mCe],
+  [_mCo, _nORR, _mCe],
   [() => VectorSearchBedrockRerankingModelConfiguration$, 1, [() => MetadataConfigurationForReranking$, 0]], 1
 ];
 export var VectorSearchBedrockRerankingModelConfiguration$: StaticStructureSchema = [3, n0, _VSBRMC,
@@ -3536,6 +3653,10 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
 ];
 var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [1, n0, _AEGOCc,
   0, () => AccountEnforcedGuardrailOutputConfiguration$
+];
+var AdvancedPromptOptimizationJobIdentifiers = 64 | 0;
+var AdvancedPromptOptimizationJobSummaries: StaticListSchema = [1, n0, _APOJSd,
+  0, () => AdvancedPromptOptimizationJobSummary$
 ];
 var AutomatedEvaluationCustomMetrics: StaticListSchema = [1, n0, _AECM,
   0, [() => AutomatedEvaluationCustomMetricSource$,
@@ -3682,6 +3803,12 @@ var AutomatedReasoningPolicyTestList: StaticListSchema = [1, n0, _ARPTL,
 var AutomatedReasoningPolicyTypeValueAnnotationList: StaticListSchema = [1, n0, _ARPTVAL,
   0, [() => AutomatedReasoningPolicyTypeValueAnnotation$,
     0]
+];
+var BatchDeleteAdvancedPromptOptimizationJobErrors: StaticListSchema = [1, n0, _BDAPOJEa,
+  0, () => BatchDeleteAdvancedPromptOptimizationJobError$
+];
+var BatchDeleteAdvancedPromptOptimizationJobItems: StaticListSchema = [1, n0, _BDAPOJIa,
+  0, () => BatchDeleteAdvancedPromptOptimizationJobItem$
 ];
 var BatchDeleteEvaluationJobErrors: StaticListSchema = [1, n0, _BDEJEa,
   0, [() => BatchDeleteEvaluationJobError$,
@@ -3835,6 +3962,9 @@ var MetadataAttributeSchemaList: StaticListSchema = [1, n0, _MASL,
   0, [() => MetadataAttributeSchema$,
     0]
 ];
+var ModelConfigurations: StaticListSchema = [1, n0, _MCo,
+  0, () => ModelConfiguration$
+];
 var ModelCopyJobSummaries: StaticListSchema = [1, n0, _MCJSod,
   0, () => ModelCopyJobSummary$
 ];
@@ -3850,6 +3980,7 @@ var ModelInvocationJobSummaries: StaticListSchema = [1, n0, _MIJSode,
     0]
 ];
 var ModelModalityList = 64 | 0;
+var NonEmptyStringList = 64 | 0;
 var Offers: StaticListSchema = [1, n0, _Of,
   0, () => Offer$
 ];
@@ -3928,7 +4059,7 @@ export var AutomatedReasoningPolicyAnnotatedContent$: StaticUnionSchema = [4, n0
 ];
 export var AutomatedReasoningPolicyAnnotation$: StaticUnionSchema = [4, n0, _ARPA,
   0,
-  [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR, _aRFNL, _uFRF, _uFSF, _iCn],
+  [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR, _aRFNL, _uFRF, _uFSF, _iCng],
   [[() => AutomatedReasoningPolicyAddTypeAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateTypeAnnotation$, 0], [() => AutomatedReasoningPolicyDeleteTypeAnnotation$, 0], [() => AutomatedReasoningPolicyAddVariableAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateVariableAnnotation$, 0], [() => AutomatedReasoningPolicyDeleteVariableAnnotation$, 0], [() => AutomatedReasoningPolicyAddRuleAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateRuleAnnotation$, 0], () => AutomatedReasoningPolicyDeleteRuleAnnotation$, [() => AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation$, 0], [() => AutomatedReasoningPolicyIngestContentAnnotation$, 0]]
 ];
 export var AutomatedReasoningPolicyBuildResultAssets$: StaticUnionSchema = [4, n0, _ARPBRA,
@@ -4066,11 +4197,17 @@ export var RetrievalFilter$: StaticUnionSchema = [4, n0, _RF,
   [_eq, _nE, _gT, _gTOE, _lTes, _lTOE, _in_, _nI, _sW, _lCi, _sCt, _aAn, _oAr],
   [() => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, [() => RetrievalFilterList, 0], [() => RetrievalFilterList, 0]]
 ];
+export var BatchDeleteAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _BDAPOJ,
+  { [_ht]: ["POST", "/advanced-prompt-optimization-job/batch-delete", 202] }, () => BatchDeleteAdvancedPromptOptimizationJobRequest$, () => BatchDeleteAdvancedPromptOptimizationJobResponse$
+];
 export var BatchDeleteEvaluationJob$: StaticOperationSchema = [9, n0, _BDEJ,
   { [_ht]: ["POST", "/evaluation-jobs/batch-delete", 202] }, () => BatchDeleteEvaluationJobRequest$, () => BatchDeleteEvaluationJobResponse$
 ];
 export var CancelAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = [9, n0, _CARPBW,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/cancel", 202] }, () => CancelAutomatedReasoningPolicyBuildWorkflowRequest$, () => CancelAutomatedReasoningPolicyBuildWorkflowResponse$
+];
+export var CreateAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _CAPOJ,
+  { [_ht]: ["POST", "/advanced-prompt-optimization-jobs", 200] }, () => CreateAdvancedPromptOptimizationJobRequest$, () => CreateAdvancedPromptOptimizationJobResponse$
 ];
 export var CreateAutomatedReasoningPolicy$: StaticOperationSchema = [9, n0, _CARP,
   { [_ht]: ["POST", "/automated-reasoning-policies", 200] }, () => CreateAutomatedReasoningPolicyRequest$, () => CreateAutomatedReasoningPolicyResponse$
@@ -4174,6 +4311,9 @@ export var DeregisterMarketplaceModelEndpoint$: StaticOperationSchema = [9, n0, 
 export var ExportAutomatedReasoningPolicyVersion$: StaticOperationSchema = [9, n0, _EARPV,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/export", 200] }, () => ExportAutomatedReasoningPolicyVersionRequest$, () => ExportAutomatedReasoningPolicyVersionResponse$
 ];
+export var GetAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _GAPOJ,
+  { [_ht]: ["GET", "/advanced-prompt-optimization-jobs/{jobIdentifier}", 200] }, () => GetAdvancedPromptOptimizationJobRequest$, () => GetAdvancedPromptOptimizationJobResponse$
+];
 export var GetAutomatedReasoningPolicy$: StaticOperationSchema = [9, n0, _GARPe,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}", 200] }, () => GetAutomatedReasoningPolicyRequest$, () => GetAutomatedReasoningPolicyResponse$
 ];
@@ -4248,6 +4388,9 @@ export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
 ];
 export var GetUseCaseForModelAccess$: StaticOperationSchema = [9, n0, _GUCFMA,
   { [_ht]: ["GET", "/use-case-for-model-access", 200] }, () => GetUseCaseForModelAccessRequest$, () => GetUseCaseForModelAccessResponse$
+];
+export var ListAdvancedPromptOptimizationJobs$: StaticOperationSchema = [9, n0, _LAPOJ,
+  { [_ht]: ["GET", "/advanced-prompt-optimization-jobs", 200] }, () => ListAdvancedPromptOptimizationJobsRequest$, () => ListAdvancedPromptOptimizationJobsResponse$
 ];
 export var ListAutomatedReasoningPolicies$: StaticOperationSchema = [9, n0, _LARP,
   { [_ht]: ["GET", "/automated-reasoning-policies", 200] }, () => ListAutomatedReasoningPoliciesRequest$, () => ListAutomatedReasoningPoliciesResponse$
@@ -4332,6 +4475,9 @@ export var StartAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = 
 ];
 export var StartAutomatedReasoningPolicyTestWorkflow$: StaticOperationSchema = [9, n0, _SARPTW,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-workflows", 200] }, () => StartAutomatedReasoningPolicyTestWorkflowRequest$, () => StartAutomatedReasoningPolicyTestWorkflowResponse$
+];
+export var StopAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _SAPOJ,
+  { [_ht]: ["POST", "/advanced-prompt-optimization-jobs/{jobIdentifier}/stop", 200] }, () => StopAdvancedPromptOptimizationJobRequest$, () => StopAdvancedPromptOptimizationJobResponse$
 ];
 export var StopEvaluationJob$: StaticOperationSchema = [9, n0, _SEJ,
   { [_ht]: ["POST", "/evaluation-job/{jobIdentifier}/stop", 200] }, () => StopEvaluationJobRequest$, () => StopEvaluationJobResponse$

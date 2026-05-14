@@ -4,6 +4,11 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { BedrockClient } from "./BedrockClient";
 import {
+  type BatchDeleteAdvancedPromptOptimizationJobCommandInput,
+  type BatchDeleteAdvancedPromptOptimizationJobCommandOutput,
+  BatchDeleteAdvancedPromptOptimizationJobCommand,
+} from "./commands/BatchDeleteAdvancedPromptOptimizationJobCommand";
+import {
   type BatchDeleteEvaluationJobCommandInput,
   type BatchDeleteEvaluationJobCommandOutput,
   BatchDeleteEvaluationJobCommand,
@@ -13,6 +18,11 @@ import {
   type CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
   CancelAutomatedReasoningPolicyBuildWorkflowCommand,
 } from "./commands/CancelAutomatedReasoningPolicyBuildWorkflowCommand";
+import {
+  type CreateAdvancedPromptOptimizationJobCommandInput,
+  type CreateAdvancedPromptOptimizationJobCommandOutput,
+  CreateAdvancedPromptOptimizationJobCommand,
+} from "./commands/CreateAdvancedPromptOptimizationJobCommand";
 import {
   type CreateAutomatedReasoningPolicyCommandInput,
   type CreateAutomatedReasoningPolicyCommandOutput,
@@ -184,6 +194,11 @@ import {
   ExportAutomatedReasoningPolicyVersionCommand,
 } from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
 import {
+  type GetAdvancedPromptOptimizationJobCommandInput,
+  type GetAdvancedPromptOptimizationJobCommandOutput,
+  GetAdvancedPromptOptimizationJobCommand,
+} from "./commands/GetAdvancedPromptOptimizationJobCommand";
+import {
   type GetAutomatedReasoningPolicyAnnotationsCommandInput,
   type GetAutomatedReasoningPolicyAnnotationsCommandOutput,
   GetAutomatedReasoningPolicyAnnotationsCommand,
@@ -308,6 +323,11 @@ import {
   type GetUseCaseForModelAccessCommandOutput,
   GetUseCaseForModelAccessCommand,
 } from "./commands/GetUseCaseForModelAccessCommand";
+import {
+  type ListAdvancedPromptOptimizationJobsCommandInput,
+  type ListAdvancedPromptOptimizationJobsCommandOutput,
+  ListAdvancedPromptOptimizationJobsCommand,
+} from "./commands/ListAdvancedPromptOptimizationJobsCommand";
 import {
   type ListAutomatedReasoningPoliciesCommandInput,
   type ListAutomatedReasoningPoliciesCommandOutput,
@@ -449,6 +469,11 @@ import {
   StartAutomatedReasoningPolicyTestWorkflowCommand,
 } from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
 import {
+  type StopAdvancedPromptOptimizationJobCommandInput,
+  type StopAdvancedPromptOptimizationJobCommandOutput,
+  StopAdvancedPromptOptimizationJobCommand,
+} from "./commands/StopAdvancedPromptOptimizationJobCommand";
+import {
   type StopEvaluationJobCommandInput,
   type StopEvaluationJobCommandOutput,
   StopEvaluationJobCommand,
@@ -508,6 +533,7 @@ import {
   type UpdateProvisionedModelThroughputCommandOutput,
   UpdateProvisionedModelThroughputCommand,
 } from "./commands/UpdateProvisionedModelThroughputCommand";
+import { paginateListAdvancedPromptOptimizationJobs } from "./pagination/ListAdvancedPromptOptimizationJobsPaginator";
 import { paginateListAutomatedReasoningPolicies } from "./pagination/ListAutomatedReasoningPoliciesPaginator";
 import {
   paginateListAutomatedReasoningPolicyBuildWorkflows,
@@ -534,8 +560,10 @@ import { paginateListPromptRouters } from "./pagination/ListPromptRoutersPaginat
 import { paginateListProvisionedModelThroughputs } from "./pagination/ListProvisionedModelThroughputsPaginator";
 
 const commands = {
+  BatchDeleteAdvancedPromptOptimizationJobCommand,
   BatchDeleteEvaluationJobCommand,
   CancelAutomatedReasoningPolicyBuildWorkflowCommand,
+  CreateAdvancedPromptOptimizationJobCommand,
   CreateAutomatedReasoningPolicyCommand,
   CreateAutomatedReasoningPolicyTestCaseCommand,
   CreateAutomatedReasoningPolicyVersionCommand,
@@ -570,6 +598,7 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeregisterMarketplaceModelEndpointCommand,
   ExportAutomatedReasoningPolicyVersionCommand,
+  GetAdvancedPromptOptimizationJobCommand,
   GetAutomatedReasoningPolicyCommand,
   GetAutomatedReasoningPolicyAnnotationsCommand,
   GetAutomatedReasoningPolicyBuildWorkflowCommand,
@@ -595,6 +624,7 @@ const commands = {
   GetProvisionedModelThroughputCommand,
   GetResourcePolicyCommand,
   GetUseCaseForModelAccessCommand,
+  ListAdvancedPromptOptimizationJobsCommand,
   ListAutomatedReasoningPoliciesCommand,
   ListAutomatedReasoningPolicyBuildWorkflowsCommand,
   ListAutomatedReasoningPolicyTestCasesCommand,
@@ -623,6 +653,7 @@ const commands = {
   RegisterMarketplaceModelEndpointCommand,
   StartAutomatedReasoningPolicyBuildWorkflowCommand,
   StartAutomatedReasoningPolicyTestWorkflowCommand,
+  StopAdvancedPromptOptimizationJobCommand,
   StopEvaluationJobCommand,
   StopModelCustomizationJobCommand,
   StopModelInvocationJobCommand,
@@ -637,6 +668,7 @@ const commands = {
   UpdateProvisionedModelThroughputCommand,
 };
 const paginators = {
+  paginateListAdvancedPromptOptimizationJobs,
   paginateListAutomatedReasoningPolicies,
   paginateListAutomatedReasoningPolicyBuildWorkflows,
   paginateListAutomatedReasoningPolicyTestCases,
@@ -658,6 +690,23 @@ const paginators = {
 };
 
 export interface Bedrock {
+  /**
+   * @see {@link BatchDeleteAdvancedPromptOptimizationJobCommand}
+   */
+  batchDeleteAdvancedPromptOptimizationJob(
+    args: BatchDeleteAdvancedPromptOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteAdvancedPromptOptimizationJobCommandOutput>;
+  batchDeleteAdvancedPromptOptimizationJob(
+    args: BatchDeleteAdvancedPromptOptimizationJobCommandInput,
+    cb: (err: any, data?: BatchDeleteAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+  batchDeleteAdvancedPromptOptimizationJob(
+    args: BatchDeleteAdvancedPromptOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchDeleteEvaluationJobCommand}
    */
@@ -690,6 +739,23 @@ export interface Bedrock {
     args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAdvancedPromptOptimizationJobCommand}
+   */
+  createAdvancedPromptOptimizationJob(
+    args: CreateAdvancedPromptOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAdvancedPromptOptimizationJobCommandOutput>;
+  createAdvancedPromptOptimizationJob(
+    args: CreateAdvancedPromptOptimizationJobCommandInput,
+    cb: (err: any, data?: CreateAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+  createAdvancedPromptOptimizationJob(
+    args: CreateAdvancedPromptOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAdvancedPromptOptimizationJobCommandOutput) => void
   ): void;
 
   /**
@@ -1272,6 +1338,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetAdvancedPromptOptimizationJobCommand}
+   */
+  getAdvancedPromptOptimizationJob(
+    args: GetAdvancedPromptOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdvancedPromptOptimizationJobCommandOutput>;
+  getAdvancedPromptOptimizationJob(
+    args: GetAdvancedPromptOptimizationJobCommandInput,
+    cb: (err: any, data?: GetAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+  getAdvancedPromptOptimizationJob(
+    args: GetAdvancedPromptOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAutomatedReasoningPolicyCommand}
    */
   getAutomatedReasoningPolicy(
@@ -1696,6 +1779,24 @@ export interface Bedrock {
     args: GetUseCaseForModelAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUseCaseForModelAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAdvancedPromptOptimizationJobsCommand}
+   */
+  listAdvancedPromptOptimizationJobs(): Promise<ListAdvancedPromptOptimizationJobsCommandOutput>;
+  listAdvancedPromptOptimizationJobs(
+    args: ListAdvancedPromptOptimizationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAdvancedPromptOptimizationJobsCommandOutput>;
+  listAdvancedPromptOptimizationJobs(
+    args: ListAdvancedPromptOptimizationJobsCommandInput,
+    cb: (err: any, data?: ListAdvancedPromptOptimizationJobsCommandOutput) => void
+  ): void;
+  listAdvancedPromptOptimizationJobs(
+    args: ListAdvancedPromptOptimizationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAdvancedPromptOptimizationJobsCommandOutput) => void
   ): void;
 
   /**
@@ -2191,6 +2292,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link StopAdvancedPromptOptimizationJobCommand}
+   */
+  stopAdvancedPromptOptimizationJob(
+    args: StopAdvancedPromptOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAdvancedPromptOptimizationJobCommandOutput>;
+  stopAdvancedPromptOptimizationJob(
+    args: StopAdvancedPromptOptimizationJobCommandInput,
+    cb: (err: any, data?: StopAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+  stopAdvancedPromptOptimizationJob(
+    args: StopAdvancedPromptOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAdvancedPromptOptimizationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopEvaluationJobCommand}
    */
   stopEvaluationJob(
@@ -2393,6 +2511,17 @@ export interface Bedrock {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProvisionedModelThroughputCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAdvancedPromptOptimizationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAdvancedPromptOptimizationJobsCommandOutput}.
+   */
+  paginateListAdvancedPromptOptimizationJobs(
+    args?: ListAdvancedPromptOptimizationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAdvancedPromptOptimizationJobsCommandOutput>;
 
   /**
    * @see {@link ListAutomatedReasoningPoliciesCommand}

@@ -3,6 +3,10 @@ import {
   AccessDeniedException$,
   AccountEnforcedGuardrailInferenceInputConfiguration$,
   AccountEnforcedGuardrailOutputConfiguration$,
+  AdvancedPromptOptimizationInputConfig$,
+  AdvancedPromptOptimizationJobStatus,
+  AdvancedPromptOptimizationJobSummary$,
+  AdvancedPromptOptimizationOutputConfig$,
   AgreementAvailability$,
   AgreementStatus,
   ApplicationType,
@@ -106,6 +110,12 @@ import {
   AutomatedReasoningPolicyUpdateVariableMutation$,
   AutomatedReasoningPolicyVariableReport$,
   AutomatedReasoningPolicyWorkflowTypeContent$,
+  BatchDeleteAdvancedPromptOptimizationJob$,
+  BatchDeleteAdvancedPromptOptimizationJobCommand,
+  BatchDeleteAdvancedPromptOptimizationJobError$,
+  BatchDeleteAdvancedPromptOptimizationJobItem$,
+  BatchDeleteAdvancedPromptOptimizationJobRequest$,
+  BatchDeleteAdvancedPromptOptimizationJobResponse$,
   BatchDeleteEvaluationJob$,
   BatchDeleteEvaluationJobCommand,
   BatchDeleteEvaluationJobError$,
@@ -126,6 +136,10 @@ import {
   ConfigurationOwner,
   ConflictException,
   ConflictException$,
+  CreateAdvancedPromptOptimizationJob$,
+  CreateAdvancedPromptOptimizationJobCommand,
+  CreateAdvancedPromptOptimizationJobRequest$,
+  CreateAdvancedPromptOptimizationJobResponse$,
   CreateAutomatedReasoningPolicy$,
   CreateAutomatedReasoningPolicyCommand,
   CreateAutomatedReasoningPolicyRequest$,
@@ -310,6 +324,10 @@ import {
   FoundationModelLifecycleStatus,
   FoundationModelSummary$,
   GenerationConfiguration$,
+  GetAdvancedPromptOptimizationJob$,
+  GetAdvancedPromptOptimizationJobCommand,
+  GetAdvancedPromptOptimizationJobRequest$,
+  GetAdvancedPromptOptimizationJobResponse$,
   GetAutomatedReasoningPolicy$,
   GetAutomatedReasoningPolicyAnnotations$,
   GetAutomatedReasoningPolicyAnnotationsCommand,
@@ -465,6 +483,7 @@ import {
   HumanWorkflowConfig$,
   ImplicitFilterConfiguration$,
   ImportedModelSummary$,
+  InferenceConfiguration$,
   InferenceProfileModel$,
   InferenceProfileModelSource$,
   InferenceProfileStatus,
@@ -484,6 +503,10 @@ import {
   KnowledgeBaseVectorSearchConfiguration$,
   LambdaGraderConfig$,
   LegalTerm$,
+  ListAdvancedPromptOptimizationJobs$,
+  ListAdvancedPromptOptimizationJobsCommand,
+  ListAdvancedPromptOptimizationJobsRequest$,
+  ListAdvancedPromptOptimizationJobsResponse$,
   ListAutomatedReasoningPolicies$,
   ListAutomatedReasoningPoliciesCommand,
   ListAutomatedReasoningPoliciesRequest$,
@@ -573,6 +596,7 @@ import {
   MarketplaceModelEndpointSummary$,
   MetadataAttributeSchema$,
   MetadataConfigurationForReranking$,
+  ModelConfiguration$,
   ModelCopyJobStatus,
   ModelCopyJobSummary$,
   ModelCustomization,
@@ -595,6 +619,7 @@ import {
   OfferType,
   OrchestrationConfiguration$,
   OutputDataConfig$,
+  paginateListAdvancedPromptOptimizationJobs,
   paginateListAutomatedReasoningPolicies,
   paginateListAutomatedReasoningPolicyBuildWorkflows,
   paginateListAutomatedReasoningPolicyTestCases,
@@ -691,6 +716,10 @@ import {
   StartAutomatedReasoningPolicyTestWorkflowResponse$,
   Status,
   StatusDetails$,
+  StopAdvancedPromptOptimizationJob$,
+  StopAdvancedPromptOptimizationJobCommand,
+  StopAdvancedPromptOptimizationJobRequest$,
+  StopAdvancedPromptOptimizationJobResponse$,
   StopEvaluationJob$,
   StopEvaluationJobCommand,
   StopEvaluationJobRequest$,
@@ -769,10 +798,14 @@ import assert from "node:assert";
 assert(typeof BedrockClient === "function");
 assert(typeof Bedrock === "function");
 // commands
+assert(typeof BatchDeleteAdvancedPromptOptimizationJobCommand === "function");
+assert(typeof BatchDeleteAdvancedPromptOptimizationJob$ === "object");
 assert(typeof BatchDeleteEvaluationJobCommand === "function");
 assert(typeof BatchDeleteEvaluationJob$ === "object");
 assert(typeof CancelAutomatedReasoningPolicyBuildWorkflowCommand === "function");
 assert(typeof CancelAutomatedReasoningPolicyBuildWorkflow$ === "object");
+assert(typeof CreateAdvancedPromptOptimizationJobCommand === "function");
+assert(typeof CreateAdvancedPromptOptimizationJob$ === "object");
 assert(typeof CreateAutomatedReasoningPolicyCommand === "function");
 assert(typeof CreateAutomatedReasoningPolicy$ === "object");
 assert(typeof CreateAutomatedReasoningPolicyTestCaseCommand === "function");
@@ -841,6 +874,8 @@ assert(typeof DeregisterMarketplaceModelEndpointCommand === "function");
 assert(typeof DeregisterMarketplaceModelEndpoint$ === "object");
 assert(typeof ExportAutomatedReasoningPolicyVersionCommand === "function");
 assert(typeof ExportAutomatedReasoningPolicyVersion$ === "object");
+assert(typeof GetAdvancedPromptOptimizationJobCommand === "function");
+assert(typeof GetAdvancedPromptOptimizationJob$ === "object");
 assert(typeof GetAutomatedReasoningPolicyCommand === "function");
 assert(typeof GetAutomatedReasoningPolicy$ === "object");
 assert(typeof GetAutomatedReasoningPolicyAnnotationsCommand === "function");
@@ -891,6 +926,8 @@ assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
 assert(typeof GetUseCaseForModelAccessCommand === "function");
 assert(typeof GetUseCaseForModelAccess$ === "object");
+assert(typeof ListAdvancedPromptOptimizationJobsCommand === "function");
+assert(typeof ListAdvancedPromptOptimizationJobs$ === "object");
 assert(typeof ListAutomatedReasoningPoliciesCommand === "function");
 assert(typeof ListAutomatedReasoningPolicies$ === "object");
 assert(typeof ListAutomatedReasoningPolicyBuildWorkflowsCommand === "function");
@@ -947,6 +984,8 @@ assert(typeof StartAutomatedReasoningPolicyBuildWorkflowCommand === "function");
 assert(typeof StartAutomatedReasoningPolicyBuildWorkflow$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowCommand === "function");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflow$ === "object");
+assert(typeof StopAdvancedPromptOptimizationJobCommand === "function");
+assert(typeof StopAdvancedPromptOptimizationJob$ === "object");
 assert(typeof StopEvaluationJobCommand === "function");
 assert(typeof StopEvaluationJob$ === "object");
 assert(typeof StopModelCustomizationJobCommand === "function");
@@ -974,6 +1013,9 @@ assert(typeof UpdateProvisionedModelThroughput$ === "object");
 // structural schemas
 assert(typeof AccountEnforcedGuardrailInferenceInputConfiguration$ === "object");
 assert(typeof AccountEnforcedGuardrailOutputConfiguration$ === "object");
+assert(typeof AdvancedPromptOptimizationInputConfig$ === "object");
+assert(typeof AdvancedPromptOptimizationJobSummary$ === "object");
+assert(typeof AdvancedPromptOptimizationOutputConfig$ === "object");
 assert(typeof AgreementAvailability$ === "object");
 assert(typeof AutomatedEvaluationConfig$ === "object");
 assert(typeof AutomatedEvaluationCustomMetricConfig$ === "object");
@@ -1063,6 +1105,10 @@ assert(typeof AutomatedReasoningPolicyUpdateVariableAnnotation$ === "object");
 assert(typeof AutomatedReasoningPolicyUpdateVariableMutation$ === "object");
 assert(typeof AutomatedReasoningPolicyVariableReport$ === "object");
 assert(typeof AutomatedReasoningPolicyWorkflowTypeContent$ === "object");
+assert(typeof BatchDeleteAdvancedPromptOptimizationJobError$ === "object");
+assert(typeof BatchDeleteAdvancedPromptOptimizationJobItem$ === "object");
+assert(typeof BatchDeleteAdvancedPromptOptimizationJobRequest$ === "object");
+assert(typeof BatchDeleteAdvancedPromptOptimizationJobResponse$ === "object");
 assert(typeof BatchDeleteEvaluationJobError$ === "object");
 assert(typeof BatchDeleteEvaluationJobItem$ === "object");
 assert(typeof BatchDeleteEvaluationJobRequest$ === "object");
@@ -1072,6 +1118,8 @@ assert(typeof ByteContentDoc$ === "object");
 assert(typeof CancelAutomatedReasoningPolicyBuildWorkflowRequest$ === "object");
 assert(typeof CancelAutomatedReasoningPolicyBuildWorkflowResponse$ === "object");
 assert(typeof CloudWatchConfig$ === "object");
+assert(typeof CreateAdvancedPromptOptimizationJobRequest$ === "object");
+assert(typeof CreateAdvancedPromptOptimizationJobResponse$ === "object");
 assert(typeof CreateAutomatedReasoningPolicyRequest$ === "object");
 assert(typeof CreateAutomatedReasoningPolicyResponse$ === "object");
 assert(typeof CreateAutomatedReasoningPolicyTestCaseRequest$ === "object");
@@ -1178,6 +1226,8 @@ assert(typeof FoundationModelDetails$ === "object");
 assert(typeof FoundationModelLifecycle$ === "object");
 assert(typeof FoundationModelSummary$ === "object");
 assert(typeof GenerationConfiguration$ === "object");
+assert(typeof GetAdvancedPromptOptimizationJobRequest$ === "object");
+assert(typeof GetAdvancedPromptOptimizationJobResponse$ === "object");
 assert(typeof GetAutomatedReasoningPolicyAnnotationsRequest$ === "object");
 assert(typeof GetAutomatedReasoningPolicyAnnotationsResponse$ === "object");
 assert(typeof GetAutomatedReasoningPolicyBuildWorkflowRequest$ === "object");
@@ -1268,6 +1318,7 @@ assert(typeof HumanEvaluationCustomMetric$ === "object");
 assert(typeof HumanWorkflowConfig$ === "object");
 assert(typeof ImplicitFilterConfiguration$ === "object");
 assert(typeof ImportedModelSummary$ === "object");
+assert(typeof InferenceConfiguration$ === "object");
 assert(typeof InferenceProfileModel$ === "object");
 assert(typeof InferenceProfileModelSource$ === "object");
 assert(typeof InferenceProfileSummary$ === "object");
@@ -1280,6 +1331,8 @@ assert(typeof KnowledgeBaseRetrieveAndGenerateConfiguration$ === "object");
 assert(typeof KnowledgeBaseVectorSearchConfiguration$ === "object");
 assert(typeof LambdaGraderConfig$ === "object");
 assert(typeof LegalTerm$ === "object");
+assert(typeof ListAdvancedPromptOptimizationJobsRequest$ === "object");
+assert(typeof ListAdvancedPromptOptimizationJobsResponse$ === "object");
 assert(typeof ListAutomatedReasoningPoliciesRequest$ === "object");
 assert(typeof ListAutomatedReasoningPoliciesResponse$ === "object");
 assert(typeof ListAutomatedReasoningPolicyBuildWorkflowsRequest$ === "object");
@@ -1327,6 +1380,7 @@ assert(typeof MarketplaceModelEndpoint$ === "object");
 assert(typeof MarketplaceModelEndpointSummary$ === "object");
 assert(typeof MetadataAttributeSchema$ === "object");
 assert(typeof MetadataConfigurationForReranking$ === "object");
+assert(typeof ModelConfiguration$ === "object");
 assert(typeof ModelCopyJobSummary$ === "object");
 assert(typeof ModelCustomizationJobSummary$ === "object");
 assert(typeof ModelDataSource$ === "object");
@@ -1379,6 +1433,8 @@ assert(typeof StartAutomatedReasoningPolicyBuildWorkflowResponse$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowRequest$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowResponse$ === "object");
 assert(typeof StatusDetails$ === "object");
+assert(typeof StopAdvancedPromptOptimizationJobRequest$ === "object");
+assert(typeof StopAdvancedPromptOptimizationJobResponse$ === "object");
 assert(typeof StopEvaluationJobRequest$ === "object");
 assert(typeof StopEvaluationJobResponse$ === "object");
 assert(typeof StopModelCustomizationJobRequest$ === "object");
@@ -1421,6 +1477,7 @@ assert(typeof VectorSearchBedrockRerankingModelConfiguration$ === "object");
 assert(typeof VectorSearchRerankingConfiguration$ === "object");
 assert(typeof VpcConfig$ === "object");
 // enums
+assert(typeof AdvancedPromptOptimizationJobStatus === "object");
 assert(typeof AgreementStatus === "object");
 assert(typeof ApplicationType === "object");
 assert(typeof AttributeType === "object");
@@ -1517,6 +1574,7 @@ assert(ValidationException.prototype instanceof BedrockServiceException);
 assert(typeof ValidationException$ === "object");
 assert(BedrockServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListAdvancedPromptOptimizationJobs === "function");
 assert(typeof paginateListAutomatedReasoningPolicies === "function");
 assert(typeof paginateListAutomatedReasoningPolicyBuildWorkflows === "function");
 assert(typeof paginateListAutomatedReasoningPolicyTestCases === "function");

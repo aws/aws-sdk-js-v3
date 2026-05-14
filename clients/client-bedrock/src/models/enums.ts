@@ -44,6 +44,50 @@ export type ConfigurationOwner = (typeof ConfigurationOwner)[keyof typeof Config
  * @public
  * @enum
  */
+export const AdvancedPromptOptimizationJobStatus = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PARTIALLY_COMPLETED: "PartiallyCompleted",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+/**
+ * @public
+ */
+export type AdvancedPromptOptimizationJobStatus =
+  (typeof AdvancedPromptOptimizationJobStatus)[keyof typeof AdvancedPromptOptimizationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortJobsBy = {
+  CREATION_TIME: "CreationTime",
+} as const;
+/**
+ * @public
+ */
+export type SortJobsBy = (typeof SortJobsBy)[keyof typeof SortJobsBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgreementStatus = {
   AVAILABLE: "AVAILABLE",
   ERROR: "ERROR",
@@ -278,19 +322,6 @@ export type SortModelsBy = (typeof SortModelsBy)[keyof typeof SortModelsBy];
  * @public
  * @enum
  */
-export const SortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * @public
- * @enum
- */
 export const ReasoningEffort = {
   HIGH: "high",
   LOW: "low",
@@ -495,18 +526,6 @@ export const EvaluationJobType = {
  * @public
  */
 export type EvaluationJobType = (typeof EvaluationJobType)[keyof typeof EvaluationJobType];
-
-/**
- * @public
- * @enum
- */
-export const SortJobsBy = {
-  CREATION_TIME: "CreationTime",
-} as const;
-/**
- * @public
- */
-export type SortJobsBy = (typeof SortJobsBy)[keyof typeof SortJobsBy];
 
 /**
  * @public

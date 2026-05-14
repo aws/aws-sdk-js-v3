@@ -57,6 +57,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  BatchDeleteAdvancedPromptOptimizationJobCommandInput,
+  BatchDeleteAdvancedPromptOptimizationJobCommandOutput,
+} from "./commands/BatchDeleteAdvancedPromptOptimizationJobCommand";
+import type {
   BatchDeleteEvaluationJobCommandInput,
   BatchDeleteEvaluationJobCommandOutput,
 } from "./commands/BatchDeleteEvaluationJobCommand";
@@ -64,6 +68,10 @@ import type {
   CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
   CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput,
 } from "./commands/CancelAutomatedReasoningPolicyBuildWorkflowCommand";
+import type {
+  CreateAdvancedPromptOptimizationJobCommandInput,
+  CreateAdvancedPromptOptimizationJobCommandOutput,
+} from "./commands/CreateAdvancedPromptOptimizationJobCommand";
 import type {
   CreateAutomatedReasoningPolicyCommandInput,
   CreateAutomatedReasoningPolicyCommandOutput,
@@ -195,6 +203,10 @@ import type {
   ExportAutomatedReasoningPolicyVersionCommandOutput,
 } from "./commands/ExportAutomatedReasoningPolicyVersionCommand";
 import type {
+  GetAdvancedPromptOptimizationJobCommandInput,
+  GetAdvancedPromptOptimizationJobCommandOutput,
+} from "./commands/GetAdvancedPromptOptimizationJobCommand";
+import type {
   GetAutomatedReasoningPolicyAnnotationsCommandInput,
   GetAutomatedReasoningPolicyAnnotationsCommandOutput,
 } from "./commands/GetAutomatedReasoningPolicyAnnotationsCommand";
@@ -276,6 +288,10 @@ import type {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
 } from "./commands/GetUseCaseForModelAccessCommand";
+import type {
+  ListAdvancedPromptOptimizationJobsCommandInput,
+  ListAdvancedPromptOptimizationJobsCommandOutput,
+} from "./commands/ListAdvancedPromptOptimizationJobsCommand";
 import type {
   ListAutomatedReasoningPoliciesCommandInput,
   ListAutomatedReasoningPoliciesCommandOutput,
@@ -383,6 +399,10 @@ import type {
   StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
 } from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
 import type {
+  StopAdvancedPromptOptimizationJobCommandInput,
+  StopAdvancedPromptOptimizationJobCommandOutput,
+} from "./commands/StopAdvancedPromptOptimizationJobCommand";
+import type {
   StopEvaluationJobCommandInput,
   StopEvaluationJobCommandOutput,
 } from "./commands/StopEvaluationJobCommand";
@@ -436,8 +456,10 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchDeleteAdvancedPromptOptimizationJobCommandInput
   | BatchDeleteEvaluationJobCommandInput
   | CancelAutomatedReasoningPolicyBuildWorkflowCommandInput
+  | CreateAdvancedPromptOptimizationJobCommandInput
   | CreateAutomatedReasoningPolicyCommandInput
   | CreateAutomatedReasoningPolicyTestCaseCommandInput
   | CreateAutomatedReasoningPolicyVersionCommandInput
@@ -472,6 +494,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeregisterMarketplaceModelEndpointCommandInput
   | ExportAutomatedReasoningPolicyVersionCommandInput
+  | GetAdvancedPromptOptimizationJobCommandInput
   | GetAutomatedReasoningPolicyAnnotationsCommandInput
   | GetAutomatedReasoningPolicyBuildWorkflowCommandInput
   | GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput
@@ -497,6 +520,7 @@ export type ServiceInputTypes =
   | GetProvisionedModelThroughputCommandInput
   | GetResourcePolicyCommandInput
   | GetUseCaseForModelAccessCommandInput
+  | ListAdvancedPromptOptimizationJobsCommandInput
   | ListAutomatedReasoningPoliciesCommandInput
   | ListAutomatedReasoningPolicyBuildWorkflowsCommandInput
   | ListAutomatedReasoningPolicyTestCasesCommandInput
@@ -525,6 +549,7 @@ export type ServiceInputTypes =
   | RegisterMarketplaceModelEndpointCommandInput
   | StartAutomatedReasoningPolicyBuildWorkflowCommandInput
   | StartAutomatedReasoningPolicyTestWorkflowCommandInput
+  | StopAdvancedPromptOptimizationJobCommandInput
   | StopEvaluationJobCommandInput
   | StopModelCustomizationJobCommandInput
   | StopModelInvocationJobCommandInput
@@ -542,8 +567,10 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchDeleteAdvancedPromptOptimizationJobCommandOutput
   | BatchDeleteEvaluationJobCommandOutput
   | CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput
+  | CreateAdvancedPromptOptimizationJobCommandOutput
   | CreateAutomatedReasoningPolicyCommandOutput
   | CreateAutomatedReasoningPolicyTestCaseCommandOutput
   | CreateAutomatedReasoningPolicyVersionCommandOutput
@@ -578,6 +605,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeregisterMarketplaceModelEndpointCommandOutput
   | ExportAutomatedReasoningPolicyVersionCommandOutput
+  | GetAdvancedPromptOptimizationJobCommandOutput
   | GetAutomatedReasoningPolicyAnnotationsCommandOutput
   | GetAutomatedReasoningPolicyBuildWorkflowCommandOutput
   | GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput
@@ -603,6 +631,7 @@ export type ServiceOutputTypes =
   | GetProvisionedModelThroughputCommandOutput
   | GetResourcePolicyCommandOutput
   | GetUseCaseForModelAccessCommandOutput
+  | ListAdvancedPromptOptimizationJobsCommandOutput
   | ListAutomatedReasoningPoliciesCommandOutput
   | ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput
   | ListAutomatedReasoningPolicyTestCasesCommandOutput
@@ -631,6 +660,7 @@ export type ServiceOutputTypes =
   | RegisterMarketplaceModelEndpointCommandOutput
   | StartAutomatedReasoningPolicyBuildWorkflowCommandOutput
   | StartAutomatedReasoningPolicyTestWorkflowCommandOutput
+  | StopAdvancedPromptOptimizationJobCommandOutput
   | StopEvaluationJobCommandOutput
   | StopModelCustomizationJobCommandOutput
   | StopModelInvocationJobCommandOutput
