@@ -668,6 +668,9 @@ export interface ComputeScalingPolicy {
    *    the delay expires.</p>
    *          <p>Valid Range: Minimum value of 20. Maximum value of 10080. Use 0 to unset and disable the scale down delay.</p>
    *          <note>
+   *             <p>Idle instances retained during the scale-down delay period are billable at standard EC2 pricing.</p>
+   *          </note>
+   *          <note>
    *             <p>The scale down delay does not apply to:</p>
    *             <ul>
    *                <li>
@@ -1083,8 +1086,7 @@ export interface CreateComputeEnvironmentRequest {
    *       don't scale out. </p>
    *          <note>
    *             <p>Compute environments in a <code>DISABLED</code> state may continue to incur billing
-   *         charges. To prevent additional charges, turn off and then delete the compute environment.
-   *         For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state">State</a> in the <i>Batch User Guide</i>.</p>
+   *         charges, for example, if they have running instances due to jobs that are still executing or a non-zero <code>minvCpus</code> setting. To prevent additional charges, disable and delete the compute environment.</p>
    *          </note>
    *          <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value.
    *       However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code>
@@ -2018,8 +2020,7 @@ export interface ComputeEnvironmentDetail {
    *    don't scale out. </p>
    *          <note>
    *             <p>Compute environments in a <code>DISABLED</code> state may continue to incur billing
-   *     charges. To prevent additional charges, turn off and then delete the compute environment. For
-   *     more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state">State</a> in the <i>Batch User Guide</i>.</p>
+   *     charges, for example, if they have running instances due to jobs that are still executing or a non-zero <code>minvCpus</code> setting. To prevent additional charges, disable and delete the compute environment.</p>
    *          </note>
    *          <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value.
    *    However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code>
@@ -9553,8 +9554,7 @@ export interface UpdateComputeEnvironmentRequest {
    *       don't scale out. </p>
    *          <note>
    *             <p>Compute environments in a <code>DISABLED</code> state may continue to incur billing
-   *         charges. To prevent additional charges, turn off and then delete the compute environment.
-   *         For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state">State</a> in the <i>Batch User Guide</i>.</p>
+   *         charges, for example, if they have running instances due to jobs that are still executing or a non-zero <code>minvCpus</code> setting. To prevent additional charges, disable and delete the compute environment.</p>
    *          </note>
    *          <p>When an instance is idle, the instance scales down to the <code>minvCpus</code> value.
    *       However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code>
