@@ -1733,8 +1733,8 @@ export var NetworkMigrationCodeGenerationJobDetails$: StaticStructureSchema = [3
 ];
 export var NetworkMigrationCodeGenerationSegment$: StaticStructureSchema = [3, n0, _NMCGS,
   0,
-  [_jID, _nMEID, _nMDID, _sID, _sTe, _lID, _mSID, _ar, _cA],
-  [0, 0, 0, 0, 0, 0, 0, () => NetworkMigrationCodeGenerationArtifacts, 4]
+  [_jID, _nMEID, _nMDID, _sID, _sTe, _lID, _mSID, _ar, _rS, _cA],
+  [0, 0, 0, 0, 0, 0, 0, () => NetworkMigrationCodeGenerationArtifacts, 64 | 0, 4]
 ];
 export var NetworkMigrationDefinition$: StaticStructureSchema = [3, n0, _NMD,
   0,

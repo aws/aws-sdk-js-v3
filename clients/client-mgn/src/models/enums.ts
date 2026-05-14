@@ -600,6 +600,7 @@ export type NetworkMigrationMapperSegmentType =
  */
 export const SecurityGroupMappingStrategy = {
   MAP: "MAP",
+  MAP_DHCP: "MAP_DHCP",
   SKIP: "SKIP",
 } as const;
 /**

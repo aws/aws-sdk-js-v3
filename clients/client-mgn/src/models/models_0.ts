@@ -3548,6 +3548,12 @@ export interface NetworkMigrationCodeGenerationSegment {
   artifacts?: NetworkMigrationCodeGenerationArtifact[] | undefined;
 
   /**
+   * <p>A list of other segments that this segment depends on or references.</p>
+   * @public
+   */
+  referencedSegments?: string[] | undefined;
+
+  /**
    * <p>The timestamp when the segment was created.</p>
    * @public
    */

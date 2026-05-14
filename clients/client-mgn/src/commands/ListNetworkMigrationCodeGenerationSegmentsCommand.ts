@@ -80,6 +80,9 @@ export interface ListNetworkMigrationCodeGenerationSegmentsCommandOutput extends
  * //           createdAt: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       referencedSegments: [ // referencedSegmentsList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       createdAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
