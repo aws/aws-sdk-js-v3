@@ -15,6 +15,7 @@ export * from "./ListKnowledgeBasesPaginator";
 export * from "./ListMessagesPaginator";
 export * from "./ListMessageTemplatesPaginator";
 export * from "./ListMessageTemplateVersionsPaginator";
+export * from "./ListModelsPaginator";
 export * from "./ListQuickResponsesPaginator";
 export * from "./ListSpansPaginator";
 export * from "./QueryAssistantPaginator";

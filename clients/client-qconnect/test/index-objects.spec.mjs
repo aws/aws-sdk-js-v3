@@ -140,6 +140,7 @@ import {
   CreateSessionCommand,
   CreateSessionRequest$,
   CreateSessionResponse$,
+  CrossRegionStatus,
   CustomerProfileAttributes$,
   DataDetails$,
   DataReference$,
@@ -386,6 +387,10 @@ import {
   ListMessageTemplateVersionsCommand,
   ListMessageTemplateVersionsRequest$,
   ListMessageTemplateVersionsResponse$,
+  ListModels$,
+  ListModelsCommand,
+  ListModelsRequest$,
+  ListModelsResponse$,
   ListQuickResponses$,
   ListQuickResponsesCommand,
   ListQuickResponsesRequest$,
@@ -423,6 +428,8 @@ import {
   MessageTemplateSummary$,
   MessageTemplateVersionSummary$,
   MessageType,
+  ModelLifecycle,
+  ModelSummary$,
   NotesChunkDataDetails$,
   NotesDataDetails$,
   NoteTakingAIAgentConfiguration$,
@@ -451,6 +458,7 @@ import {
   paginateListMessages,
   paginateListMessageTemplates,
   paginateListMessageTemplateVersions,
+  paginateListModels,
   paginateListQuickResponses,
   paginateListSpans,
   paginateQueryAssistant,
@@ -823,6 +831,8 @@ assert(typeof ListMessageTemplatesCommand === "function");
 assert(typeof ListMessageTemplates$ === "object");
 assert(typeof ListMessageTemplateVersionsCommand === "function");
 assert(typeof ListMessageTemplateVersions$ === "object");
+assert(typeof ListModelsCommand === "function");
+assert(typeof ListModels$ === "object");
 assert(typeof ListQuickResponsesCommand === "function");
 assert(typeof ListQuickResponses$ === "object");
 assert(typeof ListSpansCommand === "function");
@@ -1108,6 +1118,8 @@ assert(typeof ListMessageTemplatesRequest$ === "object");
 assert(typeof ListMessageTemplatesResponse$ === "object");
 assert(typeof ListMessageTemplateVersionsRequest$ === "object");
 assert(typeof ListMessageTemplateVersionsResponse$ === "object");
+assert(typeof ListModelsRequest$ === "object");
+assert(typeof ListModelsResponse$ === "object");
 assert(typeof ListQuickResponsesRequest$ === "object");
 assert(typeof ListQuickResponsesResponse$ === "object");
 assert(typeof ListSpansRequest$ === "object");
@@ -1134,6 +1146,7 @@ assert(typeof MessageTemplateSourceConfiguration$ === "object");
 assert(typeof MessageTemplateSourceConfigurationSummary$ === "object");
 assert(typeof MessageTemplateSummary$ === "object");
 assert(typeof MessageTemplateVersionSummary$ === "object");
+assert(typeof ModelSummary$ === "object");
 assert(typeof NotesChunkDataDetails$ === "object");
 assert(typeof NotesDataDetails$ === "object");
 assert(typeof NoteTakingAIAgentConfiguration$ === "object");
@@ -1292,6 +1305,7 @@ assert(typeof ContentDisposition === "object");
 assert(typeof ContentStatus === "object");
 assert(typeof ConversationStatus === "object");
 assert(typeof ConversationStatusReason === "object");
+assert(typeof CrossRegionStatus === "object");
 assert(typeof ExternalSource === "object");
 assert(typeof FilterField === "object");
 assert(typeof FilterOperator === "object");
@@ -1312,6 +1326,7 @@ assert(typeof MessageTemplateAttributeType === "object");
 assert(typeof MessageTemplateFilterOperator === "object");
 assert(typeof MessageTemplateQueryOperator === "object");
 assert(typeof MessageType === "object");
+assert(typeof ModelLifecycle === "object");
 assert(typeof Order === "object");
 assert(typeof Origin === "object");
 assert(typeof ParsingStrategy === "object");
@@ -1384,6 +1399,7 @@ assert(typeof paginateListKnowledgeBases === "function");
 assert(typeof paginateListMessageTemplateVersions === "function");
 assert(typeof paginateListMessageTemplates === "function");
 assert(typeof paginateListMessages === "function");
+assert(typeof paginateListModels === "function");
 assert(typeof paginateListQuickResponses === "function");
 assert(typeof paginateListSpans === "function");
 assert(typeof paginateQueryAssistant === "function");

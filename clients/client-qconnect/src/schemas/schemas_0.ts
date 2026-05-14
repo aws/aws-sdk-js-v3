@@ -339,12 +339,15 @@ const _LKBRi = "ListKnowledgeBasesResponse";
 const _LM = "ListMessages";
 const _LMR = "ListMessagesRequest";
 const _LMRi = "ListMessagesResponse";
+const _LMRis = "ListModelsRequest";
+const _LMRist = "ListModelsResponse";
 const _LMT = "ListMessageTemplates";
 const _LMTR = "ListMessageTemplatesRequest";
 const _LMTRi = "ListMessageTemplatesResponse";
 const _LMTV = "ListMessageTemplateVersions";
 const _LMTVR = "ListMessageTemplateVersionsRequest";
 const _LMTVRi = "ListMessageTemplateVersionsResponse";
+const _LMi = "ListModels";
 const _LQR = "ListQuickResponses";
 const _LQRR = "ListQuickResponsesRequest";
 const _LQRRi = "ListQuickResponsesResponse";
@@ -359,8 +362,10 @@ const _MD = "MessageData";
 const _MI = "MessageInput";
 const _ML = "MessageList";
 const _MO = "MessageOutput";
+const _MS = "ModelSummary";
 const _MSAIAC = "ManualSearchAIAgentConfiguration";
 const _MSC = "ManagedSourceConfiguration";
+const _MSL = "ModelSummaryList";
 const _MTA = "MessageTemplateAttachment";
 const _MTAKL = "MessageTemplateAttributeKeyList";
 const _MTAL = "MessageTemplateAttachmentList";
@@ -649,6 +654,7 @@ const _aPA = "aiPromptArn";
 const _aPI = "aiPromptId";
 const _aPS = "aiPromptSummary";
 const _aPSi = "aiPromptSummaries";
+const _aPT = "aiPromptType";
 const _aPVS = "aiPromptVersionSummaries";
 const _aRA = "accessRoleArn";
 const _aRAIAC = "answerRecommendationAIAgentConfiguration";
@@ -722,6 +728,7 @@ const _cPA = "customerProfileAttributes";
 const _cPC = "contentPolicyConfig";
 const _cR = "contentReference";
 const _cRIT = "cacheReadInputTokens";
+const _cRS = "crossRegionStatus";
 const _cRT = "chunkedResponseTerminated";
 const _cS = "chunkingStrategy";
 const _cSAIAC = "caseSummarizationAIAgentConfiguration";
@@ -759,6 +766,7 @@ const _cu = "custom";
 const _d = "description";
 const _dA = "defaultAttributes";
 const _dH = "destructiveHint";
+const _dN = "displayName";
 const _da = "data";
 const _de = "details";
 const _def = "definition";
@@ -774,6 +782,7 @@ const _eOAIAC = "emailOverviewAIAgentConfiguration";
 const _eOAIPI = "emailOverviewAIPromptId";
 const _eOCD = "emailOverviewChunkData";
 const _eOE = "endOffsetExclusive";
+const _eOLT = "endOfLifeTimestamp";
 const _eQRAIPI = "emailQueryReformulationAIPromptId";
 const _eRAIAC = "emailResponseAIAgentConfiguration";
 const _eRAIPI = "emailResponseAIPromptId";
@@ -863,8 +872,9 @@ const _lMB = "lastModifiedBy";
 const _lMT = "lastModifiedTime";
 const _lN = "lastName";
 const _lOU = "linkOutUri";
-const _lT = "lessThan";
+const _lT = "legacyTimestamp";
 const _lTOE = "lessThanOrEquals";
+const _lTe = "lessThan";
 const _la = "language";
 const _m = "message";
 const _mA = "modelArn";
@@ -877,6 +887,7 @@ const _mCa = "mailingCounty";
 const _mCai = "mailingCountry";
 const _mI = "modelId";
 const _mIe = "messageId";
+const _mL = "modelLifecycle";
 const _mN = "middleName";
 const _mP = "mailingProvince";
 const _mPC = "mailingPostalCode";
@@ -885,6 +896,7 @@ const _mR = "maxResults";
 const _mS = "mailingState";
 const _mSAIAC = "manualSearchAIAgentConfiguration";
 const _mSC = "managedSourceConfiguration";
+const _mSo = "modelSummaries";
 const _mT = "modifiedTime";
 const _mTA = "messageTemplateArn";
 const _mTCS = "messageTemplateContentSha256";
@@ -1011,6 +1023,7 @@ const _res = "response";
 const _resu = "results";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.qconnect";
 const _sA = "shippingAddress1";
+const _sAIPT = "supportedAIPromptTypes";
 const _sAe = "sessionArn";
 const _sAh = "shippingAddress2";
 const _sAhi = "shippingAddress3";
@@ -1042,6 +1055,7 @@ const _sN = "spanName";
 const _sNe = "sessionName";
 const _sP = "shippingProvince";
 const _sPC = "shippingPostalCode";
+const _sPCu = "supportsPromptCaching";
 const _sR = "statusReason";
 const _sS = "shippingState";
 const _sSAGAIPI = "selfServiceAnswerGenerationAIPromptId";
@@ -2336,6 +2350,16 @@ export var ListMessageTemplateVersionsResponse$: StaticStructureSchema = [3, n0,
   [_mTVS, _nT],
   [[() => MessageTemplateVersionSummaryList, 0], 0], 1
 ];
+export var ListModelsRequest$: StaticStructureSchema = [3, n0, _LMRis,
+  0,
+  [_aI, _aPT, _mL, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _aPT }], [0, { [_hQ]: _mL }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListModelsResponse$: StaticStructureSchema = [3, n0, _LMRist,
+  0,
+  [_mSo, _nT],
+  [() => ModelSummaryList, 0], 1
+];
 export var ListQuickResponsesRequest$: StaticStructureSchema = [3, n0, _LQRR,
   0,
   [_kBI, _nT, _mR],
@@ -2435,6 +2459,11 @@ export var MessageTemplateVersionSummary$: StaticStructureSchema = [3, n0, _MTVS
   0,
   [_mTA, _mTI, _kBA, _kBI, _n, _cSh, _iA, _vN, _cha],
   [0, 0, 0, 0, 0, 0, 2, 1, [() => Channel, 0]], 8
+];
+export var ModelSummary$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_mI, _dN, _cRS, _sPCu, _sAIPT, _mL, _lT, _eOLT],
+  [0, 0, 0, 2, 64 | 0, 0, 4, 4], 2
 ];
 export var NotesChunkDataDetails$: StaticStructureSchema = [3, n0, _NCDD,
   0,
@@ -3100,6 +3129,7 @@ var AIGuardrailVersionSummariesList: StaticListSchema = [1, n0, _AIGVSL,
 var AIPromptSummaryList: StaticListSchema = [1, n0, _AIPSL,
   0, () => AIPromptSummary$
 ];
+var AIPromptTypeList = 64 | 0;
 var AIPromptVersionSummariesList: StaticListSchema = [1, n0, _AIPVSL,
   0, () => AIPromptVersionSummary$
 ];
@@ -3225,6 +3255,9 @@ var MessageTemplateSummaryList: StaticListSchema = [1, n0, _MTSL,
 var MessageTemplateVersionSummaryList: StaticListSchema = [1, n0, _MTVSL,
   0, [() => MessageTemplateVersionSummary$,
     0]
+];
+var ModelSummaryList: StaticListSchema = [1, n0, _MSL,
+  0, () => ModelSummary$
 ];
 var NotifyRecommendationsReceivedErrorList: StaticListSchema = [1, n0, _NRREL,
   0, () => NotifyRecommendationsReceivedError$
@@ -3461,7 +3494,7 @@ export var RecommendationTriggerData$: StaticUnionSchema = [4, n0, _RTD,
 ];
 export var RetrievalFilterConfiguration$: StaticUnionSchema = [4, n0, _RFC,
   0,
-  [_aAn, _eq, _gT, _gTOE, _in_, _lT, _lTOE, _lCi, _nE, _nI, _oA, _sW, _sCt],
+  [_aAn, _eq, _gT, _gTOE, _in_, _lTe, _lTOE, _lCi, _nE, _nI, _oA, _sW, _sCt],
   [() => RetrievalFilterList, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => RetrievalFilterList, () => FilterAttribute$, () => FilterAttribute$]
 ];
 export var RuntimeSessionDataValue$: StaticUnionSchema = [4, n0, _RSDV,
@@ -3677,6 +3710,9 @@ export var ListMessageTemplates$: StaticOperationSchema = [9, n0, _LMT,
 ];
 export var ListMessageTemplateVersions$: StaticOperationSchema = [9, n0, _LMTV,
   { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions", 200] }, () => ListMessageTemplateVersionsRequest$, () => ListMessageTemplateVersionsResponse$
+];
+export var ListModels$: StaticOperationSchema = [9, n0, _LMi,
+  { [_htt]: ["GET", "/assistants/{assistantId}/models", 200] }, () => ListModelsRequest$, () => ListModelsResponse$
 ];
 export var ListQuickResponses$: StaticOperationSchema = [9, n0, _LQR,
   { [_htt]: ["GET", "/knowledgeBases/{knowledgeBaseId}/quickResponses", 200] }, () => ListQuickResponsesRequest$, () => ListQuickResponsesResponse$

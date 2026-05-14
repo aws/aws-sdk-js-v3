@@ -227,6 +227,7 @@ import type {
   ListMessageTemplateVersionsCommandInput,
   ListMessageTemplateVersionsCommandOutput,
 } from "./commands/ListMessageTemplateVersionsCommand";
+import type { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import type {
   ListQuickResponsesCommandInput,
   ListQuickResponsesCommandOutput,
@@ -383,6 +384,7 @@ export type ServiceInputTypes =
   | ListMessageTemplateVersionsCommandInput
   | ListMessageTemplatesCommandInput
   | ListMessagesCommandInput
+  | ListModelsCommandInput
   | ListQuickResponsesCommandInput
   | ListSpansCommandInput
   | ListTagsForResourceCommandInput
@@ -481,6 +483,7 @@ export type ServiceOutputTypes =
   | ListMessageTemplateVersionsCommandOutput
   | ListMessageTemplatesCommandOutput
   | ListMessagesCommandOutput
+  | ListModelsCommandOutput
   | ListQuickResponsesCommandOutput
   | ListSpansCommandOutput
   | ListTagsForResourceCommandOutput

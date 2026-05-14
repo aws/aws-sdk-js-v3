@@ -18,6 +18,7 @@ import type {
   ContentStatus,
   ConversationStatus,
   ConversationStatusReason,
+  CrossRegionStatus,
   FilterField,
   FilterOperator,
   GuardrailContentFilterType,
@@ -33,6 +34,7 @@ import type {
   MessageFilterType,
   MessageTemplateAttributeType,
   MessageType,
+  ModelLifecycle,
   Origin,
   ParsingStrategy,
   Participant,
@@ -4399,6 +4401,112 @@ export interface ListAssistantsResponse {
    * @public
    */
   assistantSummaries: AssistantSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelsRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN. The assistant's region determines which models are available.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The type of the AI Prompt to filter models by. When specified, only models that support the given AI Prompt type are returned.</p>
+   * @public
+   */
+  aiPromptType?: AIPromptType | undefined;
+
+  /**
+   * <p>The lifecycle status of models to filter by. When specified, only models with the given lifecycle status are returned.</p>
+   * @public
+   */
+  modelLifecycle?: ModelLifecycle | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of a model available to an Amazon Q in Connect assistant.</p>
+ * @public
+ */
+export interface ModelSummary {
+  /**
+   * <p>The identifier of the model.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The display name of the model.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The cross-region availability status of the model. <code>NONE</code> indicates the model is only available in a single region, <code>REGIONAL</code> indicates the model is available through regional inference, and <code>GLOBAL</code> indicates the model is available through global cross-region inference.</p>
+   * @public
+   */
+  crossRegionStatus?: CrossRegionStatus | undefined;
+
+  /**
+   * <p>Whether the model supports prompt caching.</p>
+   * @public
+   */
+  supportsPromptCaching?: boolean | undefined;
+
+  /**
+   * <p>The list of AI Prompt types that the model supports.</p>
+   * @public
+   */
+  supportedAIPromptTypes?: AIPromptType[] | undefined;
+
+  /**
+   * <p>The current lifecycle of the model. <code>ACTIVE</code> indicates the model is recommended for use and <code>LEGACY</code> indicates the model is still usable but is deprecated.</p>
+   * @public
+   */
+  modelLifecycle?: ModelLifecycle | undefined;
+
+  /**
+   * <p>The timestamp when the model lifecycle will transition from <code>ACTIVE</code> to <code>LEGACY</code>.</p>
+   * @public
+   */
+  legacyTimestamp?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the model will reach end of life and no longer be available for use.</p>
+   * @public
+   */
+  endOfLifeTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelsResponse {
+  /**
+   * <p>The summaries of the models available to the assistant.</p>
+   * @public
+   */
+  modelSummaries: ModelSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -9141,61 +9249,4 @@ export interface QuickResponseData {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateQuickResponseResponse {
-  /**
-   * <p>The quick response.</p>
-   * @public
-   */
-  quickResponse?: QuickResponseData | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateMessageTemplateRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The version number of the message template version to deactivate.</p>
-   * @public
-   */
-  versionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateMessageTemplateResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The version number of the message template version that has been deactivated.</p>
-   * @public
-   */
-  versionNumber: number | undefined;
 }

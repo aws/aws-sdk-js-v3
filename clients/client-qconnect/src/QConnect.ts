@@ -318,6 +318,11 @@ import {
   ListMessageTemplateVersionsCommand,
 } from "./commands/ListMessageTemplateVersionsCommand";
 import {
+  type ListModelsCommandInput,
+  type ListModelsCommandOutput,
+  ListModelsCommand,
+} from "./commands/ListModelsCommand";
+import {
   type ListQuickResponsesCommandInput,
   type ListQuickResponsesCommandOutput,
   ListQuickResponsesCommand,
@@ -474,6 +479,7 @@ import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPagin
 import { paginateListMessages } from "./pagination/ListMessagesPaginator";
 import { paginateListMessageTemplates } from "./pagination/ListMessageTemplatesPaginator";
 import { paginateListMessageTemplateVersions } from "./pagination/ListMessageTemplateVersionsPaginator";
+import { paginateListModels } from "./pagination/ListModelsPaginator";
 import { paginateListQuickResponses } from "./pagination/ListQuickResponsesPaginator";
 import { paginateListSpans } from "./pagination/ListSpansPaginator";
 import { paginateQueryAssistant } from "./pagination/QueryAssistantPaginator";
@@ -547,6 +553,7 @@ const commands = {
   ListMessagesCommand,
   ListMessageTemplatesCommand,
   ListMessageTemplateVersionsCommand,
+  ListModelsCommand,
   ListQuickResponsesCommand,
   ListSpansCommand,
   ListTagsForResourceCommand,
@@ -594,6 +601,7 @@ const paginators = {
   paginateListMessages,
   paginateListMessageTemplates,
   paginateListMessageTemplateVersions,
+  paginateListModels,
   paginateListQuickResponses,
   paginateListSpans,
   paginateQueryAssistant,
@@ -1678,6 +1686,23 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link ListModelsCommand}
+   */
+  listModels(
+    args: ListModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelsCommandOutput>;
+  listModels(
+    args: ListModelsCommandInput,
+    cb: (err: any, data?: ListModelsCommandOutput) => void
+  ): void;
+  listModels(
+    args: ListModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListQuickResponsesCommand}
    */
   listQuickResponses(
@@ -2351,6 +2376,17 @@ export interface QConnect {
     args: ListMessageTemplateVersionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListMessageTemplateVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelsCommandOutput}.
+   */
+  paginateListModels(
+    args: ListModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelsCommandOutput>;
 
   /**
    * @see {@link ListQuickResponsesCommand}

@@ -452,6 +452,33 @@ export type RecommendationTriggerType = (typeof RecommendationTriggerType)[keyof
  * @public
  * @enum
  */
+export const ModelLifecycle = {
+  ACTIVE: "ACTIVE",
+  LEGACY: "LEGACY",
+} as const;
+/**
+ * @public
+ */
+export type ModelLifecycle = (typeof ModelLifecycle)[keyof typeof ModelLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const CrossRegionStatus = {
+  GLOBAL: "GLOBAL",
+  NONE: "NONE",
+  REGIONAL: "REGIONAL",
+} as const;
+/**
+ * @public
+ */
+export type CrossRegionStatus = (typeof CrossRegionStatus)[keyof typeof CrossRegionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const Relevance = {
   HELPFUL: "HELPFUL",
   NOT_HELPFUL: "NOT_HELPFUL",

@@ -622,6 +622,13 @@ ListMessageTemplateVersions
 </details>
 <details>
 <summary>
+ListModels
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ListModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListModelsCommandOutput/)
+</details>
+<details>
+<summary>
 ListQuickResponses
 </summary>
 

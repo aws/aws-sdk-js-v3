@@ -4,9 +4,9 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_1";
+import type { ListModelsRequest, ListModelsResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeactivateMessageTemplate$ } from "../schemas/schemas_0";
+import { ListModels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,45 +16,59 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeactivateMessageTemplateCommand}.
+ * The input for {@link ListModelsCommand}.
  */
-export interface DeactivateMessageTemplateCommandInput extends DeactivateMessageTemplateRequest {}
+export interface ListModelsCommandInput extends ListModelsRequest {}
 /**
  * @public
  *
- * The output of {@link DeactivateMessageTemplateCommand}.
+ * The output of {@link ListModelsCommand}.
  */
-export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessageTemplateResponse, __MetadataBearer {}
+export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a specific version of the Amazon Q in Connect message template . After the version is deactivated, you can no longer use the <code>$ACTIVE_VERSION</code> qualifier to reference the version in active status.</p>
+ * <p>Lists the models available to an Amazon Q in Connect assistant in the assistant's Amazon Web Services Region. The available models are determined by the region of the specified assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QConnectClient, DeactivateMessageTemplateCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
- * // const { QConnectClient, DeactivateMessageTemplateCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * import { QConnectClient, ListModelsCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
+ * // const { QConnectClient, ListModelsCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
  * // import type { QConnectClientConfig } from "@aws-sdk/client-qconnect";
  * const config = {}; // type is QConnectClientConfig
  * const client = new QConnectClient(config);
- * const input = { // DeactivateMessageTemplateRequest
- *   knowledgeBaseId: "STRING_VALUE", // required
- *   messageTemplateId: "STRING_VALUE", // required
- *   versionNumber: Number("long"), // required
+ * const input = { // ListModelsRequest
+ *   assistantId: "STRING_VALUE", // required
+ *   aiPromptType: "STRING_VALUE",
+ *   modelLifecycle: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new DeactivateMessageTemplateCommand(input);
+ * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
- * // { // DeactivateMessageTemplateResponse
- * //   messageTemplateArn: "STRING_VALUE", // required
- * //   messageTemplateId: "STRING_VALUE", // required
- * //   versionNumber: Number("long"), // required
+ * // { // ListModelsResponse
+ * //   modelSummaries: [ // ModelSummaryList // required
+ * //     { // ModelSummary
+ * //       modelId: "STRING_VALUE", // required
+ * //       displayName: "STRING_VALUE", // required
+ * //       crossRegionStatus: "STRING_VALUE",
+ * //       supportsPromptCaching: true || false,
+ * //       supportedAIPromptTypes: [ // AIPromptTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       modelLifecycle: "STRING_VALUE",
+ * //       legacyTimestamp: new Date("TIMESTAMP"),
+ * //       endOfLifeTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeactivateMessageTemplateCommandInput - {@link DeactivateMessageTemplateCommandInput}
- * @returns {@link DeactivateMessageTemplateCommandOutput}
- * @see {@link DeactivateMessageTemplateCommandInput} for command's `input` shape.
- * @see {@link DeactivateMessageTemplateCommandOutput} for command's `response` shape.
+ * @param ListModelsCommandInput - {@link ListModelsCommandInput}
+ * @returns {@link ListModelsCommandOutput}
+ * @see {@link ListModelsCommandInput} for command's `input` shape.
+ * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -69,6 +83,9 @@ export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessag
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You do not have permission to perform this action.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
@@ -78,10 +95,10 @@ export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessag
  *
  * @public
  */
-export class DeactivateMessageTemplateCommand extends $Command
+export class ListModelsCommand extends $Command
   .classBuilder<
-    DeactivateMessageTemplateCommandInput,
-    DeactivateMessageTemplateCommandOutput,
+    ListModelsCommandInput,
+    ListModelsCommandOutput,
     QConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -90,19 +107,19 @@ export class DeactivateMessageTemplateCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("WisdomService", "DeactivateMessageTemplate", {})
-  .n("QConnectClient", "DeactivateMessageTemplateCommand")
-  .sc(DeactivateMessageTemplate$)
+  .s("WisdomService", "ListModels", {})
+  .n("QConnectClient", "ListModelsCommand")
+  .sc(ListModels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeactivateMessageTemplateRequest;
-      output: DeactivateMessageTemplateResponse;
+      input: ListModelsRequest;
+      output: ListModelsResponse;
     };
     sdk: {
-      input: DeactivateMessageTemplateCommandInput;
-      output: DeactivateMessageTemplateCommandOutput;
+      input: ListModelsCommandInput;
+      output: ListModelsCommandOutput;
     };
   };
 }

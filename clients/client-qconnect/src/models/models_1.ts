@@ -66,6 +66,63 @@ import type {
 /**
  * @public
  */
+export interface CreateQuickResponseResponse {
+  /**
+   * <p>The quick response.</p>
+   * @public
+   */
+  quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version to deactivate.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that has been deactivated.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteImportJobRequest {
   /**
    * <p>The identifier of the knowledge base.</p>

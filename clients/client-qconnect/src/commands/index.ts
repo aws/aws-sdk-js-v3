@@ -62,6 +62,7 @@ export * from "./ListKnowledgeBasesCommand";
 export * from "./ListMessageTemplateVersionsCommand";
 export * from "./ListMessageTemplatesCommand";
 export * from "./ListMessagesCommand";
+export * from "./ListModelsCommand";
 export * from "./ListQuickResponsesCommand";
 export * from "./ListSpansCommand";
 export * from "./ListTagsForResourceCommand";
