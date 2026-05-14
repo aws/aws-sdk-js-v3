@@ -104,6 +104,7 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput extends Associate
  * //     },
  * //   },
  * //   statusCode: Number("int"),
+ * //   linkedWhatsAppBusinessAccountId: "STRING_VALUE",
  * // };
  *
  * ```

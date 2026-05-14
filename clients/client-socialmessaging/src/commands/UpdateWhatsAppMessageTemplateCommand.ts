@@ -42,7 +42,9 @@ export interface UpdateWhatsAppMessageTemplateCommandOutput extends UpdateWhatsA
  * const client = new SocialMessagingClient(config);
  * const input = { // UpdateWhatsAppMessageTemplateInput
  *   id: "STRING_VALUE", // required
- *   metaTemplateId: "STRING_VALUE", // required
+ *   metaTemplateId: "STRING_VALUE",
+ *   templateName: "STRING_VALUE",
+ *   templateLanguageCode: "STRING_VALUE",
  *   parameterFormat: "STRING_VALUE",
  *   templateCategory: "STRING_VALUE",
  *   templateComponents: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")

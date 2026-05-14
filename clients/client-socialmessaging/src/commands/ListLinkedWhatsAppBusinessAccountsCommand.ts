@@ -64,6 +64,7 @@ export interface ListLinkedWhatsAppBusinessAccountsCommandOutput extends ListLin
  * //           roleArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       marketingMessagesOnboardingStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

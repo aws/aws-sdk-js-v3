@@ -123,6 +123,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The status code for the response.</p>"
           }
+        },
+        "linkedWhatsAppBusinessAccountId": {
+          "target": "com.amazonaws.socialmessaging#LinkedWhatsAppBusinessAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the WhatsApp Business Account that was linked to your Amazon Web Services account.</p>"
+          }
         }
       },
       "traits": {
@@ -919,8 +925,7 @@
           "target": "com.amazonaws.socialmessaging#MetaTemplateId",
           "traits": {
             "smithy.api#documentation": "<p>The numeric ID of the template assigned by Meta.</p>",
-            "smithy.api#httpQuery": "metaTemplateId",
-            "smithy.api#required": {}
+            "smithy.api#httpQuery": "metaTemplateId"
           }
         },
         "id": {
@@ -930,6 +935,20 @@
             "smithy.api#httpQuery": "id",
             "smithy.api#required": {},
             "smithy.api#resourceIdentifier": "WabaId"
+          }
+        },
+        "templateName": {
+          "target": "com.amazonaws.socialmessaging#MetaTemplateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the message template. Use together with <code>templateLanguageCode</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>",
+            "smithy.api#httpQuery": "templateName"
+          }
+        },
+        "templateLanguageCode": {
+          "target": "com.amazonaws.socialmessaging#MetaTemplateLanguage",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the message template (for example, <code>en</code> or <code>en_US</code>). Use together with <code>templateName</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>",
+            "smithy.api#httpQuery": "templateLanguageCode"
           }
         }
       },
@@ -1199,6 +1218,12 @@
             "smithy.api#required": {}
           }
         },
+        "marketingMessagesOnboardingStatus": {
+          "target": "com.amazonaws.socialmessaging#WhatsAppBusinessAccountMarketingMessagesOnboardingStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The onboarding status for the Marketing Messages API. This value is fetched from Meta and indicates whether the WhatsApp Business Account is onboarded for Meta's Marketing Messages API.</p>"
+          }
+        },
         "phoneNumbers": {
           "target": "com.amazonaws.socialmessaging#WhatsAppPhoneNumberSummaryList",
           "traits": {
@@ -1371,6 +1396,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The event destinations for the linked WhatsApp Business Account.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "marketingMessagesOnboardingStatus": {
+          "target": "com.amazonaws.socialmessaging#WhatsAppBusinessAccountMarketingMessagesOnboardingStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The onboarding status for the Marketing Messages API. This value is fetched from Meta and indicates whether the WhatsApp Business Account is onboarded for Meta's Marketing Messages API.</p>"
           }
         }
       },
@@ -3517,8 +3548,19 @@
         "metaTemplateId": {
           "target": "com.amazonaws.socialmessaging#MetaTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The numeric ID of the template assigned by Meta.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The numeric ID of the template assigned by Meta.</p>"
+          }
+        },
+        "templateName": {
+          "target": "com.amazonaws.socialmessaging#MetaTemplateName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the message template. Use together with <code>templateLanguageCode</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>"
+          }
+        },
+        "templateLanguageCode": {
+          "target": "com.amazonaws.socialmessaging#MetaTemplateLanguage",
+          "traits": {
+            "smithy.api#documentation": "<p>The language code of the message template (for example, <code>en</code> or <code>en_US</code>). Use together with <code>templateName</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>"
           }
         },
         "parameterFormat": {
@@ -3679,6 +3721,14 @@
     },
     "com.amazonaws.socialmessaging#WhatsAppBusinessAccountLinkDate": {
       "type": "timestamp"
+    },
+    "com.amazonaws.socialmessaging#WhatsAppBusinessAccountMarketingMessagesOnboardingStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 100
+        }
+      }
     },
     "com.amazonaws.socialmessaging#WhatsAppBusinessAccountName": {
       "type": "string",

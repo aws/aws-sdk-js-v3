@@ -362,6 +362,12 @@ export interface AssociateWhatsAppBusinessAccountOutput {
    * @public
    */
   statusCode?: number | undefined;
+
+  /**
+   * <p>The ID of the WhatsApp Business Account that was linked to your Amazon Web Services account.</p>
+   * @public
+   */
+  linkedWhatsAppBusinessAccountId?: string | undefined;
 }
 
 /**
@@ -815,6 +821,12 @@ export interface LinkedWhatsAppBusinessAccount {
   eventDestinations: WhatsAppBusinessAccountEventDestination[] | undefined;
 
   /**
+   * <p>The onboarding status for the Marketing Messages API. This value is fetched from Meta and indicates whether the WhatsApp Business Account is onboarded for Meta's Marketing Messages API.</p>
+   * @public
+   */
+  marketingMessagesOnboardingStatus?: string | undefined;
+
+  /**
    * <p>The phone numbers associated with the Linked WhatsApp Business Account.</p>
    * @public
    */
@@ -949,13 +961,25 @@ export interface GetWhatsAppMessageTemplateInput {
    * <p>The numeric ID of the template assigned by Meta.</p>
    * @public
    */
-  metaTemplateId: string | undefined;
+  metaTemplateId?: string | undefined;
 
   /**
    * <p>The ID of the WhatsApp Business Account associated with this template.</p>
    * @public
    */
   id: string | undefined;
+
+  /**
+   * <p>The name of the message template. Use together with <code>templateLanguageCode</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
+   * @public
+   */
+  templateName?: string | undefined;
+
+  /**
+   * <p>The language code of the message template (for example, <code>en</code> or <code>en_US</code>). Use together with <code>templateName</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
+   * @public
+   */
+  templateLanguageCode?: string | undefined;
 }
 
 /**
@@ -1080,6 +1104,12 @@ export interface LinkedWhatsAppBusinessAccountSummary {
    * @public
    */
   eventDestinations: WhatsAppBusinessAccountEventDestination[] | undefined;
+
+  /**
+   * <p>The onboarding status for the Marketing Messages API. This value is fetched from Meta and indicates whether the WhatsApp Business Account is onboarded for Meta's Marketing Messages API.</p>
+   * @public
+   */
+  marketingMessagesOnboardingStatus?: string | undefined;
 }
 
 /**
@@ -1337,7 +1367,19 @@ export interface UpdateWhatsAppMessageTemplateInput {
    * <p>The numeric ID of the template assigned by Meta.</p>
    * @public
    */
-  metaTemplateId: string | undefined;
+  metaTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the message template. Use together with <code>templateLanguageCode</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
+   * @public
+   */
+  templateName?: string | undefined;
+
+  /**
+   * <p>The language code of the message template (for example, <code>en</code> or <code>en_US</code>). Use together with <code>templateName</code> as an alternative to <code>metaTemplateId</code> to identify a template.</p>
+   * @public
+   */
+  templateLanguageCode?: string | undefined;
 
   /**
    * <p>The format specification for parameters in the template, this can be either 'named' or 'positional'.</p>

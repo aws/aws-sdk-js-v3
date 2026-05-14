@@ -152,6 +152,7 @@ const _mI = "mediaId";
 const _mIe = "messageId";
 const _mLT = "metaLibraryTemplate";
 const _mLTe = "metaLibraryTemplates";
+const _mMOS = "marketingMessagesOnboardingStatus";
 const _mO = "metadataOnly";
 const _mPNI = "metaPhoneNumberId";
 const _mR = "maxResults";
@@ -192,6 +193,7 @@ const _tI = "templateIndustry";
 const _tIe = "templateId";
 const _tK = "tagKeys";
 const _tL = "templateLanguage";
+const _tLC = "templateLanguageCode";
 const _tN = "templateName";
 const _tQS = "templateQualityScore";
 const _tS = "templateStatus";
@@ -312,8 +314,8 @@ export var AssociateWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n
 ];
 export var AssociateWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, n0, _AWABAO,
   0,
-  [_sCR, _sCt],
-  [[() => WhatsAppSignupCallbackResult$, 0], 1]
+  [_sCR, _sCt, _lWABAI],
+  [[() => WhatsAppSignupCallbackResult$, 0], 1, 0]
 ];
 export var CreateWhatsAppMessageTemplateFromLibraryInput$: StaticStructureSchema = [3, n0, _CWAMTFLI,
   0,
@@ -407,8 +409,8 @@ export var GetWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _GWAM
 ];
 export var GetWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _GWAMTI,
   0,
-  [_mTI, _i],
-  [[0, { [_hQ]: _mTI }], [0, { [_hQ]: _i }]], 2
+  [_i, _mTI, _tN, _tLC],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _mTI }], [0, { [_hQ]: _tN }], [0, { [_hQ]: _tLC }]], 1
 ];
 export var GetWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _GWAMTO,
   0,
@@ -432,8 +434,8 @@ export var LibraryTemplateButtonList$: StaticStructureSchema = [3, n0, _LTBL,
 ];
 export var LinkedWhatsAppBusinessAccount$: StaticStructureSchema = [3, n0, _LWABA,
   0,
-  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList], 8
+  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh, _mMOS],
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList, 0], 8
 ];
 export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3, n0, _LWABAIMD,
   0,
@@ -442,8 +444,8 @@ export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3,
 ];
 export var LinkedWhatsAppBusinessAccountSummary$: StaticStructureSchema = [3, n0, _LWABAS,
   0,
-  [_ar, _i, _wI, _rS, _lD, _wN, _eD],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations], 7
+  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _mMOS],
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, 0], 7
 ];
 export var ListLinkedWhatsAppBusinessAccountsInput$: StaticStructureSchema = [3, n0, _LLWABAI,
   0,
@@ -567,8 +569,8 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _UWAMTI,
   0,
-  [_i, _mTI, _pF, _tC, _tCe, _cULTOO],
-  [0, 0, 0, 0, 21, 2], 2
+  [_i, _mTI, _tN, _tLC, _pF, _tC, _tCe, _cULTOO],
+  [0, 0, 0, 0, 0, 0, 21, 2], 1
 ];
 export var UpdateWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _UWAMTO,
   0,

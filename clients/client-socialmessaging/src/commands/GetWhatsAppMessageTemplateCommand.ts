@@ -41,8 +41,10 @@ export interface GetWhatsAppMessageTemplateCommandOutput extends GetWhatsAppMess
  * const config = {}; // type is SocialMessagingClientConfig
  * const client = new SocialMessagingClient(config);
  * const input = { // GetWhatsAppMessageTemplateInput
- *   metaTemplateId: "STRING_VALUE", // required
+ *   metaTemplateId: "STRING_VALUE",
  *   id: "STRING_VALUE", // required
+ *   templateName: "STRING_VALUE",
+ *   templateLanguageCode: "STRING_VALUE",
  * };
  * const command = new GetWhatsAppMessageTemplateCommand(input);
  * const response = await client.send(command);
