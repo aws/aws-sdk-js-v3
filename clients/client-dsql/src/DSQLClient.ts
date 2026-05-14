@@ -57,18 +57,22 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import type { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
 import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import type {
   DeleteClusterPolicyCommandInput,
   DeleteClusterPolicyCommandOutput,
 } from "./commands/DeleteClusterPolicyCommand";
+import type { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import type { GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
 import type { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
+import type { GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import type {
   GetVpcEndpointServiceNameCommandInput,
   GetVpcEndpointServiceNameCommandOutput,
 } from "./commands/GetVpcEndpointServiceNameCommand";
 import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
+import type { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -93,12 +97,16 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateClusterCommandInput
+  | CreateStreamCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterPolicyCommandInput
+  | DeleteStreamCommandInput
   | GetClusterCommandInput
   | GetClusterPolicyCommandInput
+  | GetStreamCommandInput
   | GetVpcEndpointServiceNameCommandInput
   | ListClustersCommandInput
+  | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
   | PutClusterPolicyCommandInput
   | TagResourceCommandInput
@@ -110,12 +118,16 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateClusterCommandOutput
+  | CreateStreamCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterPolicyCommandOutput
+  | DeleteStreamCommandOutput
   | GetClusterCommandOutput
   | GetClusterPolicyCommandOutput
+  | GetStreamCommandOutput
   | GetVpcEndpointServiceNameCommandOutput
   | ListClustersCommandOutput
+  | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutClusterPolicyCommandOutput
   | TagResourceCommandOutput

@@ -5,12 +5,18 @@ const _CCO = "CreateClusterOutput";
 const _CE = "ConflictException";
 const _CL = "ClusterList";
 const _CS = "ClusterSummary";
+const _CSI = "CreateStreamInput";
+const _CSO = "CreateStreamOutput";
+const _CSr = "CreateStream";
 const _DC = "DeleteCluster";
 const _DCI = "DeleteClusterInput";
 const _DCO = "DeleteClusterOutput";
 const _DCP = "DeleteClusterPolicy";
 const _DCPI = "DeleteClusterPolicyInput";
 const _DCPO = "DeleteClusterPolicyOutput";
+const _DS = "DeleteStream";
+const _DSI = "DeleteStreamInput";
+const _DSO = "DeleteStreamOutput";
 const _ED = "EncryptionDetails";
 const _GC = "GetCluster";
 const _GCI = "GetClusterInput";
@@ -18,13 +24,20 @@ const _GCO = "GetClusterOutput";
 const _GCP = "GetClusterPolicy";
 const _GCPI = "GetClusterPolicyInput";
 const _GCPO = "GetClusterPolicyOutput";
+const _GS = "GetStream";
+const _GSI = "GetStreamInput";
+const _GSO = "GetStreamOutput";
 const _GVESN = "GetVpcEndpointServiceName";
 const _GVESNI = "GetVpcEndpointServiceNameInput";
 const _GVESNO = "GetVpcEndpointServiceNameOutput";
 const _ISE = "InternalServerException";
+const _KTD = "KinesisTargetDefinition";
 const _LC = "ListClusters";
 const _LCI = "ListClustersInput";
 const _LCO = "ListClustersOutput";
+const _LS = "ListStreams";
+const _LSI = "ListStreamsInput";
+const _LSO = "ListStreamsOutput";
 const _LTFR = "ListTagsForResource";
 const _LTFRI = "ListTagsForResourceInput";
 const _LTFRO = "ListTagsForResourceOutput";
@@ -34,7 +47,11 @@ const _PCPI = "PutClusterPolicyInput";
 const _PCPO = "PutClusterPolicyOutput";
 const _RA = "Retry-After";
 const _RNFE = "ResourceNotFoundException";
+const _SL = "StreamList";
 const _SQEE = "ServiceQuotaExceededException";
+const _SR = "StatusReason";
+const _SS = "StreamSummary";
+const _TD = "TargetDefinition";
 const _TE = "ThrottlingException";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
@@ -49,6 +66,7 @@ const _VEFL = "ValidationExceptionFieldList";
 const _a = "arn";
 const _bPLSC = "bypassPolicyLockoutSafetyCheck";
 const _c = "client";
+const _cI = "clusterIdentifier";
 const _cT = "clientToken";
 const _cTr = "creationTime";
 const _cVE = "clusterVpcEndpoint";
@@ -62,6 +80,7 @@ const _eS = "encryptionStatus";
 const _eT = "encryptionType";
 const _en = "endpoint";
 const _epv = "expected-policy-version";
+const _f = "format";
 const _fL = "fieldList";
 const _h = "http";
 const _hE = "httpError";
@@ -69,6 +88,7 @@ const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _i = "identifier";
 const _iT = "idempotencyToken";
+const _k = "kinesis";
 const _kEK = "kmsEncryptionKey";
 const _kKA = "kmsKeyArn";
 const _m = "message";
@@ -78,21 +98,29 @@ const _mr = "max-results";
 const _n = "name";
 const _nT = "nextToken";
 const _nt = "next-token";
+const _o = "ordering";
 const _p = "policy";
 const _pV = "policyVersion";
 const _qC = "quotaCode";
 const _r = "reason";
-const _rA = "resourceArn";
+const _rA = "roleArn";
 const _rAS = "retryAfterSeconds";
+const _rAe = "resourceArn";
 const _rI = "resourceId";
 const _rT = "resourceType";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.dsql";
+const _sA = "streamArn";
 const _sC = "serviceCode";
+const _sI = "streamIdentifier";
 const _sN = "serviceName";
+const _sR = "statusReason";
 const _se = "server";
 const _st = "status";
+const _str = "streams";
 const _t = "tags";
+const _tD = "targetDefinition";
 const _tK = "tagKeys";
+const _uA = "updatedAt";
 const _wR = "witnessRegion";
 const n0 = "com.amazonaws.dsql";
 
@@ -104,6 +132,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DSQLServiceException } from "../models/DSQLServiceException";
@@ -188,6 +217,16 @@ export var CreateClusterOutput$: StaticStructureSchema = [3, n0, _CCO,
   [_i, _a, _st, _cTr, _dPE, _mRP, _eD, _en],
   [0, 0, 0, 4, 2, () => MultiRegionProperties$, () => EncryptionDetails$, 0], 5
 ];
+export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSI,
+  0,
+  [_cI, _tD, _o, _f, _t, _cT],
+  [[0, 1], () => TargetDefinition$, 0, 0, 128 | 0, [0, 4]], 4
+];
+export var CreateStreamOutput$: StaticStructureSchema = [3, n0, _CSO,
+  0,
+  [_cI, _sI, _a, _st, _cTr, _o, _f],
+  [0, 0, 0, 0, 4, 0, 0], 7
+];
 export var DeleteClusterInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_i, _cT],
@@ -207,6 +246,16 @@ export var DeleteClusterPolicyOutput$: StaticStructureSchema = [3, n0, _DCPO,
   0,
   [_pV],
   [0], 1
+];
+export var DeleteStreamInput$: StaticStructureSchema = [3, n0, _DSI,
+  0,
+  [_cI, _sI, _cT],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ct, [_iT]: 1 }]], 2
+];
+export var DeleteStreamOutput$: StaticStructureSchema = [3, n0, _DSO,
+  0,
+  [_cI, _sI, _a, _st, _cTr],
+  [0, 0, 0, 0, 4], 5
 ];
 export var EncryptionDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -233,6 +282,16 @@ export var GetClusterPolicyOutput$: StaticStructureSchema = [3, n0, _GCPO,
   [_p, _pV],
   [0, 0], 2
 ];
+export var GetStreamInput$: StaticStructureSchema = [3, n0, _GSI,
+  0,
+  [_cI, _sI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetStreamOutput$: StaticStructureSchema = [3, n0, _GSO,
+  0,
+  [_cI, _sI, _a, _st, _cTr, _o, _f, _tD, _sR, _t],
+  [0, 0, 0, 0, 4, 0, 0, () => TargetDefinition$, () => StatusReason$, 128 | 0], 7
+];
 export var GetVpcEndpointServiceNameInput$: StaticStructureSchema = [3, n0, _GVESNI,
   0,
   [_i],
@@ -242,6 +301,11 @@ export var GetVpcEndpointServiceNameOutput$: StaticStructureSchema = [3, n0, _GV
   0,
   [_sN, _cVE],
   [0, 0], 1
+];
+export var KinesisTargetDefinition$: StaticStructureSchema = [3, n0, _KTD,
+  0,
+  [_sA, _rA],
+  [0, 0], 2
 ];
 export var ListClustersInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
@@ -253,9 +317,19 @@ export var ListClustersOutput$: StaticStructureSchema = [3, n0, _LCO,
   [_cl, _nT],
   [() => ClusterList, 0], 1
 ];
+export var ListStreamsInput$: StaticStructureSchema = [3, n0, _LSI,
+  0,
+  [_cI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 1
+];
+export var ListStreamsOutput$: StaticStructureSchema = [3, n0, _LSO,
+  0,
+  [_str, _nT],
+  [() => StreamList, 0], 1
+];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
-  [_rA],
+  [_rAe],
   [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
@@ -278,14 +352,24 @@ export var PutClusterPolicyOutput$: StaticStructureSchema = [3, n0, _PCPO,
   [_pV],
   [0], 1
 ];
+export var StatusReason$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_e, _uA],
+  [0, 4], 2
+];
+export var StreamSummary$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_cI, _sI, _a, _cTr, _st],
+  [0, 0, 0, 4, 0], 5
+];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
-  [_rA, _t],
+  [_rAe, _t],
   [[0, 1], 128 | 0], 2
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
-  [_rA, _tK],
+  [_rAe, _tK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateClusterInput$: StaticStructureSchema = [3, n0, _UCI,
@@ -308,13 +392,24 @@ var ClusterArnList = 64 | 0;
 var ClusterList: StaticListSchema = [1, n0, _CL,
   0, () => ClusterSummary$
 ];
+var StreamList: StaticListSchema = [1, n0, _SL,
+  0, () => StreamSummary$
+];
 var TagKeyList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
 var TagMap = 128 | 0;
+export var TargetDefinition$: StaticUnionSchema = [4, n0, _TD,
+  0,
+  [_k],
+  [() => KinesisTargetDefinition$]
+];
 export var CreateCluster$: StaticOperationSchema = [9, n0, _CC,
   { [_h]: ["POST", "/cluster", 200] }, () => CreateClusterInput$, () => CreateClusterOutput$
+];
+export var CreateStream$: StaticOperationSchema = [9, n0, _CSr,
+  { [_h]: ["POST", "/stream/{clusterIdentifier}", 200] }, () => CreateStreamInput$, () => CreateStreamOutput$
 ];
 export var DeleteCluster$: StaticOperationSchema = [9, n0, _DC,
   { [_h]: ["DELETE", "/cluster/{identifier}", 200] }, () => DeleteClusterInput$, () => DeleteClusterOutput$
@@ -322,17 +417,26 @@ export var DeleteCluster$: StaticOperationSchema = [9, n0, _DC,
 export var DeleteClusterPolicy$: StaticOperationSchema = [9, n0, _DCP,
   { [_h]: ["DELETE", "/cluster/{identifier}/policy", 200] }, () => DeleteClusterPolicyInput$, () => DeleteClusterPolicyOutput$
 ];
+export var DeleteStream$: StaticOperationSchema = [9, n0, _DS,
+  { [_h]: ["DELETE", "/stream/{clusterIdentifier}/{streamIdentifier}", 200] }, () => DeleteStreamInput$, () => DeleteStreamOutput$
+];
 export var GetCluster$: StaticOperationSchema = [9, n0, _GC,
   { [_h]: ["GET", "/cluster/{identifier}", 200] }, () => GetClusterInput$, () => GetClusterOutput$
 ];
 export var GetClusterPolicy$: StaticOperationSchema = [9, n0, _GCP,
   { [_h]: ["GET", "/cluster/{identifier}/policy", 200] }, () => GetClusterPolicyInput$, () => GetClusterPolicyOutput$
 ];
+export var GetStream$: StaticOperationSchema = [9, n0, _GS,
+  { [_h]: ["GET", "/stream/{clusterIdentifier}/{streamIdentifier}", 200] }, () => GetStreamInput$, () => GetStreamOutput$
+];
 export var GetVpcEndpointServiceName$: StaticOperationSchema = [9, n0, _GVESN,
   { [_h]: ["GET", "/clusters/{identifier}/vpc-endpoint-service-name", 200] }, () => GetVpcEndpointServiceNameInput$, () => GetVpcEndpointServiceNameOutput$
 ];
 export var ListClusters$: StaticOperationSchema = [9, n0, _LC,
   { [_h]: ["GET", "/cluster", 200] }, () => ListClustersInput$, () => ListClustersOutput$
+];
+export var ListStreams$: StaticOperationSchema = [9, n0, _LS,
+  { [_h]: ["GET", "/stream/{clusterIdentifier}", 200] }, () => ListStreamsInput$, () => ListStreamsOutput$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$

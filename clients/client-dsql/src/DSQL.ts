@@ -13,6 +13,11 @@ import {
   CreateClusterCommand,
 } from "./commands/CreateClusterCommand";
 import {
+  type CreateStreamCommandInput,
+  type CreateStreamCommandOutput,
+  CreateStreamCommand,
+} from "./commands/CreateStreamCommand";
+import {
   type DeleteClusterCommandInput,
   type DeleteClusterCommandOutput,
   DeleteClusterCommand,
@@ -23,6 +28,11 @@ import {
   DeleteClusterPolicyCommand,
 } from "./commands/DeleteClusterPolicyCommand";
 import {
+  type DeleteStreamCommandInput,
+  type DeleteStreamCommandOutput,
+  DeleteStreamCommand,
+} from "./commands/DeleteStreamCommand";
+import {
   type GetClusterCommandInput,
   type GetClusterCommandOutput,
   GetClusterCommand,
@@ -32,6 +42,7 @@ import {
   type GetClusterPolicyCommandOutput,
   GetClusterPolicyCommand,
 } from "./commands/GetClusterPolicyCommand";
+import { type GetStreamCommandInput, type GetStreamCommandOutput, GetStreamCommand } from "./commands/GetStreamCommand";
 import {
   type GetVpcEndpointServiceNameCommandInput,
   type GetVpcEndpointServiceNameCommandOutput,
@@ -42,6 +53,11 @@ import {
   type ListClustersCommandOutput,
   ListClustersCommand,
 } from "./commands/ListClustersCommand";
+import {
+  type ListStreamsCommandInput,
+  type ListStreamsCommandOutput,
+  ListStreamsCommand,
+} from "./commands/ListStreamsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -71,17 +87,24 @@ import { DSQLClient } from "./DSQLClient";
 import type { DSQLServiceException } from "./models/DSQLServiceException";
 import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListStreams } from "./pagination/ListStreamsPaginator";
 import { waitUntilClusterActive } from "./waiters/waitForClusterActive";
 import { waitUntilClusterNotExists } from "./waiters/waitForClusterNotExists";
+import { waitUntilStreamActive } from "./waiters/waitForStreamActive";
+import { waitUntilStreamNotExists } from "./waiters/waitForStreamNotExists";
 
 const commands = {
   CreateClusterCommand,
+  CreateStreamCommand,
   DeleteClusterCommand,
   DeleteClusterPolicyCommand,
+  DeleteStreamCommand,
   GetClusterCommand,
   GetClusterPolicyCommand,
+  GetStreamCommand,
   GetVpcEndpointServiceNameCommand,
   ListClustersCommand,
+  ListStreamsCommand,
   ListTagsForResourceCommand,
   PutClusterPolicyCommand,
   TagResourceCommand,
@@ -90,10 +113,13 @@ const commands = {
 };
 const paginators = {
   paginateListClusters,
+  paginateListStreams,
 };
 const waiters = {
   waitUntilClusterActive,
   waitUntilClusterNotExists,
+  waitUntilStreamActive,
+  waitUntilStreamNotExists,
 };
 
 export interface DSQL {
@@ -113,6 +139,23 @@ export interface DSQL {
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStreamCommand}
+   */
+  createStream(
+    args: CreateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamCommandOutput>;
+  createStream(
+    args: CreateStreamCommandInput,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
+  ): void;
+  createStream(
+    args: CreateStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
   ): void;
 
   /**
@@ -150,6 +193,23 @@ export interface DSQL {
   ): void;
 
   /**
+   * @see {@link DeleteStreamCommand}
+   */
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamCommandOutput>;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetClusterCommand}
    */
   getCluster(
@@ -181,6 +241,23 @@ export interface DSQL {
     args: GetClusterPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetClusterPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStreamCommand}
+   */
+  getStream(
+    args: GetStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamCommandOutput>;
+  getStream(
+    args: GetStreamCommandInput,
+    cb: (err: any, data?: GetStreamCommandOutput) => void
+  ): void;
+  getStream(
+    args: GetStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamCommandOutput) => void
   ): void;
 
   /**
@@ -216,6 +293,23 @@ export interface DSQL {
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   */
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
 
   /**
@@ -315,6 +409,17 @@ export interface DSQL {
   ): Paginator<ListClustersCommandOutput>;
 
   /**
+   * @see {@link ListStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamsCommandOutput}.
+   */
+  paginateListStreams(
+    args: ListStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamsCommandOutput>;
+
+  /**
    * @see {@link GetClusterCommand}
    * @param args - command input.
    * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
@@ -331,6 +436,26 @@ export interface DSQL {
    */
   waitUntilClusterNotExists(
     args: GetClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
+  ): Promise<WaiterResult<ResourceNotFoundException>>;
+
+  /**
+   * @see {@link GetStreamCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamActive(
+    args: GetStreamCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
+  ): Promise<WaiterResult<GetStreamCommandOutput>>;
+
+  /**
+   * @see {@link GetStreamCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamNotExists(
+    args: GetStreamCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
   ): Promise<WaiterResult<ResourceNotFoundException>>;
 }

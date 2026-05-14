@@ -1,5 +1,13 @@
 // smithy-typescript generated code
-import type { ClusterStatus, EncryptionStatus, EncryptionType } from "./enums";
+import type {
+  ClusterStatus,
+  EncryptionStatus,
+  EncryptionType,
+  StreamFailureErrorCode,
+  StreamFormat,
+  StreamOrdering,
+  StreamStatus,
+} from "./enums";
 
 /**
  * <p>Defines the structure for multi-Region cluster configurations, containing the witness region and linked cluster settings.</p>
@@ -534,6 +542,211 @@ export interface UpdateClusterOutput {
 }
 
 /**
+ * <p>Kinesis stream target configuration.</p>
+ * @public
+ */
+export interface KinesisTargetDefinition {
+  /**
+   * <p>The ARN of the Kinesis stream.</p>
+   * @public
+   */
+  streamArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role (<code>arn:aws:iam::account-id:role/role-name</code>) or a role with a path prefix (<code>arn:aws:iam::account-id:role/service-role/role-name</code>), such as roles auto-created by the console.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+}
+
+/**
+ * <p>Target definition for stream destination.</p>
+ * @public
+ */
+export type TargetDefinition =
+  | TargetDefinition.KinesisMember
+  | TargetDefinition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TargetDefinition {
+  /**
+   * <p>Kinesis stream target configuration.</p>
+   * @public
+   */
+  export interface KinesisMember {
+    kinesis: KinesisTargetDefinition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    kinesis?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    kinesis: (value: KinesisTargetDefinition) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateStreamInput {
+  /**
+   * <p>The ID of the cluster for which to create the stream.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The target destination configuration for the stream. Contains Kinesis stream configuration including stream ARN and IAM role ARN.</p>
+   * @public
+   */
+  targetDefinition: TargetDefinition | undefined;
+
+  /**
+   * <p>The ordering mode for the stream. Determines how change events are ordered when delivered to the target.</p>
+   * @public
+   */
+  ordering: StreamOrdering | undefined;
+
+  /**
+   * <p>The format of the stream records.</p>
+   * @public
+   */
+  format: StreamFormat | undefined;
+
+  /**
+   * <p>A map of key and value pairs to use to tag your stream.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>The output of a created stream.</p>
+ * @public
+ */
+export interface CreateStreamOutput {
+  /**
+   * <p>The ID of the cluster for the created stream.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the created stream.</p>
+   * @public
+   */
+  streamIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the created stream.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the created stream.</p>
+   * @public
+   */
+  status: StreamStatus | undefined;
+
+  /**
+   * <p>The time when created the stream.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The ordering mode of the created stream.</p>
+   * @public
+   */
+  ordering: StreamOrdering | undefined;
+
+  /**
+   * <p>The format of the created stream records.</p>
+   * @public
+   */
+  format: StreamFormat | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStreamInput {
+  /**
+   * <p>The ID of the cluster containing the stream to delete.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the stream to delete.</p>
+   * @public
+   */
+  streamIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>The output from a deleted stream.</p>
+ * @public
+ */
+export interface DeleteStreamOutput {
+  /**
+   * <p>The ID of the cluster for the deleted stream.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the deleted stream.</p>
+   * @public
+   */
+  streamIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the deleted stream.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the stream.</p>
+   * @public
+   */
+  status: StreamStatus | undefined;
+
+  /**
+   * <p>The time when the stream was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface ListTagsForResourceInput {
@@ -553,6 +766,183 @@ export interface ListTagsForResourceOutput {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStreamInput {
+  /**
+   * <p>The ID of the cluster containing the stream to retrieve.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the stream to retrieve.</p>
+   * @public
+   */
+  streamIdentifier: string | undefined;
+}
+
+/**
+ * <p>Stream status reason with error and timestamp.</p>
+ * @public
+ */
+export interface StatusReason {
+  /**
+   * <p>The error code for the stream failure.</p>
+   * @public
+   */
+  error: StreamFailureErrorCode | undefined;
+
+  /**
+   * <p>The timestamp when the status was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The output of a retrieved stream.</p>
+ * @public
+ */
+export interface GetStreamOutput {
+  /**
+   * <p>The ID of the cluster for the retrieved stream.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the retrieved stream.</p>
+   * @public
+   */
+  streamIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the retrieved stream.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The current status of the retrieved stream.</p>
+   * @public
+   */
+  status: StreamStatus | undefined;
+
+  /**
+   * <p>The time when the stream was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The ordering mode of the stream.</p>
+   * @public
+   */
+  ordering: StreamOrdering | undefined;
+
+  /**
+   * <p>The format of the stream records.</p>
+   * @public
+   */
+  format: StreamFormat | undefined;
+
+  /**
+   * <p>The target definition for the stream destination.</p>
+   * @public
+   */
+  targetDefinition?: TargetDefinition | undefined;
+
+  /**
+   * <p>Stream status reason with error code and timestamp (if applicable).</p>
+   * @public
+   */
+  statusReason?: StatusReason | undefined;
+
+  /**
+   * <p>A map of tags associated with the stream.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStreamsInput {
+  /**
+   * <p>The ID of the cluster for which to list streams.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a stream.</p>
+ * @public
+ */
+export interface StreamSummary {
+  /**
+   * <p>The ID of the cluster.</p>
+   * @public
+   */
+  clusterIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the stream.</p>
+   * @public
+   */
+  streamIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the stream.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The timestamp when the stream was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The current status of the stream.</p>
+   * @public
+   */
+  status: StreamStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStreamsOutput {
+  /**
+   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of the returned streams.</p>
+   * @public
+   */
+  streams: StreamSummary[] | undefined;
 }
 
 /**

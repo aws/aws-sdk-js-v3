@@ -188,6 +188,13 @@ CreateCluster
 </details>
 <details>
 <summary>
+CreateStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/CreateStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/CreateStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/CreateStreamCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteCluster
 </summary>
 
@@ -199,6 +206,13 @@ DeleteClusterPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/DeleteClusterPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteClusterPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteClusterPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/DeleteStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/DeleteStreamCommandOutput/)
 </details>
 <details>
 <summary>
@@ -216,6 +230,13 @@ GetClusterPolicy
 </details>
 <details>
 <summary>
+GetStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/GetStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/GetStreamCommandOutput/)
+</details>
+<details>
+<summary>
 GetVpcEndpointServiceName
 </summary>
 
@@ -227,6 +248,13 @@ ListClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/ListClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListClustersCommandOutput/)
+</details>
+<details>
+<summary>
+ListStreams
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dsql/command/ListStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dsql/Interface/ListStreamsCommandOutput/)
 </details>
 <details>
 <summary>
