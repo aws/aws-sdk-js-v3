@@ -302,8 +302,22 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                           "<keys>": "STRING_VALUE",
  * //                         },
  * //                       },
+ * //                       lambdaEventSourceMappingConfig: { // LambdaEventSourceMappingConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         action: "enable" || "disable", // required
+ * //                         regionEventSourceMappings: { // RegionEventSourceMappingMap // required
+ * //                           "<keys>": { // EventSourceMapping
+ * //                             crossAccountRole: "STRING_VALUE",
+ * //                             externalId: "STRING_VALUE",
+ * //                             arn: "STRING_VALUE", // required
+ * //                           },
+ * //                         },
+ * //                         ungraceful: { // LambdaEventSourceMappingUngraceful
+ * //                           behavior: "skip",
+ * //                         },
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping", // required
  * //                   },
  * //                 ],
  * //               },
@@ -400,8 +414,22 @@ export interface GetPlanExecutionCommandOutput extends GetPlanExecutionResponse,
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
  * //               },
+ * //               lambdaEventSourceMappingConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 action: "enable" || "disable", // required
+ * //                 regionEventSourceMappings: { // required
+ * //                   "<keys>": {
+ * //                     crossAccountRole: "STRING_VALUE",
+ * //                     externalId: "STRING_VALUE",
+ * //                     arn: "STRING_VALUE", // required
+ * //                   },
+ * //                 },
+ * //                 ungraceful: {
+ * //                   behavior: "skip",
+ * //                 },
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping", // required
  * //           },
  * //         ],
  * //         workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required

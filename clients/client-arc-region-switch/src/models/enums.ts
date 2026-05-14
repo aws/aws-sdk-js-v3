@@ -294,6 +294,32 @@ export type GlobalAuroraUngracefulBehavior =
  * @public
  * @enum
  */
+export const EventSourceMappingAction = {
+  DISABLE: "disable",
+  ENABLE: "enable",
+} as const;
+/**
+ * @public
+ */
+export type EventSourceMappingAction = (typeof EventSourceMappingAction)[keyof typeof EventSourceMappingAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const LambdaEventSourceMappingUngracefulBehavior = {
+  SKIP: "skip",
+} as const;
+/**
+ * @public
+ */
+export type LambdaEventSourceMappingUngracefulBehavior =
+  (typeof LambdaEventSourceMappingUngracefulBehavior)[keyof typeof LambdaEventSourceMappingUngracefulBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionBlockType = {
   AURORA: "AuroraGlobalDatabase",
   CUSTOM_ACTION_LAMBDA: "CustomActionLambda",
@@ -302,6 +328,7 @@ export const ExecutionBlockType = {
   ECS: "ECSServiceScaling",
   EKS_RESOURCE_SCALING: "EKSResourceScaling",
   EXECUTION_APPROVAL: "ManualApproval",
+  LAMBDA_EVENT_SOURCE_MAPPING: "LambdaEventSourceMapping",
   PARALLEL: "Parallel",
   RDS_CREATE_CROSS_REGION_REPLICA: "RdsCreateCrossRegionReplica",
   RDS_PROMOTE_READ_REPLICA: "RdsPromoteReadReplica",

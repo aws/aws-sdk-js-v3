@@ -9,6 +9,7 @@ import type {
   EcsCapacityMonitoringApproach,
   EksCapacityMonitoringApproach,
   EvaluationStatus,
+  EventSourceMappingAction,
   ExecutionAction,
   ExecutionBlockType,
   ExecutionEventType,
@@ -17,6 +18,7 @@ import type {
   FailedReportErrorCode,
   GlobalAuroraDefaultBehavior,
   GlobalAuroraUngracefulBehavior,
+  LambdaEventSourceMappingUngracefulBehavior,
   LambdaUngracefulBehavior,
   RecoveryApproach,
   RegionToRunIn,
@@ -918,7 +920,7 @@ export interface Ec2AsgCapacityIncreaseConfiguration {
   ungraceful?: Ec2Ungraceful | undefined;
 
   /**
-   * <p>The target percentage that you specify for EC2 Auto Scaling groups.</p>
+   * <p>The target percentage that you specify for EC2 Auto Scaling groups. The default is 100.</p>
    * @public
    */
   targetPercent?: number | undefined;
@@ -996,7 +998,7 @@ export interface EcsCapacityIncreaseConfiguration {
   ungraceful?: EcsUngraceful | undefined;
 
   /**
-   * <p>The target percentage specified for the configuration.</p>
+   * <p>The target percentage specified for the configuration. The default is 100.</p>
    * @public
    */
   targetPercent?: number | undefined;
@@ -1122,7 +1124,7 @@ export interface EksResourceScalingConfiguration {
   ungraceful?: EksResourceScalingUngraceful | undefined;
 
   /**
-   * <p>The target percentage for the configuration.</p>
+   * <p>The target percentage for the configuration. The default is 100.</p>
    * @public
    */
   targetPercent?: number | undefined;
@@ -1210,6 +1212,72 @@ export interface GlobalAuroraConfiguration {
    * @public
    */
   databaseClusterArns: string[] | undefined;
+}
+
+/**
+ * <p>The Amazon Web Services Lambda event source mapping configuration, containing the resource ARN and optional cross-account configuration.</p>
+ * @public
+ */
+export interface EventSourceMapping {
+  /**
+   * <p>The cross account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda event source mapping.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p>Specifies whether to skip enabling or disabling an event source mapping during an ungraceful execution.</p>
+ * @public
+ */
+export interface LambdaEventSourceMappingUngraceful {
+  /**
+   * <p>Set to <code>skip</code> to skip executing this event source mapping step during an ungraceful execution.</p>
+   * @public
+   */
+  behavior?: LambdaEventSourceMappingUngracefulBehavior | undefined;
+}
+
+/**
+ * <p>Configuration for Amazon Web Services Lambda event source mappings used in a Region switch plan.</p>
+ * @public
+ */
+export interface LambdaEventSourceMappingConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The action to take - whether to <code>enable</code> or <code>disable</code> an event source mapping.</p>
+   * @public
+   */
+  action: EventSourceMappingAction | undefined;
+
+  /**
+   * <p>Per-region configuration for which Lambda event source mapping to enable or disable when activating or deactivating a region.</p>
+   * @public
+   */
+  regionEventSourceMappings: Record<string, EventSourceMapping> | undefined;
+
+  /**
+   * <p>The settings for ungraceful execution.</p>
+   * @public
+   */
+  ungraceful?: LambdaEventSourceMappingUngraceful | undefined;
 }
 
 /**
@@ -2031,6 +2099,7 @@ export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.EksResourceScalingConfigMember
   | ExecutionBlockConfiguration.ExecutionApprovalConfigMember
   | ExecutionBlockConfiguration.GlobalAuroraConfigMember
+  | ExecutionBlockConfiguration.LambdaEventSourceMappingConfigMember
   | ExecutionBlockConfiguration.ParallelConfigMember
   | ExecutionBlockConfiguration.RdsCreateCrossRegionReadReplicaConfigMember
   | ExecutionBlockConfiguration.RdsPromoteReadReplicaConfigMember
@@ -2060,6 +2129,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2081,6 +2151,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2102,6 +2173,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2123,6 +2195,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2144,6 +2217,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2165,6 +2239,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2186,6 +2261,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2207,6 +2283,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2228,6 +2305,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2249,6 +2327,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2270,6 +2349,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig: DocumentDbConfiguration;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2291,6 +2371,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig: RdsPromoteReadReplicaConfiguration;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown?: never;
   }
 
@@ -2312,6 +2393,29 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig: RdsCreateCrossRegionReplicaConfiguration;
+    lambdaEventSourceMappingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Lambda event source mapping execution block.</p>
+   * @public
+   */
+  export interface LambdaEventSourceMappingConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig: LambdaEventSourceMappingConfiguration;
     $unknown?: never;
   }
 
@@ -2332,6 +2436,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig?: never;
     rdsPromoteReadReplicaConfig?: never;
     rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2353,6 +2458,7 @@ export namespace ExecutionBlockConfiguration {
     documentDbConfig: (value: DocumentDbConfiguration) => T;
     rdsPromoteReadReplicaConfig: (value: RdsPromoteReadReplicaConfiguration) => T;
     rdsCreateCrossRegionReadReplicaConfig: (value: RdsCreateCrossRegionReplicaConfiguration) => T;
+    lambdaEventSourceMappingConfig: (value: LambdaEventSourceMappingConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }

@@ -34,6 +34,7 @@ const _EE = "ExecutionEvent";
 const _EEL = "ExecutionEventList";
 const _ERSC = "EksResourceScalingConfiguration";
 const _ERSU = "EksResourceScalingUngraceful";
+const _ESM = "EventSourceMapping";
 const _EU = "Ec2Ungraceful";
 const _EUc = "EcsUngraceful";
 const _FRO = "FailedReportOutput";
@@ -61,6 +62,8 @@ const _KSA = "KubernetesScalingApps";
 const _KSAu = "KubernetesScalingApplication";
 const _KSR = "KubernetesScalingResource";
 const _L = "Lambdas";
+const _LESMC = "LambdaEventSourceMappingConfiguration";
+const _LESMU = "LambdaEventSourceMappingUngraceful";
 const _LL = "LambdaList";
 const _LP = "ListPlans";
 const _LPE = "ListPlanExecutions";
@@ -92,6 +95,7 @@ const _PW = "PlanWarnings";
 const _RARC = "RegionAndRoutingControls";
 const _RC = "ReportConfiguration";
 const _RCCRRC = "RdsCreateCrossRegionReplicaConfiguration";
+const _RESMM = "RegionEventSourceMappingMap";
 const _RHC = "Route53HealthCheck";
 const _RHCC = "Route53HealthCheckConfiguration";
 const _RHCL = "Route53HealthCheckList";
@@ -199,6 +203,7 @@ const _i = "items";
 const _k = "kind";
 const _kRT = "kubernetesResourceType";
 const _l = "lambdas";
+const _lESMC = "lambdaEventSourceMappingConfig";
 const _lET = "lastEvaluationTime";
 const _lEV = "lastEvaluatedVersion";
 const _lV = "latestVersion";
@@ -226,6 +231,7 @@ const _rC = "reportConfiguration";
 const _rCA = "routingControlArn";
 const _rCCRRRC = "rdsCreateCrossRegionReadReplicaConfig";
 const _rEI = "recoveryExecutionId";
+const _rESM = "regionEventSourceMappings";
 const _rGT = "reportGenerationTime";
 const _rHCC = "route53HealthCheckConfig";
 const _rI = "resourceIdentifier";
@@ -462,6 +468,11 @@ export var EksResourceScalingUngraceful$: StaticStructureSchema = [3, n0, _ERSU,
   [_mSP],
   [1], 1
 ];
+export var EventSourceMapping$: StaticStructureSchema = [3, n0, _ESM,
+  0,
+  [_a, _cAR, _eIx],
+  [0, 0, 0], 1
+];
 export var ExecutionApprovalConfiguration$: StaticStructureSchema = [3, n0, _EAC,
   0,
   [_aR, _tM],
@@ -541,6 +552,16 @@ export var KubernetesScalingResource$: StaticStructureSchema = [3, n0, _KSR,
   0,
   [_na, _n, _hN],
   [0, 0, 0], 2
+];
+export var LambdaEventSourceMappingConfiguration$: StaticStructureSchema = [3, n0, _LESMC,
+  0,
+  [_ac, _rESM, _tM, _u],
+  [0, () => RegionEventSourceMappingMap, 1, () => LambdaEventSourceMappingUngraceful$], 2
+];
+export var LambdaEventSourceMappingUngraceful$: StaticStructureSchema = [3, n0, _LESMU,
+  0,
+  [_b],
+  [0]
 ];
 export var Lambdas$: StaticStructureSchema = [3, n0, _L,
   0,
@@ -852,11 +873,14 @@ var RegionalScalingResource: StaticMapSchema = [2, n0, _RSR,
 var RegionAndRoutingControls: StaticMapSchema = [2, n0, _RARC,
   0, 0, () => ArcRoutingControlStates
 ];
+var RegionEventSourceMappingMap: StaticMapSchema = [2, n0, _RESMM,
+  0, 0, () => EventSourceMapping$
+];
 var Tags = 128 | 0;
 export var ExecutionBlockConfiguration$: StaticUnionSchema = [4, n0, _EBC,
   0,
-  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC],
-  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$]
+  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC],
+  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$]
 ];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,

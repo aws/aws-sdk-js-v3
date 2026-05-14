@@ -45,6 +45,8 @@ import {
   EksResourceScalingConfiguration$,
   EksResourceScalingUngraceful$,
   EvaluationStatus,
+  EventSourceMapping$,
+  EventSourceMappingAction,
   ExecutionAction,
   ExecutionApprovalConfiguration$,
   ExecutionBlockConfiguration$,
@@ -84,6 +86,9 @@ import {
   InternalServerException$,
   KubernetesResourceType$,
   KubernetesScalingResource$,
+  LambdaEventSourceMappingConfiguration$,
+  LambdaEventSourceMappingUngraceful$,
+  LambdaEventSourceMappingUngracefulBehavior,
   Lambdas$,
   LambdaUngraceful$,
   LambdaUngracefulBehavior,
@@ -256,6 +261,7 @@ assert(typeof EcsUngraceful$ === "object");
 assert(typeof EksCluster$ === "object");
 assert(typeof EksResourceScalingConfiguration$ === "object");
 assert(typeof EksResourceScalingUngraceful$ === "object");
+assert(typeof EventSourceMapping$ === "object");
 assert(typeof ExecutionApprovalConfiguration$ === "object");
 assert(typeof ExecutionBlockConfiguration$ === "object");
 assert(typeof ExecutionEvent$ === "object");
@@ -273,6 +279,8 @@ assert(typeof GlobalAuroraConfiguration$ === "object");
 assert(typeof GlobalAuroraUngraceful$ === "object");
 assert(typeof KubernetesResourceType$ === "object");
 assert(typeof KubernetesScalingResource$ === "object");
+assert(typeof LambdaEventSourceMappingConfiguration$ === "object");
+assert(typeof LambdaEventSourceMappingUngraceful$ === "object");
 assert(typeof Lambdas$ === "object");
 assert(typeof LambdaUngraceful$ === "object");
 assert(typeof ListPlanExecutionEventsRequest$ === "object");
@@ -332,6 +340,7 @@ assert(typeof Ec2AsgCapacityMonitoringApproach === "object");
 assert(typeof EcsCapacityMonitoringApproach === "object");
 assert(typeof EksCapacityMonitoringApproach === "object");
 assert(typeof EvaluationStatus === "object");
+assert(typeof EventSourceMappingAction === "object");
 assert(typeof ExecutionAction === "object");
 assert(typeof ExecutionBlockType === "object");
 assert(typeof ExecutionEventType === "object");
@@ -340,6 +349,7 @@ assert(typeof ExecutionState === "object");
 assert(typeof FailedReportErrorCode === "object");
 assert(typeof GlobalAuroraDefaultBehavior === "object");
 assert(typeof GlobalAuroraUngracefulBehavior === "object");
+assert(typeof LambdaEventSourceMappingUngracefulBehavior === "object");
 assert(typeof LambdaUngracefulBehavior === "object");
 assert(typeof RecoveryApproach === "object");
 assert(typeof RegionToRunIn === "object");
