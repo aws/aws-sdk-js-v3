@@ -5,7 +5,7 @@
   "dependencies": {
     "@nodable/entities": "2.1.0",
     "@smithy/types": "^4.14.1",
-    "fast-xml-parser": "5.7.2",
+    "fast-xml-parser": "5.7.3",
     "tslib": "^2.6.2"
   },
   "scripts": {
