@@ -1115,6 +1115,7 @@ const _GWRet = "GetWorkflowRun";
 const _GWReto = "GetWorkflowRuns";
 const _Gr = "Graph";
 const _H = "Header";
+const _HD = "HasDatabases";
 const _HK = "HeaderKey";
 const _HP = "HidePassword";
 const _HT = "HudiTargets";
@@ -4638,8 +4639,8 @@ export var GetCatalogResponse$: StaticStructureSchema = [3, n0, _GCRe,
 ];
 export var GetCatalogsRequest$: StaticStructureSchema = [3, n0, _GCRet,
   0,
-  [_PCI, _NTe, _MRax, _Recu, _IRn],
-  [0, 0, 1, 2, 2]
+  [_PCI, _NTe, _MRax, _Recu, _IRn, _HD],
+  [0, 0, 1, 2, 2, 2]
 ];
 export var GetCatalogsResponse$: StaticStructureSchema = [3, n0, _GCReta,
   0,

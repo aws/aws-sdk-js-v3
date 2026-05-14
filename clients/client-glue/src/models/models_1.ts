@@ -5345,6 +5345,12 @@ export interface GetCatalogsRequest {
    * @public
    */
   IncludeRoot?: boolean | undefined;
+
+  /**
+   * <p>When <code>true</code>, the response only includes catalogs that can contain databases. Some catalogs are organizational containers that hold only other catalogs, not databases. When this parameter is set to <code>true</code>, those container-only catalogs are excluded, and only catalogs capable of containing databases are returned. Defaults to <code>false</code>.</p>
+   * @public
+   */
+  HasDatabases?: boolean | undefined;
 }
 
 /**

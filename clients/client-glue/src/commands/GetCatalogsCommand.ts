@@ -42,6 +42,7 @@ export interface GetCatalogsCommandOutput extends GetCatalogsResponse, __Metadat
  *   MaxResults: Number("int"),
  *   Recursive: true || false,
  *   IncludeRoot: true || false,
+ *   HasDatabases: true || false,
  * };
  * const command = new GetCatalogsCommand(input);
  * const response = await client.send(command);
