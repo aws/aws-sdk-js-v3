@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
+
+
+### Features
+
+* **client-database-migration-service:** Add 9 SDK waiters for DMS Schema Conversion async operations. Eliminates manual polling for import, assessment, conversion, export, and creation jobs. ([32d372e](https://github.com/aws/aws-sdk-js-v3/commit/32d372e79edce8fe22d5671f8555874a8075fc26))
+
+
+
+
+
 # [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-database-migration-service

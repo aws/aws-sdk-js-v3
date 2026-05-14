@@ -26,6 +26,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.24 (2026-05-14)
+### Chores
+* **middleware-sdk-ec2:** update dependencies.
+
+
+
 # 3.972.23 (2026-05-13)
 ### Chores
 * **core/util:** migrate minor utility functions to core ([#8007](https://github.com/aws/aws-sdk-js-v3/issues/8007)) ([6a0f061](https://github.com/aws/aws-sdk-js-v3/commit/6a0f061a158c5648fad5d7f12d7ccc0b59d21165))

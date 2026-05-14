@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
+
+
+### Features
+
+* **client-mgn:** Introducing new option for security groups mapping - with MAP-DHCP the service translates security rules from your source environment with DHCP compatibility. ([27c0704](https://github.com/aws/aws-sdk-js-v3/commit/27c07049303a068fb86511bd2d823bb825c35d66))
+
+
+
+
+
 # [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-mgn

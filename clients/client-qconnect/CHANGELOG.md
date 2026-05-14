@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
+
+
+### Features
+
+* **client-qconnect:** ListModels is an API that returns the available AI models for a Connect Assistant based on its region and AI prompt type. ([0d6d7ec](https://github.com/aws/aws-sdk-js-v3/commit/0d6d7ec3b165593aaff93cd691f0405abda53a96))
+
+
+
+
+
 # [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect

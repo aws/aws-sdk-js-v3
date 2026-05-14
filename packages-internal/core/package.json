@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core",
-  "version": "3.974.9",
+  "version": "3.974.10",
   "description": "Core functions & classes shared by multiple AWS SDK clients.",
   "scripts": {
     "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
@@ -94,7 +94,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@aws-sdk/xml-builder": "workspace:^3.972.23",
+    "@aws-sdk/xml-builder": "workspace:^3.972.24",
     "@smithy/core": "^3.24.1",
     "@smithy/signature-v4": "^5.4.1",
     "@smithy/types": "^4.14.1",

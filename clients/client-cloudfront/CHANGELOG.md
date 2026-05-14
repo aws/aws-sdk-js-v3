@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
+
+
+### Features
+
+* **client-cloudfront:** Adding a new boolean for OCSP Revocations in Viewer mTLS Create and Update APIs, and adding a new 'Passthrough' option for TrustStore modes ([ee96afa](https://github.com/aws/aws-sdk-js-v3/commit/ee96afaa0f294bb1dc3de89eac75cb7f4ec064df))
+
+
+
+
+
 # [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront

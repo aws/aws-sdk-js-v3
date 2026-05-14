@@ -35,6 +35,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.33 (2026-05-14)
+### Chores
+* **credential-provider-cognito-identity:** update dependencies.
+
+
+
 # 3.972.32 (2026-05-13)
 ### Chores
 * **build:** set compilation config module type to nodenext ([#8018](https://github.com/aws/aws-sdk-js-v3/issues/8018)) ([893d9e6](https://github.com/aws/aws-sdk-js-v3/commit/893d9e61bd48172967d814aea5522cabac103713))

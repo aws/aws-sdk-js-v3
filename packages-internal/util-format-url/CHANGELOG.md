@@ -14,6 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.12 (2026-05-14)
+### Chores
+* **util-format-url:** update dependencies.
+
+
+
 # 3.972.11 (2026-05-13)
 ### Chores
 * **core/util:** update tsconfig.types.json ([#8016](https://github.com/aws/aws-sdk-js-v3/issues/8016)) ([b09190e](https://github.com/aws/aws-sdk-js-v3/commit/b09190e7ce4a01accf8aaca069c655036c1e4bae))

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
+
+
+### Features
+
+* **client-bedrock:** Advanced Prompt Optimization (AdvPO) allows you to optimize and migrate your prompts for any model on Bedrock by automatically evaluating responses and rewriting prompts to improve performance. This release provides a programmatic way to create, get, list, stop, and delete AdvPO jobs. ([7e479fd](https://github.com/aws/aws-sdk-js-v3/commit/7e479fde2146f51d3165f57eff529ae4ff2222cc))
+* **client-cloudfront:** Adding a new boolean for OCSP Revocations in Viewer mTLS Create and Update APIs, and adding a new 'Passthrough' option for TrustStore modes ([ee96afa](https://github.com/aws/aws-sdk-js-v3/commit/ee96afaa0f294bb1dc3de89eac75cb7f4ec064df))
+* **client-database-migration-service:** Add 9 SDK waiters for DMS Schema Conversion async operations. Eliminates manual polling for import, assessment, conversion, export, and creation jobs. ([32d372e](https://github.com/aws/aws-sdk-js-v3/commit/32d372e79edce8fe22d5671f8555874a8075fc26))
+* **client-datazone:** Adds support for SageMaker Unified Studio notebook operations, including notebook import and export ([383f4ea](https://github.com/aws/aws-sdk-js-v3/commit/383f4ea2d9ef976310fd98d0bb15f3452424f8c9))
+* **client-glue:** Release --has-databases parameter for AWS Glue get-catalogs API, which filters catalog responses to include only those capable of containing databases, excluding parent catalogs that hold only other catalogs. Remove model-level validation on partition index list size for AWS Glue tables. ([e2b076e](https://github.com/aws/aws-sdk-js-v3/commit/e2b076eea6202df964b17d73795cd181baf8e37e))
+* **client-grafana:** Adds support for dual-stack (IPv4 and IPv6) connectivity to Amazon Managed Grafana workspaces. Customers can configure the ipAddressType parameter when creating or updating a workspace to choose between IPv4-only or dual-stack (IPv4 and IPv6) access. ([1184c5e](https://github.com/aws/aws-sdk-js-v3/commit/1184c5e5e58e3ec07eb535698f75344700158526))
+* **client-mgn:** Introducing new option for security groups mapping - with MAP-DHCP the service translates security rules from your source environment with DHCP compatibility. ([27c0704](https://github.com/aws/aws-sdk-js-v3/commit/27c07049303a068fb86511bd2d823bb825c35d66))
+* **client-qconnect:** ListModels is an API that returns the available AI models for a Connect Assistant based on its region and AI prompt type. ([0d6d7ec](https://github.com/aws/aws-sdk-js-v3/commit/0d6d7ec3b165593aaff93cd691f0405abda53a96))
+* **clients:** update client endpoints as of 2026-05-14 ([3505575](https://github.com/aws/aws-sdk-js-v3/commit/3505575ddb0441cd291dfbb044bc01af6f859b32))
+
+
+
+
+
 # [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
 
 

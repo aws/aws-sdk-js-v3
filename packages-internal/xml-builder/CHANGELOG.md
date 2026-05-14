@@ -7,6 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.24 (2026-05-14)
+### Chores
+* upgrade fast-xml-parser to 5.7.3 ([#8021](https://github.com/aws/aws-sdk-js-v3/issues/8021)) ([b2aae04](https://github.com/aws/aws-sdk-js-v3/commit/b2aae04e93b046dbb384cc5c9339298953ab3843))
+
+
+
 # 3.972.23 (2026-05-12)
 ### Chores
 * **scripts:** add submodule variant api surface parity linting ([#8006](https://github.com/aws/aws-sdk-js-v3/issues/8006)) ([3361fb2](https://github.com/aws/aws-sdk-js-v3/commit/3361fb26a1fbe97fcad0e8be0c272ccf24470a64))

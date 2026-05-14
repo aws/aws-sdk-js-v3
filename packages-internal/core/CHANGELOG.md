@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.10 (2026-05-14)
+### Chores
+* **core:** update dependencies.
+
+
+
 # 3.974.9 (2026-05-13)
 ### Bug Fixes
 * **core/protocols:** corrections for absolute and relative shape id lookup for errors ([#8001](https://github.com/aws/aws-sdk-js-v3/issues/8001)) ([c9921dc](https://github.com/aws/aws-sdk-js-v3/commit/c9921dcb70445adc22ecafad4164a4c83fc20dfd))
