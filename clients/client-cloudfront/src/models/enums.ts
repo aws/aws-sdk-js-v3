@@ -356,6 +356,7 @@ export type SSLSupportMethod = (typeof SSLSupportMethod)[keyof typeof SSLSupport
  */
 export const ViewerMtlsMode = {
   Optional: "optional",
+  Passthrough: "passthrough",
   Required: "required",
 } as const;
 /**

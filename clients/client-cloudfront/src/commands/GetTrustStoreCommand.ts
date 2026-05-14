@@ -50,6 +50,7 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResult, __Metad
  * //     NumberOfCaCertificates: Number("int"),
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //     Reason: "STRING_VALUE",
+ * //     UseClientCertificateOCSPEndpoint: true || false,
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };

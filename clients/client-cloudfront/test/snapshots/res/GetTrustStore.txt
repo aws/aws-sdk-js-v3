@@ -49,6 +49,9 @@ ETag: __ETag__
     <Reason>
         __Reason__
     </Reason>
+    <UseClientCertificateOCSPEndpoint>
+        false
+    </UseClientCertificateOCSPEndpoint>
 </TrustStore>
 
 
@@ -61,7 +64,8 @@ ETag: __ETag__
     Status: "__Status__",
     NumberOfCaCertificates: (number) 0,
     LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-    Reason: "__Reason__"
+    Reason: "__Reason__",
+    UseClientCertificateOCSPEndpoint: (boolean) false
   },
   ETag: "__ETag__",
   $metadata: {

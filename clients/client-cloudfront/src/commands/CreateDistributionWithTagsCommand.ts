@@ -360,7 +360,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *       },
  *       ConnectionMode: "direct" || "tenant-only",
  *       ViewerMtlsConfig: { // ViewerMtlsConfig
- *         Mode: "required" || "optional",
+ *         Mode: "required" || "optional" || "passthrough",
  *         TrustStoreConfig: { // TrustStoreConfig
  *           TrustStoreId: "STRING_VALUE", // required
  *           AdvertiseTrustStoreCaNames: true || false,
@@ -746,7 +746,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * //       },
  * //       ConnectionMode: "direct" || "tenant-only",
  * //       ViewerMtlsConfig: { // ViewerMtlsConfig
- * //         Mode: "required" || "optional",
+ * //         Mode: "required" || "optional" || "passthrough",
  * //         TrustStoreConfig: { // TrustStoreConfig
  * //           TrustStoreId: "STRING_VALUE", // required
  * //           AdvertiseTrustStoreCaNames: true || false,

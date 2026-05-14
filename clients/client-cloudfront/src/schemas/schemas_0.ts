@@ -1066,6 +1066,7 @@ const _Tag = "Tag";
 const _UAIL = "UpdateAnycastIpList";
 const _UAILR = "UpdateAnycastIpListRequest";
 const _UAILRp = "UpdateAnycastIpListResult";
+const _UCCOCSPE = "UseClientCertificateOCSPEndpoint";
 const _UCDP = "UpdateContinuousDeploymentPolicy";
 const _UCDPR = "UpdateContinuousDeploymentPolicyRequest";
 const _UCDPRp = "UpdateContinuousDeploymentPolicyResult";
@@ -2769,8 +2770,8 @@ export var CreateStreamingDistributionWithTagsResult$: StaticStructureSchema = [
 ];
 export var CreateTrustStoreRequest$: StaticStructureSchema = [3, n0, _CTSR,
   0,
-  [_N, _CCBS, _Ta],
-  [0, () => CaCertificatesBundleSource$, [() => Tags$, 0]], 2
+  [_N, _CCBS, _UCCOCSPE, _Ta],
+  [0, () => CaCertificatesBundleSource$, 2, [() => Tags$, 0]], 2
 ];
 export var CreateTrustStoreResult$: StaticStructureSchema = [3, n0, _CTSRr,
   0,
@@ -4554,8 +4555,8 @@ export var TrustedSigners$: StaticStructureSchema = [3, n0, _TS,
 ];
 export var TrustStore$: StaticStructureSchema = [3, n0, _TSr,
   0,
-  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea],
-  [0, 0, 0, 0, 1, 4, 0]
+  [_Id, _Ar, _N, _S, _NOCC, _LMT, _Rea, _UCCOCSPE],
+  [0, 0, 0, 0, 1, 4, 0, 2]
 ];
 export var TrustStoreConfig$: StaticStructureSchema = [3, n0, _TSC,
   0,
@@ -4784,8 +4785,8 @@ export var UpdateStreamingDistributionResult$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateTrustStoreRequest$: StaticStructureSchema = [3, n0, _UTSR,
   0,
-  [_Id, _CCBS, _IM],
-  [[0, 1], [() => CaCertificatesBundleSource$, 16], [0, { [_hH]: _IM_ }]], 3
+  [_Id, _IM, _CCBS, _UCCOCSPE],
+  [[0, 1], [0, { [_hH]: _IM_ }], [() => CaCertificatesBundleSource$, 16], [2, { [_hH]: _UCCOCSPE }]], 2
 ];
 export var UpdateTrustStoreResult$: StaticStructureSchema = [3, n0, _UTSRp,
   0,

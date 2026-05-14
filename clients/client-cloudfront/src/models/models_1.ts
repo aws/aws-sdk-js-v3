@@ -4666,7 +4666,13 @@ export interface UpdateTrustStoreRequest {
    * <p>The CA certificates bundle source.</p>
    * @public
    */
-  CaCertificatesBundleSource: CaCertificatesBundleSource | undefined;
+  CaCertificatesBundleSource?: CaCertificatesBundleSource | undefined;
+
+  /**
+   * <p>A Boolean that determines whether to use the CA certificate's OCSP endpoint to check certificate revocation status.</p>
+   * @public
+   */
+  UseClientCertificateOCSPEndpoint?: boolean | undefined;
 
   /**
    * <p>The current version (<code>ETag</code> value) of the trust store you are updating.</p>

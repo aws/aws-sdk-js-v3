@@ -401,7 +401,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //       },
  * //       ConnectionMode: "direct" || "tenant-only",
  * //       ViewerMtlsConfig: { // ViewerMtlsConfig
- * //         Mode: "required" || "optional",
+ * //         Mode: "required" || "optional" || "passthrough",
  * //         TrustStoreConfig: { // TrustStoreConfig
  * //           TrustStoreId: "STRING_VALUE", // required
  * //           AdvertiseTrustStoreCaNames: true || false,

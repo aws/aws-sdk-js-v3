@@ -46,6 +46,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResult, _
  *       Version: "STRING_VALUE",
  *     },
  *   },
+ *   UseClientCertificateOCSPEndpoint: true || false,
  *   Tags: { // Tags
  *     Items: [ // TagList
  *       { // Tag
@@ -66,6 +67,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResult, _
  * //     NumberOfCaCertificates: Number("int"),
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //     Reason: "STRING_VALUE",
+ * //     UseClientCertificateOCSPEndpoint: true || false,
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };

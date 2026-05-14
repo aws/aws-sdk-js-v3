@@ -405,7 +405,7 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * //       },
  * //       ConnectionMode: "direct" || "tenant-only",
  * //       ViewerMtlsConfig: { // ViewerMtlsConfig
- * //         Mode: "required" || "optional",
+ * //         Mode: "required" || "optional" || "passthrough",
  * //         TrustStoreConfig: { // TrustStoreConfig
  * //           TrustStoreId: "STRING_VALUE", // required
  * //           AdvertiseTrustStoreCaNames: true || false,

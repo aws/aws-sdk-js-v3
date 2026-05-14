@@ -362,7 +362,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //         ConnectionMode: "direct" || "tenant-only",
  * //         AnycastIpListId: "STRING_VALUE",
  * //         ViewerMtlsConfig: { // ViewerMtlsConfig
- * //           Mode: "required" || "optional",
+ * //           Mode: "required" || "optional" || "passthrough",
  * //           TrustStoreConfig: { // TrustStoreConfig
  * //             TrustStoreId: "STRING_VALUE", // required
  * //             AdvertiseTrustStoreCaNames: true || false,

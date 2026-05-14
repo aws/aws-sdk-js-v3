@@ -359,7 +359,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     },
  *     ConnectionMode: "direct" || "tenant-only",
  *     ViewerMtlsConfig: { // ViewerMtlsConfig
- *       Mode: "required" || "optional",
+ *       Mode: "required" || "optional" || "passthrough",
  *       TrustStoreConfig: { // TrustStoreConfig
  *         TrustStoreId: "STRING_VALUE", // required
  *         AdvertiseTrustStoreCaNames: true || false,
@@ -738,7 +738,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * //       },
  * //       ConnectionMode: "direct" || "tenant-only",
  * //       ViewerMtlsConfig: { // ViewerMtlsConfig
- * //         Mode: "required" || "optional",
+ * //         Mode: "required" || "optional" || "passthrough",
  * //         TrustStoreConfig: { // TrustStoreConfig
  * //           TrustStoreId: "STRING_VALUE", // required
  * //           AdvertiseTrustStoreCaNames: true || false,

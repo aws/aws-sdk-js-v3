@@ -46,6 +46,7 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResult, _
  *       Version: "STRING_VALUE",
  *     },
  *   },
+ *   UseClientCertificateOCSPEndpoint: true || false,
  *   IfMatch: "STRING_VALUE", // required
  * };
  * const command = new UpdateTrustStoreCommand(input);
@@ -59,6 +60,7 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResult, _
  * //     NumberOfCaCertificates: Number("int"),
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //     Reason: "STRING_VALUE",
+ * //     UseClientCertificateOCSPEndpoint: true || false,
  * //   },
  * //   ETag: "STRING_VALUE",
  * // };
