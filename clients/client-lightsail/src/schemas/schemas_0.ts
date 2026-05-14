@@ -2836,8 +2836,8 @@ export var ImportKeyPairResult$: StaticStructureSchema = [3, n0, _IKPRm,
 ];
 export var InputOrigin$: StaticStructureSchema = [3, n0, _IO,
   0,
-  [_n, _rNe, _pP, _rTes],
-  [0, 0, 0, 1]
+  [_n, _rNe, _pP, _rTes, _iAT],
+  [0, 0, 0, 1, 0]
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -3001,8 +3001,8 @@ export var Operation$: StaticStructureSchema = [3, n0, _O,
 ];
 export var Origin$: StaticStructureSchema = [3, n0, _Or,
   0,
-  [_n, _rT, _rNe, _pP, _rTes],
-  [0, 0, 0, 0, 1]
+  [_n, _rT, _rNe, _pP, _rTes, _iAT],
+  [0, 0, 0, 0, 1, 0]
 ];
 export var PasswordData$: StaticStructureSchema = [3, n0, _PD,
   0,

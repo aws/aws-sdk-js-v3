@@ -547,6 +547,7 @@ export type {
   NetworkProtocol,
   OperationStatus,
   OperationType,
+  OriginIpAddressTypeEnum,
   OriginProtocolPolicyEnum,
   PortAccessType,
   PortInfoSourceType,

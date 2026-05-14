@@ -48,6 +48,7 @@ import type {
   NetworkProtocol,
   OperationStatus,
   OperationType,
+  OriginIpAddressTypeEnum,
   OriginProtocolPolicyEnum,
   PortAccessType,
   PortInfoSourceType,
@@ -4439,6 +4440,14 @@ export interface InputOrigin {
    * @public
    */
   responseTimeout?: number | undefined;
+
+  /**
+   * <p>The IP address type that the distribution uses when connecting to the origin.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
+   * @public
+   */
+  ipAddressType?: OriginIpAddressTypeEnum | undefined;
 }
 
 /**
@@ -4559,6 +4568,14 @@ export interface Origin {
    * @public
    */
   responseTimeout?: number | undefined;
+
+  /**
+   * <p>The IP address type that the distribution uses when connecting to the origin.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
+   * @public
+   */
+  ipAddressType?: OriginIpAddressTypeEnum | undefined;
 }
 
 /**

@@ -836,6 +836,20 @@ export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
  * @public
  * @enum
  */
+export const OriginIpAddressTypeEnum = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+/**
+ * @public
+ */
+export type OriginIpAddressTypeEnum = (typeof OriginIpAddressTypeEnum)[keyof typeof OriginIpAddressTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const OriginProtocolPolicyEnum = {
   HTTPOnly: "http-only",
   HTTPSOnly: "https-only",

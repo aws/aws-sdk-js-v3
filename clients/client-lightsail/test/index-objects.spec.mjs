@@ -679,6 +679,7 @@ import {
   OperationStatus,
   OperationType,
   Origin$,
+  OriginIpAddressTypeEnum,
   OriginProtocolPolicyEnum,
   PasswordData$,
   PeerVpc$,
@@ -1699,6 +1700,7 @@ assert(typeof NameServersUpdateStateCode === "object");
 assert(typeof NetworkProtocol === "object");
 assert(typeof OperationStatus === "object");
 assert(typeof OperationType === "object");
+assert(typeof OriginIpAddressTypeEnum === "object");
 assert(typeof OriginProtocolPolicyEnum === "object");
 assert(typeof PortAccessType === "object");
 assert(typeof PortInfoSourceType === "object");
