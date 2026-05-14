@@ -112,6 +112,9 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action. </p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing a request. </p>
  *
