@@ -18,6 +18,9 @@ const _AWSR = "AWSResources";
 const _Ar = "Artifact";
 const _As = "Assets";
 const _Au = "Authentication";
+const _BDCR = "BatchDeleteCodeReviews";
+const _BDCRI = "BatchDeleteCodeReviewsInput";
+const _BDCRO = "BatchDeleteCodeReviewsOutput";
 const _BDP = "BatchDeletePentests";
 const _BDPI = "BatchDeletePentestsInput";
 const _BDPO = "BatchDeletePentestsOutput";
@@ -27,6 +30,15 @@ const _BGAMO = "BatchGetArtifactMetadataOutput";
 const _BGAS = "BatchGetAgentSpaces";
 const _BGASI = "BatchGetAgentSpacesInput";
 const _BGASO = "BatchGetAgentSpacesOutput";
+const _BGCR = "BatchGetCodeReviews";
+const _BGCRI = "BatchGetCodeReviewsInput";
+const _BGCRJ = "BatchGetCodeReviewJobs";
+const _BGCRJI = "BatchGetCodeReviewJobsInput";
+const _BGCRJO = "BatchGetCodeReviewJobsOutput";
+const _BGCRJT = "BatchGetCodeReviewJobTasks";
+const _BGCRJTI = "BatchGetCodeReviewJobTasksInput";
+const _BGCRJTO = "BatchGetCodeReviewJobTasksOutput";
+const _BGCRO = "BatchGetCodeReviewsOutput";
 const _BGF = "BatchGetFindings";
 const _BGFI = "BatchGetFindingsInput";
 const _BGFO = "BatchGetFindingsOutput";
@@ -49,20 +61,37 @@ const _CARr = "CreateApplicationResponse";
 const _CAS = "CreateAgentSpace";
 const _CASI = "CreateAgentSpaceInput";
 const _CASO = "CreateAgentSpaceOutput";
+const _CCR = "CreateCodeReview";
+const _CCRI = "CreateCodeReviewInput";
+const _CCRO = "CreateCodeReviewOutput";
 const _CE = "ConflictException";
 const _CH = "CustomHeader";
 const _CHL = "CustomHeaderList";
 const _CI = "CreateIntegration";
 const _CII = "CreateIntegrationInput";
 const _CIO = "CreateIntegrationOutput";
-const _CL = "CategoryList";
+const _CL = "CodeLocation";
+const _CLL = "CodeLocationList";
+const _CLa = "CategoryList";
 const _CM = "CreateMembership";
 const _CMR = "CreateMembershipRequest";
 const _CMRr = "CreateMembershipResponse";
 const _CP = "CreatePentest";
 const _CPI = "CreatePentestInput";
 const _CPO = "CreatePentestOutput";
+const _CR = "CodeReview";
+const _CRJ = "CodeReviewJob";
+const _CRJL = "CodeReviewJobList";
+const _CRJS = "CodeReviewJobSummary";
+const _CRJSL = "CodeReviewJobSummaryList";
+const _CRJT = "CodeReviewJobTask";
+const _CRJTL = "CodeReviewJobTaskList";
+const _CRJTS = "CodeReviewJobTaskSummary";
+const _CRJTSL = "CodeReviewJobTaskSummaryList";
+const _CRL = "CodeReviewList";
 const _CRS = "CodeReviewSettings";
+const _CRSL = "CodeReviewSummaryList";
+const _CRSo = "CodeReviewSummary";
 const _CRT = "CodeRemediationTask";
 const _CRTD = "CodeRemediationTaskDetails";
 const _CRTDL = "CodeRemediationTaskDetailsList";
@@ -78,6 +107,8 @@ const _DAS = "DeleteAgentSpace";
 const _DASI = "DeleteAgentSpaceInput";
 const _DASO = "DeleteAgentSpaceOutput";
 const _DAe = "DeleteArtifact";
+const _DCRF = "DeleteCodeReviewFailure";
+const _DCRFL = "DeleteCodeReviewFailureList";
 const _DE = "DiscoveredEndpoint";
 const _DEL = "DiscoveredEndpointList";
 const _DI = "DocumentInfo";
@@ -142,6 +173,15 @@ const _LAS = "ListAgentSpaces";
 const _LASI = "ListAgentSpacesInput";
 const _LASO = "ListAgentSpacesOutput";
 const _LAi = "ListArtifacts";
+const _LCR = "ListCodeReviews";
+const _LCRI = "ListCodeReviewsInput";
+const _LCRJFCR = "ListCodeReviewJobsForCodeReview";
+const _LCRJFCRI = "ListCodeReviewJobsForCodeReviewInput";
+const _LCRJFCRO = "ListCodeReviewJobsForCodeReviewOutput";
+const _LCRJT = "ListCodeReviewJobTasks";
+const _LCRJTI = "ListCodeReviewJobTasksInput";
+const _LCRJTO = "ListCodeReviewJobTasksOutput";
+const _LCRO = "ListCodeReviewsOutput";
 const _LDE = "ListDiscoveredEndpoints";
 const _LDEI = "ListDiscoveredEndpointsInput";
 const _LDEO = "ListDiscoveredEndpointsOutput";
@@ -194,6 +234,12 @@ const _RNFE = "ResourceNotFoundException";
 const _S = "Step";
 const _SCR = "SourceCodeRepository";
 const _SCRI = "StartCodeRemediationInput";
+const _SCRJ = "StartCodeReviewJob";
+const _SCRJI = "StartCodeReviewJobInput";
+const _SCRJIt = "StopCodeReviewJobInput";
+const _SCRJO = "StartCodeReviewJobOutput";
+const _SCRJOt = "StopCodeReviewJobOutput";
+const _SCRJt = "StopCodeReviewJob";
 const _SCRL = "SourceCodeRepositoryList";
 const _SCRO = "StartCodeRemediationOutput";
 const _SCRt = "StartCodeRemediation";
@@ -223,6 +269,9 @@ const _UAS = "UpdateAgentSpace";
 const _UASI = "UpdateAgentSpaceInput";
 const _UASO = "UpdateAgentSpaceOutput";
 const _UC = "UserConfig";
+const _UCR = "UpdateCodeReview";
+const _UCRI = "UpdateCodeReviewInput";
+const _UCRO = "UpdateCodeReviewOutput";
 const _UF = "UpdateFinding";
 const _UFI = "UpdateFindingInput";
 const _UFO = "UpdateFindingOutput";
@@ -274,16 +323,28 @@ const _cA = "createdAt";
 const _cB = "createdBy";
 const _cDL = "codeDiffLink";
 const _cH = "customHeaders";
+const _cL = "codeLocations";
 const _cN = "categoryName";
+const _cR = "codeReviews";
+const _cRI = "codeReviewIds";
+const _cRIo = "codeReviewId";
+const _cRJ = "codeReviewJobs";
+const _cRJI = "codeReviewJobIds";
+const _cRJIo = "codeReviewJobId";
+const _cRJS = "codeReviewJobSummaries";
+const _cRJT = "codeReviewJobTasks";
+const _cRJTI = "codeReviewJobTaskIds";
+const _cRJTS = "codeReviewJobTaskSummaries";
 const _cRS = "codeReviewSettings";
 const _cRSo = "codeRemediationStrategy";
+const _cRSod = "codeReviewSummaries";
 const _cRT = "codeRemediationTask";
 const _cS = "controlsScanning";
 const _cSs = "csrfState";
 const _cT = "contextType";
 const _cWL = "cloudWatchLog";
-const _ca = "capabilities";
-const _cat = "categories";
+const _ca = "categories";
+const _cap = "capabilities";
 const _co = "contents";
 const _cod = "code";
 const _con = "config";
@@ -315,6 +376,7 @@ const _fI = "findingIds";
 const _fIi = "findingId";
 const _fL = "fieldList";
 const _fN = "fileName";
+const _fP = "filePath";
 const _fS = "findingsSummaries";
 const _fi = "findings";
 const _fil = "filter";
@@ -340,13 +402,16 @@ const _iS = "integrationSummaries";
 const _in = "input";
 const _it = "items";
 const _kKI = "kmsKeyId";
+const _l = "label";
 const _lC = "logConfig";
 const _lCe = "leaveComments";
+const _lE = "lineEnd";
 const _lFA = "lambdaFunctionArns";
 const _lG = "logGroups";
 const _lGo = "logGroup";
 const _lL = "logsLocation";
 const _lS = "logStream";
+const _lSi = "lineStart";
 const _lT = "logType";
 const _lUB = "lastUpdatedBy";
 const _m = "message";
@@ -361,9 +426,9 @@ const _nF = "notFound";
 const _nT = "nextToken";
 const _nTC = "networkTrafficConfig";
 const _nTRT = "networkTrafficRuleType";
-const _o = "operation";
+const _o = "overview";
 const _oN = "organizationName";
-const _ov = "overview";
+const _op = "operation";
 const _ow = "owner";
 const _p = "pentests";
 const _pI = "pentestIds";
@@ -576,6 +641,16 @@ export var AWSResources$: StaticStructureSchema = [3, n0, _AWSR,
   [_vp, _lG, _sB, _sA, _lFA, _iRa],
   [() => VpcConfigs, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
+export var BatchDeleteCodeReviewsInput$: StaticStructureSchema = [3, n0, _BDCRI,
+  0,
+  [_cRI, _aSI],
+  [64 | 0, 0], 2
+];
+export var BatchDeleteCodeReviewsOutput$: StaticStructureSchema = [3, n0, _BDCRO,
+  0,
+  [_de, _f],
+  [64 | 0, () => DeleteCodeReviewFailureList]
+];
 export var BatchDeletePentestsInput$: StaticStructureSchema = [3, n0, _BDPI,
   0,
   [_pI, _aSI],
@@ -605,6 +680,36 @@ export var BatchGetArtifactMetadataOutput$: StaticStructureSchema = [3, n0, _BGA
   0,
   [_aML],
   [() => ArtifactMetadataList], 1
+];
+export var BatchGetCodeReviewJobsInput$: StaticStructureSchema = [3, n0, _BGCRJI,
+  0,
+  [_cRJI, _aSI],
+  [64 | 0, 0], 2
+];
+export var BatchGetCodeReviewJobsOutput$: StaticStructureSchema = [3, n0, _BGCRJO,
+  0,
+  [_cRJ, _nF],
+  [() => CodeReviewJobList, 64 | 0]
+];
+export var BatchGetCodeReviewJobTasksInput$: StaticStructureSchema = [3, n0, _BGCRJTI,
+  0,
+  [_aSI, _cRJTI],
+  [0, 64 | 0], 2
+];
+export var BatchGetCodeReviewJobTasksOutput$: StaticStructureSchema = [3, n0, _BGCRJTO,
+  0,
+  [_cRJT, _nF],
+  [() => CodeReviewJobTaskList, 64 | 0]
+];
+export var BatchGetCodeReviewsInput$: StaticStructureSchema = [3, n0, _BGCRI,
+  0,
+  [_cRI, _aSI],
+  [64 | 0, 0], 2
+];
+export var BatchGetCodeReviewsOutput$: StaticStructureSchema = [3, n0, _BGCRO,
+  0,
+  [_cR, _nF],
+  [() => CodeReviewList, 64 | 0]
 ];
 export var BatchGetFindingsInput$: StaticStructureSchema = [3, n0, _BGFI,
   0,
@@ -666,6 +771,11 @@ export var CloudWatchLog$: StaticStructureSchema = [3, n0, _CWL,
   [_lGo, _lS],
   [0, 0]
 ];
+export var CodeLocation$: StaticStructureSchema = [3, n0, _CL,
+  0,
+  [_fP, _lSi, _lE, _l],
+  [0, 1, 1, 0], 1
+];
 export var CodeRemediationTask$: StaticStructureSchema = [3, n0, _CRT,
   0,
   [_st, _sR, _tDa],
@@ -676,10 +786,40 @@ export var CodeRemediationTaskDetails$: StaticStructureSchema = [3, n0, _CRTD,
   [_rN, _cDL, _pRL],
   [0, 0, 0]
 ];
+export var CodeReview$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_cRIo, _aSI, _ti, _as, _sRe, _lC, _cRSo, _cA, _uA],
+  [0, 0, 0, () => Assets$, 0, () => CloudWatchLog$, 0, 5, 5], 4
+];
+export var CodeReviewJob$: StaticStructureSchema = [3, n0, _CRJ,
+  0,
+  [_cRJIo, _cRIo, _ti, _o, _st, _doc, _sCo, _ste, _eC, _sRe, _lC, _eI, _iR, _cRSo, _cA, _uA],
+  [0, 0, 0, 0, 0, () => DocumentList, () => SourceCodeRepositoryList, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 5, 5]
+];
+export var CodeReviewJobSummary$: StaticStructureSchema = [3, n0, _CRJS,
+  0,
+  [_cRJIo, _cRIo, _ti, _st, _cA, _uA],
+  [0, 0, 0, 0, 5, 5], 2
+];
+export var CodeReviewJobTask$: StaticStructureSchema = [3, n0, _CRJT,
+  0,
+  [_tIa, _cRIo, _cRJIo, _aSI, _ti, _d, _ca, _rT, _eS, _lL, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, () => CategoryList, 0, 0, () => LogLocation$, 5, 5], 1
+];
+export var CodeReviewJobTaskSummary$: StaticStructureSchema = [3, n0, _CRJTS,
+  0,
+  [_tIa, _cRIo, _cRJIo, _aSI, _ti, _rT, _eS, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5], 1
+];
 export var CodeReviewSettings$: StaticStructureSchema = [3, n0, _CRS,
   0,
   [_cS, _gPS],
   [2, 2], 2
+];
+export var CodeReviewSummary$: StaticStructureSchema = [3, n0, _CRSo,
+  0,
+  [_cRIo, _aSI, _ti, _cA, _uA],
+  [0, 0, 0, 5, 5], 3
 ];
 export var CreateAgentSpaceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
@@ -700,6 +840,16 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_aIp],
   [0], 1
+];
+export var CreateCodeReviewInput$: StaticStructureSchema = [3, n0, _CCRI,
+  0,
+  [_ti, _aSI, _as, _sRe, _lC, _cRSo],
+  [0, 0, () => Assets$, 0, () => CloudWatchLog$, 0], 3
+];
+export var CreateCodeReviewOutput$: StaticStructureSchema = [3, n0, _CCRO,
+  0,
+  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lC, _aSI, _cRSo],
+  [0, 0, 5, 5, () => Assets$, 0, () => CloudWatchLog$, 0, 0], 1
 ];
 export var CreateIntegrationInput$: StaticStructureSchema = [3, n0, _CII,
   0,
@@ -771,6 +921,11 @@ export var DeleteArtifactOutput$: StaticStructureSchema = [3, n0, _DAO,
   [],
   []
 ];
+export var DeleteCodeReviewFailure$: StaticStructureSchema = [3, n0, _DCRF,
+  0,
+  [_cRIo, _r],
+  [0, 0]
+];
 export var DeleteIntegrationInput$: StaticStructureSchema = [3, n0, _DII,
   0,
   [_iI],
@@ -808,7 +963,7 @@ export var DeleteTargetDomainOutput$: StaticStructureSchema = [3, n0, _DTDO,
 ];
 export var DiscoveredEndpoint$: StaticStructureSchema = [3, n0, _DE,
   0,
-  [_ur, _pJIe, _tIa, _aSI, _ev, _o, _d],
+  [_ur, _pJIe, _tIa, _aSI, _ev, _op, _d],
   [0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var DnsVerification$: StaticStructureSchema = [3, n0, _DV,
@@ -838,13 +993,13 @@ export var ExecutionContext$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fIi, _aSI, _pIe, _pJIe, _tIa, _n, _d, _st, _rT, _rL, _rS, _re, _conf, _aSt, _cRT, _lUB, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 5, 5], 2
+  [_fIi, _aSI, _pIe, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _st, _rT, _rL, _rS, _re, _conf, _aSt, _cRT, _lUB, _cL, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, () => CodeLocationList, 5, 5], 2
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_fIi, _aSI, _pIe, _pJIe, _n, _st, _rT, _rL, _conf, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5], 2
+  [_fIi, _aSI, _pIe, _pJIe, _cRIo, _cRJIo, _n, _st, _rT, _rL, _conf, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5], 2
 ];
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
@@ -923,12 +1078,12 @@ export var IntegratedRepository$: StaticStructureSchema = [3, n0, _IR,
 ];
 export var IntegratedResourceInputItem$: StaticStructureSchema = [3, n0, _IRII,
   0,
-  [_res, _ca],
+  [_res, _cap],
   [() => IntegratedResource$, () => ProviderResourceCapabilities$], 1
 ];
 export var IntegratedResourceSummary$: StaticStructureSchema = [3, n0, _IRS,
   0,
-  [_iI, _res, _ca],
+  [_iI, _res, _cap],
   [0, () => IntegratedResourceMetadata$, () => ProviderResourceCapabilities$], 2
 ];
 export var IntegrationSummary$: StaticStructureSchema = [3, n0, _IS,
@@ -966,6 +1121,36 @@ export var ListArtifactsOutput$: StaticStructureSchema = [3, n0, _LAO,
   [_aSr, _nT],
   [() => ArtifactSummaryList, 0], 1
 ];
+export var ListCodeReviewJobsForCodeReviewInput$: StaticStructureSchema = [3, n0, _LCRJFCRI,
+  0,
+  [_cRIo, _aSI, _mR, _nT],
+  [0, 0, 1, 0], 2
+];
+export var ListCodeReviewJobsForCodeReviewOutput$: StaticStructureSchema = [3, n0, _LCRJFCRO,
+  0,
+  [_cRJS, _nT],
+  [() => CodeReviewJobSummaryList, 0]
+];
+export var ListCodeReviewJobTasksInput$: StaticStructureSchema = [3, n0, _LCRJTI,
+  0,
+  [_aSI, _mR, _cRJIo, _sN, _cN, _nT],
+  [0, 1, 0, 0, 0, 0], 1
+];
+export var ListCodeReviewJobTasksOutput$: StaticStructureSchema = [3, n0, _LCRJTO,
+  0,
+  [_cRJTS, _nT],
+  [() => CodeReviewJobTaskSummaryList, 0]
+];
+export var ListCodeReviewsInput$: StaticStructureSchema = [3, n0, _LCRI,
+  0,
+  [_aSI, _mR, _nT],
+  [0, 1, 0], 1
+];
+export var ListCodeReviewsOutput$: StaticStructureSchema = [3, n0, _LCRO,
+  0,
+  [_cRSod, _nT],
+  [() => CodeReviewSummaryList, 0]
+];
 export var ListDiscoveredEndpointsInput$: StaticStructureSchema = [3, n0, _LDEI,
   0,
   [_pJIe, _aSI, _mR, _pre, _nT],
@@ -978,8 +1163,8 @@ export var ListDiscoveredEndpointsOutput$: StaticStructureSchema = [3, n0, _LDEO
 ];
 export var ListFindingsInput$: StaticStructureSchema = [3, n0, _LFI,
   0,
-  [_pJIe, _aSI, _mR, _nT, _rT, _rL, _st, _conf, _n],
-  [0, 0, 1, 0, 0, 0, 0, 0, 0], 2
+  [_aSI, _mR, _pJIe, _cRJIo, _nT, _rT, _rL, _st, _conf, _n],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ListFindingsOutput$: StaticStructureSchema = [3, n0, _LFO,
   0,
@@ -1093,7 +1278,7 @@ export var Pentest$: StaticStructureSchema = [3, n0, _P,
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJIe, _pIe, _ti, _ov, _st, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lC, _vC, _nTC, _eI, _iR, _cRSo, _cA, _uA],
+  [_pJIe, _pIe, _ti, _o, _st, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lC, _vC, _nTC, _eI, _iR, _cRSo, _cA, _uA],
   [0, 0, 0, 0, 0, () => EndpointList, () => ActorList, () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
@@ -1113,13 +1298,23 @@ export var SourceCodeRepository$: StaticStructureSchema = [3, n0, _SCR,
 ];
 export var StartCodeRemediationInput$: StaticStructureSchema = [3, n0, _SCRI,
   0,
-  [_aSI, _pJIe, _fI],
-  [0, 0, 64 | 0], 3
+  [_aSI, _fI, _pJIe, _cRJIo],
+  [0, 64 | 0, 0, 0], 2
 ];
 export var StartCodeRemediationOutput$: StaticStructureSchema = [3, n0, _SCRO,
   0,
   [],
   []
+];
+export var StartCodeReviewJobInput$: StaticStructureSchema = [3, n0, _SCRJI,
+  0,
+  [_aSI, _cRIo],
+  [0, 0], 2
+];
+export var StartCodeReviewJobOutput$: StaticStructureSchema = [3, n0, _SCRJO,
+  0,
+  [_cRIo, _cRJIo, _ti, _st, _cA, _uA, _aSI],
+  [0, 0, 0, 0, 5, 5, 0], 2
 ];
 export var StartPentestJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
@@ -1135,6 +1330,16 @@ export var Step$: StaticStructureSchema = [3, n0, _S,
   0,
   [_n, _st, _cA, _uA],
   [0, 0, 5, 5]
+];
+export var StopCodeReviewJobInput$: StaticStructureSchema = [3, n0, _SCRJIt,
+  0,
+  [_aSI, _cRJIo],
+  [0, 0], 2
+];
+export var StopCodeReviewJobOutput$: StaticStructureSchema = [3, n0, _SCRJOt,
+  0,
+  [],
+  []
 ];
 export var StopPentestJobInput$: StaticStructureSchema = [3, n0, _SPJIt,
   0,
@@ -1168,7 +1373,7 @@ export var TargetDomainSummary$: StaticStructureSchema = [3, n0, _TDS,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_tIa, _pIe, _pJIe, _aSI, _ti, _d, _cat, _rT, _tE, _eS, _lL, _cA, _uA],
+  [_tIa, _pIe, _pJIe, _aSI, _ti, _d, _ca, _rT, _tE, _eS, _lL, _cA, _uA],
   [0, 0, 0, 0, 0, 0, () => CategoryList, 0, () => Endpoint$, 0, () => LogLocation$, 5, 5], 1
 ];
 export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
@@ -1205,6 +1410,16 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_aIp],
   [0], 1
+];
+export var UpdateCodeReviewInput$: StaticStructureSchema = [3, n0, _UCRI,
+  0,
+  [_cRIo, _aSI, _ti, _as, _sRe, _lC, _cRSo],
+  [0, 0, 0, () => Assets$, 0, () => CloudWatchLog$, 0], 2
+];
+export var UpdateCodeReviewOutput$: StaticStructureSchema = [3, n0, _UCRO,
+  0,
+  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lC, _aSI, _cRSo],
+  [0, 0, 5, 5, () => Assets$, 0, () => CloudWatchLog$, 0, 0], 1
 ];
 export var UpdateFindingInput$: StaticStructureSchema = [3, n0, _UFI,
   0,
@@ -1302,14 +1517,40 @@ var ArtifactMetadataList: StaticListSchema = [1, n0, _AML,
 var ArtifactSummaryList: StaticListSchema = [1, n0, _ASLr,
   0, () => ArtifactSummary$
 ];
-var CategoryList: StaticListSchema = [1, n0, _CL,
+var CategoryList: StaticListSchema = [1, n0, _CLa,
   0, () => Category$
+];
+var CodeLocationList: StaticListSchema = [1, n0, _CLL,
+  0, () => CodeLocation$
 ];
 var CodeRemediationTaskDetailsList: StaticListSchema = [1, n0, _CRTDL,
   0, () => CodeRemediationTaskDetails$
 ];
+var CodeReviewIdList = 64 | 0;
+var CodeReviewJobIdList = 64 | 0;
+var CodeReviewJobList: StaticListSchema = [1, n0, _CRJL,
+  0, () => CodeReviewJob$
+];
+var CodeReviewJobSummaryList: StaticListSchema = [1, n0, _CRJSL,
+  0, () => CodeReviewJobSummary$
+];
+var CodeReviewJobTaskList: StaticListSchema = [1, n0, _CRJTL,
+  0, () => CodeReviewJobTask$
+];
+var CodeReviewJobTaskSummaryList: StaticListSchema = [1, n0, _CRJTSL,
+  0, () => CodeReviewJobTaskSummary$
+];
+var CodeReviewList: StaticListSchema = [1, n0, _CRL,
+  0, () => CodeReview$
+];
+var CodeReviewSummaryList: StaticListSchema = [1, n0, _CRSL,
+  0, () => CodeReviewSummary$
+];
 var CustomHeaderList: StaticListSchema = [1, n0, _CHL,
   0, () => CustomHeader$
+];
+var DeleteCodeReviewFailureList: StaticListSchema = [1, n0, _DCRFL,
+  0, () => DeleteCodeReviewFailure$
 ];
 var DeletePentestFailureList: StaticListSchema = [1, n0, _DPFL,
   0, () => DeletePentestFailure$
@@ -1440,6 +1681,9 @@ export var ProviderResourceCapabilities$: StaticUnionSchema = [4, n0, _PRC,
 export var AddArtifact$: StaticOperationSchema = [9, n0, _AA,
   { [_h]: ["POST", "/AddArtifact", 201] }, () => AddArtifactInput$, () => AddArtifactOutput$
 ];
+export var BatchDeleteCodeReviews$: StaticOperationSchema = [9, n0, _BDCR,
+  { [_h]: ["POST", "/BatchDeleteCodeReviews", 200] }, () => BatchDeleteCodeReviewsInput$, () => BatchDeleteCodeReviewsOutput$
+];
 export var BatchDeletePentests$: StaticOperationSchema = [9, n0, _BDP,
   { [_h]: ["POST", "/BatchDeletePentests", 200] }, () => BatchDeletePentestsInput$, () => BatchDeletePentestsOutput$
 ];
@@ -1448,6 +1692,15 @@ export var BatchGetAgentSpaces$: StaticOperationSchema = [9, n0, _BGAS,
 ];
 export var BatchGetArtifactMetadata$: StaticOperationSchema = [9, n0, _BGAM,
   { [_h]: ["POST", "/BatchGetArtifactMetadata", 200] }, () => BatchGetArtifactMetadataInput$, () => BatchGetArtifactMetadataOutput$
+];
+export var BatchGetCodeReviewJobs$: StaticOperationSchema = [9, n0, _BGCRJ,
+  { [_h]: ["POST", "/BatchGetCodeReviewJobs", 200] }, () => BatchGetCodeReviewJobsInput$, () => BatchGetCodeReviewJobsOutput$
+];
+export var BatchGetCodeReviewJobTasks$: StaticOperationSchema = [9, n0, _BGCRJT,
+  { [_h]: ["POST", "/BatchGetCodeReviewJobTasks", 200] }, () => BatchGetCodeReviewJobTasksInput$, () => BatchGetCodeReviewJobTasksOutput$
+];
+export var BatchGetCodeReviews$: StaticOperationSchema = [9, n0, _BGCR,
+  { [_h]: ["POST", "/BatchGetCodeReviews", 200] }, () => BatchGetCodeReviewsInput$, () => BatchGetCodeReviewsOutput$
 ];
 export var BatchGetFindings$: StaticOperationSchema = [9, n0, _BGF,
   { [_h]: ["POST", "/BatchGetFindings", 200] }, () => BatchGetFindingsInput$, () => BatchGetFindingsOutput$
@@ -1469,6 +1722,9 @@ export var CreateAgentSpace$: StaticOperationSchema = [9, n0, _CAS,
 ];
 export var CreateApplication$: StaticOperationSchema = [9, n0, _CA,
   { [_h]: ["POST", "/CreateApplication", 200] }, () => CreateApplicationRequest$, () => CreateApplicationResponse$
+];
+export var CreateCodeReview$: StaticOperationSchema = [9, n0, _CCR,
+  { [_h]: ["POST", "/CreateCodeReview", 200] }, () => CreateCodeReviewInput$, () => CreateCodeReviewOutput$
 ];
 export var CreateIntegration$: StaticOperationSchema = [9, n0, _CI,
   { [_h]: ["POST", "/CreateIntegration", 201] }, () => CreateIntegrationInput$, () => CreateIntegrationOutput$
@@ -1521,6 +1777,15 @@ export var ListApplications$: StaticOperationSchema = [9, n0, _LA,
 export var ListArtifacts$: StaticOperationSchema = [9, n0, _LAi,
   { [_h]: ["POST", "/ListArtifacts", 200] }, () => ListArtifactsInput$, () => ListArtifactsOutput$
 ];
+export var ListCodeReviewJobsForCodeReview$: StaticOperationSchema = [9, n0, _LCRJFCR,
+  { [_h]: ["POST", "/ListCodeReviewJobsForCodeReview", 200] }, () => ListCodeReviewJobsForCodeReviewInput$, () => ListCodeReviewJobsForCodeReviewOutput$
+];
+export var ListCodeReviewJobTasks$: StaticOperationSchema = [9, n0, _LCRJT,
+  { [_h]: ["POST", "/ListCodeReviewJobTasks", 200] }, () => ListCodeReviewJobTasksInput$, () => ListCodeReviewJobTasksOutput$
+];
+export var ListCodeReviews$: StaticOperationSchema = [9, n0, _LCR,
+  { [_h]: ["POST", "/ListCodeReviews", 200] }, () => ListCodeReviewsInput$, () => ListCodeReviewsOutput$
+];
 export var ListDiscoveredEndpoints$: StaticOperationSchema = [9, n0, _LDE,
   { [_h]: ["POST", "/ListDiscoveredEndpoints", 200] }, () => ListDiscoveredEndpointsInput$, () => ListDiscoveredEndpointsOutput$
 ];
@@ -1554,8 +1819,14 @@ export var ListTargetDomains$: StaticOperationSchema = [9, n0, _LTD,
 export var StartCodeRemediation$: StaticOperationSchema = [9, n0, _SCRt,
   { [_h]: ["POST", "/StartCodeRemediation", 200] }, () => StartCodeRemediationInput$, () => StartCodeRemediationOutput$
 ];
+export var StartCodeReviewJob$: StaticOperationSchema = [9, n0, _SCRJ,
+  { [_h]: ["POST", "/StartCodeReviewJob", 200] }, () => StartCodeReviewJobInput$, () => StartCodeReviewJobOutput$
+];
 export var StartPentestJob$: StaticOperationSchema = [9, n0, _SPJ,
   { [_h]: ["POST", "/StartPentestJob", 200] }, () => StartPentestJobInput$, () => StartPentestJobOutput$
+];
+export var StopCodeReviewJob$: StaticOperationSchema = [9, n0, _SCRJt,
+  { [_h]: ["POST", "/StopCodeReviewJob", 200] }, () => StopCodeReviewJobInput$, () => StopCodeReviewJobOutput$
 ];
 export var StopPentestJob$: StaticOperationSchema = [9, n0, _SPJt,
   { [_h]: ["POST", "/StopPentestJob", 200] }, () => StopPentestJobInput$, () => StopPentestJobOutput$
@@ -1571,6 +1842,9 @@ export var UpdateAgentSpace$: StaticOperationSchema = [9, n0, _UAS,
 ];
 export var UpdateApplication$: StaticOperationSchema = [9, n0, _UA,
   { [_h]: ["POST", "/UpdateApplication", 200] }, () => UpdateApplicationRequest$, () => UpdateApplicationResponse$
+];
+export var UpdateCodeReview$: StaticOperationSchema = [9, n0, _UCR,
+  { [_h]: ["POST", "/UpdateCodeReview", 200] }, () => UpdateCodeReviewInput$, () => UpdateCodeReviewOutput$
 ];
 export var UpdateFinding$: StaticOperationSchema = [9, n0, _UF,
   { [_h]: ["POST", "/UpdateFinding", 200] }, () => UpdateFindingInput$, () => UpdateFindingOutput$

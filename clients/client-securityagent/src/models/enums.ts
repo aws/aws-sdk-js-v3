@@ -245,68 +245,6 @@ export type NetworkTrafficRuleType = (typeof NetworkTrafficRuleType)[keyof typeo
  * @public
  * @enum
  */
-export const CodeRemediationTaskStatus = {
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-/**
- * @public
- */
-export type CodeRemediationTaskStatus = (typeof CodeRemediationTaskStatus)[keyof typeof CodeRemediationTaskStatus];
-
-/**
- * @public
- * @enum
- */
-export const ConfidenceLevel = {
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNCONFIRMED: "UNCONFIRMED",
-} as const;
-/**
- * @public
- */
-export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
-
-/**
- * @public
- * @enum
- */
-export const RiskLevel = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNKNOWN: "UNKNOWN",
-} as const;
-/**
- * @public
- */
-export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
-
-/**
- * @public
- * @enum
- */
-export const FindingStatus = {
-  ACCEPTED: "ACCEPTED",
-  ACTIVE: "ACTIVE",
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  RESOLVED: "RESOLVED",
-} as const;
-/**
- * @public
- */
-export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
-
-/**
- * @public
- * @enum
- */
 export const ErrorCode = {
   /**
    * <p>Failure caused by a client-side error.</p>
@@ -487,6 +425,68 @@ export const LogType = {
  * @public
  */
 export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeRemediationTaskStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type CodeRemediationTaskStatus = (typeof CodeRemediationTaskStatus)[keyof typeof CodeRemediationTaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfidenceLevel = {
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNCONFIRMED: "UNCONFIRMED",
+} as const;
+/**
+ * @public
+ */
+export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskLevel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatus = {
+  ACCEPTED: "ACCEPTED",
+  ACTIVE: "ACTIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
 
 /**
  * @public

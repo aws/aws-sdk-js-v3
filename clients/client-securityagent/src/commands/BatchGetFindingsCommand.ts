@@ -51,6 +51,8 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //       agentSpaceId: "STRING_VALUE", // required
  * //       pentestId: "STRING_VALUE",
  * //       pentestJobId: "STRING_VALUE",
+ * //       codeReviewId: "STRING_VALUE",
+ * //       codeReviewJobId: "STRING_VALUE",
  * //       taskId: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
@@ -73,6 +75,14 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //         ],
  * //       },
  * //       lastUpdatedBy: "STRING_VALUE",
+ * //       codeLocations: [ // CodeLocationList
+ * //         { // CodeLocation
+ * //           filePath: "STRING_VALUE", // required
+ * //           lineStart: Number("int"),
+ * //           lineEnd: Number("int"),
+ * //           label: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

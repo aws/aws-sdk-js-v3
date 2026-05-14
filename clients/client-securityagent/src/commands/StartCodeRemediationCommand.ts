@@ -38,7 +38,8 @@ export interface StartCodeRemediationCommandOutput extends StartCodeRemediationO
  * const client = new SecurityAgentClient(config);
  * const input = { // StartCodeRemediationInput
  *   agentSpaceId: "STRING_VALUE", // required
- *   pentestJobId: "STRING_VALUE", // required
+ *   pentestJobId: "STRING_VALUE",
+ *   codeReviewJobId: "STRING_VALUE",
  *   findingIds: [ // FindingIdList // required
  *     "STRING_VALUE",
  *   ],

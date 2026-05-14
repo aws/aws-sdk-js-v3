@@ -38,7 +38,8 @@ export interface ListFindingsCommandOutput extends ListFindingsOutput, __Metadat
  * const client = new SecurityAgentClient(config);
  * const input = { // ListFindingsInput
  *   maxResults: Number("int"),
- *   pentestJobId: "STRING_VALUE", // required
+ *   pentestJobId: "STRING_VALUE",
+ *   codeReviewJobId: "STRING_VALUE",
  *   agentSpaceId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   riskType: "STRING_VALUE",
@@ -56,6 +57,8 @@ export interface ListFindingsCommandOutput extends ListFindingsOutput, __Metadat
  * //       agentSpaceId: "STRING_VALUE", // required
  * //       pentestId: "STRING_VALUE",
  * //       pentestJobId: "STRING_VALUE",
+ * //       codeReviewId: "STRING_VALUE",
+ * //       codeReviewJobId: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       status: "ACTIVE" || "RESOLVED" || "ACCEPTED" || "FALSE_POSITIVE",
  * //       riskType: "STRING_VALUE",

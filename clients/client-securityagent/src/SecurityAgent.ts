@@ -8,6 +8,11 @@ import {
   AddArtifactCommand,
 } from "./commands/AddArtifactCommand";
 import {
+  type BatchDeleteCodeReviewsCommandInput,
+  type BatchDeleteCodeReviewsCommandOutput,
+  BatchDeleteCodeReviewsCommand,
+} from "./commands/BatchDeleteCodeReviewsCommand";
+import {
   type BatchDeletePentestsCommandInput,
   type BatchDeletePentestsCommandOutput,
   BatchDeletePentestsCommand,
@@ -22,6 +27,21 @@ import {
   type BatchGetArtifactMetadataCommandOutput,
   BatchGetArtifactMetadataCommand,
 } from "./commands/BatchGetArtifactMetadataCommand";
+import {
+  type BatchGetCodeReviewJobsCommandInput,
+  type BatchGetCodeReviewJobsCommandOutput,
+  BatchGetCodeReviewJobsCommand,
+} from "./commands/BatchGetCodeReviewJobsCommand";
+import {
+  type BatchGetCodeReviewJobTasksCommandInput,
+  type BatchGetCodeReviewJobTasksCommandOutput,
+  BatchGetCodeReviewJobTasksCommand,
+} from "./commands/BatchGetCodeReviewJobTasksCommand";
+import {
+  type BatchGetCodeReviewsCommandInput,
+  type BatchGetCodeReviewsCommandOutput,
+  BatchGetCodeReviewsCommand,
+} from "./commands/BatchGetCodeReviewsCommand";
 import {
   type BatchGetFindingsCommandInput,
   type BatchGetFindingsCommandOutput,
@@ -57,6 +77,11 @@ import {
   type CreateApplicationCommandOutput,
   CreateApplicationCommand,
 } from "./commands/CreateApplicationCommand";
+import {
+  type CreateCodeReviewCommandInput,
+  type CreateCodeReviewCommandOutput,
+  CreateCodeReviewCommand,
+} from "./commands/CreateCodeReviewCommand";
 import {
   type CreateIntegrationCommandInput,
   type CreateIntegrationCommandOutput,
@@ -143,6 +168,21 @@ import {
   ListArtifactsCommand,
 } from "./commands/ListArtifactsCommand";
 import {
+  type ListCodeReviewJobsForCodeReviewCommandInput,
+  type ListCodeReviewJobsForCodeReviewCommandOutput,
+  ListCodeReviewJobsForCodeReviewCommand,
+} from "./commands/ListCodeReviewJobsForCodeReviewCommand";
+import {
+  type ListCodeReviewJobTasksCommandInput,
+  type ListCodeReviewJobTasksCommandOutput,
+  ListCodeReviewJobTasksCommand,
+} from "./commands/ListCodeReviewJobTasksCommand";
+import {
+  type ListCodeReviewsCommandInput,
+  type ListCodeReviewsCommandOutput,
+  ListCodeReviewsCommand,
+} from "./commands/ListCodeReviewsCommand";
+import {
   type ListDiscoveredEndpointsCommandInput,
   type ListDiscoveredEndpointsCommandOutput,
   ListDiscoveredEndpointsCommand,
@@ -198,10 +238,20 @@ import {
   StartCodeRemediationCommand,
 } from "./commands/StartCodeRemediationCommand";
 import {
+  type StartCodeReviewJobCommandInput,
+  type StartCodeReviewJobCommandOutput,
+  StartCodeReviewJobCommand,
+} from "./commands/StartCodeReviewJobCommand";
+import {
   type StartPentestJobCommandInput,
   type StartPentestJobCommandOutput,
   StartPentestJobCommand,
 } from "./commands/StartPentestJobCommand";
+import {
+  type StopCodeReviewJobCommandInput,
+  type StopCodeReviewJobCommandOutput,
+  StopCodeReviewJobCommand,
+} from "./commands/StopCodeReviewJobCommand";
 import {
   type StopPentestJobCommandInput,
   type StopPentestJobCommandOutput,
@@ -227,6 +277,11 @@ import {
   type UpdateApplicationCommandOutput,
   UpdateApplicationCommand,
 } from "./commands/UpdateApplicationCommand";
+import {
+  type UpdateCodeReviewCommandInput,
+  type UpdateCodeReviewCommandOutput,
+  UpdateCodeReviewCommand,
+} from "./commands/UpdateCodeReviewCommand";
 import {
   type UpdateFindingCommandInput,
   type UpdateFindingCommandOutput,
@@ -255,6 +310,9 @@ import {
 import { paginateListAgentSpaces } from "./pagination/ListAgentSpacesPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListArtifacts } from "./pagination/ListArtifactsPaginator";
+import { paginateListCodeReviewJobsForCodeReview } from "./pagination/ListCodeReviewJobsForCodeReviewPaginator";
+import { paginateListCodeReviewJobTasks } from "./pagination/ListCodeReviewJobTasksPaginator";
+import { paginateListCodeReviews } from "./pagination/ListCodeReviewsPaginator";
 import { paginateListDiscoveredEndpoints } from "./pagination/ListDiscoveredEndpointsPaginator";
 import { paginateListFindings } from "./pagination/ListFindingsPaginator";
 import { paginateListIntegratedResources } from "./pagination/ListIntegratedResourcesPaginator";
@@ -268,9 +326,13 @@ import { SecurityAgentClient } from "./SecurityAgentClient";
 
 const commands = {
   AddArtifactCommand,
+  BatchDeleteCodeReviewsCommand,
   BatchDeletePentestsCommand,
   BatchGetAgentSpacesCommand,
   BatchGetArtifactMetadataCommand,
+  BatchGetCodeReviewJobsCommand,
+  BatchGetCodeReviewJobTasksCommand,
+  BatchGetCodeReviewsCommand,
   BatchGetFindingsCommand,
   BatchGetPentestJobsCommand,
   BatchGetPentestJobTasksCommand,
@@ -278,6 +340,7 @@ const commands = {
   BatchGetTargetDomainsCommand,
   CreateAgentSpaceCommand,
   CreateApplicationCommand,
+  CreateCodeReviewCommand,
   CreateIntegrationCommand,
   CreateMembershipCommand,
   CreatePentestCommand,
@@ -295,6 +358,9 @@ const commands = {
   ListAgentSpacesCommand,
   ListApplicationsCommand,
   ListArtifactsCommand,
+  ListCodeReviewJobsForCodeReviewCommand,
+  ListCodeReviewJobTasksCommand,
+  ListCodeReviewsCommand,
   ListDiscoveredEndpointsCommand,
   ListFindingsCommand,
   ListIntegratedResourcesCommand,
@@ -306,12 +372,15 @@ const commands = {
   ListTagsForResourceCommand,
   ListTargetDomainsCommand,
   StartCodeRemediationCommand,
+  StartCodeReviewJobCommand,
   StartPentestJobCommand,
+  StopCodeReviewJobCommand,
   StopPentestJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentSpaceCommand,
   UpdateApplicationCommand,
+  UpdateCodeReviewCommand,
   UpdateFindingCommand,
   UpdateIntegratedResourcesCommand,
   UpdatePentestCommand,
@@ -322,6 +391,9 @@ const paginators = {
   paginateListAgentSpaces,
   paginateListApplications,
   paginateListArtifacts,
+  paginateListCodeReviewJobsForCodeReview,
+  paginateListCodeReviewJobTasks,
+  paginateListCodeReviews,
   paginateListDiscoveredEndpoints,
   paginateListFindings,
   paginateListIntegratedResources,
@@ -349,6 +421,23 @@ export interface SecurityAgent {
     args: AddArtifactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddArtifactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteCodeReviewsCommand}
+   */
+  batchDeleteCodeReviews(
+    args: BatchDeleteCodeReviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteCodeReviewsCommandOutput>;
+  batchDeleteCodeReviews(
+    args: BatchDeleteCodeReviewsCommandInput,
+    cb: (err: any, data?: BatchDeleteCodeReviewsCommandOutput) => void
+  ): void;
+  batchDeleteCodeReviews(
+    args: BatchDeleteCodeReviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteCodeReviewsCommandOutput) => void
   ): void;
 
   /**
@@ -400,6 +489,57 @@ export interface SecurityAgent {
     args: BatchGetArtifactMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetArtifactMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCodeReviewJobsCommand}
+   */
+  batchGetCodeReviewJobs(
+    args: BatchGetCodeReviewJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCodeReviewJobsCommandOutput>;
+  batchGetCodeReviewJobs(
+    args: BatchGetCodeReviewJobsCommandInput,
+    cb: (err: any, data?: BatchGetCodeReviewJobsCommandOutput) => void
+  ): void;
+  batchGetCodeReviewJobs(
+    args: BatchGetCodeReviewJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCodeReviewJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCodeReviewJobTasksCommand}
+   */
+  batchGetCodeReviewJobTasks(
+    args: BatchGetCodeReviewJobTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCodeReviewJobTasksCommandOutput>;
+  batchGetCodeReviewJobTasks(
+    args: BatchGetCodeReviewJobTasksCommandInput,
+    cb: (err: any, data?: BatchGetCodeReviewJobTasksCommandOutput) => void
+  ): void;
+  batchGetCodeReviewJobTasks(
+    args: BatchGetCodeReviewJobTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCodeReviewJobTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCodeReviewsCommand}
+   */
+  batchGetCodeReviews(
+    args: BatchGetCodeReviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCodeReviewsCommandOutput>;
+  batchGetCodeReviews(
+    args: BatchGetCodeReviewsCommandInput,
+    cb: (err: any, data?: BatchGetCodeReviewsCommandOutput) => void
+  ): void;
+  batchGetCodeReviews(
+    args: BatchGetCodeReviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCodeReviewsCommandOutput) => void
   ): void;
 
   /**
@@ -520,6 +660,23 @@ export interface SecurityAgent {
     args: CreateApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCodeReviewCommand}
+   */
+  createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCodeReviewCommandOutput>;
+  createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    cb: (err: any, data?: CreateCodeReviewCommandOutput) => void
+  ): void;
+  createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCodeReviewCommandOutput) => void
   ): void;
 
   /**
@@ -814,6 +971,57 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link ListCodeReviewJobsForCodeReviewCommand}
+   */
+  listCodeReviewJobsForCodeReview(
+    args: ListCodeReviewJobsForCodeReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeReviewJobsForCodeReviewCommandOutput>;
+  listCodeReviewJobsForCodeReview(
+    args: ListCodeReviewJobsForCodeReviewCommandInput,
+    cb: (err: any, data?: ListCodeReviewJobsForCodeReviewCommandOutput) => void
+  ): void;
+  listCodeReviewJobsForCodeReview(
+    args: ListCodeReviewJobsForCodeReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeReviewJobsForCodeReviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCodeReviewJobTasksCommand}
+   */
+  listCodeReviewJobTasks(
+    args: ListCodeReviewJobTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeReviewJobTasksCommandOutput>;
+  listCodeReviewJobTasks(
+    args: ListCodeReviewJobTasksCommandInput,
+    cb: (err: any, data?: ListCodeReviewJobTasksCommandOutput) => void
+  ): void;
+  listCodeReviewJobTasks(
+    args: ListCodeReviewJobTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeReviewJobTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCodeReviewsCommand}
+   */
+  listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeReviewsCommandOutput>;
+  listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    cb: (err: any, data?: ListCodeReviewsCommandOutput) => void
+  ): void;
+  listCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeReviewsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDiscoveredEndpointsCommand}
    */
   listDiscoveredEndpoints(
@@ -1003,6 +1211,23 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link StartCodeReviewJobCommand}
+   */
+  startCodeReviewJob(
+    args: StartCodeReviewJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCodeReviewJobCommandOutput>;
+  startCodeReviewJob(
+    args: StartCodeReviewJobCommandInput,
+    cb: (err: any, data?: StartCodeReviewJobCommandOutput) => void
+  ): void;
+  startCodeReviewJob(
+    args: StartCodeReviewJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCodeReviewJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartPentestJobCommand}
    */
   startPentestJob(
@@ -1017,6 +1242,23 @@ export interface SecurityAgent {
     args: StartPentestJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartPentestJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopCodeReviewJobCommand}
+   */
+  stopCodeReviewJob(
+    args: StopCodeReviewJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopCodeReviewJobCommandOutput>;
+  stopCodeReviewJob(
+    args: StopCodeReviewJobCommandInput,
+    cb: (err: any, data?: StopCodeReviewJobCommandOutput) => void
+  ): void;
+  stopCodeReviewJob(
+    args: StopCodeReviewJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopCodeReviewJobCommandOutput) => void
   ): void;
 
   /**
@@ -1102,6 +1344,23 @@ export interface SecurityAgent {
     args: UpdateApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCodeReviewCommand}
+   */
+  updateCodeReview(
+    args: UpdateCodeReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCodeReviewCommandOutput>;
+  updateCodeReview(
+    args: UpdateCodeReviewCommandInput,
+    cb: (err: any, data?: UpdateCodeReviewCommandOutput) => void
+  ): void;
+  updateCodeReview(
+    args: UpdateCodeReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCodeReviewCommandOutput) => void
   ): void;
 
   /**
@@ -1221,6 +1480,39 @@ export interface SecurityAgent {
     args: ListArtifactsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListArtifactsCommandOutput>;
+
+  /**
+   * @see {@link ListCodeReviewJobsForCodeReviewCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodeReviewJobsForCodeReviewCommandOutput}.
+   */
+  paginateListCodeReviewJobsForCodeReview(
+    args: ListCodeReviewJobsForCodeReviewCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodeReviewJobsForCodeReviewCommandOutput>;
+
+  /**
+   * @see {@link ListCodeReviewJobTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodeReviewJobTasksCommandOutput}.
+   */
+  paginateListCodeReviewJobTasks(
+    args: ListCodeReviewJobTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodeReviewJobTasksCommandOutput>;
+
+  /**
+   * @see {@link ListCodeReviewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodeReviewsCommandOutput}.
+   */
+  paginateListCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodeReviewsCommandOutput>;
 
   /**
    * @see {@link ListDiscoveredEndpointsCommand}

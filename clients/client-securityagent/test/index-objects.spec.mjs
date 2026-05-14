@@ -18,6 +18,10 @@ import {
   Authentication$,
   AuthenticationProviderType,
   AWSResources$,
+  BatchDeleteCodeReviews$,
+  BatchDeleteCodeReviewsCommand,
+  BatchDeleteCodeReviewsInput$,
+  BatchDeleteCodeReviewsOutput$,
   BatchDeletePentests$,
   BatchDeletePentestsCommand,
   BatchDeletePentestsInput$,
@@ -30,6 +34,18 @@ import {
   BatchGetArtifactMetadataCommand,
   BatchGetArtifactMetadataInput$,
   BatchGetArtifactMetadataOutput$,
+  BatchGetCodeReviewJobs$,
+  BatchGetCodeReviewJobsCommand,
+  BatchGetCodeReviewJobsInput$,
+  BatchGetCodeReviewJobsOutput$,
+  BatchGetCodeReviewJobTasks$,
+  BatchGetCodeReviewJobTasksCommand,
+  BatchGetCodeReviewJobTasksInput$,
+  BatchGetCodeReviewJobTasksOutput$,
+  BatchGetCodeReviews$,
+  BatchGetCodeReviewsCommand,
+  BatchGetCodeReviewsInput$,
+  BatchGetCodeReviewsOutput$,
   BatchGetFindings$,
   BatchGetFindingsCommand,
   BatchGetFindingsInput$,
@@ -52,11 +68,18 @@ import {
   BatchGetTargetDomainsOutput$,
   Category$,
   CloudWatchLog$,
+  CodeLocation$,
   CodeRemediationStrategy,
   CodeRemediationTask$,
   CodeRemediationTaskDetails$,
   CodeRemediationTaskStatus,
+  CodeReview$,
+  CodeReviewJob$,
+  CodeReviewJobSummary$,
+  CodeReviewJobTask$,
+  CodeReviewJobTaskSummary$,
   CodeReviewSettings$,
+  CodeReviewSummary$,
   ConfidenceLevel,
   ConflictException,
   ConflictException$,
@@ -69,6 +92,10 @@ import {
   CreateApplicationCommand,
   CreateApplicationRequest$,
   CreateApplicationResponse$,
+  CreateCodeReview$,
+  CreateCodeReviewCommand,
+  CreateCodeReviewInput$,
+  CreateCodeReviewOutput$,
   CreateIntegration$,
   CreateIntegrationCommand,
   CreateIntegrationInput$,
@@ -97,6 +124,7 @@ import {
   DeleteArtifactCommand,
   DeleteArtifactInput$,
   DeleteArtifactOutput$,
+  DeleteCodeReviewFailure$,
   DeleteIntegration$,
   DeleteIntegrationCommand,
   DeleteIntegrationInput$,
@@ -166,6 +194,18 @@ import {
   ListArtifactsCommand,
   ListArtifactsInput$,
   ListArtifactsOutput$,
+  ListCodeReviewJobsForCodeReview$,
+  ListCodeReviewJobsForCodeReviewCommand,
+  ListCodeReviewJobsForCodeReviewInput$,
+  ListCodeReviewJobsForCodeReviewOutput$,
+  ListCodeReviewJobTasks$,
+  ListCodeReviewJobTasksCommand,
+  ListCodeReviewJobTasksInput$,
+  ListCodeReviewJobTasksOutput$,
+  ListCodeReviews$,
+  ListCodeReviewsCommand,
+  ListCodeReviewsInput$,
+  ListCodeReviewsOutput$,
   ListDiscoveredEndpoints$,
   ListDiscoveredEndpointsCommand,
   ListDiscoveredEndpointsInput$,
@@ -220,6 +260,9 @@ import {
   paginateListAgentSpaces,
   paginateListApplications,
   paginateListArtifacts,
+  paginateListCodeReviewJobsForCodeReview,
+  paginateListCodeReviewJobTasks,
+  paginateListCodeReviews,
   paginateListDiscoveredEndpoints,
   paginateListFindings,
   paginateListIntegratedResources,
@@ -250,6 +293,10 @@ import {
   StartCodeRemediationCommand,
   StartCodeRemediationInput$,
   StartCodeRemediationOutput$,
+  StartCodeReviewJob$,
+  StartCodeReviewJobCommand,
+  StartCodeReviewJobInput$,
+  StartCodeReviewJobOutput$,
   StartPentestJob$,
   StartPentestJobCommand,
   StartPentestJobInput$,
@@ -257,6 +304,10 @@ import {
   Step$,
   StepName,
   StepStatus,
+  StopCodeReviewJob$,
+  StopCodeReviewJobCommand,
+  StopCodeReviewJobInput$,
+  StopCodeReviewJobOutput$,
   StopPentestJob$,
   StopPentestJobCommand,
   StopPentestJobInput$,
@@ -285,6 +336,10 @@ import {
   UpdateApplicationCommand,
   UpdateApplicationRequest$,
   UpdateApplicationResponse$,
+  UpdateCodeReview$,
+  UpdateCodeReviewCommand,
+  UpdateCodeReviewInput$,
+  UpdateCodeReviewOutput$,
   UpdateFinding$,
   UpdateFindingCommand,
   UpdateFindingInput$,
@@ -321,12 +376,20 @@ assert(typeof SecurityAgent === "function");
 // commands
 assert(typeof AddArtifactCommand === "function");
 assert(typeof AddArtifact$ === "object");
+assert(typeof BatchDeleteCodeReviewsCommand === "function");
+assert(typeof BatchDeleteCodeReviews$ === "object");
 assert(typeof BatchDeletePentestsCommand === "function");
 assert(typeof BatchDeletePentests$ === "object");
 assert(typeof BatchGetAgentSpacesCommand === "function");
 assert(typeof BatchGetAgentSpaces$ === "object");
 assert(typeof BatchGetArtifactMetadataCommand === "function");
 assert(typeof BatchGetArtifactMetadata$ === "object");
+assert(typeof BatchGetCodeReviewJobsCommand === "function");
+assert(typeof BatchGetCodeReviewJobs$ === "object");
+assert(typeof BatchGetCodeReviewJobTasksCommand === "function");
+assert(typeof BatchGetCodeReviewJobTasks$ === "object");
+assert(typeof BatchGetCodeReviewsCommand === "function");
+assert(typeof BatchGetCodeReviews$ === "object");
 assert(typeof BatchGetFindingsCommand === "function");
 assert(typeof BatchGetFindings$ === "object");
 assert(typeof BatchGetPentestJobsCommand === "function");
@@ -341,6 +404,8 @@ assert(typeof CreateAgentSpaceCommand === "function");
 assert(typeof CreateAgentSpace$ === "object");
 assert(typeof CreateApplicationCommand === "function");
 assert(typeof CreateApplication$ === "object");
+assert(typeof CreateCodeReviewCommand === "function");
+assert(typeof CreateCodeReview$ === "object");
 assert(typeof CreateIntegrationCommand === "function");
 assert(typeof CreateIntegration$ === "object");
 assert(typeof CreateMembershipCommand === "function");
@@ -375,6 +440,12 @@ assert(typeof ListApplicationsCommand === "function");
 assert(typeof ListApplications$ === "object");
 assert(typeof ListArtifactsCommand === "function");
 assert(typeof ListArtifacts$ === "object");
+assert(typeof ListCodeReviewJobsForCodeReviewCommand === "function");
+assert(typeof ListCodeReviewJobsForCodeReview$ === "object");
+assert(typeof ListCodeReviewJobTasksCommand === "function");
+assert(typeof ListCodeReviewJobTasks$ === "object");
+assert(typeof ListCodeReviewsCommand === "function");
+assert(typeof ListCodeReviews$ === "object");
 assert(typeof ListDiscoveredEndpointsCommand === "function");
 assert(typeof ListDiscoveredEndpoints$ === "object");
 assert(typeof ListFindingsCommand === "function");
@@ -397,8 +468,12 @@ assert(typeof ListTargetDomainsCommand === "function");
 assert(typeof ListTargetDomains$ === "object");
 assert(typeof StartCodeRemediationCommand === "function");
 assert(typeof StartCodeRemediation$ === "object");
+assert(typeof StartCodeReviewJobCommand === "function");
+assert(typeof StartCodeReviewJob$ === "object");
 assert(typeof StartPentestJobCommand === "function");
 assert(typeof StartPentestJob$ === "object");
+assert(typeof StopCodeReviewJobCommand === "function");
+assert(typeof StopCodeReviewJob$ === "object");
 assert(typeof StopPentestJobCommand === "function");
 assert(typeof StopPentestJob$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -409,6 +484,8 @@ assert(typeof UpdateAgentSpaceCommand === "function");
 assert(typeof UpdateAgentSpace$ === "object");
 assert(typeof UpdateApplicationCommand === "function");
 assert(typeof UpdateApplication$ === "object");
+assert(typeof UpdateCodeReviewCommand === "function");
+assert(typeof UpdateCodeReview$ === "object");
 assert(typeof UpdateFindingCommand === "function");
 assert(typeof UpdateFinding$ === "object");
 assert(typeof UpdateIntegratedResourcesCommand === "function");
@@ -432,12 +509,20 @@ assert(typeof ArtifactSummary$ === "object");
 assert(typeof Assets$ === "object");
 assert(typeof Authentication$ === "object");
 assert(typeof AWSResources$ === "object");
+assert(typeof BatchDeleteCodeReviewsInput$ === "object");
+assert(typeof BatchDeleteCodeReviewsOutput$ === "object");
 assert(typeof BatchDeletePentestsInput$ === "object");
 assert(typeof BatchDeletePentestsOutput$ === "object");
 assert(typeof BatchGetAgentSpacesInput$ === "object");
 assert(typeof BatchGetAgentSpacesOutput$ === "object");
 assert(typeof BatchGetArtifactMetadataInput$ === "object");
 assert(typeof BatchGetArtifactMetadataOutput$ === "object");
+assert(typeof BatchGetCodeReviewJobsInput$ === "object");
+assert(typeof BatchGetCodeReviewJobsOutput$ === "object");
+assert(typeof BatchGetCodeReviewJobTasksInput$ === "object");
+assert(typeof BatchGetCodeReviewJobTasksOutput$ === "object");
+assert(typeof BatchGetCodeReviewsInput$ === "object");
+assert(typeof BatchGetCodeReviewsOutput$ === "object");
 assert(typeof BatchGetFindingsInput$ === "object");
 assert(typeof BatchGetFindingsOutput$ === "object");
 assert(typeof BatchGetPentestJobsInput$ === "object");
@@ -450,13 +535,22 @@ assert(typeof BatchGetTargetDomainsInput$ === "object");
 assert(typeof BatchGetTargetDomainsOutput$ === "object");
 assert(typeof Category$ === "object");
 assert(typeof CloudWatchLog$ === "object");
+assert(typeof CodeLocation$ === "object");
 assert(typeof CodeRemediationTask$ === "object");
 assert(typeof CodeRemediationTaskDetails$ === "object");
+assert(typeof CodeReview$ === "object");
+assert(typeof CodeReviewJob$ === "object");
+assert(typeof CodeReviewJobSummary$ === "object");
+assert(typeof CodeReviewJobTask$ === "object");
+assert(typeof CodeReviewJobTaskSummary$ === "object");
 assert(typeof CodeReviewSettings$ === "object");
+assert(typeof CodeReviewSummary$ === "object");
 assert(typeof CreateAgentSpaceInput$ === "object");
 assert(typeof CreateAgentSpaceOutput$ === "object");
 assert(typeof CreateApplicationRequest$ === "object");
 assert(typeof CreateApplicationResponse$ === "object");
+assert(typeof CreateCodeReviewInput$ === "object");
+assert(typeof CreateCodeReviewOutput$ === "object");
 assert(typeof CreateIntegrationInput$ === "object");
 assert(typeof CreateIntegrationOutput$ === "object");
 assert(typeof CreateMembershipRequest$ === "object");
@@ -471,6 +565,7 @@ assert(typeof DeleteAgentSpaceOutput$ === "object");
 assert(typeof DeleteApplicationRequest$ === "object");
 assert(typeof DeleteArtifactInput$ === "object");
 assert(typeof DeleteArtifactOutput$ === "object");
+assert(typeof DeleteCodeReviewFailure$ === "object");
 assert(typeof DeleteIntegrationInput$ === "object");
 assert(typeof DeleteIntegrationOutput$ === "object");
 assert(typeof DeleteMembershipRequest$ === "object");
@@ -513,6 +608,12 @@ assert(typeof ListApplicationsRequest$ === "object");
 assert(typeof ListApplicationsResponse$ === "object");
 assert(typeof ListArtifactsInput$ === "object");
 assert(typeof ListArtifactsOutput$ === "object");
+assert(typeof ListCodeReviewJobsForCodeReviewInput$ === "object");
+assert(typeof ListCodeReviewJobsForCodeReviewOutput$ === "object");
+assert(typeof ListCodeReviewJobTasksInput$ === "object");
+assert(typeof ListCodeReviewJobTasksOutput$ === "object");
+assert(typeof ListCodeReviewsInput$ === "object");
+assert(typeof ListCodeReviewsOutput$ === "object");
 assert(typeof ListDiscoveredEndpointsInput$ === "object");
 assert(typeof ListDiscoveredEndpointsOutput$ === "object");
 assert(typeof ListFindingsInput$ === "object");
@@ -548,9 +649,13 @@ assert(typeof ProviderResourceCapabilities$ === "object");
 assert(typeof SourceCodeRepository$ === "object");
 assert(typeof StartCodeRemediationInput$ === "object");
 assert(typeof StartCodeRemediationOutput$ === "object");
+assert(typeof StartCodeReviewJobInput$ === "object");
+assert(typeof StartCodeReviewJobOutput$ === "object");
 assert(typeof StartPentestJobInput$ === "object");
 assert(typeof StartPentestJobOutput$ === "object");
 assert(typeof Step$ === "object");
+assert(typeof StopCodeReviewJobInput$ === "object");
+assert(typeof StopCodeReviewJobOutput$ === "object");
 assert(typeof StopPentestJobInput$ === "object");
 assert(typeof StopPentestJobOutput$ === "object");
 assert(typeof TagResourceInput$ === "object");
@@ -565,6 +670,8 @@ assert(typeof UpdateAgentSpaceInput$ === "object");
 assert(typeof UpdateAgentSpaceOutput$ === "object");
 assert(typeof UpdateApplicationRequest$ === "object");
 assert(typeof UpdateApplicationResponse$ === "object");
+assert(typeof UpdateCodeReviewInput$ === "object");
+assert(typeof UpdateCodeReviewOutput$ === "object");
 assert(typeof UpdateFindingInput$ === "object");
 assert(typeof UpdateFindingOutput$ === "object");
 assert(typeof UpdateIntegratedResourcesInput$ === "object");
@@ -626,6 +733,9 @@ assert(SecurityAgentServiceException.prototype instanceof Error);
 assert(typeof paginateListAgentSpaces === "function");
 assert(typeof paginateListApplications === "function");
 assert(typeof paginateListArtifacts === "function");
+assert(typeof paginateListCodeReviewJobTasks === "function");
+assert(typeof paginateListCodeReviewJobsForCodeReview === "function");
+assert(typeof paginateListCodeReviews === "function");
 assert(typeof paginateListDiscoveredEndpoints === "function");
 assert(typeof paginateListFindings === "function");
 assert(typeof paginateListIntegratedResources === "function");

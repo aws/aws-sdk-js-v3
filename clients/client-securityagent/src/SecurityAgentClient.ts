@@ -58,6 +58,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import type { AddArtifactCommandInput, AddArtifactCommandOutput } from "./commands/AddArtifactCommand";
 import type {
+  BatchDeleteCodeReviewsCommandInput,
+  BatchDeleteCodeReviewsCommandOutput,
+} from "./commands/BatchDeleteCodeReviewsCommand";
+import type {
   BatchDeletePentestsCommandInput,
   BatchDeletePentestsCommandOutput,
 } from "./commands/BatchDeletePentestsCommand";
@@ -69,6 +73,18 @@ import type {
   BatchGetArtifactMetadataCommandInput,
   BatchGetArtifactMetadataCommandOutput,
 } from "./commands/BatchGetArtifactMetadataCommand";
+import type {
+  BatchGetCodeReviewJobsCommandInput,
+  BatchGetCodeReviewJobsCommandOutput,
+} from "./commands/BatchGetCodeReviewJobsCommand";
+import type {
+  BatchGetCodeReviewJobTasksCommandInput,
+  BatchGetCodeReviewJobTasksCommandOutput,
+} from "./commands/BatchGetCodeReviewJobTasksCommand";
+import type {
+  BatchGetCodeReviewsCommandInput,
+  BatchGetCodeReviewsCommandOutput,
+} from "./commands/BatchGetCodeReviewsCommand";
 import type { BatchGetFindingsCommandInput, BatchGetFindingsCommandOutput } from "./commands/BatchGetFindingsCommand";
 import type {
   BatchGetPentestJobsCommandInput,
@@ -88,6 +104,7 @@ import type {
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
+import type { CreateCodeReviewCommandInput, CreateCodeReviewCommandOutput } from "./commands/CreateCodeReviewCommand";
 import type {
   CreateIntegrationCommandInput,
   CreateIntegrationCommandOutput,
@@ -124,6 +141,15 @@ import type { ListAgentSpacesCommandInput, ListAgentSpacesCommandOutput } from "
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import type { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
 import type {
+  ListCodeReviewJobsForCodeReviewCommandInput,
+  ListCodeReviewJobsForCodeReviewCommandOutput,
+} from "./commands/ListCodeReviewJobsForCodeReviewCommand";
+import type {
+  ListCodeReviewJobTasksCommandInput,
+  ListCodeReviewJobTasksCommandOutput,
+} from "./commands/ListCodeReviewJobTasksCommand";
+import type { ListCodeReviewsCommandInput, ListCodeReviewsCommandOutput } from "./commands/ListCodeReviewsCommand";
+import type {
   ListDiscoveredEndpointsCommandInput,
   ListDiscoveredEndpointsCommandOutput,
 } from "./commands/ListDiscoveredEndpointsCommand";
@@ -155,7 +181,15 @@ import type {
   StartCodeRemediationCommandInput,
   StartCodeRemediationCommandOutput,
 } from "./commands/StartCodeRemediationCommand";
+import type {
+  StartCodeReviewJobCommandInput,
+  StartCodeReviewJobCommandOutput,
+} from "./commands/StartCodeReviewJobCommand";
 import type { StartPentestJobCommandInput, StartPentestJobCommandOutput } from "./commands/StartPentestJobCommand";
+import type {
+  StopCodeReviewJobCommandInput,
+  StopCodeReviewJobCommandOutput,
+} from "./commands/StopCodeReviewJobCommand";
 import type { StopPentestJobCommandInput, StopPentestJobCommandOutput } from "./commands/StopPentestJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -164,6 +198,7 @@ import type {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
+import type { UpdateCodeReviewCommandInput, UpdateCodeReviewCommandOutput } from "./commands/UpdateCodeReviewCommand";
 import type { UpdateFindingCommandInput, UpdateFindingCommandOutput } from "./commands/UpdateFindingCommand";
 import type {
   UpdateIntegratedResourcesCommandInput,
@@ -194,9 +229,13 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddArtifactCommandInput
+  | BatchDeleteCodeReviewsCommandInput
   | BatchDeletePentestsCommandInput
   | BatchGetAgentSpacesCommandInput
   | BatchGetArtifactMetadataCommandInput
+  | BatchGetCodeReviewJobTasksCommandInput
+  | BatchGetCodeReviewJobsCommandInput
+  | BatchGetCodeReviewsCommandInput
   | BatchGetFindingsCommandInput
   | BatchGetPentestJobTasksCommandInput
   | BatchGetPentestJobsCommandInput
@@ -204,6 +243,7 @@ export type ServiceInputTypes =
   | BatchGetTargetDomainsCommandInput
   | CreateAgentSpaceCommandInput
   | CreateApplicationCommandInput
+  | CreateCodeReviewCommandInput
   | CreateIntegrationCommandInput
   | CreateMembershipCommandInput
   | CreatePentestCommandInput
@@ -221,6 +261,9 @@ export type ServiceInputTypes =
   | ListAgentSpacesCommandInput
   | ListApplicationsCommandInput
   | ListArtifactsCommandInput
+  | ListCodeReviewJobTasksCommandInput
+  | ListCodeReviewJobsForCodeReviewCommandInput
+  | ListCodeReviewsCommandInput
   | ListDiscoveredEndpointsCommandInput
   | ListFindingsCommandInput
   | ListIntegratedResourcesCommandInput
@@ -232,12 +275,15 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTargetDomainsCommandInput
   | StartCodeRemediationCommandInput
+  | StartCodeReviewJobCommandInput
   | StartPentestJobCommandInput
+  | StopCodeReviewJobCommandInput
   | StopPentestJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentSpaceCommandInput
   | UpdateApplicationCommandInput
+  | UpdateCodeReviewCommandInput
   | UpdateFindingCommandInput
   | UpdateIntegratedResourcesCommandInput
   | UpdatePentestCommandInput
@@ -249,9 +295,13 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddArtifactCommandOutput
+  | BatchDeleteCodeReviewsCommandOutput
   | BatchDeletePentestsCommandOutput
   | BatchGetAgentSpacesCommandOutput
   | BatchGetArtifactMetadataCommandOutput
+  | BatchGetCodeReviewJobTasksCommandOutput
+  | BatchGetCodeReviewJobsCommandOutput
+  | BatchGetCodeReviewsCommandOutput
   | BatchGetFindingsCommandOutput
   | BatchGetPentestJobTasksCommandOutput
   | BatchGetPentestJobsCommandOutput
@@ -259,6 +309,7 @@ export type ServiceOutputTypes =
   | BatchGetTargetDomainsCommandOutput
   | CreateAgentSpaceCommandOutput
   | CreateApplicationCommandOutput
+  | CreateCodeReviewCommandOutput
   | CreateIntegrationCommandOutput
   | CreateMembershipCommandOutput
   | CreatePentestCommandOutput
@@ -276,6 +327,9 @@ export type ServiceOutputTypes =
   | ListAgentSpacesCommandOutput
   | ListApplicationsCommandOutput
   | ListArtifactsCommandOutput
+  | ListCodeReviewJobTasksCommandOutput
+  | ListCodeReviewJobsForCodeReviewCommandOutput
+  | ListCodeReviewsCommandOutput
   | ListDiscoveredEndpointsCommandOutput
   | ListFindingsCommandOutput
   | ListIntegratedResourcesCommandOutput
@@ -287,12 +341,15 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTargetDomainsCommandOutput
   | StartCodeRemediationCommandOutput
+  | StartCodeReviewJobCommandOutput
   | StartPentestJobCommandOutput
+  | StopCodeReviewJobCommandOutput
   | StopPentestJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentSpaceCommandOutput
   | UpdateApplicationCommandOutput
+  | UpdateCodeReviewCommandOutput
   | UpdateFindingCommandOutput
   | UpdateIntegratedResourcesCommandOutput
   | UpdatePentestCommandOutput

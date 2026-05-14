@@ -991,6 +991,60 @@ export interface Assets {
 }
 
 /**
+ * <p>Input for deleting multiple code reviews.</p>
+ * @public
+ */
+export interface BatchDeleteCodeReviewsInput {
+  /**
+   * <p>The list of code review identifiers to delete.</p>
+   * @public
+   */
+  codeReviewIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code reviews to delete.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Contains information about a code review that failed to delete.</p>
+ * @public
+ */
+export interface DeleteCodeReviewFailure {
+  /**
+   * <p>The unique identifier of the code review that failed to delete.</p>
+   * @public
+   */
+  codeReviewId?: string | undefined;
+
+  /**
+   * <p>The reason the code review failed to delete.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * <p>Output for the BatchDeleteCodeReviews operation.</p>
+ * @public
+ */
+export interface BatchDeleteCodeReviewsOutput {
+  /**
+   * <p>The list of identifiers of the code reviews that were successfully deleted.</p>
+   * @public
+   */
+  deleted?: string[] | undefined;
+
+  /**
+   * <p>The list of code reviews that failed to delete, including the reason for each failure.</p>
+   * @public
+   */
+  failed?: DeleteCodeReviewFailure[] | undefined;
+}
+
+/**
  * <p>Input for deleting multiple pentests.</p>
  * @public
  */
@@ -1229,6 +1283,462 @@ export interface BatchGetArtifactMetadataOutput {
 }
 
 /**
+ * <p>Input for BatchGetCodeReviewJobs operation.</p>
+ * @public
+ */
+export interface BatchGetCodeReviewJobsInput {
+  /**
+   * <p>The list of code review job identifiers to retrieve.</p>
+   * @public
+   */
+  codeReviewJobIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review jobs.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Contains error information for a pentest job that encountered an error.</p>
+ * @public
+ */
+export interface ErrorInformation {
+  /**
+   * <p>The error code. Valid values include CLIENT_ERROR, INTERNAL_ERROR, and STOPPED_BY_USER.</p>
+   * @public
+   */
+  code?: ErrorCode | undefined;
+
+  /**
+   * <p>A message describing the error.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Contains contextual information about the execution of a pentest job, such as errors, warnings, or informational messages.</p>
+ * @public
+ */
+export interface ExecutionContext {
+  /**
+   * <p>The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and INFO.</p>
+   * @public
+   */
+  contextType?: ContextType | undefined;
+
+  /**
+   * <p>The context message.</p>
+   * @public
+   */
+  context?: string | undefined;
+
+  /**
+   * <p>The date and time the context was recorded, in UTC format.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
+}
+
+/**
+ * <p>Represents a step in the pentest job execution pipeline. Steps include preflight, static analysis, pentest, and finalizing.</p>
+ * @public
+ */
+export interface Step {
+  /**
+   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
+   * @public
+   */
+  name?: StepName | undefined;
+
+  /**
+   * <p>The current status of the step.</p>
+   * @public
+   */
+  status?: StepStatus | undefined;
+
+  /**
+   * <p>The date and time the step was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the step was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Represents a code review job, which is an execution instance of a code review. A code review job progresses through preflight, static analysis, and finalizing steps.</p>
+ * @public
+ */
+export interface CodeReviewJob {
+  /**
+   * <p>The unique identifier of the code review job.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review associated with the job.</p>
+   * @public
+   */
+  codeReviewId?: string | undefined;
+
+  /**
+   * <p>The title of the code review job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>An overview of the code review job results.</p>
+   * @public
+   */
+  overview?: string | undefined;
+
+  /**
+   * <p>The current status of the code review job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The list of documents providing context for the code review job.</p>
+   * @public
+   */
+  documents?: DocumentInfo[] | undefined;
+
+  /**
+   * <p>The list of source code repositories analyzed during the code review job.</p>
+   * @public
+   */
+  sourceCode?: SourceCodeRepository[] | undefined;
+
+  /**
+   * <p>The list of steps in the code review job execution.</p>
+   * @public
+   */
+  steps?: Step[] | undefined;
+
+  /**
+   * <p>The execution context messages for the code review job.</p>
+   * @public
+   */
+  executionContext?: ExecutionContext[] | undefined;
+
+  /**
+   * <p>The IAM service role used for the code review job.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the code review job.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>Error information if the code review job encountered an error.</p>
+   * @public
+   */
+  errorInformation?: ErrorInformation | undefined;
+
+  /**
+   * <p>The list of integrated repositories associated with the code review job.</p>
+   * @public
+   */
+  integratedRepositories?: IntegratedRepository[] | undefined;
+
+  /**
+   * <p>The code remediation strategy for the code review job.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The date and time the code review job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetCodeReviewJobs operation.</p>
+ * @public
+ */
+export interface BatchGetCodeReviewJobsOutput {
+  /**
+   * <p>The list of code review jobs that were found.</p>
+   * @public
+   */
+  codeReviewJobs?: CodeReviewJob[] | undefined;
+
+  /**
+   * <p>The list of code review job identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Input for retrieving multiple tasks associated with a code review job.</p>
+ * @public
+ */
+export interface BatchGetCodeReviewJobTasksInput {
+  /**
+   * <p>The unique identifier of the agent space that contains the tasks.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The list of task identifiers to retrieve.</p>
+   * @public
+   */
+  codeReviewJobTaskIds: string[] | undefined;
+}
+
+/**
+ * <p>Represents a category assigned to a security testing task.</p>
+ * @public
+ */
+export interface Category {
+  /**
+   * <p>The name of the category.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Indicates whether this is the primary category for the task.</p>
+   * @public
+   */
+  isPrimary?: boolean | undefined;
+}
+
+/**
+ * <p>The log location for a task, specifying where task execution logs are stored.</p>
+ * @public
+ */
+export interface LogLocation {
+  /**
+   * <p>The type of log storage. Currently, only CLOUDWATCH is supported.</p>
+   * @public
+   */
+  logType?: LogType | undefined;
+
+  /**
+   * <p>The CloudWatch Logs location for the task logs.</p>
+   * @public
+   */
+  cloudWatchLog?: CloudWatchLog | undefined;
+}
+
+/**
+ * <p>Represents an individual security test task within a code review job. Each task targets a specific risk type and executes independently.</p>
+ * @public
+ */
+export interface CodeReviewJobTask {
+  /**
+   * <p>The unique identifier of the task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review associated with the task.</p>
+   * @public
+   */
+  codeReviewId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job that contains the task.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The title of the task.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>A description of the task.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The list of categories assigned to the task.</p>
+   * @public
+   */
+  categories?: Category[] | undefined;
+
+  /**
+   * <p>The type of security risk the task is testing for.</p>
+   * @public
+   */
+  riskType?: RiskType | undefined;
+
+  /**
+   * <p>The current execution status of the task.</p>
+   * @public
+   */
+  executionStatus?: TaskExecutionStatus | undefined;
+
+  /**
+   * <p>The location of the task execution logs.</p>
+   * @public
+   */
+  logsLocation?: LogLocation | undefined;
+
+  /**
+   * <p>The date and time the task was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the task was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetCodeReviewJobTasks operation.</p>
+ * @public
+ */
+export interface BatchGetCodeReviewJobTasksOutput {
+  /**
+   * <p>The list of code review job tasks that were found.</p>
+   * @public
+   */
+  codeReviewJobTasks?: CodeReviewJobTask[] | undefined;
+
+  /**
+   * <p>The list of task identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Input for retrieving multiple code reviews by their IDs.</p>
+ * @public
+ */
+export interface BatchGetCodeReviewsInput {
+  /**
+   * <p>The list of code review identifiers to retrieve.</p>
+   * @public
+   */
+  codeReviewIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code reviews.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Represents a code review configuration that defines the parameters for automated security-focused code analysis, including target assets and logging configuration.</p>
+ * @public
+ */
+export interface CodeReview {
+  /**
+   * <p>The unique identifier of the code review.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The title of the code review.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The assets included in the code review.</p>
+   * @public
+   */
+  assets: Assets | undefined;
+
+  /**
+   * <p>The IAM service role used for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The code remediation strategy for the code review.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The date and time the code review was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Output for the BatchGetCodeReviews operation.</p>
+ * @public
+ */
+export interface BatchGetCodeReviewsOutput {
+  /**
+   * <p>The list of code reviews that were found.</p>
+   * @public
+   */
+  codeReviews?: CodeReview[] | undefined;
+
+  /**
+   * <p>The list of code review identifiers that were not found.</p>
+   * @public
+   */
+  notFound?: string[] | undefined;
+}
+
+/**
  * <p>Input for BatchGetFindings operation.</p>
  * @public
  */
@@ -1244,6 +1754,36 @@ export interface BatchGetFindingsInput {
    * @public
    */
   agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Represents a location in source code associated with a security finding.</p>
+ * @public
+ */
+export interface CodeLocation {
+  /**
+   * <p>The absolute path to the file containing the code location.</p>
+   * @public
+   */
+  filePath: string | undefined;
+
+  /**
+   * <p>The starting line number of the code location.</p>
+   * @public
+   */
+  lineStart?: number | undefined;
+
+  /**
+   * <p>The ending line number of the code location.</p>
+   * @public
+   */
+  lineEnd?: number | undefined;
+
+  /**
+   * <p>The role of this location in the vulnerability, such as source or sink.</p>
+   * @public
+   */
+  label?: string | undefined;
 }
 
 /**
@@ -1324,6 +1864,18 @@ export interface Finding {
   pentestJobId?: string | undefined;
 
   /**
+   * <p>The unique identifier of the code review associated with the finding.</p>
+   * @public
+   */
+  codeReviewId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job that produced the finding.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
+
+  /**
    * <p>The unique identifier of the task that produced the finding.</p>
    * @public
    */
@@ -1396,6 +1948,12 @@ export interface Finding {
   lastUpdatedBy?: string | undefined;
 
   /**
+   * <p>The file locations involved in the vulnerability, as reported by the code scanner.</p>
+   * @public
+   */
+  codeLocations?: CodeLocation[] | undefined;
+
+  /**
    * <p>The date and time the finding was created, in UTC format.</p>
    * @public
    */
@@ -1442,78 +2000,6 @@ export interface BatchGetPentestJobsInput {
    * @public
    */
   agentSpaceId: string | undefined;
-}
-
-/**
- * <p>Contains error information for a pentest job that encountered an error.</p>
- * @public
- */
-export interface ErrorInformation {
-  /**
-   * <p>The error code. Valid values include CLIENT_ERROR, INTERNAL_ERROR, and STOPPED_BY_USER.</p>
-   * @public
-   */
-  code?: ErrorCode | undefined;
-
-  /**
-   * <p>A message describing the error.</p>
-   * @public
-   */
-  message?: string | undefined;
-}
-
-/**
- * <p>Contains contextual information about the execution of a pentest job, such as errors, warnings, or informational messages.</p>
- * @public
- */
-export interface ExecutionContext {
-  /**
-   * <p>The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and INFO.</p>
-   * @public
-   */
-  contextType?: ContextType | undefined;
-
-  /**
-   * <p>The context message.</p>
-   * @public
-   */
-  context?: string | undefined;
-
-  /**
-   * <p>The date and time the context was recorded, in UTC format.</p>
-   * @public
-   */
-  timestamp?: Date | undefined;
-}
-
-/**
- * <p>Represents a step in the pentest job execution pipeline. Steps include preflight, static analysis, pentest, and finalizing.</p>
- * @public
- */
-export interface Step {
-  /**
-   * <p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>
-   * @public
-   */
-  name?: StepName | undefined;
-
-  /**
-   * <p>The current status of the step.</p>
-   * @public
-   */
-  status?: StepStatus | undefined;
-
-  /**
-   * <p>The date and time the step was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the step was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
 }
 
 /**
@@ -1694,42 +2180,6 @@ export interface BatchGetPentestJobTasksInput {
    * @public
    */
   taskIds: string[] | undefined;
-}
-
-/**
- * <p>Represents a category assigned to a security testing task.</p>
- * @public
- */
-export interface Category {
-  /**
-   * <p>The name of the category.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Indicates whether this is the primary category for the task.</p>
-   * @public
-   */
-  isPrimary?: boolean | undefined;
-}
-
-/**
- * <p>The log location for a task, specifying where task execution logs are stored.</p>
- * @public
- */
-export interface LogLocation {
-  /**
-   * <p>The type of log storage. Currently, only CLOUDWATCH is supported.</p>
-   * @public
-   */
-  logType?: LogType | undefined;
-
-  /**
-   * <p>The CloudWatch Logs location for the task logs.</p>
-   * @public
-   */
-  cloudWatchLog?: CloudWatchLog | undefined;
 }
 
 /**
@@ -2012,6 +2462,246 @@ export interface BatchGetTargetDomainsOutput {
    * @public
    */
   notFound?: string[] | undefined;
+}
+
+/**
+ * <p>Contains summary information about a code review job.</p>
+ * @public
+ */
+export interface CodeReviewJobSummary {
+  /**
+   * <p>The unique identifier of the code review job.</p>
+   * @public
+   */
+  codeReviewJobId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review associated with the job.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The title of the code review job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the code review job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the code review job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Contains summary information about a code review job task.</p>
+ * @public
+ */
+export interface CodeReviewJobTaskSummary {
+  /**
+   * <p>The unique identifier of the task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review associated with the task.</p>
+   * @public
+   */
+  codeReviewId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job that contains the task.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The title of the task.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The type of security risk the task is testing for.</p>
+   * @public
+   */
+  riskType?: RiskType | undefined;
+
+  /**
+   * <p>The current execution status of the task.</p>
+   * @public
+   */
+  executionStatus?: TaskExecutionStatus | undefined;
+
+  /**
+   * <p>The date and time the task was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the task was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Contains summary information about a code review.</p>
+ * @public
+ */
+export interface CodeReviewSummary {
+  /**
+   * <p>The unique identifier of the code review.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The title of the code review.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The date and time the code review was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Input for creating a new code review.</p>
+ * @public
+ */
+export interface CreateCodeReviewInput {
+  /**
+   * <p>The title of the code review.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space to create the code review in.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The assets to include in the code review, such as documents and source code.</p>
+   * @public
+   */
+  assets: Assets | undefined;
+
+  /**
+   * <p>The IAM service role to use for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The code remediation strategy for the code review. Valid values are AUTOMATIC and DISABLED.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+}
+
+/**
+ * <p>Output for the CreateCodeReview operation.</p>
+ * @public
+ */
+export interface CreateCodeReviewOutput {
+  /**
+   * <p>The unique identifier of the created code review.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The title of the code review.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The date and time the code review was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The assets included in the code review.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The IAM service role used for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The code remediation strategy for the code review.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 }
 
 /**
@@ -2584,6 +3274,18 @@ export interface FindingSummary {
   pentestJobId?: string | undefined;
 
   /**
+   * <p>The unique identifier of the code review associated with the finding.</p>
+   * @public
+   */
+  codeReviewId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job that produced the finding.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
+
+  /**
    * <p>The name of the finding.</p>
    * @public
    */
@@ -3153,6 +3855,156 @@ export interface ListArtifactsOutput {
 }
 
 /**
+ * <p>Input for ListCodeReviewJobsForCodeReview operation.</p>
+ * @public
+ */
+export interface ListCodeReviewJobsForCodeReviewInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the code review to list jobs for.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Output for the ListCodeReviewJobsForCodeReview operation.</p>
+ * @public
+ */
+export interface ListCodeReviewJobsForCodeReviewOutput {
+  /**
+   * <p>The list of code review job summaries.</p>
+   * @public
+   */
+  codeReviewJobSummaries?: CodeReviewJobSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for listing tasks associated with a code review job.</p>
+ * @public
+ */
+export interface ListCodeReviewJobTasksInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job to list tasks for.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
+
+  /**
+   * <p>Filter tasks by step name.</p>
+   * @public
+   */
+  stepName?: StepName | undefined;
+
+  /**
+   * <p>Filter tasks by category name.</p>
+   * @public
+   */
+  categoryName?: string | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Output for the ListCodeReviewJobTasks operation.</p>
+ * @public
+ */
+export interface ListCodeReviewJobTasksOutput {
+  /**
+   * <p>The list of code review job task summaries.</p>
+   * @public
+   */
+  codeReviewJobTaskSummaries?: CodeReviewJobTaskSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for listing code reviews with optional filtering.</p>
+ * @public
+ */
+export interface ListCodeReviewsInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space to list code reviews for.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>Output for the ListCodeReviews operation.</p>
+ * @public
+ */
+export interface ListCodeReviewsOutput {
+  /**
+   * <p>The list of code review summaries.</p>
+   * @public
+   */
+  codeReviewSummaries?: CodeReviewSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Input for ListDiscoveredEndpoints operation.</p>
  * @public
  */
@@ -3221,7 +4073,13 @@ export interface ListFindingsInput {
    * <p>The unique identifier of the pentest job to list findings for.</p>
    * @public
    */
-  pentestJobId: string | undefined;
+  pentestJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job to list findings for. Mutually exclusive with pentestJobId.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
 
   /**
    * <p>The unique identifier of the agent space.</p>
@@ -3897,10 +4755,16 @@ export interface StartCodeRemediationInput {
   agentSpaceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the pentest job that produced the findings.</p>
+   * <p>The unique identifier of the pentest job that produced the findings. Mutually exclusive with <code>codeReviewJobId</code>.</p>
    * @public
    */
-  pentestJobId: string | undefined;
+  pentestJobId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job that produced the findings. Mutually exclusive with <code>pentestJobId</code>.</p>
+   * @public
+   */
+  codeReviewJobId?: string | undefined;
 
   /**
    * <p>The list of finding identifiers to initiate code remediation for.</p>
@@ -3914,6 +4778,72 @@ export interface StartCodeRemediationInput {
  * @public
  */
 export interface StartCodeRemediationOutput {}
+
+/**
+ * <p>Input for starting the execution of a code review.</p>
+ * @public
+ */
+export interface StartCodeReviewJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review to start a job for.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+}
+
+/**
+ * <p>Output for the StartCodeReviewJob operation.</p>
+ * @public
+ */
+export interface StartCodeReviewJobOutput {
+  /**
+   * <p>The title of the code review job.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The current status of the code review job.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The date and time the code review job was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review job was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the code review.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the started code review job.</p>
+   * @public
+   */
+  codeReviewJobId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+}
 
 /**
  * <p>Input for starting the execution of a pentest.</p>
@@ -3980,6 +4910,30 @@ export interface StartPentestJobOutput {
    */
   agentSpaceId?: string | undefined;
 }
+
+/**
+ * <p>Input for stopping the execution of a code review job.</p>
+ * @public
+ */
+export interface StopCodeReviewJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job to stop.</p>
+   * @public
+   */
+  codeReviewJobId: string | undefined;
+}
+
+/**
+ * <p>Output for the StopCodeReviewJob operation.</p>
+ * @public
+ */
+export interface StopCodeReviewJobOutput {}
 
 /**
  * <p>Input for stopping the execution of a pentest.</p>
@@ -4118,6 +5072,114 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * <p>Input for updating an existing code review.</p>
+ * @public
+ */
+export interface UpdateCodeReviewInput {
+  /**
+   * <p>The unique identifier of the code review to update.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The updated title of the code review.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The updated assets for the code review.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The updated IAM service role for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The updated CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The updated code remediation strategy for the code review.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+}
+
+/**
+ * <p>Output for the UpdateCodeReview operation.</p>
+ * @public
+ */
+export interface UpdateCodeReviewOutput {
+  /**
+   * <p>The unique identifier of the code review.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The title of the code review.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The date and time the code review was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The assets included in the code review.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The IAM service role used for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The code remediation strategy for the code review.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+}
 
 /**
  * <p>Input for updating an existing security finding.</p>
