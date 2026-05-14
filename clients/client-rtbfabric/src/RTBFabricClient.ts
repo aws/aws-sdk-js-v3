@@ -58,10 +58,18 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import type { AcceptLinkCommandInput, AcceptLinkCommandOutput } from "./commands/AcceptLinkCommand";
 import type {
+  AssociateCertificateCommandInput,
+  AssociateCertificateCommandOutput,
+} from "./commands/AssociateCertificateCommand";
+import type {
   CreateInboundExternalLinkCommandInput,
   CreateInboundExternalLinkCommandOutput,
 } from "./commands/CreateInboundExternalLinkCommand";
 import type { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
+import type {
+  CreateLinkRoutingRuleCommandInput,
+  CreateLinkRoutingRuleCommandOutput,
+} from "./commands/CreateLinkRoutingRuleCommand";
 import type {
   CreateOutboundExternalLinkCommandInput,
   CreateOutboundExternalLinkCommandOutput,
@@ -80,6 +88,10 @@ import type {
 } from "./commands/DeleteInboundExternalLinkCommand";
 import type { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
 import type {
+  DeleteLinkRoutingRuleCommandInput,
+  DeleteLinkRoutingRuleCommandOutput,
+} from "./commands/DeleteLinkRoutingRuleCommand";
+import type {
   DeleteOutboundExternalLinkCommandInput,
   DeleteOutboundExternalLinkCommandOutput,
 } from "./commands/DeleteOutboundExternalLinkCommand";
@@ -92,10 +104,22 @@ import type {
   DeleteResponderGatewayCommandOutput,
 } from "./commands/DeleteResponderGatewayCommand";
 import type {
+  DisassociateCertificateCommandInput,
+  DisassociateCertificateCommandOutput,
+} from "./commands/DisassociateCertificateCommand";
+import type {
+  GetCertificateAssociationCommandInput,
+  GetCertificateAssociationCommandOutput,
+} from "./commands/GetCertificateAssociationCommand";
+import type {
   GetInboundExternalLinkCommandInput,
   GetInboundExternalLinkCommandOutput,
 } from "./commands/GetInboundExternalLinkCommand";
 import type { GetLinkCommandInput, GetLinkCommandOutput } from "./commands/GetLinkCommand";
+import type {
+  GetLinkRoutingRuleCommandInput,
+  GetLinkRoutingRuleCommandOutput,
+} from "./commands/GetLinkRoutingRuleCommand";
 import type {
   GetOutboundExternalLinkCommandInput,
   GetOutboundExternalLinkCommandOutput,
@@ -108,6 +132,14 @@ import type {
   GetResponderGatewayCommandInput,
   GetResponderGatewayCommandOutput,
 } from "./commands/GetResponderGatewayCommand";
+import type {
+  ListCertificateAssociationsCommandInput,
+  ListCertificateAssociationsCommandOutput,
+} from "./commands/ListCertificateAssociationsCommand";
+import type {
+  ListLinkRoutingRulesCommandInput,
+  ListLinkRoutingRulesCommandOutput,
+} from "./commands/ListLinkRoutingRulesCommand";
 import type { ListLinksCommandInput, ListLinksCommandOutput } from "./commands/ListLinksCommand";
 import type {
   ListRequesterGatewaysCommandInput,
@@ -129,6 +161,10 @@ import type {
   UpdateLinkModuleFlowCommandInput,
   UpdateLinkModuleFlowCommandOutput,
 } from "./commands/UpdateLinkModuleFlowCommand";
+import type {
+  UpdateLinkRoutingRuleCommandInput,
+  UpdateLinkRoutingRuleCommandOutput,
+} from "./commands/UpdateLinkRoutingRuleCommand";
 import type {
   UpdateRequesterGatewayCommandInput,
   UpdateRequesterGatewayCommandOutput,
@@ -153,21 +189,29 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AcceptLinkCommandInput
+  | AssociateCertificateCommandInput
   | CreateInboundExternalLinkCommandInput
   | CreateLinkCommandInput
+  | CreateLinkRoutingRuleCommandInput
   | CreateOutboundExternalLinkCommandInput
   | CreateRequesterGatewayCommandInput
   | CreateResponderGatewayCommandInput
   | DeleteInboundExternalLinkCommandInput
   | DeleteLinkCommandInput
+  | DeleteLinkRoutingRuleCommandInput
   | DeleteOutboundExternalLinkCommandInput
   | DeleteRequesterGatewayCommandInput
   | DeleteResponderGatewayCommandInput
+  | DisassociateCertificateCommandInput
+  | GetCertificateAssociationCommandInput
   | GetInboundExternalLinkCommandInput
   | GetLinkCommandInput
+  | GetLinkRoutingRuleCommandInput
   | GetOutboundExternalLinkCommandInput
   | GetRequesterGatewayCommandInput
   | GetResponderGatewayCommandInput
+  | ListCertificateAssociationsCommandInput
+  | ListLinkRoutingRulesCommandInput
   | ListLinksCommandInput
   | ListRequesterGatewaysCommandInput
   | ListResponderGatewaysCommandInput
@@ -177,6 +221,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateLinkCommandInput
   | UpdateLinkModuleFlowCommandInput
+  | UpdateLinkRoutingRuleCommandInput
   | UpdateRequesterGatewayCommandInput
   | UpdateResponderGatewayCommandInput;
 
@@ -185,21 +230,29 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AcceptLinkCommandOutput
+  | AssociateCertificateCommandOutput
   | CreateInboundExternalLinkCommandOutput
   | CreateLinkCommandOutput
+  | CreateLinkRoutingRuleCommandOutput
   | CreateOutboundExternalLinkCommandOutput
   | CreateRequesterGatewayCommandOutput
   | CreateResponderGatewayCommandOutput
   | DeleteInboundExternalLinkCommandOutput
   | DeleteLinkCommandOutput
+  | DeleteLinkRoutingRuleCommandOutput
   | DeleteOutboundExternalLinkCommandOutput
   | DeleteRequesterGatewayCommandOutput
   | DeleteResponderGatewayCommandOutput
+  | DisassociateCertificateCommandOutput
+  | GetCertificateAssociationCommandOutput
   | GetInboundExternalLinkCommandOutput
   | GetLinkCommandOutput
+  | GetLinkRoutingRuleCommandOutput
   | GetOutboundExternalLinkCommandOutput
   | GetRequesterGatewayCommandOutput
   | GetResponderGatewayCommandOutput
+  | ListCertificateAssociationsCommandOutput
+  | ListLinkRoutingRulesCommandOutput
   | ListLinksCommandOutput
   | ListRequesterGatewaysCommandOutput
   | ListResponderGatewaysCommandOutput
@@ -209,6 +262,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateLinkCommandOutput
   | UpdateLinkModuleFlowCommandOutput
+  | UpdateLinkRoutingRuleCommandOutput
   | UpdateRequesterGatewayCommandOutput
   | UpdateResponderGatewayCommandOutput;
 

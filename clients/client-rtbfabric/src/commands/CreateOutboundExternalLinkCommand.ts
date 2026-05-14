@@ -84,6 +84,9 @@ export interface CreateOutboundExternalLinkCommandOutput extends CreateOutboundE
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed because of a conflict in the current state of the resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request could not be completed because of an internal server error. Try your call again.</p>
  *

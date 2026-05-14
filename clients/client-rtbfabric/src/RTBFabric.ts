@@ -13,6 +13,11 @@ import {
   AcceptLinkCommand,
 } from "./commands/AcceptLinkCommand";
 import {
+  type AssociateCertificateCommandInput,
+  type AssociateCertificateCommandOutput,
+  AssociateCertificateCommand,
+} from "./commands/AssociateCertificateCommand";
+import {
   type CreateInboundExternalLinkCommandInput,
   type CreateInboundExternalLinkCommandOutput,
   CreateInboundExternalLinkCommand,
@@ -22,6 +27,11 @@ import {
   type CreateLinkCommandOutput,
   CreateLinkCommand,
 } from "./commands/CreateLinkCommand";
+import {
+  type CreateLinkRoutingRuleCommandInput,
+  type CreateLinkRoutingRuleCommandOutput,
+  CreateLinkRoutingRuleCommand,
+} from "./commands/CreateLinkRoutingRuleCommand";
 import {
   type CreateOutboundExternalLinkCommandInput,
   type CreateOutboundExternalLinkCommandOutput,
@@ -48,6 +58,11 @@ import {
   DeleteLinkCommand,
 } from "./commands/DeleteLinkCommand";
 import {
+  type DeleteLinkRoutingRuleCommandInput,
+  type DeleteLinkRoutingRuleCommandOutput,
+  DeleteLinkRoutingRuleCommand,
+} from "./commands/DeleteLinkRoutingRuleCommand";
+import {
   type DeleteOutboundExternalLinkCommandInput,
   type DeleteOutboundExternalLinkCommandOutput,
   DeleteOutboundExternalLinkCommand,
@@ -63,11 +78,26 @@ import {
   DeleteResponderGatewayCommand,
 } from "./commands/DeleteResponderGatewayCommand";
 import {
+  type DisassociateCertificateCommandInput,
+  type DisassociateCertificateCommandOutput,
+  DisassociateCertificateCommand,
+} from "./commands/DisassociateCertificateCommand";
+import {
+  type GetCertificateAssociationCommandInput,
+  type GetCertificateAssociationCommandOutput,
+  GetCertificateAssociationCommand,
+} from "./commands/GetCertificateAssociationCommand";
+import {
   type GetInboundExternalLinkCommandInput,
   type GetInboundExternalLinkCommandOutput,
   GetInboundExternalLinkCommand,
 } from "./commands/GetInboundExternalLinkCommand";
 import { type GetLinkCommandInput, type GetLinkCommandOutput, GetLinkCommand } from "./commands/GetLinkCommand";
+import {
+  type GetLinkRoutingRuleCommandInput,
+  type GetLinkRoutingRuleCommandOutput,
+  GetLinkRoutingRuleCommand,
+} from "./commands/GetLinkRoutingRuleCommand";
 import {
   type GetOutboundExternalLinkCommandInput,
   type GetOutboundExternalLinkCommandOutput,
@@ -83,6 +113,16 @@ import {
   type GetResponderGatewayCommandOutput,
   GetResponderGatewayCommand,
 } from "./commands/GetResponderGatewayCommand";
+import {
+  type ListCertificateAssociationsCommandInput,
+  type ListCertificateAssociationsCommandOutput,
+  ListCertificateAssociationsCommand,
+} from "./commands/ListCertificateAssociationsCommand";
+import {
+  type ListLinkRoutingRulesCommandInput,
+  type ListLinkRoutingRulesCommandOutput,
+  ListLinkRoutingRulesCommand,
+} from "./commands/ListLinkRoutingRulesCommand";
 import { type ListLinksCommandInput, type ListLinksCommandOutput, ListLinksCommand } from "./commands/ListLinksCommand";
 import {
   type ListRequesterGatewaysCommandInput,
@@ -125,6 +165,11 @@ import {
   UpdateLinkModuleFlowCommand,
 } from "./commands/UpdateLinkModuleFlowCommand";
 import {
+  type UpdateLinkRoutingRuleCommandInput,
+  type UpdateLinkRoutingRuleCommandOutput,
+  UpdateLinkRoutingRuleCommand,
+} from "./commands/UpdateLinkRoutingRuleCommand";
+import {
   type UpdateRequesterGatewayCommandInput,
   type UpdateRequesterGatewayCommandOutput,
   UpdateRequesterGatewayCommand,
@@ -136,15 +181,21 @@ import {
 } from "./commands/UpdateResponderGatewayCommand";
 import type { ResourceNotFoundException } from "./models/errors";
 import type { RTBFabricServiceException } from "./models/RTBFabricServiceException";
+import { paginateListCertificateAssociations } from "./pagination/ListCertificateAssociationsPaginator";
+import { paginateListLinkRoutingRules } from "./pagination/ListLinkRoutingRulesPaginator";
 import { paginateListLinks } from "./pagination/ListLinksPaginator";
 import { paginateListRequesterGateways } from "./pagination/ListRequesterGatewaysPaginator";
 import { paginateListResponderGateways } from "./pagination/ListResponderGatewaysPaginator";
 import { RTBFabricClient } from "./RTBFabricClient";
+import { waitUntilCertificateAssociated } from "./waiters/waitForCertificateAssociated";
+import { waitUntilCertificateDisassociated } from "./waiters/waitForCertificateDisassociated";
 import { waitUntilInboundExternalLinkActive } from "./waiters/waitForInboundExternalLinkActive";
 import { waitUntilInboundExternalLinkDeleted } from "./waiters/waitForInboundExternalLinkDeleted";
 import { waitUntilLinkAccepted } from "./waiters/waitForLinkAccepted";
 import { waitUntilLinkActive } from "./waiters/waitForLinkActive";
 import { waitUntilLinkDeleted } from "./waiters/waitForLinkDeleted";
+import { waitUntilLinkRoutingRuleActive } from "./waiters/waitForLinkRoutingRuleActive";
+import { waitUntilLinkRoutingRuleDeleted } from "./waiters/waitForLinkRoutingRuleDeleted";
 import { waitUntilOutboundExternalLinkActive } from "./waiters/waitForOutboundExternalLinkActive";
 import { waitUntilOutboundExternalLinkDeleted } from "./waiters/waitForOutboundExternalLinkDeleted";
 import { waitUntilRequesterGatewayActive } from "./waiters/waitForRequesterGatewayActive";
@@ -154,21 +205,29 @@ import { waitUntilResponderGatewayDeleted } from "./waiters/waitForResponderGate
 
 const commands = {
   AcceptLinkCommand,
+  AssociateCertificateCommand,
   CreateInboundExternalLinkCommand,
   CreateLinkCommand,
+  CreateLinkRoutingRuleCommand,
   CreateOutboundExternalLinkCommand,
   CreateRequesterGatewayCommand,
   CreateResponderGatewayCommand,
   DeleteInboundExternalLinkCommand,
   DeleteLinkCommand,
+  DeleteLinkRoutingRuleCommand,
   DeleteOutboundExternalLinkCommand,
   DeleteRequesterGatewayCommand,
   DeleteResponderGatewayCommand,
+  DisassociateCertificateCommand,
+  GetCertificateAssociationCommand,
   GetInboundExternalLinkCommand,
   GetLinkCommand,
+  GetLinkRoutingRuleCommand,
   GetOutboundExternalLinkCommand,
   GetRequesterGatewayCommand,
   GetResponderGatewayCommand,
+  ListCertificateAssociationsCommand,
+  ListLinkRoutingRulesCommand,
   ListLinksCommand,
   ListRequesterGatewaysCommand,
   ListResponderGatewaysCommand,
@@ -178,20 +237,27 @@ const commands = {
   UntagResourceCommand,
   UpdateLinkCommand,
   UpdateLinkModuleFlowCommand,
+  UpdateLinkRoutingRuleCommand,
   UpdateRequesterGatewayCommand,
   UpdateResponderGatewayCommand,
 };
 const paginators = {
+  paginateListCertificateAssociations,
+  paginateListLinkRoutingRules,
   paginateListLinks,
   paginateListRequesterGateways,
   paginateListResponderGateways,
 };
 const waiters = {
+  waitUntilCertificateAssociated,
+  waitUntilCertificateDisassociated,
   waitUntilInboundExternalLinkActive,
   waitUntilInboundExternalLinkDeleted,
   waitUntilLinkAccepted,
   waitUntilLinkActive,
   waitUntilLinkDeleted,
+  waitUntilLinkRoutingRuleActive,
+  waitUntilLinkRoutingRuleDeleted,
   waitUntilOutboundExternalLinkActive,
   waitUntilOutboundExternalLinkDeleted,
   waitUntilRequesterGatewayActive,
@@ -216,6 +282,23 @@ export interface RTBFabric {
     args: AcceptLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateCertificateCommand}
+   */
+  associateCertificate(
+    args: AssociateCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateCertificateCommandOutput>;
+  associateCertificate(
+    args: AssociateCertificateCommandInput,
+    cb: (err: any, data?: AssociateCertificateCommandOutput) => void
+  ): void;
+  associateCertificate(
+    args: AssociateCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateCertificateCommandOutput) => void
   ): void;
 
   /**
@@ -250,6 +333,23 @@ export interface RTBFabric {
     args: CreateLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLinkRoutingRuleCommand}
+   */
+  createLinkRoutingRule(
+    args: CreateLinkRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLinkRoutingRuleCommandOutput>;
+  createLinkRoutingRule(
+    args: CreateLinkRoutingRuleCommandInput,
+    cb: (err: any, data?: CreateLinkRoutingRuleCommandOutput) => void
+  ): void;
+  createLinkRoutingRule(
+    args: CreateLinkRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLinkRoutingRuleCommandOutput) => void
   ): void;
 
   /**
@@ -338,6 +438,23 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link DeleteLinkRoutingRuleCommand}
+   */
+  deleteLinkRoutingRule(
+    args: DeleteLinkRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLinkRoutingRuleCommandOutput>;
+  deleteLinkRoutingRule(
+    args: DeleteLinkRoutingRuleCommandInput,
+    cb: (err: any, data?: DeleteLinkRoutingRuleCommandOutput) => void
+  ): void;
+  deleteLinkRoutingRule(
+    args: DeleteLinkRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLinkRoutingRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteOutboundExternalLinkCommand}
    */
   deleteOutboundExternalLink(
@@ -389,6 +506,40 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link DisassociateCertificateCommand}
+   */
+  disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateCertificateCommandOutput>;
+  disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
+    cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
+  ): void;
+  disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCertificateAssociationCommand}
+   */
+  getCertificateAssociation(
+    args: GetCertificateAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCertificateAssociationCommandOutput>;
+  getCertificateAssociation(
+    args: GetCertificateAssociationCommandInput,
+    cb: (err: any, data?: GetCertificateAssociationCommandOutput) => void
+  ): void;
+  getCertificateAssociation(
+    args: GetCertificateAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCertificateAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInboundExternalLinkCommand}
    */
   getInboundExternalLink(
@@ -420,6 +571,23 @@ export interface RTBFabric {
     args: GetLinkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLinkRoutingRuleCommand}
+   */
+  getLinkRoutingRule(
+    args: GetLinkRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLinkRoutingRuleCommandOutput>;
+  getLinkRoutingRule(
+    args: GetLinkRoutingRuleCommandInput,
+    cb: (err: any, data?: GetLinkRoutingRuleCommandOutput) => void
+  ): void;
+  getLinkRoutingRule(
+    args: GetLinkRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLinkRoutingRuleCommandOutput) => void
   ): void;
 
   /**
@@ -471,6 +639,40 @@ export interface RTBFabric {
     args: GetResponderGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResponderGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCertificateAssociationsCommand}
+   */
+  listCertificateAssociations(
+    args: ListCertificateAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCertificateAssociationsCommandOutput>;
+  listCertificateAssociations(
+    args: ListCertificateAssociationsCommandInput,
+    cb: (err: any, data?: ListCertificateAssociationsCommandOutput) => void
+  ): void;
+  listCertificateAssociations(
+    args: ListCertificateAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCertificateAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLinkRoutingRulesCommand}
+   */
+  listLinkRoutingRules(
+    args: ListLinkRoutingRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLinkRoutingRulesCommandOutput>;
+  listLinkRoutingRules(
+    args: ListLinkRoutingRulesCommandInput,
+    cb: (err: any, data?: ListLinkRoutingRulesCommandOutput) => void
+  ): void;
+  listLinkRoutingRules(
+    args: ListLinkRoutingRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLinkRoutingRulesCommandOutput) => void
   ): void;
 
   /**
@@ -629,6 +831,23 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link UpdateLinkRoutingRuleCommand}
+   */
+  updateLinkRoutingRule(
+    args: UpdateLinkRoutingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLinkRoutingRuleCommandOutput>;
+  updateLinkRoutingRule(
+    args: UpdateLinkRoutingRuleCommandInput,
+    cb: (err: any, data?: UpdateLinkRoutingRuleCommandOutput) => void
+  ): void;
+  updateLinkRoutingRule(
+    args: UpdateLinkRoutingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLinkRoutingRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateRequesterGatewayCommand}
    */
   updateRequesterGateway(
@@ -663,6 +882,28 @@ export interface RTBFabric {
   ): void;
 
   /**
+   * @see {@link ListCertificateAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificateAssociationsCommandOutput}.
+   */
+  paginateListCertificateAssociations(
+    args: ListCertificateAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificateAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListLinkRoutingRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLinkRoutingRulesCommandOutput}.
+   */
+  paginateListLinkRoutingRules(
+    args: ListLinkRoutingRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLinkRoutingRulesCommandOutput>;
+
+  /**
    * @see {@link ListLinksCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -694,6 +935,26 @@ export interface RTBFabric {
     args?: ListResponderGatewaysCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListResponderGatewaysCommandOutput>;
+
+  /**
+   * @see {@link GetCertificateAssociationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCertificateAssociated(
+    args: GetCertificateAssociationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult<GetCertificateAssociationCommandOutput>>;
+
+  /**
+   * @see {@link GetCertificateAssociationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCertificateDisassociated(
+    args: GetCertificateAssociationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult<GetCertificateAssociationCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetInboundExternalLinkCommand}
@@ -744,6 +1005,26 @@ export interface RTBFabric {
     args: GetLinkCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
   ): Promise<WaiterResult<GetLinkCommandOutput>>;
+
+  /**
+   * @see {@link GetLinkRoutingRuleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLinkRoutingRuleActive(
+    args: GetLinkRoutingRuleCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult<GetLinkRoutingRuleCommandOutput>>;
+
+  /**
+   * @see {@link GetLinkRoutingRuleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLinkRoutingRuleDeleted(
+    args: GetLinkRoutingRuleCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult<GetLinkRoutingRuleCommandOutput | ResourceNotFoundException>>;
 
   /**
    * @see {@link GetOutboundExternalLinkCommand}

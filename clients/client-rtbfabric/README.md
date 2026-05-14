@@ -188,6 +188,13 @@ AcceptLink
 </details>
 <details>
 <summary>
+AssociateCertificate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/AssociateCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/AssociateCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/AssociateCertificateCommandOutput/)
+</details>
+<details>
+<summary>
 CreateInboundExternalLink
 </summary>
 
@@ -199,6 +206,13 @@ CreateLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/CreateLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/CreateLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/CreateLinkCommandOutput/)
+</details>
+<details>
+<summary>
+CreateLinkRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/CreateLinkRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/CreateLinkRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/CreateLinkRoutingRuleCommandOutput/)
 </details>
 <details>
 <summary>
@@ -237,6 +251,13 @@ DeleteLink
 </details>
 <details>
 <summary>
+DeleteLinkRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/DeleteLinkRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/DeleteLinkRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/DeleteLinkRoutingRuleCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteOutboundExternalLink
 </summary>
 
@@ -258,6 +279,20 @@ DeleteResponderGateway
 </details>
 <details>
 <summary>
+DisassociateCertificate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/DisassociateCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/DisassociateCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/DisassociateCertificateCommandOutput/)
+</details>
+<details>
+<summary>
+GetCertificateAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetCertificateAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetCertificateAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetCertificateAssociationCommandOutput/)
+</details>
+<details>
+<summary>
 GetInboundExternalLink
 </summary>
 
@@ -269,6 +304,13 @@ GetLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetLinkCommandOutput/)
+</details>
+<details>
+<summary>
+GetLinkRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetLinkRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetLinkRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetLinkRoutingRuleCommandOutput/)
 </details>
 <details>
 <summary>
@@ -290,6 +332,20 @@ GetResponderGateway
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/GetResponderGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetResponderGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/GetResponderGatewayCommandOutput/)
+</details>
+<details>
+<summary>
+ListCertificateAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/ListCertificateAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListCertificateAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListCertificateAssociationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListLinkRoutingRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/ListLinkRoutingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListLinkRoutingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/ListLinkRoutingRulesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -353,6 +409,13 @@ UpdateLinkModuleFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/UpdateLinkModuleFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/UpdateLinkModuleFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/UpdateLinkModuleFlowCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateLinkRoutingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rtbfabric/command/UpdateLinkRoutingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/UpdateLinkRoutingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rtbfabric/Interface/UpdateLinkRoutingRuleCommandOutput/)
 </details>
 <details>
 <summary>

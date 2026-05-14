@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  CertificateAssociationStatus,
   ConnectivityType,
   FilterType,
   GatewayType,
@@ -10,6 +11,7 @@ import type {
   ResponderErrorMaskingAction,
   ResponderErrorMaskingLoggingType,
   ResponderGatewayStatus,
+  RuleStatus,
 } from "./enums";
 
 /**
@@ -493,6 +495,52 @@ export interface AcceptLinkResponse {
 }
 
 /**
+ * @public
+ */
+export interface AssociateCertificateRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate to associate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+
+  /**
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateCertificateResponse {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+
+  /**
+   * <p>The status of the certificate association.</p>
+   * @public
+   */
+  status: CertificateAssociationStatus | undefined;
+}
+
+/**
  * <p>The health check configuration for a managed endpoint. Defines how the service probes instances in the Auto Scaling group to determine their health status.</p>
  * @public
  */
@@ -568,6 +616,36 @@ export interface AutoScalingGroupsConfiguration {
    * @public
    */
   healthCheckConfig?: HealthCheckConfig | undefined;
+}
+
+/**
+ * <p>Describes a summary of a certificate association.</p>
+ * @public
+ */
+export interface CertificateAssociationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+
+  /**
+   * <p>The status of the certificate association.</p>
+   * @public
+   */
+  status: CertificateAssociationStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the certificate was associated.</p>
+   * @public
+   */
+  associatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the certificate association was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -762,6 +840,132 @@ export interface CreateLinkResponse {
    * @public
    */
   customerProvidedId?: string | undefined;
+}
+
+/**
+ * Key-value pair for query string matching
+ * @public
+ */
+export interface QueryStringKeyValuePair {
+  /**
+   * RFC 3986 unreserved characters
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * RFC 3986 unreserved characters
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * Conditions bag for a routing rule.
+ * All non-null fields must match (AND logic). At least one field must be set (enforced by CP).
+ * @public
+ */
+export interface RuleCondition {
+  /**
+   * Exact host match — RFC 3986 unreserved characters
+   * @public
+   */
+  hostHeader?: string | undefined;
+
+  /**
+   * Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved plus *
+   * @public
+   */
+  hostHeaderWildcard?: string | undefined;
+
+  /**
+   * Path prefix matching — strict starts-with, no wildcard (preferred for new rules).
+   * Must start with /; RFC 3986 unreserved plus /
+   * @public
+   */
+  pathPrefix?: string | undefined;
+
+  /**
+   * Exact path match — must start with /; RFC 3986 unreserved plus /
+   * @public
+   */
+  pathExact?: string | undefined;
+
+  /**
+   * Query string key=value pair match (single pair)
+   * @public
+   */
+  queryStringEquals?: QueryStringKeyValuePair | undefined;
+
+  /**
+   * Query string key presence check (any value accepted) — RFC 3986 unreserved characters
+   * @public
+   */
+  queryStringExists?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLinkRoutingRuleRequest {
+  /**
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>The priority of the routing rule. Lower numbers are evaluated first. Valid values are 1 to 1000. Priority must be unique among non-deleted rules within a link.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions for the routing rule. All specified fields must match for the rule to apply. At least one condition field must be set.</p>
+   * @public
+   */
+  conditions: RuleCondition | undefined;
+
+  /**
+   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLinkRoutingRuleResponse {
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The status of the routing rule.</p>
+   * @public
+   */
+  status: RuleStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the routing rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
 }
 
 /**
@@ -1194,6 +1398,46 @@ export interface DeleteLinkResponse {
 /**
  * @public
  */
+export interface DeleteLinkRoutingRuleRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLinkRoutingRuleResponse {
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The status of the routing rule.</p>
+   * @public
+   */
+  status: RuleStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteOutboundExternalLinkRequest {
   /**
    * <p>The unique identifier of the gateway.</p>
@@ -1279,6 +1523,46 @@ export interface DeleteResponderGatewayResponse {
    * @public
    */
   status: ResponderGatewayStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCertificateRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate to disassociate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCertificateResponse {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+
+  /**
+   * <p>The status of the certificate association.</p>
+   * @public
+   */
+  status: CertificateAssociationStatus | undefined;
 }
 
 /**
@@ -1391,6 +1675,234 @@ export interface GetLinkResponse {
    * @public
    */
   timeoutInMillis?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLinkRoutingRuleRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLinkRoutingRuleResponse {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The priority of the routing rule.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions for the routing rule.</p>
+   * @public
+   */
+  conditions: RuleCondition | undefined;
+
+  /**
+   * <p>The status of the routing rule.</p>
+   * @public
+   */
+  status: RuleStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the routing rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the routing rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLinkRoutingRulesRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * Summary of a routing rule for list responses
+ * @public
+ */
+export interface LinkRoutingRuleSummary {
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The priority of the routing rule.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The conditions for the routing rule.</p>
+   * @public
+   */
+  conditions: RuleCondition | undefined;
+
+  /**
+   * <p>The status of the routing rule.</p>
+   * @public
+   */
+  status: RuleStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the routing rule was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the routing rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLinkRoutingRulesResponse {
+  /**
+   * <p>The list of routing rules for the link.</p>
+   * @public
+   */
+  rules?: LinkRoutingRuleSummary[] | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLinkRoutingRuleRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the link.</p>
+   * @public
+   */
+  linkId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The updated priority of the routing rule. Lower numbers are evaluated first. Valid values are 1 to 1000. Priority must be unique among non-deleted rules within a link.</p>
+   * @public
+   */
+  priority: number | undefined;
+
+  /**
+   * <p>The updated conditions for the routing rule. All specified fields must match for the rule to apply. At least one condition field must be set.</p>
+   * @public
+   */
+  conditions: RuleCondition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLinkRoutingRuleResponse {
+  /**
+   * <p>The unique identifier of the routing rule.</p>
+   * @public
+   */
+  ruleId: string | undefined;
+
+  /**
+   * <p>The status of the routing rule.</p>
+   * @public
+   */
+  status: RuleStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the routing rule was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**
@@ -1713,6 +2225,58 @@ export interface UpdateLinkModuleFlowResponse {
    * @public
    */
   status: LinkStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCertificateAssociationRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCertificateAssociationResponse {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * @public
+   */
+  acmCertificateArn: string | undefined;
+
+  /**
+   * <p>The status of the certificate association.</p>
+   * @public
+   */
+  status: CertificateAssociationStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the certificate was associated.</p>
+   * @public
+   */
+  associatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the certificate association was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -2125,6 +2689,46 @@ export interface GetResponderGatewayResponse {
    * @public
    */
   externalInboundEndpoint?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateAssociationsRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateAssociationsResponse {
+  /**
+   * <p>The list of certificate associations for the gateway.</p>
+   * @public
+   */
+  certificateAssociations: CertificateAssociationSummary[] | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

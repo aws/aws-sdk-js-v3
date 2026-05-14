@@ -4,9 +4,9 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteRequesterGatewayRequest, DeleteRequesterGatewayResponse } from "../models/models_0";
+import type { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { DeleteRequesterGateway$ } from "../schemas/schemas_0";
+import { AssociateCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,42 +16,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteRequesterGatewayCommand}.
+ * The input for {@link AssociateCertificateCommand}.
  */
-export interface DeleteRequesterGatewayCommandInput extends DeleteRequesterGatewayRequest {}
+export interface AssociateCertificateCommandInput extends AssociateCertificateRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteRequesterGatewayCommand}.
+ * The output of {@link AssociateCertificateCommand}.
  */
-export interface DeleteRequesterGatewayCommandOutput extends DeleteRequesterGatewayResponse, __MetadataBearer {}
+export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a requester gateway.</p>
+ * <p>Associates an ACM certificate with a responder gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RTBFabricClient, DeleteRequesterGatewayCommand } from "@aws-sdk/client-rtbfabric"; // ES Modules import
- * // const { RTBFabricClient, DeleteRequesterGatewayCommand } = require("@aws-sdk/client-rtbfabric"); // CommonJS import
+ * import { RTBFabricClient, AssociateCertificateCommand } from "@aws-sdk/client-rtbfabric"; // ES Modules import
+ * // const { RTBFabricClient, AssociateCertificateCommand } = require("@aws-sdk/client-rtbfabric"); // CommonJS import
  * // import type { RTBFabricClientConfig } from "@aws-sdk/client-rtbfabric";
  * const config = {}; // type is RTBFabricClientConfig
  * const client = new RTBFabricClient(config);
- * const input = { // DeleteRequesterGatewayRequest
+ * const input = { // AssociateCertificateRequest
  *   gatewayId: "STRING_VALUE", // required
+ *   acmCertificateArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new DeleteRequesterGatewayCommand(input);
+ * const command = new AssociateCertificateCommand(input);
  * const response = await client.send(command);
- * // { // DeleteRequesterGatewayResponse
+ * // { // AssociateCertificateResponse
  * //   gatewayId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   acmCertificateArn: "STRING_VALUE", // required
+ * //   status: "PENDING_ASSOCIATION" || "ASSOCIATED" || "PENDING_DISASSOCIATION" || "DISASSOCIATED" || "FAILED", // required
  * // };
  *
  * ```
  *
- * @param DeleteRequesterGatewayCommandInput - {@link DeleteRequesterGatewayCommandInput}
- * @returns {@link DeleteRequesterGatewayCommandOutput}
- * @see {@link DeleteRequesterGatewayCommandInput} for command's `input` shape.
- * @see {@link DeleteRequesterGatewayCommandOutput} for command's `response` shape.
+ * @param AssociateCertificateCommandInput - {@link AssociateCertificateCommandInput}
+ * @returns {@link AssociateCertificateCommandOutput}
+ * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
+ * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
  * @see {@link RTBFabricClientResolvedConfig | config} for RTBFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -66,6 +69,9 @@ export interface DeleteRequesterGatewayCommandOutput extends DeleteRequesterGate
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request could not be completed because the resource does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request could not be completed because you exceeded a service quota.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
@@ -76,28 +82,31 @@ export interface DeleteRequesterGatewayCommandOutput extends DeleteRequesterGate
  * <p>Base exception class for all service exceptions from RTBFabric service.</p>
  *
  *
- * @example Delete a requester gateway
+ * @example Associate a certificate with a responder gateway
  * ```javascript
- * // Delete requester gateway
+ * // Associate an ACM certificate with a responder gateway
  * const input = {
+ *   acmCertificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
+ *   clientToken: "550e8400-e29b-41d4-a716-446655440000",
  *   gatewayId: "rtb-gw-12345678"
  * };
- * const command = new DeleteRequesterGatewayCommand(input);
+ * const command = new AssociateCertificateCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   acmCertificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
  *   gatewayId: "rtb-gw-12345678",
- *   status: "PENDING_DELETION"
+ *   status: "PENDING_ASSOCIATION"
  * }
  * *\/
  * ```
  *
  * @public
  */
-export class DeleteRequesterGatewayCommand extends $Command
+export class AssociateCertificateCommand extends $Command
   .classBuilder<
-    DeleteRequesterGatewayCommandInput,
-    DeleteRequesterGatewayCommandOutput,
+    AssociateCertificateCommandInput,
+    AssociateCertificateCommandOutput,
     RTBFabricClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -106,19 +115,19 @@ export class DeleteRequesterGatewayCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("RTBFabric", "DeleteRequesterGateway", {})
-  .n("RTBFabricClient", "DeleteRequesterGatewayCommand")
-  .sc(DeleteRequesterGateway$)
+  .s("RTBFabric", "AssociateCertificate", {})
+  .n("RTBFabricClient", "AssociateCertificateCommand")
+  .sc(AssociateCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteRequesterGatewayRequest;
-      output: DeleteRequesterGatewayResponse;
+      input: AssociateCertificateRequest;
+      output: AssociateCertificateResponse;
     };
     sdk: {
-      input: DeleteRequesterGatewayCommandInput;
-      output: DeleteRequesterGatewayCommandOutput;
+      input: AssociateCertificateCommandInput;
+      output: AssociateCertificateCommandOutput;
     };
   };
 }

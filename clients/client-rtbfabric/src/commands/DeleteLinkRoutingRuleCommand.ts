@@ -4,9 +4,9 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteRequesterGatewayRequest, DeleteRequesterGatewayResponse } from "../models/models_0";
+import type { DeleteLinkRoutingRuleRequest, DeleteLinkRoutingRuleResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { DeleteRequesterGateway$ } from "../schemas/schemas_0";
+import { DeleteLinkRoutingRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,42 +16,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteRequesterGatewayCommand}.
+ * The input for {@link DeleteLinkRoutingRuleCommand}.
  */
-export interface DeleteRequesterGatewayCommandInput extends DeleteRequesterGatewayRequest {}
+export interface DeleteLinkRoutingRuleCommandInput extends DeleteLinkRoutingRuleRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteRequesterGatewayCommand}.
+ * The output of {@link DeleteLinkRoutingRuleCommand}.
  */
-export interface DeleteRequesterGatewayCommandOutput extends DeleteRequesterGatewayResponse, __MetadataBearer {}
+export interface DeleteLinkRoutingRuleCommandOutput extends DeleteLinkRoutingRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a requester gateway.</p>
+ * <p>Deletes a routing rule from a link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RTBFabricClient, DeleteRequesterGatewayCommand } from "@aws-sdk/client-rtbfabric"; // ES Modules import
- * // const { RTBFabricClient, DeleteRequesterGatewayCommand } = require("@aws-sdk/client-rtbfabric"); // CommonJS import
+ * import { RTBFabricClient, DeleteLinkRoutingRuleCommand } from "@aws-sdk/client-rtbfabric"; // ES Modules import
+ * // const { RTBFabricClient, DeleteLinkRoutingRuleCommand } = require("@aws-sdk/client-rtbfabric"); // CommonJS import
  * // import type { RTBFabricClientConfig } from "@aws-sdk/client-rtbfabric";
  * const config = {}; // type is RTBFabricClientConfig
  * const client = new RTBFabricClient(config);
- * const input = { // DeleteRequesterGatewayRequest
+ * const input = { // DeleteLinkRoutingRuleRequest
  *   gatewayId: "STRING_VALUE", // required
+ *   linkId: "STRING_VALUE", // required
+ *   ruleId: "STRING_VALUE", // required
  * };
- * const command = new DeleteRequesterGatewayCommand(input);
+ * const command = new DeleteLinkRoutingRuleCommand(input);
  * const response = await client.send(command);
- * // { // DeleteRequesterGatewayResponse
- * //   gatewayId: "STRING_VALUE", // required
- * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * // { // DeleteLinkRoutingRuleResponse
+ * //   ruleId: "STRING_VALUE", // required
+ * //   status: "CREATION_IN_PROGRESS" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETION_IN_PROGRESS" || "DELETED" || "FAILED", // required
  * // };
  *
  * ```
  *
- * @param DeleteRequesterGatewayCommandInput - {@link DeleteRequesterGatewayCommandInput}
- * @returns {@link DeleteRequesterGatewayCommandOutput}
- * @see {@link DeleteRequesterGatewayCommandInput} for command's `input` shape.
- * @see {@link DeleteRequesterGatewayCommandOutput} for command's `response` shape.
+ * @param DeleteLinkRoutingRuleCommandInput - {@link DeleteLinkRoutingRuleCommandInput}
+ * @returns {@link DeleteLinkRoutingRuleCommandOutput}
+ * @see {@link DeleteLinkRoutingRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteLinkRoutingRuleCommandOutput} for command's `response` shape.
  * @see {@link RTBFabricClientResolvedConfig | config} for RTBFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -76,28 +78,30 @@ export interface DeleteRequesterGatewayCommandOutput extends DeleteRequesterGate
  * <p>Base exception class for all service exceptions from RTBFabric service.</p>
  *
  *
- * @example Delete a requester gateway
+ * @example Delete a link routing rule
  * ```javascript
- * // Delete requester gateway
+ * // Delete a link routing rule
  * const input = {
- *   gatewayId: "rtb-gw-12345678"
+ *   gatewayId: "rtb-gw-12345678",
+ *   linkId: "link-87654321",
+ *   ruleId: "rule-abc123def456"
  * };
- * const command = new DeleteRequesterGatewayCommand(input);
+ * const command = new DeleteLinkRoutingRuleCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   gatewayId: "rtb-gw-12345678",
- *   status: "PENDING_DELETION"
+ *   ruleId: "rule-abc123def456",
+ *   status: "DELETION_IN_PROGRESS"
  * }
  * *\/
  * ```
  *
  * @public
  */
-export class DeleteRequesterGatewayCommand extends $Command
+export class DeleteLinkRoutingRuleCommand extends $Command
   .classBuilder<
-    DeleteRequesterGatewayCommandInput,
-    DeleteRequesterGatewayCommandOutput,
+    DeleteLinkRoutingRuleCommandInput,
+    DeleteLinkRoutingRuleCommandOutput,
     RTBFabricClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -106,19 +110,19 @@ export class DeleteRequesterGatewayCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("RTBFabric", "DeleteRequesterGateway", {})
-  .n("RTBFabricClient", "DeleteRequesterGatewayCommand")
-  .sc(DeleteRequesterGateway$)
+  .s("RTBFabric", "DeleteLinkRoutingRule", {})
+  .n("RTBFabricClient", "DeleteLinkRoutingRuleCommand")
+  .sc(DeleteLinkRoutingRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteRequesterGatewayRequest;
-      output: DeleteRequesterGatewayResponse;
+      input: DeleteLinkRoutingRuleRequest;
+      output: DeleteLinkRoutingRuleResponse;
     };
     sdk: {
-      input: DeleteRequesterGatewayCommandInput;
-      output: DeleteRequesterGatewayCommandOutput;
+      input: DeleteLinkRoutingRuleCommandInput;
+      output: DeleteLinkRoutingRuleCommandOutput;
     };
   };
 }

@@ -97,6 +97,23 @@ export type LinkStatus = (typeof LinkStatus)[keyof typeof LinkStatus];
  * @public
  * @enum
  */
+export const CertificateAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  DISASSOCIATED: "DISASSOCIATED",
+  FAILED: "FAILED",
+  PENDING_ASSOCIATION: "PENDING_ASSOCIATION",
+  PENDING_DISASSOCIATION: "PENDING_DISASSOCIATION",
+} as const;
+/**
+ * @public
+ */
+export type CertificateAssociationStatus =
+  (typeof CertificateAssociationStatus)[keyof typeof CertificateAssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const Protocol = {
   HTTP: "HTTP",
   HTTPS: "HTTPS",
@@ -105,6 +122,23 @@ export const Protocol = {
  * @public
  */
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleStatus = {
+  ACTIVE: "ACTIVE",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  FAILED: "FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
 
 /**
  * @public
