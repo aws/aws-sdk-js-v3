@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Features
+
+* **client-rtbfabric:** Customers can now configure custom domain names for their RTB Fabric gateways. This enables partners to use their own branded domain for RTB traffic instead of the default rtbfabric endpoint ([b1e0392](https://github.com/aws/aws-sdk-js-v3/commit/b1e0392d6ebf5cda03249824ccb214439f8db23d))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 **Note:** Version bump only for package @aws-sdk/client-rtbfabric

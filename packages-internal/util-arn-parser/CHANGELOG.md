@@ -6,6 +6,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.4 (2026-05-13)
+### Chores
+* **core/util:** update tsconfig.types.json ([#8016](https://github.com/aws/aws-sdk-js-v3/issues/8016)) ([b09190e](https://github.com/aws/aws-sdk-js-v3/commit/b09190e7ce4a01accf8aaca069c655036c1e4bae))
+* **core/util:** migrate minor utility functions to core ([#8007](https://github.com/aws/aws-sdk-js-v3/issues/8007)) ([6a0f061](https://github.com/aws/aws-sdk-js-v3/commit/6a0f061a158c5648fad5d7f12d7ccc0b59d21165))
+
+
+
 # 3.972.3 (2026-03-04)
 ### Chores
 * set downlevel types to be used in typescript@'<4.5' ([#7817](https://github.com/aws/aws-sdk-js-v3/issues/7817)) ([03dad66](https://github.com/aws/aws-sdk-js-v3/commit/03dad66b98363f09d1f0984b670be110caea8f62))

@@ -19,6 +19,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.17 (2026-05-13)
+### Chores
+* **core/util:** migrate minor utility functions to core ([#8007](https://github.com/aws/aws-sdk-js-v3/issues/8007)) ([6a0f061](https://github.com/aws/aws-sdk-js-v3/commit/6a0f061a158c5648fad5d7f12d7ccc0b59d21165))
+* **codegen:** dependency version bump ([#8008](https://github.com/aws/aws-sdk-js-v3/issues/8008)) ([9ce20f6](https://github.com/aws/aws-sdk-js-v3/commit/9ce20f6d16352cd5747d9555e2b75e9462ea8ae9))
+* update smithy/core imports ([#7979](https://github.com/aws/aws-sdk-js-v3/issues/7979)) ([acffbf9](https://github.com/aws/aws-sdk-js-v3/commit/acffbf906165501879a9e57b4f1b63deecbe63ea))
+
+
+
 # 3.972.16 (2026-04-16)
 ### Bug Fixes
 * **eventstream-handler-node:** use static credentials in event signing streams ([#7930](https://github.com/aws/aws-sdk-js-v3/issues/7930)) ([c5af293](https://github.com/aws/aws-sdk-js-v3/commit/c5af293d7181a30eb9cca7c1b8c524b638e9e6d0))

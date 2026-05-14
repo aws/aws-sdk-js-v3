@@ -28,6 +28,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.26 (2026-05-12)
+### Chores
+* **codegen:** dependency version bump ([#8008](https://github.com/aws/aws-sdk-js-v3/issues/8008)) ([9ce20f6](https://github.com/aws/aws-sdk-js-v3/commit/9ce20f6d16352cd5747d9555e2b75e9462ea8ae9))
+* **signature-v4-multi-region:** invert dependency on middleware-sdk-s3 ([#8003](https://github.com/aws/aws-sdk-js-v3/issues/8003)) ([b41bc62](https://github.com/aws/aws-sdk-js-v3/commit/b41bc62fe4a795ce1e31626092f30f89e9a4b672))
+* update smithy/core imports ([#7979](https://github.com/aws/aws-sdk-js-v3/issues/7979)) ([acffbf9](https://github.com/aws/aws-sdk-js-v3/commit/acffbf906165501879a9e57b4f1b63deecbe63ea))
+
+
+
 # 3.996.25 (2026-05-01)
 ### Chores
 * **signature-v4-multi-region:** update dependencies.

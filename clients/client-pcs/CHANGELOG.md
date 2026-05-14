@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Features
+
+* **client-pcs:** Add support for Amazon EC2 Interruptible-ODCR ([cbd2be2](https://github.com/aws/aws-sdk-js-v3/commit/cbd2be246a2d08343d3849dc63c0e329340099ee))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs

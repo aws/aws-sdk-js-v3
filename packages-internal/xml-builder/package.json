@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.972.22",
+  "version": "3.972.23",
   "description": "XML utilities for the AWS SDK",
   "dependencies": {
     "@nodable/entities": "2.1.0",

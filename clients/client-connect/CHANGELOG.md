@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Features
+
+* **client-connect:** This change added three new EventSourceName for schedule notification feature ([b8f49e2](https://github.com/aws/aws-sdk-js-v3/commit/b8f49e23dcfdb067b627073119c0b57e39b3673a))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -25,6 +25,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.23 (2026-05-13)
+### Chores
+* **core/util:** migrate minor utility functions to core ([#8007](https://github.com/aws/aws-sdk-js-v3/issues/8007)) ([6a0f061](https://github.com/aws/aws-sdk-js-v3/commit/6a0f061a158c5648fad5d7f12d7ccc0b59d21165))
+* **codegen:** dependency version bump ([#8008](https://github.com/aws/aws-sdk-js-v3/issues/8008)) ([9ce20f6](https://github.com/aws/aws-sdk-js-v3/commit/9ce20f6d16352cd5747d9555e2b75e9462ea8ae9))
+* update smithy/core imports ([#7979](https://github.com/aws/aws-sdk-js-v3/issues/7979)) ([acffbf9](https://github.com/aws/aws-sdk-js-v3/commit/acffbf906165501879a9e57b4f1b63deecbe63ea))
+
+
+
 # 3.972.22 (2026-04-23)
 ### Chores
 * **codegen:** sync for http2 session closure, retry longpoll backoff, and fast-xml-parser version bump ([#7958](https://github.com/aws/aws-sdk-js-v3/issues/7958)) ([107aefc](https://github.com/aws/aws-sdk-js-v3/commit/107aefc4d41379a56836ade376f27eef23db8d43))

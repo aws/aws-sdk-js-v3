@@ -40,6 +40,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.9 (2026-05-13)
+### Bug Fixes
+* **core/protocols:** corrections for absolute and relative shape id lookup for errors ([#8001](https://github.com/aws/aws-sdk-js-v3/issues/8001)) ([c9921dc](https://github.com/aws/aws-sdk-js-v3/commit/c9921dcb70445adc22ecafad4164a4c83fc20dfd))
+### Docs
+* **core:** package consolidation plan ([#8002](https://github.com/aws/aws-sdk-js-v3/issues/8002)) ([51d1f8c](https://github.com/aws/aws-sdk-js-v3/commit/51d1f8cb1e9b98af735318954821396a23dfb339))
+### Chores
+* **build:** set compilation config module type to nodenext ([#8018](https://github.com/aws/aws-sdk-js-v3/issues/8018)) ([893d9e6](https://github.com/aws/aws-sdk-js-v3/commit/893d9e61bd48172967d814aea5522cabac103713))
+* **core/util:** migrate minor utility functions to core ([#8007](https://github.com/aws/aws-sdk-js-v3/issues/8007)) ([6a0f061](https://github.com/aws/aws-sdk-js-v3/commit/6a0f061a158c5648fad5d7f12d7ccc0b59d21165))
+* **codegen:** dependency version bump ([#8008](https://github.com/aws/aws-sdk-js-v3/issues/8008)) ([9ce20f6](https://github.com/aws/aws-sdk-js-v3/commit/9ce20f6d16352cd5747d9555e2b75e9462ea8ae9))
+* **scripts:** add submodule variant api surface parity linting ([#8006](https://github.com/aws/aws-sdk-js-v3/issues/8006)) ([3361fb2](https://github.com/aws/aws-sdk-js-v3/commit/3361fb26a1fbe97fcad0e8be0c272ccf24470a64))
+* update smithy/core imports ([#7979](https://github.com/aws/aws-sdk-js-v3/issues/7979)) ([acffbf9](https://github.com/aws/aws-sdk-js-v3/commit/acffbf906165501879a9e57b4f1b63deecbe63ea))
+
+
+
 # 3.974.8 (2026-05-01)
 ### Chores
 * **core/client:** emit warning for Node.js 20.x end-of-support ([#7973](https://github.com/aws/aws-sdk-js-v3/issues/7973)) ([0038376](https://github.com/aws/aws-sdk-js-v3/commit/0038376702ea628e56dfd4da0887271355c28661))

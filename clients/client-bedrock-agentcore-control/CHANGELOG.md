@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for read-only summary APIs for Policy Engine, Policy, and Policy Generation resources, enabling metadata retrieval without KMS decryption for AWS Config integration. ([6d63081](https://github.com/aws/aws-sdk-js-v3/commit/6d630817bb629cf526e75ffea79db61e7953fdf2))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 

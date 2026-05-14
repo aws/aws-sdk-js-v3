@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Features
+
+* **client-sagemaker:** Adds execution role session name mode to reflect user identity in Studio. Adds Flexible Training Plans on Studio apps. Adds restricted model packages to control access to proprietary model artifacts via IAM. Fixed instance type parity between inference endpoints and managed shadow tests. ([c6c8751](https://github.com/aws/aws-sdk-js-v3/commit/c6c875160bde427d356ee0fb9be20b2d0e1e6a79))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

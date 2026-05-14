@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Bug Fixes
+
+* **core/protocols:** corrections for absolute and relative shape id lookup for errors ([#8001](https://github.com/aws/aws-sdk-js-v3/issues/8001)) ([c9921dc](https://github.com/aws/aws-sdk-js-v3/commit/c9921dcb70445adc22ecafad4164a4c83fc20dfd))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-json-schema-machinelearning

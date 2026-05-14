@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** url-encode special characters in URL path ([#7763](https://github.com/aws/aws-sdk-js-v3/issues/7763)) ([e942132](https://github.com/aws/aws-sdk-js-v3/commit/e942132d7020b456157d82d56bc6d1b6ee5cc03d))
+* **core/protocols:** corrections for absolute and relative shape id lookup for errors ([#8001](https://github.com/aws/aws-sdk-js-v3/issues/8001)) ([c9921dc](https://github.com/aws/aws-sdk-js-v3/commit/c9921dcb70445adc22ecafad4164a4c83fc20dfd))
+
+
+### Features
+
+* **client-arc-region-switch:** Adds support for enabling and disabling Lambda event source mappings in Region switch plans. ([5b7d56f](https://github.com/aws/aws-sdk-js-v3/commit/5b7d56f339fcc63ab9393f229eadcdad3d677b27))
+* **client-bedrock-agentcore-control:** Adds support for read-only summary APIs for Policy Engine, Policy, and Policy Generation resources, enabling metadata retrieval without KMS decryption for AWS Config integration. ([6d63081](https://github.com/aws/aws-sdk-js-v3/commit/6d630817bb629cf526e75ffea79db61e7953fdf2))
+* **client-billingconductor:** Add ConflictException to UpdateCustomLineItem operation. ([f0f73ba](https://github.com/aws/aws-sdk-js-v3/commit/f0f73bae6bc456bd47ea8902a9d9ba70219467ab))
+* **client-connectcampaignsv2:** This release added support for Outbound Campaign timezone detection using all available contact methods ([1a0d5fe](https://github.com/aws/aws-sdk-js-v3/commit/1a0d5feeb02b0de4cb21297caa01df364e984e53))
+* **client-connectcases:** Amazon Connect Cases now supports SLA durations of up to 2 years (1,051,200 minutes), increased from the previous maximum of 90 days (129,600 minutes). This enables you to track long-running service level agreements for cases that require extended resolution timelines. ([883cc0f](https://github.com/aws/aws-sdk-js-v3/commit/883cc0f74218a9a47e14f8c144d7afc4f165f994))
+* **client-connect:** This change added three new EventSourceName for schedule notification feature ([b8f49e2](https://github.com/aws/aws-sdk-js-v3/commit/b8f49e23dcfdb067b627073119c0b57e39b3673a))
+* **client-dsql:** Added support for Amazon Aurora DSQL change data capture (CDC) streams that deliver row-level database changes to Amazon Kinesis in JSON format. Includes CreateStream, GetStream, ListStreams, and DeleteStream operations. ([d071f80](https://github.com/aws/aws-sdk-js-v3/commit/d071f80accda50f87a466dfa6a6b6f3dec8f110d))
+* **client-ec2:** Include length limits in the SDK and documentation for text fields in Image (AMI) APIs such as the image name and description ([9a5ca59](https://github.com/aws/aws-sdk-js-v3/commit/9a5ca595bb81a6b7e7064c5ad07d6baf650a7423))
+* **client-elasticsearch-service:** Adds support for AutomatedSnapshotPauseOptions. ([e1a722a](https://github.com/aws/aws-sdk-js-v3/commit/e1a722aa95eb4055d9f942a0d6f8ba21ca6ce6d9))
+* **client-lightsail:** Added OriginIpAddressTypeEnum (ipv4, ipv6, dualstack) and ipAddressType field to Origin and InputOrigin structures for Lightsail CDN distributions. Allows customers to specify how the distribution connects to origins, using IPv4, IPv6, or dualstack networking ([eaa9853](https://github.com/aws/aws-sdk-js-v3/commit/eaa98531939fa4843cc0436d953e915019d1eaf1))
+* **client-opensearch:** Adds support for AutomatedSnapshotPauseOptions. ([8bc57f1](https://github.com/aws/aws-sdk-js-v3/commit/8bc57f1fb82edc6f2b973f6c1fc553beebd7bc77))
+* **client-partnercentral-account:** Added ServiceQuotaExceededExceptions for Profile operations ([725a2b6](https://github.com/aws/aws-sdk-js-v3/commit/725a2b6d265b655e8bc8a0b8c55740fa20b1b1cd))
+* **client-pcs:** Add support for Amazon EC2 Interruptible-ODCR ([cbd2be2](https://github.com/aws/aws-sdk-js-v3/commit/cbd2be246a2d08343d3849dc63c0e329340099ee))
+* **client-quicksight:** Adds five new custom permission option for Quick Apps so that these capabilities can be controlled by public SDK and CLI. ([8e76717](https://github.com/aws/aws-sdk-js-v3/commit/8e76717ded9a6b12b6f2bfeeb23113f5c81b9fef))
+* **client-rtbfabric:** Customers can now configure custom domain names for their RTB Fabric gateways. This enables partners to use their own branded domain for RTB traffic instead of the default rtbfabric endpoint ([b1e0392](https://github.com/aws/aws-sdk-js-v3/commit/b1e0392d6ebf5cda03249824ccb214439f8db23d))
+* **client-sagemaker:** Adds execution role session name mode to reflect user identity in Studio. Adds Flexible Training Plans on Studio apps. Adds restricted model packages to control access to proprietary model artifacts via IAM. Fixed instance type parity between inference endpoints and managed shadow tests. ([c6c8751](https://github.com/aws/aws-sdk-js-v3/commit/c6c875160bde427d356ee0fb9be20b2d0e1e6a79))
+* **client-securityagent:** Add support for code reviews, a new resource type that enables automated security-focused static analysis of source code repositories. ([8ae5b43](https://github.com/aws/aws-sdk-js-v3/commit/8ae5b437a21e58e83600904070c4023dd4cc035f))
+* **client-sfn:** Updated default SDK endpoints for AWS Step Functions in AWS GovCloud (US) regions. The default Dual-Stack endpoints now resolve to "states-fips" prefixed hostnames. There are no changes to service behavior. No customer action is required. ([3590854](https://github.com/aws/aws-sdk-js-v3/commit/359085440cdb1d092a1723a6e6c07c0f84e2f6e5))
+* **client-socialmessaging:** Adds parameters to call the GetWhatsAppMessageTemplate and UpdateWhatsAppMessageTemplate APIs with a template name and language code in place of the template ID. Linked WhatsApp accounts also describe whether the WABA is onboarded to Meta's Marketing Messages API. ([085c2dd](https://github.com/aws/aws-sdk-js-v3/commit/085c2dd6a965861902dcc4d2cd803564dcff5266))
+* **clients:** update client endpoints as of 2026-05-14 ([0a8e3b7](https://github.com/aws/aws-sdk-js-v3/commit/0a8e3b777c93c86f3402a149350088c257668851))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 

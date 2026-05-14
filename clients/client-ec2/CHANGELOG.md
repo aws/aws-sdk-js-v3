@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Features
+
+* **client-ec2:** Include length limits in the SDK and documentation for text fields in Image (AMI) APIs such as the image name and description ([9a5ca59](https://github.com/aws/aws-sdk-js-v3/commit/9a5ca595bb81a6b7e7064c5ad07d6baf650a7423))
+
+
+
+
+
 # [3.1045.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1044.0...v3.1045.0) (2026-05-07)
 
 

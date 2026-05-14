@@ -31,6 +31,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.7 (2026-05-12)
+### Chores
+* **codegen:** dependency version bump ([#8008](https://github.com/aws/aws-sdk-js-v3/issues/8008)) ([9ce20f6](https://github.com/aws/aws-sdk-js-v3/commit/9ce20f6d16352cd5747d9555e2b75e9462ea8ae9))
+* **scripts:** add submodule variant api surface parity linting ([#8006](https://github.com/aws/aws-sdk-js-v3/issues/8006)) ([3361fb2](https://github.com/aws/aws-sdk-js-v3/commit/3361fb26a1fbe97fcad0e8be0c272ccf24470a64))
+* update smithy/core imports ([#7979](https://github.com/aws/aws-sdk-js-v3/issues/7979)) ([acffbf9](https://github.com/aws/aws-sdk-js-v3/commit/acffbf906165501879a9e57b4f1b63deecbe63ea))
+
+
+
 # 3.997.6 (2026-05-01)
 ### Chores
 * **nested-clients:** update dependencies.

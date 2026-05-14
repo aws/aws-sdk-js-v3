@@ -13,6 +13,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.11 (2026-05-12)
+### Chores
+* **scripts:** add submodule variant api surface parity linting ([#8006](https://github.com/aws/aws-sdk-js-v3/issues/8006)) ([3361fb2](https://github.com/aws/aws-sdk-js-v3/commit/3361fb26a1fbe97fcad0e8be0c272ccf24470a64))
+
+
+
 # 3.972.10 (2026-04-16)
 ### Chores
 * upgrade smithy to 1.69.0 ([#7932](https://github.com/aws/aws-sdk-js-v3/issues/7932)) ([560d987](https://github.com/aws/aws-sdk-js-v3/commit/560d9878471409e943a80ac2979e7fc8c2fff834))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1046.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1045.0...v3.1046.0) (2026-05-14)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** url-encode special characters in URL path ([#7763](https://github.com/aws/aws-sdk-js-v3/issues/7763)) ([e942132](https://github.com/aws/aws-sdk-js-v3/commit/e942132d7020b456157d82d56bc6d1b6ee5cc03d))
+
+
+
+
+
 # [3.1036.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1035.0...v3.1036.0) (2026-04-23)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer
