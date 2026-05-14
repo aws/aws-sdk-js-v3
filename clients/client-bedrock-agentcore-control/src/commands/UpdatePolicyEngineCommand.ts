@@ -51,15 +51,15 @@ export interface UpdatePolicyEngineCommandOutput extends UpdatePolicyEngineRespo
  * // { // UpdatePolicyEngineResponse
  * //   policyEngineId: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   policyEngineArn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   encryptionKeyArn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],
- * //   encryptionKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

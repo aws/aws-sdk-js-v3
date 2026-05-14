@@ -70,6 +70,7 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *       subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
+ *       requireServiceS3Endpoint: true || false,
  *     },
  *   },
  *   clientToken: "STRING_VALUE",

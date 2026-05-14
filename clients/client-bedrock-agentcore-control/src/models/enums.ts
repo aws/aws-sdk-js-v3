@@ -898,11 +898,11 @@ export type OnlineEvaluationConfigStatus =
  */
 export const PaymentCredentialProviderVendorType = {
   /**
-   * Coinbase Developer Platform - https://docs.cdp.coinbase.com/
+   * <p>Coinbase Developer Platform.</p>
    */
   CoinbaseCDP: "CoinbaseCDP",
   /**
-   * Stripe + Privy - https://docs.privy.io/
+   * <p>Stripe and Privy.</p>
    */
   StripePrivy: "StripePrivy",
 } as const;

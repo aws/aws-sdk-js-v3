@@ -59,6 +59,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *           subnets: [ // Subnets // required
  *             "STRING_VALUE",
  *           ],
+ *           requireServiceS3Endpoint: true || false,
  *         },
  *       },
  *       filesystemConfigurations: [ // FilesystemConfigurations
@@ -393,6 +394,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //             subnets: [ // Subnets // required
  * //               "STRING_VALUE",
  * //             ],
+ * //             requireServiceS3Endpoint: true || false,
  * //           },
  * //         },
  * //         filesystemConfigurations: [ // FilesystemConfigurations

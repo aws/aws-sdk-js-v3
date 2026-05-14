@@ -164,6 +164,7 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //             subnets: [ // Subnets // required
  * //               "STRING_VALUE",
  * //             ],
+ * //             requireServiceS3Endpoint: true || false,
  * //           },
  * //         },
  * //         filesystemConfigurations: [ // FilesystemConfigurations

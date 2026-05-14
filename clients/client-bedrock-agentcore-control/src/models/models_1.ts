@@ -92,7 +92,7 @@ export interface SummaryMemoryStrategyInput {
   description?: string | undefined;
 
   /**
-   * <p>The namespaces associated with the summary memory strategy.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the summary memory strategy.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -130,7 +130,7 @@ export interface UserPreferenceMemoryStrategyInput {
   description?: string | undefined;
 
   /**
-   * <p>The namespaces associated with the user preference memory strategy.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the user preference memory strategy.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -787,7 +787,7 @@ export interface EpisodicReflectionOverride {
   modelId: string | undefined;
 
   /**
-   * <p>The namespaces over which reflections were created. Can be less nested than the episodic namespaces.</p>
+   * <p>This is a legacy parameter. The namespaces over which reflections were created. Can be less nested than the episodic namespaces.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -852,7 +852,7 @@ export namespace CustomReflectionConfiguration {
  */
 export interface EpisodicReflectionConfiguration {
   /**
-   * <p>The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -1144,7 +1144,7 @@ export interface MemoryStrategy {
   type: MemoryStrategyType | undefined;
 
   /**
-   * <p>The namespaces associated with the memory strategy.</p>
+   * <p>This is a legacy parameter. The namespaces associated with the memory strategy.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -1843,7 +1843,7 @@ export interface ModifyMemoryStrategyInput {
   description?: string | undefined;
 
   /**
-   * <p>The updated namespaces for the memory strategy.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The updated namespaces for the memory strategy.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -3902,7 +3902,7 @@ export interface UpdateOnlineEvaluationConfigResponse {
 }
 
 /**
- * Coinbase CDP configuration - credentials provided by Coinbase Developer Platform
+ * <p>Coinbase CDP configuration — credentials provided by Coinbase Developer Platform.</p>
  * @public
  */
 export interface CoinbaseCdpConfigurationInput {
@@ -3926,7 +3926,7 @@ export interface CoinbaseCdpConfigurationInput {
 }
 
 /**
- * StripePrivy configuration - credentials provided by Stripe + Privy
+ * <p>Stripe Privy configuration — credentials provided by Stripe and Privy.</p>
  * @public
  */
 export interface StripePrivyConfigurationInput {
@@ -3956,7 +3956,7 @@ export interface StripePrivyConfigurationInput {
 }
 
 /**
- * PROVIDER CONFIGURATION INPUT - Contains secrets for creation/update
+ * <p>Provider configuration input — contains secrets for creation and update. Varies by vendor type.</p>
  * @public
  */
 export type PaymentProviderConfigurationInput =
@@ -3969,7 +3969,7 @@ export type PaymentProviderConfigurationInput =
  */
 export namespace PaymentProviderConfigurationInput {
   /**
-   * Coinbase CDP configuration - credentials provided by Coinbase Developer Platform
+   * <p>The Coinbase CDP configuration.</p>
    * @public
    */
   export interface CoinbaseCdpConfigurationMember {
@@ -3979,7 +3979,7 @@ export namespace PaymentProviderConfigurationInput {
   }
 
   /**
-   * StripePrivy configuration - credentials provided by Stripe + Privy
+   * <p>The Stripe Privy configuration.</p>
    * @public
    */
   export interface StripePrivyConfigurationMember {
@@ -4013,32 +4013,32 @@ export namespace PaymentProviderConfigurationInput {
  */
 export interface CreatePaymentCredentialProviderRequest {
   /**
-   * Unique name for the payment credential provider
+   * <p>Unique name for the payment credential provider.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The vendor type (e.g., CoinbaseCDP)
+   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * Configuration specific to the vendor, including API credentials
+   * <p>Configuration specific to the vendor, including API credentials.</p>
    * @public
    */
   providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
 
   /**
-   * Optional tags for resource organization
+   * <p>Optional tags for resource organization.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Coinbase CDP configuration output with secret ARNs
+ * <p>Coinbase CDP configuration output with secret ARNs.</p>
  * @public
  */
 export interface CoinbaseCdpConfigurationOutput {
@@ -4062,7 +4062,7 @@ export interface CoinbaseCdpConfigurationOutput {
 }
 
 /**
- * StripePrivy configuration output with secret ARNs
+ * <p>Stripe Privy configuration output with secret ARNs.</p>
  * @public
  */
 export interface StripePrivyConfigurationOutput {
@@ -4092,7 +4092,7 @@ export interface StripePrivyConfigurationOutput {
 }
 
 /**
- * PROVIDER CONFIGURATION OUTPUT - No raw secrets, only ARNs
+ * <p>Provider configuration output — no raw secrets, only ARNs. Varies by vendor type.</p>
  * @public
  */
 export type PaymentProviderConfigurationOutput =
@@ -4105,7 +4105,7 @@ export type PaymentProviderConfigurationOutput =
  */
 export namespace PaymentProviderConfigurationOutput {
   /**
-   * Coinbase CDP configuration output with secret ARNs
+   * <p>The Coinbase CDP configuration.</p>
    * @public
    */
   export interface CoinbaseCdpConfigurationMember {
@@ -4115,7 +4115,7 @@ export namespace PaymentProviderConfigurationOutput {
   }
 
   /**
-   * StripePrivy configuration output with secret ARNs
+   * <p>The Stripe Privy configuration.</p>
    * @public
    */
   export interface StripePrivyConfigurationMember {
@@ -4155,7 +4155,7 @@ export interface CreatePaymentCredentialProviderResponse {
   name: string | undefined;
 
   /**
-   * Supported vendor types for payment providers using non-standard auth protocols
+   * <p>The vendor type for the created payment credential provider.</p>
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
@@ -4167,7 +4167,7 @@ export interface CreatePaymentCredentialProviderResponse {
   credentialProviderArn: string | undefined;
 
   /**
-   * Output configuration (contains secret ARNs, excludes actual secret values)
+   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
    * @public
    */
   providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
@@ -4217,13 +4217,13 @@ export interface GetPaymentCredentialProviderResponse {
   credentialProviderArn: string | undefined;
 
   /**
-   * Supported vendor types for payment providers using non-standard auth protocols
+   * <p>The vendor type for the payment credential provider.</p>
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * Output configuration (contains secret ARNs, excludes actual secret values)
+   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
    * @public
    */
   providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
@@ -4276,7 +4276,7 @@ export interface PaymentCredentialProviderItem {
   name: string | undefined;
 
   /**
-   * Supported vendor types for payment providers using non-standard auth protocols
+   * <p>The vendor type for the payment credential provider.</p>
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
@@ -4328,13 +4328,13 @@ export interface UpdatePaymentCredentialProviderRequest {
   name: string | undefined;
 
   /**
-   * Supported vendor types for payment providers using non-standard auth protocols
+   * <p>The vendor type for the payment credential provider (e.g., CoinbaseCDP, StripePrivy).</p>
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
 
   /**
-   * Configuration specific to the vendor, including API credentials
+   * <p>Configuration specific to the vendor, including API credentials.</p>
    * @public
    */
   providerConfigurationInput: PaymentProviderConfigurationInput | undefined;
@@ -4351,7 +4351,7 @@ export interface UpdatePaymentCredentialProviderResponse {
   name: string | undefined;
 
   /**
-   * Supported vendor types for payment providers using non-standard auth protocols
+   * <p>The vendor type for the updated payment credential provider.</p>
    * @public
    */
   credentialProviderVendor: PaymentCredentialProviderVendorType | undefined;
@@ -4363,7 +4363,7 @@ export interface UpdatePaymentCredentialProviderResponse {
   credentialProviderArn: string | undefined;
 
   /**
-   * Output configuration (contains secret ARNs, excludes actual secret values)
+   * <p>Output configuration (contains secret ARNs, excludes actual secret values).</p>
    * @public
    */
   providerConfigurationOutput: PaymentProviderConfigurationOutput | undefined;
@@ -5282,12 +5282,6 @@ export interface CreatePolicyEngineResponse {
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of the policy engine's purpose.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
    * @public
    */
@@ -5312,16 +5306,22 @@ export interface CreatePolicyEngineResponse {
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
 }
 
 /**
@@ -5352,12 +5352,6 @@ export interface DeletePolicyEngineResponse {
   name: string | undefined;
 
   /**
-   * <p>The human-readable description of the deleted policy engine.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the deleted policy engine was originally created.</p>
    * @public
    */
@@ -5382,16 +5376,22 @@ export interface DeletePolicyEngineResponse {
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The human-readable description of the deleted policy engine.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
 }
 
 /**
@@ -5422,12 +5422,6 @@ export interface GetPolicyEngineResponse {
   name: string | undefined;
 
   /**
-   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the policy engine was originally created.</p>
    * @public
    */
@@ -5452,10 +5446,74 @@ export interface GetPolicyEngineResponse {
   status: PolicyEngineStatus | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
    * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.</p>
    * @public
    */
   statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineSummaryRequest {
+  /**
+   * <p>The unique identifier of the policy engine to retrieve the summary for. This must be a valid policy engine ID that exists within the account.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineSummaryResponse {
+  /**
+   * <p>The unique identifier of the policy engine.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
@@ -5499,12 +5557,6 @@ export interface PolicyEngine {
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
    * @public
    */
@@ -5529,16 +5581,22 @@ export interface PolicyEngine {
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
 }
 
 /**
@@ -5553,6 +5611,88 @@ export interface ListPolicyEnginesResponse {
 
   /**
    * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> calls to retrieve additional results. This token is only present when there are more results available. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEngineSummariesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy engine summaries to return in a single response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a metadata-only summary of a policy engine resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as description or status reasons. Policy engine summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * @public
+ */
+export interface PolicyEngineSummary {
+  /**
+   * <p>The unique identifier for the policy engine.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEngineSummariesResponse {
+  /**
+   * <p>An array of policy engine summary objects that exist in the account. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
+   * @public
+   */
+  policyEngines: PolicyEngineSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -5604,12 +5744,6 @@ export interface UpdatePolicyEngineResponse {
   name: string | undefined;
 
   /**
-   * <p>The updated description of the policy engine.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The original creation timestamp of the policy engine.</p>
    * @public
    */
@@ -5634,16 +5768,22 @@ export interface UpdatePolicyEngineResponse {
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>Additional information about the update status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The updated description of the policy engine.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the update status.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
 }
 
 /**
@@ -5755,13 +5895,89 @@ export interface GetPolicyGenerationResponse {
   status: PolicyGenerationStatus | undefined;
 
   /**
+   * <p>The findings and results from the policy generation process. This includes any issues, recommendations, validation results, or insights from the generated policies.</p>
+   * @public
+   */
+  findings?: string | undefined;
+
+  /**
    * <p>Additional information about the generation status. This provides details about any failures, warnings, or the current state of the generation process.</p>
    * @public
    */
   statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyGenerationSummaryRequest {
+  /**
+   * <p>The unique identifier of the policy generation request to retrieve the summary for.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
 
   /**
-   * <p>The findings and results from the policy generation process. This includes any issues, recommendations, validation results, or insights from the generated policies.</p>
+   * <p>The identifier of the policy engine associated with the policy generation request.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyGenerationSummaryResponse {
+  /**
+   * <p>The identifier of the policy engine associated with this policy generation.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the policy generation request.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name for the policy generation request.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy generation request.</p>
+   * @public
+   */
+  policyGenerationArn: string | undefined;
+
+  /**
+   * <p>The resource information associated with the policy generation.</p>
+   * @public
+   */
+  resource: Resource | undefined;
+
+  /**
+   * <p>The timestamp when the policy generation request was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy generation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the policy generation request.</p>
+   * @public
+   */
+  status: PolicyGenerationStatus | undefined;
+
+  /**
+   * <p>The findings from the policy generation process, if available.</p>
    * @public
    */
   findings?: string | undefined;
@@ -6021,16 +6237,16 @@ export interface PolicyGeneration {
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>Additional information about the generation status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
    * <p>Findings and insights from this policy generation process.</p>
    * @public
    */
   findings?: string | undefined;
+
+  /**
+   * <p>Additional information about the generation status.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
 }
 
 /**
@@ -6045,6 +6261,106 @@ export interface ListPolicyGenerationsResponse {
 
   /**
    * <p>A pagination token for retrieving additional policy generations if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyGenerationSummariesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html">ListPolicyGenerationSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy generation summaries to return in a single response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the policy engine whose policy generation summaries to retrieve.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * <p>Represents a metadata-only summary of a policy generation resource. This structure contains resource identifiers, status, timestamps, and findings without customer-encrypted fields such as status reasons. Policy generation summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * @public
+ */
+export interface PolicyGenerationSummary {
+  /**
+   * <p>The identifier of the policy engine associated with this generation request.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The unique identifier for this policy generation request.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name for this policy generation request.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of this policy generation request.</p>
+   * @public
+   */
+  policyGenerationArn: string | undefined;
+
+  /**
+   * <p>The resource information associated with this policy generation.</p>
+   * @public
+   */
+  resource: Resource | undefined;
+
+  /**
+   * <p>The timestamp when this policy generation request was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when this policy generation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of this policy generation request.</p>
+   * @public
+   */
+  status: PolicyGenerationStatus | undefined;
+
+  /**
+   * <p>Findings and insights from this policy generation process.</p>
+   * @public
+   */
+  findings?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyGenerationSummariesResponse {
+  /**
+   * <p>An array of policy generation summary objects that match the specified criteria. Each summary contains resource identifiers, status, timestamps, and findings without customer-encrypted content.</p>
+   * @public
+   */
+  policyGenerations: PolicyGenerationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html">ListPolicyGenerationSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -6177,16 +6493,16 @@ export interface StartPolicyGenerationResponse {
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>Additional information about the generation status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
    * <p>Initial findings from the policy generation process.</p>
    * @public
    */
   findings?: string | undefined;
+
+  /**
+   * <p>Additional information about the generation status.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
 }
 
 /**
@@ -6253,18 +6569,6 @@ export interface CreatePolicyResponse {
   policyEngineId: string | undefined;
 
   /**
-   * <p>The Cedar policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the policy was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
    * @public
    */
@@ -6287,6 +6591,18 @@ export interface CreatePolicyResponse {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The Cedar policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
+   * @public
+   */
+  definition: PolicyDefinition | undefined;
+
+  /**
+   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
+   * @public
+   */
+  description?: string | undefined;
 
   /**
    * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy creation process.</p>
@@ -6335,18 +6651,6 @@ export interface DeletePolicyResponse {
   policyEngineId: string | undefined;
 
   /**
-   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the deleted policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the deleted policy was originally created.</p>
    * @public
    */
@@ -6369,6 +6673,18 @@ export interface DeletePolicyResponse {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
+   * @public
+   */
+  definition: PolicyDefinition | undefined;
+
+  /**
+   * <p>The human-readable description of the deleted policy.</p>
+   * @public
+   */
+  description?: string | undefined;
 
   /**
    * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
@@ -6417,18 +6733,6 @@ export interface GetPolicyResponse {
   policyEngineId: string | undefined;
 
   /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the policy was originally created.</p>
    * @public
    */
@@ -6453,10 +6757,86 @@ export interface GetPolicyResponse {
   status: PolicyStatus | undefined;
 
   /**
+   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
+   * @public
+   */
+  definition: PolicyDefinition | undefined;
+
+  /**
+   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
    * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy.</p>
    * @public
    */
   statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicySummaryRequest {
+  /**
+   * <p>The identifier of the policy engine that manages the policy to retrieve the summary for.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the policy to retrieve the summary for. This must be a valid policy ID that exists within the specified policy engine.</p>
+   * @public
+   */
+  policyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicySummaryResponse {
+  /**
+   * <p>The unique identifier of the policy.</p>
+   * @public
+   */
+  policyId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the policy engine that manages this policy.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy was last modified.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * @public
+   */
+  policyArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy.</p>
+   * @public
+   */
+  status: PolicyStatus | undefined;
 }
 
 /**
@@ -6512,18 +6892,6 @@ export interface Policy {
   policyEngineId: string | undefined;
 
   /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>A human-readable description of the policy's purpose and functionality. Limited to 4,096 characters, this helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The timestamp when the policy was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
    * @public
    */
@@ -6548,6 +6916,18 @@ export interface Policy {
   status: PolicyStatus | undefined;
 
   /**
+   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
+   * @public
+   */
+  definition: PolicyDefinition | undefined;
+
+  /**
+   * <p>A human-readable description of the policy's purpose and functionality. Limited to 4,096 characters, this helps administrators understand and manage the policy.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
    * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy lifecycle.</p>
    * @public
    */
@@ -6566,6 +6946,100 @@ export interface ListPoliciesResponse {
 
   /**
    * <p>A pagination token that can be used in subsequent ListPolicies calls to retrieve additional results. This token is only present when there are more results available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicySummariesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html">ListPolicySummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy summaries to return in a single response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the policy engine whose policy summaries to retrieve.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>Optional filter to list policy summaries that apply to a specific resource scope or resource type. This helps narrow down results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
+   * @public
+   */
+  targetResourceScope?: string | undefined;
+}
+
+/**
+ * <p>Represents a metadata-only summary of a policy resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as definition, description, or status reasons. Policy summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * @public
+ */
+export interface PolicySummary {
+  /**
+   * <p>The unique identifier for the policy.</p>
+   * @public
+   */
+  policyId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the policy engine that manages this policy.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy was last modified.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * @public
+   */
+  policyArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy.</p>
+   * @public
+   */
+  status: PolicyStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicySummariesResponse {
+  /**
+   * <p>An array of policy summary objects that match the specified criteria. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
+   * @public
+   */
+  policies: PolicySummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html">ListPolicySummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -6629,18 +7103,6 @@ export interface UpdatePolicyResponse {
   policyEngineId: string | undefined;
 
   /**
-   * <p>The updated Cedar policy statement.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The updated description of the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
    * <p>The original creation timestamp of the policy.</p>
    * @public
    */
@@ -6663,6 +7125,18 @@ export interface UpdatePolicyResponse {
    * @public
    */
   status: PolicyStatus | undefined;
+
+  /**
+   * <p>The updated Cedar policy statement.</p>
+   * @public
+   */
+  definition: PolicyDefinition | undefined;
+
+  /**
+   * <p>The updated description of the policy.</p>
+   * @public
+   */
+  description?: string | undefined;
 
   /**
    * <p>Additional information about the update status.</p>
@@ -7941,6 +8415,12 @@ export interface ListRegistriesRequest {
    * @public
    */
   status?: RegistryStatus | undefined;
+
+  /**
+   * <p>Filter registries by their authorizer type. Possible values are <code>CUSTOM_JWT</code> and <code>AWS_IAM</code>. For more information about authorizer types, see the <code>RegistryAuthorizerType</code> enum.</p>
+   * @public
+   */
+  authorizerType?: RegistryAuthorizerType | undefined;
 }
 
 /**

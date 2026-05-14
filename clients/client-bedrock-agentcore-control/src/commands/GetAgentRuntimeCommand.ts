@@ -63,6 +63,7 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //       subnets: [ // Subnets // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       requireServiceS3Endpoint: true || false,
  * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required

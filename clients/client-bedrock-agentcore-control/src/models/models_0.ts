@@ -1442,6 +1442,12 @@ export interface VpcConfig {
    * @public
    */
   subnets: string[] | undefined;
+
+  /**
+   * <note> <p>This field applies only to Agent Runtimes. It is not applicable to Browsers or Code Interpreters.</p> </note> <p>Controls whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC network topology for the agent runtime. This gateway is used by Amazon Bedrock AgentCore Runtime to download code and container images during agent startup.</p> <p>Starting May 5, 2026, Amazon Bedrock AgentCore Runtime is gradually rolling out a change to how network isolation is configured for VPC mode agents. Agent runtimes created on or after this rollout will no longer include the service-managed Amazon S3 gateway. Instead, all network access, including to Amazon S3, is governed exclusively by your VPC configuration. This field cannot be set on agent runtimes created after the rollout. Passing this field in an <code>UpdateAgentRuntime</code> request for these agent runtimes returns a <code>ValidationException</code>.</p> <p>Agent runtimes created before the rollout are not affected and continue to operate with the service-managed Amazon S3 gateway. To enforce full VPC network isolation on these existing agent runtimes, set this field to <code>false</code> via the <code>UpdateAgentRuntime</code> API. Before opting out, ensure your VPC provides the Amazon S3 access required for agent startup. If this field is not specified or is set to <code>true</code>, the service-managed Amazon S3 gateway remains provisioned.</p> <p>This field is only supported in the <code>UpdateAgentRuntime</code> API for pre-rollout agent runtimes. Passing this field in a <code>CreateAgentRuntime</code> request returns a <code>ValidationException</code>.</p>
+   * @public
+   */
+  requireServiceS3Endpoint?: boolean | undefined;
 }
 
 /**
@@ -2809,7 +2815,7 @@ export interface BrowserNetworkConfiguration {
   networkMode: BrowserNetworkMode | undefined;
 
   /**
-   * <p>VpcConfig for the Agent.</p>
+   * <p>The VPC configuration for the browser. This configuration is required when the network mode is set to <code>VPC</code>.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -3179,7 +3185,7 @@ export interface CodeInterpreterNetworkConfiguration {
   networkMode: CodeInterpreterNetworkMode | undefined;
 
   /**
-   * <p>VpcConfig for the Agent.</p>
+   * <p>The VPC configuration for the code interpreter. This configuration is required when the network mode is set to <code>VPC</code>.</p>
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
@@ -5648,8 +5654,7 @@ export interface IamPrincipal {
 }
 
 /**
- * Union for principal matching. Currently supports IAM principal ARN glob matching.
- * Extensible for future principal types (e.g., OAuth client ID).
+ * <p>Union for principal matching. Currently supports IAM principal ARN glob matching.</p>
  * @public
  */
 export type MatchPrincipalEntry =
@@ -6268,7 +6273,7 @@ export interface OAuthCredentialProvider {
   customParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the kind of credentials to use for authorization:</p> <ul> <li> <p> <code>CLIENT_CREDENTIALS</code> - Authorization with a client ID and secret.</p> </li> <li> <p> <code>AUTHORIZATION_CODE</code> - Authorization with a token that is specific to an individual end user.</p> </li> </ul>
+   * <p>Specifies the kind of credentials to use for authorization:</p> <ul> <li> <p> <code>CLIENT_CREDENTIALS</code> - Authorization with a client ID and secret.</p> </li> <li> <p> <code>AUTHORIZATION_CODE</code> - Authorization with a token that is specific to an individual end user.</p> </li> <li> <p> <code>TOKEN_EXCHANGE</code> - Authorization using on-behalf-of token exchange. An inbound user token is exchanged for a downstream access token scoped to the target audience.</p> </li> </ul>
    * @public
    */
   grantType?: OAuthGrantType | undefined;
@@ -8788,7 +8793,7 @@ export interface EpisodicOverrideReflectionConfigurationInput {
   modelId: string | undefined;
 
   /**
-   * <p>The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -9242,7 +9247,7 @@ export interface CustomMemoryStrategyInput {
   description?: string | undefined;
 
   /**
-   * <p>The namespaces associated with the custom memory strategy.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the custom memory strategy.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -9274,7 +9279,7 @@ export interface CustomMemoryStrategyInput {
  */
 export interface EpisodicReflectionConfigurationInput {
   /**
-   * <p>The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -9312,7 +9317,7 @@ export interface EpisodicMemoryStrategyInput {
   description?: string | undefined;
 
   /**
-   * <p>The namespaces for which to create episodes.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces for which to create episodes.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
@@ -9356,7 +9361,7 @@ export interface SemanticMemoryStrategyInput {
   description?: string | undefined;
 
   /**
-   * <p>The namespaces associated with the semantic memory strategy.</p>
+   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the semantic memory strategy.</p>
    *
    * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public

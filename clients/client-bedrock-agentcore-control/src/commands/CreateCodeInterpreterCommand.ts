@@ -53,6 +53,7 @@ export interface CreateCodeInterpreterCommandOutput extends CreateCodeInterprete
  *       subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
+ *       requireServiceS3Endpoint: true || false,
  *     },
  *   },
  *   certificates: [ // Certificates

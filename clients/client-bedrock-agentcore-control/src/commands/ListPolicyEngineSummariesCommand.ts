@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListPolicyEnginesRequest, ListPolicyEnginesResponse } from "../models/models_1";
-import { ListPolicyEngines$ } from "../schemas/schemas_0";
+import type { ListPolicyEngineSummariesRequest, ListPolicyEngineSummariesResponse } from "../models/models_1";
+import { ListPolicyEngineSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,35 +20,35 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListPolicyEnginesCommand}.
+ * The input for {@link ListPolicyEngineSummariesCommand}.
  */
-export interface ListPolicyEnginesCommandInput extends ListPolicyEnginesRequest {}
+export interface ListPolicyEngineSummariesCommandInput extends ListPolicyEngineSummariesRequest {}
 /**
  * @public
  *
- * The output of {@link ListPolicyEnginesCommand}.
+ * The output of {@link ListPolicyEngineSummariesCommand}.
  */
-export interface ListPolicyEnginesCommandOutput extends ListPolicyEnginesResponse, __MetadataBearer {}
+export interface ListPolicyEngineSummariesCommandOutput extends ListPolicyEngineSummariesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of policy engines within the AgentCore Policy system. This operation supports pagination to help administrators discover and manage policy engines across their account. Each policy engine serves as a container for related policies.</p>
+ * <p>Retrieves a paginated list of metadata-only policy engine summaries without decrypting customer content. This lightweight read operation returns resource identifiers, status, and timestamps for each policy engine, but does not include descriptions or status reasons. Because this operation does not require access to the customer's KMS key, it is suitable for resource discovery, inventory, and integration scenarios where only metadata is needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, ListPolicyEnginesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, ListPolicyEnginesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, ListPolicyEngineSummariesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, ListPolicyEngineSummariesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // ListPolicyEnginesRequest
+ * const input = { // ListPolicyEngineSummariesRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListPolicyEnginesCommand(input);
+ * const command = new ListPolicyEngineSummariesCommand(input);
  * const response = await client.send(command);
- * // { // ListPolicyEnginesResponse
- * //   policyEngines: [ // PolicyEngines // required
- * //     { // PolicyEngine
+ * // { // ListPolicyEngineSummariesResponse
+ * //   policyEngines: [ // PolicyEngineSummaryList // required
+ * //     { // PolicyEngineSummary
  * //       policyEngineId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
@@ -56,10 +56,6 @@ export interface ListPolicyEnginesCommandOutput extends ListPolicyEnginesRespons
  * //       policyEngineArn: "STRING_VALUE", // required
  * //       status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //       encryptionKeyArn: "STRING_VALUE",
- * //       description: "STRING_VALUE",
- * //       statusReasons: [ // PolicyStatusReasons // required
- * //         "STRING_VALUE",
- * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -67,10 +63,10 @@ export interface ListPolicyEnginesCommandOutput extends ListPolicyEnginesRespons
  *
  * ```
  *
- * @param ListPolicyEnginesCommandInput - {@link ListPolicyEnginesCommandInput}
- * @returns {@link ListPolicyEnginesCommandOutput}
- * @see {@link ListPolicyEnginesCommandInput} for command's `input` shape.
- * @see {@link ListPolicyEnginesCommandOutput} for command's `response` shape.
+ * @param ListPolicyEngineSummariesCommandInput - {@link ListPolicyEngineSummariesCommandInput}
+ * @returns {@link ListPolicyEngineSummariesCommandOutput}
+ * @see {@link ListPolicyEngineSummariesCommandInput} for command's `input` shape.
+ * @see {@link ListPolicyEngineSummariesCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,10 +87,10 @@ export interface ListPolicyEnginesCommandOutput extends ListPolicyEnginesRespons
  *
  * @public
  */
-export class ListPolicyEnginesCommand extends $Command
+export class ListPolicyEngineSummariesCommand extends $Command
   .classBuilder<
-    ListPolicyEnginesCommandInput,
-    ListPolicyEnginesCommandOutput,
+    ListPolicyEngineSummariesCommandInput,
+    ListPolicyEngineSummariesCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +99,19 @@ export class ListPolicyEnginesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "ListPolicyEngines", {})
-  .n("BedrockAgentCoreControlClient", "ListPolicyEnginesCommand")
-  .sc(ListPolicyEngines$)
+  .s("AmazonBedrockAgentCoreControl", "ListPolicyEngineSummaries", {})
+  .n("BedrockAgentCoreControlClient", "ListPolicyEngineSummariesCommand")
+  .sc(ListPolicyEngineSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListPolicyEnginesRequest;
-      output: ListPolicyEnginesResponse;
+      input: ListPolicyEngineSummariesRequest;
+      output: ListPolicyEngineSummariesResponse;
     };
     sdk: {
-      input: ListPolicyEnginesCommandInput;
-      output: ListPolicyEnginesCommandOutput;
+      input: ListPolicyEngineSummariesCommandInput;
+      output: ListPolicyEngineSummariesCommandOutput;
     };
   };
 }

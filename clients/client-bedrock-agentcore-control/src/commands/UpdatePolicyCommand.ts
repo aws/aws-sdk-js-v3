@@ -63,6 +63,10 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //   policyId: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   policyEngineId: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   policyArn: "STRING_VALUE", // required
+ * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   definition: { // PolicyDefinition Union: only one key present
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
@@ -73,10 +77,6 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //     },
  * //   },
  * //   description: "STRING_VALUE",
- * //   createdAt: new Date("TIMESTAMP"), // required
- * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   policyArn: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],

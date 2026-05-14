@@ -412,12 +412,24 @@ import {
   GetPolicyEngineCommand,
   GetPolicyEngineRequest$,
   GetPolicyEngineResponse$,
+  GetPolicyEngineSummary$,
+  GetPolicyEngineSummaryCommand,
+  GetPolicyEngineSummaryRequest$,
+  GetPolicyEngineSummaryResponse$,
   GetPolicyGeneration$,
   GetPolicyGenerationCommand,
   GetPolicyGenerationRequest$,
   GetPolicyGenerationResponse$,
+  GetPolicyGenerationSummary$,
+  GetPolicyGenerationSummaryCommand,
+  GetPolicyGenerationSummaryRequest$,
+  GetPolicyGenerationSummaryResponse$,
   GetPolicyRequest$,
   GetPolicyResponse$,
+  GetPolicySummary$,
+  GetPolicySummaryCommand,
+  GetPolicySummaryRequest$,
+  GetPolicySummaryResponse$,
   GetRegistry$,
   GetRegistryCommand,
   GetRegistryRecord$,
@@ -585,6 +597,10 @@ import {
   ListPolicyEnginesCommand,
   ListPolicyEnginesRequest$,
   ListPolicyEnginesResponse$,
+  ListPolicyEngineSummaries$,
+  ListPolicyEngineSummariesCommand,
+  ListPolicyEngineSummariesRequest$,
+  ListPolicyEngineSummariesResponse$,
   ListPolicyGenerationAssets$,
   ListPolicyGenerationAssetsCommand,
   ListPolicyGenerationAssetsRequest$,
@@ -593,6 +609,14 @@ import {
   ListPolicyGenerationsCommand,
   ListPolicyGenerationsRequest$,
   ListPolicyGenerationsResponse$,
+  ListPolicyGenerationSummaries$,
+  ListPolicyGenerationSummariesCommand,
+  ListPolicyGenerationSummariesRequest$,
+  ListPolicyGenerationSummariesResponse$,
+  ListPolicySummaries$,
+  ListPolicySummariesCommand,
+  ListPolicySummariesRequest$,
+  ListPolicySummariesResponse$,
   ListRegistries$,
   ListRegistriesCommand,
   ListRegistriesRequest$,
@@ -687,8 +711,11 @@ import {
   paginateListPaymentManagers,
   paginateListPolicies,
   paginateListPolicyEngines,
+  paginateListPolicyEngineSummaries,
   paginateListPolicyGenerationAssets,
   paginateListPolicyGenerations,
+  paginateListPolicyGenerationSummaries,
+  paginateListPolicySummaries,
   paginateListRegistries,
   paginateListRegistryRecords,
   paginateListWorkloadIdentities,
@@ -707,11 +734,14 @@ import {
   PolicyDefinition$,
   PolicyEngine$,
   PolicyEngineStatus,
+  PolicyEngineSummary$,
   PolicyGeneration$,
   PolicyGenerationAsset$,
   PolicyGenerationDetails$,
   PolicyGenerationStatus,
+  PolicyGenerationSummary$,
   PolicyStatus,
+  PolicySummary$,
   PolicyValidationMode,
   PrincipalMatchOperator,
   PrivateEndpoint$,
@@ -1121,8 +1151,14 @@ assert(typeof GetPolicyCommand === "function");
 assert(typeof GetPolicy$ === "object");
 assert(typeof GetPolicyEngineCommand === "function");
 assert(typeof GetPolicyEngine$ === "object");
+assert(typeof GetPolicyEngineSummaryCommand === "function");
+assert(typeof GetPolicyEngineSummary$ === "object");
 assert(typeof GetPolicyGenerationCommand === "function");
 assert(typeof GetPolicyGeneration$ === "object");
+assert(typeof GetPolicyGenerationSummaryCommand === "function");
+assert(typeof GetPolicyGenerationSummary$ === "object");
+assert(typeof GetPolicySummaryCommand === "function");
+assert(typeof GetPolicySummary$ === "object");
 assert(typeof GetRegistryCommand === "function");
 assert(typeof GetRegistry$ === "object");
 assert(typeof GetRegistryRecordCommand === "function");
@@ -1177,10 +1213,16 @@ assert(typeof ListPoliciesCommand === "function");
 assert(typeof ListPolicies$ === "object");
 assert(typeof ListPolicyEnginesCommand === "function");
 assert(typeof ListPolicyEngines$ === "object");
+assert(typeof ListPolicyEngineSummariesCommand === "function");
+assert(typeof ListPolicyEngineSummaries$ === "object");
 assert(typeof ListPolicyGenerationAssetsCommand === "function");
 assert(typeof ListPolicyGenerationAssets$ === "object");
 assert(typeof ListPolicyGenerationsCommand === "function");
 assert(typeof ListPolicyGenerations$ === "object");
+assert(typeof ListPolicyGenerationSummariesCommand === "function");
+assert(typeof ListPolicyGenerationSummaries$ === "object");
+assert(typeof ListPolicySummariesCommand === "function");
+assert(typeof ListPolicySummaries$ === "object");
 assert(typeof ListRegistriesCommand === "function");
 assert(typeof ListRegistries$ === "object");
 assert(typeof ListRegistryRecordsCommand === "function");
@@ -1478,10 +1520,16 @@ assert(typeof GetPaymentManagerRequest$ === "object");
 assert(typeof GetPaymentManagerResponse$ === "object");
 assert(typeof GetPolicyEngineRequest$ === "object");
 assert(typeof GetPolicyEngineResponse$ === "object");
+assert(typeof GetPolicyEngineSummaryRequest$ === "object");
+assert(typeof GetPolicyEngineSummaryResponse$ === "object");
 assert(typeof GetPolicyGenerationRequest$ === "object");
 assert(typeof GetPolicyGenerationResponse$ === "object");
+assert(typeof GetPolicyGenerationSummaryRequest$ === "object");
+assert(typeof GetPolicyGenerationSummaryResponse$ === "object");
 assert(typeof GetPolicyRequest$ === "object");
 assert(typeof GetPolicyResponse$ === "object");
+assert(typeof GetPolicySummaryRequest$ === "object");
+assert(typeof GetPolicySummaryResponse$ === "object");
 assert(typeof GetRegistryRecordRequest$ === "object");
 assert(typeof GetRegistryRecordResponse$ === "object");
 assert(typeof GetRegistryRequest$ === "object");
@@ -1586,10 +1634,16 @@ assert(typeof ListPoliciesRequest$ === "object");
 assert(typeof ListPoliciesResponse$ === "object");
 assert(typeof ListPolicyEnginesRequest$ === "object");
 assert(typeof ListPolicyEnginesResponse$ === "object");
+assert(typeof ListPolicyEngineSummariesRequest$ === "object");
+assert(typeof ListPolicyEngineSummariesResponse$ === "object");
 assert(typeof ListPolicyGenerationAssetsRequest$ === "object");
 assert(typeof ListPolicyGenerationAssetsResponse$ === "object");
 assert(typeof ListPolicyGenerationsRequest$ === "object");
 assert(typeof ListPolicyGenerationsResponse$ === "object");
+assert(typeof ListPolicyGenerationSummariesRequest$ === "object");
+assert(typeof ListPolicyGenerationSummariesResponse$ === "object");
+assert(typeof ListPolicySummariesRequest$ === "object");
+assert(typeof ListPolicySummariesResponse$ === "object");
 assert(typeof ListRegistriesRequest$ === "object");
 assert(typeof ListRegistriesResponse$ === "object");
 assert(typeof ListRegistryRecordsRequest$ === "object");
@@ -1652,9 +1706,12 @@ assert(typeof PaymentProviderConfigurationOutput$ === "object");
 assert(typeof Policy$ === "object");
 assert(typeof PolicyDefinition$ === "object");
 assert(typeof PolicyEngine$ === "object");
+assert(typeof PolicyEngineSummary$ === "object");
 assert(typeof PolicyGeneration$ === "object");
 assert(typeof PolicyGenerationAsset$ === "object");
 assert(typeof PolicyGenerationDetails$ === "object");
+assert(typeof PolicyGenerationSummary$ === "object");
+assert(typeof PolicySummary$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
 assert(typeof ProtocolConfiguration$ === "object");
@@ -1962,9 +2019,12 @@ assert(typeof paginateListPaymentConnectors === "function");
 assert(typeof paginateListPaymentCredentialProviders === "function");
 assert(typeof paginateListPaymentManagers === "function");
 assert(typeof paginateListPolicies === "function");
+assert(typeof paginateListPolicyEngineSummaries === "function");
 assert(typeof paginateListPolicyEngines === "function");
 assert(typeof paginateListPolicyGenerationAssets === "function");
+assert(typeof paginateListPolicyGenerationSummaries === "function");
 assert(typeof paginateListPolicyGenerations === "function");
+assert(typeof paginateListPolicySummaries === "function");
 assert(typeof paginateListRegistries === "function");
 assert(typeof paginateListRegistryRecords === "function");
 assert(typeof paginateListWorkloadIdentities === "function");

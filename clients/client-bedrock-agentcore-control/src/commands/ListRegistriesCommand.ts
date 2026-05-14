@@ -31,7 +31,7 @@ export interface ListRegistriesCommandInput extends ListRegistriesRequest {}
 export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all registries in the account. You can optionally filter results by status using the <code>status</code> parameter.</p>
+ * <p>Lists all registries in the account. You can optionally filter results by status using the <code>status</code> parameter, or by authorizer type using the <code>authorizerType</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,6 +44,7 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ *   authorizerType: "CUSTOM_JWT" || "AWS_IAM",
  * };
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);

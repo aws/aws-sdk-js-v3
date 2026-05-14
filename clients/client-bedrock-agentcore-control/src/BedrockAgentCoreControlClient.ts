@@ -257,9 +257,18 @@ import type {
 import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import type { GetPolicyEngineCommandInput, GetPolicyEngineCommandOutput } from "./commands/GetPolicyEngineCommand";
 import type {
+  GetPolicyEngineSummaryCommandInput,
+  GetPolicyEngineSummaryCommandOutput,
+} from "./commands/GetPolicyEngineSummaryCommand";
+import type {
   GetPolicyGenerationCommandInput,
   GetPolicyGenerationCommandOutput,
 } from "./commands/GetPolicyGenerationCommand";
+import type {
+  GetPolicyGenerationSummaryCommandInput,
+  GetPolicyGenerationSummaryCommandOutput,
+} from "./commands/GetPolicyGenerationSummaryCommand";
+import type { GetPolicySummaryCommandInput, GetPolicySummaryCommandOutput } from "./commands/GetPolicySummaryCommand";
 import type { GetRegistryCommandInput, GetRegistryCommandOutput } from "./commands/GetRegistryCommand";
 import type {
   GetRegistryRecordCommandInput,
@@ -342,6 +351,10 @@ import type {
   ListPolicyEnginesCommandOutput,
 } from "./commands/ListPolicyEnginesCommand";
 import type {
+  ListPolicyEngineSummariesCommandInput,
+  ListPolicyEngineSummariesCommandOutput,
+} from "./commands/ListPolicyEngineSummariesCommand";
+import type {
   ListPolicyGenerationAssetsCommandInput,
   ListPolicyGenerationAssetsCommandOutput,
 } from "./commands/ListPolicyGenerationAssetsCommand";
@@ -349,6 +362,14 @@ import type {
   ListPolicyGenerationsCommandInput,
   ListPolicyGenerationsCommandOutput,
 } from "./commands/ListPolicyGenerationsCommand";
+import type {
+  ListPolicyGenerationSummariesCommandInput,
+  ListPolicyGenerationSummariesCommandOutput,
+} from "./commands/ListPolicyGenerationSummariesCommand";
+import type {
+  ListPolicySummariesCommandInput,
+  ListPolicySummariesCommandOutput,
+} from "./commands/ListPolicySummariesCommand";
 import type { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
 import type {
   ListRegistryRecordsCommandInput,
@@ -530,7 +551,10 @@ export type ServiceInputTypes =
   | GetPaymentManagerCommandInput
   | GetPolicyCommandInput
   | GetPolicyEngineCommandInput
+  | GetPolicyEngineSummaryCommandInput
   | GetPolicyGenerationCommandInput
+  | GetPolicyGenerationSummaryCommandInput
+  | GetPolicySummaryCommandInput
   | GetRegistryCommandInput
   | GetRegistryRecordCommandInput
   | GetResourcePolicyCommandInput
@@ -557,9 +581,12 @@ export type ServiceInputTypes =
   | ListPaymentCredentialProvidersCommandInput
   | ListPaymentManagersCommandInput
   | ListPoliciesCommandInput
+  | ListPolicyEngineSummariesCommandInput
   | ListPolicyEnginesCommandInput
   | ListPolicyGenerationAssetsCommandInput
+  | ListPolicyGenerationSummariesCommandInput
   | ListPolicyGenerationsCommandInput
+  | ListPolicySummariesCommandInput
   | ListRegistriesCommandInput
   | ListRegistryRecordsCommandInput
   | ListTagsForResourceCommandInput
@@ -665,7 +692,10 @@ export type ServiceOutputTypes =
   | GetPaymentManagerCommandOutput
   | GetPolicyCommandOutput
   | GetPolicyEngineCommandOutput
+  | GetPolicyEngineSummaryCommandOutput
   | GetPolicyGenerationCommandOutput
+  | GetPolicyGenerationSummaryCommandOutput
+  | GetPolicySummaryCommandOutput
   | GetRegistryCommandOutput
   | GetRegistryRecordCommandOutput
   | GetResourcePolicyCommandOutput
@@ -692,9 +722,12 @@ export type ServiceOutputTypes =
   | ListPaymentCredentialProvidersCommandOutput
   | ListPaymentManagersCommandOutput
   | ListPoliciesCommandOutput
+  | ListPolicyEngineSummariesCommandOutput
   | ListPolicyEnginesCommandOutput
   | ListPolicyGenerationAssetsCommandOutput
+  | ListPolicyGenerationSummariesCommandOutput
   | ListPolicyGenerationsCommandOutput
+  | ListPolicySummariesCommandOutput
   | ListRegistriesCommandOutput
   | ListRegistryRecordsCommandOutput
   | ListTagsForResourceCommandOutput

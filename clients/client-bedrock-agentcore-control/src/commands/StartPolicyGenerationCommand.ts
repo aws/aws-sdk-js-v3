@@ -64,10 +64,10 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   status: "GENERATING" || "GENERATED" || "GENERATE_FAILED" || "DELETE_FAILED", // required
+ * //   findings: "STRING_VALUE",
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],
- * //   findings: "STRING_VALUE",
  * // };
  *
  * ```

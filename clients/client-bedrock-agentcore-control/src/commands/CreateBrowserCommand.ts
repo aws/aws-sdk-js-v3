@@ -53,6 +53,7 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  *       subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
+ *       requireServiceS3Endpoint: true || false,
  *     },
  *   },
  *   recording: { // RecordingConfig

@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeletePolicyEngineRequest, DeletePolicyEngineResponse } from "../models/models_1";
-import { DeletePolicyEngine$ } from "../schemas/schemas_0";
+import type { GetPolicyEngineSummaryRequest, GetPolicyEngineSummaryResponse } from "../models/models_1";
+import { GetPolicyEngineSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,32 +20,32 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeletePolicyEngineCommand}.
+ * The input for {@link GetPolicyEngineSummaryCommand}.
  */
-export interface DeletePolicyEngineCommandInput extends DeletePolicyEngineRequest {}
+export interface GetPolicyEngineSummaryCommandInput extends GetPolicyEngineSummaryRequest {}
 /**
  * @public
  *
- * The output of {@link DeletePolicyEngineCommand}.
+ * The output of {@link GetPolicyEngineSummaryCommand}.
  */
-export interface DeletePolicyEngineCommandOutput extends DeletePolicyEngineResponse, __MetadataBearer {}
+export interface GetPolicyEngineSummaryCommandOutput extends GetPolicyEngineSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing policy engine from the AgentCore Policy system. The policy engine must not have any associated policies before deletion. Once deleted, the policy engine and all its configurations become unavailable for policy management and evaluation. This is an asynchronous operation. Use the <code>GetPolicyEngine</code> operation to poll the <code>status</code> field to track completion.</p>
+ * <p>Retrieves a metadata-only summary of a specific policy engine without decrypting customer content. This lightweight read operation returns resource identifiers, status, timestamps, and the encryption key ARN, but does not include the description or status reasons. Because this operation does not require access to the customer's KMS key, it is suitable for resource discovery, inventory, and integration scenarios where only metadata is needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, DeletePolicyEngineCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, DeletePolicyEngineCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, GetPolicyEngineSummaryCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, GetPolicyEngineSummaryCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // DeletePolicyEngineRequest
+ * const input = { // GetPolicyEngineSummaryRequest
  *   policyEngineId: "STRING_VALUE", // required
  * };
- * const command = new DeletePolicyEngineCommand(input);
+ * const command = new GetPolicyEngineSummaryCommand(input);
  * const response = await client.send(command);
- * // { // DeletePolicyEngineResponse
+ * // { // GetPolicyEngineSummaryResponse
  * //   policyEngineId: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
@@ -53,25 +53,18 @@ export interface DeletePolicyEngineCommandOutput extends DeletePolicyEngineRespo
  * //   policyEngineArn: "STRING_VALUE", // required
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   encryptionKeyArn: "STRING_VALUE",
- * //   description: "STRING_VALUE",
- * //   statusReasons: [ // PolicyStatusReasons // required
- * //     "STRING_VALUE",
- * //   ],
  * // };
  *
  * ```
  *
- * @param DeletePolicyEngineCommandInput - {@link DeletePolicyEngineCommandInput}
- * @returns {@link DeletePolicyEngineCommandOutput}
- * @see {@link DeletePolicyEngineCommandInput} for command's `input` shape.
- * @see {@link DeletePolicyEngineCommandOutput} for command's `response` shape.
+ * @param GetPolicyEngineSummaryCommandInput - {@link GetPolicyEngineSummaryCommandInput}
+ * @returns {@link GetPolicyEngineSummaryCommandOutput}
+ * @see {@link GetPolicyEngineSummaryCommandInput} for command's `input` shape.
+ * @see {@link GetPolicyEngineSummaryCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>This exception is thrown when a request is denied per access permissions</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when there is a conflict performing an operation</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
@@ -91,10 +84,10 @@ export interface DeletePolicyEngineCommandOutput extends DeletePolicyEngineRespo
  *
  * @public
  */
-export class DeletePolicyEngineCommand extends $Command
+export class GetPolicyEngineSummaryCommand extends $Command
   .classBuilder<
-    DeletePolicyEngineCommandInput,
-    DeletePolicyEngineCommandOutput,
+    GetPolicyEngineSummaryCommandInput,
+    GetPolicyEngineSummaryCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +96,19 @@ export class DeletePolicyEngineCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "DeletePolicyEngine", {})
-  .n("BedrockAgentCoreControlClient", "DeletePolicyEngineCommand")
-  .sc(DeletePolicyEngine$)
+  .s("AmazonBedrockAgentCoreControl", "GetPolicyEngineSummary", {})
+  .n("BedrockAgentCoreControlClient", "GetPolicyEngineSummaryCommand")
+  .sc(GetPolicyEngineSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeletePolicyEngineRequest;
-      output: DeletePolicyEngineResponse;
+      input: GetPolicyEngineSummaryRequest;
+      output: GetPolicyEngineSummaryResponse;
     };
     sdk: {
-      input: DeletePolicyEngineCommandInput;
-      output: DeletePolicyEngineCommandOutput;
+      input: GetPolicyEngineSummaryCommandInput;
+      output: GetPolicyEngineSummaryCommandOutput;
     };
   };
 }

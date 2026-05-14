@@ -70,6 +70,7 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *       subnets: [ // Subnets // required
  *         "STRING_VALUE",
  *       ],
+ *       requireServiceS3Endpoint: true || false,
  *     },
  *   },
  *   description: "STRING_VALUE",

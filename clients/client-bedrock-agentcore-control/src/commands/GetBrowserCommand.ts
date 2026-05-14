@@ -60,6 +60,7 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //       subnets: [ // Subnets // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       requireServiceS3Endpoint: true || false,
  * //     },
  * //   },
  * //   recording: { // RecordingConfig

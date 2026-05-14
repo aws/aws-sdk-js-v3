@@ -343,14 +343,23 @@ const _GPE = "GetPolicyEngine";
 const _GPEC = "GatewayPolicyEngineConfiguration";
 const _GPER = "GetPolicyEngineRequest";
 const _GPERe = "GetPolicyEngineResponse";
+const _GPES = "GetPolicyEngineSummary";
+const _GPESR = "GetPolicyEngineSummaryRequest";
+const _GPESRe = "GetPolicyEngineSummaryResponse";
 const _GPG = "GetPolicyGeneration";
 const _GPGR = "GetPolicyGenerationRequest";
 const _GPGRe = "GetPolicyGenerationResponse";
+const _GPGS = "GetPolicyGenerationSummary";
+const _GPGSR = "GetPolicyGenerationSummaryRequest";
+const _GPGSRe = "GetPolicyGenerationSummaryResponse";
 const _GPM = "GetPaymentManager";
 const _GPMR = "GetPaymentManagerRequest";
 const _GPMRe = "GetPaymentManagerResponse";
 const _GPR = "GetPolicyRequest";
 const _GPRe = "GetPolicyResponse";
+const _GPS = "GetPolicySummary";
+const _GPSR = "GetPolicySummaryRequest";
+const _GPSRe = "GetPolicySummaryResponse";
 const _GR = "GatewayRules";
 const _GRD = "GatewayRuleDetail";
 const _GRP = "GetResourcePolicy";
@@ -493,17 +502,26 @@ const _LPCRi = "ListPaymentConnectorsResponse";
 const _LPE = "ListPolicyEngines";
 const _LPER = "ListPolicyEnginesRequest";
 const _LPERi = "ListPolicyEnginesResponse";
+const _LPES = "ListPolicyEngineSummaries";
+const _LPESR = "ListPolicyEngineSummariesRequest";
+const _LPESRi = "ListPolicyEngineSummariesResponse";
 const _LPG = "ListPolicyGenerations";
 const _LPGA = "ListPolicyGenerationAssets";
 const _LPGAR = "ListPolicyGenerationAssetsRequest";
 const _LPGARi = "ListPolicyGenerationAssetsResponse";
 const _LPGR = "ListPolicyGenerationsRequest";
 const _LPGRi = "ListPolicyGenerationsResponse";
+const _LPGS = "ListPolicyGenerationSummaries";
+const _LPGSR = "ListPolicyGenerationSummariesRequest";
+const _LPGSRi = "ListPolicyGenerationSummariesResponse";
 const _LPM = "ListPaymentManagers";
 const _LPMR = "ListPaymentManagersRequest";
 const _LPMRi = "ListPaymentManagersResponse";
 const _LPR = "ListPoliciesRequest";
 const _LPRi = "ListPoliciesResponse";
+const _LPS = "ListPolicySummaries";
+const _LPSR = "ListPolicySummariesRequest";
+const _LPSRi = "ListPolicySummariesResponse";
 const _LR = "ListRegistries";
 const _LRR = "ListRegistriesRequest";
 const _LRRR = "ListRegistryRecordsRequest";
@@ -582,12 +600,16 @@ const _PE = "PolicyEngine";
 const _PEMR = "PrivateEndpointManagedResources";
 const _PEO = "PrivateEndpointOverride";
 const _PEOr = "PrivateEndpointOverrides";
+const _PES = "PolicyEngineSummary";
+const _PESL = "PolicyEngineSummaryList";
 const _PEo = "PolicyEngines";
 const _PEr = "PrivateEndpoint";
 const _PG = "PolicyGeneration";
 const _PGA = "PolicyGenerationAsset";
 const _PGAo = "PolicyGenerationAssets";
 const _PGD = "PolicyGenerationDetails";
+const _PGS = "PolicyGenerationSummary";
+const _PGSL = "PolicyGenerationSummaryList";
 const _PGo = "PolicyGenerations";
 const _PMS = "PaymentManagerSummary";
 const _PMSa = "PaymentManagerSummaries";
@@ -596,6 +618,8 @@ const _PPCO = "PaymentProviderConfigurationOutput";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
+const _PS = "PolicySummary";
+const _PSL = "PolicySummaryList";
 const _Po = "Policy";
 const _Pol = "Policies";
 const _R = "Rule";
@@ -1199,6 +1223,7 @@ const _rMMDSV = "requireMMDSV2";
 const _rP = "resourcePriority";
 const _rR = "registryRecords";
 const _rS = "relevanceScore";
+const _rSSE = "requireServiceS3Endpoint";
 const _rSa = "ratingScale";
 const _rT = "responseTypes";
 const _rTF = "rawTextFragment";
@@ -1866,8 +1891,8 @@ export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
 ];
 export var CreatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _CPERr,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
@@ -1876,8 +1901,8 @@ export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
-  [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
 ];
 export var CreateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
@@ -2136,8 +2161,8 @@ export var DeletePolicyEngineRequest$: StaticStructureSchema = [3, n0, _DPER,
 ];
 export var DeletePolicyEngineResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
@@ -2146,8 +2171,8 @@ export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
 ];
 export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
-  [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
 ];
 export var DeleteRegistryRecordRequest$: StaticStructureSchema = [3, n0, _DRRR,
   0,
@@ -2496,8 +2521,18 @@ export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
 ];
 export var GetPolicyEngineResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
+];
+export var GetPolicyEngineSummaryRequest$: StaticStructureSchema = [3, n0, _GPESR,
+  0,
+  [_pEI],
+  [[0, 1]], 1
+];
+export var GetPolicyEngineSummaryResponse$: StaticStructureSchema = [3, n0, _GPESRe,
+  0,
+  [_pEI, _n, _cA, _uA, _pEA, _st, _eKA],
+  [0, 0, 5, 5, 0, 0, 0], 6
 ];
 export var GetPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _GPGR,
   0,
@@ -2509,6 +2544,16 @@ export var GetPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _GPGRe,
   [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
+export var GetPolicyGenerationSummaryRequest$: StaticStructureSchema = [3, n0, _GPGSR,
+  0,
+  [_pGI, _pEI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetPolicyGenerationSummaryResponse$: StaticStructureSchema = [3, n0, _GPGSRe,
+  0,
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _f],
+  [0, 0, 0, 0, () => Resource$, 5, 5, 0, 0], 8
+];
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_pEI, _pIo],
@@ -2516,8 +2561,18 @@ export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
-  [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
+];
+export var GetPolicySummaryRequest$: StaticStructureSchema = [3, n0, _GPSR,
+  0,
+  [_pEI, _pIo],
+  [[0, 1], [0, 1]], 2
+];
+export var GetPolicySummaryResponse$: StaticStructureSchema = [3, n0, _GPSRe,
+  0,
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st],
+  [0, 0, 0, 5, 5, 0, 0], 7
 ];
 export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
   0,
@@ -2979,6 +3034,16 @@ export var ListPolicyEnginesResponse$: StaticStructureSchema = [3, n0, _LPERi,
   [_pEo, _nTe],
   [[() => PolicyEngines, 0], 0], 1
 ];
+export var ListPolicyEngineSummariesRequest$: StaticStructureSchema = [3, n0, _LPESR,
+  0,
+  [_nTe, _mR],
+  [[0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]]
+];
+export var ListPolicyEngineSummariesResponse$: StaticStructureSchema = [3, n0, _LPESRi,
+  0,
+  [_pEo, _nTe],
+  [() => PolicyEngineSummaryList, 0], 1
+];
 export var ListPolicyGenerationAssetsRequest$: StaticStructureSchema = [3, n0, _LPGAR,
   0,
   [_pGI, _pEI, _nTe, _mR],
@@ -2999,10 +3064,30 @@ export var ListPolicyGenerationsResponse$: StaticStructureSchema = [3, n0, _LPGR
   [_pG, _nTe],
   [() => PolicyGenerations, 0], 1
 ];
+export var ListPolicyGenerationSummariesRequest$: StaticStructureSchema = [3, n0, _LPGSR,
+  0,
+  [_pEI, _nTe, _mR],
+  [[0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListPolicyGenerationSummariesResponse$: StaticStructureSchema = [3, n0, _LPGSRi,
+  0,
+  [_pG, _nTe],
+  [() => PolicyGenerationSummaryList, 0], 1
+];
+export var ListPolicySummariesRequest$: StaticStructureSchema = [3, n0, _LPSR,
+  0,
+  [_pEI, _nTe, _mR, _tRS],
+  [[0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _tRS }]], 1
+];
+export var ListPolicySummariesResponse$: StaticStructureSchema = [3, n0, _LPSRi,
+  0,
+  [_pol, _nTe],
+  [() => PolicySummaryList, 0], 1
+];
 export var ListRegistriesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_mR, _nTe, _st],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _st }]]
+  [_mR, _nTe, _st, _aT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _st }], [0, { [_hQ]: _aT }]]
 ];
 export var ListRegistriesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -3236,13 +3321,18 @@ export var PaymentManagerSummary$: StaticStructureSchema = [3, n0, _PMS,
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
-  [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
 ];
 export var PolicyEngine$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
+];
+export var PolicyEngineSummary$: StaticStructureSchema = [3, n0, _PES,
+  0,
+  [_pEI, _n, _cA, _uA, _pEA, _st, _eKA],
+  [0, 0, 5, 5, 0, 0, 0], 6
 ];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
@@ -3258,6 +3348,16 @@ export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
   0,
   [_pGI, _pGAI],
   [0, 0], 2
+];
+export var PolicyGenerationSummary$: StaticStructureSchema = [3, n0, _PGS,
+  0,
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _f],
+  [0, 0, 0, 0, () => Resource$, 5, 5, 0, 0], 8
+];
+export var PolicySummary$: StaticStructureSchema = [3, n0, _PS,
+  0,
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st],
+  [0, 0, 0, 5, 5, 0, 0], 7
 ];
 export var PrivateEndpointOverride$: StaticStructureSchema = [3, n0, _PEO,
   0,
@@ -3886,8 +3986,8 @@ export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
 ];
 export var UpdatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _UPERp,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
@@ -3896,8 +3996,8 @@ export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
-  [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _d],
+  [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, [() => Description, 0]], 9
 ];
 export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
@@ -3991,8 +4091,8 @@ export var VersionLineageMetadata$: StaticStructureSchema = [3, n0, _VLM,
 ];
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_sG, _su],
-  [64 | 0, 64 | 0], 2
+  [_sG, _su, _rSSE],
+  [64 | 0, 64 | 0, 2], 2
 ];
 export var WeightedOverride$: StaticStructureSchema = [3, n0, _WO,
   0,
@@ -4199,13 +4299,22 @@ var PolicyEngines: StaticListSchema = [1, n0, _PEo,
   0, [() => PolicyEngine$,
     0]
 ];
+var PolicyEngineSummaryList: StaticListSchema = [1, n0, _PESL,
+  0, () => PolicyEngineSummary$
+];
 var PolicyGenerationAssets: StaticListSchema = [1, n0, _PGAo,
   0, () => PolicyGenerationAsset$
 ];
 var PolicyGenerations: StaticListSchema = [1, n0, _PGo,
   0, () => PolicyGeneration$
 ];
+var PolicyGenerationSummaryList: StaticListSchema = [1, n0, _PGSL,
+  0, () => PolicyGenerationSummary$
+];
 var PolicyStatusReasons = 64 | 0;
+var PolicySummaryList: StaticListSchema = [1, n0, _PSL,
+  0, () => PolicySummary$
+];
 var PrivateEndpointManagedResources: StaticListSchema = [1, n0, _PEMR,
   0, () => ManagedResourceDetails$
 ];
@@ -4854,8 +4963,17 @@ export var GetPolicy$: StaticOperationSchema = [9, n0, _GP,
 export var GetPolicyEngine$: StaticOperationSchema = [9, n0, _GPE,
   { [_ht]: ["GET", "/policy-engines/{policyEngineId}", 200] }, () => GetPolicyEngineRequest$, () => GetPolicyEngineResponse$
 ];
+export var GetPolicyEngineSummary$: StaticOperationSchema = [9, n0, _GPES,
+  { [_ht]: ["GET", "/policy-engine-summaries/{policyEngineId}", 200] }, () => GetPolicyEngineSummaryRequest$, () => GetPolicyEngineSummaryResponse$
+];
 export var GetPolicyGeneration$: StaticOperationSchema = [9, n0, _GPG,
   { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}", 200] }, () => GetPolicyGenerationRequest$, () => GetPolicyGenerationResponse$
+];
+export var GetPolicyGenerationSummary$: StaticOperationSchema = [9, n0, _GPGS,
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generation-summaries/{policyGenerationId}", 200] }, () => GetPolicyGenerationSummaryRequest$, () => GetPolicyGenerationSummaryResponse$
+];
+export var GetPolicySummary$: StaticOperationSchema = [9, n0, _GPS,
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-summaries/{policyId}", 200] }, () => GetPolicySummaryRequest$, () => GetPolicySummaryResponse$
 ];
 export var GetRegistry$: StaticOperationSchema = [9, n0, _GRe,
   { [_ht]: ["GET", "/registries/{registryId}", 200] }, () => GetRegistryRequest$, () => GetRegistryResponse$
@@ -4938,11 +5056,20 @@ export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
 export var ListPolicyEngines$: StaticOperationSchema = [9, n0, _LPE,
   { [_ht]: ["GET", "/policy-engines", 200] }, () => ListPolicyEnginesRequest$, () => ListPolicyEnginesResponse$
 ];
+export var ListPolicyEngineSummaries$: StaticOperationSchema = [9, n0, _LPES,
+  { [_ht]: ["GET", "/policy-engine-summaries", 200] }, () => ListPolicyEngineSummariesRequest$, () => ListPolicyEngineSummariesResponse$
+];
 export var ListPolicyGenerationAssets$: StaticOperationSchema = [9, n0, _LPGA,
   { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generations/{policyGenerationId}/assets", 200] }, () => ListPolicyGenerationAssetsRequest$, () => ListPolicyGenerationAssetsResponse$
 ];
 export var ListPolicyGenerations$: StaticOperationSchema = [9, n0, _LPG,
   { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generations", 200] }, () => ListPolicyGenerationsRequest$, () => ListPolicyGenerationsResponse$
+];
+export var ListPolicyGenerationSummaries$: StaticOperationSchema = [9, n0, _LPGS,
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-generation-summaries", 200] }, () => ListPolicyGenerationSummariesRequest$, () => ListPolicyGenerationSummariesResponse$
+];
+export var ListPolicySummaries$: StaticOperationSchema = [9, n0, _LPS,
+  { [_ht]: ["GET", "/policy-engines/{policyEngineId}/policy-summaries", 200] }, () => ListPolicySummariesRequest$, () => ListPolicySummariesResponse$
 ];
 export var ListRegistries$: StaticOperationSchema = [9, n0, _LR,
   { [_ht]: ["GET", "/registries", 200] }, () => ListRegistriesRequest$, () => ListRegistriesResponse$

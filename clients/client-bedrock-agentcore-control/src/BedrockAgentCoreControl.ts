@@ -341,10 +341,25 @@ import {
   GetPolicyEngineCommand,
 } from "./commands/GetPolicyEngineCommand";
 import {
+  type GetPolicyEngineSummaryCommandInput,
+  type GetPolicyEngineSummaryCommandOutput,
+  GetPolicyEngineSummaryCommand,
+} from "./commands/GetPolicyEngineSummaryCommand";
+import {
   type GetPolicyGenerationCommandInput,
   type GetPolicyGenerationCommandOutput,
   GetPolicyGenerationCommand,
 } from "./commands/GetPolicyGenerationCommand";
+import {
+  type GetPolicyGenerationSummaryCommandInput,
+  type GetPolicyGenerationSummaryCommandOutput,
+  GetPolicyGenerationSummaryCommand,
+} from "./commands/GetPolicyGenerationSummaryCommand";
+import {
+  type GetPolicySummaryCommandInput,
+  type GetPolicySummaryCommandOutput,
+  GetPolicySummaryCommand,
+} from "./commands/GetPolicySummaryCommand";
 import {
   type GetRegistryCommandInput,
   type GetRegistryCommandOutput,
@@ -481,6 +496,11 @@ import {
   ListPolicyEnginesCommand,
 } from "./commands/ListPolicyEnginesCommand";
 import {
+  type ListPolicyEngineSummariesCommandInput,
+  type ListPolicyEngineSummariesCommandOutput,
+  ListPolicyEngineSummariesCommand,
+} from "./commands/ListPolicyEngineSummariesCommand";
+import {
   type ListPolicyGenerationAssetsCommandInput,
   type ListPolicyGenerationAssetsCommandOutput,
   ListPolicyGenerationAssetsCommand,
@@ -490,6 +510,16 @@ import {
   type ListPolicyGenerationsCommandOutput,
   ListPolicyGenerationsCommand,
 } from "./commands/ListPolicyGenerationsCommand";
+import {
+  type ListPolicyGenerationSummariesCommandInput,
+  type ListPolicyGenerationSummariesCommandOutput,
+  ListPolicyGenerationSummariesCommand,
+} from "./commands/ListPolicyGenerationSummariesCommand";
+import {
+  type ListPolicySummariesCommandInput,
+  type ListPolicySummariesCommandOutput,
+  ListPolicySummariesCommand,
+} from "./commands/ListPolicySummariesCommand";
 import {
   type ListRegistriesCommandInput,
   type ListRegistriesCommandOutput,
@@ -674,8 +704,11 @@ import { paginateListPaymentCredentialProviders } from "./pagination/ListPayment
 import { paginateListPaymentManagers } from "./pagination/ListPaymentManagersPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
 import { paginateListPolicyEngines } from "./pagination/ListPolicyEnginesPaginator";
+import { paginateListPolicyEngineSummaries } from "./pagination/ListPolicyEngineSummariesPaginator";
 import { paginateListPolicyGenerationAssets } from "./pagination/ListPolicyGenerationAssetsPaginator";
 import { paginateListPolicyGenerations } from "./pagination/ListPolicyGenerationsPaginator";
+import { paginateListPolicyGenerationSummaries } from "./pagination/ListPolicyGenerationSummariesPaginator";
+import { paginateListPolicySummaries } from "./pagination/ListPolicySummariesPaginator";
 import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";
 import { paginateListRegistryRecords } from "./pagination/ListRegistryRecordsPaginator";
 import { paginateListWorkloadIdentities } from "./pagination/ListWorkloadIdentitiesPaginator";
@@ -755,7 +788,10 @@ const commands = {
   GetPaymentManagerCommand,
   GetPolicyCommand,
   GetPolicyEngineCommand,
+  GetPolicyEngineSummaryCommand,
   GetPolicyGenerationCommand,
+  GetPolicyGenerationSummaryCommand,
+  GetPolicySummaryCommand,
   GetRegistryCommand,
   GetRegistryRecordCommand,
   GetResourcePolicyCommand,
@@ -783,8 +819,11 @@ const commands = {
   ListPaymentManagersCommand,
   ListPoliciesCommand,
   ListPolicyEnginesCommand,
+  ListPolicyEngineSummariesCommand,
   ListPolicyGenerationAssetsCommand,
   ListPolicyGenerationsCommand,
+  ListPolicyGenerationSummariesCommand,
+  ListPolicySummariesCommand,
   ListRegistriesCommand,
   ListRegistryRecordsCommand,
   ListTagsForResourceCommand,
@@ -841,8 +880,11 @@ const paginators = {
   paginateListPaymentManagers,
   paginateListPolicies,
   paginateListPolicyEngines,
+  paginateListPolicyEngineSummaries,
   paginateListPolicyGenerationAssets,
   paginateListPolicyGenerations,
+  paginateListPolicyGenerationSummaries,
+  paginateListPolicySummaries,
   paginateListRegistries,
   paginateListRegistryRecords,
   paginateListWorkloadIdentities,
@@ -2014,6 +2056,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link GetPolicyEngineSummaryCommand}
+   */
+  getPolicyEngineSummary(
+    args: GetPolicyEngineSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyEngineSummaryCommandOutput>;
+  getPolicyEngineSummary(
+    args: GetPolicyEngineSummaryCommandInput,
+    cb: (err: any, data?: GetPolicyEngineSummaryCommandOutput) => void
+  ): void;
+  getPolicyEngineSummary(
+    args: GetPolicyEngineSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyEngineSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPolicyGenerationCommand}
    */
   getPolicyGeneration(
@@ -2028,6 +2087,40 @@ export interface BedrockAgentCoreControl {
     args: GetPolicyGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPolicyGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyGenerationSummaryCommand}
+   */
+  getPolicyGenerationSummary(
+    args: GetPolicyGenerationSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyGenerationSummaryCommandOutput>;
+  getPolicyGenerationSummary(
+    args: GetPolicyGenerationSummaryCommandInput,
+    cb: (err: any, data?: GetPolicyGenerationSummaryCommandOutput) => void
+  ): void;
+  getPolicyGenerationSummary(
+    args: GetPolicyGenerationSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyGenerationSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicySummaryCommand}
+   */
+  getPolicySummary(
+    args: GetPolicySummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicySummaryCommandOutput>;
+  getPolicySummary(
+    args: GetPolicySummaryCommandInput,
+    cb: (err: any, data?: GetPolicySummaryCommandOutput) => void
+  ): void;
+  getPolicySummary(
+    args: GetPolicySummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicySummaryCommandOutput) => void
   ): void;
 
   /**
@@ -2506,6 +2599,24 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListPolicyEngineSummariesCommand}
+   */
+  listPolicyEngineSummaries(): Promise<ListPolicyEngineSummariesCommandOutput>;
+  listPolicyEngineSummaries(
+    args: ListPolicyEngineSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyEngineSummariesCommandOutput>;
+  listPolicyEngineSummaries(
+    args: ListPolicyEngineSummariesCommandInput,
+    cb: (err: any, data?: ListPolicyEngineSummariesCommandOutput) => void
+  ): void;
+  listPolicyEngineSummaries(
+    args: ListPolicyEngineSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyEngineSummariesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPolicyGenerationAssetsCommand}
    */
   listPolicyGenerationAssets(
@@ -2537,6 +2648,40 @@ export interface BedrockAgentCoreControl {
     args: ListPolicyGenerationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPolicyGenerationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyGenerationSummariesCommand}
+   */
+  listPolicyGenerationSummaries(
+    args: ListPolicyGenerationSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyGenerationSummariesCommandOutput>;
+  listPolicyGenerationSummaries(
+    args: ListPolicyGenerationSummariesCommandInput,
+    cb: (err: any, data?: ListPolicyGenerationSummariesCommandOutput) => void
+  ): void;
+  listPolicyGenerationSummaries(
+    args: ListPolicyGenerationSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyGenerationSummariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicySummariesCommand}
+   */
+  listPolicySummaries(
+    args: ListPolicySummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicySummariesCommandOutput>;
+  listPolicySummaries(
+    args: ListPolicySummariesCommandInput,
+    cb: (err: any, data?: ListPolicySummariesCommandOutput) => void
+  ): void;
+  listPolicySummaries(
+    args: ListPolicySummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicySummariesCommandOutput) => void
   ): void;
 
   /**
@@ -3328,6 +3473,17 @@ export interface BedrockAgentCoreControl {
   ): Paginator<ListPolicyEnginesCommandOutput>;
 
   /**
+   * @see {@link ListPolicyEngineSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyEngineSummariesCommandOutput}.
+   */
+  paginateListPolicyEngineSummaries(
+    args?: ListPolicyEngineSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyEngineSummariesCommandOutput>;
+
+  /**
    * @see {@link ListPolicyGenerationAssetsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -3348,6 +3504,28 @@ export interface BedrockAgentCoreControl {
     args: ListPolicyGenerationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPolicyGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyGenerationSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyGenerationSummariesCommandOutput}.
+   */
+  paginateListPolicyGenerationSummaries(
+    args: ListPolicyGenerationSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyGenerationSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicySummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicySummariesCommandOutput}.
+   */
+  paginateListPolicySummaries(
+    args: ListPolicySummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicySummariesCommandOutput>;
 
   /**
    * @see {@link ListRegistriesCommand}

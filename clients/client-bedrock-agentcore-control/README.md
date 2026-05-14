@@ -657,10 +657,31 @@ GetPolicyEngine
 </details>
 <details>
 <summary>
+GetPolicyEngineSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/GetPolicyEngineSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicyEngineSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicyEngineSummaryCommandOutput/)
+</details>
+<details>
+<summary>
 GetPolicyGeneration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/GetPolicyGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicyGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicyGenerationCommandOutput/)
+</details>
+<details>
+<summary>
+GetPolicyGenerationSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/GetPolicyGenerationSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicyGenerationSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicyGenerationSummaryCommandOutput/)
+</details>
+<details>
+<summary>
+GetPolicySummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/GetPolicySummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicySummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/GetPolicySummaryCommandOutput/)
 </details>
 <details>
 <summary>
@@ -853,6 +874,13 @@ ListPolicyEngines
 </details>
 <details>
 <summary>
+ListPolicyEngineSummaries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListPolicyEngineSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicyEngineSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicyEngineSummariesCommandOutput/)
+</details>
+<details>
+<summary>
 ListPolicyGenerationAssets
 </summary>
 
@@ -864,6 +892,20 @@ ListPolicyGenerations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListPolicyGenerationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicyGenerationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicyGenerationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListPolicyGenerationSummaries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListPolicyGenerationSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicyGenerationSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicyGenerationSummariesCommandOutput/)
+</details>
+<details>
+<summary>
+ListPolicySummaries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/ListPolicySummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicySummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/ListPolicySummariesCommandOutput/)
 </details>
 <details>
 <summary>

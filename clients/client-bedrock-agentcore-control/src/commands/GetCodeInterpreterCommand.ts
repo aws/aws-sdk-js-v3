@@ -60,6 +60,7 @@ export interface GetCodeInterpreterCommandOutput extends GetCodeInterpreterRespo
  * //       subnets: [ // Subnets // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       requireServiceS3Endpoint: true || false,
  * //     },
  * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
