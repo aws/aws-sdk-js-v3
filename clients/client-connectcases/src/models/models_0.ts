@@ -4162,7 +4162,7 @@ export namespace BooleanCondition {
  */
 export interface CompoundCondition {
   /**
-   * <p>The list of conditions to combine using the logical operator.</p>
+   * <p>The list of conditions to combine using the logical operator.</p> <note> <p>For API users: A case rule can have a maximum of 5 conditions, spread across a maximum of 2 levels of nesting.</p> </note>
    * @public
    */
   conditions: BooleanCondition[] | undefined;
