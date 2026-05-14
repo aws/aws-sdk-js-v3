@@ -664,6 +664,15 @@ import { paginateDescribeReplicationTasks } from "./pagination/DescribeReplicati
 import { paginateDescribeSchemas } from "./pagination/DescribeSchemasPaginator";
 import { paginateDescribeTableStatistics } from "./pagination/DescribeTableStatisticsPaginator";
 import { waitUntilEndpointDeleted } from "./waiters/waitForEndpointDeleted";
+import { waitUntilExtensionPackAssociated } from "./waiters/waitForExtensionPackAssociated";
+import { waitUntilMetadataModelAssessed } from "./waiters/waitForMetadataModelAssessed";
+import { waitUntilMetadataModelConversionCancelled } from "./waiters/waitForMetadataModelConversionCancelled";
+import { waitUntilMetadataModelConverted } from "./waiters/waitForMetadataModelConverted";
+import { waitUntilMetadataModelCreated } from "./waiters/waitForMetadataModelCreated";
+import { waitUntilMetadataModelCreationCancelled } from "./waiters/waitForMetadataModelCreationCancelled";
+import { waitUntilMetadataModelExportedAsScript } from "./waiters/waitForMetadataModelExportedAsScript";
+import { waitUntilMetadataModelExportedToTarget } from "./waiters/waitForMetadataModelExportedToTarget";
+import { waitUntilMetadataModelImported } from "./waiters/waitForMetadataModelImported";
 import { waitUntilReplicationInstanceAvailable } from "./waiters/waitForReplicationInstanceAvailable";
 import { waitUntilReplicationInstanceDeleted } from "./waiters/waitForReplicationInstanceDeleted";
 import { waitUntilReplicationTaskDeleted } from "./waiters/waitForReplicationTaskDeleted";
@@ -840,6 +849,15 @@ const paginators = {
 const waiters = {
   waitUntilTestConnectionSucceeds,
   waitUntilEndpointDeleted,
+  waitUntilExtensionPackAssociated,
+  waitUntilMetadataModelAssessed,
+  waitUntilMetadataModelConversionCancelled,
+  waitUntilMetadataModelConverted,
+  waitUntilMetadataModelCreated,
+  waitUntilMetadataModelCreationCancelled,
+  waitUntilMetadataModelExportedAsScript,
+  waitUntilMetadataModelExportedToTarget,
+  waitUntilMetadataModelImported,
   waitUntilReplicationInstanceAvailable,
   waitUntilReplicationInstanceDeleted,
   waitUntilReplicationTaskDeleted,
@@ -3389,6 +3407,96 @@ export interface DatabaseMigrationService {
     args: DescribeEndpointsCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
   ): Promise<WaiterResult<ResourceNotFoundFault>>;
+
+  /**
+   * @see {@link DescribeExtensionPackAssociationsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilExtensionPackAssociated(
+    args: DescribeExtensionPackAssociationsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeExtensionPackAssociationsCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelAssessmentsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelAssessed(
+    args: DescribeMetadataModelAssessmentsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelAssessmentsCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelConversionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelConversionCancelled(
+    args: DescribeMetadataModelConversionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelConversionsCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelConversionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelConverted(
+    args: DescribeMetadataModelConversionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelConversionsCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelCreationsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelCreated(
+    args: DescribeMetadataModelCreationsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelCreationsCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelCreationsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelCreationCancelled(
+    args: DescribeMetadataModelCreationsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelCreationsCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelExportsAsScriptCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelExportedAsScript(
+    args: DescribeMetadataModelExportsAsScriptCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelExportsAsScriptCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelExportsToTargetCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelExportedToTarget(
+    args: DescribeMetadataModelExportsToTargetCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelExportsToTargetCommandOutput>>;
+
+  /**
+   * @see {@link DescribeMetadataModelImportsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMetadataModelImported(
+    args: DescribeMetadataModelImportsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult<DescribeMetadataModelImportsCommandOutput>>;
 
   /**
    * @see {@link DescribeReplicationInstancesCommand}

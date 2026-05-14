@@ -726,6 +726,15 @@ import {
   VersionStatus,
   VpcSecurityGroupMembership$,
   waitForEndpointDeleted,
+  waitForExtensionPackAssociated,
+  waitForMetadataModelAssessed,
+  waitForMetadataModelConversionCancelled,
+  waitForMetadataModelConverted,
+  waitForMetadataModelCreated,
+  waitForMetadataModelCreationCancelled,
+  waitForMetadataModelExportedAsScript,
+  waitForMetadataModelExportedToTarget,
+  waitForMetadataModelImported,
   waitForReplicationInstanceAvailable,
   waitForReplicationInstanceDeleted,
   waitForReplicationTaskDeleted,
@@ -734,6 +743,15 @@ import {
   waitForReplicationTaskStopped,
   waitForTestConnectionSucceeds,
   waitUntilEndpointDeleted,
+  waitUntilExtensionPackAssociated,
+  waitUntilMetadataModelAssessed,
+  waitUntilMetadataModelConversionCancelled,
+  waitUntilMetadataModelConverted,
+  waitUntilMetadataModelCreated,
+  waitUntilMetadataModelCreationCancelled,
+  waitUntilMetadataModelExportedAsScript,
+  waitUntilMetadataModelExportedToTarget,
+  waitUntilMetadataModelImported,
   waitUntilReplicationInstanceAvailable,
   waitUntilReplicationInstanceDeleted,
   waitUntilReplicationTaskDeleted,
@@ -1434,6 +1452,15 @@ assert(typeof UpgradeDependencyFailureFault$ === "object");
 assert(DatabaseMigrationServiceServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForEndpointDeleted === "function");
+assert(typeof waitForExtensionPackAssociated === "function");
+assert(typeof waitForMetadataModelAssessed === "function");
+assert(typeof waitForMetadataModelConversionCancelled === "function");
+assert(typeof waitForMetadataModelConverted === "function");
+assert(typeof waitForMetadataModelCreated === "function");
+assert(typeof waitForMetadataModelCreationCancelled === "function");
+assert(typeof waitForMetadataModelExportedAsScript === "function");
+assert(typeof waitForMetadataModelExportedToTarget === "function");
+assert(typeof waitForMetadataModelImported === "function");
 assert(typeof waitForReplicationInstanceAvailable === "function");
 assert(typeof waitForReplicationInstanceDeleted === "function");
 assert(typeof waitForReplicationTaskDeleted === "function");
@@ -1442,6 +1469,15 @@ assert(typeof waitForReplicationTaskRunning === "function");
 assert(typeof waitForReplicationTaskStopped === "function");
 assert(typeof waitForTestConnectionSucceeds === "function");
 assert(typeof waitUntilEndpointDeleted === "function");
+assert(typeof waitUntilExtensionPackAssociated === "function");
+assert(typeof waitUntilMetadataModelAssessed === "function");
+assert(typeof waitUntilMetadataModelConversionCancelled === "function");
+assert(typeof waitUntilMetadataModelConverted === "function");
+assert(typeof waitUntilMetadataModelCreated === "function");
+assert(typeof waitUntilMetadataModelCreationCancelled === "function");
+assert(typeof waitUntilMetadataModelExportedAsScript === "function");
+assert(typeof waitUntilMetadataModelExportedToTarget === "function");
+assert(typeof waitUntilMetadataModelImported === "function");
 assert(typeof waitUntilReplicationInstanceAvailable === "function");
 assert(typeof waitUntilReplicationInstanceDeleted === "function");
 assert(typeof waitUntilReplicationTaskDeleted === "function");
