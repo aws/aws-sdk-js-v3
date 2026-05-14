@@ -153,6 +153,11 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
  *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
  *   },
+ *   AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseRequestOptions
+ *     Enabled: true || false, // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
  * };
  * const command = new CreateElasticsearchDomainCommand(input);
  * const response = await client.send(command);
@@ -288,6 +293,12 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  * //     ],
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
  * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptions
+ * //       Enabled: true || false, // required
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //     },
  * //   },
  * // };

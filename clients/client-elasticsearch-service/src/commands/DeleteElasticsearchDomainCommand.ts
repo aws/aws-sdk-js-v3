@@ -178,6 +178,12 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
  * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
  * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptions
+ * //       Enabled: true || false, // required
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
+ * //     },
  * //   },
  * // };
  *

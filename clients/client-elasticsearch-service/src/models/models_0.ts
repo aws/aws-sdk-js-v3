@@ -20,6 +20,7 @@ import type {
   OverallChangeStatus,
   PackageStatus,
   PackageType,
+  PauseState,
   PrincipalType,
   PropertyValueType,
   ReservedElasticsearchInstancePaymentOption,
@@ -818,6 +819,37 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
 }
 
 /**
+ * <p>Specifies the automated snapshot pause request options for the domain.</p>
+ *        <important>
+ *            <p>Suspending snapshots reduces data protection. You cannot restore your domain to
+ *                points in time when snapshots are suspended. Use this feature only for short-term
+ *                operational needs such as migrations or maintenance windows.</p>
+ *        </important>
+ *        <p>Maximum suspension duration: 3 days.</p>
+ * @public
+ */
+export interface AutomatedSnapshotPauseRequestOptions {
+  /**
+   * <p>Whether to enable or disable automated snapshot pause for the domain.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause should begin.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause should end. The maximum allowed
+   *            duration between <code>StartTime</code> and <code>EndTime</code> is 3 days.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
  * <p>Specifies maintenance schedule duration: duration value and duration unit. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
  * @public
  */
@@ -1286,6 +1318,48 @@ export interface CreateElasticsearchDomainRequest {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>Specifies the automated snapshot pause options for the domain.</p>
+   *         <important>
+   *             <p>Suspending snapshots reduces data protection. You cannot restore your domain to
+   *                 points in time when snapshots are suspended. Use this feature only for short-term
+   *                 operational needs such as migrations or maintenance windows.</p>
+   *         </important>
+   *         <p>Maximum suspension duration: 3 days.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
+}
+
+/**
+ * <p>Specifies the automated snapshot pause options for the domain. These options allow you to temporarily pause automated snapshots for a specified time period.</p>
+ * @public
+ */
+export interface AutomatedSnapshotPauseOptions {
+  /**
+   * <p>Whether automated snapshot pause is enabled for the domain.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause begins.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the automated snapshot pause ends.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The current state of the automated snapshot pause. Valid values are <code>Active</code>, <code>Completed</code>, <code>Scheduled</code>, and <code>Disabled</code>.</p>
+   * @public
+   */
+  State?: PauseState | undefined;
 }
 
 /**
@@ -1579,6 +1653,12 @@ export interface ElasticsearchDomainStatus {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>The current status of the Elasticsearch domain's automated snapshot pause options.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptions | undefined;
 }
 
 /**
@@ -2354,6 +2434,24 @@ export interface DescribeElasticsearchDomainConfigRequest {
 }
 
 /**
+ * <p>The status of automated snapshot pause options for the specified Elasticsearch domain.</p>
+ * @public
+ */
+export interface AutomatedSnapshotPauseOptionsStatus {
+  /**
+   * <p>Automated snapshot pause options for the specified Elasticsearch domain.</p>
+   * @public
+   */
+  Options: AutomatedSnapshotPauseOptions | undefined;
+
+  /**
+   * <p>The current status of the automated snapshot pause options for the specified Elasticsearch domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain, rollback state when disabling Auto-Tune options and list of maintenance schedules.</p>
  * @public
  */
@@ -2741,6 +2839,12 @@ export interface ElasticsearchDomainConfig {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptionsStatus | undefined;
+
+  /**
+   * <p>Specifies <code>AutomatedSnapshotPauseOptions</code> for the domain. </p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptionsStatus | undefined;
 }
 
 /**
@@ -4611,6 +4715,18 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>Specifies the automated snapshot pause options for the domain.</p>
+   *       <important>
+   *           <p>Suspending snapshots reduces data protection. You cannot restore your domain to
+   *               points in time when snapshots are suspended. Use this feature only for short-term
+   *               operational needs such as migrations or maintenance windows.</p>
+   *       </important>
+   *       <p>Maximum suspension duration: 3 days.</p>
+   * @public
+   */
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
 }
 
 /**

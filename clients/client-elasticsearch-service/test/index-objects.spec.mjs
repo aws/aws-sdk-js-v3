@@ -23,6 +23,9 @@ import {
   AuthorizeVpcEndpointAccessCommand,
   AuthorizeVpcEndpointAccessRequest$,
   AuthorizeVpcEndpointAccessResponse$,
+  AutomatedSnapshotPauseOptions$,
+  AutomatedSnapshotPauseOptionsStatus$,
+  AutomatedSnapshotPauseRequestOptions$,
   AutoTune$,
   AutoTuneDesiredState,
   AutoTuneDetails$,
@@ -276,6 +279,7 @@ import {
   paginateListElasticsearchInstanceTypes,
   paginateListElasticsearchVersions,
   paginateListPackagesForDomain,
+  PauseState,
   PrincipalType,
   PropertyValueType,
   PurchaseReservedElasticsearchInstanceOffering$,
@@ -475,6 +479,9 @@ assert(typeof AssociatePackageResponse$ === "object");
 assert(typeof AuthorizedPrincipal$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessRequest$ === "object");
 assert(typeof AuthorizeVpcEndpointAccessResponse$ === "object");
+assert(typeof AutomatedSnapshotPauseOptions$ === "object");
+assert(typeof AutomatedSnapshotPauseOptionsStatus$ === "object");
+assert(typeof AutomatedSnapshotPauseRequestOptions$ === "object");
 assert(typeof AutoTune$ === "object");
 assert(typeof AutoTuneDetails$ === "object");
 assert(typeof AutoTuneMaintenanceSchedule$ === "object");
@@ -663,6 +670,7 @@ assert(typeof OutboundCrossClusterSearchConnectionStatusCode === "object");
 assert(typeof OverallChangeStatus === "object");
 assert(typeof PackageStatus === "object");
 assert(typeof PackageType === "object");
+assert(typeof PauseState === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof PropertyValueType === "object");
 assert(typeof ReservedElasticsearchInstancePaymentOption === "object");

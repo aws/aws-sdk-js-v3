@@ -150,6 +150,11 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
  *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
  *   },
+ *   AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseRequestOptions
+ *     Enabled: true || false, // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
  * };
  * const command = new UpdateElasticsearchDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -353,6 +358,15 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  * //     DeploymentStrategyOptions: { // DeploymentStrategyOptionsStatus
  * //       Options: { // DeploymentStrategyOptions
  * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
+ * //     AutomatedSnapshotPauseOptions: { // AutomatedSnapshotPauseOptionsStatus
+ * //       Options: { // AutomatedSnapshotPauseOptions
+ * //         Enabled: true || false, // required
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //         State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },

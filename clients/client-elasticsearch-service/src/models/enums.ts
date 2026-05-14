@@ -258,6 +258,21 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  * @public
  * @enum
  */
+export const PauseState = {
+  ACTIVE: "Active",
+  COMPLETED: "Completed",
+  DISABLED: "Disabled",
+  SCHEDULED: "Scheduled",
+} as const;
+/**
+ * @public
+ */
+export type PauseState = (typeof PauseState)[keyof typeof PauseState];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutoTuneState = {
   DISABLED: "DISABLED",
   DISABLED_AND_ROLLBACK_COMPLETE: "DISABLED_AND_ROLLBACK_COMPLETE",
