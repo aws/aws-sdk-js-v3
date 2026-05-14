@@ -80,6 +80,7 @@ export type {
   AccountAccessType,
   AuthenticationProviderTypes,
   DataSourceType,
+  IPAddressType,
   LicenseType,
   NotificationDestinationType,
   PermissionType,

@@ -97,6 +97,7 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * //       ],
  * //     },
  * //     grafanaToken: "STRING_VALUE",
+ * //     ipAddressType: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //   },
  * // };

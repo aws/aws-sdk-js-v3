@@ -142,6 +142,25 @@ export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType
  * @public
  * @enum
  */
+export const IPAddressType = {
+  /**
+   * Indicates that connections to this workspace can be made over IPv4 or IPv6.
+   */
+  DUAL_STACK: "DualStack",
+  /**
+   * Indicates that connections to this workspace can only be made over IPv4.
+   */
+  IPV4: "IPv4",
+} as const;
+/**
+ * @public
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NotificationDestinationType = {
   /**
    * AWS Simple Notification Service

@@ -68,6 +68,7 @@ import {
   IdpMetadata$,
   InternalServerException,
   InternalServerException$,
+  IPAddressType,
   LicenseType,
   ListPermissions$,
   ListPermissionsCommand,
@@ -284,6 +285,7 @@ assert(typeof WorkspaceSummary$ === "object");
 assert(typeof AccountAccessType === "object");
 assert(typeof AuthenticationProviderTypes === "object");
 assert(typeof DataSourceType === "object");
+assert(typeof IPAddressType === "object");
 assert(typeof LicenseType === "object");
 assert(typeof NotificationDestinationType === "object");
 assert(typeof PermissionType === "object");

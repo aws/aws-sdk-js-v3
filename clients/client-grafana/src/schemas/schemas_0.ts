@@ -157,6 +157,7 @@ const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _i = "id";
+const _iAT = "ipAddressType";
 const _iD = "isDisabled";
 const _iM = "idpMetadata";
 const _k = "key";
@@ -362,8 +363,8 @@ export var CreateWorkspaceApiKeyResponse$: StaticStructureSchema = [3, n0, _CWAK
 ];
 export var CreateWorkspaceRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_aAT, _pT, _aP, _cT, _oRN, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _t, _vC, _co, _nAC, _gV, _kKI],
-  [0, 0, 64 | 0, [0, 4], [() => OrganizationRoleName, 0], 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], 128 | 0, () => VpcConfiguration$, [() => OverridableConfigurationJson, 0], () => NetworkAccessConfiguration$, 0, 0], 3
+  [_aAT, _pT, _aP, _cT, _oRN, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _t, _vC, _co, _nAC, _gV, _iAT, _kKI],
+  [0, 0, 64 | 0, [0, 4], [() => OrganizationRoleName, 0], 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], 128 | 0, () => VpcConfiguration$, [() => OverridableConfigurationJson, 0], () => NetworkAccessConfiguration$, 0, 0, 0], 3
 ];
 export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -632,8 +633,8 @@ export var UpdateWorkspaceConfigurationResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateWorkspaceRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_wI, _aAT, _oRN, _pT, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _vC, _rVC, _nAC, _rNAC],
-  [[0, 1], 0, [() => OrganizationRoleName, 0], 0, 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], () => VpcConfiguration$, 2, () => NetworkAccessConfiguration$, 2], 1
+  [_wI, _aAT, _oRN, _pT, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _vC, _rVC, _nAC, _rNAC, _iAT],
+  [[0, 1], 0, [() => OrganizationRoleName, 0], 0, 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], () => VpcConfiguration$, 2, () => NetworkAccessConfiguration$, 2, 0], 1
 ];
 export var UpdateWorkspaceResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -657,8 +658,8 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var WorkspaceDescription$: StaticStructureSchema = [3, n0, _WD,
   0,
-  [_cr, _dS, _en, _gV, _i, _mo, _st, _au, _aAT, _d, _n, _oRN, _nD, _oU, _pT, _sSN, _wRA, _lT, _fTC, _lE, _fTE, _t, _vC, _nAC, _gT, _kKI],
-  [4, 64 | 0, 0, 0, 0, 4, 0, () => AuthenticationSummary$, 0, [() => Description, 0], [() => WorkspaceName, 0], [() => OrganizationRoleName, 0], 64 | 0, [() => OrganizationalUnitList, 0], 0, 0, [() => IamRoleArn, 0], 0, 2, 4, 4, 128 | 0, () => VpcConfiguration$, () => NetworkAccessConfiguration$, 0, 0], 8
+  [_cr, _dS, _en, _gV, _i, _mo, _st, _au, _aAT, _d, _n, _oRN, _nD, _oU, _pT, _sSN, _wRA, _lT, _fTC, _lE, _fTE, _t, _vC, _nAC, _gT, _iAT, _kKI],
+  [4, 64 | 0, 0, 0, 0, 4, 0, () => AuthenticationSummary$, 0, [() => Description, 0], [() => WorkspaceName, 0], [() => OrganizationRoleName, 0], 64 | 0, [() => OrganizationalUnitList, 0], 0, 0, [() => IamRoleArn, 0], 0, 2, 4, 4, 128 | 0, () => VpcConfiguration$, () => NetworkAccessConfiguration$, 0, 0, 0], 8
 ];
 export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   0,

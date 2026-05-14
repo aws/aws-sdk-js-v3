@@ -5,6 +5,7 @@ import type {
   AccountAccessType,
   AuthenticationProviderTypes,
   DataSourceType,
+  IPAddressType,
   LicenseType,
   NotificationDestinationType,
   PermissionType,
@@ -392,6 +393,12 @@ export interface WorkspaceDescription {
    * @public
    */
   grafanaToken?: string | undefined;
+
+  /**
+   * <p>The type of IP addresses supported for connection to the workspace. Valid values are <code>IPv4</code> and <code>DualStack</code>.</p>
+   * @public
+   */
+  ipAddressType?: IPAddressType | undefined;
 
   /**
    * <p>The ID or ARN of the Key Management Service key used for encrypting workspace data.</p>
@@ -1473,6 +1480,12 @@ export interface CreateWorkspaceRequest {
   grafanaVersion?: string | undefined;
 
   /**
+   * <p>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are <code>IPv4</code> and <code>DualStack</code>. For more information about IP address types, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html">Network access control</a>.</p>
+   * @public
+   */
+  ipAddressType?: IPAddressType | undefined;
+
+  /**
    * <p>The ID or ARN of the Key Management Service key to use for encrypting workspace data.</p>
    * @public
    */
@@ -1745,6 +1758,12 @@ export interface UpdateWorkspaceRequest {
    * @public
    */
   removeNetworkAccessConfiguration?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the workspace supports IPv4 only, or IPv4 and IPv6. Valid values are <code>IPv4</code> and <code>DualStack</code>. For more information about IP address types, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-nac.html">Network access control</a>.</p>
+   * @public
+   */
+  ipAddressType?: IPAddressType | undefined;
 }
 
 /**

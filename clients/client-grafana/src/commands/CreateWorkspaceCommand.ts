@@ -78,6 +78,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *     ],
  *   },
  *   grafanaVersion: "STRING_VALUE",
+ *   ipAddressType: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
  * };
  * const command = new CreateWorkspaceCommand(input);
@@ -136,6 +137,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * //       ],
  * //     },
  * //     grafanaToken: "STRING_VALUE",
+ * //     ipAddressType: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //   },
  * // };

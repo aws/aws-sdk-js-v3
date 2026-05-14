@@ -72,6 +72,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  *     ],
  *   },
  *   removeNetworkAccessConfiguration: true || false,
+ *   ipAddressType: "STRING_VALUE",
  * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
@@ -129,6 +130,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * //       ],
  * //     },
  * //     grafanaToken: "STRING_VALUE",
+ * //     ipAddressType: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //   },
  * // };
