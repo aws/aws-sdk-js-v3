@@ -26,13 +26,13 @@
     "@aws-sdk/core": "workspace:^3.974.10",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.26",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/core": "^3.24.1",
+    "@smithy/core": "^3.24.2",
     "@smithy/types": "^4.14.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "workspace:3.1047.0",
-    "@smithy/hash-node": "^4.3.1",
+    "@smithy/hash-node": "^4.3.2",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",

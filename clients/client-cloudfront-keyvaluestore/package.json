@@ -33,9 +33,9 @@
     "@aws-sdk/util-endpoints": "workspace:^3.996.9",
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.11",
     "@aws-sdk/util-user-agent-node": "workspace:^3.973.26",
-    "@smithy/core": "^3.24.1",
-    "@smithy/fetch-http-handler": "^5.4.1",
-    "@smithy/node-http-handler": "^4.7.1",
+    "@smithy/core": "^3.24.2",
+    "@smithy/fetch-http-handler": "^5.4.2",
+    "@smithy/node-http-handler": "^4.7.2",
     "@smithy/types": "^4.14.1",
     "tslib": "^2.6.2"
   },
