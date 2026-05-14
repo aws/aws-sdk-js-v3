@@ -146,6 +146,7 @@ import type {
   CreateListingChangeSetCommandInput,
   CreateListingChangeSetCommandOutput,
 } from "./commands/CreateListingChangeSetCommand";
+import type { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
 import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import type {
   CreateProjectMembershipCommandInput,
@@ -221,6 +222,7 @@ import type {
   DeleteGlossaryTermCommandOutput,
 } from "./commands/DeleteGlossaryTermCommand";
 import type { DeleteListingCommandInput, DeleteListingCommandOutput } from "./commands/DeleteListingCommand";
+import type { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
 import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import type {
   DeleteProjectMembershipCommandInput,
@@ -306,6 +308,11 @@ import type {
   GetMetadataGenerationRunCommandInput,
   GetMetadataGenerationRunCommandOutput,
 } from "./commands/GetMetadataGenerationRunCommand";
+import type { GetNotebookCommandInput, GetNotebookCommandOutput } from "./commands/GetNotebookCommand";
+import type {
+  GetNotebookExportCommandInput,
+  GetNotebookExportCommandOutput,
+} from "./commands/GetNotebookExportCommand";
 import type { GetNotebookRunCommandInput, GetNotebookRunCommandOutput } from "./commands/GetNotebookRunCommand";
 import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import type {
@@ -392,6 +399,7 @@ import type {
   ListMetadataGenerationRunsCommandOutput,
 } from "./commands/ListMetadataGenerationRunsCommand";
 import type { ListNotebookRunsCommandInput, ListNotebookRunsCommandOutput } from "./commands/ListNotebookRunsCommand";
+import type { ListNotebooksCommandInput, ListNotebooksCommandOutput } from "./commands/ListNotebooksCommand";
 import type {
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
@@ -484,6 +492,14 @@ import type {
   StartMetadataGenerationRunCommandInput,
   StartMetadataGenerationRunCommandOutput,
 } from "./commands/StartMetadataGenerationRunCommand";
+import type {
+  StartNotebookExportCommandInput,
+  StartNotebookExportCommandOutput,
+} from "./commands/StartNotebookExportCommand";
+import type {
+  StartNotebookImportCommandInput,
+  StartNotebookImportCommandOutput,
+} from "./commands/StartNotebookImportCommand";
 import type { StartNotebookRunCommandInput, StartNotebookRunCommandOutput } from "./commands/StartNotebookRunCommand";
 import type { StopNotebookRunCommandInput, StopNotebookRunCommandOutput } from "./commands/StopNotebookRunCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -525,6 +541,7 @@ import type {
   UpdateGroupProfileCommandInput,
   UpdateGroupProfileCommandOutput,
 } from "./commands/UpdateGroupProfileCommand";
+import type { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
 import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import type {
   UpdateProjectProfileCommandInput,
@@ -596,6 +613,7 @@ export type ServiceInputTypes =
   | CreateGlossaryTermCommandInput
   | CreateGroupProfileCommandInput
   | CreateListingChangeSetCommandInput
+  | CreateNotebookCommandInput
   | CreateProjectCommandInput
   | CreateProjectMembershipCommandInput
   | CreateProjectProfileCommandInput
@@ -623,6 +641,7 @@ export type ServiceInputTypes =
   | DeleteGlossaryCommandInput
   | DeleteGlossaryTermCommandInput
   | DeleteListingCommandInput
+  | DeleteNotebookCommandInput
   | DeleteProjectCommandInput
   | DeleteProjectMembershipCommandInput
   | DeleteProjectProfileCommandInput
@@ -660,6 +679,8 @@ export type ServiceInputTypes =
   | GetLineageNodeCommandInput
   | GetListingCommandInput
   | GetMetadataGenerationRunCommandInput
+  | GetNotebookCommandInput
+  | GetNotebookExportCommandInput
   | GetNotebookRunCommandInput
   | GetProjectCommandInput
   | GetProjectProfileCommandInput
@@ -692,6 +713,7 @@ export type ServiceInputTypes =
   | ListLineageNodeHistoryCommandInput
   | ListMetadataGenerationRunsCommandInput
   | ListNotebookRunsCommandInput
+  | ListNotebooksCommandInput
   | ListNotificationsCommandInput
   | ListPolicyGrantsCommandInput
   | ListProjectMembershipsCommandInput
@@ -721,6 +743,8 @@ export type ServiceInputTypes =
   | SearchUserProfilesCommandInput
   | StartDataSourceRunCommandInput
   | StartMetadataGenerationRunCommandInput
+  | StartNotebookExportCommandInput
+  | StartNotebookImportCommandInput
   | StartNotebookRunCommandInput
   | StopNotebookRunCommandInput
   | TagResourceCommandInput
@@ -738,6 +762,7 @@ export type ServiceInputTypes =
   | UpdateGlossaryCommandInput
   | UpdateGlossaryTermCommandInput
   | UpdateGroupProfileCommandInput
+  | UpdateNotebookCommandInput
   | UpdateProjectCommandInput
   | UpdateProjectProfileCommandInput
   | UpdateRootDomainUnitOwnerCommandInput
@@ -781,6 +806,7 @@ export type ServiceOutputTypes =
   | CreateGlossaryTermCommandOutput
   | CreateGroupProfileCommandOutput
   | CreateListingChangeSetCommandOutput
+  | CreateNotebookCommandOutput
   | CreateProjectCommandOutput
   | CreateProjectMembershipCommandOutput
   | CreateProjectProfileCommandOutput
@@ -808,6 +834,7 @@ export type ServiceOutputTypes =
   | DeleteGlossaryCommandOutput
   | DeleteGlossaryTermCommandOutput
   | DeleteListingCommandOutput
+  | DeleteNotebookCommandOutput
   | DeleteProjectCommandOutput
   | DeleteProjectMembershipCommandOutput
   | DeleteProjectProfileCommandOutput
@@ -845,6 +872,8 @@ export type ServiceOutputTypes =
   | GetLineageNodeCommandOutput
   | GetListingCommandOutput
   | GetMetadataGenerationRunCommandOutput
+  | GetNotebookCommandOutput
+  | GetNotebookExportCommandOutput
   | GetNotebookRunCommandOutput
   | GetProjectCommandOutput
   | GetProjectProfileCommandOutput
@@ -877,6 +906,7 @@ export type ServiceOutputTypes =
   | ListLineageNodeHistoryCommandOutput
   | ListMetadataGenerationRunsCommandOutput
   | ListNotebookRunsCommandOutput
+  | ListNotebooksCommandOutput
   | ListNotificationsCommandOutput
   | ListPolicyGrantsCommandOutput
   | ListProjectMembershipsCommandOutput
@@ -906,6 +936,8 @@ export type ServiceOutputTypes =
   | SearchUserProfilesCommandOutput
   | StartDataSourceRunCommandOutput
   | StartMetadataGenerationRunCommandOutput
+  | StartNotebookExportCommandOutput
+  | StartNotebookImportCommandOutput
   | StartNotebookRunCommandOutput
   | StopNotebookRunCommandOutput
   | TagResourceCommandOutput
@@ -923,6 +955,7 @@ export type ServiceOutputTypes =
   | UpdateGlossaryCommandOutput
   | UpdateGlossaryTermCommandOutput
   | UpdateGroupProfileCommandOutput
+  | UpdateNotebookCommandOutput
   | UpdateProjectCommandOutput
   | UpdateProjectProfileCommandOutput
   | UpdateRootDomainUnitOwnerCommandOutput

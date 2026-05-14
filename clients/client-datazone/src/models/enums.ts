@@ -793,6 +793,40 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  * @public
  * @enum
  */
+export const PackageManager = {
+  /**
+   * <p>The UV package manager.</p>
+   */
+  UV: "UV",
+} as const;
+/**
+ * @public
+ */
+export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookStatus = {
+  /**
+   * <p>The notebook is active.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The notebook is archived.</p>
+   */
+  ARCHIVED: "ARCHIVED",
+} as const;
+/**
+ * @public
+ */
+export type NotebookStatus = (typeof NotebookStatus)[keyof typeof NotebookStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const UserDesignation = {
   PROJECT_CATALOG_CONSUMER: "PROJECT_CATALOG_CONSUMER",
   PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
@@ -1343,16 +1377,43 @@ export type MetadataGenerationTargetType =
  * @public
  * @enum
  */
-export const PackageManager = {
+export const FileFormat = {
   /**
-   * <p>The UV package manager.</p>
+   * <p>Export the notebook as a Jupyter notebook (.ipynb) file.</p>
    */
-  UV: "UV",
+  IPYNB: "IPYNB",
+  /**
+   * <p>Export the notebook as a PDF file.</p>
+   */
+  PDF: "PDF",
 } as const;
 /**
  * @public
  */
-export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookExportStatus = {
+  /**
+   * <p>The notebook export failed.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The notebook export is in progress.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+  /**
+   * <p>The notebook export succeeded.</p>
+   */
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type NotebookExportStatus = (typeof NotebookExportStatus)[keyof typeof NotebookExportStatus];
 
 /**
  * @public

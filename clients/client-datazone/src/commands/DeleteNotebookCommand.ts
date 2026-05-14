@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopNotebookRunInput, StopNotebookRunOutput } from "../models/models_1";
-import { StopNotebookRun$ } from "../schemas/schemas_0";
+import type { DeleteNotebookInput, DeleteNotebookOutput } from "../models/models_1";
+import { DeleteNotebook$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,46 +16,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopNotebookRunCommand}.
+ * The input for {@link DeleteNotebookCommand}.
  */
-export interface StopNotebookRunCommandInput extends StopNotebookRunInput {}
+export interface DeleteNotebookCommandInput extends DeleteNotebookInput {}
 /**
  * @public
  *
- * The output of {@link StopNotebookRunCommand}.
+ * The output of {@link DeleteNotebookCommand}.
  */
-export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __MetadataBearer {}
+export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __MetadataBearer {}
 
 /**
- * <p>Stops a running <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+ * <p>Deletes a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook</a> in Amazon SageMaker Unified Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, StopNotebookRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, StopNotebookRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteNotebookCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteNotebookCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // StopNotebookRunInput
+ * const input = { // DeleteNotebookInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
  * };
- * const command = new StopNotebookRunCommand(input);
+ * const command = new DeleteNotebookCommand(input);
  * const response = await client.send(command);
- * // { // StopNotebookRunOutput
- * //   id: "STRING_VALUE", // required
- * //   domainId: "STRING_VALUE", // required
- * //   owningProjectId: "STRING_VALUE", // required
- * //   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param StopNotebookRunCommandInput - {@link StopNotebookRunCommandInput}
- * @returns {@link StopNotebookRunCommandOutput}
- * @see {@link StopNotebookRunCommandInput} for command's `input` shape.
- * @see {@link StopNotebookRunCommandOutput} for command's `response` shape.
+ * @param DeleteNotebookCommandInput - {@link DeleteNotebookCommandInput}
+ * @returns {@link DeleteNotebookCommandOutput}
+ * @see {@link DeleteNotebookCommandInput} for command's `input` shape.
+ * @see {@link DeleteNotebookCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -66,9 +60,6 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -85,10 +76,10 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @public
  */
-export class StopNotebookRunCommand extends $Command
+export class DeleteNotebookCommand extends $Command
   .classBuilder<
-    StopNotebookRunCommandInput,
-    StopNotebookRunCommandOutput,
+    DeleteNotebookCommandInput,
+    DeleteNotebookCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,19 +88,19 @@ export class StopNotebookRunCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "StopNotebookRun", {})
-  .n("DataZoneClient", "StopNotebookRunCommand")
-  .sc(StopNotebookRun$)
+  .s("DataZone", "DeleteNotebook", {})
+  .n("DataZoneClient", "DeleteNotebookCommand")
+  .sc(DeleteNotebook$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopNotebookRunInput;
-      output: StopNotebookRunOutput;
+      input: DeleteNotebookInput;
+      output: {};
     };
     sdk: {
-      input: StopNotebookRunCommandInput;
-      output: StopNotebookRunCommandOutput;
+      input: DeleteNotebookCommandInput;
+      output: DeleteNotebookCommandOutput;
     };
   };
 }

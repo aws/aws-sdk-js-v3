@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { QueryGraphOutput } from "../models/models_1";
-import type { QueryGraphInput } from "../models/models_2";
+import type { QueryGraphInput, QueryGraphOutput } from "../models/models_2";
 import { QueryGraph$ } from "../schemas/schemas_0";
 
 /**

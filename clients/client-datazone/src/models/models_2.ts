@@ -2,7 +2,9 @@
 import type {
   ConnectionScope,
   ConnectionType,
+  DataZoneEntityType,
   EnvironmentStatus,
+  FilterOperator,
   FilterStatus,
   FormTypeStatus,
   GlossaryStatus,
@@ -12,7 +14,12 @@ import type {
   GroupProfileStatus,
   GroupSearchType,
   InventorySearchScope,
+  ManagedPolicyType,
+  NotebookStatus,
   ProjectStatus,
+  RejectRuleBehavior,
+  RelationDirection,
+  RelationType,
   ResolutionStrategy,
   RuleAction,
   RuleTargetType,
@@ -25,6 +32,8 @@ import type {
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
+  TargetEntityType,
+  TimeSeriesEntityType,
   TypesSearchScope,
   UserProfileStatus,
   UserProfileType,
@@ -55,10 +64,11 @@ import type {
   FailureCause,
   FormEntryOutput,
   FormOutput,
-  GrantedEntity,
   MatchRationaleItem,
   Model,
+  OwnerProperties,
   PhysicalEndpoint,
+  PolicyGrantPrincipal,
   ProjectDeletionError,
   ProvisioningProperties,
   Resource,
@@ -77,11 +87,651 @@ import type {
 import type {
   DataProductListingItem,
   DataProductResultItem,
-  Filter,
+  EncryptionConfiguration,
+  GrantedEntity,
   Import,
-  RelationPattern,
   SubscriptionTargetForm,
+  TimeSeriesDataPointFormOutput,
 } from "./models_1";
+
+/**
+ * <p>The time series data points form.</p>
+ * @public
+ */
+export interface TimeSeriesDataPointFormInput {
+  /**
+   * <p>The name of the time series data points form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The ID of the type of the time series data points form.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The revision type of the time series data points form.</p>
+   * @public
+   */
+  typeRevision?: string | undefined;
+
+  /**
+   * <p>The timestamp of the time series data points form.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content of the time series data points form.</p>
+   * @public
+   */
+  content?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostTimeSeriesDataPointsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to post data points.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The forms that contain the data points that you want to post.</p>
+   * @public
+   */
+  forms: TimeSeriesDataPointFormInput[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostTimeSeriesDataPointsOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * @public
+   */
+  entityId?: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to post data points.</p>
+   * @public
+   */
+  entityType?: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The forms that contain the data points that you have posted.</p>
+   * @public
+   */
+  forms?: TimeSeriesDataPointFormOutput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataExportConfigurationInput {
+  /**
+   * <p>The domain ID for which you want to create data export configuration details.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies that the export is to be enabled as part of creating data export configuration details.</p>
+   * @public
+   */
+  enableExport: boolean | undefined;
+
+  /**
+   * <p>The encryption configuration as part of creating data export configuration details.</p> <p>The KMS key provided here as part of encryptionConfiguration must have the required permissions as described in <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.html">KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio</a>.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataExportConfigurationOutput {}
+
+/**
+ * <p>A search filter in Amazon DataZone.</p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>A search filter attribute in Amazon DataZone.</p>
+   * @public
+   */
+  attribute: string | undefined;
+
+  /**
+   * <p>A search filter string value in Amazon DataZone.</p>
+   * @public
+   */
+  value?: string | undefined;
+
+  /**
+   * <p>A search filter integer value in Amazon DataZone.</p>
+   * @public
+   */
+  intValue?: number | undefined;
+
+  /**
+   * <p>Specifies the search filter operator.</p>
+   * @public
+   */
+  operator?: FilterOperator | undefined;
+}
+
+/**
+ * <p>The pattern describing the query's relational traversal.</p>
+ * @public
+ */
+export interface RelationPattern {
+  /**
+   * <p>The type of relation to query.</p>
+   * @public
+   */
+  relationType: RelationType | undefined;
+
+  /**
+   * <p>The direction to query.</p>
+   * @public
+   */
+  relationDirection: RelationDirection | undefined;
+
+  /**
+   * <p>The number of hops to query.</p>
+   * @public
+   */
+  maxPathLength?: number | undefined;
+}
+
+/**
+ * <p>The summary and output forms of a LineageNode</p>
+ * @public
+ */
+export interface LineageNodeItem {
+  /**
+   * <p>The ID of the domain of the data lineage node.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The name of the data lineage node.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the data lineage node.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data lineage node was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data lineage node.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data lineage node was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who updated the data lineage node.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The ID of the data lineage node.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the type of the data lineage node.</p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>The type of the revision of the data lineage node.</p>
+   * @public
+   */
+  typeRevision?: string | undefined;
+
+  /**
+   * <p>The alternate ID of the data lineage node.</p>
+   * @public
+   */
+  sourceIdentifier?: string | undefined;
+
+  /**
+   * <p>The event timestamp of the data lineage node.</p>
+   * @public
+   */
+  eventTimestamp?: Date | undefined;
+
+  /**
+   * <p>The forms included in the additional attributes of a data lineage node.</p>
+   * @public
+   */
+  formsOutput?: FormOutput[] | undefined;
+
+  /**
+   * <p>The IDs of the upstream data lineage nodes.</p>
+   * @public
+   */
+  upstreamLineageNodeIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the downstream data lineage nodes.</p>
+   * @public
+   */
+  downstreamLineageNodeIds?: string[] | undefined;
+}
+
+/**
+ * <p>Resulting entity from the query.</p>
+ * @public
+ */
+export type ResultItem =
+  | ResultItem.LineageNodeMember
+  | ResultItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ResultItem {
+  /**
+   * <p>Resulting data lineage node from the query.</p>
+   * @public
+   */
+  export interface LineageNodeMember {
+    lineageNode: LineageNodeItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    lineageNode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    lineageNode: (value: LineageNodeItem) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface QueryGraphOutput {
+  /**
+   * <p>The results of the <code>QueryGraph</code> action.</p>
+   * @public
+   */
+  items?: ResultItem[] | undefined;
+
+  /**
+   * <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The details of the automatically generated business metadata that is rejected.</p>
+ * @public
+ */
+export interface RejectChoice {
+  /**
+   * <p>Specifies the target (for example, a column name) where a prediction can be rejected.</p>
+   * @public
+   */
+  predictionTarget: string | undefined;
+
+  /**
+   * <p>Specifies the the automatically generated business metadata that can be rejected.</p>
+   * @public
+   */
+  predictionChoices?: number[] | undefined;
+}
+
+/**
+ * <p>Specifies the rule and the threshold under which a prediction can be rejected.</p>
+ * @public
+ */
+export interface RejectRule {
+  /**
+   * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
+   * @public
+   */
+  rule?: RejectRuleBehavior | undefined;
+
+  /**
+   * <p>The confidence score that specifies the condition at which a prediction can be rejected.</p>
+   * @public
+   */
+  threshold?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectPredictionsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the prediction.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision that is to be made to the asset.</p>
+   * @public
+   */
+  revision?: string | undefined;
+
+  /**
+   * <p>Specifies the rule (or the conditions) under which a prediction can be rejected.</p>
+   * @public
+   */
+  rejectRule?: RejectRule | undefined;
+
+  /**
+   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be rejected.</p>
+   * @public
+   */
+  rejectChoices?: RejectChoice[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectPredictionsOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the asset.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The revision that is to be made to the asset.</p>
+   * @public
+   */
+  assetRevision: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectSubscriptionRequestInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the subscription request that was rejected.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The decision comment of the rejected subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectSubscriptionRequestOutput {
+  /**
+   * <p>The identifier of the subscription request that was rejected.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was rejected.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the subscription request.</p>
+   * @public
+   */
+  status: SubscriptionRequestStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was rejected.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>The subscribed principals of the subscription request.</p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipal[] | undefined;
+
+  /**
+   * <p>The subscribed listings of the subscription request.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListing[] | undefined;
+
+  /**
+   * <p>The identifier of the subscription request reviewer.</p>
+   * @public
+   */
+  reviewerId?: string | undefined;
+
+  /**
+   * <p>The decision comment of the rejected subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>Metadata forms included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormOutput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveEntityOwnerInput {
+  /**
+   * <p>The ID of the domain where you want to remove an owner from an entity.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the entity from which you want to remove an owner.</p>
+   * @public
+   */
+  entityType: DataZoneEntityType | undefined;
+
+  /**
+   * <p>The ID of the entity from which you want to remove an owner.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The owner that you want to remove from an entity.</p>
+   * @public
+   */
+  owner: OwnerProperties | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveEntityOwnerOutput {}
+
+/**
+ * @public
+ */
+export interface RemovePolicyGrantInput {
+  /**
+   * <p>The ID of the domain where you want to remove a policy grant.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the entity from which you want to remove a policy grant.</p>
+   * @public
+   */
+  entityType: TargetEntityType | undefined;
+
+  /**
+   * <p>The ID of the entity from which you want to remove a policy grant.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the policy that you want to remove.</p>
+   * @public
+   */
+  policyType: ManagedPolicyType | undefined;
+
+  /**
+   * <p>The principal from which you want to remove a policy grant.</p>
+   * @public
+   */
+  principal: PolicyGrantPrincipal | undefined;
+
+  /**
+   * <p>The ID of the policy grant that is to be removed from a specified entity.</p>
+   * @public
+   */
+  grantIdentifier?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -1424,6 +2074,145 @@ export interface SearchUserProfilesOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>The source location for a notebook import in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export type SourceLocation =
+  | SourceLocation.S3Member
+  | SourceLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceLocation {
+  /**
+   * <p>The Amazon Simple Storage Service URI of the notebook source file.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookImportInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to import the notebook.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that will own the imported notebook.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The source location of the notebook to import. This specifies the Amazon Simple Storage Service URI of the notebook file.</p>
+   * @public
+   */
+  sourceLocation: SourceLocation | undefined;
+
+  /**
+   * <p>The name of the imported notebook. The name must be between 1 and 256 characters.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the imported notebook.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookImportOutput {
+  /**
+   * <p>The identifier of the imported notebook.</p>
+   * @public
+   */
+  notebookId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook import.</p>
+   * @public
+   */
+  status?: NotebookStatus | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the imported notebook.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The name of the imported notebook.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the imported notebook.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The source location from which the notebook was imported.</p>
+   * @public
+   */
+  sourceLocation?: SourceLocation | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook import was started.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who started the notebook import.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
 }
 
 /**

@@ -199,6 +199,10 @@ import {
   CreateListingChangeSetCommand,
   CreateListingChangeSetInput$,
   CreateListingChangeSetOutput$,
+  CreateNotebook$,
+  CreateNotebookCommand,
+  CreateNotebookInput$,
+  CreateNotebookOutput$,
   CreateProject$,
   CreateProjectCommand,
   CreateProjectFromProjectProfilePolicyGrantDetail$,
@@ -331,6 +335,10 @@ import {
   DeleteListingCommand,
   DeleteListingInput$,
   DeleteListingOutput$,
+  DeleteNotebook$,
+  DeleteNotebookCommand,
+  DeleteNotebookInput$,
+  DeleteNotebookOutput$,
   DeleteProject$,
   DeleteProjectCommand,
   DeleteProjectInput$,
@@ -410,6 +418,7 @@ import {
   EqualToExpression$,
   EventSummary$,
   FailureCause$,
+  FileFormat,
   Filter$,
   FilterClause$,
   FilterExpression$,
@@ -530,6 +539,14 @@ import {
   GetMetadataGenerationRunCommand,
   GetMetadataGenerationRunInput$,
   GetMetadataGenerationRunOutput$,
+  GetNotebook$,
+  GetNotebookCommand,
+  GetNotebookExport$,
+  GetNotebookExportCommand,
+  GetNotebookExportInput$,
+  GetNotebookExportOutput$,
+  GetNotebookInput$,
+  GetNotebookOutput$,
   GetNotebookRun$,
   GetNotebookRunCommand,
   GetNotebookRunInput$,
@@ -733,6 +750,10 @@ import {
   ListNotebookRunsCommand,
   ListNotebookRunsInput$,
   ListNotebookRunsOutput$,
+  ListNotebooks$,
+  ListNotebooksCommand,
+  ListNotebooksInput$,
+  ListNotebooksOutput$,
   ListNotifications$,
   ListNotificationsCommand,
   ListNotificationsInput$,
@@ -804,9 +825,14 @@ import {
   NameIdentifier$,
   NetworkAccessType,
   NetworkConfig$,
+  NotebookError$,
+  NotebookExportError$,
+  NotebookExportStatus,
   NotebookRunError$,
   NotebookRunStatus,
   NotebookRunSummary$,
+  NotebookStatus,
+  NotebookSummary$,
   NotEqualToExpression$,
   NotificationOutput$,
   NotificationResource$,
@@ -820,6 +846,7 @@ import {
   OAuth2Properties$,
   OpenLineageRunEventSummary$,
   OpenLineageRunState,
+  OutputLocation$,
   OverallDeploymentStatus,
   OverrideDomainUnitOwnersPolicyGrantDetail$,
   OverrideProjectOwnersPolicyGrantDetail$,
@@ -853,6 +880,7 @@ import {
   paginateListLineageNodeHistory,
   paginateListMetadataGenerationRuns,
   paginateListNotebookRuns,
+  paginateListNotebooks,
   paginateListNotifications,
   paginateListPolicyGrants,
   paginateListProjectMemberships,
@@ -973,6 +1001,7 @@ import {
   RuleTargetType,
   RuleType,
   RunStatisticsForAssets$,
+  S3Destination$,
   S3Permission,
   S3PropertiesInput$,
   S3PropertiesOutput$,
@@ -1017,6 +1046,7 @@ import {
   SortFieldProject,
   SortKey,
   SortOrder,
+  SourceLocation$,
   SparkEmrPropertiesInput$,
   SparkEmrPropertiesOutput$,
   SparkEmrPropertiesPatch$,
@@ -1032,6 +1062,14 @@ import {
   StartMetadataGenerationRunCommand,
   StartMetadataGenerationRunInput$,
   StartMetadataGenerationRunOutput$,
+  StartNotebookExport$,
+  StartNotebookExportCommand,
+  StartNotebookExportInput$,
+  StartNotebookExportOutput$,
+  StartNotebookImport$,
+  StartNotebookImportCommand,
+  StartNotebookImportInput$,
+  StartNotebookImportOutput$,
   StartNotebookRun$,
   StartNotebookRunCommand,
   StartNotebookRunInput$,
@@ -1147,6 +1185,10 @@ import {
   UpdateGroupProfileCommand,
   UpdateGroupProfileInput$,
   UpdateGroupProfileOutput$,
+  UpdateNotebook$,
+  UpdateNotebookCommand,
+  UpdateNotebookInput$,
+  UpdateNotebookOutput$,
   UpdateProject$,
   UpdateProjectCommand,
   UpdateProjectInput$,
@@ -1263,6 +1305,8 @@ assert(typeof CreateGroupProfileCommand === "function");
 assert(typeof CreateGroupProfile$ === "object");
 assert(typeof CreateListingChangeSetCommand === "function");
 assert(typeof CreateListingChangeSet$ === "object");
+assert(typeof CreateNotebookCommand === "function");
+assert(typeof CreateNotebook$ === "object");
 assert(typeof CreateProjectCommand === "function");
 assert(typeof CreateProject$ === "object");
 assert(typeof CreateProjectMembershipCommand === "function");
@@ -1317,6 +1361,8 @@ assert(typeof DeleteGlossaryTermCommand === "function");
 assert(typeof DeleteGlossaryTerm$ === "object");
 assert(typeof DeleteListingCommand === "function");
 assert(typeof DeleteListing$ === "object");
+assert(typeof DeleteNotebookCommand === "function");
+assert(typeof DeleteNotebook$ === "object");
 assert(typeof DeleteProjectCommand === "function");
 assert(typeof DeleteProject$ === "object");
 assert(typeof DeleteProjectMembershipCommand === "function");
@@ -1391,6 +1437,10 @@ assert(typeof GetListingCommand === "function");
 assert(typeof GetListing$ === "object");
 assert(typeof GetMetadataGenerationRunCommand === "function");
 assert(typeof GetMetadataGenerationRun$ === "object");
+assert(typeof GetNotebookCommand === "function");
+assert(typeof GetNotebook$ === "object");
+assert(typeof GetNotebookExportCommand === "function");
+assert(typeof GetNotebookExport$ === "object");
 assert(typeof GetNotebookRunCommand === "function");
 assert(typeof GetNotebookRun$ === "object");
 assert(typeof GetProjectCommand === "function");
@@ -1455,6 +1505,8 @@ assert(typeof ListMetadataGenerationRunsCommand === "function");
 assert(typeof ListMetadataGenerationRuns$ === "object");
 assert(typeof ListNotebookRunsCommand === "function");
 assert(typeof ListNotebookRuns$ === "object");
+assert(typeof ListNotebooksCommand === "function");
+assert(typeof ListNotebooks$ === "object");
 assert(typeof ListNotificationsCommand === "function");
 assert(typeof ListNotifications$ === "object");
 assert(typeof ListPolicyGrantsCommand === "function");
@@ -1513,6 +1565,10 @@ assert(typeof StartDataSourceRunCommand === "function");
 assert(typeof StartDataSourceRun$ === "object");
 assert(typeof StartMetadataGenerationRunCommand === "function");
 assert(typeof StartMetadataGenerationRun$ === "object");
+assert(typeof StartNotebookExportCommand === "function");
+assert(typeof StartNotebookExport$ === "object");
+assert(typeof StartNotebookImportCommand === "function");
+assert(typeof StartNotebookImport$ === "object");
 assert(typeof StartNotebookRunCommand === "function");
 assert(typeof StartNotebookRun$ === "object");
 assert(typeof StopNotebookRunCommand === "function");
@@ -1547,6 +1603,8 @@ assert(typeof UpdateGlossaryTermCommand === "function");
 assert(typeof UpdateGlossaryTerm$ === "object");
 assert(typeof UpdateGroupProfileCommand === "function");
 assert(typeof UpdateGroupProfile$ === "object");
+assert(typeof UpdateNotebookCommand === "function");
+assert(typeof UpdateNotebook$ === "object");
 assert(typeof UpdateProjectCommand === "function");
 assert(typeof UpdateProject$ === "object");
 assert(typeof UpdateProjectProfileCommand === "function");
@@ -1689,6 +1747,8 @@ assert(typeof CreateGroupProfileInput$ === "object");
 assert(typeof CreateGroupProfileOutput$ === "object");
 assert(typeof CreateListingChangeSetInput$ === "object");
 assert(typeof CreateListingChangeSetOutput$ === "object");
+assert(typeof CreateNotebookInput$ === "object");
+assert(typeof CreateNotebookOutput$ === "object");
 assert(typeof CreateProjectFromProjectProfilePolicyGrantDetail$ === "object");
 assert(typeof CreateProjectInput$ === "object");
 assert(typeof CreateProjectMembershipInput$ === "object");
@@ -1756,6 +1816,8 @@ assert(typeof DeleteGlossaryTermInput$ === "object");
 assert(typeof DeleteGlossaryTermOutput$ === "object");
 assert(typeof DeleteListingInput$ === "object");
 assert(typeof DeleteListingOutput$ === "object");
+assert(typeof DeleteNotebookInput$ === "object");
+assert(typeof DeleteNotebookOutput$ === "object");
 assert(typeof DeleteProjectInput$ === "object");
 assert(typeof DeleteProjectMembershipInput$ === "object");
 assert(typeof DeleteProjectMembershipOutput$ === "object");
@@ -1867,6 +1929,10 @@ assert(typeof GetListingInput$ === "object");
 assert(typeof GetListingOutput$ === "object");
 assert(typeof GetMetadataGenerationRunInput$ === "object");
 assert(typeof GetMetadataGenerationRunOutput$ === "object");
+assert(typeof GetNotebookExportInput$ === "object");
+assert(typeof GetNotebookExportOutput$ === "object");
+assert(typeof GetNotebookInput$ === "object");
+assert(typeof GetNotebookOutput$ === "object");
 assert(typeof GetNotebookRunInput$ === "object");
 assert(typeof GetNotebookRunOutput$ === "object");
 assert(typeof GetProjectInput$ === "object");
@@ -1987,6 +2053,8 @@ assert(typeof ListMetadataGenerationRunsInput$ === "object");
 assert(typeof ListMetadataGenerationRunsOutput$ === "object");
 assert(typeof ListNotebookRunsInput$ === "object");
 assert(typeof ListNotebookRunsOutput$ === "object");
+assert(typeof ListNotebooksInput$ === "object");
+assert(typeof ListNotebooksOutput$ === "object");
 assert(typeof ListNotificationsInput$ === "object");
 assert(typeof ListNotificationsOutput$ === "object");
 assert(typeof ListPolicyGrantsInput$ === "object");
@@ -2029,8 +2097,11 @@ assert(typeof MlflowPropertiesPatch$ === "object");
 assert(typeof Model$ === "object");
 assert(typeof NameIdentifier$ === "object");
 assert(typeof NetworkConfig$ === "object");
+assert(typeof NotebookError$ === "object");
+assert(typeof NotebookExportError$ === "object");
 assert(typeof NotebookRunError$ === "object");
 assert(typeof NotebookRunSummary$ === "object");
+assert(typeof NotebookSummary$ === "object");
 assert(typeof NotEqualToExpression$ === "object");
 assert(typeof NotificationOutput$ === "object");
 assert(typeof NotificationResource$ === "object");
@@ -2039,6 +2110,7 @@ assert(typeof NotLikeExpression$ === "object");
 assert(typeof OAuth2ClientApplication$ === "object");
 assert(typeof OAuth2Properties$ === "object");
 assert(typeof OpenLineageRunEventSummary$ === "object");
+assert(typeof OutputLocation$ === "object");
 assert(typeof OverrideDomainUnitOwnersPolicyGrantDetail$ === "object");
 assert(typeof OverrideProjectOwnersPolicyGrantDetail$ === "object");
 assert(typeof OwnerGroupProperties$ === "object");
@@ -2117,6 +2189,7 @@ assert(typeof RuleScope$ === "object");
 assert(typeof RuleSummary$ === "object");
 assert(typeof RuleTarget$ === "object");
 assert(typeof RunStatisticsForAssets$ === "object");
+assert(typeof S3Destination$ === "object");
 assert(typeof S3PropertiesInput$ === "object");
 assert(typeof S3PropertiesOutput$ === "object");
 assert(typeof S3PropertiesPatch$ === "object");
@@ -2141,6 +2214,7 @@ assert(typeof SearchUserProfilesOutput$ === "object");
 assert(typeof SelfGrantStatusDetail$ === "object");
 assert(typeof SelfGrantStatusOutput$ === "object");
 assert(typeof SingleSignOn$ === "object");
+assert(typeof SourceLocation$ === "object");
 assert(typeof SparkEmrPropertiesInput$ === "object");
 assert(typeof SparkEmrPropertiesOutput$ === "object");
 assert(typeof SparkEmrPropertiesPatch$ === "object");
@@ -2152,6 +2226,10 @@ assert(typeof StartDataSourceRunInput$ === "object");
 assert(typeof StartDataSourceRunOutput$ === "object");
 assert(typeof StartMetadataGenerationRunInput$ === "object");
 assert(typeof StartMetadataGenerationRunOutput$ === "object");
+assert(typeof StartNotebookExportInput$ === "object");
+assert(typeof StartNotebookExportOutput$ === "object");
+assert(typeof StartNotebookImportInput$ === "object");
+assert(typeof StartNotebookImportOutput$ === "object");
 assert(typeof StartNotebookRunInput$ === "object");
 assert(typeof StartNotebookRunOutput$ === "object");
 assert(typeof StopNotebookRunInput$ === "object");
@@ -2217,6 +2295,8 @@ assert(typeof UpdateGlossaryTermInput$ === "object");
 assert(typeof UpdateGlossaryTermOutput$ === "object");
 assert(typeof UpdateGroupProfileInput$ === "object");
 assert(typeof UpdateGroupProfileOutput$ === "object");
+assert(typeof UpdateNotebookInput$ === "object");
+assert(typeof UpdateNotebookOutput$ === "object");
 assert(typeof UpdateProjectInput$ === "object");
 assert(typeof UpdateProjectOutput$ === "object");
 assert(typeof UpdateProjectProfileInput$ === "object");
@@ -2273,6 +2353,7 @@ assert(typeof EdgeDirection === "object");
 assert(typeof EnableSetting === "object");
 assert(typeof EntityType === "object");
 assert(typeof EnvironmentStatus === "object");
+assert(typeof FileFormat === "object");
 assert(typeof FilterExpressionType === "object");
 assert(typeof FilterOperator === "object");
 assert(typeof FilterStatus === "object");
@@ -2299,7 +2380,9 @@ assert(typeof MetadataGenerationRunStatus === "object");
 assert(typeof MetadataGenerationRunType === "object");
 assert(typeof MetadataGenerationTargetType === "object");
 assert(typeof NetworkAccessType === "object");
+assert(typeof NotebookExportStatus === "object");
 assert(typeof NotebookRunStatus === "object");
+assert(typeof NotebookStatus === "object");
 assert(typeof NotificationResourceType === "object");
 assert(typeof NotificationRole === "object");
 assert(typeof NotificationType === "object");
@@ -2386,6 +2469,7 @@ assert(typeof paginateListLineageEvents === "function");
 assert(typeof paginateListLineageNodeHistory === "function");
 assert(typeof paginateListMetadataGenerationRuns === "function");
 assert(typeof paginateListNotebookRuns === "function");
+assert(typeof paginateListNotebooks === "function");
 assert(typeof paginateListNotifications === "function");
 assert(typeof paginateListPolicyGrants === "function");
 assert(typeof paginateListProjectMemberships === "function");

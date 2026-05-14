@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopNotebookRunInput, StopNotebookRunOutput } from "../models/models_1";
-import { StopNotebookRun$ } from "../schemas/schemas_0";
+import type { GetNotebookExportInput, GetNotebookExportOutput } from "../models/models_1";
+import { GetNotebookExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,53 +16,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopNotebookRunCommand}.
+ * The input for {@link GetNotebookExportCommand}.
  */
-export interface StopNotebookRunCommandInput extends StopNotebookRunInput {}
+export interface GetNotebookExportCommandInput extends GetNotebookExportInput {}
 /**
  * @public
  *
- * The output of {@link StopNotebookRunCommand}.
+ * The output of {@link GetNotebookExportCommand}.
  */
-export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __MetadataBearer {}
+export interface GetNotebookExportCommandOutput extends GetNotebookExportOutput, __MetadataBearer {}
 
 /**
- * <p>Stops a running <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+ * <p>Gets the details of a notebook export in Amazon SageMaker Unified Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, StopNotebookRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, StopNotebookRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, GetNotebookExportCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, GetNotebookExportCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // StopNotebookRunInput
+ * const input = { // GetNotebookExportInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
  * };
- * const command = new StopNotebookRunCommand(input);
+ * const command = new GetNotebookExportCommand(input);
  * const response = await client.send(command);
- * // { // StopNotebookRunOutput
+ * // { // GetNotebookExportOutput
  * //   id: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
  * //   owningProjectId: "STRING_VALUE", // required
- * //   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
+ * //   notebookId: "STRING_VALUE", // required
+ * //   fileFormat: "PDF" || "IPYNB", // required
+ * //   status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
+ * //   outputLocation: { // OutputLocation Union: only one key present
+ * //     s3: { // S3Destination
+ * //       uri: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   error: { // NotebookExportError
+ * //     message: "STRING_VALUE", // required
+ * //   },
+ * //   completedAt: new Date("TIMESTAMP"),
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StopNotebookRunCommandInput - {@link StopNotebookRunCommandInput}
- * @returns {@link StopNotebookRunCommandOutput}
- * @see {@link StopNotebookRunCommandInput} for command's `input` shape.
- * @see {@link StopNotebookRunCommandOutput} for command's `response` shape.
+ * @param GetNotebookExportCommandInput - {@link GetNotebookExportCommandInput}
+ * @returns {@link GetNotebookExportCommandOutput}
+ * @see {@link GetNotebookExportCommandInput} for command's `input` shape.
+ * @see {@link GetNotebookExportCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -85,10 +94,10 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @public
  */
-export class StopNotebookRunCommand extends $Command
+export class GetNotebookExportCommand extends $Command
   .classBuilder<
-    StopNotebookRunCommandInput,
-    StopNotebookRunCommandOutput,
+    GetNotebookExportCommandInput,
+    GetNotebookExportCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,19 +106,19 @@ export class StopNotebookRunCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "StopNotebookRun", {})
-  .n("DataZoneClient", "StopNotebookRunCommand")
-  .sc(StopNotebookRun$)
+  .s("DataZone", "GetNotebookExport", {})
+  .n("DataZoneClient", "GetNotebookExportCommand")
+  .sc(GetNotebookExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopNotebookRunInput;
-      output: StopNotebookRunOutput;
+      input: GetNotebookExportInput;
+      output: GetNotebookExportOutput;
     };
     sdk: {
-      input: StopNotebookRunCommandInput;
-      output: StopNotebookRunCommandOutput;
+      input: GetNotebookExportCommandInput;
+      output: GetNotebookExportCommandOutput;
     };
   };
 }

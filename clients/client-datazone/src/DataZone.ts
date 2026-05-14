@@ -153,6 +153,11 @@ import {
   CreateListingChangeSetCommand,
 } from "./commands/CreateListingChangeSetCommand";
 import {
+  type CreateNotebookCommandInput,
+  type CreateNotebookCommandOutput,
+  CreateNotebookCommand,
+} from "./commands/CreateNotebookCommand";
+import {
   type CreateProjectCommandInput,
   type CreateProjectCommandOutput,
   CreateProjectCommand,
@@ -287,6 +292,11 @@ import {
   type DeleteListingCommandOutput,
   DeleteListingCommand,
 } from "./commands/DeleteListingCommand";
+import {
+  type DeleteNotebookCommandInput,
+  type DeleteNotebookCommandOutput,
+  DeleteNotebookCommand,
+} from "./commands/DeleteNotebookCommand";
 import {
   type DeleteProjectCommandInput,
   type DeleteProjectCommandOutput,
@@ -461,6 +471,16 @@ import {
   GetMetadataGenerationRunCommand,
 } from "./commands/GetMetadataGenerationRunCommand";
 import {
+  type GetNotebookCommandInput,
+  type GetNotebookCommandOutput,
+  GetNotebookCommand,
+} from "./commands/GetNotebookCommand";
+import {
+  type GetNotebookExportCommandInput,
+  type GetNotebookExportCommandOutput,
+  GetNotebookExportCommand,
+} from "./commands/GetNotebookExportCommand";
+import {
   type GetNotebookRunCommandInput,
   type GetNotebookRunCommandOutput,
   GetNotebookRunCommand,
@@ -617,6 +637,11 @@ import {
   ListNotebookRunsCommand,
 } from "./commands/ListNotebookRunsCommand";
 import {
+  type ListNotebooksCommandInput,
+  type ListNotebooksCommandOutput,
+  ListNotebooksCommand,
+} from "./commands/ListNotebooksCommand";
+import {
   type ListNotificationsCommandInput,
   type ListNotificationsCommandOutput,
   ListNotificationsCommand,
@@ -754,6 +779,16 @@ import {
   StartMetadataGenerationRunCommand,
 } from "./commands/StartMetadataGenerationRunCommand";
 import {
+  type StartNotebookExportCommandInput,
+  type StartNotebookExportCommandOutput,
+  StartNotebookExportCommand,
+} from "./commands/StartNotebookExportCommand";
+import {
+  type StartNotebookImportCommandInput,
+  type StartNotebookImportCommandOutput,
+  StartNotebookImportCommand,
+} from "./commands/StartNotebookImportCommand";
+import {
   type StartNotebookRunCommandInput,
   type StartNotebookRunCommandOutput,
   StartNotebookRunCommand,
@@ -839,6 +874,11 @@ import {
   UpdateGroupProfileCommand,
 } from "./commands/UpdateGroupProfileCommand";
 import {
+  type UpdateNotebookCommandInput,
+  type UpdateNotebookCommandOutput,
+  UpdateNotebookCommand,
+} from "./commands/UpdateNotebookCommand";
+import {
   type UpdateProjectCommandInput,
   type UpdateProjectCommandOutput,
   UpdateProjectCommand,
@@ -903,6 +943,7 @@ import { paginateListLineageEvents } from "./pagination/ListLineageEventsPaginat
 import { paginateListLineageNodeHistory } from "./pagination/ListLineageNodeHistoryPaginator";
 import { paginateListMetadataGenerationRuns } from "./pagination/ListMetadataGenerationRunsPaginator";
 import { paginateListNotebookRuns } from "./pagination/ListNotebookRunsPaginator";
+import { paginateListNotebooks } from "./pagination/ListNotebooksPaginator";
 import { paginateListNotifications } from "./pagination/ListNotificationsPaginator";
 import { paginateListPolicyGrants } from "./pagination/ListPolicyGrantsPaginator";
 import { paginateListProjectMemberships } from "./pagination/ListProjectMembershipsPaginator";
@@ -952,6 +993,7 @@ const commands = {
   CreateGlossaryTermCommand,
   CreateGroupProfileCommand,
   CreateListingChangeSetCommand,
+  CreateNotebookCommand,
   CreateProjectCommand,
   CreateProjectMembershipCommand,
   CreateProjectProfileCommand,
@@ -979,6 +1021,7 @@ const commands = {
   DeleteGlossaryCommand,
   DeleteGlossaryTermCommand,
   DeleteListingCommand,
+  DeleteNotebookCommand,
   DeleteProjectCommand,
   DeleteProjectMembershipCommand,
   DeleteProjectProfileCommand,
@@ -1016,6 +1059,8 @@ const commands = {
   GetLineageNodeCommand,
   GetListingCommand,
   GetMetadataGenerationRunCommand,
+  GetNotebookCommand,
+  GetNotebookExportCommand,
   GetNotebookRunCommand,
   GetProjectCommand,
   GetProjectProfileCommand,
@@ -1048,6 +1093,7 @@ const commands = {
   ListLineageNodeHistoryCommand,
   ListMetadataGenerationRunsCommand,
   ListNotebookRunsCommand,
+  ListNotebooksCommand,
   ListNotificationsCommand,
   ListPolicyGrantsCommand,
   ListProjectMembershipsCommand,
@@ -1077,6 +1123,8 @@ const commands = {
   SearchUserProfilesCommand,
   StartDataSourceRunCommand,
   StartMetadataGenerationRunCommand,
+  StartNotebookExportCommand,
+  StartNotebookImportCommand,
   StartNotebookRunCommand,
   StopNotebookRunCommand,
   TagResourceCommand,
@@ -1094,6 +1142,7 @@ const commands = {
   UpdateGlossaryCommand,
   UpdateGlossaryTermCommand,
   UpdateGroupProfileCommand,
+  UpdateNotebookCommand,
   UpdateProjectCommand,
   UpdateProjectProfileCommand,
   UpdateRootDomainUnitOwnerCommand,
@@ -1126,6 +1175,7 @@ const paginators = {
   paginateListLineageNodeHistory,
   paginateListMetadataGenerationRuns,
   paginateListNotebookRuns,
+  paginateListNotebooks,
   paginateListNotifications,
   paginateListPolicyGrants,
   paginateListProjectMemberships,
@@ -1657,6 +1707,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link CreateNotebookCommand}
+   */
+  createNotebook(
+    args: CreateNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNotebookCommandOutput>;
+  createNotebook(
+    args: CreateNotebookCommandInput,
+    cb: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): void;
+  createNotebook(
+    args: CreateNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateProjectCommand}
    */
   createProject(
@@ -2113,6 +2180,23 @@ export interface DataZone {
     args: DeleteListingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteListingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNotebookCommand}
+   */
+  deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNotebookCommandOutput>;
+  deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    cb: (err: any, data?: DeleteNotebookCommandOutput) => void
+  ): void;
+  deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNotebookCommandOutput) => void
   ): void;
 
   /**
@@ -2745,6 +2829,40 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link GetNotebookCommand}
+   */
+  getNotebook(
+    args: GetNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNotebookCommandOutput>;
+  getNotebook(
+    args: GetNotebookCommandInput,
+    cb: (err: any, data?: GetNotebookCommandOutput) => void
+  ): void;
+  getNotebook(
+    args: GetNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNotebookCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetNotebookExportCommand}
+   */
+  getNotebookExport(
+    args: GetNotebookExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNotebookExportCommandOutput>;
+  getNotebookExport(
+    args: GetNotebookExportCommandInput,
+    cb: (err: any, data?: GetNotebookExportCommandOutput) => void
+  ): void;
+  getNotebookExport(
+    args: GetNotebookExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNotebookExportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetNotebookRunCommand}
    */
   getNotebookRun(
@@ -3290,6 +3408,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link ListNotebooksCommand}
+   */
+  listNotebooks(
+    args: ListNotebooksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebooksCommandOutput>;
+  listNotebooks(
+    args: ListNotebooksCommandInput,
+    cb: (err: any, data?: ListNotebooksCommandOutput) => void
+  ): void;
+  listNotebooks(
+    args: ListNotebooksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebooksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNotificationsCommand}
    */
   listNotifications(
@@ -3783,6 +3918,40 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link StartNotebookExportCommand}
+   */
+  startNotebookExport(
+    args: StartNotebookExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNotebookExportCommandOutput>;
+  startNotebookExport(
+    args: StartNotebookExportCommandInput,
+    cb: (err: any, data?: StartNotebookExportCommandOutput) => void
+  ): void;
+  startNotebookExport(
+    args: StartNotebookExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNotebookExportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNotebookImportCommand}
+   */
+  startNotebookImport(
+    args: StartNotebookImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNotebookImportCommandOutput>;
+  startNotebookImport(
+    args: StartNotebookImportCommandInput,
+    cb: (err: any, data?: StartNotebookImportCommandOutput) => void
+  ): void;
+  startNotebookImport(
+    args: StartNotebookImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNotebookImportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartNotebookRunCommand}
    */
   startNotebookRun(
@@ -4069,6 +4238,23 @@ export interface DataZone {
     args: UpdateGroupProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGroupProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNotebookCommand}
+   */
+  updateNotebook(
+    args: UpdateNotebookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNotebookCommandOutput>;
+  updateNotebook(
+    args: UpdateNotebookCommandInput,
+    cb: (err: any, data?: UpdateNotebookCommandOutput) => void
+  ): void;
+  updateNotebook(
+    args: UpdateNotebookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNotebookCommandOutput) => void
   ): void;
 
   /**
@@ -4448,6 +4634,17 @@ export interface DataZone {
     args: ListNotebookRunsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListNotebookRunsCommandOutput>;
+
+  /**
+   * @see {@link ListNotebooksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotebooksCommandOutput}.
+   */
+  paginateListNotebooks(
+    args: ListNotebooksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotebooksCommandOutput>;
 
   /**
    * @see {@link ListNotificationsCommand}

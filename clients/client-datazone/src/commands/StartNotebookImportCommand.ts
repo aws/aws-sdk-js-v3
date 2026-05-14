@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopNotebookRunInput, StopNotebookRunOutput } from "../models/models_1";
-import { StopNotebookRun$ } from "../schemas/schemas_0";
+import type { StartNotebookImportInput, StartNotebookImportOutput } from "../models/models_2";
+import { StartNotebookImport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,46 +16,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopNotebookRunCommand}.
+ * The input for {@link StartNotebookImportCommand}.
  */
-export interface StopNotebookRunCommandInput extends StopNotebookRunInput {}
+export interface StartNotebookImportCommandInput extends StartNotebookImportInput {}
 /**
  * @public
  *
- * The output of {@link StopNotebookRunCommand}.
+ * The output of {@link StartNotebookImportCommand}.
  */
-export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __MetadataBearer {}
+export interface StartNotebookImportCommandOutput extends StartNotebookImportOutput, __MetadataBearer {}
 
 /**
- * <p>Stops a running <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+ * <p>Starts a notebook import in Amazon SageMaker Unified Studio. This operation imports a notebook from an Amazon Simple Storage Service location into a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, StopNotebookRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, StopNotebookRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, StartNotebookImportCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, StartNotebookImportCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // StopNotebookRunInput
+ * const input = { // StartNotebookImportInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
+ *   owningProjectIdentifier: "STRING_VALUE", // required
+ *   sourceLocation: { // SourceLocation Union: only one key present
+ *     s3: "STRING_VALUE",
+ *   },
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new StopNotebookRunCommand(input);
+ * const command = new StartNotebookImportCommand(input);
  * const response = await client.send(command);
- * // { // StopNotebookRunOutput
- * //   id: "STRING_VALUE", // required
- * //   domainId: "STRING_VALUE", // required
- * //   owningProjectId: "STRING_VALUE", // required
- * //   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
+ * // { // StartNotebookImportOutput
+ * //   notebookId: "STRING_VALUE",
+ * //   status: "ACTIVE" || "ARCHIVED",
+ * //   domainId: "STRING_VALUE",
+ * //   owningProjectId: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   sourceLocation: { // SourceLocation Union: only one key present
+ * //     s3: "STRING_VALUE",
+ * //   },
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StopNotebookRunCommandInput - {@link StopNotebookRunCommandInput}
- * @returns {@link StopNotebookRunCommandOutput}
- * @see {@link StopNotebookRunCommandInput} for command's `input` shape.
- * @see {@link StopNotebookRunCommandOutput} for command's `response` shape.
+ * @param StartNotebookImportCommandInput - {@link StartNotebookImportCommandInput}
+ * @returns {@link StartNotebookImportCommandOutput}
+ * @see {@link StartNotebookImportCommandInput} for command's `input` shape.
+ * @see {@link StartNotebookImportCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -69,6 +81,9 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request has exceeded the specified service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -85,10 +100,10 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @public
  */
-export class StopNotebookRunCommand extends $Command
+export class StartNotebookImportCommand extends $Command
   .classBuilder<
-    StopNotebookRunCommandInput,
-    StopNotebookRunCommandOutput,
+    StartNotebookImportCommandInput,
+    StartNotebookImportCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,19 +112,19 @@ export class StopNotebookRunCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "StopNotebookRun", {})
-  .n("DataZoneClient", "StopNotebookRunCommand")
-  .sc(StopNotebookRun$)
+  .s("DataZone", "StartNotebookImport", {})
+  .n("DataZoneClient", "StartNotebookImportCommand")
+  .sc(StartNotebookImport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopNotebookRunInput;
-      output: StopNotebookRunOutput;
+      input: StartNotebookImportInput;
+      output: StartNotebookImportOutput;
     };
     sdk: {
-      input: StopNotebookRunCommandInput;
-      output: StopNotebookRunCommandOutput;
+      input: StartNotebookImportCommandInput;
+      output: StartNotebookImportCommandOutput;
     };
   };
 }

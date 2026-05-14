@@ -27,7 +27,7 @@ export interface StartNotebookRunCommandInput extends StartNotebookRunInput {}
 export interface StartNotebookRunCommandOutput extends StartNotebookRunOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a notebook run in an Amazon DataZone domain. A notebook run represents the execution of a Amazon DataZone notebook within a project. You can configure compute, network, timeout, and environment settings for the run.</p>
+ * <p>Starts a notebook run in Amazon SageMaker Unified Studio. A notebook run represents the execution of an <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">Amazon SageMaker notebook</a> within a project. You can configure compute, network, timeout, and environment settings for the run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

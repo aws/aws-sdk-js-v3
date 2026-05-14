@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetNotebookRunInput, GetNotebookRunOutput } from "../models/models_1";
-import { GetNotebookRun$ } from "../schemas/schemas_0";
+import type { GetNotebookInput, GetNotebookOutput } from "../models/models_1";
+import { GetNotebook$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,64 +16,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetNotebookRunCommand}.
+ * The input for {@link GetNotebookCommand}.
  */
-export interface GetNotebookRunCommandInput extends GetNotebookRunInput {}
+export interface GetNotebookCommandInput extends GetNotebookInput {}
 /**
  * @public
  *
- * The output of {@link GetNotebookRunCommand}.
+ * The output of {@link GetNotebookCommand}.
  */
-export interface GetNotebookRunCommandOutput extends GetNotebookRunOutput, __MetadataBearer {}
+export interface GetNotebookCommandOutput extends GetNotebookOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the details of a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+ * <p>Gets the details of a <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook</a> in Amazon SageMaker Unified Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetNotebookRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetNotebookRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, GetNotebookCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, GetNotebookCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // GetNotebookRunInput
+ * const input = { // GetNotebookInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new GetNotebookRunCommand(input);
+ * const command = new GetNotebookCommand(input);
  * const response = await client.send(command);
- * // { // GetNotebookRunOutput
+ * // { // GetNotebookOutput
  * //   id: "STRING_VALUE", // required
- * //   domainId: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
  * //   owningProjectId: "STRING_VALUE", // required
- * //   notebookId: "STRING_VALUE", // required
- * //   scheduleId: "STRING_VALUE",
- * //   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
- * //   cellOrder: [ // CellOrder
+ * //   domainId: "STRING_VALUE", // required
+ * //   cellOrder: [ // CellOrder // required
  * //     {},
  * //   ],
+ * //   status: "ACTIVE" || "ARCHIVED", // required
+ * //   description: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * //   updatedBy: "STRING_VALUE",
+ * //   lockedBy: "STRING_VALUE",
+ * //   lockedAt: new Date("TIMESTAMP"),
+ * //   lockExpiresAt: new Date("TIMESTAMP"),
+ * //   computeId: "STRING_VALUE",
  * //   metadata: { // Metadata
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   parameters: { // Parameters
  * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   computeConfiguration: { // ComputeConfig
- * //     instanceType: "STRING_VALUE",
- * //     environmentVersion: "STRING_VALUE",
- * //   },
- * //   networkConfiguration: { // NetworkConfig
- * //     networkAccessType: "PUBLIC_INTERNET_ONLY" || "VPC_ONLY", // required
- * //     vpcId: "STRING_VALUE",
- * //     subnetIds: [ // SubnetIds
- * //       "STRING_VALUE",
- * //     ],
- * //     securityGroupIds: [ // SecurityGroupIds
- * //       "STRING_VALUE",
- * //     ],
- * //   },
- * //   timeoutConfiguration: { // TimeoutConfig
- * //     runTimeoutInMinutes: Number("int"),
  * //   },
  * //   environmentConfiguration: { // EnvironmentConfig
  * //     imageVersion: "STRING_VALUE",
@@ -82,31 +73,17 @@ export interface GetNotebookRunCommandOutput extends GetNotebookRunOutput, __Met
  * //       packageSpecification: "STRING_VALUE",
  * //     },
  * //   },
- * //   storageConfiguration: { // StorageConfig
- * //     projectS3Path: "STRING_VALUE",
- * //     kmsKeyArn: "STRING_VALUE",
- * //   },
- * //   triggerSource: { // TriggerSource
- * //     type: "MANUAL" || "SCHEDULED" || "WORKFLOW",
- * //     name: "STRING_VALUE",
- * //   },
- * //   error: { // NotebookRunError
+ * //   error: { // NotebookError
  * //     message: "STRING_VALUE", // required
  * //   },
- * //   createdAt: new Date("TIMESTAMP"),
- * //   createdBy: "STRING_VALUE",
- * //   updatedAt: new Date("TIMESTAMP"),
- * //   updatedBy: "STRING_VALUE",
- * //   startedAt: new Date("TIMESTAMP"),
- * //   completedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param GetNotebookRunCommandInput - {@link GetNotebookRunCommandInput}
- * @returns {@link GetNotebookRunCommandOutput}
- * @see {@link GetNotebookRunCommandInput} for command's `input` shape.
- * @see {@link GetNotebookRunCommandOutput} for command's `response` shape.
+ * @param GetNotebookCommandInput - {@link GetNotebookCommandInput}
+ * @returns {@link GetNotebookCommandOutput}
+ * @see {@link GetNotebookCommandInput} for command's `input` shape.
+ * @see {@link GetNotebookCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -133,10 +110,10 @@ export interface GetNotebookRunCommandOutput extends GetNotebookRunOutput, __Met
  *
  * @public
  */
-export class GetNotebookRunCommand extends $Command
+export class GetNotebookCommand extends $Command
   .classBuilder<
-    GetNotebookRunCommandInput,
-    GetNotebookRunCommandOutput,
+    GetNotebookCommandInput,
+    GetNotebookCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -145,19 +122,19 @@ export class GetNotebookRunCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "GetNotebookRun", {})
-  .n("DataZoneClient", "GetNotebookRunCommand")
-  .sc(GetNotebookRun$)
+  .s("DataZone", "GetNotebook", {})
+  .n("DataZoneClient", "GetNotebookCommand")
+  .sc(GetNotebook$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetNotebookRunInput;
-      output: GetNotebookRunOutput;
+      input: GetNotebookInput;
+      output: GetNotebookOutput;
     };
     sdk: {
-      input: GetNotebookRunCommandInput;
-      output: GetNotebookRunCommandOutput;
+      input: GetNotebookCommandInput;
+      output: GetNotebookCommandOutput;
     };
   };
 }

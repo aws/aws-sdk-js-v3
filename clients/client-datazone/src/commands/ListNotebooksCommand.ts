@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListNotebookRunsInput, ListNotebookRunsOutput } from "../models/models_1";
-import { ListNotebookRuns$ } from "../schemas/schemas_0";
+import type { ListNotebooksInput, ListNotebooksOutput } from "../models/models_1";
+import { ListNotebooks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,57 +16,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListNotebookRunsCommand}.
+ * The input for {@link ListNotebooksCommand}.
  */
-export interface ListNotebookRunsCommandInput extends ListNotebookRunsInput {}
+export interface ListNotebooksCommandInput extends ListNotebooksInput {}
 /**
  * @public
  *
- * The output of {@link ListNotebookRunsCommand}.
+ * The output of {@link ListNotebooksCommand}.
  */
-export interface ListNotebookRunsCommandOutput extends ListNotebookRunsOutput, __MetadataBearer {}
+export interface ListNotebooksCommandOutput extends ListNotebooksOutput, __MetadataBearer {}
 
 /**
- * <p>Lists <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook runs</a> in Amazon SageMaker Unified Studio.</p>
+ * <p>Lists <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebooks</a> in Amazon SageMaker Unified Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListNotebookRunsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListNotebookRunsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, ListNotebooksCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, ListNotebooksCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // ListNotebookRunsInput
+ * const input = { // ListNotebooksInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   owningProjectIdentifier: "STRING_VALUE", // required
- *   notebookIdentifier: "STRING_VALUE",
- *   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED",
- *   scheduleIdentifier: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   sortOrder: "ASCENDING" || "DESCENDING",
+ *   sortBy: "CREATED_AT" || "UPDATED_AT",
+ *   status: "ACTIVE" || "ARCHIVED",
  *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListNotebookRunsCommand(input);
+ * const command = new ListNotebooksCommand(input);
  * const response = await client.send(command);
- * // { // ListNotebookRunsOutput
- * //   items: [ // NotebookRunSummaryList
- * //     { // NotebookRunSummary
+ * // { // ListNotebooksOutput
+ * //   items: [ // NotebookSummaryList
+ * //     { // NotebookSummary
  * //       id: "STRING_VALUE", // required
- * //       domainId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
  * //       owningProjectId: "STRING_VALUE", // required
- * //       notebookId: "STRING_VALUE", // required
- * //       scheduleId: "STRING_VALUE",
- * //       status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
- * //       triggerSource: { // TriggerSource
- * //         type: "MANUAL" || "SCHEDULED" || "WORKFLOW",
- * //         name: "STRING_VALUE",
- * //       },
+ * //       domainId: "STRING_VALUE", // required
+ * //       status: "ACTIVE" || "ARCHIVED", // required
+ * //       description: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       createdBy: "STRING_VALUE",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       updatedBy: "STRING_VALUE",
- * //       startedAt: new Date("TIMESTAMP"),
- * //       completedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -74,10 +67,10 @@ export interface ListNotebookRunsCommandOutput extends ListNotebookRunsOutput, _
  *
  * ```
  *
- * @param ListNotebookRunsCommandInput - {@link ListNotebookRunsCommandInput}
- * @returns {@link ListNotebookRunsCommandOutput}
- * @see {@link ListNotebookRunsCommandInput} for command's `input` shape.
- * @see {@link ListNotebookRunsCommandOutput} for command's `response` shape.
+ * @param ListNotebooksCommandInput - {@link ListNotebooksCommandInput}
+ * @returns {@link ListNotebooksCommandOutput}
+ * @see {@link ListNotebooksCommandInput} for command's `input` shape.
+ * @see {@link ListNotebooksCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -101,10 +94,10 @@ export interface ListNotebookRunsCommandOutput extends ListNotebookRunsOutput, _
  *
  * @public
  */
-export class ListNotebookRunsCommand extends $Command
+export class ListNotebooksCommand extends $Command
   .classBuilder<
-    ListNotebookRunsCommandInput,
-    ListNotebookRunsCommandOutput,
+    ListNotebooksCommandInput,
+    ListNotebooksCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -113,19 +106,19 @@ export class ListNotebookRunsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "ListNotebookRuns", {})
-  .n("DataZoneClient", "ListNotebookRunsCommand")
-  .sc(ListNotebookRuns$)
+  .s("DataZone", "ListNotebooks", {})
+  .n("DataZoneClient", "ListNotebooksCommand")
+  .sc(ListNotebooks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListNotebookRunsInput;
-      output: ListNotebookRunsOutput;
+      input: ListNotebooksInput;
+      output: ListNotebooksOutput;
     };
     sdk: {
-      input: ListNotebookRunsCommandInput;
-      output: ListNotebookRunsCommandOutput;
+      input: ListNotebooksCommandInput;
+      output: ListNotebooksCommandOutput;
     };
   };
 }

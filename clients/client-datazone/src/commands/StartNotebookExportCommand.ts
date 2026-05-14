@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopNotebookRunInput, StopNotebookRunOutput } from "../models/models_1";
-import { StopNotebookRun$ } from "../schemas/schemas_0";
+import type { StartNotebookExportInput, StartNotebookExportOutput } from "../models/models_1";
+import { StartNotebookExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,46 +16,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopNotebookRunCommand}.
+ * The input for {@link StartNotebookExportCommand}.
  */
-export interface StopNotebookRunCommandInput extends StopNotebookRunInput {}
+export interface StartNotebookExportCommandInput extends StartNotebookExportInput {}
 /**
  * @public
  *
- * The output of {@link StopNotebookRunCommand}.
+ * The output of {@link StartNotebookExportCommand}.
  */
-export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __MetadataBearer {}
+export interface StartNotebookExportCommandOutput extends StartNotebookExportOutput, __MetadataBearer {}
 
 /**
- * <p>Stops a running <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/notebooks.html">notebook run</a> in Amazon SageMaker Unified Studio.</p>
+ * <p>Starts a notebook export in Amazon SageMaker Unified Studio. This operation exports a notebook to a specified file format and stores the output in Amazon Simple Storage Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, StopNotebookRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, StopNotebookRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, StartNotebookExportCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, StartNotebookExportCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // StopNotebookRunInput
+ * const input = { // StartNotebookExportInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
+ *   notebookIdentifier: "STRING_VALUE", // required
+ *   owningProjectIdentifier: "STRING_VALUE", // required
+ *   fileFormat: "PDF" || "IPYNB", // required
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new StopNotebookRunCommand(input);
+ * const command = new StartNotebookExportCommand(input);
  * const response = await client.send(command);
- * // { // StopNotebookRunOutput
+ * // { // StartNotebookExportOutput
  * //   id: "STRING_VALUE", // required
  * //   domainId: "STRING_VALUE", // required
  * //   owningProjectId: "STRING_VALUE", // required
- * //   status: "QUEUED" || "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED", // required
+ * //   notebookId: "STRING_VALUE", // required
+ * //   fileFormat: "PDF" || "IPYNB", // required
+ * //   status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StopNotebookRunCommandInput - {@link StopNotebookRunCommandInput}
- * @returns {@link StopNotebookRunCommandOutput}
- * @see {@link StopNotebookRunCommandInput} for command's `input` shape.
- * @see {@link StopNotebookRunCommandOutput} for command's `response` shape.
+ * @param StartNotebookExportCommandInput - {@link StartNotebookExportCommandInput}
+ * @returns {@link StartNotebookExportCommandOutput}
+ * @see {@link StartNotebookExportCommandInput} for command's `input` shape.
+ * @see {@link StartNotebookExportCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -69,6 +75,9 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request has exceeded the specified service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -85,10 +94,10 @@ export interface StopNotebookRunCommandOutput extends StopNotebookRunOutput, __M
  *
  * @public
  */
-export class StopNotebookRunCommand extends $Command
+export class StartNotebookExportCommand extends $Command
   .classBuilder<
-    StopNotebookRunCommandInput,
-    StopNotebookRunCommandOutput,
+    StartNotebookExportCommandInput,
+    StartNotebookExportCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,19 +106,19 @@ export class StopNotebookRunCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("DataZone", "StopNotebookRun", {})
-  .n("DataZoneClient", "StopNotebookRunCommand")
-  .sc(StopNotebookRun$)
+  .s("DataZone", "StartNotebookExport", {})
+  .n("DataZoneClient", "StartNotebookExportCommand")
+  .sc(StartNotebookExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopNotebookRunInput;
-      output: StopNotebookRunOutput;
+      input: StartNotebookExportInput;
+      output: StartNotebookExportOutput;
     };
     sdk: {
-      input: StopNotebookRunCommandInput;
-      output: StopNotebookRunCommandOutput;
+      input: StartNotebookExportCommandInput;
+      output: StartNotebookExportCommandOutput;
     };
   };
 }

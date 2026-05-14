@@ -38,8 +38,10 @@ import type {
   HyperPodOrchestrator,
   ListingStatus,
   ManagedPolicyType,
+  NotebookStatus,
   OAuth2GrantType,
   OverallDeploymentStatus,
+  PackageManager,
   ProjectDesignation,
   ProjectStatus,
   Protocol,
@@ -51,7 +53,6 @@ import type {
   RuleType,
   S3Permission,
   Status,
-  SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
@@ -5028,7 +5029,7 @@ export interface CancelSubscriptionOutput {
 }
 
 /**
- * <p>The information about a cell in a notebook run in Amazon DataZone.</p>
+ * <p>The information about a cell in a notebook run in Amazon SageMaker Unified Studio.</p>
  * @public
  */
 export interface CellInformation {}
@@ -5046,7 +5047,7 @@ export interface CloudFormationProperties {
 }
 
 /**
- * <p>The compute configuration for a notebook run in Amazon DataZone.</p>
+ * <p>The compute configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
  * @public
  */
 export interface ComputeConfig {
@@ -10245,6 +10246,220 @@ export interface CreateListingChangeSetOutput {
 }
 
 /**
+ * @public
+ */
+export interface CreateNotebookInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to create the notebook.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the notebook. The name must be between 1 and 256 characters.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the notebook.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The metadata for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>The package configuration for a notebook run environment in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface PackageConfig {
+  /**
+   * <p>The package manager for the notebook run environment. The default value is <code>UV</code>.</p>
+   * @public
+   */
+  packageManager: PackageManager | undefined;
+
+  /**
+   * <p>The package specification content for the notebook run environment. The maximum length is 10240 characters.</p>
+   * @public
+   */
+  packageSpecification?: string | undefined;
+}
+
+/**
+ * <p>The environment configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface EnvironmentConfig {
+  /**
+   * <p>The image version for the notebook run environment.</p>
+   * @public
+   */
+  imageVersion?: string | undefined;
+
+  /**
+   * <p>The package configuration for the notebook run environment.</p>
+   * @public
+   */
+  packageConfig?: PackageConfig | undefined;
+}
+
+/**
+ * <p>The error details of a notebook in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface NotebookError {
+  /**
+   * <p>The error message. The maximum length is 256 characters.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNotebookOutput {
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the notebook.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ordered list of cells in the notebook.</p>
+   * @public
+   */
+  cellOrder: CellInformation[] | undefined;
+
+  /**
+   * <p>The status of the notebook.</p>
+   * @public
+   */
+  status: NotebookStatus | undefined;
+
+  /**
+   * <p>The description of the notebook.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the user who locked the notebook.</p>
+   * @public
+   */
+  lockedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook was locked.</p>
+   * @public
+   */
+  lockedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook lock expires.</p>
+   * @public
+   */
+  lockExpiresAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the compute associated with the notebook.</p>
+   * @public
+   */
+  computeId?: string | undefined;
+
+  /**
+   * <p>The metadata of the notebook.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters of the notebook.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The environment configuration of the notebook.</p>
+   * @public
+   */
+  environmentConfiguration?: EnvironmentConfig | undefined;
+
+  /**
+   * <p>The error details if the notebook creation failed.</p>
+   * @public
+   */
+  error?: NotebookError | undefined;
+}
+
+/**
  * <p>The details about a project member.</p>
  * @public
  */
@@ -11472,158 +11687,4 @@ export interface ListingRevision {
    * @public
    */
   revision: string | undefined;
-}
-
-/**
- * <p>The details of a listing for which a subscription is granted.</p>
- * @public
- */
-export type GrantedEntity =
-  | GrantedEntity.ListingMember
-  | GrantedEntity.$UnknownMember;
-
-/**
- * @public
- */
-export namespace GrantedEntity {
-  /**
-   * <p>The listing for which a subscription is granted.</p>
-   * @public
-   */
-  export interface ListingMember {
-    listing: ListingRevision;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    listing?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    listing: (value: ListingRevision) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateSubscriptionGrantOutput {
-  /**
-   * <p>The ID of the subscription grant.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription grant.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription grant.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>A timestamp of when the subscription grant is created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>A timestamp of when the subscription grant was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The environment ID for which subscription grant is created.</p>
-   * @public
-   */
-  environmentId?: string | undefined;
-
-  /**
-   * <p>The ID of the subscription target for which the subscription grant is created.</p>
-   * @public
-   */
-  subscriptionTargetId: string | undefined;
-
-  /**
-   * <p>The entity to which the subscription is granted.</p>
-   * @public
-   */
-  grantedEntity: GrantedEntity | undefined;
-
-  /**
-   * <p>The status of the subscription grant.</p>
-   * @public
-   */
-  status: SubscriptionGrantOverallStatus | undefined;
-
-  /**
-   * <p>The assets for which the subscription grant is created.</p>
-   * @public
-   */
-  assets?: SubscribedAsset[] | undefined;
-
-  /**
-   * <p>The identifier of the subscription grant.</p>
-   *
-   * @deprecated Multiple subscriptions can exist for a single grant.
-   * @public
-   */
-  subscriptionId?: string | undefined;
-}
-
-/**
- * <p>The published asset for which the subscription grant is to be created.</p>
- * @public
- */
-export interface SubscribedListingInput {
-  /**
-   * <p>The identifier of the published asset for which the subscription grant is to be created.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * <p>The details of the subscribed group.</p>
- * @public
- */
-export interface SubscribedGroupInput {
-  /**
-   * <p>The ID of the subscribed group.</p>
-   * @public
-   */
-  identifier?: string | undefined;
-}
-
-/**
- * <p>The details of the subscribed IAM principal.</p>
- * @public
- */
-export interface SubscribedIamPrincipalInput {
-  /**
-   * <p>The ARN of the subscribed IAM principal.</p>
-   * @public
-   */
-  identifier?: string | undefined;
 }
