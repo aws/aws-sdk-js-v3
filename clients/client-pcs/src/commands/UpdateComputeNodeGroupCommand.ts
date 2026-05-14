@@ -47,7 +47,7 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  *     id: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
  *   },
- *   purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
+ *   purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
  *   spotOptions: { // SpotOptions
  *     allocationStrategy: "lowest-price" || "capacity-optimized" || "price-capacity-optimized",
  *   },
@@ -81,7 +81,7 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
- * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
+ * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required

@@ -18,6 +18,7 @@ export type AccountingMode = (typeof AccountingMode)[keyof typeof AccountingMode
  */
 export const PurchaseOption = {
   CAPACITY_BLOCK: "CAPACITY_BLOCK",
+  INTERRUPTIBLE_CAPACITY_RESERVATION: "INTERRUPTIBLE_CAPACITY_RESERVATION",
   ONDEMAND: "ONDEMAND",
   SPOT: "SPOT",
 } as const;

@@ -43,7 +43,7 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  *   subnetIds: [ // StringList // required
  *     "STRING_VALUE",
  *   ],
- *   purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
+ *   purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
  *   customLaunchTemplate: { // CustomLaunchTemplate
  *     id: "STRING_VALUE", // required
  *     version: "STRING_VALUE", // required
@@ -89,7 +89,7 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * //     subnetIds: [ // SubnetIdList // required
  * //       "STRING_VALUE",
  * //     ],
- * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK",
+ * //     purchaseOption: "ONDEMAND" || "SPOT" || "CAPACITY_BLOCK" || "INTERRUPTIBLE_CAPACITY_RESERVATION",
  * //     customLaunchTemplate: { // CustomLaunchTemplate
  * //       id: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required
