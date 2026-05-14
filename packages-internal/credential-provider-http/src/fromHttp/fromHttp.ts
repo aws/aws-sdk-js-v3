@@ -16,12 +16,6 @@ const AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE = "AWS_CONTAINER_AUTHORIZATION_TOKE
 const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
 
 /**
- * Cached request handler shared across all fromHttp provider instances.
- * This prevents socket leaks from creating a new NodeHttpHandler (and http.Agent) per credential refresh.
- */
-let cachedHandler: InstanceType<typeof NodeHttpHandler> | undefined;
-
-/**
  * Creates a provider that gets credentials via HTTP request.
  */
 export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
@@ -72,15 +66,12 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   // throws if not to spec for provider.
   checkUrl(url, options.logger);
 
-  if (!cachedHandler) {
-    cachedHandler = NodeHttpHandler.create({ connectionTimeout: options.timeout ?? 1000 }) as InstanceType<
-      typeof NodeHttpHandler
-    >;
-  }
-  const requestHandler = cachedHandler;
+  const requestHandler = NodeHttpHandler.create({ connectionTimeout: options.timeout ?? 1000 }) as InstanceType<
+    typeof NodeHttpHandler
+  >;
   const requestTimeout = options.timeout ?? 1000;
 
-  return retryWrapper(
+  const provider = retryWrapper(
     async (): Promise<AwsCredentialIdentity> => {
       const request = createGetRequest(url);
 
@@ -101,4 +92,12 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
     options.maxRetries ?? 3,
     options.timeout ?? 1000
   );
+
+  return async () => {
+    try {
+      return await provider();
+    } finally {
+      requestHandler.destroy?.();
+    }
+  };
 };

@@ -24,19 +24,16 @@ const mockHandle = vi.fn().mockResolvedValue({
   }),
 });
 
-let createCallCount = 0;
+const mockDestroy = vi.fn();
 
 vi.mock("@smithy/node-http-handler", () => ({
   NodeHttpHandler: (() => {
     const getImpl = () => ({
-      destroy: () => {},
+      destroy: mockDestroy,
       handle: mockHandle,
     });
     const impl = Object.assign(vi.fn().mockImplementation(getImpl), {
-      create: () => {
-        createCallCount++;
-        return getImpl();
-      },
+      create: () => getImpl(),
     });
     return impl;
   })(),
@@ -123,17 +120,31 @@ describe(fromHttp.name, () => {
     expect(mockHandle).toHaveBeenCalledWith(expect.anything(), { requestTimeout: 5000 });
   });
 
-  it("reuses a single NodeHttpHandler instance across multiple calls", async () => {
+  it("destroys the request handler after the provider resolves", async () => {
+    mockDestroy.mockClear();
+
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://u1.aws",
     });
 
     await provider();
-    await provider();
-    await provider();
 
-    // NodeHttpHandler.create() should only be called once (cached at module level)
-    // across all tests in this file
-    expect(createCallCount).toBe(1);
+    expect(mockDestroy).toHaveBeenCalledTimes(1);
+  });
+
+  it("destroys the request handler even when the request fails", async () => {
+    mockDestroy.mockClear();
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+    });
+
+    await expect(provider()).rejects.toThrow();
+
+    expect(mockDestroy).toHaveBeenCalledTimes(1);
   });
 });
