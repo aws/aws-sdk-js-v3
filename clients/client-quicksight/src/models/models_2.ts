@@ -7207,6 +7207,36 @@ export interface Capabilities {
   Flow?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to perform apps-related actions.</p>
+   * @public
+   */
+  Apps?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create or update apps.</p>
+   * @public
+   */
+  CreateAndUpdateApps?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share apps with other users.</p>
+   * @public
+   */
+  ShareApps?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to add and invoke AI inference in new and existing apps.</p>
+   * @public
+   */
+  InvokeAppsAIInference?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to access the native data store for new and existing apps.</p>
+   * @public
+   */
+  AccessAppsNativeDataStore?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to enable approvals for flow share.</p>
    * @public
    */

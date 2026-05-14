@@ -4,6 +4,7 @@ const _AAC = "ArcAxisConfiguration";
 const _AADR = "ArcAxisDisplayRange";
 const _AAF = "AttributeAggregationFunction";
 const _AAI = "AwsAccountId";
+const _AANDS = "AccessAppsNativeDataStore";
 const _AAc = "ActiveAssignments";
 const _AAl = "AllowedAggregations";
 const _AAn = "AnalysisArn";
@@ -270,6 +271,7 @@ const _An = "Analysis";
 const _Ana = "Analyses";
 const _Anc = "Anchor";
 const _Ans = "Answers";
+const _Ap = "Apps";
 const _Ar = "Arc";
 const _Au = "Automate";
 const _Aut = "Automation";
@@ -399,6 +401,7 @@ const _CASPO = "CustomActionSetParametersOperation";
 const _CASR = "CreateAccountSubscriptionRequest";
 const _CASRr = "CreateAccountSubscriptionResponse";
 const _CATR = "ContributionAnalysisTimeRanges";
+const _CAUA = "CreateAndUpdateApps";
 const _CAUAA = "CreateAndUpdateAsanaAction";
 const _CAUABARSA = "CreateAndUpdateAmazonBedrockARSAction";
 const _CAUABFSA = "CreateAndUpdateAmazonBedrockFSAction";
@@ -1704,6 +1707,7 @@ const _Hei = "Height64";
 const _Heig = "Height32";
 const _I = "Interactions";
 const _IA = "InvalidAnswers";
+const _IAAII = "InvokeAppsAIInference";
 const _IAD = "IncludeAllDependencies";
 const _IAMCM = "IAMConnectionMetadata";
 const _IAMICIA = "IAMIdentityCenterInstanceArn";
@@ -2659,6 +2663,7 @@ const _SAVO = "SelectAllValueOptions";
 const _SAa = "SalesforceAction";
 const _SAe = "SearchAnalyses";
 const _SAh = "ShareAnalyses";
+const _SAha = "ShareApps";
 const _SAi = "SimpleAggregation";
 const _SAl = "SlackAction";
 const _SAm = "SmartsheetAction";
@@ -4766,8 +4771,8 @@ export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var Capabilities$: StaticStructureSchema = [3, n0, _Cap,
   0,
-  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Sp, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _MSF, _GAe, _Sto, _Sc],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _Ap, _CAUA, _SAha, _IAAII, _AANDS, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Sp, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _MSF, _GAe, _Sto, _Sc],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CascadingControlConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
