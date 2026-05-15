@@ -66,9 +66,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   // throws if not to spec for provider.
   checkUrl(url, options.logger);
 
-  const requestHandler = NodeHttpHandler.create({ connectionTimeout: options.timeout ?? 1000 }) as InstanceType<
-    typeof NodeHttpHandler
-  >;
+  const requestHandler = NodeHttpHandler.create({ connectionTimeout: options.timeout ?? 1000 }) as NodeHttpHandler;
   const requestTimeout = options.timeout ?? 1000;
 
   const provider = retryWrapper(
