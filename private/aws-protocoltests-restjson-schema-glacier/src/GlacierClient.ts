@@ -1,24 +1,20 @@
 // smithy-typescript generated code
 import {
-  type HostHeaderInputConfig,
-  type HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
-import { getGlacierPlugin } from "@aws-sdk/middleware-sdk-glacier";
-import {
-  type UserAgentInputConfig,
-  type UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import {
   type DefaultAwsRegionalEndpointsInputConfig,
   type DefaultAwsRegionalEndpointsResolvedConfig,
+  type HostHeaderInputConfig,
+  type HostHeaderResolvedConfig,
+  type UserAgentInputConfig,
+  type UserAgentResolvedConfig,
+  getHostHeaderPlugin,
+  getLoggerPlugin,
+  getRecursionDetectionPlugin,
+  getUserAgentPlugin,
   resolveDefaultAwsRegionalEndpointsConfig,
-} from "@aws-sdk/util-endpoints";
+  resolveHostHeaderConfig,
+  resolveUserAgentConfig,
+} from "@aws-sdk/core/client";
+import { getGlacierPlugin } from "@aws-sdk/middleware-sdk-glacier";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,

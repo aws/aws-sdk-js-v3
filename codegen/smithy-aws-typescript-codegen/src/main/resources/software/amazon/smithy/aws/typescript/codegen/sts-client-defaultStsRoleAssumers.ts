@@ -1,5 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
-import { stsRegionDefaultResolver } from "@aws-sdk/region-config-resolver";
+import { setCredentialFeature, stsRegionDefaultResolver } from "@aws-sdk/core/client";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 

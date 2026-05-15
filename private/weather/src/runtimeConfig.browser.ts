@@ -3,7 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
-import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
+import { createDefaultUserAgentProvider } from "@aws-sdk/core/client";
 import { invalidProvider, loadConfigsForDefaultMode } from "@smithy/core/client";
 import { resolveDefaultsModeConfig } from "@smithy/core/config";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/core/retry";

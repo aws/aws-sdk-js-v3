@@ -5,6 +5,7 @@
 package software.amazon.smithy.aws.typescript.codegen.extensions;
 
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
+import software.amazon.smithy.aws.typescript.codegen.AwsSdkCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.Dependency;
 import software.amazon.smithy.typescript.codegen.extensions.ExtensionConfigurationInterface;
 import software.amazon.smithy.utils.Pair;
@@ -17,11 +18,16 @@ public class AwsRegionExtensionConfiguration implements ExtensionConfigurationIn
 
     @Override
     public Pair<String, Dependency> getExtensionConfigurationFn() {
-        return Pair.of("getAwsRegionExtensionConfiguration", AwsDependency.REGION_CONFIG_RESOLVER);
+        return Pair.of("getAwsRegionExtensionConfiguration", AwsDependency.AWS_SDK_CORE);
     }
 
     @Override
     public Pair<String, Dependency> resolveRuntimeConfigFn() {
-        return Pair.of("resolveAwsRegionExtensionConfiguration", AwsDependency.REGION_CONFIG_RESOLVER);
+        return Pair.of("resolveAwsRegionExtensionConfiguration", AwsDependency.AWS_SDK_CORE);
+    }
+
+    @Override
+    public String submodule() {
+        return AwsSdkCoreSubmodules.CLIENT;
     }
 }

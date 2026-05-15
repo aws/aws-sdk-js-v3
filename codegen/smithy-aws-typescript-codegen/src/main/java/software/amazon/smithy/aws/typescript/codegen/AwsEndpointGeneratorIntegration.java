@@ -52,15 +52,18 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             writerFactory.accept(
                 Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
                 writer -> {
-                    writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
-
                     writer.addImportSubmodule(
                         "customEndpointFunctions",
                         null,
                         TypeScriptDependency.SMITHY_CORE,
                         SmithyCoreSubmodules.ENDPOINTS
                     );
-                    writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
+                    writer.addImportSubmodule(
+                        "awsEndpointFunctions",
+                        null,
+                        AwsDependency.AWS_SDK_CORE,
+                        AwsSdkCoreSubmodules.CLIENT
+                    );
                     writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
                 }
             );

@@ -44,15 +44,25 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 .build(),
             // Can be in smithy-typescript, but the NPM package is in @aws-sdk
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
+                .withConventions(
+                    "@aws-sdk/core" + AwsSdkCoreSubmodules.CLIENT,
+                    AwsDependency.AWS_SDK_CORE.dependency.getVersion(),
+                    "HostHeader"
+                )
                 .build(),
             // Should be in smithy-typescript, but the NPM package is in @aws-sdk
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
+                .withConventions(
+                    "@aws-sdk/core" + AwsSdkCoreSubmodules.CLIENT,
+                    AwsDependency.AWS_SDK_CORE.dependency.getVersion(),
+                    "Logger",
+                    HAS_MIDDLEWARE
+                )
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.RECURSION_DETECTION_MIDDLEWARE.dependency,
+                    "@aws-sdk/core" + AwsSdkCoreSubmodules.CLIENT,
+                    AwsDependency.AWS_SDK_CORE.dependency.getVersion(),
                     "RecursionDetection",
                     HAS_MIDDLEWARE
                 )
