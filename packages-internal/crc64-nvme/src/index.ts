@@ -1,2 +1,1 @@
-export * from "./Crc64Nvme";
-export * from "./crc64-nvme-crt-container";
+export { Crc64Nvme, crc64NvmeCrtContainer } from "@aws-sdk/checksums";

@@ -4,7 +4,27 @@ const walk = require("../utils/walk");
 
 const singlePkg = process.argv.indexOf("--pkg") !== -1 ? process.argv[process.argv.indexOf("--pkg") + 1] : null;
 
-const submodulePackages = singlePkg ? [singlePkg] : ["core", "nested-clients", "config"];
+const submodulePackages = singlePkg
+  ? [singlePkg]
+  : [
+      ...fs.readdirSync(path.join(__dirname, "..", "..", "packages")),
+      ...fs.readdirSync(path.join(__dirname, "..", "..", "packages-internal")),
+    ].filter((pkg) => {
+      const [a, b] = [
+        path.join(__dirname, "..", "..", "packages", pkg),
+        path.join(__dirname, "..", "..", "packages-internal", pkg),
+      ];
+      const dir = fs.existsSync(path.join(a, "package.json"))
+        ? a
+        : fs.existsSync(path.join(b, "package.json"))
+        ? b
+        : null;
+      if (!dir) return false;
+      return (
+        fs.existsSync(path.join(dir, "src", "submodules")) &&
+        "exports" in JSON.parse(fs.readFileSync(path.join(dir, "package.json"), "utf-8"))
+      );
+    });
 
 (async () => {
   const errors = [];

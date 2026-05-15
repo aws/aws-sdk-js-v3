@@ -27,7 +27,12 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
   const errors = [];
 
   const pkgJson = require(pkgJsonFilePath);
-  const submoduleCarriers = ["@aws-sdk/core", "@aws-sdk/config", "@aws-sdk/nested-clients"];
+  const submoduleCarriers = [
+    "@aws-sdk/core",
+    "@aws-sdk/config",
+    "@aws-sdk/nested-clients",
+    "@aws-sdk/middleware-sdk-s3",
+  ];
   if (!submoduleCarriers.includes(pkgJson.name)) {
     if ("exports" in pkgJson) {
       errors.push(`${pkgJson.name} must not have an 'exports' field.`);

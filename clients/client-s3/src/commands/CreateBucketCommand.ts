@@ -1,6 +1,6 @@
 // smithy-typescript generated code
-import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constraint";
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
+import { getLocationConstraintPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
 import { Command as $Command } from "@smithy/core/client";
 import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";

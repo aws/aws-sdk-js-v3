@@ -59,48 +59,38 @@ for (const packageRoot of packageDirs) {
 // Create a single TypeScript program with all entry points.
 const submodulePaths = {};
 
-// @smithy/core submodules (from node_modules)
-const smithyCoreSubmodulesDir = path.join(root, "node_modules", "@smithy", "core", "dist-types", "submodules");
-if (fs.existsSync(smithyCoreSubmodulesDir)) {
-  for (const dir of fs.readdirSync(smithyCoreSubmodulesDir, { withFileTypes: true })) {
-    if (dir.isDirectory()) {
-      submodulePaths[`@smithy/core/${dir.name}`] = [
-        `node_modules/@smithy/core/dist-types/submodules/${dir.name}/index.d.ts`,
+// @smithy/core submodules (from node_modules, special case)
+const smithyCoreDir = path.join("node_modules", "@smithy", "core");
+const smithyCoreSubmodules = path.join(root, smithyCoreDir, "dist-types", "submodules");
+if (fs.existsSync(smithyCoreSubmodules)) {
+  for (const entry of fs.readdirSync(smithyCoreSubmodules, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      submodulePaths[`@smithy/core/${entry.name}`] = [
+        `${smithyCoreDir}/dist-types/submodules/${entry.name}/index.d.ts`,
       ];
     }
   }
 }
 
-// @aws-sdk/core submodules (packages-internal/core)
-const awsCoreSubmodulesDir = path.join(root, "packages-internal", "core", "src", "submodules");
-if (fs.existsSync(awsCoreSubmodulesDir)) {
-  for (const dir of fs.readdirSync(awsCoreSubmodulesDir, { withFileTypes: true })) {
-    if (dir.isDirectory()) {
-      submodulePaths[`@aws-sdk/core/${dir.name}`] = [
-        `packages-internal/core/dist-types/submodules/${dir.name}/index.d.ts`,
-      ];
+// Discover @aws-sdk submodule packages dynamically.
+for (const folder of ["packages", "packages-internal"]) {
+  const folderPath = path.join(root, folder);
+  for (const pkg of fs.readdirSync(folderPath)) {
+    const pkgDir = path.join(folderPath, pkg);
+    if (!fs.existsSync(path.join(pkgDir, "src", "submodules"))) continue;
+    try {
+      const pkgJson = require(path.join(pkgDir, "package.json"));
+      if (!pkgJson.exports) continue;
+    } catch {
+      continue;
     }
-  }
-}
-
-// @aws-sdk/config submodules (packages/config)
-const configSubmodulesDir = path.join(root, "packages", "config", "src", "submodules");
-if (fs.existsSync(configSubmodulesDir)) {
-  for (const dir of fs.readdirSync(configSubmodulesDir, { withFileTypes: true })) {
-    if (dir.isDirectory()) {
-      submodulePaths[`@aws-sdk/config/${dir.name}`] = [`packages/config/dist-types/submodules/${dir.name}/index.d.ts`];
-    }
-  }
-}
-
-// @aws-sdk/nested-clients submodules (packages-internal/nested-clients)
-const nestedClientsSubmodulesDir = path.join(root, "packages-internal", "nested-clients", "src", "submodules");
-if (fs.existsSync(nestedClientsSubmodulesDir)) {
-  for (const dir of fs.readdirSync(nestedClientsSubmodulesDir, { withFileTypes: true })) {
-    if (dir.isDirectory()) {
-      submodulePaths[`@aws-sdk/nested-clients/${dir.name}`] = [
-        `packages-internal/nested-clients/dist-types/submodules/${dir.name}/index.d.ts`,
-      ];
+    const submodulesDir = path.join(pkgDir, "src", "submodules");
+    for (const entry of fs.readdirSync(submodulesDir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        submodulePaths[`@aws-sdk/${pkg}/${entry.name}`] = [
+          `${folder}/${pkg}/dist-types/submodules/${entry.name}/index.d.ts`,
+        ];
+      }
     }
   }
 }
@@ -220,7 +210,7 @@ function checkModule(name, version, module, typeExports) {
 
 // Validate submodule variant indexes export the same symbols as the node canonical.
 const coreDir = path.join(root, "packages-internal", "core");
-const coreSubmodulesDir = awsCoreSubmodulesDir;
+const coreSubmodulesDir = path.join(coreDir, "src", "submodules");
 
 // Create separate TS programs for browser and native variant type checking.
 function createVariantProgram(variant) {

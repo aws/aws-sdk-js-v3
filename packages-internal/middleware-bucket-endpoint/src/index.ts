@@ -1,9 +1,15 @@
-export * from "./NodeDisableMultiregionAccessPointConfigOptions";
-export * from "./NodeUseArnRegionConfigOptions";
-export * from "./bucketEndpointMiddleware";
-export * from "./bucketHostname";
-export * from "./configurations";
 export {
+  NODE_DISABLE_MULTIREGION_ACCESS_POINT_CONFIG_OPTIONS,
+  NODE_DISABLE_MULTIREGION_ACCESS_POINT_ENV_NAME,
+  NODE_DISABLE_MULTIREGION_ACCESS_POINT_INI_NAME,
+  NODE_USE_ARN_REGION_CONFIG_OPTIONS,
+  NODE_USE_ARN_REGION_ENV_NAME,
+  NODE_USE_ARN_REGION_INI_NAME,
+  bucketEndpointMiddleware,
+  bucketEndpointMiddlewareOptions,
+  getBucketEndpointPlugin,
+  bucketHostname,
+  resolveBucketEndpointConfig,
   getArnResources,
   getSuffixForArnEndpoint,
   validateOutpostService,
@@ -13,4 +19,9 @@ export {
   validateDNSHostLabel,
   validateNoDualstack,
   validateNoFIPS,
-} from "./bucketHostnameUtils";
+} from "@aws-sdk/middleware-sdk-s3/s3";
+export type {
+  BucketHostname,
+  BucketEndpointInputConfig,
+  BucketEndpointResolvedConfig,
+} from "@aws-sdk/middleware-sdk-s3/s3";

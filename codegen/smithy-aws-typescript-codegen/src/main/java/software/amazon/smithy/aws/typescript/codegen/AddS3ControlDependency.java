@@ -72,12 +72,18 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "S3Control", HAS_CONFIG)
+                .withConventions(
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3_CONTROL,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
+                    "S3Control",
+                    HAS_CONFIG
+                )
                 .servicePredicate((m, s) -> isS3Control(s))
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3_CONTROL,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "HostPrefixDeduplication",
                     HAS_MIDDLEWARE
                 )
@@ -85,7 +91,8 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3_CONTROL,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "ProcessArnables",
                     HAS_MIDDLEWARE
                 )
@@ -93,7 +100,8 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(
-                    AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getPackageName() + AwsSdkS3Submodules.S3_CONTROL,
+                    AwsDependency.S3_MIDDLEWARE.dependency.getVersion(),
                     "RedirectFromPostId",
                     HAS_MIDDLEWARE
                 )
@@ -156,11 +164,12 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                             TypeScriptDependency.SMITHY_CORE,
                             SmithyCoreSubmodules.CONFIG
                         )
-                            .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
-                            .addImport(
+                            .addDependency(AwsDependency.S3_MIDDLEWARE)
+                            .addImportSubmodule(
                                 "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
                                 "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                                AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE
+                                AwsDependency.S3_MIDDLEWARE,
+                                AwsSdkS3Submodules.S3
                             )
                             .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS, loaderConfig)");
                     }

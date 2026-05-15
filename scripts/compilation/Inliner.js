@@ -21,8 +21,6 @@ module.exports = class Inliner {
     this.isInternalPackage = fs.existsSync(path.join(root, "packages-internal", pkg));
     this.isPackage = !this.isInternalPackage && fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
-    this.submodulePackages = ["core", "nested-clients", "config"];
-    this.hasSubmodules = this.submodulePackages.includes(pkg);
     this.reExportStubs = false;
     this.subfolder = (() => {
       if (this.isInternalPackage) {
@@ -36,6 +34,9 @@ module.exports = class Inliner {
       }
       return "clients";
     })();
+    this.hasSubmodules =
+      fs.existsSync(path.join(root, this.subfolder, pkg, "src", "submodules")) &&
+      "exports" in require(path.join(root, this.subfolder, pkg, "package.json"));
     this.verbose = process.env.DEBUG || process.argv.includes("--debug");
 
     this.packageDirectory = path.join(root, this.subfolder, pkg);

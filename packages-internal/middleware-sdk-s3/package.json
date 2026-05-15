@@ -21,6 +21,43 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "module": "./dist-es/index.js",
+      "node": "./dist-cjs/index.js",
+      "import": "./dist-es/index.js",
+      "require": "./dist-cjs/index.js"
+    },
+    "./package.json": {
+      "module": "./package.json",
+      "node": "./package.json",
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    "./s3": {
+      "types": "./dist-types/submodules/s3/index.d.ts",
+      "react-native": {
+        "import": "./dist-es/submodules/s3/index.browser.js",
+        "require": "./dist-cjs/submodules/s3/index.browser.js"
+      },
+      "browser": {
+        "import": "./dist-es/submodules/s3/index.browser.js",
+        "require": "./dist-cjs/submodules/s3/index.browser.js"
+      },
+      "module": "./dist-es/submodules/s3/index.js",
+      "node": "./dist-cjs/submodules/s3/index.js",
+      "import": "./dist-es/submodules/s3/index.js",
+      "require": "./dist-cjs/submodules/s3/index.js"
+    },
+    "./s3-control": {
+      "types": "./dist-types/submodules/s3-control/index.d.ts",
+      "module": "./dist-es/submodules/s3-control/index.js",
+      "node": "./dist-cjs/submodules/s3-control/index.js",
+      "import": "./dist-es/submodules/s3-control/index.js",
+      "require": "./dist-cjs/submodules/s3-control/index.js"
+    }
+  },
   "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -56,11 +93,20 @@
     "dist-*/**"
   ],
   "browser": {
-    "./dist-es/toStream": "./dist-es/toStream.browser"
+    "./dist-es/index": "./dist-es/index.browser",
+    "./dist-es/submodules/s3/index": "./dist-es/submodules/s3/index.browser",
+    "./dist-es/submodules/s3/index.js": "./dist-es/submodules/s3/index.browser.js",
+    "./dist-es/submodules/s3/to-stream/toStream": "./dist-es/submodules/s3/to-stream/toStream.browser"
   },
   "react-native": {
-    "./dist-es/toStream": "./dist-es/toStream.browser",
-    "./dist-cjs/toStream": "./dist-cjs/toStream.browser"
+    "./dist-es/index": "./dist-es/index.browser",
+    "./dist-cjs/index": "./dist-cjs/index.browser",
+    "./dist-es/submodules/s3/index": "./dist-es/submodules/s3/index.browser",
+    "./dist-cjs/submodules/s3/index": "./dist-cjs/submodules/s3/index.browser",
+    "./dist-es/submodules/s3/to-stream/toStream": "./dist-es/submodules/s3/to-stream/toStream.browser",
+    "./dist-cjs/submodules/s3/to-stream/toStream": "./dist-cjs/submodules/s3/to-stream/toStream.browser",
+    "./dist-es/submodules/s3/index.js": "./dist-es/submodules/s3/index.browser.js",
+    "./dist-cjs/submodules/s3/index.js": "./dist-cjs/submodules/s3/index.browser.js"
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-s3",
   "repository": {

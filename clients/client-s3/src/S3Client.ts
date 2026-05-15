@@ -11,7 +11,7 @@ import {
   resolveHostHeaderConfig,
   resolveUserAgentConfig,
 } from "@aws-sdk/core/client";
-import { getAddExpectContinuePlugin } from "@aws-sdk/middleware-expect-continue";
+import { getAddExpectContinuePlugin } from "@aws-sdk/middleware-sdk-s3/s3";
 import {
   type FlexibleChecksumsInputConfig,
   type FlexibleChecksumsResolvedConfig,
@@ -25,7 +25,7 @@ import {
   getS3ExpressPlugin,
   getValidateBucketNamePlugin,
   resolveS3Config,
-} from "@aws-sdk/middleware-sdk-s3";
+} from "@aws-sdk/middleware-sdk-s3/s3";
 import type { GetAwsChunkedEncodingStream } from "@aws-sdk/types";
 import {
   DefaultIdentityProviderConfig,

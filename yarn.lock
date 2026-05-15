@@ -807,6 +807,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/checksums@workspace:^3.1000.0, @aws-sdk/checksums@workspace:packages-internal/checksums":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/checksums@workspace:packages-internal/checksums"
+  dependencies:
+    "@aws-crypto/crc32": "npm:5.2.0"
+    "@aws-crypto/crc32c": "npm:5.2.0"
+    "@aws-crypto/util": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.974.17"
+    "@aws-sdk/types": "workspace:^3.973.10"
+    "@smithy/core": "npm:^3.24.6"
+    "@smithy/types": "npm:^4.14.3"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/chunked-stream-reader-node@workspace:^3.972.5, @aws-sdk/chunked-stream-reader-node@workspace:packages-internal/chunked-stream-reader-node":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/chunked-stream-reader-node@workspace:packages-internal/chunked-stream-reader-node"
@@ -10821,7 +10841,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt"
   dependencies:
-    "@aws-sdk/crc64-nvme": "workspace:^3.972.10"
+    "@aws-sdk/checksums": "workspace:^3.1000.0"
     "@aws-sdk/crt-loader": "workspace:^3.972.47"
     "@smithy/core": "npm:^3.24.6"
     "@smithy/types": "npm:^4.14.3"
@@ -10834,14 +10854,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/crc64-nvme@workspace:^3.972.10, @aws-sdk/crc64-nvme@workspace:packages-internal/crc64-nvme":
+"@aws-sdk/crc64-nvme@workspace:packages-internal/crc64-nvme":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme@workspace:packages-internal/crc64-nvme"
   dependencies:
-    "@smithy/types": "npm:^4.14.3"
-    "@tsconfig/recommended": "npm:1.0.1"
+    "@aws-sdk/checksums": "workspace:^3.1000.0"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -11241,13 +11259,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-bucket-endpoint@workspace:packages-internal/middleware-bucket-endpoint"
   dependencies:
-    "@aws-sdk/core": "workspace:^3.974.17"
-    "@aws-sdk/types": "workspace:^3.973.10"
-    "@smithy/core": "npm:^3.24.6"
-    "@smithy/types": "npm:^4.14.3"
-    "@tsconfig/recommended": "npm:1.0.1"
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.46"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -11291,12 +11304,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-expect-continue@workspace:packages-internal/middleware-expect-continue"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.10"
-    "@smithy/core": "npm:^3.24.6"
-    "@smithy/types": "npm:^4.14.3"
-    "@tsconfig/recommended": "npm:1.0.1"
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.46"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -11307,17 +11316,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-flexible-checksums@workspace:packages-internal/middleware-flexible-checksums"
   dependencies:
-    "@aws-crypto/crc32": "npm:5.2.0"
-    "@aws-crypto/crc32c": "npm:5.2.0"
-    "@aws-crypto/util": "npm:5.2.0"
-    "@aws-sdk/core": "workspace:^3.974.17"
-    "@aws-sdk/crc64-nvme": "workspace:^3.972.10"
-    "@aws-sdk/types": "workspace:^3.973.10"
-    "@smithy/core": "npm:^3.24.6"
-    "@smithy/node-http-handler": "npm:^4.7.6"
-    "@smithy/types": "npm:^4.14.3"
+    "@aws-sdk/checksums": "workspace:^3.1000.0"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -11357,11 +11357,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-location-constraint@workspace:packages-internal/middleware-location-constraint"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.10"
-    "@smithy/types": "npm:^4.14.3"
-    "@tsconfig/recommended": "npm:1.0.1"
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.46"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -11497,14 +11494,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control"
   dependencies:
-    "@aws-sdk/core": "workspace:^3.974.17"
-    "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.19"
-    "@aws-sdk/types": "workspace:^3.973.10"
-    "@smithy/core": "npm:^3.24.6"
-    "@smithy/types": "npm:^4.14.3"
-    "@tsconfig/recommended": "npm:1.0.1"
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.46"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -11599,11 +11590,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-ssec@workspace:packages-internal/middleware-ssec"
   dependencies:
-    "@aws-sdk/types": "workspace:^3.973.10"
-    "@smithy/types": "npm:^4.14.3"
-    "@tsconfig/recommended": "npm:1.0.1"
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.46"
     concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"

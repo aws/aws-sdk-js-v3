@@ -1,4 +1,4 @@
-import { crc64NvmeCrtContainer } from "@aws-sdk/crc64-nvme";
+import { crc64NvmeCrtContainer } from "@aws-sdk/checksums";
 
 import { CrtCrc64Nvme } from "./CrtCrc64Nvme";
 

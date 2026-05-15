@@ -16,7 +16,7 @@ import {
   type S3ControlResolvedConfig,
   getHostPrefixDeduplicationPlugin,
   resolveS3ControlConfig,
-} from "@aws-sdk/middleware-sdk-s3-control";
+} from "@aws-sdk/middleware-sdk-s3/s3-control";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,

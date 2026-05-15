@@ -32,30 +32,15 @@ public enum AwsDependency implements Dependency {
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node"),
     ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway"),
     S3_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3"),
-    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue"),
     GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier"),
     MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning"),
-    S3_CONTROL_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3-control"),
-    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec"),
     RDS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-rds"),
-    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint"),
     ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53"),
     EC2_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-ec2"),
-    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint"),
     SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs"),
     BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser"),
     BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder"),
-    /**
-     * @deprecated use SmithyDependency.UUID.
-     */
-    @Deprecated
-    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
-    /**
-     * @deprecated use SmithyDependency.UUID_TYPES.
-     */
-    @Deprecated
-    UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),
@@ -67,14 +52,6 @@ public enum AwsDependency implements Dependency {
     AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "5.2.0"),
     SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
-
-    // Conditionally added when httpChecksum trait is present
-    @Deprecated
-    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
-    @Deprecated
-    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
-    @Deprecated
-    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
 
     // Conditionally added when auth trait is present
@@ -88,7 +65,52 @@ public enum AwsDependency implements Dependency {
     UTIL_DYNAMODB(NORMAL_DEPENDENCY, "@aws-sdk/util-dynamodb", "*"),
     DYNAMODB_CODEC(NORMAL_DEPENDENCY, "@aws-sdk/dynamodb-codec"),
 
-    // Deprecated: migrated into @aws-sdk/core/client
+    // Deprecated: migrated into @aws-sdk/middleware-sdk-s3 submodules.
+    /**
+     * @deprecated use {@code @aws-sdk/middleware-sdk-s3/s3} via {@link AwsSdkS3Submodules#S3}.
+     */
+    @Deprecated
+    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue"),
+    /**
+     * @deprecated use {@code @aws-sdk/middleware-sdk-s3/s3-control} via {@link AwsSdkS3Submodules#S3_CONTROL}.
+     */
+    @Deprecated
+    S3_CONTROL_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3-control"),
+    /**
+     * @deprecated use {@code @aws-sdk/middleware-sdk-s3/s3} via {@link AwsSdkS3Submodules#S3}.
+     */
+    @Deprecated
+    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec"),
+    /**
+     * @deprecated use {@code @aws-sdk/middleware-sdk-s3/s3} via {@link AwsSdkS3Submodules#S3}.
+     */
+    @Deprecated
+    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint"),
+    /**
+     * @deprecated use {@code @aws-sdk/middleware-sdk-s3/s3} via {@link AwsSdkS3Submodules#S3}.
+     */
+    @Deprecated
+    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint"),
+
+    // Deprecated: other.
+    /**
+     * @deprecated use SmithyDependency.UUID.
+     */
+    @Deprecated
+    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
+    /**
+     * @deprecated use SmithyDependency.UUID_TYPES.
+     */
+    @Deprecated
+    UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
+    @Deprecated
+    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
+    @Deprecated
+    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
+    @Deprecated
+    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
+
+    // Deprecated: migrated into @aws-sdk/core/client.
     /**
      * @deprecated use {@code @aws-sdk/core/client} via {@link AwsSdkCoreSubmodules#CLIENT}.
      */
