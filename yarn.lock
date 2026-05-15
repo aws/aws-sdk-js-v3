@@ -11031,7 +11031,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crt-loader@workspace:packages-internal/crt-loader"
   dependencies:
-    "@aws-sdk/util-user-agent-node": "workspace:^3.973.26"
+    "@aws-sdk/core": "workspace:^3.974.10"
     "@tsconfig/recommended": "npm:1.0.1"
     aws-crt: "npm:^1.24.0"
     concurrently: "npm:7.0.0"
@@ -11292,7 +11292,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-host-header@workspace:^3.972.11, @aws-sdk/middleware-host-header@workspace:packages-internal/middleware-host-header":
+"@aws-sdk/middleware-host-header@workspace:packages-internal/middleware-host-header":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-host-header@workspace:packages-internal/middleware-host-header"
   dependencies:
@@ -11336,7 +11336,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-logger@workspace:^3.972.10, @aws-sdk/middleware-logger@workspace:packages-internal/middleware-logger":
+"@aws-sdk/middleware-logger@workspace:packages-internal/middleware-logger":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-logger@workspace:packages-internal/middleware-logger"
   dependencies:
@@ -11349,7 +11349,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-recursion-detection@workspace:^3.972.12, @aws-sdk/middleware-recursion-detection@workspace:packages-internal/middleware-recursion-detection":
+"@aws-sdk/middleware-recursion-detection@workspace:packages-internal/middleware-recursion-detection":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-recursion-detection@workspace:packages-internal/middleware-recursion-detection"
   dependencies:
@@ -11468,7 +11468,6 @@ __metadata:
     "@aws-sdk/core": "workspace:^3.974.10"
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.12"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-endpoints": "workspace:^3.996.9"
     "@smithy/core": "npm:^3.24.2"
     "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -11600,7 +11599,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-user-agent@workspace:^3.972.40, @aws-sdk/middleware-user-agent@workspace:packages-internal/middleware-user-agent":
+"@aws-sdk/middleware-user-agent@workspace:packages-internal/middleware-user-agent":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-user-agent@workspace:packages-internal/middleware-user-agent"
   dependencies:
@@ -11641,16 +11640,8 @@ __metadata:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/core": "workspace:^3.974.10"
-    "@aws-sdk/middleware-host-header": "workspace:^3.972.11"
-    "@aws-sdk/middleware-logger": "workspace:^3.972.10"
-    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.12"
-    "@aws-sdk/middleware-user-agent": "workspace:^3.972.40"
-    "@aws-sdk/region-config-resolver": "workspace:^3.972.14"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.26"
     "@aws-sdk/types": "workspace:^3.973.8"
-    "@aws-sdk/util-endpoints": "workspace:^3.996.9"
-    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.11"
-    "@aws-sdk/util-user-agent-node": "workspace:^3.973.26"
     "@smithy/core": "npm:^3.24.2"
     "@smithy/fetch-http-handler": "npm:^5.4.2"
     "@smithy/node-http-handler": "npm:^4.7.2"
@@ -11714,7 +11705,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/region-config-resolver@workspace:^3.972.14, @aws-sdk/region-config-resolver@workspace:packages-internal/region-config-resolver":
+"@aws-sdk/region-config-resolver@workspace:packages-internal/region-config-resolver":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/region-config-resolver@workspace:packages-internal/region-config-resolver"
   dependencies:
@@ -11757,7 +11748,6 @@ __metadata:
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.26"
     "@aws-sdk/types": "workspace:^3.973.8"
     "@smithy/core": "npm:^3.24.2"
-    "@smithy/hash-node": "npm:^4.3.2"
     "@smithy/types": "npm:^4.14.1"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -11976,7 +11966,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-endpoints@workspace:^3.996.9, @aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints":
+"@aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints"
   dependencies:
@@ -12018,7 +12008,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-user-agent-browser@workspace:^3.972.11, @aws-sdk/util-user-agent-browser@workspace:packages-internal/util-user-agent-browser":
+"@aws-sdk/util-user-agent-browser@workspace:packages-internal/util-user-agent-browser":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-user-agent-browser@workspace:packages-internal/util-user-agent-browser"
   dependencies:

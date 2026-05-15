@@ -1,3 +1,4 @@
+import { partition } from "@aws-sdk/core/client";
 import type { ARN } from "@aws-sdk/core/util";
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/core/util";
 import {
@@ -6,7 +7,6 @@ import {
   validateOutpostService,
   validatePartition,
 } from "@aws-sdk/middleware-bucket-endpoint";
-import { partition } from "@aws-sdk/util-endpoints";
 import type { RelativeMiddlewareOptions, SerializeMiddleware } from "@smithy/types";
 
 import type { S3ControlResolvedConfig } from "../configurations";
