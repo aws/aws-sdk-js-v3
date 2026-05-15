@@ -7,20 +7,12 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
-    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
-    "test": "yarn g:vitest run",
-    "test:watch": "yarn g:vitest watch"
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": {
-    "./dist-es/index": "./dist-es/index.browser"
-  },
-  "react-native": {
-    "./dist-es/index": "./dist-es/index.native",
-    "./dist-cjs/index": "./dist-cjs/index.native"
-  },
+  "browser": {},
+  "react-native": {},
   "types": "./dist-types/index.d.ts",
   "sideEffects": false,
   "author": {
@@ -29,24 +21,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/types": "^4.14.1",
-    "bowser": "^2.11.0",
+    "@aws-sdk/core": "workspace:^3.974.10",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
-    "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
     "typescript": "~5.8.3"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
   },
   "files": [
     "dist-*/**"

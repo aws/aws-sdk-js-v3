@@ -1,7 +1,7 @@
 import type { UserAgent } from "@smithy/types";
 
 import type { DefaultUserAgentOptions } from "./configurations";
-import type { PreviouslyResolved } from "./index";
+import type { PreviouslyResolved } from "./defaultUserAgent";
 
 /**
  * This is an alternative to the default user agent provider that uses the bowser

@@ -457,6 +457,8 @@ module.exports = class Inliner {
         throw e;
       }
 
+      await this.#validateImportResolution();
+
       return this;
     }
 
@@ -495,6 +497,8 @@ module.exports = class Inliner {
           " were not found in the index."
       );
     }
+
+    await this.#validateImportResolution();
 
     // check ESM compat.
     const tmpFileContents =
@@ -548,5 +552,14 @@ if (typeof ${sym} === "function") {
     fs.rmSync(path.join(__dirname, "tmp", this.package + ".mjs"));
 
     return this;
+  }
+
+  /**
+   * Validates that all require() and import() calls in dist-cjs files
+   * use string literals and resolve successfully from their file's directory.
+   */
+  async #validateImportResolution() {
+    const { validateImportResolution } = require("./validate-imports");
+    await validateImportResolution(path.join(this.packageDirectory, "dist-cjs"), { verbose: this.verbose });
   }
 };

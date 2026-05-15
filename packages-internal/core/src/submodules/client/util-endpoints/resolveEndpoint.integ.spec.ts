@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 import { describe, expect, test as it } from "vitest";
 
 import { resolveEndpoint } from "./resolveEndpoint";
-import { EndpointError } from "./types";
+import { EndpointError } from "./types/EndpointError";
 
 describe(resolveEndpoint.name, () => {
   const mocksDir = resolve(__dirname, "__mocks__");

@@ -1,5 +1,4 @@
 import type { AccountIdEndpointMode } from "@aws-sdk/core/account-id-endpoint";
-import { setFeature } from "@aws-sdk/core/client";
 import type {
   AttributedAwsCredentialIdentity,
   AwsHandlerExecutionContext,
@@ -8,6 +7,8 @@ import type {
 import type { IHttpRequest } from "@smithy/core/protocols";
 import { RETRY_MODES } from "@smithy/core/retry";
 import type { AwsCredentialIdentityProvider, BuildHandlerArguments, Provider } from "@smithy/types";
+
+import { setFeature } from "../setFeature";
 
 /**
  * @internal

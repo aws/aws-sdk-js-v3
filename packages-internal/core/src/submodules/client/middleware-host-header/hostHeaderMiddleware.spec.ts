@@ -1,7 +1,8 @@
 import { HttpRequest } from "@smithy/core/protocols";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { hostHeaderMiddleware, resolveHostHeaderConfig } from "./index";
+import { hostHeaderMiddleware, resolveHostHeaderConfig } from "./hostHeaderMiddleware";
+
 describe("hostHeaderMiddleware", () => {
   const mockNextHandler = vi.fn();
 
