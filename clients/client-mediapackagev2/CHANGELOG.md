@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
+
+
+### Features
+
+* **client-mediapackagev2:** This release adds support for AvailabilityStartTimeConfiguration in MediaPackageV2 DASH manifests ([6c8a84d](https://github.com/aws/aws-sdk-js-v3/commit/6c8a84d47e137a9e9e5aefa1a4a2eb386d4064ad))
+
+
+
+
+
 # [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

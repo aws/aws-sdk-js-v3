@@ -27,6 +27,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.25 (2026-05-14)
+### Chores
+* **codegen:** sync for browser bundle fixes ([#8022](https://github.com/aws/aws-sdk-js-v3/issues/8022)) ([eabae7d](https://github.com/aws/aws-sdk-js-v3/commit/eabae7d848238fedb6336c2f2d13b81c6cd9d146))
+
+
+
 # 3.972.24 (2026-05-14)
 ### Chores
 * **middleware-sdk-rds:** update dependencies.

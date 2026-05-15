@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
+
+
+### Features
+
+* **client-partnercentral-selling:** Enable TCV intake on Opportunity to improve Opportunities Hygiene and downstream revenue attribution. ([d68a75c](https://github.com/aws/aws-sdk-js-v3/commit/d68a75c460ef92ffe402cb5c331eecffb2d93b4a))
+
+
+
+
+
 # [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

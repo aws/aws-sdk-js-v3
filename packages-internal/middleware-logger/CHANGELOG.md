@@ -13,6 +13,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.11 (2026-05-15)
+### Chores
+* **core/client:** consolidate packages into core/client ([#8010](https://github.com/aws/aws-sdk-js-v3/issues/8010)) ([832d9e7](https://github.com/aws/aws-sdk-js-v3/commit/832d9e769f5f564003189f0ae301f7717e7f6c07))
+
+
+
 # 3.972.10 (2026-04-16)
 ### Chores
 * upgrade smithy to 1.69.0 ([#7932](https://github.com/aws/aws-sdk-js-v3/issues/7932)) ([560d987](https://github.com/aws/aws-sdk-js-v3/commit/560d9878471409e943a80ac2979e7fc8c2fff834))

@@ -17,6 +17,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.15 (2026-05-15)
+### Chores
+* **core/client:** consolidate packages into core/client ([#8010](https://github.com/aws/aws-sdk-js-v3/issues/8010)) ([832d9e7](https://github.com/aws/aws-sdk-js-v3/commit/832d9e769f5f564003189f0ae301f7717e7f6c07))
+* **codegen:** sync for browser bundle fixes ([#8022](https://github.com/aws/aws-sdk-js-v3/issues/8022)) ([eabae7d](https://github.com/aws/aws-sdk-js-v3/commit/eabae7d848238fedb6336c2f2d13b81c6cd9d146))
+
+
+
 # 3.972.14 (2026-05-12)
 ### Chores
 * **codegen:** dependency version bump ([#8008](https://github.com/aws/aws-sdk-js-v3/issues/8008)) ([9ce20f6](https://github.com/aws/aws-sdk-js-v3/commit/9ce20f6d16352cd5747d9555e2b75e9462ea8ae9))

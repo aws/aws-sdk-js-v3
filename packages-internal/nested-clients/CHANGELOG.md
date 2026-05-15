@@ -33,6 +33,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.9 (2026-05-15)
+### Chores
+* **packages:** update import paths ([#8024](https://github.com/aws/aws-sdk-js-v3/issues/8024)) ([901b75a](https://github.com/aws/aws-sdk-js-v3/commit/901b75a183812de984903bd301614e194f6c6e43))
+* **codegen:** updated import sources for aws-sdk core ([#8015](https://github.com/aws/aws-sdk-js-v3/issues/8015)) ([1af9047](https://github.com/aws/aws-sdk-js-v3/commit/1af90474774927f8dea56d1e33fd11167d431d11))
+* **codegen:** sync for browser bundle fixes ([#8022](https://github.com/aws/aws-sdk-js-v3/issues/8022)) ([eabae7d](https://github.com/aws/aws-sdk-js-v3/commit/eabae7d848238fedb6336c2f2d13b81c6cd9d146))
+
+
+
 # 3.997.8 (2026-05-14)
 ### Chores
 * **nested-clients:** update dependencies.

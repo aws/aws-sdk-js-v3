@@ -21,6 +21,13 @@
 
 
 
+
+# 3.0.22 (2026-05-14)
+### Chores
+* **codegen:** sync for browser bundle fixes ([#8022](https://github.com/aws/aws-sdk-js-v3/issues/8022)) ([eabae7d](https://github.com/aws/aws-sdk-js-v3/commit/eabae7d848238fedb6336c2f2d13b81c6cd9d146))
+
+
+
 # 3.0.21 (2026-05-14)
 ### Chores
 * **snapshot-testing:** update dependencies.

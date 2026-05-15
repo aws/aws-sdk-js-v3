@@ -14,6 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.12 (2026-05-15)
+### Chores
+* **middleware-sdk-sts:** update dependencies.
+
+
+
 # 3.972.11 (2026-05-12)
 ### Chores
 * **scripts:** add submodule variant api surface parity linting ([#8006](https://github.com/aws/aws-sdk-js-v3/issues/8006)) ([3361fb2](https://github.com/aws/aws-sdk-js-v3/commit/3361fb26a1fbe97fcad0e8be0c272ccf24470a64))

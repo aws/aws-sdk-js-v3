@@ -43,6 +43,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.41 (2026-05-15)
+### Chores
+* **packages:** update import paths ([#8024](https://github.com/aws/aws-sdk-js-v3/issues/8024)) ([901b75a](https://github.com/aws/aws-sdk-js-v3/commit/901b75a183812de984903bd301614e194f6c6e43))
+
+
+
 # 3.972.40 (2026-05-14)
 ### Chores
 * **crt-loader:** update dependencies.

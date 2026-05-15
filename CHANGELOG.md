@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Updating the max limit for start query api parameter. ([931876e](https://github.com/aws/aws-sdk-js-v3/commit/931876e1ad4e2a7c2d6aeb3fd975f4ae1b071520))
+* **client-mediapackagev2:** This release adds support for AvailabilityStartTimeConfiguration in MediaPackageV2 DASH manifests ([6c8a84d](https://github.com/aws/aws-sdk-js-v3/commit/6c8a84d47e137a9e9e5aefa1a4a2eb386d4064ad))
+* **client-partnercentral-selling:** Enable TCV intake on Opportunity to improve Opportunities Hygiene and downstream revenue attribution. ([d68a75c](https://github.com/aws/aws-sdk-js-v3/commit/d68a75c460ef92ffe402cb5c331eecffb2d93b4a))
+* **clients:** update client endpoints as of 2026-05-15 ([4aa76bd](https://github.com/aws/aws-sdk-js-v3/commit/4aa76bd0c70b7603e9f23e950fb6b079e4cac68f))
+
+
+
+
+
 # [3.1047.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1046.0...v3.1047.0) (2026-05-14)
 
 
