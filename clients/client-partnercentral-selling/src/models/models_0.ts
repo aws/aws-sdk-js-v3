@@ -15,6 +15,7 @@ import type {
   EngagementInvitationPayloadType,
   EngagementScore,
   EngagementSortName,
+  ExpectedContractDurationTerm,
   Industry,
   InvitationStatus,
   InvolvementTypeChangeReason,
@@ -615,7 +616,7 @@ export interface ExpectedCustomerSpend {
   Amount?: string | undefined;
 
   /**
-   * Currency code for the expected customer spend. Supported currencies: USD, EUR
+   * <p>Indicates the currency in which the revenue estimate is provided. This helps in understanding the financial impact across different markets. Accepted values are <code>USD</code> (US Dollars) and <code>EUR</code> (Euros). If the AWS Partition is <code>aws-eusc</code> (AWS European Sovereign Cloud), the currency code must be <code>EUR</code>.</p>
    * @public
    */
   CurrencyCode: CurrencyCode | undefined;
@@ -2892,6 +2893,24 @@ export interface Marketing {
 }
 
 /**
+ * <p>The expected duration of a partner's contract with the customer. Used to convert Total Contract Value (TCV) to Monthly Recurring Revenue (MRR) for opportunity dealsizing calculations.</p>
+ * @public
+ */
+export interface ExpectedContractDuration {
+  /**
+   * <p>The unit of measurement for the contract duration value. Currently accepts only <code>Months</code>.</p>
+   * @public
+   */
+  Term: ExpectedContractDurationTerm | undefined;
+
+  /**
+   * <p>A String representation of the contract duration as an integer, expressed in the unit defined by <code>Term</code>. Valid values range from <code>1</code> to <code>144</code>.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
  * <p>An object that contains the <code>Opportunity</code>'s project details.</p>
  * @public
  */
@@ -2907,6 +2926,12 @@ export interface Project {
    * @public
    */
   ExpectedCustomerSpend?: ExpectedCustomerSpend[] | undefined;
+
+  /**
+   * <p>Optional. The expected duration of the contract associated with this opportunity. Partners use this value alongside expected customer spend to convert Total Contract Value (TCV) into Monthly Recurring Revenue (MRR).</p>
+   * @public
+   */
+  ExpectedContractDuration?: ExpectedContractDuration | undefined;
 
   /**
    * <p>Specifies the <code>Opportunity</code>'s title or name.</p>
@@ -3625,6 +3650,12 @@ export interface ProjectSummary {
    * @public
    */
   ExpectedCustomerSpend?: ExpectedCustomerSpend[] | undefined;
+
+  /**
+   * <p>Optional. The expected contract duration for this opportunity, representing the anticipated length of the contract in the unit specified by <code>Term</code>.</p>
+   * @public
+   */
+  ExpectedContractDuration?: ExpectedContractDuration | undefined;
 }
 
 /**
@@ -4254,6 +4285,12 @@ export interface ProjectView {
    * @public
    */
   ExpectedCustomerSpend?: ExpectedCustomerSpend[] | undefined;
+
+  /**
+   * <p>Optional. The expected contract duration for this opportunity, representing the anticipated length of the contract in the unit specified by <code>Term</code>.</p>
+   * @public
+   */
+  ExpectedContractDuration?: ExpectedContractDuration | undefined;
 
   /**
    * <p> Specifies the proposed solution focus or type of workload for the project. </p>

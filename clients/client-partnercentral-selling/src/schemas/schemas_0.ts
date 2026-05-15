@@ -122,6 +122,7 @@ const _EC = "EngagementCustomer";
 const _ECB = "ExcludeCreatedBy";
 const _ECBP = "EngagementCustomerBusinessProblem";
 const _ECD = "EngagementContextDetails";
+const _ECDx = "ExpectedContractDuration";
 const _ECP = "EngagementContextPayload";
 const _ECPD = "EngagementCustomerProjectDetails";
 const _ECS = "ExpectedCustomerSpend";
@@ -415,6 +416,7 @@ const _TS = "TaskStatus";
 const _TSa = "TaskSummaries";
 const _Ta = "Tags";
 const _Tag = "Tag";
+const _Te = "Term";
 const _Ti = "Title";
 const _Tim = "Time";
 const _U = "Usecase";
@@ -788,6 +790,11 @@ export var EngagementSummary$: StaticStructureSchema = [3, n0, _ESng,
   [_Ar, _Id, _Ti, _CA, _CB, _MC, _MAo, _MB, _CTo],
   [0, 0, 0, 5, [() => AwsAccount, 0], 1, 5, [() => AwsAccount, 0], 64 | 0]
 ];
+export var ExpectedContractDuration$: StaticStructureSchema = [3, n0, _ECDx,
+  0,
+  [_Te, _Va],
+  [0, 0], 2
+];
 export var ExpectedCustomerSpend$: StaticStructureSchema = [3, n0, _ECS,
   0,
   [_CCu, _F, _TC, _Am, _EU],
@@ -1110,8 +1117,8 @@ export var ProfileNextStepsHistory$: StaticStructureSchema = [3, n0, _PNSH,
 ];
 export var Project$: StaticStructureSchema = [3, n0, _Pr,
   0,
-  [_DM, _ECS, _Ti, _APp, _CBP, _CUC, _ROIe, _SAal, _CNo, _OCN, _OSD, _ACd, _APw],
-  [64 | 0, [() => ExpectedCustomerSpendList, 0], [() => PiiString, 0], 64 | 0, [() => PiiString, 0], 0, 0, 64 | 0, 0, 0, [() => PiiString, 0], 0, 0]
+  [_DM, _ECS, _ECDx, _Ti, _APp, _CBP, _CUC, _ROIe, _SAal, _CNo, _OCN, _OSD, _ACd, _APw],
+  [64 | 0, [() => ExpectedCustomerSpendList, 0], () => ExpectedContractDuration$, [() => PiiString, 0], 64 | 0, [() => PiiString, 0], 0, 0, 64 | 0, 0, 0, [() => PiiString, 0], 0, 0]
 ];
 export var ProjectDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
@@ -1120,13 +1127,13 @@ export var ProjectDetails$: StaticStructureSchema = [3, n0, _PD,
 ];
 export var ProjectSummary$: StaticStructureSchema = [3, n0, _PSr,
   0,
-  [_DM, _ECS],
-  [64 | 0, [() => ExpectedCustomerSpendList, 0]]
+  [_DM, _ECS, _ECDx],
+  [64 | 0, [() => ExpectedCustomerSpendList, 0], () => ExpectedContractDuration$]
 ];
 export var ProjectView$: StaticStructureSchema = [3, n0, _PV,
   0,
-  [_DM, _ECS, _CUC, _SAal, _OSD],
-  [64 | 0, [() => ExpectedCustomerSpendList, 0], 0, 64 | 0, [() => PiiString, 0]]
+  [_DM, _ECS, _ECDx, _CUC, _SAal, _OSD],
+  [64 | 0, [() => ExpectedCustomerSpendList, 0], () => ExpectedContractDuration$, 0, 64 | 0, [() => PiiString, 0]]
 ];
 export var PutSellingSystemSettingsRequest$: StaticStructureSchema = [3, n0, _PSSSR,
   0,

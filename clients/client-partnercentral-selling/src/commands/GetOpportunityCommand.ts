@@ -92,6 +92,10 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  * //         EstimationUrl: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     ExpectedContractDuration: { // ExpectedContractDuration
+ * //       Term: "Months", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
  * //     Title: "STRING_VALUE",
  * //     ApnPrograms: [ // ApnPrograms
  * //       "STRING_VALUE",

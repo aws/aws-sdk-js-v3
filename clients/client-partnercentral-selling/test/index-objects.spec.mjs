@@ -91,6 +91,8 @@ import {
   EngagementSort$,
   EngagementSortName,
   EngagementSummary$,
+  ExpectedContractDuration$,
+  ExpectedContractDurationTerm,
   ExpectedCustomerSpend$,
   GetAwsOpportunitySummary$,
   GetAwsOpportunitySummaryCommand,
@@ -454,6 +456,7 @@ assert(typeof EngagementMemberSummary$ === "object");
 assert(typeof EngagementResourceAssociationSummary$ === "object");
 assert(typeof EngagementSort$ === "object");
 assert(typeof EngagementSummary$ === "object");
+assert(typeof ExpectedContractDuration$ === "object");
 assert(typeof ExpectedCustomerSpend$ === "object");
 assert(typeof GetAwsOpportunitySummaryRequest$ === "object");
 assert(typeof GetAwsOpportunitySummaryResponse$ === "object");
@@ -575,6 +578,7 @@ assert(typeof EngagementContextType === "object");
 assert(typeof EngagementInvitationPayloadType === "object");
 assert(typeof EngagementScore === "object");
 assert(typeof EngagementSortName === "object");
+assert(typeof ExpectedContractDurationTerm === "object");
 assert(typeof Industry === "object");
 assert(typeof InvitationStatus === "object");
 assert(typeof InvolvementTypeChangeReason === "object");

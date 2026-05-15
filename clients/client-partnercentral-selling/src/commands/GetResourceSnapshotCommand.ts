@@ -120,6 +120,10 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //             EstimationUrl: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         ExpectedContractDuration: { // ExpectedContractDuration
+ * //           Term: "Months", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
  * //         CustomerUseCase: "STRING_VALUE",
  * //         SalesActivities: [ // SalesActivities
  * //           "Initialized discussions with customer" || "Customer has shown interest in solution" || "Conducted POC / Demo" || "In evaluation / planning stage" || "Agreed on solution to Business Problem" || "Completed Action Plan" || "Finalized Deployment Need" || "SOW Signed",

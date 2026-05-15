@@ -121,6 +121,10 @@ export interface ListOpportunitiesCommandOutput extends ListOpportunitiesRespons
  * //             EstimationUrl: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         ExpectedContractDuration: { // ExpectedContractDuration
+ * //           Term: "Months", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //   ],

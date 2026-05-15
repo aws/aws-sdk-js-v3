@@ -1137,6 +1137,19 @@ export type DeliveryModel = (typeof DeliveryModel)[keyof typeof DeliveryModel];
  * @public
  * @enum
  */
+export const ExpectedContractDurationTerm = {
+  MONTHS: "Months",
+} as const;
+/**
+ * @public
+ */
+export type ExpectedContractDurationTerm =
+  (typeof ExpectedContractDurationTerm)[keyof typeof ExpectedContractDurationTerm];
+
+/**
+ * @public
+ * @enum
+ */
 export const SalesActivity = {
   AGREED_ON_SOLUTION_TO_BUSINESS_PROBLEM: "Agreed on solution to Business Problem",
   COMPLETED_ACTION_PLAN: "Completed Action Plan",
