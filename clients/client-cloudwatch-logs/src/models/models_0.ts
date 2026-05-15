@@ -5509,7 +5509,9 @@ export interface GetQueryResultsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of log events to return in the response. The maximum is 10,000 log events.</p>
+   * <p>The maximum number of log events to return in the response. The maximum is 10,000 log
+   *       events per request. You can retrieve up to 100,000 log event results from a query by
+   *       paginating with the <code>nextToken</code>.</p>
    * @public
    */
   maxItems?: number | undefined;
@@ -5641,7 +5643,8 @@ export interface GetQueryResultsResponse {
   /**
    * <p>If there are more log events remaining in the results, the response includes a
    *       <code>nextToken</code>. You can use this token in a subsequent <code>GetQueryResults</code>
-   *       request to get the next set of results.</p>
+   *       request to get the next set of results. You can retrieve up to 100,000 log event results
+   *       from a query by paginating with this token.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -9110,6 +9113,7 @@ export interface StartQueryRequest {
    * <p>The maximum number of log events to return in the query. If the query string uses the
    *         <code>fields</code> command, only the specified fields and their values are returned. The
    *       default is 10,000.</p>
+   *          <p>The maximum value is 100,000.</p>
    * @public
    */
   limit?: number | undefined;
