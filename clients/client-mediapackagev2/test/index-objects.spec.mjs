@@ -36,6 +36,7 @@ import {
   CreateOriginEndpointRequest$,
   CreateOriginEndpointResponse$,
   CustomAdType,
+  DashAvailabilityStartTimeConfiguration$,
   DashBaseUrl$,
   DashCompactness,
   DashDrmSignaling,
@@ -299,6 +300,7 @@ assert(typeof CreateLowLatencyHlsManifestConfiguration$ === "object");
 assert(typeof CreateMssManifestConfiguration$ === "object");
 assert(typeof CreateOriginEndpointRequest$ === "object");
 assert(typeof CreateOriginEndpointResponse$ === "object");
+assert(typeof DashAvailabilityStartTimeConfiguration$ === "object");
 assert(typeof DashBaseUrl$ === "object");
 assert(typeof DashDvbFontDownload$ === "object");
 assert(typeof DashDvbMetricsReporting$ === "object");

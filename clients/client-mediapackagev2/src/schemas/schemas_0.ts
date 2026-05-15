@@ -2,6 +2,7 @@ const _A = "Arn";
 const _ADE = "AccessDeniedException";
 const _AMD = "AdMarkerDash";
 const _AMH = "AdMarkerHls";
+const _ASTC = "AvailabilityStartTimeConfiguration";
 const _BN = "BucketName";
 const _BU = "BaseUrls";
 const _C = "Compactness";
@@ -50,6 +51,7 @@ const _CT = "ClientToken";
 const _CTo = "ContainerType";
 const _Co = "Copyright";
 const _D = "Description";
+const _DASTC = "DashAvailabilityStartTimeConfiguration";
 const _DBU = "DashBaseUrl";
 const _DBUa = "DashBaseUrls";
 const _DC = "DeleteChannel";
@@ -94,6 +96,7 @@ const _EMr = "ErrorMetrics";
 const _ET = "ETag";
 const _ETn = "EndTime";
 const _En = "End";
+const _FAST = "FixedAvailabilityStartTime";
 const _FC = "FilterConfiguration";
 const _FD = "FontDownload";
 const _FEEC = "ForceEndpointErrorConfiguration";
@@ -307,6 +310,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -423,8 +427,8 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDashManifestConfiguration$: StaticStructureSchema = [3, n0, _CDMC,
   0,
-  [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT],
-  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0], 1
+  [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT, _ASTC],
+  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0, () => DashAvailabilityStartTimeConfiguration$], 1
 ];
 export var CreateHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJRr,
   0,
@@ -613,8 +617,8 @@ export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
 ];
 export var GetDashManifestConfiguration$: StaticStructureSchema = [3, n0, _GDMC,
   0,
-  [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT],
-  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0], 2
+  [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC, _UPT, _ASTC],
+  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$, 0, () => DashAvailabilityStartTimeConfiguration$], 2
 ];
 export var GetHarvestJobRequest$: StaticStructureSchema = [3, n0, _GHJR,
   0,
@@ -972,6 +976,11 @@ var OriginEndpointsList: StaticListSchema = [1, n0, _OEL,
 var ScteFilterList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagMap = 128 | 0;
+export var DashAvailabilityStartTimeConfiguration$: StaticUnionSchema = [4, n0, _DASTC,
+  0,
+  [_FAST],
+  [5]
+];
 export var CancelHarvestJob$: StaticOperationSchema = [9, n0, _CHJ,
   { [_h]: ["PUT", "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob/{HarvestJobName}", 200] }, () => CancelHarvestJobRequest$, () => CancelHarvestJobResponse$
 ];

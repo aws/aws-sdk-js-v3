@@ -138,6 +138,7 @@ export type {
   CreateMssManifestConfiguration,
   CreateOriginEndpointRequest,
   CreateOriginEndpointResponse,
+  DashAvailabilityStartTimeConfiguration,
   DashBaseUrl,
   DashDvbFontDownload,
   DashDvbMetricsReporting,

@@ -601,6 +601,45 @@ export interface ListChannelsResponse {
 }
 
 /**
+ * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
+ * @public
+ */
+export type DashAvailabilityStartTimeConfiguration =
+  | DashAvailabilityStartTimeConfiguration.FixedAvailabilityStartTimeMember
+  | DashAvailabilityStartTimeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DashAvailabilityStartTimeConfiguration {
+  /**
+   * <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
+   * @public
+   */
+  export interface FixedAvailabilityStartTimeMember {
+    FixedAvailabilityStartTime: Date;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    FixedAvailabilityStartTime?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    FixedAvailabilityStartTime: (value: Date) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
  * @public
  */
@@ -940,6 +979,12 @@ export interface CreateDashManifestConfiguration {
    * @public
    */
   UriPathType?: UriPathType | undefined;
+
+  /**
+   * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). If you don't specify a value, MediaPackage uses the default availability start time of <code>2024-01-01T00:00:00Z</code>.</p>
+   * @public
+   */
+  AvailabilityStartTimeConfiguration?: DashAvailabilityStartTimeConfiguration | undefined;
 }
 
 /**
@@ -1545,6 +1590,12 @@ export interface GetDashManifestConfiguration {
    * @public
    */
   UriPathType?: UriPathType | undefined;
+
+  /**
+   * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD).</p>
+   * @public
+   */
+  AvailabilityStartTimeConfiguration?: DashAvailabilityStartTimeConfiguration | undefined;
 }
 
 /**

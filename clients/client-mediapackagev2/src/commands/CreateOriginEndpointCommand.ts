@@ -205,6 +205,9 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         },
  *       },
  *       UriPathType: "LEAF" || "ROOT",
+ *       AvailabilityStartTimeConfiguration: { // DashAvailabilityStartTimeConfiguration Union: only one key present
+ *         FixedAvailabilityStartTime: new Date("TIMESTAMP"),
+ *       },
  *     },
  *   ],
  *   MssManifests: [ // CreateMssManifests
@@ -404,6 +407,9 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         },
  * //       },
  * //       UriPathType: "LEAF" || "ROOT",
+ * //       AvailabilityStartTimeConfiguration: { // DashAvailabilityStartTimeConfiguration Union: only one key present
+ * //         FixedAvailabilityStartTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   MssManifests: [ // GetMssManifests
@@ -738,6 +744,9 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       }
  *     },
  *     {
+ *       AvailabilityStartTimeConfiguration: {
+ *         FixedAvailabilityStartTime: "2026-04-17T23:00:00.00Z"
+ *       },
  *       BaseUrls: [
  *         {
  *           DvbPriority: 2,
@@ -944,6 +953,9 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       }
  *     },
  *     {
+ *       AvailabilityStartTimeConfiguration: {
+ *         FixedAvailabilityStartTime: "2026-04-17T23:00:00.00Z"
+ *       },
  *       BaseUrls: [
  *         {
  *           DvbPriority: 2,

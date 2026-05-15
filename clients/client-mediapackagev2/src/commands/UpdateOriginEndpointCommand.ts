@@ -204,6 +204,9 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         },
  *       },
  *       UriPathType: "LEAF" || "ROOT",
+ *       AvailabilityStartTimeConfiguration: { // DashAvailabilityStartTimeConfiguration Union: only one key present
+ *         FixedAvailabilityStartTime: new Date("TIMESTAMP"),
+ *       },
  *     },
  *   ],
  *   MssManifests: [ // CreateMssManifests
@@ -427,6 +430,9 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         },
  * //       },
  * //       UriPathType: "LEAF" || "ROOT",
+ * //       AvailabilityStartTimeConfiguration: { // DashAvailabilityStartTimeConfiguration Union: only one key present
+ * //         FixedAvailabilityStartTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * // };

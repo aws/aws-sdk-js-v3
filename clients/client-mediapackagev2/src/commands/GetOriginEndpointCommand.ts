@@ -218,6 +218,9 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         },
  * //       },
  * //       UriPathType: "LEAF" || "ROOT",
+ * //       AvailabilityStartTimeConfiguration: { // DashAvailabilityStartTimeConfiguration Union: only one key present
+ * //         FixedAvailabilityStartTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   MssManifests: [ // GetMssManifests
