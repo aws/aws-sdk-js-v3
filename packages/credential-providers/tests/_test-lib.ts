@@ -1,10 +1,10 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { fromLoginCredentials, fromSSO } from "@aws-sdk/credential-providers";
-import { warning } from "@aws-sdk/region-config-resolver";
+import { stsRegionWarning as warning } from "@aws-sdk/core/client";
 import { ParsedIniData, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { HttpResponse } from "@smithy/protocol-http";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
+import { HttpResponse } from "@smithy/core/protocols";
+import { externalDataInterceptor } from "@smithy/core/config";
 import type { HttpRequest, NodeHttpHandlerOptions } from "@smithy/types";
 import child_process from "node:child_process";
 import { createHash } from "node:crypto";
