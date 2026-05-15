@@ -28,8 +28,8 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.974.10",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/core": "^3.24.2",
-    "@smithy/types": "^4.14.1",
+    "@smithy/core": "^3.24.3",
+    "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

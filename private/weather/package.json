@@ -22,11 +22,11 @@
     "@aws-sdk/core": "workspace:^3.974.10",
     "@aws-sdk/credential-provider-node": "workspace:^3.972.41",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/core": "^3.24.2",
-    "@smithy/experimental-identity-and-auth": "^0.6.2",
-    "@smithy/fetch-http-handler": "^5.4.2",
-    "@smithy/node-http-handler": "^4.7.2",
-    "@smithy/types": "^4.14.1",
+    "@smithy/core": "^3.24.3",
+    "@smithy/experimental-identity-and-auth": "^0.6.3",
+    "@smithy/fetch-http-handler": "^5.4.3",
+    "@smithy/node-http-handler": "^4.7.3",
+    "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
