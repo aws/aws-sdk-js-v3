@@ -1,5 +1,6 @@
 import type { S3ClientConfigType } from "@aws-sdk/client-s3";
 import { S3Client } from "@aws-sdk/client-s3";
+import { defaultUserAgent } from "@aws-sdk/core/client";
 import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { defaultProvider as credentialDefaultProvider, defaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
@@ -9,28 +10,37 @@ import {
 } from "@aws-sdk/middleware-flexible-checksums";
 import { S3ExpressIdentityProviderImpl } from "@aws-sdk/middleware-sdk-s3";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
+import { readableStreamHasher as streamHasher } from "@smithy/core/checksum";
+import { loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
+  loadConfig as loadNodeConfig,
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
-} from "@smithy/config-resolver";
-import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-node";
-import { Hash } from "@smithy/hash-node";
-import { readableStreamHasher as streamHasher } from "@smithy/hash-stream-node";
-import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
-import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
+  resolveDefaultsModeConfig,
+} from "@smithy/core/config";
+import { eventStreamSerdeProvider } from "@smithy/core/event-streams";
+import { parseUrl } from "@smithy/core/protocols";
+import {
+  ConfiguredRetryStrategy,
+  DEFAULT_RETRY_MODE,
+  NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
+  NODE_RETRY_MODE_CONFIG_OPTIONS,
+  StandardRetryStrategy,
+} from "@smithy/core/retry";
+import {
+  calculateBodyLength,
+  fromBase64,
+  fromUtf8,
+  getAwsChunkedEncodingStream,
+  Hash,
+  sdkStreamMixin,
+  toBase64,
+  toUtf8,
+} from "@smithy/core/serde";
 import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
-import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
 import type { EndpointV2, HttpAuthSchemeProvider } from "@smithy/types";
-import { parseUrl } from "@smithy/url-parser";
-import { fromBase64, toBase64 } from "@smithy/util-base64";
-import { calculateBodyLength } from "@smithy/util-body-length-node";
-import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
-import { ConfiguredRetryStrategy, DEFAULT_RETRY_MODE, StandardRetryStrategy } from "@smithy/util-retry";
-import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@smithy/util-stream";
-import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import https from "https";
 
 /**

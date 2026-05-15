@@ -1,4 +1,5 @@
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler } from "@smithy/core/protocols";
+import { HttpRequest, HttpResponse } from "@smithy/core/protocols";
 import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@smithy/types";
 import { PassThrough, Readable } from "stream";
 import { beforeEach, describe, expect, test as it } from "vitest";

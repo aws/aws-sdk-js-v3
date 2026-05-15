@@ -1,8 +1,9 @@
 import { Lambda, LambdaClient, LambdaServiceException, ListFunctionsCommand } from "@aws-sdk/client-lambda";
-import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
-import { AwsCredentialIdentity, RequestHandlerOutput } from "@smithy/types";
-import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
-import { Readable } from "stream";
+import type { HttpHandler} from "@smithy/core/protocols";
+import { HttpResponse } from "@smithy/core/protocols";
+import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/core/retry";
+import type { AwsCredentialIdentity, RequestHandlerOutput } from "@smithy/types";
+import { Readable } from "node:stream";
 import { describe, expect, test as it, vi } from "vitest";
 
 const MOCK_REGION = "us-west-2";

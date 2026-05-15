@@ -1,7 +1,6 @@
 import { BedrockRuntime } from "@aws-sdk/client-bedrock-runtime";
 import { SignatureV4 } from "@smithy/signature-v4";
-import { toBase64 } from "@smithy/util-base64";
-import { toUtf8 } from "@smithy/util-utf8";
+import { toBase64, toUtf8 } from "@smithy/core/serde";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 describe("BedrockRuntime", () => {
