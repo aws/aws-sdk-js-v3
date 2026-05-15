@@ -1,7 +1,7 @@
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.spec.ts
 import { NodeHttp2Handler, NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
-import { HttpResponse } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "stream";
 import { afterAll, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
