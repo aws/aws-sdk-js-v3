@@ -27,7 +27,7 @@ export interface DescribeEmailAddressCommandInput extends DescribeEmailAddressRe
 export interface DescribeEmailAddressCommandOutput extends DescribeEmailAddressResponse, __MetadataBearer {}
 
 /**
- * <p>Describe email address form the specified Amazon Connect instance.</p>
+ * <p>Describe email address form the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

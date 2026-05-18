@@ -28,7 +28,7 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
 
 /**
  * <p>Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It performs the actions
- *    in the flow that are specified (in ContactFlowId) and present in the Amazon Connect instance (specified as
+ *    in the flow that are specified (in ContactFlowId) and present in the Connect Customer instance (specified as
  *    InstanceId).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

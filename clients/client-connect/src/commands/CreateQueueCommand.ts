@@ -27,12 +27,12 @@ export interface CreateQueueCommandInput extends CreateQueueRequest {}
 export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new queue for the specified Amazon Connect instance.</p>
+ * <p>Creates a new queue for the specified Connect Customer instance.</p>
  *          <important>
  *             <ul>
  *                <li>
  *                   <p>If the phone number is claimed to a traffic distribution group that was created in the
- *       same Region as the Amazon Connect instance where you are calling this API, then you can use a
+ *       same Region as the Connect Customer instance where you are calling this API, then you can use a
  *       full phone number ARN or a UUID for <code>OutboundCallerIdNumberId</code>. However, if the phone number is claimed
  *       to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a
  *       UUID is provided in this scenario, you will receive a

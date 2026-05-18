@@ -37,8 +37,8 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
  *          <p>This API can be used to initiate outbound SMS or WhatsApp contacts for an agent, or it can also deflect
  *       an ongoing contact to an outbound SMS or WhatsApp contact by using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a> Flow
  *    Action.</p>
- *          <p>For more information about using SMS or WhatsApp in Amazon Connect, see the following topics in
- *       the <i>Amazon Connect Administrator Guide</i>:</p>
+ *          <p>For more information about using SMS or WhatsApp in Connect Customer, see the following topics in
+ *       the <i>Connect Customer Administrator Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>

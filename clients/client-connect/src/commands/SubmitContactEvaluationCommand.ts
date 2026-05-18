@@ -27,7 +27,7 @@ export interface SubmitContactEvaluationCommandInput extends SubmitContactEvalua
 export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a contact evaluation in the specified Amazon Connect instance. Answers included in the request are
+ * <p>Submits a contact evaluation in the specified Connect Customer instance. Answers included in the request are
  *    merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted
  *    with the existing answers and notes. You can delete an answer or note by passing an empty object (<code>\{\}</code>) to
  *    the question identifier. </p>

@@ -33,7 +33,7 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *     that ability can change the login credentials of other users by changing their email address. This poses a security
  *     risk to your organization. They can change the email address of a user to the attacker's email address, and then
  *     reset the password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for Security Profiles</a>
- *     in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     in the <i>Connect Customer Administrator Guide</i>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

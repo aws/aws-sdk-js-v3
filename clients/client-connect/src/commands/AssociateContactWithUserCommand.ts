@@ -63,12 +63,12 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *             </li>
  *             <li>
  *                <p>The service quota <i>Queues per routing profile per instance</i> applies to manually assigned
- *      queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect
- *       quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *      queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Connect Customer
+ *       quotas</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface UpdateContactCommandInput extends UpdateContactRequest {}
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Adds or updates user-defined contact information associated with the specified contact. At least one field to be
  *    updated must be present in the request.</p>
  *          <important>

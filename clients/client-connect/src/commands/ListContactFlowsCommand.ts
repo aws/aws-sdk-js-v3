@@ -27,10 +27,10 @@ export interface ListContactFlowsCommandInput extends ListContactFlowsRequest {}
 export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
+ * <p>Provides information about the flows for the specified Connect Customer instance.</p>
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Connect Customer
  *    Flow language</a>.</p>
- *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the <i>Amazon Connect
+ *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the <i>Connect Customer
  *     Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

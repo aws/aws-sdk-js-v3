@@ -37,12 +37,12 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *    it fails.</p>
  *          <note>
  *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must
- *     submit a service quota increase request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the
- *       <i>Amazon Connect Administrator Guide</i>. </p>
+ *     submit a service quota increase request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect Customer Service Quotas</a> in the
+ *       <i>Connect Customer Administrator Guide</i>. </p>
  *          </note>
  *          <note>
  *             <p>Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code> =
- *      <code>CAMPAIGN</code>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>. </p>
+ *      <code>CAMPAIGN</code>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Connect Customer campaigns</a>. </p>
  *          </note>
  *          <note>
  *             <p>For Preview dialing mode, only the Amazon Connect outbound campaigns service principal is allowed to assume a

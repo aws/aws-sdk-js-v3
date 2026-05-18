@@ -27,9 +27,9 @@ export interface UpdatePredefinedAttributeCommandInput extends UpdatePredefinedA
 export interface UpdatePredefinedAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a predefined attribute for the specified Amazon Connect instance. A <i>predefined attribute</i> is
+ * <p>Updates a predefined attribute for the specified Connect Customer instance. A <i>predefined attribute</i> is
  *    made up of a name and a value.</p>
- *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon Connect
+ *          <p>For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Connect Customer
  *    quotas</a>.</p>
  *          <p>
  *             <b>Use cases</b>
@@ -48,7 +48,7 @@ export interface UpdatePredefinedAttributeCommandOutput extends __MetadataBearer
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

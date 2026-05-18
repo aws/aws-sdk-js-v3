@@ -27,7 +27,7 @@ export interface AssociateEmailAddressAliasCommandInput extends AssociateEmailAd
 export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailAddressAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an email address alias with an existing email address in an Amazon Connect instance. This creates
+ * <p>Associates an email address alias with an existing email address in an Connect Customer instance. This creates
  *    a forwarding relationship where emails sent to the alias email address are automatically forwarded to the primary
  *    email address. </p>
  *          <p>
@@ -50,7 +50,7 @@ export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailA
  *             <li>
  *                <p>
  *                   <b>Brand management</b>: Enable you to use familiar brand-specific email addresses
- *      that forward to the appropriate Amazon Connect instance email address.</p>
+ *      that forward to the appropriate Connect Customer instance email address.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -83,14 +83,14 @@ export interface AssociateEmailAddressAliasCommandOutput extends AssociateEmailA
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  *          <p>
  *             <b>Related operations</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html">DisassociateEmailAddressAlias</a>: Removes the alias association between two email addresses in an Amazon Connect instance.</p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html">DisassociateEmailAddressAlias</a>: Removes the alias association between two email addresses in an Connect Customer instance.</p>
  *             </li>
  *             <li>
  *                <p>

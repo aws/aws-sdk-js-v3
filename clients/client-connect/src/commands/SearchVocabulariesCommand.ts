@@ -27,7 +27,7 @@ export interface SearchVocabulariesCommandInput extends SearchVocabulariesReques
 export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>,
+ * <p>Searches for vocabularies within a specific Connect Customer instance using <code>State</code>,
  *     <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

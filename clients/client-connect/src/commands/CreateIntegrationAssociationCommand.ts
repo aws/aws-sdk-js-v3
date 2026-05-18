@@ -27,7 +27,7 @@ export interface CreateIntegrationAssociationCommandInput extends CreateIntegrat
 export interface CreateIntegrationAssociationCommandOutput extends CreateIntegrationAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
+ * <p>Creates an Amazon Web Services resource association with an Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

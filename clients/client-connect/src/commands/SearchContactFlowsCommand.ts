@@ -28,7 +28,7 @@ export interface SearchContactFlowsCommandInput extends SearchContactFlowsReques
 export interface SearchContactFlowsCommandOutput extends SearchContactFlowsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches the flows in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches the flows in an Connect Customer instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

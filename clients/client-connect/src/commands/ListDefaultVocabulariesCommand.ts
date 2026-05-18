@@ -27,7 +27,7 @@ export interface ListDefaultVocabulariesCommandInput extends ListDefaultVocabula
 export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabulariesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the default vocabularies for the specified Amazon Connect instance.</p>
+ * <p>Lists the default vocabularies for the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface DescribeAuthenticationProfileCommandInput extends DescribeAuthe
 export interface DescribeAuthenticationProfileCommandOutput extends DescribeAuthenticationProfileResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * <p>This API is in preview release for Connect Customer and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.</p>
  *          <p>Describes the target authentication profile.</p>
  * @example

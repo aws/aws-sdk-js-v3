@@ -27,7 +27,7 @@ export interface DeleteIntegrationAssociationCommandInput extends DeleteIntegrat
 export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not
+ * <p>Deletes an Amazon Web Services resource association from an Connect Customer instance. The association must not
  *    have any use cases associated with it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

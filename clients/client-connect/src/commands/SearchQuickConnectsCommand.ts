@@ -27,7 +27,7 @@ export interface SearchQuickConnectsCommandInput extends SearchQuickConnectsRequ
 export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches quick connects in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches quick connects in an Connect Customer instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

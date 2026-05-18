@@ -27,7 +27,7 @@ export interface ListQuickConnectsCommandInput extends ListQuickConnectsRequest 
 export interface ListQuickConnectsCommandOutput extends ListQuickConnectsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+ * <p>Provides information about the quick connects for the specified Connect Customer instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

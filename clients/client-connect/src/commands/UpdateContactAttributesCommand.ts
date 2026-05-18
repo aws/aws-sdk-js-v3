@@ -32,10 +32,10 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *          <p>You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the
  *    call is active, you can update the customer's name or the reason the customer called. You can add notes about steps
  *    that the agent took during the call that display to the next agent that takes the call. You can also update
- *    attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.</p>
- *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information
+ *    attributes for a contact using data from your CRM application and save the data with the contact in Connect Customer. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.</p>
+ *          <p>Contact attributes are available in Connect Customer for 24 months, and are then deleted. For information
  *    about contact record retention and the maximum size of the contact record attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
- *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *     specifications</a> in the <i>Connect Customer Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

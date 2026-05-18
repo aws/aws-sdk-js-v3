@@ -27,10 +27,10 @@ export interface SendOutboundEmailCommandInput extends SendOutboundEmailRequest 
 export interface SendOutboundEmailCommandOutput extends SendOutboundEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Send outbound email for outbound campaigns. For more information about outbound campaigns, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html">Set up Amazon Connect
+ * <p>Send outbound email for outbound campaigns. For more information about outbound campaigns, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html">Set up Connect Customer
  *     outbound campaigns</a>.</p>
  *          <note>
- *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account
+ *             <p>Only the Connect Customer outbound campaigns service principal is allowed to assume a role in your account
  *     and call this API.</p>
  *          </note>
  * @example

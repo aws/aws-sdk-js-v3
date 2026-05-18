@@ -27,7 +27,7 @@ export interface ListTaskTemplatesCommandInput extends ListTaskTemplatesRequest 
 export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists task templates for the specified Amazon Connect instance.</p>
+ * <p>Lists task templates for the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

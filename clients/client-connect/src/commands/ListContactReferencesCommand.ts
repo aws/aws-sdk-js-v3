@@ -27,7 +27,7 @@ export interface ListContactReferencesCommandInput extends ListContactReferences
 export interface ListContactReferencesCommandOutput extends ListContactReferencesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact.
  *     <i>References</i> are links to documents that are related to a contact, such as emails, attachments,
  *    or URLs.</p>

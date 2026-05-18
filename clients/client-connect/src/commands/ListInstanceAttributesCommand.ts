@@ -27,7 +27,7 @@ export interface ListInstanceAttributesCommandInput extends ListInstanceAttribut
 export interface ListInstanceAttributesCommandOutput extends ListInstanceAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Returns a paginated list of all attribute types for the given instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -27,7 +27,7 @@ export interface DescribeInstanceStorageConfigCommandInput extends DescribeInsta
 export interface DescribeInstanceStorageConfigCommandOutput extends DescribeInstanceStorageConfigResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance
  *    ID.</p>
  * @example

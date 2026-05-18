@@ -27,7 +27,7 @@ export interface SearchRoutingProfilesCommandInput extends SearchRoutingProfiles
 export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches routing profiles in an Connect Customer instance, with optional filtering.</p>
  *          <note>
  *             <p>
  *                <code>SearchRoutingProfiles</code> does not populate LastModifiedRegion, LastModifiedTime,

@@ -27,7 +27,7 @@ export interface ListBotsCommandInput extends ListBotsRequest {}
 export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots
  *    currently associated with the instance. Use this API to return both Amazon Lex V1 and V2
  *    bots.</p>

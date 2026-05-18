@@ -27,7 +27,7 @@ export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Returns the current state of the specified instance identifier. It tracks the instance while it is being created
  *    and returns an error status, if applicable. </p>
  *          <p>If an instance is not created successfully, the instance status reason field returns details relevant to the

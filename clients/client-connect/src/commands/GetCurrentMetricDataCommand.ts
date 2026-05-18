@@ -27,8 +27,8 @@ export interface GetCurrentMetricDataCommandInput extends GetCurrentMetricDataRe
 export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Gets the real-time metric data from the specified Connect Customer instance.</p>
+ *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <note>
  *             <p>When you make a successful API request, you can expect the following metric values in the response:</p>
  *             <ol>

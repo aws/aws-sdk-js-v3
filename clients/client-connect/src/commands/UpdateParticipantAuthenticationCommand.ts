@@ -30,7 +30,7 @@ export interface UpdateParticipantAuthenticationCommandInput extends UpdateParti
 export interface UpdateParticipantAuthenticationCommandOutput extends UpdateParticipantAuthenticationResponse, __MetadataBearer {}
 
 /**
- * <p>Instructs Amazon Connect to resume the authentication process. The subsequent actions depend on the request
+ * <p>Instructs Connect Customer to resume the authentication process. The subsequent actions depend on the request
  *    body contents:</p>
  *          <ul>
  *             <li>

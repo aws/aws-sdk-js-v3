@@ -27,7 +27,7 @@ export interface DisassociateAnalyticsDataSetCommandInput extends DisassociateAn
 export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the dataset ID associated with a given Amazon Connect instance.</p>
+ * <p>Removes the dataset ID associated with a given Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

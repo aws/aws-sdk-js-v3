@@ -27,8 +27,8 @@ export interface GetMetricDataCommandInput extends GetMetricDataRequest {}
 export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __MetadataBearer {}
 
 /**
- * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Gets historical metric data from the specified Connect Customer instance.</p>
+ *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <note>
  *             <p>We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API. It provides more flexibility, features, and the ability to query longer time ranges
  *     than <code>GetMetricData</code>. Use it to retrieve historical agent and contact metrics for the last 3 months, at

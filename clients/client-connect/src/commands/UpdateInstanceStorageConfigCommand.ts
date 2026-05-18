@@ -27,7 +27,7 @@ export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceS
 export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

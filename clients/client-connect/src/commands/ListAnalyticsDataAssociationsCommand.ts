@@ -27,7 +27,7 @@ export interface ListAnalyticsDataAssociationsCommandInput extends ListAnalytics
 export interface ListAnalyticsDataAssociationsCommandOutput extends ListAnalyticsDataAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the association status of requested dataset ID for a given Amazon Connect instance.</p>
+ * <p>Lists the association status of requested dataset ID for a given Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

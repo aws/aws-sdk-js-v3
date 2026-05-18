@@ -40,7 +40,7 @@ export interface ListRoutingProfileManualAssignmentQueuesCommandOutput extends L
  *                <p>This API returns list of queues where contacts can be manually assigned or picked by an agent who has access
  *      to the Worklist app. The user can additionally filter on queues, if they have access to those queues (otherwise a
  *      invalid request exception will be thrown).</p>
- *                <p>For information about how manual contact assignment works in the agent workspace, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access the Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *                <p>For information about how manual contact assignment works in the agent workspace, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access the Worklist app in the Connect Customer agent workspace</a> in the <i>Connect Customer Administrator Guide</i>. </p>
  *             </li>
  *          </ul>
  *          <p>
@@ -53,7 +53,7 @@ export interface ListRoutingProfileManualAssignmentQueuesCommandOutput extends L
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

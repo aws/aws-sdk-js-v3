@@ -27,7 +27,7 @@ export interface DisassociateSecurityKeyCommandInput extends DisassociateSecurit
 export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Deletes the specified security key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

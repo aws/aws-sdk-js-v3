@@ -27,7 +27,7 @@ export interface DeleteHoursOfOperationOverrideCommandInput extends DeleteHoursO
 export interface DeleteHoursOfOperationOverrideCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an hours of operation override in an Amazon Connect hours of operation resource.</p>
+ * <p>Deletes an hours of operation override in an Connect Customer hours of operation resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

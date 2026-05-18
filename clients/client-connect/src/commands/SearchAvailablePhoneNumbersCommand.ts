@@ -27,7 +27,7 @@ export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailable
 export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailablePhoneNumbersResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the
+ * <p>Searches for available phone numbers that you can claim to your Connect Customer instance or traffic distribution group. If the
  *    provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with
  *    the traffic distribution group.</p>
  * @example

@@ -27,11 +27,11 @@ export interface ClaimPhoneNumberCommandInput extends ClaimPhoneNumberRequest {}
 export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call
- *    this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was
+ * <p>Claims an available phone number to your Connect Customer instance or traffic distribution group. You can call
+ *    this API only in the same Amazon Web Services Region where the Connect Customer instance or traffic distribution group was
  *    created.</p>
  *          <p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your country</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html">Claim
- *     phone numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
+ *     phone numbers to traffic distribution groups</a> in the <i>Connect Customer Administrator
  *     Guide</i>. </p>
  *          <important>
  *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for

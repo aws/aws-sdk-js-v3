@@ -27,7 +27,7 @@ export interface StartContactEvaluationCommandInput extends StartContactEvaluati
 export interface StartContactEvaluationCommandOutput extends StartContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an empty evaluation in the specified Amazon Connect instance, using the given evaluation form for the
+ * <p>Starts an empty evaluation in the specified Connect Customer instance, using the given evaluation form for the
  *    particular contact. The evaluation form version used for the contact evaluation corresponds to the currently
  *    activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started. </p>
  *          <note>

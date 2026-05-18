@@ -27,9 +27,9 @@ export interface ListAuthenticationProfilesCommandInput extends ListAuthenticati
 export interface ListAuthenticationProfilesCommandOutput extends ListAuthenticationProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * <p>This API is in preview release for Connect Customer and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.</p>
- *          <p>Provides summary information about the authentication profiles in a specified Amazon Connect
+ *          <p>Provides summary information about the authentication profiles in a specified Connect Customer
  *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

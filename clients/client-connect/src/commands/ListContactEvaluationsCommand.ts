@@ -27,7 +27,7 @@ export interface ListContactEvaluationsCommandInput extends ListContactEvaluatio
 export interface ListContactEvaluationsCommandOutput extends ListContactEvaluationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists contact evaluations in the specified Amazon Connect instance.</p>
+ * <p>Lists contact evaluations in the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

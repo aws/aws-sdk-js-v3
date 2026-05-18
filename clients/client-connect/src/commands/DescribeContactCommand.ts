@@ -28,7 +28,7 @@ export interface DescribeContactCommandInput extends DescribeContactRequest {}
 export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Describes the specified contact. </p>
  *          <p>
  *             <b>Use cases</b>
@@ -60,12 +60,12 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *      or CALLBACK</p>
  *             </li>
  *             <li>
- *                <p>Contact information remains available in Amazon Connect for 24 months from the
- *       <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is available in Amazon Connect is returned by this API.</p>
+ *                <p>Contact information remains available in Connect Customer for 24 months from the
+ *       <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is available in Connect Customer is returned by this API.</p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

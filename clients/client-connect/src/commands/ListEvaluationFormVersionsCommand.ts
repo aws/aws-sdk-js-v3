@@ -27,7 +27,7 @@ export interface ListEvaluationFormVersionsCommandInput extends ListEvaluationFo
 export interface ListEvaluationFormVersionsCommandOutput extends ListEvaluationFormVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists versions of an evaluation form in the specified Amazon Connect instance.</p>
+ * <p>Lists versions of an evaluation form in the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

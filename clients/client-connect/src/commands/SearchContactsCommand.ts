@@ -28,7 +28,7 @@ export interface SearchContactsCommandInput extends SearchContactsRequest {}
 export interface SearchContactsCommandOutput extends SearchContactsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches contacts in an Amazon Connect instance.</p>
+ * <p>Searches contacts in an Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

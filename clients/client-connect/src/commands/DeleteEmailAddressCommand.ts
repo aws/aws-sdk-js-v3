@@ -27,7 +27,7 @@ export interface DeleteEmailAddressCommandInput extends DeleteEmailAddressReques
 export interface DeleteEmailAddressCommandOutput extends DeleteEmailAddressResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes email address from the specified Amazon Connect instance.</p>
+ * <p>Deletes email address from the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

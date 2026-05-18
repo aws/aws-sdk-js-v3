@@ -27,7 +27,7 @@ export interface ListSecurityKeysCommandInput extends ListSecurityKeysRequest {}
 export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Returns a paginated list of all security keys associated with the instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

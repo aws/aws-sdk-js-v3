@@ -27,8 +27,8 @@ export interface AssociateApprovedOriginCommandInput extends AssociateApprovedOr
 export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Associates an approved origin to an Amazon Connect instance.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
+ *          <p>Associates an approved origin to an Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

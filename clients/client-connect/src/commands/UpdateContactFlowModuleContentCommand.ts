@@ -27,7 +27,7 @@ export interface UpdateContactFlowModuleContentCommandInput extends UpdateContac
 export interface UpdateContactFlowModuleContentCommandOutput extends UpdateContactFlowModuleContentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
+ * <p>Updates specified flow module for the specified Connect Customer instance. </p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content of a Flow. For
  *    example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is published, <code>$SAVED</code> needs to
  *    be supplied to view saved content that has not been published.</p>

@@ -461,7 +461,7 @@ export interface CreateWorkspacePageResponse {}
  */
 export interface DeactivateEvaluationFormRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -542,7 +542,7 @@ export interface DeleteAttachedFileResponse {}
  */
 export interface DeleteContactEvaluationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -559,7 +559,7 @@ export interface DeleteContactEvaluationRequest {
  */
 export interface DeleteContactFlowRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -581,7 +581,7 @@ export interface DeleteContactFlowResponse {}
  */
 export interface DeleteContactFlowModuleRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -603,7 +603,7 @@ export interface DeleteContactFlowModuleResponse {}
  */
 export interface DeleteContactFlowModuleAliasRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -631,7 +631,7 @@ export interface DeleteContactFlowModuleAliasResponse {}
  */
 export interface DeleteContactFlowModuleVersionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -659,7 +659,7 @@ export interface DeleteContactFlowModuleVersionResponse {}
  */
 export interface DeleteContactFlowVersionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -744,7 +744,7 @@ export interface DeleteDataTableAttributeResponse {
  */
 export interface DeleteEmailAddressRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -766,7 +766,7 @@ export interface DeleteEmailAddressResponse {}
  */
 export interface DeleteEvaluationFormRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -789,7 +789,7 @@ export interface DeleteEvaluationFormRequest {
  */
 export interface DeleteHoursOfOperationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -806,7 +806,7 @@ export interface DeleteHoursOfOperationRequest {
  */
 export interface DeleteHoursOfOperationOverrideRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -829,7 +829,7 @@ export interface DeleteHoursOfOperationOverrideRequest {
  */
 export interface DeleteInstanceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -849,7 +849,7 @@ export interface DeleteInstanceRequest {
  */
 export interface DeleteIntegrationAssociationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -889,7 +889,7 @@ export interface DeleteNotificationResponse {}
  */
 export interface DeletePredefinedAttributeRequest {
   /**
-   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   * <p> The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
    *    instance.</p>
    * @public
    */
@@ -907,7 +907,7 @@ export interface DeletePredefinedAttributeRequest {
  */
 export interface DeletePromptRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -937,7 +937,7 @@ export interface DeletePushNotificationRegistrationRequest {
   RegistrationId: string | undefined;
 
   /**
-   * <p>The identifier of the contact within the Amazon Connect instance.</p>
+   * <p>The identifier of the contact within the Connect Customer instance.</p>
    * @public
    */
   ContactId: string | undefined;
@@ -953,7 +953,7 @@ export interface DeletePushNotificationRegistrationResponse {}
  */
 export interface DeleteQueueRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -970,7 +970,7 @@ export interface DeleteQueueRequest {
  */
 export interface DeleteQuickConnectRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -987,7 +987,7 @@ export interface DeleteQuickConnectRequest {
  */
 export interface DeleteRoutingProfileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1004,7 +1004,7 @@ export interface DeleteRoutingProfileRequest {
  */
 export interface DeleteRuleRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1021,7 +1021,7 @@ export interface DeleteRuleRequest {
  */
 export interface DeleteSecurityProfileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1038,7 +1038,7 @@ export interface DeleteSecurityProfileRequest {
  */
 export interface DeleteTaskTemplateRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1099,7 +1099,7 @@ export interface DeleteTrafficDistributionGroupResponse {}
  */
 export interface DeleteUseCaseRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1122,7 +1122,7 @@ export interface DeleteUseCaseRequest {
  */
 export interface DeleteUserRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1145,7 +1145,7 @@ export interface DeleteUserHierarchyGroupRequest {
   HierarchyGroupId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1156,7 +1156,7 @@ export interface DeleteUserHierarchyGroupRequest {
  */
 export interface DeleteViewRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -1179,7 +1179,7 @@ export interface DeleteViewResponse {}
  */
 export interface DeleteViewVersionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -1208,7 +1208,7 @@ export interface DeleteViewVersionResponse {}
  */
 export interface DeleteVocabularyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1330,7 +1330,7 @@ export interface DeleteWorkspacePageResponse {}
  */
 export interface DescribeAgentStatusRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1358,7 +1358,7 @@ export interface DescribeAgentStatusResponse {
  */
 export interface DescribeAttachedFilesConfigurationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1388,7 +1388,7 @@ export interface ExtensionConfiguration {
  */
 export interface AttachedFilesConfiguration {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1440,14 +1440,14 @@ export interface DescribeAuthenticationProfileRequest {
   AuthenticationProfileId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 }
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * <p>This API is in preview release for Connect Customer and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.</p>
  *          <p>Information about an authentication profile. An authentication profile is a resource that stores the
  *    authentication settings for users in your contact center. You use authentication profiles to set up IP address range
@@ -1481,24 +1481,24 @@ export interface AuthenticationProfile {
   Description?: string | undefined;
 
   /**
-   * <p>A list of IP address range strings that are allowed to access the Amazon Connect instance. For more
+   * <p>A list of IP address range strings that are allowed to access the Connect Customer instance. For more
    *    information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure IP address based access
-   *     control</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     control</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   AllowedIps?: string[] | undefined;
 
   /**
-   * <p>A list of IP address range strings that are blocked from accessing the Amazon Connect instance. For more
+   * <p>A list of IP address range strings that are blocked from accessing the Connect Customer instance. For more
    *    information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure IP address based access
-   *     control</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     control</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   BlockedIps?: string[] | undefined;
 
   /**
-   * <p>Shows whether the authentication profile is the default authentication profile for the Amazon Connect
-   *    instance. The default authentication profile applies to all agents in an Amazon Connect instance, unless
+   * <p>Shows whether the authentication profile is the default authentication profile for the Connect Customer
+   *    instance. The default authentication profile applies to all agents in an Connect Customer instance, unless
    *    overridden by another authentication profile.</p>
    * @public
    */
@@ -1523,8 +1523,8 @@ export interface AuthenticationProfile {
   LastModifiedRegion?: string | undefined;
 
   /**
-   * <p>The short lived session duration configuration for users logged in to Amazon Connect, in minutes. This value
-   *    determines the maximum possible time before an agent is authenticated. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>The short lived session duration configuration for users logged in to Connect Customer, in minutes. This value
+   *    determines the maximum possible time before an agent is authenticated. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    *
    * @deprecated (since 10/31/2025) PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.
    * @public
@@ -1532,9 +1532,9 @@ export interface AuthenticationProfile {
   PeriodicSessionDuration?: number | undefined;
 
   /**
-   * <p>The long lived session duration for users logged in to Amazon Connect, in minutes. After this time period,
+   * <p>The long lived session duration for users logged in to Connect Customer, in minutes. After this time period,
    *    users must log in again. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session
-   *     duration</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     duration</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   MaxSessionDuration?: number | undefined;
@@ -1569,7 +1569,7 @@ export interface DescribeAuthenticationProfileResponse {
  */
 export interface DescribeContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1803,7 +1803,7 @@ export interface Customer {
   /**
    * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the call.
    *    For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up
-   *     in-app, web, video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator
+   *     in-app, web, video calling, and screen sharing capabilities</a> in the <i>Connect Customer Administrator
    *     Guide</i>.</p>
    * @public
    */
@@ -2232,7 +2232,7 @@ export interface TaskTemplateInfoV2 {
 }
 
 /**
- * <p>Information about Amazon Connect Wisdom.</p>
+ * <p>Information about Connect Customer Wisdom.</p>
  * @public
  */
 export interface WisdomInfo {
@@ -2254,7 +2254,7 @@ export interface WisdomInfo {
  */
 export interface DescribeContactEvaluationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2751,7 +2751,7 @@ export interface EvaluationScore {
  */
 export interface EvaluationMetadata {
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId: string | undefined;
@@ -2905,7 +2905,7 @@ export interface Evaluation {
  */
 export interface DescribeContactFlowRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2942,7 +2942,7 @@ export interface ContactFlow {
 
   /**
    * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the
-   *      <i>Amazon Connect Administrator Guide</i>.</p>
+   *      <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   Type?: ContactFlowType | undefined;
@@ -2967,7 +2967,7 @@ export interface ContactFlow {
 
   /**
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     flow in Amazon Connect Flow language</a>. </p>
+   *     flow in Connect Customer Flow language</a>. </p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
    * @public
    */
@@ -3026,7 +3026,7 @@ export interface DescribeContactFlowResponse {
  */
 export interface DescribeContactFlowModuleRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3063,7 +3063,7 @@ export interface ContactFlowModule {
 
   /**
    * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     flow in Amazon Connect Flow language</a>. </p>
+   *     flow in Connect Customer Flow language</a>. </p>
    * @public
    */
   Content?: string | undefined;
@@ -3139,7 +3139,7 @@ export interface DescribeContactFlowModuleResponse {
  */
 export interface DescribeContactFlowModuleAliasRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3473,7 +3473,7 @@ export interface DescribeDataTableAttributeResponse {
  */
 export interface DescribeEmailAddressRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3550,7 +3550,7 @@ export interface DescribeEmailAddressResponse {
  */
 export interface DescribeEvaluationFormRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3573,7 +3573,7 @@ export interface DescribeEvaluationFormRequest {
  */
 export interface DescribeHoursOfOperationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3691,7 +3691,7 @@ export interface DescribeHoursOfOperationResponse {
  */
 export interface DescribeHoursOfOperationOverrideRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3791,7 +3791,7 @@ export interface DescribeHoursOfOperationOverrideResponse {
  */
 export interface DescribeInstanceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3811,12 +3811,12 @@ export interface InstanceStatusReason {
 }
 
 /**
- * <p>The Amazon Connect instance.</p>
+ * <p>The Connect Customer instance.</p>
  * @public
  */
 export interface Instance {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   Id?: string | undefined;
@@ -3877,7 +3877,7 @@ export interface Instance {
   OutboundCallsEnabled?: boolean | undefined;
 
   /**
-   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
+   * <p>This URL allows contact center users to access the Connect Customer admin website.</p>
    * @public
    */
   InstanceAccessUrl?: string | undefined;
@@ -3891,8 +3891,8 @@ export interface Instance {
 
 /**
  * <p>Status information about the replication process, where you use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html">ReplicateInstance</a> API to create a replica of
- *    your Amazon Connect instance in another Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Set up Amazon Connect
- *     Global Resiliency</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *    your Connect Customer instance in another Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Set up Connect Customer
+ *     Global Resiliency</a> in the <i>Connect Customer Administrator Guide</i>. </p>
  * @public
  */
 export interface ReplicationStatusSummary {
@@ -3911,39 +3911,39 @@ export interface ReplicationStatusSummary {
 
   /**
    * <p>A description of the replication status. Use this information to resolve any issues that are preventing the
-   *    successful replication of your Amazon Connect instance to another Region.</p>
+   *    successful replication of your Connect Customer instance to another Region.</p>
    * @public
    */
   ReplicationStatusReason?: string | undefined;
 }
 
 /**
- * <p>Details about the status of the replication of a source Amazon Connect instance across Amazon Web Services
+ * <p>Details about the status of the replication of a source Connect Customer instance across Amazon Web Services
  *    Regions. Use these details to understand the general status of a given replication. For information about why a
  *    replication process may fail, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html#why-replicateinstance-fails">Why a
- *     ReplicateInstance call fails</a> in the <i>Create a replica of your existing Amazon Connect
- *     instance</i> topic in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *     ReplicateInstance call fails</a> in the <i>Create a replica of your existing Connect Customer
+ *     instance</i> topic in the <i>Connect Customer Administrator Guide</i>. </p>
  * @public
  */
 export interface ReplicationConfiguration {
   /**
    * <p>A list of replication status summaries. The summaries contain details about the replication of configuration
-   *    information for Amazon Connect resources, for each Amazon Web Services Region.</p>
+   *    information for Connect Customer resources, for each Amazon Web Services Region.</p>
    * @public
    */
   ReplicationStatusSummaryList?: ReplicationStatusSummary[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where the source Amazon Connect instance was created. This is the Region where
+   * <p>The Amazon Web Services Region where the source Connect Customer instance was created. This is the Region where
    *    the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html">ReplicateInstance</a> API was called to start the replication process.</p>
    * @public
    */
   SourceRegion?: string | undefined;
 
   /**
-   * <p>The URL that is used to sign-in to your Amazon Connect instance according to your traffic distribution group
+   * <p>The URL that is used to sign-in to your Connect Customer instance according to your traffic distribution group
    *    configuration. For more information about sign-in and traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Important things to know</a> in the
-   *     <i>Create traffic distribution groups</i> topic in the <i>Amazon Connect Administrator
+   *     <i>Create traffic distribution groups</i> topic in the <i>Connect Customer Administrator
    *     Guide</i>. </p>
    * @public
    */
@@ -3962,7 +3962,7 @@ export interface DescribeInstanceResponse {
 
   /**
    * <p>Status information about the replication process. This field is included only when you are using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html">ReplicateInstance</a> API to
-   *    replicate an Amazon Connect instance across Amazon Web Services Regions. For information about replicating Amazon Connect instances, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    replicate an Connect Customer instance across Amazon Web Services Regions. For information about replicating Connect Customer instances, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create a replica of your existing Connect Customer instance</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   ReplicationConfiguration?: ReplicationConfiguration | undefined;
@@ -3973,7 +3973,7 @@ export interface DescribeInstanceResponse {
  */
 export interface DescribeInstanceAttributeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4021,7 +4021,7 @@ export interface DescribeInstanceAttributeResponse {
  */
 export interface DescribeInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4195,7 +4195,7 @@ export interface PhoneNumberStatus {
 }
 
 /**
- * <p>Information about a phone number that has been claimed to your Amazon Connect instance or traffic distribution group.</p>
+ * <p>Information about a phone number that has been claimed to your Connect Customer instance or traffic distribution group.</p>
  * @public
  */
 export interface ClaimedPhoneNumberSummary {
@@ -4236,13 +4236,13 @@ export interface ClaimedPhoneNumberSummary {
   PhoneNumberDescription?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
+   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
    * @public
    */
   TargetArn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
@@ -4299,7 +4299,7 @@ export interface ClaimedPhoneNumberSummary {
  */
 export interface DescribePhoneNumberResponse {
   /**
-   * <p>Information about a phone number that's been claimed to your Amazon Connect instance or traffic distribution group.</p>
+   * <p>Information about a phone number that's been claimed to your Connect Customer instance or traffic distribution group.</p>
    * @public
    */
   ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary | undefined;
@@ -4310,7 +4310,7 @@ export interface DescribePhoneNumberResponse {
  */
 export interface DescribePredefinedAttributeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
    *    instance.</p>
    * @public
    */
@@ -4325,12 +4325,12 @@ export interface DescribePredefinedAttributeRequest {
 
 /**
  * <p>Custom metadata that is associated to predefined attributes to control behavior in upstream services, such as
- *    controlling how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+ *    controlling how a predefined attribute should be displayed in the Connect Customer admin website.</p>
  * @public
  */
 export interface PredefinedAttributeConfiguration {
   /**
-   * <p>When this parameter is set to true, Amazon Connect enforces strict validation on the specific values, if the
+   * <p>When this parameter is set to true, Connect Customer enforces strict validation on the specific values, if the
    *    values are predefined in attributes. The contact will store only valid and predefined values for teh predefined
    *    attribute key.</p>
    * @public
@@ -4338,7 +4338,7 @@ export interface PredefinedAttributeConfiguration {
   EnableValueValidationOnAssociation?: boolean | undefined;
 
   /**
-   * <p>A boolean flag used to indicate whether a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+   * <p>A boolean flag used to indicate whether a predefined attribute should be displayed in the Connect Customer admin website.</p>
    * @public
    */
   IsReadOnly?: boolean | undefined;
@@ -4362,7 +4362,7 @@ export interface PredefinedAttribute {
   Values?: PredefinedAttributeValues | undefined;
 
   /**
-   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Amazon Connect admin website.</p>
+   * <p>Values that enable you to categorize your predefined attributes. You can use them in custom UI elements across the Connect Customer admin website.</p>
    * @public
    */
   Purposes?: string[] | undefined;
@@ -4370,7 +4370,7 @@ export interface PredefinedAttribute {
   /**
    * <p>Custom metadata that is associated to predefined attributes to control behavior
    * in upstream services, such as controlling
-   * how a predefined attribute should be displayed in the Amazon Connect admin website.</p>
+   * how a predefined attribute should be displayed in the Connect Customer admin website.</p>
    * @public
    */
   AttributeConfiguration?: PredefinedAttributeConfiguration | undefined;
@@ -4404,7 +4404,7 @@ export interface DescribePredefinedAttributeResponse {
  */
 export interface DescribePromptRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4480,7 +4480,7 @@ export interface DescribePromptResponse {
  */
 export interface DescribeQueueRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4586,7 +4586,7 @@ export interface DescribeQueueResponse {
  */
 export interface DescribeQuickConnectRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4668,7 +4668,7 @@ export interface DescribeQuickConnectResponse {
  */
 export interface DescribeRoutingProfileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4686,7 +4686,7 @@ export interface DescribeRoutingProfileRequest {
  */
 export interface RoutingProfile {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId?: string | undefined;
@@ -4805,7 +4805,7 @@ export interface DescribeRoutingProfileResponse {
  */
 export interface DescribeRuleRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4911,7 +4911,7 @@ export interface DescribeSecurityProfileRequest {
   SecurityProfileId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4959,13 +4959,13 @@ export interface SecurityProfile {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   * <p>The list of tags that a security profile uses to restrict access to resources in Connect Customer.</p>
    * @public
    */
   AllowedAccessControlTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+   * <p>The list of resources that a security profile applies tag restrictions to in Connect Customer.</p>
    * @public
    */
   TagRestrictedResources?: string[] | undefined;
@@ -4983,14 +4983,14 @@ export interface SecurityProfile {
   LastModifiedRegion?: string | undefined;
 
   /**
-   * <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following
+   * <p>The list of resources that a security profile applies hierarchy restrictions to in Connect Customer. Following
    *    are acceptable ResourceNames: <code>User</code>.</p>
    * @public
    */
   HierarchyRestrictedResources?: string[] | undefined;
 
   /**
-   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Connect Customer.</p>
    * @public
    */
   AllowedAccessControlHierarchyGroupId?: string | undefined;
@@ -5259,14 +5259,14 @@ export interface DescribeUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 }
 
 /**
- * <p>Contains information about a user account for an Amazon Connect instance.</p>
+ * <p>Contains information about a user account for an Connect Customer instance.</p>
  * @public
  */
 export interface User {
@@ -5396,7 +5396,7 @@ export interface DescribeUserHierarchyGroupRequest {
   HierarchyGroupId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5544,7 +5544,7 @@ export interface DescribeUserHierarchyGroupResponse {
  */
 export interface DescribeUserHierarchyStructureRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5638,7 +5638,7 @@ export interface DescribeUserHierarchyStructureResponse {
  */
 export interface DescribeViewRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -5667,7 +5667,7 @@ export interface DescribeViewResponse {
  */
 export interface DescribeVocabularyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5750,7 +5750,7 @@ export interface Vocabulary {
  */
 export interface DescribeVocabularyResponse {
   /**
-   * <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They are generally
+   * <p>A list of specific words that you want Contact Lens for Connect Customer to recognize in your audio input. They are generally
    *    domain-specific words and phrases, words that Contact Lens is not recognizing, or proper nouns.</p>
    * @public
    */
@@ -5858,7 +5858,7 @@ export interface DescribeWorkspaceResponse {
  */
 export interface DisassociateAnalyticsDataSetRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5871,7 +5871,7 @@ export interface DisassociateAnalyticsDataSetRequest {
 
   /**
    * <p>The identifier of the target account.  Use to associate a dataset to a different account than the one containing
-   *    the Amazon Connect instance. If not specified, by default this value is the Amazon Web Services account that has the Amazon Connect instance.</p>
+   *    the Connect Customer instance. If not specified, by default this value is the Amazon Web Services account that has the Connect Customer instance.</p>
    * @public
    */
   TargetAccountId?: string | undefined;
@@ -5882,7 +5882,7 @@ export interface DisassociateAnalyticsDataSetRequest {
  */
 export interface DisassociateApprovedOriginRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5908,7 +5908,7 @@ export interface DisassociateApprovedOriginRequest {
  */
 export interface DisassociateBotRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5946,7 +5946,7 @@ export interface DisassociateEmailAddressAliasRequest {
   EmailAddressId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5978,7 +5978,7 @@ export interface DisassociateEmailAddressAliasResponse {}
  */
 export interface DisassociateFlowRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6041,7 +6041,7 @@ export interface DisassociateHoursOfOperationsRequest {
  */
 export interface DisassociateInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6073,7 +6073,7 @@ export interface DisassociateInstanceStorageConfigRequest {
  */
 export interface DisassociateLambdaFunctionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance..</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance..</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6099,7 +6099,7 @@ export interface DisassociateLambdaFunctionRequest {
  */
 export interface DisassociateLexBotRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6137,7 +6137,7 @@ export interface DisassociatePhoneNumberContactFlowRequest {
   PhoneNumberId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6148,7 +6148,7 @@ export interface DisassociatePhoneNumberContactFlowRequest {
  */
 export interface DisassociateQueueEmailAddressesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6180,7 +6180,7 @@ export interface DisassociateQueueEmailAddressesRequest {
  */
 export interface DisassociateQueueQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6203,7 +6203,7 @@ export interface DisassociateQueueQuickConnectsRequest {
  */
 export interface DisassociateRoutingProfileQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6232,7 +6232,7 @@ export interface DisassociateRoutingProfileQueuesRequest {
  */
 export interface DisassociateSecurityKeyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6301,7 +6301,7 @@ export interface DisassociateTrafficDistributionGroupUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6335,7 +6335,7 @@ export interface UserProficiencyDisassociate {
  */
 export interface DisassociateUserProficienciesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
    *    instance.</p>
    * @public
    */
@@ -6406,7 +6406,7 @@ export interface DismissUserContactRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6554,7 +6554,7 @@ export interface EvaluateDataTableValuesResponse {
  */
 export interface GetAttachedFileRequest {
   /**
-   * <p>The unique identifier of the Amazon Connect instance.</p>
+   * <p>The unique identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6680,7 +6680,7 @@ export interface GetAttachedFileResponse {
  */
 export interface GetContactAttributesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6722,13 +6722,13 @@ export interface ContactMetricInfo {
  */
 export interface GetContactMetricsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId: string | undefined;
@@ -6831,7 +6831,7 @@ export interface GetContactMetricsResponse {
 }
 
 /**
- * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <important>
  *             <p>Only one of either the Name or MetricId is required.</p>
  *          </important>
@@ -6935,7 +6935,7 @@ export interface CurrentMetricSortCriteria {
  */
 export interface GetCurrentMetricDataRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7014,7 +7014,7 @@ export interface GetCurrentMetricDataRequest {
 
   /**
    * <p>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The following metrics are available. For a
-   *    description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    *          <note>
    *             <p> MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 10 MetricId per request.</p>
    *          </note>
@@ -7346,7 +7346,7 @@ export interface UserDataFilters {
  */
 export interface GetCurrentUserDataRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7557,7 +7557,7 @@ export interface GetCurrentUserDataResponse {
  */
 export interface GetEffectiveHoursOfOperationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7695,7 +7695,7 @@ export interface GetEffectiveHoursOfOperationsResponse {
  */
 export interface GetFederationTokenRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7707,19 +7707,19 @@ export interface GetFederationTokenRequest {
  */
 export interface Credentials {
   /**
-   * <p>An access token generated for a federated user to access Amazon Connect.</p>
+   * <p>An access token generated for a federated user to access Connect Customer.</p>
    * @public
    */
   AccessToken?: string | undefined;
 
   /**
-   * <p>A token generated with an expiration time for the session a user is logged in to Amazon Connect.</p>
+   * <p>A token generated with an expiration time for the session a user is logged in to Connect Customer.</p>
    * @public
    */
   AccessTokenExpiration?: Date | undefined;
 
   /**
-   * <p>Renews a token generated for a user to access the Amazon Connect instance.</p>
+   * <p>Renews a token generated for a user to access the Connect Customer instance.</p>
    * @public
    */
   RefreshToken?: string | undefined;
@@ -7765,7 +7765,7 @@ export interface GetFederationTokenResponse {
  */
 export interface GetFlowAssociationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7842,7 +7842,7 @@ export interface Threshold {
 export interface HistoricalMetric {
   /**
    * <p>The name of the metric. Following is a list of each supported metric mapped to the UI name, linked to a detailed
-   *    description in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *    description in the <i>Connect Customer Administrator Guide</i>. </p>
    *          <dl>
    *             <dt>ABANDON_TIME</dt>
    *             <dd>
@@ -8064,7 +8064,7 @@ export interface HistoricalMetric {
  */
 export interface GetMetricDataRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -8115,7 +8115,7 @@ export interface GetMetricDataRequest {
 
   /**
    * <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics
-   *    are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definition</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definition</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    *          <note>
    *             <p>This API does not support a contacts incoming metric (there's
    *     no CONTACTS_INCOMING metric missing from the documented list). </p>
@@ -8449,8 +8449,8 @@ export interface IntervalDetails {
    *     <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> | <code>HOUR</code> |
    *     <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
    *          <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>, <code>StartTime</code> and
-   *     <code>EndTime</code> differs by 1 day, then Amazon Connect returns 48 results in the response. Each result is
-   *    aggregated by the THIRTY_MIN period. By default Amazon Connect aggregates results based on the <code>TOTAL</code>
+   *     <code>EndTime</code> differs by 1 day, then Connect Customer returns 48 results in the response. Each result is
+   *    aggregated by the THIRTY_MIN period. By default Connect Customer aggregates results based on the <code>TOTAL</code>
    *    interval period. </p>
    *          <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code> based on what
    *     <code>IntervalPeriod</code> is requested. </p>
@@ -8536,14 +8536,14 @@ export interface MetricFilterV2 {
    *    customized list, depending on the use case.</p>
    *          <p>For valid values of metric-level filters <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>, and
    *     <code>ANSWERING_MACHINE_DETECTION_STATUS</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the
-   *      <i>Amazon Connect Administrator Guide</i>. </p>
+   *      <i>Connect Customer Administrator Guide</i>. </p>
    *          <p>For valid values of the metric-level filter <code>FLOWS_OUTCOME_TYPE</code>, see the description for the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#flows-outcome">Flow outcome</a>
-   *    metric in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    metric in the <i>Connect Customer Administrator Guide</i>.</p>
    *          <p>For valid values of the metric-level filter <code>BOT_CONVERSATION_OUTCOME_TYPE</code>, see the description for
-   *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot conversations completed</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot conversations completed</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    *          <p>For valid values of the metric-level filter <code>BOT_INTENT_OUTCOME_TYPE</code>, see the description for the
    *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-intents-completed-metric">Bot
-   *     intents completed</a> metric in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     intents completed</a> metric in the <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   MetricFilterValues?: string[] | undefined;
@@ -8596,7 +8596,7 @@ export interface MetricV2 {
   Threshold?: ThresholdV2[] | undefined;
 
   /**
-   * <p>Historical metrics or custom metrics can be referenced via this field. This field is a valid Amazon Connect
+   * <p>Historical metrics or custom metrics can be referenced via this field. This field is a valid Connect Customer
    *    Arn or a UUID</p>
    * @public
    */
@@ -8614,7 +8614,7 @@ export interface MetricV2 {
  */
 export interface GetMetricDataV2Request {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. This includes the <code>instanceId</code> an Amazon Connect instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource. This includes the <code>instanceId</code> an Connect Customer instance.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -8645,8 +8645,8 @@ export interface GetMetricDataV2Request {
    *       <code>IntervalPeriod</code> values are: <code>FIFTEEN_MIN</code> | <code>THIRTY_MIN</code> | <code>HOUR</code> |
    *       <code>DAY</code> | <code>WEEK</code> | <code>TOTAL</code>. </p>
    *                <p>For example, if <code>IntervalPeriod</code> is selected <code>THIRTY_MIN</code>, <code>StartTime</code> and
-   *       <code>EndTime</code> differs by 1 day, then Amazon Connect returns 48 results in the response. Each result is
-   *      aggregated by the THIRTY_MIN period. By default Amazon Connect aggregates results based on the
+   *       <code>EndTime</code> differs by 1 day, then Connect Customer returns 48 results in the response. Each result is
+   *      aggregated by the THIRTY_MIN period. By default Connect Customer aggregates results based on the
    *       <code>TOTAL</code> interval period. </p>
    *                <p>The following list describes restrictions on <code>StartTime</code> and <code>EndTime</code> based on which
    *       <code>IntervalPeriod</code> is requested. </p>
@@ -8722,7 +8722,7 @@ export interface GetMetricDataV2Request {
    *    <code>TEST_CASE_EXECUTION_STATE</code>
    *          </p>
    *          <note>
-   *             <p>The following filter keys correspond to Amazon Connect resources and are used for authorizing requests.
+   *             <p>The following filter keys correspond to Connect Customer resources and are used for authorizing requests.
    *     A <code>GetMetricDataV2</code> request requires at least one of these filters:</p>
    *             <p>
    *                <code>QUEUE</code>, <code>ROUTING_PROFILE</code>, <code>AGENT</code>,
@@ -8783,7 +8783,7 @@ export interface GetMetricDataV2Request {
    *             </li>
    *             <li>
    *                <p>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create a historical metrics report</a> in
-   *      the <i>Amazon Connect Administrator Guide</i>.</p>
+   *      the <i>Connect Customer Administrator Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8824,7 +8824,7 @@ export interface GetMetricDataV2Request {
 
   /**
    * <p>The metrics to retrieve. Specify the name or metricId, groupings, and filters for each metric. The following
-   *    historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definition</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *    historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definition</a> in the <i>Connect Customer Administrator Guide</i>.</p>
    *          <note>
    *             <p>MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the
    *     limit is 20 MetricId per request.</p>

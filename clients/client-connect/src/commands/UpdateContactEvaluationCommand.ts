@@ -27,7 +27,7 @@ export interface UpdateContactEvaluationCommandInput extends UpdateContactEvalua
 export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates details about a contact evaluation in the specified Amazon Connect instance. A contact evaluation
+ * <p>Updates details about a contact evaluation in the specified Connect Customer instance. A contact evaluation
  *    must be in draft state. Answers included in the request are merged with existing answers for the given evaluation. An
  *    answer or note can be deleted by passing an empty object (<code>\{\}</code>) to the question identifier. </p>
  * @example

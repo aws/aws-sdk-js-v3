@@ -27,8 +27,8 @@ export interface DisassociateApprovedOriginCommandInput extends DisassociateAppr
 export interface DisassociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Revokes access to integrated applications from Amazon Connect.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
+ *          <p>Revokes access to integrated applications from Connect Customer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

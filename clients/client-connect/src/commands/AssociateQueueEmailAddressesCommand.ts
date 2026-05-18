@@ -36,7 +36,7 @@ export interface AssociateQueueEmailAddressesCommandOutput extends __MetadataBea
  *                <p>You can associate up to 49 additional email addresses with a single queue, plus 1 default outbound email address, for a total of 50.</p>
  *             </li>
  *             <li>
- *                <p>The email addresses must already exist in the Amazon Connect instance before they can be associated with a queue.</p>
+ *                <p>The email addresses must already exist in the Connect Customer instance before they can be associated with a queue.</p>
  *             </li>
  *             <li>
  *                <p>Agents will be able to select from these associated email addresses when handling email contacts in the queue.</p>

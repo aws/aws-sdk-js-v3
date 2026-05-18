@@ -58,11 +58,11 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  *                <p>Metrics are only available while the contact is actively in queue.</p>
  *             </li>
  *             <li>
- *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in the <i>Connect Customer Administrator Guide</i>. </p>
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

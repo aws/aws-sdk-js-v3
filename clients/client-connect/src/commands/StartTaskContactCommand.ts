@@ -27,8 +27,8 @@ export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a flow to start a new task contact. For more information about task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html">Concepts: Tasks in Amazon Connect</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. </p>
+ * <p>Initiates a flow to start a new task contact. For more information about task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html">Concepts: Tasks in Connect Customer</a> in the
+ *      <i>Connect Customer Administrator Guide</i>. </p>
  *          <p>When using <code>PreviousContactId</code> and <code>RelatedContactId</code> input parameters, note the
  *    following:</p>
  *          <ul>
@@ -69,11 +69,11 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *     <code>QuickConnectID</code>, or <code>TaskTemplateID</code>. Only one parameter is required as long as the task
  *    template has a flow configured to run it. If more than one parameter is specified, or only the
  *     <code>TaskTemplateID</code> is specified but it does not have a flow configured, the request returns an error
- *    because Amazon Connect cannot identify the unique flow to run when the task is created.</p>
+ *    because Connect Customer cannot identify the unique flow to run when the task is created.</p>
  *          <p>A <code>ServiceQuotaExceededException</code> occurs when the number of open tasks exceeds the active tasks quota
  *    or there are already 12 tasks referencing the same <code>PreviousContactId</code>. For more information about service
- *    quotas for task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect service quotas</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. </p>
+ *    quotas for task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect Customer service quotas</a> in the
+ *      <i>Connect Customer Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

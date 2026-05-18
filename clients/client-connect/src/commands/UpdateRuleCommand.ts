@@ -27,7 +27,7 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a rule for the specified Amazon Connect instance.</p>
+ * <p>Updates a rule for the specified Connect Customer instance.</p>
  *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function
  *     language</a> to code conditions for the rule. </p>
  * @example

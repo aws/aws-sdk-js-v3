@@ -27,7 +27,7 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances
  *    that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance
  *    API was invoked.</p>

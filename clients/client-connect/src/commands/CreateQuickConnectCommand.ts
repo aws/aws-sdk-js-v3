@@ -27,7 +27,7 @@ export interface CreateQuickConnectCommandInput extends CreateQuickConnectReques
 export interface CreateQuickConnectCommandOutput extends CreateQuickConnectResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a quick connect for the specified Amazon Connect instance.</p>
+ * <p>Creates a quick connect for the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

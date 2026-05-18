@@ -27,7 +27,7 @@ export interface SearchUsersCommandInput extends SearchUsersRequest {}
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Searches users in an Amazon Connect instance, with optional filtering. </p>
+ * <p>Searches users in an Connect Customer instance, with optional filtering. </p>
  *          <note>
  *             <p>
  *                <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p>

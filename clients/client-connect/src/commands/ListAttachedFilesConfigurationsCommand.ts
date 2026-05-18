@@ -30,7 +30,7 @@ export interface ListAttachedFilesConfigurationsCommandInput extends ListAttache
 export interface ListAttachedFilesConfigurationsCommandOutput extends ListAttachedFilesConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the attached files configurations for the specified Amazon Connect instance.</p>
+ * <p>Provides summary information about the attached files configurations for the specified Connect Customer instance.</p>
  *          <p>This API returns effective configurations (custom overrides or defaults) for each attachment scope. If no custom configuration exists for a scope, the default configuration values are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -27,7 +27,7 @@ export interface DisassociateEmailAddressAliasCommandInput extends DisassociateE
 export interface DisassociateEmailAddressAliasCommandOutput extends DisassociateEmailAddressAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the alias association between two email addresses in an Amazon Connect instance. After
+ * <p>Removes the alias association between two email addresses in an Connect Customer instance. After
  *    disassociation, emails sent to the former alias email address are no longer forwarded to the primary email address.
  *    Both email addresses continue to exist independently and can receive emails directly.</p>
  *          <p>
@@ -85,7 +85,7 @@ export interface DisassociateEmailAddressAliasCommandOutput extends Disassociate
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  *          <p>
  *             <b>Related operations</b>
  *          </p>
@@ -93,7 +93,7 @@ export interface DisassociateEmailAddressAliasCommandOutput extends Disassociate
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html">AssociateEmailAddressAlias</a>: Associates an email address alias with an existing email address in an
- *       Amazon Connect instance.</p>
+ *       Connect Customer instance.</p>
  *             </li>
  *             <li>
  *                <p>

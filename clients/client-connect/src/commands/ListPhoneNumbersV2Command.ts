@@ -27,10 +27,10 @@ export interface ListPhoneNumbersV2CommandInput extends ListPhoneNumbersV2Reques
 export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Response, __MetadataBearer {}
 
 /**
- * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code>
+ * <p>Lists phone numbers claimed to your Connect Customer instance or traffic distribution group. If the provided <code>TargetArn</code>
  *    is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p>
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact
- *     Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     Center</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <note>
  *             <ul>
  *                <li>

@@ -27,7 +27,7 @@ export interface CreateTaskTemplateCommandInput extends CreateTaskTemplateReques
 export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new task template in the specified Amazon Connect instance.</p>
+ * <p>Creates a new task template in the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

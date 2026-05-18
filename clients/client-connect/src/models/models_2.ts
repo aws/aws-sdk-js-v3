@@ -117,7 +117,7 @@ import type {
  */
 export interface GetPromptFileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -158,7 +158,7 @@ export interface GetPromptFileResponse {
  */
 export interface GetTaskTemplateRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -181,7 +181,7 @@ export interface GetTaskTemplateRequest {
  */
 export interface GetTaskTemplateResponse {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId?: string | undefined;
@@ -442,7 +442,7 @@ export interface GetTrafficDistributionResponse {
  */
 export interface ImportPhoneNumberRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -535,7 +535,7 @@ export interface ImportWorkspaceMediaResponse {}
  */
 export interface ListAgentStatusRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -582,7 +582,7 @@ export interface ListAgentStatusResponse {
  */
 export interface ListAnalyticsDataAssociationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -631,7 +631,7 @@ export interface ListAnalyticsDataAssociationsResponse {
  */
 export interface ListAnalyticsDataLakeDataSetsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -692,7 +692,7 @@ export interface ListAnalyticsDataLakeDataSetsResponse {
  */
 export interface ListApprovedOriginsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -733,13 +733,13 @@ export interface ListApprovedOriginsResponse {
  */
 export interface ListAssociatedContactsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId: string | undefined;
@@ -764,7 +764,7 @@ export interface ListAssociatedContactsRequest {
  */
 export interface AssociatedContactSummary {
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId?: string | undefined;
@@ -842,7 +842,7 @@ export interface ListAssociatedContactsResponse {
  */
 export interface ListAttachedFilesConfigurationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -867,7 +867,7 @@ export interface ListAttachedFilesConfigurationsRequest {
  */
 export interface AttachedFilesConfigurationSummary {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -913,7 +913,7 @@ export interface ListAttachedFilesConfigurationsResponse {
  */
 export interface ListAuthenticationProfilesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -933,7 +933,7 @@ export interface ListAuthenticationProfilesRequest {
 }
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * <p>This API is in preview release for Connect Customer and is subject to change. To
  * request access to this API, contact Amazon Web Services Support.</p>
  *          <p>A summary of a given authentication profile.</p>
  * @public
@@ -958,8 +958,8 @@ export interface AuthenticationProfileSummary {
   Name?: string | undefined;
 
   /**
-   * <p>Shows whether the authentication profile is the default authentication profile for the Amazon Connect
-   *    instance. The default authentication profile applies to all agents in an Amazon Connect instance, unless
+   * <p>Shows whether the authentication profile is the default authentication profile for the Connect Customer
+   *    instance. The default authentication profile applies to all agents in an Connect Customer instance, unless
    *    overridden by another authentication profile.</p>
    * @public
    */
@@ -1000,7 +1000,7 @@ export interface ListAuthenticationProfilesResponse {
  */
 export interface ListBotsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1126,13 +1126,13 @@ export interface ListChildHoursOfOperationsResponse {
  */
 export interface ListContactEvaluationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId: string | undefined;
@@ -1293,7 +1293,7 @@ export interface ListContactEvaluationsResponse {
  */
 export interface ListContactFlowModuleAliasesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1382,7 +1382,7 @@ export interface ListContactFlowModuleAliasesResponse {
  */
 export interface ListContactFlowModulesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1459,7 +1459,7 @@ export interface ListContactFlowModulesResponse {
  */
 export interface ListContactFlowModuleVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1530,7 +1530,7 @@ export interface ListContactFlowModuleVersionsResponse {
  */
 export interface ListContactFlowsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1557,7 +1557,7 @@ export interface ListContactFlowsRequest {
 
 /**
  * <p>Contains summary information about a flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Connect Customer
  *    Flow language</a>.</p>
  * @public
  */
@@ -1621,7 +1621,7 @@ export interface ListContactFlowsResponse {
  */
 export interface ListContactFlowVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -1692,7 +1692,7 @@ export interface ListContactFlowVersionsResponse {
  */
 export interface ListContactReferencesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2482,7 +2482,7 @@ export interface ListDataTableValuesResponse {
  */
 export interface ListDefaultVocabulariesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2515,7 +2515,7 @@ export interface ListDefaultVocabulariesRequest {
  */
 export interface DefaultVocabulary {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2618,7 +2618,7 @@ export interface ListEntitySecurityProfilesResponse {
  */
 export interface ListEvaluationFormsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2731,7 +2731,7 @@ export interface ListEvaluationFormsResponse {
  */
 export interface ListEvaluationFormVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2838,7 +2838,7 @@ export interface ListEvaluationFormVersionsResponse {
  */
 export interface ListFlowAssociationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2885,7 +2885,7 @@ export interface ListFlowAssociationsResponse {
  */
 export interface ListHoursOfOperationOverridesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -2945,7 +2945,7 @@ export interface ListHoursOfOperationOverridesResponse {
  */
 export interface ListHoursOfOperationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3022,7 +3022,7 @@ export interface ListHoursOfOperationsResponse {
  */
 export interface ListInstanceAttributesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3136,7 +3136,7 @@ export interface InstanceSummary {
   OutboundCallsEnabled?: boolean | undefined;
 
   /**
-   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
+   * <p>This URL allows contact center users to access the Connect Customer admin website.</p>
    * @public
    */
   InstanceAccessUrl?: string | undefined;
@@ -3164,7 +3164,7 @@ export interface ListInstancesResponse {
  */
 export interface ListInstanceStorageConfigsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3211,7 +3211,7 @@ export interface ListInstanceStorageConfigsResponse {
  */
 export interface ListIntegrationAssociationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3260,7 +3260,7 @@ export interface IntegrationAssociationSummary {
   IntegrationAssociationArn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId?: string | undefined;
@@ -3318,7 +3318,7 @@ export interface ListIntegrationAssociationsResponse {
  */
 export interface ListLambdaFunctionsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3359,7 +3359,7 @@ export interface ListLambdaFunctionsResponse {
  */
 export interface ListLexBotsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3441,7 +3441,7 @@ export interface ListNotificationsResponse {
  */
 export interface ListPhoneNumbersRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3535,17 +3535,17 @@ export interface ListPhoneNumbersResponse {
  */
 export interface ListPhoneNumbersV2Request {
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not provided, this API lists
-   *    numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>
+   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not provided, this API lists
+   *    numbers claimed to all the Connect Customer instances belonging to your account in the same Amazon Web Services Region as the request.</p>
    * @public
    */
   TargetArn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not provided, this API lists
-   *    numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>
+   *    numbers claimed to all the Connect Customer instances belonging to your account in the same Amazon Web Services Region as the request.</p>
    * @public
    */
   InstanceId?: string | undefined;
@@ -3583,7 +3583,7 @@ export interface ListPhoneNumbersV2Request {
 }
 
 /**
- * <p>Information about phone numbers that have been claimed to your Amazon Connect instance or traffic distribution group.</p>
+ * <p>Information about phone numbers that have been claimed to your Connect Customer instance or traffic distribution group.</p>
  * @public
  */
 export interface ListPhoneNumbersSummary {
@@ -3618,13 +3618,13 @@ export interface ListPhoneNumbersSummary {
   PhoneNumberType?: PhoneNumberType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
+   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
    * @public
    */
   TargetArn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
@@ -3657,7 +3657,7 @@ export interface ListPhoneNumbersV2Response {
   NextToken?: string | undefined;
 
   /**
-   * <p>Information about phone numbers that have been claimed to your Amazon Connect instances or traffic distribution groups.</p>
+   * <p>Information about phone numbers that have been claimed to your Connect Customer instances or traffic distribution groups.</p>
    * @public
    */
   ListPhoneNumbersSummaryList?: ListPhoneNumbersSummary[] | undefined;
@@ -3668,7 +3668,7 @@ export interface ListPhoneNumbersV2Response {
  */
 export interface ListPredefinedAttributesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
    *    instance.</p>
    * @public
    */
@@ -3734,7 +3734,7 @@ export interface ListPredefinedAttributesResponse {
  */
 export interface ListPromptsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Connect Customer instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3811,7 +3811,7 @@ export interface ListPromptsResponse {
  */
 export interface ListQueueEmailAddressesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3894,7 +3894,7 @@ export interface ListQueueEmailAddressesResponse {
  */
 export interface ListQueueQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3943,7 +3943,7 @@ export interface QuickConnectSummary {
   Name?: string | undefined;
 
   /**
-   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
+   * <p>The type of quick connect. In the Connect Customer admin website, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    * @public
    */
@@ -3996,7 +3996,7 @@ export interface ListQueueQuickConnectsResponse {
  */
 export interface ListQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4085,7 +4085,7 @@ export interface ListQueuesResponse {
  */
 export interface ListQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. Both Instance ID and Instance ARN are supported input formats. </p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. Both Instance ID and Instance ARN are supported input formats. </p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4104,7 +4104,7 @@ export interface ListQuickConnectsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
+   * <p>The type of quick connect. In the Connect Customer admin website, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    * @public
    */
@@ -4133,13 +4133,13 @@ export interface ListQuickConnectsResponse {
  */
 export interface ListRealtimeContactAnalysisSegmentsV2Request {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId: string | undefined;
@@ -4185,7 +4185,7 @@ export interface RealTimeContactAnalysisAttachment {
 
   /**
    * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the
-   *      <i>Amazon Connect Administrator Guide</i>.</p>
+   *      <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   ContentType?: string | undefined;
@@ -4743,7 +4743,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2Response {
  */
 export interface ListRoutingProfileManualAssignmentQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4835,7 +4835,7 @@ export interface ListRoutingProfileManualAssignmentQueuesResponse {
  */
 export interface ListRoutingProfileQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -4893,7 +4893,7 @@ export interface RoutingProfileQueueConfigSummary {
   /**
    * <p>The delay, in seconds, that a contact should be in the queue before they are routed to an available agent. For
    *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a> in the
-   *      <i>Amazon Connect Administrator Guide</i>.</p>
+   *      <i>Connect Customer Administrator Guide</i>.</p>
    * @public
    */
   Delay: number | undefined;
@@ -4939,7 +4939,7 @@ export interface ListRoutingProfileQueuesResponse {
  */
 export interface ListRoutingProfilesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5016,7 +5016,7 @@ export interface ListRoutingProfilesResponse {
  */
 export interface ListRulesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5123,7 +5123,7 @@ export interface ListRulesResponse {
  */
 export interface ListSecurityKeysRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5194,7 +5194,7 @@ export interface ListSecurityProfileApplicationsRequest {
   SecurityProfileId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5253,7 +5253,7 @@ export interface ListSecurityProfileFlowModulesRequest {
   SecurityProfileId: string | undefined;
 
   /**
-   * <p> The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p> The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5313,7 +5313,7 @@ export interface ListSecurityProfilePermissionsRequest {
   SecurityProfileId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5367,7 +5367,7 @@ export interface ListSecurityProfilePermissionsResponse {
  */
 export interface ListSecurityProfilesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5444,8 +5444,8 @@ export interface ListSecurityProfilesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing profiles, etc) have
-   *    an ARN. To locate the ARN for an instance, for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find your Amazon Connect instance ID/ARN</a>. </p>
+   * <p>The Amazon Resource Name (ARN) of the resource. All Connect Customer resources (instances, queues, flows, routing profiles, etc) have
+   *    an ARN. To locate the ARN for an instance, for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find your Connect Customer instance ID/ARN</a>. </p>
    * @public
    */
   resourceArn: string | undefined;
@@ -5467,7 +5467,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTaskTemplatesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -5879,7 +5879,7 @@ export interface ListTrafficDistributionGroupsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId?: string | undefined;
@@ -6042,7 +6042,7 @@ export interface ListTrafficDistributionGroupUsersResponse {
  */
 export interface ListUseCasesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6116,7 +6116,7 @@ export interface ListUseCasesResponse {
  */
 export interface ListUserHierarchyGroupsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6263,7 +6263,7 @@ export interface ListUserNotificationsResponse {
  */
 export interface ListUserProficienciesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
    *    instance.</p>
    * @public
    */
@@ -6323,7 +6323,7 @@ export interface ListUserProficienciesResponse {
  */
 export interface ListUsersRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6360,7 +6360,7 @@ export interface UserSummary {
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Connect user name of the user account.</p>
+   * <p>The Connect Customer user name of the user account.</p>
    * @public
    */
   Username?: string | undefined;
@@ -6400,7 +6400,7 @@ export interface ListUsersResponse {
  */
 export interface ListViewsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -6492,7 +6492,7 @@ export interface ListViewsResponse {
  */
 export interface ListViewVersionsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -6793,7 +6793,7 @@ export interface ListWorkspacesResponse {
  */
 export interface MonitorContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -6856,7 +6856,7 @@ export interface PauseContactRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -6885,7 +6885,7 @@ export interface PutUserStatusRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6927,13 +6927,13 @@ export interface ReleasePhoneNumberRequest {
  */
 export interface ReplicateInstanceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where to replicate the Amazon Connect instance.</p>
+   * <p>The Amazon Web Services Region where to replicate the Connect Customer instance.</p>
    * @public
    */
   ReplicaRegion: string | undefined;
@@ -6983,7 +6983,7 @@ export interface ResumeContactRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of the
+   * <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the
    *    instance.</p>
    * @public
    */
@@ -7006,7 +7006,7 @@ export interface ResumeContactResponse {}
  */
 export interface ResumeContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -7064,13 +7064,13 @@ export interface SearchAgentStatusesResponse {
  */
 export interface SearchAvailablePhoneNumbersRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    * @public
    */
   TargetArn?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    * @public
@@ -7144,7 +7144,7 @@ export interface SearchAvailablePhoneNumbersResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group.</p>
+   * <p>A list of available phone numbers that you can claim to your Connect Customer instance or traffic distribution group.</p>
    * @public
    */
   AvailableNumbersList?: AvailableNumberSummary[] | undefined;
@@ -7288,7 +7288,7 @@ export interface EvaluationSearchFilter {
  */
 export interface EvaluationSearchMetadata {
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
    * @public
    */
   ContactId: string | undefined;
@@ -7778,7 +7778,7 @@ export interface TranscriptCriteria {
 
 /**
  * <p>A structure that defines search criteria and matching logic to search for contacts by matching text with
- *    transcripts analyzed by Amazon Connect Contact Lens.</p>
+ *    transcripts analyzed by Connect Customer Contact Lens.</p>
  * @public
  */
 export interface Transcript {
@@ -7796,13 +7796,13 @@ export interface Transcript {
 }
 
 /**
- * <p>A structure that defines search criteria for contacts using analysis outputs from Amazon Connect Contact
+ * <p>A structure that defines search criteria for contacts using analysis outputs from Connect Customer Contact
  *    Lens.</p>
  * @public
  */
 export interface ContactAnalysis {
   /**
-   * <p>Search criteria based on transcript analyzed by Amazon Connect Contact Lens.</p>
+   * <p>Search criteria based on transcript analyzed by Connect Customer Contact Lens.</p>
    * @public
    */
   Transcript?: Transcript | undefined;
@@ -7971,7 +7971,7 @@ export interface SearchCriteria {
   Channels?: Channel[] | undefined;
 
   /**
-   * <p>Search criteria based on analysis outputs from Amazon Connect Contact Lens.</p>
+   * <p>Search criteria based on analysis outputs from Connect Customer Contact Lens.</p>
    * @public
    */
   ContactAnalysis?: ContactAnalysis | undefined;
@@ -8002,12 +8002,12 @@ export interface SearchCriteria {
 
   /**
    * <p>The search criteria based on user-defined contact attributes that have been configured for contact search. For
-   *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by custom contact attributes</a> in the <i>Amazon Connect Administrator
+   *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by custom contact attributes</a> in the <i>Connect Customer Administrator
    *    Guide</i>.</p>
    *          <important>
    *             <p>To use <code>SearchableContactAttributes</code> in a search request, the <code>GetContactAttributes</code>
    *     action is required to perform an API request. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions</a>Actions
-   *     defined by Amazon Connect.</p>
+   *     defined by Connect Customer.</p>
    *          </important>
    * @public
    */
@@ -8064,7 +8064,7 @@ export interface Sort {
  */
 export interface SearchContactsRequest {
   /**
-   * <p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of
+   * <p>The identifier of Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of
    *    the instance.</p>
    * @public
    */

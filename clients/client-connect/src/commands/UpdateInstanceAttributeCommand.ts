@@ -27,7 +27,7 @@ export interface UpdateInstanceAttributeCommandInput extends UpdateInstanceAttri
 export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
  *          <p>Updates the value for the specified attribute type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -27,14 +27,14 @@ export interface GetMetricDataV2CommandInput extends GetMetricDataV2Request {}
 export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, __MetadataBearer {}
 
 /**
- * <p>Gets metric data from the specified Amazon Connect instance. </p>
+ * <p>Gets metric data from the specified Connect Customer instance. </p>
  *          <p>
  *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous version of this API. It
  *    has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels,
  *    queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months,
  *    at varying intervals. It does not support agent queues.</p>
  *          <p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and
- *     <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <note>
  *             <p>When you make a successful API request, you can expect the following metric values in the response:</p>
  *             <ol>

@@ -28,7 +28,7 @@ export interface SearchContactEvaluationsCommandInput extends SearchContactEvalu
 export interface SearchContactEvaluationsCommandOutput extends SearchContactEvaluationsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches contact evaluations in an Amazon Connect instance, with optional filtering. </p>
+ * <p>Searches contact evaluations in an Connect Customer instance, with optional filtering. </p>
  *          <p>
  *             <b>Use cases</b>
  *          </p>
@@ -52,7 +52,7 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface SearchPromptsCommandInput extends SearchPromptsRequest {}
 export interface SearchPromptsCommandOutput extends SearchPromptsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches prompts in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches prompts in an Connect Customer instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

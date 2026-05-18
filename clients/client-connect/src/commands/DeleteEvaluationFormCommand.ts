@@ -27,7 +27,7 @@ export interface DeleteEvaluationFormCommandInput extends DeleteEvaluationFormRe
 export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an evaluation form in the specified Amazon Connect instance. </p>
+ * <p>Deletes an evaluation form in the specified Connect Customer instance. </p>
  *          <ul>
  *             <li>
  *                <p>If the version property is provided, only the specified version of the evaluation form is deleted.</p>

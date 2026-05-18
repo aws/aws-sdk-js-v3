@@ -27,9 +27,9 @@ export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperations
 export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+ * <p>Provides information about the hours of operation for the specified Connect Customer instance.</p>
  *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a Queue</a> in the
- *      <i>Amazon Connect Administrator Guide</i>.</p>
+ *      <i>Connect Customer Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

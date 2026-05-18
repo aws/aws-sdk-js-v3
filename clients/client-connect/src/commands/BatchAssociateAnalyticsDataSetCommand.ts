@@ -27,7 +27,7 @@ export interface BatchAssociateAnalyticsDataSetCommandInput extends BatchAssocia
 export interface BatchAssociateAnalyticsDataSetCommandOutput extends BatchAssociateAnalyticsDataSetResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a list of analytics datasets for a given Amazon Connect instance to a target account. You can
+ * <p>Associates a list of analytics datasets for a given Connect Customer instance to a target account. You can
  *    associate multiple datasets in a single call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

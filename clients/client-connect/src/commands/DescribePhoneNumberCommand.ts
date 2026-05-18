@@ -27,7 +27,7 @@ export interface DescribePhoneNumberCommandInput extends DescribePhoneNumberRequ
 export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance or traffic distribution group.</p>
+ * <p>Gets details and status of a phone number that’s claimed to your Connect Customer instance or traffic distribution group.</p>
  *          <important>
  *             <p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was
  *     created, you can use either a phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request

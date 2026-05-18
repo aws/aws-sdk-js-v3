@@ -28,7 +28,7 @@ export interface StartScreenSharingCommandOutput extends StartScreenSharingRespo
 
 /**
  * <p>Starts screen sharing for a contact. For more information about screen sharing, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen sharing
- *     capabilities</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *     capabilities</a> in the <i>Connect Customer Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

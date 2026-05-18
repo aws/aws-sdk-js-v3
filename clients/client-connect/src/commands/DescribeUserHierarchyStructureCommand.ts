@@ -27,7 +27,7 @@ export interface DescribeUserHierarchyStructureCommandInput extends DescribeUser
 export interface DescribeUserHierarchyStructureCommandOutput extends DescribeUserHierarchyStructureResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
+ * <p>Describes the hierarchy structure of the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -532,7 +532,7 @@ export class ContactFlowNotPublishedException extends __BaseException {
 }
 
 /**
- * <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
+ * <p>No user with the specified credentials was found in the Connect Customer instance.</p>
  * @public
  */
 export class UserNotFoundException extends __BaseException {

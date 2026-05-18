@@ -27,7 +27,7 @@ export interface CreateAgentStatusCommandInput extends CreateAgentStatusRequest 
 export interface CreateAgentStatusCommandOutput extends CreateAgentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an agent status for the specified Amazon Connect instance.</p>
+ * <p>Creates an agent status for the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

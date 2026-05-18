@@ -27,7 +27,7 @@ export interface DisassociatePhoneNumberContactFlowCommandInput extends Disassoc
 export interface DisassociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the flow association from a phone number claimed to your Amazon Connect instance.</p>
+ * <p>Removes the flow association from a phone number claimed to your Connect Customer instance.</p>
  *          <important>
  *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the
  *      <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling

@@ -27,7 +27,7 @@ export interface SearchResourceTagsCommandInput extends SearchResourceTagsReques
 export interface SearchResourceTagsCommandOutput extends SearchResourceTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches tags used in an Amazon Connect instance using optional search criteria.</p>
+ * <p>Searches tags used in an Connect Customer instance using optional search criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

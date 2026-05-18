@@ -27,8 +27,8 @@ export interface AssociateLambdaFunctionCommandInput extends AssociateLambdaFunc
 export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
+ * <p>This API is in preview release for Connect Customer and is subject to change.</p>
+ *          <p>Allows the specified Connect Customer instance to access the specified Lambda function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

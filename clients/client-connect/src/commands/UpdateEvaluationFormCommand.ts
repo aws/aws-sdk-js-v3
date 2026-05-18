@@ -27,7 +27,7 @@ export interface UpdateEvaluationFormCommandInput extends UpdateEvaluationFormRe
 export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * <p>Updates details about a specific evaluation form version in the specified Amazon Connect instance. Question
+ * <p>Updates details about a specific evaluation form version in the specified Connect Customer instance. Question
  *    and section identifiers cannot be duplicated within the same evaluation form.</p>
  *          <p>This operation does not support partial updates. Instead it does a full update of evaluation form
  *    content.</p>

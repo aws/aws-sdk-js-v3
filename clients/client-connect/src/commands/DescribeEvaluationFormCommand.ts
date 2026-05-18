@@ -28,7 +28,7 @@ export interface DescribeEvaluationFormCommandInput extends DescribeEvaluationFo
 export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an evaluation form in the specified Amazon Connect instance. If the version property is not
+ * <p>Describes an evaluation form in the specified Connect Customer instance. If the version property is not
  *    provided, the latest version of the evaluation form is described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

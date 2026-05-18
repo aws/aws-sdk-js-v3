@@ -30,7 +30,7 @@ export interface UpdateAttachedFilesConfigurationCommandInput extends UpdateAtta
 export interface UpdateAttachedFilesConfigurationCommandOutput extends UpdateAttachedFilesConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the attached files configuration for the specified Amazon Connect instance and attachment scope.</p>
+ * <p>Updates the attached files configuration for the specified Connect Customer instance and attachment scope.</p>
  *          <p>If no instance-specific configuration exists, this operation creates one. Partial updates are supported—only specified fields are updated, while unspecified fields retain their current values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

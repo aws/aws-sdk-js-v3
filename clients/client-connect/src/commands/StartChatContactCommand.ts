@@ -28,7 +28,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
 
 /**
  * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain
- *    credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
+ *    credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Connect Customer Participant Service.</p>
  *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the
  *    created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
  *          <p>A 429 error occurs in the following situations:</p>
@@ -44,17 +44,17 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *          </ul>
  *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may not
  *    support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support. </p>
- *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
+ *          <p>For more information about chat, see the following topics in the <i>Connect Customer
  *    Administrator Guide</i>: </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts: Web and mobile messaging capabilities in Amazon Connect</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts: Web and mobile messaging capabilities in Connect Customer</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>
  *                </p>
  *             </li>
  *          </ul>

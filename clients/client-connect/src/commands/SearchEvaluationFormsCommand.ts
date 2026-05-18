@@ -28,7 +28,7 @@ export interface SearchEvaluationFormsCommandInput extends SearchEvaluationForms
 export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationFormsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches evaluation forms in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches evaluation forms in an Connect Customer instance, with optional filtering.</p>
  *          <p>
  *             <b>Use cases</b>
  *          </p>
@@ -55,7 +55,7 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect endpoints and quotas</a>.</p>
+ *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

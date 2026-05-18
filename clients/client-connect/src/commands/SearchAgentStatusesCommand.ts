@@ -28,7 +28,7 @@ export interface SearchAgentStatusesCommandInput extends SearchAgentStatusesRequ
 export interface SearchAgentStatusesCommandOutput extends SearchAgentStatusesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches AgentStatuses in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Searches AgentStatuses in an Connect Customer instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

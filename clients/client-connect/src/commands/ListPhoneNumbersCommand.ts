@@ -27,9 +27,9 @@ export interface ListPhoneNumbersCommandInput extends ListPhoneNumbersRequest {}
 export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
+ * <p>Provides information about the phone numbers for the specified Connect Customer instance. </p>
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact
- *     Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     Center</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <important>
  *             <ul>
  *                <li>

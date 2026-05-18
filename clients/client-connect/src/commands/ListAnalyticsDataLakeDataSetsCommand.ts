@@ -27,7 +27,7 @@ export interface ListAnalyticsDataLakeDataSetsCommandInput extends ListAnalytics
 export interface ListAnalyticsDataLakeDataSetsCommandOutput extends ListAnalyticsDataLakeDataSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the data lake datasets available to associate with for a given Amazon Connect instance.</p>
+ * <p>Lists the data lake datasets available to associate with for a given Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

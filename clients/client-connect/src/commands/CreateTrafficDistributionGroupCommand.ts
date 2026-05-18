@@ -27,7 +27,7 @@ export interface CreateTrafficDistributionGroupCommandInput extends CreateTraffi
 export interface CreateTrafficDistributionGroupCommandOutput extends CreateTrafficDistributionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated.</p>
+ * <p>Creates a traffic distribution group given an Connect Customer instance that has been replicated.</p>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
  * default <code>TrafficDistributionGroup</code> (see the <code>IsDefault</code> parameter in the
@@ -37,7 +37,7 @@ export interface CreateTrafficDistributionGroupCommandOutput extends CreateTraff
  *     an <code>InvalidRequestException</code> is returned.</p>
  *          </note>
  *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. </p>
+ *      <i>Connect Customer Administrator Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

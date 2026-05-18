@@ -27,7 +27,7 @@ export interface DescribeRuleCommandInput extends DescribeRuleRequest {}
 export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a rule for the specified Amazon Connect instance.</p>
+ * <p>Describes a rule for the specified Connect Customer instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

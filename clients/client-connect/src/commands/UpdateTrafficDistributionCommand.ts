@@ -43,7 +43,7 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  *          </note>
  *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution
  *     across Amazon Web Services Regions
- *    </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *    </a> in the <i>Connect Customer Administrator Guide</i>. </p>
  *          <p>
  *             <b>Important things to know</b>
  *          </p>
