@@ -49,6 +49,7 @@ export * from "./DescribeInstanceTopologyPaginator";
 export * from "./DescribeInstanceTypeOfferingsPaginator";
 export * from "./DescribeInstanceTypesPaginator";
 export * from "./DescribeInternetGatewaysPaginator";
+export * from "./DescribeIpamPoolAllocationsPaginator";
 export * from "./DescribeIpamPoolsPaginator";
 export * from "./DescribeIpamPrefixListResolversPaginator";
 export * from "./DescribeIpamPrefixListResolverTargetsPaginator";

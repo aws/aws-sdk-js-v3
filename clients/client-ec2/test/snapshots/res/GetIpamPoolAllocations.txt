@@ -51,6 +51,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <resourceOwner>
                 __ResourceOwner__
             </resourceOwner>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
         </item>
         <item>
             <cidr>
@@ -74,6 +100,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <resourceOwner>
                 __ResourceOwner__
             </resourceOwner>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
         </item>
         <item>
             <cidr>
@@ -97,6 +149,32 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <resourceOwner>
                 __ResourceOwner__
             </resourceOwner>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
         </item>
     </ipamPoolAllocationSet>
     <nextToken>
@@ -115,7 +193,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ResourceId: "__ResourceId__",
       ResourceType: "__ResourceType__",
       ResourceRegion: "__ResourceRegion__",
-      ResourceOwner: "__ResourceOwner__"
+      ResourceOwner: "__ResourceOwner__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
     },
     {
       Cidr: "__Cidr__",
@@ -124,7 +216,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ResourceId: "__ResourceId__",
       ResourceType: "__ResourceType__",
       ResourceRegion: "__ResourceRegion__",
-      ResourceOwner: "__ResourceOwner__"
+      ResourceOwner: "__ResourceOwner__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
     },
     {
       Cidr: "__Cidr__",
@@ -133,7 +239,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ResourceId: "__ResourceId__",
       ResourceType: "__ResourceType__",
       ResourceRegion: "__ResourceRegion__",
-      ResourceOwner: "__ResourceOwner__"
+      ResourceOwner: "__ResourceOwner__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
     }
   ],
   NextToken: "__NextToken__",

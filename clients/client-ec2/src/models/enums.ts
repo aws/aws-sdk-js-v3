@@ -96,6 +96,7 @@ export const ResourceType = {
   ipam_external_resource_verification_token: "ipam-external-resource-verification-token",
   ipam_policy: "ipam-policy",
   ipam_pool: "ipam-pool",
+  ipam_pool_allocation: "ipam-pool-allocation",
   ipam_prefix_list_resolver: "ipam-prefix-list-resolver",
   ipam_prefix_list_resolver_target: "ipam-prefix-list-resolver-target",
   ipam_resource_discovery: "ipam-resource-discovery",

@@ -1591,6 +1591,10 @@ import {
   DescribeIpamPoliciesCommand,
   DescribeIpamPoliciesRequest$,
   DescribeIpamPoliciesResult$,
+  DescribeIpamPoolAllocations$,
+  DescribeIpamPoolAllocationsCommand,
+  DescribeIpamPoolAllocationsRequest$,
+  DescribeIpamPoolAllocationsResult$,
   DescribeIpamPools$,
   DescribeIpamPoolsCommand,
   DescribeIpamPoolsRequest$,
@@ -3261,6 +3265,10 @@ import {
   ModifyIpamPolicyAllocationRulesRequest$,
   ModifyIpamPolicyAllocationRulesResult$,
   ModifyIpamPool$,
+  ModifyIpamPoolAllocation$,
+  ModifyIpamPoolAllocationCommand,
+  ModifyIpamPoolAllocationRequest$,
+  ModifyIpamPoolAllocationResult$,
   ModifyIpamPoolCommand,
   ModifyIpamPoolRequest$,
   ModifyIpamPoolResult$,
@@ -3600,6 +3608,7 @@ import {
   paginateDescribeInstanceTypeOfferings,
   paginateDescribeInstanceTypes,
   paginateDescribeInternetGateways,
+  paginateDescribeIpamPoolAllocations,
   paginateDescribeIpamPools,
   paginateDescribeIpamPrefixListResolvers,
   paginateDescribeIpamPrefixListResolverTargets,
@@ -5293,6 +5302,8 @@ assert(typeof DescribeIpamExternalResourceVerificationTokensCommand === "functio
 assert(typeof DescribeIpamExternalResourceVerificationTokens$ === "object");
 assert(typeof DescribeIpamPoliciesCommand === "function");
 assert(typeof DescribeIpamPolicies$ === "object");
+assert(typeof DescribeIpamPoolAllocationsCommand === "function");
+assert(typeof DescribeIpamPoolAllocations$ === "object");
 assert(typeof DescribeIpamPoolsCommand === "function");
 assert(typeof DescribeIpamPools$ === "object");
 assert(typeof DescribeIpamPrefixListResolversCommand === "function");
@@ -5879,6 +5890,8 @@ assert(typeof ModifyIpamPolicyAllocationRulesCommand === "function");
 assert(typeof ModifyIpamPolicyAllocationRules$ === "object");
 assert(typeof ModifyIpamPoolCommand === "function");
 assert(typeof ModifyIpamPool$ === "object");
+assert(typeof ModifyIpamPoolAllocationCommand === "function");
+assert(typeof ModifyIpamPoolAllocation$ === "object");
 assert(typeof ModifyIpamPrefixListResolverCommand === "function");
 assert(typeof ModifyIpamPrefixListResolver$ === "object");
 assert(typeof ModifyIpamPrefixListResolverTargetCommand === "function");
@@ -6963,6 +6976,8 @@ assert(typeof DescribeIpamExternalResourceVerificationTokensRequest$ === "object
 assert(typeof DescribeIpamExternalResourceVerificationTokensResult$ === "object");
 assert(typeof DescribeIpamPoliciesRequest$ === "object");
 assert(typeof DescribeIpamPoliciesResult$ === "object");
+assert(typeof DescribeIpamPoolAllocationsRequest$ === "object");
+assert(typeof DescribeIpamPoolAllocationsResult$ === "object");
 assert(typeof DescribeIpamPoolsRequest$ === "object");
 assert(typeof DescribeIpamPoolsResult$ === "object");
 assert(typeof DescribeIpamPrefixListResolversRequest$ === "object");
@@ -7875,6 +7890,8 @@ assert(typeof ModifyInstancePlacementRequest$ === "object");
 assert(typeof ModifyInstancePlacementResult$ === "object");
 assert(typeof ModifyIpamPolicyAllocationRulesRequest$ === "object");
 assert(typeof ModifyIpamPolicyAllocationRulesResult$ === "object");
+assert(typeof ModifyIpamPoolAllocationRequest$ === "object");
+assert(typeof ModifyIpamPoolAllocationResult$ === "object");
 assert(typeof ModifyIpamPoolRequest$ === "object");
 assert(typeof ModifyIpamPoolResult$ === "object");
 assert(typeof ModifyIpamPrefixListResolverRequest$ === "object");
@@ -9105,6 +9122,7 @@ assert(typeof paginateDescribeInstanceTypeOfferings === "function");
 assert(typeof paginateDescribeInstanceTypes === "function");
 assert(typeof paginateDescribeInstances === "function");
 assert(typeof paginateDescribeInternetGateways === "function");
+assert(typeof paginateDescribeIpamPoolAllocations === "function");
 assert(typeof paginateDescribeIpamPools === "function");
 assert(typeof paginateDescribeIpamPrefixListResolverTargets === "function");
 assert(typeof paginateDescribeIpamPrefixListResolvers === "function");

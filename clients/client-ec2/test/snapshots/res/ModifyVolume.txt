@@ -77,6 +77,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <endTime>
             2000-01-01T04:59:59.999Z
         </endTime>
+        <operator>
+            <managed>
+                false
+            </managed>
+            <principal>
+                __Principal__
+            </principal>
+            <hiddenByDefault>
+                false
+            </hiddenByDefault>
+        </operator>
     </volumeModification>
 </ModifyVolumeResult>
 
@@ -99,7 +110,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     OriginalMultiAttachEnabled: (boolean) false,
     Progress: (number) 0,
     StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Operator: {
+      Managed: (boolean) false,
+      Principal: "__Principal__",
+      HiddenByDefault: (boolean) false
+    }
   },
   $metadata: {
     httpStatusCode: (number) 200,

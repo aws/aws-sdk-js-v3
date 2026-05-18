@@ -1229,6 +1229,10 @@ import type {
   DescribeIpamPoliciesCommandOutput,
 } from "./commands/DescribeIpamPoliciesCommand";
 import type {
+  DescribeIpamPoolAllocationsCommandInput,
+  DescribeIpamPoolAllocationsCommandOutput,
+} from "./commands/DescribeIpamPoolAllocationsCommand";
+import type {
   DescribeIpamPoolsCommandInput,
   DescribeIpamPoolsCommandOutput,
 } from "./commands/DescribeIpamPoolsCommand";
@@ -2303,6 +2307,10 @@ import type {
   ModifyIpamPolicyAllocationRulesCommandInput,
   ModifyIpamPolicyAllocationRulesCommandOutput,
 } from "./commands/ModifyIpamPolicyAllocationRulesCommand";
+import type {
+  ModifyIpamPoolAllocationCommandInput,
+  ModifyIpamPoolAllocationCommandOutput,
+} from "./commands/ModifyIpamPoolAllocationCommand";
 import type { ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput } from "./commands/ModifyIpamPoolCommand";
 import type {
   ModifyIpamPrefixListResolverCommandInput,
@@ -3131,6 +3139,7 @@ export type ServiceInputTypes =
   | DescribeIpamByoasnCommandInput
   | DescribeIpamExternalResourceVerificationTokensCommandInput
   | DescribeIpamPoliciesCommandInput
+  | DescribeIpamPoolAllocationsCommandInput
   | DescribeIpamPoolsCommandInput
   | DescribeIpamPrefixListResolverTargetsCommandInput
   | DescribeIpamPrefixListResolversCommandInput
@@ -3423,6 +3432,7 @@ export type ServiceInputTypes =
   | ModifyInstancePlacementCommandInput
   | ModifyIpamCommandInput
   | ModifyIpamPolicyAllocationRulesCommandInput
+  | ModifyIpamPoolAllocationCommandInput
   | ModifyIpamPoolCommandInput
   | ModifyIpamPrefixListResolverCommandInput
   | ModifyIpamPrefixListResolverTargetCommandInput
@@ -3899,6 +3909,7 @@ export type ServiceOutputTypes =
   | DescribeIpamByoasnCommandOutput
   | DescribeIpamExternalResourceVerificationTokensCommandOutput
   | DescribeIpamPoliciesCommandOutput
+  | DescribeIpamPoolAllocationsCommandOutput
   | DescribeIpamPoolsCommandOutput
   | DescribeIpamPrefixListResolverTargetsCommandOutput
   | DescribeIpamPrefixListResolversCommandOutput
@@ -4191,6 +4202,7 @@ export type ServiceOutputTypes =
   | ModifyInstancePlacementCommandOutput
   | ModifyIpamCommandOutput
   | ModifyIpamPolicyAllocationRulesCommandOutput
+  | ModifyIpamPoolAllocationCommandOutput
   | ModifyIpamPoolCommandOutput
   | ModifyIpamPrefixListResolverCommandOutput
   | ModifyIpamPrefixListResolverTargetCommandOutput

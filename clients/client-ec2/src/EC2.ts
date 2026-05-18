@@ -1696,6 +1696,11 @@ import {
   DescribeIpamPoliciesCommand,
 } from "./commands/DescribeIpamPoliciesCommand";
 import {
+  type DescribeIpamPoolAllocationsCommandInput,
+  type DescribeIpamPoolAllocationsCommandOutput,
+  DescribeIpamPoolAllocationsCommand,
+} from "./commands/DescribeIpamPoolAllocationsCommand";
+import {
   type DescribeIpamPoolsCommandInput,
   type DescribeIpamPoolsCommandOutput,
   DescribeIpamPoolsCommand,
@@ -3156,6 +3161,11 @@ import {
   ModifyIpamPolicyAllocationRulesCommand,
 } from "./commands/ModifyIpamPolicyAllocationRulesCommand";
 import {
+  type ModifyIpamPoolAllocationCommandInput,
+  type ModifyIpamPoolAllocationCommandOutput,
+  ModifyIpamPoolAllocationCommand,
+} from "./commands/ModifyIpamPoolAllocationCommand";
+import {
   type ModifyIpamPoolCommandInput,
   type ModifyIpamPoolCommandOutput,
   ModifyIpamPoolCommand,
@@ -3873,6 +3883,7 @@ import { paginateDescribeInstanceTopology } from "./pagination/DescribeInstanceT
 import { paginateDescribeInstanceTypeOfferings } from "./pagination/DescribeInstanceTypeOfferingsPaginator";
 import { paginateDescribeInstanceTypes } from "./pagination/DescribeInstanceTypesPaginator";
 import { paginateDescribeInternetGateways } from "./pagination/DescribeInternetGatewaysPaginator";
+import { paginateDescribeIpamPoolAllocations } from "./pagination/DescribeIpamPoolAllocationsPaginator";
 import { paginateDescribeIpamPools } from "./pagination/DescribeIpamPoolsPaginator";
 import { paginateDescribeIpamPrefixListResolvers } from "./pagination/DescribeIpamPrefixListResolversPaginator";
 import {
@@ -4435,6 +4446,7 @@ const commands = {
   DescribeIpamByoasnCommand,
   DescribeIpamExternalResourceVerificationTokensCommand,
   DescribeIpamPoliciesCommand,
+  DescribeIpamPoolAllocationsCommand,
   DescribeIpamPoolsCommand,
   DescribeIpamPrefixListResolversCommand,
   DescribeIpamPrefixListResolverTargetsCommand,
@@ -4728,6 +4740,7 @@ const commands = {
   ModifyIpamCommand,
   ModifyIpamPolicyAllocationRulesCommand,
   ModifyIpamPoolCommand,
+  ModifyIpamPoolAllocationCommand,
   ModifyIpamPrefixListResolverCommand,
   ModifyIpamPrefixListResolverTargetCommand,
   ModifyIpamResourceCidrCommand,
@@ -4909,6 +4922,7 @@ const paginators = {
   paginateDescribeInstanceTypeOfferings,
   paginateDescribeInstanceTypes,
   paginateDescribeInternetGateways,
+  paginateDescribeIpamPoolAllocations,
   paginateDescribeIpamPools,
   paginateDescribeIpamPrefixListResolvers,
   paginateDescribeIpamPrefixListResolverTargets,
@@ -10943,6 +10957,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeIpamPoolAllocationsCommand}
+   */
+  describeIpamPoolAllocations(): Promise<DescribeIpamPoolAllocationsCommandOutput>;
+  describeIpamPoolAllocations(
+    args: DescribeIpamPoolAllocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamPoolAllocationsCommandOutput>;
+  describeIpamPoolAllocations(
+    args: DescribeIpamPoolAllocationsCommandInput,
+    cb: (err: any, data?: DescribeIpamPoolAllocationsCommandOutput) => void
+  ): void;
+  describeIpamPoolAllocations(
+    args: DescribeIpamPoolAllocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamPoolAllocationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeIpamPoolsCommand}
    */
   describeIpamPools(): Promise<DescribeIpamPoolsCommandOutput>;
@@ -16060,6 +16092,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ModifyIpamPoolAllocationCommand}
+   */
+  modifyIpamPoolAllocation(
+    args: ModifyIpamPoolAllocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamPoolAllocationCommandOutput>;
+  modifyIpamPoolAllocation(
+    args: ModifyIpamPoolAllocationCommandInput,
+    cb: (err: any, data?: ModifyIpamPoolAllocationCommandOutput) => void
+  ): void;
+  modifyIpamPoolAllocation(
+    args: ModifyIpamPoolAllocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamPoolAllocationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyIpamPrefixListResolverCommand}
    */
   modifyIpamPrefixListResolver(
@@ -18817,6 +18866,17 @@ export interface EC2 {
     args?: DescribeInternetGatewaysCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeInternetGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamPoolAllocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamPoolAllocationsCommandOutput}.
+   */
+  paginateDescribeIpamPoolAllocations(
+    args?: DescribeIpamPoolAllocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamPoolAllocationsCommandOutput>;
 
   /**
    * @see {@link DescribeIpamPoolsCommand}

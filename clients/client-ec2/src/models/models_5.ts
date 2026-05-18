@@ -63,6 +63,7 @@ import type {
   NatGatewayAddress,
   OperatorResponse,
   RouteServerAssociation,
+  Subnet,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
@@ -115,6 +116,82 @@ import type {
   ProductCode,
 } from "./models_3";
 import type { RegisteredInstance } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeSubnetsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the subnets.</p>
+   * @public
+   */
+  Subnets?: Subnet[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>key</code> - The tag key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. For a list of possible values, see
+   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html">TagSpecification</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of the tag. For example,
+   *                 specify "tag:Owner" for the filter name and "TeamA" for the filter value to find
+   *                 resources with the tag "Owner=TeamA".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>value</code> - The tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. This value can be between 5 and 1000.
+   *          To get the next page of items, make another request with the token returned in the output.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *          Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Describes a tag.</p>
@@ -2327,6 +2404,13 @@ export interface VolumeModification {
    * @public
    */
   EndTime?: Date | undefined;
+
+  /**
+   * <p>Describes whether the resource is managed by a service provider and, if so, describes
+   *             the service provider that manages it.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -9074,55 +9158,4 @@ export interface CapacityManagerMonitoredTagKey {
    * @public
    */
   EarliestDatapointTimestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityManagerMonitoredTagKeysResult {
-  /**
-   * <p>
-   * The list of tag keys being monitored by Capacity Manager, including their current status and metadata.
-   * </p>
-   * @public
-   */
-  CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
-
-  /**
-   * <p>
-   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
-   * </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityReservationUsageRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

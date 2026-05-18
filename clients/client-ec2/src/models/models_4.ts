@@ -99,13 +99,13 @@ import type {
   IamInstanceProfile,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
+  IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
   IpPermission,
   OperatorResponse,
   PathComponent,
   ReservedInstancesListing,
   SecurityGroupRule,
-  Subnet,
   Tag,
   TagSpecification,
   UserIdGroupPair,
@@ -5407,6 +5407,60 @@ export interface DescribeIpamPoliciesResult {
 /**
  * @public
  */
+export interface DescribeIpamPoolAllocationsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the IPAM pool allocations you want to describe.</p>
+   * @public
+   */
+  IpamPoolAllocationIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpamPoolAllocationsResult {
+  /**
+   * <p>Information about the IPAM pool allocations.</p>
+   * @public
+   */
+  IpamPoolAllocations?: IpamPoolAllocation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeIpamPoolsRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5423,7 +5477,7 @@ export interface DescribeIpamPoolsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in the request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -5699,7 +5753,7 @@ export interface DescribeIpamsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in the request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -5753,7 +5807,7 @@ export interface DescribeIpamScopesRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in the request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -14808,80 +14862,4 @@ export interface DescribeSubnetsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSubnetsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the subnets.</p>
-   * @public
-   */
-  Subnets?: Subnet[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTagsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>key</code> - The tag key.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type. For a list of possible values, see
-   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html">TagSpecification</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of the tag. For example,
-   *                 specify "tag:Owner" for the filter name and "TeamA" for the filter value to find
-   *                 resources with the tag "Owner=TeamA".</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>value</code> - The tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. This value can be between 5 and 1000.
-   *          To get the next page of items, make another request with the token returned in the output.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *          Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

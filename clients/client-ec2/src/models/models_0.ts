@@ -3350,6 +3350,14 @@ export interface AllocateIpamPoolCidrRequest {
    * @public
    */
   DisallowedCidrs?: string[] | undefined;
+
+  /**
+   * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>If you specify tags, the request is authorized against the allocation resource in addition to the pool resource.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
 }
 
 /**
@@ -3399,6 +3407,12 @@ export interface IpamPoolAllocation {
    * @public
    */
   ResourceOwner?: string | undefined;
+
+  /**
+   * <p>The tags for the IPAM pool allocation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**

@@ -64,7 +64,6 @@ import type {
   PermissionGroup,
   PlatformValues,
   PublicIpDnsOption,
-  RouteServerPersistRoutesAction,
   RouteServerRouteInstallationStatus,
   RouteServerRouteStatus,
   SelfServicePortal,
@@ -147,8 +146,59 @@ import type {
   SnapshotDetail,
   SnapshotTaskDetail,
 } from "./models_3";
-import type { InstanceMetadataOptionsResponse, InstanceStatusEvent, ReservedInstancesConfiguration } from "./models_4";
-import type { RouteServerPropagation } from "./models_5";
+import type { InstanceMetadataOptionsResponse, InstanceStatusEvent } from "./models_4";
+import type { CapacityManagerMonitoredTagKey, RouteServerPropagation } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMonitoredTagKeysResult {
+  /**
+   * <p>
+   * The list of tag keys being monitored by Capacity Manager, including their current status and metadata.
+   * </p>
+   * @public
+   */
+  CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
+
+  /**
+   * <p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityReservationUsageRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Information about the Capacity Reservation usage.</p>
@@ -2441,7 +2491,7 @@ export interface GetIpamPoolCidrsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in the request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -2899,7 +2949,7 @@ export interface GetIpamResourceCidrsRequest {
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in the request.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -9099,6 +9149,42 @@ export interface ModifyIpamPoolResult {
 /**
  * @public
  */
+export interface ModifyIpamPoolAllocationRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool allocation you want to modify.</p>
+   * @public
+   */
+  IpamPoolAllocationId: string | undefined;
+
+  /**
+   * <p>The new description for the IPAM pool allocation. If you submit a <code>null</code> value, the description is removed from the allocation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolAllocationResult {
+  /**
+   * <p>The modified IPAM pool allocation.</p>
+   * @public
+   */
+  IpamPoolAllocation?: IpamPoolAllocation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ModifyIpamPrefixListResolverRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -9857,104 +9943,6 @@ export interface ModifyPublicIpDnsNameOptionsRequest {
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyPublicIpDnsNameOptionsResult {
-  /**
-   * <p>Whether or not the request was successful.</p>
-   * @public
-   */
-  Successful?: boolean | undefined;
-}
-
-/**
- * <p>Contains the parameters for ModifyReservedInstances.</p>
- * @public
- */
-export interface ModifyReservedInstancesRequest {
-  /**
-   * <p>The IDs of the Reserved Instances to modify.</p>
-   * @public
-   */
-  ReservedInstancesIds: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification
-   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *       Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The configuration settings for the Reserved Instances to modify.</p>
-   * @public
-   */
-  TargetConfigurations: ReservedInstancesConfiguration[] | undefined;
-}
-
-/**
- * <p>Contains the output of ModifyReservedInstances.</p>
- * @public
- */
-export interface ModifyReservedInstancesResult {
-  /**
-   * <p>The ID for the modification.</p>
-   * @public
-   */
-  ReservedInstancesModificationId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyRouteServerRequest {
-  /**
-   * <p>The ID of the route server to modify.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>Specifies whether to persist routes after all BGP sessions are terminated.</p>
-   *          <ul>
-   *             <li>
-   *                <p>enable: Routes will be persisted in FIB and RIB after all BGP sessions are terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>disable: Routes will not be persisted in FIB and RIB after all BGP sessions are terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>reset: If a route server has persisted routes due to all BGP sessions having ended, reset will withdraw all routes and reset route server to an empty FIB and RIB.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PersistRoutes?: RouteServerPersistRoutesAction | undefined;
-
-  /**
-   * <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if PersistRoutes is <code>enabled</code>.</p>
-   *          <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
-   * @public
-   */
-  PersistRoutesDuration?: number | undefined;
-
-  /**
-   * <p>Specifies whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
-   * @public
-   */
-  SnsNotificationsEnabled?: boolean | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean | undefined;

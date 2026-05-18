@@ -1527,6 +1527,9 @@ const _DIOAA = "DisableIpamOrganizationAdminAccount";
 const _DIOAAR = "DisableIpamOrganizationAdminAccountRequest";
 const _DIOAARi = "DisableIpamOrganizationAdminAccountResult";
 const _DIP = "DeleteIpamPolicy";
+const _DIPA = "DescribeIpamPoolAllocations";
+const _DIPAR = "DescribeIpamPoolAllocationsRequest";
+const _DIPARe = "DescribeIpamPoolAllocationsResult";
 const _DIPC = "DeprovisionIpamPoolCidr";
 const _DIPCR = "DeprovisionIpamPoolCidrRequest";
 const _DIPCRe = "DeprovisionIpamPoolCidrResult";
@@ -3229,7 +3232,8 @@ const _IP = "InstancePort";
 const _IPA = "IpamPoolAllocation";
 const _IPAAC = "IpamPoolAllocationAllowedCidrs";
 const _IPADC = "IpamPoolAllocationDisallowedCidrs";
-const _IPAI = "IpamPoolAllocationId";
+const _IPAI = "IpamPoolAllocationIds";
+const _IPAIp = "IpamPoolAllocationId";
 const _IPAR = "IpamPolicyAllocationRule";
 const _IPARL = "IpamPolicyAllocationRuleList";
 const _IPARLR = "IpamPolicyAllocationRuleListRequest";
@@ -3889,9 +3893,12 @@ const _MINPO = "ModifyInstanceNetworkPerformanceOptions";
 const _MINPR = "ModifyInstanceNetworkPerformanceRequest";
 const _MINPRo = "ModifyInstanceNetworkPerformanceResult";
 const _MIP = "ModifyInstancePlacement";
-const _MIPAR = "ModifyIpamPolicyAllocationRules";
+const _MIPA = "ModifyIpamPoolAllocation";
+const _MIPAR = "ModifyIpamPoolAllocationRequest";
 const _MIPARR = "ModifyIpamPolicyAllocationRulesRequest";
 const _MIPARRo = "ModifyIpamPolicyAllocationRulesResult";
+const _MIPARo = "ModifyIpamPoolAllocationResult";
+const _MIPARod = "ModifyIpamPolicyAllocationRules";
 const _MIPLR = "ModifyIpamPrefixListResolver";
 const _MIPLRR = "ModifyIpamPrefixListResolverRequest";
 const _MIPLRRo = "ModifyIpamPrefixListResolverResult";
@@ -8510,8 +8517,8 @@ export var AllocateHostsResult$: StaticStructureSchema = [3, n0, _AHRl,
 ];
 export var AllocateIpamPoolCidrRequest$: StaticStructureSchema = [3, n0, _AIPCR,
   0,
-  [_IPI, _DR, _Ci, _NL, _CT, _De, _PNC, _ACl, _DC],
-  [0, 2, 0, 1, [0, 4], 0, 2, [() => IpamPoolAllocationAllowedCidrs, { [_xN]: _ACll }], [() => IpamPoolAllocationDisallowedCidrs, { [_xN]: _DCi }]], 1
+  [_IPI, _DR, _Ci, _NL, _CT, _De, _PNC, _ACl, _DC, _TS],
+  [0, 2, 0, 1, [0, 4], 0, 2, [() => IpamPoolAllocationAllowedCidrs, { [_xN]: _ACll }], [() => IpamPoolAllocationDisallowedCidrs, { [_xN]: _DCi }], [() => TagSpecificationList, { [_xN]: _TSa }]], 1
 ];
 export var AllocateIpamPoolCidrResult$: StaticStructureSchema = [3, n0, _AIPCRl,
   0,
@@ -13586,6 +13593,18 @@ export var DescribeIpamPoliciesResult$: StaticStructureSchema = [3, n0, _DIPResc
   , [_xN]: _nTe }], [() => IpamPolicySet, { [_eQN]: `IpamPolicySet`
   , [_xN]: _iPS }]]
 ];
+export var DescribeIpamPoolAllocationsRequest$: StaticStructureSchema = [3, n0, _DIPAR,
+  0,
+  [_DR, _IPAI, _Fi, _MR, _NTe],
+  [2, [() => ValueStringList, { [_xN]: _IPAIp }], [() => FilterList, { [_xN]: _Fil }], 1, 0]
+];
+export var DescribeIpamPoolAllocationsResult$: StaticStructureSchema = [3, n0, _DIPARe,
+  0,
+  [_IPAp, _NTe],
+  [[() => IpamPoolAllocationSet, { [_eQN]: `IpamPoolAllocationSet`
+  , [_xN]: _iPAS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
 export var DescribeIpamPoolsRequest$: StaticStructureSchema = [3, n0, _DIPRescr,
   0,
   [_DR, _Fi, _MR, _NTe, _IPIpam],
@@ -17072,7 +17091,7 @@ export var GetIpamPolicyOrganizationTargetsResult$: StaticStructureSchema = [3, 
 ];
 export var GetIpamPoolAllocationsRequest$: StaticStructureSchema = [3, n0, _GIPAR,
   0,
-  [_IPI, _DR, _IPAI, _Fi, _MR, _NTe],
+  [_IPI, _DR, _IPAIp, _Fi, _MR, _NTe],
   [0, 2, 0, [() => FilterList, { [_xN]: _Fil }], 1, 0], 1
 ];
 export var GetIpamPoolAllocationsResult$: StaticStructureSchema = [3, n0, _GIPARe,
@@ -18967,7 +18986,7 @@ export var IpamPool$: StaticStructureSchema = [3, n0, _IPpam,
 ];
 export var IpamPoolAllocation$: StaticStructureSchema = [3, n0, _IPA,
   0,
-  [_Ci, _IPAI, _De, _RIeso, _RTe, _RR, _ROe],
+  [_Ci, _IPAIp, _De, _RIeso, _RTe, _RR, _ROe, _T],
   [[0, { [_eQN]: `Cidr`
   , [_xN]: _ci }], [0, { [_eQN]: `IpamPoolAllocationId`
   , [_xN]: _iPAI }], [0, { [_eQN]: `Description`
@@ -18975,7 +18994,8 @@ export var IpamPoolAllocation$: StaticStructureSchema = [3, n0, _IPA,
   , [_xN]: _rIes }], [0, { [_eQN]: `ResourceType`
   , [_xN]: _rTe }], [0, { [_eQN]: `ResourceRegion`
   , [_xN]: _rR }], [0, { [_eQN]: `ResourceOwner`
-  , [_xN]: _rO }]]
+  , [_xN]: _rO }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _tS }]]
 ];
 export var IpamPoolCidr$: StaticStructureSchema = [3, n0, _IPCpa,
   0,
@@ -20333,6 +20353,17 @@ export var ModifyIpamPolicyAllocationRulesResult$: StaticStructureSchema = [3, n
   [_IPDp],
   [[() => IpamPolicyDocument$, { [_eQN]: `IpamPolicyDocument`
   , [_xN]: _iPD }]]
+];
+export var ModifyIpamPoolAllocationRequest$: StaticStructureSchema = [3, n0, _MIPAR,
+  0,
+  [_IPAIp, _DR, _De],
+  [0, 2, 0], 1
+];
+export var ModifyIpamPoolAllocationResult$: StaticStructureSchema = [3, n0, _MIPARo,
+  0,
+  [_IPA],
+  [[() => IpamPoolAllocation$, { [_eQN]: `IpamPoolAllocation`
+  , [_xN]: _iPA }]]
 ];
 export var ModifyIpamPoolRequest$: StaticStructureSchema = [3, n0, _MIPRod,
   0,
@@ -22194,7 +22225,7 @@ export var ReleaseHostsResult$: StaticStructureSchema = [3, n0, _RHRe,
 ];
 export var ReleaseIpamPoolAllocationRequest$: StaticStructureSchema = [3, n0, _RIPAR,
   0,
-  [_IPI, _Ci, _IPAI, _DR],
+  [_IPI, _Ci, _IPAIp, _DR],
   [0, 0, 0, 2], 3
 ];
 export var ReleaseIpamPoolAllocationResult$: StaticStructureSchema = [3, n0, _RIPARe,
@@ -25238,7 +25269,7 @@ export var VolumeDetail$: StaticStructureSchema = [3, n0, _VDo,
 ];
 export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   0,
-  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd],
+  [_VIo, _MSod, _SMt, _TSarg, _TIar, _TVT, _TTar, _TMAE, _OSr, _OIr, _OVT, _OTri, _OMAE, _Pro, _ST, _ETnd, _Op],
   [[0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `ModificationState`
   , [_xN]: _mSod }], [0, { [_eQN]: `StatusMessage`
@@ -25255,7 +25286,8 @@ export var VolumeModification$: StaticStructureSchema = [3, n0, _VMo,
   , [_xN]: _oMAE }], [1, { [_eQN]: `Progress`
   , [_xN]: _pro }], [4, { [_eQN]: `StartTime`
   , [_xN]: _sT }], [4, { [_eQN]: `EndTime`
-  , [_xN]: _eTn }]]
+  , [_xN]: _eTn }], [() => OperatorResponse$, { [_eQN]: `Operator`
+  , [_xN]: _ope }]]
 ];
 export var VolumeRecycleBinInfo$: StaticStructureSchema = [3, n0, _VRBI,
   0,
@@ -29566,6 +29598,9 @@ export var DescribeIpamExternalResourceVerificationTokens$: StaticOperationSchem
 export var DescribeIpamPolicies$: StaticOperationSchema = [9, n0, _DIPes,
   0, () => DescribeIpamPoliciesRequest$, () => DescribeIpamPoliciesResult$
 ];
+export var DescribeIpamPoolAllocations$: StaticOperationSchema = [9, n0, _DIPA,
+  0, () => DescribeIpamPoolAllocationsRequest$, () => DescribeIpamPoolAllocationsResult$
+];
 export var DescribeIpamPools$: StaticOperationSchema = [9, n0, _DIPesc,
   0, () => DescribeIpamPoolsRequest$, () => DescribeIpamPoolsResult$
 ];
@@ -30439,11 +30474,14 @@ export var ModifyInstancePlacement$: StaticOperationSchema = [9, n0, _MIP,
 export var ModifyIpam$: StaticOperationSchema = [9, n0, _MIo,
   0, () => ModifyIpamRequest$, () => ModifyIpamResult$
 ];
-export var ModifyIpamPolicyAllocationRules$: StaticOperationSchema = [9, n0, _MIPAR,
+export var ModifyIpamPolicyAllocationRules$: StaticOperationSchema = [9, n0, _MIPARod,
   0, () => ModifyIpamPolicyAllocationRulesRequest$, () => ModifyIpamPolicyAllocationRulesResult$
 ];
 export var ModifyIpamPool$: StaticOperationSchema = [9, n0, _MIPo,
   0, () => ModifyIpamPoolRequest$, () => ModifyIpamPoolResult$
+];
+export var ModifyIpamPoolAllocation$: StaticOperationSchema = [9, n0, _MIPA,
+  0, () => ModifyIpamPoolAllocationRequest$, () => ModifyIpamPoolAllocationResult$
 ];
 export var ModifyIpamPrefixListResolver$: StaticOperationSchema = [9, n0, _MIPLR,
   0, () => ModifyIpamPrefixListResolverRequest$, () => ModifyIpamPrefixListResolverResult$

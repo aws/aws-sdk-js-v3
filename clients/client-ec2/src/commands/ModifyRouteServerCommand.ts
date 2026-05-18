@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ModifyRouteServerRequest } from "../models/models_6";
-import type { ModifyRouteServerResult } from "../models/models_7";
+import type { ModifyRouteServerRequest, ModifyRouteServerResult } from "../models/models_7";
 import { ModifyRouteServer$ } from "../schemas/schemas_0";
 
 /**
