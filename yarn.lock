@@ -91,6 +91,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-client-api-test@workspace:private/aws-client-api-test"
   dependencies:
+    "@aws-sdk/aws-protocoltests-ec2-schema": "workspace:3.1048.0"
     "@aws-sdk/client-dynamodb": "workspace:3.1048.0"
     "@aws-sdk/client-ec2": "workspace:3.1048.0"
     "@aws-sdk/client-glacier": "workspace:3.1048.0"
@@ -181,7 +182,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/aws-protocoltests-ec2-schema@workspace:private/aws-protocoltests-ec2-schema":
+"@aws-sdk/aws-protocoltests-ec2-schema@workspace:3.1048.0, @aws-sdk/aws-protocoltests-ec2-schema@workspace:private/aws-protocoltests-ec2-schema":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-protocoltests-ec2-schema@workspace:private/aws-protocoltests-ec2-schema"
   dependencies:

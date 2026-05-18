@@ -18,6 +18,7 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
+    "@aws-sdk/aws-protocoltests-ec2-schema": "workspace:3.1048.0",
     "@aws-sdk/client-dynamodb": "workspace:3.1048.0",
     "@aws-sdk/client-ec2": "workspace:3.1048.0",
     "@aws-sdk/client-glacier": "workspace:3.1048.0",
