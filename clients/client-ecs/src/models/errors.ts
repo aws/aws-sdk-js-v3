@@ -404,6 +404,26 @@ export class NoUpdateAvailableException extends __BaseException {
 }
 
 /**
+ * <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
+ * @public
+ */
+export class ServiceDeploymentNotFoundException extends __BaseException {
+  readonly name = "ServiceDeploymentNotFoundException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceDeploymentNotFoundException, __BaseException>) {
+    super({
+      name: "ServiceDeploymentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceDeploymentNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The specified platform version doesn't exist.</p>
  * @public
  */
@@ -547,26 +567,6 @@ export class ConflictException extends __BaseException {
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
     this.resourceIds = opts.resourceIds;
-  }
-}
-
-/**
- * <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
- * @public
- */
-export class ServiceDeploymentNotFoundException extends __BaseException {
-  readonly name = "ServiceDeploymentNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceDeploymentNotFoundException, __BaseException>) {
-    super({
-      name: "ServiceDeploymentNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceDeploymentNotFoundException.prototype);
   }
 }
 

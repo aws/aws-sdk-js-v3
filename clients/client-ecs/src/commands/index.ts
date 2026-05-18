@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./ContinueServiceDeploymentCommand";
 export * from "./CreateCapacityProviderCommand";
 export * from "./CreateClusterCommand";
 export * from "./CreateDaemonCommand";

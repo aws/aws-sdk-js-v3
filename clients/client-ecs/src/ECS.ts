@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type ContinueServiceDeploymentCommandInput,
+  type ContinueServiceDeploymentCommandOutput,
+  ContinueServiceDeploymentCommand,
+} from "./commands/ContinueServiceDeploymentCommand";
+import {
   type CreateCapacityProviderCommandInput,
   type CreateCapacityProviderCommandOutput,
   CreateCapacityProviderCommand,
@@ -393,6 +398,7 @@ import { waitUntilTasksRunning } from "./waiters/waitForTasksRunning";
 import { waitUntilTasksStopped } from "./waiters/waitForTasksStopped";
 
 const commands = {
+  ContinueServiceDeploymentCommand,
   CreateCapacityProviderCommand,
   CreateClusterCommand,
   CreateDaemonCommand,
@@ -494,6 +500,23 @@ const waiters = {
 };
 
 export interface ECS {
+  /**
+   * @see {@link ContinueServiceDeploymentCommand}
+   */
+  continueServiceDeployment(
+    args: ContinueServiceDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContinueServiceDeploymentCommandOutput>;
+  continueServiceDeployment(
+    args: ContinueServiceDeploymentCommandInput,
+    cb: (err: any, data?: ContinueServiceDeploymentCommandOutput) => void
+  ): void;
+  continueServiceDeployment(
+    args: ContinueServiceDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContinueServiceDeploymentCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateCapacityProviderCommand}
    */

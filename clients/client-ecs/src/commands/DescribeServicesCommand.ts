@@ -108,12 +108,17 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //         bakeTimeInMinutes: Number("int"),
  * //         lifecycleHooks: [ // DeploymentLifecycleHookList
  * //           { // DeploymentLifecycleHook
+ * //             targetType: "AWS_LAMBDA" || "PAUSE",
  * //             hookTargetArn: "STRING_VALUE",
  * //             roleArn: "STRING_VALUE",
  * //             lifecycleStages: [ // DeploymentLifecycleHookStageList
- * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRE_PRODUCTION_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //             ],
  * //             hookDetails: "DOCUMENT_VALUE",
+ * //             timeoutConfiguration: { // DeploymentLifecycleHookTimeoutConfiguration
+ * //               timeoutInMinutes: Number("int"),
+ * //               action: "ROLLBACK" || "CONTINUE",
+ * //             },
  * //           },
  * //         ],
  * //         linearConfiguration: { // LinearConfiguration
@@ -468,6 +473,67 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *       serviceName: "ecs-simple-service",
  *       status: "ACTIVE",
  *       taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe a service with a pause lifecycle hook
+ * ```javascript
+ * // This example provides descriptive information about the service ``ecs-service-with-pause-hook``, which is configured with a pause lifecycle hook in its deployment configuration.
+ * const input = {
+ *   services: [
+ *     "ecs-service-with-pause-hook"
+ *   ]
+ * };
+ * const command = new DescribeServicesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   services: [
+ *     {
+ *       clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *       createdAt: "2026-05-06T16:00:00.000Z",
+ *       deploymentConfiguration: {
+ *         lifecycleHooks: [
+ *           {
+ *             lifecycleStages: [
+ *               "POST_PRODUCTION_TRAFFIC_SHIFT"
+ *             ],
+ *             targetType: "PAUSE",
+ *             timeoutConfiguration: {
+ *               action: "ROLLBACK",
+ *               timeoutInMinutes: 60
+ *             }
+ *           }
+ *         ],
+ *         maximumPercent: 200,
+ *         minimumHealthyPercent: 100,
+ *         strategy: "BLUE_GREEN"
+ *       },
+ *       deployments: [
+ *         {
+ *           createdAt: "2026-05-06T16:00:00.000Z",
+ *           desiredCount: 2,
+ *           id: "ecs-svc/9223370564341623665",
+ *           pendingCount: 0,
+ *           runningCount: 2,
+ *           status: "PRIMARY",
+ *           taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/ecs-demo:1",
+ *           updatedAt: "2026-05-06T16:00:00.000Z"
+ *         }
+ *       ],
+ *       desiredCount: 2,
+ *       events:       [],
+ *       loadBalancers:       [],
+ *       pendingCount: 0,
+ *       runningCount: 2,
+ *       serviceArn: "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-service-with-pause-hook",
+ *       serviceName: "ecs-service-with-pause-hook",
+ *       status: "ACTIVE",
+ *       taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/ecs-demo:1"
  *     }
  *   ]
  * }

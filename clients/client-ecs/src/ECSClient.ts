@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  ContinueServiceDeploymentCommandInput,
+  ContinueServiceDeploymentCommandOutput,
+} from "./commands/ContinueServiceDeploymentCommand";
+import type {
   CreateCapacityProviderCommandInput,
   CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
@@ -283,6 +287,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ContinueServiceDeploymentCommandInput
   | CreateCapacityProviderCommandInput
   | CreateClusterCommandInput
   | CreateDaemonCommandInput
@@ -364,6 +369,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | ContinueServiceDeploymentCommandOutput
   | CreateCapacityProviderCommandOutput
   | CreateClusterCommandOutput
   | CreateDaemonCommandOutput

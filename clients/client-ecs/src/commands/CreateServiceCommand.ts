@@ -93,12 +93,17 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     bakeTimeInMinutes: Number("int"),
  *     lifecycleHooks: [ // DeploymentLifecycleHookList
  *       { // DeploymentLifecycleHook
+ *         targetType: "AWS_LAMBDA" || "PAUSE",
  *         hookTargetArn: "STRING_VALUE",
  *         roleArn: "STRING_VALUE",
  *         lifecycleStages: [ // DeploymentLifecycleHookStageList
- *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRE_PRODUCTION_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  *         ],
  *         hookDetails: "DOCUMENT_VALUE",
+ *         timeoutConfiguration: { // DeploymentLifecycleHookTimeoutConfiguration
+ *           timeoutInMinutes: Number("int"),
+ *           action: "ROLLBACK" || "CONTINUE",
+ *         },
  *       },
  *     ],
  *     linearConfiguration: { // LinearConfiguration
@@ -298,12 +303,17 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //       bakeTimeInMinutes: Number("int"),
  * //       lifecycleHooks: [ // DeploymentLifecycleHookList
  * //         { // DeploymentLifecycleHook
+ * //           targetType: "AWS_LAMBDA" || "PAUSE",
  * //           hookTargetArn: "STRING_VALUE",
  * //           roleArn: "STRING_VALUE",
  * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
- * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRE_PRODUCTION_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //           ],
  * //           hookDetails: "DOCUMENT_VALUE",
+ * //           timeoutConfiguration: { // DeploymentLifecycleHookTimeoutConfiguration
+ * //             timeoutInMinutes: Number("int"),
+ * //             action: "ROLLBACK" || "CONTINUE",
+ * //           },
  * //         },
  * //       ],
  * //       linearConfiguration: { // LinearConfiguration
@@ -724,6 +734,79 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     serviceName: "ecs-simple-service-elb",
  *     status: "ACTIVE",
  *     taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/default/console-sample-app-static:6"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a service with a pause lifecycle hook
+ * ```javascript
+ * // This example creates a service with a blue/green deployment strategy that includes a pause lifecycle hook at the POST_PRODUCTION_TRAFFIC_SHIFT stage. The deployment will pause at that stage until you explicitly continue or roll back using the ContinueServiceDeployment API, or until the 60-minute timeout expires and triggers a rollback.
+ * const input = {
+ *   deploymentConfiguration: {
+ *     lifecycleHooks: [
+ *       {
+ *         lifecycleStages: [
+ *           "POST_PRODUCTION_TRAFFIC_SHIFT"
+ *         ],
+ *         targetType: "PAUSE",
+ *         timeoutConfiguration: {
+ *           action: "ROLLBACK",
+ *           timeoutInMinutes: 60
+ *         }
+ *       }
+ *     ],
+ *     strategy: "BLUE_GREEN"
+ *   },
+ *   desiredCount: 2,
+ *   serviceName: "ecs-service-with-pause-hook",
+ *   taskDefinition: "ecs-demo"
+ * };
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   service: {
+ *     clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *     createdAt: "2026-05-06T16:00:00.000Z",
+ *     deploymentConfiguration: {
+ *       lifecycleHooks: [
+ *         {
+ *           lifecycleStages: [
+ *             "POST_PRODUCTION_TRAFFIC_SHIFT"
+ *           ],
+ *           targetType: "PAUSE",
+ *           timeoutConfiguration: {
+ *             action: "ROLLBACK",
+ *             timeoutInMinutes: 60
+ *           }
+ *         }
+ *       ],
+ *       maximumPercent: 200,
+ *       minimumHealthyPercent: 100,
+ *       strategy: "BLUE_GREEN"
+ *     },
+ *     deployments: [
+ *       {
+ *         createdAt: "2026-05-06T16:00:00.000Z",
+ *         desiredCount: 2,
+ *         id: "ecs-svc/9223370564342348388",
+ *         pendingCount: 0,
+ *         runningCount: 0,
+ *         status: "PRIMARY",
+ *         taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/ecs-demo:1",
+ *         updatedAt: "2026-05-06T16:00:00.000Z"
+ *       }
+ *     ],
+ *     desiredCount: 2,
+ *     events:     [],
+ *     loadBalancers:     [],
+ *     pendingCount: 0,
+ *     runningCount: 0,
+ *     serviceArn: "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-service-with-pause-hook",
+ *     serviceName: "ecs-service-with-pause-hook",
+ *     status: "ACTIVE",
+ *     taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/ecs-demo:1"
  *   }
  * }
  * *\/

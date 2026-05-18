@@ -66,12 +66,17 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *     bakeTimeInMinutes: Number("int"),
  *     lifecycleHooks: [ // DeploymentLifecycleHookList
  *       { // DeploymentLifecycleHook
+ *         targetType: "AWS_LAMBDA" || "PAUSE",
  *         hookTargetArn: "STRING_VALUE",
  *         roleArn: "STRING_VALUE",
  *         lifecycleStages: [ // DeploymentLifecycleHookStageList
- *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ *           "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRE_PRODUCTION_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  *         ],
  *         hookDetails: "DOCUMENT_VALUE",
+ *         timeoutConfiguration: { // DeploymentLifecycleHookTimeoutConfiguration
+ *           timeoutInMinutes: Number("int"),
+ *           action: "ROLLBACK" || "CONTINUE",
+ *         },
  *       },
  *     ],
  *     linearConfiguration: { // LinearConfiguration
@@ -289,12 +294,17 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //       bakeTimeInMinutes: Number("int"),
  * //       lifecycleHooks: [ // DeploymentLifecycleHookList
  * //         { // DeploymentLifecycleHook
+ * //           targetType: "AWS_LAMBDA" || "PAUSE",
  * //           hookTargetArn: "STRING_VALUE",
  * //           roleArn: "STRING_VALUE",
  * //           lifecycleStages: [ // DeploymentLifecycleHookStageList
- * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //             "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRE_PRODUCTION_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //           ],
  * //           hookDetails: "DOCUMENT_VALUE",
+ * //           timeoutConfiguration: { // DeploymentLifecycleHookTimeoutConfiguration
+ * //             timeoutInMinutes: Number("int"),
+ * //             action: "ROLLBACK" || "CONTINUE",
+ * //           },
  * //         },
  * //       ],
  * //       linearConfiguration: { // LinearConfiguration
@@ -631,6 +641,34 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * const input = {
  *   desiredCount: 10,
  *   service: "my-http-service"
+ * };
+ * const command = new UpdateServiceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example To update a service to add a pause lifecycle hook
+ * ```javascript
+ * // This example updates the my-blue-green-service service to add a pause lifecycle hook at the POST_PRODUCTION_TRAFFIC_SHIFT stage. The deployment will pause at that stage until you explicitly continue or roll back using the ContinueServiceDeployment API, or until the 30-minute timeout expires and triggers a continue.
+ * const input = {
+ *   deploymentConfiguration: {
+ *     lifecycleHooks: [
+ *       {
+ *         lifecycleStages: [
+ *           "POST_PRODUCTION_TRAFFIC_SHIFT"
+ *         ],
+ *         targetType: "PAUSE",
+ *         timeoutConfiguration: {
+ *           action: "CONTINUE",
+ *           timeoutInMinutes: 30
+ *         }
+ *       }
+ *     ],
+ *     strategy: "BLUE_GREEN"
+ *   },
+ *   service: "my-blue-green-service"
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);

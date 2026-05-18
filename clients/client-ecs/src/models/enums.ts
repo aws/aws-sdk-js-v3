@@ -518,6 +518,20 @@ export type PlatformDeviceType = (typeof PlatformDeviceType)[keyof typeof Platfo
  * @public
  * @enum
  */
+export const DeploymentLifecycleHookAction = {
+  CONTINUE: "CONTINUE",
+  ROLLBACK: "ROLLBACK",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentLifecycleHookAction =
+  (typeof DeploymentLifecycleHookAction)[keyof typeof DeploymentLifecycleHookAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const DaemonDeploymentRollbackMonitorsStatus = {
   DISABLED: "DISABLED",
   MONITORING: "MONITORING",
@@ -1023,6 +1037,7 @@ export const DeploymentLifecycleHookStage = {
   POST_PRODUCTION_TRAFFIC_SHIFT: "POST_PRODUCTION_TRAFFIC_SHIFT",
   POST_SCALE_UP: "POST_SCALE_UP",
   POST_TEST_TRAFFIC_SHIFT: "POST_TEST_TRAFFIC_SHIFT",
+  PRE_PRODUCTION_TRAFFIC_SHIFT: "PRE_PRODUCTION_TRAFFIC_SHIFT",
   PRE_SCALE_UP: "PRE_SCALE_UP",
   PRODUCTION_TRAFFIC_SHIFT: "PRODUCTION_TRAFFIC_SHIFT",
   RECONCILE_SERVICE: "RECONCILE_SERVICE",
@@ -1038,6 +1053,20 @@ export type DeploymentLifecycleHookStage =
  * @public
  * @enum
  */
+export const DeploymentLifecycleHookTargetType = {
+  AWS_LAMBDA: "AWS_LAMBDA",
+  PAUSE: "PAUSE",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentLifecycleHookTargetType =
+  (typeof DeploymentLifecycleHookTargetType)[keyof typeof DeploymentLifecycleHookTargetType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeploymentStrategy = {
   BLUE_GREEN: "BLUE_GREEN",
   CANARY: "CANARY",
@@ -1048,6 +1077,23 @@ export const DeploymentStrategy = {
  * @public
  */
 export type DeploymentStrategy = (typeof DeploymentStrategy)[keyof typeof DeploymentStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentLifecycleHookStatus = {
+  AWAITING_ACTION: "AWAITING_ACTION",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentLifecycleHookStatus =
+  (typeof DeploymentLifecycleHookStatus)[keyof typeof DeploymentLifecycleHookStatus];
 
 /**
  * @public

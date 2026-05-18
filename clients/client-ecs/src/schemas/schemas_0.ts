@@ -72,6 +72,9 @@ const _CSC = "ContainerStateChange";
 const _CSCD = "ClusterServiceConnectDefaults";
 const _CSCDR = "ClusterServiceConnectDefaultsRequest";
 const _CSCo = "ContainerStateChanges";
+const _CSD = "ContinueServiceDeployment";
+const _CSDR = "ContinueServiceDeploymentRequest";
+const _CSDRo = "ContinueServiceDeploymentResponse";
 const _CSR = "CreateServiceRequest";
 const _CSRr = "CreateServiceResponse";
 const _CSl = "ClusterSettings";
@@ -157,7 +160,10 @@ const _DEGSe = "DescribeExpressGatewayService";
 const _DES = "DeploymentEphemeralStorage";
 const _DL = "DevicesList";
 const _DLH = "DeploymentLifecycleHook";
+const _DLHD = "DeploymentLifecycleHookDetail";
+const _DLHDL = "DeploymentLifecycleHookDetailList";
 const _DLHL = "DeploymentLifecycleHookList";
+const _DLHTC = "DeploymentLifecycleHookTimeoutConfiguration";
 const _DLP = "DaemonLinuxParameters";
 const _DNAE = "DaemonNotActiveException";
 const _DNFE = "DaemonNotFoundException";
@@ -590,7 +596,8 @@ const _aV = "attributeValue";
 const _aVg = "agentVersion";
 const _aZ = "availabilityZone";
 const _aZR = "availabilityZoneRebalancing";
-const _ac = "acknowledgment";
+const _ac = "action";
+const _ack = "acknowledgment";
 const _ad = "add";
 const _af = "after";
 const _al = "alarms";
@@ -711,6 +718,7 @@ const _do = "domain";
 const _dr = "driver";
 const _dro = "drop";
 const _e = "error";
+const _eA = "expiresAt";
 const _eC = "exitCode";
 const _eCC = "executeCommandConfiguration";
 const _eD = "expirationDate";
@@ -770,6 +778,7 @@ const _hCP = "healthCheckPath";
 const _hCPe = "healthCheckPort";
 const _hD = "hookDetails";
 const _hE = "httpError";
+const _hI = "hookId";
 const _hL = "hardLimit";
 const _hP = "hostPath";
 const _hPR = "hostPortRange";
@@ -824,6 +833,7 @@ const _lG = "logGroups";
 const _lGN = "logGroupName";
 const _lGo = "logGroup";
 const _lH = "lifecycleHooks";
+const _lHD = "lifecycleHookDetails";
 const _lP = "linuxParameters";
 const _lS = "lastStatus";
 const _lSA = "lastStartedAt";
@@ -978,8 +988,8 @@ const _sCt = "statusCode";
 const _sCto = "storageConfiguration";
 const _sCtop = "stopCode";
 const _sD = "serviceDeployments";
-const _sDA = "serviceDeploymentArns";
-const _sDAe = "serviceDeploymentArn";
+const _sDA = "serviceDeploymentArn";
+const _sDAe = "serviceDeploymentArns";
 const _sDR = "sourceDaemonRevisions";
 const _sEE = "s3EncryptionEnabled";
 const _sG = "securityGroups";
@@ -1039,9 +1049,12 @@ const _sw = "swappiness";
 const _t = "type";
 const _tA = "taskArn";
 const _tAN = "triggeredAlarmNames";
-const _tAa = "taskArns";
-const _tC = "targetCapacity";
-const _tCa = "targetConfiguration";
+const _tAa = "targetArn";
+const _tAas = "taskArns";
+const _tAi = "timeoutAction";
+const _tC = "timeoutConfiguration";
+const _tCa = "targetCapacity";
+const _tCar = "targetConfiguration";
 const _tD = "taskDefinition";
 const _tDA = "taskDefinitionArns";
 const _tDAa = "taskDefinitionArn";
@@ -1055,6 +1068,7 @@ const _tEr = "transitEncryption";
 const _tG = "targetGroups";
 const _tGA = "targetGroupArn";
 const _tI = "targetId";
+const _tIM = "timeoutInMinutes";
 const _tK = "tagKeys";
 const _tLR = "testListenerRule";
 const _tLSGB = "totalLocalStorageGB";
@@ -1490,6 +1504,16 @@ export var ContainerStateChange$: StaticStructureSchema = [3, n0, _CSC,
   [_cNo, _iD, _rIu, _eC, _nB, _r, _st],
   [0, 0, 0, 1, () => NetworkBindings, 0, 0]
 ];
+export var ContinueServiceDeploymentRequest$: StaticStructureSchema = [3, n0, _CSDR,
+  0,
+  [_sDA, _hI, _ac],
+  [0, 0, 0], 2
+];
+export var ContinueServiceDeploymentResponse$: StaticStructureSchema = [3, n0, _CSDRo,
+  0,
+  [_sDA],
+  [0]
+];
 export var CreateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
   [_n, _cl, _aSGP, _mIP, _ta],
@@ -1792,8 +1816,18 @@ export var DeploymentEphemeralStorage$: StaticStructureSchema = [3, n0, _DES,
 ];
 export var DeploymentLifecycleHook$: StaticStructureSchema = [3, n0, _DLH,
   0,
-  [_hTA, _rA, _lSi, _hD],
-  [0, 0, 64 | 0, 15]
+  [_tT, _hTA, _rA, _lSi, _hD, _tC],
+  [0, 0, 0, 64 | 0, 15, () => DeploymentLifecycleHookTimeoutConfiguration$]
+];
+export var DeploymentLifecycleHookDetail$: StaticStructureSchema = [3, n0, _DLHD,
+  0,
+  [_hI, _tT, _tAa, _st, _eA, _tAi],
+  [0, 0, 0, 0, 4, 0]
+];
+export var DeploymentLifecycleHookTimeoutConfiguration$: StaticStructureSchema = [3, n0, _DLHTC,
+  0,
+  [_tIM, _ac],
+  [1, 0]
 ];
 export var DeregisterContainerInstanceRequest$: StaticStructureSchema = [3, n0, _DCIR,
   0,
@@ -1897,7 +1931,7 @@ export var DescribeExpressGatewayServiceResponse$: StaticStructureSchema = [3, n
 ];
 export var DescribeServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
-  [_sDA],
+  [_sDAe],
   [64 | 0], 1
 ];
 export var DescribeServiceDeploymentsResponse$: StaticStructureSchema = [3, n0, _DSDRe,
@@ -2307,7 +2341,7 @@ export var ListTasksRequest$: StaticStructureSchema = [3, n0, _LTR,
 ];
 export var ListTasksResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
-  [_tAa, _nT],
+  [_tAas, _nT],
   [64 | 0, 0]
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
@@ -2402,7 +2436,7 @@ export var ManagedScalableTarget$: StaticStructureSchema = [3, n0, _MST,
 ];
 export var ManagedScaling$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_st, _tC, _mSSS, _mSSSa, _iWP],
+  [_st, _tCa, _mSSS, _mSSSa, _iWP],
   [0, 1, 1, 1, 1]
 ];
 export var ManagedSecurityGroup$: StaticStructureSchema = [3, n0, _MSG,
@@ -2677,8 +2711,8 @@ export var ServiceCurrentRevisionSummary$: StaticStructureSchema = [3, n0, _SCRS
 ];
 export var ServiceDeployment$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_sDAe, _sAe, _cA, _cAr, _sA, _fA, _sAt, _uA, _sSR, _tSR, _st, _sR, _lSif, _dC, _rol, _dCB, _al],
-  [0, 0, 0, 4, 4, 4, 4, 4, () => ServiceRevisionsSummaryList, () => ServiceRevisionSummary$, 0, 0, 0, () => DeploymentConfiguration$, () => Rollback$, () => ServiceDeploymentCircuitBreaker$, () => ServiceDeploymentAlarms$]
+  [_sDA, _sAe, _cA, _cAr, _sA, _fA, _sAt, _uA, _sSR, _tSR, _st, _sR, _lSif, _lHD, _dC, _rol, _dCB, _al],
+  [0, 0, 0, 4, 4, 4, 4, 4, () => ServiceRevisionsSummaryList, () => ServiceRevisionSummary$, 0, 0, 0, () => DeploymentLifecycleHookDetailList, () => DeploymentConfiguration$, () => Rollback$, () => ServiceDeploymentCircuitBreaker$, () => ServiceDeploymentAlarms$]
 ];
 export var ServiceDeploymentAlarms$: StaticStructureSchema = [3, n0, _SDA,
   0,
@@ -2687,7 +2721,7 @@ export var ServiceDeploymentAlarms$: StaticStructureSchema = [3, n0, _SDA,
 ];
 export var ServiceDeploymentBrief$: StaticStructureSchema = [3, n0, _SDB,
   0,
-  [_sDAe, _sAe, _cA, _sA, _cAr, _fA, _tSRA, _st, _sR],
+  [_sDA, _sAe, _cA, _sA, _cAr, _fA, _tSRA, _st, _sR],
   [0, 0, 0, 4, 4, 4, 0, 0, 0]
 ];
 export var ServiceDeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _SDCB,
@@ -2752,12 +2786,12 @@ export var StartTaskResponse$: StaticStructureSchema = [3, n0, _STRt,
 ];
 export var StopServiceDeploymentRequest$: StaticStructureSchema = [3, n0, _SSDR,
   0,
-  [_sDAe, _sTto],
+  [_sDA, _sTto],
   [0, 0], 1
 ];
 export var StopServiceDeploymentResponse$: StaticStructureSchema = [3, n0, _SSDRt,
   0,
-  [_sDAe],
+  [_sDA],
   [0]
 ];
 export var StopTaskRequest$: StaticStructureSchema = [3, n0, _STRto,
@@ -2777,7 +2811,7 @@ export var SubmitAttachmentStateChangesRequest$: StaticStructureSchema = [3, n0,
 ];
 export var SubmitAttachmentStateChangesResponse$: StaticStructureSchema = [3, n0, _SASCRu,
   0,
-  [_ac],
+  [_ack],
   [0]
 ];
 export var SubmitContainerStateChangeRequest$: StaticStructureSchema = [3, n0, _SCSCR,
@@ -2787,7 +2821,7 @@ export var SubmitContainerStateChangeRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var SubmitContainerStateChangeResponse$: StaticStructureSchema = [3, n0, _SCSCRu,
   0,
-  [_ac],
+  [_ack],
   [0]
 ];
 export var SubmitTaskStateChangeRequest$: StaticStructureSchema = [3, n0, _STSCR,
@@ -2797,7 +2831,7 @@ export var SubmitTaskStateChangeRequest$: StaticStructureSchema = [3, n0, _STSCR
 ];
 export var SubmitTaskStateChangeResponse$: StaticStructureSchema = [3, n0, _STSCRu,
   0,
-  [_ac],
+  [_ack],
   [0]
 ];
 export var SystemControl$: StaticStructureSchema = [3, n0, _SC,
@@ -2957,7 +2991,7 @@ export var UpdateDaemonResponse$: StaticStructureSchema = [3, n0, _UDRp,
 ];
 export var UpdatedExpressGatewayService$: StaticStructureSchema = [3, n0, _UEGS,
   0,
-  [_sAe, _cl, _sN, _st, _tCa, _cAr, _uA],
+  [_sAe, _cl, _sN, _st, _tCar, _cAr, _uA],
   [0, 0, 0, () => ExpressGatewayServiceStatus$, [() => ExpressGatewayServiceConfiguration$, 0], 4, 4]
 ];
 export var UpdateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _UEGSR,
@@ -3149,6 +3183,9 @@ var DaemonTaskDefinitionSummaries: StaticListSchema = [1, n0, _DTDSa,
 ];
 var DaemonVolumeList: StaticListSchema = [1, n0, _DVL,
   0, () => DaemonVolume$
+];
+var DeploymentLifecycleHookDetailList: StaticListSchema = [1, n0, _DLHDL,
+  0, () => DeploymentLifecycleHookDetail$
 ];
 var DeploymentLifecycleHookList: StaticListSchema = [1, n0, _DLHL,
   0, () => DeploymentLifecycleHook$
@@ -3368,6 +3405,9 @@ var DockerLabelsMap = 128 | 0;
 var FirelensConfigurationOptionsMap = 128 | 0;
 var LogConfigurationOptionsMap = 128 | 0;
 var StringMap = 128 | 0;
+export var ContinueServiceDeployment$: StaticOperationSchema = [9, n0, _CSD,
+  0, () => ContinueServiceDeploymentRequest$, () => ContinueServiceDeploymentResponse$
+];
 export var CreateCapacityProvider$: StaticOperationSchema = [9, n0, _CCP,
   2, () => CreateCapacityProviderRequest$, () => CreateCapacityProviderResponse$
 ];

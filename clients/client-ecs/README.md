@@ -181,6 +181,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+ContinueServiceDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/ContinueServiceDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ContinueServiceDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ContinueServiceDeploymentCommandOutput/)
+</details>
+<details>
+<summary>
 CreateCapacityProvider
 </summary>
 

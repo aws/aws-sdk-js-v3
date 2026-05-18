@@ -35,7 +35,10 @@ import type {
   DaemonTaskDefinitionStatus,
   DaemonTaskDefinitionStatusFilter,
   DeploymentControllerType,
+  DeploymentLifecycleHookAction,
   DeploymentLifecycleHookStage,
+  DeploymentLifecycleHookStatus,
+  DeploymentLifecycleHookTargetType,
   DeploymentRolloutState,
   DeploymentStrategy,
   DesiredStatus,
@@ -2867,6 +2870,40 @@ export interface UpdateContainerInstancesStateResponse {
 /**
  * @public
  */
+export interface ContinueServiceDeploymentRequest {
+  /**
+   * <p>The ARN of the service deployment to continue or roll back.</p>
+   * @public
+   */
+  serviceDeploymentArn: string | undefined;
+
+  /**
+   * <p>The ID of the paused lifecycle hook to act on. You can find the <code>hookId</code> by calling <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html">DescribeServiceDeployments</a> and inspecting the <code>lifecycleHookDetails</code> field of the service deployment.</p>
+   * @public
+   */
+  hookId: string | undefined;
+
+  /**
+   * <p>The action to take on the paused lifecycle hook. Valid values are:</p> <ul> <li> <p> <code>CONTINUE</code> - Proceeds the deployment to the next lifecycle stage.</p> </li> <li> <p> <code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p> </li> </ul> <p>If no value is specified, the default action is <code>CONTINUE</code>.</p>
+   * @public
+   */
+  action?: DeploymentLifecycleHookAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ContinueServiceDeploymentResponse {
+  /**
+   * <p>The ARN of the service deployment that was continued or rolled back.</p>
+   * @public
+   */
+  serviceDeploymentArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDaemonDeploymentsRequest {
   /**
    * <p>The ARN of the daemon deployments to describe. You can specify up to 20 ARNs.</p>
@@ -5343,7 +5380,7 @@ export interface FSxWindowsFileServerVolumeConfiguration {
 }
 
 /**
- * <p>This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html">Amazon S3 Files volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <important> <p>Your task definition must include a Task IAM Role. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role"> IAM role for attaching your file system to AWS compute resources</a> for required permissions.</p> </important>
+ * <p>This parameter is specified when you're using an Amazon S3 Files file system for task storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/s3files-volumes.html">Amazon S3 Files volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <important> <p>Your task definition must include a Task IAM Role. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-prereq-policies.html#s3-files-prereq-iam-compute-role"> IAM role for attaching your file system to Amazon Web Services compute resources</a> for required permissions.</p> </important>
  * @public
  */
 export interface S3FilesVolumeConfiguration {
@@ -6024,10 +6061,34 @@ export interface DeploymentCircuitBreaker {
 }
 
 /**
+ * <p>The timeout configuration for a deployment lifecycle hook. This determines how long Amazon ECS waits for the hook to complete before taking the specified timeout action.</p>
+ * @public
+ */
+export interface DeploymentLifecycleHookTimeoutConfiguration {
+  /**
+   * <p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>
+   * @public
+   */
+  timeoutInMinutes?: number | undefined;
+
+  /**
+   * <p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are:</p> <ul> <li> <p> <code>CONTINUE</code> - Proceeds the deployment to the next lifecycle stage.</p> </li> <li> <p> <code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p> </li> </ul>
+   * @public
+   */
+  action?: DeploymentLifecycleHookAction | undefined;
+}
+
+/**
  * <p>A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html">Lifecycle hooks for Amazon ECS service deployments</a> in the <i> Amazon Elastic Container Service Developer Guide</i>.</p>
  * @public
  */
 export interface DeploymentLifecycleHook {
+  /**
+   * <p>The type of action the lifecycle hook performs. Valid values are:</p> <ul> <li> <p> <code>AWS_LAMBDA</code> - Invokes a Lambda function at the specified lifecycle stage. This is the default value.</p> </li> <li> <p> <code>PAUSE</code> - Pauses the deployment at the specified lifecycle stage until you call <code>ContinueServiceDeployment</code> to continue or roll back.</p> </li> </ul> <p>This field is optional. If not specified, the default value is <code>AWS_LAMBDA</code>.</p>
+   * @public
+   */
+  targetType?: DeploymentLifecycleHookTargetType | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.</p> <p>You must provide this parameter when configuring a deployment lifecycle hook.</p>
    * @public
@@ -6051,6 +6112,12 @@ export interface DeploymentLifecycleHook {
    * @public
    */
   hookDetails?: __DocumentType | undefined;
+
+  /**
+   * <p>The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.</p>
+   * @public
+   */
+  timeoutConfiguration?: DeploymentLifecycleHookTimeoutConfiguration | undefined;
 }
 
 /**
@@ -6129,6 +6196,48 @@ export interface DeploymentConfiguration {
    * @public
    */
   canaryConfiguration?: CanaryConfiguration | undefined;
+}
+
+/**
+ * <p>The details of a deployment lifecycle hook that is active during a service deployment.</p> <p>You can view lifecycle hook details by calling <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html">DescribeServiceDeployments</a>.</p>
+ * @public
+ */
+export interface DeploymentLifecycleHookDetail {
+  /**
+   * <p>The ID of the lifecycle hook. Use this value when calling <code>ContinueServiceDeployment</code> to continue or roll back a paused deployment.</p>
+   * @public
+   */
+  hookId?: string | undefined;
+
+  /**
+   * <p>The type of action the lifecycle hook performs, such as <code>AWS_LAMBDA</code> or <code>PAUSE</code>.</p>
+   * @public
+   */
+  targetType?: DeploymentLifecycleHookTargetType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hook target. For <code>AWS_LAMBDA</code> hooks, this is the Lambda function ARN. For <code>PAUSE</code> hooks, this field is not set.</p>
+   * @public
+   */
+  targetArn?: string | undefined;
+
+  /**
+   * <p>The status of the lifecycle hook. Valid values depend on the hook type:</p> <ul> <li> <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p> </li> <li> <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p> </li> </ul>
+   * @public
+   */
+  status?: DeploymentLifecycleHookStatus | undefined;
+
+  /**
+   * <p>The time when the lifecycle hook times out. If the hook has not been completed by this time, Amazon ECS takes the timeout action.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+
+  /**
+   * <p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are <code>CONTINUE</code> and <code>ROLLBACK</code>.</p>
+   * @public
+   */
+  timeoutAction?: DeploymentLifecycleHookAction | undefined;
 }
 
 /**
@@ -6279,6 +6388,12 @@ export interface ServiceDeployment {
    * @public
    */
   lifecycleStage?: ServiceDeploymentLifecycleStage | undefined;
+
+  /**
+   * <p>The details of the lifecycle hooks for the current service deployment.</p>
+   * @public
+   */
+  lifecycleHookDetails?: DeploymentLifecycleHookDetail[] | undefined;
 
   /**
    * <p>Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.</p>
@@ -7988,7 +8103,7 @@ export interface Service {
  */
 export interface CreateServiceResponse {
   /**
-   * <p>The full description of your service following the create call.</p> <p>A service will return either a <code>capacityProviderStrategy</code> or <code>launchType</code> parameter, but not both, depending where one was specified when it was created.</p> <p>If a service is using the <code>ECS</code> deployment controller, the <code>deploymentController</code> and <code>taskSets</code> parameters will not be returned.</p> <p>if the service uses the <code>CODE_DEPLOY</code> deployment controller, the <code>deploymentController</code>, <code>taskSets</code> and <code>deployments</code> parameters will be returned, however the <code>deployments</code> parameter will be an empty list.</p>
+   * <p>The full description of your service following the create call.</p> <p>A service will return either a <code>capacityProviderStrategy</code> or <code>launchType</code> parameter, but not both, depending where one was specified when it was created.</p> <p>If a service is using the <code>ECS</code> deployment controller, the <code>deploymentController</code> and <code>taskSets</code> parameters will not be returned.</p> <p>if the service uses the <code>CODE_DEPLOY</code> deployment controller, the <code>deploymentController</code>, <code>taskSets</code> and <code>deployments</code> parameters will be returned, however the <code>deployments</code> parameter will be an empty list.</p> <p>The response includes a <code>lifecycleHookDetails</code> field, which is an empty array when the service is created or updated. The values are populated when a lifecycle hook executes and are available as part of the service deployment details (<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html">DescribeServiceDeployments</a>).</p>
    * @public
    */
   service?: Service | undefined;
@@ -8590,7 +8705,7 @@ export interface UpdateServiceRequest {
  */
 export interface UpdateServiceResponse {
   /**
-   * <p>The full description of your service following the update call.</p>
+   * <p>The full description of your service following the update call.</p> <p>The response includes a <code>lifecycleHookDetails</code> field, which is an empty array when the service is created or updated. The values are populated when a lifecycle hook executes and are available as part of the service deployment details (<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html">DescribeServiceDeployments</a>).</p>
    * @public
    */
   service?: Service | undefined;
@@ -9305,54 +9420,4 @@ export interface ServiceRevision {
    * @public
    */
   ecsManagedResources?: ECSManagedResources | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeServiceRevisionsResponse {
-  /**
-   * <p>The list of service revisions described.</p>
-   * @public
-   */
-  serviceRevisions?: ServiceRevision[] | undefined;
-
-  /**
-   * <p>Any failures associated with the call.</p>
-   * @public
-   */
-  failures?: Failure[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported resources are Amazon ECS capacity providers, tasks, services, task definitions, clusters, and container instances.</p> <p>In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html">Migrate an Amazon ECS short service ARN to a long ARN</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p> <code>arn:aws:ecs:region:aws_account_id:service/service-name</code> </p> <p>After the migration is complete, the service has the long ARN format, as shown below. Use this ARN to tag the service.</p> <p> <code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code> </p> <p>If you try to tag a service with a short ARN, you receive an <code>InvalidParameterException</code> error.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>
-   * @public
-   */
-  tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface DeleteTaskDefinitionsRequest {
-  /**
-   * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or full Amazon Resource Name (ARN) of the task definition to delete. You must specify a <code>revision</code>.</p> <p>You can specify up to 10 task definitions as a comma separated list.</p>
-   * @public
-   */
-  taskDefinitions: string[] | undefined;
 }

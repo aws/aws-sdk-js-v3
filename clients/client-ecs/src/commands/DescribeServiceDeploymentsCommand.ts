@@ -75,6 +75,16 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_REQUESTED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
  * //       statusReason: "STRING_VALUE",
  * //       lifecycleStage: "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT" || "BAKE_TIME" || "CLEAN_UP",
+ * //       lifecycleHookDetails: [ // DeploymentLifecycleHookDetailList
+ * //         { // DeploymentLifecycleHookDetail
+ * //           hookId: "STRING_VALUE",
+ * //           targetType: "AWS_LAMBDA" || "PAUSE",
+ * //           targetArn: "STRING_VALUE",
+ * //           status: "AWAITING_ACTION" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT",
+ * //           expiresAt: new Date("TIMESTAMP"),
+ * //           timeoutAction: "ROLLBACK" || "CONTINUE",
+ * //         },
+ * //       ],
  * //       deploymentConfiguration: { // DeploymentConfiguration
  * //         deploymentCircuitBreaker: { // DeploymentCircuitBreaker
  * //           enable: true || false, // required
@@ -93,12 +103,17 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //         bakeTimeInMinutes: Number("int"),
  * //         lifecycleHooks: [ // DeploymentLifecycleHookList
  * //           { // DeploymentLifecycleHook
+ * //             targetType: "AWS_LAMBDA" || "PAUSE",
  * //             hookTargetArn: "STRING_VALUE",
  * //             roleArn: "STRING_VALUE",
  * //             lifecycleStages: [ // DeploymentLifecycleHookStageList
- * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
+ * //               "RECONCILE_SERVICE" || "PRE_SCALE_UP" || "POST_SCALE_UP" || "TEST_TRAFFIC_SHIFT" || "POST_TEST_TRAFFIC_SHIFT" || "PRE_PRODUCTION_TRAFFIC_SHIFT" || "PRODUCTION_TRAFFIC_SHIFT" || "POST_PRODUCTION_TRAFFIC_SHIFT",
  * //             ],
  * //             hookDetails: "DOCUMENT_VALUE",
+ * //             timeoutConfiguration: { // DeploymentLifecycleHookTimeoutConfiguration
+ * //               timeoutInMinutes: Number("int"),
+ * //               action: "ROLLBACK" || "CONTINUE",
+ * //             },
  * //           },
  * //         ],
  * //         linearConfiguration: { // LinearConfiguration
@@ -207,6 +222,69 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  *         runningTaskCount: 0
  *       },
  *       updatedAt: "2024-09-10T16:49:35.57Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe a service deployment with a paused lifecycle hook
+ * ```javascript
+ * // This example describes a service deployment that is currently paused at a lifecycle hook. The lifecycleHookDetails field shows the status of the pause hook, including when it will expire and what action will be taken if the timeout is reached.
+ * const input = {
+ *   serviceDeploymentArns: [
+ *     "arn:aws:ecs:us-east-1:123456789012:service-deployment/MyCluster/MyService/r9i43YFjvgF_xlg7m2eJ1r"
+ *   ]
+ * };
+ * const command = new DescribeServiceDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   serviceDeployments: [
+ *     {
+ *       clusterArn: "arn:aws:ecs:us-east-1:123456789012:cluster/MyCluster",
+ *       deploymentConfiguration: {
+ *         deploymentCircuitBreaker: {
+ *           enable: false,
+ *           rollback: false
+ *         },
+ *         lifecycleHooks: [
+ *           {
+ *             lifecycleStages: [
+ *               "POST_PRODUCTION_TRAFFIC_SHIFT"
+ *             ],
+ *             targetType: "PAUSE",
+ *             timeoutConfiguration: {
+ *               action: "ROLLBACK",
+ *               timeoutInMinutes: 60
+ *             }
+ *           }
+ *         ],
+ *         maximumPercent: 200,
+ *         minimumHealthyPercent: 100,
+ *         strategy: "BLUE_GREEN"
+ *       },
+ *       lifecycleHookDetails: [
+ *         {
+ *           expiresAt: "2026-05-06T17:00:00.000Z",
+ *           hookId: "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
+ *           status: "AWAITING_ACTION",
+ *           targetType: "PAUSE",
+ *           timeoutAction: "ROLLBACK"
+ *         }
+ *       ],
+ *       lifecycleStage: "POST_PRODUCTION_TRAFFIC_SHIFT",
+ *       serviceArn: "arn:aws:ecs:us-east-1:123456789012:service/MyCluster/MyService",
+ *       serviceDeploymentArn: "arn:aws:ecs:us-east-1:123456789012:service-deployment/MyCluster/MyService/r9i43YFjvgF_xlg7m2eJ1r",
+ *       status: "IN_PROGRESS",
+ *       targetServiceRevision: {
+ *         arn: "arn:aws:ecs:us-east-1:123456789012:service-revision/MyCluster/MyService/1234567890123456789",
+ *         pendingTaskCount: 1,
+ *         requestedTaskCount: 2,
+ *         runningTaskCount: 1
+ *       },
+ *       updatedAt: "2026-05-06T16:00:00.000Z"
  *     }
  *   ]
  * }

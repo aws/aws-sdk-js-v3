@@ -72,6 +72,10 @@ import {
   ContainerOverride$,
   ContainerRestartPolicy$,
   ContainerStateChange$,
+  ContinueServiceDeployment$,
+  ContinueServiceDeploymentCommand,
+  ContinueServiceDeploymentRequest$,
+  ContinueServiceDeploymentResponse$,
   CPUArchitecture,
   CpuManufacturer,
   CreateCapacityProvider$,
@@ -179,7 +183,12 @@ import {
   DeploymentControllerType,
   DeploymentEphemeralStorage$,
   DeploymentLifecycleHook$,
+  DeploymentLifecycleHookAction,
+  DeploymentLifecycleHookDetail$,
   DeploymentLifecycleHookStage,
+  DeploymentLifecycleHookStatus,
+  DeploymentLifecycleHookTargetType,
+  DeploymentLifecycleHookTimeoutConfiguration$,
   DeploymentRolloutState,
   DeploymentStrategy,
   DeregisterContainerInstance$,
@@ -686,6 +695,8 @@ import assert from "node:assert";
 assert(typeof ECSClient === "function");
 assert(typeof ECS === "function");
 // commands
+assert(typeof ContinueServiceDeploymentCommand === "function");
+assert(typeof ContinueServiceDeployment$ === "object");
 assert(typeof CreateCapacityProviderCommand === "function");
 assert(typeof CreateCapacityProvider$ === "object");
 assert(typeof CreateClusterCommand === "function");
@@ -868,6 +879,8 @@ assert(typeof ContainerInstanceHealthStatus$ === "object");
 assert(typeof ContainerOverride$ === "object");
 assert(typeof ContainerRestartPolicy$ === "object");
 assert(typeof ContainerStateChange$ === "object");
+assert(typeof ContinueServiceDeploymentRequest$ === "object");
+assert(typeof ContinueServiceDeploymentResponse$ === "object");
 assert(typeof CreateCapacityProviderRequest$ === "object");
 assert(typeof CreateCapacityProviderResponse$ === "object");
 assert(typeof CreateClusterRequest$ === "object");
@@ -929,6 +942,8 @@ assert(typeof DeploymentConfiguration$ === "object");
 assert(typeof DeploymentController$ === "object");
 assert(typeof DeploymentEphemeralStorage$ === "object");
 assert(typeof DeploymentLifecycleHook$ === "object");
+assert(typeof DeploymentLifecycleHookDetail$ === "object");
+assert(typeof DeploymentLifecycleHookTimeoutConfiguration$ === "object");
 assert(typeof DeregisterContainerInstanceRequest$ === "object");
 assert(typeof DeregisterContainerInstanceResponse$ === "object");
 assert(typeof DeregisterTaskDefinitionRequest$ === "object");
@@ -1213,7 +1228,10 @@ assert(typeof DaemonTaskDefinitionRevisionFilter === "object");
 assert(typeof DaemonTaskDefinitionStatus === "object");
 assert(typeof DaemonTaskDefinitionStatusFilter === "object");
 assert(typeof DeploymentControllerType === "object");
+assert(typeof DeploymentLifecycleHookAction === "object");
 assert(typeof DeploymentLifecycleHookStage === "object");
+assert(typeof DeploymentLifecycleHookStatus === "object");
+assert(typeof DeploymentLifecycleHookTargetType === "object");
 assert(typeof DeploymentRolloutState === "object");
 assert(typeof DeploymentStrategy === "object");
 assert(typeof DesiredStatus === "object");
