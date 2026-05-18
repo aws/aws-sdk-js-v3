@@ -1,5 +1,5 @@
-import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2";
-import { EC2ProtocolClient } from "@aws-sdk/aws-protocoltests-ec2";
+import type { EC2ProtocolClientConfig } from "@aws-sdk/aws-protocoltests-ec2-schema";
+import { EC2ProtocolClient } from "@aws-sdk/aws-protocoltests-ec2-schema";
 import type { S3ClientConfig } from "@aws-sdk/client-s3";
 import { S3Client } from "@aws-sdk/client-s3";
 import type { WeatherClientConfig } from "@aws-sdk/weather";

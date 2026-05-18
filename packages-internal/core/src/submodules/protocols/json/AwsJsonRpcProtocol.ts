@@ -105,8 +105,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     if (awsQueryCompatible) {
       this.mixin.setQueryCompatError(dataObject, response);
     }
-    const errorIdentifier =
-      loadJsonRpcErrorCode(response, dataObject, this.getJsonRpcVersion() === "1.1", awsQueryCompatible) ?? "Unknown";
+    const errorIdentifier = loadJsonRpcErrorCode(response, dataObject, awsQueryCompatible) ?? "Unknown";
     this.mixin.compose(this.compositeErrorRegistry, errorIdentifier, this.options.defaultNamespace);
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(

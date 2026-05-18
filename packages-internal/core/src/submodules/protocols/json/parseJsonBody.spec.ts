@@ -48,7 +48,7 @@ describe(loadJsonRpcErrorCode.name, () => {
     expect(code).toEqual("FooError");
   });
 
-  it("strips namespace when removeNamespace is true (awsJson1_1)", () => {
+  it("strips namespace", () => {
     const code = loadJsonRpcErrorCode(
       { statusCode: 400, headers: {} },
       { __type: "com.amazonaws.example#FooError" },
@@ -57,25 +57,7 @@ describe(loadJsonRpcErrorCode.name, () => {
     expect(code).toEqual("FooError");
   });
 
-  it("preserves namespace when removeNamespace is false (awsJson1_0)", () => {
-    const code = loadJsonRpcErrorCode(
-      { statusCode: 400, headers: {} },
-      { __type: "com.amazonaws.example#FooError" },
-      false
-    );
-    expect(code).toEqual("com.amazonaws.example#FooError");
-  });
-
-  it("strips colon suffix regardless of removeNamespace", () => {
-    const code = loadJsonRpcErrorCode(
-      { statusCode: 400, headers: {} },
-      { __type: "com.amazonaws.example#FooError:http://internal.amazon.com/coral" },
-      false
-    );
-    expect(code).toEqual("com.amazonaws.example#FooError");
-  });
-
-  it("strips colon then namespace when removeNamespace is true", () => {
+  it("strips colon and namespace", () => {
     const code = loadJsonRpcErrorCode(
       { statusCode: 400, headers: {} },
       { __type: "com.amazonaws.example#FooError:http://internal.amazon.com/coral" },
@@ -89,7 +71,7 @@ describe(loadJsonRpcErrorCode.name, () => {
       const code = loadJsonRpcErrorCode(
         { statusCode: 400, headers: { "x-amzn-errortype": "HeaderError" } },
         { __type: "TypeErr", code: "CodeError" },
-        true
+        false
       );
       expect(code).toEqual("TypeErr");
     });
@@ -124,7 +106,6 @@ describe(loadJsonRpcErrorCode.name, () => {
       const code = loadJsonRpcErrorCode(
         { statusCode: 400, headers: { "x-amzn-errortype": "HeaderError" } },
         { code: "CodeError", __type: "TypeErr" },
-        true,
         true
       );
       expect(code).toEqual("CodeError");
@@ -134,30 +115,19 @@ describe(loadJsonRpcErrorCode.name, () => {
       const code = loadJsonRpcErrorCode(
         { statusCode: 400, headers: { "x-amzn-errortype": "HeaderError" } },
         { __type: "TypeErr" },
-        true,
         true
       );
       expect(code).toEqual("HeaderError");
     });
 
     it("falls back to __type when code and header are absent", () => {
-      const code = loadJsonRpcErrorCode({ statusCode: 400, headers: {} }, { __type: "TypeErr" }, true, true);
+      const code = loadJsonRpcErrorCode({ statusCode: 400, headers: {} }, { __type: "TypeErr" }, true);
       expect(code).toEqual("TypeErr");
     });
 
-    it("still strips namespace when removeNamespace is true", () => {
-      const code = loadJsonRpcErrorCode({ statusCode: 400, headers: {} }, { code: "com.example#BarError" }, true, true);
+    it("still strips namespace", () => {
+      const code = loadJsonRpcErrorCode({ statusCode: 400, headers: {} }, { code: "com.example#BarError" }, true);
       expect(code).toEqual("BarError");
-    });
-
-    it("preserves namespace when removeNamespace is false", () => {
-      const code = loadJsonRpcErrorCode(
-        { statusCode: 400, headers: {} },
-        { code: "com.example#BarError" },
-        false,
-        true
-      );
-      expect(code).toEqual("com.example#BarError");
     });
   });
 });
