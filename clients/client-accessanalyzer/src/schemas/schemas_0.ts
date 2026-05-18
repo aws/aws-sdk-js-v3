@@ -46,6 +46,9 @@ const _CNPARh = "CheckNoPublicAccessResponse";
 const _CPG = "CancelPolicyGeneration";
 const _CPGR = "CancelPolicyGenerationRequest";
 const _CPGRa = "CancelPolicyGenerationResponse";
+const _CSLA = "CreateServiceLinkedAnalyzer";
+const _CSLAR = "CreateServiceLinkedAnalyzerRequest";
+const _CSLARr = "CreateServiceLinkedAnalyzerResponse";
 const _CTD = "CloudTrailDetails";
 const _CTP = "CloudTrailProperties";
 const _Co = "Configuration";
@@ -54,6 +57,8 @@ const _DAR = "DeleteAnalyzerRequest";
 const _DARR = "DeleteArchiveRuleRequest";
 const _DARe = "DeleteArchiveRule";
 const _DSC = "DynamodbStreamConfiguration";
+const _DSLA = "DeleteServiceLinkedAnalyzer";
+const _DSLAR = "DeleteServiceLinkedAnalyzerRequest";
 const _DTC = "DynamodbTableConfiguration";
 const _EAD = "ExternalAccessDetails";
 const _EAFS = "ExternalAccessFindingsStatistics";
@@ -361,6 +366,7 @@ const _le = "length";
 const _lo = "locations";
 const _loc = "locale";
 const _m = "message";
+const _mB = "managedBy";
 const _mR = "maxResults";
 const _n = "name";
 const _nO = "networkOrigin";
@@ -612,8 +618,8 @@ export var AnalyzedResourceSummary$: StaticStructureSchema = [3, n0, _ARS,
 ];
 export var AnalyzerSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_ar, _n, _t, _cA, _st, _lRA, _lRAA, _ta, _sR, _conf],
-  [0, 0, 0, 5, 0, 0, 5, 128 | 0, () => StatusReason$, () => AnalyzerConfiguration$], 5
+  [_ar, _n, _t, _cA, _st, _lRA, _lRAA, _ta, _sR, _conf, _mB],
+  [0, 0, 0, 5, 0, 0, 5, 128 | 0, () => StatusReason$, () => AnalyzerConfiguration$, 0], 5
 ];
 export var ApplyArchiveRuleRequest$: StaticStructureSchema = [3, n0, _AARR,
   0,
@@ -700,6 +706,16 @@ export var CreateArchiveRuleRequest$: StaticStructureSchema = [3, n0, _CARR,
   [_aN, _rN, _f, _cTl],
   [[0, 1], 0, () => FilterCriteriaMap, [0, 4]], 3
 ];
+export var CreateServiceLinkedAnalyzerRequest$: StaticStructureSchema = [3, n0, _CSLAR,
+  0,
+  [_t, _aRr, _cTl, _conf],
+  [0, () => InlineArchiveRulesList, [0, 4], () => AnalyzerConfiguration$], 1
+];
+export var CreateServiceLinkedAnalyzerResponse$: StaticStructureSchema = [3, n0, _CSLARr,
+  0,
+  [_ar],
+  [0]
+];
 export var Criterion$: StaticStructureSchema = [3, n0, _C,
   0,
   [_eq, _ne, _cont, _exi],
@@ -714,6 +730,11 @@ export var DeleteArchiveRuleRequest$: StaticStructureSchema = [3, n0, _DARR,
   0,
   [_aN, _rN, _cTl],
   [[0, 1], [0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 2
+];
+export var DeleteServiceLinkedAnalyzerRequest$: StaticStructureSchema = [3, n0, _DSLAR,
+  0,
+  [_aN, _cTl],
+  [[0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 1
 ];
 export var DynamodbStreamConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
@@ -1506,11 +1527,17 @@ export var CreateAnalyzer$: StaticOperationSchema = [9, n0, _CA,
 export var CreateArchiveRule$: StaticOperationSchema = [9, n0, _CARre,
   { [_h]: ["PUT", "/analyzer/{analyzerName}/archive-rule", 200] }, () => CreateArchiveRuleRequest$, () => __Unit
 ];
+export var CreateServiceLinkedAnalyzer$: StaticOperationSchema = [9, n0, _CSLA,
+  { [_h]: ["PUT", "/service-linked-analyzer", 200] }, () => CreateServiceLinkedAnalyzerRequest$, () => CreateServiceLinkedAnalyzerResponse$
+];
 export var DeleteAnalyzer$: StaticOperationSchema = [9, n0, _DA,
   { [_h]: ["DELETE", "/analyzer/{analyzerName}", 200] }, () => DeleteAnalyzerRequest$, () => __Unit
 ];
 export var DeleteArchiveRule$: StaticOperationSchema = [9, n0, _DARe,
   { [_h]: ["DELETE", "/analyzer/{analyzerName}/archive-rule/{ruleName}", 200] }, () => DeleteArchiveRuleRequest$, () => __Unit
+];
+export var DeleteServiceLinkedAnalyzer$: StaticOperationSchema = [9, n0, _DSLA,
+  { [_h]: ["DELETE", "/service-linked-analyzer/{analyzerName}", 200] }, () => DeleteServiceLinkedAnalyzerRequest$, () => __Unit
 ];
 export var GenerateFindingRecommendation$: StaticOperationSchema = [9, n0, _GFRen,
   { [_h]: ["POST", "/recommendation/{id}", 200] }, () => GenerateFindingRecommendationRequest$, () => __Unit

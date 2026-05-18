@@ -237,6 +237,13 @@ CreateArchiveRule
 </details>
 <details>
 <summary>
+CreateServiceLinkedAnalyzer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/CreateServiceLinkedAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateServiceLinkedAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/CreateServiceLinkedAnalyzerCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteAnalyzer
 </summary>
 
@@ -248,6 +255,13 @@ DeleteArchiveRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/DeleteArchiveRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteArchiveRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteArchiveRuleCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteServiceLinkedAnalyzer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/DeleteServiceLinkedAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteServiceLinkedAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/DeleteServiceLinkedAnalyzerCommandOutput/)
 </details>
 <details>
 <summary>

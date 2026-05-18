@@ -77,11 +77,19 @@ import type {
   CreateArchiveRuleCommandInput,
   CreateArchiveRuleCommandOutput,
 } from "./commands/CreateArchiveRuleCommand";
+import type {
+  CreateServiceLinkedAnalyzerCommandInput,
+  CreateServiceLinkedAnalyzerCommandOutput,
+} from "./commands/CreateServiceLinkedAnalyzerCommand";
 import type { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "./commands/DeleteAnalyzerCommand";
 import type {
   DeleteArchiveRuleCommandInput,
   DeleteArchiveRuleCommandOutput,
 } from "./commands/DeleteArchiveRuleCommand";
+import type {
+  DeleteServiceLinkedAnalyzerCommandInput,
+  DeleteServiceLinkedAnalyzerCommandOutput,
+} from "./commands/DeleteServiceLinkedAnalyzerCommand";
 import type {
   GenerateFindingRecommendationCommandInput,
   GenerateFindingRecommendationCommandOutput,
@@ -171,8 +179,10 @@ export type ServiceInputTypes =
   | CreateAccessPreviewCommandInput
   | CreateAnalyzerCommandInput
   | CreateArchiveRuleCommandInput
+  | CreateServiceLinkedAnalyzerCommandInput
   | DeleteAnalyzerCommandInput
   | DeleteArchiveRuleCommandInput
+  | DeleteServiceLinkedAnalyzerCommandInput
   | GenerateFindingRecommendationCommandInput
   | GetAccessPreviewCommandInput
   | GetAnalyzedResourceCommandInput
@@ -213,8 +223,10 @@ export type ServiceOutputTypes =
   | CreateAccessPreviewCommandOutput
   | CreateAnalyzerCommandOutput
   | CreateArchiveRuleCommandOutput
+  | CreateServiceLinkedAnalyzerCommandOutput
   | DeleteAnalyzerCommandOutput
   | DeleteArchiveRuleCommandOutput
+  | DeleteServiceLinkedAnalyzerCommandOutput
   | GenerateFindingRecommendationCommandOutput
   | GetAccessPreviewCommandOutput
   | GetAnalyzedResourceCommandOutput

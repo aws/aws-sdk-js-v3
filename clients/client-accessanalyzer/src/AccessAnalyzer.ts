@@ -44,6 +44,11 @@ import {
   CreateArchiveRuleCommand,
 } from "./commands/CreateArchiveRuleCommand";
 import {
+  type CreateServiceLinkedAnalyzerCommandInput,
+  type CreateServiceLinkedAnalyzerCommandOutput,
+  CreateServiceLinkedAnalyzerCommand,
+} from "./commands/CreateServiceLinkedAnalyzerCommand";
+import {
   type DeleteAnalyzerCommandInput,
   type DeleteAnalyzerCommandOutput,
   DeleteAnalyzerCommand,
@@ -53,6 +58,11 @@ import {
   type DeleteArchiveRuleCommandOutput,
   DeleteArchiveRuleCommand,
 } from "./commands/DeleteArchiveRuleCommand";
+import {
+  type DeleteServiceLinkedAnalyzerCommandInput,
+  type DeleteServiceLinkedAnalyzerCommandOutput,
+  DeleteServiceLinkedAnalyzerCommand,
+} from "./commands/DeleteServiceLinkedAnalyzerCommand";
 import {
   type GenerateFindingRecommendationCommandInput,
   type GenerateFindingRecommendationCommandOutput,
@@ -209,8 +219,10 @@ const commands = {
   CreateAccessPreviewCommand,
   CreateAnalyzerCommand,
   CreateArchiveRuleCommand,
+  CreateServiceLinkedAnalyzerCommand,
   DeleteAnalyzerCommand,
   DeleteArchiveRuleCommand,
+  DeleteServiceLinkedAnalyzerCommand,
   GenerateFindingRecommendationCommand,
   GetAccessPreviewCommand,
   GetAnalyzedResourceCommand,
@@ -391,6 +403,23 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
+   * @see {@link CreateServiceLinkedAnalyzerCommand}
+   */
+  createServiceLinkedAnalyzer(
+    args: CreateServiceLinkedAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceLinkedAnalyzerCommandOutput>;
+  createServiceLinkedAnalyzer(
+    args: CreateServiceLinkedAnalyzerCommandInput,
+    cb: (err: any, data?: CreateServiceLinkedAnalyzerCommandOutput) => void
+  ): void;
+  createServiceLinkedAnalyzer(
+    args: CreateServiceLinkedAnalyzerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceLinkedAnalyzerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAnalyzerCommand}
    */
   deleteAnalyzer(
@@ -422,6 +451,23 @@ export interface AccessAnalyzer {
     args: DeleteArchiveRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteArchiveRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceLinkedAnalyzerCommand}
+   */
+  deleteServiceLinkedAnalyzer(
+    args: DeleteServiceLinkedAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceLinkedAnalyzerCommandOutput>;
+  deleteServiceLinkedAnalyzer(
+    args: DeleteServiceLinkedAnalyzerCommandInput,
+    cb: (err: any, data?: DeleteServiceLinkedAnalyzerCommandOutput) => void
+  ): void;
+  deleteServiceLinkedAnalyzer(
+    args: DeleteServiceLinkedAnalyzerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceLinkedAnalyzerCommandOutput) => void
   ): void;
 
   /**

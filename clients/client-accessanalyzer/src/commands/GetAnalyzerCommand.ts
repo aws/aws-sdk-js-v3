@@ -96,6 +96,7 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * //         },
  * //       },
  * //     },
+ * //     managedBy: "STRING_VALUE",
  * //   },
  * // };
  *

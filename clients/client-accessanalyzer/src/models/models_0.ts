@@ -526,6 +526,24 @@ export interface DeleteAnalyzerRequest {
 }
 
 /**
+ * <p>Deletes a service-linked analyzer.</p>
+ * @public
+ */
+export interface DeleteServiceLinkedAnalyzerRequest {
+  /**
+   * <p>The name of the service-linked analyzer to delete. Service-linked analyzer names follow the format <code>_AccessAnalyzerFor\{ServiceName\}-\{Id\}</code>.</p>
+   * @public
+   */
+  analyzerName: string | undefined;
+
+  /**
+   * <p>A client token.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
  * <p>Retrieves an analyzer.</p>
  * @public
  */
@@ -613,6 +631,12 @@ export interface AnalyzerSummary {
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
+
+  /**
+   * <p>The service principal that manages this analyzer (for example, <code>securityhubv2.amazonaws.com</code>). This field is only present for service-linked analyzers and is not included for customer-managed analyzers.</p>
+   * @public
+   */
+  managedBy?: string | undefined;
 }
 
 /**
@@ -1864,6 +1888,48 @@ export interface CreateAccessPreviewResponse {
    * @public
    */
   id: string | undefined;
+}
+
+/**
+ * <p>Creates a service-linked analyzer.</p>
+ * @public
+ */
+export interface CreateServiceLinkedAnalyzerRequest {
+  /**
+   * <p>The type of analyzer to create. Valid values are <code>ACCOUNT_UNUSED_ACCESS</code> and <code>ORGANIZATION_UNUSED_ACCESS</code>.</p>
+   * @public
+   */
+  type: Type | undefined;
+
+  /**
+   * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.</p>
+   * @public
+   */
+  archiveRules?: InlineArchiveRule[] | undefined;
+
+  /**
+   * <p>A client token.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies the configuration of the analyzer. The specified scope of unused access is used for the configuration.</p>
+   * @public
+   */
+  configuration?: AnalyzerConfiguration | undefined;
+}
+
+/**
+ * <p>The response to the request to create a service-linked analyzer.</p>
+ * @public
+ */
+export interface CreateServiceLinkedAnalyzerResponse {
+  /**
+   * <p>The ARN of the service-linked analyzer that was created by the request. The analyzer name follows the format <code>_AccessAnalyzerFor\{ServiceName\}-\{Id\}</code> where <code>Id</code> is a randomly generated identifier.</p>
+   * @public
+   */
+  arn?: string | undefined;
 }
 
 /**

@@ -61,6 +61,10 @@ import {
   CreateArchiveRule$,
   CreateArchiveRuleCommand,
   CreateArchiveRuleRequest$,
+  CreateServiceLinkedAnalyzer$,
+  CreateServiceLinkedAnalyzerCommand,
+  CreateServiceLinkedAnalyzerRequest$,
+  CreateServiceLinkedAnalyzerResponse$,
   Criterion$,
   DeleteAnalyzer$,
   DeleteAnalyzerCommand,
@@ -68,6 +72,9 @@ import {
   DeleteArchiveRule$,
   DeleteArchiveRuleCommand,
   DeleteArchiveRuleRequest$,
+  DeleteServiceLinkedAnalyzer$,
+  DeleteServiceLinkedAnalyzerCommand,
+  DeleteServiceLinkedAnalyzerRequest$,
   DynamodbStreamConfiguration$,
   DynamodbTableConfiguration$,
   EbsSnapshotConfiguration$,
@@ -316,10 +323,14 @@ assert(typeof CreateAnalyzerCommand === "function");
 assert(typeof CreateAnalyzer$ === "object");
 assert(typeof CreateArchiveRuleCommand === "function");
 assert(typeof CreateArchiveRule$ === "object");
+assert(typeof CreateServiceLinkedAnalyzerCommand === "function");
+assert(typeof CreateServiceLinkedAnalyzer$ === "object");
 assert(typeof DeleteAnalyzerCommand === "function");
 assert(typeof DeleteAnalyzer$ === "object");
 assert(typeof DeleteArchiveRuleCommand === "function");
 assert(typeof DeleteArchiveRule$ === "object");
+assert(typeof DeleteServiceLinkedAnalyzerCommand === "function");
+assert(typeof DeleteServiceLinkedAnalyzer$ === "object");
 assert(typeof GenerateFindingRecommendationCommand === "function");
 assert(typeof GenerateFindingRecommendation$ === "object");
 assert(typeof GetAccessPreviewCommand === "function");
@@ -405,9 +416,12 @@ assert(typeof CreateAccessPreviewResponse$ === "object");
 assert(typeof CreateAnalyzerRequest$ === "object");
 assert(typeof CreateAnalyzerResponse$ === "object");
 assert(typeof CreateArchiveRuleRequest$ === "object");
+assert(typeof CreateServiceLinkedAnalyzerRequest$ === "object");
+assert(typeof CreateServiceLinkedAnalyzerResponse$ === "object");
 assert(typeof Criterion$ === "object");
 assert(typeof DeleteAnalyzerRequest$ === "object");
 assert(typeof DeleteArchiveRuleRequest$ === "object");
+assert(typeof DeleteServiceLinkedAnalyzerRequest$ === "object");
 assert(typeof DynamodbStreamConfiguration$ === "object");
 assert(typeof DynamodbTableConfiguration$ === "object");
 assert(typeof EbsSnapshotConfiguration$ === "object");

@@ -99,6 +99,7 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * //           },
  * //         },
  * //       },
+ * //       managedBy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
