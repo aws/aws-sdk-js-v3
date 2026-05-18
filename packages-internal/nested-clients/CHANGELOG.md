@@ -34,6 +34,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.10 (2026-05-18)
+### Chores
+* **nested-clients:** update dependencies.
+
+
+
 # 3.997.9 (2026-05-15)
 ### Chores
 * **packages:** update import paths ([#8024](https://github.com/aws/aws-sdk-js-v3/issues/8024)) ([901b75a](https://github.com/aws/aws-sdk-js-v3/commit/901b75a183812de984903bd301614e194f6c6e43))

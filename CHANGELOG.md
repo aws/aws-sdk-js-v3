@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
+
+
+### Bug Fixes
+
+* **client-sts:** update imports to new module locations ([#8025](https://github.com/aws/aws-sdk-js-v3/issues/8025)) ([be183b6](https://github.com/aws/aws-sdk-js-v3/commit/be183b6d7ac286e626f0301cbee2ca5101e87acb))
+* **core/protocols:** make error namespace removal unconditional in JSON RPC ([#8031](https://github.com/aws/aws-sdk-js-v3/issues/8031)) ([7cee4f2](https://github.com/aws/aws-sdk-js-v3/commit/7cee4f2752226e76902ab933477122782472469c))
+
+
+### Features
+
+* **client-accessanalyzer:** Services manage service-linked analyzers through dedicated APIs - CreateServiceLinkedAnalyzer and DeleteServiceLinkedAnalyzer that separate service-linked specific operations from customer-managed operations. It also shows up in ListAnalyzers and GetAnalyzer responses. ([fdfcbe8](https://github.com/aws/aws-sdk-js-v3/commit/fdfcbe80822475752a5433a6b830962379701cc1))
+* **client-connect:** Amazon Connect Cases now supports SLA durations of up to 2 years (1,051,200 minutes), increased from the previous maximum of 90 days (129,600 minutes). This enables you to track long-running service level agreements for cases that require extended resolution timelines. ([045e138](https://github.com/aws/aws-sdk-js-v3/commit/045e1382ed3e4a3a7192416d4636e6849f5fc847))
+* **client-ec2:** Amazon VPC IP Address Manager (IPAM) now supports tags on IPAM pool allocations, enabling all standard tagging features for allocations including tag-on-create. ([0ac6d44](https://github.com/aws/aws-sdk-js-v3/commit/0ac6d448ed6a0f04d45d59d1bcde953454b61f78))
+* **client-ecs:** Amazon ECS now supports Pause lifecycle hooks for service deployments, allowing customers to automatically pause deployments at specified stages and use the new ContinueServiceDeployment API to continue or roll back with confidence. ([8437bd6](https://github.com/aws/aws-sdk-js-v3/commit/8437bd6c125ba1ea4f5baf7a8fdf9fa9694ff4a7))
+* **client-ivs:** Adds support for up to 3 mediaTailorPlaybackConfiguration objects in an ad configuration resource ([e7a59d8](https://github.com/aws/aws-sdk-js-v3/commit/e7a59d859f9cf88f6e19fc4df520336f968da88d))
+* **client-quicksight:** Support for dataset enrichment and geo spatial in new data preparation experience ([c303669](https://github.com/aws/aws-sdk-js-v3/commit/c3036698d995bb62e8cf487df88c36192533efd5))
+* **clients:** update client endpoints as of 2026-05-18 ([a5f4e2a](https://github.com/aws/aws-sdk-js-v3/commit/a5f4e2a21dba69087a8b0534ffd574b877551a2a))
+
+
+
+
+
 # [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
 
 

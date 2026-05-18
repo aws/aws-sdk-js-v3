@@ -43,6 +43,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.12 (2026-05-18)
+### Bug Fixes
+* **core/protocols:** make error namespace removal unconditional in JSON RPC ([#8031](https://github.com/aws/aws-sdk-js-v3/issues/8031)) ([7cee4f2](https://github.com/aws/aws-sdk-js-v3/commit/7cee4f2752226e76902ab933477122782472469c))
+
+
+
 # 3.974.11 (2026-05-15)
 ### Chores
 * **core/client:** consolidate packages into core/client ([#8010](https://github.com/aws/aws-sdk-js-v3/issues/8010)) ([832d9e7](https://github.com/aws/aws-sdk-js-v3/commit/832d9e769f5f564003189f0ae301f7717e7f6c07))

@@ -17,6 +17,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.15 (2026-05-18)
+### Chores
+* **middleware-sdk-s3-control:** update dependencies.
+
+
+
 # 3.972.14 (2026-05-15)
 ### Chores
 * **packages:** update import paths ([#8024](https://github.com/aws/aws-sdk-js-v3/issues/8024)) ([901b75a](https://github.com/aws/aws-sdk-js-v3/commit/901b75a183812de984903bd301614e194f6c6e43))

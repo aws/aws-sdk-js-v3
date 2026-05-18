@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
+
+
+### Features
+
+* **client-ec2:** Amazon VPC IP Address Manager (IPAM) now supports tags on IPAM pool allocations, enabling all standard tagging features for allocations including tag-on-create. ([0ac6d44](https://github.com/aws/aws-sdk-js-v3/commit/0ac6d448ed6a0f04d45d59d1bcde953454b61f78))
+
+
+
+
+
 # [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
+
+
+### Features
+
+* **client-accessanalyzer:** Services manage service-linked analyzers through dedicated APIs - CreateServiceLinkedAnalyzer and DeleteServiceLinkedAnalyzer that separate service-linked specific operations from customer-managed operations. It also shows up in ListAnalyzers and GetAnalyzer responses. ([fdfcbe8](https://github.com/aws/aws-sdk-js-v3/commit/fdfcbe80822475752a5433a6b830962379701cc1))
+
+
+
+
+
 # [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-accessanalyzer

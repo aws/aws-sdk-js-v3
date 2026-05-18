@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
+
+
+### Features
+
+* **client-quicksight:** Support for dataset enrichment and geo spatial in new data preparation experience ([c303669](https://github.com/aws/aws-sdk-js-v3/commit/c3036698d995bb62e8cf487df88c36192533efd5))
+
+
+
+
+
 # [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

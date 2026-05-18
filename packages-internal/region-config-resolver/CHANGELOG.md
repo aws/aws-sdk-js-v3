@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.16 (2026-05-18)
+### Chores
+* **region-config-resolver:** update dependencies.
+
+
+
 # 3.972.15 (2026-05-15)
 ### Chores
 * **core/client:** consolidate packages into core/client ([#8010](https://github.com/aws/aws-sdk-js-v3/issues/8010)) ([832d9e7](https://github.com/aws/aws-sdk-js-v3/commit/832d9e769f5f564003189f0ae301f7717e7f6c07))

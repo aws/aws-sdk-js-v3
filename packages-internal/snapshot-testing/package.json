@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/snapshot-testing",
-  "version": "3.0.22",
+  "version": "3.0.23",
   "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.11",
+    "@aws-sdk/core": "workspace:^3.974.12",
     "@smithy/core": "^3.24.2",
     "@smithy/snapshot-testing": "^2.1.2",
     "@smithy/types": "^4.14.1",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
+
+
+### Features
+
+* **client-ecs:** Amazon ECS now supports Pause lifecycle hooks for service deployments, allowing customers to automatically pause deployments at specified stages and use the new ContinueServiceDeployment API to continue or roll back with confidence. ([8437bd6](https://github.com/aws/aws-sdk-js-v3/commit/8437bd6c125ba1ea4f5baf7a8fdf9fa9694ff4a7))
+
+
+
+
+
 # [3.1048.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1047.0...v3.1048.0) (2026-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs
