@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type {
   DescribeQuickSightQSearchConfigurationRequest,
   DescribeQuickSightQSearchConfigurationResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeQuickSightQSearchConfiguration$ } from "../schemas/schemas_0";
 

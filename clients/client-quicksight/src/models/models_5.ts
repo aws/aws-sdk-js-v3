@@ -1,8 +1,351 @@
 // smithy-typescript generated code
-import type { UserRole, VisualRole, VPCConnectionAvailabilityStatus, VPCConnectionResourceStatus } from "./enums";
+import type {
+  ResourceStatus,
+  UserRole,
+  VisualRole,
+  VPCConnectionAvailabilityStatus,
+  VPCConnectionResourceStatus,
+} from "./enums";
 import type { ResourcePermission, TopicIR, TopicTemplate } from "./models_2";
-import type { TopicRefreshSchedule } from "./models_3";
+import type {
+  CustomInstructions,
+  ThemeAlias,
+  ThemeConfiguration,
+  TopicDetails,
+  TopicRefreshSchedule,
+} from "./models_3";
 import type { User } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateTemplatePermissionsResponse {
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
+   */
+  TemplateArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be set on the template.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name for the theme.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The theme ID, defined by Amazon Quick Sight, that a custom theme inherits from.
+   * 		All themes initially inherit from a default Quick Sight theme.</p>
+   * @public
+   */
+  BaseThemeId: string | undefined;
+
+  /**
+   * <p>A description of the theme version that you're updating Every time that you call
+   * 				<code>UpdateTheme</code>, you create a new version of the theme. Each version of the
+   * 			theme maintains a description of the version in <code>VersionDescription</code>.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The theme configuration, which contains the theme display properties.</p>
+   * @public
+   */
+  Configuration?: ThemeConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the new version of the theme.</p>
+   * @public
+   */
+  VersionArn?: string | undefined;
+
+  /**
+   * <p>The creation status of the theme.</p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name of the theme alias that you want to update.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The version number of the theme that the alias should reference.</p>
+   * @public
+   */
+  ThemeVersionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeAliasResponse {
+  /**
+   * <p>Information about the theme alias.</p>
+   * @public
+   */
+  ThemeAlias?: ThemeAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be granted for the theme.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>A list of resource permissions to be revoked from the theme.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemePermissionsResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The resulting list of resource permissions for the theme.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTopicRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The definition of the topic that you want to update.</p>
+   * @public
+   */
+  Topic: TopicDetails | undefined;
+
+  /**
+   * <p>Custom instructions for the topic.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTopicResponse {
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
+   * @public
+   */
+  RefreshArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTopicPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to update
+   *          the permissions for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The resource permissions that you want to grant to the topic.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The resource permissions that you want to revoke from the topic.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
 
 /**
  * @public

@@ -19,6 +19,7 @@ import type {
   DashboardsQAStatus,
   DataSetFilterAttribute,
   DataSetImportMode,
+  DatasetParameterValueType,
   DataSetUseAs,
   DataSourceErrorInfoType,
   DataSourceFilterAttribute,
@@ -43,14 +44,11 @@ import type {
   NamedEntityAggType,
   NamedFilterAggType,
   NamedFilterType,
-  NamespaceErrorType,
   NamespaceStatus,
   NullFilterType,
-  PersonalizationMode,
   PropertyRole,
   PropertyUsage,
   QDataKeyType,
-  QSearchStatus,
   RefreshInterval,
   ResourceStatus,
   Role,
@@ -113,6 +111,7 @@ import type {
   ColumnGroupSchema,
   ColumnLevelPermissionRule,
   ColumnSchema,
+  ColumnSemanticProperty,
   ColumnTag,
   ComparativeOrder,
   ControlTitleFontConfiguration,
@@ -120,14 +119,15 @@ import type {
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DataPrepConfiguration,
-  DatasetParameter,
   DataSetReference,
   DataSetRefreshProperties,
-  DataSetUsageConfiguration,
   DataSourceParameters,
+  DateTimeDatasetParameter,
+  DecimalDatasetParameter,
   DisplayFormatOptions,
   FilterOperation,
   InputColumn,
+  IntegerDatasetParameter,
   LinkSharingConfiguration,
   ProjectOperation,
   RenameColumnOperation,
@@ -138,11 +138,90 @@ import type {
   SnapshotS3DestinationConfiguration,
   SslProperties,
   StaticFile,
+  StringDatasetParameterDefaultValues,
   Tag,
   TooltipSheetDefinition,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A string parameter for a dataset.</p>
+ * @public
+ */
+export interface StringDatasetParameter {
+  /**
+   * <p>An identifier for the string parameter that is created in the dataset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the string parameter that is created in the dataset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
+   * @public
+   */
+  ValueType: DatasetParameterValueType | undefined;
+
+  /**
+   * <p>A list of default values for a given string dataset parameter type. This structure only accepts static values.</p>
+   * @public
+   */
+  DefaultValues?: StringDatasetParameterDefaultValues | undefined;
+}
+
+/**
+ * <p>A parameter that is created in a dataset. The parameter can be a string, integer, decimal, or datetime data type.</p>
+ * @public
+ */
+export interface DatasetParameter {
+  /**
+   * <p>A string parameter that is created in the dataset.</p>
+   * @public
+   */
+  StringDatasetParameter?: StringDatasetParameter | undefined;
+
+  /**
+   * <p>A decimal parameter that is created in the dataset.</p>
+   * @public
+   */
+  DecimalDatasetParameter?: DecimalDatasetParameter | undefined;
+
+  /**
+   * <p>An integer parameter that is created in the dataset.</p>
+   * @public
+   */
+  IntegerDatasetParameter?: IntegerDatasetParameter | undefined;
+
+  /**
+   * <p>A date time parameter that is created in the dataset.</p>
+   * @public
+   */
+  DateTimeDatasetParameter?: DateTimeDatasetParameter | undefined;
+}
+
+/**
+ * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+ * @public
+ */
+export interface DataSetUsageConfiguration {
+  /**
+   * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+   * @public
+   */
+  DisableUseAsDirectQuerySource?: boolean | undefined;
+
+  /**
+   * <p>An option that controls whether a child dataset that's stored in Quick Sight can use this dataset as a source.</p>
+   * @public
+   */
+  DisableUseAsImportedSource?: boolean | undefined;
+}
 
 /**
  * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
@@ -934,6 +1013,78 @@ export interface RowLevelPermissionTagConfiguration {
 }
 
 /**
+ * <p>Metadata for an uploaded document associated with a custom instruction.</p>
+ * @public
+ */
+export interface UploadedDocumentMetadata {
+  /**
+   * <p>The name of the uploaded document.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>An inline custom instruction with text content and optional file upload metadata.</p>
+ * @public
+ */
+export interface InlineCustomInstruction {
+  /**
+   * <p>The instruction text content.</p>
+   * @public
+   */
+  InstructionText: string | undefined;
+
+  /**
+   * <p>Metadata about an uploaded document associated with this instruction.</p>
+   * @public
+   */
+  UploadedDocumentMetadata?: UploadedDocumentMetadata | undefined;
+}
+
+/**
+ * <p>A custom instruction that provides guidance on how the dataset should be consumed.</p>
+ * @public
+ */
+export interface CustomInstruction {
+  /**
+   * <p>An inline custom instruction containing text and optional uploaded document metadata.</p>
+   * @public
+   */
+  InlineCustomInstruction?: InlineCustomInstruction | undefined;
+}
+
+/**
+ * <p>A description structure for dataset-level semantic metadata.</p>
+ * @public
+ */
+export interface DataSetSemanticDescription {
+  /**
+   * <p>The descriptive text for the dataset.</p>
+   * @public
+   */
+  Text: string | undefined;
+}
+
+/**
+ * <p>Semantic metadata for a dataset, including a description and custom instructions.</p>
+ * @public
+ */
+export interface DataSetSemanticMetadata {
+  /**
+   * <p>A description of the dataset.</p>
+   * @public
+   */
+  Description?: DataSetSemanticDescription | undefined;
+
+  /**
+   * <p>A list of custom instructions that guide how the dataset should be consumed.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstruction[] | undefined;
+}
+
+/**
  * <p>Configuration for row level security.</p>
  * @public
  */
@@ -954,6 +1105,36 @@ export interface RowLevelPermissionConfiguration {
    * @public
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
+}
+
+/**
+ * <p>Semantic metadata shared across one or more columns.</p>
+ * @public
+ */
+export interface SharedColumnSemanticMetadata {
+  /**
+   * <p>The names of the columns this metadata applies to.</p>
+   * @public
+   */
+  ColumnNames?: string[] | undefined;
+
+  /**
+   * <p>The semantic properties for the specified columns.</p>
+   * @public
+   */
+  ColumnProperties: ColumnSemanticProperty[] | undefined;
+}
+
+/**
+ * <p>Column-level semantic metadata for a semantic table.</p>
+ * @public
+ */
+export interface TableSemanticMetadata {
+  /**
+   * <p>A list of column semantic metadata entries.</p>
+   * @public
+   */
+  ColumnMetadata?: SharedColumnSemanticMetadata[] | undefined;
 }
 
 /**
@@ -978,6 +1159,12 @@ export interface SemanticTable {
    * @public
    */
   RowLevelPermissionConfiguration?: RowLevelPermissionConfiguration | undefined;
+
+  /**
+   * <p>The column-level semantic metadata for this semantic table.</p>
+   * @public
+   */
+  SemanticMetadata?: TableSemanticMetadata | undefined;
 }
 
 /**
@@ -990,6 +1177,12 @@ export interface SemanticModelConfiguration {
    * @public
    */
   TableMap?: Record<string, SemanticTable> | undefined;
+
+  /**
+   * <p>The dataset-level semantic metadata, including a description and custom instructions.</p>
+   * @public
+   */
+  SemanticMetadata?: DataSetSemanticMetadata[] | undefined;
 }
 
 /**
@@ -9456,245 +9649,4 @@ export interface QDataKey {
    * @public
    */
   QDataKeyType?: QDataKeyType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeKeyRegistrationResponse {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration specified in the request.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects in a Quick Sight account.</p>
-   * @public
-   */
-  KeyRegistration?: RegisteredCustomerManagedKey[] | undefined;
-
-  /**
-   * <p>A list of <code>QDataKey</code> objects in a Quick Sight account.</p>
-   * @public
-   */
-  QDataKey?: QDataKey | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNamespaceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the Quick Sight namespace that you want to describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want to describe.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * <p>Errors that occur during namespace creation.</p>
- * @public
- */
-export interface NamespaceError {
-  /**
-   * <p>The error type.</p>
-   * @public
-   */
-  Type?: NamespaceErrorType | undefined;
-
-  /**
-   * <p>The message for the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>The error type.</p>
- * @public
- */
-export interface NamespaceInfoV2 {
-  /**
-   * <p>The name of the error.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The namespace ARN.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The namespace Amazon Web Services Region.</p>
-   * @public
-   */
-  CapacityRegion?: string | undefined;
-
-  /**
-   * <p>The creation status of a namespace that is not yet completely created.</p>
-   * @public
-   */
-  CreationStatus?: NamespaceStatus | undefined;
-
-  /**
-   * <p>The identity store used for the namespace.</p>
-   * @public
-   */
-  IdentityStore?: IdentityStore | undefined;
-
-  /**
-   * <p>An error that occurred when the namespace was created.</p>
-   * @public
-   */
-  NamespaceError?: NamespaceError | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center application.</p>
-   * @public
-   */
-  IamIdentityCenterApplicationArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
-   * @public
-   */
-  IamIdentityCenterInstanceArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNamespaceResponse {
-  /**
-   * <p>The information about the namespace that you're describing. The response includes
-   *         the namespace ARN, name, Amazon Web Services Region, creation status, and identity store. <code>DescribeNamespace</code> also
-   *         works for namespaces that are in the process of being created. For incomplete namespaces,
-   *         this API operation lists the namespace error types and messages associated with the creation process.</p>
-   * @public
-   */
-  Namespace?: NamespaceInfoV2 | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeQPersonalizationConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the personalization configuration that the user wants described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeQPersonalizationConfigurationResponse {
-  /**
-   * <p>A value that indicates whether personalization is enabled or not.</p>
-   * @public
-   */
-  PersonalizationMode?: PersonalizationMode | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeQuickSightQSearchConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration that the user wants described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeQuickSightQSearchConfigurationResponse {
-  /**
-   * <p>The status of Quick Sight Q Search configuration.</p>
-   * @public
-   */
-  QSearchStatus?: QSearchStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRefreshScheduleRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId: string | undefined;
 }

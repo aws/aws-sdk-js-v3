@@ -692,8 +692,47 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *             Status: "ENABLED" || "DISABLED",
  *           },
  *         },
+ *         SemanticMetadata: { // TableSemanticMetadata
+ *           ColumnMetadata: [ // SharedColumnSemanticMetadataList
+ *             { // SharedColumnSemanticMetadata
+ *               ColumnNames: [ // ColumnNameList
+ *                 "STRING_VALUE",
+ *               ],
+ *               ColumnProperties: [ // ColumnSemanticPropertyList // required
+ *                 { // ColumnSemanticProperty
+ *                   Description: {
+ *                     Text: "STRING_VALUE",
+ *                   },
+ *                   AdditionalNotes: { // AdditionalNotes
+ *                     Text: "STRING_VALUE",
+ *                   },
+ *                   SemanticType: { // ColumnSemanticType
+ *                     GeographicalRole: "COUNTRY" || "STATE" || "COUNTY" || "CITY" || "POSTCODE" || "LONGITUDE" || "LATITUDE",
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
  *       },
  *     },
+ *     SemanticMetadata: [ // DataSetSemanticMetadataList
+ *       { // DataSetSemanticMetadata
+ *         Description: { // DataSetSemanticDescription
+ *           Text: "STRING_VALUE", // required
+ *         },
+ *         CustomInstructions: [ // CustomInstructionList
+ *           { // CustomInstruction
+ *             InlineCustomInstruction: { // InlineCustomInstruction
+ *               InstructionText: "STRING_VALUE", // required
+ *               UploadedDocumentMetadata: { // UploadedDocumentMetadata
+ *                 Name: "STRING_VALUE",
+ *               },
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateDataSetCommand(input);

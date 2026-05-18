@@ -180,6 +180,8 @@ const _AM = "AuthenticationMetadata";
 const _AMg = "AggMetrics";
 const _AMu = "AuthenticationMethod";
 const _AN = "AccountName";
+const _ANT = "AdditionalNotesText";
+const _ANd = "AdditionalNotes";
 const _ANl = "AliasName";
 const _ANs = "AssignmentName";
 const _ANx = "AxisName";
@@ -601,6 +603,7 @@ const _CIL = "CategoryItemsLimit";
 const _CILC = "CategoryItemsLimitConfiguration";
 const _CILCo = "ColorItemsLimitConfiguration";
 const _CILo = "ColorItemsLimit";
+const _CILu = "CustomInstructionList";
 const _CIM = "ColumnIdMappings";
 const _CIR = "CancelIngestionRequest";
 const _CIRa = "CancelIngestionResponse";
@@ -615,6 +618,7 @@ const _CIolu = "ColumnIndex";
 const _CIom = "ComputationId";
 const _CIr = "CreateIngestion";
 const _CIu = "CustomInstructions";
+const _CIus = "CustomInstruction";
 const _CL = "CustomLabel";
 const _CLC = "CustomLabelConfiguration";
 const _CLO = "CategoryLabelOptions";
@@ -635,7 +639,8 @@ const _CMFa = "CategoricalMeasureField";
 const _CMKUE = "CustomerManagedKeyUnavailableException";
 const _CMO = "ContextMenuOption";
 const _CMo = "ComparisonMethod";
-const _CMol = "ColorMap";
+const _CMol = "ColumnMetadata";
+const _CMolo = "ColorMap";
 const _CMom = "CommitMode";
 const _CN = "ColumnName";
 const _CNO = "CustomNarrativeOptions";
@@ -656,6 +661,7 @@ const _CPL = "CustomPermissionsList";
 const _CPN = "CustomPermissionsName";
 const _CPV = "CustomParameterValues";
 const _CPo = "ConfluenceParameters";
+const _CPol = "ColumnProperties";
 const _CPu = "CustomPermissions";
 const _CR = "CapacityRegion";
 const _CRDV = "CollapsedRowDimensionsVisibility";
@@ -681,8 +687,11 @@ const _CSL = "ColumnSchemaList";
 const _CSO = "CanvasSizeOptions";
 const _CSOo = "CollapseStateOptions";
 const _CSOol = "ColumnSubtotalOptions";
+const _CSP = "ColumnSemanticProperty";
 const _CSPICED = "CreateSPICEDataset";
+const _CSPL = "ColumnSemanticPropertyList";
 const _CSS = "CircleSymbolStyle";
+const _CST = "ColumnSemanticType";
 const _CSV = "CustomSeasonalityValue";
 const _CSa = "CategorySort";
 const _CSe = "CellStyle";
@@ -1125,6 +1134,7 @@ const _DSDCFC = "DataSetDateComparisonFilterCondition";
 const _DSDFC = "DataSetDateFilterCondition";
 const _DSDFV = "DataSetDateFilterValue";
 const _DSDRFC = "DataSetDateRangeFilterCondition";
+const _DSDT = "DataSetDescriptiveText";
 const _DSE = "DashboardSourceEntity";
 const _DSEI = "DataSourceErrorInfo";
 const _DSF = "DashboardSearchFilter";
@@ -1157,6 +1167,7 @@ const _DSRa = "DataSetRegion";
 const _DSRat = "DataSetReference";
 const _DSS = "DefaultSeriesSettings";
 const _DSSCFC = "DataSetStringComparisonFilterCondition";
+const _DSSD = "DataSetSemanticDescription";
 const _DSSF = "DataSetSearchFilter";
 const _DSSFC = "DataSetStringFilterCondition";
 const _DSSFL = "DataSetSearchFilterList";
@@ -1169,6 +1180,8 @@ const _DSSL = "DataSetSummaryList";
 const _DSSLFC = "DataSetStringListFilterCondition";
 const _DSSLFV = "DataSetStringListFilterValue";
 const _DSSLa = "DataSourceSummaryList";
+const _DSSM = "DataSetSemanticMetadata";
+const _DSSML = "DataSetSemanticMetadataList";
 const _DSSO = "DataStoriesSharingOption";
 const _DSSa = "DataSetSchema";
 const _DSSat = "DataSetSummary";
@@ -1648,6 +1661,7 @@ const _GPr = "GrantPermissions";
 const _GQA = "GenerativeQnA";
 const _GR = "GeographicRole";
 const _GRC = "GrowthRateComputation";
+const _GRe = "GeographicalRole";
 const _GRr = "GrowthRate";
 const _GS = "GroupingSeparator";
 const _GSC = "GeospatialSolidColor";
@@ -1727,7 +1741,9 @@ const _ICAO = "ImageCustomActionOperation";
 const _ICAOL = "ImageCustomActionOperationList";
 const _ICAT = "ImageContentAltText";
 const _ICC = "IdentityCenterConfiguration";
+const _ICI = "InlineCustomInstruction";
 const _ICISRE = "IncludeContentInScheduledReportsEmail";
+const _ICIT = "InlineCustomInstructionText";
 const _ICL = "InputColumnList";
 const _ICM = "IamConnectionMetadata";
 const _ICN = "InputColumnName";
@@ -1811,6 +1827,7 @@ const _ITRAn = "InvalidTopicReviewedAnswers";
 const _ITS = "ImportTableStep";
 const _ITd = "IdentityType";
 const _ITn = "IngestionType";
+const _ITns = "InstructionText";
 const _IV = "IntegerValues";
 const _IVWUC = "IntegerValueWhenUnsetConfiguration";
 const _IVn = "InsightVisual";
@@ -2706,6 +2723,8 @@ const _SCM = "SimpleClusterMarker";
 const _SCMA = "ShareComprehendMedicalAction";
 const _SCN = "SourceColumnName";
 const _SCO = "SheetControlsOption";
+const _SCSM = "SharedColumnSemanticMetadata";
+const _SCSML = "SharedColumnSemanticMetadataList";
 const _SCSO = "ScreenCanvasSizeOptions";
 const _SCT = "SheetContentType";
 const _SCc = "ScopeConfiguration";
@@ -2876,6 +2895,7 @@ const _SMS = "SmallMultiplesSort";
 const _SMSEA = "ShareMSExchangeAction";
 const _SMSTA = "ShareMSTeamsAction";
 const _SMV = "SingleMetricVisibility";
+const _SMe = "SemanticMetadata";
 const _SMh = "SharingModel";
 const _SN = "SheetName";
 const _SNA = "ServiceNowAction";
@@ -2987,12 +3007,12 @@ const _STRe = "SearchTopicsResponse";
 const _STT = "SelectedTooltipType";
 const _STV = "SessionTagValue";
 const _STc = "ScalingType";
-const _STe = "SessionTags";
+const _STe = "SemanticType";
 const _STea = "SearchTopics";
 const _STem = "SemanticTable";
-const _STema = "SemanticType";
 const _STer = "SeriesType";
-const _STes = "SessionTag";
+const _STes = "SessionTags";
+const _STess = "SessionTag";
 const _STh = "SheetTooltip";
 const _STo = "SourceTemplate";
 const _STor = "SortType";
@@ -3264,6 +3284,7 @@ const _TSL = "TemplateSummaryList";
 const _TSLh = "ThemeSummaryList";
 const _TSLo = "TopicSummaryList";
 const _TSM = "TransformStepMap";
+const _TSMa = "TableSemanticMetadata";
 const _TSO = "ThousandSeparatorOptions";
 const _TST = "TableStyleTarget";
 const _TSTBL = "TooltipSheetTextBoxList";
@@ -3393,6 +3414,7 @@ const _UD = "UpdateDashboard";
 const _UDL = "UpdateDashboardLinks";
 const _UDLR = "UpdateDashboardLinksRequest";
 const _UDLRp = "UpdateDashboardLinksResponse";
+const _UDM = "UploadedDocumentMetadata";
 const _UDP = "UpdateDashboardPermissions";
 const _UDPR = "UpdateDashboardPermissionsRequest";
 const _UDPRp = "UpdateDashboardPermissionsResponse";
@@ -3946,6 +3968,7 @@ var ActionConnectorDescription: StaticSimpleSchema = [0, n0, _ACD, 8, 0];
 var ActionConnectorName: StaticSimpleSchema = [0, n0, _ACN, 8, 0];
 var ActionPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 var ActionUserName: StaticSimpleSchema = [0, n0, _AUN, 8, 0];
+var AdditionalNotesText: StaticSimpleSchema = [0, n0, _ANT, 8, 0];
 var APIKey: StaticSimpleSchema = [0, n0, _APIK, 8, 0];
 var AssetBundleImportBodyBlob: StaticSimpleSchema = [0, n0, _ABIBB, 8, 21];
 var CalculatedFieldExpression: StaticSimpleSchema = [0, n0, _CFE, 8, 0];
@@ -3953,11 +3976,13 @@ var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
 var ColumnDescriptiveText: StaticSimpleSchema = [0, n0, _CDT, 8, 0];
 var CustomInstructionsString: StaticSimpleSchema = [0, n0, _CIS, 8, 0];
 var DataSetCalculatedFieldExpression: StaticSimpleSchema = [0, n0, _DSCFE, 8, 0];
+var DataSetDescriptiveText: StaticSimpleSchema = [0, n0, _DSDT, 8, 0];
 var DataSetStringFilterStaticValue: StaticSimpleSchema = [0, n0, _DSSFSV, 8, 0];
 var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EmbeddingUrl: StaticSimpleSchema = [0, n0, _EU, 8, 0];
 var Expression: StaticSimpleSchema = [0, n0, _Ex, 8, 0];
 var FieldValue: StaticSimpleSchema = [0, n0, _FV, 8, 0];
+var InlineCustomInstructionText: StaticSimpleSchema = [0, n0, _ICIT, 8, 0];
 var JoinOperationOnClause: StaticSimpleSchema = [0, n0, _JOOC, 8, 0];
 var NullString: StaticSimpleSchema = [0, n0, _NS, 8, 0];
 var OAuthClientId: StaticSimpleSchema = [0, n0, _OACI, 8, 0];
@@ -4018,6 +4043,11 @@ export var ActiveIAMPolicyAssignment$: StaticStructureSchema = [3, n0, _AIAMPA,
   0,
   [_ANs, _PA],
   [0, 0]
+];
+export var AdditionalNotes$: StaticStructureSchema = [3, n0, _ANd,
+  0,
+  [_Te],
+  [[() => AdditionalNotesText, 0]]
 ];
 export var AdHocFilteringOption$: StaticStructureSchema = [3, n0, _AHFO,
   0,
@@ -4919,6 +4949,16 @@ export var ColumnSchema$: StaticStructureSchema = [3, n0, _CSolu,
   [_N, _DTa, _GR],
   [0, 0, 0]
 ];
+export var ColumnSemanticProperty$: StaticStructureSchema = [3, n0, _CSP,
+  0,
+  [_D, _ANd, _STe],
+  [[() => ColumnDescription$, 0], [() => AdditionalNotes$, 0], () => ColumnSemanticType$]
+];
+export var ColumnSemanticType$: StaticStructureSchema = [3, n0, _CST,
+  0,
+  [_GRe],
+  [0]
+];
 export var ColumnSort$: StaticStructureSchema = [3, n0, _CSolum,
   0,
   [_SB, _Dir, _AFg],
@@ -5409,6 +5449,11 @@ export var CustomFilterListConfiguration$: StaticStructureSchema = [3, n0, _CFLC
   [_MO, _NO, _CV, _SAOe],
   [0, 0, 64 | 0, 0], 2
 ];
+export var CustomInstruction$: StaticStructureSchema = [3, n0, _CIus,
+  0,
+  [_ICI],
+  [[() => InlineCustomInstruction$, 0]]
+];
 export var CustomInstructions$: StaticStructureSchema = [3, n0, _CIu,
   0,
   [_CIS],
@@ -5723,6 +5768,16 @@ export var DataSetSearchFilter$: StaticStructureSchema = [3, n0, _DSSF,
   0,
   [_O, _N, _V],
   [0, 0, 0], 3
+];
+export var DataSetSemanticDescription$: StaticStructureSchema = [3, n0, _DSSD,
+  0,
+  [_Te],
+  [[() => DataSetDescriptiveText, 0]], 1
+];
+export var DataSetSemanticMetadata$: StaticStructureSchema = [3, n0, _DSSM,
+  0,
+  [_D, _CIu],
+  [[() => DataSetSemanticDescription$, 0], [() => CustomInstructionList, 0]]
 ];
 export var DataSetStringComparisonFilterCondition$: StaticStructureSchema = [3, n0, _DSSCFC,
   0,
@@ -7341,7 +7396,7 @@ export var GeneratedAnswerResult$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GenerateEmbedUrlForAnonymousUserRequest$: StaticStructureSchema = [3, n0, _GEUFAUR,
   0,
-  [_AAI, _Na, _ARA, _EC, _SLIM, _STe, _ADl],
+  [_AAI, _Na, _ARA, _EC, _SLIM, _STes, _ADl],
   [[0, 1], 0, 64 | 0, () => AnonymousUserEmbeddingExperienceConfiguration$, 1, [() => SessionTagList, 0], 64 | 0], 4
 ];
 export var GenerateEmbedUrlForAnonymousUserResponse$: StaticStructureSchema = [3, n0, _GEUFAURe,
@@ -7853,6 +7908,11 @@ export var Ingestion$: StaticStructureSchema = [3, n0, _Ing,
   0,
   [_A, _ISn, _CT, _II, _EI, _RIow, _QIu, _ITIS, _ISIB, _RSeq, _RTe],
   [0, 0, 4, 0, () => ErrorInfo$, () => RowInfo$, () => QueueInfo$, 1, 1, 0, 0], 3
+];
+export var InlineCustomInstruction$: StaticStructureSchema = [3, n0, _ICI,
+  0,
+  [_ITns, _UDM],
+  [[() => InlineCustomInstructionText, 0], () => UploadedDocumentMetadata$], 1
 ];
 export var InnerFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
@@ -9711,15 +9771,15 @@ export var SemanticEntityType$: StaticStructureSchema = [3, n0, _SET,
 ];
 export var SemanticModelConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
-  [_TM],
-  [[() => SemanticTableMap, 0]]
+  [_TM, _SMe],
+  [[() => SemanticTableMap, 0], [() => DataSetSemanticMetadataList, 0]]
 ];
 export var SemanticTable$: StaticStructureSchema = [3, n0, _STem,
   0,
-  [_Al, _DTI, _RLPC],
-  [0, 0, [() => RowLevelPermissionConfiguration$, 0]], 2
+  [_Al, _DTI, _RLPC, _SMe],
+  [0, 0, [() => RowLevelPermissionConfiguration$, 0], [() => TableSemanticMetadata$, 0]], 2
 ];
-export var SemanticType$: StaticStructureSchema = [3, n0, _STema,
+export var SemanticType$: StaticStructureSchema = [3, n0, _STe,
   0,
   [_TNy, _STN, _TPy, _TCV, _TCVS, _FCVa, _FCVS],
   [0, 0, 128 | 0, [() => SensitiveString, 0], [() => SensitiveStringList, 0], [() => SensitiveString, 0], [() => SensitiveStringList, 0]]
@@ -9734,7 +9794,7 @@ export var ServiceNowParameters$: StaticStructureSchema = [3, n0, _SNP,
   [_SBU],
   [0], 1
 ];
-export var SessionTag$: StaticStructureSchema = [3, n0, _STes,
+export var SessionTag$: StaticStructureSchema = [3, n0, _STess,
   0,
   [_K, _V],
   [0, [() => SessionTagValue, 0]], 2
@@ -9748,6 +9808,11 @@ export var ShapeConditionalFormat$: StaticStructureSchema = [3, n0, _SCF,
   0,
   [_BCa],
   [[() => ConditionalFormattingColor$, 0]], 1
+];
+export var SharedColumnSemanticMetadata$: StaticStructureSchema = [3, n0, _SCSM,
+  0,
+  [_CPol, _CNo],
+  [[() => ColumnSemanticPropertyList, 0], 64 | 0], 1
 ];
 export var SharedViewConfigurations$: StaticStructureSchema = [3, n0, _SVC,
   0,
@@ -10264,6 +10329,11 @@ export var TableRowConditionalFormatting$: StaticStructureSchema = [3, n0, _TRCF
   [_BCa, _TC],
   [() => ConditionalFormattingColor$, () => ConditionalFormattingColor$]
 ];
+export var TableSemanticMetadata$: StaticStructureSchema = [3, n0, _TSMa,
+  0,
+  [_CMol],
+  [[() => SharedColumnSemanticMetadataList, 0]]
+];
 export var TableSideBorderOptions$: StaticStructureSchema = [3, n0, _TSBO,
   0,
   [_IVnn, _IH, _Lef, _Ri, _Top_, _Bot],
@@ -10506,7 +10576,7 @@ export var TopBottomRankedComputation$: StaticStructureSchema = [3, n0, _TBRC,
 ];
 export var TopicCalculatedField$: StaticStructureSchema = [3, n0, _TCFo,
   0,
-  [_CFN, _Ex, _CFD, _CFS, _IIIT, _DIis, _CDRo, _TG, _DFe, _Ag, _CO, _STema, _AAl, _NAA, _NAIF, _CVSe, _NAo],
+  [_CFN, _Ex, _CFD, _CFS, _IIIT, _DIis, _CDRo, _TG, _DFe, _Ag, _CO, _STe, _AAl, _NAA, _NAIF, _CVSe, _NAo],
   [0, [() => Expression, 0], 0, 64 | 0, 2, 2, 0, 0, () => DefaultFormatting$, 0, () => ComparativeOrder$, [() => SemanticType$, 0], 64 | 0, 64 | 0, 2, () => CellValueSynonyms, 2], 2
 ];
 export var TopicCategoryFilter$: StaticStructureSchema = [3, n0, _TCFop,
@@ -10521,7 +10591,7 @@ export var TopicCategoryFilterConstant$: StaticStructureSchema = [3, n0, _TCFC,
 ];
 export var TopicColumn$: StaticStructureSchema = [3, n0, _TCo,
   0,
-  [_CN, _CFNo, _CD, _CSolumny, _CDRo, _Ag, _IIIT, _DIis, _CO, _STema, _TG, _AAl, _NAA, _DFe, _NAIF, _CVSe, _NAo],
+  [_CN, _CFNo, _CD, _CSolumny, _CDRo, _Ag, _IIIT, _DIis, _CO, _STe, _TG, _AAl, _NAA, _DFe, _NAIF, _CVSe, _NAo],
   [0, 0, 0, 64 | 0, 0, 0, 2, 2, () => ComparativeOrder$, [() => SemanticType$, 0], 0, 64 | 0, 64 | 0, () => DefaultFormatting$, 2, () => CellValueSynonyms, 2], 1
 ];
 export var TopicConfigOptions$: StaticStructureSchema = [3, n0, _TCOo,
@@ -11279,6 +11349,11 @@ export var UpdateVPCConnectionResponse$: StaticStructureSchema = [3, n0, _UVPCCR
   [_A, _VPCCI, _USpd, _ASv, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]]
 ];
+export var UploadedDocumentMetadata$: StaticStructureSchema = [3, n0, _UDM,
+  0,
+  [_N],
+  [0]
+];
 export var UploadSettings$: StaticStructureSchema = [3, n0, _USp,
   0,
   [_Fo, _SFRt, _CHon, _TQ, _Del, _CCAR],
@@ -11356,7 +11431,7 @@ export var VisualOptions$: StaticStructureSchema = [3, n0, _VO,
 ];
 export var VisualPalette$: StaticStructureSchema = [3, n0, _VP,
   0,
-  [_CCha, _CMol],
+  [_CCha, _CMolo],
   [0, () => DataPathColorList]
 ];
 export var VisualSubtitleFontConfiguration$: StaticStructureSchema = [3, n0, _VSFC,
@@ -11727,8 +11802,13 @@ var ColumnLevelPermissionRuleList: StaticListSchema = [1, n0, _CLPRL,
   0, () => ColumnLevelPermissionRule$
 ];
 var ColumnList = 64 | 0;
+var ColumnNameList = 64 | 0;
 var ColumnSchemaList: StaticListSchema = [1, n0, _CSL,
   0, () => ColumnSchema$
+];
+var ColumnSemanticPropertyList: StaticListSchema = [1, n0, _CSPL,
+  0, [() => ColumnSemanticProperty$,
+    0]
 ];
 var ColumnTagList: StaticListSchema = [1, n0, _CTL,
   0, [() => ColumnTag$,
@@ -11765,6 +11845,10 @@ var CustomActionColumnList: StaticListSchema = [1, n0, _CACL,
 ];
 var CustomColorsList: StaticListSchema = [1, n0, _CCLu,
   0, [() => CustomColor$,
+    0]
+];
+var CustomInstructionList: StaticListSchema = [1, n0, _CILu,
+  0, [() => CustomInstruction$,
     0]
 ];
 var CustomPermissionsList: StaticListSchema = [1, n0, _CPL,
@@ -11815,6 +11899,10 @@ var Datasets: StaticListSchema = [1, n0, _Data,
 ];
 var DataSetSearchFilterList: StaticListSchema = [1, n0, _DSSFL,
   0, () => DataSetSearchFilter$
+];
+var DataSetSemanticMetadataList: StaticListSchema = [1, n0, _DSSML,
+  0, [() => DataSetSemanticMetadata$,
+    0]
 ];
 var DataSetStringFilterStaticValueList: StaticListSchema = [1, n0, _DSSFSVL,
   0, [() => DataSetStringFilterStaticValue,
@@ -12192,6 +12280,10 @@ var SessionTagList: StaticListSchema = [1, n0, _STLe,
 ];
 var SetParameterValueConfigurationList: StaticListSchema = [1, n0, _SPVCL,
   0, [() => SetParameterValueConfiguration$,
+    0]
+];
+var SharedColumnSemanticMetadataList: StaticListSchema = [1, n0, _SCSML,
+  0, [() => SharedColumnSemanticMetadata$,
     0]
 ];
 var SheetControlLayoutList: StaticListSchema = [1, n0, _SCLL,

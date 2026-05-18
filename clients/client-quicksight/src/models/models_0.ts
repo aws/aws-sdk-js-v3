@@ -62,7 +62,6 @@ import type {
   SectionPageBreakStatus,
   SelectAllValueOptions,
   SelectedFieldOptions,
-  SelectedTooltipType,
   SheetContentType,
   SheetControlDateTimePickerType,
   SheetControlListType,
@@ -791,6 +790,18 @@ export interface ActiveIAMPolicyAssignment {
    * @public
    */
   PolicyArn?: string | undefined;
+}
+
+/**
+ * <p>Additional notes that provide supplementary context for a column.</p>
+ * @public
+ */
+export interface AdditionalNotes {
+  /**
+   * <p>The additional notes text.</p>
+   * @public
+   */
+  Text?: string | undefined;
 }
 
 /**
@@ -8531,44 +8542,4 @@ export interface SheetTooltip {
    * @public
    */
   SheetId?: string | undefined;
-}
-
-/**
- * <p>The display options for the visual tooltip.</p>
- * @public
- */
-export interface TooltipOptions {
-  /**
-   * <p>Determines whether or not the tooltip is visible.</p>
-   * @public
-   */
-  TooltipVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The selected type for the tooltip. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BASIC</code>: A basic tooltip.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DETAILED</code>: A detailed tooltip.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SelectedTooltipType?: SelectedTooltipType | undefined;
-
-  /**
-   * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
-   * @public
-   */
-  FieldBasedTooltip?: FieldBasedTooltip | undefined;
-
-  /**
-   * <p>The configuration of the sheet tooltip.</p>
-   * @public
-   */
-  SheetTooltip?: SheetTooltip | undefined;
 }

@@ -4,8 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateTopicPermissionsRequest } from "../models/models_4";
-import type { UpdateTopicPermissionsResponse } from "../models/models_5";
+import type { UpdateTopicPermissionsRequest, UpdateTopicPermissionsResponse } from "../models/models_5";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateTopicPermissions$ } from "../schemas/schemas_0";
 

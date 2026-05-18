@@ -13,6 +13,7 @@ import {
   ActionConnectorSummary$,
   ActionConnectorType,
   ActiveIAMPolicyAssignment$,
+  AdditionalNotes$,
   AdHocFilteringOption$,
   AggFunction$,
   AggregateOperation$,
@@ -249,6 +250,8 @@ import {
   ColumnOrderingType,
   ColumnRole,
   ColumnSchema$,
+  ColumnSemanticProperty$,
+  ColumnSemanticType$,
   ColumnSort$,
   ColumnTag$,
   ColumnTagName,
@@ -417,6 +420,7 @@ import {
   CustomerManagedKeyUnavailableException$,
   CustomFilterConfiguration$,
   CustomFilterListConfiguration$,
+  CustomInstruction$,
   CustomInstructions$,
   CustomNarrativeOptions$,
   CustomParameterValues$,
@@ -495,6 +499,8 @@ import {
   DataSetRefreshProperties$,
   DataSetSchema$,
   DataSetSearchFilter$,
+  DataSetSemanticDescription$,
+  DataSetSemanticMetadata$,
   DataSetStringComparisonFilterCondition$,
   DataSetStringComparisonFilterOperator,
   DataSetStringFilterCondition$,
@@ -1176,6 +1182,7 @@ import {
   IngestionRequestType,
   IngestionStatus,
   IngestionType,
+  InlineCustomInstruction$,
   InnerFilter$,
   InputColumn$,
   InputColumnDataType,
@@ -1808,6 +1815,7 @@ import {
   SessionTag$,
   SetParameterValueConfiguration$,
   ShapeConditionalFormat$,
+  SharedColumnSemanticMetadata$,
   SharedViewConfigurations$,
   SharingModel,
   Sheet$,
@@ -1948,6 +1956,7 @@ import {
   TablePathElement$,
   TablePinnedFieldOptions$,
   TableRowConditionalFormatting$,
+  TableSemanticMetadata$,
   TableSideBorderOptions$,
   TableSortConfiguration$,
   TableStyleTarget$,
@@ -2289,6 +2298,7 @@ import {
   UpdateVPCConnectionCommand,
   UpdateVPCConnectionRequest$,
   UpdateVPCConnectionResponse$,
+  UploadedDocumentMetadata$,
   UploadSettings$,
   URLTargetConfiguration,
   User$,
@@ -2829,6 +2839,7 @@ assert(typeof ActionConnectorError$ === "object");
 assert(typeof ActionConnectorSearchFilter$ === "object");
 assert(typeof ActionConnectorSummary$ === "object");
 assert(typeof ActiveIAMPolicyAssignment$ === "object");
+assert(typeof AdditionalNotes$ === "object");
 assert(typeof AdHocFilteringOption$ === "object");
 assert(typeof AggFunction$ === "object");
 assert(typeof AggregateOperation$ === "object");
@@ -3012,6 +3023,8 @@ assert(typeof ColumnHierarchy$ === "object");
 assert(typeof ColumnIdentifier$ === "object");
 assert(typeof ColumnLevelPermissionRule$ === "object");
 assert(typeof ColumnSchema$ === "object");
+assert(typeof ColumnSemanticProperty$ === "object");
+assert(typeof ColumnSemanticType$ === "object");
 assert(typeof ColumnSort$ === "object");
 assert(typeof ColumnTag$ === "object");
 assert(typeof ColumnTooltipItem$ === "object");
@@ -3110,6 +3123,7 @@ assert(typeof CustomContentConfiguration$ === "object");
 assert(typeof CustomContentVisual$ === "object");
 assert(typeof CustomFilterConfiguration$ === "object");
 assert(typeof CustomFilterListConfiguration$ === "object");
+assert(typeof CustomInstruction$ === "object");
 assert(typeof CustomInstructions$ === "object");
 assert(typeof CustomNarrativeOptions$ === "object");
 assert(typeof CustomParameterValues$ === "object");
@@ -3173,6 +3187,8 @@ assert(typeof DataSetReference$ === "object");
 assert(typeof DataSetRefreshProperties$ === "object");
 assert(typeof DataSetSchema$ === "object");
 assert(typeof DataSetSearchFilter$ === "object");
+assert(typeof DataSetSemanticDescription$ === "object");
+assert(typeof DataSetSemanticMetadata$ === "object");
 assert(typeof DataSetStringComparisonFilterCondition$ === "object");
 assert(typeof DataSetStringFilterCondition$ === "object");
 assert(typeof DataSetStringFilterValue$ === "object");
@@ -3602,6 +3618,7 @@ assert(typeof ImportTableOperation$ === "object");
 assert(typeof ImportTableOperationSource$ === "object");
 assert(typeof IncrementalRefresh$ === "object");
 assert(typeof Ingestion$ === "object");
+assert(typeof InlineCustomInstruction$ === "object");
 assert(typeof InnerFilter$ === "object");
 assert(typeof InputColumn$ === "object");
 assert(typeof InsightConfiguration$ === "object");
@@ -3985,6 +4002,7 @@ assert(typeof ServiceNowParameters$ === "object");
 assert(typeof SessionTag$ === "object");
 assert(typeof SetParameterValueConfiguration$ === "object");
 assert(typeof ShapeConditionalFormat$ === "object");
+assert(typeof SharedColumnSemanticMetadata$ === "object");
 assert(typeof SharedViewConfigurations$ === "object");
 assert(typeof Sheet$ === "object");
 assert(typeof SheetBackgroundStyle$ === "object");
@@ -4088,6 +4106,7 @@ assert(typeof TablePaginatedReportOptions$ === "object");
 assert(typeof TablePathElement$ === "object");
 assert(typeof TablePinnedFieldOptions$ === "object");
 assert(typeof TableRowConditionalFormatting$ === "object");
+assert(typeof TableSemanticMetadata$ === "object");
 assert(typeof TableSideBorderOptions$ === "object");
 assert(typeof TableSortConfiguration$ === "object");
 assert(typeof TableStyleTarget$ === "object");
@@ -4292,6 +4311,7 @@ assert(typeof UpdateUserRequest$ === "object");
 assert(typeof UpdateUserResponse$ === "object");
 assert(typeof UpdateVPCConnectionRequest$ === "object");
 assert(typeof UpdateVPCConnectionResponse$ === "object");
+assert(typeof UploadedDocumentMetadata$ === "object");
 assert(typeof UploadSettings$ === "object");
 assert(typeof User$ === "object");
 assert(typeof UserIdentifier$ === "object");

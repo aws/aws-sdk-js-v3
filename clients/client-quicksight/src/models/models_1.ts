@@ -44,6 +44,7 @@ import type {
   PrimaryValueDisplayType,
   RadarChartAxesRangeScale,
   RadarChartShape,
+  SelectedTooltipType,
   SimpleTotalAggregationFunction,
   SingleYAxisOption,
   SortDirection,
@@ -84,6 +85,7 @@ import type {
   DataLabelOptions,
   DecalSettings,
   DimensionField,
+  FieldBasedTooltip,
   FieldSort,
   FieldSortOptions,
   FontConfiguration,
@@ -94,11 +96,51 @@ import type {
   NumberDisplayFormatConfiguration,
   PercentageDisplayFormatConfiguration,
   ReferenceLine,
+  SheetTooltip,
   SmallMultiplesOptions,
-  TooltipOptions,
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The display options for the visual tooltip.</p>
+ * @public
+ */
+export interface TooltipOptions {
+  /**
+   * <p>Determines whether or not the tooltip is visible.</p>
+   * @public
+   */
+  TooltipVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The selected type for the tooltip. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC</code>: A basic tooltip.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DETAILED</code>: A detailed tooltip.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SelectedTooltipType?: SelectedTooltipType | undefined;
+
+  /**
+   * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
+   * @public
+   */
+  FieldBasedTooltip?: FieldBasedTooltip | undefined;
+
+  /**
+   * <p>The configuration of the sheet tooltip.</p>
+   * @public
+   */
+  SheetTooltip?: SheetTooltip | undefined;
+}
 
 /**
  * <p>The type of the data path value.</p>
@@ -8406,22 +8448,4 @@ export interface WaterfallChartFieldWells {
    * @public
    */
   WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells | undefined;
-}
-
-/**
- * <p>The sort configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartSortConfiguration {
-  /**
-   * <p>The sort configuration of the category fields.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The limit on the number of bar groups that are displayed.</p>
-   * @public
-   */
-  BreakdownItemsLimit?: ItemsLimitConfiguration | undefined;
 }

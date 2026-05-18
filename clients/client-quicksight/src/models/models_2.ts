@@ -77,6 +77,7 @@ import type {
 } from "./enums";
 import type {
   AccountCustomization,
+  AdditionalNotes,
   AdHocFilteringOption,
   AggFunction,
   AggregateOperation,
@@ -144,8 +145,25 @@ import type {
   VisualTitleLabelOptions,
   WaterfallChartColorConfiguration,
   WaterfallChartFieldWells,
-  WaterfallChartSortConfiguration,
 } from "./models_1";
+
+/**
+ * <p>The sort configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartSortConfiguration {
+  /**
+   * <p>The sort configuration of the category fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of bar groups that are displayed.</p>
+   * @public
+   */
+  BreakdownItemsLimit?: ItemsLimitConfiguration | undefined;
+}
 
 /**
  * <p>The options that determine the presentation of a waterfall visual.</p>
@@ -8629,6 +8647,42 @@ export interface ColumnSchema {
 }
 
 /**
+ * <p>The semantic type information for a column in the new data preparation experience.</p>
+ * @public
+ */
+export interface ColumnSemanticType {
+  /**
+   * <p>The geographical role of the column in the new data preparation experience.</p>
+   * @public
+   */
+  GeographicalRole?: GeoSpatialDataRole | undefined;
+}
+
+/**
+ * <p>A semantic property for a column.</p>
+ * @public
+ */
+export interface ColumnSemanticProperty {
+  /**
+   * <p>A description of the column.</p>
+   * @public
+   */
+  Description?: ColumnDescription | undefined;
+
+  /**
+   * <p>Additional notes for the column.</p>
+   * @public
+   */
+  AdditionalNotes?: AdditionalNotes | undefined;
+
+  /**
+   * <p>The semantic type of the column.</p>
+   * @public
+   */
+  SemanticType?: ColumnSemanticType | undefined;
+}
+
+/**
  * <p>A tag for a column in a
  *             <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
@@ -11068,82 +11122,4 @@ export interface StringDatasetParameterDefaultValues {
    * @public
    */
   StaticValues?: string[] | undefined;
-}
-
-/**
- * <p>A string parameter for a dataset.</p>
- * @public
- */
-export interface StringDatasetParameter {
-  /**
-   * <p>An identifier for the string parameter that is created in the dataset.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the string parameter that is created in the dataset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
-   * @public
-   */
-  ValueType: DatasetParameterValueType | undefined;
-
-  /**
-   * <p>A list of default values for a given string dataset parameter type. This structure only accepts static values.</p>
-   * @public
-   */
-  DefaultValues?: StringDatasetParameterDefaultValues | undefined;
-}
-
-/**
- * <p>A parameter that is created in a dataset. The parameter can be a string, integer, decimal, or datetime data type.</p>
- * @public
- */
-export interface DatasetParameter {
-  /**
-   * <p>A string parameter that is created in the dataset.</p>
-   * @public
-   */
-  StringDatasetParameter?: StringDatasetParameter | undefined;
-
-  /**
-   * <p>A decimal parameter that is created in the dataset.</p>
-   * @public
-   */
-  DecimalDatasetParameter?: DecimalDatasetParameter | undefined;
-
-  /**
-   * <p>An integer parameter that is created in the dataset.</p>
-   * @public
-   */
-  IntegerDatasetParameter?: IntegerDatasetParameter | undefined;
-
-  /**
-   * <p>A date time parameter that is created in the dataset.</p>
-   * @public
-   */
-  DateTimeDatasetParameter?: DateTimeDatasetParameter | undefined;
-}
-
-/**
- * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
- * @public
- */
-export interface DataSetUsageConfiguration {
-  /**
-   * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
-   * @public
-   */
-  DisableUseAsDirectQuerySource?: boolean | undefined;
-
-  /**
-   * <p>An option that controls whether a child dataset that's stored in Quick Sight can use this dataset as a source.</p>
-   * @public
-   */
-  DisableUseAsImportedSource?: boolean | undefined;
 }
