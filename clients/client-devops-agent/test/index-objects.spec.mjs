@@ -192,6 +192,9 @@ import {
   MCPServerNewRelicConfiguration$,
   MCPServerOAuth3LOConfig$,
   MCPServerOAuthClientCredentialsConfig$,
+  MCPServerSigV4AuthorizationConfig$,
+  MCPServerSigV4Configuration$,
+  MCPServerSigV4ServiceDetails$,
   MCPServerSplunkConfiguration$,
   Message$,
   MonitorAccountType,
@@ -231,6 +234,7 @@ import {
   RegisteredGitLabServiceDetails$,
   RegisteredGrafanaServerDetails$,
   RegisteredMCPServerDetails$,
+  RegisteredMCPServerSigV4Details$,
   RegisteredNewRelicDetails$,
   RegisteredPagerDutyDetails$,
   RegisteredService$,
@@ -536,6 +540,9 @@ assert(typeof MCPServerGrafanaConfiguration$ === "object");
 assert(typeof MCPServerNewRelicConfiguration$ === "object");
 assert(typeof MCPServerOAuth3LOConfig$ === "object");
 assert(typeof MCPServerOAuthClientCredentialsConfig$ === "object");
+assert(typeof MCPServerSigV4AuthorizationConfig$ === "object");
+assert(typeof MCPServerSigV4Configuration$ === "object");
+assert(typeof MCPServerSigV4ServiceDetails$ === "object");
 assert(typeof MCPServerSplunkConfiguration$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof NewRelicApiKeyConfig$ === "object");
@@ -559,6 +566,7 @@ assert(typeof RegisteredGithubServiceDetails$ === "object");
 assert(typeof RegisteredGitLabServiceDetails$ === "object");
 assert(typeof RegisteredGrafanaServerDetails$ === "object");
 assert(typeof RegisteredMCPServerDetails$ === "object");
+assert(typeof RegisteredMCPServerSigV4Details$ === "object");
 assert(typeof RegisteredNewRelicDetails$ === "object");
 assert(typeof RegisteredPagerDutyDetails$ === "object");
 assert(typeof RegisteredService$ === "object");

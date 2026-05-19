@@ -27,7 +27,7 @@ export interface RegisterServiceCommandInput extends RegisterServiceInput {}
 export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __MetadataBearer {}
 
 /**
- * This operation registers the specified service
+ * <p>This operation registers the specified service</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,7 +37,7 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  * const config = {}; // type is DevOpsAgentClientConfig
  * const client = new DevOpsAgentClient(config);
  * const input = { // RegisterServiceInput
- *   service: "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity", // required
+ *   service: "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
  *   serviceDetails: { // ServiceDetails Union: only one key present
  *     dynatrace: { // DynatraceServiceDetails
  *       accountUrn: "STRING_VALUE", // required
@@ -256,6 +256,19 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     mcpserversigv4: { // MCPServerSigV4ServiceDetails
+ *       name: "STRING_VALUE", // required
+ *       endpoint: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       authorizationConfig: { // MCPServerSigV4AuthorizationConfig
+ *         region: "STRING_VALUE", // required
+ *         service: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         customHeaders: { // CustomHeaders
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
  *   },
  *   kmsKeyArn: "STRING_VALUE",
  *   privateConnectionName: "STRING_VALUE",
@@ -288,33 +301,31 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown when an unexpected error occurs in the processing of a request.
+ *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  One or more parameters provided in the request are invalid.
+ *  <p>One or more parameters provided in the request are invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The requested resource could not be found.
+ *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  A standard error for input validation failures.
- * This should be thrown by services when a member of the input structure
- * falls outside of the modeled or documented constraints.
+ *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  Access to the requested resource is denied due to insufficient permissions.
+ *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  The request conflicts with the current state of the resource.
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link ContentSizeExceededException} (client fault)
- *  This exception is thrown when the content size exceeds the allowed limit.
+ *  <p>This exception is thrown when the content size exceeds the allowed limit.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  The request would exceed the service quota limit.
+ *  <p>The request would exceed the service quota limit.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled due to too many requests. Please slow down and try again.
+ *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
  *
  * @throws {@link DevOpsAgentServiceException}
  * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>

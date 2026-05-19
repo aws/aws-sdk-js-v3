@@ -27,7 +27,7 @@ export interface ListServicesCommandInput extends ListServicesInput {}
 export interface ListServicesCommandOutput extends ListServicesOutput, __MetadataBearer {}
 
 /**
- * List a list of registered service on the account level.
+ * <p>List a list of registered service on the account level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,7 +39,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * const input = { // ListServicesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   filterServiceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity",
+ *   filterServiceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4",
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
@@ -48,7 +48,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //   services: [ // RegisteredServicesList // required
  * //     { // RegisteredService
  * //       serviceId: "STRING_VALUE", // required
- * //       serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity", // required
+ * //       serviceType: "github" || "slack" || "azure" || "azuredevops" || "dynatrace" || "servicenow" || "pagerduty" || "gitlab" || "eventChannel" || "mcpservernewrelic" || "mcpservergrafana" || "mcpserverdatadog" || "mcpserver" || "mcpserversplunk" || "azureidentity" || "mcpserversigv4", // required
  * //       name: "STRING_VALUE",
  * //       accessibleResources: [ // DocumentList
  * //         "DOCUMENT_VALUE",
@@ -117,6 +117,17 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         mcpserversigv4: { // RegisteredMCPServerSigV4Details
+ * //           name: "STRING_VALUE", // required
+ * //           endpoint: "STRING_VALUE", // required
+ * //           description: "STRING_VALUE",
+ * //           region: "STRING_VALUE", // required
+ * //           service: "STRING_VALUE", // required
+ * //           roleArn: "STRING_VALUE", // required
+ * //           customHeaders: { // CustomHeaders
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       kmsKeyArn: "STRING_VALUE",
  * //       privateConnectionName: "STRING_VALUE",
@@ -133,33 +144,31 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown when an unexpected error occurs in the processing of a request.
+ *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  The request was throttled due to too many requests. Please slow down and try again.
+ *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  A standard error for input validation failures.
- * This should be thrown by services when a member of the input structure
- * falls outside of the modeled or documented constraints.
+ *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  Access to the requested resource is denied due to insufficient permissions.
+ *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  The request conflicts with the current state of the resource.
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link ContentSizeExceededException} (client fault)
- *  This exception is thrown when the content size exceeds the allowed limit.
+ *  <p>This exception is thrown when the content size exceeds the allowed limit.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  One or more parameters provided in the request are invalid.
+ *  <p>One or more parameters provided in the request are invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  The requested resource could not be found.
+ *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  The request would exceed the service quota limit.
+ *  <p>The request would exceed the service quota limit.</p>
  *
  * @throws {@link DevOpsAgentServiceException}
  * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>

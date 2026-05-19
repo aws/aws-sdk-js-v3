@@ -5,11 +5,11 @@
  */
 export const GithubRepoOwnerType = {
   /**
-   * Repository owned by a GitHub organization.
+   * <p>Repository owned by a GitHub organization.</p>
    */
   ORGANIZATION: "organization",
   /**
-   * Repository owned by an individual GitHub user.
+   * <p>Repository owned by an individual GitHub user.</p>
    */
   USER: "user",
 } as const;
@@ -24,11 +24,11 @@ export type GithubRepoOwnerType = (typeof GithubRepoOwnerType)[keyof typeof Gith
  */
 export const GitLabTokenType = {
   /**
-   * Group access token
+   * <p>Group access token</p>
    */
   GROUP: "group",
   /**
-   * Personal access token
+   * <p>Personal access token</p>
    */
   PERSONAL: "personal",
 } as const;
@@ -43,19 +43,19 @@ export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenT
  */
 export const MCPServerAuthorizationMethod = {
   /**
-   * API key-based authentication.
+   * <p>API key-based authentication.</p>
    */
   API_KEY: "api-key",
   /**
-   * Bearer token authentication (RFC 6750).
+   * <p>Bearer token authentication (RFC 6750).</p>
    */
   BEARER_TOKEN: "bearer-token",
   /**
-   * OAuth 2.0 three-legged authorization flow.
+   * <p>OAuth 2.0 three-legged authorization flow.</p>
    */
   OAUTH_3LO: "oauth-3lo",
   /**
-   * OAuth 2.0 client credentials flow.
+   * <p>OAuth 2.0 client credentials flow.</p>
    */
   OAUTH_CLIENT_CREDENTIALS: "oauth-client-credentials",
 } as const;
@@ -71,11 +71,11 @@ export type MCPServerAuthorizationMethod =
  */
 export const NewRelicRegion = {
   /**
-   * EU region
+   * <p>EU region</p>
    */
   EU: "EU",
   /**
-   * US region
+   * <p>US region</p>
    */
   US: "US",
 } as const;
@@ -114,15 +114,15 @@ export type SourceAccountType = (typeof SourceAccountType)[keyof typeof SourceAc
  */
 export const ValidationStatus = {
   /**
-   * The association has failed validation and requires attention.
+   * <p>The association has failed validation and requires attention.</p>
    */
   INVALID: "invalid",
   /**
-   * The association is awaiting user confirmation before validation can be completed.
+   * <p>The association is awaiting user confirmation before validation can be completed.</p>
    */
   PENDING_CONFIRMATION: "pending-confirmation",
   /**
-   * The association has been validated and is functioning correctly.
+   * <p>The association has been validated and is functioning correctly.</p>
    */
   VALID: "valid",
 } as const;
@@ -137,19 +137,19 @@ export type ValidationStatus = (typeof ValidationStatus)[keyof typeof Validation
  */
 export const WebhookType = {
   /**
-   * API key-based webhook authentication
+   * <p>API key-based webhook authentication</p>
    */
   API_KEY: "apikey",
   /**
-   * GitLab-specific webhook authentication
+   * <p>GitLab-specific webhook authentication</p>
    */
   GITLAB: "gitlab",
   /**
-   * HMAC-based webhook authentication
+   * <p>HMAC-based webhook authentication</p>
    */
   HMAC: "hmac",
   /**
-   * pagerduty-specific webhook authentication
+   * <p>pagerduty-specific webhook authentication</p>
    */
   PAGERDUTY: "pagerduty",
 } as const;
@@ -164,15 +164,15 @@ export type WebhookType = (typeof WebhookType)[keyof typeof WebhookType];
  */
 export const AuthFlow = {
   /**
-   * IAM-based authentication flow
+   * <p>IAM-based authentication flow</p>
    */
   IAM: "iam",
   /**
-   * Identity Center (IdC) authentication flow
+   * <p>Identity Center (IdC) authentication flow</p>
    */
   IDC: "idc",
   /**
-   * Identity Provider (IdP) authentication flow
+   * <p>Identity Provider (IdP) authentication flow</p>
    */
   IDP: "idp",
 } as const;
@@ -187,23 +187,23 @@ export type AuthFlow = (typeof AuthFlow)[keyof typeof AuthFlow];
  */
 export const Priority = {
   /**
-   * Highest priority
+   * <p>Highest priority</p>
    */
   CRITICAL: "CRITICAL",
   /**
-   * High priority
+   * <p>High priority</p>
    */
   HIGH: "HIGH",
   /**
-   * Low priority
+   * <p>Low priority</p>
    */
   LOW: "LOW",
   /**
-   * Medium priority
+   * <p>Medium priority</p>
    */
   MEDIUM: "MEDIUM",
   /**
-   * Minimal priority
+   * <p>Minimal priority</p>
    */
   MINIMAL: "MINIMAL",
 } as const;
@@ -218,11 +218,11 @@ export type Priority = (typeof Priority)[keyof typeof Priority];
  */
 export const TaskType = {
   /**
-   * Task for evaluating options or solutions (not in use)
+   * <p>Task for evaluating options or solutions (not in use)</p>
    */
   EVALUATION: "EVALUATION",
   /**
-   * Task for investigating issues or requirements
+   * <p>Task for investigating issues or requirements</p>
    */
   INVESTIGATION: "INVESTIGATION",
 } as const;
@@ -237,39 +237,39 @@ export type TaskType = (typeof TaskType)[keyof typeof TaskType];
  */
 export const TaskStatus = {
   /**
-   * Task has been canceled
+   * <p>Task has been canceled</p>
    */
   CANCELED: "CANCELED",
   /**
-   * Task has been completed successfully
+   * <p>Task has been completed successfully</p>
    */
   COMPLETED: "COMPLETED",
   /**
-   * Task has failed
+   * <p>Task has failed</p>
    */
   FAILED: "FAILED",
   /**
-   * Task is currently being worked on
+   * <p>Task is currently being worked on</p>
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * Task has been linked to another task
+   * <p>Task has been linked to another task</p>
    */
   LINKED: "LINKED",
   /**
-   * Task is completed but awaiting customer approval (not in use)
+   * <p>Task is completed but awaiting customer approval (not in use)</p>
    */
   PENDING_CUSTOMER_APPROVAL: "PENDING_CUSTOMER_APPROVAL",
   /**
-   * Task is created but not yet started
+   * <p>Task is created but not yet started</p>
    */
   PENDING_START: "PENDING_START",
   /**
-   * Task is awaiting triage analysis
+   * <p>Task is awaiting triage analysis</p>
    */
   PENDING_TRIAGE: "PENDING_TRIAGE",
   /**
-   * Task has exceeded its time limit
+   * <p>Task has exceeded its time limit</p>
    */
   TIMED_OUT: "TIMED_OUT",
 } as const;
@@ -284,15 +284,15 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  */
 export const UserType = {
   /**
-   * AWS IAM user type
+   * <p>AWS IAM user type</p>
    */
   IAM: "IAM",
   /**
-   * AWS IAM Identity Center user type
+   * <p>AWS IAM Identity Center user type</p>
    */
   IDC: "IDC",
   /**
-   * External Identity Provider user type
+   * <p>External Identity Provider user type</p>
    */
   IDP: "IDP",
 } as const;
@@ -350,15 +350,15 @@ export type PrivateConnectionType = (typeof PrivateConnectionType)[keyof typeof 
  */
 export const RecommendationPriority = {
   /**
-   * High priority recommendation requiring immediate attention
+   * <p>High priority recommendation requiring immediate attention</p>
    */
   HIGH: "HIGH",
   /**
-   * Low priority recommendation that can be addressed later
+   * <p>Low priority recommendation that can be addressed later</p>
    */
   LOW: "LOW",
   /**
-   * Medium priority recommendation for normal processing
+   * <p>Medium priority recommendation for normal processing</p>
    */
   MEDIUM: "MEDIUM",
 } as const;
@@ -373,27 +373,27 @@ export type RecommendationPriority = (typeof RecommendationPriority)[keyof typeo
  */
 export const RecommendationStatus = {
   /**
-   * Recommendation has been accepted by the user
+   * <p>Recommendation has been accepted by the user</p>
    */
   ACCEPTED: "ACCEPTED",
   /**
-   * Recommendation has been closed and is no longer relevant
+   * <p>Recommendation has been closed and is no longer relevant</p>
    */
   CLOSED: "CLOSED",
   /**
-   * Recommendation has been completed by the user
+   * <p>Recommendation has been completed by the user</p>
    */
   COMPLETED: "COMPLETED",
   /**
-   * Recommendation has been generated but not yet acted upon
+   * <p>Recommendation has been generated but not yet acted upon</p>
    */
   PROPOSED: "PROPOSED",
   /**
-   * Recommendation has been rejected by the user
+   * <p>Recommendation has been rejected by the user</p>
    */
   REJECTED: "REJECTED",
   /**
-   * Recommendation is being actively updated
+   * <p>Recommendation is being actively updated</p>
    */
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
@@ -408,11 +408,11 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
  */
 export const TaskSortOrder = {
   /**
-   * Ascending order
+   * <p>Ascending order</p>
    */
   ASC: "ASC",
   /**
-   * Descending order
+   * <p>Descending order</p>
    */
   DESC: "DESC",
 } as const;
@@ -427,11 +427,11 @@ export type TaskSortOrder = (typeof TaskSortOrder)[keyof typeof TaskSortOrder];
  */
 export const TaskSortField = {
   /**
-   * Sort by task creation timestamp
+   * <p>Sort by task creation timestamp</p>
    */
   CREATED_AT: "CREATED_AT",
   /**
-   * Sort by task priority level
+   * <p>Sort by task priority level</p>
    */
   PRIORITY: "PRIORITY",
 } as const;
@@ -446,23 +446,23 @@ export type TaskSortField = (typeof TaskSortField)[keyof typeof TaskSortField];
  */
 export const ExecutionStatus = {
   /**
-   * Execution has been canceled
+   * <p>Execution has been canceled</p>
    */
   CANCELED: "CANCELED",
   /**
-   * Execution has failed
+   * <p>Execution has failed</p>
    */
   FAILED: "FAILED",
   /**
-   * Execution is currently running
+   * <p>Execution is currently running</p>
    */
   RUNNING: "RUNNING",
   /**
-   * Execution has been stopped
+   * <p>Execution has been stopped</p>
    */
   STOPPED: "STOPPED",
   /**
-   * Unlike in the case of user-initiated Cancelation, a customer won't be billed
+   * <p>Unlike in the case of user-initiated Cancelation, a customer won't be billed</p>
    */
   TIMED_OUT: "TIMED_OUT",
 } as const;
@@ -477,11 +477,11 @@ export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionSta
  */
 export const GoalType = {
   /**
-   * Goal defined by customer
+   * <p>Goal defined by customer</p>
    */
   CUSTOMER_DEFINED: "CUSTOMER_DEFINED",
   /**
-   * Goal related to on-call reporting activities
+   * <p>Goal related to on-call reporting activities</p>
    */
   ONCALL_REPORT: "ONCALL_REPORT",
 } as const;
@@ -496,15 +496,15 @@ export type GoalType = (typeof GoalType)[keyof typeof GoalType];
  */
 export const GoalStatus = {
   /**
-   * Goal is active and being evaluated according to schedule
+   * <p>Goal is active and being evaluated according to schedule</p>
    */
   ACTIVE: "ACTIVE",
   /**
-   * Goal has been marked as completed
+   * <p>Goal has been marked as completed</p>
    */
   COMPLETE: "COMPLETE",
   /**
-   * Goal evaluations are temporarily paused
+   * <p>Goal evaluations are temporarily paused</p>
    */
   PAUSED: "PAUSED",
 } as const;
@@ -519,11 +519,11 @@ export type GoalStatus = (typeof GoalStatus)[keyof typeof GoalStatus];
  */
 export const SchedulerState = {
   /**
-   * Schedule is disabled and will not trigger goal evaluations
+   * <p>Schedule is disabled and will not trigger goal evaluations</p>
    */
   DISABLED: "DISABLED",
   /**
-   * Schedule is enabled and will trigger goal evaluations
+   * <p>Schedule is enabled and will trigger goal evaluations</p>
    */
   ENABLED: "ENABLED",
 } as const;
@@ -538,11 +538,11 @@ export type SchedulerState = (typeof SchedulerState)[keyof typeof SchedulerState
  */
 export const OrderType = {
   /**
-   * Ascending order
+   * <p>Ascending order</p>
    */
   ASC: "ASC",
   /**
-   * Descending order
+   * <p>Descending order</p>
    */
   DESC: "DESC",
 } as const;
@@ -559,7 +559,7 @@ export const Service = {
   AZURE: "azure",
   AZURE_DEVOPS: "azuredevops",
   /**
-   * Azure Service with AWS Outbound Identity Federation.
+   * <p>Azure Service with AWS Outbound Identity Federation.</p>
    */
   AZURE_IDENTITY: "azureidentity",
   DYNATRACE: "dynatrace",
@@ -567,23 +567,27 @@ export const Service = {
   GITHUB: "github",
   GITLAB: "gitlab",
   /**
-   * Model Context Protocol server.
+   * <p>Model Context Protocol server.</p>
    */
   MCP_SERVER: "mcpserver",
   /**
-   * Datadog MCP server.
+   * <p>Datadog MCP server.</p>
    */
   MCP_SERVER_DATADOG: "mcpserverdatadog",
   /**
-   * Grafana MCP server.
+   * <p>Grafana MCP server.</p>
    */
   MCP_SERVER_GRAFANA: "mcpservergrafana",
   /**
-   * NewRelic MCP server.
+   * <p>NewRelic MCP server.</p>
    */
   MCP_SERVER_NEWRELIC: "mcpservernewrelic",
   /**
-   * Splunk MCP server.
+   * <p>SigV4-authenticated MCP server.</p>
+   */
+  MCP_SERVER_SIGV4: "mcpserversigv4",
+  /**
+   * <p>Splunk MCP server.</p>
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
   PAGERDUTY: "pagerduty",
@@ -601,30 +605,34 @@ export type Service = (typeof Service)[keyof typeof Service];
  */
 export const PostRegisterServiceSupportedService = {
   /**
-   * Azure Service with AWS Outbound Identity Federation.
+   * <p>Azure Service with AWS Outbound Identity Federation.</p>
    */
   AZURE_IDENTITY: "azureidentity",
   DYNATRACE: "dynatrace",
   EVENTCHANNEL: "eventChannel",
   GITLAB: "gitlab",
   /**
-   * Model Context Protocol server.
+   * <p>Model Context Protocol server.</p>
    */
   MCP_SERVER: "mcpserver",
   /**
-   * Datadog MCP server.
+   * <p>Datadog MCP server.</p>
    */
   MCP_SERVER_DATADOG: "mcpserverdatadog",
   /**
-   * Grafana MCP server.
+   * <p>Grafana MCP server.</p>
    */
   MCP_SERVER_GRAFANA: "mcpservergrafana",
   /**
-   * NewRelic MCP server.
+   * <p>NewRelic MCP server.</p>
    */
   MCP_SERVER_NEWRELIC: "mcpservernewrelic",
   /**
-   * Splunk MCP server.
+   * <p>SigV4-authenticated MCP server.</p>
+   */
+  MCP_SERVER_SIGV4: "mcpserversigv4",
+  /**
+   * <p>Splunk MCP server.</p>
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
   PAGERDUTY: "pagerduty",
@@ -642,7 +650,7 @@ export type PostRegisterServiceSupportedService =
  */
 export const EventChannelType = {
   /**
-   * Webhook-based event channel
+   * <p>Webhook-based event channel</p>
    */
   WEBHOOK: "webhook",
 } as const;

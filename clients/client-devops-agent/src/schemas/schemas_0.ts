@@ -26,6 +26,8 @@ const _CCRr = "CreateChatResponse";
 const _CE = "ConflictException";
 const _CEL = "ChatExecutionList";
 const _CEh = "ChatExecution";
+const _CH = "CustomHeaders";
+const _CHV = "CustomHeaderValue";
 const _CI = "ClientId";
 const _CPC = "CreatePrivateConnection";
 const _CPCI = "CreatePrivateConnectionInput";
@@ -158,6 +160,9 @@ const _MCPSNRC = "MCPServerNewRelicConfiguration";
 const _MCPSOACCC = "MCPServerOAuthClientCredentialsConfig";
 const _MCPSOALOC = "MCPServerOAuth3LOConfig";
 const _MCPSSC = "MCPServerSplunkConfiguration";
+const _MCPSSVAC = "MCPServerSigV4AuthorizationConfig";
+const _MCPSSVC = "MCPServerSigV4Configuration";
+const _MCPSSVSD = "MCPServerSigV4ServiceDetails";
 const _NRAKC = "NewRelicApiKeyConfig";
 const _NRSAC = "NewRelicServiceAuthorizationConfig";
 const _NRSD = "NewRelicServiceDetails";
@@ -181,6 +186,7 @@ const _RGSDe = "RegisteredGrafanaServerDetails";
 const _RI = "ReferenceInput";
 const _RL = "RecommendationList";
 const _RMCPSD = "RegisteredMCPServerDetails";
+const _RMCPSSVD = "RegisteredMCPServerSigV4Details";
 const _RNFE = "ResourceNotFoundException";
 const _RNRD = "RegisteredNewRelicDetails";
 const _RO = "ReferenceOutput";
@@ -313,6 +319,7 @@ const _cBS = "contentBlockStart";
 const _cBSo = "contentBlockStop";
 const _cE = "customerEmail";
 const _cET = "certificateExpiryTime";
+const _cH = "customHeaders";
 const _cI = "clientId";
 const _cIh = "channelId";
 const _cN = "clientName";
@@ -399,6 +406,7 @@ const _mcp = "mcpserver";
 const _mcps = "mcpserversplunk";
 const _mcpse = "mcpservernewrelic";
 const _mcpser = "mcpservergrafana";
+const _mcpserv = "mcpserversigv4";
 const _me = "messages";
 const _met = "metadata";
 const _mo = "mode";
@@ -433,6 +441,8 @@ const _pag = "pagerduty";
 const _pr = "provider";
 const _r = "reference";
 const _rA = "resourceArn";
+const _rAa = "rankedAt";
+const _rAo = "roleArn";
 const _rC = "responseCreated";
 const _rCI = "resourceConfigurationId";
 const _rCe = "responseCompleted";
@@ -445,6 +455,7 @@ const _rIec = "recordId";
 const _rIef = "referenceId";
 const _rIes = "responseId";
 const _rN = "repoName";
+const _rP = "rankPosition";
 const _rT = "recordType";
 const _rTE = "returnToEndpoint";
 const _rU = "referenceUrl";
@@ -633,6 +644,7 @@ export const errorTypeRegistries = [
 var ApiKeyValue: StaticSimpleSchema = [0, n0, _AKV, 8, 0];
 var ClientId: StaticSimpleSchema = [0, n0, _CI, 8, 0];
 var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
+var CustomHeaderValue: StaticSimpleSchema = [0, n0, _CHV, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var ExchangeParameterValue: StaticSimpleSchema = [0, n0, _EPV, 8, 0];
@@ -1134,6 +1146,21 @@ export var MCPServerOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n
   [_cI, _cS, _eU, _cN, _eP, _sc],
   [[() => ClientId, 0], [() => ClientSecret, 0], 0, 0, [() => ExchangeParameters, 0], 64 | 0], 3
 ];
+export var MCPServerSigV4AuthorizationConfig$: StaticStructureSchema = [3, n0, _MCPSSVAC,
+  0,
+  [_reg, _ser, _rAo, _cH],
+  [0, 0, 0, [() => CustomHeaders, 0]], 3
+];
+export var MCPServerSigV4Configuration$: StaticStructureSchema = [3, n0, _MCPSSVC,
+  0,
+  [_to],
+  [64 | 0], 1
+];
+export var MCPServerSigV4ServiceDetails$: StaticStructureSchema = [3, n0, _MCPSSVSD,
+  0,
+  [_n, _en, _aC, _d],
+  [0, 0, [() => MCPServerSigV4AuthorizationConfig$, 0], [() => Description, 0]], 3
+];
 export var MCPServerSplunkConfiguration$: StaticStructureSchema = [3, n0, _MCPSSC,
   0,
   [],
@@ -1181,8 +1208,8 @@ export var PrivateConnectionSummary$: StaticStructureSchema = [3, n0, _PCS,
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_aSA, _rI, _tI, _ti, _con, _st, _p, _cA, _uA, _v, _gIo, _gV, _aCd],
-  [0, 0, 0, 0, () => RecommendationContent$, 0, 0, 5, 5, 1, 0, 1, 0], 10
+  [_aSA, _rI, _tI, _ti, _con, _st, _p, _cA, _uA, _v, _gIo, _gV, _aCd, _rP, _rAa],
+  [0, 0, 0, 0, () => RecommendationContent$, 0, 0, 5, 5, 1, 0, 1, 0, 1, 5], 10
 ];
 export var RecommendationContent$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -1228,6 +1255,11 @@ export var RegisteredMCPServerDetails$: StaticStructureSchema = [3, n0, _RMCPSD,
   0,
   [_n, _en, _aM, _d, _aKH],
   [0, 0, 0, [() => Description, 0], 0], 3
+];
+export var RegisteredMCPServerSigV4Details$: StaticStructureSchema = [3, n0, _RMCPSSVD,
+  0,
+  [_n, _en, _reg, _ser, _rAo, _d, _cH],
+  [0, 0, 0, 0, 0, [() => Description, 0], [() => CustomHeaders, 0]], 5
 ];
 export var RegisteredNewRelicDetails$: StaticStructureSchema = [3, n0, _RNRD,
   0,
@@ -1582,6 +1614,12 @@ var WebhooksList: StaticListSchema = [1, n0, _WL,
   0, () => Webhook$
 ];
 var WebIdentityTokenAudienceList = 64 | 0;
+var CustomHeaders: StaticMapSchema = [2, n0, _CH,
+  0, [0,
+    0]
+  , [() => CustomHeaderValue,
+    0]
+];
 var ExchangeParameters: StaticMapSchema = [2, n0, _EP,
   0, [0,
     0]
@@ -1591,8 +1629,8 @@ var ExchangeParameters: StaticMapSchema = [2, n0, _EP,
 var Tags = 128 | 0;
 export var AdditionalServiceDetails$: StaticUnionSchema = [4, n0, _ASD,
   0,
-  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pag],
-  [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$]
+  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pag, _mcpserv],
+  [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$, [() => RegisteredMCPServerSigV4Details$, 0]]
 ];
 export var AdditionalServiceRegistrationStep$: StaticUnionSchema = [4, n0, _ASRS,
   0,
@@ -1651,13 +1689,13 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag],
-  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0]]
+  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv],
+  [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,
-  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pag, _azu],
-  [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$]
+  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pag, _azu, _mcpserv],
+  [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$, [() => MCPServerSigV4ServiceDetails$, 0]]
 ];
 export var ServiceNowServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _SNSAC,
   0,
@@ -1790,7 +1828,7 @@ export var UpdateGoal$: StaticOperationSchema = [9, n0, _UG,
   { [_en]: ["dp."], [_ht]: ["PATCH", "/backlog/agent-space/{agentSpaceId}/goals/{goalId}", 200] }, () => UpdateGoalRequest$, () => UpdateGoalResponse$
 ];
 export var UpdateOperatorAppIdpConfig$: StaticOperationSchema = [9, n0, _UOAIC,
-  { [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/operator/idp", 200] }, () => UpdateOperatorAppIdpConfigInput$, () => UpdateOperatorAppIdpConfigOutput$
+  { [_en]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}/operator/idp", 200] }, () => UpdateOperatorAppIdpConfigInput$, () => UpdateOperatorAppIdpConfigOutput$
 ];
 export var UpdatePrivateConnectionCertificate$: StaticOperationSchema = [9, n0, _UPCC,
   { [_en]: ["cp."], [_ht]: ["POST", "/v1/private-connections/{name}/certificate", 200] }, () => UpdatePrivateConnectionCertificateInput$, () => UpdatePrivateConnectionCertificateOutput$

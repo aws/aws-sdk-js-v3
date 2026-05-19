@@ -33,217 +33,265 @@ import type {
 } from "./enums";
 
 /**
- * Details specific to a registered Azure DevOps service.
+ * <p>Details specific to a registered Azure DevOps service.</p>
  * @public
  */
 export interface RegisteredAzureDevOpsServiceDetails {
   /**
-   * The Azure DevOps Organization name associated with the service.
+   * <p>The Azure DevOps Organization name associated with the service.</p>
    * @public
    */
   organizationName: string | undefined;
 }
 
 /**
- * Details specific to a registered Azure identity using AWS Outbound Identity Federation.
+ * <p>Details specific to a registered Azure identity using AWS Outbound Identity Federation.</p>
  * @public
  */
 export interface RegisteredAzureIdentityDetails {
   /**
-   * The Azure Active Directory tenant ID for the identity.
+   * <p>The Azure Active Directory tenant ID for the identity.</p>
    * @public
    */
   tenantId: string | undefined;
 
   /**
-   * The client ID of the service principal or managed identity used for authentication.
+   * <p>The client ID of the service principal or managed identity used for authentication.</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * The role ARN to be assumed by DevOps Agent for requesting Web Identity Token.
+   * <p>The role ARN to be assumed by DevOps Agent for requesting Web Identity Token.</p>
    * @public
    */
   webIdentityRoleArn: string | undefined;
 
   /**
-   * The audiences for the Web Identity Token.
+   * <p>The audiences for the Web Identity Token.</p>
    * @public
    */
   webIdentityTokenAudiences: string[] | undefined;
 }
 
 /**
- * Details specific to a registered GitHub service.
+ * <p>Details specific to a registered GitHub service.</p>
  * @public
  */
 export interface RegisteredGithubServiceDetails {
   /**
-   * The GitHub repository owner name.
+   * <p>The GitHub repository owner name.</p>
    * @public
    */
   owner: string | undefined;
 
   /**
-   * The GitHub repository owner type.
+   * <p>The GitHub repository owner type.</p>
    * @public
    */
   ownerType: GithubRepoOwnerType | undefined;
 
   /**
-   * The GitHub Enterprise Server instance URL (absent for github.com).
+   * <p>The GitHub Enterprise Server instance URL (absent for github.com).</p>
    * @public
    */
   targetUrl?: string | undefined;
 }
 
 /**
- * Details specific to a registered GitLab instance.
+ * <p>Details specific to a registered GitLab instance.</p>
  * @public
  */
 export interface RegisteredGitLabServiceDetails {
   /**
-   * The GitLab instance URL.
+   * <p>The GitLab instance URL.</p>
    * @public
    */
   targetUrl: string | undefined;
 
   /**
-   * Type of GitLab access token
+   * <p>Type of GitLab access token</p>
    * @public
    */
   tokenType: GitLabTokenType | undefined;
 
   /**
-   * Optional GitLab group ID for group-level access tokens
+   * <p>Optional GitLab group ID for group-level access tokens</p>
    * @public
    */
   groupId?: string | undefined;
 }
 
 /**
- * Details specific to a registered MCP (Model Context Protocol) server.
+ * <p>Details specific to a registered MCP (Model Context Protocol) server.</p>
  * @public
  */
 export interface RegisteredMCPServerDetails {
   /**
-   * The MCP server name.
+   * <p>The MCP server name.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The MCP server endpoint URL.
+   * <p>The MCP server endpoint URL.</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * The MCP server uses this authorization method.
+   * <p>The MCP server uses this authorization method.</p>
    * @public
    */
   authorizationMethod: MCPServerAuthorizationMethod | undefined;
 
   /**
-   * Optional description for the MCP server.
+   * <p>Optional description for the MCP server.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * If the MCP server uses API key authentication, these details are provided.
+   * <p>If the MCP server uses API key authentication, these details are provided.</p>
    * @public
    */
   apiKeyHeader?: string | undefined;
 }
 
 /**
- * Details specific to a registered Grafana server, used by the built-in MCP server.
+ * <p>Details specific to a registered Grafana server, used by the built-in MCP server.</p>
  * @public
  */
 export interface RegisteredGrafanaServerDetails {
   /**
-   * Grafana instance URL (e.g., https://your-instance.grafana.net)
+   * <p>Grafana instance URL (e.g., https://your-instance.grafana.net)</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * The authz method used by the MCP server.
+   * <p>The authz method used by the MCP server.</p>
    * @public
    */
   authorizationMethod: MCPServerAuthorizationMethod | undefined;
 }
 
 /**
- * Details specific to a registered NewRelic instance.
+ * <p>Details specific to a registered NewRelic instance.</p>
  * @public
  */
 export interface RegisteredNewRelicDetails {
   /**
-   * The NewRelic account ID.
+   * <p>The NewRelic account ID.</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * The NewRelic region (determines API endpoint).
+   * <p>The NewRelic region (determines API endpoint).</p>
    * @public
    */
   region: NewRelicRegion | undefined;
 
   /**
-   * Optional user description.
+   * <p>Optional user description.</p>
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * Details specific to a registered PagerDuty service.
+ * <p>Details specific to a registered SigV4-authenticated MCP server.</p>
+ * @public
+ */
+export interface RegisteredMCPServerSigV4Details {
+  /**
+   * <p>MCP server name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>MCP server endpoint URL.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>Optional description for the MCP server.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>AWS service name for SigV4 signing.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>IAM role ARN to assume for SigV4 signing.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Custom headers for the SigV4 MCP server.</p>
+   * @public
+   */
+  customHeaders?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Details specific to a registered PagerDuty service.</p>
  * @public
  */
 export interface RegisteredPagerDutyDetails {
   /**
-   * The scopes that were assigned to the service
+   * <p>The scopes that were assigned to the service</p>
    * @public
    */
   scopes: string[] | undefined;
 }
 
 /**
- * Details specific to a registered ServiceNow instance.
+ * <p>Details specific to a registered ServiceNow instance.</p>
  * @public
  */
 export interface RegisteredServiceNowDetails {
   /**
-   * The ServiceNow instance url
+   * <p>The ServiceNow instance url</p>
    * @public
    */
   instanceUrl?: string | undefined;
 }
 
 /**
- * Details specific to a registered Slack workspace.
+ * <p>Details specific to a registered Slack workspace.</p>
  * @public
  */
 export interface RegisteredSlackServiceDetails {
   /**
-   * The Slack team ID.
+   * <p>The Slack team ID.</p>
    * @public
    */
   teamId: string | undefined;
 
   /**
-   * The Slack team name.
+   * <p>The Slack team name.</p>
    * @public
    */
   teamName: string | undefined;
 }
 
 /**
- * Union of service-specific details for different service types.
+ * <p>Union of service-specific details for different service types.</p>
  * @public
  */
 export type AdditionalServiceDetails =
@@ -255,6 +303,7 @@ export type AdditionalServiceDetails =
   | AdditionalServiceDetails.McpserverdatadogMember
   | AdditionalServiceDetails.McpservergrafanaMember
   | AdditionalServiceDetails.McpservernewrelicMember
+  | AdditionalServiceDetails.Mcpserversigv4Member
   | AdditionalServiceDetails.McpserversplunkMember
   | AdditionalServiceDetails.PagerdutyMember
   | AdditionalServiceDetails.ServicenowMember
@@ -266,7 +315,7 @@ export type AdditionalServiceDetails =
  */
 export namespace AdditionalServiceDetails {
   /**
-   * GitHub-specific service details.
+   * <p>GitHub-specific service details.</p>
    * @public
    */
   export interface GithubMember {
@@ -282,11 +331,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Slack-specific service details.
+   * <p>Slack-specific service details.</p>
    * @public
    */
   export interface SlackMember {
@@ -302,11 +352,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Datadog MCP server-specific service details.
+   * <p>Datadog MCP server-specific service details.</p>
    * @public
    */
   export interface McpserverdatadogMember {
@@ -322,11 +373,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * MCP server-specific service details.
+   * <p>MCP server-specific service details.</p>
    * @public
    */
   export interface McpserverMember {
@@ -342,11 +394,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * ServiceNow-specific service details.
+   * <p>ServiceNow-specific service details.</p>
    * @public
    */
   export interface ServicenowMember {
@@ -362,11 +415,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * GitLab-specific service details.
+   * <p>GitLab-specific service details.</p>
    * @public
    */
   export interface GitlabMember {
@@ -382,11 +436,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Splunk MCP server-specific service details.
+   * <p>Splunk MCP server-specific service details.</p>
    * @public
    */
   export interface McpserversplunkMember {
@@ -402,11 +457,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * New Relic MCP server-specific service details.
+   * <p>New Relic MCP server-specific service details.</p>
    * @public
    */
   export interface McpservernewrelicMember {
@@ -422,11 +478,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Azure DevOps specific service details.
+   * <p>Azure DevOps specific service details.</p>
    * @public
    */
   export interface AzuredevopsMember {
@@ -442,11 +499,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Azure identity details for services using Azure authentication.
+   * <p>Azure identity details for services using Azure authentication.</p>
    * @public
    */
   export interface AzureidentityMember {
@@ -462,11 +520,12 @@ export namespace AdditionalServiceDetails {
     azureidentity: RegisteredAzureIdentityDetails;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Grafana MCP server-specific service details.
+   * <p>Grafana MCP server-specific service details.</p>
    * @public
    */
   export interface McpservergrafanaMember {
@@ -482,11 +541,12 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana: RegisteredGrafanaServerDetails;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Pagerduty service details.
+   * <p>Pagerduty service details.</p>
    * @public
    */
   export interface PagerdutyMember {
@@ -502,6 +562,28 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty: RegisteredPagerDutyDetails;
+    mcpserversigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>SigV4-authenticated MCP server-specific service details.</p>
+   * @public
+   */
+  export interface Mcpserversigv4Member {
+    github?: never;
+    slack?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    servicenow?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    mcpservernewrelic?: never;
+    azuredevops?: never;
+    azureidentity?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4: RegisteredMCPServerSigV4Details;
     $unknown?: never;
   }
 
@@ -521,6 +603,7 @@ export namespace AdditionalServiceDetails {
     azureidentity?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown: [string, any];
   }
 
@@ -541,24 +624,25 @@ export namespace AdditionalServiceDetails {
     azureidentity: (value: RegisteredAzureIdentityDetails) => T;
     mcpservergrafana: (value: RegisteredGrafanaServerDetails) => T;
     pagerduty: (value: RegisteredPagerDutyDetails) => T;
+    mcpserversigv4: (value: RegisteredMCPServerSigV4Details) => T;
     _: (name: string, value: any) => T;
   }
 }
 
 /**
- * Details for completing OAuth authorization step.
+ * <p>Details for completing OAuth authorization step.</p>
  * @public
  */
 export interface OAuthAdditionalStepDetails {
   /**
-   * The URL to redirect the user to for OAuth authorization.
+   * <p>The URL to redirect the user to for OAuth authorization.</p>
    * @public
    */
   authorizationUrl: string | undefined;
 }
 
 /**
- * Additional steps required to complete service registration.
+ * <p>Additional steps required to complete service registration.</p>
  * @public
  */
 export type AdditionalServiceRegistrationStep =
@@ -570,7 +654,7 @@ export type AdditionalServiceRegistrationStep =
  */
 export namespace AdditionalServiceRegistrationStep {
   /**
-   * OAuth authorization step required.
+   * <p>OAuth authorization step required.</p>
    * @public
    */
   export interface OauthMember {
@@ -597,391 +681,403 @@ export namespace AdditionalServiceRegistrationStep {
 }
 
 /**
- * Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.
+ * <p>Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.</p>
  * @public
  */
 export interface AgentSpace {
   /**
-   * The name of the AgentSpace.
+   * <p>The name of the AgentSpace.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The description of the AgentSpace.
+   * <p>The description of the AgentSpace.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * The locale for the AgentSpace, which determines the language used in agent responses.
+   * <p>The locale for the AgentSpace, which determines the language used in agent responses.</p>
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * The timestamp when the resource was created.
+   * <p>The timestamp when the resource was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when the resource was last updated.
+   * <p>The timestamp when the resource was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Configuration for AWS monitor account integration, allowing AIDevOps to monitor AWS resources.
+ * <p>Configuration for AWS monitor account integration, allowing AIDevOps to monitor AWS resources.</p>
  * @public
  */
 export interface AWSConfiguration {
   /**
-   * Role ARN to be assumed by AIDevOps to operate on behalf of customer.
+   * <p>Role ARN to be assumed by AIDevOps to operate on behalf of customer.</p>
    * @public
    */
   assumableRoleArn: string | undefined;
 
   /**
-   * AWS Account Id corresponding to provided resources.
+   * <p>AWS Account Id corresponding to provided resources.</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * Account Type 'monitor' for AIDevOps monitoring.
+   * <p>Account Type 'monitor' for AIDevOps monitoring.</p>
    * @public
    */
   accountType: MonitorAccountType | undefined;
 }
 
 /**
- * Configuration for Azure subscription integration.
+ * <p>Configuration for Azure subscription integration.</p>
  * @public
  */
 export interface AzureConfiguration {
   /**
-   * Azure subscription ID corresponding to provided resources.
+   * <p>Azure subscription ID corresponding to provided resources.</p>
    * @public
    */
   subscriptionId: string | undefined;
 }
 
 /**
- * Configuration for Azure DevOps project integration.
+ * <p>Configuration for Azure DevOps project integration.</p>
  * @public
  */
 export interface AzureDevOpsConfiguration {
   /**
-   * Azure DevOps organization name.
+   * <p>Azure DevOps organization name.</p>
    * @public
    */
   organizationName: string | undefined;
 
   /**
-   * Azure DevOps project ID.
+   * <p>Azure DevOps project ID.</p>
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * Azure DevOps project name.
+   * <p>Azure DevOps project name.</p>
    * @public
    */
   projectName: string | undefined;
 }
 
 /**
- * Configuration for Dynatrace monitoring integration.
+ * <p>Configuration for Dynatrace monitoring integration.</p>
  * @public
  */
 export interface DynatraceConfiguration {
   /**
-   * Dynatrace environment id
+   * <p>Dynatrace environment id</p>
    * @public
    */
   envId: string | undefined;
 
   /**
-   * List of Dynatrace resources to monitor
+   * <p>List of Dynatrace resources to monitor</p>
    * @public
    */
   resources?: string[] | undefined;
 }
 
 /**
- * Configuration for Event Channel integration.
+ * <p>Configuration for Event Channel integration.</p>
  * @public
  */
 export interface EventChannelConfiguration {}
 
 /**
- * Configuration for GitHub repository integration.
+ * <p>Configuration for GitHub repository integration.</p>
  * @public
  */
 export interface GitHubConfiguration {
   /**
-   * Associated Github repo name
+   * <p>Associated Github repo name</p>
    * @public
    */
   repoName: string | undefined;
 
   /**
-   * Associated Github repo ID
+   * <p>Associated Github repo ID</p>
    * @public
    */
   repoId: string | undefined;
 
   /**
-   * The GitHub repository owner name.
+   * <p>The GitHub repository owner name.</p>
    * @public
    */
   owner: string | undefined;
 
   /**
-   * Type of GitHub repository owner.
+   * <p>Type of GitHub repository owner.</p>
    * @public
    */
   ownerType: GithubRepoOwnerType | undefined;
 
   /**
-   * GitHub instance identifier (e.g., github.com or github.enterprise.com)
+   * <p>GitHub instance identifier (e.g., github.com or github.enterprise.com)</p>
    * @public
    */
   instanceIdentifier?: string | undefined;
 }
 
 /**
- * Configuration for GitLab project integration.
+ * <p>Configuration for GitLab project integration.</p>
  * @public
  */
 export interface GitLabConfiguration {
   /**
-   * GitLab numeric project ID.
+   * <p>GitLab numeric project ID.</p>
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * Full GitLab project path (e.g., namespace/project-name).
+   * <p>Full GitLab project path (e.g., namespace/project-name).</p>
    * @public
    */
   projectPath: string | undefined;
 
   /**
-   * GitLab instance identifier (e.g., gitlab.com or e2e.gamma.dev.us-east-1.gitlab.falco.ai.aws.dev)
+   * <p>GitLab instance identifier (e.g., gitlab.com or e2e.gamma.dev.us-east-1.gitlab.falco.ai.aws.dev)</p>
    * @public
    */
   instanceIdentifier?: string | undefined;
 }
 
 /**
- * Configuration for Model Context Protocol (MCP) server integration.
+ * <p>Configuration for Model Context Protocol (MCP) server integration.</p>
  * @public
  */
 export interface MCPServerConfiguration {
   /**
-   * List of MCP tools can be used with the association.
+   * <p>List of MCP tools can be used with the association.</p>
    * @public
    */
   tools: string[] | undefined;
 }
 
 /**
- * Mixin for webhook update support.
+ * <p>Mixin for webhook update support.</p>
  * @public
  */
 export interface MCPServerDatadogConfiguration {}
 
 /**
- * Configuration for Grafana MCP server integration, used with an AWS-hosted MCP server.
+ * <p>Configuration for Grafana MCP server integration, used with an AWS-hosted MCP server.</p>
  * @public
  */
 export interface MCPServerGrafanaConfiguration {
   /**
-   * Grafana instance URL (e.g., https://your-instance.grafana.net)
+   * <p>Grafana instance URL (e.g., https://your-instance.grafana.net)</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * The Grafana organization ID that can be used.
+   * <p>The Grafana organization ID that can be used.</p>
    * @public
    */
   organizationId?: string | undefined;
 
   /**
-   * List of MCP tools that can be used.
+   * <p>List of MCP tools that can be used.</p>
    * @public
    */
   tools?: string[] | undefined;
 }
 
 /**
- * Mixin for webhook update support.
+ * <p>Mixin for webhook update support.</p>
  * @public
  */
 export interface MCPServerNewRelicConfiguration {
   /**
-   * New Relic Account ID
+   * <p>New Relic Account ID</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+   * <p>MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)</p>
    * @public
    */
   endpoint: string | undefined;
 }
 
 /**
- * Mixin for webhook update support.
+ * <p>Configuration for SigV4-authenticated MCP server integration.</p>
+ * @public
+ */
+export interface MCPServerSigV4Configuration {
+  /**
+   * <p>List of MCP tools available for the association.</p>
+   * @public
+   */
+  tools: string[] | undefined;
+}
+
+/**
+ * <p>Mixin for webhook update support.</p>
  * @public
  */
 export interface MCPServerSplunkConfiguration {}
 
 /**
- * Configuration for Pagerduty integration.
+ * <p>Configuration for Pagerduty integration.</p>
  * @public
  */
 export interface PagerDutyConfiguration {
   /**
-   * List of Pagerduty service available for the association.
+   * <p>List of Pagerduty service available for the association.</p>
    * @public
    */
   services: string[] | undefined;
 
   /**
-   * Email to be used in Pagerduty API header
+   * <p>Email to be used in Pagerduty API header</p>
    * @public
    */
   customerEmail: string | undefined;
 }
 
 /**
- * Configuration for ServiceNow instance integration.
+ * <p>Configuration for ServiceNow instance integration.</p>
  * @public
  */
 export interface ServiceNowConfiguration {
   /**
-   * ServiceNow instance ID
+   * <p>ServiceNow instance ID</p>
    * @public
    */
   instanceId?: string | undefined;
 
   /**
-   * Scoped down authentication scopes for fine grained control
+   * <p>Scoped down authentication scopes for fine grained control</p>
    * @public
    */
   authScopes?: string[] | undefined;
 }
 
 /**
- * Represents a Slack channel with its ID and optional name.
+ * <p>Represents a Slack channel with its ID and optional name.</p>
  * @public
  */
 export interface SlackChannel {
   /**
-   * Slack channel name
+   * <p>Slack channel name</p>
    * @public
    */
   channelName?: string | undefined;
 
   /**
-   * Slack channel ID
+   * <p>Slack channel ID</p>
    * @public
    */
   channelId: string | undefined;
 }
 
 /**
- * Defines Slack channels for different types of agent notifications.
+ * <p>Defines Slack channels for different types of agent notifications.</p>
  * @public
  */
 export interface SlackTransmissionTarget {
   /**
-   * Destination for On-call Agent (Ops1)
+   * <p>Destination for On-call Agent (Ops1)</p>
    * @public
    */
   opsOncallTarget: SlackChannel | undefined;
 
   /**
-   * Destination for SRE Agent (Ops1.5)
+   * <p>Destination for SRE Agent (Ops1.5)</p>
    * @public
    */
   opsSRETarget?: SlackChannel | undefined;
 }
 
 /**
- * Configuration for Slack workspace integration.
+ * <p>Configuration for Slack workspace integration.</p>
  * @public
  */
 export interface SlackConfiguration {
   /**
-   * Associated Slack workspace ID
+   * <p>Associated Slack workspace ID</p>
    * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * Associated Slack workspace name
+   * <p>Associated Slack workspace name</p>
    * @public
    */
   workspaceName: string | undefined;
 
   /**
-   * Transmission targets for agent notifications
+   * <p>Transmission targets for agent notifications</p>
    * @public
    */
   transmissionTarget: SlackTransmissionTarget | undefined;
 }
 
 /**
- * Configuration for AWS source account integration. Note: passRole check on 'assumableRoleArn' is not supported.
+ * <p>Configuration for AWS source account integration. Note: passRole check on 'assumableRoleArn' is not supported.</p>
  * @public
  */
 export interface SourceAwsConfiguration {
   /**
-   * AWS Account Id corresponding to provided resources.
+   * <p>AWS Account Id corresponding to provided resources.</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * Account Type 'source' for AIDevOps monitoring.
+   * <p>Account Type 'source' for AIDevOps monitoring.</p>
    * @public
    */
   accountType: SourceAccountType | undefined;
 
   /**
-   * Role ARN to be assumed by AIDevOps to operate on behalf of customer.
+   * <p>Role ARN to be assumed by AIDevOps to operate on behalf of customer.</p>
    * @public
    */
   assumableRoleArn: string | undefined;
 
   /**
-   * External ID for additional security when assuming the role. Used to prevent the confused deputy problem.
+   * <p>External ID for additional security when assuming the role. Used to prevent the confused deputy problem.</p>
    * @public
    */
   externalId?: string | undefined;
 }
 
 /**
- * Union of all supported service configuration types. Each service has its own specific configuration structure.
+ * <p>Union of all supported service configuration types. Each service has its own specific configuration structure.</p>
  * @public
  */
 export type ServiceConfiguration =
@@ -996,6 +1092,7 @@ export type ServiceConfiguration =
   | ServiceConfiguration.McpserverdatadogMember
   | ServiceConfiguration.McpservergrafanaMember
   | ServiceConfiguration.McpservernewrelicMember
+  | ServiceConfiguration.Mcpserversigv4Member
   | ServiceConfiguration.McpserversplunkMember
   | ServiceConfiguration.PagerdutyMember
   | ServiceConfiguration.ServicenowMember
@@ -1008,7 +1105,7 @@ export type ServiceConfiguration =
  */
 export namespace ServiceConfiguration {
   /**
-   * AWS source account configuration for monitoring resources.
+   * <p>AWS source account configuration for monitoring resources.</p>
    * @public
    */
   export interface SourceAwsMember {
@@ -1028,11 +1125,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * AWS monitor account configuration.
+   * <p>AWS monitor account configuration.</p>
    * @public
    */
   export interface AwsMember {
@@ -1052,11 +1150,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * GitHub repository integration configuration.
+   * <p>GitHub repository integration configuration.</p>
    * @public
    */
   export interface GithubMember {
@@ -1076,11 +1175,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Slack workspace integration configuration.
+   * <p>Slack workspace integration configuration.</p>
    * @public
    */
   export interface SlackMember {
@@ -1100,11 +1200,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Dynatrace monitoring integration configuration.
+   * <p>Dynatrace monitoring integration configuration.</p>
    * @public
    */
   export interface DynatraceMember {
@@ -1124,11 +1225,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * ServiceNow instance integration configuration.
+   * <p>ServiceNow instance integration configuration.</p>
    * @public
    */
   export interface ServicenowMember {
@@ -1148,11 +1250,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * NewRelic instance integration configuration.
+   * <p>NewRelic instance integration configuration.</p>
    * @public
    */
   export interface McpservernewrelicMember {
@@ -1172,11 +1275,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Datadog MCP server integration configuration.
+   * <p>Datadog MCP server integration configuration.</p>
    * @public
    */
   export interface McpserverdatadogMember {
@@ -1196,11 +1300,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * MCP (Model Context Protocol) server integration configuration.
+   * <p>MCP (Model Context Protocol) server integration configuration.</p>
    * @public
    */
   export interface McpserverMember {
@@ -1220,11 +1325,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * GitLab project integration configuration.
+   * <p>GitLab project integration configuration.</p>
    * @public
    */
   export interface GitlabMember {
@@ -1244,11 +1350,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Splunk MCP server integration configuration.
+   * <p>Splunk MCP server integration configuration.</p>
    * @public
    */
   export interface McpserversplunkMember {
@@ -1268,11 +1375,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Event Channel instance integration configuration.
+   * <p>Event Channel instance integration configuration.</p>
    * @public
    */
   export interface EventChannelMember {
@@ -1292,11 +1400,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Azure subscription integration configuration.
+   * <p>Azure subscription integration configuration.</p>
    * @public
    */
   export interface AzureMember {
@@ -1316,11 +1425,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Azure DevOps project integration configuration.
+   * <p>Azure DevOps project integration configuration.</p>
    * @public
    */
   export interface AzuredevopsMember {
@@ -1340,11 +1450,12 @@ export namespace ServiceConfiguration {
     azuredevops: AzureDevOpsConfiguration;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Grafana MCP server integration configuration.
+   * <p>Grafana MCP server integration configuration.</p>
    * @public
    */
   export interface McpservergrafanaMember {
@@ -1364,11 +1475,12 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana: MCPServerGrafanaConfiguration;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * PagerDuty integration configuration
+   * <p>PagerDuty integration configuration</p>
    * @public
    */
   export interface PagerdutyMember {
@@ -1388,6 +1500,32 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty: PagerDutyConfiguration;
+    mcpserversigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>SigV4-authenticated MCP server integration configuration.</p>
+   * @public
+   */
+  export interface Mcpserversigv4Member {
+    sourceAws?: never;
+    aws?: never;
+    github?: never;
+    slack?: never;
+    dynatrace?: never;
+    servicenow?: never;
+    mcpservernewrelic?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    eventChannel?: never;
+    azure?: never;
+    azuredevops?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    mcpserversigv4: MCPServerSigV4Configuration;
     $unknown?: never;
   }
 
@@ -1411,6 +1549,7 @@ export namespace ServiceConfiguration {
     azuredevops?: never;
     mcpservergrafana?: never;
     pagerduty?: never;
+    mcpserversigv4?: never;
     $unknown: [string, any];
   }
 
@@ -1435,834 +1574,835 @@ export namespace ServiceConfiguration {
     azuredevops: (value: AzureDevOpsConfiguration) => T;
     mcpservergrafana: (value: MCPServerGrafanaConfiguration) => T;
     pagerduty: (value: PagerDutyConfiguration) => T;
+    mcpserversigv4: (value: MCPServerSigV4Configuration) => T;
     _: (name: string, value: any) => T;
   }
 }
 
 /**
- * Input for creating a new service association within an AgentSpace.
+ * <p>Input for creating a new service association within an AgentSpace.</p>
  * @public
  */
 export interface AssociateServiceInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the service.
+   * <p>The unique identifier of the service.</p>
    * @public
    */
   serviceId: string | undefined;
 
   /**
-   * The configuration that directs how AgentSpace interacts with the given service.
+   * <p>The configuration that directs how AgentSpace interacts with the given service.</p>
    * @public
    */
   configuration: ServiceConfiguration | undefined;
 }
 
 /**
- * Represents a service association within an AgentSpace, defining how the agent interacts with external services.
+ * <p>Represents a service association within an AgentSpace, defining how the agent interacts with external services.</p>
  * @public
  */
 export interface Association {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The timestamp when the resource was created.
+   * <p>The timestamp when the resource was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when the resource was last updated.
+   * <p>The timestamp when the resource was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Validation status
+   * <p>Validation status</p>
    * @public
    */
   status?: ValidationStatus | undefined;
 
   /**
-   * The unique identifier of the given association.
+   * <p>The unique identifier of the given association.</p>
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * The identifier for associated service
+   * <p>The identifier for associated service</p>
    * @public
    */
   serviceId: string | undefined;
 
   /**
-   * The configuration that directs how AgentSpace interacts with the given service.
+   * <p>The configuration that directs how AgentSpace interacts with the given service.</p>
    * @public
    */
   configuration: ServiceConfiguration | undefined;
 }
 
 /**
- * Generic webhook configuration for services that support webhook notifications.
+ * <p>Generic webhook configuration for services that support webhook notifications.</p>
  * @public
  */
 export interface GenericWebhook {
   /**
-   * The webhook URL endpoint
+   * <p>The webhook URL endpoint</p>
    * @public
    */
   webhookUrl?: string | undefined;
 
   /**
-   * The unique webhook identifier
+   * <p>The unique webhook identifier</p>
    * @public
    */
   webhookId?: string | undefined;
 
   /**
-   * The webhook authentication type
+   * <p>The webhook authentication type</p>
    * @public
    */
   webhookType?: WebhookType | undefined;
 
   /**
-   * The webhook secret for authentication
+   * <p>The webhook secret for authentication</p>
    * @public
    */
   webhookSecret?: string | undefined;
 
   /**
-   * API Key for API Key webhook authentication
+   * <p>API Key for API Key webhook authentication</p>
    * @public
    */
   apiKey?: string | undefined;
 }
 
 /**
- * Output containing the newly created association and optional webhook configuration.
+ * <p>Output containing the newly created association and optional webhook configuration.</p>
  * @public
  */
 export interface AssociateServiceOutput {
   /**
-   * Represents a service association within an AgentSpace, defining how the agent interacts with external services.
+   * <p>Represents a service association within an AgentSpace, defining how the agent interacts with external services.</p>
    * @public
    */
   association: Association | undefined;
 
   /**
-   * Generic webhook configuration
+   * <p>Generic webhook configuration</p>
    * @public
    */
   webhook?: GenericWebhook | undefined;
 }
 
 /**
- * Describes one specific validation failure for an input member.
+ * <p>Describes one specific validation failure for an input member.</p>
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.
+   * <p>A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.</p>
    * @public
    */
   path: string | undefined;
 
   /**
-   * A detailed description of the validation failure.
+   * <p>A detailed description of the validation failure.</p>
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * Input for removing a service association from an AgentSpace.
+ * <p>Input for removing a service association from an AgentSpace.</p>
  * @public
  */
 export interface DisassociateServiceInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the given association.
+   * <p>The unique identifier of the given association.</p>
    * @public
    */
   associationId: string | undefined;
 }
 
 /**
- * Empty output for successful service disassociation.
+ * <p>Empty output for successful service disassociation.</p>
  * @public
  */
 export interface DisassociateServiceOutput {}
 
 /**
- * Input for retrieving a specific service association.
+ * <p>Input for retrieving a specific service association.</p>
  * @public
  */
 export interface GetAssociationInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the given association.
+   * <p>The unique identifier of the given association.</p>
    * @public
    */
   associationId: string | undefined;
 }
 
 /**
- * Output containing the requested association details.
+ * <p>Output containing the requested association details.</p>
  * @public
  */
 export interface GetAssociationOutput {
   /**
-   * Represents a service association within an AgentSpace, defining how the agent interacts with external services.
+   * <p>Represents a service association within an AgentSpace, defining how the agent interacts with external services.</p>
    * @public
    */
   association: Association | undefined;
 }
 
 /**
- * Input for listing service associations within an AgentSpace.
+ * <p>Input for listing service associations within an AgentSpace.</p>
  * @public
  */
 export interface ListAssociationsInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Maximum number of results to return in a single call.
+   * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Token for the next page of results.
+   * <p>Token for the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * A comma-separated list of service types to filter list associations output
+   * <p>A comma-separated list of service types to filter list associations output</p>
    * @public
    */
   filterServiceTypes?: string | undefined;
 }
 
 /**
- * Output containing a list of service associations and pagination token.
+ * <p>Output containing a list of service associations and pagination token.</p>
  * @public
  */
 export interface ListAssociationsOutput {
   /**
-   * Token to retrieve the next page of results, if there are more results.
+   * <p>Token to retrieve the next page of results, if there are more results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The list of associations.
+   * <p>The list of associations.</p>
    * @public
    */
   associations: Association[] | undefined;
 }
 
 /**
- * Input for listing service webhooks within an association.
+ * <p>Input for listing service webhooks within an association.</p>
  * @public
  */
 export interface ListWebhooksInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the given association.
+   * <p>The unique identifier of the given association.</p>
    * @public
    */
   associationId: string | undefined;
 }
 
 /**
- * Represents a complete Webhook with all its properties, and unique identifier.
+ * <p>Represents a complete Webhook with all its properties, and unique identifier.</p>
  * @public
  */
 export interface Webhook {
   /**
-   * Webhook endpoint URL.
+   * <p>Webhook endpoint URL.</p>
    * @public
    */
   webhookUrl: string | undefined;
 
   /**
-   * Webhook authentication type.
+   * <p>Webhook authentication type.</p>
    * @public
    */
   webhookType?: WebhookType | undefined;
 
   /**
-   * The unique identifier of the Webhook
+   * <p>The unique identifier of the Webhook</p>
    * @public
    */
   webhookId: string | undefined;
 }
 
 /**
- * Output containing a list of service association webhooks.
+ * <p>Output containing a list of service association webhooks.</p>
  * @public
  */
 export interface ListWebhooksOutput {
   /**
-   * The list of association webhooks.
+   * <p>The list of association webhooks.</p>
    * @public
    */
   webhooks: Webhook[] | undefined;
 }
 
 /**
- * Input for updating an existing service association. Present fields are fully replaced; absent fields are left unchanged.
+ * <p>Input for updating an existing service association. Present fields are fully replaced; absent fields are left unchanged.</p>
  * @public
  */
 export interface UpdateAssociationInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the given association.
+   * <p>The unique identifier of the given association.</p>
    * @public
    */
   associationId: string | undefined;
 
   /**
-   * The configuration that directs how AgentSpace interacts with the given service. The entire configuration is replaced on update.
+   * <p>The configuration that directs how AgentSpace interacts with the given service. The entire configuration is replaced on update.</p>
    * @public
    */
   configuration: ServiceConfiguration | undefined;
 }
 
 /**
- * Output containing the updated association and optional webhook configuration.
+ * <p>Output containing the updated association and optional webhook configuration.</p>
  * @public
  */
 export interface UpdateAssociationOutput {
   /**
-   * Represents a service association within an AgentSpace, defining how the agent interacts with external services.
+   * <p>Represents a service association within an AgentSpace, defining how the agent interacts with external services.</p>
    * @public
    */
   association: Association | undefined;
 
   /**
-   * Generic webhook configuration
+   * <p>Generic webhook configuration</p>
    * @public
    */
   webhook?: GenericWebhook | undefined;
 }
 
 /**
- * Input for validating an aws association
+ * <p>Input for validating an aws association</p>
  * @public
  */
 export interface ValidateAwsAssociationsInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Empty Output for successful validating an aws association
+ * <p>Empty Output for successful validating an aws association</p>
  * @public
  */
 export interface ValidateAwsAssociationsOutput {}
 
 /**
- * Input for creating a new AgentSpace.
+ * <p>Input for creating a new AgentSpace.</p>
  * @public
  */
 export interface CreateAgentSpaceInput {
   /**
-   * The name of the AgentSpace.
+   * <p>The name of the AgentSpace.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The description of the AgentSpace.
+   * <p>The description of the AgentSpace.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * The locale for the AgentSpace, which determines the language used in agent responses.
+   * <p>The locale for the AgentSpace, which determines the language used in agent responses.</p>
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * Client-provided token to ensure request idempotency. When the same token is provided in subsequent calls, the same response is returned within a 8-hour window.
+   * <p>Client-provided token to ensure request idempotency. When the same token is provided in subsequent calls, the same response is returned within a 8-hour window.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * Tags to add to the AgentSpace at creation time.
+   * <p>Tags to add to the AgentSpace at creation time.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Output containing the newly created AgentSpace.
+ * <p>Output containing the newly created AgentSpace.</p>
  * @public
  */
 export interface CreateAgentSpaceOutput {
   /**
-   * Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.
+   * <p>Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.</p>
    * @public
    */
   agentSpace: AgentSpace | undefined;
 
   /**
-   * Tags associated with the created AgentSpace.
+   * <p>Tags associated with the created AgentSpace.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Input for deleting an AgentSpace.
+ * <p>Input for deleting an AgentSpace.</p>
  * @public
  */
 export interface DeleteAgentSpaceInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Empty output for successful AgentSpace deletion.
+ * <p>Empty output for successful AgentSpace deletion.</p>
  * @public
  */
 export interface DeleteAgentSpaceOutput {}
 
 /**
- * Input for disabling the Operator App for an AgentSpace.
+ * <p>Input for disabling the Operator App for an AgentSpace.</p>
  * @public
  */
 export interface DisableOperatorAppInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The authentication flow configured for the operator App. e.g. idc
+   * <p>The authentication flow configured for the operator App. e.g. idc</p>
    * @public
    */
   authFlow?: AuthFlow | undefined;
 }
 
 /**
- * Input for enabling the Operator App for an AgentSpace.
+ * <p>Input for enabling the Operator App for an AgentSpace.</p>
  * @public
  */
 export interface EnableOperatorAppInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The authentication flow configured for the operator App. e.g. iam or idc
+   * <p>The authentication flow configured for the operator App. e.g. iam or idc</p>
    * @public
    */
   authFlow: AuthFlow | undefined;
 
   /**
-   * The IAM role end users assume to access AIDevOps APIs
+   * <p>The IAM role end users assume to access AIDevOps APIs</p>
    * @public
    */
   operatorAppRoleArn: string | undefined;
 
   /**
-   * The IdC instance Arn used to create an IdC auth application
+   * <p>The IdC instance Arn used to create an IdC auth application</p>
    * @public
    */
   idcInstanceArn?: string | undefined;
 
   /**
-   * The OIDC issuer URL of the external Identity Provider
+   * <p>The OIDC issuer URL of the external Identity Provider</p>
    * @public
    */
   issuerUrl?: string | undefined;
 
   /**
-   * The OIDC client ID for the IdP application
+   * <p>The OIDC client ID for the IdP application</p>
    * @public
    */
   idpClientId?: string | undefined;
 
   /**
-   * The OIDC client secret for the IdP application
+   * <p>The OIDC client secret for the IdP application</p>
    * @public
    */
   idpClientSecret?: string | undefined;
 
   /**
-   * The Identity Provider name (e.g., Entra, Okta, Google)
+   * <p>The Identity Provider name (e.g., Entra, Okta, Google)</p>
    * @public
    */
   provider?: string | undefined;
 }
 
 /**
- * Configuration for IAM-based authentication flow for the Operator App.
+ * <p>Configuration for IAM-based authentication flow for the Operator App.</p>
  * @public
  */
 export interface IamAuthConfiguration {
   /**
-   * The IAM role end users assume to access AIDevOps APIs
+   * <p>The IAM role end users assume to access AIDevOps APIs</p>
    * @public
    */
   operatorAppRoleArn: string | undefined;
 
   /**
-   * The timestamp when the Operator App IAM auth flow was enabled.
+   * <p>The timestamp when the Operator App IAM auth flow was enabled.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when the Operator App IAM auth flow was updated.
+   * <p>The timestamp when the Operator App IAM auth flow was updated.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.
+ * <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
  * @public
  */
 export interface IdcAuthConfiguration {
   /**
-   * The IAM role end users assume to access AIDevOps APIs
+   * <p>The IAM role end users assume to access AIDevOps APIs</p>
    * @public
    */
   operatorAppRoleArn: string | undefined;
 
   /**
-   * The IdC instance Arn used to create an IdC auth application
+   * <p>The IdC instance Arn used to create an IdC auth application</p>
    * @public
    */
   idcInstanceArn: string | undefined;
 
   /**
-   * The IdC application Arn created for IdC auth
+   * <p>The IdC application Arn created for IdC auth</p>
    * @public
    */
   idcApplicationArn?: string | undefined;
 
   /**
-   * The timestamp when the Operator App IdC auth flow was enabled.
+   * <p>The timestamp when the Operator App IdC auth flow was enabled.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when the Operator App IdC auth flow was updated.
+   * <p>The timestamp when the Operator App IdC auth flow was updated.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Configuration for external Identity Provider OIDC authentication flow for the Operator App.
+ * <p>Configuration for external Identity Provider OIDC authentication flow for the Operator App.</p>
  * @public
  */
 export interface IdpAuthConfiguration {
   /**
-   * The OIDC issuer URL of the external Identity Provider
+   * <p>The OIDC issuer URL of the external Identity Provider</p>
    * @public
    */
   issuerUrl: string | undefined;
 
   /**
-   * The OIDC client ID for the IdP application
+   * <p>The OIDC client ID for the IdP application</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * The IAM role end users assume to access AIDevOps APIs
+   * <p>The IAM role end users assume to access AIDevOps APIs</p>
    * @public
    */
   operatorAppRoleArn: string | undefined;
 
   /**
-   * The Identity Provider name (e.g., Entra, Okta, Google)
+   * <p>The Identity Provider name (e.g., Entra, Okta, Google)</p>
    * @public
    */
   provider: string | undefined;
 
   /**
-   * The timestamp when the Operator App IdP auth flow was enabled.
+   * <p>The timestamp when the Operator App IdP auth flow was enabled.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when the Operator App IdP auth flow was updated.
+   * <p>The timestamp when the Operator App IdP auth flow was updated.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Output containing the enabled Operator App configuration.
+ * <p>Output containing the enabled Operator App configuration.</p>
  * @public
  */
 export interface EnableOperatorAppOutput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Configuration for IAM-based authentication flow for the Operator App.
+   * <p>Configuration for IAM-based authentication flow for the Operator App.</p>
    * @public
    */
   iam?: IamAuthConfiguration | undefined;
 
   /**
-   * Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.
+   * <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
    * @public
    */
   idc?: IdcAuthConfiguration | undefined;
 
   /**
-   * Configuration for external Identity Provider OIDC authentication flow for the Operator App.
+   * <p>Configuration for external Identity Provider OIDC authentication flow for the Operator App.</p>
    * @public
    */
   idp?: IdpAuthConfiguration | undefined;
 }
 
 /**
- * Input for retrieving a specific AgentSpace by ID.
+ * <p>Input for retrieving a specific AgentSpace by ID.</p>
  * @public
  */
 export interface GetAgentSpaceInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Output containing the requested AgentSpace details.
+ * <p>Output containing the requested AgentSpace details.</p>
  * @public
  */
 export interface GetAgentSpaceOutput {
   /**
-   * Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.
+   * <p>Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.</p>
    * @public
    */
   agentSpace: AgentSpace | undefined;
 
   /**
-   * Tags associated with the AgentSpace.
+   * <p>Tags associated with the AgentSpace.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Input for retrieving Operator App configuration.
+ * <p>Input for retrieving Operator App configuration.</p>
  * @public
  */
 export interface GetOperatorAppInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 }
 
 /**
- * Output containing the Operator App configuration including authentication details.
+ * <p>Output containing the Operator App configuration including authentication details.</p>
  * @public
  */
 export interface GetOperatorAppOutput {
   /**
-   * Configuration for IAM-based authentication flow for the Operator App.
+   * <p>Configuration for IAM-based authentication flow for the Operator App.</p>
    * @public
    */
   iam?: IamAuthConfiguration | undefined;
 
   /**
-   * Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.
+   * <p>Configuration for AWS Identity Center (IdC) authentication flow for the Operator App.</p>
    * @public
    */
   idc?: IdcAuthConfiguration | undefined;
 
   /**
-   * Configuration for external Identity Provider OIDC authentication flow for the Operator App.
+   * <p>Configuration for external Identity Provider OIDC authentication flow for the Operator App.</p>
    * @public
    */
   idp?: IdpAuthConfiguration | undefined;
 }
 
 /**
- * Input for listing AgentSpaces with pagination support.
+ * <p>Input for listing AgentSpaces with pagination support.</p>
  * @public
  */
 export interface ListAgentSpacesInput {
   /**
-   * Maximum number of results to return in a single call.
+   * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Token for the next page of results.
+   * <p>Token for the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Output containing a list of AgentSpaces and pagination token.
+ * <p>Output containing a list of AgentSpaces and pagination token.</p>
  * @public
  */
 export interface ListAgentSpacesOutput {
   /**
-   * Token to retrieve the next page of results, if there are more results.
+   * <p>Token to retrieve the next page of results, if there are more results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The list of AgentSpaces.
+   * <p>The list of AgentSpaces.</p>
    * @public
    */
   agentSpaces: AgentSpace[] | undefined;
 }
 
 /**
- * Input for updating an existing AgentSpace's properties. All fields except agentSpaceId are optional for partial updates.
+ * <p>Input for updating an existing AgentSpace's properties. All fields except agentSpaceId are optional for partial updates.</p>
  * @public
  */
 export interface UpdateAgentSpaceInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The updated name of the AgentSpace.
+   * <p>The updated name of the AgentSpace.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * The updated description of the AgentSpace.
+   * <p>The updated description of the AgentSpace.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * The updated locale for the AgentSpace, which determines the language used in agent responses.
+   * <p>The updated locale for the AgentSpace, which determines the language used in agent responses.</p>
    * @public
    */
   locale?: string | undefined;
 }
 
 /**
- * Output containing the updated AgentSpace.
+ * <p>Output containing the updated AgentSpace.</p>
  * @public
  */
 export interface UpdateAgentSpaceOutput {
   /**
-   * Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.
+   * <p>Represents a complete AgentSpace with all its properties, timestamps, encryption settings, and unique identifier.</p>
    * @public
    */
   agentSpace: AgentSpace | undefined;
 }
 
 /**
- * Input for updating the external Identity Provider configuration for the Operator App.
+ * <p>Input for updating the external Identity Provider configuration for the Operator App.</p>
  * @public
  */
 export interface UpdateOperatorAppIdpConfigInput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The OIDC client secret for the IdP application
+   * <p>The OIDC client secret for the IdP application</p>
    * @public
    */
   idpClientSecret?: string | undefined;
 }
 
 /**
- * Output containing the updated IdP configuration.
+ * <p>Output containing the updated IdP configuration.</p>
  * @public
  */
 export interface UpdateOperatorAppIdpConfigOutput {
   /**
-   * The unique identifier of the AgentSpace
+   * <p>The unique identifier of the AgentSpace</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Configuration for external Identity Provider OIDC authentication flow for the Operator App.
+   * <p>Configuration for external Identity Provider OIDC authentication flow for the Operator App.</p>
    * @public
    */
   idp: IdpAuthConfiguration | undefined;
 }
 
 /**
- * A block of content in an assistant message.
+ * <p>A block of content in an assistant message.</p>
  * @public
  */
 export type AssistantMessageBlock =
@@ -2275,7 +2415,7 @@ export type AssistantMessageBlock =
  */
 export namespace AssistantMessageBlock {
   /**
-   * Text content from the assistant.
+   * <p>Text content from the assistant.</p>
    * @public
    */
   export interface TextMember {
@@ -2285,7 +2425,7 @@ export namespace AssistantMessageBlock {
   }
 
   /**
-   * Tool use request from the assistant.
+   * <p>Tool use request from the assistant.</p>
    * @public
    */
   export interface ToolUseMember {
@@ -2315,288 +2455,288 @@ export namespace AssistantMessageBlock {
 }
 
 /**
- * A single chat execution summary
+ * <p>A single chat execution summary</p>
  * @public
  */
 export interface ChatExecution {
   /**
-   * The unique identifier for the execution
+   * <p>The unique identifier for the execution</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * Timestamp when the chat was created
+   * <p>Timestamp when the chat was created</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Timestamp when the chat was last updated
+   * <p>Timestamp when the chat was last updated</p>
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * Summary or title of the chat
+   * <p>Summary or title of the chat</p>
    * @public
    */
   summary?: string | undefined;
 }
 
 /**
- * Reference information linking a task to external systems - for input with validation
+ * <p>Reference information linking a task to external systems - for input with validation</p>
  * @public
  */
 export interface ReferenceInput {
   /**
-   * The name of the external system
+   * <p>The name of the external system</p>
    * @public
    */
   system: string | undefined;
 
   /**
-   * Optional title for the reference
+   * <p>Optional title for the reference</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * The unique identifier in the external system
+   * <p>The unique identifier in the external system</p>
    * @public
    */
   referenceId: string | undefined;
 
   /**
-   * URL to access the reference in the external system
+   * <p>URL to access the reference in the external system</p>
    * @public
    */
   referenceUrl: string | undefined;
 
   /**
-   * Association identifier of the external system
+   * <p>Association identifier of the external system</p>
    * @public
    */
   associationId: string | undefined;
 }
 
 /**
- * Request structure for creating a new backlog task
+ * <p>Request structure for creating a new backlog task</p>
  * @public
  */
 export interface CreateBacklogTaskRequest {
   /**
-   * The unique identifier for the agent space where the task will be created
+   * <p>The unique identifier for the agent space where the task will be created</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Optional reference information for the task
+   * <p>Optional reference information for the task</p>
    * @public
    */
   reference?: ReferenceInput | undefined;
 
   /**
-   * The type of task being created
+   * <p>The type of task being created</p>
    * @public
    */
   taskType: TaskType | undefined;
 
   /**
-   * The title of the backlog task
+   * <p>The title of the backlog task</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * Optional detailed description of the task
+   * <p>Optional detailed description of the task</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * The priority level of the task
+   * <p>The priority level of the task</p>
    * @public
    */
   priority: Priority | undefined;
 
   /**
-   * Client-provided token for idempotent operations
+   * <p>Client-provided token for idempotent operations</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * Reference information linking a task to external systems - for output without validation
+ * <p>Reference information linking a task to external systems - for output without validation</p>
  * @public
  */
 export interface ReferenceOutput {
   /**
-   * The name of the external system
+   * <p>The name of the external system</p>
    * @public
    */
   system: string | undefined;
 
   /**
-   * Optional title for the reference
+   * <p>Optional title for the reference</p>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * The unique identifier in the external system
+   * <p>The unique identifier in the external system</p>
    * @public
    */
   referenceId: string | undefined;
 
   /**
-   * URL to access the reference in the external system
+   * <p>URL to access the reference in the external system</p>
    * @public
    */
   referenceUrl: string | undefined;
 
   /**
-   * Association identifier of the external system
+   * <p>Association identifier of the external system</p>
    * @public
    */
   associationId: string | undefined;
 }
 
 /**
- * Represents a backlog task with all its properties and metadata
+ * <p>Represents a backlog task with all its properties and metadata</p>
  * @public
  */
 export interface Task {
   /**
-   * The unique identifier for the agent space containing this task
+   * <p>The unique identifier for the agent space containing this task</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier for this task
+   * <p>The unique identifier for this task</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * The execution ID associated with this task, if any
+   * <p>The execution ID associated with this task, if any</p>
    * @public
    */
   executionId?: string | undefined;
 
   /**
-   * The title of the task
+   * <p>The title of the task</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * Optional detailed description of the task
+   * <p>Optional detailed description of the task</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Optional reference information linking this task to external systems
+   * <p>Optional reference information linking this task to external systems</p>
    * @public
    */
   reference?: ReferenceOutput | undefined;
 
   /**
-   * The type of this task
+   * <p>The type of this task</p>
    * @public
    */
   taskType: TaskType | undefined;
 
   /**
-   * The priority level of this task
+   * <p>The priority level of this task</p>
    * @public
    */
   priority: Priority | undefined;
 
   /**
-   * The current status of this task
+   * <p>The current status of this task</p>
    * @public
    */
   status: TaskStatus | undefined;
 
   /**
-   * Timestamp when this task was created
+   * <p>Timestamp when this task was created</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Timestamp when this task was last updated
+   * <p>Timestamp when this task was last updated</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Version number for optimistic locking
+   * <p>Version number for optimistic locking</p>
    * @public
    */
   version: number | undefined;
 
   /**
-   * Optional support metadata for the task
+   * <p>Optional support metadata for the task</p>
    * @public
    */
   supportMetadata?: __DocumentType | undefined;
 
   /**
-   * Optional metadata for the task
+   * <p>Optional metadata for the task</p>
    * @public
    */
   metadata?: __DocumentType | undefined;
 
   /**
-   * The task ID of the primary investigation this task is linked to
+   * <p>The task ID of the primary investigation this task is linked to</p>
    * @public
    */
   primaryTaskId?: string | undefined;
 
   /**
-   * Explanation for why the task status was changed (e.g., linked reason)
+   * <p>Explanation for why the task status was changed (e.g., linked reason)</p>
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * Indicates if this task has other tasks linked to it
+   * <p>Indicates if this task has other tasks linked to it</p>
    * @public
    */
   hasLinkedTasks?: boolean | undefined;
 }
 
 /**
- * Response structure containing the created backlog task
+ * <p>Response structure containing the created backlog task</p>
  * @public
  */
 export interface CreateBacklogTaskResponse {
   /**
-   * The newly created task object
+   * <p>The newly created task object</p>
    * @public
    */
   task: Task | undefined;
 }
 
 /**
- * Request structure for creating a new chat
+ * <p>Request structure for creating a new chat</p>
  * @public
  */
 export interface CreateChatRequest {
   /**
-   * Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The user identifier for the chat. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.
+   * <p>The user identifier for the chat. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.</p>
    *
    * @deprecated (since 2026-04-15) userId is managed by the service and should not be provided by the caller.
    * @public
@@ -2604,104 +2744,104 @@ export interface CreateChatRequest {
   userId?: string | undefined;
 
   /**
-   * The authentication type of the user
+   * <p>The authentication type of the user</p>
    * @public
    */
   userType?: UserType | undefined;
 }
 
 /**
- * Response structure for creating a new chat
+ * <p>Response structure for creating a new chat</p>
  * @public
  */
 export interface CreateChatResponse {
   /**
-   * The unique identifier for the created execution
+   * <p>The unique identifier for the created execution</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * Timestamp when the chat was created
+   * <p>Timestamp when the chat was created</p>
    * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * Configuration for a self-managed Private Connection.
+ * <p>Configuration for a self-managed Private Connection.</p>
  * @public
  */
 export interface SelfManagedInput {
   /**
-   * The ID or ARN of the resource configuration.
+   * <p>The ID or ARN of the resource configuration.</p>
    * @public
    */
   resourceConfigurationId: string | undefined;
 
   /**
-   * Certificate for the Private Connection.
+   * <p>Certificate for the Private Connection.</p>
    * @public
    */
   certificate?: string | undefined;
 }
 
 /**
- * Configuration for a service-managed Private Connection.
+ * <p>Configuration for a service-managed Private Connection.</p>
  * @public
  */
 export interface ServiceManagedInput {
   /**
-   * IP address or DNS name of the target resource.
+   * <p>IP address or DNS name of the target resource.</p>
    * @public
    */
   hostAddress: string | undefined;
 
   /**
-   * VPC to create the service-managed Resource Gateway in.
+   * <p>VPC to create the service-managed Resource Gateway in.</p>
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * Subnets that the service-managed Resource Gateway will span.
+   * <p>Subnets that the service-managed Resource Gateway will span.</p>
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * Security groups to attach to the service-managed Resource Gateway. If not specified, a default security group is created.
+   * <p>Security groups to attach to the service-managed Resource Gateway. If not specified, a default security group is created.</p>
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * IP address type of the service-managed Resource Gateway.
+   * <p>IP address type of the service-managed Resource Gateway.</p>
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
 
   /**
-   * Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+   * <p>Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.</p>
    * @public
    */
   ipv4AddressesPerEni?: number | undefined;
 
   /**
-   * TCP port ranges that a consumer can use to access the resource.
+   * <p>TCP port ranges that a consumer can use to access the resource.</p>
    * @public
    */
   portRanges?: string[] | undefined;
 
   /**
-   * Certificate for the Private Connection.
+   * <p>Certificate for the Private Connection.</p>
    * @public
    */
   certificate?: string | undefined;
 }
 
 /**
- * Private Connection mode — either service-managed or self-managed.
+ * <p>Private Connection mode — either service-managed or self-managed.</p>
  * @public
  */
 export type PrivateConnectionMode =
@@ -2714,7 +2854,7 @@ export type PrivateConnectionMode =
  */
 export namespace PrivateConnectionMode {
   /**
-   * Service manages the Resource Gateway lifecycle.
+   * <p>Service manages the Resource Gateway lifecycle.</p>
    * @public
    */
   export interface ServiceManagedMember {
@@ -2724,7 +2864,7 @@ export namespace PrivateConnectionMode {
   }
 
   /**
-   * Caller manages their own resource configuration.
+   * <p>Caller manages their own resource configuration.</p>
    * @public
    */
   export interface SelfManagedMember {
@@ -2754,103 +2894,103 @@ export namespace PrivateConnectionMode {
 }
 
 /**
- * Input for creating a new Private Connection.
+ * <p>Input for creating a new Private Connection.</p>
  * @public
  */
 export interface CreatePrivateConnectionInput {
   /**
-   * Unique name for this Private Connection within the account.
+   * <p>Unique name for this Private Connection within the account.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Private Connection mode configuration.
+   * <p>Private Connection mode configuration.</p>
    * @public
    */
   mode: PrivateConnectionMode | undefined;
 
   /**
-   * Tags to add to the Private Connection at creation time.
+   * <p>Tags to add to the Private Connection at creation time.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Output containing the newly created Private Connection summary.
+ * <p>Output containing the newly created Private Connection summary.</p>
  * @public
  */
 export interface CreatePrivateConnectionOutput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The type of the Private Connection.
+   * <p>The type of the Private Connection.</p>
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.
+   * <p>The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.</p>
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * IP address or DNS name of the target resource. Only present for service-managed Private Connections.
+   * <p>IP address or DNS name of the target resource. Only present for service-managed Private Connections.</p>
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.
+   * <p>VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.</p>
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * The Resource Configuration ARN. Only present for self-managed Private Connections.
+   * <p>The Resource Configuration ARN. Only present for self-managed Private Connections.</p>
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * The status of the Private Connection.
+   * <p>The status of the Private Connection.</p>
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.
+   * <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * Tags associated with the created Private Connection.
+   * <p>Tags associated with the created Private Connection.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Authorization discovery configuration for MCP server.
+ * <p>Authorization discovery configuration for MCP server.</p>
  * @public
  */
 export interface MCPServerAuthorizationDiscoveryConfig {
   /**
-   * The endpoint to return to after OAuth flow completes (must be AWS console domain)
+   * <p>The endpoint to return to after OAuth flow completes (must be AWS console domain)</p>
    * @public
    */
   returnToEndpoint: string | undefined;
 }
 
 /**
- * Authorization configuration for Datadog MCP server (uses authorization discovery only).
+ * <p>Authorization configuration for Datadog MCP server (uses authorization discovery only).</p>
  * @public
  */
 export type DatadogAuthorizationConfig =
@@ -2862,7 +3002,7 @@ export type DatadogAuthorizationConfig =
  */
 export namespace DatadogAuthorizationConfig {
   /**
-   * Datadog MCP server authorization discovery configuration.
+   * <p>Datadog MCP server authorization discovery configuration.</p>
    * @public
    */
   export interface AuthorizationDiscoveryMember {
@@ -2889,150 +3029,150 @@ export namespace DatadogAuthorizationConfig {
 }
 
 /**
- * Complete service details for Datadog MCP server integration.
+ * <p>Complete service details for Datadog MCP server integration.</p>
  * @public
  */
 export interface DatadogServiceDetails {
   /**
-   * MCP server name.
+   * <p>MCP server name.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * MCP server endpoint URL.
+   * <p>MCP server endpoint URL.</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * Optional description for the MCP server.
+   * <p>Optional description for the MCP server.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Datadog MCP server authorization configuration (only authorization discovery is supported).
+   * <p>Datadog MCP server authorization configuration (only authorization discovery is supported).</p>
    * @public
    */
   authorizationConfig: DatadogAuthorizationConfig | undefined;
 }
 
 /**
- * Input for deleting an existing Private Connection.
+ * <p>Input for deleting an existing Private Connection.</p>
  * @public
  */
 export interface DeletePrivateConnectionInput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * Output containing the status of the Private Connection deletion.
+ * <p>Output containing the status of the Private Connection deletion.</p>
  * @public
  */
 export interface DeletePrivateConnectionOutput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The status of the Private Connection.
+   * <p>The status of the Private Connection.</p>
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 }
 
 /**
- * Input for deregistering a service.
+ * <p>Input for deregistering a service.</p>
  * @public
  */
 export interface DeregisterServiceInput {
   /**
-   * The service id to deregister. A service can only be deregistered if it is not associated with any AgentSpace.
+   * <p>The service id to deregister. A service can only be deregistered if it is not associated with any AgentSpace.</p>
    * @public
    */
   serviceId: string | undefined;
 }
 
 /**
- * Empty output for successful service deregistration.
+ * <p>Empty output for successful service deregistration.</p>
  * @public
  */
 export interface DeregisterServiceOutput {}
 
 /**
- * Input for describing an existing Private Connection.
+ * <p>Input for describing an existing Private Connection.</p>
  * @public
  */
 export interface DescribePrivateConnectionInput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * Output containing the Private Connection details.
+ * <p>Output containing the Private Connection details.</p>
  * @public
  */
 export interface DescribePrivateConnectionOutput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The type of the Private Connection.
+   * <p>The type of the Private Connection.</p>
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.
+   * <p>The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.</p>
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * IP address or DNS name of the target resource. Only present for service-managed Private Connections.
+   * <p>IP address or DNS name of the target resource. Only present for service-managed Private Connections.</p>
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.
+   * <p>VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.</p>
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * The Resource Configuration ARN. Only present for self-managed Private Connections.
+   * <p>The Resource Configuration ARN. Only present for self-managed Private Connections.</p>
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * The status of the Private Connection.
+   * <p>The status of the Private Connection.</p>
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.
+   * <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 
   /**
-   * Tags associated with the Private Connection.
+   * <p>Tags associated with the Private Connection.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3044,18 +3184,18 @@ export interface DescribePrivateConnectionOutput {
 export interface GetAccountUsageInput {}
 
 /**
- * Represents a usage metric with its configured limit and current usage value.
+ * <p>Represents a usage metric with its configured limit and current usage value.</p>
  * @public
  */
 export interface UsageMetric {
   /**
-   * Configured limit for this metric.
+   * <p>Configured limit for this metric.</p>
    * @public
    */
   limit: number | undefined;
 
   /**
-   * Current usage for this metric
+   * <p>Current usage for this metric</p>
    * @public
    */
   usage: number | undefined;
@@ -3066,334 +3206,337 @@ export interface UsageMetric {
  */
 export interface GetAccountUsageOutput {
   /**
-   * Monthly investigation hours usage and limit for an account
+   * <p>Monthly investigation hours usage and limit for an account</p>
    * @public
    */
   monthlyAccountInvestigationHours?: UsageMetric | undefined;
 
   /**
-   * Monthly evaluation hours usage and limit for an account
+   * <p>Monthly evaluation hours usage and limit for an account</p>
    * @public
    */
   monthlyAccountEvaluationHours?: UsageMetric | undefined;
 
   /**
-   * Monthly system learning hours usage and limit for an account
+   * <p>Monthly system learning hours usage and limit for an account</p>
    * @public
    */
   monthlyAccountSystemLearningHours?: UsageMetric | undefined;
 
   /**
-   * Monthly on-demand hours usage and limit for an account
+   * <p>Monthly on-demand hours usage and limit for an account</p>
    * @public
    */
   monthlyAccountOnDemandHours?: UsageMetric | undefined;
 
   /**
-   * The start time of the usage tracking period
+   * <p>The start time of the usage tracking period</p>
    * @public
    */
   usagePeriodStartTime: Date | undefined;
 
   /**
-   * The end time of the usage tracking period
+   * <p>The end time of the usage tracking period</p>
    * @public
    */
   usagePeriodEndTime: Date | undefined;
 }
 
 /**
- * Request structure for retrieving a specific backlog task
+ * <p>Request structure for retrieving a specific backlog task</p>
  * @public
  */
 export interface GetBacklogTaskRequest {
   /**
-   * The unique identifier for the agent space containing the task
+   * <p>The unique identifier for the agent space containing the task</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the task to retrieve
+   * <p>The unique identifier of the task to retrieve</p>
    * @public
    */
   taskId: string | undefined;
 }
 
 /**
- * Response structure containing the requested backlog task
+ * <p>Response structure containing the requested backlog task</p>
  * @public
  */
 export interface GetBacklogTaskResponse {
   /**
-   * The requested task object
+   * <p>The requested task object</p>
    * @public
    */
   task: Task | undefined;
 }
 
 /**
- * Request structure for retrieving a specific recommendation
+ * <p>Request structure for retrieving a specific recommendation</p>
  * @public
  */
 export interface GetRecommendationRequest {
   /**
-   * The unique identifier for the agent space containing the recommendation
+   * <p>The unique identifier for the agent space containing the recommendation</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier for the recommendation to retrieve
+   * <p>The unique identifier for the recommendation to retrieve</p>
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * Specific version of the recommendation to retrieve. If not specified, returns the latest version.
+   * <p>Specific version of the recommendation to retrieve. If not specified, returns the latest version.</p>
    * @public
    */
   recommendationVersion?: number | undefined;
 }
 
 /**
- * Content of a recommendation
+ * <p>Content of a recommendation</p>
  * @public
  */
 export interface RecommendationContent {
   /**
-   * A brief summary of the recommendation.
+   * <p>A brief summary of the recommendation.</p>
    * @public
    */
   summary: string | undefined;
 
   /**
-   * Agent-ready specification with detailed implementation steps
+   * <p>Agent-ready specification with detailed implementation steps</p>
    * @public
    */
   spec?: string | undefined;
 }
 
 /**
- * Represents a recommendation with all its properties and metadata
+ * <p>Represents a recommendation with all its properties and metadata</p>
  * @public
  */
 export interface Recommendation {
   /**
-   * ARN of the agent space this recommendation belongs to
+   * <p>ARN of the agent space this recommendation belongs to</p>
    * @public
    */
   agentSpaceArn: string | undefined;
 
   /**
-   * The unique identifier for this recommendation
+   * <p>The unique identifier for this recommendation</p>
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * ID of the task that generated the recommendation
+   * <p>ID of the task that generated the recommendation</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * ID of the goal this recommendation is associated with
+   * <p>ID of the goal this recommendation is associated with</p>
    * @public
    */
   goalId?: string | undefined;
 
   /**
-   * The title of the recommendation
+   * <p>The title of the recommendation</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * Content of the recommendation
+   * <p>Content of the recommendation</p>
    * @public
    */
   content: RecommendationContent | undefined;
 
   /**
-   * Current status of the recommendation
+   * <p>Current status of the recommendation</p>
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * Priority level of the recommendation
+   * <p>Priority level of the recommendation</p>
    * @public
    */
   priority: RecommendationPriority | undefined;
 
   /**
-   * Version of the goal at the time this recommendation was generated
+   * <p>Version of the goal at the time this recommendation was generated</p>
    * @public
    */
   goalVersion?: number | undefined;
 
   /**
-   * Additional context for recommendation
+   * <p>Additional context for recommendation</p>
    * @public
    */
   additionalContext?: string | undefined;
 
   /**
-   * Timestamp when this recommendation was created
+   * <p>Position in ranked list (1 = highest priority)</p>
+   * @public
+   */
+  rankPosition?: number | undefined;
+
+  /**
+   * <p>Timestamp when the recommendation was last ranked</p>
+   * @public
+   */
+  rankedAt?: Date | undefined;
+
+  /**
+   * <p>Timestamp when this recommendation was created</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Timestamp when this recommendation was last updated
+   * <p>Timestamp when this recommendation was last updated</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Version number for optimistic locking
+   * <p>Version number for optimistic locking</p>
    * @public
    */
   version: number | undefined;
 }
 
 /**
- * Response structure containing the requested recommendation
+ * <p>Response structure containing the requested recommendation</p>
  * @public
  */
 export interface GetRecommendationResponse {
   /**
-   * The requested recommendation
+   * <p>The requested recommendation</p>
    * @public
    */
   recommendation: Recommendation | undefined;
 }
 
 /**
- * Filter criteria for listing backlog tasks, supporting time range, priority, status, and type filters.
+ * <p>Filter criteria for listing backlog tasks, supporting time range, priority, status, and type filters.</p>
  * @public
  */
 export interface TaskFilter {
   /**
-   * Filter for tasks created after this timestamp inclusive
+   * <p>Filter for tasks created after this timestamp inclusive</p>
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * Filter for tasks created before this timestamp exclusive
+   * <p>Filter for tasks created before this timestamp exclusive</p>
    * @public
    */
   createdBefore?: Date | undefined;
 
   /**
-   * Filter by priority (single value only)
+   * <p>Filter by priority (single value only)</p>
    * @public
    */
   priority?: Priority[] | undefined;
 
   /**
-   * Filter by status (single value only)
+   * <p>Filter by status (single value only)</p>
    * @public
    */
   status?: TaskStatus[] | undefined;
 
   /**
-   * Filter by task type (single value only)
+   * <p>Filter by task type (single value only)</p>
    * @public
    */
   taskType?: TaskType[] | undefined;
 
   /**
-   * Filter by primary task ID to get linked tasks
+   * <p>Filter by primary task ID to get linked tasks</p>
    * @public
    */
   primaryTaskId?: string | undefined;
 }
 
 /**
- * Request structure for listing backlog tasks with filtering, sorting, and pagination support
+ * <p>Request structure for listing backlog tasks with filtering, sorting, and pagination support</p>
  * @public
  */
 export interface ListBacklogTasksRequest {
   /**
-   * The unique identifier for the agent space containing the tasks
+   * <p>The unique identifier for the agent space containing the tasks</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Filter criteria to apply when listing tasks
-   *
-   * Filtering restrictions:
-   * - Each filter field list is limited to a single value
-   * - Filtering by Priority and Status at the same time when not filtering by Type is not permitted
-   * - Timestamp filters (createdAfter, createdBefore) can be combined with other filters when not sorting by priority
+   * <p>Filter criteria to apply when listing tasks Filtering restrictions: - Each filter field list is limited to a single value - Filtering by Priority and Status at the same time when not filtering by Type is not permitted - Timestamp filters (createdAfter, createdBefore) can be combined with other filters when not sorting by priority</p>
    * @public
    */
   filter?: TaskFilter | undefined;
 
   /**
-   * Maximum number of tasks to return in a single response (1-1000, default: 100)
+   * <p>Maximum number of tasks to return in a single response (1-1000, default: 100)</p>
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * Token for retrieving the next page of results
+   * <p>Token for retrieving the next page of results</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Field to sort by
-   *
-   *     Sorting restrictions:
-   * - Only sorting on createdAt is supported when using priority or status filters alone.
-   * - Sorting by priority is not supported when using Timestamp filters (createdAfter, createdBefore)
+   * <p>Field to sort by Sorting restrictions: - Only sorting on createdAt is supported when using priority or status filters alone. - Sorting by priority is not supported when using Timestamp filters (createdAfter, createdBefore)</p>
    * @public
    */
   sortField?: TaskSortField | undefined;
 
   /**
-   * Sort order for the tasks based on sortField (default: DESC)
+   * <p>Sort order for the tasks based on sortField (default: DESC)</p>
    * @public
    */
   order?: TaskSortOrder | undefined;
 }
 
 /**
- * Response structure containing a list of backlog tasks
+ * <p>Response structure containing a list of backlog tasks</p>
  * @public
  */
 export interface ListBacklogTasksResponse {
   /**
-   * List of backlog tasks
+   * <p>List of backlog tasks</p>
    * @public
    */
   tasks: Task[] | undefined;
 
   /**
-   * Token for retrieving the next page of results, if more results are available
+   * <p>Token for retrieving the next page of results, if more results are available</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Request structure for listing chats
+ * <p>Request structure for listing chats</p>
  * @public
  */
 export interface ListChatsRequest {
   /**
-   * Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The user identifier to list chats for. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.
+   * <p>The user identifier to list chats for. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.</p>
    *
    * @deprecated (since 2026-04-15) userId is managed by the service and should not be provided by the caller.
    * @public
@@ -3401,464 +3544,464 @@ export interface ListChatsRequest {
   userId?: string | undefined;
 
   /**
-   * Maximum number of results to return
+   * <p>Maximum number of results to return</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Token for pagination
+   * <p>Token for pagination</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Response structure for listing chats
+ * <p>Response structure for listing chats</p>
  * @public
  */
 export interface ListChatsResponse {
   /**
-   * List of recent chat executions
+   * <p>List of recent chat executions</p>
    * @public
    */
   executions: ChatExecution[] | undefined;
 
   /**
-   * Token for retrieving the next page of results
+   * <p>Token for retrieving the next page of results</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Request structure for listing executions
+ * <p>Request structure for listing executions</p>
  * @public
  */
 export interface ListExecutionsRequest {
   /**
-   * The unique identifier for the agent space
+   * <p>The unique identifier for the agent space</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the task whose executions to retrieve
+   * <p>The unique identifier of the task whose executions to retrieve</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * Maximum number of executions to return
+   * <p>Maximum number of executions to return</p>
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results
+   * <p>Token for pagination to retrieve the next set of results</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Represents an execution instance with its lifecycle information
+ * <p>Represents an execution instance with its lifecycle information</p>
  * @public
  */
 export interface Execution {
   /**
-   * The unique identifier for the agent space containing this execution
+   * <p>The unique identifier for the agent space containing this execution</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier for this execution
+   * <p>The unique identifier for this execution</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * The identifier of the parent execution, if this is a child execution
+   * <p>The identifier of the parent execution, if this is a child execution</p>
    * @public
    */
   parentExecutionId?: string | undefined;
 
   /**
-   * The specific subtask being executed by the agent
+   * <p>The specific subtask being executed by the agent</p>
    * @public
    */
   agentSubTask: string | undefined;
 
   /**
-   * Timestamp when this execution was created
+   * <p>Timestamp when this execution was created</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Timestamp when this execution was last updated
+   * <p>Timestamp when this execution was last updated</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * The current status of this execution
+   * <p>The current status of this execution</p>
    * @public
    */
   executionStatus: ExecutionStatus | undefined;
 
   /**
-   * The type of agent that performed this execution.
+   * <p>The type of agent that performed this execution.</p>
    * @public
    */
   agentType?: string | undefined;
 
   /**
-   * The unique identifier for the user session associated with this execution
+   * <p>The unique identifier for the user session associated with this execution</p>
    * @public
    */
   uid?: string | undefined;
 }
 
 /**
- * Response structure containing executions
+ * <p>Response structure containing executions</p>
  * @public
  */
 export interface ListExecutionsResponse {
   /**
-   * List of executions
+   * <p>List of executions</p>
    * @public
    */
   executions: Execution[] | undefined;
 
   /**
-   * Token for retrieving the next page of results, if available
+   * <p>Token for retrieving the next page of results, if available</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Request structure for listing goals
+ * <p>Request structure for listing goals</p>
  * @public
  */
 export interface ListGoalsRequest {
   /**
-   * The unique identifier for the agent space
+   * <p>The unique identifier for the agent space</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Filter goals by goal status
+   * <p>Filter goals by goal status</p>
    * @public
    */
   status?: GoalStatus | undefined;
 
   /**
-   * Filter goals by goal type
+   * <p>Filter goals by goal type</p>
    * @public
    */
   goalType?: GoalType | undefined;
 
   /**
-   * Maximum number of goals to return
+   * <p>Maximum number of goals to return</p>
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * Pagination token for the next set of results
+   * <p>Pagination token for the next set of results</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Content of a goal
+ * <p>Content of a goal</p>
  * @public
  */
 export interface GoalContent {
   /**
-   * A detailed description of the goal.
+   * <p>A detailed description of the goal.</p>
    * @public
    */
   description: string | undefined;
 
   /**
-   * The objectives to be achieved for this goal.
+   * <p>The objectives to be achieved for this goal.</p>
    * @public
    */
   objectives: string | undefined;
 }
 
 /**
- * Schedule configuration for goal evaluations
+ * <p>Schedule configuration for goal evaluations</p>
  * @public
  */
 export interface GoalSchedule {
   /**
-   * Whether the schedule is enabled or disabled
+   * <p>Whether the schedule is enabled or disabled</p>
    * @public
    */
   state: SchedulerState | undefined;
 
   /**
-   * Schedule expression (e.g., 'rate(7 days)')
+   * <p>Schedule expression (e.g., 'rate(7 days)')</p>
    * @public
    */
   expression?: string | undefined;
 }
 
 /**
- * Represents a goal with all its properties and metadata
+ * <p>Represents a goal with all its properties and metadata</p>
  * @public
  */
 export interface Goal {
   /**
-   * The unique identifier for the agent space containing this goal
+   * <p>The unique identifier for the agent space containing this goal</p>
    * @public
    */
   agentSpaceArn: string | undefined;
 
   /**
-   * The unique identifier for this goal
+   * <p>The unique identifier for this goal</p>
    * @public
    */
   goalId: string | undefined;
 
   /**
-   * The title of the goal
+   * <p>The title of the goal</p>
    * @public
    */
   title: string | undefined;
 
   /**
-   * Content of the goal
+   * <p>Content of the goal</p>
    * @public
    */
   content: GoalContent | undefined;
 
   /**
-   * Current status of the goal itself
+   * <p>Current status of the goal itself</p>
    * @public
    */
   status: GoalStatus | undefined;
 
   /**
-   * Type of goal based on its origin
+   * <p>Type of goal based on its origin</p>
    * @public
    */
   goalType: GoalType | undefined;
 
   /**
-   * Timestamp when this goal was created
+   * <p>Timestamp when this goal was created</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Timestamp when this goal was last updated
+   * <p>Timestamp when this goal was last updated</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Timestamp when the goal was last evaluated
+   * <p>Timestamp when the goal was last evaluated</p>
    * @public
    */
   lastEvaluatedAt?: Date | undefined;
 
   /**
-   * ID of the most recent task associated with this goal
+   * <p>ID of the most recent task associated with this goal</p>
    * @public
    */
   lastTaskId?: string | undefined;
 
   /**
-   * ID of the most recent successful task associated with this goal
+   * <p>ID of the most recent successful task associated with this goal</p>
    * @public
    */
   lastSuccessfulTaskId?: string | undefined;
 
   /**
-   * Version number for optimistic locking
+   * <p>Version number for optimistic locking</p>
    * @public
    */
   version: number | undefined;
 
   /**
-   * Goal Schedule. Allows to schedule the goal to run periodically, as well as disable a goal temporarily
+   * <p>Goal Schedule. Allows to schedule the goal to run periodically, as well as disable a goal temporarily</p>
    * @public
    */
   evaluationSchedule?: GoalSchedule | undefined;
 }
 
 /**
- * Response structure containing the list of goals
+ * <p>Response structure containing the list of goals</p>
  * @public
  */
 export interface ListGoalsResponse {
   /**
-   * List of goals matching the criteria
+   * <p>List of goals matching the criteria</p>
    * @public
    */
   goals: Goal[] | undefined;
 
   /**
-   * Pagination token for the next set of results
+   * <p>Pagination token for the next set of results</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Request structure for listing journal records with filtering and pagination support
+ * <p>Request structure for listing journal records with filtering and pagination support</p>
  * @public
  */
 export interface ListJournalRecordsRequest {
   /**
-   * The unique identifier for the agent space containing the execution
+   * <p>The unique identifier for the agent space containing the execution</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the execution whose journal records to retrieve
+   * <p>The unique identifier of the execution whose journal records to retrieve</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * Maximum number of records to return in a single response (1-100, default: 100)
+   * <p>Maximum number of records to return in a single response (1-100, default: 100)</p>
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * Token for retrieving the next page of results
+   * <p>Token for retrieving the next page of results</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Filter records by type (empty string returns all types)
+   * <p>Filter records by type (empty string returns all types)</p>
    * @public
    */
   recordType?: string | undefined;
 
   /**
-   * Sort order for the records based on timestamp (default: DESC)
+   * <p>Sort order for the records based on timestamp (default: DESC)</p>
    * @public
    */
   order?: OrderType | undefined;
 }
 
 /**
- * Reference to a user in the system
+ * <p>Reference to a user in the system</p>
  * @public
  */
 export interface UserReference {
   /**
-   * The unique identifier for the user
+   * <p>The unique identifier for the user</p>
    * @public
    */
   userId: string | undefined;
 
   /**
-   * The type of user
+   * <p>The type of user</p>
    * @public
    */
   userType: UserType | undefined;
 }
 
 /**
- * Represents a journal record containing execution details and content
+ * <p>Represents a journal record containing execution details and content</p>
  * @public
  */
 export interface JournalRecord {
   /**
-   * The unique identifier for the agent space containing this record
+   * <p>The unique identifier for the agent space containing this record</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The execution ID associated with this journal record
+   * <p>The execution ID associated with this journal record</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * The unique identifier for this journal record
+   * <p>The unique identifier for this journal record</p>
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * The content of this journal record
+   * <p>The content of this journal record</p>
    * @public
    */
   content: __DocumentType | undefined;
 
   /**
-   * Timestamp when this journal record was created
+   * <p>Timestamp when this journal record was created</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The type of this journal record
+   * <p>The type of this journal record</p>
    * @public
    */
   recordType: string | undefined;
 
   /**
-   * Reference to the user associated with this journal record
+   * <p>Reference to the user associated with this journal record</p>
    * @public
    */
   userReference?: UserReference | undefined;
 }
 
 /**
- * Response structure containing a list of journal records
+ * <p>Response structure containing a list of journal records</p>
  * @public
  */
 export interface ListJournalRecordsResponse {
   /**
-   * List of journal records matching the request criteria
+   * <p>List of journal records matching the request criteria</p>
    * @public
    */
   records: JournalRecord[] | undefined;
 
   /**
-   * Token for retrieving the next page of results, if more results are available
+   * <p>Token for retrieving the next page of results, if more results are available</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Request structure for listing pending messages with filtering and pagination support
+ * <p>Request structure for listing pending messages with filtering and pagination support</p>
  * @public
  */
 export interface ListPendingMessagesRequest {
   /**
-   * Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the execution whose journal records to retrieve
+   * <p>The unique identifier of the execution whose journal records to retrieve</p>
    * @public
    */
   executionId: string | undefined;
 }
 
 /**
- * A block of content in a user message.
+ * <p>A block of content in a user message.</p>
  * @public
  */
 export type UserMessageBlock =
@@ -3871,7 +4014,7 @@ export type UserMessageBlock =
  */
 export namespace UserMessageBlock {
   /**
-   * Text content from the user.
+   * <p>Text content from the user.</p>
    * @public
    */
   export interface TextMember {
@@ -3881,7 +4024,7 @@ export namespace UserMessageBlock {
   }
 
   /**
-   * Tool execution result provided by the user.
+   * <p>Tool execution result provided by the user.</p>
    * @public
    */
   export interface ToolResultMember {
@@ -3911,7 +4054,7 @@ export namespace UserMessageBlock {
 }
 
 /**
- * A message in a conversation, either from the user or the assistant.
+ * <p>A message in a conversation, either from the user or the assistant.</p>
  * @public
  */
 export type Message =
@@ -3924,7 +4067,7 @@ export type Message =
  */
 export namespace Message {
   /**
-   * A message from the user.
+   * <p>A message from the user.</p>
    * @public
    */
   export interface UserMessageMember {
@@ -3934,7 +4077,7 @@ export namespace Message {
   }
 
   /**
-   * A message from the assistant.
+   * <p>A message from the assistant.</p>
    * @public
    */
   export interface AssistantMessageMember {
@@ -3964,114 +4107,114 @@ export namespace Message {
 }
 
 /**
- * Represents a pending message in an agent execution.
+ * <p>Represents a pending message in an agent execution.</p>
  * @public
  */
 export interface PendingMessage {
   /**
-   * The unique identifier for this pending message.
+   * <p>The unique identifier for this pending message.</p>
    * @public
    */
   messageId: string | undefined;
 
   /**
-   * The message content.
+   * <p>The message content.</p>
    * @public
    */
   message: Message | undefined;
 }
 
 /**
- * Response structure containing a list of pending messages
+ * <p>Response structure containing a list of pending messages</p>
  * @public
  */
 export interface ListPendingMessagesResponse {
   /**
-   * Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)
+   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier for the execution.
+   * <p>The unique identifier for the execution.</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * The list of pending messages for the execution.
+   * <p>The list of pending messages for the execution.</p>
    * @public
    */
   messages: PendingMessage[] | undefined;
 
   /**
-   * Timestamp when the pending messages were created.
+   * <p>Timestamp when the pending messages were created.</p>
    * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * Request structure for listing recommendations with filtering and pagination support
+ * <p>Request structure for listing recommendations with filtering and pagination support</p>
  * @public
  */
 export interface ListRecommendationsRequest {
   /**
-   * The unique identifier for the agent space containing the recommendations
+   * <p>The unique identifier for the agent space containing the recommendations</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * Optional task ID to filter recommendations by specific task
+   * <p>Optional task ID to filter recommendations by specific task</p>
    * @public
    */
   taskId?: string | undefined;
 
   /**
-   * Optional goal ID to filter recommendations by specific goal
+   * <p>Optional goal ID to filter recommendations by specific goal</p>
    * @public
    */
   goalId?: string | undefined;
 
   /**
-   * Optional status to filter recommendations by their current status
+   * <p>Optional status to filter recommendations by their current status</p>
    * @public
    */
   status?: RecommendationStatus | undefined;
 
   /**
-   * Optional priority to filter recommendations by priority level
+   * <p>Optional priority to filter recommendations by priority level</p>
    * @public
    */
   priority?: RecommendationPriority | undefined;
 
   /**
-   * Maximum number of recommendations to return in a single response
+   * <p>Maximum number of recommendations to return in a single response</p>
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * Token for retrieving the next page of results
+   * <p>Token for retrieving the next page of results</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Response structure containing a list of recommendations
+ * <p>Response structure containing a list of recommendations</p>
  * @public
  */
 export interface ListRecommendationsResponse {
   /**
-   * List of recommendations matching the request criteria
+   * <p>List of recommendations matching the request criteria</p>
    * @public
    */
   recommendations: Recommendation[] | undefined;
 
   /**
-   * Token for retrieving the next page of results, if more results are available
+   * <p>Token for retrieving the next page of results, if more results are available</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4082,7 +4225,7 @@ export interface ListRecommendationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * The ARN of the resource.
+   * <p>The ARN of the resource.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -4093,211 +4236,211 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * Tags associated with the resource.
+   * <p>Tags associated with the resource.</p>
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * Input for listing Private Connections in the caller's account.
+ * <p>Input for listing Private Connections in the caller's account.</p>
  * @public
  */
 export interface ListPrivateConnectionsInput {}
 
 /**
- * Summary of a Private Connection.
+ * <p>Summary of a Private Connection.</p>
  * @public
  */
 export interface PrivateConnectionSummary {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The type of the Private Connection.
+   * <p>The type of the Private Connection.</p>
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.
+   * <p>The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.</p>
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * IP address or DNS name of the target resource. Only present for service-managed Private Connections.
+   * <p>IP address or DNS name of the target resource. Only present for service-managed Private Connections.</p>
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.
+   * <p>VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.</p>
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * The Resource Configuration ARN. Only present for self-managed Private Connections.
+   * <p>The Resource Configuration ARN. Only present for self-managed Private Connections.</p>
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * The status of the Private Connection.
+   * <p>The status of the Private Connection.</p>
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.
+   * <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 }
 
 /**
- * Output containing the list of Private Connections.
+ * <p>Output containing the list of Private Connections.</p>
  * @public
  */
 export interface ListPrivateConnectionsOutput {
   /**
-   * The list of Private Connections.
+   * <p>The list of Private Connections.</p>
    * @public
    */
   privateConnections: PrivateConnectionSummary[] | undefined;
 }
 
 /**
- * Input for updating the certificate of a Private Connection.
+ * <p>Input for updating the certificate of a Private Connection.</p>
  * @public
  */
 export interface UpdatePrivateConnectionCertificateInput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The new certificate for the Private Connection.
+   * <p>The new certificate for the Private Connection.</p>
    * @public
    */
   certificate: string | undefined;
 }
 
 /**
- * Output containing the updated Private Connection summary.
+ * <p>Output containing the updated Private Connection summary.</p>
  * @public
  */
 export interface UpdatePrivateConnectionCertificateOutput {
   /**
-   * The name of the Private Connection.
+   * <p>The name of the Private Connection.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The type of the Private Connection.
+   * <p>The type of the Private Connection.</p>
    * @public
    */
   type: PrivateConnectionType | undefined;
 
   /**
-   * The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.
+   * <p>The service-managed Resource Gateway ARN. Only present for service-managed Private Connections.</p>
    * @public
    */
   resourceGatewayId?: string | undefined;
 
   /**
-   * IP address or DNS name of the target resource. Only present for service-managed Private Connections.
+   * <p>IP address or DNS name of the target resource. Only present for service-managed Private Connections.</p>
    * @public
    */
   hostAddress?: string | undefined;
 
   /**
-   * VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.
+   * <p>VPC identifier of the service-managed Resource Gateway. Only present for service-managed Private Connections.</p>
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * The Resource Configuration ARN. Only present for self-managed Private Connections.
+   * <p>The Resource Configuration ARN. Only present for self-managed Private Connections.</p>
    * @public
    */
   resourceConfigurationId?: string | undefined;
 
   /**
-   * The status of the Private Connection.
+   * <p>The status of the Private Connection.</p>
    * @public
    */
   status: PrivateConnectionStatus | undefined;
 
   /**
-   * The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.
+   * <p>The expiry time of the certificate associated with the Private Connection. Only present when a certificate is associated.</p>
    * @public
    */
   certificateExpiryTime?: Date | undefined;
 }
 
 /**
- * Context object for additional message metadata
+ * <p>Context object for additional message metadata</p>
  * @public
  */
 export interface SendMessageContext {
   /**
-   * The current page or view the user is on
+   * <p>The current page or view the user is on</p>
    * @public
    */
   currentPage?: string | undefined;
 
   /**
-   * The ID of the last message in the conversation
+   * <p>The ID of the last message in the conversation</p>
    * @public
    */
   lastMessage?: string | undefined;
 
   /**
-   * Response to a UI prompt (not a text conversation message)
+   * <p>Response to a UI prompt (not a text conversation message)</p>
    * @public
    */
   userActionResponse?: string | undefined;
 }
 
 /**
- * Request structure for sending a chat message
+ * <p>Request structure for sending a chat message</p>
  * @public
  */
 export interface SendMessageRequest {
   /**
-   * The agent space identifier
+   * <p>The agent space identifier</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The execution identifier for the chat session
+   * <p>The execution identifier for the chat session</p>
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * The user message content
+   * <p>The user message content</p>
    * @public
    */
   content: string | undefined;
 
   /**
-   * Optional context for the message
+   * <p>Optional context for the message</p>
    * @public
    */
   context?: SendMessageContext | undefined;
 
   /**
-   * User identifier. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.
+   * <p>User identifier. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.</p>
    *
    * @deprecated (since 2026-04-15) userId is managed by the service and should not be provided by the caller.
    * @public
@@ -4306,31 +4449,31 @@ export interface SendMessageRequest {
 }
 
 /**
- * JSON delta containing partial JSON
+ * <p>JSON delta containing partial JSON</p>
  * @public
  */
 export interface SendMessageJsonDelta {
   /**
-   * Partial JSON string
+   * <p>Partial JSON string</p>
    * @public
    */
   partialJson?: string | undefined;
 }
 
 /**
- * Text delta containing a text fragment
+ * <p>Text delta containing a text fragment</p>
  * @public
  */
 export interface SendMessageTextDelta {
   /**
-   * The text fragment
+   * <p>The text fragment</p>
    * @public
    */
   text?: string | undefined;
 }
 
 /**
- * Union of possible delta payloads within a content block delta event
+ * <p>Union of possible delta payloads within a content block delta event</p>
  * @public
  */
 export type SendMessageContentBlockDelta =
@@ -4343,7 +4486,7 @@ export type SendMessageContentBlockDelta =
  */
 export namespace SendMessageContentBlockDelta {
   /**
-   * Text delta for text-based content blocks
+   * <p>Text delta for text-based content blocks</p>
    * @public
    */
   export interface TextDeltaMember {
@@ -4353,7 +4496,7 @@ export namespace SendMessageContentBlockDelta {
   }
 
   /**
-   * JSON delta for structured content blocks
+   * <p>JSON delta for structured content blocks</p>
    * @public
    */
   export interface JsonDeltaMember {
@@ -4383,248 +4526,241 @@ export namespace SendMessageContentBlockDelta {
 }
 
 /**
- * Event emitted for each incremental content delta within a content block
+ * <p>Event emitted for each incremental content delta within a content block</p>
  * @public
  */
 export interface SendMessageContentBlockDeltaEvent {
   /**
-   * Zero-based index of the content block
+   * <p>Zero-based index of the content block</p>
    * @public
    */
   index?: number | undefined;
 
   /**
-   * The incremental content delta
+   * <p>The incremental content delta</p>
    * @public
    */
   delta?: SendMessageContentBlockDelta | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event emitted when a new content block starts
+ * <p>Event emitted when a new content block starts</p>
  * @public
  */
 export interface SendMessageContentBlockStartEvent {
   /**
-   * Zero-based index of the content block
+   * <p>Zero-based index of the content block</p>
    * @public
    */
   index?: number | undefined;
 
   /**
-   * The type of content in this block
+   * <p>The type of content in this block</p>
    * @public
    */
   type?: string | undefined;
 
   /**
-   * Block identifier
+   * <p>Block identifier</p>
    * @public
    */
   id?: string | undefined;
 
   /**
-   * Optional parent block ID for nested content blocks (e.g. subagent tool calls)
+   * <p>Optional parent block ID for nested content blocks (e.g. subagent tool calls)</p>
    * @public
    */
   parentId?: string | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event emitted when a content block is complete
+ * <p>Event emitted when a content block is complete</p>
  * @public
  */
 export interface SendMessageContentBlockStopEvent {
   /**
-   * Zero-based index of the content block
+   * <p>Zero-based index of the content block</p>
    * @public
    */
   index?: number | undefined;
 
   /**
-   * The type of content in this block
+   * <p>The type of content in this block</p>
    * @public
    */
   type?: string | undefined;
 
   /**
-   * The accumulated complete content text
+   * <p>The accumulated complete content text</p>
    * @public
    */
   text?: string | undefined;
 
   /**
-   * Whether this is the final content block in the response
+   * <p>Whether this is the final content block in the response</p>
    * @public
    */
   last?: boolean | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Heartbeat event to keep connection alive
+ * <p>Heartbeat event to keep connection alive</p>
  * @public
  */
 export interface SendMessageHeartbeatEvent {}
 
 /**
- * Token usage information
+ * <p>Token usage information</p>
  * @public
  */
 export interface SendMessageUsageInfo {
   /**
-   * Number of input tokens
+   * <p>Number of input tokens</p>
    * @public
    */
   inputTokens?: number | undefined;
 
   /**
-   * Number of output tokens
+   * <p>Number of output tokens</p>
    * @public
    */
   outputTokens?: number | undefined;
 
   /**
-   * Total tokens used
+   * <p>Total tokens used</p>
    * @public
    */
   totalTokens?: number | undefined;
 }
 
 /**
- * Event emitted when the response completes successfully
+ * <p>Event emitted when the response completes successfully</p>
  * @public
  */
 export interface SendMessageResponseCompletedEvent {
   /**
-   * The response ID
+   * <p>The response ID</p>
    * @public
    */
   responseId?: string | undefined;
 
   /**
-   * Token usage information
+   * <p>Token usage information</p>
    * @public
    */
   usage?: SendMessageUsageInfo | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event emitted when the response is created
+ * <p>Event emitted when the response is created</p>
  * @public
  */
 export interface SendMessageResponseCreatedEvent {
   /**
-   * The response ID
+   * <p>The response ID</p>
    * @public
    */
   responseId?: string | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event emitted when the response fails
+ * <p>Event emitted when the response fails</p>
  * @public
  */
 export interface SendMessageResponseFailedEvent {
   /**
-   * The response ID
+   * <p>The response ID</p>
    * @public
    */
   responseId?: string | undefined;
 
   /**
-   * Error code
+   * <p>Error code</p>
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * Error message
+   * <p>Error message</p>
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event emitted while the response is being generated
+ * <p>Event emitted while the response is being generated</p>
  * @public
  */
 export interface SendMessageResponseInProgressEvent {
   /**
-   * The response ID
+   * <p>The response ID</p>
    * @public
    */
   responseId?: string | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event summarizing agent actions
+ * <p>Event summarizing agent actions</p>
  * @public
  */
 export interface SendMessageSummaryEvent {
   /**
-   * Summary content
+   * <p>Summary content</p>
    * @public
    */
   content?: string | undefined;
 
   /**
-   * Event sequence number
+   * <p>Event sequence number</p>
    * @public
    */
   sequenceNumber?: number | undefined;
 }
 
 /**
- * Event stream for chat message responses using the content block model.
- * Events follow a lifecycle:
- * responseCreated -> responseInProgress ->
- * (contentBlockStart/contentBlockDelta/contentBlockStop events) ->
- * responseCompleted|responseFailed
- *
- * SendMessage always uses content block mode — legacy per-field events
- * (outputTextDelta, functionCallArgumentsDelta, etc.) are not emitted.
+ * <p>Event stream for chat message responses using the content block model. Events follow a lifecycle: responseCreated -&gt; responseInProgress -&gt; (contentBlockStart/contentBlockDelta/contentBlockStop events) -&gt; responseCompleted|responseFailed SendMessage always uses content block mode — legacy per-field events (outputTextDelta, functionCallArgumentsDelta, etc.) are not emitted.</p>
  * @public
  */
 export type SendMessageEvents =
@@ -4644,7 +4780,7 @@ export type SendMessageEvents =
  */
 export namespace SendMessageEvents {
   /**
-   * Emitted when the response is created
+   * <p>Emitted when the response is created</p>
    * @public
    */
   export interface ResponseCreatedMember {
@@ -4661,7 +4797,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted while the response is being generated
+   * <p>Emitted while the response is being generated</p>
    * @public
    */
   export interface ResponseInProgressMember {
@@ -4678,7 +4814,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted when the response completes successfully
+   * <p>Emitted when the response completes successfully</p>
    * @public
    */
   export interface ResponseCompletedMember {
@@ -4695,7 +4831,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted when the response fails
+   * <p>Emitted when the response fails</p>
    * @public
    */
   export interface ResponseFailedMember {
@@ -4712,7 +4848,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted to provide a summary of agent actions
+   * <p>Emitted to provide a summary of agent actions</p>
    * @public
    */
   export interface SummaryMember {
@@ -4729,7 +4865,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Heartbeat event sent periodically to keep the connection alive during idle periods
+   * <p>Heartbeat event sent periodically to keep the connection alive during idle periods</p>
    * @public
    */
   export interface HeartbeatMember {
@@ -4746,7 +4882,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted when a new content block starts
+   * <p>Emitted when a new content block starts</p>
    * @public
    */
   export interface ContentBlockStartMember {
@@ -4763,7 +4899,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted for each incremental content delta within a content block
+   * <p>Emitted for each incremental content delta within a content block</p>
    * @public
    */
   export interface ContentBlockDeltaMember {
@@ -4780,7 +4916,7 @@ export namespace SendMessageEvents {
   }
 
   /**
-   * Emitted when a content block is complete
+   * <p>Emitted when a content block is complete</p>
    * @public
    */
   export interface ContentBlockStopMember {
@@ -4831,169 +4967,169 @@ export namespace SendMessageEvents {
 }
 
 /**
- * Response structure for sending chat message events
+ * <p>Response structure for sending chat message events</p>
  * @public
  */
 export interface SendMessageResponse {
   /**
-   * The stream of chat message events
+   * <p>The stream of chat message events</p>
    * @public
    */
   events: AsyncIterable<SendMessageEvents> | undefined;
 }
 
 /**
- * Input for retrieving a specific service association.
+ * <p>Input for retrieving a specific service association.</p>
  * @public
  */
 export interface GetServiceInput {
   /**
-   * The unique identifier of the given service.
+   * <p>The unique identifier of the given service.</p>
    * @public
    */
   serviceId: string | undefined;
 }
 
 /**
- * Represents a registered service with its configuration and accessible resources.
+ * <p>Represents a registered service with its configuration and accessible resources.</p>
  * @public
  */
 export interface RegisteredService {
   /**
-   * The unique identifier of a service.
+   * <p>The unique identifier of a service.</p>
    * @public
    */
   serviceId: string | undefined;
 
   /**
-   * The service type e.g github or dynatrace
+   * <p>The service type e.g github or dynatrace</p>
    * @public
    */
   serviceType: Service | undefined;
 
   /**
-   * The display name of the registered service.
+   * <p>The display name of the registered service.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * List of accessible resources for this service.
+   * <p>List of accessible resources for this service.</p>
    * @public
    */
   accessibleResources?: __DocumentType[] | undefined;
 
   /**
-   * Additional details specific to the service type.
+   * <p>Additional details specific to the service type.</p>
    * @public
    */
   additionalServiceDetails?: AdditionalServiceDetails | undefined;
 
   /**
-   * The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * The name of the private connection used for VPC connectivity.
+   * <p>The name of the private connection used for VPC connectivity.</p>
    * @public
    */
   privateConnectionName?: string | undefined;
 }
 
 /**
- * Output containing the requested service details.
+ * <p>Output containing the requested service details.</p>
  * @public
  */
 export interface GetServiceOutput {
   /**
-   * Represents a registered service with its configuration and accessible resources.
+   * <p>Represents a registered service with its configuration and accessible resources.</p>
    * @public
    */
   service: RegisteredService | undefined;
 
   /**
-   * Tags associated with the Service.
+   * <p>Tags associated with the Service.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Input for listing registered services with optional filtering by service type.
+ * <p>Input for listing registered services with optional filtering by service type.</p>
  * @public
  */
 export interface ListServicesInput {
   /**
-   * Maximum number of results to return in a single call.
+   * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Token for the next page of results.
+   * <p>Token for the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Optional filter to list only services of a specific type.
+   * <p>Optional filter to list only services of a specific type.</p>
    * @public
    */
   filterServiceType?: Service | undefined;
 }
 
 /**
- * Output containing a list of registered services and pagination token.
+ * <p>Output containing a list of registered services and pagination token.</p>
  * @public
  */
 export interface ListServicesOutput {
   /**
-   * Token to retrieve the next page of results, if there are more results.
+   * <p>Token to retrieve the next page of results, if there are more results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * List of registered services.
+   * <p>List of registered services.</p>
    * @public
    */
   services: RegisteredService[] | undefined;
 }
 
 /**
- * OAuth client credentials configuration for Dynatrace.
+ * <p>OAuth client credentials configuration for Dynatrace.</p>
  * @public
  */
 export interface DynatraceOAuthClientCredentialsConfig {
   /**
-   * User friendly OAuth client name specified by end user.
+   * <p>User friendly OAuth client name specified by end user.</p>
    * @public
    */
   clientName?: string | undefined;
 
   /**
-   * OAuth client ID for authenticating with the service.
+   * <p>OAuth client ID for authenticating with the service.</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * OAuth token exchange parameters for authenticating with the service.
+   * <p>OAuth token exchange parameters for authenticating with the service.</p>
    * @public
    */
   exchangeParameters?: Record<string, string> | undefined;
 
   /**
-   * OAuth client secret for authenticating with the service.
+   * <p>OAuth client secret for authenticating with the service.</p>
    * @public
    */
   clientSecret: string | undefined;
 }
 
 /**
- * Authorization configuration options for Dynatrace service.
+ * <p>Authorization configuration options for Dynatrace service.</p>
  * @public
  */
 export type DynatraceServiceAuthorizationConfig =
@@ -5005,7 +5141,7 @@ export type DynatraceServiceAuthorizationConfig =
  */
 export namespace DynatraceServiceAuthorizationConfig {
   /**
-   * OAuth client credentials configuration.
+   * <p>OAuth client credentials configuration.</p>
    * @public
    */
   export interface OAuthClientCredentialsMember {
@@ -5032,217 +5168,217 @@ export namespace DynatraceServiceAuthorizationConfig {
 }
 
 /**
- * Complete service details for Dynatrace integration.
+ * <p>Complete service details for Dynatrace integration.</p>
  * @public
  */
 export interface DynatraceServiceDetails {
   /**
-   * Dynatrace resource account urn.
+   * <p>Dynatrace resource account urn.</p>
    * @public
    */
   accountUrn: string | undefined;
 
   /**
-   * Dynatrace OAuth client credentials configuration. Use this when registering with OAuth client credentials flow.
+   * <p>Dynatrace OAuth client credentials configuration. Use this when registering with OAuth client credentials flow.</p>
    * @public
    */
   authorizationConfig?: DynatraceServiceAuthorizationConfig | undefined;
 }
 
 /**
- * Service details for Event Channel integration.
+ * <p>Service details for Event Channel integration.</p>
  * @public
  */
 export interface EventChannelDetails {
   /**
-   * The type of event channel
+   * <p>The type of event channel</p>
    * @public
    */
   type?: EventChannelType | undefined;
 }
 
 /**
- * Service details for GitLab integration.
+ * <p>Service details for GitLab integration.</p>
  * @public
  */
 export interface GitLabDetails {
   /**
-   * GitLab instance URL (e.g., https://gitlab.com or self-hosted instance).
+   * <p>GitLab instance URL (e.g., https://gitlab.com or self-hosted instance).</p>
    * @public
    */
   targetUrl: string | undefined;
 
   /**
-   * Type of GitLab access token
+   * <p>Type of GitLab access token</p>
    * @public
    */
   tokenType: GitLabTokenType | undefined;
 
   /**
-   * GitLab access token value
+   * <p>GitLab access token value</p>
    * @public
    */
   tokenValue: string | undefined;
 
   /**
-   * Optional GitLab group ID for group-level access tokens
+   * <p>Optional GitLab group ID for group-level access tokens</p>
    * @public
    */
   groupId?: string | undefined;
 }
 
 /**
- * API key configuration for MCP server.
+ * <p>API key configuration for MCP server.</p>
  * @public
  */
 export interface MCPServerAPIKeyConfig {
   /**
-   * User friendly API key name specified by end user.
+   * <p>User friendly API key name specified by end user.</p>
    * @public
    */
   apiKeyName: string | undefined;
 
   /**
-   * API key value for authenticating with the service.
+   * <p>API key value for authenticating with the service.</p>
    * @public
    */
   apiKeyValue: string | undefined;
 
   /**
-   * HTTP header name to send the API key in requests to the service.
+   * <p>HTTP header name to send the API key in requests to the service.</p>
    * @public
    */
   apiKeyHeader: string | undefined;
 }
 
 /**
- * Bearer token configuration for MCP server (RFC 6750).
+ * <p>Bearer token configuration for MCP server (RFC 6750).</p>
  * @public
  */
 export interface MCPServerBearerTokenConfig {
   /**
-   * User friendly bearer token name specified by end user.
+   * <p>User friendly bearer token name specified by end user.</p>
    * @public
    */
   tokenName: string | undefined;
 
   /**
-   * Bearer token value in alphanumeric for authenticating with the service.
+   * <p>Bearer token value in alphanumeric for authenticating with the service.</p>
    * @public
    */
   tokenValue: string | undefined;
 
   /**
-   * HTTP header name to send the bearer token in requests to the service. Defaults to 'Authorization' per RFC 6750.
+   * <p>HTTP header name to send the bearer token in requests to the service. Defaults to 'Authorization' per RFC 6750.</p>
    * @public
    */
   authorizationHeader?: string | undefined;
 }
 
 /**
- * OAuth 3-legged authorization configuration for MCP server.
+ * <p>OAuth 3-legged authorization configuration for MCP server.</p>
  * @public
  */
 export interface MCPServerOAuth3LOConfig {
   /**
-   * User friendly OAuth client name specified by end user.
+   * <p>User friendly OAuth client name specified by end user.</p>
    * @public
    */
   clientName?: string | undefined;
 
   /**
-   * OAuth client ID for authenticating with the service.
+   * <p>OAuth client ID for authenticating with the service.</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * OAuth token exchange parameters for authenticating with the service.
+   * <p>OAuth token exchange parameters for authenticating with the service.</p>
    * @public
    */
   exchangeParameters?: Record<string, string> | undefined;
 
   /**
-   * The endpoint to return to after OAuth flow completes (must be AWS console domain)
+   * <p>The endpoint to return to after OAuth flow completes (must be AWS console domain)</p>
    * @public
    */
   returnToEndpoint: string | undefined;
 
   /**
-   * OAuth authorization URL for 3LO authentication.
+   * <p>OAuth authorization URL for 3LO authentication.</p>
    * @public
    */
   authorizationUrl: string | undefined;
 
   /**
-   * OAuth token exchange URL.
+   * <p>OAuth token exchange URL.</p>
    * @public
    */
   exchangeUrl: string | undefined;
 
   /**
-   * OAuth client secret for authenticating with the service. Required for confidential clients or when PKCE is not supported. Optional for public clients using PKCE.
+   * <p>OAuth client secret for authenticating with the service. Required for confidential clients or when PKCE is not supported. Optional for public clients using PKCE.</p>
    * @public
    */
   clientSecret?: string | undefined;
 
   /**
-   * Whether the service supports PKCE (Proof Key for Code Exchange) for enhanced security during the OAuth flow.
+   * <p>Whether the service supports PKCE (Proof Key for Code Exchange) for enhanced security during the OAuth flow.</p>
    * @public
    */
   supportCodeChallenge?: boolean | undefined;
 
   /**
-   * OAuth scopes for 3LO authentication. The service will always request scope offline_access.
+   * <p>OAuth scopes for 3LO authentication. The service will always request scope offline_access.</p>
    * @public
    */
   scopes?: string[] | undefined;
 }
 
 /**
- * OAuth client credentials configuration for MCP server.
+ * <p>OAuth client credentials configuration for MCP server.</p>
  * @public
  */
 export interface MCPServerOAuthClientCredentialsConfig {
   /**
-   * User friendly OAuth client name specified by end user.
+   * <p>User friendly OAuth client name specified by end user.</p>
    * @public
    */
   clientName?: string | undefined;
 
   /**
-   * OAuth client ID for authenticating with the service.
+   * <p>OAuth client ID for authenticating with the service.</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * OAuth token exchange parameters for authenticating with the service.
+   * <p>OAuth token exchange parameters for authenticating with the service.</p>
    * @public
    */
   exchangeParameters?: Record<string, string> | undefined;
 
   /**
-   * OAuth client secret for authenticating with the service.
+   * <p>OAuth client secret for authenticating with the service.</p>
    * @public
    */
   clientSecret: string | undefined;
 
   /**
-   * OAuth token exchange URL.
+   * <p>OAuth token exchange URL.</p>
    * @public
    */
   exchangeUrl: string | undefined;
 
   /**
-   * OAuth scopes for 3LO authentication. The service will always request scope offline_access.
+   * <p>OAuth scopes for 3LO authentication. The service will always request scope offline_access.</p>
    * @public
    */
   scopes?: string[] | undefined;
 }
 
 /**
- * Authorization configuration options for MCP server, supporting OAuth, API key, bearer token, and authorization discovery methods.
+ * <p>Authorization configuration options for MCP server, supporting OAuth, API key, bearer token, and authorization discovery methods.</p>
  * @public
  */
 export type MCPServerAuthorizationConfig =
@@ -5258,7 +5394,7 @@ export type MCPServerAuthorizationConfig =
  */
 export namespace MCPServerAuthorizationConfig {
   /**
-   * MCP server configuration with OAuth client credentials.
+   * <p>MCP server configuration with OAuth client credentials.</p>
    * @public
    */
   export interface OAuthClientCredentialsMember {
@@ -5271,7 +5407,7 @@ export namespace MCPServerAuthorizationConfig {
   }
 
   /**
-   * MCP server configuration with OAuth 3LO.
+   * <p>MCP server configuration with OAuth 3LO.</p>
    * @public
    */
   export interface OAuth3LOMember {
@@ -5284,7 +5420,7 @@ export namespace MCPServerAuthorizationConfig {
   }
 
   /**
-   * MCP server configuration with API key authentication.
+   * <p>MCP server configuration with API key authentication.</p>
    * @public
    */
   export interface ApiKeyMember {
@@ -5297,7 +5433,7 @@ export namespace MCPServerAuthorizationConfig {
   }
 
   /**
-   * MCP server configuration with Bearer token (RFC 6750).
+   * <p>MCP server configuration with Bearer token (RFC 6750).</p>
    * @public
    */
   export interface BearerTokenMember {
@@ -5310,7 +5446,7 @@ export namespace MCPServerAuthorizationConfig {
   }
 
   /**
-   * MCP server authorization discovery configuration.
+   * <p>MCP server authorization discovery configuration.</p>
    * @public
    */
   export interface AuthorizationDiscoveryMember {
@@ -5349,109 +5485,109 @@ export namespace MCPServerAuthorizationConfig {
 }
 
 /**
- * Complete service details for MCP server integration.
+ * <p>Complete service details for MCP server integration.</p>
  * @public
  */
 export interface MCPServerDetails {
   /**
-   * MCP server name.
+   * <p>MCP server name.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * MCP server endpoint URL.
+   * <p>MCP server endpoint URL.</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * Optional description for the MCP server.
+   * <p>Optional description for the MCP server.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * MCP server authorization configuration.
+   * <p>MCP server authorization configuration.</p>
    * @public
    */
   authorizationConfig: MCPServerAuthorizationConfig | undefined;
 }
 
 /**
- * Complete service details for Grafana MCP server integration.
+ * <p>Complete service details for Grafana MCP server integration.</p>
  * @public
  */
 export interface GrafanaServiceDetails {
   /**
-   * MCP server name.
+   * <p>MCP server name.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * MCP server endpoint URL.
+   * <p>MCP server endpoint URL.</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * Optional description for the MCP server.
+   * <p>Optional description for the MCP server.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Grafana MCP server authorization configuration (experimental).
+   * <p>Grafana MCP server authorization configuration (experimental).</p>
    * @public
    */
   authorizationConfig: MCPServerAuthorizationConfig | undefined;
 }
 
 /**
- * API key authentication configuration for New Relic service.
+ * <p>API key authentication configuration for New Relic service.</p>
  * @public
  */
 export interface NewRelicApiKeyConfig {
   /**
-   * New Relic User API Key
+   * <p>New Relic User API Key</p>
    * @public
    */
   apiKey: string | undefined;
 
   /**
-   * New Relic Account ID
+   * <p>New Relic Account ID</p>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * New Relic region (US or EU)
+   * <p>New Relic region (US or EU)</p>
    * @public
    */
   region: NewRelicRegion | undefined;
 
   /**
-   * List of monitored APM application IDs in New Relic
+   * <p>List of monitored APM application IDs in New Relic</p>
    * @public
    */
   applicationIds?: string[] | undefined;
 
   /**
-   * List of globally unique IDs for New Relic resources (apps, hosts, services)
+   * <p>List of globally unique IDs for New Relic resources (apps, hosts, services)</p>
    * @public
    */
   entityGuids?: string[] | undefined;
 
   /**
-   * List of alert policy IDs grouping related conditions
+   * <p>List of alert policy IDs grouping related conditions</p>
    * @public
    */
   alertPolicyIds?: string[] | undefined;
 }
 
 /**
- * Authorization configuration options for New Relic service.
+ * <p>Authorization configuration options for New Relic service.</p>
  * @public
  */
 export type NewRelicServiceAuthorizationConfig =
@@ -5463,7 +5599,7 @@ export type NewRelicServiceAuthorizationConfig =
  */
 export namespace NewRelicServiceAuthorizationConfig {
   /**
-   * New Relic API Key authentication (apiKey, accountId, region).
+   * <p>New Relic API Key authentication (apiKey, accountId, region).</p>
    * @public
    */
   export interface ApiKeyMember {
@@ -5490,49 +5626,109 @@ export namespace NewRelicServiceAuthorizationConfig {
 }
 
 /**
- * Complete service details for New Relic integration.
+ * <p>Complete service details for New Relic integration.</p>
  * @public
  */
 export interface NewRelicServiceDetails {
   /**
-   * New Relic MCP server authorization configuration.
+   * <p>New Relic MCP server authorization configuration.</p>
    * @public
    */
   authorizationConfig: NewRelicServiceAuthorizationConfig | undefined;
 }
 
 /**
- * OAuth client credentials configuration for PagerDuty.
+ * <p>Authorization configuration for SigV4-authenticated MCP server.</p>
+ * @public
+ */
+export interface MCPServerSigV4AuthorizationConfig {
+  /**
+   * <p>AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>AWS service name for SigV4 signing.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>IAM role ARN to assume for SigV4 signing.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>Custom headers for the SigV4 MCP server.</p>
+   * @public
+   */
+  customHeaders?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Complete service details for SigV4-authenticated MCP server integration.</p>
+ * @public
+ */
+export interface MCPServerSigV4ServiceDetails {
+  /**
+   * <p>MCP server name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>MCP server endpoint URL.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>Optional description for the MCP server.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>MCP Server SigV4 authorization configuration.</p>
+   * @public
+   */
+  authorizationConfig: MCPServerSigV4AuthorizationConfig | undefined;
+}
+
+/**
+ * <p>OAuth client credentials configuration for PagerDuty.</p>
  * @public
  */
 export interface PagerDutyOAuthClientCredentialsConfig {
   /**
-   * User friendly OAuth client name specified by end user.
+   * <p>User friendly OAuth client name specified by end user.</p>
    * @public
    */
   clientName?: string | undefined;
 
   /**
-   * OAuth client ID for authenticating with the service.
+   * <p>OAuth client ID for authenticating with the service.</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * OAuth token exchange parameters for authenticating with the service.
+   * <p>OAuth token exchange parameters for authenticating with the service.</p>
    * @public
    */
   exchangeParameters?: Record<string, string> | undefined;
 
   /**
-   * OAuth client secret for authenticating with the service.
+   * <p>OAuth client secret for authenticating with the service.</p>
    * @public
    */
   clientSecret: string | undefined;
 }
 
 /**
- * Authorization configuration options for PagerDuty service.
+ * <p>Authorization configuration options for PagerDuty service.</p>
  * @public
  */
 export type PagerDutyAuthorizationConfig =
@@ -5544,7 +5740,7 @@ export type PagerDutyAuthorizationConfig =
  */
 export namespace PagerDutyAuthorizationConfig {
   /**
-   * OAuth client credentials configuration.
+   * <p>OAuth client credentials configuration.</p>
    * @public
    */
   export interface OAuthClientCredentialsMember {
@@ -5571,55 +5767,55 @@ export namespace PagerDutyAuthorizationConfig {
 }
 
 /**
- * Complete service details for PagerDuty integration
+ * <p>Complete service details for PagerDuty integration</p>
  * @public
  */
 export interface PagerDutyDetails {
   /**
-   * PagerDuty scopes.
+   * <p>PagerDuty scopes.</p>
    * @public
    */
   scopes: string[] | undefined;
 
   /**
-   * PagerDuty authorization configuration
+   * <p>PagerDuty authorization configuration</p>
    * @public
    */
   authorizationConfig: PagerDutyAuthorizationConfig | undefined;
 }
 
 /**
- * OAuth client credentials configuration for ServiceNow.
+ * <p>OAuth client credentials configuration for ServiceNow.</p>
  * @public
  */
 export interface ServiceNowOAuthClientCredentialsConfig {
   /**
-   * User friendly OAuth client name specified by end user.
+   * <p>User friendly OAuth client name specified by end user.</p>
    * @public
    */
   clientName?: string | undefined;
 
   /**
-   * OAuth client ID for authenticating with the service.
+   * <p>OAuth client ID for authenticating with the service.</p>
    * @public
    */
   clientId: string | undefined;
 
   /**
-   * OAuth token exchange parameters for authenticating with the service.
+   * <p>OAuth token exchange parameters for authenticating with the service.</p>
    * @public
    */
   exchangeParameters?: Record<string, string> | undefined;
 
   /**
-   * OAuth client secret for authenticating with the service.
+   * <p>OAuth client secret for authenticating with the service.</p>
    * @public
    */
   clientSecret: string | undefined;
 }
 
 /**
- * Authorization configuration options for ServiceNow service.
+ * <p>Authorization configuration options for ServiceNow service.</p>
  * @public
  */
 export type ServiceNowServiceAuthorizationConfig =
@@ -5631,7 +5827,7 @@ export type ServiceNowServiceAuthorizationConfig =
  */
 export namespace ServiceNowServiceAuthorizationConfig {
   /**
-   * OAuth client credentials configuration.
+   * <p>OAuth client credentials configuration.</p>
    * @public
    */
   export interface OAuthClientCredentialsMember {
@@ -5658,25 +5854,25 @@ export namespace ServiceNowServiceAuthorizationConfig {
 }
 
 /**
- * Complete service details for ServiceNow integration.
+ * <p>Complete service details for ServiceNow integration.</p>
  * @public
  */
 export interface ServiceNowServiceDetails {
   /**
-   * ServiceNow instance URL.
+   * <p>ServiceNow instance URL.</p>
    * @public
    */
   instanceUrl: string | undefined;
 
   /**
-   * ServiceNow OAuth client credentials configuration. Use this when registering with OAuth client credentials flow.
+   * <p>ServiceNow OAuth client credentials configuration. Use this when registering with OAuth client credentials flow.</p>
    * @public
    */
   authorizationConfig?: ServiceNowServiceAuthorizationConfig | undefined;
 }
 
 /**
- * Union of service-specific configuration details for service registration.
+ * <p>Union of service-specific configuration details for service registration.</p>
  * @public
  */
 export type ServiceDetails =
@@ -5688,6 +5884,7 @@ export type ServiceDetails =
   | ServiceDetails.McpserverdatadogMember
   | ServiceDetails.McpservergrafanaMember
   | ServiceDetails.McpservernewrelicMember
+  | ServiceDetails.Mcpserversigv4Member
   | ServiceDetails.McpserversplunkMember
   | ServiceDetails.PagerdutyMember
   | ServiceDetails.ServicenowMember
@@ -5698,7 +5895,7 @@ export type ServiceDetails =
  */
 export namespace ServiceDetails {
   /**
-   * Dynatrace-specific service details.
+   * <p>Dynatrace-specific service details.</p>
    * @public
    */
   export interface DynatraceMember {
@@ -5713,11 +5910,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * ServiceNow-specific service details.
+   * <p>ServiceNow-specific service details.</p>
    * @public
    */
   export interface ServicenowMember {
@@ -5732,11 +5930,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Datadog MCP server-specific service details.
+   * <p>Datadog MCP server-specific service details.</p>
    * @public
    */
   export interface McpserverdatadogMember {
@@ -5751,11 +5950,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * MCP server-specific service details.
+   * <p>MCP server-specific service details.</p>
    * @public
    */
   export interface McpserverMember {
@@ -5770,11 +5970,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * GitLab-specific service details.
+   * <p>GitLab-specific service details.</p>
    * @public
    */
   export interface GitlabMember {
@@ -5789,11 +5990,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Splunk MCP server-specific service details.
+   * <p>Splunk MCP server-specific service details.</p>
    * @public
    */
   export interface McpserversplunkMember {
@@ -5808,11 +6010,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * New Relic-specific service details.
+   * <p>New Relic-specific service details.</p>
    * @public
    */
   export interface McpservernewrelicMember {
@@ -5827,11 +6030,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Event Channel specific service details.
+   * <p>Event Channel specific service details.</p>
    * @public
    */
   export interface EventChannelMember {
@@ -5846,11 +6050,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Datadog MCP server-specific service details.
+   * <p>Datadog MCP server-specific service details.</p>
    * @public
    */
   export interface McpservergrafanaMember {
@@ -5865,11 +6070,12 @@ export namespace ServiceDetails {
     mcpservergrafana: GrafanaServiceDetails;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * PagerDuty specific service details.
+   * <p>PagerDuty specific service details.</p>
    * @public
    */
   export interface PagerdutyMember {
@@ -5884,11 +6090,12 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty: PagerDutyDetails;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown?: never;
   }
 
   /**
-   * Azure integration with AWS Outbound Identity Federation specific service details.
+   * <p>Azure integration with AWS Outbound Identity Federation specific service details.</p>
    * @public
    */
   export interface AzureidentityMember {
@@ -5903,6 +6110,27 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity: RegisteredAzureIdentityDetails;
+    mcpserversigv4?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>SigV4-authenticated MCP server-specific service details.</p>
+   * @public
+   */
+  export interface Mcpserversigv4Member {
+    dynatrace?: never;
+    servicenow?: never;
+    mcpserverdatadog?: never;
+    mcpserver?: never;
+    gitlab?: never;
+    mcpserversplunk?: never;
+    mcpservernewrelic?: never;
+    eventChannel?: never;
+    mcpservergrafana?: never;
+    pagerduty?: never;
+    azureidentity?: never;
+    mcpserversigv4: MCPServerSigV4ServiceDetails;
     $unknown?: never;
   }
 
@@ -5921,6 +6149,7 @@ export namespace ServiceDetails {
     mcpservergrafana?: never;
     pagerduty?: never;
     azureidentity?: never;
+    mcpserversigv4?: never;
     $unknown: [string, any];
   }
 
@@ -5940,77 +6169,78 @@ export namespace ServiceDetails {
     mcpservergrafana: (value: GrafanaServiceDetails) => T;
     pagerduty: (value: PagerDutyDetails) => T;
     azureidentity: (value: RegisteredAzureIdentityDetails) => T;
+    mcpserversigv4: (value: MCPServerSigV4ServiceDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
 
 /**
- * Input for registering a new service with the platform.
+ * <p>Input for registering a new service with the platform.</p>
  * @public
  */
 export interface RegisterServiceInput {
   /**
-   * Services that can be registered via the post-registration API (excludes OAuth 3LO services).
+   * <p>Services that can be registered via the post-registration API (excludes OAuth 3LO services).</p>
    * @public
    */
   service: PostRegisterServiceSupportedService | undefined;
 
   /**
-   * Service-specific authorization configuration parameters
+   * <p>Service-specific authorization configuration parameters</p>
    * @public
    */
   serviceDetails: ServiceDetails | undefined;
 
   /**
-   * The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * The name of the private connection to use for VPC connectivity.
+   * <p>The name of the private connection to use for VPC connectivity.</p>
    * @public
    */
   privateConnectionName?: string | undefined;
 
   /**
-   * The display name for the service registration.
+   * <p>The display name for the service registration.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * Tags to add to the Service at registration time.
+   * <p>Tags to add to the Service at registration time.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * Output containing the service ID and any additional steps required for registration.
+ * <p>Output containing the service ID and any additional steps required for registration.</p>
  * @public
  */
 export interface RegisterServiceOutput {
   /**
-   * Service ID - present when registration is complete, absent when additional steps are required
+   * <p>Service ID - present when registration is complete, absent when additional steps are required</p>
    * @public
    */
   serviceId?: string | undefined;
 
   /**
-   * Indicates if additional steps are required to complete service registration (e.g., 3-legged OAuth)
+   * <p>Indicates if additional steps are required to complete service registration (e.g., 3-legged OAuth)</p>
    * @public
    */
   additionalStep?: AdditionalServiceRegistrationStep | undefined;
 
   /**
-   * The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) customer managed key that's used to encrypt resources.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * Tags associated with the registered Service.
+   * <p>Tags associated with the registered Service.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -6021,13 +6251,13 @@ export interface RegisterServiceOutput {
  */
 export interface TagResourceRequest {
   /**
-   * The ARN of the resource to tag.
+   * <p>The ARN of the resource to tag.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * Tags to add to the resource.
+   * <p>Tags to add to the resource.</p>
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -6043,13 +6273,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * The ARN of the resource to untag.
+   * <p>The ARN of the resource to untag.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * Tag keys to remove.
+   * <p>Tag keys to remove.</p>
    * @public
    */
   tagKeys: string[] | undefined;
@@ -6061,144 +6291,144 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * Request structure for updating a task
+ * <p>Request structure for updating a task</p>
  * @public
  */
 export interface UpdateBacklogTaskRequest {
   /**
-   * The unique identifier for the agent space containing the task
+   * <p>The unique identifier for the agent space containing the task</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the task to update
+   * <p>The unique identifier of the task to update</p>
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * Updated task status
+   * <p>Updated task status</p>
    * @public
    */
   taskStatus?: TaskStatus | undefined;
 
   /**
-   * Client-provided token for idempotent operations
+   * <p>Client-provided token for idempotent operations</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * Response structure containing the updated task
+ * <p>Response structure containing the updated task</p>
  * @public
  */
 export interface UpdateBacklogTaskResponse {
   /**
-   * The updated task object
+   * <p>The updated task object</p>
    * @public
    */
   task: Task | undefined;
 }
 
 /**
- * Schedule configuration for updating goal evaluations
+ * <p>Schedule configuration for updating goal evaluations</p>
  * @public
  */
 export interface GoalScheduleInput {
   /**
-   * Whether the schedule is enabled or disabled
+   * <p>Whether the schedule is enabled or disabled</p>
    * @public
    */
   state: SchedulerState | undefined;
 }
 
 /**
- * Request structure for updating a goal
+ * <p>Request structure for updating a goal</p>
  * @public
  */
 export interface UpdateGoalRequest {
   /**
-   * The unique identifier for the agent space containing the goal
+   * <p>The unique identifier for the agent space containing the goal</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier of the goal to update
+   * <p>The unique identifier of the goal to update</p>
    * @public
    */
   goalId: string | undefined;
 
   /**
-   * Update goal schedule state
+   * <p>Update goal schedule state</p>
    * @public
    */
   evaluationSchedule?: GoalScheduleInput | undefined;
 
   /**
-   * Client-provided token for idempotent operations
+   * <p>Client-provided token for idempotent operations</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * Response structure containing the updated goal
+ * <p>Response structure containing the updated goal</p>
  * @public
  */
 export interface UpdateGoalResponse {
   /**
-   * The updated goal object
+   * <p>The updated goal object</p>
    * @public
    */
   goal: Goal | undefined;
 }
 
 /**
- * Request structure for updating an existing recommendation
+ * <p>Request structure for updating an existing recommendation</p>
  * @public
  */
 export interface UpdateRecommendationRequest {
   /**
-   * The unique identifier for the agent space containing the recommendation
+   * <p>The unique identifier for the agent space containing the recommendation</p>
    * @public
    */
   agentSpaceId: string | undefined;
 
   /**
-   * The unique identifier for the recommendation to update
+   * <p>The unique identifier for the recommendation to update</p>
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * Current status of the recommendation
+   * <p>Current status of the recommendation</p>
    * @public
    */
   status?: RecommendationStatus | undefined;
 
   /**
-   * Additional context for recommendation
+   * <p>Additional context for recommendation</p>
    * @public
    */
   additionalContext?: string | undefined;
 
   /**
-   * A unique token that ensures idempotency of the request
+   * <p>A unique token that ensures idempotency of the request</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * Response structure containing the updated recommendation
+ * <p>Response structure containing the updated recommendation</p>
  * @public
  */
 export interface UpdateRecommendationResponse {
   /**
-   * The updated recommendation
+   * <p>The updated recommendation</p>
    * @public
    */
   recommendation: Recommendation | undefined;
