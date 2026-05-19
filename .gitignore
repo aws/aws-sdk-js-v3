@@ -16,6 +16,7 @@ jspm_packages
 .eslintcache
 .node_repl_history
 *.tgz
+!smithy-undici-http-handler-0.5.0.tgz
 .yarn-integrity
 .yarn/*
 **/.yarn/*

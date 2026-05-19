@@ -16184,6 +16184,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@smithy/undici-http-handler@file:./smithy-undici-http-handler-0.5.0.tgz::locator=aws-sdk-js-v3%40workspace%3A.":
+  version: 0.5.0
+  resolution: "@smithy/undici-http-handler@file:./smithy-undici-http-handler-0.5.0.tgz#./smithy-undici-http-handler-0.5.0.tgz::hash=04c5d8&locator=aws-sdk-js-v3%40workspace%3A."
+  dependencies:
+    "@smithy/core": "npm:^3.24.2"
+    "@smithy/types": "npm:^4.14.1"
+    tslib: "npm:^2.6.2"
+    undici: "npm:^6.0.0"
+  peerDependencies:
+    undici: ">=6.0.0"
+  checksum: 10c0/89a3c2a672b9b25cd83ea54d1154690a51682f5925dcb49f1bff6298d3767f36618e167281b9ff2c37ba84374fd442b13ae7ef085d41b7828c757bb21788496e
+  languageName: node
+  linkType: hard
+
 "@smithy/util-buffer-from@npm:^2.2.0":
   version: 2.2.0
   resolution: "@smithy/util-buffer-from@npm:2.2.0"
@@ -17874,6 +17888,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^6.1.0"
     "@rollup/plugin-node-resolve": "npm:^16.0.2"
     "@rollup/plugin-typescript": "npm:^12.1.4"
+    "@smithy/undici-http-handler": ./smithy-undici-http-handler-0.5.0.tgz
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/fs-extra": "npm:^8.0.1"
     "@types/jest": "npm:29.5.11"
@@ -28182,6 +28197,13 @@ __metadata:
   version: 7.18.2
   resolution: "undici-types@npm:7.18.2"
   checksum: 10c0/85a79189113a238959d7a647368e4f7c5559c3a404ebdb8fc4488145ce9426fcd82252a844a302798dfc0e37e6fb178ff481ed03bc4caf634c5757d9ef43521d
+  languageName: node
+  linkType: hard
+
+"undici@npm:^6.0.0":
+  version: 6.25.0
+  resolution: "undici@npm:6.25.0"
+  checksum: 10c0/2597cc6689bdb02c210c557b1f85febbfda65becae6e6fc1061508e2f33734d25207f81cd8af56ada9956329eb3a7bd7431e87dcfeceba20ee87059b57dcf985
   languageName: node
   linkType: hard
 
