@@ -1042,7 +1042,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 ],
  * //                 SignalIndicators: [ // Indicators
  * //                   { // Indicator
- * //                     Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS" || "MALICIOUS_FILE", // required
+ * //                     Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS" || "MALICIOUS_FILE" || "VULNERABILITY" || "MALICIOUS_PACKAGE" || "MISCONFIGURATION" || "REACHABILITY" || "SENSITIVE_DATA", // required
  * //                     Values: [ // IndicatorValues
  * //                       "STRING_VALUE",
  * //                     ],
@@ -1053,7 +1053,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             ],
  * //             SequenceIndicators: [
  * //               {
- * //                 Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS" || "MALICIOUS_FILE", // required
+ * //                 Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS" || "MALICIOUS_FILE" || "VULNERABILITY" || "MALICIOUS_PACKAGE" || "MISCONFIGURATION" || "REACHABILITY" || "SENSITIVE_DATA", // required
  * //                 Values: [
  * //                   "STRING_VALUE",
  * //                 ],
