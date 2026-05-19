@@ -1,4 +1,5 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(DynamoDB.name, () => {
@@ -6,7 +7,12 @@ describe(DynamoDB.name, () => {
   let TableName!: string;
 
   beforeAll(async () => {
-    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: aws?.testCredentials });
+    client = new DynamoDB({
+      region: "us-west-2",
+      maxAttempts: 10,
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
 
     const randId = (Math.random() + 1).toString(36).substring(2, 6);
     const timestamp = (Date.now() / 1000) | 0;

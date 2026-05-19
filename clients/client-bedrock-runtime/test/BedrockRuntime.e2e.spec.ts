@@ -1,12 +1,14 @@
 import { BedrockRuntime } from "@aws-sdk/client-bedrock-runtime";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { toBase64, toUtf8 } from "@smithy/core/serde";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 describe("BedrockRuntime", () => {
   const client = new BedrockRuntime({
     region: "us-west-2",
     credentials: aws?.testCredentials,
+    requestHandler: new UndiciHttpHandler(),
   });
 
   let signerCredentialProviderSpy: any;

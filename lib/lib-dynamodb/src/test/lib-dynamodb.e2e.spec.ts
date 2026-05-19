@@ -24,6 +24,7 @@ import type {
 } from "@aws-sdk/lib-dynamodb";
 import { DynamoDBDocument, NumberValue } from "@aws-sdk/lib-dynamodb";
 import { HttpRequest } from "@smithy/core/protocols";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 // expected running time: table creation (~20s) + operations 10s
@@ -33,6 +34,7 @@ describe(DynamoDBDocument.name, () => {
     const dynamodb = new DynamoDB({
       credentials: {} as any,
       cacheMiddleware: true,
+      requestHandler: new UndiciHttpHandler(),
     });
     expect(() => {
       DynamoDBDocument.from(dynamodb);
@@ -71,7 +73,7 @@ describe(
       [key: string]: any;
     };
 
-    const dynamodb = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
+    const dynamodb = new DynamoDB({ region: "us-west-2", maxAttempts: 10, requestHandler: new UndiciHttpHandler() });
     const doc = DynamoDBDocument.from(dynamodb, {
       marshallOptions: {
         convertTopLevelContainer: true,

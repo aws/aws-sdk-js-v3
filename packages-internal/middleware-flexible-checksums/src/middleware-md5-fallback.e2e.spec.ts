@@ -14,6 +14,7 @@ import type {
   HandlerExecutionContext,
   HttpRequest,
 } from "@smithy/types";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { createHash } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -23,7 +24,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
   const testFiles = ["md5-test-1.txt", "md5-test-2.txt"];
 
   beforeAll(async () => {
-    s3 = new S3({ region: "us-west-2" });
+    s3 = new S3({ region: "us-west-2", requestHandler: new UndiciHttpHandler() });
     Bucket = `md5-fallback-test-${Date.now()}`;
 
     try {
@@ -76,7 +77,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
   });
 
   it("should use MD5 checksum for DeleteObjects with middleware", async () => {
-    const md5S3Client = new S3({ region: "us-west-2" });
+    const md5S3Client = new S3({ region: "us-west-2", requestHandler: new UndiciHttpHandler() });
     let md5Added = false;
     let crc32Removed = false;
 

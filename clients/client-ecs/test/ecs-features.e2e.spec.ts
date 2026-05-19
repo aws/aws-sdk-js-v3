@@ -1,11 +1,16 @@
 import { ECS } from "@aws-sdk/client-ecs";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(ECS.name, () => {
   let client: ECS;
 
   beforeAll(async () => {
-    client = new ECS({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new ECS({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Listing clusters", () => {

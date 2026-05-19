@@ -1,5 +1,6 @@
 import { CloudWatch } from "@aws-sdk/client-cloudwatch";
 import { AwsJson1_0Protocol, AwsQueryProtocol, AwsSmithyRpcV2CborProtocol } from "@aws-sdk/core/protocols";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { describe, expect, test as it } from "vitest";
 
 describe(CloudWatch.name, () => {
@@ -11,6 +12,7 @@ describe(CloudWatch.name, () => {
         awsQueryCompatible: true,
       }),
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     }),
     query: new CloudWatch({
       region: "us-west-2",
@@ -25,6 +27,7 @@ describe(CloudWatch.name, () => {
         version: "2010-08-01",
       }),
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     }),
     json: new CloudWatch({
       region: "us-west-2",
@@ -34,21 +37,25 @@ describe(CloudWatch.name, () => {
         awsQueryCompatible: true,
       }),
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     }),
     cborShorthand: new CloudWatch({
       region: "us-west-2",
       protocol: AwsSmithyRpcV2CborProtocol,
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     }),
     queryShorthand: new CloudWatch({
       region: "us-west-2",
       protocol: AwsQueryProtocol,
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     }),
     jsonShorthand: new CloudWatch({
       region: "us-west-2",
       protocol: AwsJson1_0Protocol,
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     }),
   };
 

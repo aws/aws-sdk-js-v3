@@ -1,6 +1,7 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { type S3ClientConfig, ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { randomBytes } from "node:crypto";
 import fs from "node:fs";
 import { Readable } from "node:stream";
@@ -28,7 +29,7 @@ describe("@aws-sdk/lib-storage", () => {
     let Key: string;
 
     beforeAll(() => {
-      client = new S3({ region });
+      client = new S3({ region, requestHandler: new UndiciHttpHandler() });
       Key = `multi-part-body-types-${Date.now()}`;
     });
 
@@ -95,7 +96,11 @@ describe("@aws-sdk/lib-storage", () => {
       let Key: string;
 
       beforeAll(() => {
-        client = new S3({ region, requestChecksumCalculation });
+        client = new S3({
+          region,
+          requestChecksumCalculation,
+          requestHandler: new UndiciHttpHandler(),
+        });
         Key = `multi-part-checksum-${requestChecksumCalculation}-${checksumAlgorithm}-${Date.now()}`;
       });
 
@@ -137,7 +142,7 @@ describe("@aws-sdk/lib-storage", () => {
         }
       }
 
-      const mockClient = new MockFailureS3({ region });
+      const mockClient = new MockFailureS3({ region, requestHandler: new UndiciHttpHandler() });
 
       const requestLog = [] as string[];
 
@@ -181,7 +186,7 @@ describe("@aws-sdk/lib-storage", () => {
     let client: S3;
 
     beforeAll(() => {
-      client = new S3({ region });
+      client = new S3({ region, requestHandler: new UndiciHttpHandler() });
     });
 
     it("should validate part size constraints", () => {
@@ -224,7 +229,10 @@ describe("@aws-sdk/lib-storage", () => {
 
   describe("inferring the byte length of the input", () => {
     it("should throw an informative error about the correct override if the SDK infers the byte count incorrectly", async () => {
-      const s3 = new S3({ region });
+      const s3 = new S3({
+        region,
+        requestHandler: new UndiciHttpHandler(),
+      });
 
       const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
 
@@ -249,7 +257,10 @@ to input.params.ContentLength in bytes.
     });
 
     it("should use the input ContentLength as the total byte count if supplied by the caller", async () => {
-      const s3 = new S3({ region });
+      const s3 = new S3({
+        region,
+        requestHandler: new UndiciHttpHandler(),
+      });
 
       const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
 

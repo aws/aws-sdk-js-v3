@@ -2,6 +2,7 @@ import type { S3ClientConfig } from "@aws-sdk/client-s3";
 import { S3, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
 import type { GetCallerIdentityCommandOutput } from "@aws-sdk/client-sts";
 import { STS } from "@aws-sdk/client-sts";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";
 
 const testValue = "Hello S3 global client!";
@@ -14,9 +15,9 @@ describe("S3 Global Client Test", () => {
   };
 
   const regionConfigs = [
-    { region: "us-east-1", followRegionRedirects: true } as S3ClientConfig,
-    { region: "eu-west-1", followRegionRedirects: true } as S3ClientConfig,
-    { region: "us-west-2", followRegionRedirects: true } as S3ClientConfig,
+    { region: "us-east-1", followRegionRedirects: true, requestHandler: new UndiciHttpHandler() } as S3ClientConfig,
+    { region: "eu-west-1", followRegionRedirects: true, requestHandler: new UndiciHttpHandler() } as S3ClientConfig,
+    { region: "us-west-2", followRegionRedirects: true, requestHandler: new UndiciHttpHandler() } as S3ClientConfig,
   ].map((config) => {
     config.logger = {
       trace() {},
@@ -30,7 +31,7 @@ describe("S3 Global Client Test", () => {
     return config;
   });
   const s3Clients = regionConfigs.map((config) => new S3(config));
-  const stsClient = new STS({});
+  const stsClient = new STS({ requestHandler: new UndiciHttpHandler() });
 
   let callerID = null as unknown as GetCallerIdentityCommandOutput;
   let bucketNames = [] as string[];

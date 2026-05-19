@@ -5,6 +5,7 @@ import { Upload } from "@aws-sdk/lib-storage";
 import { ChecksumStream, headStream } from "@smithy/core/serde";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import type { HttpRequest, HttpResponse } from "@smithy/types";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { Readable } from "node:stream";
 import { beforeAll, describe, expect, test as it, vi } from "vitest";
 
@@ -44,12 +45,13 @@ describe("S3 checksums", () => {
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
 
-    s3 = new S3({ logger, region, requestStreamBufferSize: 8 * 1024 });
-    s3_noRequestBuffer = new S3({ logger, region });
+    s3 = new S3({ logger, region, requestStreamBufferSize: 8 * 1024, requestHandler: new UndiciHttpHandler() });
+    s3_noRequestBuffer = new S3({ logger, region, requestHandler: new UndiciHttpHandler() });
     s3_noChecksum = new S3({
       region,
       requestChecksumCalculation: "WHEN_REQUIRED",
       responseChecksumValidation: "WHEN_REQUIRED",
+      requestHandler: new UndiciHttpHandler(),
     });
     Key = "middleware-flexible-checksum.txt";
 
@@ -268,7 +270,7 @@ describe("S3 checksums", () => {
     ])(
       "when body is '%s' with checksum algorithm '%s' the checksum is '%s'",
       async (body, checksumAlgorithm, checksumValue) => {
-        const client = new S3();
+        const client = new S3({ requestHandler: new UndiciHttpHandler() });
         client.middlewareStack.addRelativeTo(
           (next: any) => async (args: any) => {
             const request = args.request as HttpRequest;

@@ -1,11 +1,16 @@
 import { CloudWatch } from "@aws-sdk/client-cloudwatch";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(CloudWatch.name, () => {
   let client: CloudWatch;
 
   beforeAll(async () => {
-    client = new CloudWatch({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new CloudWatch({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Alarms", () => {

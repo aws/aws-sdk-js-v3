@@ -1,4 +1,5 @@
 import { NoSuchKey, S3 } from "@aws-sdk/client-s3";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
 
 const FormData = require("form-data");
@@ -30,12 +31,17 @@ describe(
           region,
           forcePathStyle: true,
           endpoint: `https://s3.dualstack.${region}.amazonaws.com`,
+          requestHandler: new UndiciHttpHandler(),
         });
         const { url } = await createPresignedPost(client, { Bucket, Key });
         expect(url).toBe(`https://s3.dualstack.${region}.amazonaws.com/${Bucket}`);
       }
       {
-        const client = new S3({ region, endpoint: `https://s3.dualstack.${region}.amazonaws.com` });
+        const client = new S3({
+          region,
+          endpoint: `https://s3.dualstack.${region}.amazonaws.com`,
+          requestHandler: new UndiciHttpHandler(),
+        });
         const { url } = await createPresignedPost(client, { Bucket, Key });
         expect(url).toBe(`https://${Bucket}.s3.dualstack.${region}.amazonaws.com/`);
       }
@@ -51,7 +57,11 @@ describe(
         Key = `aws-sdk-js-integration-test-s3-presigned-post-${Date.now()}.txt`;
         contents = "Hello, world!";
         fileLocation = join(__dirname, Key);
-        client = new S3({ region, endpoint: `https://s3.dualstack.${region}.amazonaws.com` });
+        client = new S3({
+          region,
+          endpoint: `https://s3.dualstack.${region}.amazonaws.com`,
+          requestHandler: new UndiciHttpHandler(),
+        });
 
         await client.headBucket({ Bucket });
         writeFileSync(fileLocation, contents, "utf-8");

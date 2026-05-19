@@ -16,6 +16,7 @@ import { CreateHealthCheckCommand, Route53Client } from "@aws-sdk/client-route-5
 import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/core/protocols";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 const LONG_TIMEOUT = 5 * 60 * 1000;
@@ -60,9 +61,9 @@ describe("EventBridge Client with SignatureV4a", () => {
     primaryRegion = "us-west-2";
     secondaryRegion = "us-east-1";
 
-    primaryEbClient = new EventBridgeClient({ region: primaryRegion });
-    secondaryEbClient = new EventBridgeClient({ region: secondaryRegion });
-    route53Client = new Route53Client({ region: "us-west-2" });
+    primaryEbClient = new EventBridgeClient({ region: primaryRegion, requestHandler: new UndiciHttpHandler() });
+    secondaryEbClient = new EventBridgeClient({ region: secondaryRegion, requestHandler: new UndiciHttpHandler() });
+    route53Client = new Route53Client({ region: "us-west-2", requestHandler: new UndiciHttpHandler() });
 
     signer = new SignatureV4MultiRegion({
       service: "events",
@@ -74,12 +75,13 @@ describe("EventBridge Client with SignatureV4a", () => {
     globalEbClient = new EventBridgeClient({
       region: primaryRegion,
       signer,
+      requestHandler: new UndiciHttpHandler(),
     });
 
     eventBusName = `${RESOURCE_PREFIX}-bus`;
     endpointName = `${RESOURCE_PREFIX}-endpoint`;
 
-    const managementClient = new EventBridgeClient({ region: primaryRegion });
+    const managementClient = new EventBridgeClient({ region: primaryRegion, requestHandler: new UndiciHttpHandler() });
     try {
       const existingEndpoint = await managementClient.send(new DescribeEndpointCommand({ Name: endpointName }));
       endpointArn = existingEndpoint.Arn;
@@ -178,7 +180,10 @@ describe("EventBridge Client with SignatureV4a", () => {
   it(
     "should send an event to an EventBridge Global Endpoint using SignatureV4a",
     async () => {
-      const managementClient = new EventBridgeClient({ region: primaryRegion });
+      const managementClient = new EventBridgeClient({
+        region: primaryRegion,
+        requestHandler: new UndiciHttpHandler(),
+      });
       const describeResponse = await managementClient.send(new DescribeEndpointCommand({ Name: endpointName }));
       managementClient.destroy();
 

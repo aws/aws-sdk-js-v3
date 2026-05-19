@@ -1,12 +1,14 @@
 import { DynamoDB, ResourceNotFoundException } from "@aws-sdk/client-dynamodb";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema } from "@smithy/types";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { describe, expect, test as it } from "vitest";
 
 describe(DynamoDB.name, () => {
   const ddb = new DynamoDB({
     region: "us-west-2",
     credentials: aws?.testCredentials,
+    requestHandler: new UndiciHttpHandler(),
   });
 
   it("throws an error when table is not found", async () => {

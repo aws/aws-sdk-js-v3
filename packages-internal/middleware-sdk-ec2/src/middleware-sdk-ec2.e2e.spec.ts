@@ -2,6 +2,7 @@ import type { EC2ServiceException } from "@aws-sdk/client-ec2";
 import { EC2, waitUntilSnapshotCompleted, waitUntilVolumeAvailable } from "@aws-sdk/client-ec2";
 import { KMS } from "@aws-sdk/client-kms";
 import { getHttpDebugLogPlugin } from "@aws-sdk/middleware-http-debug-log";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";
 
 const errors = [] as any[];
@@ -27,6 +28,7 @@ describe("EC2 feature test", () => {
     ec2 = new EC2({
       region: "us-west-2",
       logger,
+      requestHandler: new UndiciHttpHandler(),
     });
   });
 
@@ -101,14 +103,14 @@ describe("EC2 feature test", () => {
 
     const sourceRegion = "us-west-2";
     const destRegion = "us-east-1";
-    const sourceEc2 = new EC2({ region: sourceRegion, logger });
-    const destinationEc2 = new EC2({ region: destRegion, logger });
+    const sourceEc2 = new EC2({ region: sourceRegion, logger, requestHandler: new UndiciHttpHandler() });
+    const destinationEc2 = new EC2({ region: destRegion, logger, requestHandler: new UndiciHttpHandler() });
 
     const sourceKeyAlias = "js-sdk-e2e-test-key-1-source";
     const destinationKeyAlias = "js-sdk-e2e-test-key-2-destination";
 
-    const sourceKms = new KMS({ region: sourceRegion, logger });
-    const destinationKms = new KMS({ region: destRegion, logger });
+    const sourceKms = new KMS({ region: sourceRegion, logger, requestHandler: new UndiciHttpHandler() });
+    const destinationKms = new KMS({ region: destRegion, logger, requestHandler: new UndiciHttpHandler() });
 
     for (const client of [sourceEc2, destinationEc2, sourceKms, destinationKms]) {
       // I'm leaving this debug call in the test because it's so slow that
