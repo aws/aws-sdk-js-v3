@@ -1,4 +1,5 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 import { CognitoIdentity } from "../../src/index";
@@ -19,6 +20,7 @@ describe("@aws-sdk/client-cognito-identity", () => {
 
     unAuthClient = new CognitoIdentity({
       region,
+      requestHandler: new UndiciHttpHandler(),
     });
   }, 60_000);
 

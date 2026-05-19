@@ -1,4 +1,5 @@
 import { SNS } from "@aws-sdk/client-sns";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(SNS.name, () => {
@@ -6,7 +7,11 @@ describe(SNS.name, () => {
   let topicArn: string;
 
   beforeAll(async () => {
-    client = new SNS({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new SNS({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Topics", () => {

@@ -1,12 +1,21 @@
 import { BedrockRuntime } from "@aws-sdk/client-bedrock-runtime";
 import { S3Vectors } from "@aws-sdk/client-s3vectors";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { beforeEach, describe, expect, test as it } from "vitest";
 
 describe(
   S3Vectors.name,
   () => {
-    const s3v = new S3Vectors({ region: "us-west-2", credentials: aws?.testCredentials });
-    const rock = new BedrockRuntime({ region: "us-west-2", credentials: aws?.testCredentials });
+    const s3v = new S3Vectors({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
+    const rock = new BedrockRuntime({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
 
     const VECTOR_BUCKET_NAME = "jsv3-e2e-vector";
 

@@ -1,4 +1,5 @@
 import { IAM } from "@aws-sdk/client-iam";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(IAM.name, () => {
@@ -7,7 +8,11 @@ describe(IAM.name, () => {
   const createdRoles: string[] = [];
 
   beforeAll(async () => {
-    client = new IAM({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new IAM({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   afterAll(async () => {

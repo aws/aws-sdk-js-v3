@@ -1,11 +1,16 @@
 import { Kinesis } from "@aws-sdk/client-kinesis";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
 describe(Kinesis.name, () => {
   let client: Kinesis;
 
   beforeAll(async () => {
-    client = new Kinesis({ region: "us-west-2", credentials: aws?.testCredentials });
+    client = new Kinesis({
+      region: "us-west-2",
+      credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
+    });
   });
 
   describe("Error handling", () => {

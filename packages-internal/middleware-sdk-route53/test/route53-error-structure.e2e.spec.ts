@@ -1,11 +1,12 @@
 import { Route53 } from "@aws-sdk/client-route-53";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { describe, expect, test as it, beforeAll } from "vitest";
 
 describe("route53-error-structure", () => {
   let error: (Error & any) | undefined;
 
   beforeAll(async () => {
-    const r53 = new Route53({ region: "us-west-2" });
+    const r53 = new Route53({ region: "us-west-2", requestHandler: new UndiciHttpHandler() });
     error = await r53
       .changeResourceRecordSets({
         HostedZoneId: "test",

@@ -1,4 +1,5 @@
 import { SQS } from "@aws-sdk/client-sqs";
+import { UndiciHttpHandler } from "@smithy/undici-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe(SQS.name, () => {
@@ -9,6 +10,7 @@ describe(SQS.name, () => {
     client = new SQS({
       region: "us-west-2",
       credentials: aws?.testCredentials,
+      requestHandler: new UndiciHttpHandler(),
     });
   });
 
