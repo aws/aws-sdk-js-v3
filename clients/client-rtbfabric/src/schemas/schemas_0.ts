@@ -202,6 +202,7 @@ const _k = "key";
 const _l = "links";
 const _lC = "listenerConfig";
 const _lI = "linkId";
+const _lRC = "linksRequestedCount";
 const _lS = "logSettings";
 const _lT = "loggingTypes";
 const _m = "message";
@@ -580,8 +581,8 @@ export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
 ];
 export var GetResponderGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRete,
   0,
-  [_vI, _sI, _sGI, _st, _po, _pr, _gI, _de, _cA, _uA, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _iLC, _gT, _eIE],
-  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 0, 0], 7
+  [_vI, _sI, _sGI, _st, _po, _pr, _gI, _de, _cA, _uA, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _iLC, _lRC, _gT, _eIE],
+  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 1, 0, 0], 7
 ];
 export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
   0,

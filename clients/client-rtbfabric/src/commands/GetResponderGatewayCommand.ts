@@ -99,6 +99,7 @@ export interface GetResponderGatewayCommandOutput extends GetResponderGatewayRes
  * //   activeLinksCount: Number("int"),
  * //   totalLinksCount: Number("int"),
  * //   inboundLinksCount: Number("int"),
+ * //   linksRequestedCount: Number("int"),
  * //   gatewayType: "EXTERNAL" || "INTERNAL",
  * //   externalInboundEndpoint: "STRING_VALUE",
  * // };
@@ -145,6 +146,7 @@ export interface GetResponderGatewayCommandOutput extends GetResponderGatewayRes
  *   description: "My responder gateway",
  *   gatewayId: "rtb-gw-12345678",
  *   inboundLinksCount: 3,
+ *   linksRequestedCount: 3,
  *   port: 443,
  *   protocol: "HTTPS",
  *   securityGroupIds: [

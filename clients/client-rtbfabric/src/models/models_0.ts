@@ -843,62 +843,60 @@ export interface CreateLinkResponse {
 }
 
 /**
- * Key-value pair for query string matching
+ * <p>A key-value pair for query string matching in a routing rule condition.</p>
  * @public
  */
 export interface QueryStringKeyValuePair {
   /**
-   * RFC 3986 unreserved characters
+   * <p>The key of the query string parameter to match. Must contain only RFC 3986 unreserved characters.</p>
    * @public
    */
   key: string | undefined;
 
   /**
-   * RFC 3986 unreserved characters
+   * <p>The value of the query string parameter to match. Must contain only RFC 3986 unreserved characters.</p>
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * Conditions bag for a routing rule.
- * All non-null fields must match (AND logic). At least one field must be set (enforced by CP).
+ * <p>The conditions for a routing rule. All specified fields must match for the rule to apply (AND logic). At least one condition field must be set.</p>
  * @public
  */
 export interface RuleCondition {
   /**
-   * Exact host match — RFC 3986 unreserved characters
+   * <p>The exact host header value to match.</p>
    * @public
    */
   hostHeader?: string | undefined;
 
   /**
-   * Wildcard host pattern (e.g., *.example.com) — RFC 3986 unreserved plus *
+   * <p>A wildcard pattern for host header matching (for example, <code>*.example.com</code>).</p>
    * @public
    */
   hostHeaderWildcard?: string | undefined;
 
   /**
-   * Path prefix matching — strict starts-with, no wildcard (preferred for new rules).
-   * Must start with /; RFC 3986 unreserved plus /
+   * <p>The path prefix to match. The request path must start with this value. Must start with <code>/</code>.</p>
    * @public
    */
   pathPrefix?: string | undefined;
 
   /**
-   * Exact path match — must start with /; RFC 3986 unreserved plus /
+   * <p>The exact path to match. Must start with <code>/</code>.</p>
    * @public
    */
   pathExact?: string | undefined;
 
   /**
-   * Query string key=value pair match (single pair)
+   * <p>A query string key-value pair that must be present and match exactly.</p>
    * @public
    */
   queryStringEquals?: QueryStringKeyValuePair | undefined;
 
   /**
-   * Query string key presence check (any value accepted) — RFC 3986 unreserved characters
+   * <p>A query string key that must be present in the request (any value is accepted).</p>
    * @public
    */
   queryStringExists?: string | undefined;
@@ -1789,7 +1787,7 @@ export interface ListLinkRoutingRulesRequest {
 }
 
 /**
- * Summary of a routing rule for list responses
+ * <p>A summary of a link routing rule.</p>
  * @public
  */
 export interface LinkRoutingRuleSummary {
@@ -2673,10 +2671,18 @@ export interface GetResponderGatewayResponse {
   totalLinksCount?: number | undefined;
 
   /**
-   * <p>The count of inbound links for the responder gateway.</p>
+   * <p>Deprecated. Use 'linksRequestedCount' instead.</p>
+   *
+   * @deprecated (since 2026-05-11) Use linksRequestedCount instead.
    * @public
    */
   inboundLinksCount?: number | undefined;
+
+  /**
+   * <p>The count of requested links waiting for the responder gateway to accept or reject.</p>
+   * @public
+   */
+  linksRequestedCount?: number | undefined;
 
   /**
    * <p>The type of gateway. Valid values are <code>EXTERNAL</code> or <code>INTERNAL</code>.</p>
