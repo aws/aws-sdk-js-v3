@@ -31,7 +31,7 @@ export interface GetPaymentInstrumentCommandInput extends GetPaymentInstrumentRe
 export interface GetPaymentInstrumentCommandOutput extends GetPaymentInstrumentResponse, __MetadataBearer {}
 
 /**
- * Get a payment instrument by ID
+ * <p>Get a payment instrument by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

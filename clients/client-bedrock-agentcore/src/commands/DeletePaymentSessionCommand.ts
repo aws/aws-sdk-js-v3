@@ -31,21 +31,7 @@ export interface DeletePaymentSessionCommandInput extends DeletePaymentSessionRe
 export interface DeletePaymentSessionCommandOutput extends DeletePaymentSessionResponse, __MetadataBearer {}
 
 /**
- * Delete a payment manager session
- *
- * Permanently removes a payment session record from the database. This is a hard delete operation
- * that removes the session completely.
- *
- * Deleting a non-existent or already-deleted session returns ResourceNotFoundException (404).
- *
- * Authorization: The caller must own the session (accountId, userId, and paymentManagerId must match).
- * If authorization fails, a 403 Forbidden error is returned.
- *
- * Errors:
- * - ResourceNotFoundException: The session does not exist or has already been deleted
- * - AccessDeniedException: The caller is not authorized to delete this session
- * - ValidationException: Required fields are missing or invalid
- * - InternalServerException: An unexpected server error occurred
+ * <p>Deletes a payment session. This permanently removes the payment session record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

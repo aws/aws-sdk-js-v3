@@ -4109,7 +4109,7 @@ export interface CloudWatchLogsSource {
 }
 
 /**
- * Where to pull session spans from
+ * <p>Configuration for the data source used in evaluation.</p>
  * @public
  */
 export type DataSourceConfig =
@@ -4232,7 +4232,7 @@ export interface EvaluationJobResults {
 }
 
 /**
- * An evaluator to run against sessions
+ * <p>An evaluator to run against sessions.</p>
  * @public
  */
 export interface Evaluator {
@@ -4244,7 +4244,7 @@ export interface Evaluator {
 }
 
 /**
- * CloudWatch Logs destination for batch evaluation results
+ * <p>CloudWatch Logs destination for batch evaluation results.</p>
  * @public
  */
 export interface CloudWatchOutputConfig {
@@ -4262,7 +4262,7 @@ export interface CloudWatchOutputConfig {
 }
 
 /**
- * Output destination configuration
+ * <p>Output destination configuration.</p>
  * @public
  */
 export type OutputConfig =
@@ -5014,7 +5014,7 @@ export interface ListBatchEvaluationsRequest {
 }
 
 /**
- * Summary representation for list responses
+ * <p>Summary representation for list responses.</p>
  * @public
  */
 export interface BatchEvaluationSummary {
@@ -5253,7 +5253,7 @@ export interface GroundTruthTurn {
  */
 export interface InlineGroundTruth {
   /**
-   * assertions for evaluation, reuses common model EvaluationContentList
+   * <p>Assertions for evaluation, reuses common model EvaluationContentList.</p>
    * @public
    */
   assertions?: EvaluationContent[] | undefined;
@@ -5272,7 +5272,7 @@ export interface InlineGroundTruth {
 }
 
 /**
- * Where to pull ground truth from
+ * <p>Where to pull ground truth from.</p>
  * @public
  */
 export type GroundTruthSource =
@@ -5830,73 +5830,73 @@ export interface GetResourceOauth2TokenResponse {
 }
 
 /**
- * Coinbase CDP token request parameters
+ * <p>Coinbase CDP token request parameters.</p>
  * @public
  */
 export interface CoinbaseCdpTokenRequestInput {
   /**
-   * The HTTP method for the payment API request.
+   * <p>The HTTP method for the payment API request.</p>
    * @public
    */
   requestMethod: PaymentHttpMethodType | undefined;
 
   /**
-   * Optional - defaults to "api.cdp.coinbase.com"
+   * <p>The host for the payment API request. Defaults to "api.cdp.coinbase.com".</p>
    * @public
    */
   requestHost?: string | undefined;
 
   /**
-   * The path of the payment API request.
+   * <p>The path of the payment API request.</p>
    * @public
    */
   requestPath: string | undefined;
 
   /**
-   * Set to true for wallet write operations (requires walletSecret configured)
+   * <p>Set to true for wallet write operations (requires walletSecret configured).</p>
    * @public
    */
   includeWalletAuthToken?: boolean | undefined;
 
   /**
-   * Request body JSON - used to generate wallet auth JWT
+   * <p>Request body JSON — used to generate wallet auth JWT.</p>
    * @public
    */
   requestBody?: string | undefined;
 }
 
 /**
- * StripePrivy token request parameters
+ * <p>Stripe Privy token request parameters.</p>
  * @public
  */
 export interface StripePrivyTokenRequestInput {
   /**
-   * Optional - defaults to "api.privy.io"
+   * <p>The host for the Privy API request. Defaults to "api.privy.io".</p>
    * @public
    */
   requestHost?: string | undefined;
 
   /**
-   * The path of the Stripe Privy API request.
+   * <p>The path of the Stripe Privy API request.</p>
    * @public
    */
   requestPath: string | undefined;
 
   /**
-   * Request body JSON for the Privy API call
+   * <p>Request body JSON for the Privy API call.</p>
    * @public
    */
   requestBody: string | undefined;
 
   /**
-   * Set to true to generate privy-authorization-signature
+   * <p>Set to true to generate privy-authorization-signature.</p>
    * @public
    */
   includeAuthorizationSignature?: boolean | undefined;
 }
 
 /**
- * VENDOR-SPECIFIC TOKEN REQUEST CONFIGURATION - Input
+ * <p>Vendor-specific token request configuration.</p>
  * @public
  */
 export type PaymentTokenRequestInput =
@@ -5909,7 +5909,7 @@ export type PaymentTokenRequestInput =
  */
 export namespace PaymentTokenRequestInput {
   /**
-   * Coinbase CDP token request parameters
+   * <p>The Coinbase CDP token request.</p>
    * @public
    */
   export interface CoinbaseCdpTokenRequestMember {
@@ -5919,7 +5919,7 @@ export namespace PaymentTokenRequestInput {
   }
 
   /**
-   * StripePrivy token request parameters
+   * <p>The Stripe Privy token request.</p>
    * @public
    */
   export interface StripePrivyTokenRequestMember {
@@ -5953,75 +5953,74 @@ export namespace PaymentTokenRequestInput {
  */
 export interface GetResourcePaymentTokenRequest {
   /**
-   * Workload access token for authorization. Named workloadIdentityToken for consistency with APIKey and OAuth2CredentialProvider.
+   * <p>Workload access token for authorization.</p>
    * @public
    */
   workloadIdentityToken: string | undefined;
 
   /**
-   * Name of the payment credential provider to use
+   * <p>Name of the payment credential provider to use.</p>
    * @public
    */
   resourceCredentialProviderName: string | undefined;
 
   /**
-   * Vendor-specific token request input
-   * Contains all request parameters in a type-safe, vendor-specific structure
+   * <p>Vendor-specific token request input. Contains all request parameters in a type-safe, vendor-specific structure.</p>
    * @public
    */
   paymentTokenRequest: PaymentTokenRequestInput | undefined;
 }
 
 /**
- * Coinbase CDP token response
+ * <p>Coinbase CDP token response.</p>
  * @public
  */
 export interface CoinbaseCdpTokenResponseOutput {
   /**
-   * Bearer Token for Authorization header
+   * <p>Bearer Token for Authorization header.</p>
    * @public
    */
   bearerToken: string | undefined;
 
   /**
-   * Wallet Auth Token for X-Wallet-Auth header
+   * <p>Wallet Auth Token for X-Wallet-Auth header.</p>
    * @public
    */
   walletAuthToken?: string | undefined;
 }
 
 /**
- * StripePrivy token response containing appId, basicAuthToken, and optionally authorizationSignature
+ * <p>Stripe Privy token response containing appId, basicAuthToken, and optionally authorizationSignature.</p>
  * @public
  */
 export interface StripePrivyTokenResponseOutput {
   /**
-   * Base64-encoded ECDSA P-256 authorization signature (only present when includeAuthorizationSignature is true)
+   * <p>Base64-encoded ECDSA P-256 authorization signature (only present when includeAuthorizationSignature is true).</p>
    * @public
    */
   authorizationSignature?: string | undefined;
 
   /**
-   * Unix timestamp in milliseconds when the authorization signature expires. Set as privy-request-expiry header.
+   * <p>Unix timestamp in milliseconds when the authorization signature expires.</p>
    * @public
    */
   requestExpiry?: number | undefined;
 
   /**
-   * The Privy app ID for the privy-app-id header
+   * <p>The Privy app ID for the privy-app-id header.</p>
    * @public
    */
   appId: string | undefined;
 
   /**
-   * Base64-encoded Basic Auth token (appId:appSecret) for the Authorization header
+   * <p>Base64-encoded Basic Auth token (appId:appSecret) for the Authorization header.</p>
    * @public
    */
   basicAuthToken: string | undefined;
 }
 
 /**
- * VENDOR-SPECIFIC TOKEN RESPONSE CONFIGURATION - Output
+ * <p>Vendor-specific token response configuration.</p>
  * @public
  */
 export type PaymentTokenResponseOutput =
@@ -6034,7 +6033,7 @@ export type PaymentTokenResponseOutput =
  */
 export namespace PaymentTokenResponseOutput {
   /**
-   * Coinbase CDP token response
+   * <p>The Coinbase CDP token response.</p>
    * @public
    */
   export interface CoinbaseCdpTokenResponseMember {
@@ -6044,7 +6043,7 @@ export namespace PaymentTokenResponseOutput {
   }
 
   /**
-   * StripePrivy token response containing appId, basicAuthToken, and optionally authorizationSignature
+   * <p>The Stripe Privy token response.</p>
    * @public
    */
   export interface StripePrivyTokenResponseMember {
@@ -6078,8 +6077,7 @@ export namespace PaymentTokenResponseOutput {
  */
 export interface GetResourcePaymentTokenResponse {
   /**
-   * Vendor-specific token response output
-   * Contains all response data in a type-safe, vendor-specific structure
+   * <p>Vendor-specific token response output. Contains all response data in a type-safe, vendor-specific structure.</p>
    * @public
    */
   paymentTokenResponse: PaymentTokenResponseOutput | undefined;
@@ -9641,13 +9639,13 @@ export interface ListMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix.</p>
+   * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>
+   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
    * @public
    */
   namespacePath?: string | undefined;

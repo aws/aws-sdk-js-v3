@@ -31,7 +31,7 @@ export interface ListPaymentInstrumentsCommandInput extends ListPaymentInstrumen
 export interface ListPaymentInstrumentsCommandOutput extends ListPaymentInstrumentsResponse, __MetadataBearer {}
 
 /**
- * List payment instruments for a manager
+ * <p>List payment instruments for a manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,7 +31,7 @@ export interface ListPaymentSessionsCommandInput extends ListPaymentSessionsRequ
 export interface ListPaymentSessionsCommandOutput extends ListPaymentSessionsResponse, __MetadataBearer {}
 
 /**
- * List payment manager sessions
+ * <p>List payment sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

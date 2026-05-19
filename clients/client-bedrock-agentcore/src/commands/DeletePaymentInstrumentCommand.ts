@@ -31,25 +31,7 @@ export interface DeletePaymentInstrumentCommandInput extends DeletePaymentInstru
 export interface DeletePaymentInstrumentCommandOutput extends DeletePaymentInstrumentResponse, __MetadataBearer {}
 
 /**
- * Delete a payment instrument
- *
- * Marks a payment instrument as deleted by updating its status to DELETED. This is a soft delete
- * operation that preserves the record in the database for audit and compliance purposes. The record
- * remains queryable for audit purposes but is excluded from normal list and get operations.
- *
- * Deleting an already-deleted or non-existent instrument returns ResourceNotFoundException (404).
- *
- * Authorization: The caller must own the instrument (accountId, userId, and paymentManagerId must match).
- * If authorization fails, a 403 Forbidden error is returned.
- *
- * Timestamp Management: The updatedAt timestamp is set to the current time, while createdAt is preserved.
- * The version field is incremented for optimistic locking.
- *
- * Errors:
- * - ResourceNotFoundException: The instrument does not exist or is already deleted
- * - AccessDeniedException: The caller is not authorized to delete this instrument
- * - ValidationException: Required fields are missing or invalid
- * - InternalServerException: An unexpected server error occurred
+ * <p>Deletes a payment instrument. This is a soft delete operation that preserves the record for audit and compliance purposes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

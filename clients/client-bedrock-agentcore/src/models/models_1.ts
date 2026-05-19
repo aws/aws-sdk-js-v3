@@ -62,13 +62,13 @@ export interface RetrieveMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix.</p>
+   * <p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy.</p>
+   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
    * @public
    */
   namespacePath?: string | undefined;
@@ -156,73 +156,67 @@ export interface StartMemoryExtractionJobOutput {
 }
 
 /**
- * Authentication method using JWT with key ID and subject claims.
+ * <p>Authentication method using JWT with key ID and subject claims.</p>
  * @public
  */
 export interface LinkedAccountDeveloperJwt {
   /**
-   * The key ID (kid) from the JWT header.
-   * Identifies which key was used to sign the JWT.
+   * <p>The key ID (kid) from the JWT header. Identifies which key was used to sign the JWT.</p>
    * @public
    */
   kid: string | undefined;
 
   /**
-   * The subject (sub) claim from the JWT payload.
-   * Identifies the principal that is the subject of the JWT.
+   * <p>The subject (sub) claim from the JWT payload. Identifies the principal that is the subject of the JWT.</p>
    * @public
    */
   sub: string | undefined;
 }
 
 /**
- * LinkedAccount using an email address.
+ * <p>Linked account using an email address.</p>
  * @public
  */
 export interface LinkedAccountEmail {
   /**
-   * The email address used for linkedAccount.
-   * Must be a valid email format.
+   * <p>The email address used for the linked account. Must be a valid email format.</p>
    * @public
    */
   emailAddress: string | undefined;
 }
 
 /**
- * OAuth2 authentication information for third-party providers.
- * Supports Google, Apple, X, Telegram, and GitHub providers.
+ * <p>OAuth2 authentication information for third-party providers.</p>
  * @public
  */
 export interface OAuth2Authentication {
   /**
-   * The subject (sub) claim from the OAuth2 provider.
-   * Uniquely identifies the user at the provider.
+   * <p>The subject (sub) claim from the OAuth2 provider. Uniquely identifies the user at the provider.</p>
    * @public
    */
   sub: string | undefined;
 
   /**
-   * The email address from the OAuth2 provider (optional).
+   * <p>The email address from the OAuth2 provider.</p>
    * @public
    */
   emailAddress?: string | undefined;
 
   /**
-   * The user's name from the OAuth2 provider (optional).
+   * <p>The user's name from the OAuth2 provider.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * The username from the OAuth2 provider (optional).
+   * <p>The username from the OAuth2 provider.</p>
    * @public
    */
   username?: string | undefined;
 }
 
 /**
- * Authentication method using OAuth2 providers.
- * Supports Google, Apple, X, Telegram, and GitHub providers.
+ * <p>Authentication method using OAuth2 providers. Supports Google, Apple, X, Telegram, and GitHub providers.</p>
  * @public
  */
 export type LinkedAccountOAuth2 =
@@ -238,7 +232,7 @@ export type LinkedAccountOAuth2 =
  */
 export namespace LinkedAccountOAuth2 {
   /**
-   * Google OAuth2 authentication
+   * <p>Google OAuth2 authentication.</p>
    * @public
    */
   export interface GoogleMember {
@@ -251,7 +245,7 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * Apple OAuth2 authentication
+   * <p>Apple OAuth2 authentication.</p>
    * @public
    */
   export interface AppleMember {
@@ -264,7 +258,7 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * X (formerly Twitter) OAuth2 authentication
+   * <p>X (formerly Twitter) OAuth2 authentication.</p>
    * @public
    */
   export interface XMember {
@@ -277,7 +271,7 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * Telegram OAuth2 authentication
+   * <p>Telegram OAuth2 authentication.</p>
    * @public
    */
   export interface TelegramMember {
@@ -290,7 +284,7 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * GitHub OAuth2 authentication
+   * <p>GitHub OAuth2 authentication.</p>
    * @public
    */
   export interface GithubMember {
@@ -329,21 +323,19 @@ export namespace LinkedAccountOAuth2 {
 }
 
 /**
- * LinkedAccount using a phone number in E.164 format.
+ * <p>Linked account using a phone number in E.164 format.</p>
  * @public
  */
 export interface LinkedAccountSms {
   /**
-   * The phone number in E.164 format (e.g., +1234567890).
-   * Must be a valid E.164 formatted phone number starting with + and containing 1-15 digits.
+   * <p>The phone number in E.164 format (e.g., +1234567890).</p>
    * @public
    */
   phoneNumber: string | undefined;
 }
 
 /**
- * Represents different linkedAccounts that can be linked to an embedded wallet.
- * This union supports multiple linkedAccount approaches: email, SMS, JWT, and OAuth2.
+ * <p>Represents different linked accounts that can be linked to an embedded wallet. Supports email, SMS, JWT, and OAuth2 approaches.</p>
  * @public
  */
 export type LinkedAccount =
@@ -358,7 +350,7 @@ export type LinkedAccount =
  */
 export namespace LinkedAccount {
   /**
-   * Email-based linkedAccount
+   * <p>Email-based linked account.</p>
    * @public
    */
   export interface EmailMember {
@@ -370,7 +362,7 @@ export namespace LinkedAccount {
   }
 
   /**
-   * SMS-based linkedAccount using phone number
+   * <p>SMS-based linked account using phone number.</p>
    * @public
    */
   export interface SmsMember {
@@ -382,7 +374,7 @@ export namespace LinkedAccount {
   }
 
   /**
-   * Developer JWT linkedAccount with key ID and subject
+   * <p>Developer JWT linked account with key ID and subject.</p>
    * @public
    */
   export interface DeveloperJwtMember {
@@ -394,7 +386,7 @@ export namespace LinkedAccount {
   }
 
   /**
-   * OAuth2 provider linkedAccount (Google, Apple, X, Telegram, GitHub)
+   * <p>OAuth2 provider linked account (Google, Apple, X, Telegram, GitHub).</p>
    * @public
    */
   export interface OAuth2Member {
@@ -430,41 +422,37 @@ export namespace LinkedAccount {
 }
 
 /**
- * Embedded Crypto wallet instrument details
+ * <p>Embedded crypto wallet instrument details.</p>
  * @public
  */
 export interface EmbeddedCryptoWallet {
   /**
-   * The blockchain network for this embedded crypto wallet.
-   * Supported networks: ETHEREUM, SOLANA
+   * <p>The blockchain network for this embedded crypto wallet. Supported networks: ETHEREUM, SOLANA.</p>
    * @public
    */
   network: CryptoWalletNetwork | undefined;
 
   /**
-   * List of linkedAccounts linked to this wallet.
-   * Each linkedAccount represents a way the end user can authenticate to this wallet.
-   * Can be empty when adding a new linkedAccount to an existing wallet.
+   * <p>List of linked accounts linked to this wallet. Each represents a way the end user can authenticate to this wallet.</p>
    * @public
    */
   linkedAccounts: LinkedAccount[] | undefined;
 
   /**
-   * The wallet address on the specified blockchain network.
+   * <p>The wallet address on the specified blockchain network.</p>
    * @public
    */
   walletAddress?: string | undefined;
 
   /**
-   * URL for the end user to complete a provider-specific action (e.g., wallet linking, onboarding).
-   * Returned by the payment connector during instrument creation.
+   * <p>URL for the end user to complete a provider-specific action such as wallet linking or onboarding.</p>
    * @public
    */
   redirectUrl?: string | undefined;
 }
 
 /**
- * Details specific to the instrument type
+ * <p>Details specific to the instrument type.</p>
  * @public
  */
 export type PaymentInstrumentDetails =
@@ -476,7 +464,7 @@ export type PaymentInstrumentDetails =
  */
 export namespace PaymentInstrumentDetails {
   /**
-   * Embedded crypto wallet managed directly by end user
+   * <p>Embedded crypto wallet managed directly by end user.</p>
    * @public
    */
   export interface EmbeddedCryptoWalletMember {
@@ -503,792 +491,781 @@ export namespace PaymentInstrumentDetails {
 }
 
 /**
- * Request structure for creating a payment instrument
+ * <p>Request structure for creating a payment instrument.</p>
  * @public
  */
 export interface CreatePaymentInstrumentRequest {
   /**
-   * The user ID associated with this payment instrument.
+   * <p>The user ID associated with this payment instrument.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this payment instrument.
+   * <p>The ARN of the payment manager that owns this payment instrument.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment connector to use for this instrument.
+   * <p>The ID of the payment connector to use for this instrument.</p>
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * The type of payment instrument being created.
+   * <p>The type of payment instrument being created.</p>
    * @public
    */
   paymentInstrumentType: PaymentInstrumentType | undefined;
 
   /**
-   * The details of the payment instrument.
+   * <p>The details of the payment instrument.</p>
    * @public
    */
   paymentInstrumentDetails: PaymentInstrumentDetails | undefined;
 
   /**
-   * Idempotency token to ensure request uniqueness.
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * Represents a payment instrument
+ * <p>Represents a payment instrument.</p>
  * @public
  */
 export interface PaymentInstrument {
   /**
-   * The unique identifier for this payment instrument.
+   * <p>The unique identifier for this payment instrument.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this payment instrument.
+   * <p>The ARN of the payment manager that owns this payment instrument.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment connector associated with this instrument.
+   * <p>The ID of the payment connector associated with this instrument.</p>
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * The user ID associated with this payment instrument.
+   * <p>The user ID associated with this payment instrument.</p>
    * @public
    */
   userId: string | undefined;
 
   /**
-   * The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).
+   * <p>The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).</p>
    * @public
    */
   paymentInstrumentType: PaymentInstrumentType | undefined;
 
   /**
-   * The details specific to the payment instrument type.
+   * <p>The details specific to the payment instrument type.</p>
    * @public
    */
   paymentInstrumentDetails: PaymentInstrumentDetails | undefined;
 
   /**
-   * The timestamp when this payment instrument was created.
+   * <p>The timestamp when this payment instrument was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The current status of this payment instrument.
+   * <p>The current status of this payment instrument.</p>
    * @public
    */
   status: PaymentInstrumentStatus | undefined;
 
   /**
-   * The timestamp when this payment instrument was last updated.
+   * <p>The timestamp when this payment instrument was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * Response structure for creating a payment instrument
+ * <p>Response structure for creating a payment instrument.</p>
  * @public
  */
 export interface CreatePaymentInstrumentResponse {
   /**
-   * Represents a payment instrument
+   * <p>The created payment instrument.</p>
    * @public
    */
   paymentInstrument: PaymentInstrument | undefined;
 }
 
 /**
- * Request structure for deleting a payment instrument
- *
- * All fields are required and must match the instrument owner's identifiers for authorization to succeed.
+ * <p>Request structure for deleting a payment instrument.</p>
  * @public
  */
 export interface DeletePaymentInstrumentRequest {
   /**
-   * The user ID making the delete request. Must match the instrument's userId.
+   * <p>The user ID making the delete request. Must match the instrument's userId.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The payment manager ARN. Must match the instrument's paymentManagerArn.
+   * <p>The payment manager ARN. Must match the instrument's paymentManagerArn.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The payment connector ID. Must match the instrument's paymentConnectorId.
+   * <p>The payment connector ID. Must match the instrument's paymentConnectorId.</p>
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * The payment instrument ID to delete.
+   * <p>The payment instrument ID to delete.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 }
 
 /**
- * Response structure for deleting a payment instrument
- *
- * Returns the deletion status with HTTP 200 OK status code on successful soft deletion.
+ * <p>Response structure for deleting a payment instrument.</p>
  * @public
  */
 export interface DeletePaymentInstrumentResponse {
   /**
-   * The status of the instrument after deletion. Always DELETED for successful soft delete.
+   * <p>The status of the instrument after deletion. Always DELETED for successful soft delete.</p>
    * @public
    */
   status: PaymentInstrumentStatus | undefined;
 }
 
 /**
- * Request structure for getting a payment instrument
+ * <p>Request structure for getting a payment instrument.</p>
  * @public
  */
 export interface GetPaymentInstrumentRequest {
   /**
-   * The user ID associated with this payment instrument.
+   * <p>The user ID associated with this payment instrument.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this payment instrument.
+   * <p>The ARN of the payment manager that owns this payment instrument.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment connector.
+   * <p>The ID of the payment connector.</p>
    * @public
    */
   paymentConnectorId?: string | undefined;
 
   /**
-   * The ID of the payment instrument to retrieve.
+   * <p>The ID of the payment instrument to retrieve.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 }
 
 /**
- * Response structure for getting a payment instrument
+ * <p>Response structure for getting a payment instrument.</p>
  * @public
  */
 export interface GetPaymentInstrumentResponse {
   /**
-   * Represents a payment instrument
+   * <p>The payment instrument details.</p>
    * @public
    */
   paymentInstrument: PaymentInstrument | undefined;
 }
 
 /**
- * Request structure for getting payment instrument balance
+ * <p>Request structure for getting payment instrument balance.</p>
  * @public
  */
 export interface GetPaymentInstrumentBalanceRequest {
   /**
-   * The user ID associated with this payment instrument.
+   * <p>The user ID associated with this payment instrument.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this payment instrument.
+   * <p>The ARN of the payment manager that owns this payment instrument.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment connector associated with this instrument.
+   * <p>The ID of the payment connector associated with this instrument.</p>
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * The ID of the payment instrument to query balance for.
+   * <p>The ID of the payment instrument to query balance for.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * The specific blockchain chain to query balance on.
-   * Required because balances are chain-specific — the same wallet address may hold
-   * different token balances on different chains.
+   * <p>The specific blockchain chain to query balance on. Required because balances are chain-specific.</p>
    * @public
    */
   chain: BlockchainChainId | undefined;
 
   /**
-   * The token to query balance for.
-   * Required to specify which supported token's balance to return.
+   * <p>The token to query balance for. Only tokens supported for X402 payments are returned.</p>
    * @public
    */
   token: InstrumentBalanceToken | undefined;
 }
 
 /**
- * A single token balance entry
+ * <p>A single token balance entry.</p>
  * @public
  */
 export interface TokenBalance {
   /**
-   * Raw balance in the smallest denomination (e.g., USDC base units where 1 USDC = 1000000).
+   * <p>Raw balance in the smallest denomination (e.g., USDC base units where 1 USDC = 1000000).</p>
    * @public
    */
   amount: string | undefined;
 
   /**
-   * Number of decimal places for the token (e.g., 6 for USDC).
+   * <p>Number of decimal places for the token (e.g., 6 for USDC).</p>
    * @public
    */
   decimals: number | undefined;
 
   /**
-   * The supported token for this balance.
+   * <p>The supported token for this balance.</p>
    * @public
    */
   token: InstrumentBalanceToken | undefined;
 
   /**
-   * The blockchain network family (ETHEREUM or SOLANA).
+   * <p>The blockchain network family (ETHEREUM or SOLANA).</p>
    * @public
    */
   network: CryptoWalletNetwork | undefined;
 
   /**
-   * The specific blockchain chain.
+   * <p>The specific blockchain chain.</p>
    * @public
    */
   chain: BlockchainChainId | undefined;
 }
 
 /**
- * Response structure for getting payment instrument balance
+ * <p>Response structure for getting payment instrument balance.</p>
  * @public
  */
 export interface GetPaymentInstrumentBalanceResponse {
   /**
-   * The ID of the payment instrument.
+   * <p>The ID of the payment instrument.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * The balance of the supported token on the requested chain.
+   * <p>The balance of the supported token on the requested chain.</p>
    * @public
    */
   tokenBalance: TokenBalance | undefined;
 }
 
 /**
- * Request structure for listing payment instruments
+ * <p>Request structure for listing payment instruments.</p>
  * @public
  */
 export interface ListPaymentInstrumentsRequest {
   /**
-   * The user ID associated with the payment instruments.
+   * <p>The user ID associated with the payment instruments.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns the payment instruments.
+   * <p>The ARN of the payment manager that owns the payment instruments.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment connector to filter by.
+   * <p>The ID of the payment connector to filter by.</p>
    * @public
    */
   paymentConnectorId?: string | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results.
+   * <p>Token for pagination to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of results to return in a single response.
+   * <p>Maximum number of results to return in a single response.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Summary of a payment instrument for list operations
+ * <p>Summary of a payment instrument for list operations.</p>
  * @public
  */
 export interface PaymentInstrumentSummary {
   /**
-   * The unique identifier for this payment instrument.
+   * <p>The unique identifier for this payment instrument.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this payment instrument.
+   * <p>The ARN of the payment manager that owns this payment instrument.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment connector associated with this instrument.
+   * <p>The ID of the payment connector associated with this instrument.</p>
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * The user ID associated with this payment instrument.
+   * <p>The user ID associated with this payment instrument.</p>
    * @public
    */
   userId: string | undefined;
 
   /**
-   * The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).
+   * <p>The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).</p>
    * @public
    */
   paymentInstrumentType: PaymentInstrumentType | undefined;
 
   /**
-   * The current status of this payment instrument.
+   * <p>The current status of this payment instrument.</p>
    * @public
    */
   status: PaymentInstrumentStatus | undefined;
 
   /**
-   * The timestamp when this payment instrument was created.
+   * <p>The timestamp when this payment instrument was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when this payment instrument was last updated.
+   * <p>The timestamp when this payment instrument was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * Response structure for listing payment instruments
+ * <p>Response structure for listing payment instruments.</p>
  * @public
  */
 export interface ListPaymentInstrumentsResponse {
   /**
-   * List of payment instrument summaries matching the request criteria.
+   * <p>List of payment instrument summaries matching the request criteria.</p>
    * @public
    */
   paymentInstruments: PaymentInstrumentSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results.
+   * <p>Token for pagination to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Money amount with currency
+ * <p>Represents a monetary amount with a currency.</p>
  * @public
  */
 export interface Amount {
   /**
-   * The numeric value of the amount.
+   * <p>The numeric value of the amount.</p>
    * @public
    */
   value: string | undefined;
 
   /**
-   * The currency code for this amount.
+   * <p>The currency code for the amount.</p>
    * @public
    */
   currency: Currency | undefined;
 }
 
 /**
- * Session spending limits
+ * <p>The spending limits configuration for a payment session.</p>
  * @public
  */
 export interface SessionLimits {
   /**
-   * The maximum amount that can be spent in this session.
+   * <p>The maximum amount that can be spent in the session.</p>
    * @public
    */
   maxSpendAmount: Amount | undefined;
 }
 
 /**
- * Request structure for creating a payment session
+ * <p>Request structure for creating a payment session.</p>
  * @public
  */
 export interface CreatePaymentSessionRequest {
   /**
-   * The user ID associated with this payment session.
+   * <p>The user ID associated with this payment session.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this session.
+   * <p>The ARN of the payment manager that owns this session.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The spending limits for this payment session.
+   * <p>The spending limits for this payment session.</p>
    * @public
    */
   limits?: SessionLimits | undefined;
 
   /**
-   * The session expiry time in minutes. Must be between 15 and 480 minutes.
+   * <p>The session expiry time in minutes. Must be between 15 and 480 minutes.</p>
    * @public
    */
   expiryTimeInMinutes: number | undefined;
 
   /**
-   * Idempotency token to ensure request uniqueness.
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * Available session limits. Currently only budget is supported.
+ * <p>The available spending limits for a payment session.</p>
  * @public
  */
 export interface AvailableLimits {
   /**
-   * The available spend amount for this session.
+   * <p>The remaining available amount that can be spent.</p>
    * @public
    */
   availableSpendAmount?: Amount | undefined;
 
   /**
-   * The timestamp when the available limits were last updated.
+   * <p>The timestamp when the available limits were last updated.</p>
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * Payment manager session
+ * <p>A payment session for managing payment transactions.</p>
  * @public
  */
 export interface PaymentSession {
   /**
-   * The unique identifier for this payment session.
+   * <p>The unique identifier of the payment session.</p>
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this session.
+   * <p>The ARN of the payment manager that owns this session.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The spending limits for this session.
+   * <p>The spending limits for the payment session.</p>
    * @public
    */
   limits?: SessionLimits | undefined;
 
   /**
-   * The user ID associated with this payment session.
+   * <p>The user ID associated with this session.</p>
    * @public
    */
   userId: string | undefined;
 
   /**
-   * The session expiry time in minutes.
+   * <p>The session expiry time in minutes.</p>
    * @public
    */
   expiryTimeInMinutes: number | undefined;
 
   /**
-   * The timestamp when this payment session was created.
+   * <p>The timestamp when the session was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The available limits for this session after accounting for processed payments.
+   * <p>The current available spending limits.</p>
    * @public
    */
   availableLimits?: AvailableLimits | undefined;
 
   /**
-   * The timestamp when this payment session was last updated.
+   * <p>The timestamp when the session was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * Response structure for creating a payment session
+ * <p>Response structure for creating a payment session.</p>
  * @public
  */
 export interface CreatePaymentSessionResponse {
   /**
-   * Payment manager session
+   * <p>The created payment session.</p>
    * @public
    */
   paymentSession: PaymentSession | undefined;
 }
 
 /**
- * Request structure for deleting a payment session
- *
- * All fields are required and must match the session owner's identifiers for authorization to succeed.
+ * <p>Request structure for deleting a payment session.</p>
  * @public
  */
 export interface DeletePaymentSessionRequest {
   /**
-   * The user ID making the delete request. Must match the session's userId.
+   * <p>The user ID making the delete request. Must match the session's userId.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The payment manager ARN. Must match the session's paymentManagerArn.
+   * <p>The payment manager ARN. Must match the session's paymentManagerArn.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The payment session ID to delete.
+   * <p>The payment session ID to delete.</p>
    * @public
    */
   paymentSessionId: string | undefined;
 }
 
 /**
- * Response structure for deleting a payment session
- *
- * Returns the deletion status with HTTP 200 status code on successful deletion.
+ * <p>Response structure for deleting a payment session.</p>
  * @public
  */
 export interface DeletePaymentSessionResponse {
   /**
-   * The status of the deletion. Always DELETED for successful hard delete.
+   * <p>The status of the deletion. Always DELETED for successful hard delete.</p>
    * @public
    */
   status: PaymentSessionStatus | undefined;
 }
 
 /**
- * Request structure for getting a payment session
+ * <p>Request structure for getting a payment session.</p>
  * @public
  */
 export interface GetPaymentSessionRequest {
   /**
-   * The user ID associated with this payment session.
+   * <p>The user ID associated with this payment session.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this session.
+   * <p>The ARN of the payment manager that owns this session.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment session to retrieve.
+   * <p>The ID of the payment session to retrieve.</p>
    * @public
    */
   paymentSessionId: string | undefined;
 }
 
 /**
- * Response structure for getting a payment session
+ * <p>Response structure for getting a payment session.</p>
  * @public
  */
 export interface GetPaymentSessionResponse {
   /**
-   * Payment manager session
+   * <p>The payment session details.</p>
    * @public
    */
   paymentSession: PaymentSession | undefined;
 }
 
 /**
- * Request structure for listing payment sessions
+ * <p>Request structure for listing payment sessions.</p>
  * @public
  */
 export interface ListPaymentSessionsRequest {
   /**
-   * The user ID associated with the payment sessions.
+   * <p>The user ID associated with the payment sessions.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns the sessions.
+   * <p>The ARN of the payment manager that owns the sessions.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results.
+   * <p>Token for pagination to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Maximum number of results to return in a single response.
+   * <p>Maximum number of results to return in a single response.</p>
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * Summary of a payment session for list operations
+ * <p>Summary information about a payment session.</p>
  * @public
  */
 export interface PaymentSessionSummary {
   /**
-   * The unique identifier for this payment session.
+   * <p>The unique identifier of the payment session.</p>
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * The ARN of the payment manager that owns this session.
+   * <p>The ARN of the payment manager that owns this session.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The user ID associated with this payment session.
+   * <p>The user ID associated with this session.</p>
    * @public
    */
   userId: string | undefined;
 
   /**
-   * The session expiry time in minutes.
+   * <p>The session expiry time in minutes.</p>
    * @public
    */
   expiryTimeInMinutes: number | undefined;
 
   /**
-   * The timestamp when this payment session was created.
+   * <p>The timestamp when the session was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when this payment session was last updated.
+   * <p>The timestamp when the session was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * Response structure for listing payment sessions
+ * <p>Response structure for listing payment sessions.</p>
  * @public
  */
 export interface ListPaymentSessionsResponse {
   /**
-   * List of payment session summaries matching the request criteria.
+   * <p>List of payment session summaries matching the request criteria.</p>
    * @public
    */
   paymentSessions: PaymentSessionSummary[] | undefined;
 
   /**
-   * Token for pagination to retrieve the next set of results.
+   * <p>Token for pagination to retrieve the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * X402 payment requirement input
+ * <p>The input for a crypto X402 payment.</p>
  * @public
  */
 export interface CryptoX402PaymentInput {
   /**
-   * The X402 protocol version (e.g., "v1", "v2")
+   * <p>The version of the X402 protocol.</p>
    * @public
    */
   version: string | undefined;
 
   /**
-   * This can hold any JSON-like object
+   * <p>The X402 payment payload.</p>
    * @public
    */
   payload: __DocumentType | undefined;
 }
 
 /**
- * Payment request details union
+ * <p>The payment input details, which vary by payment type.</p>
  * @public
  */
 export type PaymentInput =
@@ -1300,7 +1277,7 @@ export type PaymentInput =
  */
 export namespace PaymentInput {
   /**
-   * X402 payment requirement input
+   * <p>Input for a crypto X402 payment.</p>
    * @public
    */
   export interface CryptoX402Member {
@@ -1327,79 +1304,79 @@ export namespace PaymentInput {
 }
 
 /**
- * Request structure for processing a payment
+ * <p>Request structure for processing a payment.</p>
  * @public
  */
 export interface ProcessPaymentRequest {
   /**
-   * The user ID associated with this payment.
+   * <p>The user ID associated with this payment.</p>
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * The agent name associated with this request, used for observability.
+   * <p>The agent name associated with this request, used for observability.</p>
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * The ARN of the payment manager handling this payment.
+   * <p>The ARN of the payment manager.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment session for this transaction.
+   * <p>The ID of the payment session.</p>
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * The ID of the payment instrument to use for this transaction.
+   * <p>The ID of the payment instrument to use.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * The type of payment being processed.
+   * <p>The type of payment to process.</p>
    * @public
    */
   paymentType: PaymentType | undefined;
 
   /**
-   * The payment input details specific to the payment type.
+   * <p>The payment input details specific to the payment type.</p>
    * @public
    */
   paymentInput: PaymentInput | undefined;
 
   /**
-   * Idempotency token to ensure request uniqueness.
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * X402 payment requirement output
+ * <p>The output from a crypto X402 payment.</p>
  * @public
  */
 export interface CryptoX402PaymentOutput {
   /**
-   * The X402 protocol version (e.g., "1", "2")
+   * <p>The version of the X402 protocol.</p>
    * @public
    */
   version: string | undefined;
 
   /**
-   * This can hold any JSON-like object
+   * <p>The X402 payment response payload.</p>
    * @public
    */
   payload: __DocumentType | undefined;
 }
 
 /**
- * Payment response payload union. We will support versioning by introducing other model in this union
+ * <p>The payment output details, which vary by payment type.</p>
  * @public
  */
 export type PaymentOutput =
@@ -1411,7 +1388,7 @@ export type PaymentOutput =
  */
 export namespace PaymentOutput {
   /**
-   * X402 payment requirement output
+   * <p>Output from a crypto X402 payment.</p>
    * @public
    */
   export interface CryptoX402Member {
@@ -1438,60 +1415,60 @@ export namespace PaymentOutput {
 }
 
 /**
- * Response structure for processing a payment
+ * <p>Response structure for processing a payment.</p>
  * @public
  */
 export interface ProcessPaymentResponse {
   /**
-   * The unique ID of the processed payment transaction.
+   * <p>The unique identifier of the processed payment.</p>
    * @public
    */
   processPaymentId: string | undefined;
 
   /**
-   * The ARN of the payment manager that processed this payment.
+   * <p>The ARN of the payment manager.</p>
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * The ID of the payment session for this transaction.
+   * <p>The ID of the payment session used.</p>
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * The ID of the payment instrument used for this transaction.
+   * <p>The ID of the payment instrument used.</p>
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * The type of payment that was processed.
+   * <p>The type of payment processed.</p>
    * @public
    */
   paymentType: PaymentType | undefined;
 
   /**
-   * The status of the payment transaction.
+   * <p>The status of the payment.</p>
    * @public
    */
   status: PaymentStatus | undefined;
 
   /**
-   * The payment output details specific to the payment type.
+   * <p>The payment output details specific to the payment type.</p>
    * @public
    */
   paymentOutput: PaymentOutput | undefined;
 
   /**
-   * The timestamp when the payment was created.
+   * <p>The timestamp when the payment was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * The timestamp when the payment was last updated.
+   * <p>The timestamp when the payment was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;

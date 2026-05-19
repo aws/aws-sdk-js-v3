@@ -31,7 +31,7 @@ export interface CreatePaymentSessionCommandInput extends CreatePaymentSessionRe
 export interface CreatePaymentSessionCommandOutput extends CreatePaymentSessionResponse, __MetadataBearer {}
 
 /**
- * Create a new payment manager session
+ * <p>Create a new payment session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

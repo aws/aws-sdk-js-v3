@@ -586,23 +586,23 @@ export type PaymentInstrumentStatus = (typeof PaymentInstrumentStatus)[keyof typ
  */
 export const BlockchainChainId = {
   /**
-   * Base Mainnet (EVM L2)
+   * <p>Base Mainnet (EVM L2)</p>
    */
   BASE: "BASE",
   /**
-   * Base Sepolia testnet (EVM L2)
+   * <p>Base Sepolia testnet (EVM L2)</p>
    */
   BASE_SEPOLIA: "BASE_SEPOLIA",
   /**
-   * Ethereum Mainnet (EVM L1)
+   * <p>Ethereum Mainnet (EVM L1)</p>
    */
   ETHEREUM: "ETHEREUM",
   /**
-   * Solana Mainnet
+   * <p>Solana Mainnet</p>
    */
   SOLANA: "SOLANA",
   /**
-   * Solana Devnet testnet
+   * <p>Solana Devnet testnet</p>
    */
   SOLANA_DEVNET: "SOLANA_DEVNET",
 } as const;

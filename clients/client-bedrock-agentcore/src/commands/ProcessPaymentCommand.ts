@@ -31,7 +31,7 @@ export interface ProcessPaymentCommandInput extends ProcessPaymentRequest {}
 export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __MetadataBearer {}
 
 /**
- * Process a payment transaction
+ * <p>Processes a payment using a payment instrument within a payment session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

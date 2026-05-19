@@ -31,7 +31,7 @@ export interface GetPaymentInstrumentBalanceCommandInput extends GetPaymentInstr
 export interface GetPaymentInstrumentBalanceCommandOutput extends GetPaymentInstrumentBalanceResponse, __MetadataBearer {}
 
 /**
- * Get the balance of a payment instrument
+ * <p>Get the balance of a payment instrument.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -31,7 +31,7 @@ export interface GetResourcePaymentTokenCommandInput extends GetResourcePaymentT
 export interface GetResourcePaymentTokenCommandOutput extends GetResourcePaymentTokenResponse, __MetadataBearer {}
 
 /**
- * Generates authentication tokens for payment providers that use vendor-specific authentication mechanisms.
+ * <p>Generates authentication tokens for payment providers that use vendor-specific authentication mechanisms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

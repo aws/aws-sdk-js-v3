@@ -31,7 +31,7 @@ export interface GetPaymentSessionCommandInput extends GetPaymentSessionRequest 
 export interface GetPaymentSessionCommandOutput extends GetPaymentSessionResponse, __MetadataBearer {}
 
 /**
- * Get a payment session
+ * <p>Get a payment session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

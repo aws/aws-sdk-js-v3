@@ -31,7 +31,7 @@ export interface CreatePaymentInstrumentCommandInput extends CreatePaymentInstru
 export interface CreatePaymentInstrumentCommandOutput extends CreatePaymentInstrumentResponse, __MetadataBearer {}
 
 /**
- * Create a new payment instrument for a connector
+ * <p>Create a new payment instrument for a connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

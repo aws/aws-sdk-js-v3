@@ -150,6 +150,27 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ * @public
+ */
+export class RetryableConflictException extends __BaseException {
+  readonly name = "RetryableConflictException" as const;
+  readonly $fault = "client" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
+    super({
+      name: "RetryableConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RetryableConflictException.prototype);
+  }
+}
+
+/**
  * <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
  * @public
  */
@@ -266,26 +287,5 @@ export class InvalidInputException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidInputException.prototype);
-  }
-}
-
-/**
- * <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
- * @public
- */
-export class RetryableConflictException extends __BaseException {
-  readonly name = "RetryableConflictException" as const;
-  readonly $fault = "client" as const;
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
-    super({
-      name: "RetryableConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RetryableConflictException.prototype);
   }
 }
