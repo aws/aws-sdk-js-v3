@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1050.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1049.0...v3.1050.0) (2026-05-19)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Add RetryableConflictException (HTTP 409) to InvokeAgentRuntime and StopRuntimeSession to prevent orphaned VMs during concurrent session access. The SDK automatically retries this exception with backoff. Enforcement is not yet active and will be enabled in a future service update. ([239af13](https://github.com/aws/aws-sdk-js-v3/commit/239af13eb6799a89d6cf3257d664004a7a4fbfa2))
+* **client-devops-agent:** Added a new serviceType mcpserversigv4 service and association. This provides feature to register MCP sigv4 authorization based MCPs ([84e18e5](https://github.com/aws/aws-sdk-js-v3/commit/84e18e58dcd72556aeabadf32a4b58405e3f6e4a))
+* **client-grafana:** Introduce degraded workspace status as a possible Amazon Managed Grafana workspace status, and a new field named degraded workspace reason which informs customers why the workspace is degraded in the DescribeWorkspace API response. ([af49cb8](https://github.com/aws/aws-sdk-js-v3/commit/af49cb81d0dd0a7e0e4c448c293808df842ca4b1))
+* **client-guardduty:** Adding support for exposure and vulnerability context from AWS Security Hub in GuardDuty Extended Threat Detection attack sequence findings. ([de2356d](https://github.com/aws/aws-sdk-js-v3/commit/de2356de06977694d70b64340ba802682acd1ea8))
+* **client-rtbfabric:** This release is to deprecate 'inboundLinksCount' field in GetResponderGateway response and introduce the new field 'linksRequestedCount' to replace it. ([3c9765e](https://github.com/aws/aws-sdk-js-v3/commit/3c9765e351c0a632e3a57890a06633ac47beaea3))
+* **client-sagemaker:** Add support for ml.p5.4xlarge and ml.p5en.48xlarge instances on SageMaker Notebook Instances Platform. ([73a3e28](https://github.com/aws/aws-sdk-js-v3/commit/73a3e28f8c4741e657e131dfb0decc37700b828c))
+* **clients:** update client endpoints as of 2026-05-19 ([9a5e6f0](https://github.com/aws/aws-sdk-js-v3/commit/9a5e6f03be25b20c97a2f0826cb6b74061e57b8d))
+
+
+
+
+
 # [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
 
 

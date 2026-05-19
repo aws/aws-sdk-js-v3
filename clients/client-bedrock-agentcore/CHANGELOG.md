@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1050.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1049.0...v3.1050.0) (2026-05-19)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Add RetryableConflictException (HTTP 409) to InvokeAgentRuntime and StopRuntimeSession to prevent orphaned VMs during concurrent session access. The SDK automatically retries this exception with backoff. Enforcement is not yet active and will be enabled in a future service update. ([239af13](https://github.com/aws/aws-sdk-js-v3/commit/239af13eb6799a89d6cf3257d664004a7a4fbfa2))
+
+
+
+
+
 # [3.1049.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1048.0...v3.1049.0) (2026-05-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore
