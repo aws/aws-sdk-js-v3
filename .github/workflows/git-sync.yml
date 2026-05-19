@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
         with:
           role-to-assume: arn:aws:iam::231016596583:role/github-actions-git-sync-role
           aws-region: us-west-2
@@ -43,7 +43,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: git-sync
-        uses: wei/git-sync@v3
+        uses: wei/git-sync@55c6b63b4f21607da0e9877ca9b4d11a29fc6d83 # v3
         with:
           source_repo: "git@github.com:aws/aws-sdk-js-v3.git"
           source_branch: "main"
