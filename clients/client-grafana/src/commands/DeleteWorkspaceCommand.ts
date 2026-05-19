@@ -97,6 +97,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * //     grafanaToken: "STRING_VALUE",
  * //     ipAddressType: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
+ * //     degradedWorkspaceReason: "STRING_VALUE",
  * //   },
  * // };
  *

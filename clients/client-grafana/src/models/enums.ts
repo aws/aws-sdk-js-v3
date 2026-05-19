@@ -210,6 +210,10 @@ export const WorkspaceStatus = {
    */
   CREATION_FAILED: "CREATION_FAILED",
   /**
+   * Workspace is degraded.
+   */
+  DEGRADED: "DEGRADED",
+  /**
    * Workspace is being deleted.
    */
   DELETING: "DELETING",

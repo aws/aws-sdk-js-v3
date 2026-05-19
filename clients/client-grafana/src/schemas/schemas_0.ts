@@ -137,6 +137,7 @@ const _cod = "code";
 const _cr = "created";
 const _d = "description";
 const _dS = "dataSources";
+const _dWR = "degradedWorkspaceReason";
 const _e = "error";
 const _eA = "expiresAt";
 const _ed = "editor";
@@ -658,8 +659,8 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var WorkspaceDescription$: StaticStructureSchema = [3, n0, _WD,
   0,
-  [_cr, _dS, _en, _gV, _i, _mo, _st, _au, _aAT, _d, _n, _oRN, _nD, _oU, _pT, _sSN, _wRA, _lT, _fTC, _lE, _fTE, _t, _vC, _nAC, _gT, _iAT, _kKI],
-  [4, 64 | 0, 0, 0, 0, 4, 0, () => AuthenticationSummary$, 0, [() => Description, 0], [() => WorkspaceName, 0], [() => OrganizationRoleName, 0], 64 | 0, [() => OrganizationalUnitList, 0], 0, 0, [() => IamRoleArn, 0], 0, 2, 4, 4, 128 | 0, () => VpcConfiguration$, () => NetworkAccessConfiguration$, 0, 0, 0], 8
+  [_cr, _dS, _en, _gV, _i, _mo, _st, _au, _aAT, _d, _n, _oRN, _nD, _oU, _pT, _sSN, _wRA, _lT, _fTC, _lE, _fTE, _t, _vC, _nAC, _gT, _iAT, _kKI, _dWR],
+  [4, 64 | 0, 0, 0, 0, 4, 0, () => AuthenticationSummary$, 0, [() => Description, 0], [() => WorkspaceName, 0], [() => OrganizationRoleName, 0], 64 | 0, [() => OrganizationalUnitList, 0], 0, 0, [() => IamRoleArn, 0], 0, 2, 4, 4, 128 | 0, () => VpcConfiguration$, () => NetworkAccessConfiguration$, 0, 0, 0, 0], 8
 ];
 export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   0,

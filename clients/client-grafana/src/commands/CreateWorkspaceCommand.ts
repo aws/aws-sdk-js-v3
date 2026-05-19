@@ -139,6 +139,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * //     grafanaToken: "STRING_VALUE",
  * //     ipAddressType: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
+ * //     degradedWorkspaceReason: "STRING_VALUE",
  * //   },
  * // };
  *

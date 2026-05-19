@@ -405,6 +405,12 @@ export interface WorkspaceDescription {
    * @public
    */
   kmsKeyId?: string | undefined;
+
+  /**
+   * <p>If the workspace is in the <code>DEGRADED</code> status, this field describes the reason the workspace is degraded.</p>
+   * @public
+   */
+  degradedWorkspaceReason?: string | undefined;
 }
 
 /**

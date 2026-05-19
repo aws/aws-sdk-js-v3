@@ -98,6 +98,7 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * //     grafanaToken: "STRING_VALUE",
  * //     ipAddressType: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
+ * //     degradedWorkspaceReason: "STRING_VALUE",
  * //   },
  * // };
  *
