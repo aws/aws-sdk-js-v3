@@ -423,6 +423,111 @@ describe("getSignedUrl", () => {
     expect(result).toContain("private%20content/My%20File.pdf");
     expect(result).not.toContain("%2520");
   });
+
+  // CloudFront verifies the signature against the URL on the wire (the encoded
+  // form). The signed policy Resource must therefore reference the encoded URL,
+  // otherwise CloudFront returns 403 AccessDenied. Regression introduced in
+  // v3.1046.0; see https://github.com/aws/aws-sdk-js-v3/issues/8033.
+  it("should sign the encoded URL when the path contains special characters", () => {
+    const urlWithSpecialChars =
+      "https://d111111abcdef8.cloudfront.net/i/foo/bar.png/format=webp,height=2000,width=2000";
+    const encodedUrl =
+      "https://d111111abcdef8.cloudfront.net/i/foo/bar.png/format%3Dwebp%2Cheight%3D2000%2Cwidth%3D2000";
+    const result = getSignedUrl({
+      url: urlWithSpecialChars,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: encodedUrl,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochDateLessThan,
+            },
+          },
+        },
+      ],
+    });
+    const expectedSignature = createSignature(policyStr);
+    expect(result).toBe(
+      `${encodedUrl}?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${expectedSignature}`
+    );
+    const parsedUrl = parseUrl(result);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
+
+  it("should sign the encoded URL when the path contains spaces", () => {
+    const urlWithSpaces = "https://d111111abcdef8.cloudfront.net/private content/My File.pdf";
+    const encodedUrl = "https://d111111abcdef8.cloudfront.net/private%20content/My%20File.pdf";
+    const result = getSignedUrl({
+      url: urlWithSpaces,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: encodedUrl,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochDateLessThan,
+            },
+          },
+        },
+      ],
+    });
+    const expectedSignature = createSignature(policyStr);
+    expect(result).toBe(
+      `${encodedUrl}?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${expectedSignature}`
+    );
+    const parsedUrl = parseUrl(result);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
+
+  it("should sign the encoded URL for a custom policy with special characters in the path", () => {
+    const urlWithSpecialChars =
+      "https://d111111abcdef8.cloudfront.net/i/foo/bar.png/format=webp,height=2000,width=2000";
+    const encodedUrl =
+      "https://d111111abcdef8.cloudfront.net/i/foo/bar.png/format%3Dwebp%2Cheight%3D2000%2Cwidth%3D2000";
+    const result = getSignedUrl({
+      url: urlWithSpecialChars,
+      keyPairId,
+      dateLessThan,
+      ipAddress,
+      privateKey,
+      passphrase,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: encodedUrl,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochDateLessThan,
+            },
+            IpAddress: {
+              "AWS:SourceIp": `${ipAddress}/32`,
+            },
+          },
+        },
+      ],
+    });
+    const expectedSignature = createSignature(policyStr);
+    expect(result).toBe(
+      `${encodedUrl}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${expectedSignature}`
+    );
+    const parsedUrl = parseUrl(result);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
 });
 
 describe("getSignedCookies", () => {
