@@ -63,6 +63,11 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     ExcludedColumns: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   RecommenderSchemaName: "STRING_VALUE",

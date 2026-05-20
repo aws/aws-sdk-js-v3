@@ -1286,7 +1286,7 @@ export interface UpdateDomainRequest {
 
   /**
    * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
    *          to match and merge your profiles according to your configuration in the
    *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
    *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
@@ -1354,7 +1354,7 @@ export interface UpdateDomainResponse {
 
   /**
    * <p>The process of matching duplicate profiles using the rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
    *          to match and merge your profiles according to your configuration in the
    *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
    *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have

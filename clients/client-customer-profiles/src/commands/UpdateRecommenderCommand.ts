@@ -63,6 +63,11 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     ExcludedColumns: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateRecommenderCommand(input);

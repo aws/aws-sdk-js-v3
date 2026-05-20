@@ -2341,7 +2341,7 @@ export interface CreateDomainRequest {
 
   /**
    * <p>The process of matching duplicate profiles using the Rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
    *          to match and merge your profiles according to your configuration in the
    *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
    *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
@@ -2545,7 +2545,7 @@ export interface CreateDomainResponse {
 
   /**
    * <p>The process of matching duplicate profiles using the Rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
    *          to match and merge your profiles according to your configuration in the
    *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
    *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
@@ -3287,7 +3287,7 @@ export interface RecommenderConfig {
   EventsConfig?: EventsConfig | undefined;
 
   /**
-   * <p>How often the recommender should retrain its model with new data.</p>
+   * <p>How often the recommender should retrain its model with new data. If set to 0, automatic retraining will not be enabled.</p>
    * @public
    */
   TrainingFrequency?: number | undefined;
@@ -3299,10 +3299,16 @@ export interface RecommenderConfig {
   InferenceConfig?: InferenceConfig | undefined;
 
   /**
-   * <p>A map of dataset type to a list of column names to train on. The column names must be a subset of the columns defined in the recommender schema. If not specified, all columns in the schema are used for training. The following columns are always included and do not need to be specified: <code>Item.Id</code>, <code>ItemList[].Id</code>, <code>EventTimestamp</code>, <code>EventType</code>, and <code>EventValue</code>.</p>
+   * <p>A map of dataset type to a list of column names to train on. The <code>_webAnalytics</code> and <code>_catalogItem</code> keys are supported. The column names must be a subset of the columns defined in the recommender schema. If not specified, all columns in the schema are used for training. The following columns are always included in training and do not need to be specified: <code>Item.Id</code>, <code>EventTimestamp</code>, and <code>EventType</code> for <code>_webAnalytics</code>; <code>Id</code> for <code>_catalogItem</code>. Mutually exclusive with ExcludedColumns — both cannot be specified in the same request.</p>
    * @public
    */
   IncludedColumns?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>A map of dataset type to a list of column names to exclude from training. The <code>_webAnalytics</code> and <code>_catalogItem</code> keys are supported. The column names must be valid columns defined in the recommender schema. All columns in the schema except the listed columns will be used for training. The following columns are mandatory and cannot be excluded: <code>Item.Id</code>, <code>EventTimestamp</code>, and <code>EventType</code> for <code>_webAnalytics</code>; <code>Id</code> for <code>_catalogItem</code>. Mutually exclusive with IncludedColumns — both cannot be specified in the same request.</p>
+   * @public
+   */
+  ExcludedColumns?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -3468,7 +3474,7 @@ export interface CreateRecommenderSchemaRequest {
   RecommenderSchemaName: string | undefined;
 
   /**
-   * <p>A map of dataset type to column definitions that specifies which data columns to include in the schema. Currently only the <code>_webAnalytics</code> key is supported.</p>
+   * <p>A map of dataset type to column definitions that specifies which data columns to include in the schema. The <code>_webAnalytics</code> and <code>_catalogItem</code> keys are supported.</p>
    * @public
    */
   Fields: Record<string, RecommenderSchemaField[]> | undefined;
@@ -4068,7 +4074,7 @@ export interface CreateSegmentSnapshotRequest {
 
   /**
    * <p>The destination to which the segment will be exported. This field must be provided if
-   *          the request is not submitted from the Amazon Connect Admin Website.</p>
+   *          the request is not submitted from the Connect Customer Admin Website.</p>
    * @public
    */
   DestinationUri?: string | undefined;
@@ -4993,7 +4999,7 @@ export interface GetDomainResponse {
 
   /**
    * <p>The process of matching duplicate profiles using the Rule-Based matching. If
-   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *             <code>RuleBasedMatching</code> = true, Connect Customer Customer Profiles will start
    *          to match and merge your profiles according to your configuration in the
    *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
    *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
@@ -6839,7 +6845,7 @@ export interface GetSegmentSnapshotResponse {
 
   /**
    * <p>The destination to which the segment will be exported. This field must be provided if
-   *          the request is not submitted from the Amazon Connect Admin Website.</p>
+   *          the request is not submitted from the Connect Customer Admin Website.</p>
    * @public
    */
   DestinationUri?: string | undefined;

@@ -70,6 +70,11 @@ export interface GetRecommenderCommandOutput extends GetRecommenderResponse, __M
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     ExcludedColumns: {
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   Description: "STRING_VALUE",
  * //   Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
@@ -92,6 +97,11 @@ export interface GetRecommenderCommandOutput extends GetRecommenderResponse, __M
  * //         MinProvisionedTPS: Number("int"),
  * //       },
  * //       IncludedColumns: {
+ * //         "<keys>": [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       ExcludedColumns: {
  * //         "<keys>": [
  * //           "STRING_VALUE",
  * //         ],

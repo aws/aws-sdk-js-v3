@@ -73,6 +73,11 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         ExcludedColumns: {
+ * //           "<keys>": [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       Description: "STRING_VALUE",
@@ -98,6 +103,11 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //             MinProvisionedTPS: Number("int"),
  * //           },
  * //           IncludedColumns: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           ExcludedColumns: {
  * //             "<keys>": [
  * //               "STRING_VALUE",
  * //             ],

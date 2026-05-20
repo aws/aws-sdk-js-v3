@@ -34,8 +34,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * <p>Creates a domain, which is a container for all customer data, such as customer profile
  *          attributes, object types, profile keys, and encryption keys. You can create multiple
  *          domains, and each domain can have multiple third-party integrations.</p>
- *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple
- *             Amazon Connect instances can be associated with one domain.</p>
+ *          <p>Each Connect Customer instance can be associated with only one domain. Multiple
+ *             Connect Customer instances can be associated with one domain.</p>
  *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
  *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
  *             resolution</a>: set <code>Matching</code> to true.</p>

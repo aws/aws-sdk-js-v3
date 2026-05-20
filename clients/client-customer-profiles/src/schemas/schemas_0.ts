@@ -219,6 +219,7 @@ const _E = "Expression";
 const _EA = "EmailAddress";
 const _EC = "EventsConfig";
 const _ECx = "ExportingConfig";
+const _ECxc = "ExcludedColumns";
 const _ED = "ExpirationDays";
 const _EDFU = "EnableDynamicFieldUpdate";
 const _EDr = "ErrorDescription";
@@ -2329,8 +2330,8 @@ export var Recommendation$: StaticStructureSchema = [3, n0, _Recom,
 ];
 export var RecommenderConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_EC, _TFr, _ICn, _ICnc],
-  [() => EventsConfig$, 1, () => InferenceConfig$, [2, n0, _ICnc, 0, 0, 64 | 0]]
+  [_EC, _TFr, _ICn, _ICnc, _ECxc],
+  [() => EventsConfig$, 1, () => InferenceConfig$, [2, n0, _ICnc, 0, 0, 64 | 0], [2, n0, _ICnc, 0, 0, 64 | 0]]
 ];
 export var RecommenderFilter$: StaticStructureSchema = [3, n0, _RFe,
   0,

@@ -32,7 +32,7 @@ export interface CreateEventStreamCommandOutput extends CreateEventStreamRespons
 
 /**
  * <p>Creates an event stream, which is a subscription to real-time events, such as when
- *          profiles are created and updated through Amazon Connect Customer Profiles.</p>
+ *          profiles are created and updated through Connect Customer Customer Profiles.</p>
  *          <p>Each event stream can be associated with only one Kinesis Data Stream destination in the
  *          same region and Amazon Web Services account as the customer profiles domain</p>
  * @example
