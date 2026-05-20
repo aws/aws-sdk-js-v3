@@ -232,7 +232,7 @@ export interface CreateEnvironmentInput {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Defines the access mode for the Apache Airflow <i>web server</i>. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
+   * <p>Defines the access mode for the Apache Airflow <i>web server</i>. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p> <p>If set to <code>PUBLIC_AND_PRIVATE</code>, creates both a public network load balancer (NLB) for browser access and a private VPC endpoint (VPCE) for worker-to-webserver communication. This mode is only available for Apache Airflow version 3.2 and later.</p>
    * @public
    */
   WebserverAccessMode?: WebserverAccessMode | undefined;
@@ -616,7 +616,7 @@ export interface Environment {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Apache Airflow <i>web server</i> access mode. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
+   * <p>The Apache Airflow <i>web server</i> access mode. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p> <p>If set to <code>PUBLIC_AND_PRIVATE</code>, creates both a public network load balancer (NLB) for browser access and a private VPC endpoint (VPCE) for worker-to-webserver communication. This mode is only available for Apache Airflow version 3.2 and later.</p>
    * @public
    */
   WebserverAccessMode?: WebserverAccessMode | undefined;
@@ -1102,7 +1102,7 @@ export interface UpdateEnvironmentInput {
   StartupScriptS3ObjectVersion?: string | undefined;
 
   /**
-   * <p>The Apache Airflow <i>Web server</i> access mode. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
+   * <p>The Apache Airflow <i>Web server</i> access mode. For more information, refer to <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p> <p>If set to <code>PUBLIC_AND_PRIVATE</code>, creates both a public network load balancer (NLB) for browser access and a private VPC endpoint (VPCE) for worker-to-webserver communication. This mode is only available for Apache Airflow version 3.2 and later.</p>
    * @public
    */
   WebserverAccessMode?: WebserverAccessMode | undefined;
