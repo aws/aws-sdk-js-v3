@@ -2,6 +2,7 @@
 export * from "./DecryptDataCommand";
 export * from "./EncryptDataCommand";
 export * from "./GenerateAs2805KekValidationCommand";
+export * from "./GenerateAuthRequestCryptogramCommand";
 export * from "./GenerateCardValidationDataCommand";
 export * from "./GenerateMacCommand";
 export * from "./GenerateMacEmvPinChangeCommand";

@@ -18,6 +18,11 @@ import {
   GenerateAs2805KekValidationCommand,
 } from "./commands/GenerateAs2805KekValidationCommand";
 import {
+  type GenerateAuthRequestCryptogramCommandInput,
+  type GenerateAuthRequestCryptogramCommandOutput,
+  GenerateAuthRequestCryptogramCommand,
+} from "./commands/GenerateAuthRequestCryptogramCommand";
+import {
   type GenerateCardValidationDataCommandInput,
   type GenerateCardValidationDataCommandOutput,
   GenerateCardValidationDataCommand,
@@ -74,6 +79,7 @@ const commands = {
   DecryptDataCommand,
   EncryptDataCommand,
   GenerateAs2805KekValidationCommand,
+  GenerateAuthRequestCryptogramCommand,
   GenerateCardValidationDataCommand,
   GenerateMacCommand,
   GenerateMacEmvPinChangeCommand,
@@ -137,6 +143,23 @@ export interface PaymentCryptographyData {
     args: GenerateAs2805KekValidationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GenerateAs2805KekValidationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateAuthRequestCryptogramCommand}
+   */
+  generateAuthRequestCryptogram(
+    args: GenerateAuthRequestCryptogramCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateAuthRequestCryptogramCommandOutput>;
+  generateAuthRequestCryptogram(
+    args: GenerateAuthRequestCryptogramCommandInput,
+    cb: (err: any, data?: GenerateAuthRequestCryptogramCommandOutput) => void
+  ): void;
+  generateAuthRequestCryptogram(
+    args: GenerateAuthRequestCryptogramCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateAuthRequestCryptogramCommandOutput) => void
   ): void;
 
   /**

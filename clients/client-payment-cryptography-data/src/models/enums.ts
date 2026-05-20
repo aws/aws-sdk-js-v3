@@ -36,6 +36,20 @@ export type SymmetricKeyAlgorithm = (typeof SymmetricKeyAlgorithm)[keyof typeof 
  * @public
  * @enum
  */
+export const RandomKeyMaxLength = {
+  BYTES_16: "BYTES_16",
+  BYTES_24: "BYTES_24",
+  BYTES_8: "BYTES_8",
+} as const;
+/**
+ * @public
+ */
+export type RandomKeyMaxLength = (typeof RandomKeyMaxLength)[keyof typeof RandomKeyMaxLength];
+
+/**
+ * @public
+ * @enum
+ */
 export const PaddingType = {
   OAEP_SHA1: "OAEP_SHA1",
   OAEP_SHA256: "OAEP_SHA256",

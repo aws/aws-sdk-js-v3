@@ -47,6 +47,10 @@ import {
   GenerateAs2805KekValidationCommand,
   GenerateAs2805KekValidationInput$,
   GenerateAs2805KekValidationOutput$,
+  GenerateAuthRequestCryptogram$,
+  GenerateAuthRequestCryptogramCommand,
+  GenerateAuthRequestCryptogramInput$,
+  GenerateAuthRequestCryptogramOutput$,
   GenerateCardValidationData$,
   GenerateCardValidationDataCommand,
   GenerateCardValidationDataInput$,
@@ -96,6 +100,7 @@ import {
   PinData$,
   PinGenerationAttributes$,
   PinVerificationAttributes$,
+  RandomKeyMaxLength,
   RandomKeySendVariantMask,
   ReEncryptData$,
   ReEncryptDataCommand,
@@ -171,6 +176,8 @@ assert(typeof EncryptDataCommand === "function");
 assert(typeof EncryptData$ === "object");
 assert(typeof GenerateAs2805KekValidationCommand === "function");
 assert(typeof GenerateAs2805KekValidation$ === "object");
+assert(typeof GenerateAuthRequestCryptogramCommand === "function");
+assert(typeof GenerateAuthRequestCryptogram$ === "object");
 assert(typeof GenerateCardValidationDataCommand === "function");
 assert(typeof GenerateCardValidationData$ === "object");
 assert(typeof GenerateMacCommand === "function");
@@ -228,6 +235,8 @@ assert(typeof EncryptDataOutput$ === "object");
 assert(typeof EncryptionDecryptionAttributes$ === "object");
 assert(typeof GenerateAs2805KekValidationInput$ === "object");
 assert(typeof GenerateAs2805KekValidationOutput$ === "object");
+assert(typeof GenerateAuthRequestCryptogramInput$ === "object");
+assert(typeof GenerateAuthRequestCryptogramOutput$ === "object");
 assert(typeof GenerateCardValidationDataInput$ === "object");
 assert(typeof GenerateCardValidationDataOutput$ === "object");
 assert(typeof GenerateMacEmvPinChangeInput$ === "object");
@@ -307,6 +316,7 @@ assert(typeof PinBlockFormatForEmvPinChange === "object");
 assert(typeof PinBlockFormatForPinData === "object");
 assert(typeof PinBlockLengthPosition === "object");
 assert(typeof PinBlockPaddingType === "object");
+assert(typeof RandomKeyMaxLength === "object");
 assert(typeof RandomKeySendVariantMask === "object");
 assert(typeof SessionKeyDerivationMode === "object");
 assert(typeof SymmetricKeyAlgorithm === "object");

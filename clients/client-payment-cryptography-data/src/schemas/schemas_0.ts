@@ -92,6 +92,9 @@ const _GA = "GenerationAttributes";
 const _GAKV = "GenerateAs2805KekValidation";
 const _GAKVI = "GenerateAs2805KekValidationInput";
 const _GAKVO = "GenerateAs2805KekValidationOutput";
+const _GARC = "GenerateAuthRequestCryptogram";
+const _GARCI = "GenerateAuthRequestCryptogramInput";
+const _GARCO = "GenerateAuthRequestCryptogramOutput";
 const _GCVD = "GenerateCardValidationData";
 const _GCVDI = "GenerateCardValidationDataInput";
 const _GCVDO = "GenerateCardValidationDataOutput";
@@ -199,6 +202,7 @@ const _RED = "ReEncryptData";
 const _REDI = "ReEncryptDataInput";
 const _REDO = "ReEncryptDataOutput";
 const _RI = "ResourceId";
+const _RKML = "RandomKeyMaxLength";
 const _RKR = "RandomKeyReceive";
 const _RKS = "RandomKeySend";
 const _RKSVM = "RandomKeySendVariantMask";
@@ -529,6 +533,16 @@ export var GenerateAs2805KekValidationOutput$: StaticStructureSchema = [3, n0, _
   [_KA, _KCV, _RKS, _RKR],
   [0, 0, [() => As2805RandomKeyMaterial, 0], [() => As2805RandomKeyMaterial, 0]], 4
 ];
+export var GenerateAuthRequestCryptogramInput$: StaticStructureSchema = [3, n0, _GARCI,
+  0,
+  [_KI, _TDr, _MKDM, _SKDA],
+  [0, [() => TransactionDataType, 0], 0, [() => SessionKeyDerivation$, 0]], 4
+];
+export var GenerateAuthRequestCryptogramOutput$: StaticStructureSchema = [3, n0, _GARCO,
+  0,
+  [_KA, _KCV, _ARCu],
+  [0, 0, [() => AuthRequestCryptogramType, 0]], 3
+];
 export var GenerateCardValidationDataInput$: StaticStructureSchema = [3, n0, _GCVDI,
   0,
   [_KI, _PAN, _GA, _VDL],
@@ -601,8 +615,8 @@ export var IncomingDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [3, n0, _
 ];
 export var KekValidationRequest$: StaticStructureSchema = [3, n0, _KVR,
   0,
-  [_DKA],
-  [0], 1
+  [_DKA, _RKML],
+  [0, 0], 1
 ];
 export var KekValidationResponse$: StaticStructureSchema = [3, n0, _KVRe,
   0,
@@ -885,6 +899,9 @@ export var EncryptData$: StaticOperationSchema = [9, n0, _ED,
 ];
 export var GenerateAs2805KekValidation$: StaticOperationSchema = [9, n0, _GAKV,
   { [_h]: ["POST", "/as2805kekvalidation/generate", 200] }, () => GenerateAs2805KekValidationInput$, () => GenerateAs2805KekValidationOutput$
+];
+export var GenerateAuthRequestCryptogram$: StaticOperationSchema = [9, n0, _GARC,
+  { [_h]: ["POST", "/cryptogram/generate", 200] }, () => GenerateAuthRequestCryptogramInput$, () => GenerateAuthRequestCryptogramOutput$
 ];
 export var GenerateCardValidationData$: StaticOperationSchema = [9, n0, _GCVD,
   { [_h]: ["POST", "/cardvalidationdata/generate", 200] }, () => GenerateCardValidationDataInput$, () => GenerateCardValidationDataOutput$

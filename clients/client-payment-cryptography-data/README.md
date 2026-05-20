@@ -202,6 +202,13 @@ GenerateAs2805KekValidation
 </details>
 <details>
 <summary>
+GenerateAuthRequestCryptogram
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateAuthRequestCryptogramCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateAuthRequestCryptogramCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateAuthRequestCryptogramCommandOutput/)
+</details>
+<details>
+<summary>
 GenerateCardValidationData
 </summary>
 
