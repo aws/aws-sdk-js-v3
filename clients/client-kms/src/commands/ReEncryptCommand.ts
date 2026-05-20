@@ -71,6 +71,12 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *          </ul>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <note>
+ *             <p>When using grants with <code>SourceArn</code> constraints for
+ *           <code>ReEncrypt</code> operations, the grants on both the source KMS key (for
+ *           <code>ReEncryptFrom</code>) and the destination KMS key (for <code>ReEncryptTo</code>)
+ *         must specify the same <code>SourceArn</code> value. </p>
+ *          </note>
  *          <p>
  *             <b>Cross-account use</b>: Yes. The source KMS key and
  *       destination KMS key can be in different Amazon Web Services accounts. Either or both KMS keys can be in a

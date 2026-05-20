@@ -28,19 +28,21 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
 
 /**
  * <p>Gets a list of all grants for the specified KMS key. </p>
- *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID or
- *       grantee principal.</p>
+ *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID,
+ *       grantee principal, or grantee service principal.</p>
  *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>. For examples of creating grants in several
  *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
  *          <note>
- *             <p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the
- *         user or role designated as the grantee principal in the grant. However, when the grantee
- *         principal in the grant is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains
- *         the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
- *           principal</a>, which might represent several different grantee principals.</p>
+ *             <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code>
+ *         response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal
+ *         is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which
+ *         might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>
+ *             <p>When a grant is created with the <code>GranteeServicePrincipal</code> field, the <code>ListGrants</code>
+ * 	      response always includes a <code>GranteeServicePrincipal</code> that indicates the grantee is actually
+ *         an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>.</p>
  *          </note>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
@@ -89,6 +91,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *   KeyId: "STRING_VALUE", // required
  *   GrantId: "STRING_VALUE",
  *   GranteePrincipal: "STRING_VALUE",
+ *   GranteeServicePrincipal: "STRING_VALUE",
  * };
  * const command = new ListGrantsCommand(input);
  * const response = await client.send(command);
@@ -112,7 +115,10 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * //         EncryptionContextEquals: {
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         SourceArn: "STRING_VALUE",
  * //       },
+ * //       GranteeServicePrincipal: "STRING_VALUE",
+ * //       RetiringServicePrincipal: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

@@ -393,25 +393,41 @@ export interface CreateCustomKeyStoreResponse {
 
 /**
  * <p>Use this structure to allow <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request
- *       includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">encryption context</a>. </p>
- *          <p>KMS applies the grant constraints only to cryptographic operations that support an
- *       encryption context, that is, all cryptographic operations with a symmetric KMS key. Grant
- *       constraints are not applied to operations that do not support an encryption context, such as
- *       cryptographic operations with asymmetric KMS keys and management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p>
- *          <important>
- *             <p>In a cryptographic operation, the encryption context in the decryption operation must be
- *         an exact, case-sensitive match for the keys and values in the encryption context of the
- *         encryption operation. Only the order of the pairs can vary.</p>
- *             <p>However, in a grant constraint, the key in each key-value pair is not case sensitive,
- *         but the value is case sensitive.</p>
- *             <p>To avoid confusion, do not use multiple encryption context pairs that differ only by
- *         case. To require a fully case-sensitive encryption context, use the
- *           <code>kms:EncryptionContext:</code> and <code>kms:EncryptionContextKeys</code> conditions
- *         in an IAM or key policy. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-encryption-context">kms:EncryptionContext:context-key</a> in the
- *         <i>
- *                   <i>Key Management Service Developer Guide</i>
- *                </i>.</p>
- *          </important>
+ *       meets the specified constraints.</p>
+ *          <p>KMS supports the following grant constraints:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>EncryptionContextEquals</code> and <code>EncryptionContextSubset</code> —
+ *           These encryption context constraints apply only to cryptographic operations that support
+ *           an encryption context, that is, all cryptographic operations with a symmetric KMS key.
+ *           Encryption context grant constraints are not applied to operations that do not support an
+ *           encryption context, such as cryptographic operations with asymmetric KMS keys and
+ *           management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p>
+ *                <important>
+ *                   <p>In a cryptographic operation, the encryption context in the decryption operation must be
+ *               an exact, case-sensitive match for the keys and values in the encryption context of the
+ *               encryption operation. Only the order of the pairs can vary.</p>
+ *                   <p>However, in a grant constraint, the key in each key-value pair is not case sensitive,
+ *               but the value is case sensitive.</p>
+ *                   <p>To avoid confusion, do not use multiple encryption context pairs that differ only by
+ *               case. To require a fully case-sensitive encryption context, use the
+ *                 <code>kms:EncryptionContext:</code> and <code>kms:EncryptionContextKeys</code> conditions
+ *               in an IAM or key policy. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-encryption-context">kms:EncryptionContext:context-key</a> in the
+ *               <i>
+ *                         <i>Key Management Service Developer Guide</i>
+ *                      </i>.</p>
+ *                </important>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SourceArn</code> — This grant constraint allows the permissions in the grant only when the
+ *         request is made on behalf of a specific Amazon Web Services resource, identified by its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>. This is effectively
+ *         the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint is supported on grants
+ *         for all types of KMS keys and can also be applied to the <a>DescribeKey</a> operation when
+ *         specified in the request. However, it does not apply to <a>RetireGrant</a> operation.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface GrantConstraints {
@@ -431,6 +447,15 @@ export interface GrantConstraints {
    * @public
    */
   EncryptionContextEquals?: Record<string, string> | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *     Amazon Resource Name (ARN)</a> of an Amazon Web Services resource on behalf of which the request is made.
+   *     This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint ensures
+   *     that the principal can use the KMS key only when the request is made on behalf of the specified resource.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
 }
 
 /**
@@ -466,9 +491,11 @@ export interface CreateGrantRequest {
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
    *                <i>Identity and Access Management User Guide</i>
    *             </i>.</p>
+   *          <p>You must specify either <code>GranteePrincipal</code> or
+   *         <code>GranteeServicePrincipal</code>, but not both.</p>
    * @public
    */
-  GranteePrincipal: string | undefined;
+  GranteePrincipal?: string | undefined;
 
   /**
    * <p>The principal that has permission to use the <a>RetireGrant</a> operation to
@@ -483,6 +510,8 @@ export interface CreateGrantRequest {
    *       retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking
    *         grants</a> in the <i>Key Management Service Developer Guide</i>. </p>
+   *          <p>You can specify either <code>RetiringPrincipal</code> or
+   *         <code>RetiringServicePrincipal</code>, but not both.</p>
    * @public
    */
   RetiringPrincipal?: string | undefined;
@@ -504,28 +533,42 @@ export interface CreateGrantRequest {
    *          <important>
    *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
    *          </important>
-   *          <p>KMS supports the <code>EncryptionContextEquals</code> and
-   *         <code>EncryptionContextSubset</code> grant constraints, which allow the permissions in the
-   *       grant only when the encryption context in the request matches
-   *         (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>)
-   *       the encryption context specified in the constraint. </p>
-   *          <p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include
-   *       an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric
-   *       encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn't apply to these
-   *       operations. If a grant with a grant constraint includes the <code>CreateGrant</code>
-   *       operation, the constraint requires that any grants created with the <code>CreateGrant</code>
-   *       permission have an equally strict or stricter encryption context constraint.</p>
-   *          <p>You cannot use an encryption context grant constraint for cryptographic operations with
-   *       asymmetric KMS keys or HMAC KMS keys. Operations with these keys don't support an encryption
-   *       context.</p>
-   *          <p>Each constraint value can include up to 8 encryption context pairs. The encryption context
-   *       value in each constraint cannot exceed 384 characters. For information about grant
-   *       constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
-   *         constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
-   *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         context</a> in the <i>
-   *                <i>Key Management Service Developer Guide</i>
-   *             </i>. </p>
+   *          <p>KMS supports the following grant constraints.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EncryptionContextEquals</code> and <code>EncryptionContextSubset</code> — These
+   *           encryption context grant constraints allow the permissions in the grant only when the
+   *           encryption context in the request matches (<code>EncryptionContextEquals</code>) or
+   *           includes (<code>EncryptionContextSubset</code>) the encryption context specified in the
+   *           constraint.</p>
+   *                <p>Encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that
+   *           include an <code>EncryptionContext</code> parameter, such as cryptographic operations on
+   *           symmetric encryption KMS keys. You cannot use an encryption context grant constraint for
+   *           cryptographic operations with asymmetric KMS keys or HMAC KMS keys. Operations with these
+   *           keys don't support an encryption context. Grants with encryption context grant constraints
+   *           can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations,
+   *           but the constraint doesn't apply to these operations. If a grant with an encryption context
+   *           grant constraint includes the <code>CreateGrant</code> operation, the constraint requires
+   *           that any grants created with the <code>CreateGrant</code> permission have an equally strict
+   *           or stricter encryption context constraint. </p>
+   *                <p>Each constraint value can include up to 8 encryption context pairs. The encryption
+   *           context value in each constraint cannot exceed 384 characters. For more information about
+   *           encryption context, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>
+   *                      <i>Key Management Service Developer Guide</i>
+   *                   </i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SourceArn</code> — This grant constraint allows the permissions in the grant only when the
+   *         request is made on behalf of a specific Amazon Web Services resource, identified by its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>. This is effectively
+   *         the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint is supported on grants
+   *         for all types of KMS keys and can also be applied to the <a>DescribeKey</a> operation when
+   *         specified in the request. However, it does not apply to <a>RetireGrant</a> operation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
+   *         constraints</a> in the <i>Key Management Service Developer Guide</i>. </p>
    * @public
    */
   Constraints?: GrantConstraints | undefined;
@@ -562,6 +605,29 @@ export interface CreateGrantRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+   *         principal</a> that gets the permissions specified in the grant. </p>
+   *          <p>When you specify a <code>GranteeServicePrincipal</code>, you must also specify a
+   *       <code>SourceArn</code> grant constraint. In addition, you must specify either a
+   *       <code>RetiringPrincipal</code> or a <code>RetiringServicePrincipal</code>.
+   *     </p>
+   *          <p>You must specify either <code>GranteePrincipal</code> or
+   *         <code>GranteeServicePrincipal</code>, but not both.</p>
+   * @public
+   */
+  GranteeServicePrincipal?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+   *         principal</a> that has permission to use the <a>RetireGrant</a>
+   *       operation to retire the grant.</p>
+   *          <p>You can specify either <code>RetiringPrincipal</code> or
+   *         <code>RetiringServicePrincipal</code>, but not both.</p>
+   * @public
+   */
+  RetiringServicePrincipal?: string | undefined;
 }
 
 /**
@@ -3498,11 +3564,10 @@ export interface GrantListEntry {
 
   /**
    * <p>The identity that gets the permissions in the grant.</p>
-   *          <p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the
-   *         user or role designated as the grantee principal in the grant. However, when the grantee
-   *         principal in the grant is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains
-   *         the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
-   *           principal</a>, which might represent several different grantee principals.</p>
+   *          <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code>
+   *         response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal
+   *         is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which
+   *         might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>
    * @public
    */
   GranteePrincipal?: string | undefined;
@@ -3526,11 +3591,25 @@ export interface GrantListEntry {
   Operations?: GrantOperation[] | undefined;
 
   /**
-   * <p>A list of key-value pairs that must be present in the encryption context of certain
-   *       subsequent operations that the grant allows.</p>
+   * <p>The constraints on the grant, such as encryption context pairs or a SourceArn,
+   *      that restrict the subsequent operations the grant allows.</p>
    * @public
    */
   Constraints?: GrantConstraints | undefined;
+
+  /**
+   * <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+   *         principal</a> that gets the permissions in the grant.</p>
+   * @public
+   */
+  GranteeServicePrincipal?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service
+   *         principal</a> that can retire the grant.</p>
+   * @public
+   */
+  RetiringServicePrincipal?: string | undefined;
 }
 
 /**
@@ -3816,9 +3895,20 @@ export interface ListGrantsRequest {
   /**
    * <p>Returns only grants where the specified principal is the grantee principal for the
    *       grant.</p>
+   *          <p>You can specify either <code>GranteePrincipal</code> or
+   *         <code>GranteeServicePrincipal</code>, but not both.</p>
    * @public
    */
   GranteePrincipal?: string | undefined;
+
+  /**
+   * <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service
+   *       principal for the grant. This filter is only usable by callers in a service principal.</p>
+   *          <p>You can specify either <code>GranteePrincipal</code> or
+   *         <code>GranteeServicePrincipal</code>, but not both.</p>
+   * @public
+   */
+  GranteeServicePrincipal?: string | undefined;
 }
 
 /**
@@ -4247,9 +4337,20 @@ export interface ListRetirableGrantsRequest {
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
    *                <i>Identity and Access Management User Guide</i>
    *             </i>.</p>
+   *          <p>You must specify either <code>RetiringPrincipal</code> or
+   *         <code>RetiringServicePrincipal</code>, but not both.</p>
    * @public
    */
-  RetiringPrincipal: string | undefined;
+  RetiringPrincipal?: string | undefined;
+
+  /**
+   * <p>The retiring service principal for which to list grants. This filter is only usable by
+   *       callers in a service principal.</p>
+   *          <p>You must specify either <code>RetiringPrincipal</code> or
+   *         <code>RetiringServicePrincipal</code>, but not both.</p>
+   * @public
+   */
+  RetiringServicePrincipal?: string | undefined;
 }
 
 /**

@@ -952,6 +952,7 @@ export interface KMS {
   /**
    * @see {@link ListRetirableGrantsCommand}
    */
+  listRetirableGrants(): Promise<ListRetirableGrantsCommandOutput>;
   listRetirableGrants(
     args: ListRetirableGrantsCommandInput,
     options?: __HttpHandlerOptions
@@ -1323,7 +1324,7 @@ export interface KMS {
    * @returns AsyncIterable of {@link ListRetirableGrantsCommandOutput}.
    */
   paginateListRetirableGrants(
-    args: ListRetirableGrantsCommandInput,
+    args?: ListRetirableGrantsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRetirableGrantsCommandOutput>;
 }

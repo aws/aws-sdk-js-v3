@@ -146,6 +146,7 @@ const _GPKRe = "GetPublicKeyResponse";
 const _GR = "GenerateRandom";
 const _GRR = "GenerateRandomRequest";
 const _GRRe = "GenerateRandomResponse";
+const _GSP = "GranteeServicePrincipal";
 const _GT = "GrantTokens";
 const _GTr = "GrantToken";
 const _I = "Id";
@@ -284,6 +285,7 @@ const _RPID = "RotationPeriodInDays";
 const _RPe = "ReplicaPolicy";
 const _RR = "ReplicaRegion";
 const _RSAK = "RawSecretAccessKey";
+const _RSP = "RetiringServicePrincipal";
 const _RT = "ReplicaTags";
 const _RTo = "RotationType";
 const _Re = "Region";
@@ -291,6 +293,7 @@ const _Ro = "Rotations";
 const _S = "Signature";
 const _SA = "SigningAlgorithms";
 const _SAi = "SigningAlgorithm";
+const _SAo = "SourceArn";
 const _SEA = "SourceEncryptionAlgorithm";
 const _SEC = "SourceEncryptionContext";
 const _SKD = "ScheduleKeyDeletion";
@@ -788,8 +791,8 @@ export var CreateCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _CCKSR
 ];
 export var CreateGrantRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_KI, _GP, _O, _RP, _C, _GT, _N, _DR],
-  [0, 0, 64 | 0, 0, () => GrantConstraints$, 64 | 0, 0, 2], 3
+  [_KI, _O, _GP, _RP, _C, _GT, _N, _DR, _GSP, _RSP],
+  [0, 64 | 0, 0, 0, () => GrantConstraints$, 64 | 0, 0, 2, 0, 0], 2
 ];
 export var CreateGrantResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -1028,13 +1031,13 @@ export var GetPublicKeyResponse$: StaticStructureSchema = [3, n0, _GPKRe,
 ];
 export var GrantConstraints$: StaticStructureSchema = [3, n0, _GC,
   0,
-  [_ECS, _ECE],
-  [128 | 0, 128 | 0]
+  [_ECS, _ECE, _SAo],
+  [128 | 0, 128 | 0, 0]
 ];
 export var GrantListEntry$: StaticStructureSchema = [3, n0, _GLE,
   0,
-  [_KI, _GI, _N, _CD, _GP, _RP, _IA, _O, _C],
-  [0, 0, 0, 4, 0, 0, 0, 64 | 0, () => GrantConstraints$]
+  [_KI, _GI, _N, _CD, _GP, _RP, _IA, _O, _C, _GSP, _RSP],
+  [0, 0, 0, 4, 0, 0, 0, 64 | 0, () => GrantConstraints$, 0, 0]
 ];
 export var ImportKeyMaterialRequest$: StaticStructureSchema = [3, n0, _IKMR,
   0,
@@ -1073,8 +1076,8 @@ export var ListAliasesResponse$: StaticStructureSchema = [3, n0, _LARi,
 ];
 export var ListGrantsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
-  [_KI, _L, _M, _GI, _GP],
-  [0, 1, 0, 0, 0], 1
+  [_KI, _L, _M, _GI, _GP, _GSP],
+  [0, 1, 0, 0, 0, 0], 1
 ];
 export var ListGrantsResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
@@ -1123,8 +1126,8 @@ export var ListResourceTagsResponse$: StaticStructureSchema = [3, n0, _LRTRi,
 ];
 export var ListRetirableGrantsRequest$: StaticStructureSchema = [3, n0, _LRGR,
   0,
-  [_RP, _L, _M],
-  [0, 1, 0], 1
+  [_L, _M, _RP, _RSP],
+  [1, 0, 0, 0]
 ];
 export var MultiRegionConfiguration$: StaticStructureSchema = [3, n0, _MRC,
   0,

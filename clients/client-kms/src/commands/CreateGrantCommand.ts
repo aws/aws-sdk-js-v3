@@ -33,6 +33,10 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *       grants are considered along with key policies and IAM policies. Grants are often used for
  *       temporary permissions because you can create one, use its permissions, and delete it without
  *       changing your key policies or IAM policies. </p>
+ *          <p>You can create a grant for an Amazon Web Services principal (IAM user, IAM role, or Amazon Web Services account) by
+ *       specifying the <code>GranteePrincipal</code> parameter. You can also create a grant for an
+ *       Amazon Web Services service principal by specifying the <code>GranteeServicePrincipal</code>
+ *       parameter.</p>
  *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
@@ -102,7 +106,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * const client = new KMSClient(config);
  * const input = { // CreateGrantRequest
  *   KeyId: "STRING_VALUE", // required
- *   GranteePrincipal: "STRING_VALUE", // required
+ *   GranteePrincipal: "STRING_VALUE",
  *   RetiringPrincipal: "STRING_VALUE",
  *   Operations: [ // GrantOperationList // required
  *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret",
@@ -114,12 +118,15 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *     EncryptionContextEquals: {
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     SourceArn: "STRING_VALUE",
  *   },
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
  *   Name: "STRING_VALUE",
  *   DryRun: true || false,
+ *   GranteeServicePrincipal: "STRING_VALUE",
+ *   RetiringServicePrincipal: "STRING_VALUE",
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
@@ -207,6 +214,33 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * {
  *   GrantId: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
  *   GrantToken: "AQpAM2RhZTk1MGMyNTk2ZmZmMzEyYWVhOWViN2I1MWM4Mzc0MWFiYjc0ZDE1ODkyNGFlNTIzODZhMzgyZjBlNGY3NiKIAgEBAgB4Pa6VDCWW__MSrqnre1HIN0Grt00ViSSuUjhqOC8OT3YAAADfMIHcBgkqhkiG9w0BBwaggc4wgcsCAQAwgcUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmqLyBTAegIn9XlK5AgEQgIGXZQjkBcl1dykDdqZBUQ6L1OfUivQy7JVYO2-ZJP7m6f1g8GzV47HX5phdtONAP7K_HQIflcgpkoCqd_fUnE114mSmiagWkbQ5sqAVV3ov-VeqgrvMe5ZFEWLMSluvBAqdjHEdMIkHMlhlj4ENZbzBfo9Wxk8b8SnwP4kc4gGivedzFXo-dwN8fxjjq_ZZ9JFOj2ijIbj5FyogDCN0drOfi8RORSEuCEmPvjFRMFAwcmwFkN2NPp89amA"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a grant for a service principal
+ * ```javascript
+ * // The following example creates a grant that allows the specified AWS service principal to encrypt and decrypt data with the specified KMS key. The grant includes a SourceArn constraint that restricts the grant permissions to requests associated with the specified DynamoDB table.
+ * const input = {
+ *   Constraints: {
+ *     SourceArn: "arn:aws:dynamodb:us-east-2:444455556666:table/ExampleTable"
+ *   },
+ *   GranteeServicePrincipal: "service-name.amazonaws.com",
+ *   KeyId: "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Operations: [
+ *     "Encrypt",
+ *     "Decrypt",
+ *     "GenerateDataKey",
+ *     "DescribeKey"
+ *   ],
+ *   RetiringServicePrincipal: "service-name.amazonaws.com"
+ * };
+ * const command = new CreateGrantCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   GrantId: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+ *   GrantToken: "AQpAM2RhZTk1MGMyNTk2ZmZmMzEyYWVhOWViN2I1MWM4Mzc0MWFiYjc0ZDE1ODkyNGFlNTIzODZhMzgyZjBlNGY3NiKIAgEBAgB4Pa6VDCWW..."
  * }
  * *\/
  * ```

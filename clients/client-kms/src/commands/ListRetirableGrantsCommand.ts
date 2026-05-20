@@ -28,7 +28,7 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
 
 /**
  * <p>Returns information about all grants in the Amazon Web Services account and Region that have the
- *       specified retiring principal. </p>
+ *       specified retiring principal or retiring service principal. </p>
  *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
  *       grants for KMS keys in your Amazon Web Services account and other Amazon Web Services accounts. You might use this
  *       operation to determine which grants you may retire. To retire a grant, use the <a>RetireGrant</a> operation.</p>
@@ -48,11 +48,14 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your
  *       Amazon Web Services account.</p>
  *          <note>
- *             <p>KMS authorizes <code>ListRetirableGrants</code> requests by evaluating the caller
+ *             <p>When listing retirable grants by <code>RetiringPrincipal</code>, KMS authorizes
+ *         <code>ListRetirableGrants</code> requests by evaluating the caller
  *         account's kms:ListRetirableGrants permissions. The authorized resource in
- *           <code>ListRetirableGrants</code> calls is the retiring principal specified in the request.
+ *         <code>ListRetirableGrants</code> calls is the retiring principal specified in the request.
  *         KMS does not evaluate the caller's permissions to verify their access to any KMS keys or
  *         grants that might be returned by the <code>ListRetirableGrants</code> call.</p>
+ *             <p>The <code>RetiringServicePrincipal</code> filter is only usable by callers in a
+ *         service principal.</p>
  *          </note>
  *          <p>
  *             <b>Related operations:</b>
@@ -93,7 +96,8 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * const input = { // ListRetirableGrantsRequest
  *   Limit: Number("int"),
  *   Marker: "STRING_VALUE",
- *   RetiringPrincipal: "STRING_VALUE", // required
+ *   RetiringPrincipal: "STRING_VALUE",
+ *   RetiringServicePrincipal: "STRING_VALUE",
  * };
  * const command = new ListRetirableGrantsCommand(input);
  * const response = await client.send(command);
@@ -117,7 +121,10 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * //         EncryptionContextEquals: {
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         SourceArn: "STRING_VALUE",
  * //       },
+ * //       GranteeServicePrincipal: "STRING_VALUE",
+ * //       RetiringServicePrincipal: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",
