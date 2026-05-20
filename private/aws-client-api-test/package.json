@@ -35,9 +35,9 @@
     "@aws-sdk/middleware-flexible-checksums": "workspace:^3.974.20",
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.41",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.27",
-    "@smithy/core": "^3.24.2",
-    "@smithy/node-http-handler": "^4.7.2",
-    "@smithy/types": "^4.14.1",
+    "@smithy/core": "^3.24.3",
+    "@smithy/node-http-handler": "^4.7.3",
+    "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

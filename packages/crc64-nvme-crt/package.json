@@ -26,8 +26,8 @@
   "dependencies": {
     "@aws-sdk/crc64-nvme": "workspace:^3.972.8",
     "@aws-sdk/crt-loader": "workspace:^3.972.42",
-    "@smithy/core": "^3.24.2",
-    "@smithy/types": "^4.14.1",
+    "@smithy/core": "^3.24.3",
+    "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
