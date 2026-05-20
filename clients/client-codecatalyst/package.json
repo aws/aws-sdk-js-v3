@@ -24,10 +24,10 @@
     "@aws-sdk/core": "workspace:^3.974.12",
     "@aws-sdk/token-providers": "workspace:3.1051.0",
     "@aws-sdk/types": "workspace:^3.973.8",
-    "@smithy/core": "^3.24.2",
-    "@smithy/fetch-http-handler": "^5.4.2",
-    "@smithy/node-http-handler": "^4.7.2",
-    "@smithy/types": "^4.14.1",
+    "@smithy/core": "^3.24.3",
+    "@smithy/fetch-http-handler": "^5.4.3",
+    "@smithy/node-http-handler": "^4.7.3",
+    "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

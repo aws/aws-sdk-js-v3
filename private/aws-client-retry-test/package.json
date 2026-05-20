@@ -19,8 +19,8 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/client-lambda": "workspace:3.1051.0",
-    "@smithy/core": "^3.24.2",
-    "@smithy/types": "^4.14.1",
+    "@smithy/core": "^3.24.3",
+    "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
