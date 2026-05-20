@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
+
+
+### Features
+
+* **client-bedrock-runtime:** Supporting Request Metadata for Invoke Model and Invoke Model with Response Stream ([d063386](https://github.com/aws/aws-sdk-js-v3/commit/d0633866a6c571e43fdf7f208c29b6e1ba1f2552))
+
+
+
+
+
 # [3.1050.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1049.0...v3.1050.0) (2026-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

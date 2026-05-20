@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
+
+
+### Features
+
+* **client-bedrock-runtime:** Supporting Request Metadata for Invoke Model and Invoke Model with Response Stream ([d063386](https://github.com/aws/aws-sdk-js-v3/commit/d0633866a6c571e43fdf7f208c29b6e1ba1f2552))
+* **client-customer-profiles:** Amazon Connect Customer Profiles adds support for item catalog columns in RecommenderSchema, ExcludedColumns in Create and Update Recommender to specify columns to exclude from training, and the ability to disable automatic retraining by setting TrainingFrequency to 0. ([15e208e](https://github.com/aws/aws-sdk-js-v3/commit/15e208ec10012312a27f36ff395171f264900154))
+* **client-kms:** AWS KMS now supports creating grants for AWS service principals using new GranteeServicePrincipal and RetiringServicePrincipal parameters. This release adds SourceArn grant constraint and three condition keys for controlling CreateGrant access. For more information, see Grants in AWS KMS. ([be8a411](https://github.com/aws/aws-sdk-js-v3/commit/be8a4113a3df01597243f55d5984c9fa7e6899c8))
+* **client-payment-cryptography-data:** GenerateAuthRequestCryptogram API launch. ([bb91020](https://github.com/aws/aws-sdk-js-v3/commit/bb91020a23670e4bee36c2da84d958b1b9bdeda7))
+* **clients:** update client endpoints as of 2026-05-20 ([1214aae](https://github.com/aws/aws-sdk-js-v3/commit/1214aae4089976c5abf2c274108bd854569093e6))
+
+
+
+
+
 # [3.1050.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1049.0...v3.1050.0) (2026-05-19)
 
 
