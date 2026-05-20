@@ -8,7 +8,7 @@ jobs:
         permissions:
           issues: write
         steps:
-        - uses: aws-actions/closed-issue-message@v1
+        - uses: aws-actions/closed-issue-message@cf797c2463fa6b95a23b2957fe075a3fa9aa8138 # v1
           with:
             # These inputs are both required
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
