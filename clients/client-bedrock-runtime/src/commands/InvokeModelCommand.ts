@@ -65,6 +65,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  *   guardrailVersion: "STRING_VALUE",
  *   performanceConfigLatency: "standard" || "optimized",
  *   serviceTier: "priority" || "default" || "flex" || "reserved",
+ *   requestMetadata: "STRING_VALUE",
  * };
  * const command = new InvokeModelCommand(input);
  * const response = await client.send(command);

@@ -179,6 +179,7 @@ const _PVV = "PromptVariableValues";
 const _RCB = "ReasoningContentBlock";
 const _RCBD = "ReasoningContentBlockDelta";
 const _RM = "RequestMetadata";
+const _RMJ = "RequestMetadataJson";
 const _RNFE = "ResourceNotFoundException";
 const _RS = "ResponseStream";
 const _RTB = "ReasoningTextBlock";
@@ -225,6 +226,7 @@ const _XABCT = "X-Amzn-Bedrock-Content-Type";
 const _XABG = "X-Amzn-Bedrock-GuardrailIdentifier";
 const _XABG_ = "X-Amzn-Bedrock-GuardrailVersion";
 const _XABPL = "X-Amzn-Bedrock-PerformanceConfig-Latency";
+const _XABRM = "X-Amzn-Bedrock-Request-Metadata";
 const _XABST = "X-Amzn-Bedrock-Service-Tier";
 const _XABT = "X-Amzn-Bedrock-Trace";
 const _a = "action";
@@ -581,6 +583,7 @@ var GuardrailAutomatedReasoningStatementLogicContent: StaticSimpleSchema = [0, n
 var GuardrailAutomatedReasoningStatementNaturalLanguageContent: StaticSimpleSchema = [0, n0, _GARSNLC, 8, 0];
 var ModelInputPayload: StaticSimpleSchema = [0, n0, _MIP, 8, 15];
 var PartBody: StaticSimpleSchema = [0, n0, _PB, 8, 21];
+var RequestMetadataJson: StaticSimpleSchema = [0, n0, _RMJ, 8, 0];
 export var AnyToolChoice$: StaticStructureSchema = [3, n0, _ATC,
   0,
   [],
@@ -1003,8 +1006,8 @@ export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
 ];
 export var InvokeModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
-  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe],
-  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 1
+  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe, _rM],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }], [() => RequestMetadataJson, { [_hH]: _XABRM }]], 1
 ];
 export var InvokeModelResponse$: StaticStructureSchema = [3, n0, _IMRn,
   0,
@@ -1028,8 +1031,8 @@ export var InvokeModelWithBidirectionalStreamResponse$: StaticStructureSchema = 
 ];
 export var InvokeModelWithResponseStreamRequest$: StaticStructureSchema = [3, n0, _IMWRSR,
   0,
-  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe],
-  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 1
+  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe, _rM],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }], [() => RequestMetadataJson, { [_hH]: _XABRM }]], 1
 ];
 export var InvokeModelWithResponseStreamResponse$: StaticStructureSchema = [3, n0, _IMWRSRn,
   0,

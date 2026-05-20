@@ -4985,6 +4985,12 @@ export interface InvokeModelRequest {
    * @public
    */
   serviceTier?: ServiceTierType | undefined;
+
+  /**
+   * <p>Key-value pairs that you can use to filter invocation logs.</p>
+   * @public
+   */
+  requestMetadata?: string | undefined;
 }
 
 /**
@@ -5317,6 +5323,12 @@ export interface InvokeModelWithResponseStreamRequest {
    * @public
    */
   serviceTier?: ServiceTierType | undefined;
+
+  /**
+   * <p>Key-value pairs that you can use to filter invocation logs.</p>
+   * @public
+   */
+  requestMetadata?: string | undefined;
 }
 
 /**
