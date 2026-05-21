@@ -1334,6 +1334,40 @@ export interface DisassociateEipFromVlanResponse {
 /**
  * @public
  */
+export interface GetDepotUrlRequest {
+  /**
+   * <p>The unique ID of the Amazon EVS environment to get the depot URL for.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>Revokes the current authentication token and returns a new depot URL with a new token. Previously issued depot URLs will stop working within 5 minutes of rotation.</p>
+   * @public
+   */
+  rotate?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDepotUrlResponse {
+  /**
+   * <p>The URL for accessing the Amazon EVS Custom Addon depot. This URL includes the authentication token as a path component.</p>
+   * @public
+   */
+  depotUrl: string | undefined;
+
+  /**
+   * <p>The authentication token for depot access. This token is included in the depot URL and is used to authenticate requests.</p>
+   * @public
+   */
+  token: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetEnvironmentRequest {
   /**
    * <p>A unique ID for the environment.</p>

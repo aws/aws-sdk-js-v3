@@ -41,6 +41,9 @@ const _EAL = "EipAssociationList";
 const _ED = "ErrorDetail";
 const _ES = "EnvironmentSummary";
 const _ESL = "EnvironmentSummaryList";
+const _GDU = "GetDepotUrl";
+const _GDUR = "GetDepotUrlRequest";
+const _GDURe = "GetDepotUrlResponse";
 const _GE = "GetEnvironment";
 const _GER = "GetEnvironmentRequest";
 const _GERe = "GetEnvironmentResponse";
@@ -82,6 +85,7 @@ const _RA = "Retry-After";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Secret";
 const _SASG = "ServiceAccessSecurityGroups";
+const _SK = "SolutionKey";
 const _SL = "SecretList";
 const _SQEE = "ServiceQuotaExceededException";
 const _TE = "ThrottlingException";
@@ -104,6 +108,7 @@ const _VEL = "VmEntitlementList";
 const _VEm = "VmEntitlement";
 const _VH = "VcfHostnames";
 const _VL = "VlanList";
+const _VSLK = "VSanLicenseKey";
 const _VVI = "VcfVersionInfo";
 const _VVL = "VcfVersionList";
 const _aF = "applianceFqdn";
@@ -123,6 +128,7 @@ const _con = "connectors";
 const _cr = "credentials";
 const _dEV = "defaultEsxVersion";
 const _dHI = "dedicatedHostId";
+const _dU = "depotUrl";
 const _e = "error";
 const _eA = "environmentArn";
 const _eAi = "eipAssociations";
@@ -193,6 +199,7 @@ const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
 const _re = "result";
+const _ro = "rotate";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.evs";
 const _sA = "secretArn";
 const _sASG = "serviceAccessSecurityGroups";
@@ -213,6 +220,7 @@ const _t = "type";
 const _tA = "termsAccepted";
 const _tK = "tagKeys";
 const _ta = "tags";
+const _to = "token";
 const _v = "vlan";
 const _vC = "vCenter";
 const _vH = "vcfHostnames";
@@ -240,6 +248,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
 } from "@smithy/types";
 
@@ -310,6 +319,8 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var SolutionKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
+var VSanLicenseKey: StaticSimpleSchema = [0, n0, _VSLK, 8, 0];
 export var AssociateEipToVlanRequest$: StaticStructureSchema = [3, n0, _AETVR,
   0,
   [_eI, _vN, _aI, _cT],
@@ -373,12 +384,12 @@ export var CreateEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _CEHR
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CERre,
   0,
   [_vIp, _sASI, _vV, _tA, _lI, _iV, _ho, _cIo, _vH, _sIi, _cT, _eN, _kKI, _ta, _sASG],
-  [0, 0, 0, 2, () => LicenseInfoList, () => InitialVlans$, () => HostInfoForCreateList, () => ConnectivityInfo$, () => VcfHostnames$, 0, [0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$], 10
+  [0, 0, 0, 2, [() => LicenseInfoList, 0], () => InitialVlans$, () => HostInfoForCreateList, () => ConnectivityInfo$, () => VcfHostnames$, 0, [0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$], 10
 ];
 export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERrea,
   0,
   [_env],
-  [() => Environment$]
+  [[() => Environment$, 0]]
 ];
 export var DeleteEntitlementRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
@@ -418,7 +429,7 @@ export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DERel,
 export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERele,
   0,
   [_env],
-  [() => Environment$]
+  [[() => Environment$, 0]]
 ];
 export var DisassociateEipFromVlanRequest$: StaticStructureSchema = [3, n0, _DEFVR,
   0,
@@ -438,7 +449,7 @@ export var EipAssociation$: StaticStructureSchema = [3, n0, _EA,
 export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
   [_eI, _eSn, _sD, _cA, _mA, _eA, _eN, _vIp, _sASI, _vV, _tA, _lI, _sIi, _eSnv, _ch, _cIo, _vH, _kKI, _sASG, _cr],
-  [0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 2, () => LicenseInfoList, 0, 0, () => ChecksList, () => ConnectivityInfo$, () => VcfHostnames$, 0, () => ServiceAccessSecurityGroups$, () => SecretList]
+  [0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 2, [() => LicenseInfoList, 0], 0, 0, () => ChecksList, () => ConnectivityInfo$, () => VcfHostnames$, 0, () => ServiceAccessSecurityGroups$, () => SecretList]
 ];
 export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -450,6 +461,16 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   [_eC, _eM],
   [0, 0], 2
 ];
+export var GetDepotUrlRequest$: StaticStructureSchema = [3, n0, _GDUR,
+  0,
+  [_eI, _ro],
+  [[0, 1], 2], 1
+];
+export var GetDepotUrlResponse$: StaticStructureSchema = [3, n0, _GDURe,
+  0,
+  [_dU, _to],
+  [0, 0], 2
+];
 export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_eI],
@@ -458,7 +479,7 @@ export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
 export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
   [_env],
-  [() => Environment$]
+  [[() => Environment$, 0]]
 ];
 export var GetVersionsRequest$: StaticStructureSchema = [3, n0, _GVR,
   0,
@@ -498,7 +519,7 @@ export var InstanceTypeEsxVersionsInfo$: StaticStructureSchema = [3, n0, _ITEVI,
 export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
   [_sK, _vK],
-  [0, 0], 2
+  [[() => SolutionKey, 0], [() => VSanLicenseKey, 0]], 2
 ];
 export var ListEnvironmentConnectorsRequest$: StaticStructureSchema = [3, n0, _LECR,
   0,
@@ -658,7 +679,8 @@ var InstanceTypeEsxVersionsList: StaticListSchema = [1, n0, _ITEVL,
 ];
 var InstanceTypeList = 64 | 0;
 var LicenseInfoList: StaticListSchema = [1, n0, _LIL,
-  0, () => LicenseInfo$
+  0, [() => LicenseInfo$,
+    0]
 ];
 var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL,
   0, () => NetworkInterface$
@@ -713,6 +735,9 @@ export var DeleteEnvironmentHost$: StaticOperationSchema = [9, n0, _DEH,
 ];
 export var DisassociateEipFromVlan$: StaticOperationSchema = [9, n0, _DEFV,
   2, () => DisassociateEipFromVlanRequest$, () => DisassociateEipFromVlanResponse$
+];
+export var GetDepotUrl$: StaticOperationSchema = [9, n0, _GDU,
+  0, () => GetDepotUrlRequest$, () => GetDepotUrlResponse$
 ];
 export var GetEnvironment$: StaticOperationSchema = [9, n0, _GE,
   0, () => GetEnvironmentRequest$, () => GetEnvironmentResponse$

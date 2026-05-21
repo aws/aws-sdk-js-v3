@@ -58,6 +58,10 @@ import {
   Evs,
   EvsClient,
   EvsServiceException,
+  GetDepotUrl$,
+  GetDepotUrlCommand,
+  GetDepotUrlRequest$,
+  GetDepotUrlResponse$,
   GetEnvironment$,
   GetEnvironmentCommand,
   GetEnvironmentRequest$,
@@ -165,6 +169,8 @@ assert(typeof DeleteEnvironmentHostCommand === "function");
 assert(typeof DeleteEnvironmentHost$ === "object");
 assert(typeof DisassociateEipFromVlanCommand === "function");
 assert(typeof DisassociateEipFromVlan$ === "object");
+assert(typeof GetDepotUrlCommand === "function");
+assert(typeof GetDepotUrl$ === "object");
 assert(typeof GetEnvironmentCommand === "function");
 assert(typeof GetEnvironment$ === "object");
 assert(typeof GetVersionsCommand === "function");
@@ -216,6 +222,8 @@ assert(typeof EipAssociation$ === "object");
 assert(typeof Environment$ === "object");
 assert(typeof EnvironmentSummary$ === "object");
 assert(typeof ErrorDetail$ === "object");
+assert(typeof GetDepotUrlRequest$ === "object");
+assert(typeof GetDepotUrlResponse$ === "object");
 assert(typeof GetEnvironmentRequest$ === "object");
 assert(typeof GetEnvironmentResponse$ === "object");
 assert(typeof GetVersionsRequest$ === "object");

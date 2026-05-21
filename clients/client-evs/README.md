@@ -251,6 +251,13 @@ DisassociateEipFromVlan
 </details>
 <details>
 <summary>
+GetDepotUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evs/command/GetDepotUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/GetDepotUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/GetDepotUrlCommandOutput/)
+</details>
+<details>
+<summary>
 GetEnvironment
 </summary>
 

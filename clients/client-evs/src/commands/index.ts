@@ -9,6 +9,7 @@ export * from "./DeleteEnvironmentCommand";
 export * from "./DeleteEnvironmentConnectorCommand";
 export * from "./DeleteEnvironmentHostCommand";
 export * from "./DisassociateEipFromVlanCommand";
+export * from "./GetDepotUrlCommand";
 export * from "./GetEnvironmentCommand";
 export * from "./GetVersionsCommand";
 export * from "./ListEnvironmentConnectorsCommand";

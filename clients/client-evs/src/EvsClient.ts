@@ -94,6 +94,7 @@ import type {
   DisassociateEipFromVlanCommandInput,
   DisassociateEipFromVlanCommandOutput,
 } from "./commands/DisassociateEipFromVlanCommand";
+import type { GetDepotUrlCommandInput, GetDepotUrlCommandOutput } from "./commands/GetDepotUrlCommand";
 import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
 import type { GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
 import type {
@@ -148,6 +149,7 @@ export type ServiceInputTypes =
   | DeleteEnvironmentConnectorCommandInput
   | DeleteEnvironmentHostCommandInput
   | DisassociateEipFromVlanCommandInput
+  | GetDepotUrlCommandInput
   | GetEnvironmentCommandInput
   | GetVersionsCommandInput
   | ListEnvironmentConnectorsCommandInput
@@ -174,6 +176,7 @@ export type ServiceOutputTypes =
   | DeleteEnvironmentConnectorCommandOutput
   | DeleteEnvironmentHostCommandOutput
   | DisassociateEipFromVlanCommandOutput
+  | GetDepotUrlCommandOutput
   | GetEnvironmentCommandOutput
   | GetVersionsCommandOutput
   | ListEnvironmentConnectorsCommandOutput

@@ -53,6 +53,11 @@ import {
   DisassociateEipFromVlanCommand,
 } from "./commands/DisassociateEipFromVlanCommand";
 import {
+  type GetDepotUrlCommandInput,
+  type GetDepotUrlCommandOutput,
+  GetDepotUrlCommand,
+} from "./commands/GetDepotUrlCommand";
+import {
   type GetEnvironmentCommandInput,
   type GetEnvironmentCommandOutput,
   GetEnvironmentCommand,
@@ -125,6 +130,7 @@ const commands = {
   DeleteEnvironmentConnectorCommand,
   DeleteEnvironmentHostCommand,
   DisassociateEipFromVlanCommand,
+  GetDepotUrlCommand,
   GetEnvironmentCommand,
   GetVersionsCommand,
   ListEnvironmentConnectorsCommand,
@@ -314,6 +320,23 @@ export interface Evs {
     args: DisassociateEipFromVlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateEipFromVlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDepotUrlCommand}
+   */
+  getDepotUrl(
+    args: GetDepotUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDepotUrlCommandOutput>;
+  getDepotUrl(
+    args: GetDepotUrlCommandInput,
+    cb: (err: any, data?: GetDepotUrlCommandOutput) => void
+  ): void;
+  getDepotUrl(
+    args: GetDepotUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDepotUrlCommandOutput) => void
   ): void;
 
   /**
