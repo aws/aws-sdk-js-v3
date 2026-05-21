@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-process",
-  "version": "3.972.38",
+  "version": "3.972.39",
   "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -26,8 +26,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.12",
-    "@aws-sdk/types": "workspace:^3.973.8",
+    "@aws-sdk/core": "workspace:^3.974.13",
+    "@aws-sdk/types": "workspace:^3.973.9",
     "@smithy/core": "^3.24.3",
     "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"

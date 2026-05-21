@@ -44,6 +44,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.13 (2026-05-20)
+### Chores
+* **codegen:** update @smithy dependencies ([#8038](https://github.com/aws/aws-sdk-js-v3/issues/8038)) ([0d6242d](https://github.com/aws/aws-sdk-js-v3/commit/0d6242dc938f36ac77e337d39f577e8727f87926))
+
+
+
 # 3.974.12 (2026-05-18)
 ### Bug Fixes
 * **core/protocols:** make error namespace removal unconditional in JSON RPC ([#8031](https://github.com/aws/aws-sdk-js-v3/issues/8031)) ([7cee4f2](https://github.com/aws/aws-sdk-js-v3/commit/7cee4f2752226e76902ab933477122782472469c))

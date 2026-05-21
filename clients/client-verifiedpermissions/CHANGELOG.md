@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
+
+
+### Features
+
+* **client-verifiedpermissions:** Support hard deleting policy store aliases. Users can now delete an alias and immediately reassign it to a different policy store without waiting for the soft-delete retention period. ([f8b7f31](https://github.com/aws/aws-sdk-js-v3/commit/f8b7f31e73b117696da0d74da47157f45f08139c))
+
+
+
+
+
 # [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions

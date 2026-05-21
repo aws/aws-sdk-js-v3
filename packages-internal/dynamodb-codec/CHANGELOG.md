@@ -44,6 +44,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.13 (2026-05-20)
+### Chores
+* **codegen:** update @smithy dependencies ([#8038](https://github.com/aws/aws-sdk-js-v3/issues/8038)) ([0d6242d](https://github.com/aws/aws-sdk-js-v3/commit/0d6242dc938f36ac77e337d39f577e8727f87926))
+
+
+
 # 3.973.12 (2026-05-18)
 ### Chores
 * **dynamodb-codec:** update dependencies.

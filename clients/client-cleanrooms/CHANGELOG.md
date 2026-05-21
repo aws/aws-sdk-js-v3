@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
+
+
+### Features
+
+* **client-cleanrooms:** Collaboration creators can update payment configurations without recreating the collaboration. When multiple payer candidates are configured for a cost type, analysis runners can specify the actual payer at submission time, providing granular control over billing. ([1cee155](https://github.com/aws/aws-sdk-js-v3/commit/1cee155ce27c40a0000227393e0e8356652b70e2))
+
+
+
+
+
 # [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

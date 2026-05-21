@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
+
+
+### Features
+
+* **client-sagemaker:** Add support for disabling home EFS file system creation on SageMaker domains. ([a9896a7](https://github.com/aws/aws-sdk-js-v3/commit/a9896a7a82c73f3267a1afeb490b5a0cf8742ba6))
+
+
+
+
+
 # [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds dataset management APIs for creating, versioning, and managing evaluation datasets. ([225ba34](https://github.com/aws/aws-sdk-js-v3/commit/225ba34550f725de0319b3b70abd735004f90954))
+
+
+
+
+
 # [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** encode URL path before signing ([#8039](https://github.com/aws/aws-sdk-js-v3/issues/8039)) ([4d708d6](https://github.com/aws/aws-sdk-js-v3/commit/4d708d600c681532df30285aa5a2f21b07226269))
+
+
+### Features
+
+* **client-acm-pca:** Adding new BDD representation of endpoint ruleset ([73c5c7f](https://github.com/aws/aws-sdk-js-v3/commit/73c5c7f0db262f1d5a97ec9f022fef4be92adcda))
+* **client-acm:** Adding new BDD representation of endpoint ruleset ([15634c5](https://github.com/aws/aws-sdk-js-v3/commit/15634c51625ca99d610332b39903c395048d1153))
+* **client-api-gateway:** Adding new BDD representation of endpoint ruleset ([26e618e](https://github.com/aws/aws-sdk-js-v3/commit/26e618e896e7c07422cf54503a81238e8000dd99))
+* **client-apigatewayv2:** Adding new BDD representation of endpoint ruleset ([b218bd7](https://github.com/aws/aws-sdk-js-v3/commit/b218bd7722f69b745e3b0738d954e4062d0fb85f))
+* **client-appstream:** Adding new BDD representation of endpoint ruleset ([ea9efaf](https://github.com/aws/aws-sdk-js-v3/commit/ea9efafa0ab2e9e6c37b51c176838ad87a7fcdc9))
+* **client-backup:** Adding new BDD representation of endpoint ruleset ([c809d3b](https://github.com/aws/aws-sdk-js-v3/commit/c809d3b994c332f093d36f4958e13ae363501165))
+* **client-bedrock-agent:** Adding new BDD representation of endpoint ruleset ([a9a7195](https://github.com/aws/aws-sdk-js-v3/commit/a9a719583dfd89bf4ca5fcd3be8e99572d1fe415))
+* **client-bedrock-agentcore-control:** Adds dataset management APIs for creating, versioning, and managing evaluation datasets. ([225ba34](https://github.com/aws/aws-sdk-js-v3/commit/225ba34550f725de0319b3b70abd735004f90954))
+* **client-bedrock-runtime:** Adding new BDD representation of endpoint ruleset ([f09451b](https://github.com/aws/aws-sdk-js-v3/commit/f09451b1563aadbfb4d64580019df8969dfd255f))
+* **client-cleanrooms:** Collaboration creators can update payment configurations without recreating the collaboration. When multiple payer candidates are configured for a cost type, analysis runners can specify the actual payer at submission time, providing granular control over billing. ([1cee155](https://github.com/aws/aws-sdk-js-v3/commit/1cee155ce27c40a0000227393e0e8356652b70e2))
+* **client-cleanroomsml:** Collaboration creators can update payment configurations without recreating the collaboration. When multiple payer candidates are configured for a cost type, analysis runners can specify the actual payer at submission time, providing granular control over billing. ([191561c](https://github.com/aws/aws-sdk-js-v3/commit/191561ce144dbd5c3237a7716fa7874c09388d34))
+* **client-cloud9:** Adding new BDD representation of endpoint ruleset ([78d50c2](https://github.com/aws/aws-sdk-js-v3/commit/78d50c2e0950529fdd37789d80a2c6a5ae17ff59))
+* **client-codeartifact:** Adding new BDD representation of endpoint ruleset ([7f5da31](https://github.com/aws/aws-sdk-js-v3/commit/7f5da314ddf00ae0b7b2e98ee285273648ba92d1))
+* **client-codeguruprofiler:** Adding new BDD representation of endpoint ruleset ([b94dfaa](https://github.com/aws/aws-sdk-js-v3/commit/b94dfaafc8e279c30facce4ecc3941a4c66f452b))
+* **client-comprehend:** Adding new BDD representation of endpoint ruleset ([703f5fa](https://github.com/aws/aws-sdk-js-v3/commit/703f5fa66a1891cee20858932a038181bde7ade8))
+* **client-comprehendmedical:** Adding new BDD representation of endpoint ruleset ([101e2da](https://github.com/aws/aws-sdk-js-v3/commit/101e2da80b38d8855b267a44d2a23c15cfed0370))
+* **client-connect:** Adding new BDD representation of endpoint ruleset ([dafa111](https://github.com/aws/aws-sdk-js-v3/commit/dafa111c22cd4a0a5151e6133fc06daa7629dc00))
+* **client-datasync:** Adding new BDD representation of endpoint ruleset ([4b9532a](https://github.com/aws/aws-sdk-js-v3/commit/4b9532a180b73dd60dcd1af930dce85e7ae4acb5))
+* **client-dlm:** Adding new BDD representation of endpoint ruleset ([b2dd6ba](https://github.com/aws/aws-sdk-js-v3/commit/b2dd6ba2e9eb63b93158ebb5884a7055f5039614))
+* **client-eks:** Adding new BDD representation of endpoint ruleset ([b194851](https://github.com/aws/aws-sdk-js-v3/commit/b194851ecd4a6b068e38fcd2a8d8baa25691475a))
+* **client-evs:** A new GetDepotUrl API has been added to retrieve a URL for accessing Amazon EVS custom addon packages. Customers can use this URL to configure vSphere Lifecycle Manager (vLCM) as an online depot source, enabling upgrades of addon components across ESXi hosts. ([20d0157](https://github.com/aws/aws-sdk-js-v3/commit/20d015718c256234ab98fd43a849bd11bb6b349c))
+* **client-fms:** Adding new BDD representation of endpoint ruleset ([db51918](https://github.com/aws/aws-sdk-js-v3/commit/db5191849c6890b888dd73c472a1a07eedcaf9f5))
+* **client-fsx:** Adding new BDD representation of endpoint ruleset ([83c595a](https://github.com/aws/aws-sdk-js-v3/commit/83c595a4e1862f3ae3973334f73d802cbe03da28))
+* **client-global-accelerator:** Adding new BDD representation of endpoint ruleset ([5e60c75](https://github.com/aws/aws-sdk-js-v3/commit/5e60c75c1f809bb7637e825070820eea50454ab4))
+* **client-guardduty:** Adding new BDD representation of endpoint ruleset ([4aa7b6d](https://github.com/aws/aws-sdk-js-v3/commit/4aa7b6d28a8abed97905b8e4c9271b203f08fec4))
+* **client-healthlake:** Adding new BDD representation of endpoint ruleset ([1b33b0e](https://github.com/aws/aws-sdk-js-v3/commit/1b33b0eaaa53217c4bbd49d2eb4bda1416bc1289))
+* **client-iot-jobs-data-plane:** Adding new BDD representation of endpoint ruleset ([958ab81](https://github.com/aws/aws-sdk-js-v3/commit/958ab819f53123274e382b1c856a345ae884f690))
+* **client-kafka:** Adding new BDD representation of endpoint ruleset ([6978460](https://github.com/aws/aws-sdk-js-v3/commit/697846097d51391b8b29522552fbf1148ec9cf42))
+* **client-kendra-ranking:** Adding new BDD representation of endpoint ruleset ([209096f](https://github.com/aws/aws-sdk-js-v3/commit/209096f621a1281afa54e2111af222350f1d0f12))
+* **client-kinesis-video-archived-media:** Adding new BDD representation of endpoint ruleset ([c286df4](https://github.com/aws/aws-sdk-js-v3/commit/c286df485acbb195bcb6f8a86246fb08e8235fb7))
+* **client-marketplace-entitlement-service:** Adding new BDD representation of endpoint ruleset ([ca50a36](https://github.com/aws/aws-sdk-js-v3/commit/ca50a3667f8256435b7f7361e93cb7e5fa3fe562))
+* **client-mediaconnect:** Adds support for controlling the timecode source of NDI flow outputs. ([e1d3cfb](https://github.com/aws/aws-sdk-js-v3/commit/e1d3cfb07f1afa1761fd709c946414f0abe44e76))
+* **client-mediatailor:** Adding new BDD representation of endpoint ruleset ([7300263](https://github.com/aws/aws-sdk-js-v3/commit/7300263097ec0584c50e4517fac7c656c14fc31b))
+* **client-migrationhub-config:** Adding new BDD representation of endpoint ruleset ([ffe071b](https://github.com/aws/aws-sdk-js-v3/commit/ffe071b215171e18ec1e8ca36beec5cc1558ac44))
+* **client-migrationhuborchestrator:** Adding new BDD representation of endpoint ruleset ([0bb854f](https://github.com/aws/aws-sdk-js-v3/commit/0bb854ff2b340e86b4012c1af57c2086fb772f82))
+* **client-networkmanager:** Adding new BDD representation of endpoint ruleset ([fdda311](https://github.com/aws/aws-sdk-js-v3/commit/fdda311078218ee54c67208e38a07b6a83ff79cb))
+* **client-pricing:** Adding new BDD representation of endpoint ruleset ([01e82e5](https://github.com/aws/aws-sdk-js-v3/commit/01e82e58979d6d9ce58211335af2e2f70598f57a))
+* **client-qapps:** Adding new BDD representation of endpoint ruleset ([b1bb929](https://github.com/aws/aws-sdk-js-v3/commit/b1bb929f17a61ec74a92a55e65389a7fd60361b5))
+* **client-quicksight:** Adding new BDD representation of endpoint ruleset ([7f5bcda](https://github.com/aws/aws-sdk-js-v3/commit/7f5bcda1c8a60203c09603d31132a01a7d1ab1ec))
+* **client-route53resolver:** Adding new BDD representation of endpoint ruleset ([71ea880](https://github.com/aws/aws-sdk-js-v3/commit/71ea880f35f4bb22a5c1750cb2bb0b3980272116))
+* **client-sagemaker-metrics:** Adding new BDD representation of endpoint ruleset ([151bcd1](https://github.com/aws/aws-sdk-js-v3/commit/151bcd1db99e736212a1251f259c78ef4e428e1f))
+* **client-sagemaker:** Add support for disabling home EFS file system creation on SageMaker domains. ([a9896a7](https://github.com/aws/aws-sdk-js-v3/commit/a9896a7a82c73f3267a1afeb490b5a0cf8742ba6))
+* **client-securityhub:** Adding new BDD representation of endpoint ruleset ([d9edee6](https://github.com/aws/aws-sdk-js-v3/commit/d9edee64538e2b130dc4969d8af6a583451dc8ec))
+* **client-serverlessapplicationrepository:** Adding new BDD representation of endpoint ruleset ([2c5e6f6](https://github.com/aws/aws-sdk-js-v3/commit/2c5e6f6ea55869a39dae9afb9ac250f6c7b4a2c2))
+* **client-service-catalog-appregistry:** Adding new BDD representation of endpoint ruleset ([45eb10a](https://github.com/aws/aws-sdk-js-v3/commit/45eb10a05b741f0b0b2ce6142ffdae17ed2a3189))
+* **client-signer:** Adding new BDD representation of endpoint ruleset ([6c786ca](https://github.com/aws/aws-sdk-js-v3/commit/6c786ca9180390c35335500e6f78e5ca58c4244f))
+* **client-sso-admin:** Adding new BDD representation of endpoint ruleset ([b88345c](https://github.com/aws/aws-sdk-js-v3/commit/b88345c299ded320fe1d8c9ae0ca06cfcc343ca5))
+* **client-textract:** Adding new BDD representation of endpoint ruleset ([f1282b2](https://github.com/aws/aws-sdk-js-v3/commit/f1282b2d63b0bebbb41fea00f2db6581b250cdd7))
+* **client-transcribe:** Adding new BDD representation of endpoint ruleset ([f5ceb26](https://github.com/aws/aws-sdk-js-v3/commit/f5ceb26148c33aaf5aa82baee7a087432bac4e78))
+* **client-translate:** Adding new BDD representation of endpoint ruleset ([4955d4a](https://github.com/aws/aws-sdk-js-v3/commit/4955d4a1fd25b99d302fae9384a2117585d21d23))
+* **client-verifiedpermissions:** Support hard deleting policy store aliases. Users can now delete an alias and immediately reassign it to a different policy store without waiting for the soft-delete retention period. ([f8b7f31](https://github.com/aws/aws-sdk-js-v3/commit/f8b7f31e73b117696da0d74da47157f45f08139c))
+* **client-workmail:** Adding new BDD representation of endpoint ruleset ([0fc6a8a](https://github.com/aws/aws-sdk-js-v3/commit/0fc6a8a09fdb405a9eba733f8dad0f05f7d3d5e5))
+
+
+
+
+
 # [3.1051.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1050.0...v3.1051.0) (2026-05-20)
 
 
