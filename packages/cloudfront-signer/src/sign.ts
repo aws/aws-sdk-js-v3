@@ -113,20 +113,13 @@ export function getSignedUrl({
     throw new Error("@aws-sdk/cloudfront-signer: Please provide 'url' or 'policy'.");
   }
 
-  if (policy) {
-    cloudfrontSignBuilder.setCustomPolicy(policy);
-  } else {
-    cloudfrontSignBuilder.setPolicyParameters({
-      url,
-      dateLessThan,
-      dateGreaterThan,
-      ipAddress,
-    });
-  }
-
   let baseUrl: string | undefined;
   if (url) {
-    baseUrl = url;
+    // Encode the URL up front so the policy Resource matches the URL on the
+    // wire. CloudFront verifies the signature against the encoded URL, so
+    // signing the unencoded form would produce 403 AccessDenied whenever the
+    // path contains characters like '=', ',', or spaces.
+    baseUrl = encodeUrlPath(url);
   } else if (policy) {
     const resources = getPolicyResources(policy!);
     if (!resources[0]) {
@@ -137,13 +130,24 @@ export function getSignedUrl({
     baseUrl = resources[0].replace("*://", "https://");
   }
 
+  if (policy) {
+    cloudfrontSignBuilder.setCustomPolicy(policy);
+  } else {
+    cloudfrontSignBuilder.setPolicyParameters({
+      url: baseUrl,
+      dateLessThan,
+      dateGreaterThan,
+      ipAddress,
+    });
+  }
+
   const startFlag = baseUrl!.includes("?") ? "&" : "?";
   const params = Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute())
     .filter(([, value]) => value !== undefined)
     .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
     .join("&");
 
-  const urlString = encodeUrlPath(baseUrl!) + startFlag + params;
+  const urlString = baseUrl! + startFlag + params;
 
   return getResource(urlString);
 }
