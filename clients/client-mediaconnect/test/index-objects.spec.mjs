@@ -334,6 +334,7 @@ import {
   NdiDiscoveryServerConfig$,
   NdiMediaInfo$,
   NdiMediaStreamInfo$,
+  NdiOutputTimecodeSource,
   NdiSourceInfo$,
   NdiSourceMetadataInfo$,
   NdiSourceSettings$,
@@ -1131,6 +1132,7 @@ assert(typeof MediaLiveChannelPipelineId === "object");
 assert(typeof MediaLiveInputPipelineId === "object");
 assert(typeof MediaLiveTransitEncryptionKeyType === "object");
 assert(typeof MediaStreamType === "object");
+assert(typeof NdiOutputTimecodeSource === "object");
 assert(typeof NdiState === "object");
 assert(typeof NetworkInterfaceType === "object");
 assert(typeof OutputStatus === "object");

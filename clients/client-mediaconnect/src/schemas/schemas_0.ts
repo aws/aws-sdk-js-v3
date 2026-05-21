@@ -418,6 +418,7 @@ const _NMI = "NdiMediaInfo";
 const _NMSI = "NdiMediaStreamInfo";
 const _NN = "NetworkName";
 const _NO = "NetworkOutput";
+const _NOTS = "NdiOutputTimecodeSource";
 const _NPN = "NdiProgramName";
 const _NS = "NetworkSource";
 const _NSHQ = "NdiSpeedHqQuality";
@@ -969,6 +970,7 @@ const _nIT = "networkInterfaceType";
 const _nITe = "networkInterfaceTypes";
 const _nN = "networkName";
 const _nO = "networkOutput";
+const _nOTS = "ndiOutputTimecodeSource";
 const _nPN = "ndiProgramName";
 const _nS = "networkSource";
 const _nSHQ = "ndiSpeedHqQuality";
@@ -1368,8 +1370,8 @@ export var AddMediaStreamRequest$: StaticStructureSchema = [3, n0, _AMSR,
 ];
 export var AddOutputRequest$: StaticStructureSchema = [3, n0, _AOR,
   0,
-  [_CAL, _D, _De, _E, _ML, _MSOC, _MLi, _N, _P, _Pr, _RI, _SCP, _SL, _SI, _VIA, _OS, _NSHQ, _NPN, _OT, _RIS, _RITE],
-  [[64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => Encryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _n }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [128 | 0, { [_jN]: _oT }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }]]
+  [_CAL, _D, _De, _E, _ML, _MSOC, _MLi, _N, _P, _Pr, _RI, _SCP, _SL, _SI, _VIA, _OS, _NSHQ, _NPN, _OT, _RIS, _RITE, _NOTS],
+  [[64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => Encryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _n }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [128 | 0, { [_jN]: _oT }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }], [0, { [_jN]: _nOTS }]]
 ];
 export var AudioMonitoringSetting$: StaticStructureSchema = [3, n0, _AMS,
   0,
@@ -2558,8 +2560,8 @@ export var ThumbnailDetails$: StaticStructureSchema = [3, n0, _TD,
 ];
 export var Transport$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN, _NSS],
-  [[0, { [_jN]: _pr }], [64 | 0, { [_jN]: _cAL }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [1, { [_jN]: _mLi }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [() => NdiSourceSettings$, { [_jN]: _nSS }]], 1
+  [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN, _NSS, _NOTS],
+  [[0, { [_jN]: _pr }], [64 | 0, { [_jN]: _cAL }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [1, { [_jN]: _mLi }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [() => NdiSourceSettings$, { [_jN]: _nSS }], [0, { [_jN]: _nOTS }]], 1
 ];
 export var TransportMediaInfo$: StaticStructureSchema = [3, n0, _TMI,
   0,
@@ -2678,8 +2680,8 @@ export var UpdateFlowMediaStreamResponse$: StaticStructureSchema = [3, n0, _UFMS
 ];
 export var UpdateFlowOutputRequest$: StaticStructureSchema = [3, n0, _UFOR,
   0,
-  [_FA, _OA, _CAL, _D, _De, _E, _ML, _MSOC, _MLi, _P, _Pr, _RI, _SCP, _SIAe, _SL, _SI, _VIA, _OS, _NPN, _NSHQ, _RIS, _RITE],
-  [[0, 1], [0, 1], [64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => UpdateEncryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [0, { [_jN]: _nPN }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }]], 2
+  [_FA, _OA, _CAL, _D, _De, _E, _ML, _MSOC, _MLi, _P, _Pr, _RI, _SCP, _SIAe, _SL, _SI, _VIA, _OS, _NPN, _NSHQ, _RIS, _RITE, _NOTS],
+  [[0, 1], [0, 1], [64 | 0, { [_jN]: _cAL }], [0, { [_jN]: _d }], [0, { [_jN]: _de }], [() => UpdateEncryption$, { [_jN]: _en }], [1, { [_jN]: _mL }], [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }], [1, { [_jN]: _mLi }], [1, { [_jN]: _p }], [0, { [_jN]: _pr }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sI }], [() => VpcInterfaceAttachment$, { [_jN]: _vIA }], [0, { [_jN]: _oS }], [0, { [_jN]: _nPN }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITE }], [0, { [_jN]: _nOTS }]], 2
 ];
 export var UpdateFlowOutputResponse$: StaticStructureSchema = [3, n0, _UFORp,
   0,

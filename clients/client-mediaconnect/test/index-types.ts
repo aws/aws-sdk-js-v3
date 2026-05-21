@@ -276,6 +276,7 @@ export type {
   MediaLiveInputPipelineId,
   MediaLiveTransitEncryptionKeyType,
   MediaStreamType,
+  NdiOutputTimecodeSource,
   NdiState,
   NetworkInterfaceType,
   OutputStatus,

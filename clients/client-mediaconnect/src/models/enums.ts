@@ -162,6 +162,19 @@ export type EncoderProfile = (typeof EncoderProfile)[keyof typeof EncoderProfile
  * @public
  * @enum
  */
+export const NdiOutputTimecodeSource = {
+  EMBEDDED_TIMECODE: "EMBEDDED_TIMECODE",
+  UTC_SYSTEM_TIME: "UTC_SYSTEM_TIME",
+} as const;
+/**
+ * @public
+ */
+export type NdiOutputTimecodeSource = (typeof NdiOutputTimecodeSource)[keyof typeof NdiOutputTimecodeSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const OutputStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

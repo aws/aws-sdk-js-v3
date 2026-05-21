@@ -169,6 +169,7 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * //         NdiSourceSettings: { // NdiSourceSettings
  * //           SourceName: "STRING_VALUE",
  * //         },
+ * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",

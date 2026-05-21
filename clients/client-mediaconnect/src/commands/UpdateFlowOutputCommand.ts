@@ -100,6 +100,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *       Automatic: {},
  *     },
  *   },
+ *   NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * };
  * const command = new UpdateFlowOutputCommand(input);
  * const response = await client.send(command);
@@ -167,6 +168,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //       NdiSourceSettings: { // NdiSourceSettings
  * //         SourceName: "STRING_VALUE",
  * //       },
+ * //       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //     },
  * //     VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //       VpcInterfaceName: "STRING_VALUE",

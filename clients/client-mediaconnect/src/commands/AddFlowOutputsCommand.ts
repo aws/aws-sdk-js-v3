@@ -104,6 +104,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *           Automatic: {},
  *         },
  *       },
+ *       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  *     },
  *   ],
  * };
@@ -174,6 +175,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //         NdiSourceSettings: { // NdiSourceSettings
  * //           SourceName: "STRING_VALUE",
  * //         },
+ * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
  * //       },
  * //       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //         VpcInterfaceName: "STRING_VALUE",
