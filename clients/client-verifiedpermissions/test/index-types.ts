@@ -108,6 +108,7 @@ export type {
   BatchGetPolicyErrorCode,
   CedarVersion,
   Decision,
+  DeletionMode,
   DeletionProtection,
   OpenIdIssuer,
   PolicyEffect,

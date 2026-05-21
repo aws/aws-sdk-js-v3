@@ -191,7 +191,7 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * The response shows that the request was allowed by one policy.
  * const input = {
  *   action: {
- *     actionId: "view",
+ *     actionId: "updatePhoto",
  *     actionType: "Action"
  *   },
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",

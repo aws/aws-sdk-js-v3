@@ -31,7 +31,7 @@ export interface DeletePolicyStoreAliasCommandInput extends DeletePolicyStoreAli
 export interface DeletePolicyStoreAliasCommandOutput extends DeletePolicyStoreAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified policy store alias.</p> <p>This operation is idempotent. If you specify a policy store alias that does not exist, the request response will still return a successful HTTP 200 status code.</p> <p>When a policy store alias is deleted, it enters the <code>PendingDeletion</code> state. When a policy store alias is in the <code>PendingDeletion</code> state, new policy store aliases cannot be created with the same name. If the policy store alias is used in an API that has a <code>policyStoreId</code> field, the operation will fail with a <code>ResourceNotFound</code> exception.</p>
+ * <p>Deletes the specified policy store alias.</p> <p>This operation is idempotent. If you specify a policy store alias that does not exist, the request response will still return a successful HTTP 200 status code.</p> <p>By default, when a policy store alias is deleted, it enters the <code>PendingDeletion</code> state. When a policy store alias is in the <code>PendingDeletion</code> state, new policy store aliases cannot be created with the same name. If the policy store alias is used in an API that has a <code>policyStoreId</code> field, the operation will fail with a <code>ResourceNotFound</code> exception.</p> <p>To immediately delete a policy store alias and bypass the <code>PendingDeletion</code> state, set the <code>deletionMode</code> parameter to <code>HardDelete</code>.</p> <important> <p>Verified Permissions is eventually consistent. If you hard delete a policy store alias and then immediately recreate it to be associated with a different policy store, requests that reference this alias may continue to be evaluated against the previously associated policy store for a short period of time.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +42,7 @@ export interface DeletePolicyStoreAliasCommandOutput extends DeletePolicyStoreAl
  * const client = new VerifiedPermissionsClient(config);
  * const input = { // DeletePolicyStoreAliasInput
  *   aliasName: "STRING_VALUE", // required
+ *   deletionMode: "SoftDelete" || "HardDelete",
  * };
  * const command = new DeletePolicyStoreAliasCommand(input);
  * const response = await client.send(command);
@@ -74,11 +75,25 @@ export interface DeletePolicyStoreAliasCommandOutput extends DeletePolicyStoreAl
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  *
- * @example DeletePolicyStoreAlias
+ * @example Soft delete a policy store alias
  * ```javascript
- * // The following example deletes the policy store alias with name example-policy-store.
+ * // The following example soft deletes the policy store alias with name example-policy-store. The alias enters the PendingDeletion state.
  * const input = {
  *   aliasName: "policy-store-alias/example-policy-store"
+ * };
+ * const command = new DeletePolicyStoreAliasCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Hard delete a policy store alias
+ * ```javascript
+ * // The following example hard deletes the policy store alias with name example-policy-store. The alias is immediately deleted, bypassing the PendingDeletion state.
+ * const input = {
+ *   aliasName: "policy-store-alias/example-policy-store",
+ *   deletionMode: "HardDelete"
  * };
  * const command = new DeletePolicyStoreAliasCommand(input);
  * const response = await client.send(command);

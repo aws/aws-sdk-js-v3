@@ -79,6 +79,7 @@ import {
   DeletePolicyTemplateCommand,
   DeletePolicyTemplateInput$,
   DeletePolicyTemplateOutput$,
+  DeletionMode,
   DeletionProtection,
   DeterminingPolicyItem$,
   EncryptionSettings$,
@@ -475,6 +476,7 @@ assert(typeof AliasState === "object");
 assert(typeof BatchGetPolicyErrorCode === "object");
 assert(typeof CedarVersion === "object");
 assert(typeof Decision === "object");
+assert(typeof DeletionMode === "object");
 assert(typeof DeletionProtection === "object");
 assert(typeof OpenIdIssuer === "object");
 assert(typeof PolicyEffect === "object");

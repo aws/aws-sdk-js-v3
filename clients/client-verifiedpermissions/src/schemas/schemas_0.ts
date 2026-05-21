@@ -265,6 +265,7 @@ const _co = "code";
 const _con = "context";
 const _conf = "configuration";
 const _d = "definition";
+const _dM = "deletionMode";
 const _dP = "determiningPolicies";
 const _dPe = "deletionProtection";
 const _dU = "discoveryUrl";
@@ -647,8 +648,8 @@ export var DeletePolicyOutput$: StaticStructureSchema = [3, n0, _DPO,
 ];
 export var DeletePolicyStoreAliasInput$: StaticStructureSchema = [3, n0, _DPSAI,
   0,
-  [_aN],
-  [0], 1
+  [_aN, _dM],
+  [0, 0], 1
 ];
 export var DeletePolicyStoreAliasOutput$: StaticStructureSchema = [3, n0, _DPSAO,
   0,

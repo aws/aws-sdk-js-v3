@@ -4,6 +4,7 @@ import type {
   BatchGetPolicyErrorCode,
   CedarVersion,
   Decision,
+  DeletionMode,
   DeletionProtection,
   OpenIdIssuer,
   PolicyEffect,
@@ -864,7 +865,7 @@ export interface OpenIdConnectIdentityTokenConfigurationItem {
 }
 
 /**
- * <p>The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source.</p> <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfigurationItem.html">OpenIdConnectConfigurationItem</a> structure, which is a parameter of <a href="http://amazonaws.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * <p>The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source.</p> <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfigurationItem.html">OpenIdConnectConfigurationItem</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  * @public
  */
 export type OpenIdConnectTokenSelectionItem =
@@ -1595,6 +1596,12 @@ export interface DeletePolicyStoreAliasInput {
    * @public
    */
   aliasName: string | undefined;
+
+  /**
+   * <p>Specifies the deletion mode for the policy store alias. The valid values are:</p> <ul> <li> <p> <b>SoftDelete</b> – The policy store alias enters the <code>PendingDeletion</code> state. This is the default behavior when no <code>deletionMode</code> is specified.</p> </li> <li> <p> <b>HardDelete</b> – The policy store alias is immediately deleted, bypassing the <code>PendingDeletion</code> state.</p> </li> </ul>
+   * @public
+   */
+  deletionMode?: DeletionMode | undefined;
 }
 
 /**

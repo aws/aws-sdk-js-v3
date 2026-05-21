@@ -31,7 +31,7 @@ export interface CreatePolicyStoreCommandInput extends CreatePolicyStoreInput {}
 export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a policy store. A policy store is a container for policy resources.</p> <note> <p>Although <a href="https://docs.cedarpolicy.com/schema/schema.html#namespace">Cedar supports multiple namespaces</a>, Verified Permissions currently supports only one namespace per policy store.</p> </note> <note> <p>Verified Permissions is <i> <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a> </i>. It can take a few seconds for a new or changed element to propagate through the service and be visible in the results of other Verified Permissions operations.</p> </note>
+ * <p>Creates a policy store. A policy store is a container for policy resources.</p> <note> <p>As of May 2026, Verified Permissions has aligned with Cedar and now supports multiple namespaces.</p> </note> <note> <p>Verified Permissions is <i> <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a> </i>. It can take a few seconds for a new or changed element to propagate through the service and be visible in the results of other Verified Permissions operations.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

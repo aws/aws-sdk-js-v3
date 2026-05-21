@@ -125,6 +125,19 @@ export type ValidationMode = (typeof ValidationMode)[keyof typeof ValidationMode
  * @public
  * @enum
  */
+export const DeletionMode = {
+  HARD_DELETE: "HardDelete",
+  SOFT_DELETE: "SoftDelete",
+} as const;
+/**
+ * @public
+ */
+export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const OpenIdIssuer = {
   COGNITO: "COGNITO",
 } as const;
