@@ -1317,6 +1317,7 @@ export type {
   FlatInvocations,
   FlowDefinitionStatus,
   Framework,
+  HomeEfsFileSystemCreation,
   HubContentSortBy,
   HubContentStatus,
   HubContentSupportStatus,

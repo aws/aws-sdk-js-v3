@@ -1612,6 +1612,7 @@ const _HCV = "HubContentVersion";
 const _HD = "HubDescription";
 const _HDN = "HubDisplayName";
 const _HEFS = "HomeEfsFileSystem";
+const _HEFSC = "HomeEfsFileSystemCreation";
 const _HEFSI = "HomeEfsFileSystemId";
 const _HEFSKKI = "HomeEfsFileSystemKmsKeyId";
 const _HEFSU = "HomeEfsFileSystemUid";
@@ -4936,8 +4937,8 @@ export var CreateDeviceFleetRequest$: StaticStructureSchema = [3, n0, _CDFR,
 ];
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_DNo, _AM, _DUS, _DSo, _SIu, _VIp, _Ta, _ANAT, _HEFSKKI, _KKI, _ASGM, _TP, _DSS],
-  [0, 0, () => UserSettings$, () => DomainSettings$, 64 | 0, 0, () => TagList, 0, 0, 0, 0, 0, () => DefaultSpaceSettings$], 3
+  [_DNo, _AM, _DUS, _DSo, _SIu, _VIp, _Ta, _ANAT, _HEFSKKI, _KKI, _ASGM, _HEFSC, _TP, _DSS],
+  [0, 0, () => UserSettings$, () => DomainSettings$, 64 | 0, 0, () => TagList, 0, 0, 0, 0, 0, 0, () => DefaultSpaceSettings$], 3
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -6231,8 +6232,8 @@ export var DescribeDomainRequest$: StaticStructureSchema = [3, n0, _DDRescr,
 ];
 export var DescribeDomainResponse$: StaticStructureSchema = [3, n0, _DDRescri,
   0,
-  [_DAo, _DI, _DNo, _HEFSI, _SSOMAII, _SSOAA, _St, _CT, _LMT, _FR, _SGIFDB, _AM, _DUS, _DSo, _ANAT, _HEFSKKI, _SIu, _Ur, _VIp, _KKI, _ASGM, _TP, _DSS],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => UserSettings$, () => DomainSettings$, 0, 0, 64 | 0, 0, 0, 0, 0, 0, () => DefaultSpaceSettings$]
+  [_DAo, _DI, _DNo, _HEFSI, _SSOMAII, _SSOAA, _St, _CT, _LMT, _FR, _SGIFDB, _AM, _DUS, _DSo, _ANAT, _HEFSKKI, _SIu, _Ur, _VIp, _KKI, _ASGM, _HEFSC, _TP, _DSS],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => UserSettings$, () => DomainSettings$, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 0, () => DefaultSpaceSettings$]
 ];
 export var DescribeEdgeDeploymentPlanRequest$: StaticStructureSchema = [3, n0, _DEDPRe,
   0,
@@ -10746,8 +10747,8 @@ export var UpdateDevicesRequest$: StaticStructureSchema = [3, n0, _UDR,
 ];
 export var UpdateDomainRequest$: StaticStructureSchema = [3, n0, _UDRp,
   0,
-  [_DI, _DUS, _DSFU, _ASGM, _DSS, _SIu, _ANAT, _TP, _VIp],
-  [0, () => UserSettings$, () => DomainSettingsForUpdate$, 0, () => DefaultSpaceSettings$, 64 | 0, 0, 0, 0], 1
+  [_DI, _DUS, _DSFU, _ASGM, _DSS, _SIu, _ANAT, _TP, _HEFSC, _VIp],
+  [0, () => UserSettings$, () => DomainSettingsForUpdate$, 0, () => DefaultSpaceSettings$, 64 | 0, 0, 0, 0, 0], 1
 ];
 export var UpdateDomainResponse$: StaticStructureSchema = [3, n0, _UDRpd,
   0,

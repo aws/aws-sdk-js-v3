@@ -34,6 +34,7 @@ import type {
   FeatureStatus,
   FeatureType,
   FlowDefinitionStatus,
+  HomeEfsFileSystemCreation,
   HubContentStatus,
   HubContentSupportStatus,
   HubContentType,
@@ -6211,6 +6212,12 @@ export interface DescribeDomainResponse {
    * @public
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
+
+  /**
+   * <p>Indicates whether a home EFS file system is created for the domain.</p>
+   * @public
+   */
+  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
 
   /**
    * <p>Indicates whether custom tag propagation is supported for the domain.</p>

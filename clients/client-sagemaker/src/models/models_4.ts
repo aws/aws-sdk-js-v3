@@ -15,6 +15,7 @@ import type {
   EndpointStatus,
   ExecutionStatus,
   FeatureStatus,
+  HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
   InferenceExperimentStopDesiredState,
@@ -8405,6 +8406,12 @@ export interface UpdateDomainRequest {
    * @public
    */
   TagPropagation?: TagPropagation | undefined;
+
+  /**
+   * <p>Indicates whether to create a home EFS file system for the domain. You can change from <code>Disabled</code> to <code>Enabled</code> to provision EFS on demand, but you cannot change from <code>Enabled</code> to <code>Disabled</code>.</p>
+   * @public
+   */
+  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
 
   /**
    * <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>

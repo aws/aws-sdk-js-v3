@@ -327,6 +327,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //   VpcId: "STRING_VALUE",
  * //   KmsKeyId: "STRING_VALUE",
  * //   AppSecurityGroupManagement: "Service" || "Customer",
+ * //   HomeEfsFileSystemCreation: "Enabled" || "Disabled",
  * //   TagPropagation: "ENABLED" || "DISABLED",
  * //   DefaultSpaceSettings: { // DefaultSpaceSettings
  * //     ExecutionRole: "STRING_VALUE",

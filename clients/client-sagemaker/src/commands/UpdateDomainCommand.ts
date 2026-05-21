@@ -389,6 +389,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *   ],
  *   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",
  *   TagPropagation: "ENABLED" || "DISABLED",
+ *   HomeEfsFileSystemCreation: "Enabled" || "Disabled",
  *   VpcId: "STRING_VALUE",
  * };
  * const command = new UpdateDomainCommand(input);

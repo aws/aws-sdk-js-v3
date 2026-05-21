@@ -1307,6 +1307,7 @@ import {
   GitConfigForUpdate$,
   HiddenSageMakerImage$,
   HolidayConfigAttributes$,
+  HomeEfsFileSystemCreation,
   HubAccessConfig$,
   HubContentDependency$,
   HubContentInfo$,
@@ -5218,6 +5219,7 @@ assert(typeof FillingType === "object");
 assert(typeof FlatInvocations === "object");
 assert(typeof FlowDefinitionStatus === "object");
 assert(typeof Framework === "object");
+assert(typeof HomeEfsFileSystemCreation === "object");
 assert(typeof HubContentSortBy === "object");
 assert(typeof HubContentStatus === "object");
 assert(typeof HubContentSupportStatus === "object");

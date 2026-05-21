@@ -32,6 +32,7 @@ import type {
   FeatureType,
   FlatInvocations,
   Framework,
+  HomeEfsFileSystemCreation,
   HubContentType,
   HyperParameterScalingType,
   HyperParameterTuningAllocationStrategy,
@@ -2998,6 +2999,12 @@ export interface CreateDomainRequest {
    * @public
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
+
+  /**
+   * <p>Indicates whether to create a home EFS file system for the domain. Defaults to <code>Enabled</code>. Set to <code>Disabled</code> to skip EFS creation and reduce domain creation time. You can enable EFS later by calling <code>UpdateDomain</code>.</p>
+   * @public
+   */
+  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
 
   /**
    * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
@@ -8082,7 +8089,7 @@ export interface CreateNotebookInstanceInput {
   RootAccess?: RootAccess | undefined;
 
   /**
-   * <p>The platform identifier of the notebook instance runtime environment. The default value is <code>notebook-al2-v2</code>.</p>
+   * <p>The platform identifier of the notebook instance runtime environment. The default value is <code>notebook-al2023-v1</code>.</p>
    * @public
    */
   PlatformIdentifier?: string | undefined;

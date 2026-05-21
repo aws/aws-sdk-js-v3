@@ -425,6 +425,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "VpcId": "__VpcId__",
   "KmsKeyId": "__KmsKeyId__",
   "AppSecurityGroupManagement": "__AppSecurityGroupManagement__",
+  "HomeEfsFileSystemCreation": "__HomeEfsFileSystemCreation__",
   "TagPropagation": "__TagPropagation__",
   "DefaultSpaceSettings": {
     "ExecutionRole": "__ExecutionRole__",
@@ -988,6 +989,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   VpcId: "__VpcId__",
   KmsKeyId: "__KmsKeyId__",
   AppSecurityGroupManagement: "__AppSecurityGroupManagement__",
+  HomeEfsFileSystemCreation: "__HomeEfsFileSystemCreation__",
   TagPropagation: "__TagPropagation__",
   DefaultSpaceSettings: {
     ExecutionRole: "__ExecutionRole__",

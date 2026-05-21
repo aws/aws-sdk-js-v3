@@ -3299,6 +3299,19 @@ export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
  * @public
  * @enum
  */
+export const HomeEfsFileSystemCreation = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type HomeEfsFileSystemCreation = (typeof HomeEfsFileSystemCreation)[keyof typeof HomeEfsFileSystemCreation];
+
+/**
+ * @public
+ * @enum
+ */
 export const TagPropagation = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

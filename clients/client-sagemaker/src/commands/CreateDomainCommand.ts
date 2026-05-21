@@ -317,6 +317,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   HomeEfsFileSystemKmsKeyId: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
  *   AppSecurityGroupManagement: "Service" || "Customer",
+ *   HomeEfsFileSystemCreation: "Enabled" || "Disabled",
  *   TagPropagation: "ENABLED" || "DISABLED",
  *   DefaultSpaceSettings: { // DefaultSpaceSettings
  *     ExecutionRole: "STRING_VALUE",
