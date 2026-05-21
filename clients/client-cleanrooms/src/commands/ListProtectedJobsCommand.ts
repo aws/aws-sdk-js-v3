@@ -65,6 +65,7 @@ export interface ListProtectedJobsCommandOutput extends ListProtectedJobsOutput,
  * //           },
  * //         },
  * //       ],
+ * //       jobComputePayerAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

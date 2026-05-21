@@ -62,6 +62,30 @@ export interface ListCollaborationChangeRequestsCommandOutput extends ListCollab
  * //               memberAbilities: [ // MemberAbilities // required
  * //                 "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //               ],
+ * //               mlMemberAbilities: { // MLMemberAbilities
+ * //                 customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ * //                   "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //                 ],
+ * //               },
+ * //               paymentConfiguration: { // PaymentConfiguration
+ * //                 queryCompute: { // QueryComputePaymentConfig
+ * //                   isResponsible: true || false, // required
+ * //                 },
+ * //                 machineLearning: { // MLPaymentConfig
+ * //                   modelTraining: { // ModelTrainingPaymentConfig
+ * //                     isResponsible: true || false, // required
+ * //                   },
+ * //                   modelInference: { // ModelInferencePaymentConfig
+ * //                     isResponsible: true || false, // required
+ * //                   },
+ * //                   syntheticDataGeneration: { // SyntheticDataGenerationPaymentConfig
+ * //                     isResponsible: true || false, // required
+ * //                   },
+ * //                 },
+ * //                 jobCompute: { // JobComputePaymentConfig
+ * //                   isResponsible: true || false, // required
+ * //                 },
+ * //               },
  * //               displayName: "STRING_VALUE",
  * //             },
  * //             collaboration: { // CollaborationChangeSpecification
@@ -71,7 +95,7 @@ export interface ListCollaborationChangeRequestsCommandOutput extends ListCollab
  * //             },
  * //           },
  * //           types: [ // ChangeTypeList // required
- * //             "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES",
+ * //             "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES" || "ADD_PAYER_CANDIDATE" || "REMOVE_PAYER_CANDIDATE" || "GRANT_CAN_RECEIVE_MODEL_OUTPUT" || "GRANT_CAN_RECEIVE_INFERENCE_OUTPUT" || "REVOKE_CAN_RECEIVE_MODEL_OUTPUT" || "REVOKE_CAN_RECEIVE_INFERENCE_OUTPUT",
  * //           ],
  * //         },
  * //       ],

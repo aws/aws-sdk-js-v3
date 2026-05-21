@@ -139,6 +139,7 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //         },
  * //       },
  * //     },
+ * //     queryComputePayerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

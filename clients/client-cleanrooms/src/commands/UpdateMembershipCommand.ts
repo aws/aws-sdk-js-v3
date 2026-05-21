@@ -60,6 +60,25 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  *     },
  *     roleArn: "STRING_VALUE", // required
  *   },
+ *   membershipPaymentConfiguration: { // UpdateMembershipPaymentConfiguration
+ *     queryCompute: { // MembershipQueryComputePaymentConfig
+ *       isResponsible: true || false, // required
+ *     },
+ *     machineLearning: { // MembershipMLPaymentConfig
+ *       modelTraining: { // MembershipModelTrainingPaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
+ *       modelInference: { // MembershipModelInferencePaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
+ *       syntheticDataGeneration: { // MembershipSyntheticDataGenerationPaymentConfig
+ *         isResponsible: true || false, // required
+ *       },
+ *     },
+ *     jobCompute: { // MembershipJobComputePaymentConfig
+ *       isResponsible: true || false, // required
+ *     },
+ *   },
  * };
  * const command = new UpdateMembershipCommand(input);
  * const response = await client.send(command);

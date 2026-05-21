@@ -22,9 +22,12 @@ import type {
   ComputeConfiguration,
   DifferentialPrivacyParameters,
   Membership,
+  MembershipJobComputePaymentConfig,
+  MembershipMLPaymentConfig,
   MembershipPaymentConfiguration,
   MembershipProtectedJobResultConfiguration,
   MembershipProtectedQueryResultConfiguration,
+  MembershipQueryComputePaymentConfig,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateParametersOutput,
@@ -407,6 +410,12 @@ export interface ProtectedQuery {
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the query compute costs.</p>
+   * @public
+   */
+  queryComputePayerAccountId?: string | undefined;
 }
 
 /**
@@ -806,6 +815,12 @@ export interface ProtectedJobSummary {
    * @public
    */
   receiverConfigurations: ProtectedJobReceiverConfiguration[] | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the job compute costs.</p>
+   * @public
+   */
+  jobComputePayerAccountId?: string | undefined;
 }
 
 /**
@@ -963,6 +978,12 @@ export interface ProtectedQuerySummary {
    * @public
    */
   receiverConfigurations: ReceiverConfiguration[] | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the query compute costs.</p>
+   * @public
+   */
+  queryComputePayerAccountId?: string | undefined;
 }
 
 /**
@@ -1232,6 +1253,12 @@ export interface StartProtectedJobInput {
    * @public
    */
   computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the job compute costs.</p>
+   * @public
+   */
+  jobComputePayerAccountId?: string | undefined;
 }
 
 /**
@@ -1278,6 +1305,12 @@ export interface StartProtectedQueryInput {
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the query compute costs.</p>
+   * @public
+   */
+  queryComputePayerAccountId?: string | undefined;
 }
 
 /**
@@ -1289,6 +1322,30 @@ export interface StartProtectedQueryOutput {
    * @public
    */
   protectedQuery: ProtectedQuery | undefined;
+}
+
+/**
+ * <p>An object representing the payment responsibilities to update for the membership.</p>
+ * @public
+ */
+export interface UpdateMembershipPaymentConfiguration {
+  /**
+   * <p>An object representing the payment responsibilities accepted by the collaboration member for query compute costs.</p>
+   * @public
+   */
+  queryCompute?: MembershipQueryComputePaymentConfig | undefined;
+
+  /**
+   * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
+   * @public
+   */
+  machineLearning?: MembershipMLPaymentConfig | undefined;
+
+  /**
+   * <p>An object representing the payment responsibilities accepted by the collaboration member for query and job compute costs.</p>
+   * @public
+   */
+  jobCompute?: MembershipJobComputePaymentConfig | undefined;
 }
 
 /**
@@ -1324,6 +1381,12 @@ export interface UpdateMembershipInput {
    * @public
    */
   defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
+
+  /**
+   * <p>The payment configuration to update for the membership.</p>
+   * @public
+   */
+  membershipPaymentConfiguration?: UpdateMembershipPaymentConfiguration | undefined;
 }
 
 /**

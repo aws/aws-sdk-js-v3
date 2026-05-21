@@ -624,6 +624,7 @@ import {
   UpdateMembershipCommand,
   UpdateMembershipInput$,
   UpdateMembershipOutput$,
+  UpdateMembershipPaymentConfiguration$,
   UpdatePrivacyBudgetTemplate$,
   UpdatePrivacyBudgetTemplateCommand,
   UpdatePrivacyBudgetTemplateInput$,
@@ -1187,6 +1188,7 @@ assert(typeof UpdateIdNamespaceAssociationInput$ === "object");
 assert(typeof UpdateIdNamespaceAssociationOutput$ === "object");
 assert(typeof UpdateMembershipInput$ === "object");
 assert(typeof UpdateMembershipOutput$ === "object");
+assert(typeof UpdateMembershipPaymentConfiguration$ === "object");
 assert(typeof UpdatePrivacyBudgetTemplateInput$ === "object");
 assert(typeof UpdatePrivacyBudgetTemplateOutput$ === "object");
 assert(typeof UpdateProtectedJobInput$ === "object");

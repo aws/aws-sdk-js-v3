@@ -63,6 +63,7 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  *       },
  *     },
  *   },
+ *   jobComputePayerAccountId: "STRING_VALUE",
  * };
  * const command = new StartProtectedJobCommand(input);
  * const response = await client.send(command);
@@ -123,6 +124,7 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  * //         },
  * //       },
  * //     },
+ * //     jobComputePayerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -688,6 +688,7 @@ export type {
   UpdateIdNamespaceAssociationOutput,
   UpdateMembershipInput,
   UpdateMembershipOutput,
+  UpdateMembershipPaymentConfiguration,
   UpdatePrivacyBudgetTemplateInput,
   UpdatePrivacyBudgetTemplateOutput,
   UpdateProtectedJobInput,

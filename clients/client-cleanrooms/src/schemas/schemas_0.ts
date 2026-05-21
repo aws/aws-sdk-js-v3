@@ -505,6 +505,7 @@ const _UINAO = "UpdateIdNamespaceAssociationOutput";
 const _UM = "UpdateMembership";
 const _UMI = "UpdateMembershipInput";
 const _UMO = "UpdateMembershipOutput";
+const _UMPC = "UpdateMembershipPaymentConfiguration";
 const _UPBT = "UpdatePrivacyBudgetTemplate";
 const _UPBTI = "UpdatePrivacyBudgetTemplateInput";
 const _UPBTO = "UpdatePrivacyBudgetTemplateOutput";
@@ -682,6 +683,7 @@ const _iRC = "inputReferenceConfig";
 const _iRP = "inputReferenceProperties";
 const _iSD = "isSyntheticData";
 const _jC = "joinColumns";
+const _jCPAI = "jobComputePayerAccountId";
 const _jCo = "jobCompute";
 const _jLS = "jobLogStatus";
 const _jP = "jobParameters";
@@ -708,6 +710,7 @@ const _mL = "machineLearning";
 const _mLe = "memberList";
 const _mMA = "mlMemberAbilities";
 const _mMIAS = "maxMembershipInferenceAttackScore";
+const _mPC = "membershipPaymentConfiguration";
 const _mR = "maxResults";
 const _mRP = "manageResourcePolicies";
 const _mS = "memberStatus";
@@ -748,6 +751,7 @@ const _pQr = "protectedQueries";
 const _pa = "parameters";
 const _pr = "properties";
 const _qC = "queryConstraints";
+const _qCPAI = "queryComputePayerAccountId";
 const _qCu = "queryCompute";
 const _qLS = "queryLogStatus";
 const _qN = "quotaName";
@@ -2035,8 +2039,8 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var MemberChangeSpecification$: StaticStructureSchema = [3, n0, _MCS,
   0,
-  [_aI, _mAe, _dNi],
-  [0, 64 | 0, 0], 2
+  [_aI, _mAe, _mMA, _pC, _dNi],
+  [0, 64 | 0, () => MLMemberAbilities$, () => PaymentConfiguration$, 0], 2
 ];
 export var Membership$: StaticStructureSchema = [3, n0, _M,
   0,
@@ -2170,8 +2174,8 @@ export var PrivacyBudgetTemplateSummary$: StaticStructureSchema = [3, n0, _PBTS,
 ];
 export var ProtectedJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_i, _mI, _mA, _cT, _st, _jP, _rCe, _sta, _res, _e, _cCo],
-  [0, 0, 0, 4, 0, [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationOutput$, () => ProtectedJobStatistics$, () => ProtectedJobResult$, () => ProtectedJobError$, () => ProtectedJobComputeConfiguration$], 5
+  [_i, _mI, _mA, _cT, _st, _jP, _rCe, _sta, _res, _e, _cCo, _jCPAI],
+  [0, 0, 0, 4, 0, [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationOutput$, () => ProtectedJobStatistics$, () => ProtectedJobResult$, () => ProtectedJobError$, () => ProtectedJobComputeConfiguration$, 0], 5
 ];
 export var ProtectedJobDirectAnalysisConfigurationDetails$: StaticStructureSchema = [3, n0, _PJDACD,
   0,
@@ -2245,8 +2249,8 @@ export var ProtectedJobStatistics$: StaticStructureSchema = [3, n0, _PJS,
 ];
 export var ProtectedJobSummary$: StaticStructureSchema = [3, n0, _PJSr,
   0,
-  [_i, _mI, _mA, _cT, _st, _rCec],
-  [0, 0, 0, 4, 0, () => ProtectedJobReceiverConfigurations], 6
+  [_i, _mI, _mA, _cT, _st, _rCec, _jCPAI],
+  [0, 0, 0, 4, 0, () => ProtectedJobReceiverConfigurations, 0], 6
 ];
 export var ProtectedJobWorkerComputeConfiguration$: StaticStructureSchema = [3, n0, _PJWCC,
   0,
@@ -2255,8 +2259,8 @@ export var ProtectedJobWorkerComputeConfiguration$: StaticStructureSchema = [3, 
 ];
 export var ProtectedQuery$: StaticStructureSchema = [3, n0, _PQ,
   0,
-  [_i, _mI, _mA, _cT, _st, _sPq, _rCe, _sta, _res, _e, _dP, _cCo],
-  [0, 0, 0, 4, 0, [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ProtectedQueryStatistics$, () => ProtectedQueryResult$, () => ProtectedQueryError$, () => DifferentialPrivacyParameters$, () => ComputeConfiguration$], 5
+  [_i, _mI, _mA, _cT, _st, _sPq, _rCe, _sta, _res, _e, _dP, _cCo, _qCPAI],
+  [0, 0, 0, 4, 0, [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ProtectedQueryStatistics$, () => ProtectedQueryResult$, () => ProtectedQueryError$, () => DifferentialPrivacyParameters$, () => ComputeConfiguration$, 0], 5
 ];
 export var ProtectedQueryDistributeOutput$: StaticStructureSchema = [3, n0, _PQDO,
   0,
@@ -2315,8 +2319,8 @@ export var ProtectedQueryStatistics$: StaticStructureSchema = [3, n0, _PQS,
 ];
 export var ProtectedQuerySummary$: StaticStructureSchema = [3, n0, _PQSr,
   0,
-  [_i, _mI, _mA, _cT, _st, _rCec],
-  [0, 0, 0, 4, 0, () => ReceiverConfigurationsList], 6
+  [_i, _mI, _mA, _cT, _st, _rCec, _qCPAI],
+  [0, 0, 0, 4, 0, () => ReceiverConfigurationsList, 0], 6
 ];
 export var QueryComputePaymentConfig$: StaticStructureSchema = [3, n0, _QCPC,
   0,
@@ -2375,8 +2379,8 @@ export var SnowflakeTableSchemaV1$: StaticStructureSchema = [3, n0, _STSV,
 ];
 export var StartProtectedJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
-  [_t, _mIe, _jP, _rCe, _cCo],
-  [0, [0, 1], [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationInput$, () => ProtectedJobComputeConfiguration$], 3
+  [_t, _mIe, _jP, _rCe, _cCo, _jCPAI],
+  [0, [0, 1], [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationInput$, () => ProtectedJobComputeConfiguration$, 0], 3
 ];
 export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
   0,
@@ -2385,8 +2389,8 @@ export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
 ];
 export var StartProtectedQueryInput$: StaticStructureSchema = [3, n0, _SPQI,
   0,
-  [_t, _mIe, _sPq, _rCe, _cCo],
-  [0, [0, 1], [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ComputeConfiguration$], 3
+  [_t, _mIe, _sPq, _rCe, _cCo, _qCPAI],
+  [0, [0, 1], [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ComputeConfiguration$, 0], 3
 ];
 export var StartProtectedQueryOutput$: StaticStructureSchema = [3, n0, _SPQO,
   0,
@@ -2525,13 +2529,18 @@ export var UpdateIdNamespaceAssociationOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateMembershipInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
-  [_mIe, _qLS, _jLS, _dRC, _dJRC],
-  [[0, 1], 0, 0, () => MembershipProtectedQueryResultConfiguration$, () => MembershipProtectedJobResultConfiguration$], 1
+  [_mIe, _qLS, _jLS, _dRC, _dJRC, _mPC],
+  [[0, 1], 0, 0, () => MembershipProtectedQueryResultConfiguration$, () => MembershipProtectedJobResultConfiguration$, () => UpdateMembershipPaymentConfiguration$], 1
 ];
 export var UpdateMembershipOutput$: StaticStructureSchema = [3, n0, _UMO,
   0,
   [_mem],
   [() => Membership$], 1
+];
+export var UpdateMembershipPaymentConfiguration$: StaticStructureSchema = [3, n0, _UMPC,
+  0,
+  [_qCu, _mL, _jCo],
+  [() => MembershipQueryComputePaymentConfig$, () => MembershipMLPaymentConfig$, () => MembershipJobComputePaymentConfig$]
 ];
 export var UpdatePrivacyBudgetTemplateInput$: StaticStructureSchema = [3, n0, _UPBTI,
   0,

@@ -139,6 +139,7 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //         },
  * //       },
  * //     },
+ * //     queryComputePayerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

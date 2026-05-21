@@ -100,6 +100,7 @@ export interface UpdateProtectedJobCommandOutput extends UpdateProtectedJobOutpu
  * //         },
  * //       },
  * //     },
+ * //     jobComputePayerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

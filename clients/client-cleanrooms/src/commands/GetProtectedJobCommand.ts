@@ -99,6 +99,7 @@ export interface GetProtectedJobCommandOutput extends GetProtectedJobOutput, __M
  * //         },
  * //       },
  * //     },
+ * //     jobComputePayerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

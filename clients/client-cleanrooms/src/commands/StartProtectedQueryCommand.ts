@@ -85,6 +85,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *       },
  *     },
  *   },
+ *   queryComputePayerAccountId: "STRING_VALUE",
  * };
  * const command = new StartProtectedQueryCommand(input);
  * const response = await client.send(command);
@@ -184,6 +185,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //         },
  * //       },
  * //     },
+ * //     queryComputePayerAccountId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -2862,6 +2862,18 @@ export interface MemberChangeSpecification {
   memberAbilities: MemberAbility[] | undefined;
 
   /**
+   * <p>The ML member abilities for a collaboration member.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities | undefined;
+
+  /**
+   * <p>An object representing the collaboration member's payment responsibilities set by the collaboration creator.</p>
+   * @public
+   */
+  paymentConfiguration?: PaymentConfiguration | undefined;
+
+  /**
    * <p>Specifies the display name that will be shown for this member in the collaboration. While this field is required when inviting new members, it becomes optional when modifying abilities of existing collaboration members. </p>
    * @public
    */
@@ -8100,6 +8112,12 @@ export interface ProtectedJob {
    * @public
    */
   computeConfiguration?: ProtectedJobComputeConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the job compute costs.</p>
+   * @public
+   */
+  jobComputePayerAccountId?: string | undefined;
 }
 
 /**

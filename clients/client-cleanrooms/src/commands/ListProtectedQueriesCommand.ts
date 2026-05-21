@@ -65,6 +65,7 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * //           },
  * //         },
  * //       ],
+ * //       queryComputePayerAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
