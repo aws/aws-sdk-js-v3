@@ -64,6 +64,7 @@ export interface ListTrainedModelsCommandOutput extends ListTrainedModelsRespons
  * //       collaborationIdentifier: "STRING_VALUE", // required
  * //       status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE" || "CANCEL_PENDING" || "CANCEL_IN_PROGRESS" || "CANCEL_FAILED", // required
  * //       configuredModelAlgorithmAssociationArn: "STRING_VALUE", // required
+ * //       mlModelTrainingPayerAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

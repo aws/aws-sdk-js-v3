@@ -350,6 +350,7 @@ export type {
   MLSyntheticDataParameters,
   ModelInferenceDataSource,
   ModelTrainingDataChannel,
+  PayerConfiguration,
   PrivacyBudgets,
   PrivacyConfiguration,
   PrivacyConfigurationPolicies,

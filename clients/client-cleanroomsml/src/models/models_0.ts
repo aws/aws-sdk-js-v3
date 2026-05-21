@@ -2399,6 +2399,24 @@ export interface ListCollaborationMLInputChannelsRequest {
 }
 
 /**
+ * <p>Specifies which member accounts are responsible for paying for compute and synthetic data generation costs in a Clean Rooms ML collaboration.</p>
+ * @public
+ */
+export interface PayerConfiguration {
+  /**
+   * <p>The account ID of the member that is responsible for paying compute costs.</p>
+   * @public
+   */
+  computePayerAccountId?: string | undefined;
+
+  /**
+   * <p>The account ID of the member that is responsible for paying synthetic data generation costs.</p>
+   * @public
+   */
+  syntheticDataPayerAccountId?: string | undefined;
+}
+
+/**
  * <p>Provides summary information about an ML input channel in a collaboration.</p>
  * @public
  */
@@ -2462,6 +2480,12 @@ export interface CollaborationMLInputChannelSummary {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The payer configuration for the ML input channel.</p>
+   * @public
+   */
+  payerConfiguration?: PayerConfiguration | undefined;
 }
 
 /**
@@ -2790,6 +2814,12 @@ export interface CollaborationTrainedModelInferenceJobSummary {
   logsStatusDetails?: string | undefined;
 
   /**
+   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * @public
+   */
+  mlModelInferencePayerAccountId?: string | undefined;
+
+  /**
    * <p>The time at which the trained model inference job was created.</p>
    * @public
    */
@@ -2948,6 +2978,12 @@ export interface CollaborationTrainedModelSummary {
    * @public
    */
   creatorAccountId: string | undefined;
+
+  /**
+   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * @public
+   */
+  mlModelTrainingPayerAccountId?: string | undefined;
 }
 
 /**
@@ -3219,6 +3255,12 @@ export interface CreateMLInputChannelRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The payer configuration for the ML input channel. Determines which member account pays for compute and synthetic data costs.</p>
+   * @public
+   */
+  payerConfiguration?: PayerConfiguration | undefined;
 }
 
 /**
@@ -3502,6 +3544,12 @@ export interface GetCollaborationMLInputChannelResponse {
   syntheticDataConfiguration?: SyntheticDataConfiguration | undefined;
 
   /**
+   * <p>The payer configuration for the ML input channel.</p>
+   * @public
+   */
+  payerConfiguration?: PayerConfiguration | undefined;
+
+  /**
    * <p>The time at which the ML input channel was created.</p>
    * @public
    */
@@ -3612,6 +3660,12 @@ export interface GetMLInputChannelResponse {
    * @public
    */
   syntheticDataConfiguration?: SyntheticDataConfiguration | undefined;
+
+  /**
+   * <p>The payer configuration for the ML input channel.</p>
+   * @public
+   */
+  payerConfiguration?: PayerConfiguration | undefined;
 
   /**
    * <p>The time at which the ML input channel was created.</p>
@@ -3749,6 +3803,12 @@ export interface MLInputChannelSummary {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The payer configuration for the ML input channel.</p>
+   * @public
+   */
+  payerConfiguration?: PayerConfiguration | undefined;
 }
 
 /**
@@ -3978,6 +4038,12 @@ export interface CreateTrainedModelRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * @public
+   */
+  mlModelTrainingPayerAccountId?: string | undefined;
 }
 
 /**
@@ -4156,6 +4222,12 @@ export interface GetCollaborationTrainedModelResponse {
   trainingContainerImageDigest?: string | undefined;
 
   /**
+   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * @public
+   */
+  mlModelTrainingPayerAccountId?: string | undefined;
+
+  /**
    * <p>The time at which the trained model was created.</p>
    * @public
    */
@@ -4310,6 +4382,12 @@ export interface GetTrainedModelResponse {
   trainingContainerImageDigest?: string | undefined;
 
   /**
+   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * @public
+   */
+  mlModelTrainingPayerAccountId?: string | undefined;
+
+  /**
    * <p>The time at which the trained model was created.</p>
    * @public
    */
@@ -4445,6 +4523,12 @@ export interface TrainedModelSummary {
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
+
+  /**
+   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * @public
+   */
+  mlModelTrainingPayerAccountId?: string | undefined;
 }
 
 /**
@@ -4774,6 +4858,12 @@ export interface GetTrainedModelInferenceJobResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * @public
+   */
+  mlModelInferencePayerAccountId?: string | undefined;
 }
 
 /**
@@ -4901,6 +4991,12 @@ export interface TrainedModelInferenceJobSummary {
   logsStatusDetails?: string | undefined;
 
   /**
+   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * @public
+   */
+  mlModelInferencePayerAccountId?: string | undefined;
+
+  /**
    * <p>The time at which the trained model inference job was created.</p>
    * @public
    */
@@ -5011,6 +5107,12 @@ export interface StartTrainedModelInferenceJobRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * @public
+   */
+  mlModelInferencePayerAccountId?: string | undefined;
 }
 
 /**

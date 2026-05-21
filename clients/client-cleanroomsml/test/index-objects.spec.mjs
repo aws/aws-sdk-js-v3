@@ -279,6 +279,7 @@ import {
   paginateListTrainedModels,
   paginateListTrainedModelVersions,
   paginateListTrainingDatasets,
+  PayerConfiguration$,
   PolicyExistenceCondition,
   PrivacyBudgets$,
   PrivacyConfiguration$,
@@ -624,6 +625,7 @@ assert(typeof MLOutputConfiguration$ === "object");
 assert(typeof MLSyntheticDataParameters$ === "object");
 assert(typeof ModelInferenceDataSource$ === "object");
 assert(typeof ModelTrainingDataChannel$ === "object");
+assert(typeof PayerConfiguration$ === "object");
 assert(typeof PrivacyBudgets$ === "object");
 assert(typeof PrivacyConfiguration$ === "object");
 assert(typeof PrivacyConfigurationPolicies$ === "object");

@@ -70,6 +70,7 @@ export interface ListTrainedModelInferenceJobsCommandOutput extends ListTrainedM
  * //       metricsStatusDetails: "STRING_VALUE",
  * //       logsStatus: "PUBLISH_SUCCEEDED" || "PUBLISH_FAILED",
  * //       logsStatusDetails: "STRING_VALUE",
+ * //       mlModelInferencePayerAccountId: "STRING_VALUE",
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //     },

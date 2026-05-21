@@ -74,6 +74,10 @@ export interface CreateMLInputChannelCommandOutput extends CreateMLInputChannelR
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   payerConfiguration: { // PayerConfiguration
+ *     computePayerAccountId: "STRING_VALUE",
+ *     syntheticDataPayerAccountId: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateMLInputChannelCommand(input);
  * const response = await client.send(command);

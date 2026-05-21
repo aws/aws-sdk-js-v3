@@ -59,6 +59,10 @@ export interface ListMLInputChannelsCommandOutput extends ListMLInputChannelsRes
  * //       mlInputChannelArn: "STRING_VALUE", // required
  * //       status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE", // required
  * //       description: "STRING_VALUE",
+ * //       payerConfiguration: { // PayerConfiguration
+ * //         computePayerAccountId: "STRING_VALUE",
+ * //         syntheticDataPayerAccountId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

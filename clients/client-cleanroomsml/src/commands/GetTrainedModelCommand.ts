@@ -77,6 +77,7 @@ export interface GetTrainedModelCommandOutput extends GetTrainedModelResponse, _
  * //   logsStatus: "PUBLISH_SUCCEEDED" || "PUBLISH_FAILED",
  * //   logsStatusDetails: "STRING_VALUE",
  * //   trainingContainerImageDigest: "STRING_VALUE",
+ * //   mlModelTrainingPayerAccountId: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"), // required
  * //   updateTime: new Date("TIMESTAMP"), // required
  * //   hyperparameters: { // HyperParameters

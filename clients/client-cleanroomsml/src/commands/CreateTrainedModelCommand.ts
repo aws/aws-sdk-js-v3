@@ -74,6 +74,7 @@ export interface CreateTrainedModelCommandOutput extends CreateTrainedModelRespo
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   mlModelTrainingPayerAccountId: "STRING_VALUE",
  * };
  * const command = new CreateTrainedModelCommand(input);
  * const response = await client.send(command);

@@ -65,6 +65,7 @@ export interface ListCollaborationTrainedModelsCommandOutput extends ListCollabo
  * //       status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE" || "CANCEL_PENDING" || "CANCEL_IN_PROGRESS" || "CANCEL_FAILED", // required
  * //       configuredModelAlgorithmAssociationArn: "STRING_VALUE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
+ * //       mlModelTrainingPayerAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

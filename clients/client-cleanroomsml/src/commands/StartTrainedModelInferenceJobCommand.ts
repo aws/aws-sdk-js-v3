@@ -68,6 +68,7 @@ export interface StartTrainedModelInferenceJobCommandOutput extends StartTrained
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   mlModelInferencePayerAccountId: "STRING_VALUE",
  * };
  * const command = new StartTrainedModelInferenceJobCommand(input);
  * const response = await client.send(command);

@@ -77,6 +77,7 @@ export interface GetCollaborationTrainedModelCommandOutput extends GetCollaborat
  * //   logsStatus: "PUBLISH_SUCCEEDED" || "PUBLISH_FAILED",
  * //   logsStatusDetails: "STRING_VALUE",
  * //   trainingContainerImageDigest: "STRING_VALUE",
+ * //   mlModelTrainingPayerAccountId: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"), // required
  * //   updateTime: new Date("TIMESTAMP"), // required
  * //   creatorAccountId: "STRING_VALUE", // required

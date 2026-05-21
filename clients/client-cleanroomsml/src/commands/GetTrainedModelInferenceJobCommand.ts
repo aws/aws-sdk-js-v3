@@ -87,6 +87,7 @@ export interface GetTrainedModelInferenceJobCommandOutput extends GetTrainedMode
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   mlModelInferencePayerAccountId: "STRING_VALUE",
  * // };
  *
  * ```

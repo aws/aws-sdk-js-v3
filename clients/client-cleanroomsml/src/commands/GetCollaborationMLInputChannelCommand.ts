@@ -101,6 +101,10 @@ export interface GetCollaborationMLInputChannelCommandOutput extends GetCollabor
  * //       },
  * //     },
  * //   },
+ * //   payerConfiguration: { // PayerConfiguration
+ * //     computePayerAccountId: "STRING_VALUE",
+ * //     syntheticDataPayerAccountId: "STRING_VALUE",
+ * //   },
  * //   createTime: new Date("TIMESTAMP"), // required
  * //   updateTime: new Date("TIMESTAMP"), // required
  * //   creatorAccountId: "STRING_VALUE", // required

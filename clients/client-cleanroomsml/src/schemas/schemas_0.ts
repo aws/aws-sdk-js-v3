@@ -213,11 +213,12 @@ const _MLSDP = "MLSyntheticDataParameters";
 const _MTDC = "ModelTrainingDataChannel";
 const _MTDCo = "ModelTrainingDataChannels";
 const _PB = "PrivacyBudgets";
-const _PC = "PrivacyConfiguration";
+const _PC = "PayerConfiguration";
 const _PCAMP = "PutConfiguredAudienceModelPolicy";
 const _PCAMPR = "PutConfiguredAudienceModelPolicyRequest";
 const _PCAMPRu = "PutConfiguredAudienceModelPolicyResponse";
 const _PCP = "PrivacyConfigurationPolicies";
+const _PCr = "PrivacyConfiguration";
 const _PMLC = "PutMLConfiguration";
 const _PMLCR = "PutMLConfigurationRequest";
 const _PQIP = "ProtectedQueryInputParameters";
@@ -315,6 +316,7 @@ const _cMLICL = "collaborationMLInputChannelsList";
 const _cMo = "containerMetrics";
 const _cN = "columnName";
 const _cNh = "channelName";
+const _cPAI = "computePayerAccountId";
 const _cRTOCP = "childResourceTagOnCreatePolicy";
 const _cT = "createTime";
 const _cTM = "collaborationTrainedModels";
@@ -366,7 +368,9 @@ const _mIAS = "membershipInferenceAttackScores";
 const _mICA = "mlInputChannelArn";
 const _mICL = "mlInputChannelsList";
 const _mMIAS = "maxMembershipInferenceAttackScore";
+const _mMIPAI = "mlModelInferencePayerAccountId";
 const _mMSS = "minMatchingSeedSize";
+const _mMTPAI = "mlModelTrainingPayerAccountId";
 const _mN = "modelName";
 const _mOS = "maxOutputSize";
 const _mPIMB = "maxPayloadInMB";
@@ -388,7 +392,8 @@ const _oCu = "outputConfig";
 const _oL = "outputLocation";
 const _p = "policies";
 const _pB = "privacyBudgets";
-const _pC = "privacyConfiguration";
+const _pC = "payerConfiguration";
+const _pCr = "privacyConfiguration";
 const _pEC = "policyExistenceCondition";
 const _pH = "policyHash";
 const _pPH = "previousPolicyHash";
@@ -420,6 +425,7 @@ const _sDC = "syntheticDataConfiguration";
 const _sDDT = "s3DataDistributionType";
 const _sDES = "syntheticDataEvaluationScores";
 const _sDP = "syntheticDataParameters";
+const _sDPAI = "syntheticDataPayerAccountId";
 const _sDt = "statusDetails";
 const _sIG = "sizeInGb";
 const _sP = "sqlParameters";
@@ -601,8 +607,8 @@ export var CollaborationConfiguredModelAlgorithmAssociationSummary$: StaticStruc
 ];
 export var CollaborationMLInputChannelSummary$: StaticStructureSchema = [3, n0, _CMLICS,
   0,
-  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _st, _cAI, _de],
-  [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0], 9
+  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _st, _cAI, _de, _pC],
+  [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0, () => PayerConfiguration$], 9
 ];
 export var CollaborationTrainedModelExportJobSummary$: StaticStructureSchema = [3, n0, _CTMEJS,
   0,
@@ -611,13 +617,13 @@ export var CollaborationTrainedModelExportJobSummary$: StaticStructureSchema = [
 ];
 export var CollaborationTrainedModelInferenceJobSummary$: StaticStructureSchema = [3, n0, _CTMIJS,
   0,
-  [_tMIJA, _mI, _tMA, _cIo, _st, _oC, _n, _cT, _uT, _cAI, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD],
-  [0, 0, 0, 0, 0, () => InferenceOutputConfiguration$, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0], 10
+  [_tMIJA, _mI, _tMA, _cIo, _st, _oC, _n, _cT, _uT, _cAI, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD, _mMIPAI],
+  [0, 0, 0, 0, 0, () => InferenceOutputConfiguration$, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0], 10
 ];
 export var CollaborationTrainedModelSummary$: StaticStructureSchema = [3, n0, _CTMS,
   0,
-  [_cT, _uT, _tMA, _n, _mI, _cIo, _st, _cMAAA, _cAI, _vI, _iTDC, _de],
-  [5, 5, 0, 0, 0, 0, 0, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0], 9
+  [_cT, _uT, _tMA, _n, _mI, _cIo, _st, _cMAAA, _cAI, _vI, _iTDC, _de, _mMTPAI],
+  [5, 5, 0, 0, 0, 0, 0, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, 0], 9
 ];
 export var ColumnClassificationDetails$: StaticStructureSchema = [3, n0, _CCD,
   0,
@@ -676,7 +682,7 @@ export var CreateConfiguredAudienceModelResponse$: StaticStructureSchema = [3, n
 ];
 export var CreateConfiguredModelAlgorithmAssociationRequest$: StaticStructureSchema = [3, n0, _CCMAAR,
   0,
-  [_mI, _cMAA, _n, _de, _pC, _ta],
+  [_mI, _cMAA, _n, _de, _pCr, _ta],
   [[0, 1], 0, 0, 0, () => PrivacyConfiguration$, 128 | 0], 3
 ];
 export var CreateConfiguredModelAlgorithmAssociationResponse$: StaticStructureSchema = [3, n0, _CCMAARr,
@@ -696,8 +702,8 @@ export var CreateConfiguredModelAlgorithmResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateMLInputChannelRequest$: StaticStructureSchema = [3, n0, _CMLICR,
   0,
-  [_mI, _cMAAo, _iC, _n, _rID, _de, _kKA, _ta],
-  [[0, 1], 64 | 0, [() => InputChannel$, 0], 0, 1, 0, 0, 128 | 0], 5
+  [_mI, _cMAAo, _iC, _n, _rID, _de, _kKA, _ta, _pC],
+  [[0, 1], 64 | 0, [() => InputChannel$, 0], 0, 1, 0, 0, 128 | 0, () => PayerConfiguration$], 5
 ];
 export var CreateMLInputChannelResponse$: StaticStructureSchema = [3, n0, _CMLICRr,
   0,
@@ -706,8 +712,8 @@ export var CreateMLInputChannelResponse$: StaticStructureSchema = [3, n0, _CMLIC
 ];
 export var CreateTrainedModelRequest$: StaticStructureSchema = [3, n0, _CTMRr,
   0,
-  [_mI, _n, _cMAAA, _rC, _dC, _h, _env, _sC, _iTDC, _tIM, _de, _kKA, _ta],
-  [[0, 1], 0, 0, () => ResourceConfig$, () => ModelTrainingDataChannels, 128 | 0, 128 | 0, () => StoppingCondition$, () => IncrementalTrainingDataChannels, 0, 0, 0, 128 | 0], 5
+  [_mI, _n, _cMAAA, _rC, _dC, _h, _env, _sC, _iTDC, _tIM, _de, _kKA, _ta, _mMTPAI],
+  [[0, 1], 0, 0, () => ResourceConfig$, () => ModelTrainingDataChannels, 128 | 0, 128 | 0, () => StoppingCondition$, () => IncrementalTrainingDataChannels, 0, 0, 0, 128 | 0, 0], 5
 ];
 export var CreateTrainedModelResponse$: StaticStructureSchema = [3, n0, _CTMRre,
   0,
@@ -831,7 +837,7 @@ export var GetCollaborationConfiguredModelAlgorithmAssociationRequest$: StaticSt
 ];
 export var GetCollaborationConfiguredModelAlgorithmAssociationResponse$: StaticStructureSchema = [3, n0, _GCCMAARe,
   0,
-  [_cT, _uT, _cMAAA, _mI, _cIo, _cMAA, _n, _cAI, _de, _pC],
+  [_cT, _uT, _cMAAA, _mI, _cIo, _cMAA, _n, _cAI, _de, _pCr],
   [5, 5, 0, 0, 0, 0, 0, 0, 0, () => PrivacyConfiguration$], 8
 ];
 export var GetCollaborationMLInputChannelRequest$: StaticStructureSchema = [3, n0, _GCMLICR,
@@ -841,8 +847,8 @@ export var GetCollaborationMLInputChannelRequest$: StaticStructureSchema = [3, n
 ];
 export var GetCollaborationMLInputChannelResponse$: StaticStructureSchema = [3, n0, _GCMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _st, _rID, _cT, _uT, _cAI, _sDt, _nOR, _pB, _de, _sDC],
-  [0, 0, 0, 0, 64 | 0, 0, 1, 5, 5, 0, () => StatusDetails$, 1, () => PrivacyBudgets$, 0, () => SyntheticDataConfiguration$], 10
+  [_mI, _cIo, _mICA, _n, _cMAAo, _st, _rID, _cT, _uT, _cAI, _sDt, _nOR, _pB, _de, _sDC, _pC],
+  [0, 0, 0, 0, 64 | 0, 0, 1, 5, 5, 0, () => StatusDetails$, 1, () => PrivacyBudgets$, 0, () => SyntheticDataConfiguration$, () => PayerConfiguration$], 10
 ];
 export var GetCollaborationTrainedModelRequest$: StaticStructureSchema = [3, n0, _GCTMR,
   0,
@@ -851,8 +857,8 @@ export var GetCollaborationTrainedModelRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetCollaborationTrainedModelResponse$: StaticStructureSchema = [3, n0, _GCTMRe,
   0,
-  [_mI, _cIo, _tMA, _n, _st, _cMAAA, _cT, _uT, _cAI, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, () => StatusDetails$, () => ResourceConfig$, 0, () => StoppingCondition$, 0, 0, 0, 0, 0], 9
+  [_mI, _cIo, _tMA, _n, _st, _cMAAA, _cT, _uT, _cAI, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID, _mMTPAI],
+  [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, () => StatusDetails$, () => ResourceConfig$, 0, () => StoppingCondition$, 0, 0, 0, 0, 0, 0], 9
 ];
 export var GetConfiguredAudienceModelPolicyRequest$: StaticStructureSchema = [3, n0, _GCAMPR,
   0,
@@ -881,7 +887,7 @@ export var GetConfiguredModelAlgorithmAssociationRequest$: StaticStructureSchema
 ];
 export var GetConfiguredModelAlgorithmAssociationResponse$: StaticStructureSchema = [3, n0, _GCMAARe,
   0,
-  [_cT, _uT, _cMAAA, _mI, _cIo, _cMAA, _n, _pC, _de, _ta],
+  [_cT, _uT, _cMAAA, _mI, _cIo, _cMAA, _n, _pCr, _de, _ta],
   [5, 5, 0, 0, 0, 0, 0, () => PrivacyConfiguration$, 0, 128 | 0], 7
 ];
 export var GetConfiguredModelAlgorithmRequest$: StaticStructureSchema = [3, n0, _GCMAR,
@@ -911,8 +917,8 @@ export var GetMLInputChannelRequest$: StaticStructureSchema = [3, n0, _GMLICR,
 ];
 export var GetMLInputChannelResponse$: StaticStructureSchema = [3, n0, _GMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _st, _rID, _cT, _uT, _iC, _sDt, _nOR, _pB, _de, _sDC, _pQI, _nOF, _sIG, _kKA, _ta],
-  [0, 0, 0, 0, 64 | 0, 0, 1, 5, 5, [() => InputChannel$, 0], () => StatusDetails$, 1, () => PrivacyBudgets$, 0, () => SyntheticDataConfiguration$, 0, 1, 1, 0, 128 | 0], 10
+  [_mI, _cIo, _mICA, _n, _cMAAo, _st, _rID, _cT, _uT, _iC, _sDt, _nOR, _pB, _de, _sDC, _pC, _pQI, _nOF, _sIG, _kKA, _ta],
+  [0, 0, 0, 0, 64 | 0, 0, 1, 5, 5, [() => InputChannel$, 0], () => StatusDetails$, 1, () => PrivacyBudgets$, 0, () => SyntheticDataConfiguration$, () => PayerConfiguration$, 0, 1, 1, 0, 128 | 0], 10
 ];
 export var GetTrainedModelInferenceJobRequest$: StaticStructureSchema = [3, n0, _GTMIJR,
   0,
@@ -921,8 +927,8 @@ export var GetTrainedModelInferenceJobRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetTrainedModelInferenceJobResponse$: StaticStructureSchema = [3, n0, _GTMIJRe,
   0,
-  [_cT, _uT, _tMIJA, _n, _st, _tMA, _rC, _oC, _mI, _dS, _cMAAA, _tMVI, _cEP, _sDt, _de, _iCID, _env, _kKA, _mS, _mSD, _lS, _lSD, _ta],
-  [5, 5, 0, 0, 0, 0, () => InferenceResourceConfig$, () => InferenceOutputConfiguration$, 0, () => ModelInferenceDataSource$, 0, 0, () => InferenceContainerExecutionParameters$, () => StatusDetails$, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 128 | 0], 10
+  [_cT, _uT, _tMIJA, _n, _st, _tMA, _rC, _oC, _mI, _dS, _cMAAA, _tMVI, _cEP, _sDt, _de, _iCID, _env, _kKA, _mS, _mSD, _lS, _lSD, _ta, _mMIPAI],
+  [5, 5, 0, 0, 0, 0, () => InferenceResourceConfig$, () => InferenceOutputConfiguration$, 0, () => ModelInferenceDataSource$, 0, 0, () => InferenceContainerExecutionParameters$, () => StatusDetails$, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 128 | 0, 0], 10
 ];
 export var GetTrainedModelRequest$: StaticStructureSchema = [3, n0, _GTMR,
   0,
@@ -931,8 +937,8 @@ export var GetTrainedModelRequest$: StaticStructureSchema = [3, n0, _GTMR,
 ];
 export var GetTrainedModelResponse$: StaticStructureSchema = [3, n0, _GTMRe,
   0,
-  [_mI, _cIo, _tMA, _n, _st, _cMAAA, _cT, _uT, _dC, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID, _h, _env, _kKA, _ta],
-  [0, 0, 0, 0, 0, 0, 5, 5, () => ModelTrainingDataChannels, 0, () => IncrementalTrainingDataChannelsOutput, 0, () => StatusDetails$, () => ResourceConfig$, 0, () => StoppingCondition$, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 128 | 0], 9
+  [_mI, _cIo, _tMA, _n, _st, _cMAAA, _cT, _uT, _dC, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID, _mMTPAI, _h, _env, _kKA, _ta],
+  [0, 0, 0, 0, 0, 0, 5, 5, () => ModelTrainingDataChannels, 0, () => IncrementalTrainingDataChannelsOutput, 0, () => StatusDetails$, () => ResourceConfig$, 0, () => StoppingCondition$, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 128 | 0], 9
 ];
 export var GetTrainingDatasetRequest$: StaticStructureSchema = [3, n0, _GTDR,
   0,
@@ -1186,8 +1192,8 @@ export var MetricsConfigurationPolicy$: StaticStructureSchema = [3, n0, _MCP,
 ];
 export var MLInputChannelSummary$: StaticStructureSchema = [3, n0, _MLICS,
   0,
-  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _st, _pQI, _de],
-  [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0], 8
+  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _st, _pQI, _de, _pC],
+  [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0, () => PayerConfiguration$], 8
 ];
 export var MLOutputConfiguration$: StaticStructureSchema = [3, n0, _MLOC,
   0,
@@ -1209,7 +1215,12 @@ export var ModelTrainingDataChannel$: StaticStructureSchema = [3, n0, _MTDC,
   [_mICA, _cNh, _sDDT],
   [0, 0, 0], 2
 ];
-export var PrivacyConfiguration$: StaticStructureSchema = [3, n0, _PC,
+export var PayerConfiguration$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_cPAI, _sDPAI],
+  [0, 0]
+];
+export var PrivacyConfiguration$: StaticStructureSchema = [3, n0, _PCr,
   0,
   [_p],
   [() => PrivacyConfigurationPolicies$], 1
@@ -1281,8 +1292,8 @@ export var StartTrainedModelExportJobRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var StartTrainedModelInferenceJobRequest$: StaticStructureSchema = [3, n0, _STMIJR,
   0,
-  [_mI, _n, _tMA, _rC, _oC, _dS, _tMVI, _cMAAA, _de, _cEP, _env, _kKA, _ta],
-  [[0, 1], 0, 0, () => InferenceResourceConfig$, () => InferenceOutputConfiguration$, () => ModelInferenceDataSource$, 0, 0, 0, () => InferenceContainerExecutionParameters$, 128 | 0, 0, 128 | 0], 6
+  [_mI, _n, _tMA, _rC, _oC, _dS, _tMVI, _cMAAA, _de, _cEP, _env, _kKA, _ta, _mMIPAI],
+  [[0, 1], 0, 0, () => InferenceResourceConfig$, () => InferenceOutputConfiguration$, () => ModelInferenceDataSource$, 0, 0, 0, () => InferenceContainerExecutionParameters$, 128 | 0, 0, 128 | 0, 0], 6
 ];
 export var StartTrainedModelInferenceJobResponse$: StaticStructureSchema = [3, n0, _STMIJRt,
   0,
@@ -1356,8 +1367,8 @@ export var TrainedModelInferenceJobsConfigurationPolicy$: StaticStructureSchema 
 ];
 export var TrainedModelInferenceJobSummary$: StaticStructureSchema = [3, n0, _TMIJS,
   0,
-  [_tMIJA, _mI, _tMA, _cIo, _st, _oC, _n, _cT, _uT, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD],
-  [0, 0, 0, 0, 0, () => InferenceOutputConfiguration$, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0], 9
+  [_tMIJA, _mI, _tMA, _cIo, _st, _oC, _n, _cT, _uT, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD, _mMIPAI],
+  [0, 0, 0, 0, 0, () => InferenceOutputConfiguration$, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0], 9
 ];
 export var TrainedModelInferenceMaxOutputSize$: StaticStructureSchema = [3, n0, _TMIMOS,
   0,
@@ -1371,8 +1382,8 @@ export var TrainedModelsConfigurationPolicy$: StaticStructureSchema = [3, n0, _T
 ];
 export var TrainedModelSummary$: StaticStructureSchema = [3, n0, _TMS,
   0,
-  [_cT, _uT, _tMA, _n, _mI, _cIo, _st, _cMAAA, _vI, _iTDC, _de],
-  [5, 5, 0, 0, 0, 0, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0], 8
+  [_cT, _uT, _tMA, _n, _mI, _cIo, _st, _cMAAA, _vI, _iTDC, _de, _mMTPAI],
+  [5, 5, 0, 0, 0, 0, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, 0], 8
 ];
 export var TrainingDatasetSummary$: StaticStructureSchema = [3, n0, _TDS,
   0,

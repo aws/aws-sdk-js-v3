@@ -62,6 +62,10 @@ export interface ListCollaborationMLInputChannelsCommandOutput extends ListColla
  * //       status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "ACTIVE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "INACTIVE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
+ * //       payerConfiguration: { // PayerConfiguration
+ * //         computePayerAccountId: "STRING_VALUE",
+ * //         syntheticDataPayerAccountId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
