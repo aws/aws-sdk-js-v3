@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGatewayTargetRequest } from "../models/models_0";
-import type { GetGatewayTargetResponse } from "../models/models_1";
+import type { GetGatewayTargetResponse } from "../models/models_2";
 import { GetGatewayTarget$ } from "../schemas/schemas_0";
 
 /**

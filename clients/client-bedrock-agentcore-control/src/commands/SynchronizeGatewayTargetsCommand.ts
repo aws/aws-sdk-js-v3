@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SynchronizeGatewayTargetsRequest } from "../models/models_0";
-import type { SynchronizeGatewayTargetsResponse } from "../models/models_1";
+import type { SynchronizeGatewayTargetsResponse } from "../models/models_2";
 import { SynchronizeGatewayTargets$ } from "../schemas/schemas_0";
 
 /**

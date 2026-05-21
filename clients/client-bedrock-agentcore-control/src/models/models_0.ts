@@ -16,6 +16,9 @@ import type {
   CodeInterpreterStatus,
   ConfigurationBundleStatus,
   CredentialProviderType,
+  DatasetSchemaType,
+  DatasetStatus,
+  DraftStatus,
   EndpointIpAddressType,
   EvaluatorLevel,
   EvaluatorStatus,
@@ -378,6 +381,167 @@ export namespace Action {
 }
 
 /**
+ * Inline examples provided directly in the request body.
+ * @public
+ */
+export interface InlineExamplesSource {
+  /**
+   * Examples to add. Each example is assigned an auto-generated UUID.
+   * @public
+   */
+  examples: __DocumentType[] | undefined;
+}
+
+/**
+ * S3 location of a JSONL file containing dataset examples.
+ * @public
+ */
+export interface S3Source {
+  /**
+   * S3 URI of the JSONL file (e.g. s3://my-bucket/path/to/examples.jsonl).
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * Source of examples to add to the dataset.
+ * @public
+ */
+export type DataSourceType =
+  | DataSourceType.InlineExamplesMember
+  | DataSourceType.S3SourceMember
+  | DataSourceType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSourceType {
+  /**
+   * Inline examples provided directly in the request body.
+   * @public
+   */
+  export interface InlineExamplesMember {
+    inlineExamples: InlineExamplesSource;
+    s3Source?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * S3 URI pointing to a JSONL file in the customer's bucket.
+   * The service reads this file using the caller's FAS credentials.
+   * @public
+   */
+  export interface S3SourceMember {
+    inlineExamples?: never;
+    s3Source: S3Source;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    inlineExamples?: never;
+    s3Source?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    inlineExamples: (value: InlineExamplesSource) => T;
+    s3Source: (value: S3Source) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface AddDatasetExamplesRequest {
+  /**
+   * <p> The unique identifier of the dataset to add examples to. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Source of examples to add. Provide either inline examples or an S3 URI
+   * pointing to a JSONL file.
+   * @public
+   */
+  source: DataSourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddDatasetExamplesResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The current status of the dataset. </p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * <p> The number of examples added. </p>
+   * @public
+   */
+  addedCount: number | undefined;
+
+  /**
+   * <p> The timestamp when the examples were added. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * IDs of all added examples (auto-generated UUIDs).
+   * @public
+   */
+  exampleIds: string[] | undefined;
+}
+
+/**
+ * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message describing why this field failed validation.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateAgentRuntimeEndpointRequest {
@@ -463,24 +627,6 @@ export interface CreateAgentRuntimeEndpointResponse {
    * @public
    */
   createdAt: Date | undefined;
-}
-
-/**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
- * @public
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A message describing why this field failed validation.</p>
-   * @public
-   */
-  message: string | undefined;
 }
 
 /**
@@ -4052,6 +4198,723 @@ export interface UpdateConfigurationBundleResponse {
 
   /**
    * <p>The timestamp when the configuration bundle was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatasetRequest {
+  /**
+   * Optional idempotency token.
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Human-readable name for the dataset. Unique within the account (case-insensitive).
+   * Immutable after creation.
+   * @public
+   */
+  datasetName: string | undefined;
+
+  /**
+   * <p> A description of the dataset. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Source of initial examples. Provide either inline examples or an S3 URI
+   * pointing to a JSONL file.
+   * @public
+   */
+  source: DataSourceType | undefined;
+
+  /**
+   * Versioned schema type governing the structure of examples. Immutable after creation.
+   * @public
+   */
+  schemaType: DatasetSchemaType | undefined;
+
+  /**
+   * Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p> A map of tag keys and values to assign to the dataset. </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatasetResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the created dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the created dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * Always CREATING immediately after this call.
+   * Poll GetDataset until status == ACTIVE (draftStatus=MODIFIED) or CREATE_FAILED.
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * <p> The timestamp when the dataset was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatasetVersionRequest {
+  /**
+   * <p> The unique identifier of the dataset to publish a version for. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatasetVersionResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * Always UPDATING immediately after this call.
+   * Poll GetDataset until status == ACTIVE (draftStatus=UNMODIFIED) or UPDATE_FAILED.
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * The version being created.
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p> The timestamp when the version creation was initiated. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDatasetRequest {
+  /**
+   * <p> The unique identifier of the dataset to delete. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * Optional version to delete. Use "DRAFT" or omit to delete the draft.
+   * Returns ResourceNotFoundException if the specified version does not exist.
+   * @public
+   */
+  datasetVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDatasetResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The current status of the dataset after the delete request. </p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * The version deleted.
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p> The timestamp when the delete was initiated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDatasetExamplesRequest {
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> The IDs of the examples to delete. </p>
+   * @public
+   */
+  exampleIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDatasetExamplesResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The current status of the dataset. </p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * <p> The number of examples deleted. </p>
+   * @public
+   */
+  deletedCount: number | undefined;
+
+  /**
+   * <p> The timestamp when the examples were deleted. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetRequest {
+  /**
+   * <p> The unique identifier of the dataset to retrieve. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * Version to retrieve: "DRAFT" or a version number. Defaults to DRAFT if absent.
+   * @public
+   */
+  datasetVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * The resolved version: "DRAFT" (default) or the requested version number.
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p> The name of the dataset. </p>
+   * @public
+   */
+  datasetName: string | undefined;
+
+  /**
+   * <p> The description of the dataset. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The current status of the dataset. </p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * Publish synchronization state. Only authoritative when status == ACTIVE.
+   * MODIFIED — DRAFT has unpublished changes (or no published versions yet).
+   * UNMODIFIED — DRAFT matches the latest published version exactly.
+   * @public
+   */
+  draftStatus?: DraftStatus | undefined;
+
+  /**
+   * Populated when status is CREATE_FAILED, UPDATE_FAILED, or DELETE_FAILED.
+   * @public
+   */
+  failureReason?: string | undefined;
+
+  /**
+   * The schema type declared at create time. Immutable after creation.
+   * @public
+   */
+  schemaType: DatasetSchemaType | undefined;
+
+  /**
+   * AWS KMS key ARN used for SSE-KMS on service S3 writes, if configured.
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * Example count for DRAFT.
+   * @public
+   */
+  exampleCount: number | undefined;
+
+  /**
+   * Presigned S3 URL to download the consolidated dataset.jsonl file for the resolved
+   * version (DRAFT or published). TTL: 5 minutes. Omitted if the file does not yet exist
+   * (e.g. during CREATING) or on presign failure.
+   * @public
+   */
+  downloadUrl?: string | undefined;
+
+  /**
+   * Expiry timestamp for downloadUrl.
+   * @public
+   */
+  downloadUrlExpiresAt?: Date | undefined;
+
+  /**
+   * <p> The timestamp when the dataset was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The timestamp when the dataset was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p> The tags associated with the dataset. </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetExamplesRequest {
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * Version to paginate: "DRAFT" or a version number. Defaults to DRAFT if absent.
+   * Only used on the first request (when nextToken is absent). For subsequent pages,
+   * the version is extracted from the nextToken and this parameter is ignored.
+   * @public
+   */
+  datasetVersion?: string | undefined;
+
+  /**
+   * Maximum number of examples to return per page. Default: 1000. Min: 1, max: 1000.
+   * Response size is validated against 5 MB limit after reading.
+   * For bulk access to all examples, use the `downloadUrl` field from GetDataset.
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> The token for the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetExamplesResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * The version returned.
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * Paginated example content. Each element is a JSON object containing at least
+   * an `exampleId` field plus the schema-specific content fields.
+   * @public
+   */
+  examples: __DocumentType[] | undefined;
+
+  /**
+   * <p> The token for the next page of results, or null if there are no more results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetsRequest {
+  /**
+   * <p> The token for the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p> The maximum number of datasets to return per page. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p> Summary information about a dataset. </p>
+ * @public
+ */
+export interface DatasetSummary {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The name of the dataset. </p>
+   * @public
+   */
+  datasetName: string | undefined;
+
+  /**
+   * <p> The description of the dataset. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p> The current status of the dataset. </p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * Publish synchronization state. Only authoritative when status == ACTIVE.
+   * @public
+   */
+  draftStatus?: DraftStatus | undefined;
+
+  /**
+   * <p> The schema type of the dataset. </p>
+   * @public
+   */
+  schemaType: DatasetSchemaType | undefined;
+
+  /**
+   * <p> The number of examples in the dataset. </p>
+   * @public
+   */
+  exampleCount: number | undefined;
+
+  /**
+   * <p> The timestamp when the dataset was created. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The timestamp when the dataset was last updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetsResponse {
+  /**
+   * <p> The list of datasets. </p>
+   * @public
+   */
+  datasets: DatasetSummary[] | undefined;
+
+  /**
+   * <p> The token for the next page of results, or null if there are no more results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetVersionsRequest {
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The token for the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p> The maximum number of versions to return per page. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p> Summary information about a published dataset version. </p>
+ * @public
+ */
+export interface DatasetVersionSummary {
+  /**
+   * Dataset version identifier. Accepts "DRAFT" or a non-negative integer string.
+   *
+   * "DRAFT" refers to the single mutable working copy of the dataset.
+   * - Always present after CreateDataset ingestion completes.
+   * - Content changes in-place when examples are added, updated, or deleted.
+   * - NOT tracked as a DDB DatasetVersionItem — state lives in S3 (draft/manifest.json,
+   *   draft/dataset.jsonl) and the DatasetItem.exampleCount field.
+   * - Default for read operations when ?datasetVersion is absent.
+   *
+   * An integer string (e.g. "1", "2", "3") refers to a published, immutable snapshot
+   * created by CreateDatasetVersion. Once created, a published version's content never
+   * changes. Stored as a DDB DatasetVersionItem (SK=VERSION#\{zero-padded-N\}).
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p> The number of examples in this version. </p>
+   * @public
+   */
+  exampleCount: number | undefined;
+
+  /**
+   * <p> The timestamp when this version was published. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetVersionsResponse {
+  /**
+   * <p> The list of published dataset versions. </p>
+   * @public
+   */
+  versions: DatasetVersionSummary[] | undefined;
+
+  /**
+   * <p> The token for the next page of results, or null if there are no more results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetRequest {
+  /**
+   * <p> The unique identifier of the dataset to update. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> The updated description for the dataset. </p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the updated dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the updated dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The timestamp when the dataset was updated. </p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetExamplesRequest {
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Examples to update. Each element is a JSON object containing a required `exampleId`
+   * string field identifying the existing example, plus the replacement fields. The
+   * `exampleId` is extracted and removed before persistence; the remaining document is
+   * validated against the dataset's schemaType.
+   * Max 1000 examples per call. Total request body must not exceed 5 MB.
+   * @public
+   */
+  examples: __DocumentType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetExamplesResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the dataset. </p>
+   * @public
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the dataset. </p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p> The current status of the dataset. </p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+
+  /**
+   * <p> The number of examples updated. </p>
+   * @public
+   */
+  updatedCount: number | undefined;
+
+  /**
+   * <p> The timestamp when the examples were updated. </p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -8593,790 +9456,4 @@ export interface StringListValidation {
    * @public
    */
   maxItems?: number | undefined;
-}
-
-/**
- * <p>Validation for STRING fields.</p>
- * @public
- */
-export interface StringValidation {
-  /**
-   * <p>Allowed values for this STRING field.</p>
-   * @public
-   */
-  allowedValues: string[] | undefined;
-}
-
-/**
- * <p>Validation rules for extracted metadata values. Only one type can be specified, matching the field's data type.</p>
- * @public
- */
-export type Validation =
-  | Validation.NumberValidationMember
-  | Validation.StringListValidationMember
-  | Validation.StringValidationMember
-  | Validation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Validation {
-  /**
-   * <p>Validation for STRING fields.</p>
-   * @public
-   */
-  export interface StringValidationMember {
-    stringValidation: StringValidation;
-    stringListValidation?: never;
-    numberValidation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Validation for STRINGLIST fields.</p>
-   * @public
-   */
-  export interface StringListValidationMember {
-    stringValidation?: never;
-    stringListValidation: StringListValidation;
-    numberValidation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Validation for NUMBER fields.</p>
-   * @public
-   */
-  export interface NumberValidationMember {
-    stringValidation?: never;
-    stringListValidation?: never;
-    numberValidation: NumberValidation;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    stringValidation?: never;
-    stringListValidation?: never;
-    numberValidation?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    stringValidation: (value: StringValidation) => T;
-    stringListValidation: (value: StringListValidation) => T;
-    numberValidation: (value: NumberValidation) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Model-based metadata extraction configuration.</p>
- * @public
- */
-export interface LlmExtractionConfig {
-  /**
-   * <p>Instructions for extraction. Supports built-in operators like LATEST_VALUE or custom natural-language instructions.</p>
-   * @public
-   */
-  llmExtractionInstruction?: string | undefined;
-
-  /**
-   * <p>Description of what this metadata field represents.</p>
-   * @public
-   */
-  definition: string | undefined;
-
-  /**
-   * <p>Validation rules to constrain extracted values.</p>
-   * @public
-   */
-  validation?: Validation | undefined;
-}
-
-/**
- * <p>Configuration for metadata extraction from conversational content.</p>
- * @public
- */
-export type ExtractionConfig =
-  | ExtractionConfig.LlmExtractionConfigMember
-  | ExtractionConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ExtractionConfig {
-  /**
-   * <p>Model-based extraction using a definition and instructions.</p>
-   * @public
-   */
-  export interface LlmExtractionConfigMember {
-    llmExtractionConfig: LlmExtractionConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    llmExtractionConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    llmExtractionConfig: (value: LlmExtractionConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A metadata field definition within a strategy's schema.</p>
- * @public
- */
-export interface MetadataSchemaEntry {
-  /**
-   * <p>The metadata field name. Must match an indexed key to be queryable via metadata filters.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The MetadataValueType.</p>
-   * @public
-   */
-  type?: MetadataValueType | undefined;
-
-  /**
-   * <p>Configuration for extracting this metadata value from conversational content.</p>
-   * @public
-   */
-  extractionConfig?: ExtractionConfig | undefined;
-}
-
-/**
- * <p>Schema for metadata on memory records generated by a strategy.</p>
- * @public
- */
-export interface MemoryRecordSchema {
-  /**
-   * <p>The metadata field definitions for this strategy.</p>
-   * @public
-   */
-  metadataSchema?: MetadataSchemaEntry[] | undefined;
-}
-
-/**
- * <p>Configurations for overriding the reflection step of the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicOverrideReflectionConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for reflection step of the episodic memory strategy.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for the reflection step of the episodic memory strategy.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-
-  /**
-   * <p>Schema for metadata fields on records generated by this reflection override.</p>
-   * @public
-   */
-  memoryRecordSchema?: MemoryRecordSchema | undefined;
-}
-
-/**
- * <p>Input for the configuration to override the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicOverrideConfigurationInput {
-  /**
-   * <p>Contains configurations for overriding the extraction step of the episodic memory strategy.</p>
-   * @public
-   */
-  extraction?: EpisodicOverrideExtractionConfigurationInput | undefined;
-
-  /**
-   * <p>Contains configurations for overriding the consolidation step of the episodic memory strategy.</p>
-   * @public
-   */
-  consolidation?: EpisodicOverrideConsolidationConfigurationInput | undefined;
-
-  /**
-   * <p>Contains configurations for overriding the reflection step of the episodic memory strategy.</p>
-   * @public
-   */
-  reflection?: EpisodicOverrideReflectionConfigurationInput | undefined;
-}
-
-/**
- * <p>The configuration to invoke a self-managed memory processing pipeline with.</p>
- * @public
- */
-export interface InvocationConfigurationInput {
-  /**
-   * <p>The ARN of the SNS topic for job notifications.</p>
-   * @public
-   */
-  topicArn: string | undefined;
-
-  /**
-   * <p>The S3 bucket name for event payload delivery.</p>
-   * @public
-   */
-  payloadDeliveryBucketName: string | undefined;
-}
-
-/**
- * <p>The trigger configuration based on a message.</p>
- * @public
- */
-export interface MessageBasedTriggerInput {
-  /**
-   * <p>The number of messages that trigger memory processing.</p>
-   * @public
-   */
-  messageCount?: number | undefined;
-}
-
-/**
- * <p>Trigger configuration based on time.</p>
- * @public
- */
-export interface TimeBasedTriggerInput {
-  /**
-   * <p>Idle session timeout (seconds) that triggers memory processing.</p>
-   * @public
-   */
-  idleSessionTimeout?: number | undefined;
-}
-
-/**
- * <p>Trigger configuration based on tokens.</p>
- * @public
- */
-export interface TokenBasedTriggerInput {
-  /**
-   * <p>Number of tokens that trigger memory processing.</p>
-   * @public
-   */
-  tokenCount?: number | undefined;
-}
-
-/**
- * <p>Condition that triggers memory processing.</p>
- * @public
- */
-export type TriggerConditionInput =
-  | TriggerConditionInput.MessageBasedTriggerMember
-  | TriggerConditionInput.TimeBasedTriggerMember
-  | TriggerConditionInput.TokenBasedTriggerMember
-  | TriggerConditionInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TriggerConditionInput {
-  /**
-   * <p>Message based trigger configuration.</p>
-   * @public
-   */
-  export interface MessageBasedTriggerMember {
-    messageBasedTrigger: MessageBasedTriggerInput;
-    tokenBasedTrigger?: never;
-    timeBasedTrigger?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Token based trigger configuration.</p>
-   * @public
-   */
-  export interface TokenBasedTriggerMember {
-    messageBasedTrigger?: never;
-    tokenBasedTrigger: TokenBasedTriggerInput;
-    timeBasedTrigger?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Time based trigger configuration.</p>
-   * @public
-   */
-  export interface TimeBasedTriggerMember {
-    messageBasedTrigger?: never;
-    tokenBasedTrigger?: never;
-    timeBasedTrigger: TimeBasedTriggerInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    messageBasedTrigger?: never;
-    tokenBasedTrigger?: never;
-    timeBasedTrigger?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    messageBasedTrigger: (value: MessageBasedTriggerInput) => T;
-    tokenBasedTrigger: (value: TokenBasedTriggerInput) => T;
-    timeBasedTrigger: (value: TimeBasedTriggerInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Input configuration for a self-managed memory strategy.</p>
- * @public
- */
-export interface SelfManagedConfigurationInput {
-  /**
-   * <p>A list of conditions that trigger memory processing.</p>
-   * @public
-   */
-  triggerConditions?: TriggerConditionInput[] | undefined;
-
-  /**
-   * <p>Configuration to invoke a self-managed memory processing pipeline with.</p>
-   * @public
-   */
-  invocationConfiguration: InvocationConfigurationInput | undefined;
-
-  /**
-   * <p>Number of historical messages to include in processing context.</p>
-   * @public
-   */
-  historicalContextWindowSize?: number | undefined;
-}
-
-/**
- * <p>Input for semantic override consolidation configuration in a memory strategy.</p>
- * @public
- */
-export interface SemanticOverrideConsolidationConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for semantic consolidation.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for semantic consolidation.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Input for semantic override extraction configuration in a memory strategy.</p>
- * @public
- */
-export interface SemanticOverrideExtractionConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for semantic extraction.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for semantic extraction.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Input for semantic override configuration in a memory strategy.</p>
- * @public
- */
-export interface SemanticOverrideConfigurationInput {
-  /**
-   * <p>The extraction configuration for a semantic override.</p>
-   * @public
-   */
-  extraction?: SemanticOverrideExtractionConfigurationInput | undefined;
-
-  /**
-   * <p>The consolidation configuration for a semantic override.</p>
-   * @public
-   */
-  consolidation?: SemanticOverrideConsolidationConfigurationInput | undefined;
-}
-
-/**
- * <p>Input for summary override consolidation configuration in a memory strategy.</p>
- * @public
- */
-export interface SummaryOverrideConsolidationConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for summary consolidation.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for summary consolidation.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Input for summary override configuration in a memory strategy.</p>
- * @public
- */
-export interface SummaryOverrideConfigurationInput {
-  /**
-   * <p>The consolidation configuration for a summary override.</p>
-   * @public
-   */
-  consolidation?: SummaryOverrideConsolidationConfigurationInput | undefined;
-}
-
-/**
- * <p>Input for user preference override consolidation configuration in a memory strategy.</p>
- * @public
- */
-export interface UserPreferenceOverrideConsolidationConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for user preference consolidation.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for user preference consolidation.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Input for user preference override extraction configuration in a memory strategy.</p>
- * @public
- */
-export interface UserPreferenceOverrideExtractionConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for user preference extraction.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for user preference extraction.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Input for user preference override configuration in a memory strategy.</p>
- * @public
- */
-export interface UserPreferenceOverrideConfigurationInput {
-  /**
-   * <p>The extraction configuration for a user preference override.</p>
-   * @public
-   */
-  extraction?: UserPreferenceOverrideExtractionConfigurationInput | undefined;
-
-  /**
-   * <p>The consolidation configuration for a user preference override.</p>
-   * @public
-   */
-  consolidation?: UserPreferenceOverrideConsolidationConfigurationInput | undefined;
-}
-
-/**
- * <p>Input for custom configuration of a memory strategy.</p>
- * @public
- */
-export type CustomConfigurationInput =
-  | CustomConfigurationInput.EpisodicOverrideMember
-  | CustomConfigurationInput.SelfManagedConfigurationMember
-  | CustomConfigurationInput.SemanticOverrideMember
-  | CustomConfigurationInput.SummaryOverrideMember
-  | CustomConfigurationInput.UserPreferenceOverrideMember
-  | CustomConfigurationInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomConfigurationInput {
-  /**
-   * <p>The semantic override configuration for a custom memory strategy.</p>
-   * @public
-   */
-  export interface SemanticOverrideMember {
-    semanticOverride: SemanticOverrideConfigurationInput;
-    summaryOverride?: never;
-    userPreferenceOverride?: never;
-    episodicOverride?: never;
-    selfManagedConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The summary override configuration for a custom memory strategy.</p>
-   * @public
-   */
-  export interface SummaryOverrideMember {
-    semanticOverride?: never;
-    summaryOverride: SummaryOverrideConfigurationInput;
-    userPreferenceOverride?: never;
-    episodicOverride?: never;
-    selfManagedConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The user preference override configuration for a custom memory strategy.</p>
-   * @public
-   */
-  export interface UserPreferenceOverrideMember {
-    semanticOverride?: never;
-    summaryOverride?: never;
-    userPreferenceOverride: UserPreferenceOverrideConfigurationInput;
-    episodicOverride?: never;
-    selfManagedConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The episodic memory strategy override configuration for a custom memory strategy.</p>
-   * @public
-   */
-  export interface EpisodicOverrideMember {
-    semanticOverride?: never;
-    summaryOverride?: never;
-    userPreferenceOverride?: never;
-    episodicOverride: EpisodicOverrideConfigurationInput;
-    selfManagedConfiguration?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The self managed configuration for a custom memory strategy.</p>
-   * @public
-   */
-  export interface SelfManagedConfigurationMember {
-    semanticOverride?: never;
-    summaryOverride?: never;
-    userPreferenceOverride?: never;
-    episodicOverride?: never;
-    selfManagedConfiguration: SelfManagedConfigurationInput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    semanticOverride?: never;
-    summaryOverride?: never;
-    userPreferenceOverride?: never;
-    episodicOverride?: never;
-    selfManagedConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    semanticOverride: (value: SemanticOverrideConfigurationInput) => T;
-    summaryOverride: (value: SummaryOverrideConfigurationInput) => T;
-    userPreferenceOverride: (value: UserPreferenceOverrideConfigurationInput) => T;
-    episodicOverride: (value: EpisodicOverrideConfigurationInput) => T;
-    selfManagedConfiguration: (value: SelfManagedConfigurationInput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Input for creating a custom memory strategy.</p>
- * @public
- */
-export interface CustomMemoryStrategyInput {
-  /**
-   * <p>The name of the custom memory strategy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the custom memory strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the custom memory strategy.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates associated with the custom memory strategy.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-
-  /**
-   * <p>The configuration for the custom memory strategy.</p>
-   * @public
-   */
-  configuration?: CustomConfigurationInput | undefined;
-
-  /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
-   * @public
-   */
-  memoryRecordSchema?: MemoryRecordSchema | undefined;
-}
-
-/**
- * <p>An episodic reflection configuration input.</p>
- * @public
- */
-export interface EpisodicReflectionConfigurationInput {
-  /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates over which to create reflections. Can be less nested than episode namespaces.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-
-  /**
-   * <p>Schema for metadata fields on records generated by reflections.</p>
-   * @public
-   */
-  memoryRecordSchema?: MemoryRecordSchema | undefined;
-}
-
-/**
- * <p>Input for creating an episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicMemoryStrategyInput {
-  /**
-   * <p>The name of the episodic memory strategy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the episodic memory strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces for which to create episodes.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates for which to create episodes.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-
-  /**
-   * <p>The configuration for the reflections created with the episodic memory strategy.</p>
-   * @public
-   */
-  reflectionConfiguration?: EpisodicReflectionConfigurationInput | undefined;
-
-  /**
-   * <p>Schema for metadata fields on records generated by this strategy.</p>
-   * @public
-   */
-  memoryRecordSchema?: MemoryRecordSchema | undefined;
-}
-
-/**
- * <p>Input for creating a semantic memory strategy.</p>
- * @public
- */
-export interface SemanticMemoryStrategyInput {
-  /**
-   * <p>The name of the semantic memory strategy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the semantic memory strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>This is a legacy parameter, use <code>namespaceTemplates</code>. The namespaces associated with the semantic memory strategy.</p>
-   *
-   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
-   * @public
-   */
-  namespaces?: string[] | undefined;
-
-  /**
-   * <p>The namespaceTemplates associated with the semantic memory strategy.</p>
-   * @public
-   */
-  namespaceTemplates?: string[] | undefined;
-
-  /**
-   * <p>Schema for metadata on memory records generated by a strategy.</p>
-   * @public
-   */
-  memoryRecordSchema?: MemoryRecordSchema | undefined;
 }

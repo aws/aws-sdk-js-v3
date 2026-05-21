@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateWorkloadIdentityRequest, UpdateWorkloadIdentityResponse } from "../models/models_2";
-import { UpdateWorkloadIdentity$ } from "../schemas/schemas_0";
+import type { ListDatasetVersionsRequest, ListDatasetVersionsResponse } from "../models/models_0";
+import { ListDatasetVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,50 +20,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateWorkloadIdentityCommand}.
+ * The input for {@link ListDatasetVersionsCommand}.
  */
-export interface UpdateWorkloadIdentityCommandInput extends UpdateWorkloadIdentityRequest {}
+export interface ListDatasetVersionsCommandInput extends ListDatasetVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateWorkloadIdentityCommand}.
+ * The output of {@link ListDatasetVersionsCommand}.
  */
-export interface UpdateWorkloadIdentityCommandOutput extends UpdateWorkloadIdentityResponse, __MetadataBearer {}
+export interface ListDatasetVersionsCommandOutput extends ListDatasetVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing workload identity.</p>
+ * Lists all published versions of a dataset, sorted by version number descending
+ * (newest first). Does not include the DRAFT working copy.
+ *
+ * **State guard:** Allowed for all statuses including DELETING.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, UpdateWorkloadIdentityCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, UpdateWorkloadIdentityCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, ListDatasetVersionsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, ListDatasetVersionsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // UpdateWorkloadIdentityRequest
- *   name: "STRING_VALUE", // required
- *   allowedResourceOauth2ReturnUrls: [ // ResourceOauth2ReturnUrlListType
- *     "STRING_VALUE",
- *   ],
+ * const input = { // ListDatasetVersionsRequest
+ *   datasetId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new UpdateWorkloadIdentityCommand(input);
+ * const command = new ListDatasetVersionsCommand(input);
  * const response = await client.send(command);
- * // { // UpdateWorkloadIdentityResponse
- * //   name: "STRING_VALUE", // required
- * //   workloadIdentityArn: "STRING_VALUE", // required
- * //   allowedResourceOauth2ReturnUrls: [ // ResourceOauth2ReturnUrlListType
- * //     "STRING_VALUE",
+ * // { // ListDatasetVersionsResponse
+ * //   versions: [ // DatasetVersionSummaryList // required
+ * //     { // DatasetVersionSummary
+ * //       datasetVersion: "STRING_VALUE", // required
+ * //       exampleCount: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //     },
  * //   ],
- * //   createdTime: new Date("TIMESTAMP"), // required
- * //   lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateWorkloadIdentityCommandInput - {@link UpdateWorkloadIdentityCommandInput}
- * @returns {@link UpdateWorkloadIdentityCommandOutput}
- * @see {@link UpdateWorkloadIdentityCommandInput} for command's `input` shape.
- * @see {@link UpdateWorkloadIdentityCommandOutput} for command's `response` shape.
+ * @param ListDatasetVersionsCommandInput - {@link ListDatasetVersionsCommandInput}
+ * @returns {@link ListDatasetVersionsCommandOutput}
+ * @see {@link ListDatasetVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetVersionsCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,9 +81,6 @@ export interface UpdateWorkloadIdentityCommandOutput extends UpdateWorkloadIdent
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
@@ -90,10 +90,10 @@ export interface UpdateWorkloadIdentityCommandOutput extends UpdateWorkloadIdent
  *
  * @public
  */
-export class UpdateWorkloadIdentityCommand extends $Command
+export class ListDatasetVersionsCommand extends $Command
   .classBuilder<
-    UpdateWorkloadIdentityCommandInput,
-    UpdateWorkloadIdentityCommandOutput,
+    ListDatasetVersionsCommandInput,
+    ListDatasetVersionsCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,19 +102,19 @@ export class UpdateWorkloadIdentityCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "UpdateWorkloadIdentity", {})
-  .n("BedrockAgentCoreControlClient", "UpdateWorkloadIdentityCommand")
-  .sc(UpdateWorkloadIdentity$)
+  .s("AmazonBedrockAgentCoreControl", "ListDatasetVersions", {})
+  .n("BedrockAgentCoreControlClient", "ListDatasetVersionsCommand")
+  .sc(ListDatasetVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateWorkloadIdentityRequest;
-      output: UpdateWorkloadIdentityResponse;
+      input: ListDatasetVersionsRequest;
+      output: ListDatasetVersionsResponse;
     };
     sdk: {
-      input: UpdateWorkloadIdentityCommandInput;
-      output: UpdateWorkloadIdentityCommandOutput;
+      input: ListDatasetVersionsCommandInput;
+      output: ListDatasetVersionsCommandOutput;
     };
   };
 }

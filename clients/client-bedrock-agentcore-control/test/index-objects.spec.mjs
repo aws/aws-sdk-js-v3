@@ -4,6 +4,10 @@ import {
   AccessDeniedException$,
   Action$,
   ActorTokenContentType,
+  AddDatasetExamples$,
+  AddDatasetExamplesCommand,
+  AddDatasetExamplesRequest$,
+  AddDatasetExamplesResponse$,
   AgentCardDefinition$,
   AgentManagedRuntimeType,
   AgentRuntime$,
@@ -103,6 +107,14 @@ import {
   CreateConfigurationBundleCommand,
   CreateConfigurationBundleRequest$,
   CreateConfigurationBundleResponse$,
+  CreateDataset$,
+  CreateDatasetCommand,
+  CreateDatasetRequest$,
+  CreateDatasetResponse$,
+  CreateDatasetVersion$,
+  CreateDatasetVersionCommand,
+  CreateDatasetVersionRequest$,
+  CreateDatasetVersionResponse$,
   CreateEvaluator$,
   CreateEvaluatorCommand,
   CreateEvaluatorRequest$,
@@ -185,7 +197,12 @@ import {
   CustomOauth2ProviderConfigOutput$,
   CustomReflectionConfiguration$,
   CustomReflectionConfigurationInput$,
+  DatasetSchemaType,
+  DatasetStatus,
+  DatasetSummary$,
+  DatasetVersionSummary$,
   DataSourceConfig$,
+  DataSourceType$,
   DecryptionFailure,
   DecryptionFailure$,
   DeleteAgentRuntime$,
@@ -216,6 +233,14 @@ import {
   DeleteConfigurationBundleCommand,
   DeleteConfigurationBundleRequest$,
   DeleteConfigurationBundleResponse$,
+  DeleteDataset$,
+  DeleteDatasetCommand,
+  DeleteDatasetExamples$,
+  DeleteDatasetExamplesCommand,
+  DeleteDatasetExamplesRequest$,
+  DeleteDatasetExamplesResponse$,
+  DeleteDatasetRequest$,
+  DeleteDatasetResponse$,
   DeleteEvaluator$,
   DeleteEvaluatorCommand,
   DeleteEvaluatorRequest$,
@@ -287,6 +312,7 @@ import {
   DeleteWorkloadIdentityResponse$,
   Descriptors$,
   DescriptorType,
+  DraftStatus,
   EfsAccessPointConfiguration$,
   EncryptionFailure,
   EncryptionFailure$,
@@ -362,6 +388,10 @@ import {
   GetConfigurationBundleVersionCommand,
   GetConfigurationBundleVersionRequest$,
   GetConfigurationBundleVersionResponse$,
+  GetDataset$,
+  GetDatasetCommand,
+  GetDatasetRequest$,
+  GetDatasetResponse$,
   GetEvaluator$,
   GetEvaluatorCommand,
   GetEvaluatorRequest$,
@@ -494,6 +524,7 @@ import {
   IncludedOauth2ProviderConfigOutput$,
   IndexedKey$,
   InferenceConfiguration$,
+  InlineExamplesSource$,
   InterceptorConfiguration$,
   InterceptorInputConfiguration$,
   InternalServerException,
@@ -544,6 +575,18 @@ import {
   ListConfigurationBundleVersionsCommand,
   ListConfigurationBundleVersionsRequest$,
   ListConfigurationBundleVersionsResponse$,
+  ListDatasetExamples$,
+  ListDatasetExamplesCommand,
+  ListDatasetExamplesRequest$,
+  ListDatasetExamplesResponse$,
+  ListDatasets$,
+  ListDatasetsCommand,
+  ListDatasetsRequest$,
+  ListDatasetsResponse$,
+  ListDatasetVersions$,
+  ListDatasetVersionsCommand,
+  ListDatasetVersionsRequest$,
+  ListDatasetVersionsResponse$,
   ListEvaluators$,
   ListEvaluatorsCommand,
   ListEvaluatorsRequest$,
@@ -698,6 +741,9 @@ import {
   paginateListCodeInterpreters,
   paginateListConfigurationBundles,
   paginateListConfigurationBundleVersions,
+  paginateListDatasetExamples,
+  paginateListDatasets,
+  paginateListDatasetVersions,
   paginateListEvaluators,
   paginateListGatewayRules,
   paginateListGateways,
@@ -781,6 +827,7 @@ import {
   S3Configuration$,
   S3FilesAccessPointConfiguration$,
   S3Location$,
+  S3Source$,
   SalesforceOauth2ProviderConfigInput$,
   SalesforceOauth2ProviderConfigOutput$,
   SamplingConfig$,
@@ -895,6 +942,14 @@ import {
   UpdatedAgentSkillsDescriptor$,
   UpdatedAgentSkillsDescriptorFields$,
   UpdatedApprovalConfiguration$,
+  UpdateDataset$,
+  UpdateDatasetCommand,
+  UpdateDatasetExamples$,
+  UpdateDatasetExamplesCommand,
+  UpdateDatasetExamplesRequest$,
+  UpdateDatasetExamplesResponse$,
+  UpdateDatasetRequest$,
+  UpdateDatasetResponse$,
   UpdatedAuthorizerConfiguration$,
   UpdatedCustomDescriptor$,
   UpdatedDescription$,
@@ -1015,6 +1070,8 @@ import assert from "node:assert";
 assert(typeof BedrockAgentCoreControlClient === "function");
 assert(typeof BedrockAgentCoreControl === "function");
 // commands
+assert(typeof AddDatasetExamplesCommand === "function");
+assert(typeof AddDatasetExamples$ === "object");
 assert(typeof CreateAgentRuntimeCommand === "function");
 assert(typeof CreateAgentRuntime$ === "object");
 assert(typeof CreateAgentRuntimeEndpointCommand === "function");
@@ -1029,6 +1086,10 @@ assert(typeof CreateCodeInterpreterCommand === "function");
 assert(typeof CreateCodeInterpreter$ === "object");
 assert(typeof CreateConfigurationBundleCommand === "function");
 assert(typeof CreateConfigurationBundle$ === "object");
+assert(typeof CreateDatasetCommand === "function");
+assert(typeof CreateDataset$ === "object");
+assert(typeof CreateDatasetVersionCommand === "function");
+assert(typeof CreateDatasetVersion$ === "object");
 assert(typeof CreateEvaluatorCommand === "function");
 assert(typeof CreateEvaluator$ === "object");
 assert(typeof CreateGatewayCommand === "function");
@@ -1075,6 +1136,10 @@ assert(typeof DeleteCodeInterpreterCommand === "function");
 assert(typeof DeleteCodeInterpreter$ === "object");
 assert(typeof DeleteConfigurationBundleCommand === "function");
 assert(typeof DeleteConfigurationBundle$ === "object");
+assert(typeof DeleteDatasetCommand === "function");
+assert(typeof DeleteDataset$ === "object");
+assert(typeof DeleteDatasetExamplesCommand === "function");
+assert(typeof DeleteDatasetExamples$ === "object");
 assert(typeof DeleteEvaluatorCommand === "function");
 assert(typeof DeleteEvaluator$ === "object");
 assert(typeof DeleteGatewayCommand === "function");
@@ -1125,6 +1190,8 @@ assert(typeof GetConfigurationBundleCommand === "function");
 assert(typeof GetConfigurationBundle$ === "object");
 assert(typeof GetConfigurationBundleVersionCommand === "function");
 assert(typeof GetConfigurationBundleVersion$ === "object");
+assert(typeof GetDatasetCommand === "function");
+assert(typeof GetDataset$ === "object");
 assert(typeof GetEvaluatorCommand === "function");
 assert(typeof GetEvaluator$ === "object");
 assert(typeof GetGatewayCommand === "function");
@@ -1187,6 +1254,12 @@ assert(typeof ListConfigurationBundlesCommand === "function");
 assert(typeof ListConfigurationBundles$ === "object");
 assert(typeof ListConfigurationBundleVersionsCommand === "function");
 assert(typeof ListConfigurationBundleVersions$ === "object");
+assert(typeof ListDatasetExamplesCommand === "function");
+assert(typeof ListDatasetExamples$ === "object");
+assert(typeof ListDatasetsCommand === "function");
+assert(typeof ListDatasets$ === "object");
+assert(typeof ListDatasetVersionsCommand === "function");
+assert(typeof ListDatasetVersions$ === "object");
 assert(typeof ListEvaluatorsCommand === "function");
 assert(typeof ListEvaluators$ === "object");
 assert(typeof ListGatewayRulesCommand === "function");
@@ -1253,6 +1326,10 @@ assert(typeof UpdateApiKeyCredentialProviderCommand === "function");
 assert(typeof UpdateApiKeyCredentialProvider$ === "object");
 assert(typeof UpdateConfigurationBundleCommand === "function");
 assert(typeof UpdateConfigurationBundle$ === "object");
+assert(typeof UpdateDatasetCommand === "function");
+assert(typeof UpdateDataset$ === "object");
+assert(typeof UpdateDatasetExamplesCommand === "function");
+assert(typeof UpdateDatasetExamples$ === "object");
 assert(typeof UpdateEvaluatorCommand === "function");
 assert(typeof UpdateEvaluator$ === "object");
 assert(typeof UpdateGatewayCommand === "function");
@@ -1290,6 +1367,8 @@ assert(typeof UpdateWorkloadIdentity$ === "object");
 // structural schemas
 assert(typeof A2aDescriptor$ === "object");
 assert(typeof Action$ === "object");
+assert(typeof AddDatasetExamplesRequest$ === "object");
+assert(typeof AddDatasetExamplesResponse$ === "object");
 assert(typeof AgentCardDefinition$ === "object");
 assert(typeof AgentRuntime$ === "object");
 assert(typeof AgentRuntimeArtifact$ === "object");
@@ -1352,6 +1431,10 @@ assert(typeof CreateCodeInterpreterRequest$ === "object");
 assert(typeof CreateCodeInterpreterResponse$ === "object");
 assert(typeof CreateConfigurationBundleRequest$ === "object");
 assert(typeof CreateConfigurationBundleResponse$ === "object");
+assert(typeof CreateDatasetRequest$ === "object");
+assert(typeof CreateDatasetResponse$ === "object");
+assert(typeof CreateDatasetVersionRequest$ === "object");
+assert(typeof CreateDatasetVersionResponse$ === "object");
 assert(typeof CreateEvaluatorRequest$ === "object");
 assert(typeof CreateEvaluatorResponse$ === "object");
 assert(typeof CreateGatewayRequest$ === "object");
@@ -1400,7 +1483,10 @@ assert(typeof CustomOauth2ProviderConfigInput$ === "object");
 assert(typeof CustomOauth2ProviderConfigOutput$ === "object");
 assert(typeof CustomReflectionConfiguration$ === "object");
 assert(typeof CustomReflectionConfigurationInput$ === "object");
+assert(typeof DatasetSummary$ === "object");
+assert(typeof DatasetVersionSummary$ === "object");
 assert(typeof DataSourceConfig$ === "object");
+assert(typeof DataSourceType$ === "object");
 assert(typeof DeleteAgentRuntimeEndpointRequest$ === "object");
 assert(typeof DeleteAgentRuntimeEndpointResponse$ === "object");
 assert(typeof DeleteAgentRuntimeRequest$ === "object");
@@ -1415,6 +1501,10 @@ assert(typeof DeleteCodeInterpreterRequest$ === "object");
 assert(typeof DeleteCodeInterpreterResponse$ === "object");
 assert(typeof DeleteConfigurationBundleRequest$ === "object");
 assert(typeof DeleteConfigurationBundleResponse$ === "object");
+assert(typeof DeleteDatasetExamplesRequest$ === "object");
+assert(typeof DeleteDatasetExamplesResponse$ === "object");
+assert(typeof DeleteDatasetRequest$ === "object");
+assert(typeof DeleteDatasetResponse$ === "object");
 assert(typeof DeleteEvaluatorRequest$ === "object");
 assert(typeof DeleteEvaluatorResponse$ === "object");
 assert(typeof DeleteGatewayRequest$ === "object");
@@ -1496,6 +1586,8 @@ assert(typeof GetConfigurationBundleRequest$ === "object");
 assert(typeof GetConfigurationBundleResponse$ === "object");
 assert(typeof GetConfigurationBundleVersionRequest$ === "object");
 assert(typeof GetConfigurationBundleVersionResponse$ === "object");
+assert(typeof GetDatasetRequest$ === "object");
+assert(typeof GetDatasetResponse$ === "object");
 assert(typeof GetEvaluatorRequest$ === "object");
 assert(typeof GetEvaluatorResponse$ === "object");
 assert(typeof GetGatewayRequest$ === "object");
@@ -1579,6 +1671,7 @@ assert(typeof IncludedOauth2ProviderConfigInput$ === "object");
 assert(typeof IncludedOauth2ProviderConfigOutput$ === "object");
 assert(typeof IndexedKey$ === "object");
 assert(typeof InferenceConfiguration$ === "object");
+assert(typeof InlineExamplesSource$ === "object");
 assert(typeof InterceptorConfiguration$ === "object");
 assert(typeof InterceptorInputConfiguration$ === "object");
 assert(typeof InvocationConfiguration$ === "object");
@@ -1608,6 +1701,12 @@ assert(typeof ListConfigurationBundlesRequest$ === "object");
 assert(typeof ListConfigurationBundlesResponse$ === "object");
 assert(typeof ListConfigurationBundleVersionsRequest$ === "object");
 assert(typeof ListConfigurationBundleVersionsResponse$ === "object");
+assert(typeof ListDatasetExamplesRequest$ === "object");
+assert(typeof ListDatasetExamplesResponse$ === "object");
+assert(typeof ListDatasetsRequest$ === "object");
+assert(typeof ListDatasetsResponse$ === "object");
+assert(typeof ListDatasetVersionsRequest$ === "object");
+assert(typeof ListDatasetVersionsResponse$ === "object");
 assert(typeof ListEvaluatorsRequest$ === "object");
 assert(typeof ListEvaluatorsResponse$ === "object");
 assert(typeof ListGatewayRulesRequest$ === "object");
@@ -1736,6 +1835,7 @@ assert(typeof RuntimeTargetConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3FilesAccessPointConfiguration$ === "object");
 assert(typeof S3Location$ === "object");
+assert(typeof S3Source$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigInput$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigOutput$ === "object");
 assert(typeof SamplingConfig$ === "object");
@@ -1813,6 +1913,10 @@ assert(typeof UpdatedA2aDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDescriptorFields$ === "object");
 assert(typeof UpdatedApprovalConfiguration$ === "object");
+assert(typeof UpdateDatasetExamplesRequest$ === "object");
+assert(typeof UpdateDatasetExamplesResponse$ === "object");
+assert(typeof UpdateDatasetRequest$ === "object");
+assert(typeof UpdateDatasetResponse$ === "object");
 assert(typeof UpdatedAuthorizerConfiguration$ === "object");
 assert(typeof UpdatedCustomDescriptor$ === "object");
 assert(typeof UpdatedDescription$ === "object");
@@ -1898,7 +2002,10 @@ assert(typeof ContentLevel === "object");
 assert(typeof ContentType === "object");
 assert(typeof CredentialProviderType === "object");
 assert(typeof CredentialProviderVendorType === "object");
+assert(typeof DatasetSchemaType === "object");
+assert(typeof DatasetStatus === "object");
 assert(typeof DescriptorType === "object");
+assert(typeof DraftStatus === "object");
 assert(typeof EndpointIpAddressType === "object");
 assert(typeof EvaluatorLevel === "object");
 assert(typeof EvaluatorStatus === "object");
@@ -2007,6 +2114,9 @@ assert(typeof paginateListBrowsers === "function");
 assert(typeof paginateListCodeInterpreters === "function");
 assert(typeof paginateListConfigurationBundleVersions === "function");
 assert(typeof paginateListConfigurationBundles === "function");
+assert(typeof paginateListDatasetExamples === "function");
+assert(typeof paginateListDatasetVersions === "function");
+assert(typeof paginateListDatasets === "function");
 assert(typeof paginateListEvaluators === "function");
 assert(typeof paginateListGatewayRules === "function");
 assert(typeof paginateListGatewayTargets === "function");

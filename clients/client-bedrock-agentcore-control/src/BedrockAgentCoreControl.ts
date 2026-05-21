@@ -9,6 +9,11 @@ import type {
 
 import { BedrockAgentCoreControlClient } from "./BedrockAgentCoreControlClient";
 import {
+  type AddDatasetExamplesCommandInput,
+  type AddDatasetExamplesCommandOutput,
+  AddDatasetExamplesCommand,
+} from "./commands/AddDatasetExamplesCommand";
+import {
   type CreateAgentRuntimeCommandInput,
   type CreateAgentRuntimeCommandOutput,
   CreateAgentRuntimeCommand,
@@ -43,6 +48,16 @@ import {
   type CreateConfigurationBundleCommandOutput,
   CreateConfigurationBundleCommand,
 } from "./commands/CreateConfigurationBundleCommand";
+import {
+  type CreateDatasetCommandInput,
+  type CreateDatasetCommandOutput,
+  CreateDatasetCommand,
+} from "./commands/CreateDatasetCommand";
+import {
+  type CreateDatasetVersionCommandInput,
+  type CreateDatasetVersionCommandOutput,
+  CreateDatasetVersionCommand,
+} from "./commands/CreateDatasetVersionCommand";
 import {
   type CreateEvaluatorCommandInput,
   type CreateEvaluatorCommandOutput,
@@ -158,6 +173,16 @@ import {
   type DeleteConfigurationBundleCommandOutput,
   DeleteConfigurationBundleCommand,
 } from "./commands/DeleteConfigurationBundleCommand";
+import {
+  type DeleteDatasetCommandInput,
+  type DeleteDatasetCommandOutput,
+  DeleteDatasetCommand,
+} from "./commands/DeleteDatasetCommand";
+import {
+  type DeleteDatasetExamplesCommandInput,
+  type DeleteDatasetExamplesCommandOutput,
+  DeleteDatasetExamplesCommand,
+} from "./commands/DeleteDatasetExamplesCommand";
 import {
   type DeleteEvaluatorCommandInput,
   type DeleteEvaluatorCommandOutput,
@@ -283,6 +308,11 @@ import {
   type GetConfigurationBundleVersionCommandOutput,
   GetConfigurationBundleVersionCommand,
 } from "./commands/GetConfigurationBundleVersionCommand";
+import {
+  type GetDatasetCommandInput,
+  type GetDatasetCommandOutput,
+  GetDatasetCommand,
+} from "./commands/GetDatasetCommand";
 import {
   type GetEvaluatorCommandInput,
   type GetEvaluatorCommandOutput,
@@ -430,6 +460,21 @@ import {
   type ListConfigurationBundleVersionsCommandOutput,
   ListConfigurationBundleVersionsCommand,
 } from "./commands/ListConfigurationBundleVersionsCommand";
+import {
+  type ListDatasetExamplesCommandInput,
+  type ListDatasetExamplesCommandOutput,
+  ListDatasetExamplesCommand,
+} from "./commands/ListDatasetExamplesCommand";
+import {
+  type ListDatasetsCommandInput,
+  type ListDatasetsCommandOutput,
+  ListDatasetsCommand,
+} from "./commands/ListDatasetsCommand";
+import {
+  type ListDatasetVersionsCommandInput,
+  type ListDatasetVersionsCommandOutput,
+  ListDatasetVersionsCommand,
+} from "./commands/ListDatasetVersionsCommand";
 import {
   type ListEvaluatorsCommandInput,
   type ListEvaluatorsCommandOutput,
@@ -596,6 +641,16 @@ import {
   UpdateConfigurationBundleCommand,
 } from "./commands/UpdateConfigurationBundleCommand";
 import {
+  type UpdateDatasetCommandInput,
+  type UpdateDatasetCommandOutput,
+  UpdateDatasetCommand,
+} from "./commands/UpdateDatasetCommand";
+import {
+  type UpdateDatasetExamplesCommandInput,
+  type UpdateDatasetExamplesCommandOutput,
+  UpdateDatasetExamplesCommand,
+} from "./commands/UpdateDatasetExamplesCommand";
+import {
   type UpdateEvaluatorCommandInput,
   type UpdateEvaluatorCommandOutput,
   UpdateEvaluatorCommand,
@@ -691,6 +746,9 @@ import { paginateListBrowsers } from "./pagination/ListBrowsersPaginator";
 import { paginateListCodeInterpreters } from "./pagination/ListCodeInterpretersPaginator";
 import { paginateListConfigurationBundles } from "./pagination/ListConfigurationBundlesPaginator";
 import { paginateListConfigurationBundleVersions } from "./pagination/ListConfigurationBundleVersionsPaginator";
+import { paginateListDatasetExamples } from "./pagination/ListDatasetExamplesPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListDatasetVersions } from "./pagination/ListDatasetVersionsPaginator";
 import { paginateListEvaluators } from "./pagination/ListEvaluatorsPaginator";
 import { paginateListGatewayRules } from "./pagination/ListGatewayRulesPaginator";
 import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
@@ -720,6 +778,7 @@ import { waitUntilPolicyEngineDeleted } from "./waiters/waitForPolicyEngineDelet
 import { waitUntilPolicyGenerationCompleted } from "./waiters/waitForPolicyGenerationCompleted";
 
 const commands = {
+  AddDatasetExamplesCommand,
   CreateAgentRuntimeCommand,
   CreateAgentRuntimeEndpointCommand,
   CreateApiKeyCredentialProviderCommand,
@@ -727,6 +786,8 @@ const commands = {
   CreateBrowserProfileCommand,
   CreateCodeInterpreterCommand,
   CreateConfigurationBundleCommand,
+  CreateDatasetCommand,
+  CreateDatasetVersionCommand,
   CreateEvaluatorCommand,
   CreateGatewayCommand,
   CreateGatewayRuleCommand,
@@ -750,6 +811,8 @@ const commands = {
   DeleteBrowserProfileCommand,
   DeleteCodeInterpreterCommand,
   DeleteConfigurationBundleCommand,
+  DeleteDatasetCommand,
+  DeleteDatasetExamplesCommand,
   DeleteEvaluatorCommand,
   DeleteGatewayCommand,
   DeleteGatewayRuleCommand,
@@ -775,6 +838,7 @@ const commands = {
   GetCodeInterpreterCommand,
   GetConfigurationBundleCommand,
   GetConfigurationBundleVersionCommand,
+  GetDatasetCommand,
   GetEvaluatorCommand,
   GetGatewayCommand,
   GetGatewayRuleCommand,
@@ -806,6 +870,9 @@ const commands = {
   ListCodeInterpretersCommand,
   ListConfigurationBundlesCommand,
   ListConfigurationBundleVersionsCommand,
+  ListDatasetExamplesCommand,
+  ListDatasetsCommand,
+  ListDatasetVersionsCommand,
   ListEvaluatorsCommand,
   ListGatewayRulesCommand,
   ListGatewaysCommand,
@@ -839,6 +906,8 @@ const commands = {
   UpdateAgentRuntimeEndpointCommand,
   UpdateApiKeyCredentialProviderCommand,
   UpdateConfigurationBundleCommand,
+  UpdateDatasetCommand,
+  UpdateDatasetExamplesCommand,
   UpdateEvaluatorCommand,
   UpdateGatewayCommand,
   UpdateGatewayRuleCommand,
@@ -867,6 +936,9 @@ const paginators = {
   paginateListCodeInterpreters,
   paginateListConfigurationBundles,
   paginateListConfigurationBundleVersions,
+  paginateListDatasetExamples,
+  paginateListDatasets,
+  paginateListDatasetVersions,
   paginateListEvaluators,
   paginateListGatewayRules,
   paginateListGateways,
@@ -899,6 +971,23 @@ const waiters = {
 };
 
 export interface BedrockAgentCoreControl {
+  /**
+   * @see {@link AddDatasetExamplesCommand}
+   */
+  addDatasetExamples(
+    args: AddDatasetExamplesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddDatasetExamplesCommandOutput>;
+  addDatasetExamples(
+    args: AddDatasetExamplesCommandInput,
+    cb: (err: any, data?: AddDatasetExamplesCommandOutput) => void
+  ): void;
+  addDatasetExamples(
+    args: AddDatasetExamplesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddDatasetExamplesCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateAgentRuntimeCommand}
    */
@@ -1016,6 +1105,40 @@ export interface BedrockAgentCoreControl {
     args: CreateConfigurationBundleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDatasetCommand}
+   */
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDatasetVersionCommand}
+   */
+  createDatasetVersion(
+    args: CreateDatasetVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetVersionCommandOutput>;
+  createDatasetVersion(
+    args: CreateDatasetVersionCommandInput,
+    cb: (err: any, data?: CreateDatasetVersionCommandOutput) => void
+  ): void;
+  createDatasetVersion(
+    args: CreateDatasetVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDatasetVersionCommandOutput) => void
   ): void;
 
   /**
@@ -1407,6 +1530,40 @@ export interface BedrockAgentCoreControl {
     args: DeleteConfigurationBundleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDatasetCommand}
+   */
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDatasetExamplesCommand}
+   */
+  deleteDatasetExamples(
+    args: DeleteDatasetExamplesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetExamplesCommandOutput>;
+  deleteDatasetExamples(
+    args: DeleteDatasetExamplesCommandInput,
+    cb: (err: any, data?: DeleteDatasetExamplesCommandOutput) => void
+  ): void;
+  deleteDatasetExamples(
+    args: DeleteDatasetExamplesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDatasetExamplesCommandOutput) => void
   ): void;
 
   /**
@@ -1832,6 +1989,23 @@ export interface BedrockAgentCoreControl {
     args: GetConfigurationBundleVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConfigurationBundleVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDatasetCommand}
+   */
+  getDataset(
+    args: GetDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDatasetCommandOutput>;
+  getDataset(
+    args: GetDatasetCommandInput,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
+  ): void;
+  getDataset(
+    args: GetDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
   ): void;
 
   /**
@@ -2366,6 +2540,58 @@ export interface BedrockAgentCoreControl {
     args: ListConfigurationBundleVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConfigurationBundleVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetExamplesCommand}
+   */
+  listDatasetExamples(
+    args: ListDatasetExamplesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetExamplesCommandOutput>;
+  listDatasetExamples(
+    args: ListDatasetExamplesCommandInput,
+    cb: (err: any, data?: ListDatasetExamplesCommandOutput) => void
+  ): void;
+  listDatasetExamples(
+    args: ListDatasetExamplesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetExamplesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetVersionsCommand}
+   */
+  listDatasetVersions(
+    args: ListDatasetVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetVersionsCommandOutput>;
+  listDatasetVersions(
+    args: ListDatasetVersionsCommandInput,
+    cb: (err: any, data?: ListDatasetVersionsCommandOutput) => void
+  ): void;
+  listDatasetVersions(
+    args: ListDatasetVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -2942,6 +3168,40 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateDatasetCommand}
+   */
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDatasetCommandOutput>;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
+  ): void;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDatasetExamplesCommand}
+   */
+  updateDatasetExamples(
+    args: UpdateDatasetExamplesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDatasetExamplesCommandOutput>;
+  updateDatasetExamples(
+    args: UpdateDatasetExamplesCommandInput,
+    cb: (err: any, data?: UpdateDatasetExamplesCommandOutput) => void
+  ): void;
+  updateDatasetExamples(
+    args: UpdateDatasetExamplesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDatasetExamplesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEvaluatorCommand}
    */
   updateEvaluator(
@@ -3328,6 +3588,39 @@ export interface BedrockAgentCoreControl {
     args: ListConfigurationBundleVersionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListConfigurationBundleVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetExamplesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetExamplesCommandOutput}.
+   */
+  paginateListDatasetExamples(
+    args: ListDatasetExamplesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetExamplesCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetVersionsCommandOutput}.
+   */
+  paginateListDatasetVersions(
+    args: ListDatasetVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetVersionsCommandOutput>;
 
   /**
    * @see {@link ListEvaluatorsCommand}

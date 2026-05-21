@@ -17,18 +17,49 @@ export type ActorTokenContentType = (typeof ActorTokenContentType)[keyof typeof 
  * @public
  * @enum
  */
-export const AgentRuntimeEndpointStatus = {
+export const DatasetStatus = {
+  /**
+   * Dataset is stable. All operations are allowed per per-operation guards.
+   * failureReason is cleared.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Initial ingestion failed. DRAFT record exists but contains no examples.
+   * failureReason is populated. AddDatasetExamples and DeleteDatasetExamples allowed.
+   * UpdateDatasetExamples and CreateDatasetVersion blocked (no examples exist).
+   */
   CREATE_FAILED: "CREATE_FAILED",
+  /**
+   * CreateDataset async ingestion in progress.
+   * All writes are blocked. Poll GetDataset until status resolves to ACTIVE or CREATE_FAILED.
+   */
   CREATING: "CREATING",
+  /**
+   * Delete failed after retries. Dataset record/S3 may be in inconsistent state.
+   * failureReason is populated. Only DeleteDataset (retry) is allowed.
+   */
+  DELETE_FAILED: "DELETE_FAILED",
+  /**
+   * Full or version-specific delete is in progress.
+   * Read operations (GetDataset, ListDatasetExamples) are still allowed.
+   */
   DELETING: "DELETING",
-  READY: "READY",
+  /**
+   * Last example mutation or CreateDatasetVersion failed.
+   * DRAFT may be partially modified. failureReason is populated.
+   * All example mutations and CreateDatasetVersion allowed for retry.
+   */
   UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * An async example mutation or CreateDatasetVersion is in progress.
+   * All writes are blocked. Poll GetDataset until status resolves.
+   */
   UPDATING: "UPDATING",
 } as const;
 /**
  * @public
  */
-export type AgentRuntimeEndpointStatus = (typeof AgentRuntimeEndpointStatus)[keyof typeof AgentRuntimeEndpointStatus];
+export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
 
 /**
  * @public
@@ -45,6 +76,23 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentRuntimeEndpointStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type AgentRuntimeEndpointStatus = (typeof AgentRuntimeEndpointStatus)[keyof typeof AgentRuntimeEndpointStatus];
 
 /**
  * @public
@@ -268,6 +316,49 @@ export const ConfigurationBundleStatus = {
  * @public
  */
 export type ConfigurationBundleStatus = (typeof ConfigurationBundleStatus)[keyof typeof ConfigurationBundleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DatasetSchemaType = {
+  /**
+   * AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn.
+   * Required: input. Optional: expectedResponse, assertions, expectedTrajectory.
+   */
+  AGENTCORE_EVALUATION_PREDEFINED_V1: "AGENTCORE_EVALUATION_PREDEFINED_V1",
+  /**
+   * AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation.
+   * Each example is a Scenario that a simulator uses to generate full conversations.
+   * Required: input. Optional: name (→exampleId), actor_profile, max_turns, assertions.
+   */
+  AGENTCORE_EVALUATION_SIMULATED_V1: "AGENTCORE_EVALUATION_SIMULATED_V1",
+} as const;
+/**
+ * @public
+ */
+export type DatasetSchemaType = (typeof DatasetSchemaType)[keyof typeof DatasetSchemaType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DraftStatus = {
+  /**
+   * DRAFT has changes not yet reflected in any published version, or no versions
+   * have been published yet.
+   */
+  MODIFIED: "MODIFIED",
+  /**
+   * DRAFT content matches the latest published version exactly.
+   * Any example mutation transitions draftStatus back to MODIFIED.
+   */
+  UNMODIFIED: "UNMODIFIED",
+} as const;
+/**
+ * @public
+ */
+export type DraftStatus = (typeof DraftStatus)[keyof typeof DraftStatus];
 
 /**
  * @public

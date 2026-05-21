@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateWorkloadIdentityRequest, UpdateWorkloadIdentityResponse } from "../models/models_2";
-import { UpdateWorkloadIdentity$ } from "../schemas/schemas_0";
+import type { UpdateDatasetRequest, UpdateDatasetResponse } from "../models/models_0";
+import { UpdateDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,54 +20,58 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateWorkloadIdentityCommand}.
+ * The input for {@link UpdateDatasetCommand}.
  */
-export interface UpdateWorkloadIdentityCommandInput extends UpdateWorkloadIdentityRequest {}
+export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateWorkloadIdentityCommand}.
+ * The output of {@link UpdateDatasetCommand}.
  */
-export interface UpdateWorkloadIdentityCommandOutput extends UpdateWorkloadIdentityResponse, __MetadataBearer {}
+export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing workload identity.</p>
+ * Updates a dataset's metadata. Synchronous operation.
+ * Only provided fields are updated; omitted fields remain unchanged.
+ *
+ * To modify dataset content, use AddDatasetExamples, UpdateDatasetExamples,
+ * or DeleteDatasetExamples.
+ *
+ * Cannot update: name, schemaType, kmsKeyArn (immutable after creation).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, UpdateWorkloadIdentityCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, UpdateWorkloadIdentityCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, UpdateDatasetCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, UpdateDatasetCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // UpdateWorkloadIdentityRequest
- *   name: "STRING_VALUE", // required
- *   allowedResourceOauth2ReturnUrls: [ // ResourceOauth2ReturnUrlListType
- *     "STRING_VALUE",
- *   ],
+ * const input = { // UpdateDatasetRequest
+ *   datasetId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
  * };
- * const command = new UpdateWorkloadIdentityCommand(input);
+ * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
- * // { // UpdateWorkloadIdentityResponse
- * //   name: "STRING_VALUE", // required
- * //   workloadIdentityArn: "STRING_VALUE", // required
- * //   allowedResourceOauth2ReturnUrls: [ // ResourceOauth2ReturnUrlListType
- * //     "STRING_VALUE",
- * //   ],
- * //   createdTime: new Date("TIMESTAMP"), // required
- * //   lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * // { // UpdateDatasetResponse
+ * //   datasetArn: "STRING_VALUE", // required
+ * //   datasetId: "STRING_VALUE", // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
  * // };
  *
  * ```
  *
- * @param UpdateWorkloadIdentityCommandInput - {@link UpdateWorkloadIdentityCommandInput}
- * @returns {@link UpdateWorkloadIdentityCommandOutput}
- * @see {@link UpdateWorkloadIdentityCommandInput} for command's `input` shape.
- * @see {@link UpdateWorkloadIdentityCommandOutput} for command's `response` shape.
+ * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
+ * @returns {@link UpdateDatasetCommandOutput}
+ * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>This exception is thrown when a request is denied per access permissions</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when there is a conflict performing an operation</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
@@ -78,9 +82,6 @@ export interface UpdateWorkloadIdentityCommandOutput extends UpdateWorkloadIdent
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
@@ -90,10 +91,10 @@ export interface UpdateWorkloadIdentityCommandOutput extends UpdateWorkloadIdent
  *
  * @public
  */
-export class UpdateWorkloadIdentityCommand extends $Command
+export class UpdateDatasetCommand extends $Command
   .classBuilder<
-    UpdateWorkloadIdentityCommandInput,
-    UpdateWorkloadIdentityCommandOutput,
+    UpdateDatasetCommandInput,
+    UpdateDatasetCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,19 +103,19 @@ export class UpdateWorkloadIdentityCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "UpdateWorkloadIdentity", {})
-  .n("BedrockAgentCoreControlClient", "UpdateWorkloadIdentityCommand")
-  .sc(UpdateWorkloadIdentity$)
+  .s("AmazonBedrockAgentCoreControl", "UpdateDataset", {})
+  .n("BedrockAgentCoreControlClient", "UpdateDatasetCommand")
+  .sc(UpdateDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateWorkloadIdentityRequest;
-      output: UpdateWorkloadIdentityResponse;
+      input: UpdateDatasetRequest;
+      output: UpdateDatasetResponse;
     };
     sdk: {
-      input: UpdateWorkloadIdentityCommandInput;
-      output: UpdateWorkloadIdentityCommandOutput;
+      input: UpdateDatasetCommandInput;
+      output: UpdateDatasetCommandOutput;
     };
   };
 }

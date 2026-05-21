@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateGatewayTargetRequest, CreateGatewayTargetResponse } from "../models/models_1";
+import type { CreateGatewayTargetRequest, CreateGatewayTargetResponse } from "../models/models_2";
 import { CreateGatewayTarget$ } from "../schemas/schemas_0";
 
 /**

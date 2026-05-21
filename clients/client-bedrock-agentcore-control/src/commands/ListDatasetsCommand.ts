@@ -9,9 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListWorkloadIdentitiesRequest } from "../models/models_1";
-import type { ListWorkloadIdentitiesResponse } from "../models/models_2";
-import { ListWorkloadIdentities$ } from "../schemas/schemas_0";
+import type { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
+import { ListDatasets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -21,37 +20,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListWorkloadIdentitiesCommand}.
+ * The input for {@link ListDatasetsCommand}.
  */
-export interface ListWorkloadIdentitiesCommandInput extends ListWorkloadIdentitiesRequest {}
+export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 /**
  * @public
  *
- * The output of {@link ListWorkloadIdentitiesCommand}.
+ * The output of {@link ListDatasetsCommand}.
  */
-export interface ListWorkloadIdentitiesCommandOutput extends ListWorkloadIdentitiesResponse, __MetadataBearer {}
+export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all workload identities in your account.</p>
+ * Lists all datasets in the caller's account, paginated. No presigned URLs in list results.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentCoreControlClient, ListWorkloadIdentitiesCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
- * // const { BedrockAgentCoreControlClient, ListWorkloadIdentitiesCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
+ * import { BedrockAgentCoreControlClient, ListDatasetsCommand } from "@aws-sdk/client-bedrock-agentcore-control"; // ES Modules import
+ * // const { BedrockAgentCoreControlClient, ListDatasetsCommand } = require("@aws-sdk/client-bedrock-agentcore-control"); // CommonJS import
  * // import type { BedrockAgentCoreControlClientConfig } from "@aws-sdk/client-bedrock-agentcore-control";
  * const config = {}; // type is BedrockAgentCoreControlClientConfig
  * const client = new BedrockAgentCoreControlClient(config);
- * const input = { // ListWorkloadIdentitiesRequest
+ * const input = { // ListDatasetsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListWorkloadIdentitiesCommand(input);
+ * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * // { // ListWorkloadIdentitiesResponse
- * //   workloadIdentities: [ // WorkloadIdentityList // required
- * //     { // WorkloadIdentityType
- * //       name: "STRING_VALUE", // required
- * //       workloadIdentityArn: "STRING_VALUE", // required
+ * // { // ListDatasetsResponse
+ * //   datasets: [ // DatasetSummaryList // required
+ * //     { // DatasetSummary
+ * //       datasetArn: "STRING_VALUE", // required
+ * //       datasetId: "STRING_VALUE", // required
+ * //       datasetName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //       draftStatus: "MODIFIED" || "UNMODIFIED",
+ * //       schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1", // required
+ * //       exampleCount: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -59,10 +66,10 @@ export interface ListWorkloadIdentitiesCommandOutput extends ListWorkloadIdentit
  *
  * ```
  *
- * @param ListWorkloadIdentitiesCommandInput - {@link ListWorkloadIdentitiesCommandInput}
- * @returns {@link ListWorkloadIdentitiesCommandOutput}
- * @see {@link ListWorkloadIdentitiesCommandInput} for command's `input` shape.
- * @see {@link ListWorkloadIdentitiesCommandOutput} for command's `response` shape.
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
+ * @see {@link ListDatasetsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentCoreControlClientResolvedConfig | config} for BedrockAgentCoreControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,14 +78,8 @@ export interface ListWorkloadIdentitiesCommandOutput extends ListWorkloadIdentit
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown if there was an unexpected error during processing of request</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
- *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
@@ -89,10 +90,10 @@ export interface ListWorkloadIdentitiesCommandOutput extends ListWorkloadIdentit
  *
  * @public
  */
-export class ListWorkloadIdentitiesCommand extends $Command
+export class ListDatasetsCommand extends $Command
   .classBuilder<
-    ListWorkloadIdentitiesCommandInput,
-    ListWorkloadIdentitiesCommandOutput,
+    ListDatasetsCommandInput,
+    ListDatasetsCommandOutput,
     BedrockAgentCoreControlClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,19 +102,19 @@ export class ListWorkloadIdentitiesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonBedrockAgentCoreControl", "ListWorkloadIdentities", {})
-  .n("BedrockAgentCoreControlClient", "ListWorkloadIdentitiesCommand")
-  .sc(ListWorkloadIdentities$)
+  .s("AmazonBedrockAgentCoreControl", "ListDatasets", {})
+  .n("BedrockAgentCoreControlClient", "ListDatasetsCommand")
+  .sc(ListDatasets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListWorkloadIdentitiesRequest;
-      output: ListWorkloadIdentitiesResponse;
+      input: ListDatasetsRequest;
+      output: ListDatasetsResponse;
     };
     sdk: {
-      input: ListWorkloadIdentitiesCommandInput;
-      output: ListWorkloadIdentitiesCommandOutput;
+      input: ListDatasetsCommandInput;
+      output: ListDatasetsCommandOutput;
     };
   };
 }

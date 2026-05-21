@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AddDatasetExamplesCommandInput,
+  AddDatasetExamplesCommandOutput,
+} from "./commands/AddDatasetExamplesCommand";
+import type {
   CreateAgentRuntimeCommandInput,
   CreateAgentRuntimeCommandOutput,
 } from "./commands/CreateAgentRuntimeCommand";
@@ -79,6 +83,11 @@ import type {
   CreateConfigurationBundleCommandInput,
   CreateConfigurationBundleCommandOutput,
 } from "./commands/CreateConfigurationBundleCommand";
+import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
+  CreateDatasetVersionCommandInput,
+  CreateDatasetVersionCommandOutput,
+} from "./commands/CreateDatasetVersionCommand";
 import type { CreateEvaluatorCommandInput, CreateEvaluatorCommandOutput } from "./commands/CreateEvaluatorCommand";
 import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
 import type {
@@ -150,6 +159,11 @@ import type {
   DeleteConfigurationBundleCommandInput,
   DeleteConfigurationBundleCommandOutput,
 } from "./commands/DeleteConfigurationBundleCommand";
+import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import type {
+  DeleteDatasetExamplesCommandInput,
+  DeleteDatasetExamplesCommandOutput,
+} from "./commands/DeleteDatasetExamplesCommand";
 import type { DeleteEvaluatorCommandInput, DeleteEvaluatorCommandOutput } from "./commands/DeleteEvaluatorCommand";
 import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import type {
@@ -226,6 +240,7 @@ import type {
   GetConfigurationBundleVersionCommandInput,
   GetConfigurationBundleVersionCommandOutput,
 } from "./commands/GetConfigurationBundleVersionCommand";
+import type { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import type { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
 import type { GetGatewayRuleCommandInput, GetGatewayRuleCommandOutput } from "./commands/GetGatewayRuleCommand";
@@ -314,6 +329,15 @@ import type {
   ListConfigurationBundleVersionsCommandInput,
   ListConfigurationBundleVersionsCommandOutput,
 } from "./commands/ListConfigurationBundleVersionsCommand";
+import type {
+  ListDatasetExamplesCommandInput,
+  ListDatasetExamplesCommandOutput,
+} from "./commands/ListDatasetExamplesCommand";
+import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
+  ListDatasetVersionsCommandInput,
+  ListDatasetVersionsCommandOutput,
+} from "./commands/ListDatasetVersionsCommand";
 import type { ListEvaluatorsCommandInput, ListEvaluatorsCommandOutput } from "./commands/ListEvaluatorsCommand";
 import type { ListGatewayRulesCommandInput, ListGatewayRulesCommandOutput } from "./commands/ListGatewayRulesCommand";
 import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
@@ -416,6 +440,11 @@ import type {
   UpdateConfigurationBundleCommandInput,
   UpdateConfigurationBundleCommandOutput,
 } from "./commands/UpdateConfigurationBundleCommand";
+import type { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
+import type {
+  UpdateDatasetExamplesCommandInput,
+  UpdateDatasetExamplesCommandOutput,
+} from "./commands/UpdateDatasetExamplesCommand";
 import type { UpdateEvaluatorCommandInput, UpdateEvaluatorCommandOutput } from "./commands/UpdateEvaluatorCommand";
 import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
 import type {
@@ -481,6 +510,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AddDatasetExamplesCommandInput
   | CreateAgentRuntimeCommandInput
   | CreateAgentRuntimeEndpointCommandInput
   | CreateApiKeyCredentialProviderCommandInput
@@ -488,6 +518,8 @@ export type ServiceInputTypes =
   | CreateBrowserProfileCommandInput
   | CreateCodeInterpreterCommandInput
   | CreateConfigurationBundleCommandInput
+  | CreateDatasetCommandInput
+  | CreateDatasetVersionCommandInput
   | CreateEvaluatorCommandInput
   | CreateGatewayCommandInput
   | CreateGatewayRuleCommandInput
@@ -511,6 +543,8 @@ export type ServiceInputTypes =
   | DeleteBrowserProfileCommandInput
   | DeleteCodeInterpreterCommandInput
   | DeleteConfigurationBundleCommandInput
+  | DeleteDatasetCommandInput
+  | DeleteDatasetExamplesCommandInput
   | DeleteEvaluatorCommandInput
   | DeleteGatewayCommandInput
   | DeleteGatewayRuleCommandInput
@@ -536,6 +570,7 @@ export type ServiceInputTypes =
   | GetCodeInterpreterCommandInput
   | GetConfigurationBundleCommandInput
   | GetConfigurationBundleVersionCommandInput
+  | GetDatasetCommandInput
   | GetEvaluatorCommandInput
   | GetGatewayCommandInput
   | GetGatewayRuleCommandInput
@@ -567,6 +602,9 @@ export type ServiceInputTypes =
   | ListCodeInterpretersCommandInput
   | ListConfigurationBundleVersionsCommandInput
   | ListConfigurationBundlesCommandInput
+  | ListDatasetExamplesCommandInput
+  | ListDatasetVersionsCommandInput
+  | ListDatasetsCommandInput
   | ListEvaluatorsCommandInput
   | ListGatewayRulesCommandInput
   | ListGatewayTargetsCommandInput
@@ -600,6 +638,8 @@ export type ServiceInputTypes =
   | UpdateAgentRuntimeEndpointCommandInput
   | UpdateApiKeyCredentialProviderCommandInput
   | UpdateConfigurationBundleCommandInput
+  | UpdateDatasetCommandInput
+  | UpdateDatasetExamplesCommandInput
   | UpdateEvaluatorCommandInput
   | UpdateGatewayCommandInput
   | UpdateGatewayRuleCommandInput
@@ -622,6 +662,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AddDatasetExamplesCommandOutput
   | CreateAgentRuntimeCommandOutput
   | CreateAgentRuntimeEndpointCommandOutput
   | CreateApiKeyCredentialProviderCommandOutput
@@ -629,6 +670,8 @@ export type ServiceOutputTypes =
   | CreateBrowserProfileCommandOutput
   | CreateCodeInterpreterCommandOutput
   | CreateConfigurationBundleCommandOutput
+  | CreateDatasetCommandOutput
+  | CreateDatasetVersionCommandOutput
   | CreateEvaluatorCommandOutput
   | CreateGatewayCommandOutput
   | CreateGatewayRuleCommandOutput
@@ -652,6 +695,8 @@ export type ServiceOutputTypes =
   | DeleteBrowserProfileCommandOutput
   | DeleteCodeInterpreterCommandOutput
   | DeleteConfigurationBundleCommandOutput
+  | DeleteDatasetCommandOutput
+  | DeleteDatasetExamplesCommandOutput
   | DeleteEvaluatorCommandOutput
   | DeleteGatewayCommandOutput
   | DeleteGatewayRuleCommandOutput
@@ -677,6 +722,7 @@ export type ServiceOutputTypes =
   | GetCodeInterpreterCommandOutput
   | GetConfigurationBundleCommandOutput
   | GetConfigurationBundleVersionCommandOutput
+  | GetDatasetCommandOutput
   | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
   | GetGatewayRuleCommandOutput
@@ -708,6 +754,9 @@ export type ServiceOutputTypes =
   | ListCodeInterpretersCommandOutput
   | ListConfigurationBundleVersionsCommandOutput
   | ListConfigurationBundlesCommandOutput
+  | ListDatasetExamplesCommandOutput
+  | ListDatasetVersionsCommandOutput
+  | ListDatasetsCommandOutput
   | ListEvaluatorsCommandOutput
   | ListGatewayRulesCommandOutput
   | ListGatewayTargetsCommandOutput
@@ -741,6 +790,8 @@ export type ServiceOutputTypes =
   | UpdateAgentRuntimeEndpointCommandOutput
   | UpdateApiKeyCredentialProviderCommandOutput
   | UpdateConfigurationBundleCommandOutput
+  | UpdateDatasetCommandOutput
+  | UpdateDatasetExamplesCommandOutput
   | UpdateEvaluatorCommandOutput
   | UpdateGatewayCommandOutput
   | UpdateGatewayRuleCommandOutput
