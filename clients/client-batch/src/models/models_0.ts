@@ -711,11 +711,16 @@ export interface ComputeResource {
 
   /**
    * <p>The allocation strategy to use for the compute resource if not enough instances of the best
-   *    fitting instance type can be allocated. This might be because of availability of the instance
-   *    type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more
-   *    information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p>
+   *  fitting instance type can be allocated. This might be because of availability of the instance
+   *  type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more
+   *  information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
+   *          </note>
+   *          <note>
+   *             <p>This parameter is required for Amazon EKS compute environments. For Amazon ECS compute environments,
+   *      if this parameter isn't specified, the <code>BEST_FIT</code> allocation strategy is used by
+   *      default.</p>
    *          </note>
    *          <dl>
    *             <dt>BEST_FIT (default)</dt>
@@ -1073,7 +1078,9 @@ export interface CreateComputeEnvironmentRequest {
   type: CEType | undefined;
 
   /**
-   * <p>The state of the compute environment. If the state is <code>ENABLED</code>, then the
+   * <p>The state of the compute environment. A compute environment must be created in the
+   *       <code>ENABLED</code> state.</p>
+   *          <p>If the state is <code>ENABLED</code>, then the
    *       compute environment accepts jobs from a queue and can scale out automatically based on
    *       queues.</p>
    *          <p>If the state is <code>ENABLED</code>, then the Batch scheduler can attempt to place jobs
@@ -1126,6 +1133,9 @@ export interface CreateComputeEnvironmentRequest {
    *         default for your compute environment unless you specify a different role here. If the
    *         Batch service-linked role doesn't exist in your account, and no role is specified here,
    *         the service attempts to create the Batch service-linked role in your account.</p>
+   *             <p>This automatic service-linked role creation only applies to <code>MANAGED</code> compute
+   *         environments. For <code>UNMANAGED</code> compute environments, you must explicitly specify a
+   *         <code>serviceRole</code>.</p>
    *          </important>
    *          <p>If your specified role has a path other than <code>/</code>, then you must specify either
    *       the full role ARN (recommended) or prefix the role name with the path. For example, if a
@@ -9243,13 +9253,13 @@ export interface ComputeResourceUpdate {
 
   /**
    * <p>The allocation strategy to use for the compute resource if there's not enough instances of
-   *    the best fitting instance type that can be allocated. This might be because of availability of
-   *    the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more
-   *    information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p>
+   *  the best fitting instance type that can be allocated. This might be because of availability of
+   *  the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more
+   *  information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p>
    *          <p>When updating a compute environment, changing the allocation strategy requires an
-   *    infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute
-   *     environments</a> in the <i>Batch User Guide</i>. <code>BEST_FIT</code> isn't
-   *    supported when updating a compute environment.</p>
+   *  infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute
+   *  environments</a> in the <i>Batch User Guide</i>. <code>BEST_FIT</code> isn't
+   *  supported when updating a compute environment.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
    *          </note>
