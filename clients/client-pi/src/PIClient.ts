@@ -91,6 +91,10 @@ import type {
   ListAvailableResourceMetricsCommandOutput,
 } from "./commands/ListAvailableResourceMetricsCommand";
 import type {
+  ListPerformanceAnalysisReportRecommendationsCommandInput,
+  ListPerformanceAnalysisReportRecommendationsCommandOutput,
+} from "./commands/ListPerformanceAnalysisReportRecommendationsCommand";
+import type {
   ListPerformanceAnalysisReportsCommandInput,
   ListPerformanceAnalysisReportsCommandOutput,
 } from "./commands/ListPerformanceAnalysisReportsCommand";
@@ -124,6 +128,7 @@ export type ServiceInputTypes =
   | GetResourceMetricsCommandInput
   | ListAvailableResourceDimensionsCommandInput
   | ListAvailableResourceMetricsCommandInput
+  | ListPerformanceAnalysisReportRecommendationsCommandInput
   | ListPerformanceAnalysisReportsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
@@ -142,6 +147,7 @@ export type ServiceOutputTypes =
   | GetResourceMetricsCommandOutput
   | ListAvailableResourceDimensionsCommandOutput
   | ListAvailableResourceMetricsCommandOutput
+  | ListPerformanceAnalysisReportRecommendationsCommandOutput
   | ListPerformanceAnalysisReportsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput

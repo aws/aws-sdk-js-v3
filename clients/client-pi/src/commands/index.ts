@@ -8,6 +8,7 @@ export * from "./GetResourceMetadataCommand";
 export * from "./GetResourceMetricsCommand";
 export * from "./ListAvailableResourceDimensionsCommand";
 export * from "./ListAvailableResourceMetricsCommand";
+export * from "./ListPerformanceAnalysisReportRecommendationsCommand";
 export * from "./ListPerformanceAnalysisReportsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./TagResourceCommand";

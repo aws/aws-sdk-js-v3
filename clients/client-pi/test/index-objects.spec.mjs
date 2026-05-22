@@ -56,6 +56,10 @@ import {
   ListAvailableResourceMetricsCommand,
   ListAvailableResourceMetricsRequest$,
   ListAvailableResourceMetricsResponse$,
+  ListPerformanceAnalysisReportRecommendations$,
+  ListPerformanceAnalysisReportRecommendationsCommand,
+  ListPerformanceAnalysisReportRecommendationsRequest$,
+  ListPerformanceAnalysisReportRecommendationsResponse$,
   ListPerformanceAnalysisReports$,
   ListPerformanceAnalysisReportsCommand,
   ListPerformanceAnalysisReportsRequest$,
@@ -73,6 +77,7 @@ import {
   paginateGetResourceMetrics,
   paginateListAvailableResourceDimensions,
   paginateListAvailableResourceMetrics,
+  paginateListPerformanceAnalysisReportRecommendations,
   paginateListPerformanceAnalysisReports,
   PerformanceInsightsMetric$,
   PeriodAlignment,
@@ -119,6 +124,8 @@ assert(typeof ListAvailableResourceDimensionsCommand === "function");
 assert(typeof ListAvailableResourceDimensions$ === "object");
 assert(typeof ListAvailableResourceMetricsCommand === "function");
 assert(typeof ListAvailableResourceMetrics$ === "object");
+assert(typeof ListPerformanceAnalysisReportRecommendationsCommand === "function");
+assert(typeof ListPerformanceAnalysisReportRecommendations$ === "object");
 assert(typeof ListPerformanceAnalysisReportsCommand === "function");
 assert(typeof ListPerformanceAnalysisReports$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -157,6 +164,8 @@ assert(typeof ListAvailableResourceDimensionsRequest$ === "object");
 assert(typeof ListAvailableResourceDimensionsResponse$ === "object");
 assert(typeof ListAvailableResourceMetricsRequest$ === "object");
 assert(typeof ListAvailableResourceMetricsResponse$ === "object");
+assert(typeof ListPerformanceAnalysisReportRecommendationsRequest$ === "object");
+assert(typeof ListPerformanceAnalysisReportRecommendationsResponse$ === "object");
 assert(typeof ListPerformanceAnalysisReportsRequest$ === "object");
 assert(typeof ListPerformanceAnalysisReportsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -198,5 +207,6 @@ assert(typeof paginateDescribeDimensionKeys === "function");
 assert(typeof paginateGetResourceMetrics === "function");
 assert(typeof paginateListAvailableResourceDimensions === "function");
 assert(typeof paginateListAvailableResourceMetrics === "function");
+assert(typeof paginateListPerformanceAnalysisReportRecommendations === "function");
 assert(typeof paginateListPerformanceAnalysisReports === "function");
 console.log(`PI index test passed.`);

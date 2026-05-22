@@ -79,7 +79,10 @@ const _LARMR = "ListAvailableResourceMetricsRequest";
 const _LARMRi = "ListAvailableResourceMetricsResponse";
 const _LPAR = "ListPerformanceAnalysisReports";
 const _LPARR = "ListPerformanceAnalysisReportsRequest";
+const _LPARRR = "ListPerformanceAnalysisReportRecommendationsRequest";
+const _LPARRRi = "ListPerformanceAnalysisReportRecommendationsResponse";
 const _LPARRi = "ListPerformanceAnalysisReportsResponse";
+const _LPARRis = "ListPerformanceAnalysisReportRecommendations";
 const _LT = "ListTags";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
@@ -111,7 +114,9 @@ const _R = "Recommendations";
 const _RARN = "ResourceARN";
 const _RD = "RequestedDimensions";
 const _RDe = "RecommendationDescription";
-const _RI = "RecommendationId";
+const _RDec = "RecommendationDetails";
+const _RI = "RecommendationIds";
+const _RIe = "RecommendationId";
 const _RL = "RecommendationList";
 const _RPK = "ResponsePartitionKey";
 const _RPKL = "ResponsePartitionKeyList";
@@ -205,7 +210,7 @@ export var AnalysisReportSummary$: StaticStructureSchema = [3, n0, _ARS,
 export var CreatePerformanceAnalysisReportRequest$: StaticStructureSchema = [3, n0, _CPARR,
   0,
   [_ST, _I, _STt, _ET, _T],
-  [0, 0, 4, 4, () => TagList], 4
+  [0, 0, 4, 4, () => TagList], 3
 ];
 export var CreatePerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0, _CPARRr,
   0,
@@ -337,6 +342,16 @@ export var ListAvailableResourceMetricsResponse$: StaticStructureSchema = [3, n0
   [_Met, _NT],
   [() => ResponseResourceMetricList, 0]
 ];
+export var ListPerformanceAnalysisReportRecommendationsRequest$: StaticStructureSchema = [3, n0, _LPARRR,
+  0,
+  [_ST, _I, _ARI, _RI, _MR, _NT],
+  [0, 0, 0, 64 | 0, 1, 0], 3
+];
+export var ListPerformanceAnalysisReportRecommendationsResponse$: StaticStructureSchema = [3, n0, _LPARRRi,
+  0,
+  [_R, _NT],
+  [[() => RecommendationList, 0], 0]
+];
 export var ListPerformanceAnalysisReportsRequest$: StaticStructureSchema = [3, n0, _LPARR,
   0,
   [_ST, _I, _NT, _MR, _LT],
@@ -379,8 +394,8 @@ export var PerformanceInsightsMetric$: StaticStructureSchema = [3, n0, _PIM,
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _Re,
   0,
-  [_RI, _RDe],
-  [0, [() => MarkdownString, 0]]
+  [_RIe, _RDe, _RDec],
+  [0, [() => MarkdownString, 0], [() => MarkdownString, 0]]
 ];
 export var ResponsePartitionKey$: StaticStructureSchema = [3, n0, _RPK,
   0,
@@ -461,6 +476,7 @@ var MetricQueryList: StaticListSchema = [1, n0, _MQL,
 ];
 var MetricTypeList = 64 | 0;
 var MetricValuesList = 64 | 1;
+var RecommendationIdList = 64 | 0;
 var RecommendationList: StaticListSchema = [1, n0, _RL,
   0, [() => Recommendation$,
     0]
@@ -510,6 +526,9 @@ export var ListAvailableResourceDimensions$: StaticOperationSchema = [9, n0, _LA
 ];
 export var ListAvailableResourceMetrics$: StaticOperationSchema = [9, n0, _LARM,
   0, () => ListAvailableResourceMetricsRequest$, () => ListAvailableResourceMetricsResponse$
+];
+export var ListPerformanceAnalysisReportRecommendations$: StaticOperationSchema = [9, n0, _LPARRis,
+  0, () => ListPerformanceAnalysisReportRecommendationsRequest$, () => ListPerformanceAnalysisReportRecommendationsResponse$
 ];
 export var ListPerformanceAnalysisReports$: StaticOperationSchema = [9, n0, _LPAR,
   0, () => ListPerformanceAnalysisReportsRequest$, () => ListPerformanceAnalysisReportsResponse$

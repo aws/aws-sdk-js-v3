@@ -84,6 +84,12 @@ export interface Recommendation {
    * @public
    */
   RecommendationDescription?: string | undefined;
+
+  /**
+   * <p>Detailed information about the recommendation, including steps to resolve the performance issue.</p>
+   * @public
+   */
+  RecommendationDetails?: string | undefined;
 }
 
 /**
@@ -181,7 +187,7 @@ export interface CreatePerformanceAnalysisReportRequest {
    * <p>The end time defined for the analysis report.</p>
    * @public
    */
-  EndTime: Date | undefined;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The metadata assigned to the analysis report consisting of a key-value pair.</p>
@@ -1611,6 +1617,76 @@ export interface ListAvailableResourceMetricsResponse {
   /**
    * <p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the
    *             previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPerformanceAnalysisReportRecommendationsRequest {
+  /**
+   * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is
+   *             <code>RDS</code>.</p>
+   * @public
+   */
+  ServiceType: ServiceType | undefined;
+
+  /**
+   * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the
+   *             console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is
+   *             returned as <code>DbiResourceId</code>.</p>
+   *          <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify
+   *             <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>A unique identifier of the created analysis report. For example,
+   *             <code>report-12345678901234567</code>
+   *          </p>
+   * @public
+   */
+  AnalysisReportId: string | undefined;
+
+  /**
+   * <p>A list of recommendation identifiers to filter the results.</p>
+   * @public
+   */
+  RecommendationIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxResults</code> value, a
+   *             pagination token is included in the response so that the remaining results can be retrieved. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes only records beyond
+   *             the token, up to the value specified by <code>MaxResults</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPerformanceAnalysisReportRecommendationsResponse {
+  /**
+   * <p>The list of recommendations for the analysis report.</p>
+   * @public
+   */
+  Recommendations?: Recommendation[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes only records beyond the token,
+   *             up to the value specified by <code>MaxResults</code>.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -268,6 +268,13 @@ ListAvailableResourceMetrics
 </details>
 <details>
 <summary>
+ListPerformanceAnalysisReportRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pi/command/ListPerformanceAnalysisReportRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListPerformanceAnalysisReportRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pi/Interface/ListPerformanceAnalysisReportRecommendationsCommandOutput/)
+</details>
+<details>
+<summary>
 ListPerformanceAnalysisReports
 </summary>
 

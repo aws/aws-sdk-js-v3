@@ -44,7 +44,7 @@ export interface CreatePerformanceAnalysisReportCommandOutput extends CreatePerf
  *   ServiceType: "RDS" || "DOCDB", // required
  *   Identifier: "STRING_VALUE", // required
  *   StartTime: new Date("TIMESTAMP"), // required
- *   EndTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"),
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

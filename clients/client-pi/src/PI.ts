@@ -48,6 +48,11 @@ import {
   ListAvailableResourceMetricsCommand,
 } from "./commands/ListAvailableResourceMetricsCommand";
 import {
+  type ListPerformanceAnalysisReportRecommendationsCommandInput,
+  type ListPerformanceAnalysisReportRecommendationsCommandOutput,
+  ListPerformanceAnalysisReportRecommendationsCommand,
+} from "./commands/ListPerformanceAnalysisReportRecommendationsCommand";
+import {
   type ListPerformanceAnalysisReportsCommandInput,
   type ListPerformanceAnalysisReportsCommandOutput,
   ListPerformanceAnalysisReportsCommand,
@@ -71,6 +76,9 @@ import { paginateDescribeDimensionKeys } from "./pagination/DescribeDimensionKey
 import { paginateGetResourceMetrics } from "./pagination/GetResourceMetricsPaginator";
 import { paginateListAvailableResourceDimensions } from "./pagination/ListAvailableResourceDimensionsPaginator";
 import { paginateListAvailableResourceMetrics } from "./pagination/ListAvailableResourceMetricsPaginator";
+import {
+  paginateListPerformanceAnalysisReportRecommendations,
+} from "./pagination/ListPerformanceAnalysisReportRecommendationsPaginator";
 import { paginateListPerformanceAnalysisReports } from "./pagination/ListPerformanceAnalysisReportsPaginator";
 import { PIClient } from "./PIClient";
 
@@ -84,6 +92,7 @@ const commands = {
   GetResourceMetricsCommand,
   ListAvailableResourceDimensionsCommand,
   ListAvailableResourceMetricsCommand,
+  ListPerformanceAnalysisReportRecommendationsCommand,
   ListPerformanceAnalysisReportsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
@@ -94,6 +103,7 @@ const paginators = {
   paginateGetResourceMetrics,
   paginateListAvailableResourceDimensions,
   paginateListAvailableResourceMetrics,
+  paginateListPerformanceAnalysisReportRecommendations,
   paginateListPerformanceAnalysisReports,
 };
 
@@ -252,6 +262,23 @@ export interface PI {
   ): void;
 
   /**
+   * @see {@link ListPerformanceAnalysisReportRecommendationsCommand}
+   */
+  listPerformanceAnalysisReportRecommendations(
+    args: ListPerformanceAnalysisReportRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPerformanceAnalysisReportRecommendationsCommandOutput>;
+  listPerformanceAnalysisReportRecommendations(
+    args: ListPerformanceAnalysisReportRecommendationsCommandInput,
+    cb: (err: any, data?: ListPerformanceAnalysisReportRecommendationsCommandOutput) => void
+  ): void;
+  listPerformanceAnalysisReportRecommendations(
+    args: ListPerformanceAnalysisReportRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPerformanceAnalysisReportRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPerformanceAnalysisReportsCommand}
    */
   listPerformanceAnalysisReports(
@@ -362,6 +389,17 @@ export interface PI {
     args: ListAvailableResourceMetricsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAvailableResourceMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListPerformanceAnalysisReportRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPerformanceAnalysisReportRecommendationsCommandOutput}.
+   */
+  paginateListPerformanceAnalysisReportRecommendations(
+    args: ListPerformanceAnalysisReportRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPerformanceAnalysisReportRecommendationsCommandOutput>;
 
   /**
    * @see {@link ListPerformanceAnalysisReportsCommand}

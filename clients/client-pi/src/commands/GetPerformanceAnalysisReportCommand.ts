@@ -79,6 +79,7 @@ export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanc
  * //               { // Recommendation
  * //                 RecommendationId: "STRING_VALUE",
  * //                 RecommendationDescription: "STRING_VALUE",
+ * //                 RecommendationDetails: "STRING_VALUE",
  * //               },
  * //             ],
  * //             InsightData: [ // DataList
@@ -118,6 +119,7 @@ export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanc
  * //           {
  * //             RecommendationId: "STRING_VALUE",
  * //             RecommendationDescription: "STRING_VALUE",
+ * //             RecommendationDetails: "STRING_VALUE",
  * //           },
  * //         ],
  * //         InsightData: [
