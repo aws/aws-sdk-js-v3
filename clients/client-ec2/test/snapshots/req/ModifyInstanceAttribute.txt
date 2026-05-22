@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 1225
+content-length: 1254
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 291223e1d9c1965d255a721ac0650e349c7ab75a9c668866d9dd3e2b75360ad5
+x-amz-content-sha256: 2bf586768071a81d7ba2c663b56f30d0c4fdd24898f392f6a0b193c596cffd9f
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -17,6 +17,7 @@ Action=ModifyInstanceAttribute&
 Version=2016-11-15&
 InstanceId=__InstanceId__&
 SourceDestCheck.Value=false&
+EnclaveOptions.Enabled=false&
 DisableApiStop.Value=false&
 DryRun=false&
 Attribute=__Attribute__&

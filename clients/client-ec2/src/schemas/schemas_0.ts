@@ -20193,9 +20193,9 @@ export var ModifyImageAttributeRequest$: StaticStructureSchema = [3, n0, _MIAR,
 ];
 export var ModifyInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _MIARo,
   0,
-  [_II, _SDC, _DASi, _DR, _At, _V, _BDMl, _DAT, _IT, _Ke, _Ra, _UDs, _IISB, _G, _EO, _SNS, _ESna],
+  [_II, _SDC, _EOn, _DASi, _DR, _At, _V, _BDMl, _DAT, _IT, _Ke, _Ra, _UDs, _IISB, _G, _EO, _SNS, _ESna],
   [[0, { [_eQN]: `InstanceId`
-  , [_xN]: _iI }], [() => AttributeBooleanValue$, 0], [() => AttributeBooleanValue$, 0], [2, { [_eQN]: `DryRun`
+  , [_xN]: _iI }], [() => AttributeBooleanValue$, 0], () => EnclaveOptionsRequest$, [() => AttributeBooleanValue$, 0], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `Attribute`
   , [_xN]: _att }], [() => ModifyInstanceAttributeValue, { [_eQN]: `Value`
   , [_xN]: _v }], [() => InstanceBlockDeviceMappingSpecificationList, { [_eQN]: `BlockDeviceMapping`

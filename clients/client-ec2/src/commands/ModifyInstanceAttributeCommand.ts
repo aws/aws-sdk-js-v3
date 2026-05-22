@@ -50,6 +50,9 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *   SourceDestCheck: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
+ *   EnclaveOptions: { // EnclaveOptionsRequest
+ *     Enabled: true || false,
+ *   },
  *   DisableApiStop: {
  *     Value: true || false,
  *   },

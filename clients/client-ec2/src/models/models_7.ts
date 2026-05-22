@@ -36,6 +36,7 @@ import type {
   NestedVirtualizationSpecification,
   OperationType,
   PayerResponsibility,
+  PublicIpDnsOption,
   ReportInstanceReasonCodes,
   ReportStatusType,
   ResetFpgaImageAttributeName,
@@ -159,7 +160,46 @@ import type {
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
-import type { CapacityReservationSpecification, Purchase } from "./models_6";
+import type { CapacityReservationSpecification, EnclaveOptionsRequest, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyPublicIpDnsNameOptionsRequest {
+  /**
+   * <p>A network interface ID.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The public hostname type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>public-dual-stack-dns-name</code>: A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public-ipv4-dns-name</code>: An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public-ipv6-dns-name</code>: An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HostnameType: PublicIpDnsOption | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -6544,22 +6584,6 @@ export interface ElasticInferenceAccelerator {
    * @public
    */
   Count?: number | undefined;
-}
-
-/**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
- *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
- *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
- *                 Guide</i>.</p>
- * @public
- */
-export interface EnclaveOptionsRequest {
-  /**
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
-   *                 <code>true</code>.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
 }
 
 /**
