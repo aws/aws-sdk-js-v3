@@ -83,6 +83,17 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //           label: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       verificationScript: { // VerificationScript
+ * //         scriptType: "STRING_VALUE",
+ * //         scriptUrl: "STRING_VALUE",
+ * //         instructions: "STRING_VALUE",
+ * //         envVars: [ // VerificationScriptEnvVarList
+ * //           { // VerificationScriptEnvVar
+ * //             name: "STRING_VALUE",
+ * //             value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

@@ -1835,6 +1835,54 @@ export interface CodeRemediationTask {
 }
 
 /**
+ * <p>Represents an environment variable required to run a verification script.</p>
+ * @public
+ */
+export interface VerificationScriptEnvVar {
+  /**
+   * <p>The name of the environment variable.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The value of the environment variable.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>Contains metadata for a verification script that can be used to reproduce a security finding.</p>
+ * @public
+ */
+export interface VerificationScript {
+  /**
+   * <p>The type of script. Valid values are python and bash.</p>
+   * @public
+   */
+  scriptType?: string | undefined;
+
+  /**
+   * <p>URL to download the verification script.</p>
+   * @public
+   */
+  scriptUrl?: string | undefined;
+
+  /**
+   * <p>Instructions for running the verification script, including prerequisites and how to interpret results.</p>
+   * @public
+   */
+  instructions?: string | undefined;
+
+  /**
+   * <p>The list of environment variables required to run the verification script.</p>
+   * @public
+   */
+  envVars?: VerificationScriptEnvVar[] | undefined;
+}
+
+/**
  * <p>Represents a security finding discovered during a pentest job. A finding contains details about a vulnerability, including its risk level, confidence, and remediation status.</p>
  * @public
  */
@@ -1952,6 +2000,12 @@ export interface Finding {
    * @public
    */
   codeLocations?: CodeLocation[] | undefined;
+
+  /**
+   * <p>The verification script metadata for reproducing the finding, including download URL, instructions, and required environment variables.</p>
+   * @public
+   */
+  verificationScript?: VerificationScript | undefined;
 
   /**
    * <p>The date and time the finding was created, in UTC format.</p>

@@ -399,6 +399,8 @@ export type {
   UserMetadata,
   ValidationExceptionField,
   VerificationDetails,
+  VerificationScript,
+  VerificationScriptEnvVar,
   VerifyTargetDomainInput,
   VerifyTargetDomainOutput,
   VpcConfig,

@@ -294,6 +294,9 @@ const _VD = "VerificationDetails";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _VS = "VerificationScript";
+const _VSEV = "VerificationScriptEnvVar";
+const _VSEVL = "VerificationScriptEnvVarList";
 const _VTD = "VerifyTargetDomain";
 const _VTDI = "VerifyTargetDomainInput";
 const _VTDO = "VerifyTargetDomainOutput";
@@ -367,6 +370,7 @@ const _eI = "errorInformation";
 const _eP = "excludePaths";
 const _eRT = "excludeRiskTypes";
 const _eS = "executionStatus";
+const _eV = "envVars";
 const _ef = "effect";
 const _em = "email";
 const _en = "endpoints";
@@ -400,6 +404,7 @@ const _iRS = "integratedResourceSummaries";
 const _iRa = "iamRoles";
 const _iS = "integrationSummaries";
 const _in = "input";
+const _ins = "instructions";
 const _it = "items";
 const _kKI = "kmsKeyId";
 const _l = "label";
@@ -472,6 +477,8 @@ const _sL = "s3Location";
 const _sN = "stepName";
 const _sR = "statusReason";
 const _sRe = "serviceRole";
+const _sT = "scriptType";
+const _sU = "scriptUrl";
 const _se = "server";
 const _st = "status";
 const _sta = "state";
@@ -507,6 +514,7 @@ const _vD = "verificationDetails";
 const _vM = "verificationMethod";
 const _vS = "verificationStatus";
 const _vSR = "verificationStatusReason";
+const _vSe = "verificationScript";
 const _vp = "vpcs";
 const n0 = "com.amazonaws.securityagent";
 
@@ -993,8 +1001,8 @@ export var ExecutionContext$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fIi, _aSI, _pIe, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _st, _rT, _rL, _rS, _re, _conf, _aSt, _cRT, _lUB, _cL, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, () => CodeLocationList, 5, 5], 2
+  [_fIi, _aSI, _pIe, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _st, _rT, _rL, _rS, _re, _conf, _aSt, _cRT, _lUB, _cL, _vSe, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, () => CodeLocationList, () => VerificationScript$, 5, 5], 2
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
@@ -1481,6 +1489,16 @@ export var VerificationDetails$: StaticStructureSchema = [3, n0, _VD,
   [_met, _dT, _hR],
   [0, () => DnsVerification$, () => HttpVerification$]
 ];
+export var VerificationScript$: StaticStructureSchema = [3, n0, _VS,
+  0,
+  [_sT, _sU, _ins, _eV],
+  [0, 0, 0, () => VerificationScriptEnvVarList]
+];
+export var VerificationScriptEnvVar$: StaticStructureSchema = [3, n0, _VSEV,
+  0,
+  [_n, _v],
+  [0, 0]
+];
 export var VerifyTargetDomainInput$: StaticStructureSchema = [3, n0, _VTDI,
   0,
   [_tDIa],
@@ -1638,6 +1656,9 @@ var TaskSummaryList: StaticListSchema = [1, n0, _TSL,
 var UriList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
+];
+var VerificationScriptEnvVarList: StaticListSchema = [1, n0, _VSEVL,
+  0, () => VerificationScriptEnvVar$
 ];
 var VpcConfigs: StaticListSchema = [1, n0, _VCp,
   0, () => VpcConfig$

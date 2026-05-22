@@ -363,6 +363,8 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   VerificationDetails$,
+  VerificationScript$,
+  VerificationScriptEnvVar$,
   VerifyTargetDomain$,
   VerifyTargetDomainCommand,
   VerifyTargetDomainInput$,
@@ -684,6 +686,8 @@ assert(typeof UserConfig$ === "object");
 assert(typeof UserMetadata$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VerificationDetails$ === "object");
+assert(typeof VerificationScript$ === "object");
+assert(typeof VerificationScriptEnvVar$ === "object");
 assert(typeof VerifyTargetDomainInput$ === "object");
 assert(typeof VerifyTargetDomainOutput$ === "object");
 assert(typeof VpcConfig$ === "object");
