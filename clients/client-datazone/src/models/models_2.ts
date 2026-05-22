@@ -15,6 +15,7 @@ import type {
   GroupSearchType,
   InventorySearchScope,
   ManagedPolicyType,
+  NotebookRunStatus,
   NotebookStatus,
   ProjectStatus,
   RejectRuleBehavior,
@@ -61,7 +62,6 @@ import type {
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
   EnvironmentParameter,
-  FailureCause,
   FormEntryOutput,
   FormOutput,
   MatchRationaleItem,
@@ -78,7 +78,6 @@ import type {
   RuleDetail,
   RuleScope,
   RuleTarget,
-  SubscribedAsset,
   SubscribedListing,
   SubscribedPrincipal,
   TermRelations,
@@ -88,11 +87,82 @@ import type {
   DataProductListingItem,
   DataProductResultItem,
   EncryptionConfiguration,
+  FailureCause,
   GrantedEntity,
   Import,
+  SubscribedAsset,
   SubscriptionTargetForm,
   TimeSeriesDataPointFormOutput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface StopNotebookRunOutput {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostLineageEventInput {
+  /**
+   * <p>The ID of the domain where you want to post a data lineage event.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The data lineage event that you want to post. Only open-lineage run event are supported as events. </p>
+   * @public
+   */
+  event: Uint8Array | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostLineageEventOutput {
+  /**
+   * <p>The ID of the lineage event.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The ID of the domain.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+}
 
 /**
  * <p>The time series data points form.</p>

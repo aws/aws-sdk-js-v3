@@ -124,6 +124,13 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *     lakehouseProperties: { // LakehousePropertiesPatch
  *       glueLineageSyncEnabled: true || false,
  *     },
+ *     vpcProperties: { // VpcPropertiesPatch
+ *       vpcId: "STRING_VALUE",
+ *       subnetIds: [ // VpcConnectionSubnetIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroupId: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateConnectionCommand(input);
@@ -158,7 +165,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
- * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW",
+ * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC",
  * //         matchCriteria: [ // MatchCriteria
  * //           "STRING_VALUE",
  * //         ],
@@ -330,8 +337,19 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //     lakehouseProperties: { // LakehousePropertiesOutput
  * //       glueLineageSyncEnabled: true || false,
  * //     },
+ * //     vpcProperties: { // VpcPropertiesOutput
+ * //       vpcId: "STRING_VALUE", // required
+ * //       subnetIds: [ // VpcConnectionSubnetIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED", // required
+ * //       securityGroupId: "STRING_VALUE",
+ * //       glueConnectionNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
- * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW", // required
+ * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC", // required
  * //   scope: "DOMAIN" || "PROJECT",
  * // };
  *

@@ -45,7 +45,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  *   name: "STRING_VALUE",
  *   environmentIdentifier: "STRING_VALUE",
  *   projectIdentifier: "STRING_VALUE",
- *   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW",
+ *   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC",
  *   scope: "DOMAIN" || "PROJECT",
  * };
  * const command = new ListConnectionsCommand(input);
@@ -81,7 +81,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //           glueConnection: { // GlueConnection
  * //             name: "STRING_VALUE",
  * //             description: "STRING_VALUE",
- * //             connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW",
+ * //             connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC",
  * //             matchCriteria: [ // MatchCriteria
  * //               "STRING_VALUE",
  * //             ],
@@ -253,8 +253,19 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //         lakehouseProperties: { // LakehousePropertiesOutput
  * //           glueLineageSyncEnabled: true || false,
  * //         },
+ * //         vpcProperties: { // VpcPropertiesOutput
+ * //           vpcId: "STRING_VALUE", // required
+ * //           subnetIds: [ // VpcConnectionSubnetIdList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           status: "CREATING" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED" || "READY" || "UPDATING" || "UPDATE_FAILED" || "DELETED", // required
+ * //           securityGroupId: "STRING_VALUE",
+ * //           glueConnectionNames: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
- * //       type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW", // required
+ * //       type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW" || "VPC", // required
  * //       scope: "DOMAIN" || "PROJECT",
  * //     },
  * //   ],

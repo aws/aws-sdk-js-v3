@@ -51,6 +51,7 @@ import type {
   Status,
   SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
+  SubscriptionGrantStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
   TargetEntityType,
@@ -72,6 +73,7 @@ import type {
   AssetListing,
   AssetPermission,
   AssetRevision,
+  AssetScope,
   CellInformation,
   ComputeConfig,
   ConfigurableEnvironmentAction,
@@ -94,11 +96,11 @@ import type {
   EnvironmentDeploymentDetails,
   FormInput,
   FormOutput,
-  ListingRevision,
   MatchRationaleItem,
   Member,
   Model,
   NotebookError,
+  Permissions,
   PhysicalEndpoint,
   PolicyGrantDetail,
   PolicyGrantPrincipal,
@@ -110,13 +112,102 @@ import type {
   ResourceTagParameter,
   ScheduleConfiguration,
   SingleSignOn,
-  SubscribedAsset,
   SubscribedListing,
   SubscribedPrincipal,
   TermRelations,
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+ * @public
+ */
+export interface FailureCause {
+  /**
+   * <p>The description of the error message.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>The details of the asset for which the subscription grant is created.</p>
+ * @public
+ */
+export interface SubscribedAsset {
+  /**
+   * <p>The identifier of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The revision of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  assetRevision: string | undefined;
+
+  /**
+   * <p>The status of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  status: SubscriptionGrantStatus | undefined;
+
+  /**
+   * <p>The target name of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  targetName?: string | undefined;
+
+  /**
+   * <p>The failure cause included in the details of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  failureCause?: FailureCause | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription grant to the asset is created.</p>
+   * @public
+   */
+  grantedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The failure timestamp included in the details of the asset for which the subscription grant is created.</p>
+   * @public
+   */
+  failureTimestamp?: Date | undefined;
+
+  /**
+   * <p>The asset scope of the subscribed asset.</p>
+   * @public
+   */
+  assetScope?: AssetScope | undefined;
+
+  /**
+   * <p>The asset permissions.</p>
+   * @public
+   */
+  permissions?: Permissions | undefined;
+}
+
+/**
+ * <p>A revision of an asset published in a Amazon DataZone catalog.</p>
+ * @public
+ */
+export interface ListingRevision {
+  /**
+   * <p>An identifier of a revision of an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The details of a revision of an asset published in a Amazon DataZone catalog.</p>
+   * @public
+   */
+  revision: string | undefined;
+}
 
 /**
  * <p>The details of a listing for which a subscription is granted.</p>
@@ -11506,73 +11597,4 @@ export interface StopNotebookRunInput {
    * @public
    */
   clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopNotebookRunOutput {
-  /**
-   * <p>The identifier of the notebook run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook run.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The status of the notebook run.</p>
-   * @public
-   */
-  status: NotebookRunStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface PostLineageEventInput {
-  /**
-   * <p>The ID of the domain where you want to post a data lineage event.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The data lineage event that you want to post. Only open-lineage run event are supported as events. </p>
-   * @public
-   */
-  event: Uint8Array | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PostLineageEventOutput {
-  /**
-   * <p>The ID of the lineage event.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The ID of the domain.</p>
-   * @public
-   */
-  domainId?: string | undefined;
 }

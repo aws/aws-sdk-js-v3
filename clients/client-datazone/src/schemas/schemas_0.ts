@@ -1053,6 +1053,9 @@ const _UUP = "UpdateUserProfile";
 const _UUPI = "UpdateUserProfileInput";
 const _UUPO = "UpdateUserProfileOutput";
 const _VE = "ValidationException";
+const _VPI = "VpcPropertiesInput";
+const _VPO = "VpcPropertiesOutput";
+const _VPP = "VpcPropertiesPatch";
 const _WMPI = "WorkflowsMwaaPropertiesInput";
 const _WMPO = "WorkflowsMwaaPropertiesOutput";
 const _WSPI = "WorkflowsServerlessPropertiesInput";
@@ -1607,6 +1610,7 @@ const _sEP = "sparkEmrProperties";
 const _sGCM = "subscriptionGrantCreationMode";
 const _sGI = "securityGroupIds";
 const _sGIL = "securityGroupIdList";
+const _sGIe = "securityGroupId";
 const _sGP = "sparkGlueProperties";
 const _sGS = "selfGrantStatus";
 const _sGSD = "selfGrantStatusDetails";
@@ -1730,6 +1734,7 @@ const _v = "value";
 const _vC = "validateCredentials";
 const _vFCE = "validateForComputeEnvironments";
 const _vI = "vpcId";
+const _vP = "vpcProperties";
 const _va = "values";
 const _wMP = "workflowsMwaaProperties";
 const _wN = "workgroupName";
@@ -5098,6 +5103,21 @@ export var UserProfileSummary$: StaticStructureSchema = [3, n0, _UPS,
   [_dIo, _id, _ty, _st, _det],
   [0, 0, 0, 0, [() => UserProfileDetails$, 0]]
 ];
+export var VpcPropertiesInput$: StaticStructureSchema = [3, n0, _VPI,
+  0,
+  [_vI, _sIu, _sGIe],
+  [0, 64 | 0, 0], 2
+];
+export var VpcPropertiesOutput$: StaticStructureSchema = [3, n0, _VPO,
+  0,
+  [_vI, _sIu, _st, _sGIe, _gCNl],
+  [0, 64 | 0, 0, 0, 64 | 0], 3
+];
+export var VpcPropertiesPatch$: StaticStructureSchema = [3, n0, _VPP,
+  0,
+  [_vI, _sIu, _sGIe],
+  [0, 64 | 0, 0]
+];
 export var WorkflowsMwaaPropertiesInput$: StaticStructureSchema = [3, n0, _WMPI,
   0,
   [_mEN],
@@ -5509,6 +5529,7 @@ var UserProfileSummaries: StaticListSchema = [1, n0, _UPSs,
   0, [() => UserProfileSummary$,
     0]
 ];
+var VpcConnectionSubnetIdList = 64 | 0;
 var ConnectionProperties = 128 | 0;
 var CredentialMap: StaticMapSchema = [2, n0, _CM,
   8, 0, 0
@@ -5568,18 +5589,18 @@ export var AwsAccount$: StaticUnionSchema = [4, n0, _AAw,
 ];
 export var ConnectionPropertiesInput$: StaticUnionSchema = [4, n0, _CPIo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP],
-  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP, _vP],
+  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$, () => VpcPropertiesInput$]
 ];
 export var ConnectionPropertiesOutput$: StaticUnionSchema = [4, n0, _CPOo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP],
-  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _aQP, _mP, _wMP, _wSP, _lP, _vP],
+  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$, () => VpcPropertiesOutput$]
 ];
 export var ConnectionPropertiesPatch$: StaticUnionSchema = [4, n0, _CPP,
   0,
-  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _aQP, _mP, _lP],
-  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$]
+  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _aQP, _mP, _lP, _vP],
+  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$, () => VpcPropertiesPatch$]
 ];
 export var DataSourceConfigurationInput$: StaticUnionSchema = [4, n0, _DSCI,
   0,

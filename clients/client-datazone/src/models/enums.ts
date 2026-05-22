@@ -411,6 +411,7 @@ export const ConnectionType = {
   SQLSERVER: "SQLSERVER",
   TERADATA: "TERADATA",
   VERTICA: "VERTICA",
+  VPC: "VPC",
   WORKFLOWS_MWAA: "WORKFLOWS_MWAA",
 } as const;
 /**

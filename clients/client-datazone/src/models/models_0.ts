@@ -53,7 +53,6 @@ import type {
   RuleType,
   S3Permission,
   Status,
-  SubscriptionGrantStatus,
   SubscriptionRequestStatus,
   SubscriptionStatus,
   TargetEntityType,
@@ -5669,6 +5668,30 @@ export interface SparkGluePropertiesInput {
 }
 
 /**
+ * <p>The VPC connection properties used when creating a connection.</p>
+ * @public
+ */
+export interface VpcPropertiesInput {
+  /**
+   * <p>The identifier of the VPC. Must match the pattern <code>^vpc-[a-z0-9]+$</code>. Maximum length of 32.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The subnet IDs of the VPC connection. You can specify between 1 and 16 subnet IDs.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The security group ID of the VPC connection. Must match the pattern <code>^sg-[a-z0-9]+$</code>. Maximum length of 32.</p>
+   * @public
+   */
+  securityGroupId?: string | undefined;
+}
+
+/**
  * <p>The Amazon MWAA properties.</p>
  * @public
  */
@@ -5702,6 +5725,7 @@ export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.S3PropertiesMember
   | ConnectionPropertiesInput.SparkEmrPropertiesMember
   | ConnectionPropertiesInput.SparkGluePropertiesMember
+  | ConnectionPropertiesInput.VpcPropertiesMember
   | ConnectionPropertiesInput.WorkflowsMwaaPropertiesMember
   | ConnectionPropertiesInput.WorkflowsServerlessPropertiesMember
   | ConnectionPropertiesInput.$UnknownMember;
@@ -5728,6 +5752,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5749,6 +5774,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5770,6 +5796,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5791,6 +5818,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5812,6 +5840,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5833,6 +5862,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5854,6 +5884,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5875,6 +5906,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5896,6 +5928,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5917,6 +5950,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5938,6 +5972,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties: WorkflowsMwaaPropertiesInput;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5959,6 +5994,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties: WorkflowsServerlessPropertiesInput;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -5980,6 +6016,29 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties: LakehousePropertiesInput;
+    vpcProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The VPC properties of a connection.</p>
+   * @public
+   */
+  export interface VpcPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties: VpcPropertiesInput;
     $unknown?: never;
   }
 
@@ -6000,6 +6059,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6021,6 +6081,7 @@ export namespace ConnectionPropertiesInput {
     workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesInput) => T;
     workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesInput) => T;
     lakehouseProperties: (value: LakehousePropertiesInput) => T;
+    vpcProperties: (value: VpcPropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6398,6 +6459,42 @@ export interface SparkGluePropertiesOutput {
 }
 
 /**
+ * <p>The VPC connection properties returned in responses.</p>
+ * @public
+ */
+export interface VpcPropertiesOutput {
+  /**
+   * <p>The identifier of the VPC.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The subnet IDs of the VPC connection.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The status of the VPC connection.</p>
+   * @public
+   */
+  status: ConnectionStatus | undefined;
+
+  /**
+   * <p>The security group ID of the VPC connection.</p>
+   * @public
+   */
+  securityGroupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Glue connection names associated with the VPC connection.</p>
+   * @public
+   */
+  glueConnectionNames?: string[] | undefined;
+}
+
+/**
  * <p>The Amazon MWAA properties.</p>
  * @public
  */
@@ -6431,6 +6528,7 @@ export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.S3PropertiesMember
   | ConnectionPropertiesOutput.SparkEmrPropertiesMember
   | ConnectionPropertiesOutput.SparkGluePropertiesMember
+  | ConnectionPropertiesOutput.VpcPropertiesMember
   | ConnectionPropertiesOutput.WorkflowsMwaaPropertiesMember
   | ConnectionPropertiesOutput.WorkflowsServerlessPropertiesMember
   | ConnectionPropertiesOutput.$UnknownMember;
@@ -6457,6 +6555,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6478,6 +6577,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6499,6 +6599,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6520,6 +6621,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6541,6 +6643,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6562,6 +6665,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6583,6 +6687,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6604,6 +6709,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6625,6 +6731,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6646,6 +6753,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6667,6 +6775,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties: WorkflowsMwaaPropertiesOutput;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6688,6 +6797,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties: WorkflowsServerlessPropertiesOutput;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6709,6 +6819,29 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties: LakehousePropertiesOutput;
+    vpcProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The VPC properties of a connection.</p>
+   * @public
+   */
+  export interface VpcPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties: VpcPropertiesOutput;
     $unknown?: never;
   }
 
@@ -6729,6 +6862,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties?: never;
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6750,6 +6884,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesOutput) => T;
     workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesOutput) => T;
     lakehouseProperties: (value: LakehousePropertiesOutput) => T;
+    vpcProperties: (value: VpcPropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6947,6 +7082,30 @@ export interface SparkEmrPropertiesPatch {
 }
 
 /**
+ * <p>The VPC connection properties used when updating a connection.</p>
+ * @public
+ */
+export interface VpcPropertiesPatch {
+  /**
+   * <p>The identifier of the VPC.</p>
+   * @public
+   */
+  vpcId?: string | undefined;
+
+  /**
+   * <p>The subnet IDs of the VPC connection.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security group ID of the VPC connection.</p>
+   * @public
+   */
+  securityGroupId?: string | undefined;
+}
+
+/**
  * <p>The connection properties patch.</p>
  * @public
  */
@@ -6960,6 +7119,7 @@ export type ConnectionPropertiesPatch =
   | ConnectionPropertiesPatch.RedshiftPropertiesMember
   | ConnectionPropertiesPatch.S3PropertiesMember
   | ConnectionPropertiesPatch.SparkEmrPropertiesMember
+  | ConnectionPropertiesPatch.VpcPropertiesMember
   | ConnectionPropertiesPatch.$UnknownMember;
 
 /**
@@ -6980,6 +7140,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -6997,6 +7158,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7014,6 +7176,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7031,6 +7194,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7048,6 +7212,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7065,6 +7230,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7082,6 +7248,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties: AmazonQPropertiesPatch;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7099,6 +7266,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesPatch;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown?: never;
   }
 
@@ -7116,6 +7284,25 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties: LakehousePropertiesPatch;
+    vpcProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The VPC properties of a connection properties patch.</p>
+   * @public
+   */
+  export interface VpcPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties: VpcPropertiesPatch;
     $unknown?: never;
   }
 
@@ -7132,6 +7319,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties?: never;
     mlflowProperties?: never;
     lakehouseProperties?: never;
+    vpcProperties?: never;
     $unknown: [string, any];
   }
 
@@ -7149,6 +7337,7 @@ export namespace ConnectionPropertiesPatch {
     amazonQProperties: (value: AmazonQPropertiesPatch) => T;
     mlflowProperties: (value: MlflowPropertiesPatch) => T;
     lakehouseProperties: (value: LakehousePropertiesPatch) => T;
+    vpcProperties: (value: VpcPropertiesPatch) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11597,94 +11786,4 @@ export interface CreateSubscriptionGrantInput {
    * @public
    */
   clientToken?: string | undefined;
-}
-
-/**
- * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
- * @public
- */
-export interface FailureCause {
-  /**
-   * <p>The description of the error message.</p>
-   * @public
-   */
-  message?: string | undefined;
-}
-
-/**
- * <p>The details of the asset for which the subscription grant is created.</p>
- * @public
- */
-export interface SubscribedAsset {
-  /**
-   * <p>The identifier of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>The revision of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  assetRevision: string | undefined;
-
-  /**
-   * <p>The status of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  status: SubscriptionGrantStatus | undefined;
-
-  /**
-   * <p>The target name of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  targetName?: string | undefined;
-
-  /**
-   * <p>The failure cause included in the details of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  failureCause?: FailureCause | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription grant to the asset is created.</p>
-   * @public
-   */
-  grantedTimestamp?: Date | undefined;
-
-  /**
-   * <p>The failure timestamp included in the details of the asset for which the subscription grant is created.</p>
-   * @public
-   */
-  failureTimestamp?: Date | undefined;
-
-  /**
-   * <p>The asset scope of the subscribed asset.</p>
-   * @public
-   */
-  assetScope?: AssetScope | undefined;
-
-  /**
-   * <p>The asset permissions.</p>
-   * @public
-   */
-  permissions?: Permissions | undefined;
-}
-
-/**
- * <p>A revision of an asset published in a Amazon DataZone catalog.</p>
- * @public
- */
-export interface ListingRevision {
-  /**
-   * <p>An identifier of a revision of an asset published in a Amazon DataZone catalog.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The details of a revision of an asset published in a Amazon DataZone catalog.</p>
-   * @public
-   */
-  revision: string | undefined;
 }

@@ -1235,6 +1235,9 @@ import {
   UserType,
   ValidationException,
   ValidationException$,
+  VpcPropertiesInput$,
+  VpcPropertiesOutput$,
+  VpcPropertiesPatch$,
   WorkflowsMwaaPropertiesInput$,
   WorkflowsMwaaPropertiesOutput$,
   WorkflowsServerlessPropertiesInput$,
@@ -2319,6 +2322,9 @@ assert(typeof UsernamePassword$ === "object");
 assert(typeof UserPolicyGrantPrincipal$ === "object");
 assert(typeof UserProfileDetails$ === "object");
 assert(typeof UserProfileSummary$ === "object");
+assert(typeof VpcPropertiesInput$ === "object");
+assert(typeof VpcPropertiesOutput$ === "object");
+assert(typeof VpcPropertiesPatch$ === "object");
 assert(typeof WorkflowsMwaaPropertiesInput$ === "object");
 assert(typeof WorkflowsMwaaPropertiesOutput$ === "object");
 assert(typeof WorkflowsServerlessPropertiesInput$ === "object");
