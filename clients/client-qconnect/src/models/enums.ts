@@ -649,6 +649,50 @@ export type MessageFilterType = (typeof MessageFilterType)[keyof typeof MessageF
  * @public
  * @enum
  */
+export const GuardrailAction = {
+  BLOCKED: "BLOCKED",
+  MASKED: "MASKED",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailPolicyType = {
+  CONTENT_FILTER: "CONTENT_FILTER",
+  CONTEXTUAL_GROUNDING: "CONTEXTUAL_GROUNDING",
+  SENSITIVE_INFORMATION_PII: "SENSITIVE_INFORMATION_PII",
+  SENSITIVE_INFORMATION_REGEX: "SENSITIVE_INFORMATION_REGEX",
+  TOPIC: "TOPIC",
+  WORD: "WORD",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailPolicyType = (typeof GuardrailPolicyType)[keyof typeof GuardrailPolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSource = {
+  INPUT: "INPUT",
+  OUTPUT: "OUTPUT",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailSource = (typeof GuardrailSource)[keyof typeof GuardrailSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const SpanType = {
   CLIENT: "CLIENT",
   INTERNAL: "INTERNAL",

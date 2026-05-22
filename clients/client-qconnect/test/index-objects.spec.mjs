@@ -296,6 +296,7 @@ import {
   GetSessionRequest$,
   GetSessionResponse$,
   GroupingConfiguration$,
+  GuardrailAction,
   GuardrailContentFilterConfig$,
   GuardrailContentFilterType,
   GuardrailContextualGroundingFilterConfig$,
@@ -305,8 +306,11 @@ import {
   GuardrailManagedWordsType,
   GuardrailPiiEntityConfig$,
   GuardrailPiiEntityType,
+  GuardrailPolicyResult$,
+  GuardrailPolicyType,
   GuardrailRegexConfig$,
   GuardrailSensitiveInformationAction,
+  GuardrailSource,
   GuardrailTopicConfig$,
   GuardrailTopicType,
   GuardrailWordConfig$,
@@ -588,6 +592,7 @@ import {
   Span$,
   SpanAttributes$,
   SpanCitation$,
+  SpanGuardrailAssessment$,
   SpanMessage$,
   SpanMessageValue$,
   SpanReasoningValue$,
@@ -1073,6 +1078,7 @@ assert(typeof GuardrailContentFilterConfig$ === "object");
 assert(typeof GuardrailContextualGroundingFilterConfig$ === "object");
 assert(typeof GuardrailManagedWordsConfig$ === "object");
 assert(typeof GuardrailPiiEntityConfig$ === "object");
+assert(typeof GuardrailPolicyResult$ === "object");
 assert(typeof GuardrailRegexConfig$ === "object");
 assert(typeof GuardrailTopicConfig$ === "object");
 assert(typeof GuardrailWordConfig$ === "object");
@@ -1227,6 +1233,7 @@ assert(typeof SourceContentDataDetails$ === "object");
 assert(typeof Span$ === "object");
 assert(typeof SpanAttributes$ === "object");
 assert(typeof SpanCitation$ === "object");
+assert(typeof SpanGuardrailAssessment$ === "object");
 assert(typeof SpanMessage$ === "object");
 assert(typeof SpanMessageValue$ === "object");
 assert(typeof SpanReasoningValue$ === "object");
@@ -1309,12 +1316,15 @@ assert(typeof CrossRegionStatus === "object");
 assert(typeof ExternalSource === "object");
 assert(typeof FilterField === "object");
 assert(typeof FilterOperator === "object");
+assert(typeof GuardrailAction === "object");
 assert(typeof GuardrailContentFilterType === "object");
 assert(typeof GuardrailContextualGroundingFilterType === "object");
 assert(typeof GuardrailFilterStrength === "object");
 assert(typeof GuardrailManagedWordsType === "object");
 assert(typeof GuardrailPiiEntityType === "object");
+assert(typeof GuardrailPolicyType === "object");
 assert(typeof GuardrailSensitiveInformationAction === "object");
+assert(typeof GuardrailSource === "object");
 assert(typeof GuardrailTopicType === "object");
 assert(typeof ImportJobStatus === "object");
 assert(typeof ImportJobType === "object");

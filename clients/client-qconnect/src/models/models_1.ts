@@ -46,8 +46,7 @@ import type {
   MessageTemplateSourceConfigurationSummary,
   NotesChunkDataDetails,
   NotesDataDetails,
-  QuickResponseContents,
-  QuickResponseData,
+  QuickResponseContentProvider,
   QuickResponseDataProvider,
   RankingData,
   RecommendationTrigger,
@@ -56,12 +55,145 @@ import type {
   ServerSideEncryptionConfiguration,
   SourceConfiguration,
   SourceContentDataDetails,
+  SpanGuardrailAssessment,
   SpanReasoningValue,
   SpanTextValue,
   SpanToolUseValue,
   SuggestedMessageDataDetails,
   VectorIngestionConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The content of the quick response stored in different media types.</p>
+ * @public
+ */
+export interface QuickResponseContents {
+  /**
+   * <p>The container quick response content.</p>
+   * @public
+   */
+  plainText?: QuickResponseContentProvider | undefined;
+
+  /**
+   * <p>The container quick response content.</p>
+   * @public
+   */
+  markdown?: QuickResponseContentProvider | undefined;
+}
+
+/**
+ * <p>Information about the quick response.</p>
+ * @public
+ */
+export interface QuickResponseData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
+   */
+  quickResponseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the quick response.</p>
+   * @public
+   */
+  quickResponseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The status of the quick response data.</p>
+   * @public
+   */
+  status: QuickResponseStatus | undefined;
+
+  /**
+   * <p>The timestamp when the quick response was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the quick response data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The contents of the quick response.</p>
+   * @public
+   */
+  contents?: QuickResponseContents | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * @public
+   */
+  lastModifiedBy?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -2126,7 +2258,7 @@ export namespace SpanMessageValue {
   }
 
   /**
-   * Model reasoning and it's internal decision making process
+   * <p>Model reasoning and it's internal decision making process</p>
    * @public
    */
   export interface ReasoningMember {
@@ -3288,10 +3420,16 @@ export interface SpanAttributes {
   promptVersion?: number | undefined;
 
   /**
-   * Time to first token in milliseconds, measured from when Amazon Bedrock was invoked to when the first token was returned
+   * <p>Time to first token in milliseconds, measured from when Amazon Bedrock was invoked to when the first token was returned</p>
    * @public
    */
   timeToFirstTokenMs?: number | undefined;
+
+  /**
+   * <p>Guardrail assessments for the inference span. Absent on other span types and when no AI Guardrail is attached to the AI Agent.</p>
+   * @public
+   */
+  guardrailAssessments?: SpanGuardrailAssessment[] | undefined;
 }
 
 /**
@@ -3354,7 +3492,7 @@ export interface Span {
   status: SpanStatus | undefined;
 
   /**
-   * Human-readable error description when status is ERROR or TIMEOUT
+   * <p>Human-readable error description when status is ERROR or TIMEOUT</p>
    * @public
    */
   statusDescription?: string | undefined;
@@ -3366,7 +3504,7 @@ export interface Span {
   requestId: string | undefined;
 
   /**
-   * The origin request identifier for end-to-end tracing.
+   * <p>The origin request identifier for end-to-end tracing.</p>
    * @public
    */
   originRequestId?: string | undefined;

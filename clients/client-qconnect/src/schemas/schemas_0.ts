@@ -255,6 +255,8 @@ const _GNMRe = "GetNextMessageResponse";
 const _GPEC = "GuardrailPiiEntityConfig";
 const _GPECu = "GuardrailPiiEntitiesConfig";
 const _GPET = "GuardrailPiiEntityType";
+const _GPR = "GuardrailPolicyResult";
+const _GPRL = "GuardrailPolicyResultList";
 const _GQR = "GetQuickResponse";
 const _GQRR = "GetQuickResponseRequest";
 const _GQRRe = "GetQuickResponseResponse";
@@ -489,6 +491,8 @@ const _SCo = "SourceConfiguration";
 const _SD = "SessionData";
 const _SE = "SearchExpression";
 const _SEA = "SystemEndpointAttributes";
+const _SGA = "SpanGuardrailAssessment";
+const _SGAL = "SpanGuardrailAssessmentList";
 const _SIC = "SessionIntegrationConfiguration";
 const _SIJ = "StartImportJob";
 const _SIJR = "StartImportJobRequest";
@@ -805,6 +809,7 @@ const _fc = "fcm";
 const _fi = "filter";
 const _fil = "filters";
 const _g = "gender";
+const _gA = "guardrailAssessments";
 const _gC = "groupingConfiguration";
 const _gCD = "generativeChunkData";
 const _gCFD = "generativeContentFeedbackData";
@@ -812,6 +817,8 @@ const _gCM = "generateChunkedMessage";
 const _gD = "generativeData";
 const _gFM = "generateFillerMessage";
 const _gI = "generationId";
+const _gIu = "guardrailId";
+const _gN = "guardrailName";
 const _gR = "generativeReference";
 const _gT = "greaterThan";
 const _gTOE = "greaterThanOrEquals";
@@ -967,11 +974,13 @@ const _pS = "parsingStrategy";
 const _pSI = "parentSpanId";
 const _pT = "partyType";
 const _pTl = "plainText";
+const _pTo = "policyType";
 const _pTr = "promptType";
 const _pUTTL = "presignedUrlTimeToLive";
 const _pV = "promptVersion";
 const _pa = "pattern";
 const _par = "participant";
+const _po = "policies";
 const _pr = "priority";
 const _pu = "push";
 const _q = "queries";
@@ -2130,6 +2139,11 @@ export var GuardrailPiiEntityConfig$: StaticStructureSchema = [3, n0, _GPEC,
   [_t, _ac],
   [[() => GuardrailPiiEntityType, 0], [() => GuardrailSensitiveInformationAction, 0]], 2
 ];
+export var GuardrailPolicyResult$: StaticStructureSchema = [3, n0, _GPR,
+  0,
+  [_pTo, _ac, _de],
+  [0, 0, 0], 2
+];
 export var GuardrailRegexConfig$: StaticStructureSchema = [3, n0, _GRC,
   0,
   [_n, _pa, _ac, _d],
@@ -2812,13 +2826,18 @@ export var Span$: StaticStructureSchema = [3, n0, _S,
 ];
 export var SpanAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV, _tTFTM],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1, 1]
+  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV, _tTFTM, _gA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1, 1, () => SpanGuardrailAssessmentList]
 ];
 export var SpanCitation$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_cI, _ti, _kBI, _kBA],
   [0, [() => SensitiveString, 0], 0, 0]
+];
+export var SpanGuardrailAssessment$: StaticStructureSchema = [3, n0, _SGA,
+  0,
+  [_gIu, _gN, _so, _ac, _po],
+  [0, 0, 0, 0, () => GuardrailPolicyResultList], 4
 ];
 export var SpanMessage$: StaticStructureSchema = [3, n0, _SM,
   0,
@@ -3195,6 +3214,9 @@ var GuardrailPiiEntitiesConfig: StaticListSchema = [1, n0, _GPECu,
   0, [() => GuardrailPiiEntityConfig$,
     0]
 ];
+var GuardrailPolicyResultList: StaticListSchema = [1, n0, _GPRL,
+  0, () => GuardrailPolicyResult$
+];
 var GuardrailRegexesConfig: StaticListSchema = [1, n0, _GRCu,
   0, [() => GuardrailRegexConfig$,
     0]
@@ -3327,6 +3349,9 @@ var SpanCitationList: StaticListSchema = [1, n0, _SCL,
     0]
 ];
 var SpanFinishReasonList = 64 | 0;
+var SpanGuardrailAssessmentList: StaticListSchema = [1, n0, _SGAL,
+  0, () => SpanGuardrailAssessment$
+];
 var SpanList: StaticListSchema = [1, n0, _SL,
   0, [() => Span$,
     0]

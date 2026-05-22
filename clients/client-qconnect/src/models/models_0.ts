@@ -21,12 +21,15 @@ import type {
   CrossRegionStatus,
   FilterField,
   FilterOperator,
+  GuardrailAction,
   GuardrailContentFilterType,
   GuardrailContextualGroundingFilterType,
   GuardrailFilterStrength,
   GuardrailManagedWordsType,
   GuardrailPiiEntityType,
+  GuardrailPolicyType,
   GuardrailSensitiveInformationAction,
+  GuardrailSource,
   GuardrailTopicType,
   KnowledgeBaseSearchType,
   KnowledgeBaseStatus,
@@ -41,7 +44,6 @@ import type {
   PushMessageAction,
   QueryConditionComparisonOperator,
   QueryConditionFieldName,
-  QuickResponseStatus,
   RecommendationSourceType,
   RecommendationTriggerType,
   RecommendationType,
@@ -5735,12 +5737,72 @@ export interface ListSpansRequest {
 }
 
 /**
- * Model reasoning and it's internal decision making process
+ * <p>Per-policy guardrail assessment result. Captures which policy triggered, its outcome, and a policy-specific detail string.</p>
+ * @public
+ */
+export interface GuardrailPolicyResult {
+  /**
+   * <p>The type of guardrail policy that was evaluated.</p>
+   * @public
+   */
+  policyType: GuardrailPolicyType | undefined;
+
+  /**
+   * <p>Outcome of this specific policy.</p>
+   * @public
+   */
+  action: GuardrailAction | undefined;
+
+  /**
+   * <p>Policy-specific detail.</p>
+   * @public
+   */
+  details?: string | undefined;
+}
+
+/**
+ * <p>Result of a single guardrail assessment, covering either the input (customer/user message) or the output (LLM response) of a Bedrock Converse call.</p>
+ * @public
+ */
+export interface SpanGuardrailAssessment {
+  /**
+   * <p>Unique AI Guardrail identifier.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>Customer-defined display name of the AI Guardrail resource.</p>
+   * @public
+   */
+  guardrailName: string | undefined;
+
+  /**
+   * <p>Content source the guardrail was evaluated against.</p>
+   * @public
+   */
+  source: GuardrailSource | undefined;
+
+  /**
+   * <p>Outcome of the guardrail assessment.</p>
+   * @public
+   */
+  action: GuardrailAction | undefined;
+
+  /**
+   * <p>Per-policy assessment results. Absent or empty when action is NONE.</p>
+   * @public
+   */
+  policies?: GuardrailPolicyResult[] | undefined;
+}
+
+/**
+ * <p>Model reasoning and it's internal decision making process</p>
  * @public
  */
 export interface SpanReasoningValue {
   /**
-   * The reasoning text content
+   * <p>The reasoning text content</p>
    * @public
    */
   value: string | undefined;
@@ -9117,136 +9179,4 @@ export namespace QuickResponseContentProvider {
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>The content of the quick response stored in different media types.</p>
- * @public
- */
-export interface QuickResponseContents {
-  /**
-   * <p>The container quick response content.</p>
-   * @public
-   */
-  plainText?: QuickResponseContentProvider | undefined;
-
-  /**
-   * <p>The container quick response content.</p>
-   * @public
-   */
-  markdown?: QuickResponseContentProvider | undefined;
-}
-
-/**
- * <p>Information about the quick response.</p>
- * @public
- */
-export interface QuickResponseData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
-   * @public
-   */
-  quickResponseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
-   * @public
-   */
-  contentType: string | undefined;
-
-  /**
-   * <p>The status of the quick response data.</p>
-   * @public
-   */
-  status: QuickResponseStatus | undefined;
-
-  /**
-   * <p>The timestamp when the quick response was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the quick response data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The contents of the quick response.</p>
-   * @public
-   */
-  contents?: QuickResponseContents | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
-   * @public
-   */
-  lastModifiedBy?: string | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }

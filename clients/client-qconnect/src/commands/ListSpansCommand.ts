@@ -172,6 +172,21 @@ export interface ListSpansCommandOutput extends ListSpansResponse, __MetadataBea
  * //         promptName: "STRING_VALUE",
  * //         promptVersion: Number("int"),
  * //         timeToFirstTokenMs: Number("int"),
+ * //         guardrailAssessments: [ // SpanGuardrailAssessmentList
+ * //           { // SpanGuardrailAssessment
+ * //             guardrailId: "STRING_VALUE", // required
+ * //             guardrailName: "STRING_VALUE", // required
+ * //             source: "STRING_VALUE", // required
+ * //             action: "STRING_VALUE", // required
+ * //             policies: [ // GuardrailPolicyResultList
+ * //               { // GuardrailPolicyResult
+ * //                 policyType: "STRING_VALUE", // required
+ * //                 action: "STRING_VALUE", // required
+ * //                 details: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   ],
