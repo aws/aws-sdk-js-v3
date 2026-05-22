@@ -11473,7 +11473,6 @@ __metadata:
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.28"
     "@aws-sdk/types": "workspace:^3.973.9"
     "@smithy/core": "npm:^3.24.3"
-    "@smithy/signature-v4": "npm:^5.4.2"
     "@smithy/types": "npm:^4.14.2"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
@@ -11520,10 +11519,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/middleware-sdk-transcribe-streaming@workspace:packages-internal/middleware-sdk-transcribe-streaming"
   dependencies:
-    "@aws-sdk/core": "workspace:^3.974.13"
     "@aws-sdk/types": "workspace:^3.973.9"
     "@smithy/core": "npm:^3.24.3"
-    "@smithy/signature-v4": "npm:^5.4.2"
     "@smithy/types": "npm:^4.14.2"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
@@ -11787,7 +11784,6 @@ __metadata:
   resolution: "@aws-sdk/signature-v4-multi-region@workspace:packages-internal/signature-v4-multi-region"
   dependencies:
     "@aws-sdk/types": "workspace:^3.973.9"
-    "@smithy/core": "npm:^3.24.3"
     "@smithy/signature-v4": "npm:^5.4.2"
     "@smithy/types": "npm:^4.14.2"
     "@tsconfig/recommended": "npm:1.0.1"
