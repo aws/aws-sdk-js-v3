@@ -48,6 +48,7 @@ export interface UpdateInvoiceUnitCommandOutput extends UpdateInvoiceUnitRespons
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new UpdateInvoiceUnitCommand(input);
  * const response = await client.send(command);
@@ -86,6 +87,7 @@ export interface UpdateInvoiceUnitCommandOutput extends UpdateInvoiceUnitRespons
  * ```javascript
  * //
  * const input = {
+ *   ClientToken: "e362c68e-4e74-48d7-9228-0bc5aa447b42",
  *   Description: "Updated IU description",
  *   InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678",
  *   Rule: {
@@ -109,6 +111,7 @@ export interface UpdateInvoiceUnitCommandOutput extends UpdateInvoiceUnitRespons
  * ```javascript
  * //
  * const input = {
+ *   ClientToken: "e362c68e-4e74-48d7-9228-0bc5aa447b43",
  *   Description: "Updated IU description. All other fields remain unchanged",
  *   InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678"
  * };

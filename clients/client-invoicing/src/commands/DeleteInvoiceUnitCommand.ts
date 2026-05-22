@@ -38,6 +38,7 @@ export interface DeleteInvoiceUnitCommandOutput extends DeleteInvoiceUnitRespons
  * const client = new InvoicingClient(config);
  * const input = { // DeleteInvoiceUnitRequest
  *   InvoiceUnitArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DeleteInvoiceUnitCommand(input);
  * const response = await client.send(command);
@@ -76,6 +77,7 @@ export interface DeleteInvoiceUnitCommandOutput extends DeleteInvoiceUnitRespons
  * ```javascript
  * //
  * const input = {
+ *   ClientToken: "e362c68e-4e74-48d7-9228-0bc5aa447b44",
  *   InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678"
  * };
  * const command = new DeleteInvoiceUnitCommand(input);

@@ -55,6 +55,7 @@ export interface CreateInvoiceUnitCommandOutput extends CreateInvoiceUnitRespons
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new CreateInvoiceUnitCommand(input);
  * const response = await client.send(command);
@@ -90,6 +91,7 @@ export interface CreateInvoiceUnitCommandOutput extends CreateInvoiceUnitRespons
  * ```javascript
  * //
  * const input = {
+ *   ClientToken: "e362c68e-4e74-48d7-9228-0bc5aa447b42",
  *   Description: "Example Invoice Unit Description",
  *   InvoiceReceiver: "111111111111",
  *   Name: "Example Invoice Unit",

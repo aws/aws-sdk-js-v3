@@ -429,6 +429,12 @@ export interface CreateInvoiceUnitRequest {
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -719,6 +725,12 @@ export interface DeleteInvoiceUnitRequest {
    * @public
    */
   InvoiceUnitArn: string | undefined;
+
+  /**
+   * <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -741,6 +753,12 @@ export interface DeleteProcurementPortalPreferenceRequest {
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1437,7 +1455,7 @@ export interface ListInvoiceSummariesRequest {
   Filter?: InvoiceSummariesFilter | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of results. (You received this token from a previous call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1460,7 +1478,7 @@ export interface ListInvoiceSummariesResponse {
   InvoiceSummaries: InvoiceSummary[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1733,6 +1751,12 @@ export interface PutProcurementPortalPreferenceRequest {
    * @public
    */
   Contacts: Contact[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1817,6 +1841,12 @@ export interface UpdateInvoiceUnitRequest {
    * @public
    */
   Rule?: InvoiceUnitRule | undefined;
+
+  /**
+   * <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1863,6 +1893,12 @@ export interface UpdateProcurementPortalPreferenceStatusRequest {
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**

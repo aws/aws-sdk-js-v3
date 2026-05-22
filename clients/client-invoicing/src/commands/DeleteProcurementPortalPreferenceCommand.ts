@@ -41,6 +41,7 @@ export interface DeleteProcurementPortalPreferenceCommandOutput extends DeletePr
  * const client = new InvoicingClient(config);
  * const input = { // DeleteProcurementPortalPreferenceRequest
  *   ProcurementPortalPreferenceArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DeleteProcurementPortalPreferenceCommand(input);
  * const response = await client.send(command);
@@ -82,6 +83,7 @@ export interface DeleteProcurementPortalPreferenceCommandOutput extends DeletePr
  * ```javascript
  * //
  * const input = {
+ *   ClientToken: "e362c68e-4e74-48d7-9228-0bc5aa447b47",
  *   ProcurementPortalPreferenceArn: "arn:aws:invoicing::111111111111:procurement-portal-preference/f71dd02e-f855-4b13-b793-0fd25c0b3ecd"
  * };
  * const command = new DeleteProcurementPortalPreferenceCommand(input);

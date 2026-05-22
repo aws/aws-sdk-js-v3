@@ -81,6 +81,7 @@ export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurem
  *       Email: "STRING_VALUE",
  *     },
  *   ],
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new PutProcurementPortalPreferenceCommand(input);
  * const response = await client.send(command);
@@ -125,6 +126,7 @@ export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurem
  * ```javascript
  * //
  * const input = {
+ *   ClientToken: "e362c68e-4e74-48d7-9228-0bc5aa447b45",
  *   Contacts: [
  *     {
  *       Email: "example-placeholder2@amazon.com",

@@ -333,8 +333,8 @@ export var Contact$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CreateInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _CIUR,
   0,
-  [_N, _IR, _R, _De, _TID, _RT],
-  [0, 0, () => InvoiceUnitRule$, 0, 2, () => ResourceTagList], 3
+  [_N, _IR, _R, _De, _TID, _RT, _CT],
+  [0, 0, () => InvoiceUnitRule$, 0, 2, () => ResourceTagList, [0, 4]], 3
 ];
 export var CreateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _CIURr,
   0,
@@ -363,8 +363,8 @@ export var DateInterval$: StaticStructureSchema = [3, n0, _DI,
 ];
 export var DeleteInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _DIUR,
   0,
-  [_IUA],
-  [0], 1
+  [_IUA, _CT],
+  [0, [0, 4]], 1
 ];
 export var DeleteInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _DIURe,
   0,
@@ -373,8 +373,8 @@ export var DeleteInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _DIURe,
 ];
 export var DeleteProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _DPPPR,
   0,
-  [_PPPA],
-  [0], 1
+  [_PPPA, _CT],
+  [0, [0, 4]], 1
 ];
 export var DeleteProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _DPPPRe,
   0,
@@ -548,8 +548,8 @@ export var PurchaseOrderDataSource$: StaticStructureSchema = [3, n0, _PODSu,
 ];
 export var PutProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _PPPPR,
   0,
-  [_PPPA, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP],
-  [0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$], 4
+  [_PPPA, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP, _CT],
+  [0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$, [0, 4]], 4
 ];
 export var PutProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _PPPPRu,
   0,
@@ -613,8 +613,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _UIUR,
   0,
-  [_IUA, _De, _TID, _R],
-  [0, 0, 2, () => InvoiceUnitRule$], 1
+  [_IUA, _De, _TID, _R, _CT],
+  [0, 0, 2, () => InvoiceUnitRule$, [0, 4]], 1
 ];
 export var UpdateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _UIURp,
   0,
@@ -623,8 +623,8 @@ export var UpdateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _UIURp,
 ];
 export var UpdateProcurementPortalPreferenceStatusRequest$: StaticStructureSchema = [3, n0, _UPPPSR,
   0,
-  [_PPPA, _EDPS, _EDPSR, _PORPS, _PORPSR],
-  [0, 0, 0, 0, 0], 1
+  [_PPPA, _EDPS, _EDPSR, _PORPS, _PORPSR, _CT],
+  [0, 0, 0, 0, 0, [0, 4]], 1
 ];
 export var UpdateProcurementPortalPreferenceStatusResponse$: StaticStructureSchema = [3, n0, _UPPPSRp,
   0,
@@ -687,16 +687,16 @@ export var BatchGetInvoiceProfile$: StaticOperationSchema = [9, n0, _BGIP,
   0, () => BatchGetInvoiceProfileRequest$, () => BatchGetInvoiceProfileResponse$
 ];
 export var CreateInvoiceUnit$: StaticOperationSchema = [9, n0, _CIU,
-  0, () => CreateInvoiceUnitRequest$, () => CreateInvoiceUnitResponse$
+  2, () => CreateInvoiceUnitRequest$, () => CreateInvoiceUnitResponse$
 ];
 export var CreateProcurementPortalPreference$: StaticOperationSchema = [9, n0, _CPPP,
   2, () => CreateProcurementPortalPreferenceRequest$, () => CreateProcurementPortalPreferenceResponse$
 ];
 export var DeleteInvoiceUnit$: StaticOperationSchema = [9, n0, _DIU,
-  0, () => DeleteInvoiceUnitRequest$, () => DeleteInvoiceUnitResponse$
+  2, () => DeleteInvoiceUnitRequest$, () => DeleteInvoiceUnitResponse$
 ];
 export var DeleteProcurementPortalPreference$: StaticOperationSchema = [9, n0, _DPPP,
-  0, () => DeleteProcurementPortalPreferenceRequest$, () => DeleteProcurementPortalPreferenceResponse$
+  2, () => DeleteProcurementPortalPreferenceRequest$, () => DeleteProcurementPortalPreferenceResponse$
 ];
 export var GetInvoicePDF$: StaticOperationSchema = [9, n0, _GIPDF,
   0, () => GetInvoicePDFRequest$, () => GetInvoicePDFResponse$
@@ -720,7 +720,7 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var PutProcurementPortalPreference$: StaticOperationSchema = [9, n0, _PPPP,
-  0, () => PutProcurementPortalPreferenceRequest$, () => PutProcurementPortalPreferenceResponse$
+  2, () => PutProcurementPortalPreferenceRequest$, () => PutProcurementPortalPreferenceResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   0, () => TagResourceRequest$, () => TagResourceResponse$
@@ -729,8 +729,8 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   0, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
 export var UpdateInvoiceUnit$: StaticOperationSchema = [9, n0, _UIU,
-  0, () => UpdateInvoiceUnitRequest$, () => UpdateInvoiceUnitResponse$
+  2, () => UpdateInvoiceUnitRequest$, () => UpdateInvoiceUnitResponse$
 ];
 export var UpdateProcurementPortalPreferenceStatus$: StaticOperationSchema = [9, n0, _UPPPS,
-  0, () => UpdateProcurementPortalPreferenceStatusRequest$, () => UpdateProcurementPortalPreferenceStatusResponse$
+  2, () => UpdateProcurementPortalPreferenceStatusRequest$, () => UpdateProcurementPortalPreferenceStatusResponse$
 ];
