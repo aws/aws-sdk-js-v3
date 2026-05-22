@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1053.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1052.0...v3.1053.0) (2026-05-22)
+
+
+### Features
+
+* **client-pi:** Added ListPerformanceAnalysisReportRecommendations API to retrieve recommendations for a performance analysis report. Added analysis configuration support to CreatePerformanceAnalysisReport for enhanced analysis types such as vacuum analysis. ([b09c19b](https://github.com/aws/aws-sdk-js-v3/commit/b09c19bf6e70f660073b94da11abf5ea4e6ea882))
+
+
+
+
+
 # [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
 
 **Note:** Version bump only for package @aws-sdk/client-pi

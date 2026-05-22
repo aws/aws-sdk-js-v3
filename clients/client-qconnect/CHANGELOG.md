@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1053.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1052.0...v3.1053.0) (2026-05-22)
+
+
+### Features
+
+* **client-qconnect:** Added guardrail assessment results to inference spans in the ListSpans API. You can now see which AI Guardrail policies were evaluated, whether content was blocked or masked, and per-policy details for each Bedrock Converse call ([0213a86](https://github.com/aws/aws-sdk-js-v3/commit/0213a8624e82ca946be41fe8833d460e709d2d2a))
+
+
+
+
+
 # [3.1052.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1051.0...v3.1052.0) (2026-05-21)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect
