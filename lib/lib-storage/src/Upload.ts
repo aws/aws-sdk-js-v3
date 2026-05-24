@@ -306,9 +306,27 @@ export class Upload extends EventEmitter {
 
       this.__validateUploadPart(dataPart);
 
+      const {
+        Bucket,
+        Key,
+        ChecksumAlgorithm: partChecksumAlgorithm,
+        SSECustomerAlgorithm,
+        SSECustomerKey,
+        SSECustomerKeyMD5,
+        RequestPayer,
+        ExpectedBucketOwner,
+      } = this.params;
+
       const partResult = await this.client.send(
         new UploadPartCommand({
-          ...this.params,
+          Bucket,
+          Key,
+          ChecksumAlgorithm: partChecksumAlgorithm,
+          SSECustomerAlgorithm,
+          SSECustomerKey,
+          SSECustomerKeyMD5,
+          RequestPayer,
+          ExpectedBucketOwner,
           // dataPart.data is chunked into a non-streaming buffer
           // so the ContentLength from the input should not be used for MPU.
           ContentLength: undefined,

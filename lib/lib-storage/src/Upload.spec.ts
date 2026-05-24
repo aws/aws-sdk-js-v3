@@ -201,6 +201,29 @@ describe(Upload.name, () => {
     expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(0);
   });
 
+  it("should preserve object-level params when uploading using PUT", async () => {
+    const actionParams = {
+      ...params,
+      IfNoneMatch: "*",
+      ContentType: "application/json",
+      ContentMD5: "object-level-md5-base64==",
+      ChecksumSHA256: "object-level-sha256-base64==",
+    };
+    const upload = new Upload({
+      params: actionParams,
+      client: new S3({}),
+    });
+
+    await upload.done();
+
+    expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+    expect(PutObjectCommand).toHaveBeenCalledWith({
+      ...actionParams,
+      Body: Buffer.from(params.Body),
+    });
+    expect(UploadPartCommand).toHaveBeenCalledTimes(0);
+  });
+
   it("should upload using PUT when parts are smaller than one part stream", async () => {
     const streamBody = Readable.from(
       (function* () {
@@ -400,18 +423,26 @@ describe(Upload.name, () => {
         });
         // upload parts is called correctly.
         expect(UploadPartCommand).toHaveBeenCalledTimes(2);
-        expect(UploadPartCommand).toHaveBeenNthCalledWith(1, {
-          ...actionParams,
-          Body: firstBuffer,
-          PartNumber: 1,
-          UploadId: "mockuploadId",
-        });
-        expect(UploadPartCommand).toHaveBeenNthCalledWith(2, {
-          ...actionParams,
-          Body: secondBuffer,
-          PartNumber: 2,
-          UploadId: "mockuploadId",
-        });
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(
+          1,
+          expect.objectContaining({
+            Bucket: actionParams.Bucket,
+            Key: actionParams.Key,
+            Body: firstBuffer,
+            PartNumber: 1,
+            UploadId: "mockuploadId",
+          })
+        );
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(
+          2,
+          expect.objectContaining({
+            Bucket: actionParams.Bucket,
+            Key: actionParams.Key,
+            Body: secondBuffer,
+            PartNumber: 2,
+            UploadId: "mockuploadId",
+          })
+        );
         // complete multipart upload is called correctly.
         expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
         expect(CompleteMultipartUploadCommand).toHaveBeenLastCalledWith({
@@ -468,19 +499,27 @@ describe(Upload.name, () => {
         // upload parts is called correctly.
         expect(UploadPartCommand).toHaveBeenCalledTimes(2);
 
-        expect(UploadPartCommand).toHaveBeenNthCalledWith(1, {
-          ...actionParams,
-          Body: firstBuffer,
-          PartNumber: 1,
-          UploadId: "mockuploadId",
-        });
-        expect(UploadPartCommand).toHaveBeenNthCalledWith(2, {
-          ...actionParams,
-          // @ts-ignore
-          Body: secondBuffer,
-          PartNumber: 2,
-          UploadId: "mockuploadId",
-        });
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(
+          1,
+          expect.objectContaining({
+            Bucket: actionParams.Bucket,
+            Key: actionParams.Key,
+            Body: firstBuffer,
+            PartNumber: 1,
+            UploadId: "mockuploadId",
+          })
+        );
+        expect(UploadPartCommand).toHaveBeenNthCalledWith(
+          2,
+          expect.objectContaining({
+            Bucket: actionParams.Bucket,
+            Key: actionParams.Key,
+            // @ts-ignore
+            Body: secondBuffer,
+            PartNumber: 2,
+            UploadId: "mockuploadId",
+          })
+        );
         // complete multipart upload is called correctly.
         expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
         expect(CompleteMultipartUploadCommand).toHaveBeenLastCalledWith({
@@ -505,6 +544,43 @@ describe(Upload.name, () => {
         // put was not called
         expect(PutObjectCommand).toHaveBeenCalledTimes(0);
       });
+    });
+
+    it("should only pass part-safe params to UploadPart", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+      const upload = new Upload({
+        params: {
+          ...params,
+          Body: largeBuffer,
+          IfNoneMatch: "*",
+          ContentType: "application/json",
+          ContentMD5: "object-level-md5-base64==",
+          ChecksumSHA256: "object-level-sha256-base64==",
+          SSECustomerAlgorithm: "AES256",
+          RequestPayer: "requester",
+          ExpectedBucketOwner: "123456789012",
+        },
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(expect.objectContaining({ IfNoneMatch: "*" }));
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(expect.objectContaining({ ContentType: "application/json" }));
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(
+        expect.objectContaining({ ContentMD5: "object-level-md5-base64==" })
+      );
+      expect(UploadPartCommand).not.toHaveBeenCalledWith(
+        expect.objectContaining({ ChecksumSHA256: "object-level-sha256-base64==" })
+      );
+
+      expect(UploadPartCommand).toHaveBeenCalledWith(expect.objectContaining({ SSECustomerAlgorithm: "AES256" }));
+      expect(UploadPartCommand).toHaveBeenCalledWith(expect.objectContaining({ RequestPayer: "requester" }));
+      expect(UploadPartCommand).toHaveBeenCalledWith(expect.objectContaining({ ExpectedBucketOwner: "123456789012" }));
+
+      expect(CompleteMultipartUploadCommand).toHaveBeenCalledWith(expect.objectContaining({ IfNoneMatch: "*" }));
     });
   });
 
