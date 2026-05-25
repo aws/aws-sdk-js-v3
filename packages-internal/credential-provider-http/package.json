@@ -23,6 +23,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "test": "yarn g:vitest run",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
     "test:watch": "yarn g:vitest watch"
   },
   "keywords": [
