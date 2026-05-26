@@ -10,6 +10,7 @@
   },
   "@aws-sdk/cloudfront-signer": {
     "CloudfrontSignedCookiesOutput": "type(interface)",
+    "CloudfrontSignerAlgorithm": "type(union)",
     "CloudfrontSignerCredentials": "type(object)",
     "CloudfrontSignInput": "type(union)",
     "CloudfrontSignInputBase": "type(object)",
