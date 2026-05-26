@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1054.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1053.0...v3.1054.0) (2026-05-26)
+
+
+### Features
+
+* **client-batch:** Increase the maximum value of jobExecutionTimeoutMinutes to support longer job timeouts during compute environment infrastructure updates. ([7fe682a](https://github.com/aws/aws-sdk-js-v3/commit/7fe682a52fed0fe85616ade6b85285add1efc2bb))
+
+
+
+
+
 # [3.1053.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1052.0...v3.1053.0) (2026-05-22)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

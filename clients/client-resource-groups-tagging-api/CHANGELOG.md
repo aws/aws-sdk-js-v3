@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1054.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1053.0...v3.1054.0) (2026-05-26)
+
+
+### Features
+
+* **client-resource-groups-tagging-api:** The GetResources API now returns MissingTagKeys in ComplianceDetails, listing tag keys defined as required in the ReportRequiredTagBlock block of the effective tag policy that are absent from the resource. ([996d828](https://github.com/aws/aws-sdk-js-v3/commit/996d8283858a9846fe2d73f2c5957b313aada751))
+
+
+
+
+
 # [3.1053.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1052.0...v3.1053.0) (2026-05-22)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-groups-tagging-api

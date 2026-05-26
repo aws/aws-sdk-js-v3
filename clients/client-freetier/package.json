@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-freetier",
   "description": "AWS SDK for JavaScript Freetier Client for Node.js, Browser and React Native",
-  "version": "3.1053.0",
+  "version": "3.1054.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-freetier",
@@ -21,8 +21,8 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.974.13",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.44",
+    "@aws-sdk/core": "workspace:^3.974.14",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.45",
     "@aws-sdk/types": "workspace:^3.973.9",
     "@smithy/core": "^3.24.3",
     "@smithy/fetch-http-handler": "^5.4.3",

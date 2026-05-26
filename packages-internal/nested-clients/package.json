@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/nested-clients",
-  "version": "3.997.11",
+  "version": "3.997.12",
   "description": "Nested clients for AWS SDK packages.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -29,8 +29,8 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.974.13",
-    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.28",
+    "@aws-sdk/core": "workspace:^3.974.14",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.29",
     "@aws-sdk/types": "workspace:^3.973.9",
     "@smithy/core": "^3.24.3",
     "@smithy/fetch-http-handler": "^5.4.3",
