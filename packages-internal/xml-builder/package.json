@@ -3,7 +3,6 @@
   "version": "3.972.25",
   "description": "XML utilities for the AWS SDK",
   "dependencies": {
-    "@nodable/entities": "2.1.0",
     "@smithy/types": "^4.14.2",
     "fast-xml-parser": "5.7.3",
     "tslib": "^2.6.2"
@@ -55,6 +54,7 @@
     "directory": "packages-internal/xml-builder"
   },
   "devDependencies": {
+    "@nodable/entities": "2.1.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

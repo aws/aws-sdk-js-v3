@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients
+.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
 
 # fetch AWS testing credentials
 login:
@@ -56,8 +56,7 @@ test-schema: bundles
 # run public API tests (no network requests).
 test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
-	node ./scripts/validation/no-generic-byte-arrays.js
-	make api-snapshot
+	make static-analysis
 	node ./scripts/compilation/Inliner.spec.js
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
@@ -136,6 +135,11 @@ tpk:
 # for development only - packages may be stale.
 unbuilt:
 	node scripts/build-only-unbuilt.js
+
+static-analysis:
+	node ./scripts/validation/no-generic-byte-arrays.js
+	node ./scripts/validation/validate-all.js --all;
+	make api-snapshot
 
 # Clears the Turborepo local build cache
 turbo-clean:
