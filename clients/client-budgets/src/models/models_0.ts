@@ -182,6 +182,8 @@ export interface Action {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -800,6 +802,8 @@ export interface CreateBudgetActionRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -873,6 +877,8 @@ export interface CreateBudgetActionResponse {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -995,6 +1001,8 @@ export interface DeleteBudgetActionRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1021,6 +1029,8 @@ export interface DeleteBudgetActionResponse {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1137,6 +1147,8 @@ export interface DescribeBudgetActionRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1163,6 +1175,8 @@ export interface DescribeBudgetActionResponse {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1189,6 +1203,8 @@ export interface DescribeBudgetActionHistoriesRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1298,6 +1314,8 @@ export interface DescribeBudgetActionsForBudgetRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1375,6 +1393,8 @@ export interface BudgetNotificationsForAccount {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName?: string | undefined;
@@ -1410,6 +1430,8 @@ export interface DescribeBudgetPerformanceHistoryRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1609,6 +1631,8 @@ export interface ExecuteBudgetActionRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1643,6 +1667,8 @@ export interface ExecuteBudgetActionResponse {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1749,6 +1775,8 @@ export interface UpdateBudgetActionRequest {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1815,6 +1843,8 @@ export interface UpdateBudgetActionResponse {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -1971,6 +2001,8 @@ export interface Budget {
    * <p>The name of a budget. The name must be unique within an account. The <code>:</code>
    * 			and <code>\</code> characters, and the "/action/" substring, aren't allowed in
    * 				<code>BudgetName</code>.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName: string | undefined;
@@ -2149,6 +2181,8 @@ export interface BudgetPerformanceHistory {
   /**
    * <p> A string that represents the budget name. The ":" and "\" characters, and the
    * 			"/action/" substring, aren't allowed.</p>
+   *          <p>Budget names are validated for content. Names that contain phone numbers, URLs, or
+   * 			email addresses combined with certain terms may be rejected.</p>
    * @public
    */
   BudgetName?: string | undefined;
