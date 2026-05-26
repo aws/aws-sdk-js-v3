@@ -27,6 +27,7 @@ import type {
 import type {
   AccountFreeTrialInfo,
   AdminAccount,
+  ContinuousScanDetails,
   CoverageFilterCriteria,
   CoverageResource,
   CoverageSortCriteria,
@@ -39,10 +40,40 @@ import type {
   FindingCriteria,
   IncrementalScanDetails,
   MalwareProtectionPlanActions,
+  Master,
   ScanResourceCriteria,
   SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @deprecated This output is deprecated, use GetAdministratorAccountResponse instead.
+ * @public
+ */
+export interface GetMasterAccountResponse {
+  /**
+   * <p>The administrator account details.</p>
+   * @public
+   */
+  Master: Master | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMemberDetectorsRequest {
+  /**
+   * <p>The detector ID for the administrator account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of member account IDs.</p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
 
 /**
  * <p>Information about the additional configuration for the member account.</p>
@@ -1642,6 +1673,12 @@ export interface RecoveryPoint {
    * @public
    */
   BackupVaultName: string | undefined;
+
+  /**
+   * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup to scan.</p>
+   * @public
+   */
+  ContinuousScanDetails?: ContinuousScanDetails | undefined;
 }
 
 /**

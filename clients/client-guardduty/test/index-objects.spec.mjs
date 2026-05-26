@@ -52,6 +52,7 @@ import {
   Container$,
   ContainerFindingResource$,
   ContainerInstanceDetails$,
+  ContinuousScanDetails$,
   Country$,
   CoverageEc2InstanceDetails$,
   CoverageEcsClusterDetails$,
@@ -554,6 +555,7 @@ import {
   ScanCondition$,
   ScanConditionPair$,
   ScanConfiguration$,
+  ScanConfigurationContinuousScanDetails$,
   ScanConfigurationRecoveryPoint$,
   ScanCriterionKey,
   ScanDetections$,
@@ -910,6 +912,7 @@ assert(typeof Condition$ === "object");
 assert(typeof Container$ === "object");
 assert(typeof ContainerFindingResource$ === "object");
 assert(typeof ContainerInstanceDetails$ === "object");
+assert(typeof ContinuousScanDetails$ === "object");
 assert(typeof Country$ === "object");
 assert(typeof CoverageEc2InstanceDetails$ === "object");
 assert(typeof CoverageEcsClusterDetails$ === "object");
@@ -1210,6 +1213,7 @@ assert(typeof Scan$ === "object");
 assert(typeof ScanCondition$ === "object");
 assert(typeof ScanConditionPair$ === "object");
 assert(typeof ScanConfiguration$ === "object");
+assert(typeof ScanConfigurationContinuousScanDetails$ === "object");
 assert(typeof ScanConfigurationRecoveryPoint$ === "object");
 assert(typeof ScanDetections$ === "object");
 assert(typeof ScanEc2InstanceWithFindings$ === "object");

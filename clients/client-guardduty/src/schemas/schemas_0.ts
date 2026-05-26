@@ -148,6 +148,7 @@ const _CRov = "CoverageResources";
 const _CS = "CloudformationStack";
 const _CSBR = "CreateS3BucketResource";
 const _CSC = "CoverageSortCriteria";
+const _CSD = "ContinuousScanDetails";
 const _CSF = "CreateSampleFindings";
 const _CSFR = "CreateSampleFindingsRequest";
 const _CSFRr = "CreateSampleFindingsResponse";
@@ -310,10 +311,11 @@ const _ES = "EbsSnapshot";
 const _ESD = "EbsSnapshotDetails";
 const _ESP = "EbsSnapshotPreservation";
 const _ESx = "ExecutableSha256";
-const _ET = "EncryptionType";
+const _ET = "EndTime";
 const _ETD = "EcsTaskDetails";
 const _ETa = "ETag";
 const _ETc = "EcsTask";
+const _ETn = "EncryptionType";
 const _EV = "Ec2Vpc";
 const _EVD = "EbsVolumeDetails";
 const _EVR = "EbsVolumesResult";
@@ -788,6 +790,7 @@ const _SBR = "SumByResource";
 const _SBt = "StartedBy";
 const _SC = "SecurityContext";
 const _SCA = "ScanCompletedAt";
+const _SCCSD = "ScanConfigurationContinuousScanDetails";
 const _SCP = "ScanConditionPair";
 const _SCRP = "ScanConfigurationRecoveryPoint";
 const _SCc = "ScanConfiguration";
@@ -861,11 +864,11 @@ const _SSR = "ScanStatusReason";
 const _SST = "ScanStartTime";
 const _SSc = "ScanStatus";
 const _SSe = "SeverityStatistics";
-const _ST = "ScanType";
+const _ST = "StartTime";
 const _STN = "ScanThreatName";
 const _STNc = "ScanThreatNames";
+const _STc = "ScanType";
 const _STt = "StatisticsType";
-const _STta = "StartTime";
 const _SV = "SchemaVersion";
 const _SVD = "ScannedVolumeDetails";
 const _SVDk = "SkippedVolumeDetails";
@@ -1114,6 +1117,7 @@ const _cNov = "coveredNodes";
 const _cP = "cloudPartition";
 const _cR = "containerRuntime";
 const _cS = "coverageStatus";
+const _cSD = "continuousScanDetails";
 const _cSl = "cloudformationStack";
 const _cSo = "coverageStatistics";
 const _cT = "callerType";
@@ -1191,9 +1195,10 @@ const _eS = "executableSha256";
 const _eSD = "ebsSnapshotDetails";
 const _eSP = "ebsSnapshotPreservation";
 const _eSb = "ebsSnapshot";
-const _eT = "encryptionType";
+const _eT = "endTime";
 const _eTa = "eTag";
 const _eTc = "ecsTask";
+const _eTn = "encryptionType";
 const _eV = "equalsValue";
 const _eVD = "ebsVolumeDetails";
 const _eVSD = "ebsVolumeScanDetails";
@@ -1515,9 +1520,9 @@ const _sS = "scanStatus";
 const _sSA = "scanStartedAt";
 const _sSR = "scanStatusReason";
 const _sST = "scanStartTime";
-const _sT = "scanType";
+const _sT = "startTime";
+const _sTc = "scanType";
 const _sTt = "statisticsType";
-const _sTta = "startTime";
 const _sV = "schemaVersion";
 const _sVD = "scannedVolumeDetails";
 const _sVDk = "skippedVolumeDetails";
@@ -1863,6 +1868,11 @@ export var ContainerInstanceDetails$: StaticStructureSchema = [3, n0, _CID,
   [_CCI, _CCIo],
   [[1, { [_jN]: _cCI }], [1, { [_jN]: _cCIo }]]
 ];
+export var ContinuousScanDetails$: StaticStructureSchema = [3, n0, _CSD,
+  0,
+  [_ET, _ST],
+  [[4, { [_jN]: _eT }], [4, { [_jN]: _sT }]], 1
+];
 export var Country$: StaticStructureSchema = [3, n0, _Cou,
   0,
   [_CC, _CNo],
@@ -2065,8 +2075,8 @@ export var DeclineInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRe,
 ];
 export var DefaultServerSideEncryption$: StaticStructureSchema = [3, n0, _DSSE,
   0,
-  [_ET, _KMKA],
-  [[0, { [_jN]: _eT }], [0, { [_jN]: _kMKA }]]
+  [_ETn, _KMKA],
+  [[0, { [_jN]: _eTn }], [0, { [_jN]: _kMKA }]]
 ];
 export var DeleteDetectorRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
@@ -2300,8 +2310,8 @@ export var EbsVolumeDetails$: StaticStructureSchema = [3, n0, _EVD,
 ];
 export var EbsVolumeScanDetails$: StaticStructureSchema = [3, n0, _EVSD,
   0,
-  [_SI, _SSA, _SCA, _TFI, _So, _SD, _ST],
-  [[0, { [_jN]: _sI }], [4, { [_jN]: _sSA }], [4, { [_jN]: _sCA }], [0, { [_jN]: _tFI }], [64 | 0, { [_jN]: _so }], [() => ScanDetections$, { [_jN]: _sD }], [0, { [_jN]: _sT }]]
+  [_SI, _SSA, _SCA, _TFI, _So, _SD, _STc],
+  [[0, { [_jN]: _sI }], [4, { [_jN]: _sSA }], [4, { [_jN]: _sCA }], [0, { [_jN]: _tFI }], [64 | 0, { [_jN]: _so }], [() => ScanDetections$, { [_jN]: _sD }], [0, { [_jN]: _sTc }]]
 ];
 export var EbsVolumesResult$: StaticStructureSchema = [3, n0, _EVR,
   0,
@@ -2535,8 +2545,8 @@ export var GetMalwareScanRequest$: StaticStructureSchema = [3, n0, _GMSR,
 ];
 export var GetMalwareScanResponse$: StaticStructureSchema = [3, n0, _GMSRe,
   0,
-  [_SI, _DI, _ADI, _RA, _RT, _SRC, _SRCk, _FRC, _SRc, _SCc, _SCca, _SSc, _SSR, _ST, _SSA, _SCA, _SRD],
-  [[0, { [_jN]: _sI }], [0, { [_jN]: _dI }], [0, { [_jN]: _aDI }], [0, { [_jN]: _rA }], [0, { [_jN]: _rT }], [1, { [_jN]: _sRC }], [1, { [_jN]: _sRCk }], [1, { [_jN]: _fRC }], [() => ScannedResources, { [_jN]: _sRc }], [() => ScanConfiguration$, { [_jN]: _sCc }], [0, { [_jN]: _sCca }], [0, { [_jN]: _sS }], [0, { [_jN]: _sSR }], [0, { [_jN]: _sT }], [4, { [_jN]: _sSA }], [4, { [_jN]: _sCA }], [() => GetMalwareScanResultDetails$, { [_jN]: _sRD }]]
+  [_SI, _DI, _ADI, _RA, _RT, _SRC, _SRCk, _FRC, _SRc, _SCc, _SCca, _SSc, _SSR, _STc, _SSA, _SCA, _SRD],
+  [[0, { [_jN]: _sI }], [0, { [_jN]: _dI }], [0, { [_jN]: _aDI }], [0, { [_jN]: _rA }], [0, { [_jN]: _rT }], [1, { [_jN]: _sRC }], [1, { [_jN]: _sRCk }], [1, { [_jN]: _fRC }], [() => ScannedResources, { [_jN]: _sRc }], [() => ScanConfiguration$, { [_jN]: _sCc }], [0, { [_jN]: _sCca }], [0, { [_jN]: _sS }], [0, { [_jN]: _sSR }], [0, { [_jN]: _sTc }], [4, { [_jN]: _sSA }], [4, { [_jN]: _sCA }], [() => GetMalwareScanResultDetails$, { [_jN]: _sRD }]]
 ];
 export var GetMalwareScanResultDetails$: StaticStructureSchema = [3, n0, _GMSRD,
   0,
@@ -2775,8 +2785,8 @@ export var LambdaDetails$: StaticStructureSchema = [3, n0, _LD,
 ];
 export var LineageObject$: StaticStructureSchema = [3, n0, _LO,
   0,
-  [_STta, _NP, _UI, _N, _Pi, _Uu, _EP, _Eu, _PU],
-  [[4, { [_jN]: _sTta }], [1, { [_jN]: _nP }], [1, { [_jN]: _uI }], [0, { [_jN]: _n }], [1, { [_jN]: _pi }], [0, { [_jN]: _uu }], [0, { [_jN]: _eP }], [1, { [_jN]: _eu }], [0, { [_jN]: _pU }]]
+  [_ST, _NP, _UI, _N, _Pi, _Uu, _EP, _Eu, _PU],
+  [[4, { [_jN]: _sT }], [1, { [_jN]: _nP }], [1, { [_jN]: _uI }], [0, { [_jN]: _n }], [1, { [_jN]: _pi }], [0, { [_jN]: _uu }], [0, { [_jN]: _eP }], [1, { [_jN]: _eu }], [0, { [_jN]: _pU }]]
 ];
 export var ListCoverageRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -2995,13 +3005,13 @@ export var MalwareProtectionPlanTaggingAction$: StaticStructureSchema = [3, n0, 
 ];
 export var MalwareScan$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_RA, _RT, _SI, _SSc, _SRS, _ST, _SSA, _SCA],
-  [[0, { [_jN]: _rA }], [0, { [_jN]: _rT }], [0, { [_jN]: _sI }], [0, { [_jN]: _sS }], [0, { [_jN]: _sRS }], [0, { [_jN]: _sT }], [4, { [_jN]: _sSA }], [4, { [_jN]: _sCA }]]
+  [_RA, _RT, _SI, _SSc, _SRS, _STc, _SSA, _SCA],
+  [[0, { [_jN]: _rA }], [0, { [_jN]: _rT }], [0, { [_jN]: _sI }], [0, { [_jN]: _sS }], [0, { [_jN]: _sRS }], [0, { [_jN]: _sTc }], [4, { [_jN]: _sSA }], [4, { [_jN]: _sCA }]]
 ];
 export var MalwareScanDetails$: StaticStructureSchema = [3, n0, _MSD,
   0,
-  [_Th, _SI, _ST, _SCca, _SCc, _UTC],
-  [[() => Threats, { [_jN]: _th }], [0, { [_jN]: _sI }], [0, { [_jN]: _sT }], [0, { [_jN]: _sCca }], [() => MalwareProtectionFindingsScanConfiguration$, { [_jN]: _sCc }], [1, { [_jN]: _uTC }]]
+  [_Th, _SI, _STc, _SCca, _SCc, _UTC],
+  [[() => Threats, { [_jN]: _th }], [0, { [_jN]: _sI }], [0, { [_jN]: _sTc }], [0, { [_jN]: _sCca }], [() => MalwareProtectionFindingsScanConfiguration$, { [_jN]: _sCc }], [1, { [_jN]: _uTC }]]
 ];
 export var Master$: StaticStructureSchema = [3, n0, _Mas,
   0,
@@ -3210,8 +3220,8 @@ export var PrivateIpAddressDetails$: StaticStructureSchema = [3, n0, _PIAD,
 ];
 export var ProcessDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_N, _EP, _ESx, _NP, _Pw, _Pi, _STta, _Uu, _PU, _Us, _UI, _Eu, _Li],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _eP }], [0, { [_jN]: _eS }], [1, { [_jN]: _nP }], [0, { [_jN]: _pw }], [1, { [_jN]: _pi }], [4, { [_jN]: _sTta }], [0, { [_jN]: _uu }], [0, { [_jN]: _pU }], [0, { [_jN]: _us }], [1, { [_jN]: _uI }], [1, { [_jN]: _eu }], [() => Lineage, { [_jN]: _li }]]
+  [_N, _EP, _ESx, _NP, _Pw, _Pi, _ST, _Uu, _PU, _Us, _UI, _Eu, _Li],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _eP }], [0, { [_jN]: _eS }], [1, { [_jN]: _nP }], [0, { [_jN]: _pw }], [1, { [_jN]: _pi }], [4, { [_jN]: _sT }], [0, { [_jN]: _uu }], [0, { [_jN]: _pU }], [0, { [_jN]: _us }], [1, { [_jN]: _uI }], [1, { [_jN]: _eu }], [() => Lineage, { [_jN]: _li }]]
 ];
 export var ProductCode$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -3250,8 +3260,8 @@ export var RdsLoginAttemptAction$: StaticStructureSchema = [3, n0, _RLAA,
 ];
 export var RecoveryPoint$: StaticStructureSchema = [3, n0, _RP,
   0,
-  [_BVN],
-  [[0, { [_jN]: _bVN }]], 1
+  [_BVN, _CSD],
+  [[0, { [_jN]: _bVN }], [() => ContinuousScanDetails$, { [_jN]: _cSD }]], 1
 ];
 export var RecoveryPointDetails$: StaticStructureSchema = [3, n0, _RPDe,
   0,
@@ -3310,8 +3320,8 @@ export var RuntimeDetails$: StaticStructureSchema = [3, n0, _RDu,
 ];
 export var S3Bucket$: StaticStructureSchema = [3, n0, _SB,
   0,
-  [_OI, _CAr, _ET, _EKA, _EPf, _PRA, _PWA, _APA, _BPAu, _SOU],
-  [[0, { [_jN]: _oI }], [4, { [_jN]: _cAr }], [0, { [_jN]: _eT }], [0, { [_jN]: _eKA }], [0, { [_jN]: _ePf }], [0, { [_jN]: _pRA }], [0, { [_jN]: _pWA }], [() => PublicAccessConfiguration$, { [_jN]: _aPA }], [() => PublicAccessConfiguration$, { [_jN]: _bPAu }], [64 | 0, { [_jN]: _sOU }]]
+  [_OI, _CAr, _ETn, _EKA, _EPf, _PRA, _PWA, _APA, _BPAu, _SOU],
+  [[0, { [_jN]: _oI }], [4, { [_jN]: _cAr }], [0, { [_jN]: _eTn }], [0, { [_jN]: _eKA }], [0, { [_jN]: _ePf }], [0, { [_jN]: _pRA }], [0, { [_jN]: _pWA }], [() => PublicAccessConfiguration$, { [_jN]: _aPA }], [() => PublicAccessConfiguration$, { [_jN]: _bPAu }], [64 | 0, { [_jN]: _sOU }]]
 ];
 export var S3BucketDetail$: StaticStructureSchema = [3, n0, _SBDu,
   0,
@@ -3345,8 +3355,8 @@ export var S3ObjectForSendObjectMalwareScan$: StaticStructureSchema = [3, n0, _S
 ];
 export var Scan$: StaticStructureSchema = [3, n0, _Sca,
   0,
-  [_DI, _ADI, _SI, _SSc, _FR, _SST, _SET, _TDr, _RD, _SRD, _AIc, _TB, _FCile, _AVt, _ST],
-  [[0, { [_jN]: _dI }], [0, { [_jN]: _aDI }], [0, { [_jN]: _sI }], [0, { [_jN]: _sS }], [0, { [_jN]: _fR }], [4, { [_jN]: _sST }], [4, { [_jN]: _sET }], [() => TriggerDetails$, { [_jN]: _tDr }], [() => ResourceDetails$, { [_jN]: _rD }], [() => ScanResultDetails$, { [_jN]: _sRD }], [0, { [_jN]: _aIc }], [1, { [_jN]: _tB }], [1, { [_jN]: _fCile }], [() => VolumeDetails, { [_jN]: _aVt }], [0, { [_jN]: _sT }]]
+  [_DI, _ADI, _SI, _SSc, _FR, _SST, _SET, _TDr, _RD, _SRD, _AIc, _TB, _FCile, _AVt, _STc],
+  [[0, { [_jN]: _dI }], [0, { [_jN]: _aDI }], [0, { [_jN]: _sI }], [0, { [_jN]: _sS }], [0, { [_jN]: _fR }], [4, { [_jN]: _sST }], [4, { [_jN]: _sET }], [() => TriggerDetails$, { [_jN]: _tDr }], [() => ResourceDetails$, { [_jN]: _rD }], [() => ScanResultDetails$, { [_jN]: _sRD }], [0, { [_jN]: _aIc }], [1, { [_jN]: _tB }], [1, { [_jN]: _fCile }], [() => VolumeDetails, { [_jN]: _aVt }], [0, { [_jN]: _sTc }]]
 ];
 export var ScanCondition$: StaticStructureSchema = [3, n0, _SCcan,
   0,
@@ -3363,10 +3373,15 @@ export var ScanConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   [_Ro, _TDr, _ISD, _RP],
   [[0, { [_jN]: _ro }], [() => TriggerDetails$, { [_jN]: _tDr }], [() => IncrementalScanDetails$, { [_jN]: _iSD }], [() => ScanConfigurationRecoveryPoint$, { [_jN]: _rP }]]
 ];
+export var ScanConfigurationContinuousScanDetails$: StaticStructureSchema = [3, n0, _SCCSD,
+  0,
+  [_ET, _ST],
+  [[4, { [_jN]: _eT }], [4, { [_jN]: _sT }]], 1
+];
 export var ScanConfigurationRecoveryPoint$: StaticStructureSchema = [3, n0, _SCRP,
   0,
-  [_BVN],
-  [[0, { [_jN]: _bVN }]]
+  [_BVN, _CSD],
+  [[0, { [_jN]: _bVN }], [() => ScanConfigurationContinuousScanDetails$, { [_jN]: _cSD }]]
 ];
 export var ScanDetections$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -3765,8 +3780,8 @@ export var Volume$: StaticStructureSchema = [3, n0, _Vol,
 ];
 export var VolumeDetail$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_VA, _VT, _DN, _VSIGB, _ET, _SA, _KKA],
-  [[0, { [_jN]: _vA }], [0, { [_jN]: _vT }], [0, { [_jN]: _dN }], [1, { [_jN]: _vSIGB }], [0, { [_jN]: _eT }], [0, { [_jN]: _sA }], [0, { [_jN]: _kKA }]]
+  [_VA, _VT, _DN, _VSIGB, _ETn, _SA, _KKA],
+  [[0, { [_jN]: _vA }], [0, { [_jN]: _vT }], [0, { [_jN]: _dN }], [1, { [_jN]: _vSIGB }], [0, { [_jN]: _eTn }], [0, { [_jN]: _sA }], [0, { [_jN]: _kKA }]]
 ];
 export var VolumeMount$: StaticStructureSchema = [3, n0, _VMo,
   0,

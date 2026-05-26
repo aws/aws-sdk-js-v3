@@ -1711,6 +1711,24 @@ export interface ContainerInstanceDetails {
 }
 
 /**
+ * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup to scan for a point-in-time recovery resource.</p>
+ * @public
+ */
+export interface ContinuousScanDetails {
+  /**
+   * <p>The timestamp representing the start of the time range to scan. Reserved for internal use.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp representing the end of the time range to scan.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
  * <p>Contains information about the Amazon EC2 instance runtime coverage details.</p>
  * @public
  */
@@ -7397,6 +7415,24 @@ export interface GetMalwareScanRequest {
 }
 
 /**
+ * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+ * @public
+ */
+export interface ScanConfigurationContinuousScanDetails {
+  /**
+   * <p>The timestamp representing the start of the time range that was scanned.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp representing the end of the time range that was scanned.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
  * <p>Contains information about the recovery point configuration used in the scan.</p>
  * @public
  */
@@ -7406,6 +7442,12 @@ export interface ScanConfigurationRecoveryPoint {
    * @public
    */
   BackupVaultName?: string | undefined;
+
+  /**
+   * <p>The time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+   * @public
+   */
+  ContinuousScanDetails?: ScanConfigurationContinuousScanDetails | undefined;
 }
 
 /**
@@ -7805,33 +7847,4 @@ export interface Master {
    * @public
    */
   InvitedAt?: string | undefined;
-}
-
-/**
- * @deprecated This output is deprecated, use GetAdministratorAccountResponse instead.
- * @public
- */
-export interface GetMasterAccountResponse {
-  /**
-   * <p>The administrator account details.</p>
-   * @public
-   */
-  Master: Master | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemberDetectorsRequest {
-  /**
-   * <p>The detector ID for the administrator account.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of member account IDs.</p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
 }
