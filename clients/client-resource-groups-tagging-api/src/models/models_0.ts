@@ -21,6 +21,14 @@ export interface ComplianceDetails {
   KeysWithNoncompliantValues?: string[] | undefined;
 
   /**
+   * <p>These tag keys are defined as required in the
+   *             <code>report_required_tag_for</code> block of the effective tag policy, but are
+   *             missing from the resource.</p>
+   * @public
+   */
+  MissingTagKeys?: string[] | undefined;
+
+  /**
    * <p>Whether a resource is compliant with the effective tag policy.</p>
    * @public
    */

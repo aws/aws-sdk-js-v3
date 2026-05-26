@@ -35,6 +35,7 @@ const _LRTO = "ListRequiredTagsOutput";
 const _LU = "LastUpdated";
 const _M = "Message";
 const _MR = "MaxResults";
+const _MTK = "MissingTagKeys";
 const _NCR = "NonCompliantResources";
 const _NK = "NoncompliantKeys";
 const _NT = "NextToken";
@@ -164,8 +165,8 @@ export const errorTypeRegistries = [
 ]
 export var ComplianceDetails$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_NK, _KWNV, _CS],
-  [64 | 0, 64 | 0, 2]
+  [_NK, _KWNV, _MTK, _CS],
+  [64 | 0, 64 | 0, 64 | 0, 2]
 ];
 export var DescribeReportCreationInput$: StaticStructureSchema = [3, n0, _DRCI,
   0,

@@ -110,6 +110,9 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * //         KeysWithNoncompliantValues: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         MissingTagKeys: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //         ComplianceStatus: true || false,
  * //       },
  * //     },
