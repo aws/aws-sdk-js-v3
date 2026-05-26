@@ -803,15 +803,9 @@ export interface ComputeResource {
   /**
    * <p>The instances types that can be launched. You can specify instance families to launch any
    *    instance type within those families (for example, <code>c5</code> or <code>p3</code>), or you can
-   *    specify specific sizes within a family (such as <code>c5.8xlarge</code>). </p>
+   *    specify specific sizes within a family (such as <code>c5.8xlarge</code>).</p>
    *          <p>Batch can select the instance type for you if you choose one of the following:</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>optimal</code> to select instance types (from the <code>c4</code>, <code>m4</code>,
-   *     <code>r4</code>, <code>c5</code>, <code>m5</code>, and <code>r5</code>
-   *     instance families) that match the demand of your job queues. </p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>default_x86_64</code> to choose x86 based instance types (from the <code>m6i</code>,
@@ -822,14 +816,12 @@ export interface ComputeResource {
    *                   <code>default_arm64</code> to choose ARM based instance types (from the <code>m6g</code>,
    *      <code>c6g</code>, <code>r6g</code>, and <code>c7g</code> instance families) that matches the resource demands of the job queue.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>optimal</code> Semantically equivalent to <code>default_x86_64</code>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal instance type configuration to receive automatic instance family
+   *     updates</a> for details.</p>
+   *             </li>
    *          </ul>
-   *          <note>
-   *             <p>Starting on 11/01/2025 the behavior of <code>optimal</code> is going to be changed to match
-   *      <code>default_x86_64</code>.  During the change your instance families could be updated to a
-   *     newer generation. You do not need to perform any actions for the upgrade to happen. For more
-   *     information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal instance type configuration to receive automatic instance family
-   *     updates</a>.</p>
-   *          </note>
    *          <note>
    *             <p>Instance family availability varies by Amazon Web Services Region. For example, some Amazon Web Services Regions may not have any fourth generation instance families but have fifth and
    *     sixth generation instance families.</p>
@@ -1968,7 +1960,13 @@ export interface UpdatePolicy {
 
   /**
    * <p>Specifies the job timeout (in minutes) when the compute environment infrastructure is
-   *    updated. The default value is 30.</p>
+   *    updated. The default value is 30. The maximum value is 7200.</p>
+   *          <note>
+   *             <p>Increasing <code>jobExecutionTimeoutMinutes</code> during infrastructure updates delays
+   *     the replacement of instances with new instances that include updates such as security patches,
+   *     but provides more time for jobs to execute. Consider the security implications of this tradeoff
+   *     when setting timeout values.</p>
+   *          </note>
    * @public
    */
   jobExecutionTimeoutMinutes?: number | undefined;
