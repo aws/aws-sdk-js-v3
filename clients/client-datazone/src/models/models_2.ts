@@ -50,7 +50,9 @@ import type {
   AssetListingItem,
   AssetTypeItem,
   AwsLocation,
+  CellInformation,
   ColumnFilterConfiguration,
+  ComputeConfig,
   ConfigurableEnvironmentAction,
   Configuration,
   ConnectionPropertiesOutput,
@@ -58,6 +60,7 @@ import type {
   CustomParameter,
   Deployment,
   DeploymentProperties,
+  EnvironmentConfig,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
@@ -90,10 +93,175 @@ import type {
   FailureCause,
   GrantedEntity,
   Import,
+  NetworkConfig,
+  NotebookRunError,
+  StorageConfig,
   SubscribedAsset,
   SubscriptionTargetForm,
+  TimeoutConfig,
   TimeSeriesDataPointFormOutput,
+  TriggerSource,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface StartNotebookRunOutput {
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the notebook run.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook.</p>
+   * @public
+   */
+  notebookId: string | undefined;
+
+  /**
+   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * @public
+   */
+  scheduleId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook run.</p>
+   * @public
+   */
+  status: NotebookRunStatus | undefined;
+
+  /**
+   * <p>The ordered list of cells in the notebook run.</p>
+   * @public
+   */
+  cellOrder?: CellInformation[] | undefined;
+
+  /**
+   * <p>The metadata of the notebook run.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The sensitive parameters of the notebook run.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compute configuration of the notebook run.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfig | undefined;
+
+  /**
+   * <p>The network configuration of the notebook run.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfig | undefined;
+
+  /**
+   * <p>The timeout configuration of the notebook run.</p>
+   * @public
+   */
+  timeoutConfiguration?: TimeoutConfig | undefined;
+
+  /**
+   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
+   * @public
+   */
+  environmentConfiguration?: EnvironmentConfig | undefined;
+
+  /**
+   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
+   * @public
+   */
+  storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The source that triggered the notebook run.</p>
+   * @public
+   */
+  triggerSource?: TriggerSource | undefined;
+
+  /**
+   * <p>The error details if the notebook run failed.</p>
+   * @public
+   */
+  error?: NotebookRunError | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who created the notebook run.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who last updated the notebook run.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run started executing.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook run completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopNotebookRunInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is stopped.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook run to stop.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
 
 /**
  * @public

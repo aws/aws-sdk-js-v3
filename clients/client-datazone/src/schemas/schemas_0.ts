@@ -786,6 +786,8 @@ const _PPGP = "ProjectPolicyGrantPrincipal";
 const _PPN = "ProjectProfileName";
 const _PPS = "ProjectProfileSummary";
 const _PPSr = "ProjectProfileSummaries";
+const _PRC = "PutResourceConfiguration";
+const _PRCu = "PutResourceConfigurations";
 const _PRTP = "ProjectResourceTagParameters";
 const _PS = "Processing-Status";
 const _PSr = "ProjectSummary";
@@ -805,6 +807,8 @@ const _RCS = "RedshiftClusterStorage";
 const _RCe = "RejectChoice";
 const _RCed = "RedshiftCredentials";
 const _RCej = "RejectChoices";
+const _RCes = "ResourceConfiguration";
+const _RCeso = "ResourceConfigurations";
 const _RD = "RuleDetail";
 const _REO = "RemoveEntityOwner";
 const _REOI = "RemoveEntityOwnerInput";
@@ -1115,6 +1119,7 @@ const _aTf = "afterTimestamp";
 const _aTs = "assetTypes";
 const _aTu = "authenticationType";
 const _aUGF = "allUsersGrantFilter";
+const _aUPC = "allowUserProvidedConfigurations";
 const _aWSMCAR = "aWSManagedClientApplicationReference";
 const _aZ = "availabilityZone";
 const _ac = "action";
@@ -1546,9 +1551,10 @@ const _qST = "queryStartTime";
 const _r = "revision";
 const _rA = "ruleAction";
 const _rAe = "resourceArn";
-const _rC = "rejectChoices";
+const _rC = "resourceConfigurations";
 const _rCC = "redshiftCredentialConfiguration";
 const _rCS = "redshiftClusterSource";
+const _rCe = "rejectChoices";
 const _rCo = "rowConfiguration";
 const _rD = "relationDirection";
 const _rDUI = "rootDomainUnitId";
@@ -2965,8 +2971,8 @@ export var EnvironmentActionSummary$: StaticStructureSchema = [3, n0, _EAS,
 ];
 export var EnvironmentBlueprintConfigurationItem$: StaticStructureSchema = [3, n0, _EBCI,
   0,
-  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCrov],
-  [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
+  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _aUPC, _cA, _uA, _rC, _pCrov],
+  [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 2, 5, 5, () => ResourceConfigurations, () => ProvisioningConfigurationList], 2
 ];
 export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,
@@ -3200,8 +3206,8 @@ export var GetEnvironmentBlueprintConfigurationInput$: StaticStructureSchema = [
 ];
 export var GetEnvironmentBlueprintConfigurationOutput$: StaticStructureSchema = [3, n0, _GEBCO,
   0,
-  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCrov],
-  [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
+  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _aUPC, _cA, _uA, _rC, _pCrov],
+  [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 2, 5, 5, () => ResourceConfigurations, () => ProvisioningConfigurationList], 2
 ];
 export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
   0,
@@ -4320,13 +4326,18 @@ export var PutDataExportConfigurationOutput$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutEnvironmentBlueprintConfigurationInput$: StaticStructureSchema = [3, n0, _PEBCI,
   0,
-  [_dI, _eBI, _eRn, _pRA, _mARA, _eRPB, _rPe, _gP, _pCrov],
-  [[0, 1], [0, 1], 64 | 0, 0, 0, 0, [2, n0, _RPM, 0, 0, 128 | 0], 128 | 0, () => ProvisioningConfigurationList], 3
+  [_dI, _eBI, _eRn, _pRA, _mARA, _eRPB, _rPe, _rC, _aUPC, _gP, _pCrov],
+  [[0, 1], [0, 1], 64 | 0, 0, 0, 0, [2, n0, _RPM, 0, 0, 128 | 0], () => PutResourceConfigurations, 2, 128 | 0, () => ProvisioningConfigurationList], 3
 ];
 export var PutEnvironmentBlueprintConfigurationOutput$: StaticStructureSchema = [3, n0, _PEBCO,
   0,
-  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCrov],
-  [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
+  [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _aUPC, _cA, _uA, _rC, _pCrov],
+  [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 2, 5, 5, () => ResourceConfigurations, () => ProvisioningConfigurationList], 2
+];
+export var PutResourceConfiguration$: StaticStructureSchema = [3, n0, _PRC,
+  0,
+  [_n, _reg, _par, _de],
+  [0, 0, 128 | 0, 0], 3
 ];
 export var QueryGraphInput$: StaticStructureSchema = [3, n0, _QGI,
   0,
@@ -4405,7 +4416,7 @@ export var RejectChoice$: StaticStructureSchema = [3, n0, _RCe,
 ];
 export var RejectPredictionsInput$: StaticStructureSchema = [3, n0, _RPIe,
   0,
-  [_dI, _i, _r, _rRe, _rC, _cT],
+  [_dI, _i, _r, _rRe, _rCe, _cT],
   [[0, 1], [0, 1], [0, { [_hQ]: _r }], () => RejectRule$, () => RejectChoices, [0, 4]], 2
 ];
 export var RejectPredictionsOutput$: StaticStructureSchema = [3, n0, _RPOe,
@@ -4462,6 +4473,11 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
   [_v, _ty, _prov, _n],
   [0, 0, 0, 0], 2
+];
+export var ResourceConfiguration$: StaticStructureSchema = [3, n0, _RCes,
+  0,
+  [_i, _n, _reg, _par, _de],
+  [0, 0, 0, 128 | 0, 0], 4
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
@@ -5422,6 +5438,9 @@ var ProjectSummaries: StaticListSchema = [1, n0, _PSro,
 var ProvisioningConfigurationList: StaticListSchema = [1, n0, _PCL,
   0, () => ProvisioningConfiguration$
 ];
+var PutResourceConfigurations: StaticListSchema = [1, n0, _PRCu,
+  0, () => PutResourceConfiguration$
+];
 var RejectChoices: StaticListSchema = [1, n0, _RCej,
   0, () => RejectChoice$
 ];
@@ -5430,6 +5449,9 @@ var RelationalFilterConfigurations: StaticListSchema = [1, n0, _RFCe,
 ];
 var RequiredMetadataFormList: StaticListSchema = [1, n0, _RMFL,
   0, () => MetadataFormReference$
+];
+var ResourceConfigurations: StaticListSchema = [1, n0, _RCeso,
+  0, () => ResourceConfiguration$
 ];
 var ResourceList: StaticListSchema = [1, n0, _RL,
   0, () => Resource$
@@ -5562,6 +5584,7 @@ var RegionalParameter = 128 | 0;
 var RegionalParameterMap: StaticMapSchema = [2, n0, _RPM,
   0, 0, 128 | 0
 ];
+var ResourceConfigurationParameterMap = 128 | 0;
 var Tags = 128 | 0;
 var TokenUrlParametersMap = 128 | 0;
 var TrackingAssets: StaticMapSchema = [2, n0, _TA,

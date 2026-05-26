@@ -62,8 +62,20 @@ export interface ListEnvironmentBlueprintConfigurationsCommandOutput extends Lis
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       },
+ * //       allowUserProvidedConfigurations: true || false,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       resourceConfigurations: [ // ResourceConfigurations
+ * //         { // ResourceConfiguration
+ * //           identifier: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE", // required
+ * //           description: "STRING_VALUE",
+ * //           region: "STRING_VALUE", // required
+ * //           parameters: { // ResourceConfigurationParameterMap // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //       provisioningConfigurations: [ // ProvisioningConfigurationList
  * //         { // ProvisioningConfiguration Union: only one key present
  * //           lakeFormationConfiguration: { // LakeFormationConfiguration

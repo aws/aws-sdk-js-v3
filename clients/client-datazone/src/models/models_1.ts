@@ -3825,6 +3825,42 @@ export namespace ProvisioningConfiguration {
 }
 
 /**
+ * <p>The details of the resource configuration.</p>
+ * @public
+ */
+export interface ResourceConfiguration {
+  /**
+   * <p>The identifier of the resource configuration.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the resource configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the resource configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource configuration.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The parameters of the resource configuration.</p>
+   * @public
+   */
+  parameters: Record<string, string> | undefined;
+}
+
+/**
  * @public
  */
 export interface GetEnvironmentBlueprintConfigurationOutput {
@@ -3871,6 +3907,12 @@ export interface GetEnvironmentBlueprintConfigurationOutput {
   regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
+   * <p>Specifies whether user-provided resource configurations are allowed for the environment blueprint.</p>
+   * @public
+   */
+  allowUserProvidedConfigurations?: boolean | undefined;
+
+  /**
    * <p>The timestamp of when this blueprint was created.</p>
    * @public
    */
@@ -3881,6 +3923,12 @@ export interface GetEnvironmentBlueprintConfigurationOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The resource configurations of the environment blueprint.</p>
+   * @public
+   */
+  resourceConfigurations?: ResourceConfiguration[] | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
@@ -3960,6 +4008,12 @@ export interface EnvironmentBlueprintConfigurationItem {
   regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
+   * <p>Specifies whether user-provided resource configurations are allowed for the environment blueprint.</p>
+   * @public
+   */
+  allowUserProvidedConfigurations?: boolean | undefined;
+
+  /**
    * <p>The timestamp of when an environment blueprint was created.</p>
    * @public
    */
@@ -3970,6 +4024,12 @@ export interface EnvironmentBlueprintConfigurationItem {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The resource configurations of the environment blueprint.</p>
+   * @public
+   */
+  resourceConfigurations?: ResourceConfiguration[] | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
@@ -3993,6 +4053,36 @@ export interface ListEnvironmentBlueprintConfigurationsOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>The resource configuration that is used to configure the environment blueprint.</p>
+ * @public
+ */
+export interface PutResourceConfiguration {
+  /**
+   * <p>The name of the resource configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the resource configuration.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource configuration.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The parameters of the resource configuration.</p>
+   * @public
+   */
+  parameters: Record<string, string> | undefined;
 }
 
 /**
@@ -4040,6 +4130,18 @@ export interface PutEnvironmentBlueprintConfigurationInput {
    * @public
    */
   regionalParameters?: Record<string, Record<string, string>> | undefined;
+
+  /**
+   * <p>The resource configurations of the environment blueprint.</p>
+   * @public
+   */
+  resourceConfigurations?: PutResourceConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies whether user-provided resource configurations are allowed for the environment blueprint.</p>
+   * @public
+   */
+  allowUserProvidedConfigurations?: boolean | undefined;
 
   /**
    * <p>Region-agnostic environment blueprint parameters. </p>
@@ -4101,6 +4203,12 @@ export interface PutEnvironmentBlueprintConfigurationOutput {
   regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
+   * <p>Specifies whether user-provided resource configurations are allowed for the environment blueprint.</p>
+   * @public
+   */
+  allowUserProvidedConfigurations?: boolean | undefined;
+
+  /**
    * <p>The timestamp of when the environment blueprint was created.</p>
    * @public
    */
@@ -4111,6 +4219,12 @@ export interface PutEnvironmentBlueprintConfigurationOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The resource configurations of the environment blueprint.</p>
+   * @public
+   */
+  resourceConfigurations?: ResourceConfiguration[] | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
@@ -11431,166 +11545,6 @@ export interface StartNotebookRunInput {
    * @public
    */
   parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartNotebookRunOutput {
-  /**
-   * <p>The identifier of the notebook run.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook run.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  notebookId: string | undefined;
-
-  /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
-   * @public
-   */
-  scheduleId?: string | undefined;
-
-  /**
-   * <p>The status of the notebook run.</p>
-   * @public
-   */
-  status: NotebookRunStatus | undefined;
-
-  /**
-   * <p>The ordered list of cells in the notebook run.</p>
-   * @public
-   */
-  cellOrder?: CellInformation[] | undefined;
-
-  /**
-   * <p>The metadata of the notebook run.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The sensitive parameters of the notebook run.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The compute configuration of the notebook run.</p>
-   * @public
-   */
-  computeConfiguration?: ComputeConfig | undefined;
-
-  /**
-   * <p>The network configuration of the notebook run.</p>
-   * @public
-   */
-  networkConfiguration?: NetworkConfig | undefined;
-
-  /**
-   * <p>The timeout configuration of the notebook run.</p>
-   * @public
-   */
-  timeoutConfiguration?: TimeoutConfig | undefined;
-
-  /**
-   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
-   * @public
-   */
-  environmentConfiguration?: EnvironmentConfig | undefined;
-
-  /**
-   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
-   * @public
-   */
-  storageConfiguration?: StorageConfig | undefined;
-
-  /**
-   * <p>The source that triggered the notebook run.</p>
-   * @public
-   */
-  triggerSource?: TriggerSource | undefined;
-
-  /**
-   * <p>The error details if the notebook run failed.</p>
-   * @public
-   */
-  error?: NotebookRunError | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who created the notebook run.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run was last updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who last updated the notebook run.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run started executing.</p>
-   * @public
-   */
-  startedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook run completed.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface StopNotebookRunInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is stopped.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook run to stop.</p>
-   * @public
-   */
-  identifier: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>

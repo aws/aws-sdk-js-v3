@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopNotebookRunInput } from "../models/models_1";
-import type { StopNotebookRunOutput } from "../models/models_2";
+import type { StopNotebookRunInput, StopNotebookRunOutput } from "../models/models_2";
 import { StopNotebookRun$ } from "../schemas/schemas_0";
 
 /**

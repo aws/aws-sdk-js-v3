@@ -934,6 +934,7 @@ import {
   PutEnvironmentBlueprintConfigurationCommand,
   PutEnvironmentBlueprintConfigurationInput$,
   PutEnvironmentBlueprintConfigurationOutput$,
+  PutResourceConfiguration$,
   QueryGraph$,
   QueryGraphCommand,
   QueryGraphInput$,
@@ -979,6 +980,7 @@ import {
   RemovePolicyGrantOutput$,
   ResolutionStrategy,
   Resource$,
+  ResourceConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceTag$,
@@ -2148,6 +2150,7 @@ assert(typeof PutDataExportConfigurationInput$ === "object");
 assert(typeof PutDataExportConfigurationOutput$ === "object");
 assert(typeof PutEnvironmentBlueprintConfigurationInput$ === "object");
 assert(typeof PutEnvironmentBlueprintConfigurationOutput$ === "object");
+assert(typeof PutResourceConfiguration$ === "object");
 assert(typeof QueryGraphInput$ === "object");
 assert(typeof QueryGraphOutput$ === "object");
 assert(typeof RecommendationConfiguration$ === "object");
@@ -2179,6 +2182,7 @@ assert(typeof RemoveEntityOwnerOutput$ === "object");
 assert(typeof RemovePolicyGrantInput$ === "object");
 assert(typeof RemovePolicyGrantOutput$ === "object");
 assert(typeof Resource$ === "object");
+assert(typeof ResourceConfiguration$ === "object");
 assert(typeof ResourceTag$ === "object");
 assert(typeof ResourceTagParameter$ === "object");
 assert(typeof ResultItem$ === "object");
