@@ -66,12 +66,10 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   // throws if not to spec for provider.
   checkUrl(url, options.logger);
 
-  const requestHandler = NodeHttpHandler.create({
-    requestTimeout: options.timeout ?? 1000,
-    connectionTimeout: options.timeout ?? 1000,
-  });
+  const requestHandler = NodeHttpHandler.create({ connectionTimeout: options.timeout ?? 1000 }) as NodeHttpHandler;
+  const requestTimeout = options.timeout ?? 1000;
 
-  return retryWrapper(
+  const provider = retryWrapper(
     async (): Promise<AwsCredentialIdentity> => {
       const request = createGetRequest(url);
 
@@ -83,7 +81,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         request.headers.Authorization = (await fs.readFile(tokenFile)).toString();
       }
       try {
-        const result = await requestHandler.handle(request);
+        const result = await requestHandler.handle(request, { requestTimeout });
         return getCredentials(result.response).then((creds) => setCredentialFeature(creds, "CREDENTIALS_HTTP", "z"));
       } catch (e: unknown) {
         throw new CredentialsProviderError(String(e), { logger: options.logger });
@@ -92,4 +90,12 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
     options.maxRetries ?? 3,
     options.timeout ?? 1000
   );
+
+  return async () => {
+    try {
+      return await provider();
+    } finally {
+      requestHandler.destroy?.();
+    }
+  };
 };

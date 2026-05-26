@@ -24,10 +24,12 @@ const mockHandle = vi.fn().mockResolvedValue({
   }),
 });
 
+const mockDestroy = vi.fn();
+
 vi.mock("@smithy/node-http-handler", () => ({
   NodeHttpHandler: (() => {
     const getImpl = () => ({
-      destroy: () => {},
+      destroy: mockDestroy,
       handle: mockHandle,
     });
     const impl = Object.assign(vi.fn().mockImplementation(getImpl), {
@@ -61,7 +63,9 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("https://u1.aws")));
+    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("https://u1.aws")), {
+      requestTimeout: 1000,
+    });
   });
 
   it("uses the relative uri", async () => {
@@ -72,7 +76,9 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("http://169.254.170.2/some-path")));
+    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("http://169.254.170.2/some-path")), {
+      requestTimeout: 1000,
+    });
   });
 
   it("can use the token", async () => {
@@ -86,7 +92,7 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(request);
+    expect(mockHandle).toHaveBeenCalledWith(request, { requestTimeout: 1000 });
   });
 
   it("can use the token file", async () => {
@@ -100,6 +106,45 @@ describe(fromHttp.name, () => {
 
     await provider();
 
-    expect(mockHandle).toHaveBeenCalledWith(request);
+    expect(mockHandle).toHaveBeenCalledWith(request, { requestTimeout: 1000 });
+  });
+
+  it("passes custom timeout as requestTimeout to handle()", async () => {
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+      timeout: 5000,
+    });
+
+    await provider();
+
+    expect(mockHandle).toHaveBeenCalledWith(expect.anything(), { requestTimeout: 5000 });
+  });
+
+  it("destroys the request handler after the provider resolves", async () => {
+    mockDestroy.mockClear();
+
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+    });
+
+    await provider();
+
+    expect(mockDestroy).toHaveBeenCalledTimes(1);
+  });
+
+  it("destroys the request handler even when the request fails", async () => {
+    mockDestroy.mockClear();
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+    mockHandle.mockRejectedValueOnce(new Error("network error"));
+
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+    });
+
+    await expect(provider()).rejects.toThrow();
+
+    expect(mockDestroy).toHaveBeenCalledTimes(1);
   });
 });
