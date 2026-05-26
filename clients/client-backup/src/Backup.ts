@@ -244,6 +244,11 @@ import {
   GetLegalHoldCommand,
 } from "./commands/GetLegalHoldCommand";
 import {
+  type GetPITRMalwareScanResultsCommandInput,
+  type GetPITRMalwareScanResultsCommandOutput,
+  GetPITRMalwareScanResultsCommand,
+} from "./commands/GetPITRMalwareScanResultsCommand";
+import {
   type GetRecoveryPointIndexDetailsCommandInput,
   type GetRecoveryPointIndexDetailsCommandOutput,
   GetRecoveryPointIndexDetailsCommand,
@@ -618,6 +623,7 @@ const commands = {
   GetBackupVaultAccessPolicyCommand,
   GetBackupVaultNotificationsCommand,
   GetLegalHoldCommand,
+  GetPITRMalwareScanResultsCommand,
   GetRecoveryPointIndexDetailsCommand,
   GetRecoveryPointRestoreMetadataCommand,
   GetRestoreJobMetadataCommand,
@@ -1528,6 +1534,23 @@ export interface Backup {
     args: GetLegalHoldCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLegalHoldCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPITRMalwareScanResultsCommand}
+   */
+  getPITRMalwareScanResults(
+    args: GetPITRMalwareScanResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPITRMalwareScanResultsCommandOutput>;
+  getPITRMalwareScanResults(
+    args: GetPITRMalwareScanResultsCommandInput,
+    cb: (err: any, data?: GetPITRMalwareScanResultsCommandOutput) => void
+  ): void;
+  getPITRMalwareScanResults(
+    args: GetPITRMalwareScanResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPITRMalwareScanResultsCommandOutput) => void
   ): void;
 
   /**

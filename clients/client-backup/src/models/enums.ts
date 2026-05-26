@@ -415,6 +415,7 @@ export type ScanResourceType = (typeof ScanResourceType)[keyof typeof ScanResour
 export const ScanResultStatus = {
   NO_THREATS_FOUND: "NO_THREATS_FOUND",
   THREATS_FOUND: "THREATS_FOUND",
+  UNKNOWN: "UNKNOWN",
 } as const;
 /**
  * @public

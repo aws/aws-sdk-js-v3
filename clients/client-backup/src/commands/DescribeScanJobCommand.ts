@@ -46,6 +46,8 @@ export interface DescribeScanJobCommandOutput extends DescribeScanJobOutput, __M
  * //   BackupVaultArn: "STRING_VALUE", // required
  * //   BackupVaultName: "STRING_VALUE", // required
  * //   CompletionDate: new Date("TIMESTAMP"),
+ * //   ContinuousScanEndTime: new Date("TIMESTAMP"),
+ * //   ContinuousScanStartTime: new Date("TIMESTAMP"),
  * //   CreatedBy: { // ScanJobCreator
  * //     BackupPlanArn: "STRING_VALUE", // required
  * //     BackupPlanId: "STRING_VALUE", // required
@@ -64,7 +66,7 @@ export interface DescribeScanJobCommandOutput extends DescribeScanJobOutput, __M
  * //   ScanJobId: "STRING_VALUE", // required
  * //   ScanMode: "FULL_SCAN" || "INCREMENTAL_SCAN", // required
  * //   ScanResult: { // ScanResultInfo
- * //     ScanResultStatus: "NO_THREATS_FOUND" || "THREATS_FOUND", // required
+ * //     ScanResultStatus: "NO_THREATS_FOUND" || "THREATS_FOUND" || "UNKNOWN", // required
  * //   },
  * //   ScannerRoleArn: "STRING_VALUE", // required
  * //   State: "CANCELED" || "COMPLETED" || "COMPLETED_WITH_ISSUES" || "CREATED" || "FAILED" || "RUNNING", // required

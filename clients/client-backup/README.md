@@ -521,6 +521,13 @@ GetLegalHold
 </details>
 <details>
 <summary>
+GetPITRMalwareScanResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/GetPITRMalwareScanResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetPITRMalwareScanResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetPITRMalwareScanResultsCommandOutput/)
+</details>
+<details>
+<summary>
 GetRecoveryPointIndexDetails
 </summary>
 

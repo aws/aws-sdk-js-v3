@@ -38,6 +38,7 @@ export interface StartScanJobCommandOutput extends StartScanJobOutput, __Metadat
  * const client = new BackupClient(config);
  * const input = { // StartScanJobInput
  *   BackupVaultName: "STRING_VALUE", // required
+ *   ContinuousScanEndTime: new Date("TIMESTAMP"),
  *   IamRoleArn: "STRING_VALUE", // required
  *   IdempotencyToken: "STRING_VALUE",
  *   MalwareScanner: "GUARDDUTY", // required

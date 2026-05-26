@@ -211,6 +211,10 @@ import type {
 } from "./commands/GetBackupVaultNotificationsCommand";
 import type { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "./commands/GetLegalHoldCommand";
 import type {
+  GetPITRMalwareScanResultsCommandInput,
+  GetPITRMalwareScanResultsCommandOutput,
+} from "./commands/GetPITRMalwareScanResultsCommand";
+import type {
   GetRecoveryPointIndexDetailsCommandInput,
   GetRecoveryPointIndexDetailsCommandOutput,
 } from "./commands/GetRecoveryPointIndexDetailsCommand";
@@ -447,6 +451,7 @@ export type ServiceInputTypes =
   | GetBackupVaultAccessPolicyCommandInput
   | GetBackupVaultNotificationsCommandInput
   | GetLegalHoldCommandInput
+  | GetPITRMalwareScanResultsCommandInput
   | GetRecoveryPointIndexDetailsCommandInput
   | GetRecoveryPointRestoreMetadataCommandInput
   | GetRestoreJobMetadataCommandInput
@@ -560,6 +565,7 @@ export type ServiceOutputTypes =
   | GetBackupVaultAccessPolicyCommandOutput
   | GetBackupVaultNotificationsCommandOutput
   | GetLegalHoldCommandOutput
+  | GetPITRMalwareScanResultsCommandOutput
   | GetRecoveryPointIndexDetailsCommandOutput
   | GetRecoveryPointRestoreMetadataCommandOutput
   | GetRestoreJobMetadataCommandOutput

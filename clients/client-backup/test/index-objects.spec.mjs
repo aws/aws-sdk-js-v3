@@ -219,6 +219,10 @@ import {
   GetLegalHoldCommand,
   GetLegalHoldInput$,
   GetLegalHoldOutput$,
+  GetPITRMalwareScanResults$,
+  GetPITRMalwareScanResultsCommand,
+  GetPITRMalwareScanResultsInput$,
+  GetPITRMalwareScanResultsOutput$,
   GetRecoveryPointIndexDetails$,
   GetRecoveryPointIndexDetailsCommand,
   GetRecoveryPointIndexDetailsInput$,
@@ -663,6 +667,8 @@ assert(typeof GetBackupVaultNotificationsCommand === "function");
 assert(typeof GetBackupVaultNotifications$ === "object");
 assert(typeof GetLegalHoldCommand === "function");
 assert(typeof GetLegalHold$ === "object");
+assert(typeof GetPITRMalwareScanResultsCommand === "function");
+assert(typeof GetPITRMalwareScanResults$ === "object");
 assert(typeof GetRecoveryPointIndexDetailsCommand === "function");
 assert(typeof GetRecoveryPointIndexDetails$ === "object");
 assert(typeof GetRecoveryPointRestoreMetadataCommand === "function");
@@ -891,6 +897,8 @@ assert(typeof GetBackupVaultNotificationsInput$ === "object");
 assert(typeof GetBackupVaultNotificationsOutput$ === "object");
 assert(typeof GetLegalHoldInput$ === "object");
 assert(typeof GetLegalHoldOutput$ === "object");
+assert(typeof GetPITRMalwareScanResultsInput$ === "object");
+assert(typeof GetPITRMalwareScanResultsOutput$ === "object");
 assert(typeof GetRecoveryPointIndexDetailsInput$ === "object");
 assert(typeof GetRecoveryPointIndexDetailsOutput$ === "object");
 assert(typeof GetRecoveryPointRestoreMetadataInput$ === "object");

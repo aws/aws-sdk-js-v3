@@ -153,6 +153,8 @@ const _CRTS = "CreateRestoreTestingSelection";
 const _CRTSI = "CreateRestoreTestingSelectionInput";
 const _CRTSO = "CreateRestoreTestingSelectionOutput";
 const _CS = "ControlScope";
+const _CSET = "ContinuousScanEndTime";
+const _CSST = "ContinuousScanStartTime";
 const _CSTTRR = "CopySourceTagsToRestoredResource";
 const _CT = "ConditionType";
 const _CTC = "CreateTieringConfiguration";
@@ -299,6 +301,9 @@ const _GBVNO = "GetBackupVaultNotificationsOutput";
 const _GLH = "GetLegalHold";
 const _GLHI = "GetLegalHoldInput";
 const _GLHO = "GetLegalHoldOutput";
+const _GPITRMSR = "GetPITRMalwareScanResults";
+const _GPITRMSRI = "GetPITRMalwareScanResultsInput";
+const _GPITRMSRO = "GetPITRMalwareScanResultsOutput";
 const _GRJM = "GetRestoreJobMetadata";
 const _GRJMI = "GetRestoreJobMetadataInput";
 const _GRJMO = "GetRestoreJobMetadataOutput";
@@ -453,6 +458,7 @@ const _LSJO = "ListScanJobsOutput";
 const _LSJS = "ListScanJobSummaries";
 const _LSJSI = "ListScanJobSummariesInput";
 const _LSJSO = "ListScanJobSummariesOutput";
+const _LSJT = "LastScanJobTime";
 const _LST = "LastScanTimestamp";
 const _LT = "ListTags";
 const _LTC = "ListTieringConfigurations";
@@ -606,6 +612,7 @@ const _SCJI = "StartCopyJobInput";
 const _SCJO = "StartCopyJobOutput";
 const _SE = "ScheduleExpression";
 const _SET = "ScheduleExpressionTimezone";
+const _SETc = "ScanEndTime";
 const _SEt = "StringEquals";
 const _SI = "SelectionId";
 const _SIc = "ScanId";
@@ -1282,8 +1289,8 @@ export var DescribeScanJobInput$: StaticStructureSchema = [3, n0, _DSJI,
 ];
 export var DescribeScanJobOutput$: StaticStructureSchema = [3, n0, _DSJO,
   0,
-  [_AI, _BVA, _BVN, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SJI, _SMc, _SRAc, _S, _CDo, _SBRPA, _SIc, _SRc, _SM],
-  [0, 0, 0, () => ScanJobCreator$, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, () => ScanResultInfo$, 0], 15
+  [_AI, _BVA, _BVN, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SJI, _SMc, _SRAc, _S, _CDo, _CSET, _CSST, _SBRPA, _SIc, _SRc, _SM],
+  [0, 0, 0, () => ScanJobCreator$, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => ScanResultInfo$, 0], 15
 ];
 export var DisassociateBackupVaultMpaApprovalTeamInput$: StaticStructureSchema = [3, n0, _DBVMATI,
   0,
@@ -1389,6 +1396,16 @@ export var GetLegalHoldOutput$: StaticStructureSchema = [3, n0, _GLHO,
   0,
   [_Ti, _St, _D, _CDa, _LHI, _LHA, _CD, _CDan, _RRU, _RPS],
   [0, 0, 0, 0, 0, 0, 4, 4, 4, () => RecoveryPointSelection$]
+];
+export var GetPITRMalwareScanResultsInput$: StaticStructureSchema = [3, n0, _GPITRMSRI,
+  0,
+  [_RPA, _BVN, _SETc, _MS],
+  [[0, { [_hQ]: _RPA }], [0, { [_hQ]: _BVN }], [4, { [_hQ]: _SETc }], [0, { [_hQ]: _MS }]], 4
+];
+export var GetPITRMalwareScanResultsOutput$: StaticStructureSchema = [3, n0, _GPITRMSRO,
+  0,
+  [_SETc, _SRc, _LSJT, _SIc, _SMc],
+  [4, () => ScanResultInfo$, 4, 0, 0], 2
 ];
 export var GetRecoveryPointIndexDetailsInput$: StaticStructureSchema = [3, n0, _GRPIDI,
   0,
@@ -1952,8 +1969,8 @@ export var ScanAction$: StaticStructureSchema = [3, n0, _SAc,
 ];
 export var ScanJob$: StaticStructureSchema = [3, n0, _SJc,
   0,
-  [_AI, _BVA, _BVN, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SJI, _SMc, _SRAc, _CDo, _SBRPA, _SIc, _SRc, _S, _SM],
-  [0, 0, 0, () => ScanJobCreator$, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, () => ScanResultInfo$, 0, 0], 14
+  [_AI, _BVA, _BVN, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SJI, _SMc, _SRAc, _CDo, _CSET, _CSST, _SBRPA, _SIc, _SRc, _S, _SM],
+  [0, 0, 0, () => ScanJobCreator$, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => ScanResultInfo$, 0, 0], 14
 ];
 export var ScanJobCreator$: StaticStructureSchema = [3, n0, _SJC,
   0,
@@ -2027,8 +2044,8 @@ export var StartRestoreJobOutput$: StaticStructureSchema = [3, n0, _SRJOt,
 ];
 export var StartScanJobInput$: StaticStructureSchema = [3, n0, _SSJI,
   0,
-  [_BVN, _IRA, _MS, _RPA, _SMc, _SRAc, _IT, _SBRPA],
-  [0, 0, 0, 0, 0, 0, 0, 0], 6
+  [_BVN, _IRA, _MS, _RPA, _SMc, _SRAc, _CSET, _IT, _SBRPA],
+  [0, 0, 0, 0, 0, 0, 4, 0, 0], 6
 ];
 export var StartScanJobOutput$: StaticStructureSchema = [3, n0, _SSJO,
   0,
@@ -2459,6 +2476,9 @@ export var GetBackupVaultNotifications$: StaticOperationSchema = [9, n0, _GBVN,
 ];
 export var GetLegalHold$: StaticOperationSchema = [9, n0, _GLH,
   { [_h]: ["GET", "/legal-holds/{LegalHoldId}", 200] }, () => GetLegalHoldInput$, () => GetLegalHoldOutput$
+];
+export var GetPITRMalwareScanResults$: StaticOperationSchema = [9, n0, _GPITRMSR,
+  { [_h]: ["GET", "/scan/pitr-malware-scan-results", 200] }, () => GetPITRMalwareScanResultsInput$, () => GetPITRMalwareScanResultsOutput$
 ];
 export var GetRecoveryPointIndexDetails$: StaticOperationSchema = [9, n0, _GRPID,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200] }, () => GetRecoveryPointIndexDetailsInput$, () => GetRecoveryPointIndexDetailsOutput$

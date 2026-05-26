@@ -47,6 +47,7 @@ export * from "./GetBackupSelectionCommand";
 export * from "./GetBackupVaultAccessPolicyCommand";
 export * from "./GetBackupVaultNotificationsCommand";
 export * from "./GetLegalHoldCommand";
+export * from "./GetPITRMalwareScanResultsCommand";
 export * from "./GetRecoveryPointIndexDetailsCommand";
 export * from "./GetRecoveryPointRestoreMetadataCommand";
 export * from "./GetRestoreJobMetadataCommand";
