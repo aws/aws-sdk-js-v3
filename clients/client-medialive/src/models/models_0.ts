@@ -44,6 +44,7 @@ import type {
   BurnInOutlineColor,
   BurnInShadowColor,
   BurnInTeletextGridControl,
+  CaptionSynchronizationMode,
   CdiInputResolution,
   ChannelAlertState,
   ChannelClass,
@@ -998,6 +999,24 @@ export interface AudioDescription {
 }
 
 /**
+ * Maps an audio selector in the channel to a feed input on the associated Elemental Inference feed.
+ * @public
+ */
+export interface AudioFeedInput {
+  /**
+   * The name of the audio selector in the channel that will be sent to the Elemental Inference feed input.
+   * @public
+   */
+  AudioSelectorName?: string | undefined;
+
+  /**
+   * The name of the feed input on the Elemental Inference feed that will receive the audio from the specified audio selector.
+   * @public
+   */
+  FeedInput?: string | undefined;
+}
+
+/**
  * Audio Hls Rendition Selection
  * @public
  */
@@ -1826,6 +1845,24 @@ export interface Scte27SourceSettings {
 }
 
 /**
+ * Smart Subtitle Source Settings
+ * @public
+ */
+export interface SmartSubtitleSourceSettings {
+  /**
+   * Controls whether MediaLive delays video to synchronize captions with audio and video output.
+   * @public
+   */
+  CaptionSynchronizationMode?: CaptionSynchronizationMode | undefined;
+
+  /**
+   * The name of the Elemental Inference feed output that supplies subtitle input into this caption selector.
+   * @public
+   */
+  InferenceFeedOutput?: string | undefined;
+}
+
+/**
  * Caption Rectangle
  * @public
  */
@@ -1928,6 +1965,12 @@ export interface CaptionSelectorSettings {
    * @public
    */
   TeletextSourceSettings?: TeletextSourceSettings | undefined;
+
+  /**
+   * Smart Subtitle Source Settings
+   * @public
+   */
+  SmartSubtitleSourceSettings?: SmartSubtitleSourceSettings | undefined;
 }
 
 /**
@@ -2259,6 +2302,12 @@ export interface DescribeInferenceSettings {
    * @public
    */
   FeedArn?: string | undefined;
+
+  /**
+   * A list of audio feed inputs that map audio selectors in the channel to feed inputs on the associated Elemental Inference feed.
+   * @public
+   */
+  AudioFeedInputs?: AudioFeedInput[] | undefined;
 }
 
 /**
@@ -10279,52 +10328,4 @@ export interface AvailConfiguration {
    * @public
    */
   Scte35SegmentationScope?: Scte35SegmentationScope | undefined;
-}
-
-/**
- * A request to delete resources
- * @public
- */
-export interface BatchDeleteRequest {
-  /**
-   * List of channel IDs
-   * @public
-   */
-  ChannelIds?: string[] | undefined;
-
-  /**
-   * List of input IDs
-   * @public
-   */
-  InputIds?: string[] | undefined;
-
-  /**
-   * List of input security group IDs
-   * @public
-   */
-  InputSecurityGroupIds?: string[] | undefined;
-
-  /**
-   * List of multiplex IDs
-   * @public
-   */
-  MultiplexIds?: string[] | undefined;
-}
-
-/**
- * Placeholder documentation for BatchDeleteResponse
- * @public
- */
-export interface BatchDeleteResponse {
-  /**
-   * List of failed operations
-   * @public
-   */
-  Failed?: BatchFailedResultModel[] | undefined;
-
-  /**
-   * List of successful operations
-   * @public
-   */
-  Successful?: BatchSuccessfulResultModel[] | undefined;
 }

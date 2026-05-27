@@ -1364,6 +1364,10 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                   },
  * //                   PageNumber: "STRING_VALUE",
  * //                 },
+ * //                 SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
+ * //                   CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
+ * //                   InferenceFeedOutput: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             },
  * //           ],
@@ -1475,6 +1479,12 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //     ChannelSecurityGroups: "<__listOf__string>",
  * //     InferenceSettings: { // DescribeInferenceSettings
  * //       FeedArn: "STRING_VALUE",
+ * //       AudioFeedInputs: [ // __listOfAudioFeedInput
+ * //         { // AudioFeedInput
+ * //           AudioSelectorName: "STRING_VALUE",
+ * //           FeedInput: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };

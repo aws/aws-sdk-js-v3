@@ -1306,6 +1306,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                 },
  *                 PageNumber: "STRING_VALUE",
  *               },
+ *               SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
+ *                 CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
+ *                 InferenceFeedOutput: "STRING_VALUE",
+ *               },
  *             },
  *           },
  *         ],
@@ -1395,6 +1399,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   ChannelSecurityGroups: "<__listOf__string>",
  *   InferenceSettings: { // InferenceSettings
  *     FeedArn: "STRING_VALUE",
+ *     AudioFeedInputs: [ // __listOfAudioFeedInput
+ *       { // AudioFeedInput
+ *         AudioSelectorName: "STRING_VALUE",
+ *         FeedInput: "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateChannelCommand(input);
@@ -2677,6 +2687,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //                   },
  * //                   PageNumber: "STRING_VALUE",
  * //                 },
+ * //                 SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
+ * //                   CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
+ * //                   InferenceFeedOutput: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             },
  * //           ],
@@ -2788,6 +2802,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //     ChannelSecurityGroups: "<__listOf__string>",
  * //     InferenceSettings: { // DescribeInferenceSettings
  * //       FeedArn: "STRING_VALUE",
+ * //       AudioFeedInputs: [ // __listOfAudioFeedInput
+ * //         { // AudioFeedInput
+ * //           AudioSelectorName: "STRING_VALUE",
+ * //           FeedInput: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };

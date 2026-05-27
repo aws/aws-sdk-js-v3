@@ -1321,6 +1321,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //                 },
  * //                 PageNumber: "STRING_VALUE",
  * //               },
+ * //               SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
+ * //                 CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
+ * //                 InferenceFeedOutput: "STRING_VALUE",
+ * //               },
  * //             },
  * //           },
  * //         ],
@@ -1433,6 +1437,12 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //   ChannelSecurityGroups: "<__listOf__string>",
  * //   InferenceSettings: { // DescribeInferenceSettings
  * //     FeedArn: "STRING_VALUE",
+ * //     AudioFeedInputs: [ // __listOfAudioFeedInput
+ * //       { // AudioFeedInput
+ * //         AudioSelectorName: "STRING_VALUE",
+ * //         FeedInput: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

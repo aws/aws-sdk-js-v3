@@ -1318,6 +1318,10 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //                 },
  * //                 PageNumber: "STRING_VALUE",
  * //               },
+ * //               SmartSubtitleSourceSettings: { // SmartSubtitleSourceSettings
+ * //                 CaptionSynchronizationMode: "NO_VIDEO_DELAY" || "VIDEO_ALIGNED_CAPTIONS",
+ * //                 InferenceFeedOutput: "STRING_VALUE",
+ * //               },
  * //             },
  * //           },
  * //         ],
@@ -1429,6 +1433,12 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //   ChannelSecurityGroups: "<__listOf__string>",
  * //   InferenceSettings: { // DescribeInferenceSettings
  * //     FeedArn: "STRING_VALUE",
+ * //     AudioFeedInputs: [ // __listOfAudioFeedInput
+ * //       { // AudioFeedInput
+ * //         AudioSelectorName: "STRING_VALUE",
+ * //         FeedInput: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

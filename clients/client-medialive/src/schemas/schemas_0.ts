@@ -26,6 +26,8 @@ const _ADR = "AudioDashRoles";
 const _ADS = "AribDestinationSettings";
 const _ADu = "AudioDescription";
 const _ADud = "AudioDescriptions";
+const _AFI = "AudioFeedInput";
+const _AFIu = "AudioFeedInputs";
 const _AFPP = "AudioFramesPerPes";
 const _AGI = "AudioGroupId";
 const _AGS = "ArchiveGroupSettings";
@@ -257,9 +259,10 @@ const _CRI = "ConnectionRetryInterval";
 const _CRIo = "ConnectedRouterInputs";
 const _CS = "ContainerSettings";
 const _CSG = "ChannelSecurityGroups";
-const _CSM = "CreateSignalMap";
+const _CSM = "CaptionSynchronizationMode";
 const _CSMR = "CreateSignalMapRequest";
 const _CSMRr = "CreateSignalMapResponse";
+const _CSMr = "CreateSignalMap";
 const _CSN = "CaptionSelectorName";
 const _CSPS = "ColorSpacePassthroughSettings";
 const _CSS = "ColorSpaceSettings";
@@ -521,7 +524,8 @@ const _FE = "ForbiddenException";
 const _FF = "FontFamily";
 const _FFP = "ForceFieldPictures";
 const _FHS = "Fmp4HlsSettings";
-const _FI = "FadeIn";
+const _FI = "FeedInput";
+const _FIa = "FadeIn";
 const _FL = "FragmentLength";
 const _FLG = "FillLineGap";
 const _FMRM = "FailedMediaResourceMap";
@@ -637,6 +641,7 @@ const _IDn = "InputDestination";
 const _IEA = "InputEndAction";
 const _IF = "IncludeFec";
 const _IFNU = "IncludeFillerNalUnits";
+const _IFO = "InferenceFeedOutput";
 const _IFOP = "IFrameOnlyPlaylists";
 const _IFn = "InputFilter";
 const _II = "InputIds";
@@ -1254,6 +1259,7 @@ const _SSMd = "SdiSourceMapping";
 const _SSN = "SubSegmentNum";
 const _SSR = "SrtSettingsRequest";
 const _SSS = "Scte35SegmentationScope";
+const _SSSS = "SmartSubtitleSourceSettings";
 const _SSSc = "Scte20SourceSettings";
 const _SSSct = "Scte27SourceSettings";
 const _SSSd = "SdiSourceSummary";
@@ -1487,6 +1493,7 @@ const _aDN = "audioDescriptionNames";
 const _aDR = "audioDashRoles";
 const _aDS = "aribDestinationSettings";
 const _aDu = "audioDescriptions";
+const _aFI = "audioFeedInputs";
 const _aFPP = "audioFramesPerPes";
 const _aGI = "audioGroupId";
 const _aGS = "archiveGroupSettings";
@@ -1622,6 +1629,7 @@ const _cRI = "connectionRetryInterval";
 const _cRIo = "connectedRouterInputs";
 const _cS = "containerSettings";
 const _cSG = "channelSecurityGroups";
+const _cSM = "captionSynchronizationMode";
 const _cSN = "captionSelectorName";
 const _cSPS = "colorSpacePassthroughSettings";
 const _cSS = "colorSpaceSettings";
@@ -1760,7 +1768,8 @@ const _fDi = "filecacheDuration";
 const _fF = "fontFamily";
 const _fFP = "forceFieldPictures";
 const _fHS = "fmp4HlsSettings";
-const _fI = "fadeIn";
+const _fI = "feedInput";
+const _fIa = "fadeIn";
 const _fL = "fragmentLength";
 const _fLG = "fillLineGap";
 const _fMRM = "failedMediaResourceMap";
@@ -1840,6 +1849,7 @@ const _iDT = "inputDeviceTransfers";
 const _iEA = "inputEndAction";
 const _iF = "includeFec";
 const _iFNU = "includeFillerNalUnits";
+const _iFO = "inferenceFeedOutput";
 const _iFOP = "iFrameOnlyPlaylists";
 const _iFn = "inputFilter";
 const _iI = "inputIds";
@@ -1916,6 +1926,7 @@ const _lO = "leftOffset";
 const _lOACM = "__listOfAudioChannelMapping";
 const _lOAD = "__listOfAdditionalDestinations";
 const _lOADi = "__listOfAudioDescription";
+const _lOAFI = "__listOfAudioFeedInput";
 const _lOAS = "__listOfAudioSelector";
 const _lOAT = "__listOfAudioTrack";
 const _lOBFRM = "__listOfBatchFailedResultModel";
@@ -2332,6 +2343,7 @@ const _sSIS = "scte35SpliceInsertSettings";
 const _sSM = "sdiSourceMappings";
 const _sSN = "subSegmentNum";
 const _sSS = "scte35SegmentationScope";
+const _sSSS = "smartSubtitleSourceSettings";
 const _sSSc = "scte20SourceSettings";
 const _sSSct = "scte27SourceSettings";
 const _sSc = "scte35Source";
@@ -2656,6 +2668,11 @@ export var AudioDolbyEDecode$: StaticStructureSchema = [3, n0, _ADED,
   [_PS],
   [[0, { [_jN]: _pS }]], 1
 ];
+export var AudioFeedInput$: StaticStructureSchema = [3, n0, _AFI,
+  0,
+  [_ASN, _FI],
+  [[0, { [_jN]: _aSN }], [0, { [_jN]: _fI }]]
+];
 export var AudioHlsRenditionSelection$: StaticStructureSchema = [3, n0, _AHRS,
   0,
   [_GI, _N],
@@ -2863,8 +2880,8 @@ export var CaptionSelector$: StaticStructureSchema = [3, n0, _CSa,
 ];
 export var CaptionSelectorSettings$: StaticStructureSchema = [3, n0, _CSSa,
   0,
-  [_ASS, _ASSri, _DSSS, _ESS, _SSSc, _SSSct, _TSS],
-  [[() => AncillarySourceSettings$, { [_jN]: _aSSn }], [() => AribSourceSettings$, { [_jN]: _aSSr }], [() => DvbSubSourceSettings$, { [_jN]: _dSSS }], [() => EmbeddedSourceSettings$, { [_jN]: _eSS }], [() => Scte20SourceSettings$, { [_jN]: _sSSc }], [() => Scte27SourceSettings$, { [_jN]: _sSSct }], [() => TeletextSourceSettings$, { [_jN]: _tSS }]]
+  [_ASS, _ASSri, _DSSS, _ESS, _SSSc, _SSSct, _TSS, _SSSS],
+  [[() => AncillarySourceSettings$, { [_jN]: _aSSn }], [() => AribSourceSettings$, { [_jN]: _aSSr }], [() => DvbSubSourceSettings$, { [_jN]: _dSSS }], [() => EmbeddedSourceSettings$, { [_jN]: _eSS }], [() => Scte20SourceSettings$, { [_jN]: _sSSc }], [() => Scte27SourceSettings$, { [_jN]: _sSSct }], [() => TeletextSourceSettings$, { [_jN]: _tSS }], [() => SmartSubtitleSourceSettings$, { [_jN]: _sSSS }]]
 ];
 export var CdiInputSpecification$: StaticStructureSchema = [3, n0, _CIS,
   0,
@@ -3358,8 +3375,8 @@ export var DescribeFollowerChannelSettings$: StaticStructureSchema = [3, n0, _DF
 ];
 export var DescribeInferenceSettings$: StaticStructureSchema = [3, n0, _DIS,
   0,
-  [_FAe],
-  [[0, { [_jN]: _fAe }]]
+  [_FAe, _AFIu],
+  [[0, { [_jN]: _fAe }], [() => __listOfAudioFeedInput, { [_jN]: _aFI }]]
 ];
 export var DescribeInputDeviceRequest$: StaticStructureSchema = [3, n0, _DIDR,
   0,
@@ -3848,8 +3865,8 @@ export var ImmediateModeScheduleActionStartSettings$: StaticStructureSchema = [3
 ];
 export var InferenceSettings$: StaticStructureSchema = [3, n0, _ISn,
   0,
-  [_FAe],
-  [[0, { [_jN]: _fAe }]]
+  [_FAe, _AFIu],
+  [[0, { [_jN]: _fAe }], [() => __listOfAudioFeedInput, { [_jN]: _aFI }]]
 ];
 export var Input$: StaticStructureSchema = [3, n0, _In,
   0,
@@ -4936,6 +4953,11 @@ export var SignalMapSummary$: StaticStructureSchema = [3, n0, _SMS,
   [_Ar, _CAr, _I, _MDS, _N, _Stat, _Desc, _MA, _Ta],
   [[0, { [_jN]: _ar }], [5, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _mDS }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [0, { [_jN]: _desc }], [5, { [_jN]: _mA }], [128 | 0, { [_jN]: _ta }]], 6
 ];
+export var SmartSubtitleSourceSettings$: StaticStructureSchema = [3, n0, _SSSS,
+  0,
+  [_CSM, _IFO],
+  [[0, { [_jN]: _cSM }], [0, { [_jN]: _iFO }]]
+];
 export var Smpte2110ReceiverGroup$: StaticStructureSchema = [3, n0, _SRG,
   0,
   [_SSdp],
@@ -5108,8 +5130,8 @@ export var StartUpdateSignalMapResponse$: StaticStructureSchema = [3, n0, _SUSMR
 ];
 export var StaticImageActivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _SIASAS,
   0,
-  [_Im, _Du, _FI, _FOa, _H, _IX, _IY, _Lay, _Op, _W],
-  [[() => InputLocation$, { [_jN]: _im }], [1, { [_jN]: _du }], [1, { [_jN]: _fI }], [1, { [_jN]: _fOa }], [1, { [_jN]: _h }], [1, { [_jN]: _iX }], [1, { [_jN]: _iY }], [1, { [_jN]: _lay }], [1, { [_jN]: _op }], [1, { [_jN]: _w }]], 1
+  [_Im, _Du, _FIa, _FOa, _H, _IX, _IY, _Lay, _Op, _W],
+  [[() => InputLocation$, { [_jN]: _im }], [1, { [_jN]: _du }], [1, { [_jN]: _fIa }], [1, { [_jN]: _fOa }], [1, { [_jN]: _h }], [1, { [_jN]: _iX }], [1, { [_jN]: _iY }], [1, { [_jN]: _lay }], [1, { [_jN]: _op }], [1, { [_jN]: _w }]], 1
 ];
 export var StaticImageDeactivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _SIDSAS,
   0,
@@ -5118,8 +5140,8 @@ export var StaticImageDeactivateScheduleActionSettings$: StaticStructureSchema =
 ];
 export var StaticImageOutputActivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _SIOASAS,
   0,
-  [_Im, _ONu, _Du, _FI, _FOa, _H, _IX, _IY, _Lay, _Op, _W],
-  [[() => InputLocation$, { [_jN]: _im }], [64 | 0, { [_jN]: _oNu }], [1, { [_jN]: _du }], [1, { [_jN]: _fI }], [1, { [_jN]: _fOa }], [1, { [_jN]: _h }], [1, { [_jN]: _iX }], [1, { [_jN]: _iY }], [1, { [_jN]: _lay }], [1, { [_jN]: _op }], [1, { [_jN]: _w }]], 2
+  [_Im, _ONu, _Du, _FIa, _FOa, _H, _IX, _IY, _Lay, _Op, _W],
+  [[() => InputLocation$, { [_jN]: _im }], [64 | 0, { [_jN]: _oNu }], [1, { [_jN]: _du }], [1, { [_jN]: _fIa }], [1, { [_jN]: _fOa }], [1, { [_jN]: _h }], [1, { [_jN]: _iX }], [1, { [_jN]: _iY }], [1, { [_jN]: _lay }], [1, { [_jN]: _op }], [1, { [_jN]: _w }]], 2
 ];
 export var StaticImageOutputDeactivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _SIODSAS,
   0,
@@ -5521,6 +5543,10 @@ var __listOfAudioChannelMapping: StaticListSchema = [1, n0, _lOACM,
 ];
 var __listOfAudioDescription: StaticListSchema = [1, n0, _lOADi,
   0, [() => AudioDescription$,
+    0]
+];
+var __listOfAudioFeedInput: StaticListSchema = [1, n0, _lOAFI,
+  0, [() => AudioFeedInput$,
     0]
 ];
 var __listOfAudioSelector: StaticListSchema = [1, n0, _lOAS,
@@ -5992,7 +6018,7 @@ export var CreatePartnerInput$: StaticOperationSchema = [9, n0, _CPI,
 export var CreateSdiSource$: StaticOperationSchema = [9, n0, _CSSr,
   { [_ht]: ["POST", "/prod/sdiSources", 200] }, () => CreateSdiSourceRequest$, () => CreateSdiSourceResponse$
 ];
-export var CreateSignalMap$: StaticOperationSchema = [9, n0, _CSM,
+export var CreateSignalMap$: StaticOperationSchema = [9, n0, _CSMr,
   { [_ht]: ["POST", "/prod/signal-maps", 201] }, () => CreateSignalMapRequest$, () => CreateSignalMapResponse$
 ];
 export var CreateTags$: StaticOperationSchema = [9, n0, _CTr,

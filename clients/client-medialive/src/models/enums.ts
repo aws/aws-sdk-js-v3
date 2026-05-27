@@ -1028,6 +1028,19 @@ export type Scte27OcrLanguage = (typeof Scte27OcrLanguage)[keyof typeof Scte27Oc
  * @public
  * @enum
  */
+export const CaptionSynchronizationMode = {
+  NO_VIDEO_DELAY: "NO_VIDEO_DELAY",
+  VIDEO_ALIGNED_CAPTIONS: "VIDEO_ALIGNED_CAPTIONS",
+} as const;
+/**
+ * @public
+ */
+export type CaptionSynchronizationMode = (typeof CaptionSynchronizationMode)[keyof typeof CaptionSynchronizationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChannelAlertState = {
   CLEARED: "CLEARED",
   SET: "SET",

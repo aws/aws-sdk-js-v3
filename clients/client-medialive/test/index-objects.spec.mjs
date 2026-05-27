@@ -39,6 +39,7 @@ import {
   AudioDescriptionAudioTypeControl,
   AudioDescriptionLanguageCodeControl,
   AudioDolbyEDecode$,
+  AudioFeedInput$,
   AudioHlsRenditionSelection$,
   AudioLanguageSelection$,
   AudioLanguageSelectionPolicy,
@@ -123,6 +124,7 @@ import {
   CaptionRectangle$,
   CaptionSelector$,
   CaptionSelectorSettings$,
+  CaptionSynchronizationMode,
   CdiInputResolution,
   CdiInputSpecification$,
   Channel$,
@@ -1014,6 +1016,7 @@ import {
   SignalMapMonitorDeploymentStatus,
   SignalMapStatus,
   SignalMapSummary$,
+  SmartSubtitleSourceSettings$,
   SmoothGroupAudioOnlyTimecodeControl,
   SmoothGroupCertificateMode,
   SmoothGroupEventIdMode,
@@ -1534,6 +1537,7 @@ assert(typeof AudioChannelMapping$ === "object");
 assert(typeof AudioCodecSettings$ === "object");
 assert(typeof AudioDescription$ === "object");
 assert(typeof AudioDolbyEDecode$ === "object");
+assert(typeof AudioFeedInput$ === "object");
 assert(typeof AudioHlsRenditionSelection$ === "object");
 assert(typeof AudioLanguageSelection$ === "object");
 assert(typeof AudioNormalizationSettings$ === "object");
@@ -1990,6 +1994,7 @@ assert(typeof SdiSourceMapping$ === "object");
 assert(typeof SdiSourceMappingUpdateRequest$ === "object");
 assert(typeof SdiSourceSummary$ === "object");
 assert(typeof SignalMapSummary$ === "object");
+assert(typeof SmartSubtitleSourceSettings$ === "object");
 assert(typeof Smpte2110ReceiverGroup$ === "object");
 assert(typeof Smpte2110ReceiverGroupSdpSettings$ === "object");
 assert(typeof Smpte2110ReceiverGroupSettings$ === "object");
@@ -2152,6 +2157,7 @@ assert(typeof BurnInFontColor === "object");
 assert(typeof BurnInOutlineColor === "object");
 assert(typeof BurnInShadowColor === "object");
 assert(typeof BurnInTeletextGridControl === "object");
+assert(typeof CaptionSynchronizationMode === "object");
 assert(typeof CdiInputResolution === "object");
 assert(typeof ChannelAlertState === "object");
 assert(typeof ChannelClass === "object");

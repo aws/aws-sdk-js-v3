@@ -68,6 +68,7 @@ import type {
   AccountConfiguration,
   AnywhereSettings,
   AudioDescription,
+  AudioFeedInput,
   AvailBlanking,
   AvailConfiguration,
   BatchFailedResultModel,
@@ -154,6 +155,54 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * A request to delete resources
+ * @public
+ */
+export interface BatchDeleteRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of input IDs
+   * @public
+   */
+  InputIds?: string[] | undefined;
+
+  /**
+   * List of input security group IDs
+   * @public
+   */
+  InputSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchDeleteResponse
+ * @public
+ */
+export interface BatchDeleteResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
 
 /**
  * A list of schedule actions to create (in a request) or that have been created (in a response).
@@ -962,6 +1011,12 @@ export interface InferenceSettings {
    * @public
    */
   FeedArn?: string | undefined;
+
+  /**
+   * A list of audio feed inputs that map audio selectors in the channel to feed inputs on the associated Elemental Inference feed.
+   * @public
+   */
+  AudioFeedInputs?: AudioFeedInput[] | undefined;
 }
 
 /**
