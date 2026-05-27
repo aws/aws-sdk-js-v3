@@ -203,7 +203,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *       resourceRequirements: [ // ResourceRequirements
  *         { // ResourceRequirement
  *           value: "STRING_VALUE", // required
- *           type: "GPU" || "InferenceAccelerator", // required
+ *           type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  *         },
  *       ],
  *       firelensConfiguration: { // FirelensConfiguration
@@ -470,7 +470,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * //         resourceRequirements: [ // ResourceRequirements
  * //           { // ResourceRequirement
  * //             value: "STRING_VALUE", // required
- * //             type: "GPU" || "InferenceAccelerator", // required
+ * //             type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  * //           },
  * //         ],
  * //         firelensConfiguration: { // FirelensConfiguration

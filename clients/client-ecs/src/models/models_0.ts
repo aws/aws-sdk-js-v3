@@ -2706,18 +2706,18 @@ export interface PutAttributesResponse {
 }
 
 /**
- * <p>The devices that are available on the container instance. The only supported device type is a GPU.</p>
+ * <p>The devices that are available on the container instance. The supported device types are GPUs and Neuron devices.</p>
  * @public
  */
 export interface PlatformDevice {
   /**
-   * <p>The ID for the GPUs on the container instance. The available GPU IDs can also be obtained on the container instance in the <code>/var/lib/ecs/gpu/nvidia_gpu_info.json</code> file.</p>
+   * <p>The ID for the GPU or Neuron device on the container instance. For GPUs, the available GPU IDs can also be obtained on the container instance in the <code>/var/lib/ecs/gpu/nvidia_gpu_info.json</code> file. For Neuron devices, the ID corresponds to the device index (for example, <code>0</code> for <code>/dev/neuron0</code>).</p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The type of device that's available on the container instance. The only supported value is <code>GPU</code>.</p>
+   * <p>The type of device that's available on the container instance. The supported values are <code>GPU</code> and <code>NEURON_DEVICE</code>.</p>
    * @public
    */
   type: PlatformDeviceType | undefined;
@@ -2771,7 +2771,7 @@ export interface RegisterContainerInstanceRequest {
   attributes?: Attribute[] | undefined;
 
   /**
-   * <p>The devices that are available on the container instance. The only supported device type is a GPU.</p>
+   * <p>The devices that are available on the container instance. The supported device types are GPUs and Neuron devices.</p>
    * @public
    */
   platformDevices?: PlatformDevice[] | undefined;
@@ -4862,12 +4862,12 @@ export interface PortMapping {
 }
 
 /**
- * <p>The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i> </p>
+ * <p>The type and amount of a resource to assign to a container. The supported resource types are GPUs, Neuron devices, and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i> </p>
  * @public
  */
 export interface ResourceRequirement {
   /**
-   * <p>The value for the specified resource type.</p> <p>When the type is <code>GPU</code>, the value is the number of physical <code>GPUs</code> the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.</p> <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
+   * <p>The value for the specified resource type.</p> <p>When the type is <code>GPU</code>, the value is the number of physical <code>GPUs</code> the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. You can also specify <code>ALL</code> to allocate all available GPUs on the instance to the container.</p> <p>When the type is <code>NeuronDevice</code>, the value must be <code>ALL</code>. This allocates all available Neuron devices on the instance to the container. Only one container in a task can specify <code>NeuronDevice</code> resources. This resource type is only supported on Managed Instances.</p> <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
    * @public
    */
   value: string | undefined;
@@ -5137,7 +5137,7 @@ export interface ContainerDefinition {
   systemControls?: SystemControl[] | undefined;
 
   /**
-   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
+   * <p>The type and amount of a resource to assign to a container. The supported resources are GPUs and Neuron devices.</p>
    * @public
    */
   resourceRequirements?: ResourceRequirement[] | undefined;

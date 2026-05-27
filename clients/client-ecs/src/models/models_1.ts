@@ -484,6 +484,12 @@ export interface Container {
    * @public
    */
   gpuIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of each Neuron device assigned to the container.</p>
+   * @public
+   */
+  neuronDeviceIds?: string[] | undefined;
 }
 
 /**
@@ -552,7 +558,7 @@ export interface ContainerOverride {
   memoryReservation?: number | undefined;
 
   /**
-   * <p>The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.</p>
+   * <p>The type and amount of a resource to assign to a container, instead of the default value from the task definition. The supported resources are GPUs and Neuron devices.</p>
    * @public
    */
   resourceRequirements?: ResourceRequirement[] | undefined;

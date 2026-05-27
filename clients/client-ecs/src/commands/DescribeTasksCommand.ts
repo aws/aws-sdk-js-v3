@@ -120,6 +120,9 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * //           gpuIds: [ // GpuIds
  * //             "STRING_VALUE",
  * //           ],
+ * //           neuronDeviceIds: [ // NeuronDeviceIds
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       cpu: "STRING_VALUE",
@@ -163,7 +166,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * //             resourceRequirements: [ // ResourceRequirements
  * //               { // ResourceRequirement
  * //                 value: "STRING_VALUE", // required
- * //                 type: "GPU" || "InferenceAccelerator", // required
+ * //                 type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  * //               },
  * //             ],
  * //           },

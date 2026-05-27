@@ -508,6 +508,7 @@ export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
  */
 export const PlatformDeviceType = {
   GPU: "GPU",
+  NEURON_DEVICE: "NEURON_DEVICE",
 } as const;
 /**
  * @public
@@ -814,6 +815,7 @@ export type ApplicationProtocol = (typeof ApplicationProtocol)[keyof typeof Appl
 export const ResourceType = {
   GPU: "GPU",
   INFERENCE_ACCELERATOR: "InferenceAccelerator",
+  NEURON_DEVICE: "NeuronDevice",
 } as const;
 /**
  * @public

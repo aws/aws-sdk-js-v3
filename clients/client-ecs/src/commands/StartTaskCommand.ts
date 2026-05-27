@@ -78,7 +78,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *         resourceRequirements: [ // ResourceRequirements
  *           { // ResourceRequirement
  *             value: "STRING_VALUE", // required
- *             type: "GPU" || "InferenceAccelerator", // required
+ *             type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  *           },
  *         ],
  *       },
@@ -215,6 +215,9 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //           gpuIds: [ // GpuIds
  * //             "STRING_VALUE",
  * //           ],
+ * //           neuronDeviceIds: [ // NeuronDeviceIds
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       cpu: "STRING_VALUE",
@@ -258,7 +261,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //             resourceRequirements: [ // ResourceRequirements
  * //               { // ResourceRequirement
  * //                 value: "STRING_VALUE", // required
- * //                 type: "GPU" || "InferenceAccelerator", // required
+ * //                 type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  * //               },
  * //             ],
  * //           },

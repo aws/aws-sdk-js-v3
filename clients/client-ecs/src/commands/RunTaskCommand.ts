@@ -86,7 +86,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *         resourceRequirements: [ // ResourceRequirements
  *           { // ResourceRequirement
  *             value: "STRING_VALUE", // required
- *             type: "GPU" || "InferenceAccelerator", // required
+ *             type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  *           },
  *         ],
  *       },
@@ -237,6 +237,9 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * //           gpuIds: [ // GpuIds
  * //             "STRING_VALUE",
  * //           ],
+ * //           neuronDeviceIds: [ // NeuronDeviceIds
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       cpu: "STRING_VALUE",
@@ -280,7 +283,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * //             resourceRequirements: [ // ResourceRequirements
  * //               { // ResourceRequirement
  * //                 value: "STRING_VALUE", // required
- * //                 type: "GPU" || "InferenceAccelerator", // required
+ * //                 type: "GPU" || "InferenceAccelerator" || "NeuronDevice", // required
  * //               },
  * //             ],
  * //           },

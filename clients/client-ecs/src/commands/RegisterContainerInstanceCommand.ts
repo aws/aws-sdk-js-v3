@@ -69,7 +69,7 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  *   platformDevices: [ // PlatformDevices
  *     { // PlatformDevice
  *       id: "STRING_VALUE", // required
- *       type: "GPU", // required
+ *       type: "GPU" || "NEURON_DEVICE", // required
  *     },
  *   ],
  *   tags: [ // Tags

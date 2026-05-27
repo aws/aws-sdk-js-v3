@@ -885,6 +885,7 @@ const _n = "name";
 const _nB = "networkBindings";
 const _nBG = "networkBandwidthGbps";
 const _nC = "networkConfiguration";
+const _nDI = "neuronDeviceIds";
 const _nI = "networkInterfaces";
 const _nIC = "networkInterfaceCount";
 const _nM = "networkMode";
@@ -1461,8 +1462,8 @@ export var ClusterSetting$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_cAo, _tA, _n, _im, _iD, _rIu, _lS, _eC, _r, _nB, _nI, _hS, _mA, _cp, _me, _mR, _gI],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, () => NetworkBindings, () => NetworkInterfaces, 0, () => ManagedAgents, 0, 0, 0, 64 | 0]
+  [_cAo, _tA, _n, _im, _iD, _rIu, _lS, _eC, _r, _nB, _nI, _hS, _mA, _cp, _me, _mR, _gI, _nDI],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, () => NetworkBindings, () => NetworkInterfaces, 0, () => ManagedAgents, 0, 0, 0, 64 | 0, 64 | 0]
 ];
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -3280,6 +3281,7 @@ var NetworkBindings: StaticListSchema = [1, n0, _NBe,
 var NetworkInterfaces: StaticListSchema = [1, n0, _NIe,
   0, () => NetworkInterface$
 ];
+var NeuronDeviceIds = 64 | 0;
 var PlacementConstraints: StaticListSchema = [1, n0, _PCl,
   0, () => PlacementConstraint$
 ];
