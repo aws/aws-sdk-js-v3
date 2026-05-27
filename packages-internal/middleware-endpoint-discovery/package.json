@@ -34,7 +34,7 @@
   "dependencies": {
     "@aws-sdk/endpoint-cache": "workspace:^3.972.5",
     "@aws-sdk/types": "workspace:^3.973.9",
-    "@smithy/core": "^3.24.3",
+    "@smithy/core": "^3.24.5",
     "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
