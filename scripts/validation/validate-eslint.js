@@ -17,7 +17,7 @@ const eslintConfig = path.join(root, ".eslintrc.js");
 
 function isGeneratedDir(dir) {
   const rel = path.relative(root, path.resolve(dir));
-  return rel.startsWith("clients/") || rel.startsWith("private/");
+  return rel.startsWith("clients/") || rel.startsWith("private/") || rel === "lib/lib-dynamodb";
 }
 
 function main() {

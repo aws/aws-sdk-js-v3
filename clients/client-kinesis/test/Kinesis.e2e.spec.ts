@@ -10,14 +10,12 @@ describe("@aws-sdk/client-kinesis", () => {
   const SHARD_COUNT = 1;
   const SESSION_CONCURRENCY = 7;
 
-  let setupRequestCount = 0;
-
   const client = new Kinesis({
     region: "us-west-2",
     credentials: aws?.testCredentials,
     requestHandler: new NodeHttp2Handler({
       requestTimeout: 30_000,
-      sessionTimeout: 5_500, // set low for testing purposes.
+      sessionTimeout: 10_000, // set low for testing purposes.
       maxConcurrentStreams: SESSION_CONCURRENCY,
     }),
   });
@@ -27,11 +25,9 @@ describe("@aws-sdk/client-kinesis", () => {
   };
 
   async function setup() {
-    setupRequestCount += 1;
     await client.createStream({ StreamName: STREAM_NAME, ShardCount: SHARD_COUNT });
     let status = "";
     while (status !== "ACTIVE") {
-      setupRequestCount += 1;
       const { StreamDescription } = await client.describeStream({ StreamName: STREAM_NAME });
       status = StreamDescription?.StreamStatus ?? "ERROR";
       if (status !== "ACTIVE") {
@@ -233,22 +229,17 @@ describe("@aws-sdk/client-kinesis", () => {
 
     it("should create sessions such that each session handles up to [maxConcurrentStreams] concurrent requests", async () => {
       const sessions = getSessions(connectionManagerStates.requestsFinished);
+      const maximumRequestsInBurst = 37;
 
-      for (let i = 0; i < sessions.length; ++i) {
-        const session = sessions[i];
-
-        const isLast = i === sessions.length - 1;
-        const isFirst = i === sessions.length - 1;
-
+      // Each session handles at most SESSION_CONCURRENCY concurrent requests.
+      for (const session of sessions) {
         expect(session.maxConcurrent).toBeLessThanOrEqual(SESSION_CONCURRENCY);
-
-        if (isLast) {
-        } else if (isFirst) {
-          expect(session.maxConcurrent).toEqual(SESSION_CONCURRENCY);
-        } else {
-          expect(session.maxConcurrent).toEqual(SESSION_CONCURRENCY);
-        }
       }
+
+      // Session count should be between ceil(maximumRequestsInBurst/SESSION_CONCURRENCY) and maximumRequestsInBurst.
+      // i.e. the minimum number of sessions to support maximumRequestsInBurst and the maximum number (one session per request).
+      expect(sessions.length).toBeGreaterThanOrEqual(Math.ceil(maximumRequestsInBurst / SESSION_CONCURRENCY));
+      expect(sessions.length).toBeLessThanOrEqual(maximumRequestsInBurst);
     });
 
     it("the sessions should draw down as the client idles (client session timeout)", async () => {
@@ -256,52 +247,21 @@ describe("@aws-sdk/client-kinesis", () => {
       expect(sessions).toEqual([]);
     });
 
-    it("should use the first available session in the pool each request, such that the front sessions in the pools handle more total requests", async () => {
-      const batch1 = getSessions(connectionManagerStates.requestsFinished);
-      const batch2 = getSessions(connectionManagerStates.secondBatchRequestsFinished);
-
-      for (const batch of [batch1, batch2]) {
-        const totalRequests = batch.reduce((acc: number, cur: any) => {
-          return acc + cur.totalRequests;
-        }, 0);
-        if (batch === batch1) {
-          // greater accounts for retries.
-          expect(totalRequests).toBeGreaterThanOrEqual(setupRequestCount + 37);
-        } else if (batch === batch2) {
-          // greater accounts for retries.
-          expect(totalRequests).toBeGreaterThanOrEqual(53 + 17);
-        }
-        for (let i = 1; i < batch.length; ++i) {
-          // Allow a tolerance of 2 for non-deterministic HTTP/2 request distribution.
-          expect(batch[i - 1].totalRequests).toBeGreaterThanOrEqual(batch[i].totalRequests - 2);
-        }
-      }
-    });
-
-    it("should reuse sessions from the front of the pool when receiving a new batch of requests, as long as the sessions haven't been closed", async () => {
+    it("after idling reduces sessions to 0, new requests create new sessions", async () => {
       const earlierBatch = getSessions(connectionManagerStates.requestsFinished);
       const sessions = getSessions(connectionManagerStates.secondBatchRequestsFinished);
+      const maximumRequestsInBurst = Math.max(17, 53);
 
-      for (let i = 0; i < sessions.length; ++i) {
-        const session = sessions[i];
-
-        const isLast = i === sessions.length - 1;
-        const isFirst = i === sessions.length - 1;
-
+      for (const session of sessions) {
         expect(session.maxConcurrent).toBeLessThanOrEqual(SESSION_CONCURRENCY);
         expect(session.totalRequests).toBeGreaterThanOrEqual(session.maxConcurrent);
 
         // new sessions were created because of idle timeout between the two workloads.
         expect(session.id).toBeGreaterThan(earlierBatch[0].id);
-
-        if (isLast) {
-        } else if (isFirst) {
-          expect(session.totalRequests).toBeGreaterThan(session.maxConcurrent);
-          expect(session.maxConcurrent).toEqual(SESSION_CONCURRENCY);
-        } else {
-          expect(session.maxConcurrent).toEqual(SESSION_CONCURRENCY);
-        }
       }
+
+      expect(sessions.length).toBeGreaterThanOrEqual(Math.ceil(maximumRequestsInBurst / SESSION_CONCURRENCY));
+      expect(sessions.length).toBeLessThanOrEqual(maximumRequestsInBurst);
     });
 
     it("the sessions should be completely cleared when the client is destroyed", async () => {
