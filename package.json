@@ -33,7 +33,7 @@
     "generate:client:tarball:since": "node ./scripts/generate-client-tarball/generate-client-tarball-since.mjs",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "yarn update:versions:current && node ./scripts/update-versions/bumpReleaseCandidates.mjs && yarn update:versions:default",
-    "lint:api": "node scripts/validation/api-snapshot-validation.js",
+    "lint:api": "node scripts/validation/api-snapshot.js",
     "lint:ci": "lerna exec --since origin/main --exclude-dependents --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
     "lint:release": "lerna exec --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",

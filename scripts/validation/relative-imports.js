@@ -4,13 +4,13 @@
  * For every relative import/require in dist-cjs and dist-es, validates that
  * the target file exists.
  *
- * Usage: node validate-relative-imports.js <packageDir> [...]
+ * Usage: node relative-imports.js
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports, resolveRelative } = require("./validation-shared");
+const { extractImports, resolveRelative, getPackageDirs } = require("./validation-shared");
 
 /**
  * @param packageDir - package root.
@@ -60,14 +60,10 @@ async function validate(packageDir) {
 }
 
 async function main() {
-  const dirs = process.argv.slice(2);
-  if (!dirs.length) {
-    console.error("Usage: validate-relative-imports.js <packageDir> [...]");
-    process.exit(1);
-  }
+  const packages = getPackageDirs();
   const errors = [];
-  for (const dir of dirs) {
-    errors.push(...(await validate(path.resolve(dir))));
+  for (const { dir } of packages) {
+    errors.push(...(await validate(dir)));
   }
   if (errors.length) {
     console.error(`❌ ${errors.length} broken relative import(s):\n  ${errors.join("\n  ")}`);

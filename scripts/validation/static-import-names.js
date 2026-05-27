@@ -4,13 +4,13 @@
  * Bans import() and require() calls with non-string-literal arguments
  * in dist-cjs and dist-es.
  *
- * Usage: node validate-no-dynamic-imports.js <packageDir> [...]
+ * Usage: node static-import-names.js
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { analyzeImports } = require("./validation-shared");
+const { analyzeImports, getPackageDirs } = require("./validation-shared");
 
 /**
  * @param packageDir - package root.
@@ -56,14 +56,10 @@ async function validate(packageDir) {
 }
 
 async function main() {
-  const dirs = process.argv.slice(2);
-  if (!dirs.length) {
-    console.error("Usage: validate-no-dynamic-imports.js <packageDir> [...]");
-    process.exit(1);
-  }
+  const packages = getPackageDirs();
   const errors = [];
-  for (const dir of dirs) {
-    errors.push(...(await validate(path.resolve(dir))));
+  for (const { dir } of packages) {
+    errors.push(...(await validate(dir)));
   }
   if (errors.length) {
     console.error(`❌ ${errors.length} dynamic import(s) with non-literal specifier:\n  ${errors.join("\n  ")}`);

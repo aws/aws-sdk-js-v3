@@ -1,16 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Orchestrator: runs all validation scripts against specified package directories.
+ * Orchestrator: runs all validation scripts against all packages.
  *
  * Usage:
- *   node validate-all.js --all
+ *   node validate-all.js
  *   node validate-all.js --skip eslint
- *   node validate-all.js <packageDir> [...]
- *
- * Options:
- *   --all           Run on all packages in clients/, packages/, packages-internal/, lib/, private/
- *   --skip <name>   Skip a validation (repeatable)
  */
 
 const { execFileSync } = require("node:child_process");
@@ -20,111 +15,72 @@ const path = require("node:path");
 const root = path.join(__dirname, "..", "..");
 const validationDir = __dirname;
 
-const TOP_LEVEL_DIRS = ["clients", "packages", "packages-internal", "lib", "private"];
-const GENERATED_DIRS = new Set(["clients", "private"]);
+const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "private"];
 
 const VALIDATIONS = [
-  { name: "imports-declared", script: "validate-imports-declared.js" },
-  { name: "relative-imports", script: "validate-relative-imports.js" },
-  { name: "deps-used", script: "validate-deps-used.js" },
-  { name: "no-unreachable-files", script: "validate-no-unreachable-files.js" },
-  { name: "no-dynamic-imports", script: "validate-no-dynamic-imports.js" },
-  { name: "banned-imports", script: "validate-banned-imports.js" },
-  { name: "eslint", script: "validate-eslint.js", filter: "non-generated" },
+  { name: "imports-declared", label: "all imports are declared in package.json", script: "imports-declared.js" },
+  { name: "relative-imports", label: "all relative imports resolve to existing files", script: "relative-imports.js" },
+  { name: "deps-used", label: "all declared dependencies are actually imported", script: "deps-used.js" },
+  { name: "unreachable-files", label: "no unreachable files in dist bundles", script: "unreachable-files.js" },
+  {
+    name: "static-import-names",
+    label: "no dynamic imports with non-literal specifiers",
+    script: "static-import-names.js",
+  },
+  { name: "banned-imports", label: "no banned imports in dist output", script: "banned-imports.js" },
+  { name: "cycles", label: "no cyclical file or package dependencies", script: "cycles.js" },
+  { name: "eslint", label: "eslint passes on source", script: "eslint.js" },
 ];
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const allDirs = [];
   const skip = new Set();
-  let useAll = false;
 
   for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--all") {
-      useAll = true;
-    } else if (args[i] === "--skip") {
+    if (args[i] === "--skip") {
       skip.add(args[++i]);
-    } else {
-      allDirs.push(path.resolve(args[i]));
     }
   }
 
-  if (useAll) {
-    for (const topDir of TOP_LEVEL_DIRS) {
-      const base = path.join(root, topDir);
-      if (!fs.existsSync(base)) {
-        continue;
-      }
-      for (const folder of fs.readdirSync(base)) {
-        const pkgDir = path.join(base, folder);
-        if (fs.existsSync(path.join(pkgDir, "package.json"))) {
-          allDirs.push(pkgDir);
-        }
-      }
-    }
-  }
-
-  return { allDirs, skip };
-}
-
-function isGenerated(dir) {
-  const rel = path.relative(root, path.resolve(dir));
-  const topDir = rel.split(path.sep)[0];
-  return GENERATED_DIRS.has(topDir);
+  return { skip };
 }
 
 function main() {
-  const { allDirs, skip } = parseArgs();
+  const { skip } = parseArgs();
 
-  if (!allDirs.length) {
-    console.error("Usage: validate-all.js [--all] [--skip <name>] <packageDir> [...]");
-    process.exit(1);
+  let count = 0;
+  for (const pkgRoot of PACKAGE_ROOTS) {
+    const dir = path.join(root, pkgRoot);
+    if (fs.existsSync(dir)) {
+      count += fs.readdirSync(dir).filter((f) => fs.existsSync(path.join(dir, f, "package.json"))).length;
+    }
   }
 
-  const generated = allDirs.filter(isGenerated);
-  const nonGenerated = allDirs.filter((d) => !isGenerated(d));
-
-  console.log(
-    `Running validations on ${allDirs.length} package(s) (${generated.length} generated, ${nonGenerated.length} non-generated)...\n`
-  );
+  console.log(`Running validations on ${count} package(s)...\n`);
 
   const failures = [];
   const warnings = [];
 
-  for (const { name, script, filter } of VALIDATIONS) {
+  for (const { name, label, script } of VALIDATIONS) {
     if (skip.has(name)) {
-      console.log(`⏭  ${name}`);
-      continue;
-    }
-
-    let dirs;
-    if (filter === "generated") {
-      dirs = generated;
-    } else if (filter === "non-generated") {
-      dirs = nonGenerated;
-    } else {
-      dirs = allDirs;
-    }
-
-    if (!dirs.length) {
-      console.log(`⏭  ${name} (no matching packages)`);
+      console.log(`⏭  ${label}`);
       continue;
     }
 
     try {
-      const output = execFileSync("node", [path.join(validationDir, script), ...dirs], {
+      const output = execFileSync("node", [path.join(validationDir, script)], {
         cwd: root,
         stdio: "pipe",
         encoding: "utf-8",
       });
       if (output.includes("⚠️")) {
-        console.log(`⚠️  ${name}`);
+        console.log(`⚠️  ${label}`);
         warnings.push({ name, output });
       } else {
-        console.log(`✅ ${name}`);
+        console.log(`✅ ${label}`);
       }
     } catch (e) {
-      console.log(`❌ ${name}`);
+      console.log(`❌ ${label}`);
       failures.push({ name, output: e.stdout || e.stderr || e.message });
     }
   }
@@ -144,7 +100,21 @@ function main() {
     }
     process.exit(1);
   }
-  console.log(`All validations passed.`);
+
+  // Self-test: verify the validators catch known violations.
+  try {
+    execFileSync("node", [path.join(validationDir, "validate-all.test.js")], {
+      cwd: root,
+      stdio: "pipe",
+      encoding: "utf-8",
+    });
+    console.log(`✅ self-test passed`);
+  } catch (e) {
+    console.error(`❌ self-test failed:\n${e.stdout || e.stderr || e.message}`);
+    process.exit(1);
+  }
+
+  console.log(`\nAll validations passed.`);
 }
 
 main();

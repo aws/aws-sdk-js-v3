@@ -4,13 +4,13 @@
  * For every .js file in dist-cjs and dist-es, validates that it is reachable
  * from the package's declared entry points via BFS over AST-extracted imports.
  *
- * Usage: node validate-no-unreachable-files.js <packageDir> [...]
+ * Usage: node unreachable-files.js
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports, resolveRelative } = require("./validation-shared");
+const { extractImports, resolveRelative, getPackageDirs } = require("./validation-shared");
 
 /**
  * @param code - JS file contents.
@@ -163,14 +163,10 @@ async function validate(packageDir) {
 }
 
 async function main() {
-  const dirs = process.argv.slice(2);
-  if (!dirs.length) {
-    console.error("Usage: validate-no-unreachable-files.js <packageDir> [...]");
-    process.exit(1);
-  }
+  const packages = getPackageDirs();
   const errors = [];
-  for (const dir of dirs) {
-    errors.push(...(await validate(path.resolve(dir))));
+  for (const { dir } of packages) {
+    errors.push(...(await validate(dir)));
   }
   if (errors.length) {
     console.log(`⚠️  ${errors.length} unreachable file(s):\n  ${errors.join("\n  ")}`);
