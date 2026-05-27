@@ -71,6 +71,7 @@ export interface DescribeTrainingPlanCommandOutput extends DescribeTrainingPlanR
  * //       TotalInstanceCount: Number("int"), // required
  * //       Status: "Pending" || "Active" || "Scheduled" || "Expired" || "Failed", // required
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       DurationHours: Number("long"),
  * //       DurationMinutes: Number("long"),
  * //       StartTime: new Date("TIMESTAMP"),

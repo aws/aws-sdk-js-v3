@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import type {
   ActionStatus,
-  ActivationState,
   ActiveClusterOperationName,
   AdditionalS3DataSourceDataType,
   AggregationTransformationValue,
@@ -53,6 +52,7 @@ import type {
   ClusterConfigMode,
   ClusterEventLevel,
   ClusterEventResourceType,
+  ClusterFSxLustreDeletionPolicy,
   ClusterImageVersionStatus,
   ClusterInstanceStatus,
   ClusterInstanceType,
@@ -63,7 +63,6 @@ import type {
   ClusterStatus,
   CompilationJobStatus,
   CompressionType,
-  ConditionOutcome,
   DataSourceName,
   DeepHealthCheckType,
   DetailedAlgorithmStatus,
@@ -88,7 +87,6 @@ import type {
   ProcessingS3InputMode,
   ProductionVariantInstanceType,
   RecordWrapper,
-  RepositoryAccessMode,
   ResourceSharingStrategy,
   S3DataDistribution,
   S3DataType,
@@ -7535,6 +7533,78 @@ export interface ClusterRestrictedInstanceGroupDetails {
 }
 
 /**
+ * <p>The shared environment configuration for the restricted instance groups (RIG).</p>
+ * @public
+ */
+export interface ClusterSharedEnvironmentConfig {
+  /**
+   * <p>The deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  FSxLustreDeletionPolicy: ClusterFSxLustreDeletionPolicy | undefined;
+
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  FSxLustreConfig: FSxLustreConfig | undefined;
+}
+
+/**
+ * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupsConfig {
+  /**
+   * <p>The shared environment configuration for the restricted instance groups (RIG).</p>
+   * @public
+   */
+  SharedEnvironmentConfig: ClusterSharedEnvironmentConfig | undefined;
+}
+
+/**
+ * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
+ * @public
+ */
+export interface ClusterSharedEnvironmentConfigDetails {
+  /**
+   * <p>The current Amazon FSx for Lustre file system configuration in the shared environment.</p>
+   * @public
+   */
+  CurrentFSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The desired Amazon FSx for Lustre file system configuration in the shared environment.</p>
+   * @public
+   */
+  DesiredFSxLustreConfig?: FSxLustreConfig | undefined;
+
+  /**
+   * <p>The current deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  CurrentFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
+
+  /**
+   * <p>The desired deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>
+   * @public
+   */
+  DesiredFSxLustreDeletionPolicy?: ClusterFSxLustreDeletionPolicy | undefined;
+}
+
+/**
+ * <p>The output configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupsConfigOutput {
+  /**
+   * <p>The shared environment configuration details for the restricted instance groups (RIG).</p>
+   * @public
+   */
+  SharedEnvironmentConfig: ClusterSharedEnvironmentConfigDetails | undefined;
+}
+
+/**
  * <p>The configuration for the restricted instance groups (RIG) environment.</p>
  * @public
  */
@@ -8105,118 +8175,4 @@ export interface ComputeQuotaTarget {
    * @public
    */
   FairShareWeight?: number | undefined;
-}
-
-/**
- * <p>Summary of the compute allocation definition.</p>
- * @public
- */
-export interface ComputeQuotaSummary {
-  /**
-   * <p>ARN of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaArn: string | undefined;
-
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-
-  /**
-   * <p>Name of the compute allocation definition.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Version of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaVersion?: number | undefined;
-
-  /**
-   * <p>Status of the compute allocation definition.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
-   * @public
-   */
-  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
-
-  /**
-   * <p>The target entity to allocate compute resources to.</p>
-   * @public
-   */
-  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
-
-  /**
-   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
-   * @public
-   */
-  ActivationState?: ActivationState | undefined;
-
-  /**
-   * <p>Creation time of the compute allocation definition.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Last modified time of the compute allocation definition.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p>Metadata for a Condition step.</p>
- * @public
- */
-export interface ConditionStepMetadata {
-  /**
-   * <p>The outcome of the Condition step evaluation.</p>
-   * @public
-   */
-  Outcome?: ConditionOutcome | undefined;
-}
-
-/**
- * <p>Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the <code>ImageConfig</code> object that you passed to a call to <code>CreateModel</code> and the private Docker registry where the model image is hosted requires authentication.</p>
- * @public
- */
-export interface RepositoryAuthConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an Amazon Web Services Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function with the console</a> in the <i>Amazon Web Services Lambda Developer Guide</i>.</p>
-   * @public
-   */
-  RepositoryCredentialsProviderArn: string | undefined;
-}
-
-/**
- * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).</p>
- * @public
- */
-export interface ImageConfig {
-  /**
-   * <p>Set this to one of the following values:</p> <ul> <li> <p> <code>Platform</code> - The model image is hosted in Amazon ECR.</p> </li> <li> <p> <code>Vpc</code> - The model image is hosted in a private Docker registry in your VPC.</p> </li> </ul>
-   * @public
-   */
-  RepositoryAccessMode: RepositoryAccessMode | undefined;
-
-  /**
-   * <p>(Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field, and the private Docker registry where the model image is hosted requires authentication.</p>
-   * @public
-   */
-  RepositoryAuthConfig?: RepositoryAuthConfig | undefined;
 }

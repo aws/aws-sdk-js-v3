@@ -6,16 +6,136 @@ import type {
   SearchSortOrder,
   WorkforceIpAddressType,
 } from "./enums";
+import type { UserSettings } from "./models_1";
 import type {
   MemberDefinition,
   NotificationConfiguration,
   OidcConfig,
   SourceIpConfig,
+  TrialComponentArtifact,
+  TrialComponentParameterValue,
+  TrialComponentStatus,
   WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
 import type { Filter, Workforce, Workteam } from "./models_3";
 import type { NestedFilters, VisibilityConditions } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateTrialResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   * @public
+   */
+  TrialArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrialComponentRequest {
+  /**
+   * <p>The name of the component to update.</p>
+   * @public
+   */
+  TrialComponentName: string | undefined;
+
+  /**
+   * <p>The name of the component as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The new status of the component.</p>
+   * @public
+   */
+  Status?: TrialComponentStatus | undefined;
+
+  /**
+   * <p>When the component started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>When the component ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters or add new hyperparameters. Existing hyperparameters are replaced if the trial component is updated with an identical hyperparameter key.</p>
+   * @public
+   */
+  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
+
+  /**
+   * <p>The hyperparameters to remove from the component.</p>
+   * @public
+   */
+  ParametersToRemove?: string[] | undefined;
+
+  /**
+   * <p>Replaces all of the component's input artifacts with the specified artifacts or adds new input artifacts. Existing input artifacts are replaced if the trial component is updated with an identical input artifact key.</p>
+   * @public
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>The input artifacts to remove from the component.</p>
+   * @public
+   */
+  InputArtifactsToRemove?: string[] | undefined;
+
+  /**
+   * <p>Replaces all of the component's output artifacts with the specified artifacts or adds new output artifacts. Existing output artifacts are replaced if the trial component is updated with an identical output artifact key.</p>
+   * @public
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>The output artifacts to remove from the component.</p>
+   * @public
+   */
+  OutputArtifactsToRemove?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrialComponentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserProfileRequest {
+  /**
+   * <p>The domain ID.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name.</p>
+   * @public
+   */
+  UserProfileName: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   * @public
+   */
+  UserSettings?: UserSettings | undefined;
+}
 
 /**
  * @public

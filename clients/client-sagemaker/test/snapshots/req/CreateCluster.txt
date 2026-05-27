@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateCluster
-content-length: 9537
+content-length: 9719
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: c954aa7f38e16377d3df211d08b11194ef591e06af1eb40c63333db4ac2056f6
+x-amz-content-sha256: d008ce901626ca57e604380268a48c8cf61da1a275a90f1326296e6903eb1a06
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -641,6 +641,15 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       }
     }
   ],
+  "RestrictedInstanceGroupsConfig": {
+    "SharedEnvironmentConfig": {
+      "FSxLustreDeletionPolicy": "__FSxLustreDeletionPolicy__",
+      "FSxLustreConfig": {
+        "SizeInGiB": 0,
+        "PerUnitStorageThroughput": 0
+      }
+    }
+  },
   "VpcConfig": {
     "SecurityGroupIds": [
       "__member__",

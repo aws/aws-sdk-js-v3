@@ -828,6 +828,12 @@
           "traits": {
             "smithy.api#enumValue": "ml.p5en.48xlarge"
           }
+        },
+        "ML_P6_B200_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p6-b200.48xlarge"
+          }
         }
       }
     },
@@ -10103,6 +10109,26 @@
         "smithy.api#documentation": "<p>A summary of an event in a HyperPod cluster.</p>"
       }
     },
+    "com.amazonaws.sagemaker#ClusterFSxLustreDeletionPolicy": {
+      "type": "enum",
+      "members": {
+        "DELETE_IF_NOT_USED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeleteIfNotUsed"
+          }
+        },
+        "KEEP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Keep"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The deletion policy for the Amazon FSx for Lustre file system used in the shared environment of restricted instance groups (RIG).</p>"
+      }
+    },
     "com.amazonaws.sagemaker#ClusterFsxLustreConfig": {
       "type": "structure",
       "members": {
@@ -12410,6 +12436,38 @@
         }
       }
     },
+    "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupsConfig": {
+      "type": "structure",
+      "members": {
+        "SharedEnvironmentConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterSharedEnvironmentConfig",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The shared environment configuration for the restricted instance groups (RIG).</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupsConfigOutput": {
+      "type": "structure",
+      "members": {
+        "SharedEnvironmentConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterSharedEnvironmentConfigDetails",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The shared environment configuration details for the restricted instance groups (RIG).</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The output configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>"
+      }
+    },
     "com.amazonaws.sagemaker#ClusterSchedulerConfigArn": {
       "type": "string",
       "traits": {
@@ -12512,6 +12570,62 @@
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9]){0,39}?$"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterSharedEnvironmentConfig": {
+      "type": "structure",
+      "members": {
+        "FSxLustreDeletionPolicy": {
+          "target": "com.amazonaws.sagemaker#ClusterFSxLustreDeletionPolicy",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "FSxLustreConfig": {
+          "target": "com.amazonaws.sagemaker#FSxLustreConfig",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>Configuration settings for an Amazon FSx for Lustre file system in the shared environment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The shared environment configuration for the restricted instance groups (RIG).</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ClusterSharedEnvironmentConfigDetails": {
+      "type": "structure",
+      "members": {
+        "CurrentFSxLustreConfig": {
+          "target": "com.amazonaws.sagemaker#FSxLustreConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The current Amazon FSx for Lustre file system configuration in the shared environment.</p>"
+          }
+        },
+        "DesiredFSxLustreConfig": {
+          "target": "com.amazonaws.sagemaker#FSxLustreConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired Amazon FSx for Lustre file system configuration in the shared environment.</p>"
+          }
+        },
+        "CurrentFSxLustreDeletionPolicy": {
+          "target": "com.amazonaws.sagemaker#ClusterFSxLustreDeletionPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The current deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>"
+          }
+        },
+        "DesiredFSxLustreDeletionPolicy": {
+          "target": "com.amazonaws.sagemaker#ClusterFSxLustreDeletionPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired deletion policy for the Amazon FSx for Lustre file system in the shared environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The shared environment configuration details for the restricted instance groups (RIG).</p>"
       }
     },
     "com.amazonaws.sagemaker#ClusterSlurmConfig": {
@@ -15061,6 +15175,12 @@
           "target": "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupSpecifications",
           "traits": {
             "smithy.api#documentation": "<p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>"
+          }
+        },
+        "RestrictedInstanceGroupsConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupsConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>"
           }
         },
         "VpcConfig": {
@@ -26014,6 +26134,12 @@
           "target": "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupDetailsList",
           "traits": {
             "smithy.api#documentation": "<p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>"
+          }
+        },
+        "RestrictedInstanceGroupsConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupsConfigOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>"
           }
         },
         "VpcConfig": {
@@ -70906,6 +71032,12 @@
             "smithy.api#documentation": "<p>The availability zone for the reserved capacity.</p>"
           }
         },
+        "AvailabilityZoneId": {
+          "target": "com.amazonaws.sagemaker#AvailabilityZoneId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone ID of the reserved capacity.</p>"
+          }
+        },
         "DurationHours": {
           "target": "com.amazonaws.sagemaker#ReservedCapacityDurationHours",
           "traits": {
@@ -73314,6 +73446,233 @@
         "smithy.api#title": "Amazon SageMaker Service",
         "smithy.api#xmlNamespace": {
           "uri": "http://sagemaker.amazonaws.com/doc/2017-05-13/"
+        },
+        "smithy.rules#endpointBdd": {
+          "version": "1.1",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "string"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "string"
+            }
+          },
+          "conditions": [
+            {
+              "fn": "isSet",
+              "argv": [
+                {
+                  "ref": "Endpoint"
+                }
+              ]
+            },
+            {
+              "fn": "isSet",
+              "argv": [
+                {
+                  "ref": "Region"
+                }
+              ]
+            },
+            {
+              "fn": "aws.partition",
+              "argv": [
+                {
+                  "ref": "Region"
+                }
+              ],
+              "assign": "PartitionResult"
+            },
+            {
+              "fn": "booleanEquals",
+              "argv": [
+                {
+                  "ref": "UseFIPS"
+                },
+                true
+              ]
+            },
+            {
+              "fn": "booleanEquals",
+              "argv": [
+                {
+                  "ref": "UseDualStack"
+                },
+                true
+              ]
+            },
+            {
+              "fn": "booleanEquals",
+              "argv": [
+                {
+                  "fn": "getAttr",
+                  "argv": [
+                    {
+                      "ref": "PartitionResult"
+                    },
+                    "supportsDualStack"
+                  ]
+                },
+                true
+              ]
+            },
+            {
+              "fn": "booleanEquals",
+              "argv": [
+                {
+                  "fn": "getAttr",
+                  "argv": [
+                    {
+                      "ref": "PartitionResult"
+                    },
+                    "supportsFIPS"
+                  ]
+                },
+                true
+              ]
+            },
+            {
+              "fn": "stringEquals",
+              "argv": [
+                {
+                  "fn": "getAttr",
+                  "argv": [
+                    {
+                      "ref": "PartitionResult"
+                    },
+                    "name"
+                  ]
+                },
+                "aws"
+              ]
+            },
+            {
+              "fn": "stringEquals",
+              "argv": [
+                {
+                  "fn": "getAttr",
+                  "argv": [
+                    {
+                      "ref": "PartitionResult"
+                    },
+                    "name"
+                  ]
+                },
+                "aws-us-gov"
+              ]
+            }
+          ],
+          "results": [
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+              "type": "error"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+              "type": "error"
+            },
+            {
+              "conditions": [],
+              "endpoint": {
+                "url": {
+                  "ref": "Endpoint"
+                },
+                "properties": {},
+                "headers": {}
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "endpoint": {
+                "url": "https://api.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                "properties": {},
+                "headers": {}
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+              "type": "error"
+            },
+            {
+              "conditions": [],
+              "endpoint": {
+                "url": "https://api-fips.sagemaker.{Region}.amazonaws.com",
+                "properties": {},
+                "headers": {}
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "endpoint": {
+                "url": "https://api.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
+                "properties": {},
+                "headers": {}
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "error": "FIPS is enabled but this partition does not support FIPS",
+              "type": "error"
+            },
+            {
+              "conditions": [],
+              "endpoint": {
+                "url": "https://api.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                "properties": {},
+                "headers": {}
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "error": "DualStack is enabled but this partition does not support DualStack",
+              "type": "error"
+            },
+            {
+              "conditions": [],
+              "endpoint": {
+                "url": "https://api.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
+                "properties": {},
+                "headers": {}
+              },
+              "type": "endpoint"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
+            }
+          ],
+          "root": 2,
+          "nodeCount": 15,
+          "nodes": "/////wAAAAH/////AAAAAAAAAA4AAAADAAAAAQAAAAQF9eEMAAAAAgAAAAUF9eEMAAAAAwAAAAgAAAAGAAAABAAAAAcF9eELAAAABQX14QkF9eEKAAAABAAAAAwAAAAJAAAABgAAAAoF9eEIAAAABwX14QYAAAALAAAACAX14QYF9eEHAAAABQAAAA0F9eEFAAAABgX14QQF9eEFAAAAAwX14QEAAAAPAAAABAX14QIF9eED"
         },
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -84894,6 +85253,12 @@
           "target": "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupSpecifications",
           "traits": {
             "smithy.api#documentation": "<p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>"
+          }
+        },
+        "RestrictedInstanceGroupsConfig": {
+          "target": "com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupsConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>"
           }
         },
         "TieredStorageConfig": {

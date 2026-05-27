@@ -4,8 +4,7 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateOptimizationJobRequest } from "../models/models_1";
-import type { CreateOptimizationJobResponse } from "../models/models_2";
+import type { CreateOptimizationJobRequest, CreateOptimizationJobResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateOptimizationJob$ } from "../schemas/schemas_0";
 

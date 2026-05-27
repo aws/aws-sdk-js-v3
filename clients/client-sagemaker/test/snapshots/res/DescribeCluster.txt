@@ -21,6 +21,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {},
     {}
   ],
+  "RestrictedInstanceGroupsConfig": {
+    "SharedEnvironmentConfig": {}
+  },
   "VpcConfig": {
     "SecurityGroupIds": [
       "__member__",
@@ -67,6 +70,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {},
     {}
   ],
+  RestrictedInstanceGroupsConfig: {
+    SharedEnvironmentConfig: {}
+  },
   VpcConfig: {
     SecurityGroupIds: [
       "__member__",
@@ -993,6 +999,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     }
   ],
+  "RestrictedInstanceGroupsConfig": {
+    "SharedEnvironmentConfig": {
+      "CurrentFSxLustreConfig": {
+        "SizeInGiB": 0,
+        "PerUnitStorageThroughput": 0
+      },
+      "DesiredFSxLustreConfig": {
+        "SizeInGiB": 0,
+        "PerUnitStorageThroughput": 0
+      },
+      "CurrentFSxLustreDeletionPolicy": "__CurrentFSxLustreDeletionPolicy__",
+      "DesiredFSxLustreDeletionPolicy": "__DesiredFSxLustreDeletionPolicy__"
+    }
+  },
   "VpcConfig": {
     "SecurityGroupIds": [
       "__member__",
@@ -1913,6 +1933,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     }
   ],
+  RestrictedInstanceGroupsConfig: {
+    SharedEnvironmentConfig: {
+      CurrentFSxLustreConfig: {
+        SizeInGiB: (number) 0,
+        PerUnitStorageThroughput: (number) 0
+      },
+      DesiredFSxLustreConfig: {
+        SizeInGiB: (number) 0,
+        PerUnitStorageThroughput: (number) 0
+      },
+      CurrentFSxLustreDeletionPolicy: "__CurrentFSxLustreDeletionPolicy__",
+      DesiredFSxLustreDeletionPolicy: "__DesiredFSxLustreDeletionPolicy__"
+    }
+  },
   VpcConfig: {
     SecurityGroupIds: [
       "__member__",

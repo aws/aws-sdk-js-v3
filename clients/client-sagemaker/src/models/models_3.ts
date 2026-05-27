@@ -70,8 +70,6 @@ import type {
   ManagedStorageType,
   MlflowAppStatus,
   ModelApprovalStatus,
-  ModelCardExportJobSortBy,
-  ModelCardExportJobSortOrder,
   ModelCardExportJobStatus,
   ModelCardProcessingStatus,
   ModelCardStatus,
@@ -170,7 +168,6 @@ import type {
   CodeRepositorySummary,
   CognitoConfig,
   CompilationJobSummary,
-  ComputeQuotaSummary,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -185,6 +182,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ComputeQuotaSummary,
   ContainerDefinition,
   ContextSummary,
   DockerSettings,
@@ -196,6 +194,9 @@ import type {
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
+  InferenceComponentComputeResourceRequirements,
+  InferenceComponentSchedulingConfig,
+  InferenceComponentStartupParameters,
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
@@ -232,10 +233,7 @@ import type {
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
-  OptimizationConfig,
   OptimizationJobModelSource,
-  OptimizationJobOutputConfig,
-  OptimizationVpcConfig,
   ProductionVariantServerlessConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
@@ -254,6 +252,7 @@ import type {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DeployedImage,
   DeploymentRecommendation,
   ExperimentConfig,
   ExperimentSource,
@@ -262,8 +261,7 @@ import type {
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
   InferenceComponentDeploymentConfig,
-  InferenceComponentRuntimeConfigSummary,
-  InferenceComponentSpecificationSummary,
+  InferenceComponentPlacementStatus,
   InfraCheckConfig,
   LastUpdateStatus,
   MemberDefinition,
@@ -274,6 +272,9 @@ import type {
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
+  OptimizationConfig,
+  OptimizationJobOutputConfig,
+  OptimizationVpcConfig,
   OwnershipSettings,
   ParallelismConfiguration,
   PartnerAppConfig,
@@ -298,6 +299,120 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
+ * @public
+ */
+export interface InferenceComponentRuntimeConfigSummary {
+  /**
+   * <p>The number of runtime copies of the model container that you requested to deploy with the inference component.</p>
+   * @public
+   */
+  DesiredCopyCount?: number | undefined;
+
+  /**
+   * <p>The number of runtime copies of the model container that are currently deployed.</p>
+   * @public
+   */
+  CurrentCopyCount?: number | undefined;
+
+  /**
+   * <p>The placement status of the inference component across instance types. Shows how the inference component copies are distributed across instance types.</p>
+   * @public
+   */
+  PlacementStatus?: InferenceComponentPlacementStatus[] | undefined;
+}
+
+/**
+ * <p>Details about the resources that are deployed with this inference component.</p>
+ * @public
+ */
+export interface InferenceComponentContainerSpecificationSummary {
+  /**
+   * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html">ProductionVariant</a>.</p> <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path of the primary container when you created the model hosted in this <code>ProductionVariant</code>, the path resolves to a path of the form <code>registry/repository[@digest]</code>. A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
+   * @public
+   */
+  DeployedImage?: DeployedImage | undefined;
+
+  /**
+   * <p>The Amazon S3 path where the model artifacts are stored.</p>
+   * @public
+   */
+  ArtifactUrl?: string | undefined;
+
+  /**
+   * <p>The environment variables to set in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Settings that affect how the inference component caches data.</p>
+ * @public
+ */
+export interface InferenceComponentDataCacheConfigSummary {
+  /**
+   * <p>Indicates whether the inference component caches model artifacts as part of the auto scaling process.</p>
+   * @public
+   */
+  EnableCaching: boolean | undefined;
+}
+
+/**
+ * <p>Details about the resources that are deployed with this inference component.</p>
+ * @public
+ */
+export interface InferenceComponentSpecificationSummary {
+  /**
+   * <p>The ML compute instance type associated with this inference component specification.</p>
+   * @public
+   */
+  InstanceType?: ProductionVariantInstanceType | undefined;
+
+  /**
+   * <p>The name of the SageMaker AI model object that is deployed with the inference component.</p>
+   * @public
+   */
+  ModelName?: string | undefined;
+
+  /**
+   * <p>Details about the container that provides the runtime environment for the model that is deployed with the inference component.</p>
+   * @public
+   */
+  Container?: InferenceComponentContainerSpecificationSummary | undefined;
+
+  /**
+   * <p>Settings that take effect while the model container starts up.</p>
+   * @public
+   */
+  StartupParameters?: InferenceComponentStartupParameters | undefined;
+
+  /**
+   * <p>The compute resources allocated to run the model, plus any adapter models, that you assign to the inference component.</p>
+   * @public
+   */
+  ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements | undefined;
+
+  /**
+   * <p>The name of the base inference component that contains this inference component.</p>
+   * @public
+   */
+  BaseInferenceComponentName?: string | undefined;
+
+  /**
+   * <p>Settings that affect how the inference component caches data.</p>
+   * @public
+   */
+  DataCacheConfig?: InferenceComponentDataCacheConfigSummary | undefined;
+
+  /**
+   * <p>The scheduling configuration that determines how inference component copies are placed across available instances when copies are added or removed.</p>
+   * @public
+   */
+  SchedulingConfig?: InferenceComponentSchedulingConfig | undefined;
+}
 
 /**
  * @public
@@ -4233,6 +4348,12 @@ export interface ReservedCapacitySummary {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the reserved capacity.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The number of whole hours in the total duration for this reserved capacity.</p>
@@ -11704,187 +11825,4 @@ export interface ListMlflowTrackingServersResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelBiasJobDefinitionsRequest {
-  /**
-   * <p>Name of the endpoint to monitor for model bias.</p>
-   * @public
-   */
-  EndpointName?: string | undefined;
-
-  /**
-   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringJobDefinitionSortKey | undefined;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of model bias jobs to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filter for model bias jobs whose name contains a specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only model bias jobs created before a specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only model bias jobs created after a specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelBiasJobDefinitionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
-   * @public
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelCardExportJobsRequest {
-  /**
-   * <p>List export jobs for the model card with the specified name.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>List export jobs for the model card with the specified version.</p>
-   * @public
-   */
-  ModelCardVersion?: number | undefined;
-
-  /**
-   * <p>Only list model card export jobs that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Only list model card export jobs that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Only list model card export jobs with names that contain the specified string.</p>
-   * @public
-   */
-  ModelCardExportJobNameContains?: string | undefined;
-
-  /**
-   * <p>Only list model card export jobs with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: ModelCardExportJobStatus | undefined;
-
-  /**
-   * <p>Sort model card export jobs by either name or creation time. Sorts by creation time by default.</p>
-   * @public
-   */
-  SortBy?: ModelCardExportJobSortBy | undefined;
-
-  /**
-   * <p>Sort model card export jobs by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: ModelCardExportJobSortOrder | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListModelCardExportJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model card export jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of model card export jobs to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of the Amazon SageMaker Model Card export job.</p>
- * @public
- */
-export interface ModelCardExportJobSummary {
-  /**
-   * <p>The name of the model card export job.</p>
-   * @public
-   */
-  ModelCardExportJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
-   * @public
-   */
-  ModelCardExportJobArn: string | undefined;
-
-  /**
-   * <p>The completion status of the model card export job.</p>
-   * @public
-   */
-  Status: ModelCardExportJobStatus | undefined;
-
-  /**
-   * <p>The name of the model card that the export job exports.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The version of the model card that the export job exports.</p>
-   * @public
-   */
-  ModelCardVersion: number | undefined;
-
-  /**
-   * <p>The date and time that the model card export job was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The date and time that the model card export job was last modified..</p>
-   * @public
-   */
-  LastModifiedAt: Date | undefined;
 }

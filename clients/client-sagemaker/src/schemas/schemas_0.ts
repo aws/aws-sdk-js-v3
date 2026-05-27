@@ -467,6 +467,8 @@ const _CFOZC = "ClusterFsxOpenZfsConfig";
 const _CFS = "CustomFileSystems";
 const _CFSC = "CustomFileSystemConfigs";
 const _CFSCu = "CustomFileSystemConfig";
+const _CFSLC = "CurrentFSxLustreConfig";
+const _CFSLDP = "CurrentFSxLustreDeletionPolicy";
 const _CFSu = "CustomFileSystem";
 const _CGC = "CandidateGenerationConfig";
 const _CH = "ContainerHostname";
@@ -665,6 +667,8 @@ const _CR = "CapacityReservation";
 const _CRA = "CodeRepositoryArn";
 const _CRAl = "ClusterRoleArn";
 const _CRC = "CapacityReservationConfig";
+const _CRIGC = "ClusterRestrictedInstanceGroupsConfig";
+const _CRIGCO = "ClusterRestrictedInstanceGroupsConfigOutput";
 const _CRIGD = "ClusterRestrictedInstanceGroupDetails";
 const _CRIGDL = "ClusterRestrictedInstanceGroupDetailsList";
 const _CRIGS = "ClusterRestrictedInstanceGroupSpecification";
@@ -698,6 +702,8 @@ const _CSCl = "ClarifyShapConfig";
 const _CSClu = "ClusterSlurmConfig";
 const _CSCu = "CurrentServerlessConfig";
 const _CSD = "CfnStackDetail";
+const _CSEC = "ClusterSharedEnvironmentConfig";
+const _CSECD = "ClusterSharedEnvironmentConfigDetails";
 const _CSHCTIS = "ContainerStartupHealthCheckTimeoutInSeconds";
 const _CSIC = "ConfiguredSpareInstanceCount";
 const _CSLC = "CreateStudioLifecycleConfig";
@@ -1009,6 +1015,8 @@ const _DFMRe = "DescribeFeatureMetadataResponse";
 const _DFN = "DeviceFleetName";
 const _DFNC = "DeviceFleetNameContains";
 const _DFS = "DeviceFleetSummary";
+const _DFSLC = "DesiredFSxLustreConfig";
+const _DFSLDP = "DesiredFSxLustreDeletionPolicy";
 const _DFSe = "DeviceFleetSummaries";
 const _DG = "DefaultGid";
 const _DGTC = "DisableGlueTableCreation";
@@ -1539,6 +1547,7 @@ const _FSC = "FileSystemConfig";
 const _FSDS = "FileSystemDataSource";
 const _FSI = "FileSystemId";
 const _FSLC = "FSxLustreConfig";
+const _FSLDP = "FSxLustreDeletionPolicy";
 const _FSLFS = "FSxLustreFileSystem";
 const _FSLFSC = "FSxLustreFileSystemConfig";
 const _FSM = "FailStepMetadata";
@@ -2846,6 +2855,7 @@ const _RGAo = "RoleGroupAssignment";
 const _RI = "ResolvedImage";
 const _RIFN = "RecordIdentifierFeatureName";
 const _RIG = "RestrictedInstanceGroups";
+const _RIGC = "RestrictedInstanceGroupsConfig";
 const _RII = "RecommendedInferenceImage";
 const _RIS = "RuntimeInSeconds";
 const _RIU = "ResourceInUse";
@@ -2992,7 +3002,8 @@ const _SDte = "StepDescription";
 const _SDu = "SubDomain";
 const _SE = "StatusEquals";
 const _SEA = "S3ExportArtifacts";
-const _SEC = "SelectiveExecutionConfig";
+const _SEC = "SharedEnvironmentConfig";
+const _SECe = "SelectiveExecutionConfig";
 const _SEDIS = "SessionExpirationDurationInSeconds";
 const _SEDS = "StartEdgeDeploymentStage";
 const _SEDSR = "StartEdgeDeploymentStageRequest";
@@ -4625,6 +4636,16 @@ export var ClusterRestrictedInstanceGroupDetails$: StaticStructureSchema = [3, n
   [_CCu, _TCa, _IGN, _ITn, _ERx, _TPC, _ISC, _OSDHC, _St, _TPA, _TPS, _OVC, _SUC, _ECn],
   [1, 1, 0, 0, 0, 1, () => ClusterInstanceStorageConfigs, 64 | 0, 0, 0, 0, () => VpcConfig$, () => ScheduledUpdateConfig$, () => EnvironmentConfigDetails$]
 ];
+export var ClusterRestrictedInstanceGroupsConfig$: StaticStructureSchema = [3, n0, _CRIGC,
+  0,
+  [_SEC],
+  [() => ClusterSharedEnvironmentConfig$], 1
+];
+export var ClusterRestrictedInstanceGroupsConfigOutput$: StaticStructureSchema = [3, n0, _CRIGCO,
+  0,
+  [_SEC],
+  [() => ClusterSharedEnvironmentConfigDetails$], 1
+];
 export var ClusterRestrictedInstanceGroupSpecification$: StaticStructureSchema = [3, n0, _CRIGS,
   0,
   [_ICn, _IGN, _ITn, _ERx, _TPC, _ISC, _OSDHC, _TPA, _OVC, _SUC, _ECn],
@@ -4634,6 +4655,16 @@ export var ClusterSchedulerConfigSummary$: StaticStructureSchema = [3, n0, _CSCS
   0,
   [_CSCA, _CSCI, _N, _CT, _St, _CSCV, _LMT, _CAl],
   [0, 0, 0, 4, 0, 1, 4, 0], 5
+];
+export var ClusterSharedEnvironmentConfig$: StaticStructureSchema = [3, n0, _CSEC,
+  0,
+  [_FSLDP, _FSLC],
+  [0, () => FSxLustreConfig$], 2
+];
+export var ClusterSharedEnvironmentConfigDetails$: StaticStructureSchema = [3, n0, _CSECD,
+  0,
+  [_CFSLC, _DFSLC, _CFSLDP, _DFSLDP],
+  [() => FSxLustreConfig$, () => FSxLustreConfig$, 0, 0]
 ];
 export var ClusterSlurmConfig$: StaticStructureSchema = [3, n0, _CSClu,
   0,
@@ -4862,8 +4893,8 @@ export var CreateAutoMLJobV2Response$: StaticStructureSchema = [3, n0, _CAMLJVRr
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_CNl, _IG, _RIG, _VC, _Ta, _Or, _NR, _TSCi, _NPM, _CRl, _ASu],
-  [0, () => ClusterInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupSpecifications, () => VpcConfig$, () => TagList, () => ClusterOrchestrator$, 0, () => ClusterTieredStorageConfig$, 0, 0, () => ClusterAutoScalingConfig$], 1
+  [_CNl, _IG, _RIG, _RIGC, _VC, _Ta, _Or, _NR, _TSCi, _NPM, _CRl, _ASu],
+  [0, () => ClusterInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupsConfig$, () => VpcConfig$, () => TagList, () => ClusterOrchestrator$, 0, () => ClusterTieredStorageConfig$, 0, 0, () => ClusterAutoScalingConfig$], 1
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRre,
   0,
@@ -6142,8 +6173,8 @@ export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
-  [_CAl, _CSlu, _IG, _CNl, _CT, _FM, _RIG, _VC, _Or, _TSCi, _NR, _NPM, _CRl, _ASu],
-  [0, 0, () => ClusterInstanceGroupDetailsList, 0, 4, 0, () => ClusterRestrictedInstanceGroupDetailsList, () => VpcConfig$, () => ClusterOrchestrator$, () => ClusterTieredStorageConfig$, 0, 0, 0, () => ClusterAutoScalingConfigOutput$], 3
+  [_CAl, _CSlu, _IG, _CNl, _CT, _FM, _RIG, _RIGC, _VC, _Or, _TSCi, _NR, _NPM, _CRl, _ASu],
+  [0, 0, () => ClusterInstanceGroupDetailsList, 0, 4, 0, () => ClusterRestrictedInstanceGroupDetailsList, () => ClusterRestrictedInstanceGroupsConfigOutput$, () => VpcConfig$, () => ClusterOrchestrator$, () => ClusterTieredStorageConfig$, 0, 0, 0, () => ClusterAutoScalingConfigOutput$], 3
 ];
 export var DescribeClusterSchedulerConfigRequest$: StaticStructureSchema = [3, n0, _DCSCRe,
   0,
@@ -6592,7 +6623,7 @@ export var DescribePipelineExecutionRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribePipelineExecutionResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SEC, _PVI, _MLCf],
+  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SECe, _PVI, _MLCf],
   [0, 0, 0, 0, 0, () => PipelineExperimentConfig$, 0, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, 1, () => MLflowConfiguration$]
 ];
 export var DescribePipelineRequest$: StaticStructureSchema = [3, n0, _DPRes,
@@ -9397,7 +9428,7 @@ export var PipelineDefinitionS3Location$: StaticStructureSchema = [3, n0, _PDSL,
 ];
 export var PipelineExecution$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SEC, _PP, _PVI, _PVDN],
+  [_PAi, _PEA, _PEDN, _PES, _PED, _PEC, _FR, _CT, _LMT, _CB, _LMB, _PCa, _SECe, _PP, _PVI, _PVDN],
   [0, 0, 0, 0, 0, () => PipelineExperimentConfig$, 0, 4, 4, () => UserContext$, () => UserContext$, () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, () => ParameterList, 1, 0]
 ];
 export var PipelineExecutionStep$: StaticStructureSchema = [3, n0, _PESipe,
@@ -9767,8 +9798,8 @@ export var ReservedCapacityOffering$: StaticStructureSchema = [3, n0, _RCO,
 ];
 export var ReservedCapacitySummary$: StaticStructureSchema = [3, n0, _RCSe,
   0,
-  [_RCA, _ITn, _TICo, _St, _RCT, _UST, _USC, _AZv, _DH, _DM, _STt, _ETn],
-  [0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 4, 4], 4
+  [_RCA, _ITn, _TICo, _St, _RCT, _UST, _USC, _AZv, _AZI, _DH, _DM, _STt, _ETn],
+  [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 4, 4], 4
 ];
 export var ResolvedAttributes$: StaticStructureSchema = [3, n0, _RAe,
   0,
@@ -9955,7 +9986,7 @@ export var SelectedStep$: StaticStructureSchema = [3, n0, _SSel,
   [_SNte],
   [0], 1
 ];
-export var SelectiveExecutionConfig$: StaticStructureSchema = [3, n0, _SEC,
+export var SelectiveExecutionConfig$: StaticStructureSchema = [3, n0, _SECe,
   0,
   [_SSele, _SPEA],
   [() => SelectedStepList, 0], 1
@@ -10147,7 +10178,7 @@ export var StartNotebookInstanceInput$: StaticStructureSchema = [3, n0, _SNII,
 ];
 export var StartPipelineExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
-  [_PNi, _PEDN, _PP, _PED, _CRT, _PCa, _SEC, _PVI, _MEN],
+  [_PNi, _PEDN, _PP, _PED, _CRT, _PCa, _SECe, _PVI, _MEN],
   [0, 0, () => ParameterList, 0, [0, 4], () => ParallelismConfiguration$, () => SelectiveExecutionConfig$, 1, 0], 1
 ];
 export var StartPipelineExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
@@ -10672,8 +10703,8 @@ export var UpdateArtifactResponse$: StaticStructureSchema = [3, n0, _UARpda,
 ];
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CNl, _IG, _RIG, _TSCi, _NR, _IGTD, _NPM, _CRl, _ASu, _Or],
-  [0, () => ClusterInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupSpecifications, () => ClusterTieredStorageConfig$, 0, 64 | 0, 0, 0, () => ClusterAutoScalingConfig$, () => ClusterOrchestrator$], 1
+  [_CNl, _IG, _RIG, _RIGC, _TSCi, _NR, _IGTD, _NPM, _CRl, _ASu, _Or],
+  [0, () => ClusterInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupsConfig$, () => ClusterTieredStorageConfig$, 0, 64 | 0, 0, 0, () => ClusterAutoScalingConfig$, () => ClusterOrchestrator$], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,

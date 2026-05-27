@@ -19,6 +19,7 @@ import type {
   ClusterNodeRecovery,
   CollectionType,
   CompleteOnConvergence,
+  ConditionOutcome,
   ContainerMode,
   ContentClassifier,
   DeviceSubsetType,
@@ -62,7 +63,6 @@ import type {
   MonitoringType,
   NotebookInstanceAcceleratorType,
   NotebookOutputOption,
-  OptimizationJobDeploymentInstanceType,
   ParameterType,
   ProblemType,
   ProcessingInstanceType,
@@ -75,11 +75,13 @@ import type {
   ProductionVariantInstanceType,
   RecommendationJobSupportedEndpointType,
   RecommendationJobType,
+  RepositoryAccessMode,
   RootAccess,
   RoutingStrategy,
   RStudioServerProAccessStatus,
   RStudioServerProUserGroup,
   SageMakerImageName,
+  SchedulerResourceStatus,
   SkipModelValidation,
   StorageType,
   StudioWebPortal,
@@ -150,6 +152,7 @@ import type {
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterOrchestrator,
+  ClusterRestrictedInstanceGroupsConfig,
   ClusterRestrictedInstanceGroupSpecification,
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
@@ -160,7 +163,6 @@ import type {
   ComputeQuotaTarget,
   CustomImage,
   GitConfig,
-  ImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -175,6 +177,120 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Summary of the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaSummary {
+  /**
+   * <p>ARN of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaArn: string | undefined;
+
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Name of the compute allocation definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion?: number | undefined;
+
+  /**
+   * <p>Status of the compute allocation definition.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Configuration of the compute allocation definition. This includes the resource sharing option, and the setting to preempt low priority tasks.</p>
+   * @public
+   */
+  ComputeQuotaConfig?: ComputeQuotaConfig | undefined;
+
+  /**
+   * <p>The target entity to allocate compute resources to.</p>
+   * @public
+   */
+  ComputeQuotaTarget: ComputeQuotaTarget | undefined;
+
+  /**
+   * <p>The state of the compute allocation being described. Use to enable or disable compute allocation.</p> <p>Default is <code>Enabled</code>.</p>
+   * @public
+   */
+  ActivationState?: ActivationState | undefined;
+
+  /**
+   * <p>Creation time of the compute allocation definition.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the compute allocation definition.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * <p>Metadata for a Condition step.</p>
+ * @public
+ */
+export interface ConditionStepMetadata {
+  /**
+   * <p>The outcome of the Condition step evaluation.</p>
+   * @public
+   */
+  Outcome?: ConditionOutcome | undefined;
+}
+
+/**
+ * <p>Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the <code>ImageConfig</code> object that you passed to a call to <code>CreateModel</code> and the private Docker registry where the model image is hosted requires authentication.</p>
+ * @public
+ */
+export interface RepositoryAuthConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an Amazon Web Services Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function with the console</a> in the <i>Amazon Web Services Lambda Developer Guide</i>.</p>
+   * @public
+   */
+  RepositoryCredentialsProviderArn: string | undefined;
+}
+
+/**
+ * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).</p>
+ * @public
+ */
+export interface ImageConfig {
+  /**
+   * <p>Set this to one of the following values:</p> <ul> <li> <p> <code>Platform</code> - The model image is hosted in Amazon ECR.</p> </li> <li> <p> <code>Vpc</code> - The model image is hosted in a private Docker registry in your VPC.</p> </li> </ul>
+   * @public
+   */
+  RepositoryAccessMode: RepositoryAccessMode | undefined;
+
+  /**
+   * <p>(Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field, and the private Docker registry where the model image is hosted requires authentication.</p>
+   * @public
+   */
+  RepositoryAuthConfig?: RepositoryAuthConfig | undefined;
+}
 
 /**
  * <p>Specifies additional configuration for hosting multi-model endpoints.</p>
@@ -1239,6 +1355,12 @@ export interface CreateClusterRequest {
    * @public
    */
   RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupSpecification[] | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroupsConfig?: ClusterRestrictedInstanceGroupsConfig | undefined;
 
   /**
    * <p>Specifies the Amazon Virtual Private Cloud (VPC) that is associated with the Amazon SageMaker HyperPod cluster. You can control access to and from your resources by configuring your VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker access to resources in your Amazon VPC</a>.</p> <note> <p>When your Amazon VPC and subnets support IPv6, network communications differ based on the cluster orchestration platform:</p> <ul> <li> <p>Slurm-orchestrated clusters automatically configure nodes with dual IPv6 and IPv4 addresses, allowing immediate IPv6 network communications.</p> </li> <li> <p>In Amazon EKS-orchestrated clusters, nodes receive dual-stack addressing, but pods can only use IPv6 when the Amazon EKS cluster is explicitly IPv6-enabled. For information about deploying an IPv6 Amazon EKS cluster, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/deploy-ipv6-cluster.html#_deploy_an_ipv6_cluster_with_eksctl">Amazon EKS IPv6 Cluster Deployment</a>.</p> </li> </ul> <p>Additional resources for IPv6 configuration:</p> <ul> <li> <p>For information about adding IPv6 support to your VPC, see to <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html">IPv6 Support for VPC</a>.</p> </li> <li> <p>For information about creating a new IPv6-compatible VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Amazon VPC Creation Guide</a>.</p> </li> <li> <p>To configure SageMaker HyperPod with a custom Amazon VPC, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-optional-vpc">Custom Amazon VPC Setup for SageMaker HyperPod</a>.</p> </li> </ul> </note>
@@ -8312,204 +8434,4 @@ export interface ModelSpeculativeDecodingConfig {
    * @public
    */
   TrainingDataSource?: ModelSpeculativeDecodingTrainingDataSource | undefined;
-}
-
-/**
- * <p>Settings for an optimization technique that you apply with a model optimization job.</p>
- * @public
- */
-export type OptimizationConfig =
-  | OptimizationConfig.ModelCompilationConfigMember
-  | OptimizationConfig.ModelQuantizationConfigMember
-  | OptimizationConfig.ModelShardingConfigMember
-  | OptimizationConfig.ModelSpeculativeDecodingConfigMember
-  | OptimizationConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace OptimizationConfig {
-  /**
-   * <p>Settings for the model quantization technique that's applied by a model optimization job.</p>
-   * @public
-   */
-  export interface ModelQuantizationConfigMember {
-    ModelQuantizationConfig: ModelQuantizationConfig;
-    ModelCompilationConfig?: never;
-    ModelShardingConfig?: never;
-    ModelSpeculativeDecodingConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Settings for the model compilation technique that's applied by a model optimization job.</p>
-   * @public
-   */
-  export interface ModelCompilationConfigMember {
-    ModelQuantizationConfig?: never;
-    ModelCompilationConfig: ModelCompilationConfig;
-    ModelShardingConfig?: never;
-    ModelSpeculativeDecodingConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
-   * @public
-   */
-  export interface ModelShardingConfigMember {
-    ModelQuantizationConfig?: never;
-    ModelCompilationConfig?: never;
-    ModelShardingConfig: ModelShardingConfig;
-    ModelSpeculativeDecodingConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Settings for the model speculative decoding technique that's applied by a model optimization job.</p>
-   * @public
-   */
-  export interface ModelSpeculativeDecodingConfigMember {
-    ModelQuantizationConfig?: never;
-    ModelCompilationConfig?: never;
-    ModelShardingConfig?: never;
-    ModelSpeculativeDecodingConfig: ModelSpeculativeDecodingConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ModelQuantizationConfig?: never;
-    ModelCompilationConfig?: never;
-    ModelShardingConfig?: never;
-    ModelSpeculativeDecodingConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    ModelQuantizationConfig: (value: ModelQuantizationConfig) => T;
-    ModelCompilationConfig: (value: ModelCompilationConfig) => T;
-    ModelShardingConfig: (value: ModelShardingConfig) => T;
-    ModelSpeculativeDecodingConfig: (value: ModelSpeculativeDecodingConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Details for where to store the optimized model that you create with the optimization job.</p>
- * @public
- */
-export interface OptimizationJobOutputConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of a key in Amazon Web Services KMS. SageMaker uses they key to encrypt the artifacts of the optimized model when SageMaker uploads the model to Amazon S3.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 URI for where to store the optimized model that you create with an optimization job.</p>
-   * @public
-   */
-  S3OutputLocation: string | undefined;
-
-  /**
-   * <p>The name of a SageMaker model to use as the output destination for an optimization job.</p>
-   * @public
-   */
-  SageMakerModel?: OptimizationSageMakerModel | undefined;
-}
-
-/**
- * <p>A VPC in Amazon VPC that's accessible to an optimized that you create with an optimization job. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
- * @public
- */
-export interface OptimizationVpcConfig {
-  /**
-   * <p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
-   * @public
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>The ID of the subnets in the VPC to which you want to connect your optimized model.</p>
-   * @public
-   */
-  Subnets: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOptimizationJobRequest {
-  /**
-   * <p>A custom name for the new optimization job.</p>
-   * @public
-   */
-  OptimizationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf. </p> <p>During model optimization, Amazon SageMaker AI needs your permission to:</p> <ul> <li> <p>Read input data from an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these tasks to an IAM role. To pass this role to Amazon SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker AI Roles.</a> </p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The location of the source model to optimize with an optimization job.</p>
-   * @public
-   */
-  ModelSource: OptimizationJobModelSource | undefined;
-
-  /**
-   * <p>The type of instance that hosts the optimized model that you create with the optimization job.</p>
-   * @public
-   */
-  DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
-
-  /**
-   * <p>The maximum number of instances to use for the optimization job.</p>
-   * @public
-   */
-  MaxInstanceCount?: number | undefined;
-
-  /**
-   * <p>The environment variables to set in the model container.</p>
-   * @public
-   */
-  OptimizationEnvironment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Settings for each of the optimization techniques that the job applies.</p>
-   * @public
-   */
-  OptimizationConfigs: OptimizationConfig[] | undefined;
-
-  /**
-   * <p>Details for where to store the optimized model that you create with the optimization job.</p>
-   * @public
-   */
-  OutputConfig: OptimizationJobOutputConfig | undefined;
-
-  /**
-   * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker ends the job. Use this API to cap costs.</p> <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost. </p> <p>The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with <code>CreateModel</code>.</p> <note> <p>The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.</p> </note>
-   * @public
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * <p>A list of key-value pairs associated with the optimization job. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A VPC in Amazon VPC that your optimized model has access to.</p>
-   * @public
-   */
-  VpcConfig?: OptimizationVpcConfig | undefined;
 }

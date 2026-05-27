@@ -201,6 +201,15 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       },
  *     },
  *   ],
+ *   RestrictedInstanceGroupsConfig: { // ClusterRestrictedInstanceGroupsConfig
+ *     SharedEnvironmentConfig: { // ClusterSharedEnvironmentConfig
+ *       FSxLustreDeletionPolicy: "DeleteIfNotUsed" || "Keep", // required
+ *       FSxLustreConfig: {
+ *         SizeInGiB: Number("int"), // required
+ *         PerUnitStorageThroughput: Number("int"), // required
+ *       },
+ *     },
+ *   },
  *   TieredStorageConfig: { // ClusterTieredStorageConfig
  *     Mode: "Enable" || "Disable", // required
  *     InstanceMemoryAllocationPercentage: Number("int"),

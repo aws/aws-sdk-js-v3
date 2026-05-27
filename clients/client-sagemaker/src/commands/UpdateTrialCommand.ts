@@ -4,7 +4,8 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateTrialRequest, UpdateTrialResponse } from "../models/models_4";
+import type { UpdateTrialRequest } from "../models/models_4";
+import type { UpdateTrialResponse } from "../models/models_5";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateTrial$ } from "../schemas/schemas_0";
 

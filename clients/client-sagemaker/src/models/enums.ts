@@ -788,6 +788,7 @@ export const AIRecommendationInstanceType = {
   ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_P5_4XLARGE: "ml.p5.4xlarge",
+  ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
 } as const;
 /**
  * @public
@@ -2449,6 +2450,20 @@ export const ClusterEventResourceType = {
  * @public
  */
 export type ClusterEventResourceType = (typeof ClusterEventResourceType)[keyof typeof ClusterEventResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterFSxLustreDeletionPolicy = {
+  DELETE_IF_NOT_USED: "DeleteIfNotUsed",
+  KEEP: "Keep",
+} as const;
+/**
+ * @public
+ */
+export type ClusterFSxLustreDeletionPolicy =
+  (typeof ClusterFSxLustreDeletionPolicy)[keyof typeof ClusterFSxLustreDeletionPolicy];
 
 /**
  * @public

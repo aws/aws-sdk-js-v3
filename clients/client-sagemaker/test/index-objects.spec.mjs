@@ -254,6 +254,7 @@ import {
   ClusterEventResourceType,
   ClusterEventSummary$,
   ClusterFsxLustreConfig$,
+  ClusterFSxLustreDeletionPolicy,
   ClusterFsxOpenZfsConfig$,
   ClusterImageVersionStatus,
   ClusterInstanceGroupDetails$,
@@ -285,8 +286,12 @@ import {
   ClusterOrchestratorEksConfig$,
   ClusterOrchestratorSlurmConfig$,
   ClusterRestrictedInstanceGroupDetails$,
+  ClusterRestrictedInstanceGroupsConfig$,
+  ClusterRestrictedInstanceGroupsConfigOutput$,
   ClusterRestrictedInstanceGroupSpecification$,
   ClusterSchedulerConfigSummary$,
+  ClusterSharedEnvironmentConfig$,
+  ClusterSharedEnvironmentConfigDetails$,
   ClusterSlurmConfig$,
   ClusterSlurmConfigDetails$,
   ClusterSlurmConfigStrategy,
@@ -3774,8 +3779,12 @@ assert(typeof ClusterOrchestrator$ === "object");
 assert(typeof ClusterOrchestratorEksConfig$ === "object");
 assert(typeof ClusterOrchestratorSlurmConfig$ === "object");
 assert(typeof ClusterRestrictedInstanceGroupDetails$ === "object");
+assert(typeof ClusterRestrictedInstanceGroupsConfig$ === "object");
+assert(typeof ClusterRestrictedInstanceGroupsConfigOutput$ === "object");
 assert(typeof ClusterRestrictedInstanceGroupSpecification$ === "object");
 assert(typeof ClusterSchedulerConfigSummary$ === "object");
+assert(typeof ClusterSharedEnvironmentConfig$ === "object");
+assert(typeof ClusterSharedEnvironmentConfigDetails$ === "object");
 assert(typeof ClusterSlurmConfig$ === "object");
 assert(typeof ClusterSlurmConfigDetails$ === "object");
 assert(typeof ClusterSpotOptions$ === "object");
@@ -5162,6 +5171,7 @@ assert(typeof ClusterCapacityType === "object");
 assert(typeof ClusterConfigMode === "object");
 assert(typeof ClusterEventLevel === "object");
 assert(typeof ClusterEventResourceType === "object");
+assert(typeof ClusterFSxLustreDeletionPolicy === "object");
 assert(typeof ClusterImageVersionStatus === "object");
 assert(typeof ClusterInstanceStatus === "object");
 assert(typeof ClusterInstanceType === "object");

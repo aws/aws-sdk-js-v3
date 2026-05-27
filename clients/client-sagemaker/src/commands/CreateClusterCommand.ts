@@ -201,6 +201,15 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       },
  *     },
  *   ],
+ *   RestrictedInstanceGroupsConfig: { // ClusterRestrictedInstanceGroupsConfig
+ *     SharedEnvironmentConfig: { // ClusterSharedEnvironmentConfig
+ *       FSxLustreDeletionPolicy: "DeleteIfNotUsed" || "Keep", // required
+ *       FSxLustreConfig: {
+ *         SizeInGiB: Number("int"), // required
+ *         PerUnitStorageThroughput: Number("int"), // required
+ *       },
+ *     },
+ *   },
  *   VpcConfig: {
  *     SecurityGroupIds: [ // required
  *       "STRING_VALUE",

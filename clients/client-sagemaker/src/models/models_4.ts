@@ -26,6 +26,9 @@ import type {
   ListWorkforcesSortByOptions,
   ListWorkteamsSortByOptions,
   ModelApprovalStatus,
+  ModelCardExportJobSortBy,
+  ModelCardExportJobSortOrder,
+  ModelCardExportJobStatus,
   ModelCardSortBy,
   ModelCardSortOrder,
   ModelCardStatus,
@@ -123,12 +126,12 @@ import type {
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterOrchestrator,
+  ClusterRestrictedInstanceGroupsConfig,
   ClusterRestrictedInstanceGroupSpecification,
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
-  ConditionStepMetadata,
   DeploymentConfiguration,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -145,6 +148,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ConditionStepMetadata,
   ContainerDefinition,
   DefaultSpaceSettings,
   DeploymentConfig,
@@ -231,7 +235,6 @@ import type {
   LambdaStepMetadata,
   LineageMetadata,
   MetricData,
-  ModelCardExportJobSummary,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSummary,
@@ -249,6 +252,189 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListModelBiasJobDefinitionsRequest {
+  /**
+   * <p>Name of the endpoint to monitor for model bias.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringJobDefinitionSortKey | undefined;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of model bias jobs to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filter for model bias jobs whose name contains a specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only model bias jobs created before a specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only model bias jobs created after a specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelBiasJobDefinitionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a model bias jobs.</p>
+   * @public
+   */
+  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCardExportJobsRequest {
+  /**
+   * <p>List export jobs for the model card with the specified name.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>List export jobs for the model card with the specified version.</p>
+   * @public
+   */
+  ModelCardVersion?: number | undefined;
+
+  /**
+   * <p>Only list model card export jobs that were created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Only list model card export jobs that were created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Only list model card export jobs with names that contain the specified string.</p>
+   * @public
+   */
+  ModelCardExportJobNameContains?: string | undefined;
+
+  /**
+   * <p>Only list model card export jobs with the specified status.</p>
+   * @public
+   */
+  StatusEquals?: ModelCardExportJobStatus | undefined;
+
+  /**
+   * <p>Sort model card export jobs by either name or creation time. Sorts by creation time by default.</p>
+   * @public
+   */
+  SortBy?: ModelCardExportJobSortBy | undefined;
+
+  /**
+   * <p>Sort model card export jobs by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: ModelCardExportJobSortOrder | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListModelCardExportJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of model card export jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of model card export jobs to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the Amazon SageMaker Model Card export job.</p>
+ * @public
+ */
+export interface ModelCardExportJobSummary {
+  /**
+   * <p>The name of the model card export job.</p>
+   * @public
+   */
+  ModelCardExportJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
+   * @public
+   */
+  ModelCardExportJobArn: string | undefined;
+
+  /**
+   * <p>The completion status of the model card export job.</p>
+   * @public
+   */
+  Status: ModelCardExportJobStatus | undefined;
+
+  /**
+   * <p>The name of the model card that the export job exports.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card that the export job exports.</p>
+   * @public
+   */
+  ModelCardVersion: number | undefined;
+
+  /**
+   * <p>The date and time that the model card export job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the model card export job was last modified..</p>
+   * @public
+   */
+  LastModifiedAt: Date | undefined;
+}
 
 /**
  * @public
@@ -8026,6 +8212,12 @@ export interface UpdateClusterRequest {
   RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupSpecification[] | undefined;
 
   /**
+   * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroupsConfig?: ClusterRestrictedInstanceGroupsConfig | undefined;
+
+  /**
    * <p>Updates the configuration for managed tier checkpointing on the HyperPod cluster. For example, you can enable or disable the feature and modify the percentage of cluster memory allocated for checkpoint storage.</p>
    * @public
    */
@@ -9921,120 +10113,4 @@ export interface UpdateTrialRequest {
    * @public
    */
   DisplayName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrialResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   * @public
-   */
-  TrialArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrialComponentRequest {
-  /**
-   * <p>The name of the component to update.</p>
-   * @public
-   */
-  TrialComponentName: string | undefined;
-
-  /**
-   * <p>The name of the component as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The new status of the component.</p>
-   * @public
-   */
-  Status?: TrialComponentStatus | undefined;
-
-  /**
-   * <p>When the component started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>When the component ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters or add new hyperparameters. Existing hyperparameters are replaced if the trial component is updated with an identical hyperparameter key.</p>
-   * @public
-   */
-  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
-
-  /**
-   * <p>The hyperparameters to remove from the component.</p>
-   * @public
-   */
-  ParametersToRemove?: string[] | undefined;
-
-  /**
-   * <p>Replaces all of the component's input artifacts with the specified artifacts or adds new input artifacts. Existing input artifacts are replaced if the trial component is updated with an identical input artifact key.</p>
-   * @public
-   */
-  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>The input artifacts to remove from the component.</p>
-   * @public
-   */
-  InputArtifactsToRemove?: string[] | undefined;
-
-  /**
-   * <p>Replaces all of the component's output artifacts with the specified artifacts or adds new output artifacts. Existing output artifacts are replaced if the trial component is updated with an identical output artifact key.</p>
-   * @public
-   */
-  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
-
-  /**
-   * <p>The output artifacts to remove from the component.</p>
-   * @public
-   */
-  OutputArtifactsToRemove?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrialComponentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   * @public
-   */
-  TrialComponentArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   * @public
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   * @public
-   */
-  UserSettings?: UserSettings | undefined;
 }

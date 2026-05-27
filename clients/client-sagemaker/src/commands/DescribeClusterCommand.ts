@@ -259,6 +259,20 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       },
  * //     },
  * //   ],
+ * //   RestrictedInstanceGroupsConfig: { // ClusterRestrictedInstanceGroupsConfigOutput
+ * //     SharedEnvironmentConfig: { // ClusterSharedEnvironmentConfigDetails
+ * //       CurrentFSxLustreConfig: {
+ * //         SizeInGiB: Number("int"), // required
+ * //         PerUnitStorageThroughput: Number("int"), // required
+ * //       },
+ * //       DesiredFSxLustreConfig: {
+ * //         SizeInGiB: Number("int"), // required
+ * //         PerUnitStorageThroughput: Number("int"), // required
+ * //       },
+ * //       CurrentFSxLustreDeletionPolicy: "DeleteIfNotUsed" || "Keep",
+ * //       DesiredFSxLustreDeletionPolicy: "DeleteIfNotUsed" || "Keep",
+ * //     },
+ * //   },
  * //   VpcConfig: {
  * //     SecurityGroupIds: [ // required
  * //       "STRING_VALUE",

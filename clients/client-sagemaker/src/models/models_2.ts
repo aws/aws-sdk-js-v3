@@ -51,6 +51,7 @@ import type {
   LastUpdateStatusValue,
   ObjectiveStatus,
   OfflineStoreStatusValue,
+  OptimizationJobDeploymentInstanceType,
   PartnerAppAuthType,
   PartnerAppType,
   Peft,
@@ -130,6 +131,7 @@ import type {
   ClusterNodeDetails,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
+  ClusterRestrictedInstanceGroupsConfigOutput,
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   CodeRepository,
@@ -176,15 +178,16 @@ import type {
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobWarmStartConfig,
-  InferenceComponentComputeResourceRequirements,
-  InferenceComponentSchedulingConfig,
-  InferenceComponentStartupParameters,
   InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
   MetricsConfig,
+  ModelCompilationConfig,
   ModelDeployConfig,
+  ModelQuantizationConfig,
+  ModelShardingConfig,
+  ModelSpeculativeDecodingConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -193,6 +196,8 @@ import type {
   NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  OptimizationJobModelSource,
+  OptimizationSageMakerModel,
   OutputConfig,
   ProductionVariant,
   ProductionVariantManagedInstanceScaling,
@@ -203,6 +208,206 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Settings for an optimization technique that you apply with a model optimization job.</p>
+ * @public
+ */
+export type OptimizationConfig =
+  | OptimizationConfig.ModelCompilationConfigMember
+  | OptimizationConfig.ModelQuantizationConfigMember
+  | OptimizationConfig.ModelShardingConfigMember
+  | OptimizationConfig.ModelSpeculativeDecodingConfigMember
+  | OptimizationConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OptimizationConfig {
+  /**
+   * <p>Settings for the model quantization technique that's applied by a model optimization job.</p>
+   * @public
+   */
+  export interface ModelQuantizationConfigMember {
+    ModelQuantizationConfig: ModelQuantizationConfig;
+    ModelCompilationConfig?: never;
+    ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings for the model compilation technique that's applied by a model optimization job.</p>
+   * @public
+   */
+  export interface ModelCompilationConfigMember {
+    ModelQuantizationConfig?: never;
+    ModelCompilationConfig: ModelCompilationConfig;
+    ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
+   * @public
+   */
+  export interface ModelShardingConfigMember {
+    ModelQuantizationConfig?: never;
+    ModelCompilationConfig?: never;
+    ModelShardingConfig: ModelShardingConfig;
+    ModelSpeculativeDecodingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings for the model speculative decoding technique that's applied by a model optimization job.</p>
+   * @public
+   */
+  export interface ModelSpeculativeDecodingConfigMember {
+    ModelQuantizationConfig?: never;
+    ModelCompilationConfig?: never;
+    ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig: ModelSpeculativeDecodingConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ModelQuantizationConfig?: never;
+    ModelCompilationConfig?: never;
+    ModelShardingConfig?: never;
+    ModelSpeculativeDecodingConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ModelQuantizationConfig: (value: ModelQuantizationConfig) => T;
+    ModelCompilationConfig: (value: ModelCompilationConfig) => T;
+    ModelShardingConfig: (value: ModelShardingConfig) => T;
+    ModelSpeculativeDecodingConfig: (value: ModelSpeculativeDecodingConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details for where to store the optimized model that you create with the optimization job.</p>
+ * @public
+ */
+export interface OptimizationJobOutputConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a key in Amazon Web Services KMS. SageMaker uses they key to encrypt the artifacts of the optimized model when SageMaker uploads the model to Amazon S3.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 URI for where to store the optimized model that you create with an optimization job.</p>
+   * @public
+   */
+  S3OutputLocation: string | undefined;
+
+  /**
+   * <p>The name of a SageMaker model to use as the output destination for an optimization job.</p>
+   * @public
+   */
+  SageMakerModel?: OptimizationSageMakerModel | undefined;
+}
+
+/**
+ * <p>A VPC in Amazon VPC that's accessible to an optimized that you create with an optimization job. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+ * @public
+ */
+export interface OptimizationVpcConfig {
+  /**
+   * <p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC to which you want to connect your optimized model.</p>
+   * @public
+   */
+  Subnets: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateOptimizationJobRequest {
+  /**
+   * <p>A custom name for the new optimization job.</p>
+   * @public
+   */
+  OptimizationJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf. </p> <p>During model optimization, Amazon SageMaker AI needs your permission to:</p> <ul> <li> <p>Read input data from an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these tasks to an IAM role. To pass this role to Amazon SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker AI Roles.</a> </p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The location of the source model to optimize with an optimization job.</p>
+   * @public
+   */
+  ModelSource: OptimizationJobModelSource | undefined;
+
+  /**
+   * <p>The type of instance that hosts the optimized model that you create with the optimization job.</p>
+   * @public
+   */
+  DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
+
+  /**
+   * <p>The maximum number of instances to use for the optimization job.</p>
+   * @public
+   */
+  MaxInstanceCount?: number | undefined;
+
+  /**
+   * <p>The environment variables to set in the model container.</p>
+   * @public
+   */
+  OptimizationEnvironment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Settings for each of the optimization techniques that the job applies.</p>
+   * @public
+   */
+  OptimizationConfigs: OptimizationConfig[] | undefined;
+
+  /**
+   * <p>Details for where to store the optimized model that you create with the optimization job.</p>
+   * @public
+   */
+  OutputConfig: OptimizationJobOutputConfig | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker ends the job. Use this API to cap costs.</p> <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost. </p> <p>The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with <code>CreateModel</code>.</p> <note> <p>The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.</p> </note>
+   * @public
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>A list of key-value pairs associated with the optimization job. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A VPC in Amazon VPC that your optimized model has access to.</p>
+   * @public
+   */
+  VpcConfig?: OptimizationVpcConfig | undefined;
+}
 
 /**
  * @public
@@ -5202,6 +5407,12 @@ export interface DescribeClusterResponse {
   RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupDetails[] | undefined;
 
   /**
+   * <p>The configuration for the restricted instance groups (RIG) in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroupsConfig?: ClusterRestrictedInstanceGroupsConfigOutput | undefined;
+
+  /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
    * @public
    */
@@ -8337,118 +8548,4 @@ export interface InferenceComponentPlacementStatus {
    * @public
    */
   CurrentCopyCount: number | undefined;
-}
-
-/**
- * <p>Details about the runtime settings for the model that is deployed with the inference component.</p>
- * @public
- */
-export interface InferenceComponentRuntimeConfigSummary {
-  /**
-   * <p>The number of runtime copies of the model container that you requested to deploy with the inference component.</p>
-   * @public
-   */
-  DesiredCopyCount?: number | undefined;
-
-  /**
-   * <p>The number of runtime copies of the model container that are currently deployed.</p>
-   * @public
-   */
-  CurrentCopyCount?: number | undefined;
-
-  /**
-   * <p>The placement status of the inference component across instance types. Shows how the inference component copies are distributed across instance types.</p>
-   * @public
-   */
-  PlacementStatus?: InferenceComponentPlacementStatus[] | undefined;
-}
-
-/**
- * <p>Details about the resources that are deployed with this inference component.</p>
- * @public
- */
-export interface InferenceComponentContainerSpecificationSummary {
-  /**
-   * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html">ProductionVariant</a>.</p> <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path of the primary container when you created the model hosted in this <code>ProductionVariant</code>, the path resolves to a path of the form <code>registry/repository[@digest]</code>. A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
-   * @public
-   */
-  DeployedImage?: DeployedImage | undefined;
-
-  /**
-   * <p>The Amazon S3 path where the model artifacts are stored.</p>
-   * @public
-   */
-  ArtifactUrl?: string | undefined;
-
-  /**
-   * <p>The environment variables to set in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Settings that affect how the inference component caches data.</p>
- * @public
- */
-export interface InferenceComponentDataCacheConfigSummary {
-  /**
-   * <p>Indicates whether the inference component caches model artifacts as part of the auto scaling process.</p>
-   * @public
-   */
-  EnableCaching: boolean | undefined;
-}
-
-/**
- * <p>Details about the resources that are deployed with this inference component.</p>
- * @public
- */
-export interface InferenceComponentSpecificationSummary {
-  /**
-   * <p>The ML compute instance type associated with this inference component specification.</p>
-   * @public
-   */
-  InstanceType?: ProductionVariantInstanceType | undefined;
-
-  /**
-   * <p>The name of the SageMaker AI model object that is deployed with the inference component.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-
-  /**
-   * <p>Details about the container that provides the runtime environment for the model that is deployed with the inference component.</p>
-   * @public
-   */
-  Container?: InferenceComponentContainerSpecificationSummary | undefined;
-
-  /**
-   * <p>Settings that take effect while the model container starts up.</p>
-   * @public
-   */
-  StartupParameters?: InferenceComponentStartupParameters | undefined;
-
-  /**
-   * <p>The compute resources allocated to run the model, plus any adapter models, that you assign to the inference component.</p>
-   * @public
-   */
-  ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements | undefined;
-
-  /**
-   * <p>The name of the base inference component that contains this inference component.</p>
-   * @public
-   */
-  BaseInferenceComponentName?: string | undefined;
-
-  /**
-   * <p>Settings that affect how the inference component caches data.</p>
-   * @public
-   */
-  DataCacheConfig?: InferenceComponentDataCacheConfigSummary | undefined;
-
-  /**
-   * <p>The scheduling configuration that determines how inference component copies are placed across available instances when copies are added or removed.</p>
-   * @public
-   */
-  SchedulingConfig?: InferenceComponentSchedulingConfig | undefined;
 }
