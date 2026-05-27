@@ -170,10 +170,41 @@ function resolveRelative(fromFile, specifier) {
   return null;
 }
 
+const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "private"];
+const GENERATED_ROOTS = new Set(["clients", "private"]);
+
+/**
+ * Returns package directories from argv, or all packages in the repo.
+ * Each entry has .dir (absolute path) and .generated (boolean).
+ */
+function getPackageDirs() {
+  const args = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+  if (args.length) {
+    return args.map((d) => ({ dir: path.resolve(d), generated: false }));
+  }
+  const root = path.join(__dirname, "..", "..");
+  const results = [];
+  for (const pkgRoot of PACKAGE_ROOTS) {
+    const dir = path.join(root, pkgRoot);
+    if (!fs.existsSync(dir)) {
+      continue;
+    }
+    const generated = GENERATED_ROOTS.has(pkgRoot);
+    for (const f of fs.readdirSync(dir)) {
+      const pkgDir = path.join(dir, f);
+      if (fs.existsSync(path.join(pkgDir, "package.json"))) {
+        results.push({ dir: pkgDir, generated });
+      }
+    }
+  }
+  return results;
+}
+
 module.exports = {
   NODE_BUILTINS,
   getPackageName,
   analyzeImports,
   extractImports,
   resolveRelative,
+  getPackageDirs,
 };

@@ -4,13 +4,13 @@
  * For every declared dependency in package.json, validates that it is
  * actually imported somewhere in the package's dist-cjs, dist-es, or dist-types.
  *
- * Usage: node validate-deps-used.js <packageDir> [...]
+ * Usage: node deps-used.js
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { getPackageName, extractImports } = require("./validation-shared");
+const { getPackageName, extractImports, getPackageDirs } = require("./validation-shared");
 
 const IMPLICIT_DEPS = new Set(["tslib", "@aws-sdk/types", "@smithy/types"]);
 const DTS_IMPORT_RE = /from\s+["']([^"']+)["']/g;
@@ -91,20 +91,13 @@ async function validate(packageDir) {
 }
 
 async function main() {
-  const dirs = process.argv.slice(2);
-  if (!dirs.length) {
-    console.error("Usage: validate-deps-used.js <packageDir> [...]");
-    process.exit(1);
-  }
-  // todo(scripts): clean unused deps in /private
-  const root = path.join(__dirname, "..", "..");
+  const packages = getPackageDirs();
   const errors = [];
-  for (const dir of dirs) {
-    const rel = path.relative(root, path.resolve(dir));
-    if (rel.startsWith("private/") || rel.startsWith("private\\")) {
+  for (const { dir, generated } of packages) {
+    if (generated) {
       continue;
     }
-    errors.push(...(await validate(path.resolve(dir))));
+    errors.push(...(await validate(dir)));
   }
   if (errors.length) {
     console.error(`❌ ${errors.length} unused dependency declaration(s):\n  ${errors.join("\n  ")}`);

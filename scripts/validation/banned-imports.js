@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * AST-based banned import checker for generated code (clients/, private/).
- * Enforces the same no-restricted-imports rules as .eslintrc.js but without
- * spawning eslint — much faster on 450+ packages.
+ * AST-based banned import checker for dist-cjs and dist-es output.
+ * Enforces no-restricted-imports rules via direct AST parsing.
  *
- * Usage: node validate-banned-imports.js <packageDir> [...]
+ * Usage: node banned-imports.js
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 const walk = require("../utils/walk");
-const { extractImports } = require("./validation-shared");
+const { extractImports, getPackageDirs } = require("./validation-shared");
 
 const root = path.join(__dirname, "..", "..");
 
@@ -144,14 +143,10 @@ async function validate(packageDir) {
 }
 
 async function main() {
-  const dirs = process.argv.slice(2);
-  if (!dirs.length) {
-    console.error("Usage: validate-banned-imports.js <packageDir> [...]");
-    process.exit(1);
-  }
+  const packages = getPackageDirs();
   const errors = [];
-  for (const dir of dirs) {
-    errors.push(...(await validate(path.resolve(dir))));
+  for (const { dir } of packages) {
+    errors.push(...(await validate(dir)));
   }
   if (errors.length) {
     console.error(`❌ ${errors.length} banned import(s):\n  ${[...new Set(errors)].join("\n  ")}`);

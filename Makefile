@@ -37,7 +37,7 @@ test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.index-types.json
 
 test-indices:
-	node ./scripts/validation/client-index-tests.mjs
+	node ./scripts/validation/client-indexes.mjs
 
 test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.mts
@@ -66,7 +66,7 @@ test-integration: bundles
 	make test-endpoints
 
 api-snapshot:
-	node ./scripts/validation/api-snapshot-validation.js
+	node ./scripts/validation/api-snapshot.js
 	git diff --exit-code scripts/validation/api.json
 
 test-endpoints:
@@ -137,8 +137,8 @@ unbuilt:
 	node scripts/build-only-unbuilt.js
 
 static-analysis:
-	node ./scripts/validation/no-generic-byte-arrays.js
-	node ./scripts/validation/validate-all.js --all;
+	node ./scripts/validation/generic-byte-arrays.js
+	node ./scripts/validation/validate-all.js;
 	make api-snapshot
 
 # Clears the Turborepo local build cache

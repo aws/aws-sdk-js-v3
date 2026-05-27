@@ -2,37 +2,28 @@
 
 /**
  * Runs eslint in validation mode (no --fix) on package source.
- * Only applies to packages/, packages-internal/, and lib/ directories.
- * Clients/ and private/ are excluded (they use validate-banned-imports.js instead).
+ * Skips generated packages (clients/, private/).
  *
- * Usage: node validate-eslint.js <packageDir> [<packageDir> ...]
+ * Usage: node eslint.js
  */
 
 const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
+const { getPackageDirs } = require("./validation-shared");
 
 const root = path.join(__dirname, "..", "..");
 const eslintConfig = path.join(root, ".eslintrc.js");
 
-function isGeneratedDir(dir) {
-  const rel = path.relative(root, path.resolve(dir));
-  return rel.startsWith("clients/") || rel.startsWith("private/") || rel === "lib/lib-dynamodb";
-}
-
 function main() {
-  const dirs = process.argv.slice(2);
-  if (!dirs.length) {
-    console.error("Usage: validate-eslint.js <packageDir> [...]");
-    process.exit(1);
-  }
+  const packages = getPackageDirs();
 
   const globs = [];
-  for (const dir of dirs) {
-    if (isGeneratedDir(dir)) {
+  for (const { dir, generated } of packages) {
+    if (generated) {
       continue;
     }
-    const srcDir = path.join(path.resolve(dir), "src");
+    const srcDir = path.join(dir, "src");
     if (fs.existsSync(srcDir)) {
       globs.push(`${srcDir}/**/*.ts`);
     }
