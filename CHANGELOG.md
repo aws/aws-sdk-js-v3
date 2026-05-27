@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
+
+
+### Features
+
+* **client-bcm-dashboards:** Adding new BDD representation of endpoint ruleset ([7f65a57](https://github.com/aws/aws-sdk-js-v3/commit/7f65a570df320467b9ed24fa1dbce497c8247885))
+* **client-bedrock-data-automation:** Matcher Fallback extends the CustomOutputConfiguration for the Document modality in DataAutomationProjects, enabling a fallback blueprint when no match is found. A FALLBACK match status is returned, improving the matching experience and guaranteeing customers always receive CustomOutputResults. ([91b7640](https://github.com/aws/aws-sdk-js-v3/commit/91b76402f2285e390fbc91a6c14aedf4fcc62cc1))
+* **client-compute-optimizer-automation:** Adding new BDD representation of endpoint ruleset ([eff7fde](https://github.com/aws/aws-sdk-js-v3/commit/eff7fdeb93da8e70125f8e9a2c3c46f617a2bc1e))
+* **client-compute-optimizer:** Adding new BDD representation of endpoint ruleset ([71f6911](https://github.com/aws/aws-sdk-js-v3/commit/71f69111c0868c6277efa402a2bb178cda04779c))
+* **client-connectcases:** Adding new BDD representation of endpoint ruleset ([9cd442f](https://github.com/aws/aws-sdk-js-v3/commit/9cd442f930d92a33e0b7bf89925300ba93dff582))
+* **client-dataexchange:** Adding new BDD representation of endpoint ruleset ([b1a544f](https://github.com/aws/aws-sdk-js-v3/commit/b1a544f00f08d928cc0050459d3e30b4e50111cd))
+* **client-devops-agent:** Adding new BDD representation of endpoint ruleset ([0bc6b6c](https://github.com/aws/aws-sdk-js-v3/commit/0bc6b6c59df7e510cfe33dc3ab5e87901b7a7631))
+* **client-docdb-elastic:** Adding new BDD representation of endpoint ruleset ([f660451](https://github.com/aws/aws-sdk-js-v3/commit/f66045108d9a7efc0f11518c177774619b32d0ec))
+* **client-ebs:** Adding new BDD representation of endpoint ruleset ([83d916a](https://github.com/aws/aws-sdk-js-v3/commit/83d916a514bc547abee569348f3462bb57e164ec))
+* **client-ecr-public:** Adding new BDD representation of endpoint ruleset ([8e485f4](https://github.com/aws/aws-sdk-js-v3/commit/8e485f48e77909f899543dd4be3b84899710b9c2))
+* **client-ecs:** Add support for Neuron device resource requirements for Amazon ECS ([aef0e10](https://github.com/aws/aws-sdk-js-v3/commit/aef0e100b84da1ed4550af862e7142af229c3574))
+* **client-eks-auth:** Adding new BDD representation of endpoint ruleset ([0d567c9](https://github.com/aws/aws-sdk-js-v3/commit/0d567c95e4ff1e6011220d1c2f2835085538a9b9))
+* **client-elementalinference:** Added support for smart subtitles in Elemental Inference, enabling automatic generation of subtitles for media content. Available in English, Spanish, French, German, Italian, and Portuguese. ([a0c52b2](https://github.com/aws/aws-sdk-js-v3/commit/a0c52b23fa312d24f24e9c7de8d4955a6b07f9d3))
+* **client-eventbridge:** Adding new BDD representation of endpoint ruleset ([7f75e10](https://github.com/aws/aws-sdk-js-v3/commit/7f75e1005ba62a7ae34b00d4cac08de2bcfd8a16))
+* **client-finspace:** Adding new BDD representation of endpoint ruleset ([72e5bc9](https://github.com/aws/aws-sdk-js-v3/commit/72e5bc9e5ef83441ef7282b65bb91415b65acd5f))
+* **client-fis:** Adding new BDD representation of endpoint ruleset ([bf27021](https://github.com/aws/aws-sdk-js-v3/commit/bf27021c5c38a3aa3a881527b0c065d67a40dc39))
+* **client-imagebuilder:** Adding new BDD representation of endpoint ruleset ([4fccd91](https://github.com/aws/aws-sdk-js-v3/commit/4fccd91d186352be43f444ac5b681556487e85eb))
+* **client-inspector2:** Adding new BDD representation of endpoint ruleset ([871d416](https://github.com/aws/aws-sdk-js-v3/commit/871d41645ca55c5a9ff8f5276821f3265df7c280))
+* **client-iotdeviceadvisor:** Adding new BDD representation of endpoint ruleset ([20660f6](https://github.com/aws/aws-sdk-js-v3/commit/20660f6e8744aacd72ad48888759496b1d4fe2d1))
+* **client-iotfleetwise:** Adding new BDD representation of endpoint ruleset ([49c889b](https://github.com/aws/aws-sdk-js-v3/commit/49c889bbdf3eaf8dfe8e153f5b535b5d4e8af44c))
+* **client-iotthingsgraph:** Adding new BDD representation of endpoint ruleset ([8e449e0](https://github.com/aws/aws-sdk-js-v3/commit/8e449e0e4a4d1b16611c58b71246008d4780cccf))
+* **client-launch-wizard:** Adding new BDD representation of endpoint ruleset ([dbba848](https://github.com/aws/aws-sdk-js-v3/commit/dbba8489fed9f546b90829ded6f22492d0d3c6ee))
+* **client-location:** Adding new BDD representation of endpoint ruleset ([2ab5e7f](https://github.com/aws/aws-sdk-js-v3/commit/2ab5e7f22fcc9fe212bf8d7a0dcc4ef929b1f2e0))
+* **client-m2:** Adding new BDD representation of endpoint ruleset ([c9a0c8d](https://github.com/aws/aws-sdk-js-v3/commit/c9a0c8d7a4958a41d014505489dc5c6d8513ab70))
+* **client-marketplace-deployment:** Adding new BDD representation of endpoint ruleset ([4ebc757](https://github.com/aws/aws-sdk-js-v3/commit/4ebc757a95bb86d92865c2a6ae73a62c65133f76))
+* **client-medialive:** AWS Elemental MediaLive now supports Smart Subtitles, a new caption source that uses AWS Elemental Inference to automatically generate WebVTT and TTML captions from source audio. Available in English, Spanish, French, German, Italian, and Portuguese. ([fea4801](https://github.com/aws/aws-sdk-js-v3/commit/fea480170c75800e8dc5604c637b7040e6397249))
+* **client-memorydb:** Adding new BDD representation of endpoint ruleset ([8e5e1e1](https://github.com/aws/aws-sdk-js-v3/commit/8e5e1e1cd121cc4963ae6d5c130fb83ad257fbee))
+* **client-mgn:** Adding new BDD representation of endpoint ruleset ([43df313](https://github.com/aws/aws-sdk-js-v3/commit/43df313f73fd9a0baf173a4fb7bd041498e2dc81))
+* **client-mpa:** Adding new BDD representation of endpoint ruleset ([c7d9e57](https://github.com/aws/aws-sdk-js-v3/commit/c7d9e5761ace6e0f81566bf0fcd13c4f05e3f0d7))
+* **client-nova-act:** Adding new BDD representation of endpoint ruleset ([d20208a](https://github.com/aws/aws-sdk-js-v3/commit/d20208ac93b6f08aef6aeed56db7e0f6f0c87594))
+* **client-omics:** Adding new BDD representation of endpoint ruleset ([f0d5729](https://github.com/aws/aws-sdk-js-v3/commit/f0d572905a9a1978dd96e8bfff5f244496643b0f))
+* **client-opensearch:** OpenSearch will now support multi-segment paths in JWKS URLs. ([19774e3](https://github.com/aws/aws-sdk-js-v3/commit/19774e3027be3eeb7f39ee253e2be27fb157dcca))
+* **client-partnercentral-benefits:** Adding new BDD representation of endpoint ruleset ([a51c074](https://github.com/aws/aws-sdk-js-v3/commit/a51c0749f2acd4dabfe1dbd33be9bc553da4aace))
+* **client-partnercentral-selling:** Adding new BDD representation of endpoint ruleset ([8fd0d9f](https://github.com/aws/aws-sdk-js-v3/commit/8fd0d9f1b2c937daa159c6b3dc441705735eaae9))
+* **client-payment-cryptography:** Adding new BDD representation of endpoint ruleset ([038b995](https://github.com/aws/aws-sdk-js-v3/commit/038b995df8bcdb4d1bb3125322b06c266987e954))
+* **client-pca-connector-ad:** Adding new BDD representation of endpoint ruleset ([c922bfa](https://github.com/aws/aws-sdk-js-v3/commit/c922bfa579ebb4837a82ea613052caba1cc6e51a))
+* **client-resource-explorer-2:** Adding new BDD representation of endpoint ruleset ([675b8b7](https://github.com/aws/aws-sdk-js-v3/commit/675b8b7d75a8b30477707a219ebf70548bd5d8c1))
+* **client-rtbfabric:** Adding new BDD representation of endpoint ruleset ([d7495b1](https://github.com/aws/aws-sdk-js-v3/commit/d7495b1d54e4c225782011f65103054bf6a3fb9c))
+* **client-rum:** Adding new BDD representation of endpoint ruleset ([56728db](https://github.com/aws/aws-sdk-js-v3/commit/56728db30e4c459217fe70de2e00dd8ffe2e6c55))
+* **client-sagemaker-featurestore-runtime:** Adding new BDD representation of endpoint ruleset ([55a9a5e](https://github.com/aws/aws-sdk-js-v3/commit/55a9a5e5af52a28d8310343a9f1f18446ac3d1ad))
+* **client-sagemaker:** Adds shared environment support for Restricted Instance Groups (RIGs) on SageMaker HyperPod, enabling cross-RIG workload scheduling and FSx sharing. This unlocks shared CPU-GPU environments needed for cost-efficient RL training (e.g., Nova Forge). Adds p6 instance support for recommendation jobs ([7519b9b](https://github.com/aws/aws-sdk-js-v3/commit/7519b9bf7495ae3009b02c7bc0cadaacf8307c77))
+* **client-savingsplans:** Adding new BDD representation of endpoint ruleset ([65a9b62](https://github.com/aws/aws-sdk-js-v3/commit/65a9b6218f833ed882b322fd069192c5d2f19751))
+* **client-security-ir:** Adding new BDD representation of endpoint ruleset ([877b839](https://github.com/aws/aws-sdk-js-v3/commit/877b83940ce1e5bb3e936c7f9779dcd865c07ec9))
+* **client-simpledbv2:** Adding new BDD representation of endpoint ruleset ([1186b97](https://github.com/aws/aws-sdk-js-v3/commit/1186b978380aa8569442880a64c8fb4b7b08b6cd))
+* **client-ssm-contacts:** Adding new BDD representation of endpoint ruleset ([3e8fa15](https://github.com/aws/aws-sdk-js-v3/commit/3e8fa1564e0e8b3b4c2d4697597a322d24bc1800))
+* **client-ssm-sap:** Adding new BDD representation of endpoint ruleset ([46f23a8](https://github.com/aws/aws-sdk-js-v3/commit/46f23a8be4fa1bc66dfa0a75445dc4b9c7374e11))
+* **client-support-app:** Adding new BDD representation of endpoint ruleset ([0c6720d](https://github.com/aws/aws-sdk-js-v3/commit/0c6720d5f5bc39d66bdd3fc1c993140d067557d1))
+* **client-voice-id:** Adding new BDD representation of endpoint ruleset ([4ea1f63](https://github.com/aws/aws-sdk-js-v3/commit/4ea1f631d6ec3e791a1e8ce8b9eb57cc511c5296))
+* **client-wellarchitected:** Adding new BDD representation of endpoint ruleset ([12c1733](https://github.com/aws/aws-sdk-js-v3/commit/12c1733fb1bbbcea18afb5d1068fafd0eed02a3b))
+* **client-workmailmessageflow:** Adding new BDD representation of endpoint ruleset ([7d1639c](https://github.com/aws/aws-sdk-js-v3/commit/7d1639c0c5a49c13615bd11822142bda0b4e3813))
+* **client-workspaces-web:** Adding new BDD representation of endpoint ruleset ([16accb9](https://github.com/aws/aws-sdk-js-v3/commit/16accb93c7b7234c647e8f70192c444fa552a9e1))
+
+
+
+
+
 # [3.1054.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1053.0...v3.1054.0) (2026-05-26)
 
 

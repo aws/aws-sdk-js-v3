@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Matcher Fallback extends the CustomOutputConfiguration for the Document modality in DataAutomationProjects, enabling a fallback blueprint when no match is found. A FALLBACK match status is returned, improving the matching experience and guaranteeing customers always receive CustomOutputResults. ([91b7640](https://github.com/aws/aws-sdk-js-v3/commit/91b76402f2285e390fbc91a6c14aedf4fcc62cc1))
+
+
+
+
+
 # [3.1054.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1053.0...v3.1054.0) (2026-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation

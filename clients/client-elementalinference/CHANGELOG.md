@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
+
+
+### Features
+
+* **client-elementalinference:** Added support for smart subtitles in Elemental Inference, enabling automatic generation of subtitles for media content. Available in English, Spanish, French, German, Italian, and Portuguese. ([a0c52b2](https://github.com/aws/aws-sdk-js-v3/commit/a0c52b23fa312d24f24e9c7de8d4955a6b07f9d3))
+
+
+
+
+
 # [3.1054.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1053.0...v3.1054.0) (2026-05-26)
 
 **Note:** Version bump only for package @aws-sdk/client-elementalinference
