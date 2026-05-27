@@ -31,6 +31,10 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *             the management account, use <a>RemoveAccountFromOrganization</a>
  *             instead.</p>
  *          <p>You can only call from operation from a member account.</p>
+ *          <p>When an account leaves an organization, Organizations logs a membership event in
+ *             CloudTrail. The event is an <code>AccountDepartedOrganization</code> event with
+ *             <code>departedMethod:Left</code> and <code>departedTime</code>. This event is available
+ *             only in the management account's event history.</p>
  *          <important>
  *             <ul>
  *                <li>
@@ -396,8 +400,10 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     of the last day of the month (23.59.59.999).</p>
  *             </li>
  *             <li>
- *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
- *                     end.</p>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. The end date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_LATE: You provided an invalid end date. The end date is too late.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be

@@ -38,6 +38,10 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *             supporting only the consolidated billing features by setting the <code>FeatureSet</code>
  *             parameter to <code>CONSOLIDATED_BILLING</code>, no policy types are enabled by default
  *             and you can't use organization policies.</p>
+ *          <p>The <code>AccountJoinedOrganization</code> event is logged in CloudTrail and
+ *             is available only in the management account's event history. This event includes
+ *             <code>joinedMethod:Invited</code> and <code>joinedTime</code> fields to provide
+ *             context on how and when the account joined the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -364,8 +368,10 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *                     of the last day of the month (23.59.59.999).</p>
  *             </li>
  *             <li>
- *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
- *                     end.</p>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. The end date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_LATE: You provided an invalid end date. The end date is too late.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be

@@ -56,6 +56,15 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_accept-decline-invite.html">Responding to invitations</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite">Enabling all features</a> in the <i>Organizations User Guide</i>.</p>
+ *          <p>When a handshake is accepted, Organizations logs membership events in CloudTrail, available
+ *             only in the management account's event history. If the account was standalone and joined
+ *             a new organization, an <code>AccountJoinedOrganization</code> event is logged with
+ *             <code>joinedMethod:Invited</code> and <code>joinedTime</code> fields. If the account
+ *             departed one organization and joined another, both an
+ *             <code>AccountDepartedOrganization</code> event with <code>departedMethod:Left</code>
+ *             and <code>departedTime</code> and an <code>AccountJoinedOrganization</code> event with
+ *             <code>joinedMethod:Invited</code> and <code>joinedTime</code> are logged in their
+ *             respective management accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -479,8 +488,10 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                     of the last day of the month (23.59.59.999).</p>
  *             </li>
  *             <li>
- *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
- *                     end.</p>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. The end date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_LATE: You provided an invalid end date. The end date is too late.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be

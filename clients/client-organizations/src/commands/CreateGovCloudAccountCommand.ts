@@ -95,6 +95,11 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *                     <i>Organizations User Guide</i>.</p>
  *             </li>
  *          </ul>
+ *          <p>Additionally, the <code>AccountJoinedOrganization</code> event is logged in CloudTrail and
+ *             is available only in the management account's event history only for the linked
+ *             commercial account. This event includes <code>joinedMethod:Created</code> and
+ *             <code>joinedTime</code> fields to provide context on how and when the account joined
+ *             the organization.</p>
  *          <p></p>
  *          <p>When you call the <code>CreateGovCloudAccount</code> action, you create two accounts:
  *             a standalone account in the Amazon Web Services GovCloud (US) Region and an associated account in the
@@ -483,8 +488,10 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *                     of the last day of the month (23.59.59.999).</p>
  *             </li>
  *             <li>
- *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
- *                     end.</p>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. The end date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_LATE: You provided an invalid end date. The end date is too late.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be

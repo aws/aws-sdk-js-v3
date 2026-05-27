@@ -28,6 +28,10 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the organization. You can delete an organization only by using credentials
  *             from the management account. The organization must be empty of member accounts.</p>
+ *          <p>When an organization is deleted, Organizations logs a membership event in CloudTrail. The
+ *             event is an <code>AccountDepartedOrganization</code> event with
+ *             <code>departedMethod:Left</code> and <code>departedTime</code>. This event is available
+ *             only in the management account's event history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -331,8 +335,10 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *                     of the last day of the month (23.59.59.999).</p>
  *             </li>
  *             <li>
- *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. It is too early for the transfer to
- *                     end.</p>
+ *                <p>END_DATE_TOO_EARLY: You provided an invalid end date. The end date is too early.</p>
+ *             </li>
+ *             <li>
+ *                <p>END_DATE_TOO_LATE: You provided an invalid end date. The end date is too late.</p>
  *             </li>
  *             <li>
  *                <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be
