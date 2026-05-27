@@ -60,6 +60,15 @@ export interface GetFeedCommandOutput extends GetFeedResponse, __MetadataBearer 
  * //         clipping: { // ClippingConfig
  * //           callbackMetadata: "STRING_VALUE",
  * //         },
+ * //         subtitling: { // SubtitlingConfig
+ * //           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //           aspectRatio: { // AspectRatio
+ * //             width: Number("int"), // required
+ * //             height: Number("int"), // required
+ * //           },
+ * //           dictionary: "STRING_VALUE",
+ * //           profanityFilter: "DISABLED" || "CENSOR" || "DROP",
+ * //         },
  * //       },
  * //       status: "ENABLED" || "DISABLED", // required
  * //       description: "STRING_VALUE",
@@ -87,13 +96,13 @@ export interface GetFeedCommandOutput extends GetFeedResponse, __MetadataBearer 
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.</p>
+ *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the action doesn't exist.</p>
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.</p>
+ *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
  *
  * @throws {@link ElementalInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElementalInference service.</p>

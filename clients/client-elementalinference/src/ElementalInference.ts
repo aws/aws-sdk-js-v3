@@ -13,10 +13,20 @@ import {
   AssociateFeedCommand,
 } from "./commands/AssociateFeedCommand";
 import {
+  type CreateDictionaryCommandInput,
+  type CreateDictionaryCommandOutput,
+  CreateDictionaryCommand,
+} from "./commands/CreateDictionaryCommand";
+import {
   type CreateFeedCommandInput,
   type CreateFeedCommandOutput,
   CreateFeedCommand,
 } from "./commands/CreateFeedCommand";
+import {
+  type DeleteDictionaryCommandInput,
+  type DeleteDictionaryCommandOutput,
+  DeleteDictionaryCommand,
+} from "./commands/DeleteDictionaryCommand";
 import {
   type DeleteFeedCommandInput,
   type DeleteFeedCommandOutput,
@@ -27,7 +37,22 @@ import {
   type DisassociateFeedCommandOutput,
   DisassociateFeedCommand,
 } from "./commands/DisassociateFeedCommand";
+import {
+  type ExportDictionaryEntriesCommandInput,
+  type ExportDictionaryEntriesCommandOutput,
+  ExportDictionaryEntriesCommand,
+} from "./commands/ExportDictionaryEntriesCommand";
+import {
+  type GetDictionaryCommandInput,
+  type GetDictionaryCommandOutput,
+  GetDictionaryCommand,
+} from "./commands/GetDictionaryCommand";
 import { type GetFeedCommandInput, type GetFeedCommandOutput, GetFeedCommand } from "./commands/GetFeedCommand";
+import {
+  type ListDictionariesCommandInput,
+  type ListDictionariesCommandOutput,
+  ListDictionariesCommand,
+} from "./commands/ListDictionariesCommand";
 import { type ListFeedsCommandInput, type ListFeedsCommandOutput, ListFeedsCommand } from "./commands/ListFeedsCommand";
 import {
   type ListTagsForResourceCommandInput,
@@ -45,6 +70,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDictionaryCommandInput,
+  type UpdateDictionaryCommandOutput,
+  UpdateDictionaryCommand,
+} from "./commands/UpdateDictionaryCommand";
+import {
   type UpdateFeedCommandInput,
   type UpdateFeedCommandOutput,
   UpdateFeedCommand,
@@ -52,22 +82,30 @@ import {
 import { ElementalInferenceClient } from "./ElementalInferenceClient";
 import type { ElementalInferenceServiceException } from "./models/ElementalInferenceServiceException";
 import type { ResourceNotFoundException } from "./models/errors";
+import { paginateListDictionaries } from "./pagination/ListDictionariesPaginator";
 import { paginateListFeeds } from "./pagination/ListFeedsPaginator";
 import { waitUntilFeedDeleted } from "./waiters/waitForFeedDeleted";
 
 const commands = {
   AssociateFeedCommand,
+  CreateDictionaryCommand,
   CreateFeedCommand,
+  DeleteDictionaryCommand,
   DeleteFeedCommand,
   DisassociateFeedCommand,
+  ExportDictionaryEntriesCommand,
+  GetDictionaryCommand,
   GetFeedCommand,
+  ListDictionariesCommand,
   ListFeedsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateDictionaryCommand,
   UpdateFeedCommand,
 };
 const paginators = {
+  paginateListDictionaries,
   paginateListFeeds,
 };
 const waiters = {
@@ -93,6 +131,23 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link CreateDictionaryCommand}
+   */
+  createDictionary(
+    args: CreateDictionaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDictionaryCommandOutput>;
+  createDictionary(
+    args: CreateDictionaryCommandInput,
+    cb: (err: any, data?: CreateDictionaryCommandOutput) => void
+  ): void;
+  createDictionary(
+    args: CreateDictionaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDictionaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFeedCommand}
    */
   createFeed(
@@ -107,6 +162,23 @@ export interface ElementalInference {
     args: CreateFeedCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFeedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDictionaryCommand}
+   */
+  deleteDictionary(
+    args: DeleteDictionaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDictionaryCommandOutput>;
+  deleteDictionary(
+    args: DeleteDictionaryCommandInput,
+    cb: (err: any, data?: DeleteDictionaryCommandOutput) => void
+  ): void;
+  deleteDictionary(
+    args: DeleteDictionaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDictionaryCommandOutput) => void
   ): void;
 
   /**
@@ -144,6 +216,40 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link ExportDictionaryEntriesCommand}
+   */
+  exportDictionaryEntries(
+    args: ExportDictionaryEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportDictionaryEntriesCommandOutput>;
+  exportDictionaryEntries(
+    args: ExportDictionaryEntriesCommandInput,
+    cb: (err: any, data?: ExportDictionaryEntriesCommandOutput) => void
+  ): void;
+  exportDictionaryEntries(
+    args: ExportDictionaryEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportDictionaryEntriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDictionaryCommand}
+   */
+  getDictionary(
+    args: GetDictionaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDictionaryCommandOutput>;
+  getDictionary(
+    args: GetDictionaryCommandInput,
+    cb: (err: any, data?: GetDictionaryCommandOutput) => void
+  ): void;
+  getDictionary(
+    args: GetDictionaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDictionaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFeedCommand}
    */
   getFeed(
@@ -158,6 +264,24 @@ export interface ElementalInference {
     args: GetFeedCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFeedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDictionariesCommand}
+   */
+  listDictionaries(): Promise<ListDictionariesCommandOutput>;
+  listDictionaries(
+    args: ListDictionariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDictionariesCommandOutput>;
+  listDictionaries(
+    args: ListDictionariesCommandInput,
+    cb: (err: any, data?: ListDictionariesCommandOutput) => void
+  ): void;
+  listDictionaries(
+    args: ListDictionariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDictionariesCommandOutput) => void
   ): void;
 
   /**
@@ -230,6 +354,23 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link UpdateDictionaryCommand}
+   */
+  updateDictionary(
+    args: UpdateDictionaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDictionaryCommandOutput>;
+  updateDictionary(
+    args: UpdateDictionaryCommandInput,
+    cb: (err: any, data?: UpdateDictionaryCommandOutput) => void
+  ): void;
+  updateDictionary(
+    args: UpdateDictionaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDictionaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFeedCommand}
    */
   updateFeed(
@@ -245,6 +386,17 @@ export interface ElementalInference {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFeedCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDictionariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDictionariesCommandOutput}.
+   */
+  paginateListDictionaries(
+    args?: ListDictionariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDictionariesCommandOutput>;
 
   /**
    * @see {@link ListFeedsCommand}

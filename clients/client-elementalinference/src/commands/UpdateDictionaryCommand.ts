@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../ElementalInferenceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { UpdateDictionaryRequest, UpdateDictionaryResponse } from "../models/models_0";
+import { UpdateDictionary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,32 +20,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link UpdateDictionaryCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface UpdateDictionaryCommandInput extends UpdateDictionaryRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link UpdateDictionaryCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface UpdateDictionaryCommandOutput extends UpdateDictionaryResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags that are on an Elemental Inference resource in the current region.</p>
+ * <p>Updates the specified dictionary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElementalInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
- * // const { ElementalInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
+ * import { ElementalInferenceClient, UpdateDictionaryCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
+ * // const { ElementalInferenceClient, UpdateDictionaryCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
  * // import type { ElementalInferenceClientConfig } from "@aws-sdk/client-elementalinference";
  * const config = {}; // type is ElementalInferenceClientConfig
  * const client = new ElementalInferenceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // UpdateDictionaryRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por",
+ *   entries: "STRING_VALUE",
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new UpdateDictionaryCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
+ * // { // UpdateDictionaryResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //   status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
+ * //   references: [ // FeedReferences
+ * //     "STRING_VALUE",
+ * //   ],
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -53,14 +64,17 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param UpdateDictionaryCommandInput - {@link UpdateDictionaryCommandInput}
+ * @returns {@link UpdateDictionaryCommandOutput}
+ * @see {@link UpdateDictionaryCommandInput} for command's `input` shape.
+ * @see {@link UpdateDictionaryCommandOutput} for command's `response` shape.
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
@@ -80,10 +94,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class UpdateDictionaryCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    UpdateDictionaryCommandInput,
+    UpdateDictionaryCommandOutput,
     ElementalInferenceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,19 +106,19 @@ export class ListTagsForResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ElementalInference", "ListTagsForResource", {})
-  .n("ElementalInferenceClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource$)
+  .s("ElementalInference", "UpdateDictionary", {})
+  .n("ElementalInferenceClient", "UpdateDictionaryCommand")
+  .sc(UpdateDictionary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: UpdateDictionaryRequest;
+      output: UpdateDictionaryResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: UpdateDictionaryCommandInput;
+      output: UpdateDictionaryCommandOutput;
     };
   };
 }

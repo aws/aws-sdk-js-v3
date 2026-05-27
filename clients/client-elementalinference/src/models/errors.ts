@@ -45,7 +45,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.</p>
+ * <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -86,7 +86,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase.</p>
+ * <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -106,7 +106,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.</p>
+ * <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
  * @public
  */
 export class TooManyRequestException extends __BaseException {
@@ -127,7 +127,7 @@ export class TooManyRequestException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying.</p>
+ * <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
  * @public
  */
 export class ValidationException extends __BaseException {

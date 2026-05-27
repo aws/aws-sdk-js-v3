@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../ElementalInferenceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { TagResourceRequest } from "../models/models_0";
-import { TagResource$ } from "../schemas/schemas_0";
+import type { CreateDictionaryRequest, CreateDictionaryResponse } from "../models/models_0";
+import { CreateDictionary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link CreateDictionaryCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface CreateDictionaryCommandInput extends CreateDictionaryRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link CreateDictionaryCommand}.
  */
-export interface TagResourceCommandOutput extends __MetadataBearer {}
+export interface CreateDictionaryCommandOutput extends CreateDictionaryResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the specified tags to the resource identified by the specified resourceArn in the current region. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted. </p>
+ * <p>Creates a custom dictionary for improving transcription accuracy. A dictionary contains custom words and phrases that the ASR engine might not recognize, such as brand names, technical terms, or proper nouns. You can reference a dictionary when configuring a smart subtitles output. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElementalInferenceClient, TagResourceCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
- * // const { ElementalInferenceClient, TagResourceCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
+ * import { ElementalInferenceClient, CreateDictionaryCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
+ * // const { ElementalInferenceClient, CreateDictionaryCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
  * // import type { ElementalInferenceClientConfig } from "@aws-sdk/client-elementalinference";
  * const config = {}; // type is ElementalInferenceClientConfig
  * const client = new ElementalInferenceClient(config);
- * const input = { // TagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   tags: { // TagMap // required
+ * const input = { // CreateDictionaryRequest
+ *   name: "STRING_VALUE", // required
+ *   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ *   entries: "STRING_VALUE",
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new CreateDictionaryCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateDictionaryResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //   status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
+ * //   references: [ // FeedReferences
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param CreateDictionaryCommandInput - {@link CreateDictionaryCommandInput}
+ * @returns {@link CreateDictionaryCommandOutput}
+ * @see {@link CreateDictionaryCommandInput} for command's `input` shape.
+ * @see {@link CreateDictionaryCommandOutput} for command's `response` shape.
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -67,8 +81,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the action doesn't exist.</p>
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
  *
  * @throws {@link TooManyRequestException} (client fault)
  *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
@@ -82,10 +96,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class CreateDictionaryCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    CreateDictionaryCommandInput,
+    CreateDictionaryCommandOutput,
     ElementalInferenceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,19 +108,19 @@ export class TagResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ElementalInference", "TagResource", {})
-  .n("ElementalInferenceClient", "TagResourceCommand")
-  .sc(TagResource$)
+  .s("ElementalInference", "CreateDictionary", {})
+  .n("ElementalInferenceClient", "CreateDictionaryCommand")
+  .sc(CreateDictionary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: TagResourceRequest;
-      output: {};
+      input: CreateDictionaryRequest;
+      output: CreateDictionaryResponse;
     };
     sdk: {
-      input: TagResourceCommandInput;
-      output: TagResourceCommandOutput;
+      input: CreateDictionaryCommandInput;
+      output: CreateDictionaryCommandOutput;
     };
   };
 }

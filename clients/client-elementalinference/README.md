@@ -188,10 +188,24 @@ AssociateFeed
 </details>
 <details>
 <summary>
+CreateDictionary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/CreateDictionaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/CreateDictionaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/CreateDictionaryCommandOutput/)
+</details>
+<details>
+<summary>
 CreateFeed
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/CreateFeedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/CreateFeedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/CreateFeedCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteDictionary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/DeleteDictionaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/DeleteDictionaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/DeleteDictionaryCommandOutput/)
 </details>
 <details>
 <summary>
@@ -209,10 +223,31 @@ DisassociateFeed
 </details>
 <details>
 <summary>
+ExportDictionaryEntries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/ExportDictionaryEntriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/ExportDictionaryEntriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/ExportDictionaryEntriesCommandOutput/)
+</details>
+<details>
+<summary>
+GetDictionary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/GetDictionaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetDictionaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetDictionaryCommandOutput/)
+</details>
+<details>
+<summary>
 GetFeed
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/GetFeedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetFeedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetFeedCommandOutput/)
+</details>
+<details>
+<summary>
+ListDictionaries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/ListDictionariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/ListDictionariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/ListDictionariesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -241,6 +276,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateDictionary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/UpdateDictionaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/UpdateDictionaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/UpdateDictionaryCommandOutput/)
 </details>
 <details>
 <summary>

@@ -55,10 +55,18 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { AssociateFeedCommandInput, AssociateFeedCommandOutput } from "./commands/AssociateFeedCommand";
+import type { CreateDictionaryCommandInput, CreateDictionaryCommandOutput } from "./commands/CreateDictionaryCommand";
 import type { CreateFeedCommandInput, CreateFeedCommandOutput } from "./commands/CreateFeedCommand";
+import type { DeleteDictionaryCommandInput, DeleteDictionaryCommandOutput } from "./commands/DeleteDictionaryCommand";
 import type { DeleteFeedCommandInput, DeleteFeedCommandOutput } from "./commands/DeleteFeedCommand";
 import type { DisassociateFeedCommandInput, DisassociateFeedCommandOutput } from "./commands/DisassociateFeedCommand";
+import type {
+  ExportDictionaryEntriesCommandInput,
+  ExportDictionaryEntriesCommandOutput,
+} from "./commands/ExportDictionaryEntriesCommand";
+import type { GetDictionaryCommandInput, GetDictionaryCommandOutput } from "./commands/GetDictionaryCommand";
 import type { GetFeedCommandInput, GetFeedCommandOutput } from "./commands/GetFeedCommand";
+import type { ListDictionariesCommandInput, ListDictionariesCommandOutput } from "./commands/ListDictionariesCommand";
 import type { ListFeedsCommandInput, ListFeedsCommandOutput } from "./commands/ListFeedsCommand";
 import type {
   ListTagsForResourceCommandInput,
@@ -66,6 +74,7 @@ import type {
 } from "./commands/ListTagsForResourceCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type { UpdateDictionaryCommandInput, UpdateDictionaryCommandOutput } from "./commands/UpdateDictionaryCommand";
 import type { UpdateFeedCommandInput, UpdateFeedCommandOutput } from "./commands/UpdateFeedCommand";
 import {
   type ClientInputEndpointParameters,
@@ -83,14 +92,20 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateFeedCommandInput
+  | CreateDictionaryCommandInput
   | CreateFeedCommandInput
+  | DeleteDictionaryCommandInput
   | DeleteFeedCommandInput
   | DisassociateFeedCommandInput
+  | ExportDictionaryEntriesCommandInput
+  | GetDictionaryCommandInput
   | GetFeedCommandInput
+  | ListDictionariesCommandInput
   | ListFeedsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDictionaryCommandInput
   | UpdateFeedCommandInput;
 
 /**
@@ -98,14 +113,20 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateFeedCommandOutput
+  | CreateDictionaryCommandOutput
   | CreateFeedCommandOutput
+  | DeleteDictionaryCommandOutput
   | DeleteFeedCommandOutput
   | DisassociateFeedCommandOutput
+  | ExportDictionaryEntriesCommandOutput
+  | GetDictionaryCommandOutput
   | GetFeedCommandOutput
+  | ListDictionariesCommandOutput
   | ListFeedsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDictionaryCommandOutput
   | UpdateFeedCommandOutput;
 
 /**

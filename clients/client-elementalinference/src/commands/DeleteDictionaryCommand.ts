@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../ElementalInferenceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { DeleteDictionaryRequest, DeleteDictionaryResponse } from "../models/models_0";
+import { DeleteDictionary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,47 +20,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link DeleteDictionaryCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface DeleteDictionaryCommandInput extends DeleteDictionaryRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link DeleteDictionaryCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteDictionaryCommandOutput extends DeleteDictionaryResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags that are on an Elemental Inference resource in the current region.</p>
+ * <p>Deletes the specified dictionary. You cannot delete a dictionary that is referenced by a feed. You must first remove the dictionary reference from the feed's subtitling configuration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElementalInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
- * // const { ElementalInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
+ * import { ElementalInferenceClient, DeleteDictionaryCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
+ * // const { ElementalInferenceClient, DeleteDictionaryCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
  * // import type { ElementalInferenceClientConfig } from "@aws-sdk/client-elementalinference";
  * const config = {}; // type is ElementalInferenceClientConfig
  * const client = new ElementalInferenceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // DeleteDictionaryRequest
+ *   id: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteDictionaryCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // DeleteDictionaryResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param DeleteDictionaryCommandInput - {@link DeleteDictionaryCommandInput}
+ * @returns {@link DeleteDictionaryCommandOutput}
+ * @see {@link DeleteDictionaryCommandInput} for command's `input` shape.
+ * @see {@link DeleteDictionaryCommandOutput} for command's `response` shape.
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
@@ -80,10 +83,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class DeleteDictionaryCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    DeleteDictionaryCommandInput,
+    DeleteDictionaryCommandOutput,
     ElementalInferenceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,19 +95,19 @@ export class ListTagsForResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ElementalInference", "ListTagsForResource", {})
-  .n("ElementalInferenceClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource$)
+  .s("ElementalInference", "DeleteDictionary", {})
+  .n("ElementalInferenceClient", "DeleteDictionaryCommand")
+  .sc(DeleteDictionary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: DeleteDictionaryRequest;
+      output: DeleteDictionaryResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: DeleteDictionaryCommandInput;
+      output: DeleteDictionaryCommandOutput;
     };
   };
 }

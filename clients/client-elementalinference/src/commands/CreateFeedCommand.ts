@@ -31,7 +31,7 @@ export interface CreateFeedCommandInput extends CreateFeedRequest {}
 export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a feed. The feed is the target for live streams being sent by the calling application. An example of a calling application is AWS Elemental MediaLive. After you create the feed, you can associate a resource with the feed.</p>
+ * <p>Creates a feed. The feed is the target for the live media stream that is being sent by the calling application. An example of a calling application is AWS Elemental MediaLive. </p> <p>The key contents of the feed is an array of outputs. Each output represents an Elemental Inference feature. After you create the feed, you must associate a resource with the feed. At that point, you will have a useable feed: resource - feed - output or outputs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +49,15 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  *         cropping: {},
  *         clipping: { // ClippingConfig
  *           callbackMetadata: "STRING_VALUE",
+ *         },
+ *         subtitling: { // SubtitlingConfig
+ *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ *           aspectRatio: { // AspectRatio
+ *             width: Number("int"), // required
+ *             height: Number("int"), // required
+ *           },
+ *           dictionary: "STRING_VALUE",
+ *           profanityFilter: "DISABLED" || "CENSOR" || "DROP",
  *         },
  *       },
  *       status: "ENABLED" || "DISABLED", // required
@@ -75,6 +84,15 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  * //         cropping: {},
  * //         clipping: { // ClippingConfig
  * //           callbackMetadata: "STRING_VALUE",
+ * //         },
+ * //         subtitling: { // SubtitlingConfig
+ * //           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //           aspectRatio: { // AspectRatio
+ * //             width: Number("int"), // required
+ * //             height: Number("int"), // required
+ * //           },
+ * //           dictionary: "STRING_VALUE",
+ * //           profanityFilter: "DISABLED" || "CENSOR" || "DROP",
  * //         },
  * //       },
  * //       status: "ENABLED" || "DISABLED", // required
@@ -106,16 +124,16 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  *  <p>The request could not be completed due to a conflict.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.</p>
+ *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase.</p>
+ *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.</p>
+ *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
  *
  * @throws {@link ElementalInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElementalInference service.</p>

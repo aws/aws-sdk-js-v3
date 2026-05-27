@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../ElementalInferenceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { ExportDictionaryEntriesRequest, ExportDictionaryEntriesResponse } from "../models/models_0";
+import { ExportDictionaryEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,43 +20,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link ExportDictionaryEntriesCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ExportDictionaryEntriesCommandInput extends ExportDictionaryEntriesRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link ExportDictionaryEntriesCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface ExportDictionaryEntriesCommandOutput extends ExportDictionaryEntriesResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags that are on an Elemental Inference resource in the current region.</p>
+ * <p>Exports the entries from the specified dictionary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElementalInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
- * // const { ElementalInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
+ * import { ElementalInferenceClient, ExportDictionaryEntriesCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
+ * // const { ElementalInferenceClient, ExportDictionaryEntriesCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
  * // import type { ElementalInferenceClientConfig } from "@aws-sdk/client-elementalinference";
  * const config = {}; // type is ElementalInferenceClientConfig
  * const client = new ElementalInferenceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // ExportDictionaryEntriesRequest
+ *   id: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new ExportDictionaryEntriesCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // ExportDictionaryEntriesResponse
+ * //   entries: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param ExportDictionaryEntriesCommandInput - {@link ExportDictionaryEntriesCommandInput}
+ * @returns {@link ExportDictionaryEntriesCommandOutput}
+ * @see {@link ExportDictionaryEntriesCommandInput} for command's `input` shape.
+ * @see {@link ExportDictionaryEntriesCommandOutput} for command's `response` shape.
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,10 +78,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class ExportDictionaryEntriesCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    ExportDictionaryEntriesCommandInput,
+    ExportDictionaryEntriesCommandOutput,
     ElementalInferenceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,19 +90,19 @@ export class ListTagsForResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ElementalInference", "ListTagsForResource", {})
-  .n("ElementalInferenceClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource$)
+  .s("ElementalInference", "ExportDictionaryEntries", {})
+  .n("ElementalInferenceClient", "ExportDictionaryEntriesCommand")
+  .sc(ExportDictionaryEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: ExportDictionaryEntriesRequest;
+      output: ExportDictionaryEntriesResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: ExportDictionaryEntriesCommandInput;
+      output: ExportDictionaryEntriesCommandOutput;
     };
   };
 }

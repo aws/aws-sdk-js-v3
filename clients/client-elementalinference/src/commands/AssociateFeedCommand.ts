@@ -31,7 +31,7 @@ export interface AssociateFeedCommandInput extends AssociateFeedRequest {}
 export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a resource with the feed. The resource provides the input that Elemental Inference needs needs in order to perform an Elemental Inference feature, such as cropping video. You always provide the resource by associating it with a feed. You can associate only one resource with each feed.</p>
+ * <p>Associates a resource with the feed. The resource provides the input that Elemental Inference needs in order to perform an Elemental Inference feature, such as cropping video. You always provide the resource by associating it with a feed. You can associate only one resource with each feed. With an association, a specific source media is claiming ownership of the feed. </p> <p>AssociateFeed is a PATCH operation, which means that you can include only parameters that you want to change. Parameters that you don't include will not be affected by the operation. </p> <p>Specifically:</p> <ul> <li> <p>You can add more outputs to the existing outputs. New outputs will be appended.</p> </li> <li> <p>You can't modify an existing output (for example to change its name). Instead, use UpdateFeed. </p> </li> <li> <p>You can't delete an existing output. Instead, use UpdateFeed.</p> </li> </ul> <p>Also note that you can't change the feed name with AssociateFeed. Instead, use UpdateFeed. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,15 @@ export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __Met
  *         cropping: {},
  *         clipping: { // ClippingConfig
  *           callbackMetadata: "STRING_VALUE",
+ *         },
+ *         subtitling: { // SubtitlingConfig
+ *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ *           aspectRatio: { // AspectRatio
+ *             width: Number("int"), // required
+ *             height: Number("int"), // required
+ *           },
+ *           dictionary: "STRING_VALUE",
+ *           profanityFilter: "DISABLED" || "CENSOR" || "DROP",
  *         },
  *       },
  *       status: "ENABLED" || "DISABLED", // required
@@ -80,19 +89,19 @@ export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __Met
  *  <p>The request could not be completed due to a conflict.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support.</p>
+ *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the action doesn't exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase.</p>
+ *  <p>The request was rejected because it would exceed one or more service quotas for your account. Review your service quotas and either delete unused resources or request a quota increase. </p>
  *
  * @throws {@link TooManyRequestException} (client fault)
- *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying.</p>
+ *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the error message for details about which parameter or field is invalid and correct the request before retrying. </p>
  *
  * @throws {@link ElementalInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElementalInference service.</p>

@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../ElementalInferenceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { ListDictionariesRequest, ListDictionariesResponse } from "../models/models_0";
+import { ListDictionaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,43 +20,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link ListDictionariesCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ListDictionariesCommandInput extends ListDictionariesRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link ListDictionariesCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface ListDictionariesCommandOutput extends ListDictionariesResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags that are on an Elemental Inference resource in the current region.</p>
+ * <p>Lists the dictionaries in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElementalInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
- * // const { ElementalInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
+ * import { ElementalInferenceClient, ListDictionariesCommand } from "@aws-sdk/client-elementalinference"; // ES Modules import
+ * // const { ElementalInferenceClient, ListDictionariesCommand } = require("@aws-sdk/client-elementalinference"); // CommonJS import
  * // import type { ElementalInferenceClientConfig } from "@aws-sdk/client-elementalinference";
  * const config = {}; // type is ElementalInferenceClientConfig
  * const client = new ElementalInferenceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // ListDictionariesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new ListDictionariesCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // ListDictionariesResponse
+ * //   dictionaries: [ // DictionarySummaryList // required
+ * //     { // DictionarySummary
+ * //       arn: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       language: "eng" || "fra" || "ita" || "deu" || "spa" || "por", // required
+ * //       status: "CREATING" || "AVAILABLE" || "REFERENCED" || "DELETING" || "DELETED", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param ListDictionariesCommandInput - {@link ListDictionariesCommandInput}
+ * @returns {@link ListDictionariesCommandOutput}
+ * @see {@link ListDictionariesCommandInput} for command's `input` shape.
+ * @see {@link ListDictionariesCommandOutput} for command's `response` shape.
  * @see {@link ElementalInferenceClientResolvedConfig | config} for ElementalInferenceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -64,9 +72,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error occurred. This is a temporary condition and the request can be retried. If the problem persists, contact AWS Support. </p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the action doesn't exist.</p>
  *
  * @throws {@link TooManyRequestException} (client fault)
  *  <p>The request was denied due to request throttling. Too many requests have been made within a given time period. Reduce the frequency of requests and use exponential backoff when retrying. </p>
@@ -80,10 +85,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class ListDictionariesCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    ListDictionariesCommandInput,
+    ListDictionariesCommandOutput,
     ElementalInferenceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,19 +97,19 @@ export class ListTagsForResourceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ElementalInference", "ListTagsForResource", {})
-  .n("ElementalInferenceClient", "ListTagsForResourceCommand")
-  .sc(ListTagsForResource$)
+  .s("ElementalInference", "ListDictionaries", {})
+  .n("ElementalInferenceClient", "ListDictionariesCommand")
+  .sc(ListDictionaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: ListDictionariesRequest;
+      output: ListDictionariesResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: ListDictionariesCommandInput;
+      output: ListDictionariesCommandOutput;
     };
   };
 }
