@@ -143,6 +143,15 @@ export interface UpdateDataAutomationProjectCommandOutput extends UpdateDataAuto
  *         blueprintStage: "DEVELOPMENT" || "LIVE",
  *       },
  *     ],
+ *     document: { // DocumentCustomOutputConfiguration
+ *       fallbackBlueprints: [ // FallbackBlueprintItems
+ *         {
+ *           blueprintArn: "STRING_VALUE", // required
+ *           blueprintVersion: "STRING_VALUE",
+ *           blueprintStage: "DEVELOPMENT" || "LIVE",
+ *         },
+ *       ],
+ *     },
  *   },
  *   overrideConfiguration: { // OverrideConfiguration
  *     document: { // DocumentOverrideConfiguration

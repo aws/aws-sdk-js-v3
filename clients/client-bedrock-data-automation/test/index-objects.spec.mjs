@@ -79,6 +79,7 @@ import {
   DeleteEntitiesInfo$,
   DesiredModality,
   DocumentBoundingBox$,
+  DocumentCustomOutputConfiguration$,
   DocumentExtractionGranularity$,
   DocumentExtractionGranularityType,
   DocumentOutputAdditionalFileFormat$,
@@ -338,6 +339,7 @@ assert(typeof DeleteDataAutomationProjectRequest$ === "object");
 assert(typeof DeleteDataAutomationProjectResponse$ === "object");
 assert(typeof DeleteEntitiesInfo$ === "object");
 assert(typeof DocumentBoundingBox$ === "object");
+assert(typeof DocumentCustomOutputConfiguration$ === "object");
 assert(typeof DocumentExtractionGranularity$ === "object");
 assert(typeof DocumentOutputAdditionalFileFormat$ === "object");
 assert(typeof DocumentOutputFormat$ === "object");

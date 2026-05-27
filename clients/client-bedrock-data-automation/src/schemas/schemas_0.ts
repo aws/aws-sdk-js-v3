@@ -60,6 +60,7 @@ const _DB = "DeleteBlueprint";
 const _DBB = "DocumentBoundingBox";
 const _DBR = "DeleteBlueprintRequest";
 const _DBRe = "DeleteBlueprintResponse";
+const _DCOC = "DocumentCustomOutputConfiguration";
 const _DDAL = "DeleteDataAutomationLibrary";
 const _DDALR = "DeleteDataAutomationLibraryRequest";
 const _DDALRe = "DeleteDataAutomationLibraryResponse";
@@ -81,6 +82,7 @@ const _ED = "EntityDescription";
 const _EDn = "EntityDetails";
 const _ETI = "EntityTypeInfo";
 const _ETIL = "EntityTypeInfoList";
+const _FBI = "FallbackBlueprintItems";
 const _GB = "GetBlueprint";
 const _GBOS = "GetBlueprintOptimizationStatus";
 const _GBOSR = "GetBlueprintOptimizationStatusRequest";
@@ -223,6 +225,7 @@ const _eTr = "errorType";
 const _en = "entity";
 const _ent = "entities";
 const _ex = "extraction";
+const _fB = "fallbackBlueprints";
 const _fL = "fieldList";
 const _g = "granularity";
 const _gF = "generativeField";
@@ -531,8 +534,8 @@ export var CreateDataAutomationProjectResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC,
   0,
-  [_bl],
-  [() => BlueprintItems]
+  [_bl, _d],
+  [() => BlueprintItems, () => DocumentCustomOutputConfiguration$]
 ];
 export var DataAutomationLibrary$: StaticStructureSchema = [3, n0, _DAL,
   0,
@@ -623,6 +626,11 @@ export var DocumentBoundingBox$: StaticStructureSchema = [3, n0, _DBB,
   0,
   [_st],
   [0], 1
+];
+export var DocumentCustomOutputConfiguration$: StaticStructureSchema = [3, n0, _DCOC,
+  0,
+  [_fB],
+  [() => FallbackBlueprintItems]
 ];
 export var DocumentExtractionGranularity$: StaticStructureSchema = [3, n0, _DEG,
   0,
@@ -1060,6 +1068,9 @@ var DocumentOutputTextFormatTypes = 64 | 0;
 var EntityIdList = 64 | 0;
 var EntityTypeInfoList: StaticListSchema = [1, n0, _ETIL,
   0, () => EntityTypeInfo$
+];
+var FallbackBlueprintItems: StaticListSchema = [1, n0, _FBI,
+  0, () => BlueprintItem$
 ];
 var ImageExtractionCategoryTypes = 64 | 0;
 var ImageStandardGenerativeFieldTypes = 64 | 0;

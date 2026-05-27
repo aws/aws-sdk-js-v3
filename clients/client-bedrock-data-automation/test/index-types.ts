@@ -157,6 +157,7 @@ export type {
   DeleteDataAutomationProjectResponse,
   DeleteEntitiesInfo,
   DocumentBoundingBox,
+  DocumentCustomOutputConfiguration,
   DocumentExtractionGranularity,
   DocumentOutputAdditionalFileFormat,
   DocumentOutputFormat,

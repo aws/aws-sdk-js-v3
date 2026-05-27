@@ -1432,6 +1432,18 @@ export interface BlueprintItem {
 }
 
 /**
+ * Custom Configuration of Document
+ * @public
+ */
+export interface DocumentCustomOutputConfiguration {
+  /**
+   * List of Fallback Blueprint Items
+   * @public
+   */
+  fallbackBlueprints?: BlueprintItem[] | undefined;
+}
+
+/**
  * Custom output configuration
  * @public
  */
@@ -1441,6 +1453,12 @@ export interface CustomOutputConfiguration {
    * @public
    */
   blueprints?: BlueprintItem[] | undefined;
+
+  /**
+   * Custom Configuration of Document
+   * @public
+   */
+  document?: DocumentCustomOutputConfiguration | undefined;
 }
 
 /**
