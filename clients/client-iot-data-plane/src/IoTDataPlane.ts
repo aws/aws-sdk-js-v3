@@ -13,6 +13,11 @@ import {
   DeleteThingShadowCommand,
 } from "./commands/DeleteThingShadowCommand";
 import {
+  type GetConnectionCommandInput,
+  type GetConnectionCommandOutput,
+  GetConnectionCommand,
+} from "./commands/GetConnectionCommand";
+import {
   type GetRetainedMessageCommandInput,
   type GetRetainedMessageCommandOutput,
   GetRetainedMessageCommand,
@@ -32,7 +37,17 @@ import {
   type ListRetainedMessagesCommandOutput,
   ListRetainedMessagesCommand,
 } from "./commands/ListRetainedMessagesCommand";
+import {
+  type ListSubscriptionsCommandInput,
+  type ListSubscriptionsCommandOutput,
+  ListSubscriptionsCommand,
+} from "./commands/ListSubscriptionsCommand";
 import { type PublishCommandInput, type PublishCommandOutput, PublishCommand } from "./commands/PublishCommand";
+import {
+  type SendDirectMessageCommandInput,
+  type SendDirectMessageCommandOutput,
+  SendDirectMessageCommand,
+} from "./commands/SendDirectMessageCommand";
 import {
   type UpdateThingShadowCommandInput,
   type UpdateThingShadowCommandOutput,
@@ -40,19 +55,24 @@ import {
 } from "./commands/UpdateThingShadowCommand";
 import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
 import { paginateListRetainedMessages } from "./pagination/ListRetainedMessagesPaginator";
+import { paginateListSubscriptions } from "./pagination/ListSubscriptionsPaginator";
 
 const commands = {
   DeleteConnectionCommand,
   DeleteThingShadowCommand,
+  GetConnectionCommand,
   GetRetainedMessageCommand,
   GetThingShadowCommand,
   ListNamedShadowsForThingCommand,
   ListRetainedMessagesCommand,
+  ListSubscriptionsCommand,
   PublishCommand,
+  SendDirectMessageCommand,
   UpdateThingShadowCommand,
 };
 const paginators = {
   paginateListRetainedMessages,
+  paginateListSubscriptions,
 };
 
 export interface IoTDataPlane {
@@ -88,6 +108,23 @@ export interface IoTDataPlane {
     args: DeleteThingShadowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteThingShadowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectionCommand}
+   */
+  getConnection(
+    args: GetConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionCommandOutput>;
+  getConnection(
+    args: GetConnectionCommandInput,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
+  getConnection(
+    args: GetConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
   /**
@@ -160,6 +197,23 @@ export interface IoTDataPlane {
   ): void;
 
   /**
+   * @see {@link ListSubscriptionsCommand}
+   */
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubscriptionsCommandOutput>;
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
+  ): void;
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PublishCommand}
    */
   publish(
@@ -174,6 +228,23 @@ export interface IoTDataPlane {
     args: PublishCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PublishCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDirectMessageCommand}
+   */
+  sendDirectMessage(
+    args: SendDirectMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDirectMessageCommandOutput>;
+  sendDirectMessage(
+    args: SendDirectMessageCommandInput,
+    cb: (err: any, data?: SendDirectMessageCommandOutput) => void
+  ): void;
+  sendDirectMessage(
+    args: SendDirectMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDirectMessageCommandOutput) => void
   ): void;
 
   /**
@@ -203,6 +274,17 @@ export interface IoTDataPlane {
     args?: ListRetainedMessagesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRetainedMessagesCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionsCommandOutput}.
+   */
+  paginateListSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionsCommandOutput>;
 }
 
 /**

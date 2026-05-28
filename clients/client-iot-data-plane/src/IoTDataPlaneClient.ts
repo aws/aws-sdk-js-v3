@@ -59,6 +59,7 @@ import type {
   DeleteThingShadowCommandInput,
   DeleteThingShadowCommandOutput,
 } from "./commands/DeleteThingShadowCommand";
+import type { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import type {
   GetRetainedMessageCommandInput,
   GetRetainedMessageCommandOutput,
@@ -72,7 +73,15 @@ import type {
   ListRetainedMessagesCommandInput,
   ListRetainedMessagesCommandOutput,
 } from "./commands/ListRetainedMessagesCommand";
+import type {
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput,
+} from "./commands/ListSubscriptionsCommand";
 import type { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import type {
+  SendDirectMessageCommandInput,
+  SendDirectMessageCommandOutput,
+} from "./commands/SendDirectMessageCommand";
 import type {
   UpdateThingShadowCommandInput,
   UpdateThingShadowCommandOutput,
@@ -94,11 +103,14 @@ export { __Client };
 export type ServiceInputTypes =
   | DeleteConnectionCommandInput
   | DeleteThingShadowCommandInput
+  | GetConnectionCommandInput
   | GetRetainedMessageCommandInput
   | GetThingShadowCommandInput
   | ListNamedShadowsForThingCommandInput
   | ListRetainedMessagesCommandInput
+  | ListSubscriptionsCommandInput
   | PublishCommandInput
+  | SendDirectMessageCommandInput
   | UpdateThingShadowCommandInput;
 
 /**
@@ -107,11 +119,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | DeleteConnectionCommandOutput
   | DeleteThingShadowCommandOutput
+  | GetConnectionCommandOutput
   | GetRetainedMessageCommandOutput
   | GetThingShadowCommandOutput
   | ListNamedShadowsForThingCommandOutput
   | ListRetainedMessagesCommandOutput
+  | ListSubscriptionsCommandOutput
   | PublishCommandOutput
+  | SendDirectMessageCommandOutput
   | UpdateThingShadowCommandOutput;
 
 /**

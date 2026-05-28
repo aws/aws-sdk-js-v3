@@ -204,6 +204,26 @@ export class UnsupportedDocumentEncodingException extends __BaseException {
 }
 
 /**
+ * <p>The delivery confirmation was not received from the client within the specified timeout period.</p>
+ * @public
+ */
+export class GatewayTimeoutException extends __BaseException {
+  readonly name = "GatewayTimeoutException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GatewayTimeoutException, __BaseException>) {
+    super({
+      name: "GatewayTimeoutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GatewayTimeoutException.prototype);
+  }
+}
+
+/**
  * <p>The payload exceeds the maximum size allowed.</p>
  * @public
  */
