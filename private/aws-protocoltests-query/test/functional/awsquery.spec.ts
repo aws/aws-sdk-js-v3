@@ -1074,6 +1074,38 @@ it("QueryNoInputAndNoOutput:Response", async () => {
 });
 
 /**
+ * Empty output, but the server returns ResponseMetadata.
+ */
+it("QueryNoInputAndNoOutputWithResponseMetadata:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      undefined,
+      `<NoInputAndNoOutputResponse>
+          <ResponseMetadata>
+              <RequestId>abc-123</RequestId>
+          </ResponseMetadata>
+      </NoInputAndNoOutputResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new NoInputAndNoOutputCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r.$metadata.httpStatusCode).toBe(200);
+});
+
+/**
  * No input serializes no payload
  */
 it("QueryNoInputAndOutput:Request", async () => {
