@@ -51,6 +51,7 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * //     id: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     status: "STRING_VALUE",
+ * //     deletionProtection: "STRING_VALUE",
  * //   },
  * // };
  *

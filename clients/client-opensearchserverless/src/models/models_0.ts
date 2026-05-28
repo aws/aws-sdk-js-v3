@@ -3,14 +3,17 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   AccessPolicyType,
+  AutoscalingStatus,
   CollectionStatus,
   CollectionType,
+  DeletionProtection,
   IamIdentityCenterGroupAttribute,
   IamIdentityCenterUserAttribute,
   LifecyclePolicyType,
   ResourceType,
   SecurityConfigType,
   SecurityPolicyType,
+  ServerlessGeneration,
   ServerlessVectorAccelerationStatus,
   StandbyReplicas,
   VpcEndpointStatus,
@@ -449,6 +452,12 @@ export interface CollectionDetail {
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
+   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
+
+  /**
    * <p>Configuration options for vector search capabilities in the collection.</p>
    * @public
    */
@@ -598,6 +607,42 @@ export interface CollectionGroupCapacityLimits {
 }
 
 /**
+ * <p>Capacity details for an OpenSearch Serverless collection group, including the current capacity and autoscaling status.</p>
+ * @public
+ */
+export interface CapacityDetails {
+  /**
+   * <p>The current capacity in OpenSearch Compute Units (OCUs).</p>
+   * @public
+   */
+  capacityInOcu?: number | undefined;
+
+  /**
+   * <p>The current autoscaling status for the collection group.</p>
+   * @public
+   */
+  autoscalingStatus?: AutoscalingStatus | undefined;
+}
+
+/**
+ * <p>Current search and indexing capacity for an OpenSearch Serverless collection group. Measured in OpenSearch Compute Units (OCUs).</p>
+ * @public
+ */
+export interface CurrentCapacity {
+  /**
+   * <p>The search capacity for the collection group.</p>
+   * @public
+   */
+  search?: CapacityDetails | undefined;
+
+  /**
+   * <p>The indexing capacity for the collection group.</p>
+   * @public
+   */
+  indexing?: CapacityDetails | undefined;
+}
+
+/**
  * <p>A map of key-value pairs associated to an OpenSearch Serverless resource.</p>
  * @public
  */
@@ -669,10 +714,22 @@ export interface CollectionGroupDetail {
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
+   * <p>Current search and indexing capacity for the collection group.</p>
+   * @public
+   */
+  currentCapacity?: CurrentCapacity | undefined;
+
+  /**
    * <p>The number of collections associated with the collection group.</p>
    * @public
    */
   numberOfCollections?: number | undefined;
+
+  /**
+   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * @public
+   */
+  generation?: ServerlessGeneration | undefined;
 }
 
 /**
@@ -1147,6 +1204,12 @@ export interface CreateCollectionRequest {
   encryptionConfig?: EncryptionConfig | undefined;
 
   /**
+   * <p>Indicates whether to enable deletion protection for the collection. When set to <code>ENABLED</code>, the collection cannot be deleted.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -1205,6 +1268,12 @@ export interface CreateCollectionDetail {
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
 
   /**
    * <p>Configuration options for vector search capabilities in the collection.</p>
@@ -1281,6 +1350,12 @@ export interface DeleteCollectionDetail {
    * @public
    */
   status?: CollectionStatus | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
 }
 
 /**
@@ -1423,6 +1498,12 @@ export interface UpdateCollectionRequest {
   vectorOptions?: VectorOptions | undefined;
 
   /**
+   * <p>Indicates whether to enable or disable deletion protection for the collection. When set to <code>ENABLED</code>, the collection cannot be deleted.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
+
+  /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -1487,6 +1568,12 @@ export interface UpdateCollectionDetail {
    * @public
    */
   lastModifiedDate?: number | undefined;
+
+  /**
+   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * @public
+   */
+  deletionProtection?: DeletionProtection | undefined;
 }
 
 /**
@@ -1533,6 +1620,12 @@ export interface CreateCollectionGroupRequest {
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>The generation of Amazon OpenSearch Serverless for the collection group. Valid values are <code>CLASSIC</code> and <code>NEXTGEN</code>.</p>
+   * @public
+   */
+  generation?: ServerlessGeneration | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -1593,6 +1686,12 @@ export interface CreateCollectionGroupDetail {
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * @public
+   */
+  generation?: ServerlessGeneration | undefined;
 }
 
 /**
@@ -1685,6 +1784,12 @@ export interface CollectionGroupSummary {
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * @public
+   */
+  generation?: ServerlessGeneration | undefined;
 }
 
 /**
@@ -1779,6 +1884,12 @@ export interface UpdateCollectionGroupDetail {
    * @public
    */
   lastModifiedDate?: number | undefined;
+
+  /**
+   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * @public
+   */
+  generation?: ServerlessGeneration | undefined;
 }
 
 /**

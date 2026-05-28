@@ -46,6 +46,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  *   vectorOptions: { // VectorOptions
  *     ServerlessVectorAcceleration: "STRING_VALUE", // required
  *   },
+ *   deletionProtection: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateCollectionCommand(input);
@@ -63,6 +64,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * //     arn: "STRING_VALUE",
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
+ * //     deletionProtection: "STRING_VALUE",
  * //   },
  * // };
  *

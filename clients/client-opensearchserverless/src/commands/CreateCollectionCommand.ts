@@ -59,6 +59,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *     aWSOwnedKey: true || false,
  *     kmsKeyArn: "STRING_VALUE",
  *   },
+ *   deletionProtection: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateCollectionCommand(input);
@@ -73,6 +74,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * //     arn: "STRING_VALUE",
  * //     kmsKeyArn: "STRING_VALUE",
  * //     standbyReplicas: "STRING_VALUE",
+ * //     deletionProtection: "STRING_VALUE",
  * //     vectorOptions: { // VectorOptions
  * //       ServerlessVectorAcceleration: "STRING_VALUE", // required
  * //     },

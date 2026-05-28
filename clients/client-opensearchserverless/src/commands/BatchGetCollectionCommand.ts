@@ -61,6 +61,7 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * //       arn: "STRING_VALUE",
  * //       kmsKeyArn: "STRING_VALUE",
  * //       standbyReplicas: "STRING_VALUE",
+ * //       deletionProtection: "STRING_VALUE",
  * //       vectorOptions: { // VectorOptions
  * //         ServerlessVectorAcceleration: "STRING_VALUE", // required
  * //       },

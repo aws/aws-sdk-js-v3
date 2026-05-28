@@ -67,6 +67,7 @@ export interface UpdateCollectionGroupCommandOutput extends UpdateCollectionGrou
  * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
+ * //     generation: "STRING_VALUE",
  * //   },
  * // };
  *

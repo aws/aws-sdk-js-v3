@@ -21,7 +21,7 @@ const _BGVERa = "BatchGetVpcEndpointResponse";
 const _CAP = "CreateAccessPolicy";
 const _CAPR = "CreateAccessPolicyRequest";
 const _CAPRr = "CreateAccessPolicyResponse";
-const _CC = "CreateCollection";
+const _CC = "CurrentCapacity";
 const _CCD = "CreateCollectionDetail";
 const _CCG = "CreateCollectionGroup";
 const _CCGD = "CreateCollectionGroupDetail";
@@ -29,8 +29,10 @@ const _CCGR = "CreateCollectionGroupRequest";
 const _CCGRr = "CreateCollectionGroupResponse";
 const _CCR = "CreateCollectionRequest";
 const _CCRr = "CreateCollectionResponse";
-const _CD = "CollectionDetail";
-const _CDo = "CollectionDetails";
+const _CCr = "CreateCollection";
+const _CD = "CapacityDetails";
+const _CDo = "CollectionDetail";
+const _CDol = "CollectionDetails";
 const _CE = "ConflictException";
 const _CED = "CollectionErrorDetail";
 const _CEDo = "CollectionErrorDetails";
@@ -223,11 +225,13 @@ const _aD = "applicationDescription";
 const _aN = "applicationName";
 const _aPD = "accessPolicyDetail";
 const _aPS = "accessPolicySummaries";
+const _aS = "autoscalingStatus";
 const _aSD = "accountSettingsDetail";
 const _aSGI = "addSecurityGroupIds";
 const _aSI = "addSubnetIds";
 const _aWSOK = "aWSOwnedKey";
 const _c = "client";
+const _cC = "currentCapacity";
 const _cCD = "createCollectionDetail";
 const _cCGD = "createCollectionGroupDetail";
 const _cD = "createdDate";
@@ -239,6 +243,7 @@ const _cGD = "collectionGroupDetails";
 const _cGED = "collectionGroupErrorDetails";
 const _cGN = "collectionGroupName";
 const _cGS = "collectionGroupSummaries";
+const _cIO = "capacityInOcu";
 const _cL = "capacityLimits";
 const _cS = "collectionSummaries";
 const _cT = "clientToken";
@@ -247,6 +252,7 @@ const _cVED = "createVpcEndpointDetail";
 const _d = "description";
 const _dCD = "deleteCollectionDetail";
 const _dE = "dashboardEndpoint";
+const _dP = "deletionProtection";
 const _dVED = "deleteVpcEndpointDetail";
 const _e = "error";
 const _eC = "errorCode";
@@ -257,6 +263,7 @@ const _eM = "errorMessage";
 const _fC = "failureCode";
 const _fE = "fipsEndpoints";
 const _fM = "failureMessage";
+const _g = "generation";
 const _gA = "groupAttribute";
 const _hE = "httpError";
 const _i = "ids";
@@ -268,6 +275,7 @@ const _iN = "indexName";
 const _iS = "indexSchema";
 const _id = "identifiers";
 const _id_ = "id";
+const _in = "indexing";
 const _k = "key";
 const _kKA = "kmsKeyArn";
 const _lMD = "lastModifiedDate";
@@ -313,6 +321,7 @@ const _sPS = "securityPolicySummaries";
 const _sR = "standbyReplicas";
 const _sT = "sessionTimeout";
 const _se = "server";
+const _sea = "search";
 const _st = "status";
 const _t = "type";
 const _tK = "tagKeys";
@@ -463,15 +472,20 @@ export var BatchGetVpcEndpointResponse$: StaticStructureSchema = [3, n0, _BGVERa
   [_vED, _vEED],
   [() => VpcEndpointDetails, () => VpcEndpointErrorDetails]
 ];
+export var CapacityDetails$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_cIO, _aS],
+  [1, 0]
+];
 export var CapacityLimits$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_mICIOCU, _mSCIOCU],
   [1, 1]
 ];
-export var CollectionDetail$: StaticStructureSchema = [3, n0, _CD,
+export var CollectionDetail$: StaticStructureSchema = [3, n0, _CDo,
   0,
-  [_id_, _n, _st, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cE, _dE, _fE, _fC, _fM, _cGN],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions$, 1, 1, 0, 0, () => FipsEndpoints$, 0, 0, 0]
+  [_id_, _n, _st, _t, _d, _a, _kKA, _sR, _dP, _vO, _cD, _lMD, _cE, _dE, _fE, _fC, _fM, _cGN],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions$, 1, 1, 0, 0, () => FipsEndpoints$, 0, 0, 0]
 ];
 export var CollectionErrorDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
@@ -490,8 +504,8 @@ export var CollectionGroupCapacityLimits$: StaticStructureSchema = [3, n0, _CGCL
 ];
 export var CollectionGroupDetail$: StaticStructureSchema = [3, n0, _CGD,
   0,
-  [_id_, _a, _n, _sR, _d, _ta, _cD, _cL, _nOC],
-  [0, 0, 0, 0, 0, () => Tags, 1, () => CollectionGroupCapacityLimits$, 1]
+  [_id_, _a, _n, _sR, _d, _ta, _cD, _cL, _cC, _nOC, _g],
+  [0, 0, 0, 0, 0, () => Tags, 1, () => CollectionGroupCapacityLimits$, () => CurrentCapacity$, 1, 0]
 ];
 export var CollectionGroupErrorDetail$: StaticStructureSchema = [3, n0, _CGED,
   0,
@@ -500,8 +514,8 @@ export var CollectionGroupErrorDetail$: StaticStructureSchema = [3, n0, _CGED,
 ];
 export var CollectionGroupSummary$: StaticStructureSchema = [3, n0, _CGS,
   0,
-  [_id_, _a, _n, _nOC, _cD, _cL],
-  [0, 0, 0, 1, 1, () => CollectionGroupCapacityLimits$]
+  [_id_, _a, _n, _nOC, _cD, _cL, _g],
+  [0, 0, 0, 1, 1, () => CollectionGroupCapacityLimits$, 0]
 ];
 export var CollectionSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -520,18 +534,18 @@ export var CreateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _CAPRr,
 ];
 export var CreateCollectionDetail$: StaticStructureSchema = [3, n0, _CCD,
   0,
-  [_id_, _n, _st, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cGN],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions$, 1, 1, 0]
+  [_id_, _n, _st, _t, _d, _a, _kKA, _sR, _dP, _vO, _cD, _lMD, _cGN],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions$, 1, 1, 0]
 ];
 export var CreateCollectionGroupDetail$: StaticStructureSchema = [3, n0, _CCGD,
   0,
-  [_id_, _a, _n, _sR, _d, _ta, _cD, _cL],
-  [0, 0, 0, 0, 0, () => Tags, 1, () => CollectionGroupCapacityLimits$]
+  [_id_, _a, _n, _sR, _d, _ta, _cD, _cL, _g],
+  [0, 0, 0, 0, 0, () => Tags, 1, () => CollectionGroupCapacityLimits$, 0]
 ];
 export var CreateCollectionGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
-  [_n, _sR, _d, _ta, _cL, _cT],
-  [0, 0, 0, () => Tags, () => CollectionGroupCapacityLimits$, [0, 4]], 2
+  [_n, _sR, _d, _ta, _cL, _g, _cT],
+  [0, 0, 0, () => Tags, () => CollectionGroupCapacityLimits$, 0, [0, 4]], 2
 ];
 export var CreateCollectionGroupResponse$: StaticStructureSchema = [3, n0, _CCGRr,
   0,
@@ -540,8 +554,8 @@ export var CreateCollectionGroupResponse$: StaticStructureSchema = [3, n0, _CCGR
 ];
 export var CreateCollectionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_n, _t, _d, _ta, _sR, _vO, _cGN, _eCn, _cT],
-  [0, 0, 0, () => Tags, 0, () => VectorOptions$, 0, () => EncryptionConfig$, [0, 4]], 1
+  [_n, _t, _d, _ta, _sR, _vO, _cGN, _eCn, _dP, _cT],
+  [0, 0, 0, () => Tags, 0, () => VectorOptions$, 0, () => EncryptionConfig$, 0, [0, 4]], 1
 ];
 export var CreateCollectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -608,6 +622,11 @@ export var CreateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _CVERr,
   [_cVED],
   [() => CreateVpcEndpointDetail$]
 ];
+export var CurrentCapacity$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_sea, _in],
+  [() => CapacityDetails$, () => CapacityDetails$]
+];
 export var DeleteAccessPolicyRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
   [_t, _n, _cT],
@@ -620,8 +639,8 @@ export var DeleteAccessPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRe,
 ];
 export var DeleteCollectionDetail$: StaticStructureSchema = [3, n0, _DCD,
   0,
-  [_id_, _n, _st],
-  [0, 0, 0]
+  [_id_, _n, _st, _dP],
+  [0, 0, 0, 0]
 ];
 export var DeleteCollectionGroupRequest$: StaticStructureSchema = [3, n0, _DCGR,
   0,
@@ -980,13 +999,13 @@ export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASR
 ];
 export var UpdateCollectionDetail$: StaticStructureSchema = [3, n0, _UCD,
   0,
-  [_id_, _n, _st, _t, _d, _vO, _a, _cD, _lMD],
-  [0, 0, 0, 0, 0, () => VectorOptions$, 0, 1, 1]
+  [_id_, _n, _st, _t, _d, _vO, _a, _cD, _lMD, _dP],
+  [0, 0, 0, 0, 0, () => VectorOptions$, 0, 1, 1, 0]
 ];
 export var UpdateCollectionGroupDetail$: StaticStructureSchema = [3, n0, _UCGD,
   0,
-  [_id_, _a, _n, _d, _cL, _cD, _lMD],
-  [0, 0, 0, 0, () => CollectionGroupCapacityLimits$, 1, 1]
+  [_id_, _a, _n, _d, _cL, _cD, _lMD, _g],
+  [0, 0, 0, 0, () => CollectionGroupCapacityLimits$, 1, 1, 0]
 ];
 export var UpdateCollectionGroupRequest$: StaticStructureSchema = [3, n0, _UCGR,
   0,
@@ -1000,8 +1019,8 @@ export var UpdateCollectionGroupResponse$: StaticStructureSchema = [3, n0, _UCGR
 ];
 export var UpdateCollectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_id_, _d, _vO, _cT],
-  [0, 0, () => VectorOptions$, [0, 4]], 1
+  [_id_, _d, _vO, _dP, _cT],
+  [0, 0, () => VectorOptions$, 0, [0, 4]], 1
 ];
 export var UpdateCollectionResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1096,7 +1115,7 @@ export var VpcEndpointSummary$: StaticStructureSchema = [3, n0, _VES,
 var AccessPolicySummaries: StaticListSchema = [1, n0, _APScc,
   0, () => AccessPolicySummary$
 ];
-var CollectionDetails: StaticListSchema = [1, n0, _CDo,
+var CollectionDetails: StaticListSchema = [1, n0, _CDol,
   0, () => CollectionDetail$
 ];
 var CollectionErrorDetails: StaticListSchema = [1, n0, _CEDo,
@@ -1181,7 +1200,7 @@ export var BatchGetVpcEndpoint$: StaticOperationSchema = [9, n0, _BGVE,
 export var CreateAccessPolicy$: StaticOperationSchema = [9, n0, _CAP,
   2, () => CreateAccessPolicyRequest$, () => CreateAccessPolicyResponse$
 ];
-export var CreateCollection$: StaticOperationSchema = [9, n0, _CC,
+export var CreateCollection$: StaticOperationSchema = [9, n0, _CCr,
   2, () => CreateCollectionRequest$, () => CreateCollectionResponse$
 ];
 export var CreateCollectionGroup$: StaticOperationSchema = [9, n0, _CCG,

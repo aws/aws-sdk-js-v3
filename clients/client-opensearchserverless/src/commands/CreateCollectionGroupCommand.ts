@@ -56,6 +56,7 @@ export interface CreateCollectionGroupCommandOutput extends CreateCollectionGrou
  *     minIndexingCapacityInOCU: Number("float"),
  *     minSearchCapacityInOCU: Number("float"),
  *   },
+ *   generation: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateCollectionGroupCommand(input);
@@ -80,6 +81,7 @@ export interface CreateCollectionGroupCommandOutput extends CreateCollectionGrou
  * //       minIndexingCapacityInOCU: Number("float"),
  * //       minSearchCapacityInOCU: Number("float"),
  * //     },
+ * //     generation: "STRING_VALUE",
  * //   },
  * // };
  *

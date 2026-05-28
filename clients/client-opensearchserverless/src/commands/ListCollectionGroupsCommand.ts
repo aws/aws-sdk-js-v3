@@ -60,6 +60,7 @@ export interface ListCollectionGroupsCommandOutput extends ListCollectionGroupsR
  * //         minIndexingCapacityInOCU: Number("float"),
  * //         minSearchCapacityInOCU: Number("float"),
  * //       },
+ * //       generation: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

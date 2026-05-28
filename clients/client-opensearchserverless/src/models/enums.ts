@@ -18,6 +18,39 @@ export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPoli
  * @public
  * @enum
  */
+export const AutoscalingStatus = {
+  ACTION_SCALING_DOWN: "ACTION_SCALING_DOWN",
+  ACTION_SCALING_UP: "ACTION_SCALING_UP",
+  NO_ACTION: "NO_ACTION",
+} as const;
+/**
+ * @public
+ */
+export type AutoscalingStatus = (typeof AutoscalingStatus)[keyof typeof AutoscalingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeletionProtection = {
+  /**
+   * Deletion protection disabled
+   */
+  DISABLED: "DISABLED",
+  /**
+   * Deletion protection enabled
+   */
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DeletionProtection = (typeof DeletionProtection)[keyof typeof DeletionProtection];
+
+/**
+ * @public
+ * @enum
+ */
 export const StandbyReplicas = {
   /**
    * Standby replicas disabled
@@ -114,6 +147,19 @@ export const ServerlessVectorAccelerationStatus = {
  */
 export type ServerlessVectorAccelerationStatus =
   (typeof ServerlessVectorAccelerationStatus)[keyof typeof ServerlessVectorAccelerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ServerlessGeneration = {
+  CLASSIC: "CLASSIC",
+  NEXTGEN: "NEXTGEN",
+} as const;
+/**
+ * @public
+ */
+export type ServerlessGeneration = (typeof ServerlessGeneration)[keyof typeof ServerlessGeneration];
 
 /**
  * @public

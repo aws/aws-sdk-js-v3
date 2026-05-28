@@ -4,6 +4,7 @@ import {
   AccessPolicySummary$,
   AccessPolicyType,
   AccountSettingsDetail$,
+  AutoscalingStatus,
   BatchGetCollection$,
   BatchGetCollectionCommand,
   BatchGetCollectionGroup$,
@@ -24,6 +25,7 @@ import {
   BatchGetVpcEndpointCommand,
   BatchGetVpcEndpointRequest$,
   BatchGetVpcEndpointResponse$,
+  CapacityDetails$,
   CapacityLimits$,
   CollectionDetail$,
   CollectionErrorDetail$,
@@ -73,6 +75,7 @@ import {
   CreateVpcEndpointDetail$,
   CreateVpcEndpointRequest$,
   CreateVpcEndpointResponse$,
+  CurrentCapacity$,
   DeleteAccessPolicy$,
   DeleteAccessPolicyCommand,
   DeleteAccessPolicyRequest$,
@@ -107,6 +110,7 @@ import {
   DeleteVpcEndpointDetail$,
   DeleteVpcEndpointRequest$,
   DeleteVpcEndpointResponse$,
+  DeletionProtection,
   EffectiveLifecyclePolicyDetail$,
   EffectiveLifecyclePolicyErrorDetail$,
   EncryptionConfig$,
@@ -204,6 +208,7 @@ import {
   SecurityPolicyStats$,
   SecurityPolicySummary$,
   SecurityPolicyType,
+  ServerlessGeneration,
   ServerlessVectorAccelerationStatus,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -378,6 +383,7 @@ assert(typeof BatchGetLifecyclePolicyRequest$ === "object");
 assert(typeof BatchGetLifecyclePolicyResponse$ === "object");
 assert(typeof BatchGetVpcEndpointRequest$ === "object");
 assert(typeof BatchGetVpcEndpointResponse$ === "object");
+assert(typeof CapacityDetails$ === "object");
 assert(typeof CapacityLimits$ === "object");
 assert(typeof CollectionDetail$ === "object");
 assert(typeof CollectionErrorDetail$ === "object");
@@ -407,6 +413,7 @@ assert(typeof CreateSecurityPolicyResponse$ === "object");
 assert(typeof CreateVpcEndpointDetail$ === "object");
 assert(typeof CreateVpcEndpointRequest$ === "object");
 assert(typeof CreateVpcEndpointResponse$ === "object");
+assert(typeof CurrentCapacity$ === "object");
 assert(typeof DeleteAccessPolicyRequest$ === "object");
 assert(typeof DeleteAccessPolicyResponse$ === "object");
 assert(typeof DeleteCollectionDetail$ === "object");
@@ -506,14 +513,17 @@ assert(typeof VpcEndpointFilters$ === "object");
 assert(typeof VpcEndpointSummary$ === "object");
 // enums
 assert(typeof AccessPolicyType === "object");
+assert(typeof AutoscalingStatus === "object");
 assert(typeof CollectionStatus === "object");
 assert(typeof CollectionType === "object");
+assert(typeof DeletionProtection === "object");
 assert(typeof IamIdentityCenterGroupAttribute === "object");
 assert(typeof IamIdentityCenterUserAttribute === "object");
 assert(typeof LifecyclePolicyType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof SecurityConfigType === "object");
 assert(typeof SecurityPolicyType === "object");
+assert(typeof ServerlessGeneration === "object");
 assert(typeof ServerlessVectorAccelerationStatus === "object");
 assert(typeof StandbyReplicas === "object");
 assert(typeof VpcEndpointStatus === "object");

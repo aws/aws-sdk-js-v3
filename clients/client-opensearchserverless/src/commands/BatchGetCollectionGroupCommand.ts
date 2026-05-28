@@ -71,7 +71,18 @@ export interface BatchGetCollectionGroupCommandOutput extends BatchGetCollection
  * //         minIndexingCapacityInOCU: Number("float"),
  * //         minSearchCapacityInOCU: Number("float"),
  * //       },
+ * //       currentCapacity: { // CurrentCapacity
+ * //         search: { // CapacityDetails
+ * //           capacityInOcu: Number("float"),
+ * //           autoscalingStatus: "STRING_VALUE",
+ * //         },
+ * //         indexing: {
+ * //           capacityInOcu: Number("float"),
+ * //           autoscalingStatus: "STRING_VALUE",
+ * //         },
+ * //       },
  * //       numberOfCollections: Number("int"),
+ * //       generation: "STRING_VALUE",
  * //     },
  * //   ],
  * //   collectionGroupErrorDetails: [ // CollectionGroupErrorDetails
