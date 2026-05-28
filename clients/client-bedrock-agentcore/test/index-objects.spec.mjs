@@ -238,6 +238,7 @@ import {
   HarnessAgentCoreBrowserConfig$,
   HarnessAgentCoreCodeInterpreterConfig$,
   HarnessAgentCoreGatewayConfig$,
+  HarnessBedrockApiFormat,
   HarnessBedrockModelConfig$,
   HarnessContentBlock$,
   HarnessContentBlockDelta$,
@@ -249,17 +250,22 @@ import {
   HarnessGatewayOutboundAuth$,
   HarnessGeminiModelConfig$,
   HarnessInlineFunctionConfig$,
+  HarnessLiteLlmModelConfig$,
   HarnessMessage$,
   HarnessMessageStartEvent$,
   HarnessMessageStopEvent$,
   HarnessMetadataEvent$,
   HarnessModelConfiguration$,
+  HarnessOpenAiApiFormat,
   HarnessOpenAiModelConfig$,
   HarnessReasoningContentBlock$,
   HarnessReasoningContentBlockDelta$,
   HarnessReasoningTextBlock$,
   HarnessRemoteMcpConfig$,
   HarnessSkill$,
+  HarnessSkillGitAuth$,
+  HarnessSkillGitSource$,
+  HarnessSkillS3Source$,
   HarnessStopReason,
   HarnessStreamMetrics$,
   HarnessSystemContentBlock$,
@@ -866,6 +872,7 @@ assert(typeof HarnessContentBlockStopEvent$ === "object");
 assert(typeof HarnessGatewayOutboundAuth$ === "object");
 assert(typeof HarnessGeminiModelConfig$ === "object");
 assert(typeof HarnessInlineFunctionConfig$ === "object");
+assert(typeof HarnessLiteLlmModelConfig$ === "object");
 assert(typeof HarnessMessage$ === "object");
 assert(typeof HarnessMessageStartEvent$ === "object");
 assert(typeof HarnessMessageStopEvent$ === "object");
@@ -877,6 +884,9 @@ assert(typeof HarnessReasoningContentBlockDelta$ === "object");
 assert(typeof HarnessReasoningTextBlock$ === "object");
 assert(typeof HarnessRemoteMcpConfig$ === "object");
 assert(typeof HarnessSkill$ === "object");
+assert(typeof HarnessSkillGitAuth$ === "object");
+assert(typeof HarnessSkillGitSource$ === "object");
+assert(typeof HarnessSkillS3Source$ === "object");
 assert(typeof HarnessStreamMetrics$ === "object");
 assert(typeof HarnessSystemContentBlock$ === "object");
 assert(typeof HarnessTokenUsage$ === "object");
@@ -1081,7 +1091,9 @@ assert(typeof Currency === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof EventFilterCondition === "object");
 assert(typeof ExtractionJobStatus === "object");
+assert(typeof HarnessBedrockApiFormat === "object");
 assert(typeof HarnessConversationRole === "object");
+assert(typeof HarnessOpenAiApiFormat === "object");
 assert(typeof HarnessStopReason === "object");
 assert(typeof HarnessToolType === "object");
 assert(typeof HarnessToolUseStatus === "object");

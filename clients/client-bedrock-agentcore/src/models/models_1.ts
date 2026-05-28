@@ -6,6 +6,7 @@ import type {
   CryptoWalletNetwork,
   Currency,
   DescriptorType,
+  EventFilterCondition,
   InstrumentBalanceToken,
   PaymentInstrumentStatus,
   PaymentInstrumentType,
@@ -20,6 +21,94 @@ import type {
   MemoryMetadataFilterExpression,
   MemoryRecordSummary,
 } from "./models_0";
+
+/**
+ * <p>Contains filter criteria for listing sessions.</p>
+ * @public
+ */
+export interface SessionFilter {
+  /**
+   * <p>The event filter condition to apply. Use this to filter sessions based on event presence.</p>
+   * @public
+   */
+  eventFilter?: EventFilterCondition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource for which to list sessions.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor for which to list sessions. </p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter criteria to apply when listing sessions.</p>
+   * @public
+   */
+  filter?: SessionFilter | undefined;
+}
+
+/**
+ * <p>Contains summary information about a session in an AgentCore Memory resource.</p>
+ * @public
+ */
+export interface SessionSummary {
+  /**
+   * <p>The unique identifier of the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor associated with the session.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The timestamp when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsOutput {
+  /**
+   * <p>The list of session summaries that match the specified criteria.</p>
+   * @public
+   */
+  sessionSummaries: SessionSummary[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>Contains search criteria for retrieving memory records.</p>

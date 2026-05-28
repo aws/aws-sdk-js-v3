@@ -402,6 +402,48 @@ export type HarnessConversationRole = (typeof HarnessConversationRole)[keyof typ
  * @public
  * @enum
  */
+export const HarnessBedrockApiFormat = {
+  /**
+   * <p>Use the Chat Completions API format.</p>
+   */
+  CHAT_COMPLETIONS: "chat_completions",
+  /**
+   * <p>Use the Bedrock Converse Stream API format.</p>
+   */
+  CONVERSE_STREAM: "converse_stream",
+  /**
+   * <p>Use the Responses API format.</p>
+   */
+  RESPONSES: "responses",
+} as const;
+/**
+ * @public
+ */
+export type HarnessBedrockApiFormat = (typeof HarnessBedrockApiFormat)[keyof typeof HarnessBedrockApiFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessOpenAiApiFormat = {
+  /**
+   * <p>Use the Chat Completions API format.</p>
+   */
+  CHAT_COMPLETIONS: "chat_completions",
+  /**
+   * <p>Use the Responses API format.</p>
+   */
+  RESPONSES: "responses",
+} as const;
+/**
+ * @public
+ */
+export type HarnessOpenAiApiFormat = (typeof HarnessOpenAiApiFormat)[keyof typeof HarnessOpenAiApiFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const OAuthGrantType = {
   AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",

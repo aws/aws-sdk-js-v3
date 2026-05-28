@@ -13,9 +13,10 @@ import type {
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
   ContentBlockType,
-  EventFilterCondition,
   ExtractionJobStatus,
+  HarnessBedrockApiFormat,
   HarnessConversationRole,
+  HarnessOpenAiApiFormat,
   HarnessStopReason,
   HarnessToolType,
   HarnessToolUseStatus,
@@ -3694,7 +3695,7 @@ export interface EvaluationExpectedTrajectory {
  */
 export interface EvaluationReferenceInput {
   /**
-   * <p> The contextual information associated with an evaluation, including span context details that identify the specific traces and sessions being evaluated within the agent's execution flow. </p>
+   * <p> The span context that identifies which session or trace this reference input applies to, used for correlating ground truth with agent output. </p>
    * @public
    */
   context: Context | undefined;
@@ -4121,7 +4122,7 @@ export type DataSourceConfig =
  */
 export namespace DataSourceConfig {
   /**
-   * Pull session spans from CloudWatch
+   * <p>Configuration for pulling agent session traces from CloudWatch Logs.</p>
    * @public
    */
   export interface CloudWatchLogsMember {
@@ -5259,7 +5260,7 @@ export interface InlineGroundTruth {
   assertions?: EvaluationContent[] | undefined;
 
   /**
-   * expectedTrajectory for evaluation, reuses common model EvaluationExpectedTrajectory
+   * <p>The expected tool call sequence for trajectory evaluation.</p>
    * @public
    */
   expectedTrajectory?: EvaluationExpectedTrajectory | undefined;
@@ -5284,7 +5285,7 @@ export type GroundTruthSource =
  */
 export namespace GroundTruthSource {
   /**
-   * Provide ground truth inline
+   * <p>Inline ground truth data provided directly in the request.</p>
    * @public
    */
   export interface InlineMember {
@@ -6973,6 +6974,18 @@ export interface HarnessBedrockModelConfig {
    * @public
    */
   topP?: number | undefined;
+
+  /**
+   * <p>The API format to use when calling the Bedrock provider.</p>
+   * @public
+   */
+  apiFormat?: HarnessBedrockApiFormat | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
 }
 
 /**
@@ -7018,6 +7031,54 @@ export interface HarnessGeminiModelConfig {
 }
 
 /**
+ * <p>Configuration for a LiteLLM model provider, enabling connection to third-party model providers.</p>
+ * @public
+ */
+export interface HarnessLiteLlmModelConfig {
+  /**
+   * <p>The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of the API key in AgentCore Identity for authenticating with the model provider.</p>
+   * @public
+   */
+  apiKeyArn?: string | undefined;
+
+  /**
+   * <p>The base URL for the model provider's API endpoint.</p>
+   * @public
+   */
+  apiBase?: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
+}
+
+/**
  * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
  * @public
  */
@@ -7051,6 +7112,18 @@ export interface HarnessOpenAiModelConfig {
    * @public
    */
   topP?: number | undefined;
+
+  /**
+   * <p>The API format to use when calling the OpenAI provider.</p>
+   * @public
+   */
+  apiFormat?: HarnessOpenAiApiFormat | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
 }
 
 /**
@@ -7060,6 +7133,7 @@ export interface HarnessOpenAiModelConfig {
 export type HarnessModelConfiguration =
   | HarnessModelConfiguration.BedrockModelConfigMember
   | HarnessModelConfiguration.GeminiModelConfigMember
+  | HarnessModelConfiguration.LiteLlmModelConfigMember
   | HarnessModelConfiguration.OpenAiModelConfigMember
   | HarnessModelConfiguration.$UnknownMember;
 
@@ -7075,6 +7149,7 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig: HarnessBedrockModelConfig;
     openAiModelConfig?: never;
     geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
     $unknown?: never;
   }
 
@@ -7086,6 +7161,7 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig?: never;
     openAiModelConfig: HarnessOpenAiModelConfig;
     geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
     $unknown?: never;
   }
 
@@ -7097,6 +7173,19 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig?: never;
     openAiModelConfig?: never;
     geminiModelConfig: HarnessGeminiModelConfig;
+    liteLlmModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The LiteLLM model configuration for connecting to third-party model providers.</p>
+   * @public
+   */
+  export interface LiteLlmModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    liteLlmModelConfig: HarnessLiteLlmModelConfig;
     $unknown?: never;
   }
 
@@ -7107,6 +7196,7 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig?: never;
     openAiModelConfig?: never;
     geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
     $unknown: [string, any];
   }
 
@@ -7118,8 +7208,63 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig: (value: HarnessBedrockModelConfig) => T;
     openAiModelConfig: (value: HarnessOpenAiModelConfig) => T;
     geminiModelConfig: (value: HarnessGeminiModelConfig) => T;
+    liteLlmModelConfig: (value: HarnessLiteLlmModelConfig) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * <p>Authentication configuration for accessing a private git repository.</p>
+ * @public
+ */
+export interface HarnessSkillGitAuth {
+  /**
+   * <p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>
+   * @public
+   */
+  credentialArn: string | undefined;
+
+  /**
+   * <p>Username for authentication. Defaults to 'oauth2' if not specified.</p>
+   * @public
+   */
+  username?: string | undefined;
+}
+
+/**
+ * <p>A git repository source for a skill.</p>
+ * @public
+ */
+export interface HarnessSkillGitSource {
+  /**
+   * <p>The HTTPS URL of the git repository.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Subdirectory within the repository containing the skill.</p>
+   * @public
+   */
+  path?: string | undefined;
+
+  /**
+   * <p>Authentication configuration for private repositories.</p>
+   * @public
+   */
+  auth?: HarnessSkillGitAuth | undefined;
+}
+
+/**
+ * <p>An S3 source for a skill.</p>
+ * @public
+ */
+export interface HarnessSkillS3Source {
+  /**
+   * <p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>
+   * @public
+   */
+  uri: string | undefined;
 }
 
 /**
@@ -7127,7 +7272,9 @@ export namespace HarnessModelConfiguration {
  * @public
  */
 export type HarnessSkill =
+  | HarnessSkill.GitMember
   | HarnessSkill.PathMember
+  | HarnessSkill.S3Member
   | HarnessSkill.$UnknownMember;
 
 /**
@@ -7140,6 +7287,30 @@ export namespace HarnessSkill {
    */
   export interface PathMember {
     path: string;
+    s3?: never;
+    git?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An S3 source containing the skill.</p>
+   * @public
+   */
+  export interface S3Member {
+    path?: never;
+    s3: HarnessSkillS3Source;
+    git?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A git repository containing the skill.</p>
+   * @public
+   */
+  export interface GitMember {
+    path?: never;
+    s3?: never;
+    git: HarnessSkillGitSource;
     $unknown?: never;
   }
 
@@ -7148,6 +7319,8 @@ export namespace HarnessSkill {
    */
   export interface $UnknownMember {
     path?: never;
+    s3?: never;
+    git?: never;
     $unknown: [string, any];
   }
 
@@ -7157,6 +7330,8 @@ export namespace HarnessSkill {
    */
   export interface Visitor<T> {
     path: (value: string) => T;
+    s3: (value: HarnessSkillS3Source) => T;
+    git: (value: HarnessSkillGitSource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7534,6 +7709,12 @@ export interface InvokeHarnessRequest {
    * @public
    */
   runtimeSessionId: string | undefined;
+
+  /**
+   * <p>An identifier for the end user making the request. This value is passed through to the runtime container.</p>
+   * @public
+   */
+  runtimeUserId?: string | undefined;
 
   /**
    * <p>The messages to send to the agent.</p>
@@ -8213,7 +8394,7 @@ export namespace InvokeHarnessStreamOutput {
   }
 
   /**
-   * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+   * <p>An error returned by the runtime container during agent execution.</p>
    * @public
    */
   export interface RuntimeClientErrorMember {
@@ -9732,94 +9913,6 @@ export interface ListMemoryRecordsOutput {
    * @public
    */
   memoryRecordSummaries: MemoryRecordSummary[] | undefined;
-
-  /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains filter criteria for listing sessions.</p>
- * @public
- */
-export interface SessionFilter {
-  /**
-   * <p>The event filter condition to apply. Use this to filter sessions based on event presence.</p>
-   * @public
-   */
-  eventFilter?: EventFilterCondition | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSessionsInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource for which to list sessions.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The identifier of the actor for which to list sessions. </p>
-   * @public
-   */
-  actorId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Filter criteria to apply when listing sessions.</p>
-   * @public
-   */
-  filter?: SessionFilter | undefined;
-}
-
-/**
- * <p>Contains summary information about a session in an AgentCore Memory resource.</p>
- * @public
- */
-export interface SessionSummary {
-  /**
-   * <p>The unique identifier of the session.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The identifier of the actor associated with the session.</p>
-   * @public
-   */
-  actorId: string | undefined;
-
-  /**
-   * <p>The timestamp when the session was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSessionsOutput {
-  /**
-   * <p>The list of session summaries that match the specified criteria.</p>
-   * @public
-   */
-  sessionSummaries: SessionSummary[] | undefined;
 
   /**
    * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>

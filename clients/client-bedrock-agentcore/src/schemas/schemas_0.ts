@@ -119,7 +119,6 @@ const _DRR = "DeleteRecommendationRequest";
 const _DRRe = "DeleteRecommendationResponse";
 const _DSC = "DataSourceConfig";
 const _De = "Descriptors";
-const _Do = "Document";
 const _E = "Email";
 const _EC = "EvaluationContent";
 const _ECL = "EvaluationContentList";
@@ -228,6 +227,8 @@ const _HGOA = "HarnessGatewayOutboundAuth";
 const _HHM = "HttpHeadersMap";
 const _HIFC = "HarnessInlineFunctionConfig";
 const _HIFD = "HarnessInlineFunctionDescription";
+const _HLLAB = "HarnessLiteLlmApiBase";
+const _HLLMC = "HarnessLiteLlmModelConfig";
 const _HM = "HarnessMessage";
 const _HMC = "HarnessModelConfiguration";
 const _HME = "HarnessMetadataEvent";
@@ -242,8 +243,11 @@ const _HRMU = "HarnessRemoteMcpUrl";
 const _HRTB = "HarnessReasoningTextBlock";
 const _HS = "HarnessSkills";
 const _HSCB = "HarnessSystemContentBlock";
+const _HSGA = "HarnessSkillGitAuth";
+const _HSGS = "HarnessSkillGitSource";
 const _HSM = "HarnessStreamMetrics";
 const _HSP = "HarnessSystemPrompt";
+const _HSSS = "HarnessSkillS3Source";
 const _HSa = "HarnessSkill";
 const _HT = "HarnessTool";
 const _HTC = "HarnessToolConfiguration";
@@ -334,9 +338,10 @@ const _LVS = "LiveViewStream";
 const _MC = "MemoryContent";
 const _MCA = "MouseClickArguments";
 const _MCR = "MouseClickResult";
-const _MD = "McpDescriptor";
+const _MD = "MemoryDocument";
 const _MDA = "MouseDragArguments";
 const _MDR = "MouseDragResult";
+const _MDc = "McpDescriptor";
 const _ML = "MessagesList";
 const _MM = "MessageMetadata";
 const _MMA = "MouseMoveArguments";
@@ -526,12 +531,14 @@ const _XABARSI = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id";
 const _XABARUI = "X-Amzn-Bedrock-AgentCore-Runtime-User-Id";
 const _XATI = "X-Amzn-Trace-Id";
 const _a = "a2a";
+const _aB = "apiBase";
 const _aC = "agentCard";
 const _aCB = "agentCoreBrowser";
 const _aCCI = "agentCoreCodeInterpreter";
 const _aCG = "agentCoreGateway";
 const _aCb = "absoluteChange";
 const _aDE = "accessDeniedException";
+const _aF = "apiFormat";
 const _aI = "actorId";
 const _aIc = "accountId";
 const _aIp = "appId";
@@ -540,6 +547,7 @@ const _aK = "apiKey";
 const _aKA = "apiKeyArn";
 const _aL = "availableLimits";
 const _aN = "agentName";
+const _aP = "additionalParams";
 const _aRA = "agentRuntimeArn";
 const _aS = "automationStream";
 const _aSA = "availableSpendAmount";
@@ -563,6 +571,7 @@ const _ap = "apple";
 const _ar = "arguments";
 const _as = "assertions";
 const _au = "audiences";
+const _aut = "auth";
 const _b = "branch";
 const _bA = "bundleArn";
 const _bAT = "basicAuthToken";
@@ -585,6 +594,7 @@ const _buc = "bucket";
 const _by = "bypass";
 const _c = "client";
 const _cA = "createdAt";
+const _cAr = "credentialArn";
 const _cB = "configurationBundle";
 const _cBD = "contentBlockDelta";
 const _cBI = "contentBlockIndex";
@@ -688,13 +698,14 @@ const _fR = "failedRecords";
 const _fRa = "failureReason";
 const _fi = "filter";
 const _fo = "format";
-const _g = "google";
+const _g = "git";
 const _gA = "gatewayArn";
 const _gF = "gatewayFilter";
 const _gMC = "geminiModelConfig";
 const _gT = "grantType";
 const _gTr = "groundTruth";
 const _gi = "github";
+const _go = "google";
 const _h = "headers";
 const _hA = "harnessArn";
 const _hE = "httpError";
@@ -733,6 +744,7 @@ const _lA = "linkedAccounts";
 const _lGA = "logGroupArns";
 const _lGN = "logGroupNames";
 const _lGNo = "logGroupName";
+const _lLMC = "liteLlmModelConfig";
 const _lM = "latencyMs";
 const _lSN = "logStreamName";
 const _lUA = "lastUpdatedAt";
@@ -1143,11 +1155,12 @@ var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 var CoinbaseCdpPaymentJwtTokenType: StaticSimpleSchema = [0, n0, _CCPJTT, 8, 0];
 var CustomRequestValueType: StaticSimpleSchema = [0, n0, _CRVT, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
-var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
 var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
 var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
+var HarnessLiteLlmApiBase: StaticSimpleSchema = [0, n0, _HLLAB, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
+var MemoryDocument: StaticSimpleSchema = [0, n0, _MD, 8, 15];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var PaymentDocument: StaticSimpleSchema = [0, n0, _PD, 8, 15];
 var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
@@ -1815,8 +1828,8 @@ export var HarnessAgentCoreGatewayConfig$: StaticStructureSchema = [3, n0, _HACG
 ];
 export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
   0,
-  [_mIo, _mTa, _tem, _tPo],
-  [0, 1, 1, 1], 1
+  [_mIo, _mTa, _tem, _tPo, _aF, _aP],
+  [0, 1, 1, 1, 0, 15], 1
 ];
 export var HarnessContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _HCBDE,
   0,
@@ -1843,6 +1856,11 @@ export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
   [_d, _iS],
   [[() => HarnessInlineFunctionDescription, 0], [() => SensitiveJson, 0]], 2
 ];
+export var HarnessLiteLlmModelConfig$: StaticStructureSchema = [3, n0, _HLLMC,
+  0,
+  [_mIo, _aKA, _aB, _mTa, _tem, _tPo, _aP],
+  [0, 0, [() => HarnessLiteLlmApiBase, 0], 1, 1, 1, 15], 1
+];
 export var HarnessMessage$: StaticStructureSchema = [3, n0, _HM,
   0,
   [_ro, _co],
@@ -1865,8 +1883,8 @@ export var HarnessMetadataEvent$: StaticStructureSchema = [3, n0, _HME,
 ];
 export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
   0,
-  [_mIo, _aKA, _mTa, _tem, _tPo],
-  [0, 0, 1, 1, 1], 2
+  [_mIo, _aKA, _mTa, _tem, _tPo, _aF, _aP],
+  [0, 0, 1, 1, 1, 0, 15], 2
 ];
 export var HarnessReasoningTextBlock$: StaticStructureSchema = [3, n0, _HRTB,
   8,
@@ -1877,6 +1895,21 @@ export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
   0,
   [_url, _h],
   [[() => HarnessRemoteMcpUrl, 0], [() => HttpHeadersMap, 0]], 1
+];
+export var HarnessSkillGitAuth$: StaticStructureSchema = [3, n0, _HSGA,
+  0,
+  [_cAr, _use],
+  [0, 0], 1
+];
+export var HarnessSkillGitSource$: StaticStructureSchema = [3, n0, _HSGS,
+  0,
+  [_url, _pa, _aut],
+  [0, 0, () => HarnessSkillGitAuth$], 1
+];
+export var HarnessSkillS3Source$: StaticStructureSchema = [3, n0, _HSSS,
+  0,
+  [_ur],
+  [0], 1
 ];
 export var HarnessStreamMetrics$: StaticStructureSchema = [3, n0, _HSM,
   0,
@@ -1975,8 +2008,8 @@ export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIR
 ];
 export var InvokeHarnessRequest$: StaticStructureSchema = [3, n0, _IHR,
   0,
-  [_hA, _rSI, _mes, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
-  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], () => HarnessModelConfiguration$, [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
+  [_hA, _rSI, _mes, _rUI, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
+  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], [0, { [_hH]: _XABARUI }], [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
 ];
 export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
   0,
@@ -2153,7 +2186,7 @@ export var LiveViewStream$: StaticStructureSchema = [3, n0, _LVS,
   [_sE],
   [0]
 ];
-export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
+export var McpDescriptor$: StaticStructureSchema = [3, n0, _MDc,
   0,
   [_se, _too],
   [() => ServerDefinition$, () => ToolsDefinition$], 2
@@ -2974,8 +3007,8 @@ export var HarnessGatewayOutboundAuth$: StaticUnionSchema = [4, n0, _HGOA,
 ];
 export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMC,
   0,
-  [_bMC, _oAMC, _gMC],
-  [() => HarnessBedrockModelConfig$, () => HarnessOpenAiModelConfig$, () => HarnessGeminiModelConfig$]
+  [_bMC, _oAMC, _gMC, _lLMC],
+  [() => HarnessBedrockModelConfig$, () => HarnessOpenAiModelConfig$, () => HarnessGeminiModelConfig$, [() => HarnessLiteLlmModelConfig$, 0]]
 ];
 export var HarnessReasoningContentBlock$: StaticUnionSchema = [4, n0, _HRCB,
   8,
@@ -2989,8 +3022,8 @@ export var HarnessReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _HRCB
 ];
 export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSa,
   0,
-  [_pa],
-  [0]
+  [_pa, _s_, _g],
+  [0, () => HarnessSkillS3Source$, () => HarnessSkillGitSource$]
 ];
 export var HarnessSystemContentBlock$: StaticUnionSchema = [4, n0, _HSCB,
   0,
@@ -3034,7 +3067,7 @@ export var LinkedAccount$: StaticUnionSchema = [4, n0, _LA,
 ];
 export var LinkedAccountOAuth2$: StaticUnionSchema = [4, n0, _LAOA,
   0,
-  [_g, _ap, _x, _tel, _gi],
+  [_go, _ap, _x, _tel, _gi],
   [[() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0], [() => OAuth2Authentication$, 0]]
 ];
 export var MemoryContent$: StaticUnionSchema = [4, n0, _MC,
@@ -3070,7 +3103,7 @@ export var OutputConfig$: StaticUnionSchema = [4, n0, _OC,
 export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
   0,
   [_conv, _bl],
-  [[() => Conversational$, 0], [() => Document, 0]]
+  [[() => Conversational$, 0], [() => MemoryDocument, 0]]
 ];
 export var PaymentInput$: StaticUnionSchema = [4, n0, _PIa,
   0,

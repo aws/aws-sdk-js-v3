@@ -43,6 +43,7 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  * const input = { // InvokeHarnessRequest
  *   harnessArn: "STRING_VALUE", // required
  *   runtimeSessionId: "STRING_VALUE", // required
+ *   runtimeUserId: "STRING_VALUE",
  *   messages: [ // HarnessMessages // required
  *     { // HarnessMessage
  *       role: "user" || "assistant", // required
@@ -84,6 +85,8 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *       maxTokens: Number("int"),
  *       temperature: Number("float"),
  *       topP: Number("float"),
+ *       apiFormat: "converse_stream" || "responses" || "chat_completions",
+ *       additionalParams: "DOCUMENT_VALUE",
  *     },
  *     openAiModelConfig: { // HarnessOpenAiModelConfig
  *       modelId: "STRING_VALUE", // required
@@ -91,6 +94,8 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *       maxTokens: Number("int"),
  *       temperature: Number("float"),
  *       topP: Number("float"),
+ *       apiFormat: "chat_completions" || "responses",
+ *       additionalParams: "DOCUMENT_VALUE",
  *     },
  *     geminiModelConfig: { // HarnessGeminiModelConfig
  *       modelId: "STRING_VALUE", // required
@@ -99,6 +104,15 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *       temperature: Number("float"),
  *       topP: Number("float"),
  *       topK: Number("int"),
+ *     },
+ *     liteLlmModelConfig: { // HarnessLiteLlmModelConfig
+ *       modelId: "STRING_VALUE", // required
+ *       apiKeyArn: "STRING_VALUE",
+ *       apiBase: "STRING_VALUE",
+ *       maxTokens: Number("int"),
+ *       temperature: Number("float"),
+ *       topP: Number("float"),
+ *       additionalParams: "DOCUMENT_VALUE",
  *     },
  *   },
  *   systemPrompt: [ // HarnessSystemPrompt
@@ -151,6 +165,17 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *   skills: [ // HarnessSkills
  *     { // HarnessSkill Union: only one key present
  *       path: "STRING_VALUE",
+ *       s3: { // HarnessSkillS3Source
+ *         uri: "STRING_VALUE", // required
+ *       },
+ *       git: { // HarnessSkillGitSource
+ *         url: "STRING_VALUE", // required
+ *         path: "STRING_VALUE",
+ *         auth: { // HarnessSkillGitAuth
+ *           credentialArn: "STRING_VALUE", // required
+ *           username: "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *   ],
  *   allowedTools: [ // HarnessAllowedTools
@@ -256,6 +281,9 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ *
+ * @throws {@link RuntimeClientError} (client fault)
+ *  <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
