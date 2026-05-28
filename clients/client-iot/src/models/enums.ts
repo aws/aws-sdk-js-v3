@@ -1133,6 +1133,18 @@ export type DeviceDefenderIndexingMode = (typeof DeviceDefenderIndexingMode)[key
  * @public
  * @enum
  */
+export const FleetIndexingApi = {
+  GET_THING_CONNECTIVITY_DATA: "GET_THING_CONNECTIVITY_DATA",
+} as const;
+/**
+ * @public
+ */
+export type FleetIndexingApi = (typeof FleetIndexingApi)[keyof typeof FleetIndexingApi];
+
+/**
+ * @public
+ * @enum
+ */
 export const TargetFieldOrder = {
   LatLon: "LatLon",
   LonLat: "LonLat",
@@ -1188,6 +1200,7 @@ export type ThingIndexingMode = (typeof ThingIndexingMode)[keyof typeof ThingInd
  * @enum
  */
 export const DisconnectReasonValue = {
+  API_INITIATED_DISCONNECT: "API_INITIATED_DISCONNECT",
   AUTH_ERROR: "AUTH_ERROR",
   CLIENT_ERROR: "CLIENT_ERROR",
   CLIENT_INITIATED_DISCONNECT: "CLIENT_INITIATED_DISCONNECT",

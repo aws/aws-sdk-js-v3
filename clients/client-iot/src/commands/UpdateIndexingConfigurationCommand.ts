@@ -65,6 +65,11 @@ export interface UpdateIndexingConfigurationCommandOutput extends UpdateIndexing
  *           order: "LatLon" || "LonLat",
  *         },
  *       ],
+ *       connectivity: { // ConnectivityFilter
+ *         includeSocketInformation: [ // FleetIndexingApiList
+ *           "GET_THING_CONNECTIVITY_DATA",
+ *         ],
+ *       },
  *     },
  *   },
  *   thingGroupIndexingConfiguration: { // ThingGroupIndexingConfiguration

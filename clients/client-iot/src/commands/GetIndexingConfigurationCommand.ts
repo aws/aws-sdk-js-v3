@@ -68,6 +68,11 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  * //           order: "LatLon" || "LonLat",
  * //         },
  * //       ],
+ * //       connectivity: { // ConnectivityFilter
+ * //         includeSocketInformation: [ // FleetIndexingApiList
+ * //           "GET_THING_CONNECTIVITY_DATA",
+ * //         ],
+ * //       },
  * //     },
  * //   },
  * //   thingGroupIndexingConfiguration: { // ThingGroupIndexingConfiguration

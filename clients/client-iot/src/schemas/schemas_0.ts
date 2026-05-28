@@ -152,6 +152,7 @@ const _CER = "CommandExecutionResult";
 const _CERM = "CommandExecutionResultMap";
 const _CES = "CommandExecutionSummary";
 const _CESL = "CommandExecutionSummaryList";
+const _CF = "ConnectivityFilter";
 const _CFM = "CreateFleetMetric";
 const _CFMR = "CreateFleetMetricRequest";
 const _CFMRr = "CreateFleetMetricResponse";
@@ -950,10 +951,11 @@ const _SDPVR = "SetDefaultPolicyVersionRequest";
 const _SF = "StreamFile";
 const _SFA = "StepFunctionsAction";
 const _SFt = "StreamFiles";
-const _SI = "StreamInfo";
+const _SI = "SourceIp";
 const _SIR = "SearchIndexRequest";
 const _SIRe = "SearchIndexResponse";
 const _SIe = "SearchIndex";
+const _SIt = "StreamInfo";
 const _SJR = "ScheduledJobRollout";
 const _SJRL = "ScheduledJobRolloutList";
 const _SL = "S3Location";
@@ -962,6 +964,7 @@ const _SLOR = "SetLoggingOptionsRequest";
 const _SODAT = "StartOnDemandAuditTask";
 const _SODATR = "StartOnDemandAuditTaskRequest";
 const _SODATRt = "StartOnDemandAuditTaskResponse";
+const _SP = "SourcePort";
 const _SPE = "SqlParseException";
 const _SPI = "SecurityProfileIdentifier";
 const _SPIe = "SecurityProfileIdentifiers";
@@ -1024,11 +1027,13 @@ const _TGIC = "ThingGroupIndexingConfiguration";
 const _TGM = "ThingGroupMetadata";
 const _TGNAAL = "ThingGroupNameAndArnList";
 const _TGP = "ThingGroupProperties";
+const _TI = "TargetIp";
 const _TIA = "TestInvokeAuthorizer";
 const _TIAR = "TestInvokeAuthorizerRequest";
 const _TIARe = "TestInvokeAuthorizerResponse";
 const _TIC = "ThingIndexingConfiguration";
 const _TL = "TagList";
+const _TP = "TargetPort";
 const _TPO = "ThingPrincipalObject";
 const _TPOh = "ThingPrincipalObjects";
 const _TR = "TopicRule";
@@ -1154,6 +1159,7 @@ const _VDP = "VpcDestinationProperties";
 const _VDS = "VpcDestinationSummary";
 const _VE = "ValidationException";
 const _VEAI = "ViolationEventAdditionalInfo";
+const _VEI = "VpcEndpointId";
 const _VEOR = "ViolationEventOccurrenceRange";
 const _VEa = "ValidationError";
 const _VEal = "ValidationErrors";
@@ -1313,6 +1319,7 @@ const _cRS = "checkRunStatus";
 const _cRT = "clientRequestToken";
 const _cS = "configurationStatus";
 const _cSR = "certificateSigningRequest";
+const _cSl = "cleanSession";
 const _cSo = "codeSigning";
 const _cT = "clientToken";
 const _cTF = "completedTimeFilter";
@@ -1492,6 +1499,7 @@ const _iR = "includeResult";
 const _iRA = "iamRoleArn";
 const _iS = "isSuppressed";
 const _iSA = "includeSuppressedAlerts";
+const _iSI = "includeSocketInformation";
 const _iSW = "iotSiteWise";
 const _iSn = "indexStatus";
 const _iT = "idempotencyToken";
@@ -1509,6 +1517,7 @@ const _jTA = "jobTemplateArn";
 const _jTI = "jobTemplateId";
 const _jo = "jobs";
 const _k = "kinesis";
+const _kAD = "keepAliveDuration";
 const _kARA = "kmsAccessRoleArn";
 const _kKA = "kmsKeyArn";
 const _kP = "keyPair";
@@ -1754,11 +1763,13 @@ const _sD = "signingDisabled";
 const _sDe = "s3Destination";
 const _sDt = "statusDetails";
 const _sDtd = "stdDeviation";
+const _sE = "sessionExpiry";
 const _sF = "stepFunctions";
 const _sFC = "succeededFindingsCount";
 const _sFCk = "skippedFindingsCount";
 const _sG = "securityGroups";
 const _sI = "suppressIndefinitely";
+const _sIo = "sourceIp";
 const _sIt = "streamId";
 const _sItr = "streamInfo";
 const _sIu = "subnetIds";
@@ -1771,7 +1782,7 @@ const _sNe = "serviceName";
 const _sNer = "serverName";
 const _sO = "sortOrder";
 const _sOS = "sumOfSquares";
-const _sP = "securityPolicy";
+const _sP = "sourcePort";
 const _sPA = "securityProfileArn";
 const _sPD = "securityProfileDescription";
 const _sPI = "securityProfileIdentifiers";
@@ -1782,6 +1793,7 @@ const _sPP = "signingProfileParameter";
 const _sPT = "securityProfileTargets";
 const _sPTA = "securityProfileTargetArn";
 const _sPTM = "securityProfileTargetMappings";
+const _sPe = "securityPolicy";
 const _sR = "stateReason";
 const _sRi = "signingRegion";
 const _sRt = "statusReason";
@@ -1856,7 +1868,8 @@ const _tI = "taskId";
 const _tIC = "thingIndexingConfiguration";
 const _tIM = "thingIndexingMode";
 const _tIS = "timeInSeconds";
-const _tIa = "taskIds";
+const _tIa = "targetIp";
+const _tIas = "taskIds";
 const _tIh = "thingId";
 const _tK = "tagKeys";
 const _tKN = "tokenKeyName";
@@ -1869,6 +1882,7 @@ const _tNr = "trackerName";
 const _tP = "thresholdPercentage";
 const _tPO = "thingPrincipalObjects";
 const _tPT = "thingPrincipalType";
+const _tPa = "targetPort";
 const _tPo = "topicPattern";
 const _tRC = "totalResourcesCount";
 const _tRD = "topicRuleDestination";
@@ -1921,6 +1935,7 @@ const _vCp = "vpcConfiguration";
 const _vDS = "vpcDestinationSummary";
 const _vE = "violationEvents";
 const _vEAI = "violationEventAdditionalInfo";
+const _vEI = "vpcEndpointId";
 const _vEOR = "violationEventOccurrenceRange";
 const _vET = "violationEventType";
 const _vETi = "violationEventTime";
@@ -2217,6 +2232,11 @@ var ConnectivityApiThingName: StaticSimpleSchema = [0, n0, _CATN, 8, 0];
 var PackageVersionRecipe: StaticSimpleSchema = [0, n0, _PVR, 8, 0];
 var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
 var ResourceDescription: StaticSimpleSchema = [0, n0, _RD, 8, 0];
+var SourceIp: StaticSimpleSchema = [0, n0, _SI, 8, 0];
+var SourcePort: StaticSimpleSchema = [0, n0, _SP, 8, 1];
+var TargetIp: StaticSimpleSchema = [0, n0, _TI, 8, 0];
+var TargetPort: StaticSimpleSchema = [0, n0, _TP, 8, 1];
+var VpcEndpointId: StaticSimpleSchema = [0, n0, _VEI, 8, 0];
 export var AbortConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_cL],
@@ -2691,6 +2711,11 @@ export var ConfirmTopicRuleDestinationResponse$: StaticStructureSchema = [3, n0,
   0,
   [],
   []
+];
+export var ConnectivityFilter$: StaticStructureSchema = [3, n0, _CF,
+  0,
+  [_iSI],
+  [64 | 0]
 ];
 export var CreateAuditSuppressionRequest$: StaticStructureSchema = [3, n0, _CASR,
   0,
@@ -4024,13 +4049,13 @@ export var GetStatisticsResponse$: StaticStructureSchema = [3, n0, _GSRe,
 ];
 export var GetThingConnectivityDataRequest$: StaticStructureSchema = [3, n0, _GTCDR,
   0,
-  [_tN],
-  [[() => ConnectivityApiThingName, 1]], 1
+  [_tN, _iSI],
+  [[() => ConnectivityApiThingName, 1], 2], 1
 ];
 export var GetThingConnectivityDataResponse$: StaticStructureSchema = [3, n0, _GTCDRe,
   0,
-  [_tN, _conn, _ti, _dR],
-  [[() => ConnectivityApiThingName, 0], 2, 4, 0]
+  [_tN, _conn, _ti, _dR, _sIo, _sP, _tIa, _tPa, _vEI, _kAD, _cSl, _sE, _cIl],
+  [[() => ConnectivityApiThingName, 0], 2, 4, 0, [() => SourceIp, 0], [() => SourcePort, 0], [() => TargetIp, 0], [() => TargetPort, 0], [() => VpcEndpointId, 0], 1, 2, 1, 0]
 ];
 export var GetTopicRuleDestinationRequest$: StaticStructureSchema = [3, n0, _GTRDR,
   0,
@@ -4109,8 +4134,8 @@ export var ImplicitDeny$: StaticStructureSchema = [3, n0, _ID,
 ];
 export var IndexingFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
-  [_nSN, _gL],
-  [64 | 0, () => GeoLocationsFilter]
+  [_nSN, _gL, _conne],
+  [64 | 0, () => GeoLocationsFilter, () => ConnectivityFilter$]
 ];
 export var IotAnalyticsAction$: StaticStructureSchema = [3, n0, _IAA,
   0,
@@ -4779,7 +4804,7 @@ export var ListThingRegistrationTasksRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var ListThingRegistrationTasksResponse$: StaticStructureSchema = [3, n0, _LTRTRi,
   0,
-  [_tIa, _nT],
+  [_tIas, _nT],
   [64 | 0, 0]
 ];
 export var ListThingsInBillingGroupRequest$: StaticStructureSchema = [3, n0, _LTIBGR,
@@ -5407,7 +5432,7 @@ export var StreamFile$: StaticStructureSchema = [3, n0, _SF,
   [_fIil, _sL],
   [1, () => S3Location$]
 ];
-export var StreamInfo$: StaticStructureSchema = [3, n0, _SI,
+export var StreamInfo$: StaticStructureSchema = [3, n0, _SIt,
   0,
   [_sIt, _sAtr, _sVtr, _d, _fi, _cAr, _lUA, _rAo],
   [0, 0, 1, 0, () => StreamFiles, 4, 4, 0]
@@ -5474,8 +5499,8 @@ export var ThingAttribute$: StaticStructureSchema = [3, n0, _TAh,
 ];
 export var ThingConnectivity$: StaticStructureSchema = [3, n0, _TC,
   0,
-  [_conn, _ti, _dR],
-  [2, 1, 0]
+  [_conn, _ti, _dR, _kAD, _cSl, _sE, _cIl],
+  [2, 1, 0, 1, 2, 1, 0]
 ];
 export var ThingDocument$: StaticStructureSchema = [3, n0, _TD,
   0,
@@ -5554,7 +5579,7 @@ export var TimestreamTimestamp$: StaticStructureSchema = [3, n0, _TT,
 ];
 export var TlsConfig$: StaticStructureSchema = [3, n0, _TCl,
   0,
-  [_sP],
+  [_sPe],
   [0]
 ];
 export var TlsContext$: StaticStructureSchema = [3, n0, _TCls,
@@ -6077,6 +6102,7 @@ var Fields: StaticListSchema = [1, n0, _Fi,
   0, () => Field$
 ];
 var FindingIds = 64 | 0;
+var FleetIndexingApiList = 64 | 0;
 var FleetMetricNameAndArnList: StaticListSchema = [1, n0, _FMNAAL,
   0, () => FleetMetricNameAndArn$
 ];

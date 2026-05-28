@@ -38,6 +38,7 @@ export interface GetThingConnectivityDataCommandOutput extends GetThingConnectiv
  * const client = new IoTClient(config);
  * const input = { // GetThingConnectivityDataRequest
  *   thingName: "STRING_VALUE", // required
+ *   includeSocketInformation: true || false,
  * };
  * const command = new GetThingConnectivityDataCommand(input);
  * const response = await client.send(command);
@@ -45,7 +46,16 @@ export interface GetThingConnectivityDataCommandOutput extends GetThingConnectiv
  * //   thingName: "STRING_VALUE",
  * //   connected: true || false,
  * //   timestamp: new Date("TIMESTAMP"),
- * //   disconnectReason: "AUTH_ERROR" || "CLIENT_INITIATED_DISCONNECT" || "CLIENT_ERROR" || "CONNECTION_LOST" || "DUPLICATE_CLIENTID" || "FORBIDDEN_ACCESS" || "MQTT_KEEP_ALIVE_TIMEOUT" || "SERVER_ERROR" || "SERVER_INITIATED_DISCONNECT" || "THROTTLED" || "WEBSOCKET_TTL_EXPIRATION" || "CUSTOMAUTH_TTL_EXPIRATION" || "UNKNOWN" || "NONE",
+ * //   disconnectReason: "AUTH_ERROR" || "CLIENT_INITIATED_DISCONNECT" || "CLIENT_ERROR" || "CONNECTION_LOST" || "DUPLICATE_CLIENTID" || "FORBIDDEN_ACCESS" || "MQTT_KEEP_ALIVE_TIMEOUT" || "SERVER_ERROR" || "SERVER_INITIATED_DISCONNECT" || "API_INITIATED_DISCONNECT" || "THROTTLED" || "WEBSOCKET_TTL_EXPIRATION" || "CUSTOMAUTH_TTL_EXPIRATION" || "UNKNOWN" || "NONE",
+ * //   sourceIp: "STRING_VALUE",
+ * //   sourcePort: Number("int"),
+ * //   targetIp: "STRING_VALUE",
+ * //   targetPort: Number("int"),
+ * //   vpcEndpointId: "STRING_VALUE",
+ * //   keepAliveDuration: Number("int"),
+ * //   cleanSession: true || false,
+ * //   sessionExpiry: Number("long"),
+ * //   clientId: "STRING_VALUE",
  * // };
  *
  * ```

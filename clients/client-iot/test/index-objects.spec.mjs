@@ -174,6 +174,7 @@ import {
   ConflictException$,
   ConflictingResourceUpdateException,
   ConflictingResourceUpdateException$,
+  ConnectivityFilter$,
   CreateAuditSuppression$,
   CreateAuditSuppressionCommand,
   CreateAuditSuppressionRequest$,
@@ -642,6 +643,7 @@ import {
   FieldType,
   FileLocation$,
   FirehoseAction$,
+  FleetIndexingApi,
   FleetMetricNameAndArn$,
   FleetMetricUnit,
   GeoLocationTarget$,
@@ -2163,6 +2165,7 @@ assert(typeof Configuration$ === "object");
 assert(typeof ConfigurationDetails$ === "object");
 assert(typeof ConfirmTopicRuleDestinationRequest$ === "object");
 assert(typeof ConfirmTopicRuleDestinationResponse$ === "object");
+assert(typeof ConnectivityFilter$ === "object");
 assert(typeof CreateAuditSuppressionRequest$ === "object");
 assert(typeof CreateAuditSuppressionResponse$ === "object");
 assert(typeof CreateAuthorizerRequest$ === "object");
@@ -2870,6 +2873,7 @@ assert(typeof DynamoKeyType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof EventType === "object");
 assert(typeof FieldType === "object");
+assert(typeof FleetIndexingApi === "object");
 assert(typeof FleetMetricUnit === "object");
 assert(typeof IndexStatus === "object");
 assert(typeof JobEndBehavior === "object");

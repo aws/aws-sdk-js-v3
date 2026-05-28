@@ -80,6 +80,23 @@ import type {
 /**
  * @public
  */
+export interface ListTargetsForPolicyResponse {
+  /**
+   * <p>The policy targets.</p>
+   * @public
+   */
+  targets?: string[] | undefined;
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   * @public
+   */
+  nextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTargetsForSecurityProfileRequest {
   /**
    * <p>The security profile.</p>
@@ -1630,16 +1647,40 @@ export interface ThingConnectivity {
 
   /**
    * <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the
-   *       thing has been disconnected for approximately an hour, the time value might be missing.</p>
+   *       thing has been disconnected for approximately an hour, the time value might be missing. When you enable or update the indexing configuration, this value might be <code>0</code> (the Unix epoch time) for devices that have never connected or have been disconnected for more than an hour.</p>
    * @public
    */
   timestamp?: number | undefined;
 
   /**
-   * <p>The reason why the client is disconnected. If the thing has been disconnected for approximately an hour, the <code>disconnectReason</code> value might be missing.</p>
+   * <p>The reason why the client is disconnected. When you enable or update the indexing configuration, this value might be missing for devices that have never connected or have been disconnected for more than an hour.</p>
    * @public
    */
   disconnectReason?: string | undefined;
+
+  /**
+   * <p>The keep-alive interval in seconds that the client specified when establishing the connection.</p>
+   * @public
+   */
+  keepAliveDuration?: number | undefined;
+
+  /**
+   * <p>Indicates whether the client is using a clean session. Returns <code>true</code> for clean sessions.</p>
+   * @public
+   */
+  cleanSession?: boolean | undefined;
+
+  /**
+   * <p>The session expiry interval in seconds for the MQTT client connection. This value indicates how long the session will remain active after the client disconnects.</p>
+   * @public
+   */
+  sessionExpiry?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the MQTT client.</p>
+   * @public
+   */
+  clientId?: string | undefined;
 }
 
 /**

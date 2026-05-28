@@ -33,6 +33,7 @@ import type {
   EncryptionType,
   EventType,
   FieldType,
+  FleetIndexingApi,
   FleetMetricUnit,
   IndexStatus,
   JobExecutionStatus,
@@ -4025,6 +4026,18 @@ export interface ThingGroupIndexingConfiguration {
 }
 
 /**
+ * <p>Provides connectivity filter selections for the fleet indexing configuration.</p>
+ * @public
+ */
+export interface ConnectivityFilter {
+  /**
+   * <p>A list of fleet indexing APIs for which to enable socket information retrieval. Currently, the only supported value is <code>GET_THING_CONNECTIVITY_DATA</code>.</p>
+   * @public
+   */
+  includeSocketInformation?: FleetIndexingApi[] | undefined;
+}
+
+/**
  * <p>A geolocation target that you select to index. Each geolocation target contains a
  *         <code>name</code> and <code>order</code> key-value pair that specifies the geolocation
  *       target fields.</p>
@@ -4084,6 +4097,12 @@ export interface IndexingFilter {
    * @public
    */
   geoLocations?: GeoLocationTarget[] | undefined;
+
+  /**
+   * <p>Provides additional connectivity filter selections for the fleet indexing configuration.</p>
+   * @public
+   */
+  connectivity?: ConnectivityFilter | undefined;
 }
 
 /**
@@ -4930,6 +4949,12 @@ export interface GetThingConnectivityDataRequest {
    * @public
    */
   thingName: string | undefined;
+
+  /**
+   * <p>Specifies if socket information (sourcePort, targetPort, sourceIp, targetIp, vpcEndpointId) should be included in the GetThingConnectivityData response. Set to <code>true</code> to include socket information. Set to <code>false</code> to omit socket information. By default, this is set to <code>false</code>.</p>
+   * @public
+   */
+  includeSocketInformation?: boolean | undefined;
 }
 
 /**
@@ -4949,16 +4974,70 @@ export interface GetThingConnectivityDataResponse {
   connected?: boolean | undefined;
 
   /**
-   * <p>The timestamp of when the event occurred.</p>
+   * <p>The timestamp of when the event occurred. When you enable or update the indexing configuration, this value might be the Unix epoch time (0) for devices that have never connected or have been disconnected for more than an hour.</p>
    * @public
    */
   timestamp?: Date | undefined;
 
   /**
-   * <p>The reason why the client is disconnecting.</p>
+   * <p>The reason why the client is disconnecting. When you enable or update the indexing configuration, this value might be <code>UNKNOWN</code> for devices that have never connected or have been disconnected for more than an hour.</p>
    * @public
    */
   disconnectReason?: DisconnectReasonValue | undefined;
+
+  /**
+   * <p>The IP address of the client that initiated the connection.</p>
+   * @public
+   */
+  sourceIp?: string | undefined;
+
+  /**
+   * <p>The client's source port.</p>
+   * @public
+   */
+  sourcePort?: number | undefined;
+
+  /**
+   * <p>The IP address of the Amazon Web Services IoT Core endpoint that the client connected to.</p>
+   * @public
+   */
+  targetIp?: string | undefined;
+
+  /**
+   * <p>The port number of the Amazon Web Services IoT Core endpoint that the client connected to.</p>
+   * @public
+   */
+  targetPort?: number | undefined;
+
+  /**
+   * <p>The ID of the VPC endpoint. Present for clients connected to Amazon Web Services IoT Core via a VPC endpoint.</p>
+   * @public
+   */
+  vpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The keep-alive interval in seconds that the client specified when establishing the connection.</p>
+   * @public
+   */
+  keepAliveDuration?: number | undefined;
+
+  /**
+   * <p>Indicates whether the client is using a clean session. Returns <code>true</code> for clean sessions.</p>
+   * @public
+   */
+  cleanSession?: boolean | undefined;
+
+  /**
+   * <p>The session expiry interval in seconds for the MQTT client connection. This value indicates how long the session will remain active after the client disconnects.</p>
+   * @public
+   */
+  sessionExpiry?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the MQTT client.</p>
+   * @public
+   */
+  clientId?: string | undefined;
 }
 
 /**
@@ -8620,21 +8699,4 @@ export interface ListTargetsForPolicyRequest {
    * @public
    */
   pageSize?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTargetsForPolicyResponse {
-  /**
-   * <p>The policy targets.</p>
-   * @public
-   */
-  targets?: string[] | undefined;
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   * @public
-   */
-  nextMarker?: string | undefined;
 }
