@@ -14,6 +14,74 @@ import type {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface DeleteWorkloadIdentityResponse {}
+
+/**
+ * @public
+ */
+export interface GetWorkloadIdentityRequest {
+  /**
+   * <p>The name of the workload identity to retrieve.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkloadIdentityResponse {
+  /**
+   * <p>The name of the workload identity.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
+   * @public
+   */
+  workloadIdentityArn: string | undefined;
+
+  /**
+   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * @public
+   */
+  allowedResourceOauth2ReturnUrls?: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the workload identity was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the workload identity was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkloadIdentitiesRequest {
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
  * <p>Contains information about a workload identity.</p>
  * @public
  */

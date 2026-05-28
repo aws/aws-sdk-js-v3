@@ -53,6 +53,7 @@ export interface ListConfigurationBundlesCommandOutput extends ListConfiguration
  * //       bundleId: "STRING_VALUE", // required
  * //       bundleName: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

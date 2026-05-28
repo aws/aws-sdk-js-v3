@@ -29,6 +29,8 @@ import type {
   GatewayProtocolType,
   GatewayRuleStatus,
   GatewayStatus,
+  HarnessBedrockApiFormat,
+  HarnessOpenAiApiFormat,
   HarnessStatus,
   HarnessToolType,
   HarnessTruncationStrategy,
@@ -3990,6 +3992,12 @@ export interface ConfigurationBundleSummary {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the configuration bundle was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -8106,6 +8114,18 @@ export interface HarnessBedrockModelConfig {
    * @public
    */
   topP?: number | undefined;
+
+  /**
+   * <p>The API format to use when calling the Bedrock provider.</p>
+   * @public
+   */
+  apiFormat?: HarnessBedrockApiFormat | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
 }
 
 /**
@@ -8151,6 +8171,54 @@ export interface HarnessGeminiModelConfig {
 }
 
 /**
+ * <p>Configuration for a LiteLLM model provider, enabling connection to third-party model providers.</p>
+ * @public
+ */
+export interface HarnessLiteLlmModelConfig {
+  /**
+   * <p>The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of the API key in AgentCore Identity for authenticating with the model provider.</p>
+   * @public
+   */
+  apiKeyArn?: string | undefined;
+
+  /**
+   * <p>The base URL for the model provider's API endpoint.</p>
+   * @public
+   */
+  apiBase?: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
+}
+
+/**
  * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
  * @public
  */
@@ -8184,6 +8252,18 @@ export interface HarnessOpenAiModelConfig {
    * @public
    */
   topP?: number | undefined;
+
+  /**
+   * <p>The API format to use when calling the OpenAI provider.</p>
+   * @public
+   */
+  apiFormat?: HarnessOpenAiApiFormat | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
 }
 
 /**
@@ -8193,6 +8273,7 @@ export interface HarnessOpenAiModelConfig {
 export type HarnessModelConfiguration =
   | HarnessModelConfiguration.BedrockModelConfigMember
   | HarnessModelConfiguration.GeminiModelConfigMember
+  | HarnessModelConfiguration.LiteLlmModelConfigMember
   | HarnessModelConfiguration.OpenAiModelConfigMember
   | HarnessModelConfiguration.$UnknownMember;
 
@@ -8208,6 +8289,7 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig: HarnessBedrockModelConfig;
     openAiModelConfig?: never;
     geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
     $unknown?: never;
   }
 
@@ -8219,6 +8301,7 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig?: never;
     openAiModelConfig: HarnessOpenAiModelConfig;
     geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
     $unknown?: never;
   }
 
@@ -8230,6 +8313,19 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig?: never;
     openAiModelConfig?: never;
     geminiModelConfig: HarnessGeminiModelConfig;
+    liteLlmModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The LiteLLM model configuration for connecting to third-party model providers.</p>
+   * @public
+   */
+  export interface LiteLlmModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    liteLlmModelConfig: HarnessLiteLlmModelConfig;
     $unknown?: never;
   }
 
@@ -8240,6 +8336,7 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig?: never;
     openAiModelConfig?: never;
     geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
     $unknown: [string, any];
   }
 
@@ -8251,8 +8348,63 @@ export namespace HarnessModelConfiguration {
     bedrockModelConfig: (value: HarnessBedrockModelConfig) => T;
     openAiModelConfig: (value: HarnessOpenAiModelConfig) => T;
     geminiModelConfig: (value: HarnessGeminiModelConfig) => T;
+    liteLlmModelConfig: (value: HarnessLiteLlmModelConfig) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * <p>Authentication configuration for accessing a private git repository.</p>
+ * @public
+ */
+export interface HarnessSkillGitAuth {
+  /**
+   * <p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>
+   * @public
+   */
+  credentialArn: string | undefined;
+
+  /**
+   * <p>Username for authentication. Defaults to 'oauth2' if not specified.</p>
+   * @public
+   */
+  username?: string | undefined;
+}
+
+/**
+ * <p>A git repository source for a skill.</p>
+ * @public
+ */
+export interface HarnessSkillGitSource {
+  /**
+   * <p>The HTTPS URL of the git repository.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Subdirectory within the repository containing the skill.</p>
+   * @public
+   */
+  path?: string | undefined;
+
+  /**
+   * <p>Authentication configuration for private repositories.</p>
+   * @public
+   */
+  auth?: HarnessSkillGitAuth | undefined;
+}
+
+/**
+ * <p>An S3 source for a skill.</p>
+ * @public
+ */
+export interface HarnessSkillS3Source {
+  /**
+   * <p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>
+   * @public
+   */
+  uri: string | undefined;
 }
 
 /**
@@ -8260,7 +8412,9 @@ export namespace HarnessModelConfiguration {
  * @public
  */
 export type HarnessSkill =
+  | HarnessSkill.GitMember
   | HarnessSkill.PathMember
+  | HarnessSkill.S3Member
   | HarnessSkill.$UnknownMember;
 
 /**
@@ -8273,6 +8427,30 @@ export namespace HarnessSkill {
    */
   export interface PathMember {
     path: string;
+    s3?: never;
+    git?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An S3 source containing the skill.</p>
+   * @public
+   */
+  export interface S3Member {
+    path?: never;
+    s3: HarnessSkillS3Source;
+    git?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A git repository containing the skill.</p>
+   * @public
+   */
+  export interface GitMember {
+    path?: never;
+    s3?: never;
+    git: HarnessSkillGitSource;
     $unknown?: never;
   }
 
@@ -8281,6 +8459,8 @@ export namespace HarnessSkill {
    */
   export interface $UnknownMember {
     path?: never;
+    s3?: never;
+    git?: never;
     $unknown: [string, any];
   }
 
@@ -8290,6 +8470,8 @@ export namespace HarnessSkill {
    */
   export interface Visitor<T> {
     path: (value: string) => T;
+    s3: (value: HarnessSkillS3Source) => T;
+    git: (value: HarnessSkillGitSource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8399,7 +8581,7 @@ export namespace HarnessGatewayOutboundAuth {
   }
 
   /**
-   * <p>An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.</p>
+   * <p>Use OAuth credentials for outbound authentication to the gateway.</p>
    * @public
    */
   export interface OauthMember {
@@ -9384,76 +9566,4 @@ export interface IndexedKey {
    * @public
    */
   type: MetadataValueType | undefined;
-}
-
-/**
- * <p>Configurations for overriding the consolidation step of the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicOverrideConsolidationConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for the consolidation step of the episodic memory strategy.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for the consolidation step of the episodic memory strategy.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Configurations for overriding the extraction step of the episodic memory strategy.</p>
- * @public
- */
-export interface EpisodicOverrideExtractionConfigurationInput {
-  /**
-   * <p>The text to append to the prompt for the extraction step of the episodic memory strategy.</p>
-   * @public
-   */
-  appendToPrompt: string | undefined;
-
-  /**
-   * <p>The model ID to use for the extraction step of the episodic memory strategy.</p>
-   * @public
-   */
-  modelId: string | undefined;
-}
-
-/**
- * <p>Validation for NUMBER fields.</p>
- * @public
- */
-export interface NumberValidation {
-  /**
-   * <p>Minimum allowed value.</p>
-   * @public
-   */
-  minValue?: number | undefined;
-
-  /**
-   * <p>Maximum allowed value.</p>
-   * @public
-   */
-  maxValue?: number | undefined;
-}
-
-/**
- * <p>Validation for STRINGLIST fields.</p>
- * @public
- */
-export interface StringListValidation {
-  /**
-   * <p>Allowed values for items in this STRINGLIST field.</p>
-   * @public
-   */
-  allowedValues?: string[] | undefined;
-
-  /**
-   * <p>Maximum number of items in the string list.</p>
-   * @public
-   */
-  maxItems?: number | undefined;
 }

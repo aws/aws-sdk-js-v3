@@ -492,6 +492,7 @@ import {
   HarnessAgentCoreMemoryRetrievalConfig$,
   HarnessAgentCoreRuntimeEnvironment$,
   HarnessAgentCoreRuntimeEnvironmentRequest$,
+  HarnessBedrockApiFormat,
   HarnessBedrockModelConfig$,
   HarnessEnvironmentArtifact$,
   HarnessEnvironmentProvider$,
@@ -499,11 +500,16 @@ import {
   HarnessGatewayOutboundAuth$,
   HarnessGeminiModelConfig$,
   HarnessInlineFunctionConfig$,
+  HarnessLiteLlmModelConfig$,
   HarnessMemoryConfiguration$,
   HarnessModelConfiguration$,
+  HarnessOpenAiApiFormat,
   HarnessOpenAiModelConfig$,
   HarnessRemoteMcpConfig$,
   HarnessSkill$,
+  HarnessSkillGitAuth$,
+  HarnessSkillGitSource$,
+  HarnessSkillS3Source$,
   HarnessSlidingWindowConfiguration$,
   HarnessStatus,
   HarnessSummarizationConfiguration$,
@@ -1651,11 +1657,15 @@ assert(typeof HarnessEnvironmentProviderRequest$ === "object");
 assert(typeof HarnessGatewayOutboundAuth$ === "object");
 assert(typeof HarnessGeminiModelConfig$ === "object");
 assert(typeof HarnessInlineFunctionConfig$ === "object");
+assert(typeof HarnessLiteLlmModelConfig$ === "object");
 assert(typeof HarnessMemoryConfiguration$ === "object");
 assert(typeof HarnessModelConfiguration$ === "object");
 assert(typeof HarnessOpenAiModelConfig$ === "object");
 assert(typeof HarnessRemoteMcpConfig$ === "object");
 assert(typeof HarnessSkill$ === "object");
+assert(typeof HarnessSkillGitAuth$ === "object");
+assert(typeof HarnessSkillGitSource$ === "object");
+assert(typeof HarnessSkillS3Source$ === "object");
 assert(typeof HarnessSlidingWindowConfiguration$ === "object");
 assert(typeof HarnessSummarizationConfiguration$ === "object");
 assert(typeof HarnessSummary$ === "object");
@@ -2018,6 +2028,8 @@ assert(typeof GatewayPolicyEngineMode === "object");
 assert(typeof GatewayProtocolType === "object");
 assert(typeof GatewayRuleStatus === "object");
 assert(typeof GatewayStatus === "object");
+assert(typeof HarnessBedrockApiFormat === "object");
+assert(typeof HarnessOpenAiApiFormat === "object");
 assert(typeof HarnessStatus === "object");
 assert(typeof HarnessToolType === "object");
 assert(typeof HarnessTruncationStrategy === "object");

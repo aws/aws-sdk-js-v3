@@ -61,6 +61,8 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //         maxTokens: Number("int"),
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
+ * //         apiFormat: "converse_stream" || "responses" || "chat_completions",
+ * //         additionalParams: "DOCUMENT_VALUE",
  * //       },
  * //       openAiModelConfig: { // HarnessOpenAiModelConfig
  * //         modelId: "STRING_VALUE", // required
@@ -68,6 +70,8 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //         maxTokens: Number("int"),
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
+ * //         apiFormat: "chat_completions" || "responses",
+ * //         additionalParams: "DOCUMENT_VALUE",
  * //       },
  * //       geminiModelConfig: { // HarnessGeminiModelConfig
  * //         modelId: "STRING_VALUE", // required
@@ -76,6 +80,15 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
  * //         topK: Number("int"),
+ * //       },
+ * //       liteLlmModelConfig: { // HarnessLiteLlmModelConfig
+ * //         modelId: "STRING_VALUE", // required
+ * //         apiKeyArn: "STRING_VALUE",
+ * //         apiBase: "STRING_VALUE",
+ * //         maxTokens: Number("int"),
+ * //         temperature: Number("float"),
+ * //         topP: Number("float"),
+ * //         additionalParams: "DOCUMENT_VALUE",
  * //       },
  * //     },
  * //     systemPrompt: [ // HarnessSystemPrompt // required
@@ -128,6 +141,17 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //     skills: [ // HarnessSkills // required
  * //       { // HarnessSkill Union: only one key present
  * //         path: "STRING_VALUE",
+ * //         s3: { // HarnessSkillS3Source
+ * //           uri: "STRING_VALUE", // required
+ * //         },
+ * //         git: { // HarnessSkillGitSource
+ * //           url: "STRING_VALUE", // required
+ * //           path: "STRING_VALUE",
+ * //           auth: { // HarnessSkillGitAuth
+ * //             credentialArn: "STRING_VALUE", // required
+ * //             username: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     ],
  * //     allowedTools: [ // HarnessAllowedTools // required

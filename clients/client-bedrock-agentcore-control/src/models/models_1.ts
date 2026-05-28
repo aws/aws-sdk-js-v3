@@ -38,20 +38,88 @@ import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
-  EpisodicOverrideConsolidationConfigurationInput,
-  EpisodicOverrideExtractionConfigurationInput,
   IndexedKey,
   KmsConfiguration,
-  NumberValidation,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
   SkillDefinition,
   SkillMdDefinition,
-  StringListValidation,
   UpdatedAuthorizerConfiguration,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>Configurations for overriding the consolidation step of the episodic memory strategy.</p>
+ * @public
+ */
+export interface EpisodicOverrideConsolidationConfigurationInput {
+  /**
+   * <p>The text to append to the prompt for the consolidation step of the episodic memory strategy.</p>
+   * @public
+   */
+  appendToPrompt: string | undefined;
+
+  /**
+   * <p>The model ID to use for the consolidation step of the episodic memory strategy.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * <p>Configurations for overriding the extraction step of the episodic memory strategy.</p>
+ * @public
+ */
+export interface EpisodicOverrideExtractionConfigurationInput {
+  /**
+   * <p>The text to append to the prompt for the extraction step of the episodic memory strategy.</p>
+   * @public
+   */
+  appendToPrompt: string | undefined;
+
+  /**
+   * <p>The model ID to use for the extraction step of the episodic memory strategy.</p>
+   * @public
+   */
+  modelId: string | undefined;
+}
+
+/**
+ * <p>Validation for NUMBER fields.</p>
+ * @public
+ */
+export interface NumberValidation {
+  /**
+   * <p>Minimum allowed value.</p>
+   * @public
+   */
+  minValue?: number | undefined;
+
+  /**
+   * <p>Maximum allowed value.</p>
+   * @public
+   */
+  maxValue?: number | undefined;
+}
+
+/**
+ * <p>Validation for STRINGLIST fields.</p>
+ * @public
+ */
+export interface StringListValidation {
+  /**
+   * <p>Allowed values for items in this STRINGLIST field.</p>
+   * @public
+   */
+  allowedValues?: string[] | undefined;
+
+  /**
+   * <p>Maximum number of items in the string list.</p>
+   * @public
+   */
+  maxItems?: number | undefined;
+}
 
 /**
  * <p>Validation for STRING fields.</p>
@@ -9522,72 +9590,4 @@ export interface DeleteWorkloadIdentityRequest {
    * @public
    */
   name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteWorkloadIdentityResponse {}
-
-/**
- * @public
- */
-export interface GetWorkloadIdentityRequest {
-  /**
-   * <p>The name of the workload identity to retrieve.</p>
-   * @public
-   */
-  name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetWorkloadIdentityResponse {
-  /**
-   * <p>The name of the workload identity.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
-   * @public
-   */
-  workloadIdentityArn: string | undefined;
-
-  /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
-   * @public
-   */
-  allowedResourceOauth2ReturnUrls?: string[] | undefined;
-
-  /**
-   * <p>The timestamp when the workload identity was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the workload identity was last updated.</p>
-   * @public
-   */
-  lastUpdatedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkloadIdentitiesRequest {
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Maximum number of results to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
