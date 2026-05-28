@@ -213,6 +213,7 @@ import {
   CustomMetricBedrockEvaluatorModel$,
   CustomMetricDefinition$,
   CustomMetricEvaluatorModelConfig$,
+  CustomModelDataSource$,
   CustomModelDeploymentStatus,
   CustomModelDeploymentSummary$,
   CustomModelDeploymentUpdateDetails$,
@@ -614,6 +615,7 @@ import {
   ModelInvocationJobSummary$,
   ModelInvocationType,
   ModelModality,
+  ModelPackageArnDataSource$,
   ModelStatus,
   Offer$,
   OfferType,
@@ -1158,6 +1160,7 @@ assert(typeof CustomizationConfig$ === "object");
 assert(typeof CustomMetricBedrockEvaluatorModel$ === "object");
 assert(typeof CustomMetricDefinition$ === "object");
 assert(typeof CustomMetricEvaluatorModelConfig$ === "object");
+assert(typeof CustomModelDataSource$ === "object");
 assert(typeof CustomModelDeploymentSummary$ === "object");
 assert(typeof CustomModelDeploymentUpdateDetails$ === "object");
 assert(typeof CustomModelSummary$ === "object");
@@ -1391,6 +1394,7 @@ assert(typeof ModelInvocationJobOutputDataConfig$ === "object");
 assert(typeof ModelInvocationJobS3InputDataConfig$ === "object");
 assert(typeof ModelInvocationJobS3OutputDataConfig$ === "object");
 assert(typeof ModelInvocationJobSummary$ === "object");
+assert(typeof ModelPackageArnDataSource$ === "object");
 assert(typeof Offer$ === "object");
 assert(typeof OrchestrationConfiguration$ === "object");
 assert(typeof OutputDataConfig$ === "object");

@@ -30,7 +30,7 @@ export interface ListAdvancedPromptOptimizationJobsCommandInput extends ListAdva
 export interface ListAdvancedPromptOptimizationJobsCommandOutput extends ListAdvancedPromptOptimizationJobsResponse, __MetadataBearer {}
 
 /**
- * Lists all advanced prompt optimization jobs for the account.
+ * <p>Lists the advanced prompt optimization jobs in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

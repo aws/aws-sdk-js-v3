@@ -30,7 +30,7 @@ export interface StopAdvancedPromptOptimizationJobCommandInput extends StopAdvan
 export interface StopAdvancedPromptOptimizationJobCommandOutput extends StopAdvancedPromptOptimizationJobResponse, __MetadataBearer {}
 
 /**
- * Stops an in-progress advanced prompt optimization job.
+ * <p>Stops an advanced prompt optimization job that is in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

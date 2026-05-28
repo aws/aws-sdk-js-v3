@@ -225,6 +225,7 @@ const _CMCJr = "CreateModelCustomizationJob";
 const _CMD = "CustomMetricDefinition";
 const _CMDS = "CustomModelDeploymentSummary";
 const _CMDSL = "CustomModelDeploymentSummaryList";
+const _CMDSu = "CustomModelDataSource";
 const _CMDUD = "CustomModelDeploymentUpdateDetails";
 const _CMEMC = "CustomMetricEvaluatorModelConfig";
 const _CMIJ = "CreateModelImportJob";
@@ -605,6 +606,7 @@ const _MME = "MarketplaceModelEndpoint";
 const _MMES = "MarketplaceModelEndpointSummary";
 const _MMESa = "MarketplaceModelEndpointSummaries";
 const _MN = "MetricName";
+const _MPADS = "ModelPackageArnDataSource";
 const _O = "Offer";
 const _OC = "OrchestrationConfiguration";
 const _ODC = "OutputDataConfig";
@@ -810,6 +812,7 @@ const _cMD = "customMetricDefinition";
 const _cMDA = "customModelDeploymentArn";
 const _cMDI = "customModelDeploymentIdentifier";
 const _cMDN = "customModelDeploymentName";
+const _cMDS = "customModelDataSource";
 const _cMEMI = "customMetricsEvaluatorModelIdentifiers";
 const _cMKKI = "customModelKmsKeyId";
 const _cMN = "customModelName";
@@ -1058,6 +1061,8 @@ const _mME = "marketplaceModelEndpoint";
 const _mMEa = "marketplaceModelEndpoints";
 const _mN = "modelName";
 const _mNe = "metricNames";
+const _mPA = "modelPackageArn";
+const _mPADS = "modelPackageArnDataSource";
 const _mPL = "maxPromptLength";
 const _mR = "maxResults";
 const _mRLFI = "maxResponseLengthForInference";
@@ -2013,8 +2018,8 @@ export var CreateCustomModelDeploymentResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateCustomModelRequest$: StaticStructureSchema = [3, n0, _CCMR,
   0,
-  [_mN, _mSC, _mKKA, _rA, _mTo, _cRT],
-  [0, () => ModelDataSource$, 0, 0, () => TagList, [0, 4]], 2
+  [_mN, _mSC, _cMDS, _mKKA, _rA, _mTo, _cRT],
+  [0, () => ModelDataSource$, () => CustomModelDataSource$, 0, 0, () => TagList, [0, 4]], 1
 ];
 export var CreateCustomModelResponse$: StaticStructureSchema = [3, n0, _CCMRr,
   0,
@@ -3251,6 +3256,11 @@ export var ModelInvocationJobSummary$: StaticStructureSchema = [3, n0, _MIJSo,
   [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT, _tRC, _pRC, _sRC, _eRC],
   [0, 0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0, 1, 1, 1, 1], 7
 ];
+export var ModelPackageArnDataSource$: StaticStructureSchema = [3, n0, _MPADS,
+  0,
+  [_mPA],
+  [0], 1
+];
 export var Offer$: StaticStructureSchema = [3, n0, _O,
   0,
   [_oT, _tD, _oI],
@@ -4101,6 +4111,11 @@ export var CustomizationConfig$: StaticUnionSchema = [4, n0, _CC,
   0,
   [_dCi, _rCf],
   [() => DistillationConfig$, () => RFTConfig$]
+];
+export var CustomModelDataSource$: StaticUnionSchema = [4, n0, _CMDSu,
+  0,
+  [_mPADS],
+  [() => ModelPackageArnDataSource$]
 ];
 export var EndpointConfig$: StaticUnionSchema = [4, n0, _EC,
   0,

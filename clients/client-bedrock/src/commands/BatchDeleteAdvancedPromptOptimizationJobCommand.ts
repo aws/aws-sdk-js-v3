@@ -30,7 +30,7 @@ export interface BatchDeleteAdvancedPromptOptimizationJobCommandInput extends Ba
 export interface BatchDeleteAdvancedPromptOptimizationJobCommandOutput extends BatchDeleteAdvancedPromptOptimizationJobResponse, __MetadataBearer {}
 
 /**
- * Batch delete the specified advanced prompt optimization jobs.
+ * <p>Deletes one or more advanced prompt optimization jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

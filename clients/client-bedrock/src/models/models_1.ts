@@ -62,10 +62,8 @@ import type {
   GuardrailContentPolicyConfig,
   GuardrailContextualGroundingPolicyConfig,
   GuardrailCrossRegionConfig,
-  GuardrailManagedWordsConfig,
   GuardrailSensitiveInformationPolicyConfig,
   GuardrailTopicPolicyConfig,
-  GuardrailWordConfig,
   ImplicitFilterConfiguration,
   ModelDataSource,
   OrchestrationConfiguration,
@@ -78,6 +76,78 @@ import type {
   VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The managed word list to configure for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWordsConfig {
+  /**
+   * <p>The managed word type to configure for the guardrail.</p>
+   * @public
+   */
+  type: GuardrailManagedWordsType | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>A word to configure for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWordConfig {
+  /**
+   * <p>Text of the word configured for the guardrail to block.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
 
 /**
  * <p>Contains details about the word policy to configured for the guardrail.</p>

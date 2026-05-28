@@ -30,7 +30,7 @@ export interface CreateAdvancedPromptOptimizationJobCommandInput extends CreateA
 export interface CreateAdvancedPromptOptimizationJobCommandOutput extends CreateAdvancedPromptOptimizationJobResponse, __MetadataBearer {}
 
 /**
- * Creates an asynchronous batch job for advanced prompt optimization.
+ * <p>Creates an advanced prompt optimization job. The job optimizes your prompt templates for specific models using your evaluation dataset and criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

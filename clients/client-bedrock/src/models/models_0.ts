@@ -30,14 +30,12 @@ import type {
   GuardrailContextualGroundingAction,
   GuardrailContextualGroundingFilterType,
   GuardrailFilterStrength,
-  GuardrailManagedWordsType,
   GuardrailModality,
   GuardrailPiiEntityType,
   GuardrailSensitiveInformationAction,
   GuardrailTopicAction,
   GuardrailTopicsTierName,
   GuardrailTopicType,
-  GuardrailWordAction,
   InputTags,
   ModelStatus,
   PerformanceConfigLatency,
@@ -199,150 +197,150 @@ export interface AccountEnforcedGuardrailOutputConfiguration {
 }
 
 /**
- * Input data configuration for the advanced prompt optimization job.
+ * <p>Contains the input data configuration for an advanced prompt optimization job.</p>
  * @public
  */
 export interface AdvancedPromptOptimizationInputConfig {
   /**
-   * S3 URI of the input JSONL file.
+   * <p>The S3 URI of the JSONL input file containing prompt templates and evaluation samples.</p>
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * Batch Delete Advanced Prompt Optimization Jobs Request
+ * <p>Batch Delete Advanced Prompt Optimization Jobs Request</p>
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobRequest {
   /**
-   * List of advanced prompt optimization job identifiers to delete.
+   * <p>A list of advanced prompt optimization job identifiers (ARNs or IDs) to delete.</p>
    * @public
    */
   jobIdentifiers: string[] | undefined;
 }
 
 /**
- * Successfully deleted advanced prompt optimization job.
+ * <p>Contains information about a successfully deleted advanced prompt optimization job.</p>
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobItem {
   /**
-   * Identifier of the deleted job.
+   * <p>The identifier of the deleted job.</p>
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * Status of the deleted job.
+   * <p>The status of the deleted job.</p>
    * @public
    */
   jobStatus: AdvancedPromptOptimizationJobStatus | undefined;
 }
 
 /**
- * Batch deletion error for an advanced prompt optimization job.
+ * <p>Contains information about an error that occurred when deleting an advanced prompt optimization job.</p>
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobError {
   /**
-   * Identifier of the job that failed to delete.
+   * <p>The identifier of the job that could not be deleted.</p>
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * Error code for the deletion failure.
+   * <p>The error code for the deletion failure.</p>
    * @public
    */
   code: string | undefined;
 
   /**
-   * Error message describing the deletion failure.
+   * <p>A message describing the error.</p>
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * Batch Delete Advanced Prompt Optimization Jobs Response
+ * <p>Batch Delete Advanced Prompt Optimization Jobs Response</p>
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobResponse {
   /**
-   * List of errors encountered during batch deletion.
+   * <p>A list of errors encountered during batch deletion.</p>
    * @public
    */
   errors: BatchDeleteAdvancedPromptOptimizationJobError[] | undefined;
 
   /**
-   * List of successfully deleted advanced prompt optimization jobs.
+   * <p>A list of successfully deleted advanced prompt optimization jobs.</p>
    * @public
    */
   advancedPromptOptimizationJobs: BatchDeleteAdvancedPromptOptimizationJobItem[] | undefined;
 }
 
 /**
- * Inference configuration for a model.
+ * <p>Base inference parameters to pass to a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  * @public
  */
 export interface InferenceConfiguration {
   /**
-   * The maximum number of tokens to generate.
+   * <p>The maximum number of tokens to allow in the generated response. The default value is the maximum allowed value for the model that you are using.</p>
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * The temperature for sampling.
+   * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * The top-p value for nucleus sampling.
+   * <p>The percentage of most-likely candidates that the model considers for the next token. For example, if you choose a value of 0.8 for <code>topP</code>, the model selects from the top 80% of the probability distribution of tokens that could be next in the sequence.</p>
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * Stop sequences that end generation.
+   * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
    * @public
    */
   stopSequences?: string[] | undefined;
 }
 
 /**
- * Configuration for a model used in advanced prompt optimization.
+ * <p>Contains the configuration for a model used in an advanced prompt optimization job, including the model ID and inference parameters.</p>
  * @public
  */
 export interface ModelConfiguration {
   /**
-   * The model ID.
+   * <p>The ID of the model to use for optimization.</p>
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * Inference configuration for the model.
+   * <p>The inference configuration for the model, including parameters such as maximum tokens, temperature, and top-p.</p>
    * @public
    */
   inferenceConfig?: InferenceConfiguration | undefined;
 
   /**
-   * Additional model request fields.
+   * <p>Additional model request fields. Use this to pass model-specific parameters that are not included in the standard inference configuration.</p>
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
- * Output data configuration for the advanced prompt optimization job.
+ * <p>Contains the output data configuration for an advanced prompt optimization job.</p>
  * @public
  */
 export interface AdvancedPromptOptimizationOutputConfig {
   /**
-   * S3 URI prefix for the output location.
+   * <p>The S3 URI prefix where the optimization results will be written.</p>
    * @public
    */
   s3Uri: string | undefined;
@@ -367,253 +365,253 @@ export interface Tag {
 }
 
 /**
- * Create Advanced Prompt Optimization Job Request
+ * <p>Create Advanced Prompt Optimization Job Request</p>
  * @public
  */
 export interface CreateAdvancedPromptOptimizationJobRequest {
   /**
-   * Name of the advanced prompt optimization job.
+   * <p>A name for the advanced prompt optimization job.</p>
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * Description of the advanced prompt optimization job.
+   * <p>A description of the advanced prompt optimization job.</p>
    * @public
    */
   jobDescription?: string | undefined;
 
   /**
-   * Idempotency token for the request.
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * Input data configuration for the advanced prompt optimization job.
+   * <p>Specifies the S3 location of your JSONL input file containing prompt templates and evaluation samples.</p>
    * @public
    */
   inputConfig: AdvancedPromptOptimizationInputConfig | undefined;
 
   /**
-   * Output data configuration for the advanced prompt optimization job.
+   * <p>Specifies the S3 location where optimization results will be stored.</p>
    * @public
    */
   outputConfig: AdvancedPromptOptimizationOutputConfig | undefined;
 
   /**
-   * KMS key ARN for encrypting output data.
+   * <p>The Amazon Resource Name (ARN) of the KMS key used for encrypting the output data. If not specified, the output is encrypted with an Amazon-owned KMS key.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * Tags to associate with the job.
+   * <p>Tags to associate with the advanced prompt optimization job.</p>
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * Model configurations for advanced prompt optimization.
+   * <p>A list of model configurations specifying the target models for prompt optimization. You can specify up to 5 models.</p>
    * @public
    */
   modelConfigurations: ModelConfiguration[] | undefined;
 }
 
 /**
- * Create Advanced Prompt Optimization Job Response
+ * <p>Create Advanced Prompt Optimization Job Response</p>
  * @public
  */
 export interface CreateAdvancedPromptOptimizationJobResponse {
   /**
-   * ARN of the created advanced prompt optimization job.
+   * <p>The Amazon Resource Name (ARN) of the created advanced prompt optimization job.</p>
    * @public
    */
   jobArn: string | undefined;
 }
 
 /**
- * Get Advanced Prompt Optimization Job Request
+ * <p>Get Advanced Prompt Optimization Job Request</p>
  * @public
  */
 export interface GetAdvancedPromptOptimizationJobRequest {
   /**
-   * ARN or ID of the advanced prompt optimization job.
+   * <p>The ARN or ID of the advanced prompt optimization job.</p>
    * @public
    */
   jobIdentifier: string | undefined;
 }
 
 /**
- * Get Advanced Prompt Optimization Job Response
+ * <p>Get Advanced Prompt Optimization Job Response</p>
  * @public
  */
 export interface GetAdvancedPromptOptimizationJobResponse {
   /**
-   * ARN of the advanced prompt optimization job.
+   * <p>The Amazon Resource Name (ARN) of the advanced prompt optimization job.</p>
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * Name of the advanced prompt optimization job.
+   * <p>The name of the advanced prompt optimization job.</p>
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * Description of the advanced prompt optimization job.
+   * <p>The description of the advanced prompt optimization job.</p>
    * @public
    */
   jobDescription?: string | undefined;
 
   /**
-   * Status of the advanced prompt optimization job.
+   * <p>The status of the advanced prompt optimization job.</p>
    * @public
    */
   jobStatus: AdvancedPromptOptimizationJobStatus | undefined;
 
   /**
-   * Input data configuration for the advanced prompt optimization job.
+   * <p>The input data configuration for the optimization job.</p>
    * @public
    */
   inputConfig: AdvancedPromptOptimizationInputConfig | undefined;
 
   /**
-   * Output data configuration for the advanced prompt optimization job.
+   * <p>The output data configuration for the optimization job.</p>
    * @public
    */
   outputConfig: AdvancedPromptOptimizationOutputConfig | undefined;
 
   /**
-   * KMS key ARN used for encrypting output data.
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the output data.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * Creation time of the advanced prompt optimization job.
+   * <p>The time at which the advanced prompt optimization job was created.</p>
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * Last modified time of the advanced prompt optimization job.
+   * <p>The time at which the advanced prompt optimization job was last modified.</p>
    * @public
    */
   lastModifiedTime?: Date | undefined;
 
   /**
-   * Failure message if the advanced prompt optimization job failed.
+   * <p>If the job failed, a message describing the reason for the failure.</p>
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * Model configurations for advanced prompt optimization.
+   * <p>The model configurations used in the optimization job.</p>
    * @public
    */
   modelConfigurations: ModelConfiguration[] | undefined;
 }
 
 /**
- * List Advanced Prompt Optimization Jobs Request
+ * <p>List Advanced Prompt Optimization Jobs Request</p>
  * @public
  */
 export interface ListAdvancedPromptOptimizationJobsRequest {
   /**
-   * Maximum number of results to return.
+   * <p>The maximum number of results to return in the response.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * Pagination token for the next page of results.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token in a subsequent request to get the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * Field to sort by in the returned list of jobs.
+   * <p>The field to sort the results by.</p>
    * @public
    */
   sortBy?: SortJobsBy | undefined;
 
   /**
-   * Sort order for the results.
+   * <p>The sort order for the results.</p>
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * Summary of an advanced prompt optimization job.
+ * <p>Contains a summary of an advanced prompt optimization job.</p>
  * @public
  */
 export interface AdvancedPromptOptimizationJobSummary {
   /**
-   * ARN of the advanced prompt optimization job.
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * Name of the advanced prompt optimization job.
+   * <p>The name of the job.</p>
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * Status of the advanced prompt optimization job.
+   * <p>The status of the job.</p>
    * @public
    */
   jobStatus: AdvancedPromptOptimizationJobStatus | undefined;
 
   /**
-   * Creation time of the advanced prompt optimization job.
+   * <p>The time at which the job was created.</p>
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * Last modified time of the advanced prompt optimization job.
+   * <p>The time at which the job was last modified.</p>
    * @public
    */
   lastModifiedTime?: Date | undefined;
 }
 
 /**
- * List Advanced Prompt Optimization Jobs Response
+ * <p>List Advanced Prompt Optimization Jobs Response</p>
  * @public
  */
 export interface ListAdvancedPromptOptimizationJobsResponse {
   /**
-   * List of advanced prompt optimization job summaries.
+   * <p>A list of advanced prompt optimization job summaries.</p>
    * @public
    */
   jobSummaries?: AdvancedPromptOptimizationJobSummary[] | undefined;
 
   /**
-   * Pagination token for the next page of results.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token in a subsequent request to get the next set of results.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * Stop Advanced Prompt Optimization Job Request
+ * <p>Stop Advanced Prompt Optimization Job Request</p>
  * @public
  */
 export interface StopAdvancedPromptOptimizationJobRequest {
   /**
-   * ARN or ID of the advanced prompt optimization job to stop.
+   * <p>The ARN or ID of the advanced prompt optimization job to stop.</p>
    * @public
    */
   jobIdentifier: string | undefined;
 }
 
 /**
- * Stop Advanced Prompt Optimization Job Response
+ * <p>Stop Advanced Prompt Optimization Job Response</p>
  * @public
  */
 export interface StopAdvancedPromptOptimizationJobResponse {}
@@ -5314,6 +5312,57 @@ export interface UpdateCustomModelDeploymentResponse {
 }
 
 /**
+ * <p>Contains the Amazon Resource Name (ARN) of a SageMaker AI model package to use as the data source for a custom model.</p>
+ * @public
+ */
+export interface ModelPackageArnDataSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker AI model package. The ARN must be for a model package of <code>restricted</code> type.</p> <p>To use a model package ARN, you must have the <code>sagemaker:DescribeModelPackage</code> and <code>sagemaker:AccessModelPackageData</code> permissions on the model package resource.</p>
+   * @public
+   */
+  modelPackageArn: string | undefined;
+}
+
+/**
+ * <p>The data source for a custom model. This is a union type that supports the following member:</p> <ul> <li> <p> <code>modelPackageArnDataSource</code> — Specifies a SageMaker AI model package as the data source.</p> </li> </ul>
+ * @public
+ */
+export type CustomModelDataSource =
+  | CustomModelDataSource.ModelPackageArnDataSourceMember
+  | CustomModelDataSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomModelDataSource {
+  /**
+   * <p>A SageMaker AI model package ARN as the data source for the custom model. When you specify a model package ARN, Amazon Bedrock resolves the model package to retrieve the model artifacts.</p>
+   * @public
+   */
+  export interface ModelPackageArnDataSourceMember {
+    modelPackageArnDataSource: ModelPackageArnDataSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    modelPackageArnDataSource?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    modelPackageArnDataSource: (value: ModelPackageArnDataSource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The Amazon S3 data source of the model to import. </p>
  * @public
  */
@@ -5378,7 +5427,13 @@ export interface CreateCustomModelRequest {
    * <p>The data source for the model. The Amazon S3 URI in the model source must be for the Amazon-managed Amazon S3 bucket containing your model artifacts.</p>
    * @public
    */
-  modelSourceConfig: ModelDataSource | undefined;
+  modelSourceConfig?: ModelDataSource | undefined;
+
+  /**
+   * <p>The data source for the custom model. Use this field to specify a SageMaker AI model package ARN as the source for your custom model. Amazon Bedrock resolves the model package to retrieve the model artifacts.</p> <p>You can specify either <code>customModelDataSource</code> or <code>modelSourceConfig</code>, but not both.</p>
+   * @public
+   */
+  customModelDataSource?: CustomModelDataSource | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to encrypt the custom model. If you don't provide a KMS key, Amazon Bedrock uses an Amazon Web Services-managed KMS key to encrypt the model. </p> <p>If you provide a customer managed KMS key, your Amazon Bedrock service role must have permissions to use it. For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/encryption-import-model.html">Encryption of imported models</a>. </p>
@@ -5387,7 +5442,7 @@ export interface CreateCustomModelRequest {
   modelKmsKeyArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock assumes to perform tasks on your behalf. This role must have permissions to access the Amazon S3 bucket containing your model artifacts and the KMS key (if specified). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-import-iam-role.html">Setting up an IAM service role for importing models</a> in the Amazon Bedrock User Guide.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock assumes to perform tasks on your behalf. This role must have permissions to access the Amazon S3 bucket containing your model artifacts and the KMS key (if specified). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-import-iam-role.html">Setting up an IAM service role for importing models</a> in the Amazon Bedrock User Guide.</p> <p>This field is required when you use <code>modelSourceConfig</code> with an Amazon S3 data source. It is not required when you use <code>customModelDataSource</code> with a model package ARN, because Amazon Bedrock uses its own credentials to access the model artifacts.</p>
    * @public
    */
   roleArn?: string | undefined;
@@ -7990,76 +8045,4 @@ export interface GuardrailTopicPolicyConfig {
    * @public
    */
   tierConfig?: GuardrailTopicsTierConfig | undefined;
-}
-
-/**
- * <p>The managed word list to configure for the guardrail.</p>
- * @public
- */
-export interface GuardrailManagedWordsConfig {
-  /**
-   * <p>The managed word type to configure for the guardrail.</p>
-   * @public
-   */
-  type: GuardrailManagedWordsType | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>A word to configure for the guardrail.</p>
- * @public
- */
-export interface GuardrailWordConfig {
-  /**
-   * <p>Text of the word configured for the guardrail to block.</p>
-   * @public
-   */
-  text: string | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
 }

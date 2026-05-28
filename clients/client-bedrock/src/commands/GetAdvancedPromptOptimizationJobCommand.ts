@@ -30,7 +30,7 @@ export interface GetAdvancedPromptOptimizationJobCommandInput extends GetAdvance
 export interface GetAdvancedPromptOptimizationJobCommandOutput extends GetAdvancedPromptOptimizationJobResponse, __MetadataBearer {}
 
 /**
- * Retrieves the details and status of an advanced prompt optimization job.
+ * <p>Gets information about an advanced prompt optimization job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
