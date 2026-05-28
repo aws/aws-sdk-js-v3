@@ -9,8 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListTagsForResourceRequest } from "../models/models_0";
-import type { ListTagsForResourceResponse } from "../models/models_1";
+import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
 import { ListTagsForResource$ } from "../schemas/schemas_0";
 
 /**

@@ -49,6 +49,15 @@ const _BN = "BusinessName";
 const _BNu = "BucketName";
 const _BP = "BucketPrefix";
 const _BPN = "BusinessPhoneNumber";
+const _BPPO = "BatchPutProfileObject";
+const _BPPOEI = "BatchPutProfileObjectErrorItem";
+const _BPPOEL = "BatchPutProfileObjectErrorList";
+const _BPPOR = "BatchPutProfileObjectRequest";
+const _BPPORI = "BatchPutProfileObjectRequestItem";
+const _BPPORIL = "BatchPutProfileObjectRequestItemList";
+const _BPPORIa = "BatchPutProfileObjectResponseItem";
+const _BPPORL = "BatchPutProfileObjectResponseList";
+const _BPPORa = "BatchPutProfileObjectResponse";
 const _BRE = "BadRequestException";
 const _BRET = "BatchRecordsEndTime";
 const _BRST = "BatchRecordsStartTime";
@@ -256,7 +265,7 @@ const _En = "Enabled";
 const _End = "End";
 const _Er = "Errors";
 const _Es = "Estimate";
-const _F = "Filter";
+const _F = "Failed";
 const _FAD = "FilterAttributeDimension";
 const _FBI = "FoundByItems";
 const _FBKV = "FoundByKeyValue";
@@ -275,7 +284,8 @@ const _FRa = "FailedRecords";
 const _FSPI = "FieldSourceProfileIds";
 const _FT = "FeatureType";
 const _Fa = "Failures";
-const _Fi = "Fields";
+const _Fi = "Filter";
+const _Fie = "Fields";
 const _G = "Gender";
 const _GAMP = "GetAutoMergingPreview";
 const _GAMPR = "GetAutoMergingPreviewRequest";
@@ -541,7 +551,7 @@ const _NOPIS = "NumberOfProfilesInSample";
 const _NOPR = "NumberOfProfilesReviewed";
 const _NOPWBM = "NumberOfProfilesWillBeMerged";
 const _NT = "NextToken";
-const _O = "Objects";
+const _O = "Object";
 const _OA = "ObjectAttributes";
 const _OAb = "ObjectAttribute";
 const _OC = "ObjectCount";
@@ -551,7 +561,7 @@ const _OTK = "ObjectTypeKey";
 const _OTKL = "ObjectTypeKeyList";
 const _OTN = "ObjectTypeName";
 const _OTNb = "ObjectTypeNames";
-const _Ob = "Object";
+const _Ob = "Objects";
 const _Op = "Operator";
 const _Or = "Order";
 const _P = "Province";
@@ -741,6 +751,7 @@ const _Sta = "Status";
 const _Star = "Start";
 const _Stat = "Stats";
 const _Stati = "Statistics";
+const _Su = "Successful";
 const _T = "Type";
 const _TC = "TriggerConfig";
 const _TE = "ThrottlingException";
@@ -1038,6 +1049,31 @@ export var BatchGetProfileResponse$: StaticStructureSchema = [3, n0, _BGPRa,
   [_Er, _Pr],
   [() => BatchGetProfileErrorList, [() => ProfileList, 0]]
 ];
+export var BatchPutProfileObjectErrorItem$: StaticStructureSchema = [3, n0, _BPPOEI,
+  0,
+  [_I, _Cod, _M],
+  [0, 1, 0], 2
+];
+export var BatchPutProfileObjectRequest$: StaticStructureSchema = [3, n0, _BPPOR,
+  0,
+  [_DN, _OTN, _It],
+  [[0, 1], 0, [() => BatchPutProfileObjectRequestItemList, 0]], 3
+];
+export var BatchPutProfileObjectRequestItem$: StaticStructureSchema = [3, n0, _BPPORI,
+  0,
+  [_I, _O],
+  [0, [() => stringifiedJson, 0]], 2
+];
+export var BatchPutProfileObjectResponse$: StaticStructureSchema = [3, n0, _BPPORa,
+  0,
+  [_Su, _F],
+  [() => BatchPutProfileObjectResponseList, () => BatchPutProfileObjectErrorList]
+];
+export var BatchPutProfileObjectResponseItem$: StaticStructureSchema = [3, n0, _BPPORIa,
+  0,
+  [_I, _POUK],
+  [0, 0], 2
+];
 export var CalculatedAttributeDimension$: StaticStructureSchema = [3, n0, _CAD,
   0,
   [_DT, _V, _CO],
@@ -1085,12 +1121,12 @@ export var ContactPreference$: StaticStructureSchema = [3, n0, _CP,
 ];
 export var CreateCalculatedAttributeDefinitionRequest$: StaticStructureSchema = [3, n0, _CCADR,
   0,
-  [_DN, _CAN, _ADt, _S, _DNi, _D, _Cond, _F, _UHD, _Ta],
+  [_DN, _CAN, _ADt, _S, _DNi, _D, _Cond, _Fi, _UHD, _Ta],
   [[0, 1], [0, 1], [() => AttributeDetails$, 0], [() => Statistic, 0], 0, [() => sensitiveText, 0], [() => Conditions$, 0], () => Filter$, 2, 128 | 0], 4
 ];
 export var CreateCalculatedAttributeDefinitionResponse$: StaticStructureSchema = [3, n0, _CCADRr,
   0,
-  [_CAN, _DNi, _D, _ADt, _Cond, _F, _S, _CA, _LUA, _UHD, _Sta, _Re, _Ta],
+  [_CAN, _DNi, _D, _ADt, _Cond, _Fi, _S, _CA, _LUA, _UHD, _Sta, _Re, _Ta],
   [0, 0, [() => sensitiveText, 0], [() => AttributeDetails$, 0], [() => Conditions$, 0], () => Filter$, [() => Statistic, 0], 4, 4, 2, 0, () => Readiness$, 128 | 0]
 ];
 export var CreateDomainLayoutRequest$: StaticStructureSchema = [3, n0, _CDLR,
@@ -1175,12 +1211,12 @@ export var CreateRecommenderResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateRecommenderSchemaRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
-  [_DN, _RSN, _Fi, _Ta],
+  [_DN, _RSN, _Fie, _Ta],
   [[0, 1], [0, 1], () => RecommenderSchemaFields, 128 | 0], 3
 ];
 export var CreateRecommenderSchemaResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
-  [_RSA, _RSN, _Fi, _CA, _Sta, _Ta],
+  [_RSA, _RSN, _Fie, _CA, _Sta, _Ta],
   [0, 0, () => RecommenderSchemaFields, 4, 0, 128 | 0], 5
 ];
 export var CreateSegmentDefinitionRequest$: StaticStructureSchema = [3, n0, _CSDR,
@@ -1215,7 +1251,7 @@ export var CreateSegmentSnapshotResponse$: StaticStructureSchema = [3, n0, _CSSR
 ];
 export var CreateUploadJobRequest$: StaticStructureSchema = [3, n0, _CUJR,
   0,
-  [_DN, _DNi, _Fi, _UK, _DE],
+  [_DN, _DNi, _Fie, _UK, _DE],
   [[0, 1], 0, [() => FieldMap, 0], 0, 1], 4
 ];
 export var CreateUploadJobResponse$: StaticStructureSchema = [3, n0, _CUJRr,
@@ -1405,12 +1441,12 @@ export var DestinationSummary$: StaticStructureSchema = [3, n0, _DSe,
 ];
 export var DetectedProfileObjectType$: StaticStructureSchema = [3, n0, _DPOT,
   0,
-  [_SLUTF, _Fi, _K],
+  [_SLUTF, _Fie, _K],
   [0, [() => FieldMap, 0], [() => KeyMap, 0]]
 ];
 export var DetectProfileObjectTypeRequest$: StaticStructureSchema = [3, n0, _DPOTRet,
   0,
-  [_O, _DN],
+  [_Ob, _DN],
   [[() => Objects, 0], [0, 1]], 2
 ];
 export var DetectProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _DPOTRete,
@@ -1498,7 +1534,7 @@ export var FieldSourceProfileIds$: StaticStructureSchema = [3, n0, _FSPI,
   [_AN, _AId, _PT, _BN, _FNi, _MN, _LN, _BD, _G, _PN, _MPN, _HPN, _BPN, _EA, _PEA, _BEA, _A, _SA, _MA, _BA, _At, _PTr, _EP],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 0]
 ];
-export var Filter$: StaticStructureSchema = [3, n0, _F,
+export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_In, _Gr],
   [0, () => GroupList], 2
@@ -1545,7 +1581,7 @@ export var GetCalculatedAttributeDefinitionRequest$: StaticStructureSchema = [3,
 ];
 export var GetCalculatedAttributeDefinitionResponse$: StaticStructureSchema = [3, n0, _GCADRe,
   0,
-  [_CAN, _DNi, _D, _CA, _LUA, _S, _F, _Cond, _ADt, _UHD, _Sta, _Re, _Ta],
+  [_CAN, _DNi, _D, _CA, _LUA, _S, _Fi, _Cond, _ADt, _UHD, _Sta, _Re, _Ta],
   [0, 0, [() => sensitiveText, 0], 4, 4, [() => Statistic, 0], () => Filter$, [() => Conditions$, 0], [() => AttributeDetails$, 0], 2, 0, () => Readiness$, 128 | 0]
 ];
 export var GetCalculatedAttributeForProfileRequest$: StaticStructureSchema = [3, n0, _GCAFPR,
@@ -1575,7 +1611,7 @@ export var GetDomainObjectTypeRequest$: StaticStructureSchema = [3, n0, _GDOTR,
 ];
 export var GetDomainObjectTypeResponse$: StaticStructureSchema = [3, n0, _GDOTRe,
   0,
-  [_OTN, _D, _EK, _Fi, _CA, _LUA, _Ta],
+  [_OTN, _D, _EK, _Fie, _CA, _LUA, _Ta],
   [0, [() => sensitiveString1To10000, 0], 0, () => DomainObjectTypeFields, 4, 4, 128 | 0], 1
 ];
 export var GetDomainRequest$: StaticStructureSchema = [3, n0, _GDR,
@@ -1675,7 +1711,7 @@ export var GetProfileObjectTypeRequest$: StaticStructureSchema = [3, n0, _GPOTR,
 ];
 export var GetProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _GPOTRe,
   0,
-  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MAPOC, _MPOC, _SP, _Fi, _K, _CA, _LUA, _Ta],
+  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MAPOC, _MPOC, _SP, _Fie, _K, _CA, _LUA, _Ta],
   [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
 ];
 export var GetProfileObjectTypeTemplateRequest$: StaticStructureSchema = [3, n0, _GPOTTR,
@@ -1685,7 +1721,7 @@ export var GetProfileObjectTypeTemplateRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetProfileObjectTypeTemplateResponse$: StaticStructureSchema = [3, n0, _GPOTTRe,
   0,
-  [_TI, _SN, _SO, _APC, _SLUTF, _Fi, _K],
+  [_TI, _SN, _SO, _APC, _SLUTF, _Fie, _K],
   [0, 0, 0, 2, 0, [() => FieldMap, 0], [() => KeyMap, 0]]
 ];
 export var GetProfileRecommendationsRequest$: StaticStructureSchema = [3, n0, _GPRR,
@@ -1725,7 +1761,7 @@ export var GetRecommenderSchemaRequest$: StaticStructureSchema = [3, n0, _GRSR,
 ];
 export var GetRecommenderSchemaResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   0,
-  [_RSN, _Fi, _CA, _Sta],
+  [_RSN, _Fie, _CA, _Sta],
   [0, () => RecommenderSchemaFields, 4, 0], 4
 ];
 export var GetSegmentDefinitionRequest$: StaticStructureSchema = [3, n0, _GSDR,
@@ -1795,8 +1831,8 @@ export var GetUploadJobRequest$: StaticStructureSchema = [3, n0, _GUJR,
 ];
 export var GetUploadJobResponse$: StaticStructureSchema = [3, n0, _GUJRe,
   0,
-  [_JI, _DNi, _Sta, _SR, _CA, _CAo, _Fi, _UK, _RS, _DE],
-  [[0, { [_jN]: _JI }], [0, { [_jN]: _DNi }], [0, { [_jN]: _Sta }], [0, { [_jN]: _SR }], [4, { [_jN]: _CA }], [4, { [_jN]: _CAo }], [() => FieldMap, { [_jN]: _Fi }], [0, { [_jN]: _UK }], [() => ResultsSummary$, { [_jN]: _RS }], [1, { [_jN]: _DE }]]
+  [_JI, _DNi, _Sta, _SR, _CA, _CAo, _Fie, _UK, _RS, _DE],
+  [[0, { [_jN]: _JI }], [0, { [_jN]: _DNi }], [0, { [_jN]: _Sta }], [0, { [_jN]: _SR }], [4, { [_jN]: _CA }], [4, { [_jN]: _CAo }], [() => FieldMap, { [_jN]: _Fie }], [0, { [_jN]: _UK }], [() => ResultsSummary$, { [_jN]: _RS }], [1, { [_jN]: _DE }]]
 ];
 export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
@@ -2020,7 +2056,7 @@ export var ListProfileHistoryRecordsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ListProfileObjectsItem$: StaticStructureSchema = [3, n0, _LPOI,
   0,
-  [_OTN, _POUK, _Ob],
+  [_OTN, _POUK, _O],
   [0, 0, [() => stringifiedJson, 0]]
 ];
 export var ListProfileObjectsRequest$: StaticStructureSchema = [3, n0, _LPOR,
@@ -2160,7 +2196,7 @@ export var ListWorkflowsResponse$: StaticStructureSchema = [3, n0, _LWRi,
 ];
 export var MarketoSourceProperties$: StaticStructureSchema = [3, n0, _MSP,
   0,
-  [_Ob],
+  [_O],
   [0], 1
 ];
 export var MatchingRequest$: StaticStructureSchema = [3, n0, _MRa,
@@ -2270,12 +2306,12 @@ export var ProfileTypeDimension$: StaticStructureSchema = [3, n0, _PTD,
 ];
 export var PutDomainObjectTypeRequest$: StaticStructureSchema = [3, n0, _PDOTR,
   0,
-  [_DN, _OTN, _Fi, _D, _EK, _Ta],
+  [_DN, _OTN, _Fie, _D, _EK, _Ta],
   [[0, 1], [0, 1], () => DomainObjectTypeFields, [() => sensitiveString1To10000, 0], 0, 128 | 0], 3
 ];
 export var PutDomainObjectTypeResponse$: StaticStructureSchema = [3, n0, _PDOTRu,
   0,
-  [_OTN, _D, _EK, _Fi, _CA, _LUA, _Ta],
+  [_OTN, _D, _EK, _Fie, _CA, _LUA, _Ta],
   [0, [() => sensitiveString1To10000, 0], 0, () => DomainObjectTypeFields, 4, 4, 128 | 0]
 ];
 export var PutIntegrationRequest$: StaticStructureSchema = [3, n0, _PIR,
@@ -2290,7 +2326,7 @@ export var PutIntegrationResponse$: StaticStructureSchema = [3, n0, _PIRu,
 ];
 export var PutProfileObjectRequest$: StaticStructureSchema = [3, n0, _PPOR,
   0,
-  [_OTN, _Ob, _DN],
+  [_OTN, _O, _DN],
   [0, [() => stringifiedJson, 0], [0, 1]], 3
 ];
 export var PutProfileObjectResponse$: StaticStructureSchema = [3, n0, _PPORu,
@@ -2300,12 +2336,12 @@ export var PutProfileObjectResponse$: StaticStructureSchema = [3, n0, _PPORu,
 ];
 export var PutProfileObjectTypeRequest$: StaticStructureSchema = [3, n0, _PPOTR,
   0,
-  [_DN, _OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _SP, _Fi, _K, _Ta],
+  [_DN, _OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _SP, _Fie, _K, _Ta],
   [[0, 1], [0, 1], [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 128 | 0], 3
 ];
 export var PutProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _PPOTRu,
   0,
-  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _MAPOC, _SP, _Fi, _K, _CA, _LUA, _Ta],
+  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _MAPOC, _SP, _Fie, _K, _CA, _LUA, _Ta],
   [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
 ];
 export var Range$: StaticStructureSchema = [3, n0, _R,
@@ -2360,7 +2396,7 @@ export var RecommenderSchemaField$: StaticStructureSchema = [3, n0, _RSFe,
 ];
 export var RecommenderSchemaSummary$: StaticStructureSchema = [3, n0, _RSS,
   0,
-  [_RSN, _Fi, _CA, _Sta],
+  [_RSN, _Fie, _CA, _Sta],
   [0, () => RecommenderSchemaFields, 4, 0], 4
 ];
 export var RecommenderSummary$: StaticStructureSchema = [3, n0, _RSec,
@@ -2405,7 +2441,7 @@ export var S3SourceProperties$: StaticStructureSchema = [3, n0, _SSP,
 ];
 export var SalesforceSourceProperties$: StaticStructureSchema = [3, n0, _SSPa,
   0,
-  [_Ob, _EDFU, _IDR],
+  [_O, _EDFU, _IDR],
   [0, 2, 2], 1
 ];
 export var ScheduledTriggerProperties$: StaticStructureSchema = [3, n0, _STP,
@@ -2445,7 +2481,7 @@ export var SegmentSort$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var ServiceNowSourceProperties$: StaticStructureSchema = [3, n0, _SNSP,
   0,
-  [_Ob],
+  [_O],
   [0], 1
 ];
 export var SortAttribute$: StaticStructureSchema = [3, n0, _SAo,
@@ -2645,7 +2681,7 @@ export var WorkflowStepItem$: StaticStructureSchema = [3, n0, _WSI,
 ];
 export var ZendeskSourceProperties$: StaticStructureSchema = [3, n0, _ZSP,
   0,
-  [_Ob],
+  [_O],
   [0], 1
 ];
 var additionalSearchKeysList: StaticListSchema = [1, n0, _aSKL,
@@ -2669,6 +2705,16 @@ var BatchGetProfileErrorList: StaticListSchema = [1, n0, _BGPEL,
   0, () => BatchGetProfileError$
 ];
 var BatchGetProfileIdList = 64 | 0;
+var BatchPutProfileObjectErrorList: StaticListSchema = [1, n0, _BPPOEL,
+  0, () => BatchPutProfileObjectErrorItem$
+];
+var BatchPutProfileObjectRequestItemList: StaticListSchema = [1, n0, _BPPORIL,
+  0, [() => BatchPutProfileObjectRequestItem$,
+    0]
+];
+var BatchPutProfileObjectResponseList: StaticListSchema = [1, n0, _BPPORL,
+  0, () => BatchPutProfileObjectResponseItem$
+];
 var CalculatedAttributeDefinitionsList: StaticListSchema = [1, n0, _CADL,
   8, [() => ListCalculatedAttributeDefinitionItem$,
     0]
@@ -2766,7 +2812,7 @@ var MetadataColumnsList = 64 | 0;
 var ObjectAttributes: StaticListSchema = [1, n0, _OA,
   0, () => ObjectAttribute$
 ];
-var Objects: StaticListSchema = [1, n0, _O,
+var Objects: StaticListSchema = [1, n0, _Ob,
   8, [() => stringifiedJson,
     0]
 ];
@@ -2938,6 +2984,9 @@ export var BatchGetCalculatedAttributeForProfile$: StaticOperationSchema = [9, n
 ];
 export var BatchGetProfile$: StaticOperationSchema = [9, n0, _BGP,
   { [_h]: ["POST", "/domains/{DomainName}/batch-get-profiles", 200] }, () => BatchGetProfileRequest$, () => BatchGetProfileResponse$
+];
+export var BatchPutProfileObject$: StaticOperationSchema = [9, n0, _BPPO,
+  { [_h]: ["PUT", "/domains/{DomainName}/profiles/objects/batch-put-profile-object", 200] }, () => BatchPutProfileObjectRequest$, () => BatchPutProfileObjectResponse$
 ];
 export var CreateCalculatedAttributeDefinition$: StaticOperationSchema = [9, n0, _CCAD,
   { [_h]: ["POST", "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}", 200] }, () => CreateCalculatedAttributeDefinitionRequest$, () => CreateCalculatedAttributeDefinitionResponse$

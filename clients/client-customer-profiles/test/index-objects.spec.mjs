@@ -34,6 +34,13 @@ import {
   BatchGetProfileError$,
   BatchGetProfileRequest$,
   BatchGetProfileResponse$,
+  BatchPutProfileObject$,
+  BatchPutProfileObjectCommand,
+  BatchPutProfileObjectErrorItem$,
+  BatchPutProfileObjectRequest$,
+  BatchPutProfileObjectRequestItem$,
+  BatchPutProfileObjectResponse$,
+  BatchPutProfileObjectResponseItem$,
   CalculatedAttributeDimension$,
   CalculatedAttributeValue$,
   CatalogItem$,
@@ -657,6 +664,8 @@ assert(typeof BatchGetCalculatedAttributeForProfileCommand === "function");
 assert(typeof BatchGetCalculatedAttributeForProfile$ === "object");
 assert(typeof BatchGetProfileCommand === "function");
 assert(typeof BatchGetProfile$ === "object");
+assert(typeof BatchPutProfileObjectCommand === "function");
+assert(typeof BatchPutProfileObject$ === "object");
 assert(typeof CreateCalculatedAttributeDefinitionCommand === "function");
 assert(typeof CreateCalculatedAttributeDefinition$ === "object");
 assert(typeof CreateDomainCommand === "function");
@@ -886,6 +895,11 @@ assert(typeof BatchGetCalculatedAttributeForProfileResponse$ === "object");
 assert(typeof BatchGetProfileError$ === "object");
 assert(typeof BatchGetProfileRequest$ === "object");
 assert(typeof BatchGetProfileResponse$ === "object");
+assert(typeof BatchPutProfileObjectErrorItem$ === "object");
+assert(typeof BatchPutProfileObjectRequest$ === "object");
+assert(typeof BatchPutProfileObjectRequestItem$ === "object");
+assert(typeof BatchPutProfileObjectResponse$ === "object");
+assert(typeof BatchPutProfileObjectResponseItem$ === "object");
 assert(typeof CalculatedAttributeDimension$ === "object");
 assert(typeof CalculatedAttributeValue$ === "object");
 assert(typeof CatalogItem$ === "object");

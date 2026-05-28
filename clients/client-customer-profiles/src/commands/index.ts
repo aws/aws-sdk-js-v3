@@ -2,6 +2,7 @@
 export * from "./AddProfileKeyCommand";
 export * from "./BatchGetCalculatedAttributeForProfileCommand";
 export * from "./BatchGetProfileCommand";
+export * from "./BatchPutProfileObjectCommand";
 export * from "./CreateCalculatedAttributeDefinitionCommand";
 export * from "./CreateDomainCommand";
 export * from "./CreateDomainLayoutCommand";

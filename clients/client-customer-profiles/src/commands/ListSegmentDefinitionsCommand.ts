@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListSegmentDefinitionsRequest, ListSegmentDefinitionsResponse } from "../models/models_0";
+import type { ListSegmentDefinitionsRequest, ListSegmentDefinitionsResponse } from "../models/models_1";
 import { ListSegmentDefinitions$ } from "../schemas/schemas_0";
 
 /**

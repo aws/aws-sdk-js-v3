@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListRuleBasedMatchesRequest, ListRuleBasedMatchesResponse } from "../models/models_0";
+import type { ListRuleBasedMatchesRequest } from "../models/models_0";
+import type { ListRuleBasedMatchesResponse } from "../models/models_1";
 import { ListRuleBasedMatches$ } from "../schemas/schemas_0";
 
 /**

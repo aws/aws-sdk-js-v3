@@ -18,6 +18,11 @@ import {
   BatchGetProfileCommand,
 } from "./commands/BatchGetProfileCommand";
 import {
+  type BatchPutProfileObjectCommandInput,
+  type BatchPutProfileObjectCommandOutput,
+  BatchPutProfileObjectCommand,
+} from "./commands/BatchPutProfileObjectCommand";
+import {
   type CreateCalculatedAttributeDefinitionCommandInput,
   type CreateCalculatedAttributeDefinitionCommandOutput,
   CreateCalculatedAttributeDefinitionCommand,
@@ -547,6 +552,7 @@ const commands = {
   AddProfileKeyCommand,
   BatchGetCalculatedAttributeForProfileCommand,
   BatchGetProfileCommand,
+  BatchPutProfileObjectCommand,
   CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
   CreateDomainLayoutCommand,
@@ -717,6 +723,23 @@ export interface CustomerProfiles {
     args: BatchGetProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchPutProfileObjectCommand}
+   */
+  batchPutProfileObject(
+    args: BatchPutProfileObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutProfileObjectCommandOutput>;
+  batchPutProfileObject(
+    args: BatchPutProfileObjectCommandInput,
+    cb: (err: any, data?: BatchPutProfileObjectCommandOutput) => void
+  ): void;
+  batchPutProfileObject(
+    args: BatchPutProfileObjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutProfileObjectCommandOutput) => void
   ): void;
 
   /**

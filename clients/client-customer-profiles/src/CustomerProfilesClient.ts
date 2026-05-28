@@ -61,6 +61,10 @@ import type {
 } from "./commands/BatchGetCalculatedAttributeForProfileCommand";
 import type { BatchGetProfileCommandInput, BatchGetProfileCommandOutput } from "./commands/BatchGetProfileCommand";
 import type {
+  BatchPutProfileObjectCommandInput,
+  BatchPutProfileObjectCommandOutput,
+} from "./commands/BatchPutProfileObjectCommand";
+import type {
   CreateCalculatedAttributeDefinitionCommandInput,
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
@@ -382,6 +386,7 @@ export type ServiceInputTypes =
   | AddProfileKeyCommandInput
   | BatchGetCalculatedAttributeForProfileCommandInput
   | BatchGetProfileCommandInput
+  | BatchPutProfileObjectCommandInput
   | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
   | CreateDomainLayoutCommandInput
@@ -493,6 +498,7 @@ export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
   | BatchGetCalculatedAttributeForProfileCommandOutput
   | BatchGetProfileCommandOutput
+  | BatchPutProfileObjectCommandOutput
   | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
   | CreateDomainLayoutCommandOutput

@@ -220,6 +220,13 @@ BatchGetProfile
 </details>
 <details>
 <summary>
+BatchPutProfileObject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/BatchPutProfileObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/BatchPutProfileObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/BatchPutProfileObjectCommandOutput/)
+</details>
+<details>
+<summary>
 CreateCalculatedAttributeDefinition
 </summary>
 

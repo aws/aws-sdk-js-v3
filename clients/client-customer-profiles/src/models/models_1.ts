@@ -7,6 +7,7 @@ import type {
   ProfileType,
   ReadinessStatus,
   Scope,
+  SegmentType,
   Statistic,
   Status,
   StatusReason,
@@ -34,6 +35,126 @@ import type {
   RuleBasedMatchingRequest,
   RuleBasedMatchingResponse,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListRuleBasedMatchesResponse {
+  /**
+   * <p>The list of <code>MatchIds</code> for the given domain.</p>
+   * @public
+   */
+  MatchIds?: string[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
+   *          call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSegmentDefinitionsRequest {
+  /**
+   * <p>The unique identifier of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from the previous call. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Object holding the segment definition fields.</p>
+ * @public
+ */
+export interface SegmentDefinitionItem {
+  /**
+   * <p>Name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName?: string | undefined;
+
+  /**
+   * <p>Display name of the segment definition.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the segment definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The arn of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionArn?: string | undefined;
+
+  /**
+   * <p>When the segment definition was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags belonging to the segment definition.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The segment type.</p>
+   *          <p> Classic : Segments created using traditional SegmentGroup structure</p>
+   *          <p> Enhanced : Segments created using SQL queries
+   *       </p>
+   * @public
+   */
+  SegmentType?: SegmentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSegmentDefinitionsResponse {
+  /**
+   * <p>The pagination token from the previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>List of segment definitions.</p>
+   * @public
+   */
+  Items?: SegmentDefinitionItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource for which you want to view tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
 
 /**
  * @public

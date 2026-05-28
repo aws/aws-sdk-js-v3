@@ -74,7 +74,7 @@ export interface GetEventTriggerCommandOutput extends GetEventTriggerResponse, _
  * //     EventExpiration: Number("long"),
  * //     Periods: [ // Periods
  * //       { // Period
- * //         Unit: "HOURS" || "DAYS" || "WEEKS" || "MONTHS", // required
+ * //         Unit: "MINUTES" || "HOURS" || "DAYS" || "WEEKS" || "MONTHS", // required
  * //         Value: Number("int"), // required
  * //         MaxInvocationsPerProfile: Number("int"),
  * //         Unlimited: true || false,

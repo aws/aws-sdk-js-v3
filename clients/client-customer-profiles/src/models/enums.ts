@@ -631,6 +631,7 @@ export type EventTriggerLogicalOperator =
 export const PeriodUnit = {
   DAYS: "DAYS",
   HOURS: "HOURS",
+  MINUTES: "MINUTES",
   MONTHS: "MONTHS",
   WEEKS: "WEEKS",
 } as const;
