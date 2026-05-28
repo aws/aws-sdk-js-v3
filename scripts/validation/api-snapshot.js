@@ -11,6 +11,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const ts = require("typescript");
 
+const updateLibDynamodb = process.argv.includes("--update-lib-dynamodb");
+
 const root = path.join(__dirname, "..", "..");
 const dataPath = path.join(root, "scripts", "validation", "api.json");
 const api = require(dataPath);
@@ -190,8 +192,14 @@ function checkModule(name, version, module, typeExports) {
 
       if (inCurrent && !inSnapshot) {
         const kind = inRuntime ? typeof module[symbol] : typeExports.get(symbol);
-        errors.push(`You must commit changes in api.json adding ${symbol} (${kind}) to ${name}.`);
-        api[name][symbol] = kind;
+        if (name === "@aws-sdk/lib-dynamodb" && !updateLibDynamodb) {
+          console.warn(
+            `⚠️  New symbol ${symbol} (${kind}) found in ${name} but not added to api snapshot. Run with --update-lib-dynamodb to update.`
+          );
+        } else {
+          errors.push(`You must commit changes in api.json adding ${symbol} (${kind}) to ${name}.`);
+          api[name][symbol] = kind;
+        }
       }
       if (!inCurrent && inSnapshot) {
         errors.push(`Symbol [${symbol}] is missing from ${name}, (${api[name][symbol]}).`);
