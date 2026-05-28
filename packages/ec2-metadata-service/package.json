@@ -25,8 +25,8 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.9",
-    "@smithy/core": "^3.24.3",
-    "@smithy/node-http-handler": "^4.7.3",
+    "@smithy/core": "^3.24.5",
+    "@smithy/node-http-handler": "^4.7.5",
     "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },

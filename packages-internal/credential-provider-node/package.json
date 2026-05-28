@@ -38,8 +38,8 @@
     "@aws-sdk/credential-provider-sso": "workspace:^3.972.44",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.44",
     "@aws-sdk/types": "workspace:^3.973.9",
-    "@smithy/core": "^3.24.3",
-    "@smithy/credential-provider-imds": "^4.3.2",
+    "@smithy/core": "^3.24.5",
+    "@smithy/credential-provider-imds": "^4.3.5",
     "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },

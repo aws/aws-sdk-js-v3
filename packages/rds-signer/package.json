@@ -33,8 +33,8 @@
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/core": "workspace:^3.974.14",
     "@aws-sdk/credential-providers": "workspace:3.1055.0",
-    "@smithy/core": "^3.24.3",
-    "@smithy/signature-v4": "^5.4.2",
+    "@smithy/core": "^3.24.5",
+    "@smithy/signature-v4": "^5.4.5",
     "@smithy/types": "^4.14.2",
     "tslib": "^2.6.2"
   },
