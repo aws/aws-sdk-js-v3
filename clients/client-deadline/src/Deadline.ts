@@ -224,6 +224,11 @@ import {
   DeleteStorageProfileCommand,
 } from "./commands/DeleteStorageProfileCommand";
 import {
+  type DeleteVolumeCommandInput,
+  type DeleteVolumeCommandOutput,
+  DeleteVolumeCommand,
+} from "./commands/DeleteVolumeCommand";
+import {
   type DeleteWorkerCommandInput,
   type DeleteWorkerCommandOutput,
   DeleteWorkerCommand,
@@ -311,6 +316,7 @@ import {
   GetStorageProfileForQueueCommand,
 } from "./commands/GetStorageProfileForQueueCommand";
 import { type GetTaskCommandInput, type GetTaskCommandOutput, GetTaskCommand } from "./commands/GetTaskCommand";
+import { type GetVolumeCommandInput, type GetVolumeCommandOutput, GetVolumeCommand } from "./commands/GetVolumeCommand";
 import { type GetWorkerCommandInput, type GetWorkerCommandOutput, GetWorkerCommand } from "./commands/GetWorkerCommand";
 import {
   type ListAvailableMeteredProductsCommandInput,
@@ -436,6 +442,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import { type ListTasksCommandInput, type ListTasksCommandOutput, ListTasksCommand } from "./commands/ListTasksCommand";
+import {
+  type ListVolumesCommandInput,
+  type ListVolumesCommandOutput,
+  ListVolumesCommand,
+} from "./commands/ListVolumesCommand";
 import {
   type ListWorkersCommandInput,
   type ListWorkersCommandOutput,
@@ -593,6 +604,7 @@ import { paginateListSteps } from "./pagination/ListStepsPaginator";
 import { paginateListStorageProfilesForQueue } from "./pagination/ListStorageProfilesForQueuePaginator";
 import { paginateListStorageProfiles } from "./pagination/ListStorageProfilesPaginator";
 import { paginateListTasks } from "./pagination/ListTasksPaginator";
+import { paginateListVolumes } from "./pagination/ListVolumesPaginator";
 import { paginateListWorkers } from "./pagination/ListWorkersPaginator";
 import { waitUntilFleetActive } from "./waiters/waitForFleetActive";
 import { waitUntilJobComplete } from "./waiters/waitForJobComplete";
@@ -650,6 +662,7 @@ const commands = {
   DeleteQueueFleetAssociationCommand,
   DeleteQueueLimitAssociationCommand,
   DeleteStorageProfileCommand,
+  DeleteVolumeCommand,
   DeleteWorkerCommand,
   DisassociateMemberFromFarmCommand,
   DisassociateMemberFromFleetCommand,
@@ -674,6 +687,7 @@ const commands = {
   GetStorageProfileCommand,
   GetStorageProfileForQueueCommand,
   GetTaskCommand,
+  GetVolumeCommand,
   GetWorkerCommand,
   ListAvailableMeteredProductsCommand,
   ListBudgetsCommand,
@@ -703,6 +717,7 @@ const commands = {
   ListStorageProfilesForQueueCommand,
   ListTagsForResourceCommand,
   ListTasksCommand,
+  ListVolumesCommand,
   ListWorkersCommand,
   PutMeteredProductCommand,
   SearchJobsCommand,
@@ -759,6 +774,7 @@ const paginators = {
   paginateListStorageProfiles,
   paginateListStorageProfilesForQueue,
   paginateListTasks,
+  paginateListVolumes,
   paginateListWorkers,
 };
 const waiters = {
@@ -1524,6 +1540,23 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link DeleteVolumeCommand}
+   */
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVolumeCommandOutput>;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
+  deleteVolume(
+    args: DeleteVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVolumeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWorkerCommand}
    */
   deleteWorker(
@@ -1929,6 +1962,23 @@ export interface Deadline {
     args: GetTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVolumeCommand}
+   */
+  getVolume(
+    args: GetVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVolumeCommandOutput>;
+  getVolume(
+    args: GetVolumeCommandInput,
+    cb: (err: any, data?: GetVolumeCommandOutput) => void
+  ): void;
+  getVolume(
+    args: GetVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVolumeCommandOutput) => void
   ): void;
 
   /**
@@ -2426,6 +2476,23 @@ export interface Deadline {
     args: ListTasksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVolumesCommand}
+   */
+  listVolumes(
+    args: ListVolumesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVolumesCommandOutput>;
+  listVolumes(
+    args: ListVolumesCommandInput,
+    cb: (err: any, data?: ListVolumesCommandOutput) => void
+  ): void;
+  listVolumes(
+    args: ListVolumesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVolumesCommandOutput) => void
   ): void;
 
   /**
@@ -3177,6 +3244,17 @@ export interface Deadline {
     args: ListTasksCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTasksCommandOutput>;
+
+  /**
+   * @see {@link ListVolumesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVolumesCommandOutput}.
+   */
+  paginateListVolumes(
+    args: ListVolumesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVolumesCommandOutput>;
 
   /**
    * @see {@link ListWorkersCommand}

@@ -28,4 +28,5 @@ export * from "./ListStepsPaginator";
 export * from "./ListStorageProfilesPaginator";
 export * from "./ListStorageProfilesForQueuePaginator";
 export * from "./ListTasksPaginator";
+export * from "./ListVolumesPaginator";
 export * from "./ListWorkersPaginator";

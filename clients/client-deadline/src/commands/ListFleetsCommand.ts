@@ -168,6 +168,13 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //             ],
  * //           },
  * //           storageProfileId: "STRING_VALUE",
+ * //           persistentVolumeConfiguration: { // PersistentVolumeConfiguration
+ * //             sizeGiB: Number("int"),
+ * //             iops: Number("int"),
+ * //             throughputMiB: Number("int"),
+ * //             mountPath: "STRING_VALUE", // required
+ * //             lastUsedTtlHours: Number("int"),
+ * //           },
  * //           autoScalingConfiguration: { // ServiceManagedEc2AutoScalingConfiguration
  * //             standbyWorkerCount: Number("int"),
  * //             workerIdleDurationSeconds: Number("int"),

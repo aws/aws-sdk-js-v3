@@ -5,9 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListStepConsumersRequest } from "../models/models_0";
-import type { ListStepConsumersResponse } from "../models/models_1";
-import { ListStepConsumers$ } from "../schemas/schemas_0";
+import type { DeleteVolumeRequest, DeleteVolumeResponse } from "../models/models_0";
+import { DeleteVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,56 +16,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListStepConsumersCommand}.
+ * The input for {@link DeleteVolumeCommand}.
  */
-export interface ListStepConsumersCommandInput extends ListStepConsumersRequest {}
+export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
 /**
  * @public
  *
- * The output of {@link ListStepConsumersCommand}.
+ * The output of {@link DeleteVolumeCommand}.
  */
-export interface ListStepConsumersCommandOutput extends ListStepConsumersResponse, __MetadataBearer {}
+export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __MetadataBearer {}
 
 /**
- * <p>Lists step consumers.</p>
+ * <p>Deletes a persistent volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, ListStepConsumersCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, ListStepConsumersCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, DeleteVolumeCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, DeleteVolumeCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
- * const input = { // ListStepConsumersRequest
+ * const input = { // DeleteVolumeRequest
  *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- *   stepId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   fleetId: "STRING_VALUE", // required
+ *   volumeId: "STRING_VALUE", // required
  * };
- * const command = new ListStepConsumersCommand(input);
+ * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
- * // { // ListStepConsumersResponse
- * //   consumers: [ // StepConsumers // required
- * //     { // StepConsumer
- * //       stepId: "STRING_VALUE", // required
- * //       status: "RESOLVED" || "UNRESOLVED", // required
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListStepConsumersCommandInput - {@link ListStepConsumersCommandInput}
- * @returns {@link ListStepConsumersCommandOutput}
- * @see {@link ListStepConsumersCommandInput} for command's `input` shape.
- * @see {@link ListStepConsumersCommandOutput} for command's `response` shape.
+ * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
+ * @returns {@link DeleteVolumeCommandOutput}
+ * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
+ * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permission to perform the action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -84,12 +75,27 @@ export interface ListStepConsumersCommandOutput extends ListStepConsumersRespons
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
  *
+ * @example Delete a volume
+ * ```javascript
+ * //
+ * const input = {
+ *   farmId: "farm-1234567890abcdef1234567890abcdef",
+ *   fleetId: "fleet-1234567890abcdef1234567890abcdef",
+ *   volumeId: "volume-1234567890abcdef1234567890abcdef"
+ * };
+ * const command = new DeleteVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
-export class ListStepConsumersCommand extends $Command
+export class DeleteVolumeCommand extends $Command
   .classBuilder<
-    ListStepConsumersCommandInput,
-    ListStepConsumersCommandOutput,
+    DeleteVolumeCommandInput,
+    DeleteVolumeCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,19 +104,19 @@ export class ListStepConsumersCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Deadline", "ListStepConsumers", {})
-  .n("DeadlineClient", "ListStepConsumersCommand")
-  .sc(ListStepConsumers$)
+  .s("Deadline", "DeleteVolume", {})
+  .n("DeadlineClient", "DeleteVolumeCommand")
+  .sc(DeleteVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListStepConsumersRequest;
-      output: ListStepConsumersResponse;
+      input: DeleteVolumeRequest;
+      output: {};
     };
     sdk: {
-      input: ListStepConsumersCommandInput;
-      output: ListStepConsumersCommandOutput;
+      input: DeleteVolumeCommandInput;
+      output: DeleteVolumeCommandOutput;
     };
   };
 }

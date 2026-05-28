@@ -226,6 +226,9 @@ const _DSP = "DeleteStorageProfile";
 const _DSPR = "DeleteStorageProfileRequest";
 const _DSPRe = "DeleteStorageProfileResponse";
 const _DTFE = "DateTimeFilterExpression";
+const _DV = "DeleteVolume";
+const _DVR = "DeleteVolumeRequest";
+const _DVRe = "DeleteVolumeResponse";
 const _DW = "DeleteWorker";
 const _DWR = "DeleteWorkerRequest";
 const _DWRe = "DeleteWorkerResponse";
@@ -315,6 +318,9 @@ const _GSe = "GetStep";
 const _GT = "GetTask";
 const _GTR = "GetTaskRequest";
 const _GTRe = "GetTaskResponse";
+const _GV = "GetVolume";
+const _GVR = "GetVolumeRequest";
+const _GVRe = "GetVolumeResponse";
 const _GW = "GetWorker";
 const _GWR = "GetWorkerRequest";
 const _GWRe = "GetWorkerResponse";
@@ -436,6 +442,9 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTasksRequest";
 const _LTRi = "ListTasksResponse";
+const _LV = "ListVolumes";
+const _LVR = "ListVolumesRequest";
+const _LVRi = "ListVolumesResponse";
 const _LW = "ListWorkers";
 const _LWR = "ListWorkersRequest";
 const _LWRi = "ListWorkersResponse";
@@ -457,6 +466,7 @@ const _PMRa = "PathMappingRules";
 const _PS = "ParameterSpace";
 const _PSE = "ParameterSortExpression";
 const _PU = "PosixUser";
+const _PVC = "PersistentVolumeConfiguration";
 const _QES = "QueueEnvironmentSummary";
 const _QESu = "QueueEnvironmentSummaries";
 const _QFAS = "QueueFleetAssociationSummary";
@@ -621,6 +631,8 @@ const _VCCR = "VCpuCountRange";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _VS = "VolumeSummary";
+const _VSo = "VolumeSummaries";
 const _WAC = "WorkerAmountCapability";
 const _WACL = "WorkerAmountCapabilityList";
 const _WACLo = "WorkerAttributeCapabilityList";
@@ -660,6 +672,8 @@ const _aT = "acceleratorTypes";
 const _aTA = "actionsToAdd";
 const _aTMMB = "acceleratorTotalMemoryMiB";
 const _aTR = "actionsToRemove";
+const _aWI = "attachedWorkerId";
+const _aZI = "availabilityZoneId";
 const _ac = "actions";
 const _am = "amounts";
 const _at = "attributes";
@@ -710,6 +724,7 @@ const _de = "description";
 const _dep = "dependencies";
 const _e = "error";
 const _eA = "endedAt";
+const _eAx = "expiresAt";
 const _eD = "environmentDetails";
 const _eE = "envEnter";
 const _eEn = "envExit";
@@ -781,6 +796,7 @@ const _jRAU = "jobRunAsUser";
 const _k = "key";
 const _kKA = "kmsKeyArn";
 const _l = "log";
+const _lAA = "lastAssignedAt";
 const _lC = "logConfiguration";
 const _lD = "logDriver";
 const _lE = "licenseEndpoints";
@@ -788,9 +804,11 @@ const _lEI = "licenseEndpointId";
 const _lGN = "logGroupName";
 const _lI = "limitId";
 const _lP = "licenseProduct";
+const _lRA = "lastReleasedAt";
 const _lS = "lifecycleStatus";
 const _lSAI = "latestSessionActionId";
 const _lSM = "lifecycleStatusMessage";
+const _lUTH = "lastUsedTtlHours";
 const _li = "limits";
 const _m = "message";
 const _mC = "maxCount";
@@ -801,6 +819,7 @@ const _mMB = "memoryMiB";
 const _mP = "meteredProducts";
 const _mPO = "maxPriorityOverride";
 const _mPOi = "minPriorityOverride";
+const _mPo = "mountPath";
 const _mR = "maxResults";
 const _mRPT = "maxRetriesPerTask";
 const _mT = "matchType";
@@ -837,6 +856,7 @@ const _pS = "parameterSpace";
 const _pSa = "pageSize";
 const _pSar = "parameterSort";
 const _pT = "principalType";
+const _pVC = "persistentVolumeConfiguration";
 const _pW = "priorityWeight";
 const _pa = "path";
 const _pe = "period";
@@ -918,6 +938,7 @@ const _ses = "sessions";
 const _set = "settings";
 const _st = "status";
 const _sta = "statistics";
+const _stat = "state";
 const _ste = "steps";
 const _str = "string";
 const _su = "subdomain";
@@ -960,8 +981,11 @@ const _v = "values";
 const _vC = "vpcConfiguration";
 const _vCC = "vCpuCount";
 const _vI = "vpcId";
+const _vIo = "volumeId";
+const _vT = "volumeType";
 const _va = "value";
 const _ve = "vendor";
+const _vo = "volumes";
 const _w = "workers";
 const _wB = "weightedBalanced";
 const _wC = "workerCapabilities";
@@ -1719,6 +1743,16 @@ export var DeleteStorageProfileResponse$: StaticStructureSchema = [3, n0, _DSPRe
   [],
   []
 ];
+export var DeleteVolumeRequest$: StaticStructureSchema = [3, n0, _DVR,
+  0,
+  [_fI, _fIl, _vIo],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var DeleteVolumeResponse$: StaticStructureSchema = [3, n0, _DVRe,
+  0,
+  [],
+  []
+];
 export var DeleteWorkerRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_fI, _fIl, _wI],
@@ -2053,6 +2087,16 @@ export var GetTaskResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
   [_tI, _cA, _cB, _rS, _tRSa, _fRC, _sAt, _eA, _uA, _uB, _lSAI, _p],
   [0, 5, 0, 0, 0, 1, 5, 5, 5, 0, 0, [() => TaskParameters, 0]], 4
+];
+export var GetVolumeRequest$: StaticStructureSchema = [3, n0, _GVR,
+  0,
+  [_fI, _fIl, _vIo],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var GetVolumeResponse$: StaticStructureSchema = [3, n0, _GVRe,
+  0,
+  [_vIo, _fI, _fIl, _stat, _sGB, _aZI, _vT, _cA, _aWI, _io, _tMB, _lAA, _lRA, _eAx],
+  [0, 0, 0, 0, 1, 0, 0, 5, 0, 1, 1, 5, 5, 5], 8
 ];
 export var GetWorkerRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
@@ -2429,6 +2473,16 @@ export var ListTasksResponse$: StaticStructureSchema = [3, n0, _LTRi,
   [_t, _nT],
   [[() => TaskSummaries, 0], 0], 1
 ];
+export var ListVolumesRequest$: StaticStructureSchema = [3, n0, _LVR,
+  0,
+  [_fI, _fIl, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListVolumesResponse$: StaticStructureSchema = [3, n0, _LVRi,
+  0,
+  [_vo, _nT],
+  [() => VolumeSummaries, 0], 1
+];
 export var ListWorkersRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
   [_fI, _fIl, _nT, _mR],
@@ -2483,6 +2537,11 @@ export var PathMappingRule$: StaticStructureSchema = [3, n0, _PMR,
   8,
   [_sPF, _sPo, _dP],
   [0, 0, 0], 3
+];
+export var PersistentVolumeConfiguration$: StaticStructureSchema = [3, n0, _PVC,
+  0,
+  [_mPo, _sGB, _io, _tMB, _lUTH],
+  [0, 1, 1, 1, 1], 1
 ];
 export var PosixUser$: StaticStructureSchema = [3, n0, _PU,
   0,
@@ -2611,8 +2670,8 @@ export var ServiceManagedEc2AutoScalingConfiguration$: StaticStructureSchema = [
 ];
 export var ServiceManagedEc2FleetConfiguration$: StaticStructureSchema = [3, n0, _SMEFC,
   0,
-  [_iC, _iMO, _vC, _sPI, _aSC],
-  [() => ServiceManagedEc2InstanceCapabilities$, () => ServiceManagedEc2InstanceMarketOptions$, () => VpcConfiguration$, 0, () => ServiceManagedEc2AutoScalingConfiguration$], 2
+  [_iC, _iMO, _vC, _sPI, _pVC, _aSC],
+  [() => ServiceManagedEc2InstanceCapabilities$, () => ServiceManagedEc2InstanceMarketOptions$, () => VpcConfiguration$, 0, () => PersistentVolumeConfiguration$, () => ServiceManagedEc2AutoScalingConfiguration$], 2
 ];
 export var ServiceManagedEc2InstanceCapabilities$: StaticStructureSchema = [3, n0, _SMEIC,
   0,
@@ -2979,6 +3038,11 @@ export var VCpuCountRange$: StaticStructureSchema = [3, n0, _VCCR,
   [_mi, _ma],
   [1, 1], 1
 ];
+export var VolumeSummary$: StaticStructureSchema = [3, n0, _VS,
+  0,
+  [_vIo, _fI, _fIl, _stat, _sGB, _aZI, _aWI],
+  [0, 0, 0, 0, 1, 0, 0], 6
+];
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_rCA],
@@ -3283,6 +3347,9 @@ var UsageStatistics = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
+var VolumeSummaries: StaticListSchema = [1, n0, _VSo,
+  0, () => VolumeSummary$
+];
 var VpcResourceConfigurationArns = 64 | 0;
 var WorkerAmountCapabilityList: StaticListSchema = [1, n0, _WACL,
   0, () => WorkerAmountCapability$
@@ -3543,6 +3610,9 @@ export var DeleteQueueLimitAssociation$: StaticOperationSchema = [9, n0, _DQLA,
 export var DeleteStorageProfile$: StaticOperationSchema = [9, n0, _DSP,
   { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200] }, () => DeleteStorageProfileRequest$, () => DeleteStorageProfileResponse$
 ];
+export var DeleteVolume$: StaticOperationSchema = [9, n0, _DV,
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/volumes/{volumeId}", 200] }, () => DeleteVolumeRequest$, () => DeleteVolumeResponse$
+];
 export var DeleteWorker$: StaticOperationSchema = [9, n0, _DW,
   { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200] }, () => DeleteWorkerRequest$, () => DeleteWorkerResponse$
 ];
@@ -3614,6 +3684,9 @@ export var GetStorageProfileForQueue$: StaticOperationSchema = [9, n0, _GSPFQ,
 ];
 export var GetTask$: StaticOperationSchema = [9, n0, _GT,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}", 200] }, () => GetTaskRequest$, () => GetTaskResponse$
+];
+export var GetVolume$: StaticOperationSchema = [9, n0, _GV,
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/volumes/{volumeId}", 200] }, () => GetVolumeRequest$, () => GetVolumeResponse$
 ];
 export var GetWorker$: StaticOperationSchema = [9, n0, _GW,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200] }, () => GetWorkerRequest$, () => GetWorkerResponse$
@@ -3701,6 +3774,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var ListTasks$: StaticOperationSchema = [9, n0, _LT,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks", 200] }, () => ListTasksRequest$, () => ListTasksResponse$
+];
+export var ListVolumes$: StaticOperationSchema = [9, n0, _LV,
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/volumes", 200] }, () => ListVolumesRequest$, () => ListVolumesResponse$
 ];
 export var ListWorkers$: StaticOperationSchema = [9, n0, _LW,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers", 200] }, () => ListWorkersRequest$, () => ListWorkersResponse$

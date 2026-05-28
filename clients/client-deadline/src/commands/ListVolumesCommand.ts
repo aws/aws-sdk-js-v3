@@ -5,9 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListStepConsumersRequest } from "../models/models_0";
-import type { ListStepConsumersResponse } from "../models/models_1";
-import { ListStepConsumers$ } from "../schemas/schemas_0";
+import type { ListVolumesRequest, ListVolumesResponse } from "../models/models_0";
+import { ListVolumes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,41 +16,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListStepConsumersCommand}.
+ * The input for {@link ListVolumesCommand}.
  */
-export interface ListStepConsumersCommandInput extends ListStepConsumersRequest {}
+export interface ListVolumesCommandInput extends ListVolumesRequest {}
 /**
  * @public
  *
- * The output of {@link ListStepConsumersCommand}.
+ * The output of {@link ListVolumesCommand}.
  */
-export interface ListStepConsumersCommandOutput extends ListStepConsumersResponse, __MetadataBearer {}
+export interface ListVolumesCommandOutput extends ListVolumesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists step consumers.</p>
+ * <p>Lists the persistent volumes in a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DeadlineClient, ListStepConsumersCommand } from "@aws-sdk/client-deadline"; // ES Modules import
- * // const { DeadlineClient, ListStepConsumersCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
+ * import { DeadlineClient, ListVolumesCommand } from "@aws-sdk/client-deadline"; // ES Modules import
+ * // const { DeadlineClient, ListVolumesCommand } = require("@aws-sdk/client-deadline"); // CommonJS import
  * // import type { DeadlineClientConfig } from "@aws-sdk/client-deadline";
  * const config = {}; // type is DeadlineClientConfig
  * const client = new DeadlineClient(config);
- * const input = { // ListStepConsumersRequest
+ * const input = { // ListVolumesRequest
  *   farmId: "STRING_VALUE", // required
- *   queueId: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- *   stepId: "STRING_VALUE", // required
+ *   fleetId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListStepConsumersCommand(input);
+ * const command = new ListVolumesCommand(input);
  * const response = await client.send(command);
- * // { // ListStepConsumersResponse
- * //   consumers: [ // StepConsumers // required
- * //     { // StepConsumer
- * //       stepId: "STRING_VALUE", // required
- * //       status: "RESOLVED" || "UNRESOLVED", // required
+ * // { // ListVolumesResponse
+ * //   volumes: [ // VolumeSummaries // required
+ * //     { // VolumeSummary
+ * //       volumeId: "STRING_VALUE", // required
+ * //       farmId: "STRING_VALUE", // required
+ * //       fleetId: "STRING_VALUE", // required
+ * //       state: "PENDING_CREATION" || "PENDING_ATTACHMENT" || "IN_USE" || "AVAILABLE" || "PENDING_DELETION", // required
+ * //       sizeGiB: Number("int"), // required
+ * //       availabilityZoneId: "STRING_VALUE", // required
+ * //       attachedWorkerId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -59,10 +61,10 @@ export interface ListStepConsumersCommandOutput extends ListStepConsumersRespons
  *
  * ```
  *
- * @param ListStepConsumersCommandInput - {@link ListStepConsumersCommandInput}
- * @returns {@link ListStepConsumersCommandOutput}
- * @see {@link ListStepConsumersCommandInput} for command's `input` shape.
- * @see {@link ListStepConsumersCommandOutput} for command's `response` shape.
+ * @param ListVolumesCommandInput - {@link ListVolumesCommandInput}
+ * @returns {@link ListVolumesCommandOutput}
+ * @see {@link ListVolumesCommandInput} for command's `input` shape.
+ * @see {@link ListVolumesCommandOutput} for command's `response` shape.
  * @see {@link DeadlineClientResolvedConfig | config} for DeadlineClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,12 +86,26 @@ export interface ListStepConsumersCommandOutput extends ListStepConsumersRespons
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
  *
+ * @example List volumes for a fleet
+ * ```javascript
+ * //
+ * const input = {
+ *   farmId: "farm-1234567890abcdef1234567890abcdef",
+ *   fleetId: "fleet-1234567890abcdef1234567890abcdef"
+ * };
+ * const command = new ListVolumesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
-export class ListStepConsumersCommand extends $Command
+export class ListVolumesCommand extends $Command
   .classBuilder<
-    ListStepConsumersCommandInput,
-    ListStepConsumersCommandOutput,
+    ListVolumesCommandInput,
+    ListVolumesCommandOutput,
     DeadlineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,19 +114,19 @@ export class ListStepConsumersCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Deadline", "ListStepConsumers", {})
-  .n("DeadlineClient", "ListStepConsumersCommand")
-  .sc(ListStepConsumers$)
+  .s("Deadline", "ListVolumes", {})
+  .n("DeadlineClient", "ListVolumesCommand")
+  .sc(ListVolumes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListStepConsumersRequest;
-      output: ListStepConsumersResponse;
+      input: ListVolumesRequest;
+      output: ListVolumesResponse;
     };
     sdk: {
-      input: ListStepConsumersCommandInput;
-      output: ListStepConsumersCommandOutput;
+      input: ListVolumesCommandInput;
+      output: ListVolumesCommandOutput;
     };
   };
 }

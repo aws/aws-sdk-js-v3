@@ -164,6 +164,7 @@ import type {
   DeleteStorageProfileCommandInput,
   DeleteStorageProfileCommandOutput,
 } from "./commands/DeleteStorageProfileCommand";
+import type { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
 import type { DeleteWorkerCommandInput, DeleteWorkerCommandOutput } from "./commands/DeleteWorkerCommand";
 import type {
   DisassociateMemberFromFarmCommandInput,
@@ -224,6 +225,7 @@ import type {
   GetStorageProfileForQueueCommandOutput,
 } from "./commands/GetStorageProfileForQueueCommand";
 import type { GetTaskCommandInput, GetTaskCommandOutput } from "./commands/GetTaskCommand";
+import type { GetVolumeCommandInput, GetVolumeCommandOutput } from "./commands/GetVolumeCommand";
 import type { GetWorkerCommandInput, GetWorkerCommandOutput } from "./commands/GetWorkerCommand";
 import type {
   ListAvailableMeteredProductsCommandInput,
@@ -295,6 +297,7 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import type { ListVolumesCommandInput, ListVolumesCommandOutput } from "./commands/ListVolumesCommand";
 import type { ListWorkersCommandInput, ListWorkersCommandOutput } from "./commands/ListWorkersCommand";
 import type {
   PutMeteredProductCommandInput,
@@ -404,6 +407,7 @@ export type ServiceInputTypes =
   | DeleteQueueFleetAssociationCommandInput
   | DeleteQueueLimitAssociationCommandInput
   | DeleteStorageProfileCommandInput
+  | DeleteVolumeCommandInput
   | DeleteWorkerCommandInput
   | DisassociateMemberFromFarmCommandInput
   | DisassociateMemberFromFleetCommandInput
@@ -428,6 +432,7 @@ export type ServiceInputTypes =
   | GetStorageProfileCommandInput
   | GetStorageProfileForQueueCommandInput
   | GetTaskCommandInput
+  | GetVolumeCommandInput
   | GetWorkerCommandInput
   | ListAvailableMeteredProductsCommandInput
   | ListBudgetsCommandInput
@@ -457,6 +462,7 @@ export type ServiceInputTypes =
   | ListStorageProfilesForQueueCommandInput
   | ListTagsForResourceCommandInput
   | ListTasksCommandInput
+  | ListVolumesCommandInput
   | ListWorkersCommandInput
   | PutMeteredProductCommandInput
   | SearchJobsCommandInput
@@ -532,6 +538,7 @@ export type ServiceOutputTypes =
   | DeleteQueueFleetAssociationCommandOutput
   | DeleteQueueLimitAssociationCommandOutput
   | DeleteStorageProfileCommandOutput
+  | DeleteVolumeCommandOutput
   | DeleteWorkerCommandOutput
   | DisassociateMemberFromFarmCommandOutput
   | DisassociateMemberFromFleetCommandOutput
@@ -556,6 +563,7 @@ export type ServiceOutputTypes =
   | GetStorageProfileCommandOutput
   | GetStorageProfileForQueueCommandOutput
   | GetTaskCommandOutput
+  | GetVolumeCommandOutput
   | GetWorkerCommandOutput
   | ListAvailableMeteredProductsCommandOutput
   | ListBudgetsCommandOutput
@@ -585,6 +593,7 @@ export type ServiceOutputTypes =
   | ListStorageProfilesForQueueCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTasksCommandOutput
+  | ListVolumesCommandOutput
   | ListWorkersCommandOutput
   | PutMeteredProductCommandOutput
   | SearchJobsCommandOutput

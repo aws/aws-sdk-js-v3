@@ -20,9 +20,6 @@ export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorN
  * @enum
  */
 export const AcceleratorType = {
-  /**
-   * GPU accelerator type.
-   */
   GPU: "gpu",
 } as const;
 /**
@@ -760,6 +757,34 @@ export const FleetStatus = {
  * @public
  */
 export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeState = {
+  AVAILABLE: "AVAILABLE",
+  IN_USE: "IN_USE",
+  PENDING_ATTACHMENT: "PENDING_ATTACHMENT",
+  PENDING_CREATION: "PENDING_CREATION",
+  PENDING_DELETION: "PENDING_DELETION",
+} as const;
+/**
+ * @public
+ */
+export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsVolumeType = {
+  GP3: "gp3",
+} as const;
+/**
+ * @public
+ */
+export type EbsVolumeType = (typeof EbsVolumeType)[keyof typeof EbsVolumeType];
 
 /**
  * @public

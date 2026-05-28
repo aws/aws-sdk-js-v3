@@ -249,6 +249,10 @@ import {
   DeleteStorageProfileCommand,
   DeleteStorageProfileRequest$,
   DeleteStorageProfileResponse$,
+  DeleteVolume$,
+  DeleteVolumeCommand,
+  DeleteVolumeRequest$,
+  DeleteVolumeResponse$,
   DeleteWorker$,
   DeleteWorkerCommand,
   DeleteWorkerRequest$,
@@ -272,6 +276,7 @@ import {
   DisassociateMemberFromQueueCommand,
   DisassociateMemberFromQueueRequest$,
   DisassociateMemberFromQueueResponse$,
+  EbsVolumeType,
   Ec2EbsVolume$,
   Ec2MarketType,
   EnvironmentDetailsEntity$,
@@ -372,6 +377,10 @@ import {
   GetTaskCommand,
   GetTaskRequest$,
   GetTaskResponse$,
+  GetVolume$,
+  GetVolumeCommand,
+  GetVolumeRequest$,
+  GetVolumeResponse$,
   GetWorker$,
   GetWorkerCommand,
   GetWorkerRequest$,
@@ -516,6 +525,10 @@ import {
   ListTasksCommand,
   ListTasksRequest$,
   ListTasksResponse$,
+  ListVolumes$,
+  ListVolumesCommand,
+  ListVolumesRequest$,
+  ListVolumesResponse$,
   ListWorkers$,
   ListWorkersCommand,
   ListWorkersRequest$,
@@ -555,6 +568,7 @@ import {
   paginateListStorageProfiles,
   paginateListStorageProfilesForQueue,
   paginateListTasks,
+  paginateListVolumes,
   paginateListWorkers,
   ParameterFilterExpression$,
   ParameterSortExpression$,
@@ -562,6 +576,7 @@ import {
   PathFormat,
   PathMappingRule$,
   Period,
+  PersistentVolumeConfiguration$,
   PosixUser$,
   PriorityBalancedSchedulingConfiguration$,
   PriorityFifoSchedulingConfiguration$,
@@ -758,6 +773,8 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   VCpuCountRange$,
+  VolumeState,
+  VolumeSummary$,
   VpcConfiguration$,
   waitForFleetActive,
   waitForJobComplete,
@@ -882,6 +899,8 @@ assert(typeof DeleteQueueLimitAssociationCommand === "function");
 assert(typeof DeleteQueueLimitAssociation$ === "object");
 assert(typeof DeleteStorageProfileCommand === "function");
 assert(typeof DeleteStorageProfile$ === "object");
+assert(typeof DeleteVolumeCommand === "function");
+assert(typeof DeleteVolume$ === "object");
 assert(typeof DeleteWorkerCommand === "function");
 assert(typeof DeleteWorker$ === "object");
 assert(typeof DisassociateMemberFromFarmCommand === "function");
@@ -930,6 +949,8 @@ assert(typeof GetStorageProfileForQueueCommand === "function");
 assert(typeof GetStorageProfileForQueue$ === "object");
 assert(typeof GetTaskCommand === "function");
 assert(typeof GetTask$ === "object");
+assert(typeof GetVolumeCommand === "function");
+assert(typeof GetVolume$ === "object");
 assert(typeof GetWorkerCommand === "function");
 assert(typeof GetWorker$ === "object");
 assert(typeof ListAvailableMeteredProductsCommand === "function");
@@ -988,6 +1009,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListTasksCommand === "function");
 assert(typeof ListTasks$ === "object");
+assert(typeof ListVolumesCommand === "function");
+assert(typeof ListVolumes$ === "object");
 assert(typeof ListWorkersCommand === "function");
 assert(typeof ListWorkers$ === "object");
 assert(typeof PutMeteredProductCommand === "function");
@@ -1174,6 +1197,8 @@ assert(typeof DeleteQueueRequest$ === "object");
 assert(typeof DeleteQueueResponse$ === "object");
 assert(typeof DeleteStorageProfileRequest$ === "object");
 assert(typeof DeleteStorageProfileResponse$ === "object");
+assert(typeof DeleteVolumeRequest$ === "object");
+assert(typeof DeleteVolumeResponse$ === "object");
 assert(typeof DeleteWorkerRequest$ === "object");
 assert(typeof DeleteWorkerResponse$ === "object");
 assert(typeof DependencyCounts$ === "object");
@@ -1243,6 +1268,8 @@ assert(typeof GetStorageProfileRequest$ === "object");
 assert(typeof GetStorageProfileResponse$ === "object");
 assert(typeof GetTaskRequest$ === "object");
 assert(typeof GetTaskResponse$ === "object");
+assert(typeof GetVolumeRequest$ === "object");
+assert(typeof GetVolumeResponse$ === "object");
 assert(typeof GetWorkerRequest$ === "object");
 assert(typeof GetWorkerResponse$ === "object");
 assert(typeof HostConfiguration$ === "object");
@@ -1321,6 +1348,8 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTasksRequest$ === "object");
 assert(typeof ListTasksResponse$ === "object");
+assert(typeof ListVolumesRequest$ === "object");
+assert(typeof ListVolumesResponse$ === "object");
 assert(typeof ListWorkersRequest$ === "object");
 assert(typeof ListWorkersResponse$ === "object");
 assert(typeof LogConfiguration$ === "object");
@@ -1332,6 +1361,7 @@ assert(typeof ParameterFilterExpression$ === "object");
 assert(typeof ParameterSortExpression$ === "object");
 assert(typeof ParameterSpace$ === "object");
 assert(typeof PathMappingRule$ === "object");
+assert(typeof PersistentVolumeConfiguration$ === "object");
 assert(typeof PosixUser$ === "object");
 assert(typeof PriorityBalancedSchedulingConfiguration$ === "object");
 assert(typeof PriorityFifoSchedulingConfiguration$ === "object");
@@ -1441,6 +1471,7 @@ assert(typeof UsageTrackingResource$ === "object");
 assert(typeof UserJobsFirst$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VCpuCountRange$ === "object");
+assert(typeof VolumeSummary$ === "object");
 assert(typeof VpcConfiguration$ === "object");
 assert(typeof WeightedBalancedSchedulingConfiguration$ === "object");
 assert(typeof WindowsUser$ === "object");
@@ -1475,6 +1506,7 @@ assert(typeof DeadlinePrincipalType === "object");
 assert(typeof DefaultQueueBudgetAction === "object");
 assert(typeof DependencyConsumerResolutionStatus === "object");
 assert(typeof DesiredWorkerStatus === "object");
+assert(typeof EbsVolumeType === "object");
 assert(typeof Ec2MarketType === "object");
 assert(typeof EnvironmentTemplateType === "object");
 assert(typeof FileSystemLocationType === "object");
@@ -1518,6 +1550,7 @@ assert(typeof UsageGroupByField === "object");
 assert(typeof UsageStatistic === "object");
 assert(typeof UsageType === "object");
 assert(typeof ValidationExceptionReason === "object");
+assert(typeof VolumeState === "object");
 assert(typeof WorkerStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof DeadlineServiceException);
@@ -1585,5 +1618,6 @@ assert(typeof paginateListSteps === "function");
 assert(typeof paginateListStorageProfiles === "function");
 assert(typeof paginateListStorageProfilesForQueue === "function");
 assert(typeof paginateListTasks === "function");
+assert(typeof paginateListVolumes === "function");
 assert(typeof paginateListWorkers === "function");
 console.log(`Deadline index test passed.`);

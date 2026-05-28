@@ -25,6 +25,7 @@ import type {
   DefaultQueueBudgetAction,
   DependencyConsumerResolutionStatus,
   DesiredWorkerStatus,
+  EbsVolumeType,
   Ec2MarketType,
   EnvironmentTemplateType,
   FileSystemLocationType,
@@ -53,6 +54,7 @@ import type {
   TaskTargetRunStatus,
   UpdatedWorkerStatus,
   UpdateJobLifecycleStatus,
+  VolumeState,
   WorkerStatus,
 } from "./enums";
 
@@ -4630,6 +4632,42 @@ export interface ServiceManagedEc2InstanceMarketOptions {
 }
 
 /**
+ * <p>Specifies the persistent EBS volume configuration for workers in a service managed fleet.</p>
+ * @public
+ */
+export interface PersistentVolumeConfiguration {
+  /**
+   * <p>The persistent volume size in GiB. The default is 250.</p>
+   * @public
+   */
+  sizeGiB?: number | undefined;
+
+  /**
+   * <p>The IOPS per persistent volume. The default is 3000.</p>
+   * @public
+   */
+  iops?: number | undefined;
+
+  /**
+   * <p>The throughput per persistent volume in MiB. The default is 125.</p>
+   * @public
+   */
+  throughputMiB?: number | undefined;
+
+  /**
+   * <p>The file system path where the persistent volume is mounted on the worker instance.</p>
+   * @public
+   */
+  mountPath: string | undefined;
+
+  /**
+   * <p>The number of hours a persistent volume can remain unused before it is deleted. The default is 168 (7 days).</p>
+   * @public
+   */
+  lastUsedTtlHours?: number | undefined;
+}
+
+/**
  * <p>The configuration options for a service managed fleet's VPC.</p>
  * @public
  */
@@ -4669,6 +4707,12 @@ export interface ServiceManagedEc2FleetConfiguration {
    * @public
    */
   storageProfileId?: string | undefined;
+
+  /**
+   * <p>The persistent volume configuration for the service managed EC2 fleet.</p>
+   * @public
+   */
+  persistentVolumeConfiguration?: PersistentVolumeConfiguration | undefined;
 
   /**
    * <p>The auto scaling configuration settings for the service managed EC2 fleet.</p>
@@ -5071,7 +5115,7 @@ export interface CreateMonitorRequest {
   identityCenterInstanceArn: string | undefined;
 
   /**
-   * <p>The AWS Region where IAM Identity Center is enabled. Required when IAM Identity Center is in a different Region than the monitor.</p>
+   * <p>The Region where IAM Identity Center is enabled. Required when IAM Identity Center is in a different Region than the monitor.</p>
    * @public
    */
   identityCenterRegion?: string | undefined;
@@ -6366,6 +6410,244 @@ export interface UpdateFleetRequest {
  * @public
  */
 export interface UpdateFleetResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteVolumeRequest {
+  /**
+   * <p>The farm ID of the farm that contains the fleet.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+
+  /**
+   * <p>The volume ID of the volume to delete.</p>
+   * @public
+   */
+  volumeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVolumeResponse {}
+
+/**
+ * @public
+ */
+export interface GetVolumeRequest {
+  /**
+   * <p>The farm ID of the farm that contains the fleet.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+
+  /**
+   * <p>The volume ID of the volume to retrieve.</p>
+   * @public
+   */
+  volumeId: string | undefined;
+}
+
+/**
+ * Mixin that adds an optional ARN field to response structures.
+ * Apply to SummaryMixins (flows into Get, Summary, and BatchGet) and Create outputs.
+ * @public
+ */
+export interface GetVolumeResponse {
+  /**
+   * <p>The volume ID.</p>
+   * @public
+   */
+  volumeId: string | undefined;
+
+  /**
+   * <p>The farm ID of the farm that contains the fleet.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+
+  /**
+   * <p>The state of the volume.</p>
+   * @public
+   */
+  state: VolumeState | undefined;
+
+  /**
+   * <p>The volume size in GiB.</p>
+   * @public
+   */
+  sizeGiB: number | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the volume.</p>
+   * @public
+   */
+  availabilityZoneId: string | undefined;
+
+  /**
+   * <p>The worker ID of the worker the volume is attached to.</p>
+   * @public
+   */
+  attachedWorkerId?: string | undefined;
+
+  /**
+   * <p>The EBS volume type.</p>
+   * @public
+   */
+  volumeType: EbsVolumeType | undefined;
+
+  /**
+   * <p>The IOPS of the volume.</p>
+   * @public
+   */
+  iops?: number | undefined;
+
+  /**
+   * <p>The throughput of the volume in MiB.</p>
+   * @public
+   */
+  throughputMiB?: number | undefined;
+
+  /**
+   * <p>The date and time the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the volume was last assigned to a worker.</p>
+   * @public
+   */
+  lastAssignedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the volume was last released from a worker.</p>
+   * @public
+   */
+  lastReleasedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the volume expires and will be deleted.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+}
+
+/**
+ * Shared pagination fields for List operation inputs (nextToken + maxResults).
+ * @public
+ */
+export interface ListVolumesRequest {
+  /**
+   * <p>The farm ID of the farm that contains the fleet.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The fleet ID of the fleet that contains the volumes.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of a persistent volume.</p>
+ * @public
+ */
+export interface VolumeSummary {
+  /**
+   * <p>The volume ID.</p>
+   * @public
+   */
+  volumeId: string | undefined;
+
+  /**
+   * <p>The farm ID of the farm that contains the fleet.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The fleet ID of the fleet that contains the volume.</p>
+   * @public
+   */
+  fleetId: string | undefined;
+
+  /**
+   * <p>The state of the volume.</p>
+   * @public
+   */
+  state: VolumeState | undefined;
+
+  /**
+   * <p>The volume size in GiB.</p>
+   * @public
+   */
+  sizeGiB: number | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the volume.</p>
+   * @public
+   */
+  availabilityZoneId: string | undefined;
+
+  /**
+   * <p>The worker ID of the worker the volume is attached to.</p>
+   * @public
+   */
+  attachedWorkerId?: string | undefined;
+}
+
+/**
+ * Shared pagination field for List operation outputs (nextToken).
+ * @public
+ */
+export interface ListVolumesResponse {
+  /**
+   * <p>The volumes on the list.</p>
+   * @public
+   */
+  volumes: VolumeSummary[] | undefined;
+
+  /**
+   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9291,291 +9573,4 @@ export interface StepConsumer {
    * @public
    */
   status: DependencyConsumerResolutionStatus | undefined;
-}
-
-/**
- * Shared pagination field for List operation outputs (nextToken).
- * @public
- */
-export interface ListStepConsumersResponse {
-  /**
-   * <p>The consumers on the list.</p>
-   * @public
-   */
-  consumers: StepConsumer[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStepDependenciesRequest {
-  /**
-   * <p>The farm ID for the step dependencies list.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID for the step dependencies list.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID for the step dependencies list.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The step ID to include on the list.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The details of step dependency.</p>
- * @public
- */
-export interface StepDependency {
-  /**
-   * <p>The step ID.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The step dependency status.</p>
-   * @public
-   */
-  status: DependencyConsumerResolutionStatus | undefined;
-}
-
-/**
- * Shared pagination field for List operation outputs (nextToken).
- * @public
- */
-export interface ListStepDependenciesResponse {
-  /**
-   * <p>The dependencies on the list.</p>
-   * @public
-   */
-  dependencies: StepDependency[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
- * @public
- */
-export interface ListStepsRequest {
-  /**
-   * <p>The farm ID to include on the list of steps.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID to include on the list of steps.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID to include on the list of steps.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The details for a step.</p>
- * @public
- */
-export interface StepSummary {
-  /**
-   * <p>The step ID.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The name of the step.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The life cycle status.</p>
-   * @public
-   */
-  lifecycleStatus: StepLifecycleStatus | undefined;
-
-  /**
-   * <p>A message that describes the lifecycle of the step.</p>
-   * @public
-   */
-  lifecycleStatusMessage?: string | undefined;
-
-  /**
-   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to process.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
-   * @public
-   */
-  taskRunStatus: TaskRunStatus | undefined;
-
-  /**
-   * <p>The number of tasks running on the job.</p>
-   * @public
-   */
-  taskRunStatusCounts: Partial<Record<TaskRunStatus, number>> | undefined;
-
-  /**
-   * <p>The total number of times tasks from the step failed and were retried.</p>
-   * @public
-   */
-  taskFailureRetryCount?: number | undefined;
-
-  /**
-   * <p>The task status to update the job's tasks to.</p>
-   * @public
-   */
-  targetTaskRunStatus?: StepTargetTaskRunStatus | undefined;
-
-  /**
-   * <p>The date and time the resource was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The user or system that created this resource.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The date and time the resource was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The user or system that updated this resource.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The date and time the resource started running.</p>
-   * @public
-   */
-  startedAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the resource ended running.</p>
-   * @public
-   */
-  endedAt?: Date | undefined;
-
-  /**
-   * <p>The number of dependencies for the step.</p>
-   * @public
-   */
-  dependencyCounts?: DependencyCounts | undefined;
-}
-
-/**
- * Shared pagination field for List operation outputs (nextToken).
- * @public
- */
-export interface ListStepsResponse {
-  /**
-   * <p>The steps on the list.</p>
-   * @public
-   */
-  steps: StepSummary[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * Shared pagination fields for List operation inputs (nextToken + maxResults).
- * @public
- */
-export interface ListTasksRequest {
-  /**
-   * <p>The farm ID connected to the tasks.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID connected to the tasks.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID for the tasks.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The step ID for the tasks.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
