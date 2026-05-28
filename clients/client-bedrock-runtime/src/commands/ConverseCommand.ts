@@ -44,7 +44,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *   modelId: "STRING_VALUE", // required
  *   messages: [ // Messages
  *     { // Message
- *       role: "user" || "assistant", // required
+ *       role: "user" || "assistant" || "system", // required
  *       content: [ // ContentBlocks // required
  *         { // ContentBlock Union: only one key present
  *           text: "STRING_VALUE",
@@ -354,7 +354,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * // { // ConverseResponse
  * //   output: { // ConverseOutput Union: only one key present
  * //     message: { // Message
- * //       role: "user" || "assistant", // required
+ * //       role: "user" || "assistant" || "system", // required
  * //       content: [ // ContentBlocks // required
  * //         { // ContentBlock Union: only one key present
  * //           text: "STRING_VALUE",

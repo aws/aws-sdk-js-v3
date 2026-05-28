@@ -523,6 +523,7 @@ export type ToolUseType = (typeof ToolUseType)[keyof typeof ToolUseType];
  */
 export const ConversationRole = {
   ASSISTANT: "assistant",
+  SYSTEM: "system",
   USER: "user",
 } as const;
 /**

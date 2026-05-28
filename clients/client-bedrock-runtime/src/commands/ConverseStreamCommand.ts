@@ -44,7 +44,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *   modelId: "STRING_VALUE", // required
  *   messages: [ // Messages
  *     { // Message
- *       role: "user" || "assistant", // required
+ *       role: "user" || "assistant" || "system", // required
  *       content: [ // ContentBlocks // required
  *         { // ContentBlock Union: only one key present
  *           text: "STRING_VALUE",
@@ -355,7 +355,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * // { // ConverseStreamResponse
  * //   stream: { // ConverseStreamOutput Union: only one key present
  * //     messageStart: { // MessageStartEvent
- * //       role: "user" || "assistant", // required
+ * //       role: "user" || "assistant" || "system", // required
  * //     },
  * //     contentBlockStart: { // ContentBlockStartEvent
  * //       start: { // ContentBlockStart Union: only one key present

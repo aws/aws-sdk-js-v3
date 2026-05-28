@@ -49,7 +49,7 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *     converse: { // ConverseTokensRequest
  *       messages: [ // Messages
  *         { // Message
- *           role: "user" || "assistant", // required
+ *           role: "user" || "assistant" || "system", // required
  *           content: [ // ContentBlocks // required
  *             { // ContentBlock Union: only one key present
  *               text: "STRING_VALUE",
