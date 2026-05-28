@@ -62,6 +62,7 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  *     allocationStrategy: "lowest-price" || "capacity-optimized" || "price-capacity-optimized",
  *   },
  *   slurmConfiguration: { // ComputeNodeGroupSlurmConfigurationRequest
+ *     scaleDownIdleTimeInSeconds: Number("int"),
  *     slurmCustomSettings: [ // SlurmCustomSettings
  *       { // SlurmCustomSetting
  *         parameterName: "STRING_VALUE", // required
@@ -108,6 +109,7 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * //       allocationStrategy: "lowest-price" || "capacity-optimized" || "price-capacity-optimized",
  * //     },
  * //     slurmConfiguration: { // ComputeNodeGroupSlurmConfiguration
+ * //       scaleDownIdleTimeInSeconds: Number("int"),
  * //       slurmCustomSettings: [ // SlurmCustomSettings
  * //         { // SlurmCustomSetting
  * //           parameterName: "STRING_VALUE", // required

@@ -57,6 +57,7 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  *   },
  *   iamInstanceProfileArn: "STRING_VALUE",
  *   slurmConfiguration: { // UpdateComputeNodeGroupSlurmConfigurationRequest
+ *     scaleDownIdleTimeInSeconds: Number("int"),
  *     slurmCustomSettings: [ // SlurmCustomSettings
  *       { // SlurmCustomSetting
  *         parameterName: "STRING_VALUE", // required
@@ -100,6 +101,7 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * //       allocationStrategy: "lowest-price" || "capacity-optimized" || "price-capacity-optimized",
  * //     },
  * //     slurmConfiguration: { // ComputeNodeGroupSlurmConfiguration
+ * //       scaleDownIdleTimeInSeconds: Number("int"),
  * //       slurmCustomSettings: [ // SlurmCustomSettings
  * //         { // SlurmCustomSetting
  * //           parameterName: "STRING_VALUE", // required

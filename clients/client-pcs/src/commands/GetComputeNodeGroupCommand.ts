@@ -74,6 +74,7 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * //       allocationStrategy: "lowest-price" || "capacity-optimized" || "price-capacity-optimized",
  * //     },
  * //     slurmConfiguration: { // ComputeNodeGroupSlurmConfiguration
+ * //       scaleDownIdleTimeInSeconds: Number("int"),
  * //       slurmCustomSettings: [ // SlurmCustomSettings
  * //         { // SlurmCustomSetting
  * //           parameterName: "STRING_VALUE", // required

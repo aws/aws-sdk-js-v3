@@ -121,6 +121,12 @@ export interface SlurmCustomSetting {
  */
 export interface ComputeNodeGroupSlurmConfigurationRequest {
   /**
+   * <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
+   * @public
+   */
+  scaleDownIdleTimeInSeconds?: number | undefined;
+
+  /**
    * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
    * @public
    */
@@ -263,6 +269,12 @@ export interface ScalingConfiguration {
  * @public
  */
 export interface ComputeNodeGroupSlurmConfiguration {
+  /**
+   * <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
+   * @public
+   */
+  scaleDownIdleTimeInSeconds?: number | undefined;
+
   /**
    * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
    * @public
@@ -556,6 +568,12 @@ export interface ListComputeNodeGroupsResponse {
  * @public
  */
 export interface UpdateComputeNodeGroupSlurmConfigurationRequest {
+  /**
+   * <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
+   * @public
+   */
+  scaleDownIdleTimeInSeconds?: number | undefined;
+
   /**
    * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
    * @public

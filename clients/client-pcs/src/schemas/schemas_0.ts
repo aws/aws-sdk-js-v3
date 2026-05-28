@@ -330,13 +330,13 @@ export var ComputeNodeGroupConfiguration$: StaticStructureSchema = [3, n0, _CNGC
 ];
 export var ComputeNodeGroupSlurmConfiguration$: StaticStructureSchema = [3, n0, _CNGSC,
   0,
-  [_sCS],
-  [() => SlurmCustomSettings]
+  [_sDITIS, _sCS],
+  [1, () => SlurmCustomSettings]
 ];
 export var ComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _CNGSCR,
   0,
-  [_sCS],
-  [() => SlurmCustomSettings]
+  [_sDITIS, _sCS],
+  [1, () => SlurmCustomSettings]
 ];
 export var ComputeNodeGroupSummary$: StaticStructureSchema = [3, n0, _CNGS,
   0,
@@ -645,8 +645,8 @@ export var UpdateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _UCN
 ];
 export var UpdateComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _UCNGSCR,
   0,
-  [_sCS],
-  [() => SlurmCustomSettings]
+  [_sDITIS, _sCS],
+  [1, () => SlurmCustomSettings]
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
