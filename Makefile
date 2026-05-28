@@ -69,6 +69,9 @@ api-snapshot:
 	node ./scripts/validation/api-snapshot.js
 	git diff --exit-code scripts/validation/api.json
 
+update-lib-dynamodb-snapshot:
+	node ./scripts/validation/api-snapshot.js --update-lib-dynamodb
+
 test-endpoints:
 	npx vitest run -c ./tests/endpoints-2.0/vitest.config.mts
 
