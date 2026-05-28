@@ -1327,6 +1327,60 @@ describe("credential-provider-node integration test", () => {
     });
   });
 
+  describe("forceRefresh should update credentials returned by the cache", () => {
+    it("subsequent calls without forceRefresh return the refreshed credentials", async () => {
+      process.env.AWS_ACCESS_KEY_ID = "ORIGINAL_KEY";
+      process.env.AWS_SECRET_ACCESS_KEY = "ORIGINAL_SECRET";
+
+      const provider = defaultProvider();
+
+      const credentials1 = await provider();
+      expect(credentials1.accessKeyId).toBe("ORIGINAL_KEY");
+
+      process.env.AWS_ACCESS_KEY_ID = "REFRESHED_KEY";
+      process.env.AWS_SECRET_ACCESS_KEY = "REFRESHED_SECRET";
+
+      const credentials2 = await provider();
+      expect(credentials2.accessKeyId).toBe("ORIGINAL_KEY");
+
+      const credentials3 = await provider({ forceRefresh: true });
+      expect(credentials3.accessKeyId).toBe("REFRESHED_KEY");
+
+      const credentials4 = await provider();
+      expect(credentials4.accessKeyId).toBe("REFRESHED_KEY");
+    });
+
+    it("works with INI profile credentials", async () => {
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "INI_ORIGINAL",
+          aws_secret_access_key: "INI_SECRET",
+        },
+      });
+
+      const provider = defaultProvider();
+
+      const credentials1 = await provider();
+      expect(credentials1.accessKeyId).toBe("INI_ORIGINAL");
+
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "INI_REFRESHED",
+          aws_secret_access_key: "INI_SECRET",
+        },
+      });
+
+      const credentials2 = await provider();
+      expect(credentials2.accessKeyId).toBe("INI_ORIGINAL");
+
+      const credentials3 = await provider({ forceRefresh: true });
+      expect(credentials3.accessKeyId).toBe("INI_REFRESHED");
+
+      const credentials4 = await provider();
+      expect(credentials4.accessKeyId).toBe("INI_REFRESHED");
+    });
+  });
+
   describe("No credentials available", () => {
     it("should throw CredentialsProviderError", async () => {
       process.env.AWS_EC2_METADATA_DISABLED = "true";

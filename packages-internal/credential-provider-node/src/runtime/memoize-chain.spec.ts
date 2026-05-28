@@ -136,26 +136,60 @@ describe("memoize runtime config aware AWS credential chain", () => {
   it("can be force refreshed", async () => {
     const provider = memoizeChain([expiringCredentials], credentialsWillNeedRefresh);
 
-    const credentials = await Promise.all([
+    // Initial call to populate cache with sequence 0.
+    await provider();
+    expect(expiringCredentials).toHaveBeenCalledTimes(1);
+
+    // Force refresh gets new credentials.
+    const refreshed = await provider({ forceRefresh: true });
+    expect(expiringCredentials).toHaveBeenCalledTimes(2);
+    expect(refreshed).toEqual({
+      accessKeyId: "",
+      secretAccessKey: "",
+      expiration,
+      sequence: 1,
+      runtimeOptions: ["forceRefresh"],
+    });
+  });
+
+  it("should coalesce concurrent forceRefresh calls to prevent stampede", async () => {
+    const provider = memoizeChain([expiringCredentials], credentialsWillNeedRefresh);
+
+    // Populate cache first.
+    await provider();
+    expect(expiringCredentials).toHaveBeenCalledTimes(1);
+
+    // 5 concurrent forceRefresh calls should coalesce into 1 upstream call.
+    const results = await Promise.all([
       provider({ forceRefresh: true }),
       provider({ forceRefresh: true }),
       provider({ forceRefresh: true }),
       provider({ forceRefresh: true }),
       provider({ forceRefresh: true }),
     ]);
-    let sequence = 0;
+    expect(expiringCredentials).toHaveBeenCalledTimes(2);
 
-    for (const c of credentials) {
-      expect(c).toEqual({
-        accessKeyId: "",
-        secretAccessKey: "",
-        expiration,
-        sequence: sequence++,
-        runtimeOptions: ["forceRefresh"],
-      });
+    // All results should be the same credentials object.
+    for (const r of results) {
+      expect(r).toBe(results[0]);
     }
+  });
 
-    expect(expiringCredentials).toHaveBeenCalledTimes(5);
+  it("should update cache on forceRefresh so subsequent calls return refreshed credentials", async () => {
+    const provider = memoizeChain([staticCredentials], credentialsWillNeedRefresh);
+
+    // Initial call populates cache.
+    await provider();
+    expect(staticCredentials).toHaveBeenCalledTimes(1);
+
+    // Force refresh updates cache.
+    const refreshed = await provider({ forceRefresh: true });
+    expect(staticCredentials).toHaveBeenCalledTimes(2);
+
+    // Subsequent call without forceRefresh returns cached (refreshed) value.
+    const cached = await provider();
+    expect(staticCredentials).toHaveBeenCalledTimes(2);
+    expect(cached).toBe(refreshed);
   });
 
   it("should release locks on credential resolution failure at the end of the chain", async () => {
