@@ -50,6 +50,8 @@ export interface SignerConfig {
   profile?: string;
 }
 
+const MINUTE_MS = 60_000;
+
 /**
  * The signer class that generates an auth token to a database.
  */
@@ -66,7 +68,8 @@ export class Signer {
   constructor(configuration: SignerConfig) {
     const runtimeConfiguration = __getRuntimeConfig(configuration);
 
-    this.credentials = runtimeConfiguration.credentials;
+    const creds = runtimeConfiguration.credentials;
+    this.credentials = typeof creds === "function" ? this.createCredentialsWrapper(creds) : creds;
     this.hostname = runtimeConfiguration.hostname;
     this.port = runtimeConfiguration.port;
     this.region = runtimeConfiguration.region;
@@ -103,5 +106,25 @@ export class Signer {
     // RDS requires the scheme to be removed
     // https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.html
     return formatUrl(presigned).replace(`${this.protocol}//`, "");
+  }
+
+  /**
+   * Wraps a credential provider to force refresh when the resolved credentials
+   * expire within 15 minutes. A presigned URL cannot outlive the credentials
+   * used to sign it, so near-expiry credentials would produce a short-lived token.
+   */
+  private createCredentialsWrapper(provider: AwsCredentialIdentityProvider): AwsCredentialIdentityProvider {
+    return async (identityProperties?: Record<string, any>) => {
+      const credentials = await provider(identityProperties);
+      if (credentials.expiration && credentials.expiration.getTime() - Date.now() < 15 * MINUTE_MS) {
+        try {
+          const refreshed = await provider({ ...identityProperties, forceRefresh: true });
+          if (!refreshed.expiration || refreshed.expiration.getTime() - Date.now() >= 15 * MINUTE_MS) {
+            return refreshed;
+          }
+        } catch {}
+      }
+      return credentials;
+    };
   }
 }

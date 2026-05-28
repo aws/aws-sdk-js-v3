@@ -28,4 +28,40 @@ describe("rds-signer integration", () => {
       /X-Amz-SignedHeaders=host/,
     ]);
   });
+
+  it("force refreshes credentials expiring within 15 minutes", async () => {
+    let callCount = 0;
+
+    const provider = async (options?: Record<string, any>) => {
+      ++callCount;
+      if (callCount === 1) {
+        return {
+          accessKeyId: "EXPIRING_KEY",
+          secretAccessKey: "secret",
+          expiration: new Date(Date.now() + 14 * 60_000),
+        };
+      }
+      return {
+        accessKeyId: "REFRESHED_KEY",
+        secretAccessKey: "secret",
+        expiration: new Date(Date.now() + 60 * 60_000),
+      };
+    };
+
+    const signer = new Signer({
+      credentials: provider,
+      username: "me",
+      hostname: "localhost",
+      port: 443,
+      region: "us-west-2",
+    });
+
+    const token = await signer.getAuthToken();
+
+    expect(callCount).toBe(2);
+    expect(token).toContain("X-Amz-Credential=REFRESHED_KEY");
+    expect(token).not.toContain("EXPIRING_KEY");
+    expect(token).toContain("X-Amz-Expires=900");
+    expect(token).not.toMatch(/^https?:\/\//);
+  });
 });
