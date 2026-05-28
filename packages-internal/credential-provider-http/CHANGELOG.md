@@ -45,6 +45,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.43 (2026-05-27)
+### Chores
+* **codegen:** sync for cyclic file dependency fixes ([#8051](https://github.com/aws/aws-sdk-js-v3/issues/8051)) ([7ae617c](https://github.com/aws/aws-sdk-js-v3/commit/7ae617c43c11caf24ee171cb5f6eede64d5eeba7))
+
+
+
 # 3.972.42 (2026-05-26)
 ### Bug Fixes
 * **credential-provider-http:** close sockets after connection attempts ([#7995](https://github.com/aws/aws-sdk-js-v3/issues/7995)) ([a0b25e1](https://github.com/aws/aws-sdk-js-v3/commit/a0b25e152e01a0a1186987f8abb3240142fa5427))

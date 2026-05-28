@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
+
+
+### Features
+
+* **client-iot-data-plane:** Adding GetConnection, ListSubscriptions, and SendDirectMessage APIs to IoT Data Plane ([0308c79](https://github.com/aws/aws-sdk-js-v3/commit/0308c7967aa38cf2a95faf62498a114ca849a978))
+
+
+
+
+
 # [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-data-plane

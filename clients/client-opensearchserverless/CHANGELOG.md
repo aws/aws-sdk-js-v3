@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
+
+
+### Features
+
+* **client-opensearchserverless:** Adds support for deletion protection on collections, ability to create NEXTGEN collection groups and autoscaling visibility for NEXTGEN collection groups ([9e4a9ad](https://github.com/aws/aws-sdk-js-v3/commit/9e4a9ad8017760254c78fd336ff2f09187efb216))
+
+
+
+
+
 # [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearchserverless

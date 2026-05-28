@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Added Harness support for LiteLLM model configuration for third-party model providers. Added S3 and Git skill source types. Added Responses API format for OpenAI and Bedrock models. Added runtimeUserId and runtimeClientError to InvokeHarness. ([35ad0ff](https://github.com/aws/aws-sdk-js-v3/commit/35ad0ff216cc78a94c224d14ef2329f3e6415851))
+
+
+
+
+
 # [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

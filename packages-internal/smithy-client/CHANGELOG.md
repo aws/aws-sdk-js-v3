@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.993.16 (2026-05-27)
+### Chores
+* **codegen:** sync for cyclic file dependency fixes ([#8051](https://github.com/aws/aws-sdk-js-v3/issues/8051)) ([7ae617c](https://github.com/aws/aws-sdk-js-v3/commit/7ae617c43c11caf24ee171cb5f6eede64d5eeba7))
+
+
+
 # 3.993.15 (2026-05-14)
 ### Chores
 * **codegen:** sync for browser bundle fixes ([#8022](https://github.com/aws/aws-sdk-js-v3/issues/8022)) ([eabae7d](https://github.com/aws/aws-sdk-js-v3/commit/eabae7d848238fedb6336c2f2d13b81c6cd9d146))

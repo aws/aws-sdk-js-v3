@@ -25,6 +25,13 @@
 
 
 
+
+# 3.0.26 (2026-05-27)
+### Chores
+* **codegen:** sync for cyclic file dependency fixes ([#8051](https://github.com/aws/aws-sdk-js-v3/issues/8051)) ([7ae617c](https://github.com/aws/aws-sdk-js-v3/commit/7ae617c43c11caf24ee171cb5f6eede64d5eeba7))
+
+
+
 # 3.0.25 (2026-05-26)
 ### Chores
 * **snapshot-testing:** update dependencies.

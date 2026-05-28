@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
+
+
+### Features
+
+* **client-iot:** Adds new connectivity-related fields to Fleet Indexing API requests and responses. ([d5aed82](https://github.com/aws/aws-sdk-js-v3/commit/d5aed82d843315f045adea3f8df6af3427a23865))
+
+
+
+
+
 # [3.1055.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1054.0...v3.1055.0) (2026-05-27)
 
 **Note:** Version bump only for package @aws-sdk/client-iot
