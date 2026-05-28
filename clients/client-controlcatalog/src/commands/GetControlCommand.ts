@@ -64,13 +64,18 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * //     Type: "STRING_VALUE", // required
  * //     Identifier: "STRING_VALUE",
  * //   },
+ * //   ParameterRequirementSummary: "REQUIRED" || "OPTIONAL" || "NONE",
  * //   Parameters: [ // ControlParameters
  * //     { // ControlParameter
  * //       Name: "STRING_VALUE", // required
+ * //       Requirement: "REQUIRED" || "OPTIONAL",
  * //     },
  * //   ],
  * //   CreateTime: new Date("TIMESTAMP"),
  * //   GovernedResources: [ // GovernedResources
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   GovernedProviders: [ // GovernedProviders
  * //     "STRING_VALUE",
  * //   ],
  * // };

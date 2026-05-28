@@ -17,6 +17,35 @@ export type ControlBehavior = (typeof ControlBehavior)[keyof typeof ControlBehav
  * @public
  * @enum
  */
+export const ParameterRequirementSummary = {
+  NONE: "NONE",
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+/**
+ * @public
+ */
+export type ParameterRequirementSummary =
+  (typeof ParameterRequirementSummary)[keyof typeof ParameterRequirementSummary];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlParameterRequirement = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRED: "REQUIRED",
+} as const;
+/**
+ * @public
+ */
+export type ControlParameterRequirement =
+  (typeof ControlParameterRequirement)[keyof typeof ControlParameterRequirement];
+
+/**
+ * @public
+ * @enum
+ */
 export const ControlScope = {
   GLOBAL: "GLOBAL",
   REGIONAL: "REGIONAL",

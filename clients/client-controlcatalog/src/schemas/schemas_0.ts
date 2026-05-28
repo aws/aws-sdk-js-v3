@@ -37,6 +37,7 @@ const _Fr = "Framework";
 const _GC = "GetControl";
 const _GCR = "GetControlRequest";
 const _GCRe = "GetControlResponse";
+const _GP = "GovernedProviders";
 const _GR = "GovernedResources";
 const _I = "Implementations";
 const _ID = "ImplementationDetails";
@@ -78,6 +79,8 @@ const _OS = "ObjectiveSummary";
 const _OSL = "ObjectiveSummaryList";
 const _Ob = "Objective";
 const _P = "Parameters";
+const _PRS = "ParameterRequirementSummary";
+const _R = "Requirement";
 const _RC = "RegionConfiguration";
 const _RCMD = "RelatedControlMappingDetails";
 const _RCe = "RelatedControl";
@@ -190,8 +193,8 @@ export var CommonControlSummary$: StaticStructureSchema = [3, n0, _CCS,
 ];
 export var ControlFilter$: StaticStructureSchema = [3, n0, _CF,
   0,
-  [_I],
-  [() => ImplementationFilter$]
+  [_I, _GP],
+  [() => ImplementationFilter$, 64 | 0]
 ];
 export var ControlMapping$: StaticStructureSchema = [3, n0, _CM,
   0,
@@ -205,13 +208,13 @@ export var ControlMappingFilter$: StaticStructureSchema = [3, n0, _CMF,
 ];
 export var ControlParameter$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_N],
-  [0], 1
+  [_N, _R],
+  [0, 0], 1
 ];
 export var ControlSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_A, _N, _D, _Al, _B, _S, _Im, _CT, _GR],
-  [0, 0, 0, 64 | 0, 0, 0, () => ImplementationSummary$, 4, 64 | 0], 3
+  [_A, _N, _D, _Al, _B, _S, _PRS, _Im, _CT, _GR, _GP],
+  [0, 0, 0, 64 | 0, 0, 0, 0, () => ImplementationSummary$, 4, 64 | 0, 64 | 0], 3
 ];
 export var DomainResourceFilter$: StaticStructureSchema = [3, n0, _DRF,
   0,
@@ -235,8 +238,8 @@ export var GetControlRequest$: StaticStructureSchema = [3, n0, _GCR,
 ];
 export var GetControlResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_A, _N, _D, _B, _RC, _Al, _S, _Im, _P, _CT, _GR],
-  [0, 0, 0, 0, () => RegionConfiguration$, 64 | 0, 0, () => ImplementationDetails$, () => ControlParameters, 4, 64 | 0], 5
+  [_A, _N, _D, _B, _RC, _Al, _S, _Im, _PRS, _P, _CT, _GR, _GP],
+  [0, 0, 0, 0, () => RegionConfiguration$, 64 | 0, 0, () => ImplementationDetails$, 0, () => ControlParameters, 4, 64 | 0, 64 | 0], 5
 ];
 export var ImplementationDetails$: StaticStructureSchema = [3, n0, _ID,
   0,
@@ -350,6 +353,8 @@ var DomainResourceFilterList: StaticListSchema = [1, n0, _DRFL,
 var DomainSummaryList: StaticListSchema = [1, n0, _DSL,
   0, () => DomainSummary$
 ];
+var GovernedProviderFilterList = 64 | 0;
+var GovernedProviders = 64 | 0;
 var GovernedResources = 64 | 0;
 var ImplementationIdentifierFilterList = 64 | 0;
 var ImplementationTypeFilterList = 64 | 0;

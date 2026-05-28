@@ -14,6 +14,7 @@ import {
   ControlMapping$,
   ControlMappingFilter$,
   ControlParameter$,
+  ControlParameterRequirement,
   ControlRelationType,
   ControlScope,
   ControlSeverity,
@@ -60,6 +61,7 @@ import {
   paginateListControls,
   paginateListDomains,
   paginateListObjectives,
+  ParameterRequirementSummary,
   RegionConfiguration$,
   RelatedControlMappingDetails$,
   ResourceNotFoundException,
@@ -123,10 +125,12 @@ assert(typeof RegionConfiguration$ === "object");
 assert(typeof RelatedControlMappingDetails$ === "object");
 // enums
 assert(typeof ControlBehavior === "object");
+assert(typeof ControlParameterRequirement === "object");
 assert(typeof ControlRelationType === "object");
 assert(typeof ControlScope === "object");
 assert(typeof ControlSeverity === "object");
 assert(typeof MappingType === "object");
+assert(typeof ParameterRequirementSummary === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ControlCatalogServiceException);
 assert(typeof AccessDeniedException$ === "object");

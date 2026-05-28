@@ -52,6 +52,9 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     GovernedProviders: [ // GovernedProviderFilterList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new ListControlsCommand(input);
@@ -67,12 +70,16 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * //       Description: "STRING_VALUE", // required
  * //       Behavior: "PREVENTIVE" || "PROACTIVE" || "DETECTIVE",
  * //       Severity: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ * //       ParameterRequirementSummary: "REQUIRED" || "OPTIONAL" || "NONE",
  * //       Implementation: { // ImplementationSummary
  * //         Type: "STRING_VALUE", // required
  * //         Identifier: "STRING_VALUE",
  * //       },
  * //       CreateTime: new Date("TIMESTAMP"),
  * //       GovernedResources: [ // GovernedResources
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       GovernedProviders: [ // GovernedProviders
  * //         "STRING_VALUE",
  * //       ],
  * //     },

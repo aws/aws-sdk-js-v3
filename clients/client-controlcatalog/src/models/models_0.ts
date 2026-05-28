@@ -1,5 +1,13 @@
 // smithy-typescript generated code
-import type { ControlBehavior, ControlRelationType, ControlScope, ControlSeverity, MappingType } from "./enums";
+import type {
+  ControlBehavior,
+  ControlParameterRequirement,
+  ControlRelationType,
+  ControlScope,
+  ControlSeverity,
+  MappingType,
+  ParameterRequirementSummary,
+} from "./enums";
 
 /**
  * <p>A summary of the domain that a common control or an objective belongs to.</p>
@@ -200,6 +208,12 @@ export interface ControlParameter {
    * @public
    */
   Name: string | undefined;
+
+  /**
+   * <p>Indicates whether the parameter is required or optional when you enable the control.</p>
+   * @public
+   */
+  Requirement?: ControlParameterRequirement | undefined;
 }
 
 /**
@@ -273,6 +287,12 @@ export interface GetControlResponse {
   Implementation?: ImplementationDetails | undefined;
 
   /**
+   * <p>A summary that indicates whether the control requires parameters, accepts optional parameters, or does not support parameters. Use this field to determine whether you need to supply parameter values when you enable the control.</p>
+   * @public
+   */
+  ParameterRequirementSummary?: ParameterRequirementSummary | undefined;
+
+  /**
    * <p>Returns an array of <code>ControlParameter</code> objects that specify the parameters a control supports. An empty list is returned for controls that don’t support parameters. </p>
    * @public
    */
@@ -285,10 +305,16 @@ export interface GetControlResponse {
   CreateTime?: Date | undefined;
 
   /**
-   * <p>A list of Amazon Web Services resource types that are governed by this control. This information helps you understand which controls can govern certain types of resources, and conversely, which resources are affected when the control is implemented. The resources are represented as Amazon Web Services CloudFormation resource types. If <code>GovernedResources</code> cannot be represented by available CloudFormation resource types, it’s returned as an empty list.</p>
+   * <p>A list of resource types that are governed by this control. This information helps you understand which controls can govern certain types of resources, and conversely, which resources are affected when the control is implemented. For Amazon Web Services controls, the resources are represented as CloudFormation resource types. For non-Amazon Web Services controls, the resources are represented in a provider-specific format. If <code>GovernedResources</code> cannot be represented by available resource types, it’s returned as an empty list.</p>
    * @public
    */
   GovernedResources?: string[] | undefined;
+
+  /**
+   * <p>A list of providers whose resources are governed by this control. For example, a value of <code>AWS</code> indicates that the control governs Amazon Web Services resources.</p>
+   * @public
+   */
+  GovernedProviders?: string[] | undefined;
 }
 
 /**
@@ -319,6 +345,12 @@ export interface ControlFilter {
    * @public
    */
   Implementations?: ImplementationFilter | undefined;
+
+  /**
+   * <p>A filter that narrows the results to controls that govern a specific provider's resources.</p>
+   * @public
+   */
+  GovernedProviders?: string[] | undefined;
 }
 
 /**
@@ -404,6 +436,12 @@ export interface ControlSummary {
   Severity?: ControlSeverity | undefined;
 
   /**
+   * <p>A summary that indicates whether the control requires parameters, accepts optional parameters, or does not support parameters. Use this field to determine whether you need to supply parameter values when you enable the control.</p>
+   * @public
+   */
+  ParameterRequirementSummary?: ParameterRequirementSummary | undefined;
+
+  /**
    * <p>An object of type <code>ImplementationSummary</code> that describes how the control is implemented.</p>
    * @public
    */
@@ -416,10 +454,16 @@ export interface ControlSummary {
   CreateTime?: Date | undefined;
 
   /**
-   * <p>A list of Amazon Web Services resource types that are governed by this control. This information helps you understand which controls can govern certain types of resources, and conversely, which resources are affected when the control is implemented. The resources are represented as Amazon Web Services CloudFormation resource types. If <code>GovernedResources</code> cannot be represented by available CloudFormation resource types, it’s returned as an empty list.</p>
+   * <p>A list of resource types that are governed by this control. This information helps you understand which controls can govern certain types of resources, and conversely, which resources are affected when the control is implemented. For Amazon Web Services controls, the resources are represented as CloudFormation resource types. For non-Amazon Web Services controls, the resources are represented in a provider-specific format. If <code>GovernedResources</code> cannot be represented by available resource types, it’s returned as an empty list.</p>
    * @public
    */
   GovernedResources?: string[] | undefined;
+
+  /**
+   * <p>A list of providers whose resources are governed by this control. For example, a value of <code>AWS</code> indicates that the control governs Amazon Web Services resources.</p>
+   * @public
+   */
+  GovernedProviders?: string[] | undefined;
 }
 
 /**
