@@ -316,6 +316,7 @@ export const ExportImageTaskState = {
   COMPLETED: "COMPLETED",
   EXPORTING: "EXPORTING",
   FAILED: "FAILED",
+  TIMED_OUT: "TIMED_OUT",
 } as const;
 /**
  * @public
@@ -448,6 +449,7 @@ export type ImageSharedWithOthers = (typeof ImageSharedWithOthers)[keyof typeof 
  * @enum
  */
 export const ImageType = {
+  BYOL: "BYOL",
   CUSTOM: "CUSTOM",
   NATIVE: "NATIVE",
 } as const;

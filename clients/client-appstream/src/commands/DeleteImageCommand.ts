@@ -107,7 +107,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * //     DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
  * //     ImageSharedWithOthers: "TRUE" || "FALSE",
  * //     ManagedSoftwareIncluded: true || false,
- * //     ImageType: "CUSTOM" || "NATIVE",
+ * //     ImageType: "CUSTOM" || "NATIVE" || "BYOL",
  * //   },
  * // };
  *

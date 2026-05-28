@@ -38,8 +38,9 @@ export interface CreateImportedImageCommandOutput extends CreateImportedImageRes
  * const client = new AppStreamClient(config);
  * const input = { // CreateImportedImageRequest
  *   Name: "STRING_VALUE", // required
- *   SourceAmiId: "STRING_VALUE", // required
- *   IamRoleArn: "STRING_VALUE", // required
+ *   SourceAmiId: "STRING_VALUE",
+ *   WorkspaceImageId: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
  *   Tags: { // Tags
@@ -129,7 +130,7 @@ export interface CreateImportedImageCommandOutput extends CreateImportedImageRes
  * //     DynamicAppProvidersEnabled: "ENABLED" || "DISABLED",
  * //     ImageSharedWithOthers: "TRUE" || "FALSE",
  * //     ManagedSoftwareIncluded: true || false,
- * //     ImageType: "CUSTOM" || "NATIVE",
+ * //     ImageType: "CUSTOM" || "NATIVE" || "BYOL",
  * //   },
  * // };
  *
@@ -149,6 +150,9 @@ export interface CreateImportedImageCommandOutput extends CreateImportedImageRes
  *
  * @throws {@link InvalidAccountStatusException} (client fault)
  *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  *
  * @throws {@link InvalidRoleException} (client fault)
  *  <p>The specified role is invalid.</p>

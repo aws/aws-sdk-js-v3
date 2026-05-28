@@ -54,7 +54,7 @@ export interface CreateExportImageTaskCommandOutput extends CreateExportImageTas
  * //     AmiName: "STRING_VALUE", // required
  * //     CreatedDate: new Date("TIMESTAMP"), // required
  * //     AmiDescription: "STRING_VALUE",
- * //     State: "EXPORTING" || "COMPLETED" || "FAILED",
+ * //     State: "EXPORTING" || "COMPLETED" || "FAILED" || "TIMED_OUT",
  * //     AmiId: "STRING_VALUE",
  * //     TagSpecifications: { // Tags
  * //       "<keys>": "STRING_VALUE",

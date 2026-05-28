@@ -594,6 +594,7 @@ const _Va = "Value";
 const _Val = "Values";
 const _Vi = "Visibility";
 const _WD = "WorkingDirectory";
+const _WII = "WorkspaceImageId";
 const _aF = "allowFleet";
 const _aIB = "allowImageBuilder";
 const _c = "client";
@@ -1025,8 +1026,8 @@ export var CreateImageBuilderStreamingURLResult$: StaticStructureSchema = [3, n0
 ];
 export var CreateImportedImageRequest$: StaticStructureSchema = [3, n0, _CIIR,
   0,
-  [_N, _SAI, _IRA, _D, _DN, _T, _RVCu, _ASV, _ACC, _DRr],
-  [0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig$, 0, [() => AppCatalogConfig, 0], 2], 3
+  [_N, _SAI, _WII, _IRA, _D, _DN, _T, _RVCu, _ASV, _ACC, _DRr],
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig$, 0, [() => AppCatalogConfig, 0], 2], 1
 ];
 export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
   0,

@@ -3460,16 +3460,22 @@ export interface CreateImportedImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ID of the EC2 AMI to import. The AMI must meet specific requirements including Windows Server 2022 Full Base, UEFI boot mode, TPM 2.0 support, and proper drivers.</p>
+   * <p>The ID of the EC2 AMI to import.</p>
    * @public
    */
-  SourceAmiId: string | undefined;
+  SourceAmiId?: string | undefined;
+
+  /**
+   * <p>The ID of the Workspaces Image to import.</p>
+   * @public
+   */
+  WorkspaceImageId?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that allows WorkSpaces Applications to access your AMI. The role must have permissions to modify image attributes and describe images, with a trust relationship allowing appstream.amazonaws.com to assume the role.</p>
    * @public
    */
-  IamRoleArn: string | undefined;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>An optional description for the imported image. The description must match approved regex patterns and can be up to 256 characters.</p>
