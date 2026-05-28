@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@aws-sdk/client-iam": "workspace:3.1056.0",
-    "@smithy/snapshot-testing": "^2.1.5",
+    "@smithy/snapshot-testing": "^2.1.6",
     "@tsconfig/node20": "20.1.8",
     "@types/chai": "^4.2.11",
     "@types/node": "^20.14.8",
