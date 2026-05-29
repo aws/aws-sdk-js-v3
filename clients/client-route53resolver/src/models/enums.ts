@@ -208,22 +208,6 @@ export type ConfidenceThreshold = (typeof ConfidenceThreshold)[keyof typeof Conf
  * @public
  * @enum
  */
-export const FirewallDomainListStatus = {
-  COMPLETE: "COMPLETE",
-  COMPLETE_IMPORT_FAILED: "COMPLETE_IMPORT_FAILED",
-  DELETING: "DELETING",
-  IMPORTING: "IMPORTING",
-  UPDATING: "UPDATING",
-} as const;
-/**
- * @public
- */
-export type FirewallDomainListStatus = (typeof FirewallDomainListStatus)[keyof typeof FirewallDomainListStatus];
-
-/**
- * @public
- * @enum
- */
 export const DnsThreatProtection = {
   DGA: "DGA",
   DICTIONARY_DGA: "DICTIONARY_DGA",
@@ -247,6 +231,35 @@ export const FirewallDomainRedirectionAction = {
  */
 export type FirewallDomainRedirectionAction =
   (typeof FirewallDomainRedirectionAction)[keyof typeof FirewallDomainRedirectionAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainListType = {
+  CONTENT: "CONTENT",
+  THREAT: "THREAT",
+} as const;
+/**
+ * @public
+ */
+export type DomainListType = (typeof DomainListType)[keyof typeof DomainListType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FirewallDomainListStatus = {
+  COMPLETE: "COMPLETE",
+  COMPLETE_IMPORT_FAILED: "COMPLETE_IMPORT_FAILED",
+  DELETING: "DELETING",
+  IMPORTING: "IMPORTING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type FirewallDomainListStatus = (typeof FirewallDomainListStatus)[keyof typeof FirewallDomainListStatus];
 
 /**
  * @public

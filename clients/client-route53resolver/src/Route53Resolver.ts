@@ -23,6 +23,21 @@ import {
   AssociateResolverRuleCommand,
 } from "./commands/AssociateResolverRuleCommand";
 import {
+  type BatchCreateFirewallRuleCommandInput,
+  type BatchCreateFirewallRuleCommandOutput,
+  BatchCreateFirewallRuleCommand,
+} from "./commands/BatchCreateFirewallRuleCommand";
+import {
+  type BatchDeleteFirewallRuleCommandInput,
+  type BatchDeleteFirewallRuleCommandOutput,
+  BatchDeleteFirewallRuleCommand,
+} from "./commands/BatchDeleteFirewallRuleCommand";
+import {
+  type BatchUpdateFirewallRuleCommandInput,
+  type BatchUpdateFirewallRuleCommandOutput,
+  BatchUpdateFirewallRuleCommand,
+} from "./commands/BatchUpdateFirewallRuleCommand";
+import {
   type CreateFirewallDomainListCommandInput,
   type CreateFirewallDomainListCommandOutput,
   CreateFirewallDomainListCommand,
@@ -223,6 +238,11 @@ import {
   ListFirewallRulesCommand,
 } from "./commands/ListFirewallRulesCommand";
 import {
+  type ListFirewallRuleTypesCommandInput,
+  type ListFirewallRuleTypesCommandOutput,
+  ListFirewallRuleTypesCommand,
+} from "./commands/ListFirewallRuleTypesCommand";
+import {
   type ListOutpostResolversCommandInput,
   type ListOutpostResolversCommandOutput,
   ListOutpostResolversCommand,
@@ -348,6 +368,7 @@ import { paginateListFirewallDomains } from "./pagination/ListFirewallDomainsPag
 import { paginateListFirewallRuleGroupAssociations } from "./pagination/ListFirewallRuleGroupAssociationsPaginator";
 import { paginateListFirewallRuleGroups } from "./pagination/ListFirewallRuleGroupsPaginator";
 import { paginateListFirewallRules } from "./pagination/ListFirewallRulesPaginator";
+import { paginateListFirewallRuleTypes } from "./pagination/ListFirewallRuleTypesPaginator";
 import { paginateListOutpostResolvers } from "./pagination/ListOutpostResolversPaginator";
 import { paginateListResolverConfigs } from "./pagination/ListResolverConfigsPaginator";
 import { paginateListResolverDnssecConfigs } from "./pagination/ListResolverDnssecConfigsPaginator";
@@ -367,6 +388,9 @@ const commands = {
   AssociateResolverEndpointIpAddressCommand,
   AssociateResolverQueryLogConfigCommand,
   AssociateResolverRuleCommand,
+  BatchCreateFirewallRuleCommand,
+  BatchDeleteFirewallRuleCommand,
+  BatchUpdateFirewallRuleCommand,
   CreateFirewallDomainListCommand,
   CreateFirewallRuleCommand,
   CreateFirewallRuleGroupCommand,
@@ -407,6 +431,7 @@ const commands = {
   ListFirewallRuleGroupAssociationsCommand,
   ListFirewallRuleGroupsCommand,
   ListFirewallRulesCommand,
+  ListFirewallRuleTypesCommand,
   ListOutpostResolversCommand,
   ListResolverConfigsCommand,
   ListResolverDnssecConfigsCommand,
@@ -439,6 +464,7 @@ const paginators = {
   paginateListFirewallRuleGroupAssociations,
   paginateListFirewallRuleGroups,
   paginateListFirewallRules,
+  paginateListFirewallRuleTypes,
   paginateListOutpostResolvers,
   paginateListResolverConfigs,
   paginateListResolverDnssecConfigs,
@@ -518,6 +544,57 @@ export interface Route53Resolver {
     args: AssociateResolverRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateResolverRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateFirewallRuleCommand}
+   */
+  batchCreateFirewallRule(
+    args: BatchCreateFirewallRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateFirewallRuleCommandOutput>;
+  batchCreateFirewallRule(
+    args: BatchCreateFirewallRuleCommandInput,
+    cb: (err: any, data?: BatchCreateFirewallRuleCommandOutput) => void
+  ): void;
+  batchCreateFirewallRule(
+    args: BatchCreateFirewallRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateFirewallRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteFirewallRuleCommand}
+   */
+  batchDeleteFirewallRule(
+    args: BatchDeleteFirewallRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteFirewallRuleCommandOutput>;
+  batchDeleteFirewallRule(
+    args: BatchDeleteFirewallRuleCommandInput,
+    cb: (err: any, data?: BatchDeleteFirewallRuleCommandOutput) => void
+  ): void;
+  batchDeleteFirewallRule(
+    args: BatchDeleteFirewallRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteFirewallRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateFirewallRuleCommand}
+   */
+  batchUpdateFirewallRule(
+    args: BatchUpdateFirewallRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateFirewallRuleCommandOutput>;
+  batchUpdateFirewallRule(
+    args: BatchUpdateFirewallRuleCommandInput,
+    cb: (err: any, data?: BatchUpdateFirewallRuleCommandOutput) => void
+  ): void;
+  batchUpdateFirewallRule(
+    args: BatchUpdateFirewallRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateFirewallRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1205,6 +1282,24 @@ export interface Route53Resolver {
   ): void;
 
   /**
+   * @see {@link ListFirewallRuleTypesCommand}
+   */
+  listFirewallRuleTypes(): Promise<ListFirewallRuleTypesCommandOutput>;
+  listFirewallRuleTypes(
+    args: ListFirewallRuleTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallRuleTypesCommandOutput>;
+  listFirewallRuleTypes(
+    args: ListFirewallRuleTypesCommandInput,
+    cb: (err: any, data?: ListFirewallRuleTypesCommandOutput) => void
+  ): void;
+  listFirewallRuleTypes(
+    args: ListFirewallRuleTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallRuleTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOutpostResolversCommand}
    */
   listOutpostResolvers(): Promise<ListOutpostResolversCommandOutput>;
@@ -1685,6 +1780,17 @@ export interface Route53Resolver {
     args: ListFirewallRulesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFirewallRulesCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallRuleTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallRuleTypesCommandOutput}.
+   */
+  paginateListFirewallRuleTypes(
+    args?: ListFirewallRuleTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallRuleTypesCommandOutput>;
 
   /**
    * @see {@link ListOutpostResolversCommand}

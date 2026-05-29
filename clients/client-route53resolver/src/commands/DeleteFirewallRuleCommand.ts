@@ -67,6 +67,18 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * //     Qtype: "STRING_VALUE",
  * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
+ * //     FirewallRuleType: { // FirewallRuleType
+ * //       FirewallAdvancedContentCategory: { // FirewallAdvancedContentCategoryConfig
+ * //         Category: "STRING_VALUE", // required
+ * //       },
+ * //       FirewallAdvancedThreatCategory: { // FirewallAdvancedThreatCategoryConfig
+ * //         Category: "STRING_VALUE", // required
+ * //       },
+ * //       DnsThreatProtection: { // DnsThreatProtectionRuleTypeConfig
+ * //         Value: "STRING_VALUE", // required
+ * //         ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

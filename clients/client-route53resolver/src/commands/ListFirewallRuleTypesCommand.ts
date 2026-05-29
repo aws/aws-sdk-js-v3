@@ -4,13 +4,13 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListFirewallDomainListsRequest, ListFirewallDomainListsResponse } from "../models/models_0";
+import type { ListFirewallRuleTypesRequest, ListFirewallRuleTypesResponse } from "../models/models_0";
 import type {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListFirewallDomainLists$ } from "../schemas/schemas_0";
+import { ListFirewallRuleTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,54 +20,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListFirewallDomainListsCommand}.
+ * The input for {@link ListFirewallRuleTypesCommand}.
  */
-export interface ListFirewallDomainListsCommandInput extends ListFirewallDomainListsRequest {}
+export interface ListFirewallRuleTypesCommandInput extends ListFirewallRuleTypesRequest {}
 /**
  * @public
  *
- * The output of {@link ListFirewallDomainListsCommand}.
+ * The output of {@link ListFirewallRuleTypesCommand}.
  */
-export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomainListsResponse, __MetadataBearer {}
+export interface ListFirewallRuleTypesCommandOutput extends ListFirewallRuleTypesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling <a>ListFirewallDomains</a>. </p>
- *          <p>A single call to this list operation might return only a partial list of the domain lists. For information, see <code>MaxResults</code>. </p>
+ * <p>Retrieves the available rule types that can be used in DNS Firewall rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallDomainListsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallDomainListsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListFirewallRuleTypesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallRuleTypesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
  * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
- * const input = { // ListFirewallDomainListsRequest
+ * const input = { // ListFirewallRuleTypesRequest
+ *   RuleType: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListFirewallDomainListsCommand(input);
+ * const command = new ListFirewallRuleTypesCommand(input);
  * const response = await client.send(command);
- * // { // ListFirewallDomainListsResponse
- * //   NextToken: "STRING_VALUE",
- * //   FirewallDomainLists: [ // FirewallDomainListMetadataList
- * //     { // FirewallDomainListMetadata
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       Name: "STRING_VALUE",
- * //       CreatorRequestId: "STRING_VALUE",
- * //       ManagedOwnerName: "STRING_VALUE",
- * //       ManagedListType: "THREAT" || "CONTENT",
- * //       Category: "STRING_VALUE",
+ * // { // ListFirewallRuleTypesResponse
+ * //   FirewallRuleTypes: [ // FirewallRuleTypeDefinitions
+ * //     { // FirewallRuleTypeDefinition
+ * //       RuleType: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListFirewallDomainListsCommandInput - {@link ListFirewallDomainListsCommandInput}
- * @returns {@link ListFirewallDomainListsCommandOutput}
- * @see {@link ListFirewallDomainListsCommandInput} for command's `input` shape.
- * @see {@link ListFirewallDomainListsCommandOutput} for command's `response` shape.
+ * @param ListFirewallRuleTypesCommandInput - {@link ListFirewallRuleTypesCommandInput}
+ * @returns {@link ListFirewallRuleTypesCommandOutput}
+ * @see {@link ListFirewallRuleTypesCommandInput} for command's `input` shape.
+ * @see {@link ListFirewallRuleTypesCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,10 +88,10 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  *
  * @public
  */
-export class ListFirewallDomainListsCommand extends $Command
+export class ListFirewallRuleTypesCommand extends $Command
   .classBuilder<
-    ListFirewallDomainListsCommandInput,
-    ListFirewallDomainListsCommandOutput,
+    ListFirewallRuleTypesCommandInput,
+    ListFirewallRuleTypesCommandOutput,
     Route53ResolverClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +100,19 @@ export class ListFirewallDomainListsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Route53Resolver", "ListFirewallDomainLists", {})
-  .n("Route53ResolverClient", "ListFirewallDomainListsCommand")
-  .sc(ListFirewallDomainLists$)
+  .s("Route53Resolver", "ListFirewallRuleTypes", {})
+  .n("Route53ResolverClient", "ListFirewallRuleTypesCommand")
+  .sc(ListFirewallRuleTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListFirewallDomainListsRequest;
-      output: ListFirewallDomainListsResponse;
+      input: ListFirewallRuleTypesRequest;
+      output: ListFirewallRuleTypesResponse;
     };
     sdk: {
-      input: ListFirewallDomainListsCommandInput;
-      output: ListFirewallDomainListsCommandOutput;
+      input: ListFirewallRuleTypesCommandInput;
+      output: ListFirewallRuleTypesCommandOutput;
     };
   };
 }

@@ -19,6 +19,21 @@ import {
   AssociateResolverRuleRequest$,
   AssociateResolverRuleResponse$,
   AutodefinedReverseFlag,
+  BatchCreateFirewallRule$,
+  BatchCreateFirewallRuleCommand,
+  BatchCreateFirewallRuleError$,
+  BatchCreateFirewallRuleRequest$,
+  BatchCreateFirewallRuleResponse$,
+  BatchDeleteFirewallRule$,
+  BatchDeleteFirewallRuleCommand,
+  BatchDeleteFirewallRuleError$,
+  BatchDeleteFirewallRuleRequest$,
+  BatchDeleteFirewallRuleResponse$,
+  BatchUpdateFirewallRule$,
+  BatchUpdateFirewallRuleCommand,
+  BatchUpdateFirewallRuleError$,
+  BatchUpdateFirewallRuleRequest$,
+  BatchUpdateFirewallRuleResponse$,
   BlockOverrideDnsType,
   BlockResponse,
   ConfidenceThreshold,
@@ -30,6 +45,7 @@ import {
   CreateFirewallDomainListResponse$,
   CreateFirewallRule$,
   CreateFirewallRuleCommand,
+  CreateFirewallRuleEntry$,
   CreateFirewallRuleGroup$,
   CreateFirewallRuleGroupCommand,
   CreateFirewallRuleGroupRequest$,
@@ -58,6 +74,7 @@ import {
   DeleteFirewallDomainListResponse$,
   DeleteFirewallRule$,
   DeleteFirewallRuleCommand,
+  DeleteFirewallRuleEntry$,
   DeleteFirewallRuleGroup$,
   DeleteFirewallRuleGroupCommand,
   DeleteFirewallRuleGroupRequest$,
@@ -97,7 +114,11 @@ import {
   DisassociateResolverRuleRequest$,
   DisassociateResolverRuleResponse$,
   DnsThreatProtection,
+  DnsThreatProtectionRuleTypeConfig$,
+  DomainListType,
   Filter$,
+  FirewallAdvancedContentCategoryConfig$,
+  FirewallAdvancedThreatCategoryConfig$,
   FirewallConfig$,
   FirewallDomainImportOperation,
   FirewallDomainList$,
@@ -112,6 +133,8 @@ import {
   FirewallRuleGroupAssociationStatus,
   FirewallRuleGroupMetadata$,
   FirewallRuleGroupStatus,
+  FirewallRuleType$,
+  FirewallRuleTypeDefinition$,
   GetFirewallConfig$,
   GetFirewallConfigCommand,
   GetFirewallConfigRequest$,
@@ -218,6 +241,10 @@ import {
   ListFirewallRulesCommand,
   ListFirewallRulesRequest$,
   ListFirewallRulesResponse$,
+  ListFirewallRuleTypes$,
+  ListFirewallRuleTypesCommand,
+  ListFirewallRuleTypesRequest$,
+  ListFirewallRuleTypesResponse$,
   ListOutpostResolvers$,
   ListOutpostResolversCommand,
   ListOutpostResolversRequest$,
@@ -267,6 +294,7 @@ import {
   paginateListFirewallRuleGroupAssociations,
   paginateListFirewallRuleGroups,
   paginateListFirewallRules,
+  paginateListFirewallRuleTypes,
   paginateListOutpostResolvers,
   paginateListResolverConfigs,
   paginateListResolverDnssecConfigs,
@@ -348,6 +376,7 @@ import {
   UpdateFirewallDomainsResponse$,
   UpdateFirewallRule$,
   UpdateFirewallRuleCommand,
+  UpdateFirewallRuleEntry$,
   UpdateFirewallRuleGroupAssociation$,
   UpdateFirewallRuleGroupAssociationCommand,
   UpdateFirewallRuleGroupAssociationRequest$,
@@ -392,6 +421,12 @@ assert(typeof AssociateResolverQueryLogConfigCommand === "function");
 assert(typeof AssociateResolverQueryLogConfig$ === "object");
 assert(typeof AssociateResolverRuleCommand === "function");
 assert(typeof AssociateResolverRule$ === "object");
+assert(typeof BatchCreateFirewallRuleCommand === "function");
+assert(typeof BatchCreateFirewallRule$ === "object");
+assert(typeof BatchDeleteFirewallRuleCommand === "function");
+assert(typeof BatchDeleteFirewallRule$ === "object");
+assert(typeof BatchUpdateFirewallRuleCommand === "function");
+assert(typeof BatchUpdateFirewallRule$ === "object");
 assert(typeof CreateFirewallDomainListCommand === "function");
 assert(typeof CreateFirewallDomainList$ === "object");
 assert(typeof CreateFirewallRuleCommand === "function");
@@ -472,6 +507,8 @@ assert(typeof ListFirewallRuleGroupsCommand === "function");
 assert(typeof ListFirewallRuleGroups$ === "object");
 assert(typeof ListFirewallRulesCommand === "function");
 assert(typeof ListFirewallRules$ === "object");
+assert(typeof ListFirewallRuleTypesCommand === "function");
+assert(typeof ListFirewallRuleTypes$ === "object");
 assert(typeof ListOutpostResolversCommand === "function");
 assert(typeof ListOutpostResolvers$ === "object");
 assert(typeof ListResolverConfigsCommand === "function");
@@ -529,8 +566,18 @@ assert(typeof AssociateResolverQueryLogConfigRequest$ === "object");
 assert(typeof AssociateResolverQueryLogConfigResponse$ === "object");
 assert(typeof AssociateResolverRuleRequest$ === "object");
 assert(typeof AssociateResolverRuleResponse$ === "object");
+assert(typeof BatchCreateFirewallRuleError$ === "object");
+assert(typeof BatchCreateFirewallRuleRequest$ === "object");
+assert(typeof BatchCreateFirewallRuleResponse$ === "object");
+assert(typeof BatchDeleteFirewallRuleError$ === "object");
+assert(typeof BatchDeleteFirewallRuleRequest$ === "object");
+assert(typeof BatchDeleteFirewallRuleResponse$ === "object");
+assert(typeof BatchUpdateFirewallRuleError$ === "object");
+assert(typeof BatchUpdateFirewallRuleRequest$ === "object");
+assert(typeof BatchUpdateFirewallRuleResponse$ === "object");
 assert(typeof CreateFirewallDomainListRequest$ === "object");
 assert(typeof CreateFirewallDomainListResponse$ === "object");
+assert(typeof CreateFirewallRuleEntry$ === "object");
 assert(typeof CreateFirewallRuleGroupRequest$ === "object");
 assert(typeof CreateFirewallRuleGroupResponse$ === "object");
 assert(typeof CreateFirewallRuleRequest$ === "object");
@@ -545,6 +592,7 @@ assert(typeof CreateResolverRuleRequest$ === "object");
 assert(typeof CreateResolverRuleResponse$ === "object");
 assert(typeof DeleteFirewallDomainListRequest$ === "object");
 assert(typeof DeleteFirewallDomainListResponse$ === "object");
+assert(typeof DeleteFirewallRuleEntry$ === "object");
 assert(typeof DeleteFirewallRuleGroupRequest$ === "object");
 assert(typeof DeleteFirewallRuleGroupResponse$ === "object");
 assert(typeof DeleteFirewallRuleRequest$ === "object");
@@ -565,7 +613,10 @@ assert(typeof DisassociateResolverQueryLogConfigRequest$ === "object");
 assert(typeof DisassociateResolverQueryLogConfigResponse$ === "object");
 assert(typeof DisassociateResolverRuleRequest$ === "object");
 assert(typeof DisassociateResolverRuleResponse$ === "object");
+assert(typeof DnsThreatProtectionRuleTypeConfig$ === "object");
 assert(typeof Filter$ === "object");
+assert(typeof FirewallAdvancedContentCategoryConfig$ === "object");
+assert(typeof FirewallAdvancedThreatCategoryConfig$ === "object");
 assert(typeof FirewallConfig$ === "object");
 assert(typeof FirewallDomainList$ === "object");
 assert(typeof FirewallDomainListMetadata$ === "object");
@@ -573,6 +624,8 @@ assert(typeof FirewallRule$ === "object");
 assert(typeof FirewallRuleGroup$ === "object");
 assert(typeof FirewallRuleGroupAssociation$ === "object");
 assert(typeof FirewallRuleGroupMetadata$ === "object");
+assert(typeof FirewallRuleType$ === "object");
+assert(typeof FirewallRuleTypeDefinition$ === "object");
 assert(typeof GetFirewallConfigRequest$ === "object");
 assert(typeof GetFirewallConfigResponse$ === "object");
 assert(typeof GetFirewallDomainListRequest$ === "object");
@@ -620,6 +673,8 @@ assert(typeof ListFirewallRuleGroupsRequest$ === "object");
 assert(typeof ListFirewallRuleGroupsResponse$ === "object");
 assert(typeof ListFirewallRulesRequest$ === "object");
 assert(typeof ListFirewallRulesResponse$ === "object");
+assert(typeof ListFirewallRuleTypesRequest$ === "object");
+assert(typeof ListFirewallRuleTypesResponse$ === "object");
 assert(typeof ListOutpostResolversRequest$ === "object");
 assert(typeof ListOutpostResolversResponse$ === "object");
 assert(typeof ListResolverConfigsRequest$ === "object");
@@ -665,6 +720,7 @@ assert(typeof UpdateFirewallConfigRequest$ === "object");
 assert(typeof UpdateFirewallConfigResponse$ === "object");
 assert(typeof UpdateFirewallDomainsRequest$ === "object");
 assert(typeof UpdateFirewallDomainsResponse$ === "object");
+assert(typeof UpdateFirewallRuleEntry$ === "object");
 assert(typeof UpdateFirewallRuleGroupAssociationRequest$ === "object");
 assert(typeof UpdateFirewallRuleGroupAssociationResponse$ === "object");
 assert(typeof UpdateFirewallRuleRequest$ === "object");
@@ -687,6 +743,7 @@ assert(typeof BlockOverrideDnsType === "object");
 assert(typeof BlockResponse === "object");
 assert(typeof ConfidenceThreshold === "object");
 assert(typeof DnsThreatProtection === "object");
+assert(typeof DomainListType === "object");
 assert(typeof FirewallDomainImportOperation === "object");
 assert(typeof FirewallDomainListStatus === "object");
 assert(typeof FirewallDomainRedirectionAction === "object");
@@ -754,6 +811,7 @@ assert(typeof paginateListFirewallDomainLists === "function");
 assert(typeof paginateListFirewallDomains === "function");
 assert(typeof paginateListFirewallRuleGroupAssociations === "function");
 assert(typeof paginateListFirewallRuleGroups === "function");
+assert(typeof paginateListFirewallRuleTypes === "function");
 assert(typeof paginateListFirewallRules === "function");
 assert(typeof paginateListOutpostResolvers === "function");
 assert(typeof paginateListResolverConfigs === "function");

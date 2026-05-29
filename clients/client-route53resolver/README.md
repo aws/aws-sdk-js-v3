@@ -235,6 +235,27 @@ AssociateResolverRule
 </details>
 <details>
 <summary>
+BatchCreateFirewallRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/BatchCreateFirewallRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/BatchCreateFirewallRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/BatchCreateFirewallRuleCommandOutput/)
+</details>
+<details>
+<summary>
+BatchDeleteFirewallRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/BatchDeleteFirewallRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/BatchDeleteFirewallRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/BatchDeleteFirewallRuleCommandOutput/)
+</details>
+<details>
+<summary>
+BatchUpdateFirewallRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/BatchUpdateFirewallRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/BatchUpdateFirewallRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/BatchUpdateFirewallRuleCommandOutput/)
+</details>
+<details>
+<summary>
 CreateFirewallDomainList
 </summary>
 
@@ -512,6 +533,13 @@ ListFirewallRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRulesCommandOutput/)
+</details>
+<details>
+<summary>
+ListFirewallRuleTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53resolver/command/ListFirewallRuleTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53resolver/Interface/ListFirewallRuleTypesCommandOutput/)
 </details>
 <details>
 <summary>

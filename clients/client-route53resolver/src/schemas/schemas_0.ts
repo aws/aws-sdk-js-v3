@@ -16,21 +16,40 @@ const _ARR = "AssociateResolverRule";
 const _ARRR = "AssociateResolverRuleRequest";
 const _ARRRs = "AssociateResolverRuleResponse";
 const _Ar = "Arn";
+const _BCFR = "BatchCreateFirewallRule";
+const _BCFRE = "BatchCreateFirewallRuleError";
+const _BCFREa = "BatchCreateFirewallRuleErrors";
+const _BCFRR = "BatchCreateFirewallRuleRequest";
+const _BCFRRa = "BatchCreateFirewallRuleResponse";
+const _BDFR = "BatchDeleteFirewallRule";
+const _BDFRE = "BatchDeleteFirewallRuleError";
+const _BDFREa = "BatchDeleteFirewallRuleErrors";
+const _BDFRR = "BatchDeleteFirewallRuleRequest";
+const _BDFRRa = "BatchDeleteFirewallRuleResponse";
 const _BOD = "BlockOverrideDomain";
 const _BODT = "BlockOverrideDnsType";
 const _BOT = "BlockOverrideTtl";
 const _BR = "BlockResponse";
-const _C = "Config";
+const _BUFR = "BatchUpdateFirewallRule";
+const _BUFRE = "BatchUpdateFirewallRuleError";
+const _BUFREa = "BatchUpdateFirewallRuleErrors";
+const _BUFRR = "BatchUpdateFirewallRuleRequest";
+const _BUFRRa = "BatchUpdateFirewallRuleResponse";
+const _C = "Code";
 const _CE = "ConflictException";
+const _CEr = "CreateErrors";
 const _CFDL = "CreateFirewallDomainList";
 const _CFDLR = "CreateFirewallDomainListRequest";
 const _CFDLRr = "CreateFirewallDomainListResponse";
-const _CFR = "CreateFirewallRule";
+const _CFR = "CreatedFirewallRules";
+const _CFRE = "CreateFirewallRuleEntries";
+const _CFREr = "CreateFirewallRuleEntry";
 const _CFRG = "CreateFirewallRuleGroup";
 const _CFRGR = "CreateFirewallRuleGroupRequest";
 const _CFRGRr = "CreateFirewallRuleGroupResponse";
 const _CFRR = "CreateFirewallRuleRequest";
 const _CFRRr = "CreateFirewallRuleResponse";
+const _CFRr = "CreateFirewallRule";
 const _COR = "CreateOutpostResolver";
 const _CORR = "CreateOutpostResolverRequest";
 const _CORRr = "CreateOutpostResolverResponse";
@@ -46,14 +65,19 @@ const _CRRR = "CreateResolverRuleRequest";
 const _CRRRr = "CreateResolverRuleResponse";
 const _CT = "ConfidenceThreshold";
 const _CTr = "CreationTime";
+const _Ca = "Category";
+const _Co = "Config";
 const _D = "Direction";
 const _DA = "DestinationArn";
 const _DC = "DomainCount";
-const _DE = "Dns64Enabled";
+const _DE = "DeleteErrors";
+const _DEn = "Dns64Enabled";
 const _DFDL = "DeleteFirewallDomainList";
 const _DFDLR = "DeleteFirewallDomainListRequest";
 const _DFDLRe = "DeleteFirewallDomainListResponse";
-const _DFR = "DeleteFirewallRule";
+const _DFR = "DeletedFirewallRules";
+const _DFRE = "DeleteFirewallRuleEntries";
+const _DFREe = "DeleteFirewallRuleEntry";
 const _DFRG = "DeleteFirewallRuleGroup";
 const _DFRGR = "DeleteFirewallRuleGroupRequest";
 const _DFRGRe = "DeleteFirewallRuleGroupResponse";
@@ -62,8 +86,10 @@ const _DFRGRis = "DisassociateFirewallRuleGroupResponse";
 const _DFRGi = "DisassociateFirewallRuleGroup";
 const _DFRR = "DeleteFirewallRuleRequest";
 const _DFRRe = "DeleteFirewallRuleResponse";
+const _DFRe = "DeleteFirewallRule";
 const _DFU = "DomainFileUrl";
 const _DN = "DomainName";
+const _DNi = "DisplayName";
 const _DOR = "DeleteOutpostResolver";
 const _DORR = "DeleteOutpostResolverRequest";
 const _DORRe = "DeleteOutpostResolverResponse";
@@ -87,10 +113,16 @@ const _DRRRi = "DisassociateResolverRuleRequest";
 const _DRRRis = "DisassociateResolverRuleResponse";
 const _DRRi = "DisassociateResolverRule";
 const _DTP = "DnsThreatProtection";
+const _DTPRTC = "DnsThreatProtectionRuleTypeConfig";
+const _De = "Description";
 const _Do = "Domains";
 const _E = "Error";
 const _EM = "ErrorMessage";
 const _F = "Filter";
+const _FACC = "FirewallAdvancedContentCategory";
+const _FACCC = "FirewallAdvancedContentCategoryConfig";
+const _FATC = "FirewallAdvancedThreatCategory";
+const _FATCC = "FirewallAdvancedThreatCategoryConfig";
 const _FC = "FirewallConfig";
 const _FCL = "FirewallConfigList";
 const _FCi = "FirewallConfigs";
@@ -112,6 +144,10 @@ const _FRGM = "FirewallRuleGroupMetadata";
 const _FRGML = "FirewallRuleGroupMetadataList";
 const _FRGP = "FirewallRuleGroupPolicy";
 const _FRGi = "FirewallRuleGroups";
+const _FRT = "FirewallRuleType";
+const _FRTD = "FirewallRuleTypeDefinition";
+const _FRTDi = "FirewallRuleTypeDefinitions";
+const _FRTi = "FirewallRuleTypes";
 const _FRi = "FirewallRules";
 const _FTPI = "FirewallThreatProtectionId";
 const _Fi = "Filters";
@@ -204,6 +240,9 @@ const _LFRGR = "ListFirewallRuleGroupsRequest";
 const _LFRGRi = "ListFirewallRuleGroupsResponse";
 const _LFRR = "ListFirewallRulesRequest";
 const _LFRRi = "ListFirewallRulesResponse";
+const _LFRT = "ListFirewallRuleTypes";
+const _LFRTR = "ListFirewallRuleTypesRequest";
+const _LFRTRi = "ListFirewallRuleTypesResponse";
 const _LOR = "ListOutpostResolvers";
 const _LORR = "ListOutpostResolversRequest";
 const _LORRi = "ListOutpostResolversResponse";
@@ -235,6 +274,7 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
+const _MLT = "ManagedListType";
 const _MON = "ManagedOwnerName";
 const _MP = "MutationProtection";
 const _MR = "MaxResults";
@@ -324,18 +364,22 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _Ta = "Tag";
+const _UE = "UpdateErrors";
 const _UFC = "UpdateFirewallConfig";
 const _UFCR = "UpdateFirewallConfigRequest";
 const _UFCRp = "UpdateFirewallConfigResponse";
 const _UFD = "UpdateFirewallDomains";
 const _UFDR = "UpdateFirewallDomainsRequest";
 const _UFDRp = "UpdateFirewallDomainsResponse";
-const _UFR = "UpdateFirewallRule";
+const _UFR = "UpdatedFirewallRules";
+const _UFRE = "UpdateFirewallRuleEntries";
+const _UFREp = "UpdateFirewallRuleEntry";
 const _UFRGA = "UpdateFirewallRuleGroupAssociation";
 const _UFRGAR = "UpdateFirewallRuleGroupAssociationRequest";
 const _UFRGARp = "UpdateFirewallRuleGroupAssociationResponse";
 const _UFRR = "UpdateFirewallRuleRequest";
 const _UFRRp = "UpdateFirewallRuleResponse";
+const _UFRp = "UpdateFirewallRule";
 const _UIA = "UpdateIpAddress";
 const _UIAp = "UpdateIpAddresses";
 const _UOR = "UpdateOutpostResolver";
@@ -357,12 +401,12 @@ const _URRR = "UpdateResolverRuleRequest";
 const _URRRp = "UpdateResolverRuleResponse";
 const _URRn = "UntagResourceResponse";
 const _URRp = "UpdateResolverRule";
-const _V = "Values";
+const _V = "Value";
 const _VE = "ValidationException";
 const _VI = "VpcId";
 const _VPCI = "VPCId";
 const _VS = "ValidationStatus";
-const _Va = "Value";
+const _Va = "Values";
 const _Val = "Validation";
 const _c = "client";
 const _e = "error";
@@ -550,6 +594,51 @@ export var AssociateResolverRuleResponse$: StaticStructureSchema = [3, n0, _ARRR
   [_RRA],
   [() => ResolverRuleAssociation$]
 ];
+export var BatchCreateFirewallRuleError$: StaticStructureSchema = [3, n0, _BCFRE,
+  0,
+  [_FR, _C, _M],
+  [() => CreateFirewallRuleEntry$, 0, 0]
+];
+export var BatchCreateFirewallRuleRequest$: StaticStructureSchema = [3, n0, _BCFRR,
+  0,
+  [_CFRE],
+  [() => CreateFirewallRuleEntries], 1
+];
+export var BatchCreateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _BCFRRa,
+  0,
+  [_CFR, _CEr],
+  [() => FirewallRules, () => BatchCreateFirewallRuleErrors]
+];
+export var BatchDeleteFirewallRuleError$: StaticStructureSchema = [3, n0, _BDFRE,
+  0,
+  [_FR, _C, _M],
+  [() => DeleteFirewallRuleEntry$, 0, 0]
+];
+export var BatchDeleteFirewallRuleRequest$: StaticStructureSchema = [3, n0, _BDFRR,
+  0,
+  [_DFRE],
+  [() => DeleteFirewallRuleEntries], 1
+];
+export var BatchDeleteFirewallRuleResponse$: StaticStructureSchema = [3, n0, _BDFRRa,
+  0,
+  [_DFR, _DE],
+  [() => FirewallRules, () => BatchDeleteFirewallRuleErrors]
+];
+export var BatchUpdateFirewallRuleError$: StaticStructureSchema = [3, n0, _BUFRE,
+  0,
+  [_FR, _C, _M],
+  [() => UpdateFirewallRuleEntry$, 0, 0]
+];
+export var BatchUpdateFirewallRuleRequest$: StaticStructureSchema = [3, n0, _BUFRR,
+  0,
+  [_UFRE],
+  [() => UpdateFirewallRuleEntries], 1
+];
+export var BatchUpdateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _BUFRRa,
+  0,
+  [_UFR, _UE],
+  [() => FirewallRules, () => BatchUpdateFirewallRuleErrors]
+];
 export var CreateFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _CFDLR,
   0,
   [_N, _CRI, _T],
@@ -559,6 +648,11 @@ export var CreateFirewallDomainListResponse$: StaticStructureSchema = [3, n0, _C
   0,
   [_FDL],
   [() => FirewallDomainList$]
+];
+export var CreateFirewallRuleEntry$: StaticStructureSchema = [3, n0, _CFREr,
+  0,
+  [_CRI, _FRGI, _P, _A, _N, _FDLI, _BR, _BOD, _BODT, _BOT, _FDRA, _Q, _DTP, _CT, _FRT],
+  [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, () => FirewallRuleType$], 5
 ];
 export var CreateFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _CFRGR,
   0,
@@ -572,8 +666,8 @@ export var CreateFirewallRuleGroupResponse$: StaticStructureSchema = [3, n0, _CF
 ];
 export var CreateFirewallRuleRequest$: StaticStructureSchema = [3, n0, _CFRR,
   0,
-  [_FRGI, _P, _A, _N, _CRI, _FDLI, _BR, _BOD, _BODT, _BOT, _FDRA, _Q, _DTP, _CT],
-  [0, 1, 0, 0, [0, 4], 0, 0, 0, 0, 1, 0, 0, 0, 0], 4
+  [_FRGI, _P, _A, _N, _CRI, _FDLI, _BR, _BOD, _BODT, _BOT, _FDRA, _Q, _DTP, _CT, _FRT],
+  [0, 1, 0, 0, [0, 4], 0, 0, 0, 0, 1, 0, 0, 0, 0, () => FirewallRuleType$], 4
 ];
 export var CreateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _CFRRr,
   0,
@@ -592,7 +686,7 @@ export var CreateOutpostResolverResponse$: StaticStructureSchema = [3, n0, _CORR
 ];
 export var CreateResolverEndpointRequest$: StaticStructureSchema = [3, n0, _CRER,
   0,
-  [_CRI, _SGI, _D, _IAp, _N, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME, _DE, _IIAE],
+  [_CRI, _SGI, _D, _IAp, _N, _OA, _PIT, _T, _RET, _Pr, _REME, _TNSME, _DEn, _IIAE],
   [0, 64 | 0, 0, () => IpAddressesRequest, 0, 0, 0, () => TagList, 0, 64 | 0, 2, 2, 2, 2], 4
 ];
 export var CreateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _CRERr,
@@ -629,6 +723,11 @@ export var DeleteFirewallDomainListResponse$: StaticStructureSchema = [3, n0, _D
   0,
   [_FDL],
   [() => FirewallDomainList$]
+];
+export var DeleteFirewallRuleEntry$: StaticStructureSchema = [3, n0, _DFREe,
+  0,
+  [_FRGI, _FDLI, _FTPI, _Q],
+  [0, 0, 0, 0], 1
 ];
 export var DeleteFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _DFRGR,
   0,
@@ -730,10 +829,25 @@ export var DisassociateResolverRuleResponse$: StaticStructureSchema = [3, n0, _D
   [_RRA],
   [() => ResolverRuleAssociation$]
 ];
+export var DnsThreatProtectionRuleTypeConfig$: StaticStructureSchema = [3, n0, _DTPRTC,
+  0,
+  [_V, _CT],
+  [0, 0], 2
+];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_N, _V],
+  [_N, _Va],
   [0, 64 | 0]
+];
+export var FirewallAdvancedContentCategoryConfig$: StaticStructureSchema = [3, n0, _FACCC,
+  0,
+  [_Ca],
+  [0], 1
+];
+export var FirewallAdvancedThreatCategoryConfig$: StaticStructureSchema = [3, n0, _FATCC,
+  0,
+  [_Ca],
+  [0], 1
 ];
 export var FirewallConfig$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -742,18 +856,18 @@ export var FirewallConfig$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var FirewallDomainList$: StaticStructureSchema = [3, n0, _FDL,
   0,
-  [_I, _Ar, _N, _DC, _S, _SM, _MON, _CRI, _CTr, _MT],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+  [_I, _Ar, _N, _DC, _S, _SM, _MON, _CRI, _CTr, _MT, _Ca, _MLT],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var FirewallDomainListMetadata$: StaticStructureSchema = [3, n0, _FDLM,
   0,
-  [_I, _Ar, _N, _CRI, _MON],
-  [0, 0, 0, 0, 0]
+  [_I, _Ar, _N, _CRI, _MON, _MLT, _Ca],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
 export var FirewallRule$: StaticStructureSchema = [3, n0, _FR,
   0,
-  [_FRGI, _FDLI, _FTPI, _N, _P, _A, _BR, _BOD, _BODT, _BOT, _CRI, _CTr, _MT, _FDRA, _Q, _DTP, _CT],
-  [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  [_FRGI, _FDLI, _FTPI, _N, _P, _A, _BR, _BOD, _BODT, _BOT, _CRI, _CTr, _MT, _FDRA, _Q, _DTP, _CT, _FRT],
+  [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, () => FirewallRuleType$]
 ];
 export var FirewallRuleGroup$: StaticStructureSchema = [3, n0, _FRG,
   0,
@@ -769,6 +883,16 @@ export var FirewallRuleGroupMetadata$: StaticStructureSchema = [3, n0, _FRGM,
   0,
   [_I, _Ar, _N, _OI, _CRI, _SS],
   [0, 0, 0, 0, 0, 0]
+];
+export var FirewallRuleType$: StaticStructureSchema = [3, n0, _FRT,
+  0,
+  [_FACC, _FATC, _DTP],
+  [() => FirewallAdvancedContentCategoryConfig$, () => FirewallAdvancedThreatCategoryConfig$, () => DnsThreatProtectionRuleTypeConfig$]
+];
+export var FirewallRuleTypeDefinition$: StaticStructureSchema = [3, n0, _FRTD,
+  0,
+  [_RTu, _V, _DNi, _De],
+  [0, 0, 0, 0]
 ];
 export var GetFirewallConfigRequest$: StaticStructureSchema = [3, n0, _GFCR,
   0,
@@ -1005,6 +1129,16 @@ export var ListFirewallRulesResponse$: StaticStructureSchema = [3, n0, _LFRRi,
   [_NT, _FRi],
   [0, () => FirewallRules]
 ];
+export var ListFirewallRuleTypesRequest$: StaticStructureSchema = [3, n0, _LFRTR,
+  0,
+  [_RTu, _MR, _NT],
+  [0, 1, 0]
+];
+export var ListFirewallRuleTypesResponse$: StaticStructureSchema = [3, n0, _LFRTRi,
+  0,
+  [_FRTi, _NT],
+  [() => FirewallRuleTypeDefinitions, 0]
+];
 export var ListOutpostResolversRequest$: StaticStructureSchema = [3, n0, _LORR,
   0,
   [_OA, _MR, _NT],
@@ -1152,7 +1286,7 @@ export var ResolverDnssecConfig$: StaticStructureSchema = [3, n0, _RDCe,
 ];
 export var ResolverEndpoint$: StaticStructureSchema = [3, n0, _RE,
   0,
-  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME, _DE, _IIAE],
+  [_I, _CRI, _Ar, _N, _SGI, _D, _IAC, _HVPCI, _S, _SM, _CTr, _MT, _OA, _PIT, _RET, _Pr, _REME, _TNSME, _DEn, _IIAE],
   [0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 2, 2, 2]
 ];
 export var ResolverQueryLogConfig$: StaticStructureSchema = [3, n0, _RQLC,
@@ -1182,7 +1316,7 @@ export var ResolverRuleConfig$: StaticStructureSchema = [3, n0, _RRC,
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
-  [_K, _Va],
+  [_K, _V],
   [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -1230,6 +1364,11 @@ export var UpdateFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _UFDR
   [_I, _N, _S, _SM],
   [0, 0, 0, 0]
 ];
+export var UpdateFirewallRuleEntry$: StaticStructureSchema = [3, n0, _UFREp,
+  0,
+  [_FRGI, _FDLI, _FTPI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT, _FRT],
+  [0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, () => FirewallRuleType$], 1
+];
 export var UpdateFirewallRuleGroupAssociationRequest$: StaticStructureSchema = [3, n0, _UFRGAR,
   0,
   [_FRGAI, _P, _MP, _N],
@@ -1242,8 +1381,8 @@ export var UpdateFirewallRuleGroupAssociationResponse$: StaticStructureSchema = 
 ];
 export var UpdateFirewallRuleRequest$: StaticStructureSchema = [3, n0, _UFRR,
   0,
-  [_FRGI, _FDLI, _FTPI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT],
-  [0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], 1
+  [_FRGI, _FDLI, _FTPI, _P, _A, _BR, _BOD, _BODT, _BOT, _N, _FDRA, _Q, _DTP, _CT, _FRT],
+  [0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, () => FirewallRuleType$], 1
 ];
 export var UpdateFirewallRuleResponse$: StaticStructureSchema = [3, n0, _UFRRp,
   0,
@@ -1287,7 +1426,7 @@ export var UpdateResolverDnssecConfigResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateResolverEndpointRequest$: StaticStructureSchema = [3, n0, _URER,
   0,
-  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME, _DE, _IIAE],
+  [_REI, _N, _RET, _UIAp, _Pr, _REME, _TNSME, _DEn, _IIAE],
   [0, 0, 0, () => UpdateIpAddresses, 64 | 0, 2, 2, 2, 2], 1
 ];
 export var UpdateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _URERp,
@@ -1297,13 +1436,28 @@ export var UpdateResolverEndpointResponse$: StaticStructureSchema = [3, n0, _URE
 ];
 export var UpdateResolverRuleRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
-  [_RRI, _C],
+  [_RRI, _Co],
   [0, () => ResolverRuleConfig$], 2
 ];
 export var UpdateResolverRuleResponse$: StaticStructureSchema = [3, n0, _URRRp,
   0,
   [_RR],
   [() => ResolverRule$]
+];
+var BatchCreateFirewallRuleErrors: StaticListSchema = [1, n0, _BCFREa,
+  0, () => BatchCreateFirewallRuleError$
+];
+var BatchDeleteFirewallRuleErrors: StaticListSchema = [1, n0, _BDFREa,
+  0, () => BatchDeleteFirewallRuleError$
+];
+var BatchUpdateFirewallRuleErrors: StaticListSchema = [1, n0, _BUFREa,
+  0, () => BatchUpdateFirewallRuleError$
+];
+var CreateFirewallRuleEntries: StaticListSchema = [1, n0, _CFRE,
+  0, () => CreateFirewallRuleEntry$
+];
+var DeleteFirewallRuleEntries: StaticListSchema = [1, n0, _DFRE,
+  0, () => DeleteFirewallRuleEntry$
 ];
 var Filters: StaticListSchema = [1, n0, _Fi,
   0, () => Filter$
@@ -1324,6 +1478,9 @@ var FirewallRuleGroupMetadataList: StaticListSchema = [1, n0, _FRGML,
 ];
 var FirewallRules: StaticListSchema = [1, n0, _FRi,
   0, () => FirewallRule$
+];
+var FirewallRuleTypeDefinitions: StaticListSchema = [1, n0, _FRTDi,
+  0, () => FirewallRuleTypeDefinition$
 ];
 var IpAddressesRequest: StaticListSchema = [1, n0, _IARpd,
   0, () => IpAddressRequest$
@@ -1364,6 +1521,9 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var TargetList: StaticListSchema = [1, n0, _TLa,
   0, () => TargetAddress$
 ];
+var UpdateFirewallRuleEntries: StaticListSchema = [1, n0, _UFRE,
+  0, () => UpdateFirewallRuleEntry$
+];
 var UpdateIpAddresses: StaticListSchema = [1, n0, _UIAp,
   0, () => UpdateIpAddress$
 ];
@@ -1379,10 +1539,19 @@ export var AssociateResolverQueryLogConfig$: StaticOperationSchema = [9, n0, _AR
 export var AssociateResolverRule$: StaticOperationSchema = [9, n0, _ARR,
   0, () => AssociateResolverRuleRequest$, () => AssociateResolverRuleResponse$
 ];
+export var BatchCreateFirewallRule$: StaticOperationSchema = [9, n0, _BCFR,
+  0, () => BatchCreateFirewallRuleRequest$, () => BatchCreateFirewallRuleResponse$
+];
+export var BatchDeleteFirewallRule$: StaticOperationSchema = [9, n0, _BDFR,
+  0, () => BatchDeleteFirewallRuleRequest$, () => BatchDeleteFirewallRuleResponse$
+];
+export var BatchUpdateFirewallRule$: StaticOperationSchema = [9, n0, _BUFR,
+  0, () => BatchUpdateFirewallRuleRequest$, () => BatchUpdateFirewallRuleResponse$
+];
 export var CreateFirewallDomainList$: StaticOperationSchema = [9, n0, _CFDL,
   0, () => CreateFirewallDomainListRequest$, () => CreateFirewallDomainListResponse$
 ];
-export var CreateFirewallRule$: StaticOperationSchema = [9, n0, _CFR,
+export var CreateFirewallRule$: StaticOperationSchema = [9, n0, _CFRr,
   0, () => CreateFirewallRuleRequest$, () => CreateFirewallRuleResponse$
 ];
 export var CreateFirewallRuleGroup$: StaticOperationSchema = [9, n0, _CFRG,
@@ -1403,7 +1572,7 @@ export var CreateResolverRule$: StaticOperationSchema = [9, n0, _CRR,
 export var DeleteFirewallDomainList$: StaticOperationSchema = [9, n0, _DFDL,
   0, () => DeleteFirewallDomainListRequest$, () => DeleteFirewallDomainListResponse$
 ];
-export var DeleteFirewallRule$: StaticOperationSchema = [9, n0, _DFR,
+export var DeleteFirewallRule$: StaticOperationSchema = [9, n0, _DFRe,
   0, () => DeleteFirewallRuleRequest$, () => DeleteFirewallRuleResponse$
 ];
 export var DeleteFirewallRuleGroup$: StaticOperationSchema = [9, n0, _DFRG,
@@ -1499,6 +1668,9 @@ export var ListFirewallRuleGroups$: StaticOperationSchema = [9, n0, _LFRG,
 export var ListFirewallRules$: StaticOperationSchema = [9, n0, _LFR,
   0, () => ListFirewallRulesRequest$, () => ListFirewallRulesResponse$
 ];
+export var ListFirewallRuleTypes$: StaticOperationSchema = [9, n0, _LFRT,
+  0, () => ListFirewallRuleTypesRequest$, () => ListFirewallRuleTypesResponse$
+];
 export var ListOutpostResolvers$: StaticOperationSchema = [9, n0, _LOR,
   0, () => ListOutpostResolversRequest$, () => ListOutpostResolversResponse$
 ];
@@ -1550,7 +1722,7 @@ export var UpdateFirewallConfig$: StaticOperationSchema = [9, n0, _UFC,
 export var UpdateFirewallDomains$: StaticOperationSchema = [9, n0, _UFD,
   0, () => UpdateFirewallDomainsRequest$, () => UpdateFirewallDomainsResponse$
 ];
-export var UpdateFirewallRule$: StaticOperationSchema = [9, n0, _UFR,
+export var UpdateFirewallRule$: StaticOperationSchema = [9, n0, _UFRp,
   0, () => UpdateFirewallRuleRequest$, () => UpdateFirewallRuleResponse$
 ];
 export var UpdateFirewallRuleGroupAssociation$: StaticOperationSchema = [9, n0, _UFRGA,

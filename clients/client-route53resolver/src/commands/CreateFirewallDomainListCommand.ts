@@ -64,6 +64,8 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * //     CreatorRequestId: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
+ * //     Category: "STRING_VALUE",
+ * //     ManagedListType: "THREAT" || "CONTENT",
  * //   },
  * // };
  *

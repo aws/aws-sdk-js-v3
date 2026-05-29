@@ -71,6 +71,18 @@ import type {
   AssociateResolverRuleCommandOutput,
 } from "./commands/AssociateResolverRuleCommand";
 import type {
+  BatchCreateFirewallRuleCommandInput,
+  BatchCreateFirewallRuleCommandOutput,
+} from "./commands/BatchCreateFirewallRuleCommand";
+import type {
+  BatchDeleteFirewallRuleCommandInput,
+  BatchDeleteFirewallRuleCommandOutput,
+} from "./commands/BatchDeleteFirewallRuleCommand";
+import type {
+  BatchUpdateFirewallRuleCommandInput,
+  BatchUpdateFirewallRuleCommandOutput,
+} from "./commands/BatchUpdateFirewallRuleCommand";
+import type {
   CreateFirewallDomainListCommandInput,
   CreateFirewallDomainListCommandOutput,
 } from "./commands/CreateFirewallDomainListCommand";
@@ -228,6 +240,10 @@ import type {
   ListFirewallRulesCommandOutput,
 } from "./commands/ListFirewallRulesCommand";
 import type {
+  ListFirewallRuleTypesCommandInput,
+  ListFirewallRuleTypesCommandOutput,
+} from "./commands/ListFirewallRuleTypesCommand";
+import type {
   ListOutpostResolversCommandInput,
   ListOutpostResolversCommandOutput,
 } from "./commands/ListOutpostResolversCommand";
@@ -336,6 +352,9 @@ export type ServiceInputTypes =
   | AssociateResolverEndpointIpAddressCommandInput
   | AssociateResolverQueryLogConfigCommandInput
   | AssociateResolverRuleCommandInput
+  | BatchCreateFirewallRuleCommandInput
+  | BatchDeleteFirewallRuleCommandInput
+  | BatchUpdateFirewallRuleCommandInput
   | CreateFirewallDomainListCommandInput
   | CreateFirewallRuleCommandInput
   | CreateFirewallRuleGroupCommandInput
@@ -375,6 +394,7 @@ export type ServiceInputTypes =
   | ListFirewallDomainsCommandInput
   | ListFirewallRuleGroupAssociationsCommandInput
   | ListFirewallRuleGroupsCommandInput
+  | ListFirewallRuleTypesCommandInput
   | ListFirewallRulesCommandInput
   | ListOutpostResolversCommandInput
   | ListResolverConfigsCommandInput
@@ -409,6 +429,9 @@ export type ServiceOutputTypes =
   | AssociateResolverEndpointIpAddressCommandOutput
   | AssociateResolverQueryLogConfigCommandOutput
   | AssociateResolverRuleCommandOutput
+  | BatchCreateFirewallRuleCommandOutput
+  | BatchDeleteFirewallRuleCommandOutput
+  | BatchUpdateFirewallRuleCommandOutput
   | CreateFirewallDomainListCommandOutput
   | CreateFirewallRuleCommandOutput
   | CreateFirewallRuleGroupCommandOutput
@@ -448,6 +471,7 @@ export type ServiceOutputTypes =
   | ListFirewallDomainsCommandOutput
   | ListFirewallRuleGroupAssociationsCommandOutput
   | ListFirewallRuleGroupsCommandOutput
+  | ListFirewallRuleTypesCommandOutput
   | ListFirewallRulesCommandOutput
   | ListOutpostResolversCommandOutput
   | ListResolverConfigsCommandOutput

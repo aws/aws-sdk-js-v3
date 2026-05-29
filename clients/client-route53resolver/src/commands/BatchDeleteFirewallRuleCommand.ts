@@ -4,13 +4,13 @@ import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListFirewallRulesRequest, ListFirewallRulesResponse } from "../models/models_0";
+import type { BatchDeleteFirewallRuleRequest, BatchDeleteFirewallRuleResponse } from "../models/models_0";
 import type {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListFirewallRules$ } from "../schemas/schemas_0";
+import { BatchDeleteFirewallRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,39 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListFirewallRulesCommand}.
+ * The input for {@link BatchDeleteFirewallRuleCommand}.
  */
-export interface ListFirewallRulesCommandInput extends ListFirewallRulesRequest {}
+export interface BatchDeleteFirewallRuleCommandInput extends BatchDeleteFirewallRuleRequest {}
 /**
  * @public
  *
- * The output of {@link ListFirewallRulesCommand}.
+ * The output of {@link BatchDeleteFirewallRuleCommand}.
  */
-export interface ListFirewallRulesCommandOutput extends ListFirewallRulesResponse, __MetadataBearer {}
+export interface BatchDeleteFirewallRuleCommandOutput extends BatchDeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
- *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
+ * <p>Deletes multiple DNS Firewall rules from the specified rule group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListFirewallRulesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListFirewallRulesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, BatchDeleteFirewallRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, BatchDeleteFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * // import type { Route53ResolverClientConfig } from "@aws-sdk/client-route53resolver";
  * const config = {}; // type is Route53ResolverClientConfig
  * const client = new Route53ResolverClient(config);
- * const input = { // ListFirewallRulesRequest
- *   FirewallRuleGroupId: "STRING_VALUE", // required
- *   Priority: Number("int"),
- *   Action: "ALLOW" || "BLOCK" || "ALERT",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ * const input = { // BatchDeleteFirewallRuleRequest
+ *   DeleteFirewallRuleEntries: [ // DeleteFirewallRuleEntries // required
+ *     { // DeleteFirewallRuleEntry
+ *       FirewallRuleGroupId: "STRING_VALUE", // required
+ *       FirewallDomainListId: "STRING_VALUE",
+ *       FirewallThreatProtectionId: "STRING_VALUE",
+ *       Qtype: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new ListFirewallRulesCommand(input);
+ * const command = new BatchDeleteFirewallRuleCommand(input);
  * const response = await client.send(command);
- * // { // ListFirewallRulesResponse
- * //   NextToken: "STRING_VALUE",
- * //   FirewallRules: [ // FirewallRules
+ * // { // BatchDeleteFirewallRuleResponse
+ * //   DeletedFirewallRules: [ // FirewallRules
  * //     { // FirewallRule
  * //       FirewallRuleGroupId: "STRING_VALUE",
  * //       FirewallDomainListId: "STRING_VALUE",
@@ -85,14 +86,26 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //       },
  * //     },
  * //   ],
+ * //   DeleteErrors: [ // BatchDeleteFirewallRuleErrors
+ * //     { // BatchDeleteFirewallRuleError
+ * //       FirewallRule: { // DeleteFirewallRuleEntry
+ * //         FirewallRuleGroupId: "STRING_VALUE", // required
+ * //         FirewallDomainListId: "STRING_VALUE",
+ * //         FirewallThreatProtectionId: "STRING_VALUE",
+ * //         Qtype: "STRING_VALUE",
+ * //       },
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param ListFirewallRulesCommandInput - {@link ListFirewallRulesCommandInput}
- * @returns {@link ListFirewallRulesCommandOutput}
- * @see {@link ListFirewallRulesCommandInput} for command's `input` shape.
- * @see {@link ListFirewallRulesCommandOutput} for command's `response` shape.
+ * @param BatchDeleteFirewallRuleCommandInput - {@link BatchDeleteFirewallRuleCommandInput}
+ * @returns {@link BatchDeleteFirewallRuleCommandOutput}
+ * @see {@link BatchDeleteFirewallRuleCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -103,8 +116,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request caused one or more limits to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
@@ -119,10 +132,10 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  *
  * @public
  */
-export class ListFirewallRulesCommand extends $Command
+export class BatchDeleteFirewallRuleCommand extends $Command
   .classBuilder<
-    ListFirewallRulesCommandInput,
-    ListFirewallRulesCommandOutput,
+    BatchDeleteFirewallRuleCommandInput,
+    BatchDeleteFirewallRuleCommandOutput,
     Route53ResolverClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -131,19 +144,19 @@ export class ListFirewallRulesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("Route53Resolver", "ListFirewallRules", {})
-  .n("Route53ResolverClient", "ListFirewallRulesCommand")
-  .sc(ListFirewallRules$)
+  .s("Route53Resolver", "BatchDeleteFirewallRule", {})
+  .n("Route53ResolverClient", "BatchDeleteFirewallRuleCommand")
+  .sc(BatchDeleteFirewallRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListFirewallRulesRequest;
-      output: ListFirewallRulesResponse;
+      input: BatchDeleteFirewallRuleRequest;
+      output: BatchDeleteFirewallRuleResponse;
     };
     sdk: {
-      input: ListFirewallRulesCommandInput;
-      output: ListFirewallRulesCommandOutput;
+      input: BatchDeleteFirewallRuleCommandInput;
+      output: BatchDeleteFirewallRuleCommandOutput;
     };
   };
 }

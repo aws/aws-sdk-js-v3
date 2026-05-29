@@ -6,6 +6,7 @@ import type {
   BlockResponse,
   ConfidenceThreshold,
   DnsThreatProtection,
+  DomainListType,
   FirewallDomainImportOperation,
   FirewallDomainListStatus,
   FirewallDomainRedirectionAction,
@@ -725,140 +726,124 @@ export interface AssociateResolverRuleResponse {
 }
 
 /**
+ * <p>The configuration for a DNS threat protection rule type within the rule type framework.</p>
  * @public
  */
-export interface CreateFirewallDomainListRequest {
+export interface DnsThreatProtectionRuleTypeConfig {
   /**
-   * <p>A unique string that identifies the request and that allows you to retry failed requests
-   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
-   * 			any unique string, for example, a date/time stamp. </p>
+   * <p>The type of DNS threat protection. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DICT_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  CreatorRequestId?: string | undefined;
+  Value: string | undefined;
 
   /**
-   * <p>A name that lets you identify the domain list to manage and use it.</p>
+   * <p>The confidence threshold for DNS Firewall Advanced. You must provide this value when you create or update a DNS Firewall Advanced rule. The confidence level values mean:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  Name: string | undefined;
-
-  /**
-   * <p>A list of the tag keys and values that you want to associate with the domain list. </p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
+  ConfidenceThreshold: ConfidenceThreshold | undefined;
 }
 
 /**
- * <p>High-level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
- *          <p>To retrieve the domains that are defined for this domain list, call <a>ListFirewallDomains</a>.</p>
+ * <p>The configuration for a content category-based filtering rule. This specifies which content category to use for DNS query evaluation.</p>
  * @public
  */
-export interface FirewallDomainList {
+export interface FirewallAdvancedContentCategoryConfig {
   /**
-   * <p>The ID of the domain list. </p>
+   * <p>The content category identifier. To retrieve the list of available content categories, call <a>ListFirewallRuleTypes</a> with <code>RuleType</code> set to <code>FirewallAdvancedContentCategory</code>.</p>
    * @public
    */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the firewall domain list.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the domain list. </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The number of domain names that are specified in the domain list.</p>
-   * @public
-   */
-  DomainCount?: number | undefined;
-
-  /**
-   * <p>The status of the domain list.  </p>
-   * @public
-   */
-  Status?: FirewallDomainListStatus | undefined;
-
-  /**
-   * <p>Additional information about the status of the list, if available.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
-   * @public
-   */
-  ManagedOwnerName?: string | undefined;
-
-  /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed
-   * 			requests without the risk of running the operation twice. This can be any unique string,
-   * 			for example, a timestamp. </p>
-   * @public
-   */
-  CreatorRequestId?: string | undefined;
-
-  /**
-   * <p>The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC). </p>
-   * @public
-   */
-  CreationTime?: string | undefined;
-
-  /**
-   * <p>The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC). </p>
-   * @public
-   */
-  ModificationTime?: string | undefined;
+  Category: string | undefined;
 }
 
 /**
+ * <p>The configuration for a threat category-based filtering rule. This specifies which threat category to use for DNS query evaluation.</p>
  * @public
  */
-export interface CreateFirewallDomainListResponse {
+export interface FirewallAdvancedThreatCategoryConfig {
   /**
-   * <p>The domain list that you just created.</p>
+   * <p>The threat category identifier. To retrieve the list of available threat categories, call <a>ListFirewallRuleTypes</a> with <code>RuleType</code> set to <code>FirewallAdvancedThreatCategory</code>.</p>
    * @public
    */
-  FirewallDomainList?: FirewallDomainList | undefined;
+  Category: string | undefined;
 }
 
 /**
+ * <p>The configuration for a rule type in a DNS Firewall rule. This is a union type — exactly one member should be set.</p>
  * @public
  */
-export interface CreateFirewallRuleRequest {
+export interface FirewallRuleType {
   /**
-   * <p>A unique string that identifies the request and that allows you to retry failed requests
-   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
-   * 			any unique string, for example, a date/time stamp. </p>
+   * <p>The configuration for a content category-based filtering rule.</p>
    * @public
    */
-  CreatorRequestId?: string | undefined;
+  FirewallAdvancedContentCategory?: FirewallAdvancedContentCategoryConfig | undefined;
 
   /**
-   * <p>The unique identifier of the firewall rule group where you want to create the rule. </p>
+   * <p>The configuration for a threat category-based filtering rule.</p>
+   * @public
+   */
+  FirewallAdvancedThreatCategory?: FirewallAdvancedThreatCategoryConfig | undefined;
+
+  /**
+   * <p>The configuration for a DNS threat protection rule type, such as DGA or DNS tunneling detection.</p>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtectionRuleTypeConfig | undefined;
+}
+
+/**
+ * <p>The details for creating a single firewall rule in a batch operation.</p>
+ * @public
+ */
+export interface CreateFirewallRuleEntry {
+  /**
+   * <p>A unique string that identifies the request and that allows you to retry failed requests without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
+   * @public
+   */
+  CreatorRequestId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the firewall rule group where you want to create the rule.</p>
    * @public
    */
   FirewallRuleGroupId: string | undefined;
 
   /**
-   * <p>The ID of the domain list that you want to use in the rule. Can't be used together with <code>DnsThreatProtecton</code>.</p>
+   * <p>The ID of the domain list that you want to use in the rule. This setting is mutually exclusive with <code>DnsThreatProtection</code> and <code>FirewallRuleType</code>.</p>
    * @public
    */
   FirewallDomainListId?: string | undefined;
 
   /**
-   * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
-   *            processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
-   *          <p>You must specify a unique priority for each rule in a rule group.
-   *            To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You
-   *    can change the priority setting for the rules in a rule group at any time.</p>
+   * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
    * @public
    */
   Priority: number | undefined;
@@ -872,11 +857,11 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</p>
+   *                   <code>ALERT</code> - Permit the request and send metrics and logs to CloudWatch.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>. </p>
+   *                   <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -884,8 +869,7 @@ export interface CreateFirewallRuleRequest {
   Action: Action | undefined;
 
   /**
-   * <p>The way that you want DNS Firewall to block the request, used with the rule action
-   * 			setting <code>BLOCK</code>. </p>
+   * <p>The way that you want DNS Firewall to block the request, used with the rule action setting <code>BLOCK</code>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -897,24 +881,21 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p>
+   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings.</p>
    *             </li>
    *          </ul>
-   *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
    * @public
    */
   BlockResponse?: BlockResponse | undefined;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    * @public
    */
   BlockOverrideDomain?: string | undefined;
 
   /**
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
-   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    * @public
    */
   BlockOverrideDnsType?: BlockOverrideDnsType | undefined;
@@ -933,30 +914,23 @@ export interface CreateFirewallRuleRequest {
   Name: string | undefined;
 
   /**
-   * <p>
-   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
-   * 		</p>
+   * <p>How you want the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.</p>
    *          <p>
-   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
-   * 			added to the domain list.</p>
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be added to the domain list.</p>
    *          <p>
-   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
-   * 			the domain list.</p>
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the redirection list to the domain list.</p>
    * @public
    */
   FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
 
   /**
-   * <p>
-   * 			The DNS query type you want the rule to evaluate. Allowed values are;
-   * 		</p>
+   * <p>The DNS query type you want the rule to evaluate. Allowed values are:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   * 				A: Returns an IPv4 address.</p>
+   *                <p>A: Returns an IPv4 address.</p>
    *             </li>
    *             <li>
-   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *                <p>AAAA: Returns an IPv6 address.</p>
    *             </li>
    *             <li>
    *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
@@ -992,11 +966,7 @@ export interface CreateFirewallRuleRequest {
    *                <p>TXT: Verifies email senders and application-specific values.</p>
    *             </li>
    *             <li>
-   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
-   * 				defined as TYPENUMBER, where the
-   * 				NUMBER can be 1-65334, for
-   * 				example, TYPE28. For more information, see
-   * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be defined as TYPENUMBER, where the NUMBER can be 1-65534, for example, TYPE28. For more information, see <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1004,18 +974,27 @@ export interface CreateFirewallRuleRequest {
   Qtype?: string | undefined;
 
   /**
-   * <p>
-   * 			Use to create a DNS Firewall Advanced rule.
-   * 		</p>
+   * <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DICT_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   DnsThreatProtection?: DnsThreatProtection | undefined;
 
   /**
-   * <p>
-   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
-   * 			level values mean:
-   * 		</p>
+   * <p>The confidence threshold for DNS Firewall Advanced. You must provide this value when you create or update a DNS Firewall Advanced rule. The confidence level values mean:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1027,12 +1006,29 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives.</p>
    *             </li>
    *          </ul>
    * @public
    */
   ConfidenceThreshold?: ConfidenceThreshold | undefined;
+
+  /**
+   * <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+   * @public
+   */
+  FirewallRuleType?: FirewallRuleType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateFirewallRuleRequest {
+  /**
+   * <p>The list of firewall rules to create.</p>
+   * @public
+   */
+  CreateFirewallRuleEntries: CreateFirewallRuleEntry[] | undefined;
 }
 
 /**
@@ -1211,7 +1207,7 @@ export interface FirewallRule {
    *             <li>
    *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
    * 				defined as TYPENUMBER, where the
-   * 				NUMBER can be 1-65334, for
+   * 				NUMBER can be 1-65534, for
    * 				example, TYPE28. For more information, see
    * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
@@ -1262,6 +1258,717 @@ export interface FirewallRule {
    * @public
    */
   ConfidenceThreshold?: ConfidenceThreshold | undefined;
+
+  /**
+   * <p>The rule type configuration for the firewall rule. Exactly one member of this union should be set.</p>
+   * @public
+   */
+  FirewallRuleType?: FirewallRuleType | undefined;
+}
+
+/**
+ * <p>An error that occurred while creating a firewall rule in a batch operation.</p>
+ * @public
+ */
+export interface BatchCreateFirewallRuleError {
+  /**
+   * <p>The firewall rule entry that caused the error.</p>
+   * @public
+   */
+  FirewallRule?: CreateFirewallRuleEntry | undefined;
+
+  /**
+   * <p>The error code for the failure.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A message that provides details about the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateFirewallRuleResponse {
+  /**
+   * <p>The firewall rules that were successfully created by the request.</p>
+   * @public
+   */
+  CreatedFirewallRules?: FirewallRule[] | undefined;
+
+  /**
+   * <p>A list of errors that occurred while creating the firewall rules.</p>
+   * @public
+   */
+  CreateErrors?: BatchCreateFirewallRuleError[] | undefined;
+}
+
+/**
+ * <p>The details for deleting a single firewall rule in a batch operation.</p>
+ * @public
+ */
+export interface DeleteFirewallRuleEntry {
+  /**
+   * <p>The unique identifier of the firewall rule group for the rule.</p>
+   * @public
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the domain list that's used in the rule.</p>
+   * @public
+   */
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>The ID of the DNS Firewall Advanced rule.</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
+
+  /**
+   * <p>The DNS query type that the rule evaluates.</p>
+   * @public
+   */
+  Qtype?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteFirewallRuleRequest {
+  /**
+   * <p>The list of firewall rules to delete.</p>
+   * @public
+   */
+  DeleteFirewallRuleEntries: DeleteFirewallRuleEntry[] | undefined;
+}
+
+/**
+ * <p>An error that occurred while deleting a firewall rule in a batch operation.</p>
+ * @public
+ */
+export interface BatchDeleteFirewallRuleError {
+  /**
+   * <p>The firewall rule entry that caused the error.</p>
+   * @public
+   */
+  FirewallRule?: DeleteFirewallRuleEntry | undefined;
+
+  /**
+   * <p>The error code for the failure.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A message that provides details about the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteFirewallRuleResponse {
+  /**
+   * <p>The firewall rules that were successfully deleted by the request.</p>
+   * @public
+   */
+  DeletedFirewallRules?: FirewallRule[] | undefined;
+
+  /**
+   * <p>A list of errors that occurred while deleting the firewall rules.</p>
+   * @public
+   */
+  DeleteErrors?: BatchDeleteFirewallRuleError[] | undefined;
+}
+
+/**
+ * <p>The details for updating a single firewall rule in a batch operation.</p>
+ * @public
+ */
+export interface UpdateFirewallRuleEntry {
+  /**
+   * <p>The unique identifier of the firewall rule group for the rule.</p>
+   * @public
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the domain list to use in the rule. This setting is mutually exclusive with <code>DnsThreatProtection</code> and <code>FirewallRuleType</code>.</p>
+   * @public
+   */
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>The ID of the DNS Firewall Advanced rule.</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
+
+  /**
+   * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Permit the request and send metrics and logs to CloudWatch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Action?: Action | undefined;
+
+  /**
+   * <p>The way that you want DNS Firewall to block the request, used with the rule action setting <code>BLOCK</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  BlockResponse?: BlockResponse | undefined;
+
+  /**
+   * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   * @public
+   */
+  BlockOverrideDomain?: string | undefined;
+
+  /**
+   * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   * @public
+   */
+  BlockOverrideDnsType?: BlockOverrideDnsType | undefined;
+
+  /**
+   * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   * @public
+   */
+  BlockOverrideTtl?: number | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>How you want the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.</p>
+   *          <p>
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be added to the domain list.</p>
+   *          <p>
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the redirection list to the domain list.</p>
+   * @public
+   */
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
+
+  /**
+   * <p>The DNS query type you want the rule to evaluate. Allowed values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an IPv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *             <li>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be defined as TYPENUMBER, where the NUMBER can be 1-65534, for example, TYPE28. For more information, see <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Qtype?: string | undefined;
+
+  /**
+   * <p>The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with <code>FirewallDomainListId</code> and <code>FirewallRuleType</code>. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DICT_DGA</code>: Dictionary-based domain generation algorithms detection. Dictionary DGAs use wordlists to generate domains that appear more legitimate, making them harder to detect than traditional DGAs.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>The confidence threshold for DNS Firewall Advanced. You must provide this value when you create or update a DNS Firewall Advanced rule. The confidence level values mean:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
+
+  /**
+   * <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+   * @public
+   */
+  FirewallRuleType?: FirewallRuleType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateFirewallRuleRequest {
+  /**
+   * <p>The list of firewall rules to update.</p>
+   * @public
+   */
+  UpdateFirewallRuleEntries: UpdateFirewallRuleEntry[] | undefined;
+}
+
+/**
+ * <p>An error that occurred while updating a firewall rule in a batch operation.</p>
+ * @public
+ */
+export interface BatchUpdateFirewallRuleError {
+  /**
+   * <p>The firewall rule entry that caused the error.</p>
+   * @public
+   */
+  FirewallRule?: UpdateFirewallRuleEntry | undefined;
+
+  /**
+   * <p>The error code for the failure.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A message that provides details about the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateFirewallRuleResponse {
+  /**
+   * <p>The firewall rules that were successfully updated by the request.</p>
+   * @public
+   */
+  UpdatedFirewallRules?: FirewallRule[] | undefined;
+
+  /**
+   * <p>A list of errors that occurred while updating the firewall rules.</p>
+   * @public
+   */
+  UpdateErrors?: BatchUpdateFirewallRuleError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFirewallDomainListRequest {
+  /**
+   * <p>A unique string that identifies the request and that allows you to retry failed requests
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
+   * @public
+   */
+  CreatorRequestId?: string | undefined;
+
+  /**
+   * <p>A name that lets you identify the domain list to manage and use it.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of the tag keys and values that you want to associate with the domain list. </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>High-level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
+ *          <p>To retrieve the domains that are defined for this domain list, call <a>ListFirewallDomains</a>.</p>
+ * @public
+ */
+export interface FirewallDomainList {
+  /**
+   * <p>The ID of the domain list. </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall domain list.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the domain list. </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The number of domain names that are specified in the domain list.</p>
+   * @public
+   */
+  DomainCount?: number | undefined;
+
+  /**
+   * <p>The status of the domain list.  </p>
+   * @public
+   */
+  Status?: FirewallDomainListStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the list, if available.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
+   * @public
+   */
+  ManagedOwnerName?: string | undefined;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
+   * @public
+   */
+  CreatorRequestId?: string | undefined;
+
+  /**
+   * <p>The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC). </p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+
+  /**
+   * <p>The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC). </p>
+   * @public
+   */
+  ModificationTime?: string | undefined;
+
+  /**
+   * <p>The category of the domain list.</p>
+   * @public
+   */
+  Category?: string | undefined;
+
+  /**
+   * <p>The type of the managed domain list, for example <code>THREAT</code>.</p>
+   * @public
+   */
+  ManagedListType?: DomainListType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFirewallDomainListResponse {
+  /**
+   * <p>The domain list that you just created.</p>
+   * @public
+   */
+  FirewallDomainList?: FirewallDomainList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFirewallRuleRequest {
+  /**
+   * <p>A unique string that identifies the request and that allows you to retry failed requests
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
+   * @public
+   */
+  CreatorRequestId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the firewall rule group where you want to create the rule. </p>
+   * @public
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the domain list that you want to use in the rule. Can't be used together with <code>DnsThreatProtecton</code>.</p>
+   * @public
+   */
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
+   *            processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
+   *          <p>You must specify a unique priority for each rule in a rule group.
+   *            To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You
+   *    can change the priority setting for the rules in a rule group at any time.</p>
+   * @public
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Action: Action | undefined;
+
+  /**
+   * <p>The way that you want DNS Firewall to block the request, used with the rule action
+   * 			setting <code>BLOCK</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
+   * @public
+   */
+  BlockResponse?: BlockResponse | undefined;
+
+  /**
+   * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   * @public
+   */
+  BlockOverrideDomain?: string | undefined;
+
+  /**
+   * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   * @public
+   */
+  BlockOverrideDnsType?: BlockOverrideDnsType | undefined;
+
+  /**
+   * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   * @public
+   */
+  BlockOverrideTtl?: number | undefined;
+
+  /**
+   * <p>A name that lets you identify the rule in the rule group.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
+   * 		</p>
+   *          <p>
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   * 			added to the domain list.</p>
+   *          <p>
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   * 			the domain list.</p>
+   * @public
+   */
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction | undefined;
+
+  /**
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *             <li>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
+   * 				defined as TYPENUMBER, where the
+   * 				NUMBER can be 1-65534, for
+   * 				example, TYPE28. For more information, see
+   * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			Use to create a DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
+
+  /**
+   * <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+   * @public
+   */
+  FirewallRuleType?: FirewallRuleType | undefined;
 }
 
 /**
@@ -2268,7 +2975,7 @@ export interface DeleteFirewallRuleRequest {
    *             <li>
    *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
    * 				defined as TYPENUMBER, where the
-   * 				NUMBER can be 1-65334, for
+   * 				NUMBER can be 1-65534, for
    * 				example, TYPE28. For more information, see
    * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
@@ -2848,6 +3555,18 @@ export interface FirewallDomainListMetadata {
    * @public
    */
   ManagedOwnerName?: string | undefined;
+
+  /**
+   * <p>The type of the managed domain list, for example <code>THREAT</code>.</p>
+   * @public
+   */
+  ManagedListType?: DomainListType | undefined;
+
+  /**
+   * <p>The category of the domain list.</p>
+   * @public
+   */
+  Category?: string | undefined;
 }
 
 /**
@@ -2895,6 +3614,36 @@ export interface FirewallRuleGroupMetadata {
    * @public
    */
   ShareStatus?: ShareStatus | undefined;
+}
+
+/**
+ * <p>The definition of an available rule type that can be used in DNS Firewall rules. This is returned by <a>ListFirewallRuleTypes</a>.</p>
+ * @public
+ */
+export interface FirewallRuleTypeDefinition {
+  /**
+   * <p>The category or class of the rule type, such as <code>FirewallAdvancedContentCategory</code> or <code>FirewallAdvancedThreatCategory</code>.</p>
+   * @public
+   */
+  RuleType?: string | undefined;
+
+  /**
+   * <p>The specific identifier within the rule type category, such as <code>VIOLENCE_AND_HATE_SPEECH</code> or <code>PHISHING</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The display name of the rule type.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the rule type.</p>
+   * @public
+   */
+  Description?: string | undefined;
 }
 
 /**
@@ -3775,6 +4524,46 @@ export interface ListFirewallRulesResponse {
    * @public
    */
   FirewallRules?: FirewallRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFirewallRuleTypesRequest {
+  /**
+   * <p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>
+   * @public
+   */
+  RuleType?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>For the first call to this list request, omit this value. When you request a list of objects, Resolver returns at most the number of objects specified in <code>MaxResults</code>. If more objects are available for retrieval, Resolver provides a <code>NextToken</code> value in the response. To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFirewallRuleTypesResponse {
+  /**
+   * <p>A list of the available rule type definitions.</p>
+   * @public
+   */
+  FirewallRuleTypes?: FirewallRuleTypeDefinition[] | undefined;
+
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5056,7 +5845,7 @@ export interface UpdateFirewallRuleRequest {
    *             <li>
    *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
    * 				defined as TYPENUMBER, where the
-   * 				NUMBER can be 1-65334, for
+   * 				NUMBER can be 1-65534, for
    * 				example, TYPE28. For more information, see
    * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *                <note>
@@ -5111,6 +5900,12 @@ export interface UpdateFirewallRuleRequest {
    * @public
    */
   ConfidenceThreshold?: ConfidenceThreshold | undefined;
+
+  /**
+   * <p>The rule type configuration for the firewall rule. This setting is mutually exclusive with the top-level <code>FirewallDomainListId</code> and <code>DnsThreatProtection</code> fields.</p>
+   * @public
+   */
+  FirewallRuleType?: FirewallRuleType | undefined;
 }
 
 /**
