@@ -55,18 +55,26 @@ export interface GetPaymentCredentialProviderCommandOutput extends GetPaymentCre
  * //       apiKeySecretArn: { // Secret
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       apiKeySecretJsonKey: "STRING_VALUE",
+ * //       apiKeySecretSource: "MANAGED" || "EXTERNAL",
  * //       walletSecretArn: {
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       walletSecretJsonKey: "STRING_VALUE",
+ * //       walletSecretSource: "MANAGED" || "EXTERNAL",
  * //     },
  * //     stripePrivyConfiguration: { // StripePrivyConfigurationOutput
  * //       appId: "STRING_VALUE", // required
  * //       appSecretArn: {
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       appSecretJsonKey: "STRING_VALUE",
+ * //       appSecretSource: "MANAGED" || "EXTERNAL",
  * //       authorizationPrivateKeyArn: {
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       authorizationPrivateKeyJsonKey: "STRING_VALUE",
+ * //       authorizationPrivateKeySource: "MANAGED" || "EXTERNAL",
  * //       authorizationId: "STRING_VALUE", // required
  * //     },
  * //   },

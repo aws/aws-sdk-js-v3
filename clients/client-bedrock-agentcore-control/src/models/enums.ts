@@ -200,6 +200,19 @@ export type AgentRuntimeStatus = (typeof AgentRuntimeStatus)[keyof typeof AgentR
  * @public
  * @enum
  */
+export const SecretSourceType = {
+  EXTERNAL: "EXTERNAL",
+  MANAGED: "MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type SecretSourceType = (typeof SecretSourceType)[keyof typeof SecretSourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BrowserProfileStatus = {
   DELETED: "DELETED",
   DELETING: "DELETING",

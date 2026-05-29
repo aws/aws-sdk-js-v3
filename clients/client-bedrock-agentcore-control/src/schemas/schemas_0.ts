@@ -17,7 +17,6 @@ const _AGTO = "ApiGatewayToolOverride";
 const _AGTOp = "ApiGatewayToolOverrides";
 const _AKCP = "ApiKeyCredentialProviders";
 const _AKCPI = "ApiKeyCredentialProviderItem";
-const _AKT = "ApiKeyType";
 const _AOPCI = "AtlassianOauth2ProviderConfigInput";
 const _AOPCO = "AtlassianOauth2ProviderConfigOutput";
 const _AR = "AgentRuntime";
@@ -63,7 +62,6 @@ const _CBSL = "ConfigurationBundleSummaryList";
 const _CBVS = "ConfigurationBundleVersionSummary";
 const _CBVSL = "ConfigurationBundleVersionSummaryList";
 const _CC = "CodeConfiguration";
-const _CCAKST = "CoinbaseCdpApiKeySecretType";
 const _CCB = "CreateConfigurationBundle";
 const _CCBR = "CreateConfigurationBundleRequest";
 const _CCBRr = "CreateConfigurationBundleResponse";
@@ -79,7 +77,6 @@ const _CCL = "ContentConfigurationList";
 const _CCM = "ComponentConfigurationMap";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
-const _CCWST = "CoinbaseCdpWalletSecretType";
 const _CCo = "ComponentConfiguration";
 const _CCon = "ContainerConfiguration";
 const _CCons = "ConsolidationConfiguration";
@@ -159,7 +156,6 @@ const _CRRr = "CreateRegistryResponse";
 const _CRRre = "CreateRegistryRecord";
 const _CSD = "CategoricalScaleDefinition";
 const _CSDa = "CategoricalScaleDefinitions";
-const _CST = "ClientSecretType";
 const _CWI = "CreateWorkloadIdentity";
 const _CWIR = "CreateWorkloadIdentityRequest";
 const _CWIRr = "CreateWorkloadIdentityResponse";
@@ -174,6 +170,7 @@ const _D = "Definition";
 const _DAKCP = "DeleteApiKeyCredentialProvider";
 const _DAKCPR = "DeleteApiKeyCredentialProviderRequest";
 const _DAKCPRe = "DeleteApiKeyCredentialProviderResponse";
+const _DAKT = "DefaultApiKeyType";
 const _DAR = "DeleteAgentRuntime";
 const _DARE = "DeleteAgentRuntimeEndpoint";
 const _DARER = "DeleteAgentRuntimeEndpointRequest";
@@ -189,6 +186,8 @@ const _DBRe = "DeleteBrowserResponse";
 const _DCB = "DeleteConfigurationBundle";
 const _DCBR = "DeleteConfigurationBundleRequest";
 const _DCBRe = "DeleteConfigurationBundleResponse";
+const _DCCAKST = "DefaultCoinbaseCdpApiKeySecretType";
+const _DCCWST = "DefaultCoinbaseCdpWalletSecretType";
 const _DCI = "DeleteCodeInterpreter";
 const _DCIR = "DeleteCodeInterpreterRequest";
 const _DCIRe = "DeleteCodeInterpreterResponse";
@@ -254,6 +253,8 @@ const _DRRel = "DeleteRegistryRecord";
 const _DS = "DatasetSummary";
 const _DSC = "DataSourceConfig";
 const _DSL = "DatasetSummaryList";
+const _DSPAPKT = "DefaultStripePrivyAuthorizationPrivateKeyType";
+const _DSPAST = "DefaultStripePrivyAppSecretType";
 const _DST = "DataSourceType";
 const _DU = "DownloadUrl";
 const _DVS = "DatasetVersionSummary";
@@ -727,18 +728,17 @@ const _SOPCIl = "SlackOauth2ProviderConfigInput";
 const _SOPCO = "SalesforceOauth2ProviderConfigOutput";
 const _SOPCOl = "SlackOauth2ProviderConfigOutput";
 const _SP = "SchemaProperties";
-const _SPAPKT = "StripePrivyAuthorizationPrivateKeyType";
-const _SPAST = "StripePrivyAppSecretType";
 const _SPCI = "StripePrivyConfigurationInput";
 const _SPCO = "StripePrivyConfigurationOutput";
 const _SPG = "StartPolicyGeneration";
 const _SPGR = "StartPolicyGenerationRequest";
 const _SPGRt = "StartPolicyGenerationResponse";
 const _SQEE = "ServiceQuotaExceededException";
-const _SR = "StaticRoute";
+const _SR = "SecretReference";
 const _SRRFA = "SubmitRegistryRecordForApproval";
 const _SRRFAR = "SubmitRegistryRecordForApprovalRequest";
 const _SRRFARu = "SubmitRegistryRecordForApprovalResponse";
+const _SRt = "StaticRoute";
 const _SS = "S3Source";
 const _SSC = "SessionStorageConfiguration";
 const _ST = "SensitiveText";
@@ -915,6 +915,9 @@ const _aKCP = "apiKeyCredentialProvider";
 const _aKI = "apiKeyId";
 const _aKS = "apiKeySecret";
 const _aKSA = "apiKeySecretArn";
+const _aKSC = "apiKeySecretConfig";
+const _aKSJK = "apiKeySecretJsonKey";
+const _aKSS = "apiKeySecretSource";
 const _aMRF = "additionalModelRequestFields";
 const _aMS = "addMemoryStrategies";
 const _aO = "anyOf";
@@ -923,6 +926,9 @@ const _aP = "additionalParams";
 const _aPA = "accessPointArn";
 const _aPK = "authorizationPrivateKey";
 const _aPKA = "authorizationPrivateKeyArn";
+const _aPKC = "authorizationPrivateKeyConfig";
+const _aPKJK = "authorizationPrivateKeyJsonKey";
+const _aPKS = "authorizationPrivateKeySource";
 const _aQP = "allowedQueryParameters";
 const _aR = "agentRuntimes";
 const _aRA = "agentRuntimeArn";
@@ -937,7 +943,10 @@ const _aRV = "agentRuntimeVersion";
 const _aRg = "agentcoreRuntime";
 const _aS = "allowedScopes";
 const _aSA = "appSecretArn";
+const _aSC = "appSecretConfig";
+const _aSJK = "appSecretJsonKey";
 const _aSM = "authorizationServerMetadata";
+const _aSS = "appSecretSource";
 const _aSg = "agentSkills";
 const _aSp = "appSecret";
 const _aT = "authorizerType";
@@ -1004,6 +1013,9 @@ const _cPu = "customParameters";
 const _cRC = "customReflectionConfiguration";
 const _cS = "clientSecret";
 const _cSA = "clientSecretArn";
+const _cSC = "clientSecretConfig";
+const _cSJK = "clientSecretJsonKey";
+const _cSS = "clientSecretSource";
 const _cT = "clientToken";
 const _cTr = "createdTime";
 const _cU = "containerUri";
@@ -1129,6 +1141,7 @@ const _in = "interceptor";
 const _ins = "instructions";
 const _is = "issuer";
 const _it = "items";
+const _jK = "jsonKey";
 const _k = "key";
 const _kC = "kmsConfiguration";
 const _kKA = "kmsKeyArn";
@@ -1323,6 +1336,7 @@ const _sFAP = "s3FilesAccessPoint";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
 const _sI = "strategyId";
+const _sIe = "secretId";
 const _sIu = "subnetIds";
 const _sL = "s3Location";
 const _sLV = "stringListValidation";
@@ -1437,6 +1451,9 @@ const _wO = "weightedOverride";
 const _wR = "weightedRoute";
 const _wS = "walletSecret";
 const _wSA = "walletSecretArn";
+const _wSC = "walletSecretConfig";
+const _wSJK = "walletSecretJsonKey";
+const _wSS = "walletSecretSource";
 const n0 = "com.amazonaws.bedrockagentcorecontrol";
 
 // smithy-typescript generated code
@@ -1567,12 +1584,13 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
-var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
-var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
-var CoinbaseCdpApiKeySecretType: StaticSimpleSchema = [0, n0, _CCAKST, 8, 0];
-var CoinbaseCdpWalletSecretType: StaticSimpleSchema = [0, n0, _CCWST, 8, 0];
 var ConfigurationBundleDescription: StaticSimpleSchema = [0, n0, _CBD, 8, 0];
+var DefaultApiKeyType: StaticSimpleSchema = [0, n0, _DAKT, 8, 0];
 var DefaultClientSecretType: StaticSimpleSchema = [0, n0, _DCST, 8, 0];
+var DefaultCoinbaseCdpApiKeySecretType: StaticSimpleSchema = [0, n0, _DCCAKST, 8, 0];
+var DefaultCoinbaseCdpWalletSecretType: StaticSimpleSchema = [0, n0, _DCCWST, 8, 0];
+var DefaultStripePrivyAppSecretType: StaticSimpleSchema = [0, n0, _DSPAST, 8, 0];
+var DefaultStripePrivyAuthorizationPrivateKeyType: StaticSimpleSchema = [0, n0, _DSPAPKT, 8, 0];
 var Definition: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _De, 8, 0];
 var DownloadUrl: StaticSimpleSchema = [0, n0, _DU, 8, 0];
@@ -1591,8 +1609,6 @@ var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
 var SensitiveText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
-var StripePrivyAppSecretType: StaticSimpleSchema = [0, n0, _SPAST, 8, 0];
-var StripePrivyAuthorizationPrivateKeyType: StaticSimpleSchema = [0, n0, _SPAPKT, 8, 0];
 var TargetDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 var TargetName: StaticSimpleSchema = [0, n0, _TN, 8, 0];
 export var A2aDescriptor$: StaticStructureSchema = [3, n0, _AD,
@@ -1662,8 +1678,8 @@ export var ApprovalConfiguration$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var AtlassianOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _AOPCI,
   0,
-  [_cI, _cS],
-  [0, [() => ClientSecretType, 0]], 2
+  [_cI, _cS, _cSC, _cSS],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0], 1
 ];
 export var AtlassianOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _AOPCO,
   0,
@@ -1752,13 +1768,13 @@ export var CodeInterpreterSummary$: StaticStructureSchema = [3, n0, _CIS,
 ];
 export var CoinbaseCdpConfigurationInput$: StaticStructureSchema = [3, n0, _CCCI,
   0,
-  [_aKI, _aKS, _wS],
-  [0, [() => CoinbaseCdpApiKeySecretType, 0], [() => CoinbaseCdpWalletSecretType, 0]], 3
+  [_aKI, _aKS, _aKSS, _aKSC, _wS, _wSS, _wSC],
+  [0, [() => DefaultCoinbaseCdpApiKeySecretType, 0], 0, () => SecretReference$, [() => DefaultCoinbaseCdpWalletSecretType, 0], 0, () => SecretReference$], 1
 ];
 export var CoinbaseCdpConfigurationOutput$: StaticStructureSchema = [3, n0, _CCCO,
   0,
-  [_aKI, _aKSA, _wSA],
-  [0, () => Secret$, () => Secret$], 3
+  [_aKI, _aKSA, _wSA, _aKSJK, _aKSS, _wSJK, _wSS],
+  [0, () => Secret$, () => Secret$, 0, 0, 0, 0], 3
 ];
 export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   8,
@@ -1812,13 +1828,13 @@ export var CreateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _CARRr,
 ];
 export var CreateApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _CAKCPR,
   0,
-  [_n, _aK, _ta],
-  [0, [() => ApiKeyType, 0], 128 | 0], 2
+  [_n, _aK, _aKSC, _aKSS, _ta],
+  [0, [() => DefaultApiKeyType, 0], () => SecretReference$, 0, 128 | 0], 1
 ];
 export var CreateApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, n0, _CAKCPRr,
   0,
-  [_aKSA, _n, _cPA],
-  [() => Secret$, 0, 0], 3
+  [_aKSA, _n, _cPA, _aKSJK, _aKSS],
+  [() => Secret$, 0, 0, 0, 0], 3
 ];
 export var CreateBrowserProfileRequest$: StaticStructureSchema = [3, n0, _CBPR,
   0,
@@ -1947,8 +1963,8 @@ export var CreateOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n
 ];
 export var CreateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _COCPRr,
   0,
-  [_cSA, _n, _cPA, _cUa, _oPCO, _st],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 0], 3
+  [_cSA, _n, _cPA, _cSJK, _cSS, _cUa, _oPCO, _st],
+  [() => Secret$, 0, 0, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 0], 3
 ];
 export var CreateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _COECR,
   0,
@@ -2067,8 +2083,8 @@ export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
-  [_oD, _cI, _cS, _pE, _pEO, _oBOTEC, _cAM],
-  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => OnBehalfOfTokenExchangeConfigType$, 0], 1
+  [_oD, _cI, _cS, _cSC, _cSS, _oBOTEC, _cAM, _pE, _pEO],
+  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
 ];
 export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _COPCO,
   0,
@@ -2487,8 +2503,8 @@ export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, n0, _GAKCPRe,
   0,
-  [_aKSA, _n, _cPA, _cTr, _lUT],
-  [() => Secret$, 0, 0, 4, 4], 5
+  [_aKSA, _n, _cPA, _cTr, _lUT, _aKSJK, _aKSS],
+  [() => Secret$, 0, 0, 4, 4, 0, 0], 5
 ];
 export var GetBrowserProfileRequest$: StaticStructureSchema = [3, n0, _GBPR,
   0,
@@ -2617,8 +2633,8 @@ export var GetOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _GOCPRe,
   0,
-  [_cSA, _n, _cPA, _cPV, _oPCO, _cTr, _lUT, _cUa, _st, _fR],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0, 0], 7
+  [_cSA, _n, _cPA, _cPV, _oPCO, _cTr, _lUT, _cSJK, _cSS, _cUa, _st, _fR],
+  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0, 0, 0, 0], 7
 ];
 export var GetOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _GOECR,
   0,
@@ -2772,8 +2788,8 @@ export var GetWorkloadIdentityResponse$: StaticStructureSchema = [3, n0, _GWIRe,
 ];
 export var GithubOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _GOPCI,
   0,
-  [_cI, _cS],
-  [0, [() => ClientSecretType, 0]], 2
+  [_cI, _cS, _cSC, _cSS],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0], 1
 ];
 export var GithubOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _GOPCO,
   0,
@@ -2782,8 +2798,8 @@ export var GithubOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _G
 ];
 export var GoogleOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _GOPCIo,
   0,
-  [_cI, _cS],
-  [0, [() => ClientSecretType, 0]], 2
+  [_cI, _cS, _cSC, _cSS],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0], 1
 ];
 export var GoogleOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _GOPCOo,
   0,
@@ -2912,8 +2928,8 @@ export var IamPrincipal$: StaticStructureSchema = [3, n0, _IPa,
 ];
 export var IncludedOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _IOPCI,
   0,
-  [_cI, _cS, _is, _aE, _tE],
-  [0, [() => ClientSecretType, 0], 0, 0, 0], 2
+  [_cI, _cS, _cSC, _cSS, _is, _aE, _tE],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, 0, 0, 0], 1
 ];
 export var IncludedOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _IOPCO,
   0,
@@ -2977,8 +2993,8 @@ export var LifecycleConfiguration$: StaticStructureSchema = [3, n0, _LC,
 ];
 export var LinkedinOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _LOPCI,
   0,
-  [_cI, _cS],
-  [0, [() => ClientSecretType, 0]], 2
+  [_cI, _cS, _cSC, _cSS],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0], 1
 ];
 export var LinkedinOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _LOPCO,
   0,
@@ -3417,8 +3433,8 @@ export var MetadataSchemaEntry$: StaticStructureSchema = [3, n0, _MSE,
 ];
 export var MicrosoftOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _MOPCI,
   0,
-  [_cI, _cS, _tIe],
-  [0, [() => ClientSecretType, 0], 0], 2
+  [_cI, _cS, _cSC, _cSS, _tIe],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, 0], 1
 ];
 export var MicrosoftOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _MOPCO,
   0,
@@ -3647,8 +3663,8 @@ export var S3Source$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var SalesforceOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _SOPCI,
   0,
-  [_cI, _cS],
-  [0, [() => ClientSecretType, 0]], 2
+  [_cI, _cS, _cSC, _cSS],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0], 1
 ];
 export var SalesforceOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _SOPCO,
   0,
@@ -3669,6 +3685,11 @@ export var Secret$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sA],
   [0], 1
+];
+export var SecretReference$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_sIe, _jK],
+  [0, 0], 2
 ];
 export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
@@ -3757,8 +3778,8 @@ export var SkillMdDefinition$: StaticStructureSchema = [3, n0, _SMD,
 ];
 export var SlackOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _SOPCIl,
   0,
-  [_cI, _cS],
-  [0, [() => ClientSecretType, 0]], 2
+  [_cI, _cS, _cSC, _cSS],
+  [0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0], 1
 ];
 export var SlackOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _SOPCOl,
   0,
@@ -3780,7 +3801,7 @@ export var StaticOverride$: StaticStructureSchema = [3, n0, _SO,
   [_bAu, _bV],
   [0, 0], 2
 ];
-export var StaticRoute$: StaticStructureSchema = [3, n0, _SR,
+export var StaticRoute$: StaticStructureSchema = [3, n0, _SRt,
   0,
   [_tN],
   [[() => TargetName, 0]], 1
@@ -3812,13 +3833,13 @@ export var StringValidation$: StaticStructureSchema = [3, n0, _SV,
 ];
 export var StripePrivyConfigurationInput$: StaticStructureSchema = [3, n0, _SPCI,
   0,
-  [_aIp, _aSp, _aPK, _aIu],
-  [0, [() => StripePrivyAppSecretType, 0], [() => StripePrivyAuthorizationPrivateKeyType, 0], 0], 4
+  [_aIp, _aIu, _aSp, _aSS, _aSC, _aPK, _aPKS, _aPKC],
+  [0, 0, [() => DefaultStripePrivyAppSecretType, 0], 0, () => SecretReference$, [() => DefaultStripePrivyAuthorizationPrivateKeyType, 0], 0, () => SecretReference$], 2
 ];
 export var StripePrivyConfigurationOutput$: StaticStructureSchema = [3, n0, _SPCO,
   0,
-  [_aIp, _aSA, _aPKA, _aIu],
-  [0, () => Secret$, () => Secret$, 0], 4
+  [_aIp, _aSA, _aPKA, _aIu, _aSJK, _aSS, _aPKJK, _aPKS],
+  [0, () => Secret$, () => Secret$, 0, 0, 0, 0, 0], 4
 ];
 export var SubmitRegistryRecordForApprovalRequest$: StaticStructureSchema = [3, n0, _SRRFAR,
   0,
@@ -3962,13 +3983,13 @@ export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
 ];
 export var UpdateApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _UAKCPR,
   0,
-  [_n, _aK],
-  [0, [() => ApiKeyType, 0]], 2
+  [_n, _aK, _aKSC, _aKSS],
+  [0, [() => DefaultApiKeyType, 0], () => SecretReference$, 0], 1
 ];
 export var UpdateApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, n0, _UAKCPRp,
   0,
-  [_aKSA, _n, _cPA, _cTr, _lUT],
-  [() => Secret$, 0, 0, 4, 4], 5
+  [_aKSA, _n, _cPA, _cTr, _lUT, _aKSJK, _aKSS],
+  [() => Secret$, 0, 0, 4, 4, 0, 0], 5
 ];
 export var UpdateConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _UCBR,
   0,
@@ -4162,8 +4183,8 @@ export var UpdateOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n
 ];
 export var UpdateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _UOCPRp,
   0,
-  [_cSA, _n, _cPV, _cPA, _oPCO, _cTr, _lUT, _cUa, _st],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0], 7
+  [_cSA, _n, _cPV, _cPA, _oPCO, _cTr, _lUT, _cSJK, _cSS, _cUa, _st],
+  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0, 0, 0], 7
 ];
 export var UpdateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _UOECR,
   0,

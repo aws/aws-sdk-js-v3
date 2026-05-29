@@ -38,13 +38,13 @@ import type {
   IncludedData,
   KeyType,
   ListingMode,
-  MetadataValueType,
   NetworkMode,
   OAuthGrantType,
   PrincipalMatchOperator,
   ResourceType,
   RestApiMethod,
   SearchType,
+  SecretSourceType,
   ServerProtocol,
   TargetStatus,
 } from "./enums";
@@ -2292,6 +2292,24 @@ export interface AgentSkillsDescriptor {
 }
 
 /**
+ * <p>Contains a reference to a secret stored in AWS Secrets Manager.</p>
+ * @public
+ */
+export interface SecretReference {
+  /**
+   * <p>The ID of the AWS Secrets Manager secret that stores the secret value.</p>
+   * @public
+   */
+  secretId: string | undefined;
+
+  /**
+   * <p>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  jsonKey: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateApiKeyCredentialProviderRequest {
@@ -2305,7 +2323,19 @@ export interface CreateApiKeyCredentialProviderRequest {
    * <p>The API key to use for authentication. This value is encrypted and stored securely.</p>
    * @public
    */
-  apiKey: string | undefined;
+  apiKey?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  apiKeySecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>A map of tag keys and values to assign to the API key credential provider. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
@@ -2335,6 +2365,18 @@ export interface CreateApiKeyCredentialProviderResponse {
    * @public
    */
   apiKeySecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  apiKeySecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The name of the created API key credential provider.</p>
@@ -2385,6 +2427,18 @@ export interface GetApiKeyCredentialProviderResponse {
    * @public
    */
   apiKeySecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  apiKeySecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The name of the API key credential provider.</p>
@@ -2489,7 +2543,19 @@ export interface UpdateApiKeyCredentialProviderRequest {
    * <p>The new API key to use for authentication. This value replaces the existing API key and is encrypted and stored securely.</p>
    * @public
    */
-  apiKey: string | undefined;
+  apiKey?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the API key. This includes the secret ID and the JSON key used to extract the API key value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  apiKeySecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -2501,6 +2567,18 @@ export interface UpdateApiKeyCredentialProviderResponse {
    * @public
    */
   apiKeySecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the API key value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  apiKeySecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The name of the API key credential provider.</p>
@@ -9548,22 +9626,4 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>A metadata key indexed for filtering.</p>
- * @public
- */
-export interface IndexedKey {
-  /**
-   * <p>The metadata key name to index.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The data type of the indexed key.</p>
-   * @public
-   */
-  type: MetadataValueType | undefined;
 }

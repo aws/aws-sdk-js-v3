@@ -61,6 +61,21 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  *       },
  *       clientId: "STRING_VALUE",
  *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: { // SecretReference
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
+ *       onBehalfOfTokenExchangeConfig: { // OnBehalfOfTokenExchangeConfigType
+ *         grantType: "TOKEN_EXCHANGE" || "JWT_AUTHORIZATION_GRANT", // required
+ *         tokenExchangeGrantTypeConfig: { // TokenExchangeGrantTypeConfigType
+ *           actorTokenContent: "NONE" || "M2M" || "AWS_IAM_ID_TOKEN_JWT", // required
+ *           actorTokenScopes: [ // ScopesListType
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT",
  *       privateEndpoint: { // PrivateEndpoint Union: only one key present
  *         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
  *           resourceConfigurationIdentifier: "STRING_VALUE",
@@ -104,49 +119,67 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  *           },
  *         },
  *       ],
- *       onBehalfOfTokenExchangeConfig: { // OnBehalfOfTokenExchangeConfigType
- *         grantType: "TOKEN_EXCHANGE" || "JWT_AUTHORIZATION_GRANT", // required
- *         tokenExchangeGrantTypeConfig: { // TokenExchangeGrantTypeConfigType
- *           actorTokenContent: "NONE" || "M2M" || "AWS_IAM_ID_TOKEN_JWT", // required
- *           actorTokenScopes: [ // ScopesListType
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT",
  *     },
  *     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *     },
  *     githubOauth2ProviderConfig: { // GithubOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *     },
  *     slackOauth2ProviderConfig: { // SlackOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *     },
  *     salesforceOauth2ProviderConfig: { // SalesforceOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *     },
  *     microsoftOauth2ProviderConfig: { // MicrosoftOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: "<SecretReference>",
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *       tenantId: "STRING_VALUE",
  *     },
  *     atlassianOauth2ProviderConfig: { // AtlassianOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: "<SecretReference>",
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *     },
  *     linkedinOauth2ProviderConfig: { // LinkedinOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: "<SecretReference>",
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *     },
  *     includedOauth2ProviderConfig: { // IncludedOauth2ProviderConfigInput
  *       clientId: "STRING_VALUE", // required
- *       clientSecret: "STRING_VALUE", // required
+ *       clientSecret: "STRING_VALUE",
+ *       clientSecretConfig: "<SecretReference>",
+ *       clientSecretSource: "MANAGED" || "EXTERNAL",
  *       issuer: "STRING_VALUE",
  *       authorizationEndpoint: "STRING_VALUE",
  *       tokenEndpoint: "STRING_VALUE",
@@ -159,6 +192,8 @@ export interface UpdateOauth2CredentialProviderCommandOutput extends UpdateOauth
  * //   clientSecretArn: { // Secret
  * //     secretArn: "STRING_VALUE", // required
  * //   },
+ * //   clientSecretJsonKey: "STRING_VALUE",
+ * //   clientSecretSource: "MANAGED" || "EXTERNAL",
  * //   name: "STRING_VALUE", // required
  * //   credentialProviderVendor: "GoogleOauth2" || "GithubOauth2" || "SlackOauth2" || "SalesforceOauth2" || "MicrosoftOauth2" || "CustomOauth2" || "AtlassianOauth2" || "LinkedinOauth2" || "XOauth2" || "OktaOauth2" || "OneLoginOauth2" || "PingOneOauth2" || "FacebookOauth2" || "YandexOauth2" || "RedditOauth2" || "ZoomOauth2" || "TwitchOauth2" || "SpotifyOauth2" || "DropboxOauth2" || "NotionOauth2" || "HubspotOauth2" || "CyberArkOauth2" || "FusionAuthOauth2" || "Auth0Oauth2" || "CognitoOauth2", // required
  * //   credentialProviderArn: "STRING_VALUE", // required

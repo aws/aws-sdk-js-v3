@@ -31,6 +31,7 @@ import type {
   RegistryRecordOAuthGrantType,
   RegistryRecordStatus,
   RegistryStatus,
+  SecretSourceType,
   Status,
   SynchronizationType,
 } from "./enums";
@@ -38,16 +39,34 @@ import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
-  IndexedKey,
   KmsConfiguration,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
+  SecretReference,
   SkillDefinition,
   SkillMdDefinition,
   UpdatedAuthorizerConfiguration,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>A metadata key indexed for filtering.</p>
+ * @public
+ */
+export interface IndexedKey {
+  /**
+   * <p>The metadata key name to index.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The data type of the indexed key.</p>
+   * @public
+   */
+  type: MetadataValueType | undefined;
+}
 
 /**
  * <p>Configurations for overriding the consolidation step of the episodic memory strategy.</p>
@@ -2805,7 +2824,19 @@ export interface AtlassianOauth2ProviderConfigInput {
    * <p>The client secret for the Atlassian OAuth2 provider. This secret is assigned by Atlassian and used along with the client ID to authenticate your application.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret for the Atlassian OAuth2 provider. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -2957,16 +2988,16 @@ export interface CustomOauth2ProviderConfigInput {
   clientSecret?: string | undefined;
 
   /**
-   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
    * @public
    */
-  privateEndpoint?: PrivateEndpoint | undefined;
+  clientSecretConfig?: SecretReference | undefined;
 
   /**
-   * <p>The private endpoint overrides for the custom OAuth2 provider configuration.</p>
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
    * @public
    */
-  privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
+  clientSecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The configuration for on-behalf-of token exchange. This enables authentication flows that use RFC 8693 token exchange or RFC 7523 JWT authorization grants.</p>
@@ -2979,6 +3010,18 @@ export interface CustomOauth2ProviderConfigInput {
    * @public
    */
   clientAuthenticationMethod?: ClientAuthenticationMethodType | undefined;
+
+  /**
+   * <p>The default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration.</p>
+   * @public
+   */
+  privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The private endpoint overrides for the custom OAuth2 provider configuration.</p>
+   * @public
+   */
+  privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 }
 
 /**
@@ -2996,7 +3039,19 @@ export interface GithubOauth2ProviderConfigInput {
    * <p>The client secret for the GitHub OAuth2 provider.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -3014,7 +3069,19 @@ export interface GoogleOauth2ProviderConfigInput {
    * <p>The client secret for the Google OAuth2 provider.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -3032,7 +3099,19 @@ export interface IncludedOauth2ProviderConfigInput {
    * <p>The client secret for the supported OAuth2 provider. This secret is assigned by the OAuth2 provider and used along with the client ID to authenticate your application.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>Token issuer of your isolated OAuth2 application tenant. This URL identifies the authorization server that issues tokens for this provider.</p>
@@ -3068,7 +3147,19 @@ export interface LinkedinOauth2ProviderConfigInput {
    * <p>The client secret for the LinkedIn OAuth2 provider. This secret is assigned by LinkedIn and used along with the client ID to authenticate your application.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -3086,7 +3177,19 @@ export interface MicrosoftOauth2ProviderConfigInput {
    * <p>The client secret for the Microsoft OAuth2 provider.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The Microsoft Entra ID (formerly Azure AD) tenant ID for your organization. This identifies the specific tenant within Microsoft's identity platform where your application is registered.</p>
@@ -3110,7 +3213,19 @@ export interface SalesforceOauth2ProviderConfigInput {
    * <p>The client secret for the Salesforce OAuth2 provider.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -3128,7 +3243,19 @@ export interface SlackOauth2ProviderConfigInput {
    * <p>The client secret for the Slack OAuth2 provider.</p>
    * @public
    */
-  clientSecret: string | undefined;
+  clientSecret?: string | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the client secret. This includes the secret ID and the JSON key used to extract the client secret value from the secret. Required when <code>clientSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  clientSecretConfig?: SecretReference | undefined;
+
+  /**
+   * <p>The source type of the client secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -3771,6 +3898,18 @@ export interface CreateOauth2CredentialProviderResponse {
   clientSecretArn: Secret | undefined;
 
   /**
+   * <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  clientSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
+
+  /**
    * <p>The name of the OAuth2 credential provider.</p>
    * @public
    */
@@ -3837,6 +3976,18 @@ export interface GetOauth2CredentialProviderResponse {
    * @public
    */
   clientSecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  clientSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The name of the OAuth2 credential provider.</p>
@@ -3995,6 +4146,18 @@ export interface UpdateOauth2CredentialProviderResponse {
    * @public
    */
   clientSecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the client secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  clientSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the client secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  clientSecretSource?: SecretSourceType | undefined;
 
   /**
    * <p>The name of the OAuth2 credential provider.</p>
@@ -4749,13 +4912,37 @@ export interface CoinbaseCdpConfigurationInput {
    * <p>The API key secret provided by Coinbase Developer Platform.</p>
    * @public
    */
-  apiKeySecret: string | undefined;
+  apiKeySecret?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the API key secret. This includes the secret ID and the JSON key used to extract the API key secret value from the secret. Required when <code>apiKeySecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  apiKeySecretConfig?: SecretReference | undefined;
 
   /**
    * <p>The wallet secret provided by Coinbase Developer Platform.</p>
    * @public
    */
-  walletSecret: string | undefined;
+  walletSecret?: string | undefined;
+
+  /**
+   * <p>The source type of the wallet secret for the Coinbase Developer Platform. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  walletSecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the wallet secret. This includes the secret ID and the JSON key used to extract the wallet secret value from the secret. Required when <code>walletSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  walletSecretConfig?: SecretReference | undefined;
 }
 
 /**
@@ -4773,13 +4960,37 @@ export interface StripePrivyConfigurationInput {
    * <p>The app secret provided by Privy.</p>
    * @public
    */
-  appSecret: string | undefined;
+  appSecret?: string | undefined;
+
+  /**
+   * <p>The source type of the app secret. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  appSecretSource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the app secret. This includes the secret ID and the JSON key used to extract the app secret value from the secret. Required when <code>appSecretSource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  appSecretConfig?: SecretReference | undefined;
 
   /**
    * <p>The authorization private key for the Stripe Privy integration.</p>
    * @public
    */
-  authorizationPrivateKey: string | undefined;
+  authorizationPrivateKey?: string | undefined;
+
+  /**
+   * <p>The source type of the authorization private key. Use <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if you manage the secret yourself in AWS Secrets Manager.</p>
+   * @public
+   */
+  authorizationPrivateKeySource?: SecretSourceType | undefined;
+
+  /**
+   * <p>A reference to the AWS Secrets Manager secret that stores the authorization private key. This includes the secret ID and the JSON key used to extract the authorization private key value from the secret. Required when <code>authorizationPrivateKeySource</code> is set to <code>EXTERNAL</code>.</p>
+   * @public
+   */
+  authorizationPrivateKeyConfig?: SecretReference | undefined;
 
   /**
    * <p>The authorization ID for the Stripe Privy integration.</p>
@@ -4888,10 +5099,34 @@ export interface CoinbaseCdpConfigurationOutput {
   apiKeySecretArn: Secret | undefined;
 
   /**
+   * <p>The JSON key used to extract the API key secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  apiKeySecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the API key secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  apiKeySecretSource?: SecretSourceType | undefined;
+
+  /**
    * <p>Contains information about a secret in AWS Secrets Manager.</p>
    * @public
    */
   walletSecretArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the wallet secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  walletSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the wallet secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  walletSecretSource?: SecretSourceType | undefined;
 }
 
 /**
@@ -4912,10 +5147,34 @@ export interface StripePrivyConfigurationOutput {
   appSecretArn: Secret | undefined;
 
   /**
+   * <p>The JSON key used to extract the app secret value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  appSecretJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the app secret. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  appSecretSource?: SecretSourceType | undefined;
+
+  /**
    * <p>Contains information about a secret in AWS Secrets Manager.</p>
    * @public
    */
   authorizationPrivateKeyArn: Secret | undefined;
+
+  /**
+   * <p>The JSON key used to extract the authorization private key value from the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  authorizationPrivateKeyJsonKey?: string | undefined;
+
+  /**
+   * <p>The source type of the authorization private key. Either <code>MANAGED</code> if the secret is managed by the service, or <code>EXTERNAL</code> if managed by the user in AWS Secrets Manager.</p>
+   * @public
+   */
+  authorizationPrivateKeySource?: SecretSourceType | undefined;
 
   /**
    * <p>The authorization ID for the Stripe Privy integration.</p>
@@ -9579,15 +9838,4 @@ export interface CreateWorkloadIdentityResponse {
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteWorkloadIdentityRequest {
-  /**
-   * <p>The name of the workload identity to delete.</p>
-   * @public
-   */
-  name: string | undefined;
 }

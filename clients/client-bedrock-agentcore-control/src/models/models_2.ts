@@ -16,6 +16,17 @@ import type {
 /**
  * @public
  */
+export interface DeleteWorkloadIdentityRequest {
+  /**
+   * <p>The name of the workload identity to delete.</p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteWorkloadIdentityResponse {}
 
 /**

@@ -49,6 +49,8 @@ export interface GetApiKeyCredentialProviderCommandOutput extends GetApiKeyCrede
  * //   apiKeySecretArn: { // Secret
  * //     secretArn: "STRING_VALUE", // required
  * //   },
+ * //   apiKeySecretJsonKey: "STRING_VALUE",
+ * //   apiKeySecretSource: "MANAGED" || "EXTERNAL",
  * //   name: "STRING_VALUE", // required
  * //   credentialProviderArn: "STRING_VALUE", // required
  * //   createdTime: new Date("TIMESTAMP"), // required

@@ -49,6 +49,8 @@ export interface GetOauth2CredentialProviderCommandOutput extends GetOauth2Crede
  * //   clientSecretArn: { // Secret
  * //     secretArn: "STRING_VALUE", // required
  * //   },
+ * //   clientSecretJsonKey: "STRING_VALUE",
+ * //   clientSecretSource: "MANAGED" || "EXTERNAL",
  * //   name: "STRING_VALUE", // required
  * //   credentialProviderArn: "STRING_VALUE", // required
  * //   credentialProviderVendor: "GoogleOauth2" || "GithubOauth2" || "SlackOauth2" || "SalesforceOauth2" || "MicrosoftOauth2" || "CustomOauth2" || "AtlassianOauth2" || "LinkedinOauth2" || "XOauth2" || "OktaOauth2" || "OneLoginOauth2" || "PingOneOauth2" || "FacebookOauth2" || "YandexOauth2" || "RedditOauth2" || "ZoomOauth2" || "TwitchOauth2" || "SpotifyOauth2" || "DropboxOauth2" || "NotionOauth2" || "HubspotOauth2" || "CyberArkOauth2" || "FusionAuthOauth2" || "Auth0Oauth2" || "CognitoOauth2", // required

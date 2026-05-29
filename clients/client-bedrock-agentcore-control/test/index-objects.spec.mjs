@@ -841,7 +841,9 @@ import {
   SchemaType,
   SearchType,
   Secret$,
+  SecretReference$,
   SecretsManagerLocation$,
+  SecretSourceType,
   SelfManagedConfiguration$,
   SelfManagedConfigurationInput$,
   SelfManagedLatticeResource$,
@@ -1851,6 +1853,7 @@ assert(typeof SalesforceOauth2ProviderConfigOutput$ === "object");
 assert(typeof SamplingConfig$ === "object");
 assert(typeof SchemaDefinition$ === "object");
 assert(typeof Secret$ === "object");
+assert(typeof SecretReference$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SelfManagedConfiguration$ === "object");
 assert(typeof SelfManagedConfigurationInput$ === "object");
@@ -2067,6 +2070,7 @@ assert(typeof ResourceType === "object");
 assert(typeof RestApiMethod === "object");
 assert(typeof SchemaType === "object");
 assert(typeof SearchType === "object");
+assert(typeof SecretSourceType === "object");
 assert(typeof ServerProtocol === "object");
 assert(typeof Status === "object");
 assert(typeof SynchronizationType === "object");

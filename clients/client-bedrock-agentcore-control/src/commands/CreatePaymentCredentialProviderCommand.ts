@@ -49,13 +49,33 @@ export interface CreatePaymentCredentialProviderCommandOutput extends CreatePaym
  *   providerConfigurationInput: { // PaymentProviderConfigurationInput Union: only one key present
  *     coinbaseCdpConfiguration: { // CoinbaseCdpConfigurationInput
  *       apiKeyId: "STRING_VALUE", // required
- *       apiKeySecret: "STRING_VALUE", // required
- *       walletSecret: "STRING_VALUE", // required
+ *       apiKeySecret: "STRING_VALUE",
+ *       apiKeySecretSource: "MANAGED" || "EXTERNAL",
+ *       apiKeySecretConfig: { // SecretReference
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       walletSecret: "STRING_VALUE",
+ *       walletSecretSource: "MANAGED" || "EXTERNAL",
+ *       walletSecretConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
  *     },
  *     stripePrivyConfiguration: { // StripePrivyConfigurationInput
  *       appId: "STRING_VALUE", // required
- *       appSecret: "STRING_VALUE", // required
- *       authorizationPrivateKey: "STRING_VALUE", // required
+ *       appSecret: "STRING_VALUE",
+ *       appSecretSource: "MANAGED" || "EXTERNAL",
+ *       appSecretConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
+ *       authorizationPrivateKey: "STRING_VALUE",
+ *       authorizationPrivateKeySource: "MANAGED" || "EXTERNAL",
+ *       authorizationPrivateKeyConfig: {
+ *         secretId: "STRING_VALUE", // required
+ *         jsonKey: "STRING_VALUE", // required
+ *       },
  *       authorizationId: "STRING_VALUE", // required
  *     },
  *   },
@@ -75,18 +95,26 @@ export interface CreatePaymentCredentialProviderCommandOutput extends CreatePaym
  * //       apiKeySecretArn: { // Secret
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       apiKeySecretJsonKey: "STRING_VALUE",
+ * //       apiKeySecretSource: "MANAGED" || "EXTERNAL",
  * //       walletSecretArn: {
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       walletSecretJsonKey: "STRING_VALUE",
+ * //       walletSecretSource: "MANAGED" || "EXTERNAL",
  * //     },
  * //     stripePrivyConfiguration: { // StripePrivyConfigurationOutput
  * //       appId: "STRING_VALUE", // required
  * //       appSecretArn: {
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       appSecretJsonKey: "STRING_VALUE",
+ * //       appSecretSource: "MANAGED" || "EXTERNAL",
  * //       authorizationPrivateKeyArn: {
  * //         secretArn: "STRING_VALUE", // required
  * //       },
+ * //       authorizationPrivateKeyJsonKey: "STRING_VALUE",
+ * //       authorizationPrivateKeySource: "MANAGED" || "EXTERNAL",
  * //       authorizationId: "STRING_VALUE", // required
  * //     },
  * //   },

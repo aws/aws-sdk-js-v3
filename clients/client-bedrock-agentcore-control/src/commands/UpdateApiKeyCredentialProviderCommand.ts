@@ -42,7 +42,12 @@ export interface UpdateApiKeyCredentialProviderCommandOutput extends UpdateApiKe
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdateApiKeyCredentialProviderRequest
  *   name: "STRING_VALUE", // required
- *   apiKey: "STRING_VALUE", // required
+ *   apiKey: "STRING_VALUE",
+ *   apiKeySecretConfig: { // SecretReference
+ *     secretId: "STRING_VALUE", // required
+ *     jsonKey: "STRING_VALUE", // required
+ *   },
+ *   apiKeySecretSource: "MANAGED" || "EXTERNAL",
  * };
  * const command = new UpdateApiKeyCredentialProviderCommand(input);
  * const response = await client.send(command);
@@ -50,6 +55,8 @@ export interface UpdateApiKeyCredentialProviderCommandOutput extends UpdateApiKe
  * //   apiKeySecretArn: { // Secret
  * //     secretArn: "STRING_VALUE", // required
  * //   },
+ * //   apiKeySecretJsonKey: "STRING_VALUE",
+ * //   apiKeySecretSource: "MANAGED" || "EXTERNAL",
  * //   name: "STRING_VALUE", // required
  * //   credentialProviderArn: "STRING_VALUE", // required
  * //   createdTime: new Date("TIMESTAMP"), // required
