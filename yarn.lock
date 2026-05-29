@@ -10894,7 +10894,7 @@ __metadata:
     "@aws-sdk/nested-clients": "workspace:^3.997.13"
     "@aws-sdk/types": "workspace:^3.973.9"
     "@smithy/core": "npm:^3.24.5"
-    "@smithy/credential-provider-imds": "npm:^4.3.5"
+    "@smithy/credential-provider-imds": "npm:^4.3.6"
     "@smithy/types": "npm:^4.14.2"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -10937,7 +10937,7 @@ __metadata:
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.45"
     "@aws-sdk/types": "workspace:^3.973.9"
     "@smithy/core": "npm:^3.24.5"
-    "@smithy/credential-provider-imds": "npm:^4.3.5"
+    "@smithy/credential-provider-imds": "npm:^4.3.6"
     "@smithy/types": "npm:^4.14.2"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -11024,7 +11024,7 @@ __metadata:
     "@aws-sdk/nested-clients": "workspace:^3.997.13"
     "@aws-sdk/types": "workspace:^3.973.9"
     "@smithy/core": "npm:^3.24.5"
-    "@smithy/credential-provider-imds": "npm:^4.3.5"
+    "@smithy/credential-provider-imds": "npm:^4.3.6"
     "@smithy/types": "npm:^4.14.2"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -16020,14 +16020,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/credential-provider-imds@npm:^4.3.5":
-  version: 4.3.5
-  resolution: "@smithy/credential-provider-imds@npm:4.3.5"
+"@smithy/credential-provider-imds@npm:^4.3.6":
+  version: 4.3.6
+  resolution: "@smithy/credential-provider-imds@npm:4.3.6"
   dependencies:
     "@smithy/core": "npm:^3.24.5"
     "@smithy/types": "npm:^4.14.2"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/8959dab1ac45640860e477efc4f15080771320c3180463c392c9929d55544d0833cee34ae7b2b9a1d591805e750846fdaf39d8861b5a4e38712089dbc0f888cb
+  checksum: 10c0/1aa59c84b4cd30f4c48bdae244cb154ae9d84696401cbfeae55259e3ab4694ca0a1a23a9f24b0d900b7bb8904cbe23c69c89248e320b5327531482de7eb6927e
   languageName: node
   linkType: hard
 

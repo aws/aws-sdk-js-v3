@@ -56,6 +56,21 @@ The filter for relevant PRs to include is the commit log between the prior bump 
 the latest `main` branch of smithy-ts, but scoped to the following
 folder: https://github.com/smithy-lang/smithy-typescript/commits/main/smithy-typescript-codegen/src/main/java/software/amazon/smithy/typescript/codegen
 
+**Important**: The "prior bump in version" refers to the **version bump commit** in smithy-typescript
+(e.g. the merge commit for the PR titled `smithy-typescript-codegen $PREV_VERSION`), NOT the value of
+`$PREV_COMMIT` in `config.js`. The `$PREV_COMMIT` in `config.js` is the smithy-ts commit that was used
+to _generate_ the previous release — it may be far ahead of the version bump commit because it includes
+all commits up to that point. To find the correct range for the changelog:
+
+```bash
+# In the smithy-typescript checkout:
+git log --oneline --after="$PREV_VERSION_DATE" --before="$DATE" \
+  -- smithy-typescript-codegen/src/main/java/software/amazon/smithy/typescript/codegen
+```
+
+Where `$PREV_VERSION_DATE` is the date shown in the CHANGELOG.md for the previous version entry.
+This date-based approach avoids confusion about which commit hash marks the boundary.
+
 The descriptions should be subjectless past-tense, like "Updated widgets to return sprockets.",
 and don't always match with the PR commit message. Only Java codegen commits are relevant.
 
@@ -123,6 +138,10 @@ throws if the hash is not 40 characters).
 Use the same changelog format as the changelog in smithy-ts. But, always include a mention that the upstream
 is being updated to `$VERSION`. The commits worth mentioning will appear
 in https://github.com/aws/aws-sdk-js-v3/commits/main/codegen/smithy-aws-typescript-codegen/src/main/java/software/amazon/smithy/aws/typescript/codegen.
+
+**Important**: Use the same date-based filtering as Part 1 — look at commits between the date of the
+previous version entry in `codegen/CHANGELOG.md` and today. Do not use `$PREV_COMMIT` from `config.js`
+as the boundary, as that value refers to a smithy-typescript commit, not an aws-sdk-js-v3 commit.
 
 As with smithy-ts, commits made that are no interest to applications consuming the code generation library may be
 omitted from the changelogs, as the full revision history is readily available.
