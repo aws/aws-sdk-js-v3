@@ -251,6 +251,19 @@ export type SuppressionListReason = (typeof SuppressionListReason)[keyof typeof 
  * @public
  * @enum
  */
+export const SuppressionListScope = {
+  ACCOUNT: "ACCOUNT",
+  TENANT: "TENANT",
+} as const;
+/**
+ * @public
+ */
+export type SuppressionListScope = (typeof SuppressionListScope)[keyof typeof SuppressionListScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const FeatureStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

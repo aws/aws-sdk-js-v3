@@ -28,7 +28,7 @@ export interface GetTenantCommandOutput extends GetTenantResponse, __MetadataBea
 
 /**
  * <p>Get information about a specific tenant, including the tenant's name, ID, ARN,
- *             creation timestamp, tags, and sending status.</p>
+ *             creation timestamp, tags, sending status, and suppression attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,12 @@ export interface GetTenantCommandOutput extends GetTenantResponse, __MetadataBea
  * //       },
  * //     ],
  * //     SendingStatus: "ENABLED" || "REINSTATED" || "DISABLED",
+ * //     SuppressionAttributes: { // TenantSuppressionAttributes
+ * //       SuppressedReasons: [ // SuppressionListReasons
+ * //         "BOUNCE" || "COMPLAINT",
+ * //       ],
+ * //       SuppressionScope: "ACCOUNT" || "TENANT",
+ * //     },
  * //   },
  * // };
  *

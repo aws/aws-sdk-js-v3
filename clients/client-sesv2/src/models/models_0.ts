@@ -47,6 +47,7 @@ import type {
   SuppressionConfidenceVerdictThreshold,
   SuppressionListImportAction,
   SuppressionListReason,
+  SuppressionListScope,
   TlsPolicy,
   VerificationError,
   VerificationStatus,
@@ -951,7 +952,7 @@ export interface CloudWatchDimensionConfiguration {
    *                     underscores (_), or dashes (-).</p>
    *             </li>
    *             <li>
-   *                <p>It can contain no more than 256 characters.</p>
+   *                <p>It can contain no more than 255 characters.</p>
    *             </li>
    *          </ul>
    * @public
@@ -978,7 +979,7 @@ export interface CloudWatchDimensionConfiguration {
    *                     underscores (_), or dashes (-), at signs (@), and periods (.).</p>
    *             </li>
    *             <li>
-   *                <p>It can contain no more than 256 characters.</p>
+   *                <p>It can contain no more than 255 characters.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1241,31 +1242,49 @@ export interface SuppressionValidationOptions {
 
 /**
  * <p>An object that contains information about the suppression list preferences for your
- *             account.</p>
+ *             account or for a specific tenant.</p>
  * @public
  */
 export interface SuppressionOptions {
   /**
    * <p>A list that contains the reasons that email addresses are automatically added to the
-   *             suppression list for your account. This list can contain any or all of the
+   *             suppression list for your account or for a specific tenant. This list can contain any or all of the
    *             following:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a
+   *                     list for your account or for a specific tenant when a message sent to that address results in a
    *                     complaint.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a hard
+   *                     list for your account or for a specific tenant when a message sent to that address results in a hard
    *                     bounce.</p>
    *             </li>
    *          </ul>
    * @public
    */
   SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>The suppression scope for the configuration set. This overrides the tenant or account
+   *             suppression scope for emails sent using this configuration set. Can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TENANT</code> – Use the tenant's suppression list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – Use the account-level suppression list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressionScope?: SuppressionListScope | undefined;
 
   /**
    * <p>Contains validation options for email address suppression.</p>
@@ -1473,8 +1492,9 @@ export interface CreateConfigurationSetRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>An object that contains information about the suppression list preferences for your
-   *             account.</p>
+   * <p>An object that contains information about the suppression list preferences for the
+   *             configuration set. You can optionally include a <code>SuppressionScope</code> to override the
+   *             tenant or account suppression scope for emails sent using this configuration set.</p>
    * @public
    */
   SuppressionOptions?: SuppressionOptions | undefined;
@@ -3225,6 +3245,51 @@ export interface CreateMultiRegionEndpointResponse {
 }
 
 /**
+ * <p>An object that contains the suppression list preferences for a tenant.</p>
+ * @public
+ */
+export interface TenantSuppressionAttributes {
+  /**
+   * <p>A list that contains the reasons that email addresses are automatically added to the
+   *             suppression list for the tenant. This list can contain any or all of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list when a message sent to that address results in a complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list when a message sent to that address results in a hard bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>The suppression scope for the tenant. Can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TENANT</code> – The tenant uses its own suppression list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – The tenant uses the account-level suppression list.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope
+   *                 and uses the account-level suppression list.</p>
+   *          </note>
+   * @public
+   */
+  SuppressionScope?: SuppressionListScope | undefined;
+}
+
+/**
  * <p>Represents a request to create a tenant.</p>
  *          <p>
  *             <i>Tenants</i> are logical containers that group related SES resources together.
@@ -3246,6 +3311,13 @@ export interface CreateTenantRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An object that contains information about the suppression list preferences for the tenant.
+   *             Use this to configure tenant-level suppression at creation time.</p>
+   * @public
+   */
+  SuppressionAttributes?: TenantSuppressionAttributes | undefined;
 }
 
 /**
@@ -3288,6 +3360,12 @@ export interface CreateTenantResponse {
    * @public
    */
   SendingStatus?: SendingStatus | undefined;
+
+  /**
+   * <p>An object that contains the suppression list preferences for a tenant.</p>
+   * @public
+   */
+  SuppressionAttributes?: TenantSuppressionAttributes | undefined;
 }
 
 /**
@@ -3812,16 +3890,25 @@ export interface DeleteMultiRegionEndpointResponse {
 }
 
 /**
- * <p>A request to remove an email address from the suppression list for your
- *             account.</p>
+ * <p>A request to remove an email address from the suppression list for your account or
+ *             for a specific tenant.</p>
  * @public
  */
 export interface DeleteSuppressedDestinationRequest {
   /**
-   * <p>The suppressed email destination to remove from the account suppression list.</p>
+   * <p>The suppressed email destination to remove from the suppression list for your account
+   *             or for the specified tenant.</p>
    * @public
    */
   EmailAddress: string | undefined;
+
+  /**
+   * <p>The name of the tenant whose suppression list you want to remove the address from. If
+   *             you omit this parameter, the address is removed from the account-level suppression
+   *             list.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
 }
 
 /**
@@ -4791,7 +4878,7 @@ export interface GetConfigurationSetResponse {
 
   /**
    * <p>An object that contains information about the suppression list preferences for your
-   *             account.</p>
+   *             account or for a specific tenant.</p>
    * @public
    */
   SuppressionOptions?: SuppressionOptions | undefined;
@@ -6223,33 +6310,41 @@ export interface GetReputationEntityResponse {
 
 /**
  * <p>A request to retrieve information about an email address that's on the suppression
- *             list for your account.</p>
+ *             list for your account or for a specific tenant.</p>
  * @public
  */
 export interface GetSuppressedDestinationRequest {
   /**
-   * <p>The email address that's on the account suppression list.</p>
+   * <p>The email address that's on the suppression list for your account or for the
+   *             specified tenant.</p>
    * @public
    */
   EmailAddress: string | undefined;
+
+  /**
+   * <p>The name of the tenant whose suppression list you want to query. If you omit this
+   *             parameter, the operation targets the account-level suppression list.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
 }
 
 /**
  * <p>An object that contains additional attributes that are related an email address that
- *             is on the suppression list for your account.</p>
+ *             is on the suppression list for your account or for a specific tenant.</p>
  * @public
  */
 export interface SuppressedDestinationAttributes {
   /**
    * <p>The unique identifier of the email message that caused the email address to be added
-   *             to the suppression list for your account.</p>
+   *             to the suppression list for your account or for a specific tenant.</p>
    * @public
    */
   MessageId?: string | undefined;
 
   /**
    * <p>A unique identifier that's generated when an email address is added to the suppression
-   *             list for your account.</p>
+   *             list for your account or for a specific tenant.</p>
    * @public
    */
   FeedbackId?: string | undefined;
@@ -6257,18 +6352,20 @@ export interface SuppressedDestinationAttributes {
 
 /**
  * <p>An object that contains information about an email address that is on the suppression
- *             list for your account.</p>
+ *             list for your account or for a specific tenant.</p>
  * @public
  */
 export interface SuppressedDestination {
   /**
-   * <p>The email address that is on the suppression list for your account.</p>
+   * <p>The email address that is on the suppression list for your account or for a specific
+   *             tenant.</p>
    * @public
    */
   EmailAddress: string | undefined;
 
   /**
-   * <p>The reason that the address was added to the suppression list for your account.</p>
+   * <p>The reason that the address was added to the suppression list for your account or for
+   *             a specific tenant.</p>
    * @public
    */
   Reason: SuppressionListReason | undefined;
@@ -6282,10 +6379,18 @@ export interface SuppressedDestination {
 
   /**
    * <p>An optional value that can contain additional information about the reasons that the
-   *             address was added to the suppression list for your account.</p>
+   *             address was added to the suppression list for your account or for a specific
+   *             tenant.</p>
    * @public
    */
   Attributes?: SuppressedDestinationAttributes | undefined;
+
+  /**
+   * <p>The name of the tenant that the suppressed destination belongs to. This field is
+   *             present only when the suppressed destination is on a tenant's suppression list.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
 }
 
 /**
@@ -6352,6 +6457,12 @@ export interface Tenant {
    * @public
    */
   SendingStatus?: SendingStatus | undefined;
+
+  /**
+   * <p>An object that contains information about the suppression list preferences for the tenant.</p>
+   * @public
+   */
+  SuppressionAttributes?: TenantSuppressionAttributes | undefined;
 }
 
 /**
@@ -7436,12 +7547,20 @@ export interface ListResourceTenantsResponse {
 
 /**
  * <p>A request to obtain a list of email destinations that are on the suppression list for
- *             your account.</p>
+ *             your account or for a specific tenant.</p>
  * @public
  */
 export interface ListSuppressedDestinationsRequest {
   /**
-   * <p>The factors that caused the email address to be added to .</p>
+   * <p>The name of the tenant whose suppression list you want to retrieve. If you omit this
+   *             parameter, the operation targets the account-level suppression list.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
+
+  /**
+   * <p>The factors that caused the email address to be added to the suppression list for
+   *             your account or for a specific tenant.</p>
    * @public
    */
   Reasons?: SuppressionListReason[] | undefined;
@@ -7484,13 +7603,15 @@ export interface ListSuppressedDestinationsRequest {
  */
 export interface SuppressedDestinationSummary {
   /**
-   * <p>The email address that's on the suppression list for your account.</p>
+   * <p>The email address that's on the suppression list for your account or for a specific
+   *             tenant.</p>
    * @public
    */
   EmailAddress: string | undefined;
 
   /**
-   * <p>The reason that the address was added to the suppression list for your account.</p>
+   * <p>The reason that the address was added to the suppression list for your account or for
+   *             a specific tenant.</p>
    * @public
    */
   Reason: SuppressionListReason | undefined;
@@ -7517,9 +7638,9 @@ export interface ListSuppressedDestinationsResponse {
 
   /**
    * <p>A token that indicates that there are additional email addresses on the suppression
-   *             list for your account. To view additional suppressed addresses, issue another request to
-   *                 <code>ListSuppressedDestinations</code>, and pass this token in the
-   *                 <code>NextToken</code> parameter.</p>
+   *             list for your account or for the specified tenant. To view additional suppressed
+   *             addresses, issue another request to <code>ListSuppressedDestinations</code>, and pass
+   *             this token in the <code>NextToken</code> parameter.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7980,7 +8101,7 @@ export interface PutConfigurationSetSendingOptionsRequest {
 export interface PutConfigurationSetSendingOptionsResponse {}
 
 /**
- * <p>A request to change the account suppression list preferences for a specific
+ * <p>A request to change the suppression list preferences for a specific
  *             configuration set.</p>
  * @public
  */
@@ -7993,20 +8114,38 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
   ConfigurationSetName: string | undefined;
 
   /**
+   * <p>The suppression scope for the configuration set. This overrides the tenant or account
+   *             suppression scope for emails sent using this configuration set. Can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TENANT</code> – Use the tenant's suppression list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – Use the account-level suppression list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressionScope?: SuppressionListScope | undefined;
+
+  /**
    * <p>A list that contains the reasons that email addresses are automatically added to the
-   *             suppression list for your account. This list can contain any or all of the
+   *             suppression list for your account or for a specific tenant. This list can contain any or all of the
    *             following:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a
+   *                     list for your account or for a specific tenant when a message sent to that address results in a
    *                     complaint.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a hard
+   *                     list for your account or for a specific tenant when a message sent to that address results in a hard
    *                     bounce.</p>
    *             </li>
    *          </ul>
@@ -8409,10 +8548,3 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
    */
   EmailForwardingEnabled?: boolean | undefined;
 }
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutEmailIdentityFeedbackAttributesResponse {}

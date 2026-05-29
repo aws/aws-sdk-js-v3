@@ -1,5 +1,11 @@
 // smithy-typescript generated code
-import type { BehaviorOnMxFailure, ReputationEntityType, SendingStatus, SuppressionListReason } from "./enums";
+import type {
+  BehaviorOnMxFailure,
+  ReputationEntityType,
+  SendingStatus,
+  SuppressionListReason,
+  SuppressionListScope,
+} from "./enums";
 import type {
   BulkEmailContent,
   BulkEmailEntry,
@@ -14,6 +20,13 @@ import type {
   Topic,
   TopicPreference,
 } from "./models_0";
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityFeedbackAttributesResponse {}
 
 /**
  * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
@@ -68,23 +81,31 @@ export interface PutEmailIdentityMailFromAttributesRequest {
 export interface PutEmailIdentityMailFromAttributesResponse {}
 
 /**
- * <p>A request to add an email destination to the suppression list for your account.</p>
+ * <p>A request to add an email destination to the suppression list for your account or
+ *             for a specific tenant.</p>
  * @public
  */
 export interface PutSuppressedDestinationRequest {
   /**
-   * <p>The email address that should be added to the suppression list for your
-   *             account.</p>
+   * <p>The email address that should be added to the suppression list for your account or
+   *             for the specified tenant.</p>
    * @public
    */
   EmailAddress: string | undefined;
 
   /**
    * <p>The factors that should cause the email address to be added to the suppression list
-   *             for your account.</p>
+   *             for your account or for the specified tenant.</p>
    * @public
    */
   Reason: SuppressionListReason | undefined;
+
+  /**
+   * <p>The name of the tenant whose suppression list you want to add the address to. If you
+   *             omit this parameter, the address is added to the account-level suppression list.</p>
+   * @public
+   */
+  TenantName?: string | undefined;
 }
 
 /**
@@ -93,6 +114,55 @@ export interface PutSuppressedDestinationRequest {
  * @public
  */
 export interface PutSuppressedDestinationResponse {}
+
+/**
+ * <p>A request to configure the suppression list preferences for a tenant.</p>
+ * @public
+ */
+export interface PutTenantSuppressionAttributesRequest {
+  /**
+   * <p>The name of the tenant to configure suppression list preferences for.</p>
+   * @public
+   */
+  TenantName: string | undefined;
+
+  /**
+   * <p>A list that contains the reasons that email addresses are automatically added to the
+   *             suppression list for the tenant. This list can contain any or all of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list when a message sent to that address results in a complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list when a message sent to that address results in a hard bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+
+  /**
+   * <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's
+   *             own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p>
+   *          <note>
+   *             <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope
+   *                 and uses the account-level suppression list.</p>
+   *          </note>
+   * @public
+   */
+  SuppressionScope?: SuppressionListScope | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ * @public
+ */
+export interface PutTenantSuppressionAttributesResponse {}
 
 /**
  * <p>Represents a request to send email messages to multiple destinations using Amazon SES. For

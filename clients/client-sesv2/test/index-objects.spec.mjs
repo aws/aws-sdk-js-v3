@@ -530,6 +530,10 @@ import {
   PutSuppressedDestinationCommand,
   PutSuppressedDestinationRequest$,
   PutSuppressedDestinationResponse$,
+  PutTenantSuppressionAttributes$,
+  PutTenantSuppressionAttributesCommand,
+  PutTenantSuppressionAttributesRequest$,
+  PutTenantSuppressionAttributesResponse$,
   QueryErrorCode,
   RawMessage$,
   Recommendation$,
@@ -584,6 +588,7 @@ import {
   SuppressionListDestination$,
   SuppressionListImportAction,
   SuppressionListReason,
+  SuppressionListScope,
   SuppressionOptions$,
   SuppressionValidationAttributes$,
   SuppressionValidationOptions$,
@@ -596,6 +601,7 @@ import {
   Tenant$,
   TenantInfo$,
   TenantResource$,
+  TenantSuppressionAttributes$,
   TestRenderEmailTemplate$,
   TestRenderEmailTemplateCommand,
   TestRenderEmailTemplateRequest$,
@@ -848,6 +854,8 @@ assert(typeof PutEmailIdentityMailFromAttributesCommand === "function");
 assert(typeof PutEmailIdentityMailFromAttributes$ === "object");
 assert(typeof PutSuppressedDestinationCommand === "function");
 assert(typeof PutSuppressedDestination$ === "object");
+assert(typeof PutTenantSuppressionAttributesCommand === "function");
+assert(typeof PutTenantSuppressionAttributes$ === "object");
 assert(typeof SendBulkEmailCommand === "function");
 assert(typeof SendBulkEmail$ === "object");
 assert(typeof SendCustomVerificationEmailCommand === "function");
@@ -1143,6 +1151,8 @@ assert(typeof PutEmailIdentityMailFromAttributesRequest$ === "object");
 assert(typeof PutEmailIdentityMailFromAttributesResponse$ === "object");
 assert(typeof PutSuppressedDestinationRequest$ === "object");
 assert(typeof PutSuppressedDestinationResponse$ === "object");
+assert(typeof PutTenantSuppressionAttributesRequest$ === "object");
+assert(typeof PutTenantSuppressionAttributesResponse$ === "object");
 assert(typeof RawMessage$ === "object");
 assert(typeof Recommendation$ === "object");
 assert(typeof ReplacementEmailContent$ === "object");
@@ -1181,6 +1191,7 @@ assert(typeof Template$ === "object");
 assert(typeof Tenant$ === "object");
 assert(typeof TenantInfo$ === "object");
 assert(typeof TenantResource$ === "object");
+assert(typeof TenantSuppressionAttributes$ === "object");
 assert(typeof TestRenderEmailTemplateRequest$ === "object");
 assert(typeof TestRenderEmailTemplateResponse$ === "object");
 assert(typeof Topic$ === "object");
@@ -1257,6 +1268,7 @@ assert(typeof SubscriptionStatus === "object");
 assert(typeof SuppressionConfidenceVerdictThreshold === "object");
 assert(typeof SuppressionListImportAction === "object");
 assert(typeof SuppressionListReason === "object");
+assert(typeof SuppressionListScope === "object");
 assert(typeof TlsPolicy === "object");
 assert(typeof VerificationError === "object");
 assert(typeof VerificationStatus === "object");

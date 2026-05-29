@@ -76,6 +76,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * //     SuppressedReasons: [ // SuppressionListReasons
  * //       "BOUNCE" || "COMPLAINT",
  * //     ],
+ * //     SuppressionScope: "ACCOUNT" || "TENANT",
  * //     ValidationOptions: { // SuppressionValidationOptions
  * //       ConditionThreshold: { // SuppressionConditionThreshold
  * //         ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required

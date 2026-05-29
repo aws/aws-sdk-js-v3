@@ -28,7 +28,9 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
 
 /**
  * <p>Retrieves information about a specific email address that's on the suppression list
- *             for your account.</p>
+ *             for your account or for a specific tenant. To target a tenant's suppression list,
+ *             specify the <code>TenantName</code> parameter. If you omit <code>TenantName</code>,
+ *             the operation targets the account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +41,7 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * const client = new SESv2Client(config);
  * const input = { // GetSuppressedDestinationRequest
  *   EmailAddress: "STRING_VALUE", // required
+ *   TenantName: "STRING_VALUE",
  * };
  * const command = new GetSuppressedDestinationCommand(input);
  * const response = await client.send(command);
@@ -51,6 +54,7 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * //       MessageId: "STRING_VALUE",
  * //       FeedbackId: "STRING_VALUE",
  * //     },
+ * //     TenantName: "STRING_VALUE",
  * //   },
  * // };
  *

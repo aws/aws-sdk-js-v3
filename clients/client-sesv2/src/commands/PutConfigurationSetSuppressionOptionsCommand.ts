@@ -30,7 +30,10 @@ export interface PutConfigurationSetSuppressionOptionsCommandInput extends PutCo
 export interface PutConfigurationSetSuppressionOptionsCommandOutput extends PutConfigurationSetSuppressionOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Specify the account suppression list preferences for a configuration set.</p>
+ * <p>Specify the suppression list preferences for a configuration set. You can
+ *             also use this operation to specify a <code>SuppressionScope</code> to override the
+ *             suppression scope of the tenant or account for emails sent using this configuration
+ *             set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +44,7 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput extends PutC
  * const client = new SESv2Client(config);
  * const input = { // PutConfigurationSetSuppressionOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
+ *   SuppressionScope: "ACCOUNT" || "TENANT",
  *   SuppressedReasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],

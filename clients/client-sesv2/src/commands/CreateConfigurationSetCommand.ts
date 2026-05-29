@@ -68,6 +68,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *     SuppressedReasons: [ // SuppressionListReasons
  *       "BOUNCE" || "COMPLAINT",
  *     ],
+ *     SuppressionScope: "ACCOUNT" || "TENANT",
  *     ValidationOptions: { // SuppressionValidationOptions
  *       ConditionThreshold: { // SuppressionConditionThreshold
  *         ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required

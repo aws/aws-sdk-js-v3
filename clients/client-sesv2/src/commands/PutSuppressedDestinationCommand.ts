@@ -27,7 +27,10 @@ export interface PutSuppressedDestinationCommandInput extends PutSuppressedDesti
 export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an email address to the suppression list for your account.</p>
+ * <p>Adds an email address to the suppression list for your account or for a specific
+ *             tenant. To target a tenant's suppression list, specify the <code>TenantName</code>
+ *             parameter. If you omit <code>TenantName</code>, the address is added to the
+ *             account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +42,7 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * const input = { // PutSuppressedDestinationRequest
  *   EmailAddress: "STRING_VALUE", // required
  *   Reason: "BOUNCE" || "COMPLAINT", // required
+ *   TenantName: "STRING_VALUE",
  * };
  * const command = new PutSuppressedDestinationCommand(input);
  * const response = await client.send(command);
@@ -54,6 +58,9 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>

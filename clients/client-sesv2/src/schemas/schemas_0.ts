@@ -595,6 +595,9 @@ const _PSDR = "PutSuppressedDestinationRequest";
 const _PSDRu = "PutSuppressedDestinationResponse";
 const _PSl = "PlacementStatistics";
 const _PSr = "ProjectedSpam";
+const _PTSA = "PutTenantSuppressionAttributes";
+const _PTSAR = "PutTenantSuppressionAttributesRequest";
+const _PTSARu = "PutTenantSuppressionAttributesResponse";
 const _PV = "ProjectedVolume";
 const _Po = "Policies";
 const _Q = "Queries";
@@ -691,7 +694,8 @@ const _SRt = "StatusRecord";
 const _SS = "SendingStatus";
 const _SSA = "SendingStatusAggregate";
 const _SSD = "SubscriptionStartDate";
-const _SSu = "SubscriptionStatus";
+const _SSu = "SuppressionScope";
+const _SSub = "SubscriptionStatus";
 const _SU = "S3Url";
 const _SVA = "SuppressionValidationAttributes";
 const _SVO = "SuppressionValidationOptions";
@@ -733,6 +737,7 @@ const _TRRa = "TagResourceResponse";
 const _TRa = "TagResource";
 const _TRe = "TenantResource";
 const _TS = "TemplateSubject";
+const _TSA = "TenantSuppressionAttributes";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Te = "Template";
@@ -1161,8 +1166,8 @@ export var CreateMultiRegionEndpointResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateTenantRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_TNe, _Ta],
-  [0, () => TagList], 1
+  [_TNe, _Ta, _SA],
+  [0, () => TagList, () => TenantSuppressionAttributes$], 1
 ];
 export var CreateTenantResourceAssociationRequest$: StaticStructureSchema = [3, n0, _CTRAR,
   0,
@@ -1176,8 +1181,8 @@ export var CreateTenantResourceAssociationResponse$: StaticStructureSchema = [3,
 ];
 export var CreateTenantResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
-  [_TNe, _TI, _TA, _CTr, _Ta, _SS],
-  [0, 0, 0, 4, () => TagList, 0]
+  [_TNe, _TI, _TA, _CTr, _Ta, _SS, _SA],
+  [0, 0, 0, 4, () => TagList, 0, () => TenantSuppressionAttributes$]
 ];
 export var CustomVerificationEmailTemplateMetadata$: StaticStructureSchema = [3, n0, _CVETM,
   0,
@@ -1311,8 +1316,8 @@ export var DeleteMultiRegionEndpointResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var DeleteSuppressedDestinationRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
-  [_EA],
-  [[0, 1]], 1
+  [_EA, _TNe],
+  [[0, 1], [0, { [_hQ]: _TNe }]], 1
 ];
 export var DeleteSuppressedDestinationResponse$: StaticStructureSchema = [3, n0, _DSDRe,
   0,
@@ -1696,8 +1701,8 @@ export var GetReputationEntityResponse$: StaticStructureSchema = [3, n0, _GRERe,
 ];
 export var GetSuppressedDestinationRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
-  [_EA],
-  [[0, 1]], 1
+  [_EA, _TNe],
+  [[0, 1], [0, { [_hQ]: _TNe }]], 1
 ];
 export var GetSuppressedDestinationResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -1926,8 +1931,8 @@ export var ListResourceTenantsResponse$: StaticStructureSchema = [3, n0, _LRTRi,
 ];
 export var ListSuppressedDestinationsRequest$: StaticStructureSchema = [3, n0, _LSDR,
   0,
-  [_Rea, _SD, _ED, _NT, _PS],
-  [[64 | 0, { [_hQ]: _Reas }], [4, { [_hQ]: _SD }], [4, { [_hQ]: _ED }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _PS }]]
+  [_TNe, _Rea, _SD, _ED, _NT, _PS],
+  [[0, { [_hQ]: _TNe }], [64 | 0, { [_hQ]: _Reas }], [4, { [_hQ]: _SD }], [4, { [_hQ]: _ED }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _PS }]]
 ];
 export var ListSuppressedDestinationsResponse$: StaticStructureSchema = [3, n0, _LSDRi,
   0,
@@ -2126,8 +2131,8 @@ export var PutConfigurationSetSendingOptionsResponse$: StaticStructureSchema = [
 ];
 export var PutConfigurationSetSuppressionOptionsRequest$: StaticStructureSchema = [3, n0, _PCSSORut,
   0,
-  [_CSN, _SR, _VOa],
-  [[0, 1], 64 | 0, () => SuppressionValidationOptions$], 1
+  [_CSN, _SSu, _SR, _VOa],
+  [[0, 1], 0, 64 | 0, () => SuppressionValidationOptions$], 1
 ];
 export var PutConfigurationSetSuppressionOptionsResponse$: StaticStructureSchema = [3, n0, _PCSSORuto,
   0,
@@ -2246,10 +2251,20 @@ export var PutEmailIdentityMailFromAttributesResponse$: StaticStructureSchema = 
 ];
 export var PutSuppressedDestinationRequest$: StaticStructureSchema = [3, n0, _PSDR,
   0,
-  [_EA, _Reas],
-  [0, 0], 2
+  [_EA, _Reas, _TNe],
+  [0, 0, 0], 2
 ];
 export var PutSuppressedDestinationResponse$: StaticStructureSchema = [3, n0, _PSDRu,
+  0,
+  [],
+  []
+];
+export var PutTenantSuppressionAttributesRequest$: StaticStructureSchema = [3, n0, _PTSAR,
+  0,
+  [_TNe, _SR, _SSu],
+  [0, 64 | 0, 0], 1
+];
+export var PutTenantSuppressionAttributesResponse$: StaticStructureSchema = [3, n0, _PTSARu,
   0,
   [],
   []
@@ -2361,8 +2376,8 @@ export var StatusRecord$: StaticStructureSchema = [3, n0, _SRt,
 ];
 export var SuppressedDestination$: StaticStructureSchema = [3, n0, _SDu,
   0,
-  [_EA, _Reas, _LUTa, _Att],
-  [0, 0, 4, () => SuppressedDestinationAttributes$], 3
+  [_EA, _Reas, _LUTa, _Att, _TNe],
+  [0, 0, 4, () => SuppressedDestinationAttributes$, 0], 3
 ];
 export var SuppressedDestinationAttributes$: StaticStructureSchema = [3, n0, _SDA,
   0,
@@ -2396,8 +2411,8 @@ export var SuppressionListDestination$: StaticStructureSchema = [3, n0, _SLD,
 ];
 export var SuppressionOptions$: StaticStructureSchema = [3, n0, _SOu,
   0,
-  [_SR, _VOa],
-  [64 | 0, () => SuppressionValidationOptions$]
+  [_SR, _SSu, _VOa],
+  [64 | 0, 0, () => SuppressionValidationOptions$]
 ];
 export var SuppressionValidationAttributes$: StaticStructureSchema = [3, n0, _SVA,
   0,
@@ -2431,8 +2446,8 @@ export var Template$: StaticStructureSchema = [3, n0, _Te,
 ];
 export var Tenant$: StaticStructureSchema = [3, n0, _Ten,
   0,
-  [_TNe, _TI, _TA, _CTr, _Ta, _SS],
-  [0, 0, 0, 4, () => TagList, 0]
+  [_TNe, _TI, _TA, _CTr, _Ta, _SS, _SA],
+  [0, 0, 0, 4, () => TagList, 0, () => TenantSuppressionAttributes$]
 ];
 export var TenantInfo$: StaticStructureSchema = [3, n0, _TIe,
   0,
@@ -2443,6 +2458,11 @@ export var TenantResource$: StaticStructureSchema = [3, n0, _TRe,
   0,
   [_RTes, _RA],
   [0, 0]
+];
+export var TenantSuppressionAttributes$: StaticStructureSchema = [3, n0, _TSA,
+  0,
+  [_SR, _SSu],
+  [64 | 0, 0]
 ];
 export var TestRenderEmailTemplateRequest$: StaticStructureSchema = [3, n0, _TRETR,
   0,
@@ -2466,7 +2486,7 @@ export var TopicFilter$: StaticStructureSchema = [3, n0, _TF,
 ];
 export var TopicPreference$: StaticStructureSchema = [3, n0, _TPo,
   0,
-  [_TNo, _SSu],
+  [_TNo, _SSub],
   [0, 0], 2
 ];
 export var TrackingOptions$: StaticStructureSchema = [3, n0, _TO,
@@ -3033,6 +3053,9 @@ export var PutEmailIdentityMailFromAttributes$: StaticOperationSchema = [9, n0, 
 ];
 export var PutSuppressedDestination$: StaticOperationSchema = [9, n0, _PSD,
   { [_h]: ["PUT", "/v2/email/suppression/addresses", 200] }, () => PutSuppressedDestinationRequest$, () => PutSuppressedDestinationResponse$
+];
+export var PutTenantSuppressionAttributes$: StaticOperationSchema = [9, n0, _PTSA,
+  { [_h]: ["POST", "/v2/email/tenant/suppression", 200] }, () => PutTenantSuppressionAttributesRequest$, () => PutTenantSuppressionAttributesResponse$
 ];
 export var SendBulkEmail$: StaticOperationSchema = [9, n0, _SBE,
   { [_h]: ["POST", "/v2/email/outbound-bulk-emails", 200] }, () => SendBulkEmailRequest$, () => SendBulkEmailResponse$

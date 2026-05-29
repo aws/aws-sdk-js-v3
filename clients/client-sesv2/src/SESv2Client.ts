@@ -372,6 +372,10 @@ import type {
   PutSuppressedDestinationCommandInput,
   PutSuppressedDestinationCommandOutput,
 } from "./commands/PutSuppressedDestinationCommand";
+import type {
+  PutTenantSuppressionAttributesCommandInput,
+  PutTenantSuppressionAttributesCommandOutput,
+} from "./commands/PutTenantSuppressionAttributesCommand";
 import type { SendBulkEmailCommandInput, SendBulkEmailCommandOutput } from "./commands/SendBulkEmailCommand";
 import type {
   SendCustomVerificationEmailCommandInput,
@@ -524,6 +528,7 @@ export type ServiceInputTypes =
   | PutEmailIdentityFeedbackAttributesCommandInput
   | PutEmailIdentityMailFromAttributesCommandInput
   | PutSuppressedDestinationCommandInput
+  | PutTenantSuppressionAttributesCommandInput
   | SendBulkEmailCommandInput
   | SendCustomVerificationEmailCommandInput
   | SendEmailCommandInput
@@ -639,6 +644,7 @@ export type ServiceOutputTypes =
   | PutEmailIdentityFeedbackAttributesCommandOutput
   | PutEmailIdentityMailFromAttributesCommandOutput
   | PutSuppressedDestinationCommandOutput
+  | PutTenantSuppressionAttributesCommandOutput
   | SendBulkEmailCommandOutput
   | SendCustomVerificationEmailCommandOutput
   | SendEmailCommandOutput

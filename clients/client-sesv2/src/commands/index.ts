@@ -95,6 +95,7 @@ export * from "./PutEmailIdentityDkimSigningAttributesCommand";
 export * from "./PutEmailIdentityFeedbackAttributesCommand";
 export * from "./PutEmailIdentityMailFromAttributesCommand";
 export * from "./PutSuppressedDestinationCommand";
+export * from "./PutTenantSuppressionAttributesCommand";
 export * from "./SendBulkEmailCommand";
 export * from "./SendCustomVerificationEmailCommand";
 export * from "./SendEmailCommand";

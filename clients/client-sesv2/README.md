@@ -859,6 +859,13 @@ PutSuppressedDestination
 </details>
 <details>
 <summary>
+PutTenantSuppressionAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/PutTenantSuppressionAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutTenantSuppressionAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutTenantSuppressionAttributesCommandOutput/)
+</details>
+<details>
+<summary>
 SendBulkEmail
 </summary>
 

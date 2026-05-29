@@ -27,7 +27,10 @@ export interface DeleteSuppressedDestinationCommandInput extends DeleteSuppresse
 export interface DeleteSuppressedDestinationCommandOutput extends DeleteSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Removes an email address from the suppression list for your account.</p>
+ * <p>Removes an email address from the suppression list for your account or for a specific
+ *             tenant. To target a tenant's suppression list, specify the <code>TenantName</code>
+ *             parameter. If you omit <code>TenantName</code>, the address is removed from the
+ *             account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +41,7 @@ export interface DeleteSuppressedDestinationCommandOutput extends DeleteSuppress
  * const client = new SESv2Client(config);
  * const input = { // DeleteSuppressedDestinationRequest
  *   EmailAddress: "STRING_VALUE", // required
+ *   TenantName: "STRING_VALUE",
  * };
  * const command = new DeleteSuppressedDestinationCommand(input);
  * const response = await client.send(command);

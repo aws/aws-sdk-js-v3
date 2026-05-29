@@ -33,6 +33,9 @@ export interface CreateTenantCommandOutput extends CreateTenantResponse, __Metad
  *             Each tenant can have its own set of resources like email identities, configuration sets,
  *             and templates, along with reputation metrics and sending status. This helps isolate and manage
  *             email sending for different customers or business units within your Amazon SES API v2 account.</p>
+ *          <p>You can optionally specify <code>SuppressionAttributes</code> to configure tenant-level
+ *             suppression at creation time. When tenant-level suppression is enabled, Amazon SES maintains a
+ *             separate suppression list for the tenant instead of using the account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +52,12 @@ export interface CreateTenantCommandOutput extends CreateTenantResponse, __Metad
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   SuppressionAttributes: { // TenantSuppressionAttributes
+ *     SuppressedReasons: [ // SuppressionListReasons
+ *       "BOUNCE" || "COMPLAINT",
+ *     ],
+ *     SuppressionScope: "ACCOUNT" || "TENANT",
+ *   },
  * };
  * const command = new CreateTenantCommand(input);
  * const response = await client.send(command);
@@ -64,6 +73,12 @@ export interface CreateTenantCommandOutput extends CreateTenantResponse, __Metad
  * //     },
  * //   ],
  * //   SendingStatus: "ENABLED" || "REINSTATED" || "DISABLED",
+ * //   SuppressionAttributes: { // TenantSuppressionAttributes
+ * //     SuppressedReasons: [ // SuppressionListReasons
+ * //       "BOUNCE" || "COMPLAINT",
+ * //     ],
+ * //     SuppressionScope: "ACCOUNT" || "TENANT",
+ * //   },
  * // };
  *
  * ```

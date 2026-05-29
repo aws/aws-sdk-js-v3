@@ -479,6 +479,11 @@ import {
   PutSuppressedDestinationCommand,
 } from "./commands/PutSuppressedDestinationCommand";
 import {
+  type PutTenantSuppressionAttributesCommandInput,
+  type PutTenantSuppressionAttributesCommandOutput,
+  PutTenantSuppressionAttributesCommand,
+} from "./commands/PutTenantSuppressionAttributesCommand";
+import {
   type SendBulkEmailCommandInput,
   type SendBulkEmailCommandOutput,
   SendBulkEmailCommand,
@@ -664,6 +669,7 @@ const commands = {
   PutEmailIdentityFeedbackAttributesCommand,
   PutEmailIdentityMailFromAttributesCommand,
   PutSuppressedDestinationCommand,
+  PutTenantSuppressionAttributesCommand,
   SendBulkEmailCommand,
   SendCustomVerificationEmailCommand,
   SendEmailCommand,
@@ -2352,6 +2358,23 @@ export interface SESv2 {
     args: PutSuppressedDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutSuppressedDestinationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTenantSuppressionAttributesCommand}
+   */
+  putTenantSuppressionAttributes(
+    args: PutTenantSuppressionAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTenantSuppressionAttributesCommandOutput>;
+  putTenantSuppressionAttributes(
+    args: PutTenantSuppressionAttributesCommandInput,
+    cb: (err: any, data?: PutTenantSuppressionAttributesCommandOutput) => void
+  ): void;
+  putTenantSuppressionAttributes(
+    args: PutTenantSuppressionAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTenantSuppressionAttributesCommandOutput) => void
   ): void;
 
   /**

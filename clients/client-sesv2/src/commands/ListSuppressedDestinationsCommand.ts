@@ -28,7 +28,9 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
 
 /**
  * <p>Retrieves a list of email addresses that are on the suppression list for your
- *             account.</p>
+ *             account or for a specific tenant. To target a tenant's suppression list, specify the
+ *             <code>TenantName</code> parameter. If you omit <code>TenantName</code>, the operation
+ *             targets the account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +40,7 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // ListSuppressedDestinationsRequest
+ *   TenantName: "STRING_VALUE",
  *   Reasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],
@@ -72,6 +75,9 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  *
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The specified request includes an invalid or expired token.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
