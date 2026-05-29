@@ -60,6 +60,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   workflowVersionName: "STRING_VALUE",
  *   networkingMode: "STRING_VALUE",
  *   configurationName: "STRING_VALUE",
+ *   engineSettings: "DOCUMENT_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);

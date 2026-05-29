@@ -103,6 +103,17 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //     providerEndpoint: "STRING_VALUE",
  * //   },
  * //   readmePath: "STRING_VALUE",
+ * //   profiles: [ // WorkflowProfileList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   profileParameterTemplates: { // WorkflowProfileParameterTemplates
+ * //     "<keys>": {
+ * //       "<keys>": {
+ * //         description: "STRING_VALUE",
+ * //         optional: true || false,
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

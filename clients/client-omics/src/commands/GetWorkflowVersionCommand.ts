@@ -105,6 +105,17 @@ export interface GetWorkflowVersionCommandOutput extends GetWorkflowVersionRespo
  * //     providerEndpoint: "STRING_VALUE",
  * //   },
  * //   readmePath: "STRING_VALUE",
+ * //   profiles: [ // WorkflowProfileList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   profileParameterTemplates: { // WorkflowProfileParameterTemplates
+ * //     "<keys>": {
+ * //       "<keys>": {
+ * //         description: "STRING_VALUE",
+ * //         optional: true || false,
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

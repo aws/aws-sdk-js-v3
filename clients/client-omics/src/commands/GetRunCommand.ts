@@ -104,6 +104,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //     ],
  * //     vpcId: "STRING_VALUE",
  * //   },
+ * //   engineSettings: "DOCUMENT_VALUE",
  * // };
  *
  * ```

@@ -458,6 +458,7 @@ const _VSIa = "VariantStoreItems";
 const _WL = "WorkflowList";
 const _WLI = "WorkflowListItem";
 const _WP = "WorkflowParameter";
+const _WPPT = "WorkflowProfileParameterTemplates";
 const _WPT = "WorkflowParameterTemplate";
 const _WVL = "WorkflowVersionList";
 const _WVLI = "WorkflowVersionListItem";
@@ -522,6 +523,7 @@ const _eJ = "exportJobs";
 const _eLS = "engineLogStream";
 const _eQ = "escapeQuotes";
 const _eRP = "ecrRepositoryPrefix";
+const _eS = "engineSettings";
 const _eTAF = "eTagAlgorithmFamily";
 const _eV = "engineVersion";
 const _en = "engine";
@@ -597,6 +599,7 @@ const _oU = "outputUri";
 const _p = "parts";
 const _pE = "providerEndpoint";
 const _pN = "partNumber";
+const _pPT = "profileParameterTemplates";
 const _pRC = "pendingRunCount";
 const _pS = "partSource";
 const _pSLT = "propagatedSetLevelTags";
@@ -610,6 +613,7 @@ const _pTro = "processedTime";
 const _pa = "parameters";
 const _pay = "payload";
 const _pr = "priority";
+const _pro = "profiles";
 const _q = "quote";
 const _qA = "quoteAll";
 const _r = "reference";
@@ -1452,8 +1456,8 @@ export var GetRunRequest$: StaticStructureSchema = [3, n0, _GRRet,
 ];
 export var GetRunResponse$: StaticStructureSchema = [3, n0, _GRRetu,
   0,
-  [_ar, _i, _cI, _cBa, _eV, _sta, _wI, _wT, _rIu, _rA, _n, _rGI, _bI, _pr, _def, _di, _pa, _sCt, _oU, _lL, _rD, _sB, _cT, _sTt, _sTto, _sM, _ta, _ac, _rMet, _fR, _lLo, _u, _rOU, _sT, _wOI, _wVN, _wU, _nM, _co, _vC],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, 128 | 0, 0, 5, 5, 5, 0, 128 | 0, 0, 0, 0, () => RunLogLocation$, 0, 0, 0, 0, 0, 0, 0, () => ConfigurationDetails$, () => VpcConfigResponse$]
+  [_ar, _i, _cI, _cBa, _eV, _sta, _wI, _wT, _rIu, _rA, _n, _rGI, _bI, _pr, _def, _di, _pa, _sCt, _oU, _lL, _rD, _sB, _cT, _sTt, _sTto, _sM, _ta, _ac, _rMet, _fR, _lLo, _u, _rOU, _sT, _wOI, _wVN, _wU, _nM, _co, _vC, _eS],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, 128 | 0, 0, 5, 5, 5, 0, 128 | 0, 0, 0, 0, () => RunLogLocation$, 0, 0, 0, 0, 0, 0, 0, () => ConfigurationDetails$, () => VpcConfigResponse$, 15]
 ];
 export var GetRunTaskRequest$: StaticStructureSchema = [3, n0, _GRTR,
   0,
@@ -1522,8 +1526,8 @@ export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
 ];
 export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_ar, _i, _sta, _ty, _n, _d, _en, _def, _ma, _di, _pT, _sCt, _cT, _sM, _ta, _met, _ac, _sT, _u, _cRM, _re, _dRD, _rP],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => WorkflowParameterTemplate, 1, 5, 0, 128 | 0, 128 | 0, 0, 0, 0, () => ContainerRegistryMap$, 0, () => DefinitionRepositoryDetails$, 0]
+  [_ar, _i, _sta, _ty, _n, _d, _en, _def, _ma, _di, _pT, _sCt, _cT, _sM, _ta, _met, _ac, _sT, _u, _cRM, _re, _dRD, _rP, _pro, _pPT],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => WorkflowParameterTemplate, 1, 5, 0, 128 | 0, 128 | 0, 0, 0, 0, () => ContainerRegistryMap$, 0, () => DefinitionRepositoryDetails$, 0, 64 | 0, () => WorkflowProfileParameterTemplates]
 ];
 export var GetWorkflowVersionRequest$: StaticStructureSchema = [3, n0, _GWVR,
   0,
@@ -1532,8 +1536,8 @@ export var GetWorkflowVersionRequest$: StaticStructureSchema = [3, n0, _GWVR,
 ];
 export var GetWorkflowVersionResponse$: StaticStructureSchema = [3, n0, _GWVRe,
   0,
-  [_ar, _wI, _vN, _ac, _cT, _d, _def, _di, _en, _ma, _met, _pT, _sta, _sM, _sT, _sCt, _ty, _ta, _u, _wBOI, _cRM, _re, _dRD, _rP],
-  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 128 | 0, () => WorkflowParameterTemplate, 0, 0, 0, 1, 0, 128 | 0, 0, 0, () => ContainerRegistryMap$, 0, () => DefinitionRepositoryDetails$, 0]
+  [_ar, _wI, _vN, _ac, _cT, _d, _def, _di, _en, _ma, _met, _pT, _sta, _sM, _sT, _sCt, _ty, _ta, _u, _wBOI, _cRM, _re, _dRD, _rP, _pro, _pPT],
+  [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 128 | 0, () => WorkflowParameterTemplate, 0, 0, 0, 1, 0, 128 | 0, 0, 0, () => ContainerRegistryMap$, 0, () => DefinitionRepositoryDetails$, 0, 64 | 0, () => WorkflowProfileParameterTemplates]
 ];
 export var ImageDetails$: StaticStructureSchema = [3, n0, _ID,
   0,
@@ -2112,8 +2116,8 @@ export var StartRunBatchResponse$: StaticStructureSchema = [3, n0, _SRBRt,
 ];
 export var StartRunRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
-  [_rA, _oU, _wI, _wT, _rIu, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN, _nM, _cN],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 128 | 0, [0, 4], 0, 0, 0, 0, 0, 0], 2
+  [_rA, _oU, _wI, _wT, _rIu, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN, _nM, _cN, _eS],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 128 | 0, [0, 4], 0, 0, 0, 0, 0, 0, 15], 2
 ];
 export var StartRunResponse$: StaticStructureSchema = [3, n0, _SRRt,
   0,
@@ -2443,6 +2447,7 @@ var WorkflowExportList = 64 | 0;
 var WorkflowList: StaticListSchema = [1, n0, _WL,
   0, () => WorkflowListItem$
 ];
+var WorkflowProfileList = 64 | 0;
 var WorkflowVersionList: StaticListSchema = [1, n0, _WVL,
   0, () => WorkflowVersionListItem$
 ];
@@ -2454,6 +2459,9 @@ var TagMap = 128 | 0;
 var WorkflowMetadata = 128 | 0;
 var WorkflowParameterTemplate: StaticMapSchema = [2, n0, _WPT,
   0, 0, () => WorkflowParameter$
+];
+var WorkflowProfileParameterTemplates: StaticMapSchema = [2, n0, _WPPT,
+  0, 0, () => WorkflowParameterTemplate
 ];
 export var BatchRunSettings$: StaticUnionSchema = [4, n0, _BRS,
   0,

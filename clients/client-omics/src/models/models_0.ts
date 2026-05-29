@@ -5351,6 +5351,12 @@ export interface GetRunResponse {
    * @public
    */
   vpcConfig?: VpcConfigResponse | undefined;
+
+  /**
+   * <p>The engine-specific settings for the workflow run.</p>
+   * @public
+   */
+  engineSettings?: __DocumentType | undefined;
 }
 
 /**
@@ -6233,6 +6239,18 @@ export interface GetWorkflowResponse {
    * @public
    */
   readmePath?: string | undefined;
+
+  /**
+   * <p>The list of Nextflow profiles that are available for this workflow. Profiles allow you to select predefined configuration settings at runtime.</p>
+   * @public
+   */
+  profiles?: string[] | undefined;
+
+  /**
+   * <p>A mapping of profile names to their parameter templates. Each profile defines its own set of parameters that you can use when starting a run with that profile.</p>
+   * @public
+   */
+  profileParameterTemplates?: Record<string, Record<string, WorkflowParameter>> | undefined;
 }
 
 /**
@@ -6417,6 +6435,18 @@ export interface GetWorkflowVersionResponse {
    * @public
    */
   readmePath?: string | undefined;
+
+  /**
+   * <p>The list of Nextflow profiles that are available for this workflow version. Profiles allow you to select predefined configuration settings at runtime.</p>
+   * @public
+   */
+  profiles?: string[] | undefined;
+
+  /**
+   * <p>A mapping of profile names to their parameter templates. Each profile defines its own set of parameters that you can use when starting a run with that profile.</p>
+   * @public
+   */
+  profileParameterTemplates?: Record<string, Record<string, WorkflowParameter>> | undefined;
 }
 
 /**
@@ -9100,6 +9130,12 @@ export interface StartRunRequest {
    * @public
    */
   configurationName?: string | undefined;
+
+  /**
+   * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
+   * @public
+   */
+  engineSettings?: __DocumentType | undefined;
 }
 
 /**
