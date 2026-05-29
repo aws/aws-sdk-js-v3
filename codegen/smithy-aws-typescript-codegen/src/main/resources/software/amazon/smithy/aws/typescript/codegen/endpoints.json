@@ -44234,7 +44234,8 @@
                   "tags": ["fips"]
                 }
               ]
-            }
+            },
+            "us-isob-west-1": {}
           }
         },
         "elasticloadbalancing": {
