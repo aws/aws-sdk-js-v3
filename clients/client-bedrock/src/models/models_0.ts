@@ -4236,6 +4236,24 @@ export namespace AutomatedReasoningPolicyGenerateFidelityReportContent {
 }
 
 /**
+ * <p>Configuration for an iterative policy refinement workflow, including source documents to process and optional feedback to guide the refinement.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyIterativeRefinementContent {
+  /**
+   * <p>Source documents used for iterative policy refinement. These documents provide context for refining the policy definition.</p>
+   * @public
+   */
+  documents: AutomatedReasoningPolicyBuildWorkflowDocument[] | undefined;
+
+  /**
+   * <p>Optional feedback to guide the iterative refinement workflow. Provide specific instructions or constraints for policy refinement.</p>
+   * @public
+   */
+  feedback?: string | undefined;
+}
+
+/**
  * <p>Contains content and instructions for repairing or improving an existing Automated Reasoning policy.</p>
  * @public
  */
@@ -4254,6 +4272,7 @@ export interface AutomatedReasoningPolicyBuildWorkflowRepairContent {
 export type AutomatedReasoningPolicyWorkflowTypeContent =
   | AutomatedReasoningPolicyWorkflowTypeContent.DocumentsMember
   | AutomatedReasoningPolicyWorkflowTypeContent.GenerateFidelityReportContentMember
+  | AutomatedReasoningPolicyWorkflowTypeContent.IterativeRefinementContentMember
   | AutomatedReasoningPolicyWorkflowTypeContent.PolicyRepairAssetsMember
   | AutomatedReasoningPolicyWorkflowTypeContent.$UnknownMember;
 
@@ -4269,6 +4288,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
     documents: AutomatedReasoningPolicyBuildWorkflowDocument[];
     policyRepairAssets?: never;
     generateFidelityReportContent?: never;
+    iterativeRefinementContent?: never;
     $unknown?: never;
   }
 
@@ -4280,6 +4300,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
     documents?: never;
     policyRepairAssets: AutomatedReasoningPolicyBuildWorkflowRepairContent;
     generateFidelityReportContent?: never;
+    iterativeRefinementContent?: never;
     $unknown?: never;
   }
 
@@ -4291,6 +4312,19 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
     documents?: never;
     policyRepairAssets?: never;
     generateFidelityReportContent: AutomatedReasoningPolicyGenerateFidelityReportContent;
+    iterativeRefinementContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Content configuration to start an iterative policy refinement workflow that uses generative AI to automatically make changes to the policy based on test results and the optional feedback provided.</p>
+   * @public
+   */
+  export interface IterativeRefinementContentMember {
+    documents?: never;
+    policyRepairAssets?: never;
+    generateFidelityReportContent?: never;
+    iterativeRefinementContent: AutomatedReasoningPolicyIterativeRefinementContent;
     $unknown?: never;
   }
 
@@ -4301,6 +4335,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
     documents?: never;
     policyRepairAssets?: never;
     generateFidelityReportContent?: never;
+    iterativeRefinementContent?: never;
     $unknown: [string, any];
   }
 
@@ -4312,6 +4347,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
     documents: (value: AutomatedReasoningPolicyBuildWorkflowDocument[]) => T;
     policyRepairAssets: (value: AutomatedReasoningPolicyBuildWorkflowRepairContent) => T;
     generateFidelityReportContent: (value: AutomatedReasoningPolicyGenerateFidelityReportContent) => T;
+    iterativeRefinementContent: (value: AutomatedReasoningPolicyIterativeRefinementContent) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -8027,22 +8063,4 @@ export interface GuardrailTopicConfig {
    * @public
    */
   outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about topics that the guardrail should identify and deny.</p>
- * @public
- */
-export interface GuardrailTopicPolicyConfig {
-  /**
-   * <p>A list of policies related to topics that the guardrail should deny.</p>
-   * @public
-   */
-  topicsConfig: GuardrailTopicConfig[] | undefined;
-
-  /**
-   * <p>The tier that your guardrail uses for denied topic filters.</p>
-   * @public
-   */
-  tierConfig?: GuardrailTopicsTierConfig | undefined;
 }

@@ -58,6 +58,7 @@ const _ARPAVM = "AutomatedReasoningPolicyAddVariableMutation";
 const _ARPBDB = "AutomatedReasoningPolicyBuildDocumentBlob";
 const _ARPBDD = "AutomatedReasoningPolicyBuildDocumentDescription";
 const _ARPBDN = "AutomatedReasoningPolicyBuildDocumentName";
+const _ARPBF = "AutomatedReasoningPolicyBuildFeedback";
 const _ARPBL = "AutomatedReasoningPolicyBuildLog";
 const _ARPBLE = "AutomatedReasoningPolicyBuildLogEntry";
 const _ARPBLEL = "AutomatedReasoningPolicyBuildLogEntryList";
@@ -116,6 +117,8 @@ const _ARPGTC = "AutomatedReasoningPolicyGeneratedTestCase";
 const _ARPGTCL = "AutomatedReasoningPolicyGeneratedTestCaseList";
 const _ARPGTCu = "AutomatedReasoningPolicyGeneratedTestCases";
 const _ARPICA = "AutomatedReasoningPolicyIngestContentAnnotation";
+const _ARPIRC = "AutomatedReasoningPolicyIterativeRefinementContent";
+const _ARPIRDL = "AutomatedReasoningPolicyIterativeRefinementDocumentList";
 const _ARPJL = "AutomatedReasoningPolicyJustificationList";
 const _ARPJT = "AutomatedReasoningPolicyJustificationText";
 const _ARPLT = "AutomatedReasoningPolicyLineText";
@@ -978,6 +981,7 @@ const _iPI = "inferenceProfileIdentifier";
 const _iPIn = "inferenceProfileId";
 const _iPN = "inferenceProfileName";
 const _iPS = "inferenceProfileSummaries";
+const _iRC = "iterativeRefinementContent";
 const _iS = "instructSupported";
 const _iSI = "inferenceSourceIdentifier";
 const _iSn = "inputStrength";
@@ -1440,6 +1444,7 @@ var AutomatedReasoningPolicyAnnotationRuleNaturalLanguage: StaticSimpleSchema = 
 var AutomatedReasoningPolicyBuildDocumentBlob: StaticSimpleSchema = [0, n0, _ARPBDB, 8, 21];
 var AutomatedReasoningPolicyBuildDocumentDescription: StaticSimpleSchema = [0, n0, _ARPBDD, 8, 0];
 var AutomatedReasoningPolicyBuildDocumentName: StaticSimpleSchema = [0, n0, _ARPBDN, 8, 0];
+var AutomatedReasoningPolicyBuildFeedback: StaticSimpleSchema = [0, n0, _ARPBF, 8, 0];
 var AutomatedReasoningPolicyBuildResultAssetName: StaticSimpleSchema = [0, n0, _ARPBRAN, 8, 0];
 var AutomatedReasoningPolicyDefinitionRuleAlternateExpression: StaticSimpleSchema = [0, n0, _ARPDRAE, 8, 0];
 var AutomatedReasoningPolicyDefinitionRuleExpression: StaticSimpleSchema = [0, n0, _ARPDRE, 8, 0];
@@ -1795,6 +1800,11 @@ export var AutomatedReasoningPolicyIngestContentAnnotation$: StaticStructureSche
   0,
   [_con],
   [[() => AutomatedReasoningPolicyAnnotationIngestContent, 0]], 1
+];
+export var AutomatedReasoningPolicyIterativeRefinementContent$: StaticStructureSchema = [3, n0, _ARPIRC,
+  0,
+  [_doc, _f],
+  [[() => AutomatedReasoningPolicyIterativeRefinementDocumentList, 0], [() => AutomatedReasoningPolicyBuildFeedback, 0]], 1
 ];
 export var AutomatedReasoningPolicyPlanning$: StaticStructureSchema = [3, n0, _ARPP,
   0,
@@ -3781,6 +3791,10 @@ var AutomatedReasoningPolicyGenerateFidelityReportDocumentList: StaticListSchema
   0, [() => AutomatedReasoningPolicyBuildWorkflowDocument$,
     0]
 ];
+var AutomatedReasoningPolicyIterativeRefinementDocumentList: StaticListSchema = [1, n0, _ARPIRDL,
+  0, [() => AutomatedReasoningPolicyBuildWorkflowDocument$,
+    0]
+];
 var AutomatedReasoningPolicyJustificationList: StaticListSchema = [1, n0, _ARPJL,
   0, [() => AutomatedReasoningPolicyJustificationText,
     0]
@@ -4104,8 +4118,8 @@ export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticUnionSchema = [4,
 ];
 export var AutomatedReasoningPolicyWorkflowTypeContent$: StaticUnionSchema = [4, n0, _ARPWTC,
   0,
-  [_doc, _pRAo, _gFRC],
-  [[() => AutomatedReasoningPolicyBuildWorkflowDocumentList, 0], [() => AutomatedReasoningPolicyBuildWorkflowRepairContent$, 0], [() => AutomatedReasoningPolicyGenerateFidelityReportContent$, 0]]
+  [_doc, _pRAo, _gFRC, _iRC],
+  [[() => AutomatedReasoningPolicyBuildWorkflowDocumentList, 0], [() => AutomatedReasoningPolicyBuildWorkflowRepairContent$, 0], [() => AutomatedReasoningPolicyGenerateFidelityReportContent$, 0], [() => AutomatedReasoningPolicyIterativeRefinementContent$, 0]]
 ];
 export var CustomizationConfig$: StaticUnionSchema = [4, n0, _CC,
   0,

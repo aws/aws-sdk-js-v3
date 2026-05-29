@@ -63,7 +63,8 @@ import type {
   GuardrailContextualGroundingPolicyConfig,
   GuardrailCrossRegionConfig,
   GuardrailSensitiveInformationPolicyConfig,
-  GuardrailTopicPolicyConfig,
+  GuardrailTopicConfig,
+  GuardrailTopicsTierConfig,
   ImplicitFilterConfiguration,
   ModelDataSource,
   OrchestrationConfiguration,
@@ -76,6 +77,24 @@ import type {
   VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Contains details about topics that the guardrail should identify and deny.</p>
+ * @public
+ */
+export interface GuardrailTopicPolicyConfig {
+  /**
+   * <p>A list of policies related to topics that the guardrail should deny.</p>
+   * @public
+   */
+  topicsConfig: GuardrailTopicConfig[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters.</p>
+   * @public
+   */
+  tierConfig?: GuardrailTopicsTierConfig | undefined;
+}
 
 /**
  * <p>The managed word list to configure for the guardrail.</p>

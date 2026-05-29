@@ -84,6 +84,7 @@ import {
   AutomatedReasoningPolicyGeneratedTestCases$,
   AutomatedReasoningPolicyGenerateFidelityReportContent$,
   AutomatedReasoningPolicyIngestContentAnnotation$,
+  AutomatedReasoningPolicyIterativeRefinementContent$,
   AutomatedReasoningPolicyMutation$,
   AutomatedReasoningPolicyPlanning$,
   AutomatedReasoningPolicyReportSourceDocument$,
@@ -1083,6 +1084,7 @@ assert(typeof AutomatedReasoningPolicyGeneratedTestCase$ === "object");
 assert(typeof AutomatedReasoningPolicyGeneratedTestCases$ === "object");
 assert(typeof AutomatedReasoningPolicyGenerateFidelityReportContent$ === "object");
 assert(typeof AutomatedReasoningPolicyIngestContentAnnotation$ === "object");
+assert(typeof AutomatedReasoningPolicyIterativeRefinementContent$ === "object");
 assert(typeof AutomatedReasoningPolicyMutation$ === "object");
 assert(typeof AutomatedReasoningPolicyPlanning$ === "object");
 assert(typeof AutomatedReasoningPolicyReportSourceDocument$ === "object");

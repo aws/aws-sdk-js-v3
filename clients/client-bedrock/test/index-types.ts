@@ -464,6 +464,7 @@ export type {
   AutomatedReasoningPolicyGeneratedTestCases,
   AutomatedReasoningPolicyGenerateFidelityReportContent,
   AutomatedReasoningPolicyIngestContentAnnotation,
+  AutomatedReasoningPolicyIterativeRefinementContent,
   AutomatedReasoningPolicyMutation,
   AutomatedReasoningPolicyPlanning,
   AutomatedReasoningPolicyReportSourceDocument,

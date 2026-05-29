@@ -41,7 +41,7 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends
  * const client = new BedrockClient(config);
  * const input = { // StartAutomatedReasoningPolicyBuildWorkflowRequest
  *   policyArn: "STRING_VALUE", // required
- *   buildWorkflowType: "INGEST_CONTENT" || "REFINE_POLICY" || "IMPORT_POLICY" || "GENERATE_FIDELITY_REPORT" || "GENERATE_POLICY_SCENARIOS", // required
+ *   buildWorkflowType: "INGEST_CONTENT" || "REFINE_POLICY" || "IMPORT_POLICY" || "GENERATE_FIDELITY_REPORT" || "GENERATE_POLICY_SCENARIOS" || "RESOLVE_POLICY_AMBIGUITIES" || "ITERATIVELY_REFINE_POLICY", // required
  *   clientRequestToken: "STRING_VALUE",
  *   sourceContent: { // AutomatedReasoningPolicyBuildWorkflowSource
  *     policyDefinition: { // AutomatedReasoningPolicyDefinition
@@ -173,6 +173,17 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends
  *             documentDescription: "STRING_VALUE",
  *           },
  *         ],
+ *       },
+ *       iterativeRefinementContent: { // AutomatedReasoningPolicyIterativeRefinementContent
+ *         documents: [ // AutomatedReasoningPolicyIterativeRefinementDocumentList // required
+ *           {
+ *             document: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
+ *             documentContentType: "pdf" || "txt", // required
+ *             documentName: "STRING_VALUE", // required
+ *             documentDescription: "STRING_VALUE",
+ *           },
+ *         ],
+ *         feedback: "STRING_VALUE",
  *       },
  *     },
  *   },
