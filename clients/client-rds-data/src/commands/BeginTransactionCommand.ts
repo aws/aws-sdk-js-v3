@@ -27,15 +27,7 @@ export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
 export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a SQL transaction.</p>
- *          <note>
- *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24
- *                 hours.</p>
- *             <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's
- *                 committed, it's rolled back automatically.</p>
- *             <p>For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We recommend that you run each MySQL DDL statement in a separate
- *                     <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p>
- *          </note>
+ * <p>Starts a SQL transaction.</p> <note> <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24 hours.</p> <p>A transaction times out if no calls use its transaction ID in three minutes. If a transaction times out before it's committed, it's rolled back automatically.</p> <p>For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We recommend that you run each MySQL DDL statement in a separate <code>ExecuteStatement</code> call with <code>continueAfterTimeout</code> enabled.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,9 +69,7 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *  <p>The DB cluster doesn't have a DB instance.</p>
  *
  * @throws {@link DatabaseResumingException} (client fault)
- *  <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
- *          The Data API request automatically resumes the DB instance. Wait a few seconds and
- *          try again.</p>
+ *  <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
  *
  * @throws {@link DatabaseUnavailableException} (server fault)
  *  <p>The writer instance in the DB cluster isn't available.</p>
@@ -100,22 +90,10 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
  *
  * @throws {@link SecretsErrorException} (client fault)
- *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>RDS Data API timed out retrieving the secret.</p>
- *             </li>
- *             <li>
- *                <p>The secret provided wasn't found.</p>
- *             </li>
- *             <li>
- *                <p>The secret couldn't be decrypted.</p>
- *             </li>
- *          </ul>
+ *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter isn't
- *             available.</p>
+ *  <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
  *
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>

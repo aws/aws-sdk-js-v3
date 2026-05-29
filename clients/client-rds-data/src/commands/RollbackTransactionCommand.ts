@@ -89,22 +89,10 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  *  <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  *
  * @throws {@link SecretsErrorException} (client fault)
- *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>RDS Data API timed out retrieving the secret.</p>
- *             </li>
- *             <li>
- *                <p>The secret provided wasn't found.</p>
- *             </li>
- *             <li>
- *                <p>The secret couldn't be decrypted.</p>
- *             </li>
- *          </ul>
+ *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter isn't
- *             available.</p>
+ *  <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
  *
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>

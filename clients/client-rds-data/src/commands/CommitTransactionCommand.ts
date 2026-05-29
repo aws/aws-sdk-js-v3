@@ -27,8 +27,7 @@ export interface CommitTransactionCommandInput extends CommitTransactionRequest 
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**
- * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
- *             commits the changes.</p>
+ * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and commits the changes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,22 +89,10 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  *  <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  *
  * @throws {@link SecretsErrorException} (client fault)
- *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>RDS Data API timed out retrieving the secret.</p>
- *             </li>
- *             <li>
- *                <p>The secret provided wasn't found.</p>
- *             </li>
- *             <li>
- *                <p>The secret couldn't be decrypted.</p>
- *             </li>
- *          </ul>
+ *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter isn't
- *             available.</p>
+ *  <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
  *
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>

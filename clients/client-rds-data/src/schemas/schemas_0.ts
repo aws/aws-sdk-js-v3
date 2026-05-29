@@ -2,6 +2,7 @@ const _ADE = "AccessDeniedException";
 const _AOA = "ArrayOfArray";
 const _AV = "ArrayValue";
 const _AVL = "ArrayValueList";
+const _BA = "BooleanArray";
 const _BES = "BatchExecuteStatement";
 const _BESR = "BatchExecuteStatementRequest";
 const _BESRa = "BatchExecuteStatementResponse";
@@ -13,6 +14,7 @@ const _CM = "ColumnMetadata";
 const _CT = "CommitTransaction";
 const _CTR = "CommitTransactionRequest";
 const _CTRo = "CommitTransactionResponse";
+const _DA = "DoubleArray";
 const _DEE = "DatabaseErrorException";
 const _DNFE = "DatabaseNotFoundException";
 const _DRE = "DatabaseResumingException";
@@ -30,6 +32,7 @@ const _HENEE = "HttpEndpointNotEnabledException";
 const _IRSE = "InvalidResourceStateException";
 const _ISE = "InvalidSecretException";
 const _ISEE = "InternalServerErrorException";
+const _LA = "LongArray";
 const _M = "Metadata";
 const _NFE = "NotFoundException";
 const _R = "Record";
@@ -41,6 +44,7 @@ const _RTR = "RollbackTransactionRequest";
 const _RTRo = "RollbackTransactionResponse";
 const _Re = "Records";
 const _Ro = "Row";
+const _SA = "StringArray";
 const _SEE = "SecretsErrorException";
 const _SP = "SqlParameter";
 const _SPL = "SqlParametersList";
@@ -117,6 +121,7 @@ const _sVtr = "structValue";
 const _sc = "schema";
 const _sca = "scale";
 const _se = "server";
+const _sp = "sparse";
 const _sq = "sql";
 const _t = "type";
 const _tH = "typeHint";
@@ -279,12 +284,12 @@ export const errorTypeRegistries = [
 export var BatchExecuteStatementRequest$: StaticStructureSchema = [3, n0, _BESR,
   0,
   [_rA, _sA, _sq, _d, _sc, _pS, _tI],
-  [0, 0, 0, 0, 0, () => SqlParameterSets, 0], 3
+  [0, 0, 0, 0, 0, [() => SqlParameterSets, 0], 0], 3
 ];
 export var BatchExecuteStatementResponse$: StaticStructureSchema = [3, n0, _BESRa,
   0,
   [_uR],
-  [() => UpdateResults]
+  [[() => UpdateResults, 0]]
 ];
 export var BeginTransactionRequest$: StaticStructureSchema = [3, n0, _BTR,
   0,
@@ -324,12 +329,12 @@ export var ExecuteSqlResponse$: StaticStructureSchema = [3, n0, _ESRx,
 export var ExecuteStatementRequest$: StaticStructureSchema = [3, n0, _ESRxe,
   0,
   [_rA, _sA, _sq, _d, _sc, _pa, _tI, _iRM, _cAT, _rSO, _fRA],
-  [0, 0, 0, 0, 0, () => SqlParametersList, 0, 2, 2, () => ResultSetOptions$, 0], 3
+  [0, 0, 0, 0, 0, [() => SqlParametersList, 0], 0, 2, 2, () => ResultSetOptions$, 0], 3
 ];
 export var ExecuteStatementResponse$: StaticStructureSchema = [3, n0, _ESRxec,
   0,
   [_r, _cM, _nORU, _gF, _fR],
-  [() => SqlRecords, () => Metadata, 1, () => FieldList, 0]
+  [[() => SqlRecords, 0], () => Metadata, 1, [() => FieldList, 0], 0]
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -364,7 +369,7 @@ export var RollbackTransactionResponse$: StaticStructureSchema = [3, n0, _RTRo,
 export var SqlParameter$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_n, _va, _tH],
-  [0, () => Field$, 0]
+  [0, [() => Field$, 0], 0]
 ];
 export var SqlStatementResult$: StaticStructureSchema = [3, n0, _SSR,
   0,
@@ -379,20 +384,28 @@ export var StructValue$: StaticStructureSchema = [3, n0, _SV,
 export var UpdateResult$: StaticStructureSchema = [3, n0, _UR,
   0,
   [_gF],
-  [() => FieldList]
+  [[() => FieldList, 0]]
 ];
 var ArrayOfArray: StaticListSchema = [1, n0, _AOA,
-  0, () => ArrayValue$
+  { [_sp]: 1 }, [() => ArrayValue$,
+    0]
 ];
 var ArrayValueList: StaticListSchema = [1, n0, _AVL,
   0, () => Value$
 ];
-var BooleanArray = 64 | 2;
-var DoubleArray = 64 | 1;
-var FieldList: StaticListSchema = [1, n0, _FL,
-  0, () => Field$
+var BooleanArray: StaticListSchema = [1, n0, _BA,
+  { [_sp]: 1 }, 2
 ];
-var LongArray = 64 | 1;
+var DoubleArray: StaticListSchema = [1, n0, _DA,
+  { [_sp]: 1 }, 1
+];
+var FieldList: StaticListSchema = [1, n0, _FL,
+  0, [() => Field$,
+    0]
+];
+var LongArray: StaticListSchema = [1, n0, _LA,
+  { [_sp]: 1 }, 1
+];
 var Metadata: StaticListSchema = [1, n0, _M,
   0, () => ColumnMetadata$
 ];
@@ -403,30 +416,36 @@ var Row: StaticListSchema = [1, n0, _Ro,
   0, () => Value$
 ];
 var SqlParameterSets: StaticListSchema = [1, n0, _SPS,
-  0, () => SqlParametersList
+  0, [() => SqlParametersList,
+    0]
 ];
 var SqlParametersList: StaticListSchema = [1, n0, _SPL,
-  0, () => SqlParameter$
+  0, [() => SqlParameter$,
+    0]
 ];
 var SqlRecords: StaticListSchema = [1, n0, _SR,
-  0, () => FieldList
+  0, [() => FieldList,
+    0]
 ];
 var SqlStatementResults: StaticListSchema = [1, n0, _SSRq,
   0, () => SqlStatementResult$
 ];
-var StringArray = 64 | 0;
+var StringArray: StaticListSchema = [1, n0, _SA,
+  { [_sp]: 1 }, 0
+];
 var UpdateResults: StaticListSchema = [1, n0, _URp,
-  0, () => UpdateResult$
+  0, [() => UpdateResult$,
+    0]
 ];
 export var ArrayValue$: StaticUnionSchema = [4, n0, _AV,
   0,
   [_bV, _lV, _dV, _sV, _aV],
-  [64 | 2, 64 | 1, 64 | 1, 64 | 0, () => ArrayOfArray]
+  [[() => BooleanArray, 0], [() => LongArray, 0], [() => DoubleArray, 0], [() => StringArray, 0], [() => ArrayOfArray, 0]]
 ];
 export var Field$: StaticUnionSchema = [4, n0, _F,
   0,
   [_iN, _bVo, _lVo, _dVo, _sVt, _bVl, _aVr],
-  [2, 2, 1, 1, 0, 21, () => ArrayValue$]
+  [2, 2, 1, 1, 0, 21, [() => ArrayValue$, 0]]
 ];
 export var Value$: StaticUnionSchema = [4, n0, _V,
   0,

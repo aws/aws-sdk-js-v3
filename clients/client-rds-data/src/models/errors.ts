@@ -84,9 +84,7 @@ export class DatabaseNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
- *          The Data API request automatically resumes the DB instance. Wait a few seconds and
- *          try again.</p>
+ * <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused. The Data API request automatically resumes the DB instance. Wait a few seconds and try again.</p>
  * @public
  */
 export class DatabaseResumingException extends __BaseException {
@@ -226,18 +224,7 @@ export class InvalidSecretException extends __BaseException {
 }
 
 /**
- * <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>RDS Data API timed out retrieving the secret.</p>
- *             </li>
- *             <li>
- *                <p>The secret provided wasn't found.</p>
- *             </li>
- *             <li>
- *                <p>The secret couldn't be decrypted.</p>
- *             </li>
- *          </ul>
+ * <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p> <ul> <li> <p>RDS Data API timed out retrieving the secret.</p> </li> <li> <p>The secret provided wasn't found.</p> </li> <li> <p>The secret couldn't be decrypted.</p> </li> </ul>
  * @public
  */
 export class SecretsErrorException extends __BaseException {
@@ -257,8 +244,7 @@ export class SecretsErrorException extends __BaseException {
 }
 
 /**
- * <p>The service specified by the <code>resourceArn</code> parameter isn't
- *             available.</p>
+ * <p>The service specified by the <code>resourceArn</code> parameter isn't available.</p>
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
@@ -345,18 +331,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was a problem with the result because of one of the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>It contained an unsupported data type.</p>
- *             </li>
- *             <li>
- *                <p>It contained a multidimensional array.</p>
- *             </li>
- *             <li>
- *                <p>The size was too large.</p>
- *             </li>
- *          </ul>
+ * <p>There was a problem with the result because of one of the following conditions:</p> <ul> <li> <p>It contained an unsupported data type.</p> </li> <li> <p>It contained a multidimensional array.</p> </li> <li> <p>The size was too large.</p> </li> </ul>
  * @public
  */
 export class UnsupportedResultException extends __BaseException {
