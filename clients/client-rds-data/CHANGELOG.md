@@ -5,12 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [3.1057.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1056.0...v3.1057.0) (2026-05-29)
 
+### Bug Fixes
 
-### Features
-
-* **client-rds-data:** RDS Data API arrays (longValues, doubleValues, stringValues, booleanValues) in ExecuteStatement responses now correctly support null elements. Runtime change for JS v3 and .NET. Compile-time change for C plus plus, .NET, Kotlin, Rust. No impact for Java, Python, Ruby, PHP, Go. ([43e8abc](https://github.com/aws/aws-sdk-js-v3/commit/43e8abc90592e66c4524fe660aca567fad1e51f2))
-
-
+* **client-rds-data:** 
+  * `ArrayValue` member element types are now nullable: `booleanValues`
+    is `(boolean | null)[]`, `longValues` and `doubleValues` are
+    `(number | null)[]`, `stringValues` is `(string | null)[]`, and
+    `arrayValues` is `(ArrayValue | null)[]`. This reflects that SQL
+    array responses can contain NULL elements. Existing TypeScript code
+    that reads elements as non-nullable values won't compile; migrate
+    by changing the target type to nullable, using the nullish coalescing
+    operator `??` to supply a default, or using `.filter(v => v !== null)`. ([43e8abc9](https://github.com/aws/aws-sdk-js-v3/commit/43e8abc90592e66c4524fe660aca567fad1e51f2))
 
 
 
