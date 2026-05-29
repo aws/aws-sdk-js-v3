@@ -30,9 +30,21 @@ export function memoizeChain(
   let passiveLock: Promise<void> | undefined;
   let credentials: AwsCredentialIdentity | undefined;
 
+  let forceRefreshLock: Promise<void> | undefined;
+
   const provider = async (options?: AwsIdentityProperties & { forceRefresh?: boolean }) => {
     if (options?.forceRefresh) {
-      return await chain(options);
+      if (!forceRefreshLock) {
+        forceRefreshLock = chain(options)
+          .then((c) => {
+            credentials = c;
+          })
+          .finally(() => {
+            forceRefreshLock = undefined;
+          });
+      }
+      await forceRefreshLock;
+      return credentials!;
     }
     if (credentials?.expiration) {
       if (credentials?.expiration?.getTime() < Date.now()) {
