@@ -104,4 +104,108 @@ describe("rds-signer", () => {
     const token = await signer.getAuthToken();
     expect(token).toBe("testhost:5432?other=url&parameters=here");
   });
+
+  describe("credential refresh wrapper", () => {
+    it("should not force refresh when credentials have no expiration", async () => {
+      const provider = vi.fn().mockResolvedValue({
+        accessKeyId: "key",
+        secretAccessKey: "secret",
+      });
+      const signer = new Signer({ ...minimalParams, credentials: provider });
+      await signer.getAuthToken();
+      //@ts-ignore
+      const wrappedProvider = SignatureV4.mock.calls[0][0].credentials;
+      await wrappedProvider();
+      expect(provider).toHaveBeenCalledTimes(1);
+    });
+
+    it("should not force refresh when credentials expire in more than 15 minutes", async () => {
+      const provider = vi.fn().mockResolvedValue({
+        accessKeyId: "key",
+        secretAccessKey: "secret",
+        expiration: new Date(Date.now() + 20 * 60_000),
+      });
+      const signer = new Signer({ ...minimalParams, credentials: provider });
+      await signer.getAuthToken();
+      //@ts-ignore
+      const wrappedProvider = SignatureV4.mock.calls[0][0].credentials;
+      await wrappedProvider();
+      expect(provider).toHaveBeenCalledTimes(1);
+    });
+
+    it("should force refresh when credentials expire within 15 minutes", async () => {
+      const refreshedCreds = {
+        accessKeyId: "refreshed",
+        secretAccessKey: "secret",
+        expiration: new Date(Date.now() + 60 * 60_000),
+      };
+      const provider = vi
+        .fn()
+        .mockResolvedValueOnce({
+          accessKeyId: "expiring",
+          secretAccessKey: "secret",
+          expiration: new Date(Date.now() + 2 * 60_000),
+        })
+        .mockResolvedValueOnce(refreshedCreds);
+      const signer = new Signer({ ...minimalParams, credentials: provider });
+      await signer.getAuthToken();
+      //@ts-ignore
+      const wrappedProvider = SignatureV4.mock.calls[0][0].credentials;
+      const result = await wrappedProvider();
+      expect(provider).toHaveBeenCalledTimes(2);
+      expect(provider).toHaveBeenLastCalledWith(expect.objectContaining({ forceRefresh: true }));
+      expect(result).toEqual(refreshedCreds);
+    });
+
+    it("should return original credentials if refresh still expires within 15 minutes", async () => {
+      const originalCreds = {
+        accessKeyId: "expiring",
+        secretAccessKey: "secret",
+        expiration: new Date(Date.now() + 2 * 60_000),
+      };
+      const provider = vi
+        .fn()
+        .mockResolvedValueOnce(originalCreds)
+        .mockResolvedValueOnce({
+          accessKeyId: "still-expiring",
+          secretAccessKey: "secret",
+          expiration: new Date(Date.now() + 3 * 60_000),
+        });
+      const signer = new Signer({ ...minimalParams, credentials: provider });
+      await signer.getAuthToken();
+      //@ts-ignore
+      const wrappedProvider = SignatureV4.mock.calls[0][0].credentials;
+      const result = await wrappedProvider();
+      expect(provider).toHaveBeenCalledTimes(2);
+      expect(result).toEqual(originalCreds);
+    });
+
+    it("should return original credentials if force refresh throws", async () => {
+      const originalCreds = {
+        accessKeyId: "expiring",
+        secretAccessKey: "secret",
+        expiration: new Date(Date.now() + 2 * 60_000),
+      };
+      const provider = vi.fn().mockResolvedValueOnce(originalCreds).mockRejectedValueOnce(new Error("refresh failed"));
+      const signer = new Signer({ ...minimalParams, credentials: provider });
+      await signer.getAuthToken();
+      //@ts-ignore
+      const wrappedProvider = SignatureV4.mock.calls[0][0].credentials;
+      const result = await wrappedProvider();
+      expect(provider).toHaveBeenCalledTimes(2);
+      expect(result).toEqual(originalCreds);
+    });
+
+    it("should not wrap static credential objects", async () => {
+      const staticCreds = {
+        accessKeyId: "static",
+        secretAccessKey: "secret",
+        expiration: new Date(Date.now() + 2 * 60_000),
+      };
+      const signer = new Signer({ ...minimalParams, credentials: staticCreds });
+      await signer.getAuthToken();
+      //@ts-ignore
+      expect(SignatureV4.mock.calls[0][0].credentials).toEqual(staticCreds);
+    });
+  });
 });
