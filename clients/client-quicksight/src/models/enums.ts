@@ -3415,6 +3415,19 @@ export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceSta
  * @public
  * @enum
  */
+export const OAuthClientAuthenticationType = {
+  TOKEN: "TOKEN",
+} as const;
+/**
+ * @public
+ */
+export type OAuthClientAuthenticationType =
+  (typeof OAuthClientAuthenticationType)[keyof typeof OAuthClientAuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RefreshInterval = {
   DAILY: "DAILY",
   HOURLY: "HOURLY",

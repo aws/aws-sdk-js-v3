@@ -653,6 +653,9 @@ const _CNont = "ContextualNavbar";
 const _CNr = "CreateNamespace";
 const _CNu = "CustomNarrative";
 const _CO = "ComparativeOrder";
+const _COACA = "CreateOAuthClientApplication";
+const _COACAR = "CreateOAuthClientApplicationRequest";
+const _COACARr = "CreateOAuthClientApplicationResponse";
 const _COo = "ControlOptions";
 const _COon = "ConfigurationOverrides";
 const _COonf = "ConfigOptions";
@@ -1048,6 +1051,12 @@ const _DNas = "DashboardName";
 const _DNe = "DeleteNamespace";
 const _DNes = "DescribeNamespace";
 const _DO = "DataOptions";
+const _DOACA = "DeleteOAuthClientApplication";
+const _DOACAR = "DeleteOAuthClientApplicationRequest";
+const _DOACARe = "DeleteOAuthClientApplicationResponse";
+const _DOACARes = "DescribeOAuthClientApplicationRequest";
+const _DOACAResc = "DescribeOAuthClientApplicationResponse";
+const _DOACAe = "DescribeOAuthClientApplication";
 const _DOM = "DayOfMonth";
 const _DOW = "DayOfWeek";
 const _DOe = "DefaultOpacity";
@@ -1188,7 +1197,8 @@ const _DSSat = "DataSetSummary";
 const _DSSata = "DataSourceSummary";
 const _DSSatae = "DataSetSummaries";
 const _DSSatao = "DataSourceSummaries";
-const _DST = "DashboardSourceTemplate";
+const _DST = "DataSourceType";
+const _DSTa = "DashboardSourceTemplate";
 const _DSTe = "DecalStyleType";
 const _DSUC = "DataSetUsageConfiguration";
 const _DSUCR = "DescribeSelfUpgradeConfigurationRequest";
@@ -1989,6 +1999,9 @@ const _LNRi = "ListNamespacesResponse";
 const _LNa = "LabelName";
 const _LNi = "ListNamespaces";
 const _LO = "LabelOptions";
+const _LOACA = "ListOAuthClientApplications";
+const _LOACAR = "ListOAuthClientApplicationsRequest";
+const _LOACARi = "ListOAuthClientApplicationsResponse";
 const _LOP = "LeftOperandProperties";
 const _LOe = "LeftOperand";
 const _LOeg = "LegendOptions";
@@ -2219,12 +2232,21 @@ const _Nam = "Namespaces";
 const _Nar = "Narrative";
 const _No = "North";
 const _O = "Operator";
+const _OAAEU = "OAuthAuthorizationEndpointUrl";
+const _OACA = "OAuthClientApplication";
+const _OACAI = "OAuthClientApplicationId";
+const _OACAS = "OAuthClientApplicationSummary";
+const _OACASL = "OAuthClientApplicationSummaryList";
+const _OACAT = "OAuthClientAuthenticationType";
+const _OACAu = "OAuthClientApplications";
 const _OACC = "OAuthClientCredentials";
 const _OACI = "OAuthClientId";
 const _OACS = "OAuthClientSecret";
 const _OAP = "OAuthParameters";
 const _OAPIA = "OpenAPIAction";
-const _OAS = "OAuthScope";
+const _OAS = "OAuthScopes";
+const _OASu = "OAuthScope";
+const _OATEU = "OAuthTokenEndpointUrl";
 const _OAU = "OAuthUsername";
 const _OC = "OutputColumns";
 const _OCHV = "OverflowColumnHeaderVisibility";
@@ -3501,6 +3523,9 @@ const _UNA = "UseNotionAction";
 const _UNC = "UserNameColumn";
 const _UNRA = "UseNewRelicAction";
 const _UO = "UseOrdering";
+const _UOACA = "UpdateOAuthClientApplication";
+const _UOACAR = "UpdateOAuthClientApplicationRequest";
+const _UOACARp = "UpdateOAuthClientApplicationResponse";
 const _UOAPIA = "UseOpenAPIAction";
 const _UODA = "UseOneDriveAction";
 const _UOn = "UnpivotOperation";
@@ -3985,8 +4010,10 @@ var FieldValue: StaticSimpleSchema = [0, n0, _FV, 8, 0];
 var InlineCustomInstructionText: StaticSimpleSchema = [0, n0, _ICIT, 8, 0];
 var JoinOperationOnClause: StaticSimpleSchema = [0, n0, _JOOC, 8, 0];
 var NullString: StaticSimpleSchema = [0, n0, _NS, 8, 0];
+var OAuthAuthorizationEndpointUrl: StaticSimpleSchema = [0, n0, _OAAEU, 8, 0];
 var OAuthClientId: StaticSimpleSchema = [0, n0, _OACI, 8, 0];
 var OAuthClientSecret: StaticSimpleSchema = [0, n0, _OACS, 8, 0];
+var OAuthTokenEndpointUrl: StaticSimpleSchema = [0, n0, _OATEU, 8, 0];
 var OAuthUsername: StaticSimpleSchema = [0, n0, _OAU, 8, 0];
 var Prefix: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
@@ -5294,6 +5321,16 @@ export var CreateNamespaceResponse$: StaticStructureSchema = [3, n0, _CNRr,
   [_A, _N, _CR, _CSre, _ISd, _RI, _St],
   [0, 0, 0, 0, 0, 0, [1, 32]]
 ];
+export var CreateOAuthClientApplicationRequest$: StaticStructureSchema = [3, n0, _COACAR,
+  0,
+  [_AAI, _OACAI, _N, _OACAT, _CI, _CS, _OATEU, _OAAEU, _OAS, _DST, _IPVCP, _Ta],
+  [[0, 1], 0, 0, 0, [() => OAuthClientId, 0], [() => OAuthClientSecret, 0], [() => OAuthTokenEndpointUrl, 0], [() => OAuthAuthorizationEndpointUrl, 0], 0, 0, () => VpcConnectionProperties$, () => TagList], 7
+];
+export var CreateOAuthClientApplicationResponse$: StaticStructureSchema = [3, n0, _COACARr,
+  0,
+  [_A, _OACAI, _CSre, _RI, _St],
+  [0, 0, 0, 0, [1, 32]]
+];
 export var CreateRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
   [_DSI, _AAI, _Sch],
@@ -5519,7 +5556,7 @@ export var DashboardSourceEntity$: StaticStructureSchema = [3, n0, _DSE,
   [_STo],
   [() => DashboardSourceTemplate$]
 ];
-export var DashboardSourceTemplate$: StaticStructureSchema = [3, n0, _DST,
+export var DashboardSourceTemplate$: StaticStructureSchema = [3, n0, _DSTa,
   0,
   [_DSR, _A],
   [() => DataSetReferenceList, 0], 2
@@ -6234,6 +6271,16 @@ export var DeleteNamespaceResponse$: StaticStructureSchema = [3, n0, _DNRe,
   [_RI, _St],
   [0, [1, 32]]
 ];
+export var DeleteOAuthClientApplicationRequest$: StaticStructureSchema = [3, n0, _DOACAR,
+  0,
+  [_AAI, _OACAI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteOAuthClientApplicationResponse$: StaticStructureSchema = [3, n0, _DOACARe,
+  0,
+  [_A, _OACAI, _RI, _St],
+  [0, 0, 0, [1, 32]]
+];
 export var DeleteRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _DRSR,
   0,
   [_DSI, _AAI, _SI],
@@ -6743,6 +6790,16 @@ export var DescribeNamespaceResponse$: StaticStructureSchema = [3, n0, _DNResc,
   0,
   [_Na, _RI, _St],
   [() => NamespaceInfoV2$, 0, [1, 32]]
+];
+export var DescribeOAuthClientApplicationRequest$: StaticStructureSchema = [3, n0, _DOACARes,
+  0,
+  [_AAI, _OACAI],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeOAuthClientApplicationResponse$: StaticStructureSchema = [3, n0, _DOACAResc,
+  0,
+  [_OACA, _RI, _St],
+  [[() => OAuthClientApplication$, 0], 0, [1, 32]]
 ];
 export var DescribeQPersonalizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DQPCR,
   0,
@@ -8389,6 +8446,16 @@ export var ListNamespacesResponse$: StaticStructureSchema = [3, n0, _LNRi,
   [_Nam, _NT, _RI, _St],
   [() => Namespaces, 0, 0, [1, 32]]
 ];
+export var ListOAuthClientApplicationsRequest$: StaticStructureSchema = [3, n0, _LOACAR,
+  0,
+  [_AAI, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
+];
+export var ListOAuthClientApplicationsResponse$: StaticStructureSchema = [3, n0, _LOACARi,
+  0,
+  [_OACAu, _NT, _RI, _St],
+  [() => OAuthClientApplicationSummaryList, 0, 0, [1, 32]]
+];
 export var ListRefreshSchedulesRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
   [_AAI, _DSI],
@@ -8784,6 +8851,16 @@ export var NumericSeparatorConfiguration$: StaticStructureSchema = [3, n0, _NSC,
   [_DSec, _TSh],
   [0, () => ThousandSeparatorOptions$]
 ];
+export var OAuthClientApplication$: StaticStructureSchema = [3, n0, _OACA,
+  0,
+  [_OACAI, _N, _OACAT, _OATEU, _OAAEU, _OAS, _DST, _IPVCP, _CT, _LUT, _A],
+  [0, 0, 0, [() => OAuthTokenEndpointUrl, 0], [() => OAuthAuthorizationEndpointUrl, 0], 0, 0, () => VpcConnectionProperties$, 4, 4, 0]
+];
+export var OAuthClientApplicationSummary$: StaticStructureSchema = [3, n0, _OACAS,
+  0,
+  [_OACAI, _N, _OACAT, _DST, _IPVCP, _CT, _LUT, _A],
+  [0, 0, 0, 0, () => VpcConnectionProperties$, 4, 4, 0]
+];
 export var OAuthClientCredentials$: StaticStructureSchema = [3, n0, _OACC,
   0,
   [_CI, _CS, _U],
@@ -8791,7 +8868,7 @@ export var OAuthClientCredentials$: StaticStructureSchema = [3, n0, _OACC,
 ];
 export var OAuthParameters$: StaticStructureSchema = [3, n0, _OAP,
   0,
-  [_TPU, _OAS, _IPVCP, _IPRU, _IPCACBSU],
+  [_TPU, _OASu, _IPVCP, _IPRU, _IPCACBSU],
   [0, 0, () => VpcConnectionProperties$, 0, 0], 1
 ];
 export var OracleParameters$: StaticStructureSchema = [3, n0, _OPr,
@@ -11149,6 +11226,16 @@ export var UpdateKeyRegistrationResponse$: StaticStructureSchema = [3, n0, _UKRR
   [_FKR, _SKR, _RI],
   [() => FailedKeyRegistrationEntries, () => SuccessfulKeyRegistrationEntries, 0]
 ];
+export var UpdateOAuthClientApplicationRequest$: StaticStructureSchema = [3, n0, _UOACAR,
+  0,
+  [_AAI, _OACAI, _N, _CI, _CS, _OATEU, _OAAEU, _OAS, _DST, _IPVCP],
+  [[0, 1], [0, 1], 0, [() => OAuthClientId, 0], [() => OAuthClientSecret, 0], [() => OAuthTokenEndpointUrl, 0], [() => OAuthAuthorizationEndpointUrl, 0], 0, 0, () => VpcConnectionProperties$], 3
+];
+export var UpdateOAuthClientApplicationResponse$: StaticStructureSchema = [3, n0, _UOACARp,
+  0,
+  [_A, _OACAI, _USpd, _RI, _St],
+  [0, 0, 0, 0, [1, 32]]
+];
 export var UpdatePublicSharingSettingsRequest$: StaticStructureSchema = [3, n0, _UPSSR,
   0,
   [_AAI, _PSE],
@@ -12141,6 +12228,9 @@ var NetworkInterfaceList: StaticListSchema = [1, n0, _NIL,
   0, () => NetworkInterface$
 ];
 var NonRepeatingVisualsList = 64 | 0;
+var OAuthClientApplicationSummaryList: StaticListSchema = [1, n0, _OACASL,
+  0, () => OAuthClientApplicationSummary$
+];
 var OperandList: StaticListSchema = [1, n0, _OL,
   0, () => Identifier$
 ];
@@ -12700,6 +12790,9 @@ export var CreateIngestion$: StaticOperationSchema = [9, n0, _CIr,
 export var CreateNamespace$: StaticOperationSchema = [9, n0, _CNr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}", 200] }, () => CreateNamespaceRequest$, () => CreateNamespaceResponse$
 ];
+export var CreateOAuthClientApplication$: StaticOperationSchema = [9, n0, _COACA,
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/oauth-client-applications", 200] }, () => CreateOAuthClientApplicationRequest$, () => CreateOAuthClientApplicationResponse$
+];
 export var CreateRefreshSchedule$: StaticOperationSchema = [9, n0, _CRS,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] }, () => CreateRefreshScheduleRequest$, () => CreateRefreshScheduleResponse$
 ];
@@ -12786,6 +12879,9 @@ export var DeleteIdentityPropagationConfig$: StaticOperationSchema = [9, n0, _DI
 ];
 export var DeleteNamespace$: StaticOperationSchema = [9, n0, _DNe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] }, () => DeleteNamespaceRequest$, () => DeleteNamespaceResponse$
+];
+export var DeleteOAuthClientApplication$: StaticOperationSchema = [9, n0, _DOACA,
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/oauth-client-applications/{OAuthClientApplicationId}", 200] }, () => DeleteOAuthClientApplicationRequest$, () => DeleteOAuthClientApplicationResponse$
 ];
 export var DeleteRefreshSchedule$: StaticOperationSchema = [9, n0, _DRS,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}", 200] }, () => DeleteRefreshScheduleRequest$, () => DeleteRefreshScheduleResponse$
@@ -12940,6 +13036,9 @@ export var DescribeKeyRegistration$: StaticOperationSchema = [9, n0, _DKR,
 export var DescribeNamespace$: StaticOperationSchema = [9, n0, _DNes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] }, () => DescribeNamespaceRequest$, () => DescribeNamespaceResponse$
 ];
+export var DescribeOAuthClientApplication$: StaticOperationSchema = [9, n0, _DOACAe,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/oauth-client-applications/{OAuthClientApplicationId}", 200] }, () => DescribeOAuthClientApplicationRequest$, () => DescribeOAuthClientApplicationResponse$
+];
 export var DescribeQPersonalizationConfiguration$: StaticOperationSchema = [9, n0, _DQPC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/q-personalization-configuration", 200] }, () => DescribeQPersonalizationConfigurationRequest$, () => DescribeQPersonalizationConfigurationResponse$
 ];
@@ -13080,6 +13179,9 @@ export var ListIngestions$: StaticOperationSchema = [9, n0, _LIis,
 ];
 export var ListNamespaces$: StaticOperationSchema = [9, n0, _LNi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces", 200] }, () => ListNamespacesRequest$, () => ListNamespacesResponse$
+];
+export var ListOAuthClientApplications$: StaticOperationSchema = [9, n0, _LOACA,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/oauth-client-applications", 200] }, () => ListOAuthClientApplicationsRequest$, () => ListOAuthClientApplicationsResponse$
 ];
 export var ListRefreshSchedules$: StaticOperationSchema = [9, n0, _LRS,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules", 200] }, () => ListRefreshSchedulesRequest$, () => ListRefreshSchedulesResponse$
@@ -13278,6 +13380,9 @@ export var UpdateIpRestriction$: StaticOperationSchema = [9, n0, _UIR,
 ];
 export var UpdateKeyRegistration$: StaticOperationSchema = [9, n0, _UKR,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/key-registration", 200] }, () => UpdateKeyRegistrationRequest$, () => UpdateKeyRegistrationResponse$
+];
+export var UpdateOAuthClientApplication$: StaticOperationSchema = [9, n0, _UOACA,
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/oauth-client-applications/{OAuthClientApplicationId}", 200] }, () => UpdateOAuthClientApplicationRequest$, () => UpdateOAuthClientApplicationResponse$
 ];
 export var UpdatePublicSharingSettings$: StaticOperationSchema = [9, n0, _UPSS,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/public-sharing-settings", 200] }, () => UpdatePublicSharingSettingsRequest$, () => UpdatePublicSharingSettingsResponse$

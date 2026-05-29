@@ -366,6 +366,10 @@ import {
   CreateNamespaceCommand,
   CreateNamespaceRequest$,
   CreateNamespaceResponse$,
+  CreateOAuthClientApplication$,
+  CreateOAuthClientApplicationCommand,
+  CreateOAuthClientApplicationRequest$,
+  CreateOAuthClientApplicationResponse$,
   CreateRefreshSchedule$,
   CreateRefreshScheduleCommand,
   CreateRefreshScheduleRequest$,
@@ -645,6 +649,10 @@ import {
   DeleteNamespaceCommand,
   DeleteNamespaceRequest$,
   DeleteNamespaceResponse$,
+  DeleteOAuthClientApplication$,
+  DeleteOAuthClientApplicationCommand,
+  DeleteOAuthClientApplicationRequest$,
+  DeleteOAuthClientApplicationResponse$,
   DeleteRefreshSchedule$,
   DeleteRefreshScheduleCommand,
   DeleteRefreshScheduleRequest$,
@@ -849,6 +857,10 @@ import {
   DescribeNamespaceCommand,
   DescribeNamespaceRequest$,
   DescribeNamespaceResponse$,
+  DescribeOAuthClientApplication$,
+  DescribeOAuthClientApplicationCommand,
+  DescribeOAuthClientApplicationRequest$,
+  DescribeOAuthClientApplicationResponse$,
   DescribeQPersonalizationConfiguration$,
   DescribeQPersonalizationConfigurationCommand,
   DescribeQPersonalizationConfigurationRequest$,
@@ -1348,6 +1360,10 @@ import {
   ListNamespacesCommand,
   ListNamespacesRequest$,
   ListNamespacesResponse$,
+  ListOAuthClientApplications$,
+  ListOAuthClientApplicationsCommand,
+  ListOAuthClientApplicationsRequest$,
+  ListOAuthClientApplicationsResponse$,
   ListRefreshSchedules$,
   ListRefreshSchedulesCommand,
   ListRefreshSchedulesRequest$,
@@ -1477,6 +1493,9 @@ import {
   NumericRangeFilterValue$,
   NumericSeparatorConfiguration$,
   NumericSeparatorSymbol,
+  OAuthClientApplication$,
+  OAuthClientApplicationSummary$,
+  OAuthClientAuthenticationType,
   OAuthClientCredentials$,
   OAuthParameters$,
   OracleParameters$,
@@ -1506,6 +1525,7 @@ import {
   paginateListIAMPolicyAssignmentsForUser,
   paginateListIngestions,
   paginateListNamespaces,
+  paginateListOAuthClientApplications,
   paginateListRoleMemberships,
   paginateListTemplateAliases,
   paginateListTemplates,
@@ -2218,6 +2238,10 @@ import {
   UpdateKeyRegistrationCommand,
   UpdateKeyRegistrationRequest$,
   UpdateKeyRegistrationResponse$,
+  UpdateOAuthClientApplication$,
+  UpdateOAuthClientApplicationCommand,
+  UpdateOAuthClientApplicationRequest$,
+  UpdateOAuthClientApplicationResponse$,
   UpdatePublicSharingSettings$,
   UpdatePublicSharingSettingsCommand,
   UpdatePublicSharingSettingsRequest$,
@@ -2404,6 +2428,8 @@ assert(typeof CreateIngestionCommand === "function");
 assert(typeof CreateIngestion$ === "object");
 assert(typeof CreateNamespaceCommand === "function");
 assert(typeof CreateNamespace$ === "object");
+assert(typeof CreateOAuthClientApplicationCommand === "function");
+assert(typeof CreateOAuthClientApplication$ === "object");
 assert(typeof CreateRefreshScheduleCommand === "function");
 assert(typeof CreateRefreshSchedule$ === "object");
 assert(typeof CreateRoleMembershipCommand === "function");
@@ -2462,6 +2488,8 @@ assert(typeof DeleteIdentityPropagationConfigCommand === "function");
 assert(typeof DeleteIdentityPropagationConfig$ === "object");
 assert(typeof DeleteNamespaceCommand === "function");
 assert(typeof DeleteNamespace$ === "object");
+assert(typeof DeleteOAuthClientApplicationCommand === "function");
+assert(typeof DeleteOAuthClientApplication$ === "object");
 assert(typeof DeleteRefreshScheduleCommand === "function");
 assert(typeof DeleteRefreshSchedule$ === "object");
 assert(typeof DeleteRoleCustomPermissionCommand === "function");
@@ -2564,6 +2592,8 @@ assert(typeof DescribeKeyRegistrationCommand === "function");
 assert(typeof DescribeKeyRegistration$ === "object");
 assert(typeof DescribeNamespaceCommand === "function");
 assert(typeof DescribeNamespace$ === "object");
+assert(typeof DescribeOAuthClientApplicationCommand === "function");
+assert(typeof DescribeOAuthClientApplication$ === "object");
 assert(typeof DescribeQPersonalizationConfigurationCommand === "function");
 assert(typeof DescribeQPersonalizationConfiguration$ === "object");
 assert(typeof DescribeQuickSightQSearchConfigurationCommand === "function");
@@ -2658,6 +2688,8 @@ assert(typeof ListIngestionsCommand === "function");
 assert(typeof ListIngestions$ === "object");
 assert(typeof ListNamespacesCommand === "function");
 assert(typeof ListNamespaces$ === "object");
+assert(typeof ListOAuthClientApplicationsCommand === "function");
+assert(typeof ListOAuthClientApplications$ === "object");
 assert(typeof ListRefreshSchedulesCommand === "function");
 assert(typeof ListRefreshSchedules$ === "object");
 assert(typeof ListRoleMembershipsCommand === "function");
@@ -2790,6 +2822,8 @@ assert(typeof UpdateIpRestrictionCommand === "function");
 assert(typeof UpdateIpRestriction$ === "object");
 assert(typeof UpdateKeyRegistrationCommand === "function");
 assert(typeof UpdateKeyRegistration$ === "object");
+assert(typeof UpdateOAuthClientApplicationCommand === "function");
+assert(typeof UpdateOAuthClientApplication$ === "object");
 assert(typeof UpdatePublicSharingSettingsCommand === "function");
 assert(typeof UpdatePublicSharingSettings$ === "object");
 assert(typeof UpdateQPersonalizationConfigurationCommand === "function");
@@ -3092,6 +3126,8 @@ assert(typeof CreateIngestionRequest$ === "object");
 assert(typeof CreateIngestionResponse$ === "object");
 assert(typeof CreateNamespaceRequest$ === "object");
 assert(typeof CreateNamespaceResponse$ === "object");
+assert(typeof CreateOAuthClientApplicationRequest$ === "object");
+assert(typeof CreateOAuthClientApplicationResponse$ === "object");
 assert(typeof CreateRefreshScheduleRequest$ === "object");
 assert(typeof CreateRefreshScheduleResponse$ === "object");
 assert(typeof CreateRoleMembershipRequest$ === "object");
@@ -3281,6 +3317,8 @@ assert(typeof DeleteIdentityPropagationConfigRequest$ === "object");
 assert(typeof DeleteIdentityPropagationConfigResponse$ === "object");
 assert(typeof DeleteNamespaceRequest$ === "object");
 assert(typeof DeleteNamespaceResponse$ === "object");
+assert(typeof DeleteOAuthClientApplicationRequest$ === "object");
+assert(typeof DeleteOAuthClientApplicationResponse$ === "object");
 assert(typeof DeleteRefreshScheduleRequest$ === "object");
 assert(typeof DeleteRefreshScheduleResponse$ === "object");
 assert(typeof DeleteRoleCustomPermissionRequest$ === "object");
@@ -3383,6 +3421,8 @@ assert(typeof DescribeKeyRegistrationRequest$ === "object");
 assert(typeof DescribeKeyRegistrationResponse$ === "object");
 assert(typeof DescribeNamespaceRequest$ === "object");
 assert(typeof DescribeNamespaceResponse$ === "object");
+assert(typeof DescribeOAuthClientApplicationRequest$ === "object");
+assert(typeof DescribeOAuthClientApplicationResponse$ === "object");
 assert(typeof DescribeQPersonalizationConfigurationRequest$ === "object");
 assert(typeof DescribeQPersonalizationConfigurationResponse$ === "object");
 assert(typeof DescribeQuickSightQSearchConfigurationRequest$ === "object");
@@ -3714,6 +3754,8 @@ assert(typeof ListIngestionsRequest$ === "object");
 assert(typeof ListIngestionsResponse$ === "object");
 assert(typeof ListNamespacesRequest$ === "object");
 assert(typeof ListNamespacesResponse$ === "object");
+assert(typeof ListOAuthClientApplicationsRequest$ === "object");
+assert(typeof ListOAuthClientApplicationsResponse$ === "object");
 assert(typeof ListRefreshSchedulesRequest$ === "object");
 assert(typeof ListRefreshSchedulesResponse$ === "object");
 assert(typeof ListRoleMembershipsRequest$ === "object");
@@ -3793,6 +3835,8 @@ assert(typeof NumericFormatConfiguration$ === "object");
 assert(typeof NumericRangeFilter$ === "object");
 assert(typeof NumericRangeFilterValue$ === "object");
 assert(typeof NumericSeparatorConfiguration$ === "object");
+assert(typeof OAuthClientApplication$ === "object");
+assert(typeof OAuthClientApplicationSummary$ === "object");
 assert(typeof OAuthClientCredentials$ === "object");
 assert(typeof OAuthParameters$ === "object");
 assert(typeof OracleParameters$ === "object");
@@ -4271,6 +4315,8 @@ assert(typeof UpdateIpRestrictionRequest$ === "object");
 assert(typeof UpdateIpRestrictionResponse$ === "object");
 assert(typeof UpdateKeyRegistrationRequest$ === "object");
 assert(typeof UpdateKeyRegistrationResponse$ === "object");
+assert(typeof UpdateOAuthClientApplicationRequest$ === "object");
+assert(typeof UpdateOAuthClientApplicationResponse$ === "object");
 assert(typeof UpdatePublicSharingSettingsRequest$ === "object");
 assert(typeof UpdatePublicSharingSettingsResponse$ === "object");
 assert(typeof UpdateQPersonalizationConfigurationRequest$ === "object");
@@ -4519,6 +4565,7 @@ assert(typeof NumberScale === "object");
 assert(typeof NumericEqualityMatchOperator === "object");
 assert(typeof NumericFilterSelectAllOptions === "object");
 assert(typeof NumericSeparatorSymbol === "object");
+assert(typeof OAuthClientAuthenticationType === "object");
 assert(typeof OtherCategories === "object");
 assert(typeof PanelBorderStyle === "object");
 assert(typeof PaperOrientation === "object");
@@ -4710,6 +4757,7 @@ assert(typeof paginateListIAMPolicyAssignments === "function");
 assert(typeof paginateListIAMPolicyAssignmentsForUser === "function");
 assert(typeof paginateListIngestions === "function");
 assert(typeof paginateListNamespaces === "function");
+assert(typeof paginateListOAuthClientApplications === "function");
 assert(typeof paginateListRoleMemberships === "function");
 assert(typeof paginateListTemplateAliases === "function");
 assert(typeof paginateListTemplateVersions === "function");

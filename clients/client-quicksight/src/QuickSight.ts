@@ -98,6 +98,11 @@ import {
   CreateNamespaceCommand,
 } from "./commands/CreateNamespaceCommand";
 import {
+  type CreateOAuthClientApplicationCommandInput,
+  type CreateOAuthClientApplicationCommandOutput,
+  CreateOAuthClientApplicationCommand,
+} from "./commands/CreateOAuthClientApplicationCommand";
+import {
   type CreateRefreshScheduleCommandInput,
   type CreateRefreshScheduleCommandOutput,
   CreateRefreshScheduleCommand,
@@ -242,6 +247,11 @@ import {
   type DeleteNamespaceCommandOutput,
   DeleteNamespaceCommand,
 } from "./commands/DeleteNamespaceCommand";
+import {
+  type DeleteOAuthClientApplicationCommandInput,
+  type DeleteOAuthClientApplicationCommandOutput,
+  DeleteOAuthClientApplicationCommand,
+} from "./commands/DeleteOAuthClientApplicationCommand";
 import {
   type DeleteRefreshScheduleCommandInput,
   type DeleteRefreshScheduleCommandOutput,
@@ -498,6 +508,11 @@ import {
   DescribeNamespaceCommand,
 } from "./commands/DescribeNamespaceCommand";
 import {
+  type DescribeOAuthClientApplicationCommandInput,
+  type DescribeOAuthClientApplicationCommandOutput,
+  DescribeOAuthClientApplicationCommand,
+} from "./commands/DescribeOAuthClientApplicationCommand";
+import {
   type DescribeQPersonalizationConfigurationCommandInput,
   type DescribeQPersonalizationConfigurationCommandOutput,
   DescribeQPersonalizationConfigurationCommand,
@@ -728,6 +743,11 @@ import {
   type ListNamespacesCommandOutput,
   ListNamespacesCommand,
 } from "./commands/ListNamespacesCommand";
+import {
+  type ListOAuthClientApplicationsCommandInput,
+  type ListOAuthClientApplicationsCommandOutput,
+  ListOAuthClientApplicationsCommand,
+} from "./commands/ListOAuthClientApplicationsCommand";
 import {
   type ListRefreshSchedulesCommandInput,
   type ListRefreshSchedulesCommandOutput,
@@ -1055,6 +1075,11 @@ import {
   UpdateKeyRegistrationCommand,
 } from "./commands/UpdateKeyRegistrationCommand";
 import {
+  type UpdateOAuthClientApplicationCommandInput,
+  type UpdateOAuthClientApplicationCommandOutput,
+  UpdateOAuthClientApplicationCommand,
+} from "./commands/UpdateOAuthClientApplicationCommand";
+import {
   type UpdatePublicSharingSettingsCommandInput,
   type UpdatePublicSharingSettingsCommandOutput,
   UpdatePublicSharingSettingsCommand,
@@ -1176,6 +1201,7 @@ import { paginateListIAMPolicyAssignmentsForUser } from "./pagination/ListIAMPol
 import { paginateListIAMPolicyAssignments } from "./pagination/ListIAMPolicyAssignmentsPaginator";
 import { paginateListIngestions } from "./pagination/ListIngestionsPaginator";
 import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
+import { paginateListOAuthClientApplications } from "./pagination/ListOAuthClientApplicationsPaginator";
 import { paginateListRoleMemberships } from "./pagination/ListRoleMembershipsPaginator";
 import { paginateListTemplateAliases } from "./pagination/ListTemplateAliasesPaginator";
 import { paginateListTemplates } from "./pagination/ListTemplatesPaginator";
@@ -1217,6 +1243,7 @@ const commands = {
   CreateIAMPolicyAssignmentCommand,
   CreateIngestionCommand,
   CreateNamespaceCommand,
+  CreateOAuthClientApplicationCommand,
   CreateRefreshScheduleCommand,
   CreateRoleMembershipCommand,
   CreateTemplateCommand,
@@ -1246,6 +1273,7 @@ const commands = {
   DeleteIAMPolicyAssignmentCommand,
   DeleteIdentityPropagationConfigCommand,
   DeleteNamespaceCommand,
+  DeleteOAuthClientApplicationCommand,
   DeleteRefreshScheduleCommand,
   DeleteRoleCustomPermissionCommand,
   DeleteRoleMembershipCommand,
@@ -1297,6 +1325,7 @@ const commands = {
   DescribeIpRestrictionCommand,
   DescribeKeyRegistrationCommand,
   DescribeNamespaceCommand,
+  DescribeOAuthClientApplicationCommand,
   DescribeQPersonalizationConfigurationCommand,
   DescribeQuickSightQSearchConfigurationCommand,
   DescribeRefreshScheduleCommand,
@@ -1344,6 +1373,7 @@ const commands = {
   ListIdentityPropagationConfigsCommand,
   ListIngestionsCommand,
   ListNamespacesCommand,
+  ListOAuthClientApplicationsCommand,
   ListRefreshSchedulesCommand,
   ListRoleMembershipsCommand,
   ListSelfUpgradesCommand,
@@ -1410,6 +1440,7 @@ const commands = {
   UpdateIdentityPropagationConfigCommand,
   UpdateIpRestrictionCommand,
   UpdateKeyRegistrationCommand,
+  UpdateOAuthClientApplicationCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateQPersonalizationConfigurationCommand,
   UpdateQuickSightQSearchConfigurationCommand,
@@ -1454,6 +1485,7 @@ const paginators = {
   paginateListIAMPolicyAssignmentsForUser,
   paginateListIngestions,
   paginateListNamespaces,
+  paginateListOAuthClientApplications,
   paginateListRoleMemberships,
   paginateListTemplateAliases,
   paginateListTemplates,
@@ -1797,6 +1829,23 @@ export interface QuickSight {
     args: CreateNamespaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateOAuthClientApplicationCommand}
+   */
+  createOAuthClientApplication(
+    args: CreateOAuthClientApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOAuthClientApplicationCommandOutput>;
+  createOAuthClientApplication(
+    args: CreateOAuthClientApplicationCommandInput,
+    cb: (err: any, data?: CreateOAuthClientApplicationCommandOutput) => void
+  ): void;
+  createOAuthClientApplication(
+    args: CreateOAuthClientApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOAuthClientApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -2290,6 +2339,23 @@ export interface QuickSight {
     args: DeleteNamespaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteOAuthClientApplicationCommand}
+   */
+  deleteOAuthClientApplication(
+    args: DeleteOAuthClientApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOAuthClientApplicationCommandOutput>;
+  deleteOAuthClientApplication(
+    args: DeleteOAuthClientApplicationCommandInput,
+    cb: (err: any, data?: DeleteOAuthClientApplicationCommandOutput) => void
+  ): void;
+  deleteOAuthClientApplication(
+    args: DeleteOAuthClientApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOAuthClientApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -3160,6 +3226,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeOAuthClientApplicationCommand}
+   */
+  describeOAuthClientApplication(
+    args: DescribeOAuthClientApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOAuthClientApplicationCommandOutput>;
+  describeOAuthClientApplication(
+    args: DescribeOAuthClientApplicationCommandInput,
+    cb: (err: any, data?: DescribeOAuthClientApplicationCommandOutput) => void
+  ): void;
+  describeOAuthClientApplication(
+    args: DescribeOAuthClientApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOAuthClientApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeQPersonalizationConfigurationCommand}
    */
   describeQPersonalizationConfiguration(
@@ -3956,6 +4039,23 @@ export interface QuickSight {
     args: ListNamespacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOAuthClientApplicationsCommand}
+   */
+  listOAuthClientApplications(
+    args: ListOAuthClientApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOAuthClientApplicationsCommandOutput>;
+  listOAuthClientApplications(
+    args: ListOAuthClientApplicationsCommandInput,
+    cb: (err: any, data?: ListOAuthClientApplicationsCommandOutput) => void
+  ): void;
+  listOAuthClientApplications(
+    args: ListOAuthClientApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOAuthClientApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -5081,6 +5181,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateOAuthClientApplicationCommand}
+   */
+  updateOAuthClientApplication(
+    args: UpdateOAuthClientApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOAuthClientApplicationCommandOutput>;
+  updateOAuthClientApplication(
+    args: UpdateOAuthClientApplicationCommandInput,
+    cb: (err: any, data?: UpdateOAuthClientApplicationCommandOutput) => void
+  ): void;
+  updateOAuthClientApplication(
+    args: UpdateOAuthClientApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOAuthClientApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePublicSharingSettingsCommand}
    */
   updatePublicSharingSettings(
@@ -5661,6 +5778,17 @@ export interface QuickSight {
     args: ListNamespacesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListOAuthClientApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOAuthClientApplicationsCommandOutput}.
+   */
+  paginateListOAuthClientApplications(
+    args: ListOAuthClientApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOAuthClientApplicationsCommandOutput>;
 
   /**
    * @see {@link ListRoleMembershipsCommand}

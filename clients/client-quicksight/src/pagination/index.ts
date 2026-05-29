@@ -22,6 +22,7 @@ export * from "./ListIAMPolicyAssignmentsPaginator";
 export * from "./ListIAMPolicyAssignmentsForUserPaginator";
 export * from "./ListIngestionsPaginator";
 export * from "./ListNamespacesPaginator";
+export * from "./ListOAuthClientApplicationsPaginator";
 export * from "./ListRoleMembershipsPaginator";
 export * from "./ListTemplateAliasesPaginator";
 export * from "./ListTemplatesPaginator";

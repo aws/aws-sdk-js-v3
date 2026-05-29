@@ -101,6 +101,10 @@ import type {
 import type { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
 import type { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import type {
+  CreateOAuthClientApplicationCommandInput,
+  CreateOAuthClientApplicationCommandOutput,
+} from "./commands/CreateOAuthClientApplicationCommand";
+import type {
   CreateRefreshScheduleCommandInput,
   CreateRefreshScheduleCommandOutput,
 } from "./commands/CreateRefreshScheduleCommand";
@@ -180,6 +184,10 @@ import type {
   DeleteIdentityPropagationConfigCommandOutput,
 } from "./commands/DeleteIdentityPropagationConfigCommand";
 import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import type {
+  DeleteOAuthClientApplicationCommandInput,
+  DeleteOAuthClientApplicationCommandOutput,
+} from "./commands/DeleteOAuthClientApplicationCommand";
 import type {
   DeleteRefreshScheduleCommandInput,
   DeleteRefreshScheduleCommandOutput,
@@ -355,6 +363,10 @@ import type {
   DescribeNamespaceCommandOutput,
 } from "./commands/DescribeNamespaceCommand";
 import type {
+  DescribeOAuthClientApplicationCommandInput,
+  DescribeOAuthClientApplicationCommandOutput,
+} from "./commands/DescribeOAuthClientApplicationCommand";
+import type {
   DescribeQPersonalizationConfigurationCommandInput,
   DescribeQPersonalizationConfigurationCommandOutput,
 } from "./commands/DescribeQPersonalizationConfigurationCommand";
@@ -497,6 +509,10 @@ import type {
 } from "./commands/ListIdentityPropagationConfigsCommand";
 import type { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
 import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
+import type {
+  ListOAuthClientApplicationsCommandInput,
+  ListOAuthClientApplicationsCommandOutput,
+} from "./commands/ListOAuthClientApplicationsCommand";
 import type {
   ListRefreshSchedulesCommandInput,
   ListRefreshSchedulesCommandOutput,
@@ -684,6 +700,10 @@ import type {
   UpdateKeyRegistrationCommandOutput,
 } from "./commands/UpdateKeyRegistrationCommand";
 import type {
+  UpdateOAuthClientApplicationCommandInput,
+  UpdateOAuthClientApplicationCommandOutput,
+} from "./commands/UpdateOAuthClientApplicationCommand";
+import type {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
@@ -782,6 +802,7 @@ export type ServiceInputTypes =
   | CreateIAMPolicyAssignmentCommandInput
   | CreateIngestionCommandInput
   | CreateNamespaceCommandInput
+  | CreateOAuthClientApplicationCommandInput
   | CreateRefreshScheduleCommandInput
   | CreateRoleMembershipCommandInput
   | CreateTemplateAliasCommandInput
@@ -811,6 +832,7 @@ export type ServiceInputTypes =
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteIdentityPropagationConfigCommandInput
   | DeleteNamespaceCommandInput
+  | DeleteOAuthClientApplicationCommandInput
   | DeleteRefreshScheduleCommandInput
   | DeleteRoleCustomPermissionCommandInput
   | DeleteRoleMembershipCommandInput
@@ -862,6 +884,7 @@ export type ServiceInputTypes =
   | DescribeIpRestrictionCommandInput
   | DescribeKeyRegistrationCommandInput
   | DescribeNamespaceCommandInput
+  | DescribeOAuthClientApplicationCommandInput
   | DescribeQPersonalizationConfigurationCommandInput
   | DescribeQuickSightQSearchConfigurationCommandInput
   | DescribeRefreshScheduleCommandInput
@@ -909,6 +932,7 @@ export type ServiceInputTypes =
   | ListIdentityPropagationConfigsCommandInput
   | ListIngestionsCommandInput
   | ListNamespacesCommandInput
+  | ListOAuthClientApplicationsCommandInput
   | ListRefreshSchedulesCommandInput
   | ListRoleMembershipsCommandInput
   | ListSelfUpgradesCommandInput
@@ -975,6 +999,7 @@ export type ServiceInputTypes =
   | UpdateIdentityPropagationConfigCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdateKeyRegistrationCommandInput
+  | UpdateOAuthClientApplicationCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateQPersonalizationConfigurationCommandInput
   | UpdateQuickSightQSearchConfigurationCommandInput
@@ -1019,6 +1044,7 @@ export type ServiceOutputTypes =
   | CreateIAMPolicyAssignmentCommandOutput
   | CreateIngestionCommandOutput
   | CreateNamespaceCommandOutput
+  | CreateOAuthClientApplicationCommandOutput
   | CreateRefreshScheduleCommandOutput
   | CreateRoleMembershipCommandOutput
   | CreateTemplateAliasCommandOutput
@@ -1048,6 +1074,7 @@ export type ServiceOutputTypes =
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteIdentityPropagationConfigCommandOutput
   | DeleteNamespaceCommandOutput
+  | DeleteOAuthClientApplicationCommandOutput
   | DeleteRefreshScheduleCommandOutput
   | DeleteRoleCustomPermissionCommandOutput
   | DeleteRoleMembershipCommandOutput
@@ -1099,6 +1126,7 @@ export type ServiceOutputTypes =
   | DescribeIpRestrictionCommandOutput
   | DescribeKeyRegistrationCommandOutput
   | DescribeNamespaceCommandOutput
+  | DescribeOAuthClientApplicationCommandOutput
   | DescribeQPersonalizationConfigurationCommandOutput
   | DescribeQuickSightQSearchConfigurationCommandOutput
   | DescribeRefreshScheduleCommandOutput
@@ -1146,6 +1174,7 @@ export type ServiceOutputTypes =
   | ListIdentityPropagationConfigsCommandOutput
   | ListIngestionsCommandOutput
   | ListNamespacesCommandOutput
+  | ListOAuthClientApplicationsCommandOutput
   | ListRefreshSchedulesCommandOutput
   | ListRoleMembershipsCommandOutput
   | ListSelfUpgradesCommandOutput
@@ -1212,6 +1241,7 @@ export type ServiceOutputTypes =
   | UpdateIdentityPropagationConfigCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdateKeyRegistrationCommandOutput
+  | UpdateOAuthClientApplicationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateQPersonalizationConfigurationCommandOutput
   | UpdateQuickSightQSearchConfigurationCommandOutput

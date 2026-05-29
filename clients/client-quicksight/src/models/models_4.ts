@@ -5,6 +5,7 @@ import type {
   AssignmentStatus,
   DashboardsQAStatus,
   DataSetImportMode,
+  DataSourceType,
   EmbeddingIdentityType,
   FieldName,
   FilterOperator,
@@ -22,14 +23,14 @@ import type {
   NamespaceErrorType,
   NamespaceStatus,
   NetworkInterfaceStatus,
+  OAuthClientAuthenticationType,
   PersonalizationMode,
-  PurchaseMode,
   QAResultType,
+  QDataKeyType,
   QSearchStatus,
   ResourceStatus,
   Role,
   SearchFilterOperator,
-  SelfUpgradeAdminAction,
   SelfUpgradeRequestStatus,
   SelfUpgradeStatus,
   ServiceType,
@@ -119,21 +120,129 @@ import type {
   LogicalTable,
   PerformanceConfiguration,
   PhysicalTable,
-  QDataKey,
   RefreshSchedule,
-  RegisteredCustomerManagedKey,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   SemanticModelConfiguration,
   SnapshotConfiguration,
   TemplateAlias,
-  TemplateSourceEntity,
   TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeIpRestrictionResponse {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>A map that describes the IP rules with CIDR range and description.</p>
+   * @public
+   */
+  IpRestrictionRuleMap?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of allowed VPC IDs and their rule descriptions.</p>
+   * @public
+   */
+  VpcIdRestrictionRuleMap?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of allowed VPC endpoint IDs and their rule descriptions.</p>
+   * @public
+   */
+  VpcEndpointIdRestrictionRuleMap?: Record<string, string> | undefined;
+
+  /**
+   * <p>A value that specifies whether IP rules are turned on.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.
+   * 			</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyRegistrationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>Determines whether the request returns the default key only.</p>
+   * @public
+   */
+  DefaultKeyOnly?: boolean | undefined;
+}
+
+/**
+ * <p>A customer managed key structure that contains the information listed below: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DefaultKey</code> - Indicates whether the current key is set as the default key for encryption and decryption use.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RegisteredCustomerManagedKey {
+  /**
+   * <p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>
+   * @public
+   */
+  DefaultKey?: boolean | undefined;
+}
+
+/**
+ * <p>A structure that contains information about the <code>QDataKey</code>.</p>
+ * @public
+ */
+export interface QDataKey {
+  /**
+   * <p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use as a <code>QDataKey</code>.</p>
+   * @public
+   */
+  QDataKeyArn?: string | undefined;
+
+  /**
+   * <p>The type of <code>QDataKey</code>.</p>
+   * @public
+   */
+  QDataKeyType?: QDataKeyType | undefined;
+}
 
 /**
  * @public
@@ -271,6 +380,118 @@ export interface DescribeNamespaceResponse {
    * @public
    */
   Namespace?: NamespaceInfoV2 | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOAuthClientApplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication that you want to describe.</p>
+   * @public
+   */
+  OAuthClientApplicationId: string | undefined;
+}
+
+/**
+ * <p>An OAuth client application that is used to authenticate connections to a data source through an OAuth identity provider.</p>
+ * @public
+ */
+export interface OAuthClientApplication {
+  /**
+   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId?: string | undefined;
+
+  /**
+   * <p>The display name of the OAuthClientApplication.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The OAuth client authentication type used by the OAuthClientApplication. Valid values are <code>TOKEN</code>.</p>
+   * @public
+   */
+  OAuthClientAuthenticationType?: OAuthClientAuthenticationType | undefined;
+
+  /**
+   * <p>The token endpoint URL of the identity provider that is used to obtain access tokens.</p>
+   * @public
+   */
+  OAuthTokenEndpointUrl?: string | undefined;
+
+  /**
+   * <p>The authorization endpoint URL of the identity provider that is used to obtain authorization codes.</p>
+   * @public
+   */
+  OAuthAuthorizationEndpointUrl?: string | undefined;
+
+  /**
+   * <p>The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider.</p>
+   * @public
+   */
+  OAuthScopes?: string | undefined;
+
+  /**
+   * <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
+   * @public
+   */
+  DataSourceType?: DataSourceType | undefined;
+
+  /**
+   * <p>VPC connection properties.</p>
+   * @public
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
+
+  /**
+   * <p>The time that the OAuthClientApplication was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that the OAuthClientApplication was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOAuthClientApplicationResponse {
+  /**
+   * <p>The information about the OAuthClientApplication.</p>
+   * @public
+   */
+  OAuthClientApplication?: OAuthClientApplication | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4535,6 +4756,112 @@ export interface ListNamespacesResponse {
 
   /**
    * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOAuthClientApplicationsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of an OAuthClientApplication.</p>
+ * @public
+ */
+export interface OAuthClientApplicationSummary {
+  /**
+   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId?: string | undefined;
+
+  /**
+   * <p>The display name of the OAuthClientApplication.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The OAuth client authentication type used by the OAuthClientApplication. Valid values are <code>TOKEN</code>.</p>
+   * @public
+   */
+  OAuthClientAuthenticationType?: OAuthClientAuthenticationType | undefined;
+
+  /**
+   * <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
+   * @public
+   */
+  DataSourceType?: DataSourceType | undefined;
+
+  /**
+   * <p>VPC connection properties.</p>
+   * @public
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
+
+  /**
+   * <p>The time that the OAuthClientApplication was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that the OAuthClientApplication was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOAuthClientApplicationsResponse {
+  /**
+   * <p>A list of OAuthClientApplication summaries.</p>
+   * @public
+   */
+  OAuthClientApplications?: OAuthClientApplicationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9278,6 +9605,106 @@ export interface UpdateKeyRegistrationResponse {
 /**
  * @public
  */
+export interface UpdateOAuthClientApplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication that you want to update.</p>
+   * @public
+   */
+  OAuthClientApplicationId: string | undefined;
+
+  /**
+   * <p>The display name for the OAuthClientApplication.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The client ID of the OAuth application that is registered with the identity provider.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The client secret of the OAuth application that is registered with the identity provider.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>The token endpoint URL of the identity provider that is used to obtain access tokens.</p>
+   * @public
+   */
+  OAuthTokenEndpointUrl?: string | undefined;
+
+  /**
+   * <p>The authorization endpoint URL of the identity provider that is used to obtain authorization codes.</p>
+   * @public
+   */
+  OAuthAuthorizationEndpointUrl?: string | undefined;
+
+  /**
+   * <p>The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider.</p>
+   * @public
+   */
+  OAuthScopes?: string | undefined;
+
+  /**
+   * <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
+   * @public
+   */
+  DataSourceType?: DataSourceType | undefined;
+
+  /**
+   * <p>VPC connection properties.</p>
+   * @public
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOAuthClientApplicationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId?: string | undefined;
+
+  /**
+   * <p>The status of updating the OAuthClientApplication.</p>
+   * @public
+   */
+  UpdateStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdatePublicSharingSettingsRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon Quick Sight
@@ -9469,342 +9896,4 @@ export interface UpdateRoleCustomPermissionRequest {
    * @public
    */
   Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRoleCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSelfUpgradeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the self-upgrade request.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick namespace for the self-upgrade request.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The ID of the self-upgrade request to update.</p>
-   * @public
-   */
-  UpgradeRequestId: string | undefined;
-
-  /**
-   * <p>The action to perform on the self-upgrade request. Valid values are <code>APPROVE</code>, <code>DENY</code>, or <code>VERIFY</code>.</p>
-   * @public
-   */
-  Action: SelfUpgradeAdminAction | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSelfUpgradeResponse {
-  /**
-   * <p>Details of the updated self-upgrade request.</p>
-   * @public
-   */
-  SelfUpgradeRequestDetail?: SelfUpgradeRequestDetail | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSelfUpgradeConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration that you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick namespace that you want to update the Quick self-upgrade configuration for.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The self-upgrade status that you want to set for the Quick account.</p>
-   * @public
-   */
-  SelfUpgradeStatus: SelfUpgradeStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSelfUpgradeConfigurationResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSPICECapacityConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>Determines how SPICE capacity can be purchased. The following options are available. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MANUAL</code>: SPICE capacity can only be purchased manually.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO_PURCHASE</code>: Extra SPICE capacity is automatically purchased on your behalf as needed. SPICE capacity can also be purchased manually with this option.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PurchaseMode: PurchaseMode | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSPICECapacityConfigurationResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you update the template. In
-   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
-   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
-   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
-   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
-   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region;. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
-   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. </p>
-   * @public
-   */
-  SourceEntity?: TemplateSourceEntity | undefined;
-
-  /**
-   * <p>A description of the current template version that is being updated. Every time you call
-   * 				<code>UpdateTemplate</code>, you create a new version of the template. Each version
-   * 			of the template maintains a description of the version in the
-   * 				<code>VersionDescription</code> field.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>The name for the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The definition of a template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateResponse {
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the template.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ARN for the template, including the version information of the first version.</p>
-   * @public
-   */
-  VersionArn?: string | undefined;
-
-  /**
-   * <p>The creation status of the template.</p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The alias of the template that you want to update. If you name a specific alias, you update
-   * 			the version that the alias points to. You can specify the latest version of the template
-   * 			by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter.
-   * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The version number of the template.</p>
-   * @public
-   */
-  TemplateVersionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateAliasResponse {
-  /**
-   * <p>The template alias.</p>
-   * @public
-   */
-  TemplateAlias?: TemplateAlias | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplatePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be granted on the template. </p>
-   * @public
-   */
-  GrantPermissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>A list of resource permissions to be revoked from the template. </p>
-   * @public
-   */
-  RevokePermissions?: ResourcePermission[] | undefined;
 }

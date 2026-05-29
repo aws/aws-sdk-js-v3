@@ -1,20 +1,364 @@
 // smithy-typescript generated code
 import type {
+  PurchaseMode,
   ResourceStatus,
+  SelfUpgradeAdminAction,
+  SelfUpgradeStatus,
   UserRole,
   VisualRole,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
-import type { ResourcePermission, TopicIR, TopicTemplate } from "./models_2";
+import type { ResourcePermission, TopicIR, TopicTemplate, ValidationStrategy } from "./models_2";
 import type {
   CustomInstructions,
+  TemplateAlias,
+  TemplateSourceEntity,
+  TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
 } from "./models_3";
-import type { User } from "./models_4";
+import type { SelfUpgradeRequestDetail, User } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateRoleCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the self-upgrade request.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick namespace for the self-upgrade request.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The ID of the self-upgrade request to update.</p>
+   * @public
+   */
+  UpgradeRequestId: string | undefined;
+
+  /**
+   * <p>The action to perform on the self-upgrade request. Valid values are <code>APPROVE</code>, <code>DENY</code>, or <code>VERIFY</code>.</p>
+   * @public
+   */
+  Action: SelfUpgradeAdminAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeResponse {
+  /**
+   * <p>Details of the updated self-upgrade request.</p>
+   * @public
+   */
+  SelfUpgradeRequestDetail?: SelfUpgradeRequestDetail | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick namespace that you want to update the Quick self-upgrade configuration for.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The self-upgrade status that you want to set for the Quick account.</p>
+   * @public
+   */
+  SelfUpgradeStatus: SelfUpgradeStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSelfUpgradeConfigurationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSPICECapacityConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>Determines how SPICE capacity can be purchased. The following options are available. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MANUAL</code>: SPICE capacity can only be purchased manually.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_PURCHASE</code>: Extra SPICE capacity is automatically purchased on your behalf as needed. SPICE capacity can also be purchased manually with this option.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PurchaseMode: PurchaseMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSPICECapacityConfigurationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The entity that you are using as a source when you update the template. In
+   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
+   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
+   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
+   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
+   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
+   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region;. </p>
+   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
+   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
+   * 			in the original. The schema in each dataset must match its placeholder. </p>
+   * @public
+   */
+  SourceEntity?: TemplateSourceEntity | undefined;
+
+  /**
+   * <p>A description of the current template version that is being updated. Every time you call
+   * 				<code>UpdateTemplate</code>, you create a new version of the template. Each version
+   * 			of the template maintains a description of the version in the
+   * 				<code>VersionDescription</code> field.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The name for the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The definition of a template.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: TemplateVersionDefinition | undefined;
+
+  /**
+   * <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
+   * @public
+   */
+  ValidationStrategy?: ValidationStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateResponse {
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the template.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ARN for the template, including the version information of the first version.</p>
+   * @public
+   */
+  VersionArn?: string | undefined;
+
+  /**
+   * <p>The creation status of the template.</p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The alias of the template that you want to update. If you name a specific alias, you update
+   * 			the version that the alias points to. You can specify the latest version of the template
+   * 			by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter.
+   * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The version number of the template.</p>
+   * @public
+   */
+  TemplateVersionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateAliasResponse {
+  /**
+   * <p>The template alias.</p>
+   * @public
+   */
+  TemplateAlias?: TemplateAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplatePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be granted on the template. </p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>A list of resource permissions to be revoked from the template. </p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+}
 
 /**
  * @public

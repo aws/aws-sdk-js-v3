@@ -46,9 +46,9 @@ import type {
   NamedFilterType,
   NamespaceStatus,
   NullFilterType,
+  OAuthClientAuthenticationType,
   PropertyRole,
   PropertyUsage,
-  QDataKeyType,
   RefreshInterval,
   ResourceStatus,
   Role,
@@ -2226,6 +2226,118 @@ export interface CreateNamespaceResponse {
    * @public
    */
   IdentityStore?: IdentityStore | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateOAuthClientApplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the OAuthClientApplication that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId: string | undefined;
+
+  /**
+   * <p>The display name for the OAuthClientApplication.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The authentication type to use for the OAuthClientApplication. This determines the OAuth 2.0 grant flow that is used when the data source connects to the identity provider. Valid values are <code>TOKEN</code>.</p>
+   * @public
+   */
+  OAuthClientAuthenticationType: OAuthClientAuthenticationType | undefined;
+
+  /**
+   * <p>The client ID of the OAuth application that is registered with the identity provider.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The client secret of the OAuth application that is registered with the identity provider.</p>
+   * @public
+   */
+  ClientSecret: string | undefined;
+
+  /**
+   * <p>The token endpoint URL of the identity provider that is used to obtain access tokens.</p>
+   * @public
+   */
+  OAuthTokenEndpointUrl: string | undefined;
+
+  /**
+   * <p>The authorization endpoint URL of the identity provider that is used to obtain authorization codes.</p>
+   * @public
+   */
+  OAuthAuthorizationEndpointUrl?: string | undefined;
+
+  /**
+   * <p>The OAuth scopes that are requested when the OAuthClientApplication obtains an access token from the identity provider.</p>
+   * @public
+   */
+  OAuthScopes?: string | undefined;
+
+  /**
+   * <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
+   * @public
+   */
+  DataSourceType?: DataSourceType | undefined;
+
+  /**
+   * <p>VPC connection properties.</p>
+   * @public
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the OAuthClientApplication.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateOAuthClientApplicationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId?: string | undefined;
+
+  /**
+   * <p>The status of creating the OAuthClientApplication.</p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -6288,6 +6400,52 @@ export interface DeleteNamespaceResponse {
 /**
  * @public
  */
+export interface DeleteOAuthClientApplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication that you want to delete.</p>
+   * @public
+   */
+  OAuthClientApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOAuthClientApplicationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication that you deleted.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteRefreshScheduleRequest {
   /**
    * <p>The ID of the dataset.</p>
@@ -9538,115 +9696,4 @@ export interface DescribeIpRestrictionRequest {
    * @public
    */
   AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIpRestrictionResponse {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>A map that describes the IP rules with CIDR range and description.</p>
-   * @public
-   */
-  IpRestrictionRuleMap?: Record<string, string> | undefined;
-
-  /**
-   * <p>A map of allowed VPC IDs and their rule descriptions.</p>
-   * @public
-   */
-  VpcIdRestrictionRuleMap?: Record<string, string> | undefined;
-
-  /**
-   * <p>A map of allowed VPC endpoint IDs and their rule descriptions.</p>
-   * @public
-   */
-  VpcEndpointIdRestrictionRuleMap?: Record<string, string> | undefined;
-
-  /**
-   * <p>A value that specifies whether IP rules are turned on.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.
-   * 			</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeKeyRegistrationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>Determines whether the request returns the default key only.</p>
-   * @public
-   */
-  DefaultKeyOnly?: boolean | undefined;
-}
-
-/**
- * <p>A customer managed key structure that contains the information listed below: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DefaultKey</code> - Indicates whether the current key is set as the default key for encryption and decryption use.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface RegisteredCustomerManagedKey {
-  /**
-   * <p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>
-   * @public
-   */
-  KeyArn?: string | undefined;
-
-  /**
-   * <p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>
-   * @public
-   */
-  DefaultKey?: boolean | undefined;
-}
-
-/**
- * <p>A structure that contains information about the <code>QDataKey</code>.</p>
- * @public
- */
-export interface QDataKey {
-  /**
-   * <p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use as a <code>QDataKey</code>.</p>
-   * @public
-   */
-  QDataKeyArn?: string | undefined;
-
-  /**
-   * <p>The type of <code>QDataKey</code>.</p>
-   * @public
-   */
-  QDataKeyType?: QDataKeyType | undefined;
 }
