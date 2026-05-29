@@ -25,5 +25,9 @@ export default defineConfig({
     include: ["**/*.browser.e2e.spec.ts", "clients/**/*.e2e.spec.ts"],
     environment: "happy-dom",
     setupFiles: ["./vitest.browser.setup.mts"],
+    retry: {
+      count: 4,
+      delay: 20000,
+    },
   },
 });

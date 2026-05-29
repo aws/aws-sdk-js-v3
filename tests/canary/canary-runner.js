@@ -43,13 +43,14 @@ const packageJson = {
   name: "canary-aws-sdk-js-v3",
   private: true,
   scripts: {
-    canary: "AWS_SDK_TEST_CANARY=1 vitest run --retry=4 --test-timeout=60000 --hook-timeout=60000",
+    canary:
+      "AWS_SDK_TEST_CANARY=1 vitest run --retry.count=4 --retry.delay=20000 --test-timeout=60000 --hook-timeout=60000",
   },
   devDependencies: {
     ...Object.fromEntries([...dependencies].sort().map((dep) => [dep, "latest"])),
     "@aws-sdk/config": "latest",
     "happy-dom": "20.8.3",
-    vitest: "4.0.17",
+    vitest: "4.1.7",
   },
 };
 
@@ -76,6 +77,10 @@ export default defineConfig({
     ],
     setupFiles: ["vitest.browser.setup.mts"],
     environment: "happy-dom",
+    retry: {
+      count: 4,
+      delay: 20000,
+    },
   },
 });
 `;

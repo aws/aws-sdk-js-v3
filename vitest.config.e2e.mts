@@ -6,5 +6,9 @@ export default defineConfig({
     include: ["clients/**/*.e2e.spec.ts", "lib/**/*.e2e.spec.ts", "{packages,packages-internal}/**/*.e2e.spec.ts"],
     environment: "node",
     setupFiles: ["./vitest.nodejs.setup.mts"],
+    retry: {
+      count: 4,
+      delay: 20000,
+    },
   },
 });
