@@ -48,6 +48,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.46 (2026-05-29)
+### Chores
+* **codegen:** smithy-aws-typescript-codegen 0.50.0 ([#8056](https://github.com/aws/aws-sdk-js-v3/issues/8056)) ([050bee1](https://github.com/aws/aws-sdk-js-v3/commit/050bee1051872c05ccc03bc746661610039c260e))
+
+
+
 # 3.972.45 (2026-05-27)
 ### Chores
 * **codegen:** sync for cyclic file dependency fixes ([#8051](https://github.com/aws/aws-sdk-js-v3/issues/8051)) ([7ae617c](https://github.com/aws/aws-sdk-js-v3/commit/7ae617c43c11caf24ee171cb5f6eede64d5eeba7))

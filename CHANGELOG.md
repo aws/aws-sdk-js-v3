@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1057.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1056.0...v3.1057.0) (2026-05-29)
+
+
+### Features
+
+* **client-account:** Adding new BDD representation of endpoint ruleset ([043ec31](https://github.com/aws/aws-sdk-js-v3/commit/043ec31b7338385f175b0e04a86e613ab50225e1))
+* **client-application-insights:** Adding new BDD representation of endpoint ruleset ([8188d14](https://github.com/aws/aws-sdk-js-v3/commit/8188d14ab9c122f186dd9bfb6d3048a276a88635))
+* **client-arc-zonal-shift:** Adding new BDD representation of endpoint ruleset ([5c22811](https://github.com/aws/aws-sdk-js-v3/commit/5c2281130d513e23304d47100fe4770afcdcb30e))
+* **client-athena:** Adding new BDD representation of endpoint ruleset ([a9a05af](https://github.com/aws/aws-sdk-js-v3/commit/a9a05afb01b24028ae71092b755366dac79516e2))
+* **client-auto-scaling-plans:** Adding new BDD representation of endpoint ruleset ([be4de62](https://github.com/aws/aws-sdk-js-v3/commit/be4de62099fe1d61855efb884472a491b2c46c82))
+* **client-auto-scaling:** Adding new BDD representation of endpoint ruleset ([2038f34](https://github.com/aws/aws-sdk-js-v3/commit/2038f34d4922399b73b319e1692989efc5deab7f))
+* **client-backup-gateway:** Adding new BDD representation of endpoint ruleset ([78977a6](https://github.com/aws/aws-sdk-js-v3/commit/78977a6c9a9e6c887ec49c7e89cf546135687c43))
+* **client-bedrock-agentcore-control:** Reference your own AWS Secrets Manager secrets when configuring credential providers, giving you control over encryption, rotation, and access policies instead of using service-managed secrets. ([ac8eac9](https://github.com/aws/aws-sdk-js-v3/commit/ac8eac96883d615126f725163a6ac765892cf411))
+* **client-bedrock:** Automated Reasoning checks - Added two build workflows for policies. Iterative Refine Policy uses AI to update policy definitions based on test results and feedback. Resolve Policy Ambiguities consolidates ambiguous variables in Automated Reasoning policies, a common source of ambiguous validation. ([dc971ce](https://github.com/aws/aws-sdk-js-v3/commit/dc971ce117e5a6d902c8c9a5618109c54fcfa95f))
+* **client-budgets:** Adding new BDD representation of endpoint ruleset ([d49141c](https://github.com/aws/aws-sdk-js-v3/commit/d49141cc1fc4eae0d0940a23e272c2d67b544a05))
+* **client-chime:** Adding new BDD representation of endpoint ruleset ([f8e2cde](https://github.com/aws/aws-sdk-js-v3/commit/f8e2cde591e2d33f10b58633311e866ddca13a3e))
+* **client-clouddirectory:** Adding new BDD representation of endpoint ruleset ([5826e35](https://github.com/aws/aws-sdk-js-v3/commit/5826e3575d13ee1acfd0e9c176a1425e5723902c))
+* **client-cloudhsm-v2:** Adding new BDD representation of endpoint ruleset ([16dc3f8](https://github.com/aws/aws-sdk-js-v3/commit/16dc3f837c8fdcb9621706e317af13d6b1ed440f))
+* **client-cloudhsm:** Adding new BDD representation of endpoint ruleset ([b960d63](https://github.com/aws/aws-sdk-js-v3/commit/b960d63339e667d2d21f723e1450154cbee01aa0))
+* **client-cloudsearch-domain:** Adding new BDD representation of endpoint ruleset ([84e5f9f](https://github.com/aws/aws-sdk-js-v3/commit/84e5f9f0d9dade03032a39348885ee8e6904f229))
+* **client-cloudsearch:** Adding new BDD representation of endpoint ruleset ([954a562](https://github.com/aws/aws-sdk-js-v3/commit/954a562982520a880c0f174c0ea77408126e6cdb))
+* **client-cloudtrail:** Adding new BDD representation of endpoint ruleset ([f8aca9f](https://github.com/aws/aws-sdk-js-v3/commit/f8aca9fee33b903c423d215eddcf0753cf40b24d))
+* **client-codebuild:** Adding new BDD representation of endpoint ruleset ([8d82661](https://github.com/aws/aws-sdk-js-v3/commit/8d82661f2f770848919d0aa19980b81339df2e8c))
+* **client-codecatalyst:** Adding new BDD representation of endpoint ruleset ([5d0951a](https://github.com/aws/aws-sdk-js-v3/commit/5d0951a12ba6c2339690e4b2fd8d17a68b19ddad))
+* **client-codecommit:** Adding new BDD representation of endpoint ruleset ([3dc4ba9](https://github.com/aws/aws-sdk-js-v3/commit/3dc4ba9cafc0ccb34a9820471bf2fc36e02d753e))
+* **client-codedeploy:** Adding new BDD representation of endpoint ruleset ([7c04b84](https://github.com/aws/aws-sdk-js-v3/commit/7c04b84fbcf66251ac8c3865418c3cc7b853b110))
+* **client-codeguru-security:** Adding new BDD representation of endpoint ruleset ([b5e7960](https://github.com/aws/aws-sdk-js-v3/commit/b5e7960032ad59db18ebcf870b2fc45446e1621f))
+* **client-connect-contact-lens:** Adding new BDD representation of endpoint ruleset ([5356eaf](https://github.com/aws/aws-sdk-js-v3/commit/5356eaf451c55e645224fa53ff10d55610c5c260))
+* **client-connectcampaignsv2:** Adding new BDD representation of endpoint ruleset ([610e00f](https://github.com/aws/aws-sdk-js-v3/commit/610e00f65dc426e28f266db68c35e43e0b4387ef))
+* **client-directory-service-data:** Adding new BDD representation of endpoint ruleset ([a4c4696](https://github.com/aws/aws-sdk-js-v3/commit/a4c4696bcf31fee57e2a5f8c13623a2acccf3c5b))
+* **client-drs:** Adding new BDD representation of endpoint ruleset ([af7bbc3](https://github.com/aws/aws-sdk-js-v3/commit/af7bbc33b7103359fa665b7efb661754b0daf4a0))
+* **client-entityresolution:** Adding new BDD representation of endpoint ruleset ([cbe0dd2](https://github.com/aws/aws-sdk-js-v3/commit/cbe0dd2e64859a37b48b6aa4c32ab9110c24eb81))
+* **client-grafana:** Adding new BDD representation of endpoint ruleset ([a0c1dbf](https://github.com/aws/aws-sdk-js-v3/commit/a0c1dbf44a5eceae952ce7aebc347275ace72a69))
+* **client-groundstation:** Adds support for Alpha-5 satellite number encoding in the Two-Line Element ephemeris format. ([1702995](https://github.com/aws/aws-sdk-js-v3/commit/17029957a2cfd565405a294a536fb46bb55b3a67))
+* **client-inspector-scan:** Adding new BDD representation of endpoint ruleset ([f4eb551](https://github.com/aws/aws-sdk-js-v3/commit/f4eb551144f0aaca20866c2587befca55b91135e))
+* **client-lex-models-v2:** Adding new BDD representation of endpoint ruleset ([46879a2](https://github.com/aws/aws-sdk-js-v3/commit/46879a2b4f0bf6e69679b6e3b2d8944522433b52))
+* **client-lex-runtime-v2:** Adding new BDD representation of endpoint ruleset ([2e4709c](https://github.com/aws/aws-sdk-js-v3/commit/2e4709c61d7247245b40f31e96612847f7fd4737))
+* **client-mailmanager:** Adding new BDD representation of endpoint ruleset ([89075b5](https://github.com/aws/aws-sdk-js-v3/commit/89075b5d5c94a8a0b3532baa0f820bea6bdeae83))
+* **client-mwaa:** Adding new BDD representation of endpoint ruleset ([58e3ca2](https://github.com/aws/aws-sdk-js-v3/commit/58e3ca280e18a5b323a3e1f04864d3953f2a1a11))
+* **client-networkflowmonitor:** Adding new BDD representation of endpoint ruleset ([2571d33](https://github.com/aws/aws-sdk-js-v3/commit/2571d33cf88706932279760c4b500e38708871b1))
+* **client-omics:** Add engineSettings to StartRun and GetRun. Add profiles and profileParameterTemplates to GetWorkflow and GetWorkflowVersion. ([b742790](https://github.com/aws/aws-sdk-js-v3/commit/b742790fa0cdcaaea6e1bfdbaa0acc926f5909ff))
+* **client-payment-cryptography-data:** Adding new BDD representation of endpoint ruleset ([d3b4a30](https://github.com/aws/aws-sdk-js-v3/commit/d3b4a3045d8fc6f4288bdcb323fd0e8b2d534016))
+* **client-pcs:** Adding new BDD representation of endpoint ruleset ([eec245d](https://github.com/aws/aws-sdk-js-v3/commit/eec245d25eec024908d3f169c0ffd19321fc95d7))
+* **client-personalize-events:** Adding new BDD representation of endpoint ruleset ([75da9a4](https://github.com/aws/aws-sdk-js-v3/commit/75da9a4b75b740b629d752f5b3ead34f75e8a082))
+* **client-proton:** Adding new BDD representation of endpoint ruleset ([937b25e](https://github.com/aws/aws-sdk-js-v3/commit/937b25e01d6bac09ce133d6fd9a912ea74afeb7a))
+* **client-qbusiness:** Adding new BDD representation of endpoint ruleset ([4770f02](https://github.com/aws/aws-sdk-js-v3/commit/4770f0272e6e08f14d10fad67d3816eb3617e3ba))
+* **client-quicksight:** Adds support for creating, updating, describing, listing, and deleting an OAuthClientApplication resource, a new quicksight resource that allows customers to store OAuth configurations to connect to their databases via 3 Legged OAuth. ([62d39a8](https://github.com/aws/aws-sdk-js-v3/commit/62d39a8100c170f50b075b03e9b8a55b16f05a9d))
+* **client-rds-data:** RDS Data API arrays (longValues, doubleValues, stringValues, booleanValues) in ExecuteStatement responses now correctly support null elements. Runtime change for JS v3 and .NET. Compile-time change for C plus plus, .NET, Kotlin, Rust. No impact for Java, Python, Ruby, PHP, Go. ([43e8abc](https://github.com/aws/aws-sdk-js-v3/commit/43e8abc90592e66c4524fe660aca567fad1e51f2))
+* **client-route53-recovery-cluster:** Adding new BDD representation of endpoint ruleset ([295e9e4](https://github.com/aws/aws-sdk-js-v3/commit/295e9e4bd745a617e1e06d5b9e6a6c69f39876da))
+* **client-route53resolver:** Added BatchCreateFirewallRule, BatchUpdateFirewallRule, BatchDeleteFirewallRule, and ListFirewallRuleTypes APIs. Added FirewallRuleType support to Firewall Rule APIs. ([a5c6d72](https://github.com/aws/aws-sdk-js-v3/commit/a5c6d72261136b238790cf57d658e2082a1fb07e))
+* **client-sesv2:** This release introduces support for Tenant Suppression Lists ([3de2020](https://github.com/aws/aws-sdk-js-v3/commit/3de2020c8015c8201643e6d6939185a0618b263b))
+* **client-ssm-guiconnect:** Adding new BDD representation of endpoint ruleset ([e5c019d](https://github.com/aws/aws-sdk-js-v3/commit/e5c019d395e72ed01d7b72f7d1c28ba700015ccf))
+* **client-synthetics:** Adding new BDD representation of endpoint ruleset ([59d0871](https://github.com/aws/aws-sdk-js-v3/commit/59d0871f64cdfa03a24ff532cd2f7d38360e38c0))
+* **client-wafv2:** Adding new BDD representation of endpoint ruleset ([4ec2c0f](https://github.com/aws/aws-sdk-js-v3/commit/4ec2c0f72473c72ac9195355df1b73ea331c51d3))
+* **client-workspaces-instances:** Adding new BDD representation of endpoint ruleset ([2b06af5](https://github.com/aws/aws-sdk-js-v3/commit/2b06af5e273a26322475d1b852987945f3672be4))
+* **clients:** update client endpoints as of 2026-05-29 ([100e59e](https://github.com/aws/aws-sdk-js-v3/commit/100e59e3c3649d1faeffb40dde241698a420ca82))
+
+
+
+
+
 # [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
 
 

@@ -26,6 +26,13 @@
 
 
 
+
+# 3.0.27 (2026-05-28)
+### Chores
+* **codegen:** sync for smithy 1.71.0 and snapshot-testing fix ([#8053](https://github.com/aws/aws-sdk-js-v3/issues/8053)) ([e55a387](https://github.com/aws/aws-sdk-js-v3/commit/e55a38791745be6ed4be7009808d14a2a393adf9))
+
+
+
 # 3.0.26 (2026-05-27)
 ### Chores
 * **codegen:** sync for cyclic file dependency fixes ([#8051](https://github.com/aws/aws-sdk-js-v3/issues/8051)) ([7ae617c](https://github.com/aws/aws-sdk-js-v3/commit/7ae617c43c11caf24ee171cb5f6eede64d5eeba7))

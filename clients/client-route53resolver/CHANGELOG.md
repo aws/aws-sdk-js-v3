@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1057.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1056.0...v3.1057.0) (2026-05-29)
+
+
+### Features
+
+* **client-route53resolver:** Added BatchCreateFirewallRule, BatchUpdateFirewallRule, BatchDeleteFirewallRule, and ListFirewallRuleTypes APIs. Added FirewallRuleType support to Firewall Rule APIs. ([a5c6d72](https://github.com/aws/aws-sdk-js-v3/commit/a5c6d72261136b238790cf57d658e2082a1fb07e))
+
+
+
+
+
 # [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
 
 **Note:** Version bump only for package @aws-sdk/client-route53resolver
