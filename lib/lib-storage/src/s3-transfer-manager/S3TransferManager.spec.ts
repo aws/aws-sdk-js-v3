@@ -1,11 +1,13 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import type { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import { createReadStream } from "node:fs";
 import { Readable } from "node:stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { joinStreams } from "./join-streams";
 import { S3TransferManager } from "./S3TransferManager";
+import { WorkerHttpHandler } from "./worker-http-handler";
 
 describe("S3TransferManager Unit Tests", () => {
   let client: S3;
@@ -982,6 +984,341 @@ describe("S3TransferManager Unit Tests", () => {
       await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
 
       expect(bytesCallback.mock.calls.length).toBeGreaterThanOrEqual(1);
+    });
+  });
+
+  describe("Threaded multipart upload", () => {
+    let sendCallCount = 0;
+    let sendCalls: any[] = [];
+    let mockSend: any;
+
+    function createMockClient() {
+      sendCalls = [];
+      mockSend = vi.fn().mockImplementation((command: any) => {
+        sendCallCount++;
+        sendCalls.push(command);
+        const commandName = command.constructor?.name ?? "";
+        if (commandName === "CreateMultipartUploadCommand") {
+          return Promise.resolve({ UploadId: "test-upload-id", $metadata: {} });
+        }
+        if (commandName === "UploadPartCommand") {
+          return Promise.resolve({
+            ETag: `"etag-${command.input?.PartNumber}"`,
+            ChecksumCRC32: "abc123==",
+            $metadata: {},
+          });
+        }
+        if (commandName === "CompleteMultipartUploadCommand") {
+          return Promise.resolve({ ETag: '"final-etag"', $metadata: {} });
+        }
+        if (commandName === "AbortMultipartUploadCommand") {
+          return Promise.resolve({ $metadata: {} });
+        }
+        return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
+      });
+      return { send: mockSend, config: {} } as any;
+    }
+
+    it("should use explicit workerThreadCount and create WorkerHttpHandler", () => {
+      const tm = new S3TransferManager({ workerThreadCount: 4 }) as any;
+      expect(tm.workerThreadCount).toBe(4);
+      expect(tm.workerHttpHandler).toBeInstanceOf(WorkerHttpHandler);
+    });
+
+    it("should not create WorkerHttpHandler when workerThreadCount is 1", () => {
+      const tm = new S3TransferManager({ workerThreadCount: 1 }) as any;
+      expect(tm.workerThreadCount).toBe(1);
+      expect(tm.workerHttpHandler).toBeUndefined();
+    });
+
+    it("should route in-memory Buffer body to threadedUploadInParts when workerThreadCount > 1", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      // 20MB buffer - above threshold, triggers multipart
+      const body = Buffer.alloc(20 * 1024 * 1024, "x");
+
+      await tm.upload({ Bucket: "test-bucket", Key: "buffer-upload.bin", Body: body });
+
+      // Should have called CreateMPU, UploadPart (x3), CompleteMPU
+      const commandNames = sendCalls.map((c: any) => c.constructor?.name);
+      expect(commandNames).toContain("CreateMultipartUploadCommand");
+      expect(commandNames).toContain("UploadPartCommand");
+      expect(commandNames).toContain("CompleteMultipartUploadCommand");
+      expect(commandNames.filter((n: string) => n === "UploadPartCommand").length).toBe(3);
+    });
+
+    it("should route string body to threadedUploadInParts when workerThreadCount > 1", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+
+      const body = "x".repeat(20 * 1024 * 1024);
+
+      await tm.upload({ Bucket: "test-bucket", Key: "string-upload.txt", Body: body });
+
+      const commandNames = sendCalls.map((c: any) => c.constructor?.name);
+      expect(commandNames).toContain("CreateMultipartUploadCommand");
+      expect(commandNames).toContain("UploadPartCommand");
+      expect(commandNames).toContain("CompleteMultipartUploadCommand");
+    });
+
+    it("should route file body (Readable with .path) to threadedUploadInPartsFromFile when workerThreadCount > 1", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+
+      // Create a Readable with .path to simulate fs.createReadStream
+      const fileStream = new Readable({
+        read() {
+          this.push(null);
+        },
+      }) as Readable & { path: string };
+      fileStream.path = "/tmp/test-file.bin";
+
+      const contentLength = 20 * 1024 * 1024;
+
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file-upload.bin",
+        Body: fileStream,
+        ContentLength: contentLength,
+      });
+
+      const commandNames = sendCalls.map((c: any) => c.constructor?.name);
+      expect(commandNames).toContain("CreateMultipartUploadCommand");
+      expect(commandNames).toContain("UploadPartCommand");
+      expect(commandNames).toContain("CompleteMultipartUploadCommand");
+    });
+
+    it("should abort multipart upload when abortSignal is triggered mid-upload", async () => {
+      const controller = new AbortController();
+      let uploadPartCallCount = 0;
+
+      const mockClient = {
+        send: vi.fn().mockImplementation((command: any) => {
+          const commandName = command.constructor?.name ?? "";
+          if (commandName === "CreateMultipartUploadCommand") {
+            return Promise.resolve({ UploadId: "abort-test-id", $metadata: {} });
+          }
+          if (commandName === "UploadPartCommand") {
+            uploadPartCallCount++;
+            // Abort after first part
+            if (uploadPartCallCount === 1) {
+              controller.abort();
+            }
+            return Promise.resolve({ ETag: `"etag-${uploadPartCallCount}"`, ChecksumCRC32: "abc==", $metadata: {} });
+          }
+          if (commandName === "AbortMultipartUploadCommand") {
+            return Promise.resolve({ $metadata: {} });
+          }
+          return Promise.resolve({ $metadata: {} });
+        }),
+        config: {},
+      } as any;
+
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      const body = Buffer.alloc(24 * 1024 * 1024, "a");
+
+      await expect(
+        tm.upload({ Bucket: "test-bucket", Key: "abort-test.bin", Body: body }, { abortSignal: controller.signal })
+      ).rejects.toThrow("Transfer aborted.");
+
+      // Verify AbortMultipartUpload was called
+      const abortCalls = mockClient.send.mock.calls.filter(
+        (c: any) => c[0].constructor?.name === "AbortMultipartUploadCommand"
+      );
+      expect(abortCalls.length).toBe(1);
+      expect(abortCalls[0][0].input.UploadId).toBe("abort-test-id");
+    });
+
+    it("should call AbortMultipartUpload when a part upload fails", async () => {
+      const mockClient = {
+        send: vi.fn().mockImplementation((command: any) => {
+          const commandName = command.constructor?.name ?? "";
+          if (commandName === "CreateMultipartUploadCommand") {
+            return Promise.resolve({ UploadId: "fail-test-id", $metadata: {} });
+          }
+          if (commandName === "UploadPartCommand") {
+            return Promise.reject(new Error("Network error on part upload"));
+          }
+          if (commandName === "AbortMultipartUploadCommand") {
+            return Promise.resolve({ $metadata: {} });
+          }
+          return Promise.resolve({ $metadata: {} });
+        }),
+        config: {},
+      } as any;
+
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      const body = Buffer.alloc(20 * 1024 * 1024, "b");
+
+      await expect(tm.upload({ Bucket: "test-bucket", Key: "fail-test.bin", Body: body })).rejects.toThrow(
+        "Network error on part upload"
+      );
+
+      const abortCalls = mockClient.send.mock.calls.filter(
+        (c: any) => c[0].constructor?.name === "AbortMultipartUploadCommand"
+      );
+      expect(abortCalls.length).toBe(1);
+      expect(abortCalls[0][0].input.UploadId).toBe("fail-test-id");
+    });
+
+    it("should fire bytesTransferred event for each part in threaded upload", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      const bytesEvents: number[] = [];
+      tm.addEventListener("bytesTransferred", (event: any) => {
+        bytesEvents.push(event.snapshot.transferredBytes);
+      });
+
+      const contentLength = 24 * 1024 * 1024; // 3 parts of 8MB
+      const body = Buffer.alloc(contentLength, "c");
+
+      await tm.upload({ Bucket: "test-bucket", Key: "progress-test.bin", Body: body });
+
+      // Should have 3 bytesTransferred events (one per part)
+      expect(bytesEvents.length).toBe(3);
+      // Final event should report all bytes transferred
+      expect(Math.max(...bytesEvents)).toBe(contentLength);
+    });
+
+    it("should fire transferFailed event when threaded upload fails", async () => {
+      const mockClient = {
+        send: vi.fn().mockImplementation((command: any) => {
+          const commandName = command.constructor?.name ?? "";
+          if (commandName === "CreateMultipartUploadCommand") {
+            return Promise.resolve({ UploadId: "event-fail-id", $metadata: {} });
+          }
+          if (commandName === "UploadPartCommand") {
+            return Promise.reject(new Error("Part failed"));
+          }
+          if (commandName === "AbortMultipartUploadCommand") {
+            return Promise.resolve({ $metadata: {} });
+          }
+          return Promise.resolve({ $metadata: {} });
+        }),
+        config: {},
+      } as any;
+
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      const failedCallback = vi.fn();
+      tm.addEventListener("transferFailed", failedCallback);
+
+      const body = Buffer.alloc(20 * 1024 * 1024, "d");
+
+      await expect(tm.upload({ Bucket: "test-bucket", Key: "event-fail.bin", Body: body })).rejects.toThrow(
+        "Part failed"
+      );
+
+      expect(failedCallback).toHaveBeenCalledTimes(1);
+    });
+
+    it("should use non-threaded uploadInParts when workerThreadCount is 1 with Buffer body", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 1,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+
+      expect(tm.workerHttpHandler).toBeUndefined();
+
+      const body = Buffer.alloc(20 * 1024 * 1024, "e");
+      await tm.upload({ Bucket: "test-bucket", Key: "no-thread.bin", Body: body });
+
+      // Still completes multipart upload successfully via non-threaded path
+      const commandNames = sendCalls.map((c: any) => c.constructor?.name);
+      expect(commandNames).toContain("CreateMultipartUploadCommand");
+      expect(commandNames).toContain("UploadPartCommand");
+      expect(commandNames).toContain("CompleteMultipartUploadCommand");
+    });
+
+    it("should respect maxConcurrentUploads for threaded upload", () => {
+      const tm = new S3TransferManager({
+        workerThreadCount: 4,
+        maxConcurrentUploads: 16,
+      }) as any;
+
+      expect(tm.maxConcurrentUploads).toBe(16);
+      expect(tm.workerThreadCount).toBe(4);
+      expect(tm.workerHttpHandler).toBeInstanceOf(WorkerHttpHandler);
+    });
+
+    it("should sort completed parts by PartNumber before calling CompleteMPU", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      const body = Buffer.alloc(24 * 1024 * 1024, "f"); // 3 parts
+      await tm.upload({ Bucket: "test-bucket", Key: "sort-test.bin", Body: body });
+
+      const completeCalls = sendCalls.filter((c: any) => c.constructor?.name === "CompleteMultipartUploadCommand");
+      expect(completeCalls.length).toBe(1);
+
+      const parts = completeCalls[0].input.MultipartUpload.Parts;
+      for (let i = 1; i < parts.length; i++) {
+        expect(parts[i].PartNumber).toBeGreaterThan(parts[i - 1].PartNumber);
+      }
+    });
+
+    it("should set ChecksumAlgorithm on CreateMPU when requestChecksumCalculation is WHEN_SUPPORTED", async () => {
+      const mockClient = createMockClient();
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        workerThreadCount: 2,
+        requestChecksumCalculation: "WHEN_SUPPORTED",
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      });
+
+      const body = Buffer.alloc(20 * 1024 * 1024, "g");
+      await tm.upload({ Bucket: "test-bucket", Key: "checksum-test.bin", Body: body });
+
+      const createCalls = sendCalls.filter((c: any) => c.constructor?.name === "CreateMultipartUploadCommand");
+      expect(createCalls[0].input.ChecksumAlgorithm).toBe("CRC32");
     });
   });
 });

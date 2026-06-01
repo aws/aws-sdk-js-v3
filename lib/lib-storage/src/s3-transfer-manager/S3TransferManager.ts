@@ -21,12 +21,12 @@ import {
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import { type Logger, LogLevel } from "@aws-sdk/config/logger";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import https from "node:https";
+import { Readable } from "node:stream";
 
 import { byteLength } from "../byteLength";
 import { getChunk } from "../chunker";
+import type { RawDataPart } from "../Upload";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { joinStreams } from "./join-streams";
 import type {
@@ -41,6 +41,7 @@ import type {
   UploadRequest,
   UploadResponse,
 } from "./types";
+import { type DataSource, defaultWorkerCount, WorkerHttpHandler } from "./worker-http-handler";
 
 /**
  * Client for efficient transfer of objects to and from Amazon S3.
@@ -66,22 +67,32 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
   private readonly maxConcurrentDownloads: number;
   private readonly maxConcurrentUploads: number;
+  private readonly workerThreadCount: number;
+  private readonly workerHttpHandler: WorkerHttpHandler | undefined;
   private readonly logger: Logger;
 
   public constructor(config: S3TransferManagerConfig = {}) {
     this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
     this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
+    this.workerThreadCount = config.workerThreadCount ?? defaultWorkerCount();
 
     this.s3 =
       config.s3 ??
       new S3Client({
         requestChecksumCalculation: this.requestChecksumCalculation,
         responseChecksumValidation: this.responseChecksumValidation,
-        requestHandler: new NodeHttpHandler({
-          httpsAgent: new https.Agent({ maxSockets: this.maxConcurrentUploads }),
-        }),
       });
+
+    if (this.workerThreadCount > 1) {
+      this.workerHttpHandler = new WorkerHttpHandler({
+        workerThreadCount: this.workerThreadCount,
+        maxConcurrentUploads: this.maxConcurrentUploads,
+      });
+      if (this.s3.config) {
+        this.s3.config.requestHandler = this.workerHttpHandler as any;
+      }
+    }
 
     this.targetPartSizeBytes = config.targetPartSizeBytes ?? 8 * 1024 * 1024; // 8 MB
     this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
@@ -293,6 +304,13 @@ export class S3TransferManager implements IS3TransferManager {
 
       if (totalContentLength < this.multipartUploadThresholdBytes) {
         response = await this.uploadSinglePart(request, totalContentLength, transferOptions);
+      } else if (this.workerThreadCount > 1 && this.isFileBody(request.Body)) {
+        response = await this.threadedUploadInPartsFromFile(request, totalContentLength, transferOptions);
+      } else if (this.workerThreadCount > 1 && this.isInMemoryBody(request.Body)) {
+        if (typeof request.Body === "string") {
+          request = { ...request, Body: Buffer.from(request.Body) };
+        }
+        response = await this.threadedUploadInParts(request, totalContentLength, transferOptions);
       } else {
         response = await this.uploadInParts(request, totalContentLength, transferOptions);
       }
@@ -1092,8 +1110,263 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   /**
+   * Calculates part size and expected parts count.
+   *
+   * @internal
+   */
+  private calculatePartSize(contentLength: number): { partSize: number; expectedPartsCount: number } {
+    const partSize = Math.max(this.targetPartSizeBytes, Math.ceil(contentLength / 10_000));
+    const expectedPartsCount = Math.ceil(contentLength / partSize);
+    return { partSize, expectedPartsCount };
+  }
+
+  /**
+   * Checks if the body is a file read stream with a .path property.
+   * @internal
+   */
+  private isFileBody(body: any): body is Readable & { path: string } {
+    return body instanceof Readable && typeof (body as any).path === "string";
+  }
+
+  /**
+   * Checks if the body is fully in memory (Buffer, Uint8Array, or string).
+   * @internal
+   */
+  private isInMemoryBody(body: any): body is Uint8Array | string {
+    return body instanceof Uint8Array || Buffer.isBuffer(body) || typeof body === "string";
+  }
+
+  /**
+   * Uploads using worker threads from a file source. Workers read file slices
+   * directly from disk, compute checksum, and send data in aws-chunked format
+   * with trailing checksums.
+   *
+   * @internal
+   */
+  private async threadedUploadInPartsFromFile(
+    request: UploadRequest,
+    contentLength: number,
+    transferOptions?: TransferOptions
+  ): Promise<CompleteMultipartUploadCommandOutput> {
+    const { partSize } = this.calculatePartSize(contentLength);
+    const filePath = (request.Body as any).path as string;
+
+    const buildDataSource = (checksumAlgorithm?: string, checksumHeader?: string): DataSource => ({
+      type: "file",
+      filePath,
+      partSize,
+      totalFileSize: contentLength,
+      checksumAlgorithm,
+      checksumHeader,
+    });
+
+    return this.threadedMultipartUpload(request, contentLength, buildDataSource, transferOptions);
+  }
+
+  /**
+   * Uploads using worker threads with in-memory data. Copies the user's Buffer
+   * into a SharedArrayBuffer once, then workers read slices by offset —
+   * zero-copy per part.
+   *
+   * @internal
+   */
+  private async threadedUploadInParts(
+    request: UploadRequest,
+    contentLength: number,
+    transferOptions?: TransferOptions
+  ): Promise<CompleteMultipartUploadCommandOutput> {
+    const { partSize } = this.calculatePartSize(contentLength);
+    const body = request.Body as Uint8Array;
+
+    // One-time copy into SharedArrayBuffer so all workers can read by offset.
+    const sharedBuffer = new SharedArrayBuffer(body.byteLength);
+    new Uint8Array(sharedBuffer).set(body);
+
+    const buildDataSource = (checksumAlgorithm?: string, checksumHeader?: string): DataSource => ({
+      type: "sharedBuffer",
+      sharedBuffer,
+      partSize,
+      totalSize: contentLength,
+      checksumAlgorithm,
+      checksumHeader,
+    });
+
+    return this.threadedMultipartUpload(request, contentLength, buildDataSource, transferOptions);
+  }
+
+  /**
+   * Common implementation for threaded multipart uploads.
+   * Handles CreateMPU, concurrent UploadPart dispatch, and CompleteMPU/AbortMPU.
+   * The buildDataSource factory is called with checksum info to produce the
+   * per-request data source passed to the WorkerHttpHandler.
+   *
+   * @internal
+   */
+  private async threadedMultipartUpload(
+    request: UploadRequest,
+    contentLength: number,
+    buildDataSource: (checksumAlgorithm?: string, checksumHeader?: string) => DataSource,
+    transferOptions?: TransferOptions
+  ): Promise<CompleteMultipartUploadCommandOutput> {
+    const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);
+
+    this.checkAborted(transferOptions);
+
+    const createMpuRequest: CreateMultipartUploadCommandInput = { ...request };
+    const hasFullObjectChecksum =
+      request.ContentMD5 ||
+      request.ChecksumCRC32 ||
+      request.ChecksumCRC32C ||
+      request.ChecksumCRC64NVME ||
+      request.ChecksumSHA1 ||
+      request.ChecksumSHA256;
+
+    if (hasFullObjectChecksum) {
+      createMpuRequest.ChecksumType = "FULL_OBJECT";
+    }
+    if (!createMpuRequest.ChecksumAlgorithm && this.requestChecksumCalculation === "WHEN_SUPPORTED") {
+      createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? "CRC32";
+    }
+
+    const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
+    const uploadId = createMpuResponse.UploadId!;
+
+    const checksumAlgorithm = createMpuRequest.ChecksumAlgorithm;
+    const checksumHeader = checksumAlgorithm ? `x-amz-checksum-${checksumAlgorithm.toLowerCase()}` : undefined;
+    const dataSource = buildDataSource(checksumAlgorithm, checksumHeader);
+
+    const abortController = new AbortController();
+    const uploadAbortSignal = abortController.signal;
+
+    try {
+      const completedParts: CompletedPart[] = [];
+      let bytesUploaded = 0;
+      let nextPartNumber = 1;
+
+      const uploadPart = async (): Promise<void> => {
+        while (true) {
+          const partNumber = nextPartNumber++;
+          if (partNumber > expectedPartsCount) return;
+
+          if (uploadAbortSignal.aborted) {
+            throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
+          }
+          this.checkAborted(transferOptions);
+
+          const offset = (partNumber - 1) * partSize;
+          const length = Math.min(partSize, contentLength - offset);
+
+          // Readable placeholder — the checksum middleware sees a stream,
+          // sets up aws-chunked headers, and the signer signs them.
+          // The worker fulfills this contract by sending aws-chunked framed data.
+          const placeholderBody = new Readable({
+            read() {
+              this.push(null);
+            },
+          });
+
+          const partRequest: UploadPartCommandInput = {
+            ...request,
+            Body: placeholderBody,
+            UploadId: uploadId,
+            PartNumber: partNumber,
+            ContentLength: length,
+            ...(checksumAlgorithm && { ChecksumAlgorithm: checksumAlgorithm as any }),
+          };
+
+          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), {
+            ...transferOptions,
+            dataSource,
+          } as any);
+
+          const completedPart: CompletedPart = {
+            PartNumber: partNumber,
+            ETag: partResponse.ETag,
+          };
+          if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
+          if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          if (partResponse.ChecksumCRC64NVME) completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
+          if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
+          if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+
+          completedParts.push(completedPart);
+          bytesUploaded += length;
+
+          this.dispatchEvent(
+            Object.assign(new Event("bytesTransferred"), {
+              request,
+              snapshot: {
+                transferredBytes: bytesUploaded,
+                totalBytes: contentLength,
+              },
+            })
+          );
+        }
+      };
+
+      const partUploads: Promise<void>[] = [];
+      for (let i = 0; i < this.maxConcurrentUploads; i++) {
+        partUploads.push(
+          uploadPart().catch((error) => {
+            abortController.abort();
+            throw error;
+          })
+        );
+      }
+
+      await Promise.all(partUploads);
+
+      if (completedParts.length !== expectedPartsCount) {
+        throw new Error(`Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`);
+      }
+
+      completedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
+      this.checkAborted(transferOptions);
+
+      const { Body: _body, ...completeRequestFields } = request;
+      const completeRequest: CompleteMultipartUploadCommandInput = {
+        ...completeRequestFields,
+        UploadId: uploadId,
+        MultipartUpload: { Parts: completedParts },
+        MpuObjectSize: contentLength,
+      };
+
+      if (hasFullObjectChecksum) {
+        completeRequest.ChecksumType = "FULL_OBJECT";
+        if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
+        if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+      }
+
+      try {
+        return await this.s3.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+      } catch (completeMpuError) {
+        this.logger.warn(
+          `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`
+        );
+        throw completeMpuError;
+      }
+    } catch (error) {
+      const { Body: _abortBody, ...abortRequestFields } = request;
+      const abortRequest: AbortMultipartUploadCommandInput = {
+        ...abortRequestFields,
+        UploadId: uploadId,
+      };
+
+      try {
+        await this.s3.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+      } catch (abortError) {
+        this.logger.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
+      }
+      throw error;
+    }
+  }
+
+  /**
    * Uploads an object to S3 using multipart upload operation.
    * Used when content length exceeds the multipart upload threshold.
+   * Streams the body chunk-by-chunk via getChunk without buffering
+   * the entire content into memory.
    *
    * @internal
    */
@@ -1132,9 +1405,8 @@ export class S3TransferManager implements IS3TransferManager {
       const completedParts: CompletedPart[] = [];
       const dataFeeder = getChunk(request.Body, partSize);
       let bytesUploaded = 0;
-      const concurrencyLimit = this.maxConcurrentUploads;
 
-      const uploadPart = async (dataFeeder: AsyncGenerator<any, void, undefined>) => {
+      const uploadPart = async (dataFeeder: AsyncGenerator<RawDataPart, void, undefined>) => {
         for await (const dataPart of dataFeeder) {
           if (uploadAbortSignal.aborted) {
             throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
@@ -1199,7 +1471,7 @@ export class S3TransferManager implements IS3TransferManager {
       };
 
       const partUploads: Promise<void>[] = [];
-      for (let i = 0; i < concurrencyLimit; i++) {
+      for (let i = 0; i < this.maxConcurrentUploads; i++) {
         partUploads.push(
           uploadPart(dataFeeder).catch((error) => {
             abortController.abort();
@@ -1257,11 +1529,11 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   /**
-   * Validates upload part size matches expected part size.
+   * Validates that a data part has a measurable size and matches the expected part size.
    *
    * @internal
    */
-  private validateUploadPart(dataPart: any, partSize: number): void {
+  private validateUploadPart(dataPart: RawDataPart, partSize: number): void {
     const actualPartSize = byteLength(dataPart.data);
 
     if (actualPartSize === undefined) {
@@ -1270,28 +1542,15 @@ export class S3TransferManager implements IS3TransferManager {
       );
     }
 
-    // Skip validation for single-part uploads
     if (dataPart.partNumber === 1 && dataPart.lastPart) {
       return;
     }
 
-    // Validate part size (last part may be smaller)
     if (!dataPart.lastPart && actualPartSize !== partSize) {
       throw new Error(
         `The byte size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${partSize}`
       );
     }
-  }
-
-  /**
-   * Calculates part size and expected parts count.
-   *
-   * @internal
-   */
-  private calculatePartSize(contentLength: number): { partSize: number; expectedPartsCount: number } {
-    const partSize = Math.max(this.targetPartSizeBytes, Math.ceil(contentLength / 10_000));
-    const expectedPartsCount = Math.ceil(contentLength / partSize);
-    return { partSize, expectedPartsCount };
   }
 }
 

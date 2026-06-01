@@ -1,6 +1,6 @@
 import type { GetObjectCommandOutput } from "@aws-sdk/client-s3";
 import { S3 } from "@aws-sdk/client-s3";
-import { beforeAll, describe, expect, test as it } from "vitest";
+import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { Upload } from "../Upload";
@@ -322,7 +322,19 @@ describe(S3TransferManager.name, () => {
   });
 
   describe("upload tests", () => {
+    let uploadTm: S3TransferManager;
+
+    afterEach(() => {
+      // Create a fresh instance for each test to prevent listener leakage
+      // when tests timeout and cleanup code doesn't execute.
+      uploadTm = new S3TransferManager({
+        s3: client,
+        multipartDownloadType: "PART",
+      });
+    });
+
     it("should upload object below multipart threshold using single PutObject", async () => {
+      uploadTm = new S3TransferManager({ s3: client, multipartDownloadType: "PART" });
       const Body = data(10 * 1024 * 1024); // 10MB - below 16MB threshold
       const Key = `upload-single-${Date.now()}`;
 
@@ -330,7 +342,7 @@ describe(S3TransferManager.name, () => {
       let bytesTransferred = 0;
       let transferComplete = false;
 
-      const response = await tmPart.upload(
+      const response = await uploadTm.upload(
         { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
         {
           eventListeners: {
@@ -373,6 +385,7 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
 
     it("should upload object above multipart threshold using multipart upload", async () => {
+      uploadTm = new S3TransferManager({ s3: client, multipartDownloadType: "PART" });
       const Body = data(24 * 1024 * 1024); // 24MB - above 16MB threshold, 3 parts
       const Key = `upload-multipart-${Date.now()}`;
 
@@ -380,7 +393,7 @@ describe(S3TransferManager.name, () => {
       let bytesTransferredEvents = 0;
       let transferComplete = false;
 
-      const response = await tmPart.upload(
+      const response = await uploadTm.upload(
         { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
         {
           eventListeners: {
@@ -460,10 +473,11 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
 
     it("should upload single object with full object checksum", async () => {
+      uploadTm = new S3TransferManager({ s3: client, multipartDownloadType: "PART" });
       const Body = data(10 * 1024 * 1024); // 10MB
       const Key = `upload-checksum-calc-${Date.now()}`;
 
-      const response = await tmPart.upload({ Bucket, Key, Body, ChecksumAlgorithm: "CRC32" });
+      const response = await uploadTm.upload({ Bucket, Key, Body, ChecksumAlgorithm: "CRC32" });
 
       expect(response.ETag).toBeDefined();
       expect(response.ChecksumCRC32).toBeDefined();
@@ -477,6 +491,7 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
 
     it("should abort multipart upload on error", async () => {
+      uploadTm = new S3TransferManager({ s3: client, multipartDownloadType: "PART" });
       const Body = data(24 * 1024 * 1024); // 24MB
       const Key = `upload-abort-${Date.now()}`;
       const controller = new AbortController();
@@ -484,7 +499,7 @@ describe(S3TransferManager.name, () => {
       let transferFailed = false;
 
       try {
-        await tmPart.upload(
+        await uploadTm.upload(
           { Bucket, Key, Body, ChecksumAlgorithm: "CRC32" },
           {
             abortSignal: controller.signal,
@@ -510,10 +525,11 @@ describe(S3TransferManager.name, () => {
     }, 60_000);
 
     it("should upload empty file", async () => {
+      uploadTm = new S3TransferManager({ s3: client, multipartDownloadType: "PART" });
       const Body = "";
       const Key = `upload-empty-${Date.now()}`;
 
-      const response = await tmPart.upload({ Bucket, Key, Body });
+      const response = await uploadTm.upload({ Bucket, Key, Body });
 
       expect(response.ETag).toBeDefined();
 

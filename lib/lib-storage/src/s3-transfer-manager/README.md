@@ -73,15 +73,17 @@ console.log(`Downloaded ${data.byteLength} bytes`);
 
 The S3TransferManager constructor accepts an optional `S3TransferManagerConfig` object with the following optional properties:
 
-| Option                          | Type                     | Default           | Description                                       |
-| ------------------------------- | ------------------------ | ----------------- | ------------------------------------------------- |
-| `s3ClientInstance`              | `S3Client`               | `new S3Client()`  | S3 client instance for API calls                  |
-| `targetPartSizeBytes`           | `number`                 | `8388608` (8MB)   | Target size for each part in multipart operations |
-| `multipartUploadThresholdBytes` | `number`                 | `16777216` (16MB) | File size threshold to trigger multipart upload   |
-| `checksumValidationEnabled`     | `boolean`                | `true`            | Enable checksum validation for data integrity     |
-| `checksumAlgorithm`             | `ChecksumAlgorithm`      | `"CRC32"`         | Algorithm used for checksum calculation           |
-| `multipartDownloadType`         | `"PART" \| "RANGE"`      | `"PART"`          | Strategy for multipart downloads                  |
-| `eventListeners`                | `TransferEventListeners` | `{}`              | Event listeners for transfer progress             |
+| Option                          | Type                     | Default            | Description                                                                                       |
+| ------------------------------- | ------------------------ | ------------------ | ------------------------------------------------------------------------------------------------- |
+| `s3ClientInstance`              | `S3Client`               | `new S3Client()`   | S3 client instance for API calls                                                                  |
+| `targetPartSizeBytes`           | `number`                 | `8388608` (8MB)    | Target size for each part in multipart operations                                                 |
+| `multipartUploadThresholdBytes` | `number`                 | `16777216` (16MB)  | File size threshold to trigger multipart upload                                                   |
+| `checksumValidationEnabled`     | `boolean`                | `true`             | Enable checksum validation for data integrity                                                     |
+| `checksumAlgorithm`             | `ChecksumAlgorithm`      | `"CRC32"`          | Algorithm used for checksum calculation                                                           |
+| `multipartDownloadType`         | `"PART" \| "RANGE"`      | `"PART"`           | Strategy for multipart downloads                                                                  |
+| `useWorkerThreads`              | `boolean`                | `true`             | Use worker threads for multipart upload HTTP dispatch. When false, uploads run on the main thread |
+| `threadCount`                   | `number`                 | `os.cpus().length` | Number of worker threads (only when `useWorkerThreads` is true)                                   |
+| `eventListeners`                | `TransferEventListeners` | `{}`               | Event listeners for transfer progress                                                             |
 
 **Example:**
 

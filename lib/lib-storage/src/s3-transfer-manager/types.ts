@@ -62,6 +62,13 @@ export interface S3TransferManagerConfig {
    */
   maxConcurrentUploads?: number;
   /**
+   * Number of worker threads for multipart upload HTTP request dispatch.
+   * When set to 1, all operations run on the main thread itself using S3 client's default handler.
+   * When >1, spawns N worker threads
+   * Defaults to os.cpus().length (in node.js)
+   */
+  workerThreadCount?: number;
+  /**
    * Logger for S3 Transfer Manager operations.
    */
   logger?: Logger;

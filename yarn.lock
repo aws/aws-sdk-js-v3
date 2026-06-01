@@ -16189,9 +16189,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@smithy/credential-provider-imds@npm:^4.3.7":
   version: 4.3.7
   resolution: "@smithy/credential-provider-imds@npm:4.3.7"
+=======
+<<<<<<< HEAD
+"@smithy/credential-provider-imds@npm:^4.3.6":
+  version: 4.3.6
+  resolution: "@smithy/credential-provider-imds@npm:4.3.6"
+=======
+"@smithy/core@npm:^3.24.4":
+  version: 3.24.4
+  resolution: "@smithy/core@npm:3.24.4"
+  dependencies:
+    "@aws-crypto/crc32": "npm:5.2.0"
+    "@smithy/types": "npm:^4.14.2"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/0951177e0556baf63093e30e2768991153f364655aafcaf4fca297b1d120ff3a7f445f068c3de65e4224dbecd99d86ca9e1f5c7d96841756905454c321951cd5
+  languageName: node
+  linkType: hard
+
+"@smithy/credential-provider-imds@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "@smithy/credential-provider-imds@npm:4.3.2"
+>>>>>>> 4f2960d80a3 (feat: multipart uploads using worker threads)
+>>>>>>> 80a4ac4711f (feat: multipart uploads using worker threads)
   dependencies:
     "@smithy/core": "npm:^3.24.6"
     "@smithy/types": "npm:^4.14.3"
@@ -16255,9 +16278,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@smithy/middleware-endpoint@npm:^4.4.31":
   version: 4.5.6
   resolution: "@smithy/middleware-endpoint@npm:4.5.6"
+=======
+<<<<<<< HEAD
+"@smithy/node-http-handler@npm:^4.7.5":
+  version: 4.7.5
+  resolution: "@smithy/node-http-handler@npm:4.7.5"
+=======
+"@smithy/middleware-endpoint@npm:^4.4.31":
+  version: 4.5.4
+  resolution: "@smithy/middleware-endpoint@npm:4.5.4"
+  dependencies:
+    "@smithy/core": "npm:^3.24.4"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/884eff1997a6c443c7a9e63946e0b5ce9594e65b35420f91624495a521fb695c470c78e59701c3e0788ff5fdea74ee705d445457c72c85593739020491741499
+  languageName: node
+  linkType: hard
+
+"@smithy/middleware-retry@npm:^4.6.3":
+  version: 4.6.3
+  resolution: "@smithy/middleware-retry@npm:4.6.3"
+>>>>>>> 4f2960d80a3 (feat: multipart uploads using worker threads)
+>>>>>>> 80a4ac4711f (feat: multipart uploads using worker threads)
   dependencies:
     "@smithy/core": "npm:^3.24.6"
     tslib: "npm:^2.6.2"

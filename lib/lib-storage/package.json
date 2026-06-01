@@ -71,6 +71,9 @@
     "fs": false,
     "stream": "stream-browserify"
   },
+  "standaloneFiles": [
+    "s3-transfer-manager/http-request-worker.js"
+  ],
   "react-native": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
