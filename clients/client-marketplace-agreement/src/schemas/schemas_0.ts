@@ -63,9 +63,11 @@ const _DAO = "DescribeAgreementOutput";
 const _DI = "DocumentItem";
 const _DL = "DimensionList";
 const _DLo = "DocumentList";
+const _E = "Entitlement";
 const _EC = "EstimatedCharges";
 const _ECL = "ExpectedChargeList";
 const _ECx = "ExpectedCharge";
+const _EL = "EntitlementList";
 const _ET = "EstimatedTaxes";
 const _F = "Filter";
 const _FL = "FilterList";
@@ -226,6 +228,7 @@ const _eCs = "estimatedCharges";
 const _eD = "expirationDuration";
 const _eT = "endTime";
 const _eTs = "estimatedTaxes";
+const _en = "entitlements";
 const _er = "errors";
 const _f = "fields";
 const _fTPT = "freeTrialPricingTerm";
@@ -462,8 +465,8 @@ export var AgreementInvoiceLineItemGroupSummary$: StaticStructureSchema = [3, n0
 ];
 export var AgreementViewSummary$: StaticStructureSchema = [3, n0, _AVS,
   0,
-  [_aI, _aTc, _sT, _eT, _aT, _a, _p, _pS, _st],
-  [0, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0]
+  [_aI, _aTc, _sT, _eT, _aT, _a, _p, _pS, _st, _en],
+  [0, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList]
 ];
 export var BatchCreateBillingAdjustmentError$: StaticStructureSchema = [3, n0, _BCBAE,
   0,
@@ -589,6 +592,11 @@ export var DocumentItem$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_t, _u, _v],
   [0, 0, 0]
+];
+export var Entitlement$: StaticStructureSchema = [3, n0, _E,
+  0,
+  [_lA],
+  [0]
 ];
 export var EstimatedCharges$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -964,6 +972,9 @@ var DimensionList: StaticListSchema = [1, n0, _DL,
 ];
 var DocumentList: StaticListSchema = [1, n0, _DLo,
   0, () => DocumentItem$
+];
+var EntitlementList: StaticListSchema = [1, n0, _EL,
+  0, () => Entitlement$
 ];
 var ExpectedChargeList: StaticListSchema = [1, n0, _ECL,
   0, () => ExpectedCharge$

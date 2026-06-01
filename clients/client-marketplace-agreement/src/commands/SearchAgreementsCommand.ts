@@ -84,6 +84,11 @@ export interface SearchAgreementsCommandOutput extends SearchAgreementsOutput, _
  * //         offerSetId: "STRING_VALUE",
  * //       },
  * //       status: "ACTIVE" || "ARCHIVED" || "CANCELLED" || "EXPIRED" || "RENEWED" || "REPLACED" || "ROLLED_BACK" || "SUPERSEDED" || "TERMINATED",
+ * //       entitlements: [ // EntitlementList
+ * //         { // Entitlement
+ * //           licenseArn: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

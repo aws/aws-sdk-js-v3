@@ -1360,6 +1360,18 @@ export interface AgreementInvoiceLineItemGroupSummary {
 }
 
 /**
+ * <p>Represents an entitlement associated with an agreement.</p>
+ * @public
+ */
+export interface Entitlement {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.</p>
+   * @public
+   */
+  licenseArn?: string | undefined;
+}
+
+/**
  * <p>A summary of the proposal received from the proposer.</p>
  * @public
  */
@@ -1453,6 +1465,12 @@ export interface AgreementViewSummary {
    * @public
    */
   status?: AgreementStatus | undefined;
+
+  /**
+   * <p>A list of entitlements associated with the agreement.</p>
+   * @public
+   */
+  entitlements?: Entitlement[] | undefined;
 }
 
 /**

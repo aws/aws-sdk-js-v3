@@ -133,6 +133,7 @@ export type {
   DescribeAgreementOutput,
   Dimension,
   DocumentItem,
+  Entitlement,
   EstimatedCharges,
   EstimatedTaxes,
   ExpectedCharge,

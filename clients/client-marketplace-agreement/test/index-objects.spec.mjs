@@ -67,6 +67,7 @@ import {
   DescribeAgreementOutput$,
   Dimension$,
   DocumentItem$,
+  Entitlement$,
   EstimatedCharges$,
   EstimatedTaxes$,
   ExpectedCharge$,
@@ -292,6 +293,7 @@ assert(typeof DescribeAgreementInput$ === "object");
 assert(typeof DescribeAgreementOutput$ === "object");
 assert(typeof Dimension$ === "object");
 assert(typeof DocumentItem$ === "object");
+assert(typeof Entitlement$ === "object");
 assert(typeof EstimatedCharges$ === "object");
 assert(typeof EstimatedTaxes$ === "object");
 assert(typeof ExpectedCharge$ === "object");
