@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restjson-schema-glacier",
   "description": "@aws-sdk/aws-protocoltests-restjson-schema-glacier client",
-  "version": "3.1057.0",
+  "version": "3.1058.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -25,7 +25,7 @@
     "@aws-sdk/body-checksum-browser": "workspace:^3.972.15",
     "@aws-sdk/body-checksum-node": "workspace:^3.972.15",
     "@aws-sdk/core": "workspace:^3.974.15",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.47",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.48",
     "@aws-sdk/middleware-sdk-glacier": "workspace:^3.972.14",
     "@aws-sdk/types": "workspace:^3.973.9",
     "@smithy/core": "^3.24.5",

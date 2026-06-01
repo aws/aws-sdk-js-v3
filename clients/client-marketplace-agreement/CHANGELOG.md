@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1058.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1057.0...v3.1058.0) (2026-06-01)
+
+
+### Features
+
+* **client-marketplace-agreement:** Adding Entitlements in SearchAgreements Response ([c8094c4](https://github.com/aws/aws-sdk-js-v3/commit/c8094c45cc4ba7e5566143cc925f771179d1036f))
+
+
+
+
+
 # [3.1057.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1056.0...v3.1057.0) (2026-05-29)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-agreement

@@ -50,6 +50,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.48 (2026-05-29)
+### Bug Fixes
+* **credential-provider-node:** update cached credential on forceRefresh ([#8055](https://github.com/aws/aws-sdk-js-v3/issues/8055)) ([bae4bc0](https://github.com/aws/aws-sdk-js-v3/commit/bae4bc0f1bafc951f6593c94c223e63c47f24692))
+
+
+
 # 3.972.47 (2026-05-29)
 ### Chores
 * **codegen:** smithy-aws-typescript-codegen 0.50.0 ([#8056](https://github.com/aws/aws-sdk-js-v3/issues/8056)) ([050bee1](https://github.com/aws/aws-sdk-js-v3/commit/050bee1051872c05ccc03bc746661610039c260e))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1058.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1057.0...v3.1058.0) (2026-06-01)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add support for multi-region replication, enabling synchronization of user data and configurations to a secondary user pool in a standby Region. Add support for customer managed keys (CMK) in AWS KMS for encrypting user pool data at rest. ([80583f4](https://github.com/aws/aws-sdk-js-v3/commit/80583f455bda46e1a08a0a943f7f3683d481a9a3))
+
+
+
+
+
 # [3.1057.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1056.0...v3.1057.0) (2026-05-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

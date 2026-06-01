@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1058.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1057.0...v3.1058.0) (2026-06-01)
+
+
+### Features
+
+* **cloudfront-signer:** enable SHA256 for cloudfront-signer ([#8045](https://github.com/aws/aws-sdk-js-v3/issues/8045)) ([9e39438](https://github.com/aws/aws-sdk-js-v3/commit/9e3943842af48bc0d1ff69aaded892d9cfd3ad08))
+
+
+
+
+
 # [3.1056.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1055.0...v3.1056.0) (2026-05-28)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer
