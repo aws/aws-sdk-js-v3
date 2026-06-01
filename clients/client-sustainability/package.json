@@ -25,10 +25,10 @@
     "@aws-sdk/credential-provider-node": "workspace:^3.972.48",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.30",
     "@aws-sdk/types": "workspace:^3.973.9",
-    "@smithy/core": "^3.24.5",
-    "@smithy/fetch-http-handler": "^5.4.5",
-    "@smithy/node-http-handler": "^4.7.5",
-    "@smithy/types": "^4.14.2",
+    "@smithy/core": "^3.24.6",
+    "@smithy/fetch-http-handler": "^5.4.6",
+    "@smithy/node-http-handler": "^4.7.6",
+    "@smithy/types": "^4.14.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

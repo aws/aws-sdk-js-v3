@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { PaginationConfiguration } from "@smithy/types";
 
-import type { DynamoDBDocument } from "../DynamoDBDocument";
-import type { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
+import { DynamoDBDocument } from "../DynamoDBDocument";
+import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
 
 /**
  * @public

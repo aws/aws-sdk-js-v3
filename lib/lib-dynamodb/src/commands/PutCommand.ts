@@ -1,16 +1,11 @@
 // smithy-typescript generated code
-import { PutItemCommand as __PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/core/client";
-import type { Handler, MiddlewareStack } from "@smithy/types";
-import { type HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_MEMBERS, ALL_VALUES, SELF } from "../commands/utils";
-import type {
-  DynamoDBDocumentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import { PutItemCommand as __PutItemCommand } from "@aws-sdk/client-dynamodb";
 
 /**
  * @public
@@ -113,4 +108,5 @@ import type {
   PutItemCommandInput as __PutItemCommandInput,
   PutItemCommandOutput as __PutItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
+
 import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
