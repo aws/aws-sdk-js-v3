@@ -216,6 +216,13 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //       ],
  * //     },
  * //     UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
+ * //     KeyConfiguration: { // KeyConfigurationType
+ * //       KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY",
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //     IssuerConfiguration: { // IssuerConfigurationType
+ * //       Type: "ORIGINAL" || "UPDATED",
+ * //     },
  * //   },
  * // };
  *
@@ -236,6 +243,9 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested

@@ -219,6 +219,13 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *     ],
  *   },
  *   UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
+ *   KeyConfiguration: { // KeyConfigurationType
+ *     KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   IssuerConfiguration: { // IssuerConfigurationType
+ *     Type: "ORIGINAL" || "UPDATED",
+ *   },
  * };
  * const command = new CreateUserPoolCommand(input);
  * const response = await client.send(command);
@@ -371,6 +378,13 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //       ],
  * //     },
  * //     UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
+ * //     KeyConfiguration: { // KeyConfigurationType
+ * //       KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY",
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //     IssuerConfiguration: { // IssuerConfigurationType
+ * //       Type: "ORIGINAL" || "UPDATED",
+ * //     },
  * //   },
  * // };
  *

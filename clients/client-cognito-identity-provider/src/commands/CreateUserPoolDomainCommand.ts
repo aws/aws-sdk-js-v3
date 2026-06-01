@@ -76,12 +76,24 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *   CustomDomainConfig: { // CustomDomainConfigType
  *     CertificateArn: "STRING_VALUE", // required
  *   },
+ *   Routing: { // RoutingType
+ *     Failover: { // FailoverType
+ *       SecondaryRegion: "STRING_VALUE", // required
+ *       PrimaryRoute53HealthCheckId: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * // { // CreateUserPoolDomainResponse
  * //   ManagedLoginVersion: Number("int"),
  * //   CloudFrontDomain: "STRING_VALUE",
+ * //   Routing: { // RoutingType
+ * //     Failover: { // FailoverType
+ * //       SecondaryRegion: "STRING_VALUE", // required
+ * //       PrimaryRoute53HealthCheckId: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -113,6 +125,9 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested

@@ -103,6 +103,9 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * //       Status: "Enabled" || "Disabled",
  * //       LastModifiedDate: new Date("TIMESTAMP"),
  * //       CreationDate: new Date("TIMESTAMP"),
+ * //       ReplicaRegions: [ // ReplicaRegionsType
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

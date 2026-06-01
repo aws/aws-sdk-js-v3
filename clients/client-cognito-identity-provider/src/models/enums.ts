@@ -461,6 +461,32 @@ export type EmailSendingAccountType = (typeof EmailSendingAccountType)[keyof typ
  * @public
  * @enum
  */
+export const IssuerType = {
+  ORIGINAL: "ORIGINAL",
+  UPDATED: "UPDATED",
+} as const;
+/**
+ * @public
+ */
+export type IssuerType = (typeof IssuerType)[keyof typeof IssuerType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionKeyType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomEmailSenderLambdaVersionType = {
   V1_0: "V1_0",
 } as const;
@@ -658,6 +684,34 @@ export type TimeUnitsType = (typeof TimeUnitsType)[keyof typeof TimeUnitsType];
  * @public
  * @enum
  */
+export const ReplicaRoleType = {
+  PRIMARY: "PRIMARY",
+  SECONDARY: "SECONDARY",
+} as const;
+/**
+ * @public
+ */
+export type ReplicaRoleType = (typeof ReplicaRoleType)[keyof typeof ReplicaRoleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicaStatusType = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type ReplicaStatusType = (typeof ReplicaStatusType)[keyof typeof ReplicaStatusType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CompromisedCredentialsEventActionType = {
   BLOCK: "BLOCK",
   NO_ACTION: "NO_ACTION",
@@ -750,6 +804,19 @@ export const UserVerificationType = {
  * @public
  */
 export type UserVerificationType = (typeof UserVerificationType)[keyof typeof UserVerificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateReplicaStatusType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type UpdateReplicaStatusType = (typeof UpdateReplicaStatusType)[keyof typeof UpdateReplicaStatusType];
 
 /**
  * @public

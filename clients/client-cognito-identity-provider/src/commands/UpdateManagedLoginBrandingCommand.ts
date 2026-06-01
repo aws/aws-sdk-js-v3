@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse } from "../models/models_0";
+import type { UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse } from "../models/models_1";
 import { UpdateManagedLoginBranding$ } from "../schemas/schemas_0";
 
 /**
@@ -126,6 +126,9 @@ export interface UpdateManagedLoginBrandingCommandOutput extends UpdateManagedLo
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested

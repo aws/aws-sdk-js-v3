@@ -84,6 +84,9 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
  * @throws {@link PreconditionNotMetException} (client fault)
  *  <p>This exception is thrown when a precondition is not met.</p>
  *

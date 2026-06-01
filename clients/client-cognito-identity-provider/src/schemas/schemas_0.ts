@@ -243,7 +243,10 @@ const _CUPD = "CreateUserPoolDomain";
 const _CUPDR = "CreateUserPoolDomainRequest";
 const _CUPDRr = "CreateUserPoolDomainResponse";
 const _CUPR = "CreateUserPoolRequest";
+const _CUPRR = "CreateUserPoolReplicaRequest";
+const _CUPRRr = "CreateUserPoolReplicaResponse";
 const _CUPRr = "CreateUserPoolResponse";
+const _CUPRre = "CreateUserPoolReplica";
 const _CURL = "CallbackURLs";
 const _CWAR = "CompleteWebAuthnRegistration";
 const _CWARR = "CompleteWebAuthnRegistrationRequest";
@@ -335,7 +338,10 @@ const _DUPDRes = "DescribeUserPoolDomainRequest";
 const _DUPDResc = "DescribeUserPoolDomainResponse";
 const _DUPDe = "DescribeUserPoolDomain";
 const _DUPR = "DeleteUserPoolRequest";
+const _DUPRR = "DeleteUserPoolReplicaRequest";
+const _DUPRRe = "DeleteUserPoolReplicaResponse";
 const _DUPRe = "DescribeUserPoolRequest";
+const _DUPRel = "DeleteUserPoolReplica";
 const _DUPRes = "DescribeUserPoolResponse";
 const _DUPe = "DescribeUserPool";
 const _DUR = "DeleteUserRequest";
@@ -399,10 +405,12 @@ const _FE = "ForbiddenException";
 const _FP = "ForgotPassword";
 const _FPR = "ForgotPasswordRequest";
 const _FPRo = "ForgotPasswordResponse";
-const _FT = "FeedbackToken";
+const _FT = "FailoverType";
+const _FTe = "FeedbackToken";
 const _FU = "FailedUsers";
 const _FUITE = "FeatureUnavailableInTierException";
 const _FV = "FeedbackValue";
+const _Fa = "Failover";
 const _Fe = "Feature";
 const _Fi = "Filter";
 const _G = "Groups";
@@ -461,6 +469,8 @@ const _IA = "IpAddress";
 const _IAR = "InitiateAuthRequest";
 const _IARn = "InitiateAuthResponse";
 const _IAn = "InitiateAuth";
+const _IC = "IssuerConfiguration";
+const _ICT = "IssuerConfigurationType";
 const _IEE = "InternalErrorException";
 const _IERAPE = "InvalidEmailRoleAccessPolicyException";
 const _IF = "InboundFederation";
@@ -486,7 +496,11 @@ const _IUm = "ImportedUsers";
 const _Id = "Id";
 const _JI = "JobId";
 const _JN = "JobName";
+const _KC = "KeyConfiguration";
+const _KCT = "KeyConfigurationType";
+const _KKA = "KmsKeyArn";
 const _KMSKID = "KMSKeyID";
+const _KT = "KeyType";
 const _L = "Limit";
 const _LA = "LowAction";
 const _LAa = "LambdaArn";
@@ -534,7 +548,10 @@ const _LUPCS = "ListUserPoolClientSecrets";
 const _LUPCSR = "ListUserPoolClientSecretsRequest";
 const _LUPCSRi = "ListUserPoolClientSecretsResponse";
 const _LUPR = "ListUserPoolsRequest";
+const _LUPRR = "ListUserPoolReplicasRequest";
+const _LUPRRi = "ListUserPoolReplicasResponse";
 const _LUPRi = "ListUserPoolsResponse";
+const _LUPRis = "ListUserPoolReplicas";
 const _LUR = "ListUsersRequest";
 const _LURL = "LogoutURLs";
 const _LURi = "ListUsersResponse";
@@ -577,6 +594,7 @@ const _NDMT = "NewDeviceMetadataType";
 const _NET = "NotifyEmailType";
 const _NT = "NextToken";
 const _Na = "Name";
+const _ONEE = "OperationNotEnabledException";
 const _P = "Password";
 const _PA = "PreAuthentication";
 const _PAN = "ProviderAttributeName";
@@ -597,6 +615,7 @@ const _PP = "ProposedPassword";
 const _PPT = "PasswordPolicyType";
 const _PPa = "PasswordPolicy";
 const _PPr = "PreviousPassword";
+const _PRHCI = "PrimaryRoute53HealthCheckId";
 const _PRRE = "PasswordResetRequiredException";
 const _PSU = "PreSignUp";
 const _PSUr = "PreSignedUrl";
@@ -615,7 +634,7 @@ const _Pr = "Precedence";
 const _Pri = "Priority";
 const _Pro = "Provider";
 const _Prov = "Providers";
-const _R = "Required";
+const _R = "Routing";
 const _RA = "RoleArn";
 const _RAe = "ReadAttributes";
 const _RAes = "ResourceArn";
@@ -634,10 +653,12 @@ const _RLe = "RequireLowercase";
 const _RM = "RecoveryMechanisms";
 const _RMR = "ReturnMergedResources";
 const _RMT = "RecoveryMechanismsType";
-const _RN = "RequireNumbers";
+const _RN = "RegionName";
 const _RNFE = "ResourceNotFoundException";
+const _RNe = "RequireNumbers";
 const _ROT = "RecoveryOptionType";
 const _RPI = "RelyingPartyId";
+const _RR = "ReplicaRegions";
 const _RS = "ResourceServer";
 const _RSLT = "ResourceServersListType";
 const _RSSLT = "ResourceServerScopeListType";
@@ -658,7 +679,10 @@ const _RTRev = "RevokeTokenResponse";
 const _RTV = "RefreshTokenValidity";
 const _RTe = "ReplyTo";
 const _RTev = "RevokeToken";
+const _RTo = "RoutingType";
 const _RU = "RequireUppercase";
+const _Re = "Required";
+const _Ro = "Role";
 const _S = "Session";
 const _SA = "SourceArn";
 const _SAC = "StringAttributeConstraints";
@@ -698,10 +722,11 @@ const _SMSMST = "SMSMfaSettingsType";
 const _SN = "ServerName";
 const _SNc = "ScopeName";
 const _SP = "ServerPath";
-const _SR = "SnsRegion";
+const _SR = "SecondaryRegion";
 const _SRC = "SetRiskConfiguration";
 const _SRCR = "SetRiskConfigurationRequest";
 const _SRCRe = "SetRiskConfigurationResponse";
+const _SRn = "SnsRegion";
 const _ST = "SessionType";
 const _STMC = "SoftwareTokenMfaConfiguration";
 const _STMCT = "SoftwareTokenMfaConfigType";
@@ -767,6 +792,7 @@ const _TVUT = "TokenValidityUnitsType";
 const _Ta = "Tags";
 const _Ti = "Timezone";
 const _To = "Token";
+const _Ty = "Type";
 const _U = "Username";
 const _UA = "UserAttributes";
 const _UAEF = "UpdateAuthEventFeedback";
@@ -819,6 +845,7 @@ const _UNCE = "UserNotConfirmedException";
 const _UNFE = "UserNotFoundException";
 const _UOE = "UnsupportedOperationException";
 const _UP = "UserPool";
+const _UPA = "UserPoolArn";
 const _UPAO = "UserPoolAddOns";
 const _UPAONEE = "UserPoolAddOnNotEnabledException";
 const _UPAOT = "UserPoolAddOnsType";
@@ -831,6 +858,10 @@ const _UPDT = "UserPoolDescriptionType";
 const _UPI = "UserPoolId";
 const _UPLT = "UserPoolListType";
 const _UPPT = "UserPoolPolicyType";
+const _UPR = "UserPoolReplica";
+const _UPRLT = "UserPoolReplicaListType";
+const _UPRT = "UserPoolReplicaType";
+const _UPRs = "UserPoolReplicas";
 const _UPT = "UserPoolTags";
 const _UPTE = "UserPoolTaggingException";
 const _UPTs = "UserPoolTier";
@@ -861,7 +892,10 @@ const _UUPD = "UpdateUserPoolDomain";
 const _UUPDR = "UpdateUserPoolDomainRequest";
 const _UUPDRp = "UpdateUserPoolDomainResponse";
 const _UUPR = "UpdateUserPoolRequest";
+const _UUPRR = "UpdateUserPoolReplicaRequest";
+const _UUPRRp = "UpdateUserPoolReplicaResponse";
 const _UUPRp = "UpdateUserPoolResponse";
+const _UUPRpd = "UpdateUserPoolReplica";
 const _UUSE = "UnsupportedUserStateException";
 const _UV = "UserVerification";
 const _Us = "User";
@@ -942,6 +976,7 @@ import {
   ManagedLoginBrandingExistsException,
   MFAMethodNotFoundException,
   NotAuthorizedException,
+  OperationNotEnabledException,
   PasswordHistoryPolicyViolationException,
   PasswordResetRequiredException,
   PreconditionNotMetException,
@@ -1136,6 +1171,12 @@ export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
   [0]
 ];
 n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var OperationNotEnabledException$: StaticErrorSchema = [-3, n0, _ONEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationNotEnabledException$, OperationNotEnabledException);
 export var PasswordHistoryPolicyViolationException$: StaticErrorSchema = [-3, n0, _PHPVE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1828,18 +1869,28 @@ export var CreateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _CUPCR
 ];
 export var CreateUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _CUPDR,
   0,
-  [_Do, _UPI, _MLV, _CDC],
-  [0, 0, 1, () => CustomDomainConfigType$], 2
+  [_Do, _UPI, _MLV, _CDC, _R],
+  [0, 0, 1, () => CustomDomainConfigType$, () => RoutingType$], 2
 ];
 export var CreateUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _CUPDRr,
   0,
-  [_MLV, _CFD],
-  [1, 0]
+  [_MLV, _CFD, _R],
+  [1, 0, () => RoutingType$]
+];
+export var CreateUserPoolReplicaRequest$: StaticStructureSchema = [3, n0, _CUPRR,
+  0,
+  [_UPI, _RN, _UPT],
+  [0, 0, 128 | 0], 2
+];
+export var CreateUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _CUPRRr,
+  0,
+  [_UPR],
+  [() => UserPoolReplicaType$]
 ];
 export var CreateUserPoolRequest$: StaticStructureSchema = [3, n0, _CUPR,
   0,
-  [_PNo, _Po, _DP, _LC, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _MC, _UAUS, _DC, _EC, _SCm, _UPT, _ACUC, _Sch, _UPAO, _UC, _ARS, _UPTs],
-  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, 0, () => UserAttributeUpdateSettingsType$, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => SchemaAttributesListType, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, () => AccountRecoverySettingType$, 0], 1
+  [_PNo, _Po, _DP, _LC, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _MC, _UAUS, _DC, _EC, _SCm, _UPT, _ACUC, _Sch, _UPAO, _UC, _ARS, _UPTs, _KC, _IC],
+  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, 0, () => UserAttributeUpdateSettingsType$, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => SchemaAttributesListType, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$], 1
 ];
 export var CreateUserPoolResponse$: StaticStructureSchema = [3, n0, _CUPRr,
   0,
@@ -1920,6 +1971,16 @@ export var DeleteUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _DUPDR
   0,
   [],
   []
+];
+export var DeleteUserPoolReplicaRequest$: StaticStructureSchema = [3, n0, _DUPRR,
+  0,
+  [_UPI, _RN],
+  [0, 0], 2
+];
+export var DeleteUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _DUPRRe,
+  0,
+  [_UPR],
+  [() => UserPoolReplicaType$]
 ];
 export var DeleteUserPoolRequest$: StaticStructureSchema = [3, n0, _DUPR,
   0,
@@ -2058,8 +2119,8 @@ export var DeviceType$: StaticStructureSchema = [3, n0, _DT,
 ];
 export var DomainDescriptionType$: StaticStructureSchema = [3, n0, _DDT,
   0,
-  [_UPI, _AWSAI, _Do, _SB, _CFDl, _Ve, _St, _CDC, _MLV],
-  [0, 0, 0, 0, 0, 0, 0, () => CustomDomainConfigType$, 1]
+  [_UPI, _AWSAI, _Do, _SB, _CFDl, _Ve, _St, _CDC, _MLV, _R],
+  [0, 0, 0, 0, 0, 0, 0, () => CustomDomainConfigType$, 1, () => RoutingType$]
 ];
 export var EmailConfigurationType$: StaticStructureSchema = [3, n0, _ECT,
   0,
@@ -2090,6 +2151,11 @@ export var EventRiskType$: StaticStructureSchema = [3, n0, _ERT,
   0,
   [_RD, _RL, _CCD],
   [0, 0, 2]
+];
+export var FailoverType$: StaticStructureSchema = [3, n0, _FT,
+  0,
+  [_SR, _PRHCI],
+  [0, 0], 2
 ];
 export var FirehoseConfigurationType$: StaticStructureSchema = [3, n0, _FCT,
   0,
@@ -2271,6 +2337,16 @@ export var InitiateAuthResponse$: StaticStructureSchema = [3, n0, _IARn,
   [_CN, _S, _CP, _AR, _AC],
   [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
 ];
+export var IssuerConfigurationType$: StaticStructureSchema = [3, n0, _ICT,
+  0,
+  [_Ty],
+  [0]
+];
+export var KeyConfigurationType$: StaticStructureSchema = [3, n0, _KCT,
+  0,
+  [_KT, _KKA],
+  [0, 0]
+];
 export var LambdaConfigType$: StaticStructureSchema = [3, n0, _LCT,
   0,
   [_PSU, _CMu, _PC, _PA, _PAo, _DAC, _CAC, _VACR, _PTG, _UM, _PTGC, _CSMSS, _CES, _KMSKID, _IF],
@@ -2366,6 +2442,16 @@ export var ListUserPoolClientsResponse$: StaticStructureSchema = [3, n0, _LUPCRi
   [_UPCs, _NT],
   [[() => UserPoolClientListType, 0], 0]
 ];
+export var ListUserPoolReplicasRequest$: StaticStructureSchema = [3, n0, _LUPRR,
+  0,
+  [_UPI, _NT],
+  [0, 0], 1
+];
+export var ListUserPoolReplicasResponse$: StaticStructureSchema = [3, n0, _LUPRRi,
+  0,
+  [_UPRs, _NT],
+  [() => UserPoolReplicaListType, 0]
+];
 export var ListUserPoolsRequest$: StaticStructureSchema = [3, n0, _LUPR,
   0,
   [_MR, _NT],
@@ -2453,7 +2539,7 @@ export var NumberAttributeConstraintsType$: StaticStructureSchema = [3, n0, _NAC
 ];
 export var PasswordPolicyType$: StaticStructureSchema = [3, n0, _PPT,
   0,
-  [_ML, _RU, _RLe, _RN, _RSeq, _PHS, _TPVD],
+  [_ML, _RU, _RLe, _RNe, _RSeq, _PHS, _TPVD],
   [1, 2, 2, 2, 2, 1, 1]
 ];
 export var PreTokenGenerationVersionConfigType$: StaticStructureSchema = [3, n0, _PTGVCT,
@@ -2531,6 +2617,11 @@ export var RiskExceptionConfigurationType$: StaticStructureSchema = [3, n0, _REC
   [_BIPRL, _SIPRL],
   [64 | 0, 64 | 0]
 ];
+export var RoutingType$: StaticStructureSchema = [3, n0, _RTo,
+  0,
+  [_Fa],
+  [() => FailoverType$]
+];
 export var S3ConfigurationType$: StaticStructureSchema = [3, n0, _SCTo,
   0,
   [_BA],
@@ -2538,7 +2629,7 @@ export var S3ConfigurationType$: StaticStructureSchema = [3, n0, _SCTo,
 ];
 export var SchemaAttributeType$: StaticStructureSchema = [3, n0, _SAT,
   0,
-  [_Na, _ADT, _DOA, _Mu, _R, _NAC, _SAC],
+  [_Na, _ADT, _DOA, _Mu, _Re, _NAC, _SAC],
   [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType$, () => StringAttributeConstraintsType$]
 ];
 export var SetLogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _SLDCR,
@@ -2618,7 +2709,7 @@ export var SignUpResponse$: StaticStructureSchema = [3, n0, _SURi,
 ];
 export var SmsConfigurationType$: StaticStructureSchema = [3, n0, _SCTm,
   0,
-  [_SCA, _EIx, _SR],
+  [_SCA, _EIx, _SRn],
   [0, 0, 0], 1
 ];
 export var SmsMfaConfigType$: StaticStructureSchema = [3, n0, _SMCT,
@@ -2718,7 +2809,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAuthEventFeedbackRequest$: StaticStructureSchema = [3, n0, _UAEFR,
   0,
-  [_UPI, _U, _EI, _FT, _FV],
+  [_UPI, _U, _EI, _FTe, _FV],
   [0, [() => UsernameType, 0], 0, [() => TokenModelType, 0], 0], 5
 ];
 export var UpdateAuthEventFeedbackResponse$: StaticStructureSchema = [3, n0, _UAEFRp,
@@ -2808,18 +2899,28 @@ export var UpdateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _UUPCR
 ];
 export var UpdateUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _UUPDR,
   0,
-  [_Do, _UPI, _MLV, _CDC],
-  [0, 0, 1, () => CustomDomainConfigType$], 2
+  [_Do, _UPI, _MLV, _CDC, _R],
+  [0, 0, 1, () => CustomDomainConfigType$, () => RoutingType$], 2
 ];
 export var UpdateUserPoolDomainResponse$: StaticStructureSchema = [3, n0, _UUPDRp,
   0,
-  [_MLV, _CFD],
-  [1, 0]
+  [_MLV, _CFD, _R],
+  [1, 0, () => RoutingType$]
+];
+export var UpdateUserPoolReplicaRequest$: StaticStructureSchema = [3, n0, _UUPRR,
+  0,
+  [_UPI, _RN, _St],
+  [0, 0, 0], 3
+];
+export var UpdateUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _UUPRRp,
+  0,
+  [_UPR],
+  [() => UserPoolReplicaType$]
 ];
 export var UpdateUserPoolRequest$: StaticStructureSchema = [3, n0, _UUPR,
   0,
-  [_UPI, _Po, _DP, _LC, _AVA, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _EC, _SCm, _UPT, _ACUC, _UPAO, _ARS, _PNo, _UPTs],
-  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => AccountRecoverySettingType$, 0, 0], 1
+  [_UPI, _Po, _DP, _LC, _AVA, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _EC, _SCm, _UPT, _ACUC, _UPAO, _ARS, _PNo, _UPTs, _KC, _IC],
+  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => AccountRecoverySettingType$, 0, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$], 1
 ];
 export var UpdateUserPoolResponse$: StaticStructureSchema = [3, n0, _UUPRp,
   0,
@@ -2863,18 +2964,23 @@ export var UserPoolClientType$: StaticStructureSchema = [3, n0, _UPCT,
 ];
 export var UserPoolDescriptionType$: StaticStructureSchema = [3, n0, _UPDT,
   0,
-  [_Id, _Na, _LC, _St, _LMD, _CDr],
-  [0, 0, () => LambdaConfigType$, 0, 4, 4]
+  [_Id, _Na, _LC, _St, _LMD, _CDr, _RR],
+  [0, 0, () => LambdaConfigType$, 0, 4, 4, 64 | 0]
 ];
 export var UserPoolPolicyType$: StaticStructureSchema = [3, n0, _UPPT,
   0,
   [_PPa, _SIPi],
   [() => PasswordPolicyType$, () => SignInPolicyType$]
 ];
+export var UserPoolReplicaType$: StaticStructureSchema = [3, n0, _UPRT,
+  0,
+  [_RN, _St, _Ro, _UPA],
+  [0, 0, 0, 0]
+];
 export var UserPoolType$: StaticStructureSchema = [3, n0, _UPTse,
   0,
-  [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs],
-  [0, 0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 0, 4, 4, () => SchemaAttributesListType, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, 1, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, 0, 0, 0, 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, 0, () => AccountRecoverySettingType$, 0]
+  [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs, _KC, _IC],
+  [0, 0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 0, 4, 4, () => SchemaAttributesListType, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, 1, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, 0, 0, 0, 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, 0, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$]
 ];
 export var UserType$: StaticStructureSchema = [3, n0, _UTs,
   0,
@@ -2983,6 +3089,7 @@ var ProvidersListType: StaticListSchema = [1, n0, _PLT,
 var RecoveryMechanismsType: StaticListSchema = [1, n0, _RMT,
   0, () => RecoveryOptionType$
 ];
+var ReplicaRegionsType = 64 | 0;
 var ResourceServerScopeListType: StaticListSchema = [1, n0, _RSSLT,
   0, () => ResourceServerScopeType$
 ];
@@ -3010,6 +3117,9 @@ var UserPoolClientListType: StaticListSchema = [1, n0, _UPCLT,
 ];
 var UserPoolListType: StaticListSchema = [1, n0, _UPLT,
   0, () => UserPoolDescriptionType$
+];
+var UserPoolReplicaListType: StaticListSchema = [1, n0, _UPRLT,
+  0, () => UserPoolReplicaType$
 ];
 var UserPoolTagsListType = 64 | 0;
 var UsersListType: StaticListSchema = [1, n0, _ULT,
@@ -3162,6 +3272,9 @@ export var CreateUserPoolClient$: StaticOperationSchema = [9, n0, _CUPC,
 export var CreateUserPoolDomain$: StaticOperationSchema = [9, n0, _CUPD,
   0, () => CreateUserPoolDomainRequest$, () => CreateUserPoolDomainResponse$
 ];
+export var CreateUserPoolReplica$: StaticOperationSchema = [9, n0, _CUPRre,
+  0, () => CreateUserPoolReplicaRequest$, () => CreateUserPoolReplicaResponse$
+];
 export var DeleteGroup$: StaticOperationSchema = [9, n0, _DG,
   0, () => DeleteGroupRequest$, () => __Unit
 ];
@@ -3194,6 +3307,9 @@ export var DeleteUserPoolClientSecret$: StaticOperationSchema = [9, n0, _DUPCS,
 ];
 export var DeleteUserPoolDomain$: StaticOperationSchema = [9, n0, _DUPD,
   0, () => DeleteUserPoolDomainRequest$, () => DeleteUserPoolDomainResponse$
+];
+export var DeleteUserPoolReplica$: StaticOperationSchema = [9, n0, _DUPRel,
+  0, () => DeleteUserPoolReplicaRequest$, () => DeleteUserPoolReplicaResponse$
 ];
 export var DeleteWebAuthnCredential$: StaticOperationSchema = [9, n0, _DWAC,
   0, () => DeleteWebAuthnCredentialRequest$, () => DeleteWebAuthnCredentialResponse$
@@ -3303,6 +3419,9 @@ export var ListUserPoolClients$: StaticOperationSchema = [9, n0, _LUPC,
 export var ListUserPoolClientSecrets$: StaticOperationSchema = [9, n0, _LUPCS,
   0, () => ListUserPoolClientSecretsRequest$, () => ListUserPoolClientSecretsResponse$
 ];
+export var ListUserPoolReplicas$: StaticOperationSchema = [9, n0, _LUPRis,
+  0, () => ListUserPoolReplicasRequest$, () => ListUserPoolReplicasResponse$
+];
 export var ListUserPools$: StaticOperationSchema = [9, n0, _LUP,
   0, () => ListUserPoolsRequest$, () => ListUserPoolsResponse$
 ];
@@ -3392,6 +3511,9 @@ export var UpdateUserPoolClient$: StaticOperationSchema = [9, n0, _UUPC,
 ];
 export var UpdateUserPoolDomain$: StaticOperationSchema = [9, n0, _UUPD,
   0, () => UpdateUserPoolDomainRequest$, () => UpdateUserPoolDomainResponse$
+];
+export var UpdateUserPoolReplica$: StaticOperationSchema = [9, n0, _UUPRpd,
+  0, () => UpdateUserPoolReplicaRequest$, () => UpdateUserPoolReplicaResponse$
 ];
 export var VerifySoftwareToken$: StaticOperationSchema = [9, n0, _VST,
   0, () => VerifySoftwareTokenRequest$, () => VerifySoftwareTokenResponse$

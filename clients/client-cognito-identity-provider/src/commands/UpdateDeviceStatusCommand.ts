@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_0";
+import type { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_1";
 import { UpdateDeviceStatus$ } from "../schemas/schemas_0";
 
 /**
@@ -85,6 +85,9 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
  * @throws {@link PasswordResetRequiredException} (client fault)
  *  <p>This exception is thrown when a password reset is required.</p>

@@ -187,6 +187,10 @@ import type {
   CreateUserPoolDomainCommandInput,
   CreateUserPoolDomainCommandOutput,
 } from "./commands/CreateUserPoolDomainCommand";
+import type {
+  CreateUserPoolReplicaCommandInput,
+  CreateUserPoolReplicaCommandOutput,
+} from "./commands/CreateUserPoolReplicaCommand";
 import type { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import type {
   DeleteIdentityProviderCommandInput,
@@ -219,6 +223,10 @@ import type {
   DeleteUserPoolDomainCommandInput,
   DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand";
+import type {
+  DeleteUserPoolReplicaCommandInput,
+  DeleteUserPoolReplicaCommandOutput,
+} from "./commands/DeleteUserPoolReplicaCommand";
 import type {
   DeleteWebAuthnCredentialCommandInput,
   DeleteWebAuthnCredentialCommandOutput,
@@ -324,6 +332,10 @@ import type {
   ListUserPoolClientSecretsCommandInput,
   ListUserPoolClientSecretsCommandOutput,
 } from "./commands/ListUserPoolClientSecretsCommand";
+import type {
+  ListUserPoolReplicasCommandInput,
+  ListUserPoolReplicasCommandOutput,
+} from "./commands/ListUserPoolReplicasCommand";
 import type { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand";
 import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import type { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
@@ -412,6 +424,10 @@ import type {
   UpdateUserPoolDomainCommandOutput,
 } from "./commands/UpdateUserPoolDomainCommand";
 import type {
+  UpdateUserPoolReplicaCommandInput,
+  UpdateUserPoolReplicaCommandOutput,
+} from "./commands/UpdateUserPoolReplicaCommand";
+import type {
   VerifySoftwareTokenCommandInput,
   VerifySoftwareTokenCommandOutput,
 } from "./commands/VerifySoftwareTokenCommand";
@@ -477,6 +493,7 @@ export type ServiceInputTypes =
   | CreateUserPoolClientCommandInput
   | CreateUserPoolCommandInput
   | CreateUserPoolDomainCommandInput
+  | CreateUserPoolReplicaCommandInput
   | DeleteGroupCommandInput
   | DeleteIdentityProviderCommandInput
   | DeleteManagedLoginBrandingCommandInput
@@ -488,6 +505,7 @@ export type ServiceInputTypes =
   | DeleteUserPoolClientSecretCommandInput
   | DeleteUserPoolCommandInput
   | DeleteUserPoolDomainCommandInput
+  | DeleteUserPoolReplicaCommandInput
   | DeleteWebAuthnCredentialCommandInput
   | DescribeIdentityProviderCommandInput
   | DescribeManagedLoginBrandingByClientCommandInput
@@ -524,6 +542,7 @@ export type ServiceInputTypes =
   | ListUserImportJobsCommandInput
   | ListUserPoolClientSecretsCommandInput
   | ListUserPoolClientsCommandInput
+  | ListUserPoolReplicasCommandInput
   | ListUserPoolsCommandInput
   | ListUsersCommandInput
   | ListUsersInGroupCommandInput
@@ -554,6 +573,7 @@ export type ServiceInputTypes =
   | UpdateUserPoolClientCommandInput
   | UpdateUserPoolCommandInput
   | UpdateUserPoolDomainCommandInput
+  | UpdateUserPoolReplicaCommandInput
   | VerifySoftwareTokenCommandInput
   | VerifyUserAttributeCommandInput;
 
@@ -604,6 +624,7 @@ export type ServiceOutputTypes =
   | CreateUserPoolClientCommandOutput
   | CreateUserPoolCommandOutput
   | CreateUserPoolDomainCommandOutput
+  | CreateUserPoolReplicaCommandOutput
   | DeleteGroupCommandOutput
   | DeleteIdentityProviderCommandOutput
   | DeleteManagedLoginBrandingCommandOutput
@@ -615,6 +636,7 @@ export type ServiceOutputTypes =
   | DeleteUserPoolClientSecretCommandOutput
   | DeleteUserPoolCommandOutput
   | DeleteUserPoolDomainCommandOutput
+  | DeleteUserPoolReplicaCommandOutput
   | DeleteWebAuthnCredentialCommandOutput
   | DescribeIdentityProviderCommandOutput
   | DescribeManagedLoginBrandingByClientCommandOutput
@@ -651,6 +673,7 @@ export type ServiceOutputTypes =
   | ListUserImportJobsCommandOutput
   | ListUserPoolClientSecretsCommandOutput
   | ListUserPoolClientsCommandOutput
+  | ListUserPoolReplicasCommandOutput
   | ListUserPoolsCommandOutput
   | ListUsersCommandOutput
   | ListUsersInGroupCommandOutput
@@ -681,6 +704,7 @@ export type ServiceOutputTypes =
   | UpdateUserPoolClientCommandOutput
   | UpdateUserPoolCommandOutput
   | UpdateUserPoolDomainCommandOutput
+  | UpdateUserPoolReplicaCommandOutput
   | VerifySoftwareTokenCommandOutput
   | VerifyUserAttributeCommandOutput;
 

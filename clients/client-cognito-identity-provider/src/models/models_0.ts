@@ -24,6 +24,7 @@ import type {
   DeviceRememberedStatusType,
   DomainStatusType,
   EmailSendingAccountType,
+  EncryptionKeyType,
   EventFilterType,
   EventResponseType,
   EventSourceName,
@@ -33,12 +34,15 @@ import type {
   FeedbackValueType,
   IdentityProviderTypeType,
   InboundFederationLambdaVersionType,
+  IssuerType,
   LogLevel,
   MessageActionType,
   OAuthFlowType,
   PreTokenGenerationLambdaVersionType,
   PreventUserExistenceErrorTypes,
   RecoveryOptionNameType,
+  ReplicaRoleType,
+  ReplicaStatusType,
   RiskDecisionType,
   RiskLevelType,
   StatusType,
@@ -5371,6 +5375,65 @@ export interface EmailConfigurationType {
 }
 
 /**
+ * <p>Specifies the issuer configuration for a user pool. Contains settings that determine how tokens are issued and validated.</p>
+ * @public
+ */
+export interface IssuerConfigurationType {
+  /**
+   * <p>The type of issuer configuration. Determines the token issuing behavior for the user pool.</p>
+   *          <dl>
+   *             <dt>ORIGINAL</dt>
+   *             <dd>
+   *                <p>The original issuer configuration for user pools. The issuer URL is hosted in the user
+   *                         pool’s region and provides OIDC endpoints specific to that region.</p>
+   *                <p>Original issuers have the format of
+   *                         <code>https://cognito-idp.[region].amazonaws.com/[userPoolId]</code>
+   *                </p>
+   *             </dd>
+   *             <dt>UPDATED</dt>
+   *             <dd>
+   *                <p>Recommended for all user pools, including for multi-Region replication. Updated issuers host
+   *                         the same JWKS content in multiple regions, resulting in improved resilience and efficiency.</p>
+   *                <p>Updated issuers have the format of
+   *                         <code>https://issuer-cognito-idp.[region].amazonaws.com/[userPoolId]</code>, where region is the
+   *                         primary Amazon Web Services Region of your user pool.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Type?: IssuerType | undefined;
+}
+
+/**
+ * <p>Specifies the key configuration for a user pool. Contains settings for encryption keys used to secure user pool data.</p>
+ * @public
+ */
+export interface KeyConfigurationType {
+  /**
+   * <p>The type of encryption key used for the user pool.</p>
+   *          <dl>
+   *             <dt>AWS_OWNED_KEY</dt>
+   *             <dd>
+   *                <p>A key owned by Amazon Web Services in Key Management Service.</p>
+   *             </dd>
+   *             <dt>CUSTOMER_MANAGED_KEY</dt>
+   *             <dd>
+   *                <p>A key managed by the customer in Key Management Service. You must use a multi-region key to enable multi-region
+   *                         replication for a user pool.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  KeyType?: EncryptionKeyType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used for encryption. If not specified, Amazon Web Services managed keys are used.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
  * <p>The properties of a custom email sender Lambda trigger.</p>
  * @public
  */
@@ -6086,6 +6149,20 @@ export interface CreateUserPoolRequest {
    * @public
    */
   UserPoolTier?: UserPoolTierType | undefined;
+
+  /**
+   * <p>The key configuration for the user pool. Specifies the key type and KMS key ARN for
+   *             encryption.</p>
+   * @public
+   */
+  KeyConfiguration?: KeyConfigurationType | undefined;
+
+  /**
+   * <p>The issuer configuration for the user pool. Specifies the issuer type for token
+   *             generation.</p>
+   * @public
+   */
+  IssuerConfiguration?: IssuerConfigurationType | undefined;
 }
 
 /**
@@ -6393,6 +6470,18 @@ export interface UserPoolType {
    * @public
    */
   UserPoolTier?: UserPoolTierType | undefined;
+
+  /**
+   * <p>The key configuration for the user pool, including encryption settings.</p>
+   * @public
+   */
+  KeyConfiguration?: KeyConfigurationType | undefined;
+
+  /**
+   * <p>The issuer configuration for the user pool, including token issuing settings.</p>
+   * @public
+   */
+  IssuerConfiguration?: IssuerConfigurationType | undefined;
 }
 
 /**
@@ -6795,8 +6884,8 @@ export interface CreateUserPoolClientRequest {
    * <p>The user pool analytics configuration for collecting metrics and sending them to your
    *             Amazon Pinpoint campaign.</p>
    *          <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools might not have access to
-   *             analytics or might be configurable with campaigns in the US East (N. Virginia) Region.
-   *             For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html">Using Amazon Pinpoint analytics</a>.</p>
+   *             analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For
+   *             more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html">Using Amazon Pinpoint analytics</a>.</p>
    * @public
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType | undefined;
@@ -7293,6 +7382,38 @@ export interface CustomDomainConfigType {
 }
 
 /**
+ * <p>Specifies failover configuration for multi-region user pool domains. Contains settings for the secondary region and health check configuration.</p>
+ * @public
+ */
+export interface FailoverType {
+  /**
+   * <p>The secondary Amazon Web Services Region to use for failover when the primary region becomes unavailable.</p>
+   * @public
+   */
+  SecondaryRegion: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Route53 healthcheck that controls routing. If the healthcheck is healthy,
+   *             traffic will be routed to the primary replica, and if the healthcheck is unhealthy,
+   *             traffic will be routed to the secondary region.</p>
+   * @public
+   */
+  PrimaryRoute53HealthCheckId: string | undefined;
+}
+
+/**
+ * <p>Specifies routing configuration for user pool domains. Contains failover settings for multi-region deployments.</p>
+ * @public
+ */
+export interface RoutingType {
+  /**
+   * <p>The failover configuration that specifies the secondary region and health check settings.</p>
+   * @public
+   */
+  Failover?: FailoverType | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateUserPoolDomainRequest {
@@ -7333,6 +7454,13 @@ export interface CreateUserPoolDomainRequest {
    * @public
    */
   CustomDomainConfig?: CustomDomainConfigType | undefined;
+
+  /**
+   * <p>The configuration of routing for requests to the domain for replicas of a replicated user pool.
+   *             The routing configuration is currently only supported for custom domains.</p>
+   * @public
+   */
+  Routing?: RoutingType | undefined;
 }
 
 /**
@@ -7356,6 +7484,110 @@ export interface CreateUserPoolDomainResponse {
    * @public
    */
   CloudFrontDomain?: string | undefined;
+
+  /**
+   * <p>The routing configuration that was applied to the user pool domain.</p>
+   * @public
+   */
+  Routing?: RoutingType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserPoolReplicaRequest {
+  /**
+   * <p>The ID of the user pool to replicate.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where you want to create the replica user pool.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+
+  /**
+   * <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an
+   *             optional value, both of which you define. You can maintain tags independently on replica
+   *             user pools.</p>
+   * @public
+   */
+  UserPoolTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains information about a replica user pool, including Region, status, role, and ARN.</p>
+ * @public
+ */
+export interface UserPoolReplicaType {
+  /**
+   * <p>The Amazon Web Services Region where the replica is located.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The current status of the replica.</p>
+   *          <dl>
+   *             <dt>CREATING</dt>
+   *             <dd>
+   *                <p>The replica is being created.</p>
+   *             </dd>
+   *             <dt>INACTIVE</dt>
+   *             <dd>
+   *                <p>The replica has been created, but is not accepting requests for end-users.
+   *                         Administrator configuration operations are supported.</p>
+   *             </dd>
+   *             <dt>ACTIVE</dt>
+   *             <dd>
+   *                <p>The replica is available for both end-user and administrator operations.</p>
+   *             </dd>
+   *             <dt>DELETING</dt>
+   *             <dd>
+   *                <p>The replica is being deleted.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Status?: ReplicaStatusType | undefined;
+
+  /**
+   * <p>The role of the user pool replica that determines which API operations are enabled.</p>
+   *          <dl>
+   *             <dt>PRIMARY</dt>
+   *             <dd>
+   *                <p>The primary replica supports all end user and administrator operations.</p>
+   *             </dd>
+   *             <dt>SECONDARY</dt>
+   *             <dd>
+   *                <p>The secondary replica supports a limited set of end user and administrator operations.
+   *                         Generally, only administrator operations that set configurations specific to the replica, and
+   *                         only end-user operations that do not create or change attributes of a user are supported.
+   *                     </p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Role?: ReplicaRoleType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replica user pool.</p>
+   * @public
+   */
+  UserPoolArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserPoolReplicaResponse {
+  /**
+   * <p>Information about the created user pool replica, including its status and role.</p>
+   * @public
+   */
+  UserPoolReplica?: UserPoolReplicaType | undefined;
 }
 
 /**
@@ -7568,6 +7800,34 @@ export interface DeleteUserPoolDomainRequest {
  * @public
  */
 export interface DeleteUserPoolDomainResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteUserPoolReplicaRequest {
+  /**
+   * <p>The ID of the user pool that contains the replica to delete.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the replica to delete.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserPoolReplicaResponse {
+  /**
+   * <p>Information about the deleted user pool replica.</p>
+   * @public
+   */
+  UserPoolReplica?: UserPoolReplicaType | undefined;
+}
 
 /**
  * @public
@@ -8064,6 +8324,13 @@ export interface DomainDescriptionType {
    * @public
    */
   ManagedLoginVersion?: number | undefined;
+
+  /**
+   * <p>The routing configuration for the domain, including failover settings for multi-region deployments.
+   *             Currently only <code>Failover</code> configurations are allowed.</p>
+   * @public
+   */
+  Routing?: RoutingType | undefined;
 }
 
 /**
@@ -9221,7 +9488,7 @@ export interface InitiateAuthRequest {
    *             </li>
    *          </ul>
    *          <p>This request also invokes the functions for the following triggers, but doesn't pass
-   *             <code>ClientMetadata</code>:</p>
+   *                 <code>ClientMetadata</code>:</p>
    *          <ul>
    *             <li>
    *                <p>Post authentication</p>
@@ -9974,6 +10241,43 @@ export interface ListUserPoolClientSecretsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListUserPoolReplicasRequest {
+  /**
+   * <p>The ID of the user pool for which to list replicas.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>A pagination token for retrieving the next page of results. If this parameter is
+   *             omitted, the operation returns the first page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserPoolReplicasResponse {
+  /**
+   * <p>A list of user pool replicas, including information about their status, role, and
+   *             Region.</p>
+   * @public
+   */
+  UserPoolReplicas?: UserPoolReplicaType[] | undefined;
+
+  /**
+   * <p>A pagination token for retrieving the next page of results. If this value is null,
+   *             there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>Represents the request to list user pools.</p>
  * @public
  */
@@ -10041,6 +10345,12 @@ export interface UserPoolDescriptionType {
    * @public
    */
   CreationDate?: Date | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services Regions where replicas of this user pool exist.</p>
+   * @public
+   */
+  ReplicaRegions?: string[] | undefined;
 }
 
 /**
@@ -11646,403 +11956,4 @@ export interface UntagResourceRequest {
    * @public
    */
   TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateAuthEventFeedbackRequest {
-  /**
-   * <p>The ID of the user pool where you want to update auth event feedback.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The name of the user that you want to query or modify. The value of this parameter
-   *             is typically your user's username, but it can be any of their alias attributes. If
-   *                 <code>username</code> isn't an alias attribute in your user pool, this value
-   *             must be the <code>sub</code> of a local user or the username of a user from a
-   *             third-party IdP.</p>
-   * @public
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>The ID of the authentication event that you want to submit feedback for.</p>
-   * @public
-   */
-  EventId: string | undefined;
-
-  /**
-   * <p>The feedback token, an encrypted object generated by Amazon Cognito and passed to your user in
-   *             the notification email message from the event.</p>
-   * @public
-   */
-  FeedbackToken: string | undefined;
-
-  /**
-   * <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code>
-   * value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
-   * has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
-   * <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
-   * don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
-   * @public
-   */
-  FeedbackValue: FeedbackValueType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAuthEventFeedbackResponse {}
-
-/**
- * <p>Represents the request to update the device status.</p>
- * @public
- */
-export interface UpdateDeviceStatusRequest {
-  /**
-   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
-   * <code>aws.cognito.signin.user.admin</code>.</p>
-   * @public
-   */
-  AccessToken: string | undefined;
-
-  /**
-   * <p>The device key of the device you want to update, for example
-   *                 <code>us-west-2_a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
-   * @public
-   */
-  DeviceKey: string | undefined;
-
-  /**
-   * <p>To enable device authentication with the specified device, set to
-   *                 <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-   * @public
-   */
-  DeviceRememberedStatus?: DeviceRememberedStatusType | undefined;
-}
-
-/**
- * <p>The response to the request to update the device status.</p>
- * @public
- */
-export interface UpdateDeviceStatusResponse {}
-
-/**
- * @public
- */
-export interface UpdateGroupRequest {
-  /**
-   * <p>The name of the group that you want to update.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID of the user pool that contains the group you want to update.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>A new description of the existing group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that you want to associate with the
-   *             group. The role assignment contributes to the <code>cognito:roles</code> and
-   *                 <code>cognito:preferred_role</code> claims in group members' tokens.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>A non-negative integer value that specifies the precedence of this group relative to
-   *             the other groups that a user can belong to in the user pool. Zero is the highest
-   *             precedence value. Groups with lower <code>Precedence</code> values take precedence over
-   *             groups with higher or null <code>Precedence</code> values. If a user belongs to two or
-   *             more groups, it is the group with the lowest precedence value whose role ARN is given in
-   *             the user's tokens for the <code>cognito:roles</code> and
-   *                 <code>cognito:preferred_role</code> claims.</p>
-   *          <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither
-   *             group takes precedence over the other. If two groups with the same
-   *                 <code>Precedence</code> have the same role ARN, that role is used in the
-   *                 <code>cognito:preferred_role</code> claim in tokens for users in each group. If the
-   *             two groups have different role ARNs, the <code>cognito:preferred_role</code> claim isn't
-   *             set in users' tokens.</p>
-   *          <p>The default <code>Precedence</code> value is null. The maximum <code>Precedence</code>
-   *             value is <code>2^31-1</code>.</p>
-   * @public
-   */
-  Precedence?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGroupResponse {
-  /**
-   * <p>Contains the updated details of the group, including precedence, IAM role, and
-   *             description.</p>
-   * @public
-   */
-  Group?: GroupType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIdentityProviderRequest {
-  /**
-   * <p>The Id of the user pool where you want to update your IdP.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The name of the IdP that you want to update. You can pass the identity provider name
-   *             in the <code>identity_provider</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated
-   *             IdP.</p>
-   * @public
-   */
-  ProviderName: string | undefined;
-
-  /**
-   * <p>The scopes, URLs, and identifiers for your external identity provider. The following
-   * examples describe the provider detail keys for each IdP type. These values and their
-   * schema are subject to change. Social IdP <code>authorize_scopes</code> values must match
-   * the values listed here.</p>
-   *          <dl>
-   *             <dt>OpenID Connect (OIDC)</dt>
-   *             <dd>
-   *                <p>Amazon Cognito accepts the following elements when it can't discover endpoint
-   *                 URLs from <code>oidc_issuer</code>: <code>attributes_url</code>,
-   *                     <code>authorize_url</code>, <code>jwks_uri</code>,
-   *                     <code>token_url</code>.</p>
-   *                <p>Create or update request: <code>"ProviderDetails": \{
-   *                     "attributes_request_method": "GET", "attributes_url":
-   *                     "https://auth.example.com/userInfo", "authorize_scopes": "openid profile
-   *                     email", "authorize_url": "https://auth.example.com/authorize",
-   *                     "client_id": "1example23456789", "client_secret":
-   *                     "provider-app-client-secret", "jwks_uri":
-   *                     "https://auth.example.com/.well-known/jwks.json", "oidc_issuer":
-   *                     "https://auth.example.com", "token_url": "https://example.com/token"
-   *                     \}</code>
-   *                </p>
-   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_request_method":
-   *                     "GET", "attributes_url": "https://auth.example.com/userInfo",
-   *                     "attributes_url_add_attributes": "false", "authorize_scopes": "openid
-   *                     profile email", "authorize_url": "https://auth.example.com/authorize",
-   *                     "client_id": "1example23456789", "client_secret":
-   *                     "provider-app-client-secret", "jwks_uri":
-   *                     "https://auth.example.com/.well-known/jwks.json", "oidc_issuer":
-   *                     "https://auth.example.com", "token_url": "https://example.com/token"
-   *                     \}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>SAML</dt>
-   *             <dd>
-   *                <p>Create or update request with Metadata URL: <code>"ProviderDetails": \{ "IDPInit": "true",
-   *                     "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL":
-   *                     "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm":
-   *                     "rsa-sha256" \}</code>
-   *                </p>
-   *                <p>Create or update request with Metadata file: <code>"ProviderDetails": \{ "IDPInit": "true",
-   *                     "IDPSignout": "true", "EncryptedResponses" : "true",
-   *                     "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm":
-   *                     "rsa-sha256" \}</code>
-   *                </p>
-   *                <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all
-   *                 quote (") characters escaped by backslashes.</p>
-   *                <p>Describe response: <code>"ProviderDetails": \{ "IDPInit": "true",
-   *                     "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]",
-   *                     "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm":
-   *                     "rsa-sha256", "SLORedirectBindingURI":
-   *                     "https://auth.example.com/slo/saml", "SSORedirectBindingURI":
-   *                     "https://auth.example.com/sso/saml" \}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>LoginWithAmazon</dt>
-   *             <dd>
-   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
-   *                     "profile postal_code", "client_id":
-   *                     "amzn1.application-oa2-client.1example23456789", "client_secret":
-   *                     "provider-app-client-secret"</code>
-   *                </p>
-   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_url":
-   *                     "https://api.amazon.com/user/profile", "attributes_url_add_attributes":
-   *                     "false", "authorize_scopes": "profile postal_code", "authorize_url":
-   *                     "https://www.amazon.com/ap/oa", "client_id":
-   *                     "amzn1.application-oa2-client.1example23456789", "client_secret":
-   *                     "provider-app-client-secret", "token_request_method": "POST",
-   *                     "token_url": "https://api.amazon.com/auth/o2/token" \}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>Google</dt>
-   *             <dd>
-   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
-   *                     "email profile openid", "client_id":
-   *                     "1example23456789.apps.googleusercontent.com", "client_secret":
-   *                     "provider-app-client-secret" \}</code>
-   *                </p>
-   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_url":
-   *                     "https://people.googleapis.com/v1/people/me?personFields=",
-   *                     "attributes_url_add_attributes": "true", "authorize_scopes": "email
-   *                     profile openid", "authorize_url":
-   *                     "https://accounts.google.com/o/oauth2/v2/auth", "client_id":
-   *                     "1example23456789.apps.googleusercontent.com", "client_secret":
-   *                     "provider-app-client-secret", "oidc_issuer":
-   *                     "https://accounts.google.com", "token_request_method": "POST",
-   *                     "token_url": "https://www.googleapis.com/oauth2/v4/token"
-   *                 \}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>SignInWithApple</dt>
-   *             <dd>
-   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
-   *                     "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE",
-   *                     "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" \}</code>
-   *                </p>
-   *                <p>Describe response: <code>"ProviderDetails": \{
-   *                     "attributes_url_add_attributes": "false", "authorize_scopes": "email
-   *                     name", "authorize_url": "https://appleid.apple.com/auth/authorize",
-   *                     "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer":
-   *                     "https://appleid.apple.com", "team_id": "2EXAMPLE",
-   *                     "token_request_method": "POST", "token_url":
-   *                     "https://appleid.apple.com/auth/token" \}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>Facebook</dt>
-   *             <dd>
-   *                <p>Create or update request: <code>"ProviderDetails": \{ "api_version": "v17.0",
-   *             "authorize_scopes": "public_profile, email", "client_id": "1example23456789",
-   *             "client_secret": "provider-app-client-secret" \}</code>
-   *                </p>
-   *                <p>Describe response: <code>"ProviderDetails":
-   *             \{ "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=",
-   *             "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email",
-   *             "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id":
-   *             "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method":
-   *             "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" \}</code>
-   *                </p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  ProviderDetails?: Record<string, string> | undefined;
-
-  /**
-   * <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a
-   *             user pool attribute as the key of the key-value pair, and the IdP attribute claim name
-   *             as the value.</p>
-   * @public
-   */
-  AttributeMapping?: Record<string, string> | undefined;
-
-  /**
-   * <p>An array of IdP identifiers, for example <code>"IdPIdentifiers": [ "MyIdP", "MyIdP2"
-   *                 ]</code>. Identifiers are friendly names that you can pass in the
-   *                 <code>idp_identifier</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP.
-   *             Identifiers in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address matching with SAML providers</a>. </p>
-   * @public
-   */
-  IdpIdentifiers?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIdentityProviderResponse {
-  /**
-   * <p>The identity provider details.</p>
-   * @public
-   */
-  IdentityProvider: IdentityProviderType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateManagedLoginBrandingRequest {
-  /**
-   * <p>The ID of the user pool that contains the managed login branding style that you want
-   *             to update.</p>
-   * @public
-   */
-  UserPoolId?: string | undefined;
-
-  /**
-   * <p>The ID of the managed login branding style that you want to update.</p>
-   * @public
-   */
-  ManagedLoginBrandingId?: string | undefined;
-
-  /**
-   * <p>When <code>true</code>, applies the default branding style options. This option
-   *             reverts to default style options that are managed by Amazon Cognito. You can modify them later in
-   *             the branding editor.</p>
-   *          <p>When you specify <code>true</code> for this option, you must also omit values for
-   *                 <code>Settings</code> and <code>Assets</code> in the request.</p>
-   * @public
-   */
-  UseCognitoProvidedValues?: boolean | undefined;
-
-  /**
-   * <p>A JSON file, encoded as a <code>Document</code> type, with the the settings that you
-   *             want to apply to your style.</p>
-   *          <p>The following components are not currently implemented and reserved for future
-   *             use:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>signUp</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instructions</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sessionTimerDisplay</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Settings?: __DocumentType | undefined;
-
-  /**
-   * <p>An array of image files that you want to apply to roles like backgrounds, logos, and
-   *             icons. Each object must also indicate whether it is for dark mode, light mode, or
-   *             browser-adaptive mode.</p>
-   * @public
-   */
-  Assets?: AssetType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateManagedLoginBrandingResponse {
-  /**
-   * <p>The details of the branding style that you updated.</p>
-   * @public
-   */
-  ManagedLoginBranding?: ManagedLoginBrandingType | undefined;
 }

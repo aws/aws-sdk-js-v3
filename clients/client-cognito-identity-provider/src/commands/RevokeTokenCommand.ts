@@ -76,6 +76,9 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
  *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>

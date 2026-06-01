@@ -55,6 +55,11 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  *             off, update the value of <code>UserPoolAddOns</code> in an <code>UpdateUserPool</code>
  *             request. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
  *                      Plus tier</a>.</p>
+ *          <p>In secondary regions for user pools with multi-region replication, only the
+ *                 <code>SourceARN</code> and <code>From</code> attributes of
+ *                 <code>NotifyConfiguration</code> can be modified to configure region-specific SES
+ *             integration. All other risk configuration settings must match the existing values to
+ *             maintain consistency across replicas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -206,6 +211,9 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested

@@ -219,6 +219,11 @@ import {
   CreateUserPoolDomainCommand,
 } from "./commands/CreateUserPoolDomainCommand";
 import {
+  type CreateUserPoolReplicaCommandInput,
+  type CreateUserPoolReplicaCommandOutput,
+  CreateUserPoolReplicaCommand,
+} from "./commands/CreateUserPoolReplicaCommand";
+import {
   type DeleteGroupCommandInput,
   type DeleteGroupCommandOutput,
   DeleteGroupCommand,
@@ -273,6 +278,11 @@ import {
   type DeleteUserPoolDomainCommandOutput,
   DeleteUserPoolDomainCommand,
 } from "./commands/DeleteUserPoolDomainCommand";
+import {
+  type DeleteUserPoolReplicaCommandInput,
+  type DeleteUserPoolReplicaCommandOutput,
+  DeleteUserPoolReplicaCommand,
+} from "./commands/DeleteUserPoolReplicaCommand";
 import {
   type DeleteWebAuthnCredentialCommandInput,
   type DeleteWebAuthnCredentialCommandOutput,
@@ -438,6 +448,11 @@ import {
   ListUserPoolClientSecretsCommand,
 } from "./commands/ListUserPoolClientSecretsCommand";
 import {
+  type ListUserPoolReplicasCommandInput,
+  type ListUserPoolReplicasCommandOutput,
+  ListUserPoolReplicasCommand,
+} from "./commands/ListUserPoolReplicasCommand";
+import {
   type ListUserPoolsCommandInput,
   type ListUserPoolsCommandOutput,
   ListUserPoolsCommand,
@@ -580,6 +595,11 @@ import {
   UpdateUserPoolDomainCommand,
 } from "./commands/UpdateUserPoolDomainCommand";
 import {
+  type UpdateUserPoolReplicaCommandInput,
+  type UpdateUserPoolReplicaCommandOutput,
+  UpdateUserPoolReplicaCommand,
+} from "./commands/UpdateUserPoolReplicaCommand";
+import {
   type VerifySoftwareTokenCommandInput,
   type VerifySoftwareTokenCommandOutput,
   VerifySoftwareTokenCommand,
@@ -643,6 +663,7 @@ const commands = {
   CreateUserPoolCommand,
   CreateUserPoolClientCommand,
   CreateUserPoolDomainCommand,
+  CreateUserPoolReplicaCommand,
   DeleteGroupCommand,
   DeleteIdentityProviderCommand,
   DeleteManagedLoginBrandingCommand,
@@ -654,6 +675,7 @@ const commands = {
   DeleteUserPoolClientCommand,
   DeleteUserPoolClientSecretCommand,
   DeleteUserPoolDomainCommand,
+  DeleteUserPoolReplicaCommand,
   DeleteWebAuthnCredentialCommand,
   DescribeIdentityProviderCommand,
   DescribeManagedLoginBrandingCommand,
@@ -690,6 +712,7 @@ const commands = {
   ListUserImportJobsCommand,
   ListUserPoolClientsCommand,
   ListUserPoolClientSecretsCommand,
+  ListUserPoolReplicasCommand,
   ListUserPoolsCommand,
   ListUsersCommand,
   ListUsersInGroupCommand,
@@ -720,6 +743,7 @@ const commands = {
   UpdateUserPoolCommand,
   UpdateUserPoolClientCommand,
   UpdateUserPoolDomainCommand,
+  UpdateUserPoolReplicaCommand,
   VerifySoftwareTokenCommand,
   VerifyUserAttributeCommand,
 };
@@ -1469,6 +1493,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link CreateUserPoolReplicaCommand}
+   */
+  createUserPoolReplica(
+    args: CreateUserPoolReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserPoolReplicaCommandOutput>;
+  createUserPoolReplica(
+    args: CreateUserPoolReplicaCommandInput,
+    cb: (err: any, data?: CreateUserPoolReplicaCommandOutput) => void
+  ): void;
+  createUserPoolReplica(
+    args: CreateUserPoolReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserPoolReplicaCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteGroupCommand}
    */
   deleteGroup(
@@ -1653,6 +1694,23 @@ export interface CognitoIdentityProvider {
     args: DeleteUserPoolDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserPoolDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteUserPoolReplicaCommand}
+   */
+  deleteUserPoolReplica(
+    args: DeleteUserPoolReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserPoolReplicaCommandOutput>;
+  deleteUserPoolReplica(
+    args: DeleteUserPoolReplicaCommandInput,
+    cb: (err: any, data?: DeleteUserPoolReplicaCommandOutput) => void
+  ): void;
+  deleteUserPoolReplica(
+    args: DeleteUserPoolReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserPoolReplicaCommandOutput) => void
   ): void;
 
   /**
@@ -2268,6 +2326,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link ListUserPoolReplicasCommand}
+   */
+  listUserPoolReplicas(
+    args: ListUserPoolReplicasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUserPoolReplicasCommandOutput>;
+  listUserPoolReplicas(
+    args: ListUserPoolReplicasCommandInput,
+    cb: (err: any, data?: ListUserPoolReplicasCommandOutput) => void
+  ): void;
+  listUserPoolReplicas(
+    args: ListUserPoolReplicasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUserPoolReplicasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListUserPoolsCommand}
    */
   listUserPools(
@@ -2776,6 +2851,23 @@ export interface CognitoIdentityProvider {
     args: UpdateUserPoolDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserPoolDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserPoolReplicaCommand}
+   */
+  updateUserPoolReplica(
+    args: UpdateUserPoolReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserPoolReplicaCommandOutput>;
+  updateUserPoolReplica(
+    args: UpdateUserPoolReplicaCommandInput,
+    cb: (err: any, data?: UpdateUserPoolReplicaCommandOutput) => void
+  ): void;
+  updateUserPoolReplica(
+    args: UpdateUserPoolReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserPoolReplicaCommandOutput) => void
   ): void;
 
   /**

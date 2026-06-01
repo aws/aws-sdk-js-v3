@@ -92,6 +92,26 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ * @public
+ */
+export class OperationNotEnabledException extends __BaseException {
+  readonly name = "OperationNotEnabledException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotEnabledException, __BaseException>) {
+    super({
+      name: "OperationNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotEnabledException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  * @public

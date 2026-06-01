@@ -35,8 +35,12 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *             defaults, construct this API request to pass the existing configuration of your user
  *             pool, modified to include the changes that you want to make.</p>
  *          <important>
- *             <p>With the exception of <code>UserPoolTier</code>, if you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
+ *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
  *          </important>
+ *          <p>In secondary regions for user pools with multi-region replication, regional
+ *             configurations for email, SMS, Lambda functions, and tags can be updated. Both global
+ *             and regional settings must be provided as inputs, with global settings required to match
+ *             existing values to maintain consistency across replicas.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -195,6 +199,13 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *   },
  *   PoolName: "STRING_VALUE",
  *   UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
+ *   KeyConfiguration: { // KeyConfigurationType
+ *     KeyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   IssuerConfiguration: { // IssuerConfigurationType
+ *     Type: "ORIGINAL" || "UPDATED",
+ *   },
  * };
  * const command = new UpdateUserPoolCommand(input);
  * const response = await client.send(command);
@@ -239,6 +250,9 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link OperationNotEnabledException} (client fault)
+ *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested

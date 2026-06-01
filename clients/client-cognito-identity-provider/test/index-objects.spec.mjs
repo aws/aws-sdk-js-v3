@@ -211,6 +211,10 @@ import {
   CreateUserPoolDomainCommand,
   CreateUserPoolDomainRequest$,
   CreateUserPoolDomainResponse$,
+  CreateUserPoolReplica$,
+  CreateUserPoolReplicaCommand,
+  CreateUserPoolReplicaRequest$,
+  CreateUserPoolReplicaResponse$,
   CreateUserPoolRequest$,
   CreateUserPoolResponse$,
   CustomDomainConfigType$,
@@ -253,6 +257,10 @@ import {
   DeleteUserPoolDomainCommand,
   DeleteUserPoolDomainRequest$,
   DeleteUserPoolDomainResponse$,
+  DeleteUserPoolReplica$,
+  DeleteUserPoolReplicaCommand,
+  DeleteUserPoolReplicaRequest$,
+  DeleteUserPoolReplicaResponse$,
   DeleteUserPoolRequest$,
   DeleteUserRequest$,
   DeleteWebAuthnCredential$,
@@ -317,6 +325,7 @@ import {
   EmailSendingAccountType,
   EnableSoftwareTokenMFAException,
   EnableSoftwareTokenMFAException$,
+  EncryptionKeyType,
   EventContextDataType$,
   EventFeedbackType$,
   EventFilterType,
@@ -327,6 +336,7 @@ import {
   ExpiredCodeException,
   ExpiredCodeException$,
   ExplicitAuthFlowsType,
+  FailoverType$,
   FeatureType,
   FeatureUnavailableInTierException,
   FeatureUnavailableInTierException$,
@@ -425,6 +435,9 @@ import {
   InvalidSmsRoleTrustRelationshipException$,
   InvalidUserPoolConfigurationException,
   InvalidUserPoolConfigurationException$,
+  IssuerConfigurationType$,
+  IssuerType,
+  KeyConfigurationType$,
   LambdaConfigType$,
   LimitExceededException,
   LimitExceededException$,
@@ -464,6 +477,10 @@ import {
   ListUserPoolClientSecretsResponse$,
   ListUserPoolClientsRequest$,
   ListUserPoolClientsResponse$,
+  ListUserPoolReplicas$,
+  ListUserPoolReplicasCommand,
+  ListUserPoolReplicasRequest$,
+  ListUserPoolReplicasResponse$,
   ListUserPools$,
   ListUserPoolsCommand,
   ListUserPoolsRequest$,
@@ -498,6 +515,8 @@ import {
   NotifyEmailType$,
   NumberAttributeConstraintsType$,
   OAuthFlowType,
+  OperationNotEnabledException,
+  OperationNotEnabledException$,
   paginateAdminListGroupsForUser,
   paginateAdminListUserAuthEvents,
   paginateListGroups,
@@ -524,6 +543,8 @@ import {
   RefreshTokenReuseException,
   RefreshTokenReuseException$,
   RefreshTokenRotationType$,
+  ReplicaRoleType,
+  ReplicaStatusType,
   ResendConfirmationCode$,
   ResendConfirmationCodeCommand,
   ResendConfirmationCodeRequest$,
@@ -544,6 +565,7 @@ import {
   RiskDecisionType,
   RiskExceptionConfigurationType$,
   RiskLevelType,
+  RoutingType$,
   S3ConfigurationType$,
   SchemaAttributeType$,
   ScopeDoesNotExistException,
@@ -653,6 +675,7 @@ import {
   UpdateManagedLoginBrandingCommand,
   UpdateManagedLoginBrandingRequest$,
   UpdateManagedLoginBrandingResponse$,
+  UpdateReplicaStatusType,
   UpdateResourceServer$,
   UpdateResourceServerCommand,
   UpdateResourceServerRequest$,
@@ -675,6 +698,10 @@ import {
   UpdateUserPoolDomainCommand,
   UpdateUserPoolDomainRequest$,
   UpdateUserPoolDomainResponse$,
+  UpdateUserPoolReplica$,
+  UpdateUserPoolReplicaCommand,
+  UpdateUserPoolReplicaRequest$,
+  UpdateUserPoolReplicaResponse$,
   UpdateUserPoolRequest$,
   UpdateUserPoolResponse$,
   UserAttributeUpdateSettingsType$,
@@ -701,6 +728,7 @@ import {
   UserPoolDescriptionType$,
   UserPoolMfaType,
   UserPoolPolicyType$,
+  UserPoolReplicaType$,
   UserPoolTaggingException,
   UserPoolTaggingException$,
   UserPoolTierType,
@@ -829,6 +857,8 @@ assert(typeof CreateUserPoolClientCommand === "function");
 assert(typeof CreateUserPoolClient$ === "object");
 assert(typeof CreateUserPoolDomainCommand === "function");
 assert(typeof CreateUserPoolDomain$ === "object");
+assert(typeof CreateUserPoolReplicaCommand === "function");
+assert(typeof CreateUserPoolReplica$ === "object");
 assert(typeof DeleteGroupCommand === "function");
 assert(typeof DeleteGroup$ === "object");
 assert(typeof DeleteIdentityProviderCommand === "function");
@@ -851,6 +881,8 @@ assert(typeof DeleteUserPoolClientSecretCommand === "function");
 assert(typeof DeleteUserPoolClientSecret$ === "object");
 assert(typeof DeleteUserPoolDomainCommand === "function");
 assert(typeof DeleteUserPoolDomain$ === "object");
+assert(typeof DeleteUserPoolReplicaCommand === "function");
+assert(typeof DeleteUserPoolReplica$ === "object");
 assert(typeof DeleteWebAuthnCredentialCommand === "function");
 assert(typeof DeleteWebAuthnCredential$ === "object");
 assert(typeof DescribeIdentityProviderCommand === "function");
@@ -923,6 +955,8 @@ assert(typeof ListUserPoolClientsCommand === "function");
 assert(typeof ListUserPoolClients$ === "object");
 assert(typeof ListUserPoolClientSecretsCommand === "function");
 assert(typeof ListUserPoolClientSecrets$ === "object");
+assert(typeof ListUserPoolReplicasCommand === "function");
+assert(typeof ListUserPoolReplicas$ === "object");
 assert(typeof ListUserPoolsCommand === "function");
 assert(typeof ListUserPools$ === "object");
 assert(typeof ListUsersCommand === "function");
@@ -983,6 +1017,8 @@ assert(typeof UpdateUserPoolClientCommand === "function");
 assert(typeof UpdateUserPoolClient$ === "object");
 assert(typeof UpdateUserPoolDomainCommand === "function");
 assert(typeof UpdateUserPoolDomain$ === "object");
+assert(typeof UpdateUserPoolReplicaCommand === "function");
+assert(typeof UpdateUserPoolReplica$ === "object");
 assert(typeof VerifySoftwareTokenCommand === "function");
 assert(typeof VerifySoftwareToken$ === "object");
 assert(typeof VerifyUserAttributeCommand === "function");
@@ -1087,6 +1123,8 @@ assert(typeof CreateUserPoolClientRequest$ === "object");
 assert(typeof CreateUserPoolClientResponse$ === "object");
 assert(typeof CreateUserPoolDomainRequest$ === "object");
 assert(typeof CreateUserPoolDomainResponse$ === "object");
+assert(typeof CreateUserPoolReplicaRequest$ === "object");
+assert(typeof CreateUserPoolReplicaResponse$ === "object");
 assert(typeof CreateUserPoolRequest$ === "object");
 assert(typeof CreateUserPoolResponse$ === "object");
 assert(typeof CustomDomainConfigType$ === "object");
@@ -1104,6 +1142,8 @@ assert(typeof DeleteUserPoolClientSecretRequest$ === "object");
 assert(typeof DeleteUserPoolClientSecretResponse$ === "object");
 assert(typeof DeleteUserPoolDomainRequest$ === "object");
 assert(typeof DeleteUserPoolDomainResponse$ === "object");
+assert(typeof DeleteUserPoolReplicaRequest$ === "object");
+assert(typeof DeleteUserPoolReplicaResponse$ === "object");
 assert(typeof DeleteUserPoolRequest$ === "object");
 assert(typeof DeleteUserRequest$ === "object");
 assert(typeof DeleteWebAuthnCredentialRequest$ === "object");
@@ -1138,6 +1178,7 @@ assert(typeof EmailMfaSettingsType$ === "object");
 assert(typeof EventContextDataType$ === "object");
 assert(typeof EventFeedbackType$ === "object");
 assert(typeof EventRiskType$ === "object");
+assert(typeof FailoverType$ === "object");
 assert(typeof FirehoseConfigurationType$ === "object");
 assert(typeof ForgetDeviceRequest$ === "object");
 assert(typeof ForgotPasswordRequest$ === "object");
@@ -1174,6 +1215,8 @@ assert(typeof IdentityProviderType$ === "object");
 assert(typeof InboundFederationLambdaType$ === "object");
 assert(typeof InitiateAuthRequest$ === "object");
 assert(typeof InitiateAuthResponse$ === "object");
+assert(typeof IssuerConfigurationType$ === "object");
+assert(typeof KeyConfigurationType$ === "object");
 assert(typeof LambdaConfigType$ === "object");
 assert(typeof ListDevicesRequest$ === "object");
 assert(typeof ListDevicesResponse$ === "object");
@@ -1193,6 +1236,8 @@ assert(typeof ListUserPoolClientSecretsRequest$ === "object");
 assert(typeof ListUserPoolClientSecretsResponse$ === "object");
 assert(typeof ListUserPoolClientsRequest$ === "object");
 assert(typeof ListUserPoolClientsResponse$ === "object");
+assert(typeof ListUserPoolReplicasRequest$ === "object");
+assert(typeof ListUserPoolReplicasResponse$ === "object");
 assert(typeof ListUserPoolsRequest$ === "object");
 assert(typeof ListUserPoolsResponse$ === "object");
 assert(typeof ListUsersInGroupRequest$ === "object");
@@ -1226,6 +1271,7 @@ assert(typeof RevokeTokenRequest$ === "object");
 assert(typeof RevokeTokenResponse$ === "object");
 assert(typeof RiskConfigurationType$ === "object");
 assert(typeof RiskExceptionConfigurationType$ === "object");
+assert(typeof RoutingType$ === "object");
 assert(typeof S3ConfigurationType$ === "object");
 assert(typeof SchemaAttributeType$ === "object");
 assert(typeof SetLogDeliveryConfigurationRequest$ === "object");
@@ -1283,6 +1329,8 @@ assert(typeof UpdateUserPoolClientRequest$ === "object");
 assert(typeof UpdateUserPoolClientResponse$ === "object");
 assert(typeof UpdateUserPoolDomainRequest$ === "object");
 assert(typeof UpdateUserPoolDomainResponse$ === "object");
+assert(typeof UpdateUserPoolReplicaRequest$ === "object");
+assert(typeof UpdateUserPoolReplicaResponse$ === "object");
 assert(typeof UpdateUserPoolRequest$ === "object");
 assert(typeof UpdateUserPoolResponse$ === "object");
 assert(typeof UserAttributeUpdateSettingsType$ === "object");
@@ -1294,6 +1342,7 @@ assert(typeof UserPoolClientDescription$ === "object");
 assert(typeof UserPoolClientType$ === "object");
 assert(typeof UserPoolDescriptionType$ === "object");
 assert(typeof UserPoolPolicyType$ === "object");
+assert(typeof UserPoolReplicaType$ === "object");
 assert(typeof UserPoolType$ === "object");
 assert(typeof UserType$ === "object");
 assert(typeof VerificationMessageTemplateType$ === "object");
@@ -1327,6 +1376,7 @@ assert(typeof DeliveryMediumType === "object");
 assert(typeof DeviceRememberedStatusType === "object");
 assert(typeof DomainStatusType === "object");
 assert(typeof EmailSendingAccountType === "object");
+assert(typeof EncryptionKeyType === "object");
 assert(typeof EventFilterType === "object");
 assert(typeof EventResponseType === "object");
 assert(typeof EventSourceName === "object");
@@ -1336,18 +1386,22 @@ assert(typeof FeatureType === "object");
 assert(typeof FeedbackValueType === "object");
 assert(typeof IdentityProviderTypeType === "object");
 assert(typeof InboundFederationLambdaVersionType === "object");
+assert(typeof IssuerType === "object");
 assert(typeof LogLevel === "object");
 assert(typeof MessageActionType === "object");
 assert(typeof OAuthFlowType === "object");
 assert(typeof PreTokenGenerationLambdaVersionType === "object");
 assert(typeof PreventUserExistenceErrorTypes === "object");
 assert(typeof RecoveryOptionNameType === "object");
+assert(typeof ReplicaRoleType === "object");
+assert(typeof ReplicaStatusType === "object");
 assert(typeof RiskDecisionType === "object");
 assert(typeof RiskLevelType === "object");
 assert(typeof StatusType === "object");
 assert(typeof TermsEnforcementType === "object");
 assert(typeof TermsSourceType === "object");
 assert(typeof TimeUnitsType === "object");
+assert(typeof UpdateReplicaStatusType === "object");
 assert(typeof UserImportJobStatusType === "object");
 assert(typeof UsernameAttributeType === "object");
 assert(typeof UserPoolMfaType === "object");
@@ -1410,6 +1464,8 @@ assert(MFAMethodNotFoundException.prototype instanceof CognitoIdentityProviderSe
 assert(typeof MFAMethodNotFoundException$ === "object");
 assert(NotAuthorizedException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof NotAuthorizedException$ === "object");
+assert(OperationNotEnabledException.prototype instanceof CognitoIdentityProviderServiceException);
+assert(typeof OperationNotEnabledException$ === "object");
 assert(PasswordHistoryPolicyViolationException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof PasswordHistoryPolicyViolationException$ === "object");
 assert(PasswordResetRequiredException.prototype instanceof CognitoIdentityProviderServiceException);
