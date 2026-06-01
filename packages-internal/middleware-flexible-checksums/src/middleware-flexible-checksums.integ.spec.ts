@@ -282,6 +282,7 @@ describe("middleware-flexible-checksums", () => {
     describe("novel request checksum", () => {
       it("should send a request with the novel checksum in the header if the implementation is provided", async () => {
         const s3 = new S3({
+          region: "us-west-2",
           credentials: {
             accessKeyId: "INTEG",
             secretAccessKey: "INTEG",
@@ -306,6 +307,7 @@ describe("middleware-flexible-checksums", () => {
 
       it("should throw an error if the requested algorithm implementation is not available", async () => {
         const s3 = new S3({
+          region: "us-west-2",
           credentials: {
             accessKeyId: "INTEG",
             secretAccessKey: "INTEG",
@@ -336,6 +338,7 @@ describe("middleware-flexible-checksums", () => {
     describe("novel response checksum", () => {
       it("should receive a request and verify the novel checksum", async () => {
         const s3 = new S3({
+          region: "us-west-2",
           credentials: {
             accessKeyId: "INTEG",
             secretAccessKey: "INTEG",
@@ -379,6 +382,7 @@ Checksum mismatch: expected "${ex}" but received "${ac}" in response header "x-a
 
       it("should ignore the checksum header and perform no checksum validation if no matching algorithm implementation is available", async () => {
         const s3 = new S3({
+          region: "us-west-2",
           credentials: {
             accessKeyId: "INTEG",
             secretAccessKey: "INTEG",

@@ -30,6 +30,7 @@ import {
   type RetryResolvedConfig,
   getRetryPlugin,
   resolveRetryConfig,
+  Retry,
 } from "@smithy/core/retry";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import type {
@@ -302,7 +303,7 @@ export class DynamoDBStreamsClient extends __Client<
     this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveUserAgentConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_3 = resolveRetryConfig(_config_2, { defaultBaseDelay: Retry.v2026 ? 25 : undefined, defaultMaxAttempts: Retry.v2026 ? 4 : undefined });
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);

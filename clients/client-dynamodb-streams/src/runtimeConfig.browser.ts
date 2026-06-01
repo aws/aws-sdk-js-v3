@@ -10,7 +10,7 @@ import {
   DEFAULT_USE_FIPS_ENDPOINT,
   resolveDefaultsModeConfig,
 } from "@smithy/core/config";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/core/retry";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE, Retry } from "@smithy/core/retry";
 import { calculateBodyLength } from "@smithy/core/serde";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
 
@@ -32,7 +32,7 @@ export const getRuntimeConfig = (config: DynamoDBStreamsClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
-    maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
+    maxAttempts: config?.maxAttempts ?? (Retry.v2026 ? 4 : DEFAULT_MAX_ATTEMPTS),
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),

@@ -41,6 +41,7 @@ import {
   type RetryResolvedConfig,
   getRetryPlugin,
   resolveRetryConfig,
+  Retry,
 } from "@smithy/core/retry";
 import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import type {
@@ -586,7 +587,7 @@ export class DynamoDBClient extends __Client<
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveAccountIdEndpointModeConfig(_config_1);
     const _config_3 = resolveUserAgentConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_4 = resolveRetryConfig(_config_3, { defaultBaseDelay: Retry.v2026 ? 25 : undefined, defaultMaxAttempts: Retry.v2026 ? 4 : undefined });
     const _config_5 = resolveRegionConfig(_config_4);
     const _config_6 = resolveHostHeaderConfig(_config_5);
     const _config_7 = resolveEndpointConfig(_config_6);
