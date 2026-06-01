@@ -2,36 +2,44 @@
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  type BatchExecuteStatementCommandInput,
+  type BatchExecuteStatementCommandOutput,
   BatchExecuteStatementCommand,
-  BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
 } from "./commands/BatchExecuteStatementCommand";
-import { BatchGetCommand, BatchGetCommandInput, BatchGetCommandOutput } from "./commands/BatchGetCommand";
-import { BatchWriteCommand, BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
-import { DeleteCommand, DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
+import { type BatchGetCommandInput, type BatchGetCommandOutput, BatchGetCommand } from "./commands/BatchGetCommand";
 import {
+  type BatchWriteCommandInput,
+  type BatchWriteCommandOutput,
+  BatchWriteCommand,
+} from "./commands/BatchWriteCommand";
+import { type DeleteCommandInput, type DeleteCommandOutput, DeleteCommand } from "./commands/DeleteCommand";
+import {
+  type ExecuteStatementCommandInput,
+  type ExecuteStatementCommandOutput,
   ExecuteStatementCommand,
-  ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
 } from "./commands/ExecuteStatementCommand";
 import {
+  type ExecuteTransactionCommandInput,
+  type ExecuteTransactionCommandOutput,
   ExecuteTransactionCommand,
-  ExecuteTransactionCommandInput,
-  ExecuteTransactionCommandOutput,
 } from "./commands/ExecuteTransactionCommand";
-import { GetCommand, GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
-import { PutCommand, PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
-import { TransactGetCommand, TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
+import { type GetCommandInput, type GetCommandOutput, GetCommand } from "./commands/GetCommand";
+import { type PutCommandInput, type PutCommandOutput, PutCommand } from "./commands/PutCommand";
+import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "./commands/QueryCommand";
+import { type ScanCommandInput, type ScanCommandOutput, ScanCommand } from "./commands/ScanCommand";
 import {
+  type TransactGetCommandInput,
+  type TransactGetCommandOutput,
+  TransactGetCommand,
+} from "./commands/TransactGetCommand";
+import {
+  type TransactWriteCommandInput,
+  type TransactWriteCommandOutput,
   TransactWriteCommand,
-  TransactWriteCommandInput,
-  TransactWriteCommandOutput,
 } from "./commands/TransactWriteCommand";
-import { UpdateCommand, UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
+import { type UpdateCommandInput, type UpdateCommandOutput, UpdateCommand } from "./commands/UpdateCommand";
 import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient";
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import type { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 /**
  * The document client simplifies working with items in Amazon DynamoDB by
@@ -129,8 +137,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public batchGet(args: BatchGetCommandInput, options?: __HttpHandlerOptions): Promise<BatchGetCommandOutput>;
-  public batchGet(args: BatchGetCommandInput, cb: (err: any, data?: BatchGetCommandOutput) => void): void;
+  public batchGet(
+    args: BatchGetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCommandOutput>;
+  public batchGet(
+    args: BatchGetCommandInput,
+    cb: (err: any, data?: BatchGetCommandOutput) => void
+  ): void;
   public batchGet(
     args: BatchGetCommandInput,
     options: __HttpHandlerOptions,
@@ -161,8 +175,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public batchWrite(args: BatchWriteCommandInput, options?: __HttpHandlerOptions): Promise<BatchWriteCommandOutput>;
-  public batchWrite(args: BatchWriteCommandInput, cb: (err: any, data?: BatchWriteCommandOutput) => void): void;
+  public batchWrite(
+    args: BatchWriteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchWriteCommandOutput>;
+  public batchWrite(
+    args: BatchWriteCommandInput,
+    cb: (err: any, data?: BatchWriteCommandOutput) => void
+  ): void;
   public batchWrite(
     args: BatchWriteCommandInput,
     options: __HttpHandlerOptions,
@@ -193,8 +213,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public delete(args: DeleteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommandOutput>;
-  public delete(args: DeleteCommandInput, cb: (err: any, data?: DeleteCommandOutput) => void): void;
+  public delete(
+    args: DeleteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCommandOutput>;
+  public delete(
+    args: DeleteCommandInput,
+    cb: (err: any, data?: DeleteCommandOutput) => void
+  ): void;
   public delete(
     args: DeleteCommandInput,
     options: __HttpHandlerOptions,
@@ -301,8 +327,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public get(args: GetCommandInput, options?: __HttpHandlerOptions): Promise<GetCommandOutput>;
-  public get(args: GetCommandInput, cb: (err: any, data?: GetCommandOutput) => void): void;
+  public get(
+    args: GetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommandOutput>;
+  public get(
+    args: GetCommandInput,
+    cb: (err: any, data?: GetCommandOutput) => void
+  ): void;
   public get(
     args: GetCommandInput,
     options: __HttpHandlerOptions,
@@ -333,8 +365,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public put(args: PutCommandInput, options?: __HttpHandlerOptions): Promise<PutCommandOutput>;
-  public put(args: PutCommandInput, cb: (err: any, data?: PutCommandOutput) => void): void;
+  public put(
+    args: PutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCommandOutput>;
+  public put(
+    args: PutCommandInput,
+    cb: (err: any, data?: PutCommandOutput) => void
+  ): void;
   public put(
     args: PutCommandInput,
     options: __HttpHandlerOptions,
@@ -365,8 +403,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
-  public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
+  public query(
+    args: QueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryCommandOutput>;
+  public query(
+    args: QueryCommandInput,
+    cb: (err: any, data?: QueryCommandOutput) => void
+  ): void;
   public query(
     args: QueryCommandInput,
     options: __HttpHandlerOptions,
@@ -397,8 +441,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public scan(args: ScanCommandInput, options?: __HttpHandlerOptions): Promise<ScanCommandOutput>;
-  public scan(args: ScanCommandInput, cb: (err: any, data?: ScanCommandOutput) => void): void;
+  public scan(
+    args: ScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ScanCommandOutput>;
+  public scan(
+    args: ScanCommandInput,
+    cb: (err: any, data?: ScanCommandOutput) => void
+  ): void;
   public scan(
     args: ScanCommandInput,
     options: __HttpHandlerOptions,
@@ -429,8 +479,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public transactGet(args: TransactGetCommandInput, options?: __HttpHandlerOptions): Promise<TransactGetCommandOutput>;
-  public transactGet(args: TransactGetCommandInput, cb: (err: any, data?: TransactGetCommandOutput) => void): void;
+  public transactGet(
+    args: TransactGetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TransactGetCommandOutput>;
+  public transactGet(
+    args: TransactGetCommandInput,
+    cb: (err: any, data?: TransactGetCommandOutput) => void
+  ): void;
   public transactGet(
     args: TransactGetCommandInput,
     options: __HttpHandlerOptions,
@@ -499,8 +555,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public update(args: UpdateCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommandOutput>;
-  public update(args: UpdateCommandInput, cb: (err: any, data?: UpdateCommandOutput) => void): void;
+  public update(
+    args: UpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCommandOutput>;
+  public update(
+    args: UpdateCommandInput,
+    cb: (err: any, data?: UpdateCommandOutput) => void
+  ): void;
   public update(
     args: UpdateCommandInput,
     options: __HttpHandlerOptions,
@@ -523,4 +585,5 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

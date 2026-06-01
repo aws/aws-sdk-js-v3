@@ -99,17 +99,16 @@ final class DocumentClientCommandGenerator implements Runnable {
 
         // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
         writer.write(
-            """
-            import { %s as %s } from "%s";
-            """.formatted(
+            "import { %s as %s } from \"%s\";".formatted(
                 clientCommandClassName,
                 clientCommandLocalName,
                 AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
             )
         );
+        writer.write("");
 
         // Add required imports.
-        writer.addRelativeImport(configType, configType, servicePath);
+        writer.addRelativeTypeImport(configType, configType, servicePath);
         writer.addImport(
             "DynamoDBDocumentClientCommand",
             "DynamoDBDocumentClientCommand",
@@ -122,26 +121,21 @@ final class DocumentClientCommandGenerator implements Runnable {
 
         generateInputAndOutputTypes();
 
-        String ioTypes = String.join(
-            ", ",
-            new String[] {
-                inputTypeName,
-                outputTypeName,
-                "__" + originalInputTypeName,
-                "__" + originalOutputTypeName
-            }
-        );
-
         String name = DocumentClientUtils.getModifiedName(symbol.getName());
         writer.writeDocs(
             DocumentClientUtils.getCommandDocs(symbol.getName())
                 + "\n\n@public"
         );
         writer.openBlock(
-            "export class $L extends DynamoDBDocumentClientCommand<" + ioTypes + ", $L> {",
+            "export class $L extends DynamoDBDocumentClientCommand<\n"
+                + "  " + inputTypeName + ",\n"
+                + "  " + outputTypeName + ",\n"
+                + "  __" + originalInputTypeName + ",\n"
+                + "  __" + originalOutputTypeName + ",\n"
+                + "  " + configType + "\n"
+                + "> {",
             "}",
             name,
-            configType,
             () -> {
                 // Section for adding custom command properties.
                 writer.pushState(COMMAND_PROPERTIES_SECTION);
@@ -174,16 +168,12 @@ final class DocumentClientCommandGenerator implements Runnable {
         // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
         writer.write("");
         orderedUncheckedImports.forEach((dep, symbols) -> {
-            writer.openBlock("import type {", """
-                                              } from "%s";
-                                              """.formatted(dep), () -> {
+            writer.openBlock("import type {", "} from \"" + dep + "\";", () -> {
                 symbols.forEach((externalName, localName) -> {
                     if (externalName.equals(localName)) {
-                        writer.writeInline(localName).write(",");
+                        writer.write("$L,", localName);
                     } else {
-                        writer.write("""
-                                     %s as %s,
-                                     """.formatted(externalName, localName));
+                        writer.write("$L as $L,", externalName, localName);
                     }
                 });
             });
@@ -210,10 +200,10 @@ final class DocumentClientCommandGenerator implements Runnable {
         String middlewareStack = "MiddlewareStack";
 
         Path servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME);
-        writer.addRelativeImport(serviceInputTypes, serviceInputTypes, servicePath);
-        writer.addRelativeImport(serviceOutputTypes, serviceOutputTypes, servicePath);
-        writer.addImport(handler, handler, TypeScriptDependency.SMITHY_TYPES);
-        writer.addImport(middlewareStack, middlewareStack, TypeScriptDependency.SMITHY_TYPES);
+        writer.addRelativeTypeImport(serviceInputTypes, serviceInputTypes, servicePath);
+        writer.addRelativeTypeImport(serviceOutputTypes, serviceOutputTypes, servicePath);
+        writer.addTypeImport(handler, handler, TypeScriptDependency.SMITHY_TYPES);
+        writer.addTypeImport(middlewareStack, middlewareStack, TypeScriptDependency.SMITHY_TYPES);
 
         writer.write("resolveMiddleware(")
             .indent()
@@ -226,9 +216,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             String commandVarName = "this.clientCommand";
 
             // marshall middlewares
-            writer.openBlock("this.addMarshallingMiddleware(", ");", () -> {
-                writer.write("configuration");
-            });
+            writer.write("this.addMarshallingMiddleware(configuration);");
 
             writer.write("const stack = clientStack.concat(this.middlewareStack as typeof clientStack);");
 
@@ -243,20 +231,58 @@ final class DocumentClientCommandGenerator implements Runnable {
             if (outputMembersWithAttr.isEmpty()) {
                 writer.write("return $L;", handlerVarName);
             } else {
-                writer.write("return async () => handler($L)", commandVarName);
+                writer.write("return async () => handler($L);", commandVarName);
             }
         });
     }
 
     private void writeKeyNodes(List<MemberShape> membersWithAttr) {
         for (MemberShape member : membersWithAttr) {
-            writer.openBlock("'$L': ", ",", symbolProvider.toMemberName(member), () -> {
-                writeKeyNode(member);
-            });
+            writeKeyNodeEntry(member);
         }
     }
 
-    private void writeKeyNode(MemberShape member) {
+    private void writeKeyNodeEntry(MemberShape member) {
+        String memberName = symbolProvider.toMemberName(member);
+        Shape memberTarget = model.expectShape(member.getTarget());
+        // For simple leaf nodes (map with AttributeValue, set/list of AttributeValue, SELF),
+        // write them inline without openBlock to avoid extra indentation.
+        if (memberTarget.isMapShape()) {
+            MemberShape mapMember = ((MapShape) memberTarget).getValue();
+            Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
+            if (
+                mapMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")
+            ) {
+                writer.addImport("ALL_VALUES", null, "./commands/utils");
+                writer.write("$L: ALL_VALUES, // map with AttributeValue", memberName);
+                return;
+            }
+        } else if (memberTarget instanceof CollectionShape) {
+            MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
+            Shape collectionMemberTarget = model.expectShape(collectionMember.getTarget());
+            if (
+                collectionMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")
+            ) {
+                writer.addImport("ALL_MEMBERS", null, "./commands/utils");
+                writer.write("$L: ALL_MEMBERS, // set/list of AttributeValue", memberName);
+                return;
+            }
+        } else if (memberTarget.isUnionShape()) {
+            if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
+                writer.addImport("SELF", null, "./commands/utils");
+                writer.write("$L: SELF,", memberName);
+                return;
+            }
+        }
+        // For complex/nested nodes, use block formatting
+        writer.writeInline("$L: ", memberName);
+        writeKeyNodeValue(member, true);
+    }
+
+    private void writeKeyNodeValue(MemberShape member, boolean trailingComma) {
+        String closeBrace = trailingComma ? "}," : "}";
         Shape memberTarget = model.expectShape(member.getTarget());
         if (memberTarget instanceof CollectionShape) {
             MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
@@ -266,17 +292,17 @@ final class DocumentClientCommandGenerator implements Runnable {
                     && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")
             ) {
                 writer.addImport("ALL_MEMBERS", null, "./commands/utils");
-                writer.write("ALL_MEMBERS // set/list of AttributeValue");
+                writer.write("ALL_MEMBERS, // set/list of AttributeValue");
                 return;
             }
-            writer.openBlock("{", "}", () -> {
-                writer.write("'*':");
-                writeKeyNode(collectionMember);
+            writer.openBlock("{", closeBrace, () -> {
+                writer.writeInline("\"*\": ");
+                writeKeyNodeValue(collectionMember, true);
             });
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
                 writer.addImport("SELF", null, "./commands/utils");
-                writer.write("SELF");
+                writer.write("SELF,");
                 return;
             } else {
                 // An AttributeValue inside Union is not present as of Q1 2021, and is less
@@ -296,26 +322,25 @@ final class DocumentClientCommandGenerator implements Runnable {
                     && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")
             ) {
                 writer.addImport("ALL_VALUES", null, "./commands/utils");
-                writer.write("ALL_VALUES // map with AttributeValue");
+                writer.write("ALL_VALUES, // map with AttributeValue");
                 return;
             } else {
-                writer.openBlock("{", "}", () -> {
-                    writer.write("'*':");
-                    writeKeyNode(mapMember);
+                writer.openBlock("{", closeBrace, () -> {
+                    writer.writeInline("\"*\": ");
+                    writeKeyNodeValue(mapMember, true);
                 });
             }
         } else if (memberTarget.isStructureShape()) {
-            writeStructureKeyNode((StructureShape) memberTarget);
+            writeStructureKeyNode((StructureShape) memberTarget, trailingComma);
         }
     }
 
-    private void writeStructureKeyNode(StructureShape structureTarget) {
+    private void writeStructureKeyNode(StructureShape structureTarget, boolean trailingComma) {
+        String closeBrace = trailingComma ? "}," : "}";
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
-        writer.openBlock("{", "}", () -> {
+        writer.openBlock("{", closeBrace, () -> {
             for (MemberShape member : membersWithAttr) {
-                writer.openBlock("'$L': ", ",", symbolProvider.toMemberName(member), () -> {
-                    writeKeyNode(member);
-                });
+                writeKeyNodeEntry(member);
             }
         });
     }
@@ -358,7 +383,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                 writer.write("export type $L = __$L;", typeName, originalTypeName);
             } else {
                 String memberUnionToOmit = membersWithAttr.stream()
-                    .map(member -> "'" + symbolProvider.toMemberName(member) + "'")
+                    .map(member -> "\"" + symbolProvider.toMemberName(member) + "\"")
                     .collect(Collectors.joining(" | "));
                 writer.openBlock(
                     "export type $L = Omit<__$L, $L> & {",
@@ -379,10 +404,10 @@ final class DocumentClientCommandGenerator implements Runnable {
         }
     }
 
-    private void writeStructureOmitType(StructureShape structureTarget) {
+    private void writeStructureOmitType(StructureShape structureTarget, String suffix) {
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
         String memberUnionToOmit = membersWithAttr.stream()
-            .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
+            .map(memberWithAttr -> "\"" + symbolProvider.toMemberName(memberWithAttr) + "\"")
             .collect(Collectors.joining(" | "));
         String typeNameToOmit = symbolProvider.toSymbol(structureTarget).getName();
         registerTypeImport(
@@ -390,9 +415,10 @@ final class DocumentClientCommandGenerator implements Runnable {
             typeNameToOmit,
             AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
         );
+        String closeBlock = "}" + suffix;
         writer.openBlock(
             "Omit<$L, $L> & {",
-            "}",
+            closeBlock,
             typeNameToOmit,
             memberUnionToOmit,
             () -> {
@@ -405,24 +431,25 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeStructureMemberOmitType(MemberShape member) {
         String optionalSuffix = isRequiredMember(member) ? "" : "?";
-        writer.openBlock(
-            "${L}${L}: ",
-            ";",
-            symbolProvider.toMemberName(member),
-            optionalSuffix,
-            () -> {
-                writeMemberOmitType(member, true);
-            }
-        );
+        String memberName = symbolProvider.toMemberName(member);
+        writer.writeInline("$L$L: ", memberName, optionalSuffix);
+        writeMemberOmitType(member, true, ";");
     }
 
     private void writeMemberOmitType(MemberShape member, boolean allowUndefined) {
+        writeMemberOmitType(member, allowUndefined, "");
+    }
+
+    private void writeMemberOmitType(MemberShape member, boolean allowUndefined, String terminator) {
         Shape memberTarget = model.expectShape(member.getTarget());
+        String undefinedSuffix = allowUndefined ? " | undefined" : "";
+        String suffix = undefinedSuffix + terminator;
         if (memberTarget.isStructureShape()) {
-            writeStructureOmitType((StructureShape) memberTarget);
+            writeStructureOmitType((StructureShape) memberTarget, suffix);
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
-                writeNativeAttributeValue();
+                registerNativeAttributeValueImport();
+                writeTypeLeaf("NativeAttributeValue" + suffix, terminator);
             } else {
                 // An AttributeValue inside Union is not present as of Q1 2021, and is less
                 // likely to appear in future. Writing Omit for it is not straightforward, skipping.
@@ -435,28 +462,70 @@ final class DocumentClientCommandGenerator implements Runnable {
             }
         } else if (memberTarget.isMapShape()) {
             MemberShape mapMember = ((MapShape) memberTarget).getValue();
-            writer.openBlock("Record<string, ", ">", () -> {
-                writeMemberOmitType(mapMember, false);
-            });
+            Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
+            if (
+                mapMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")
+            ) {
+                registerNativeAttributeValueImport();
+                writeTypeLeaf("Record<string, NativeAttributeValue>" + suffix, terminator);
+            } else {
+                String closeRecord = ">" + suffix;
+                writer.openBlock("Record<", closeRecord, () -> {
+                    writer.writeInline("string,");
+                    writer.write("");
+                    writeMemberOmitType(mapMember, false);
+                });
+            }
         } else if (memberTarget instanceof CollectionShape) {
             MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
-            writer.openBlock("(", ")[]", () -> {
-                writeMemberOmitType(collectionMember, false);
-            });
-        }
-        if (allowUndefined) {
-            writer.write(" | undefined");
+            Shape collectionMemberTarget = model.expectShape(collectionMember.getTarget());
+            if (
+                collectionMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")
+            ) {
+                registerNativeAttributeValueImport();
+                writeTypeLeaf("NativeAttributeValue[]" + suffix, terminator);
+            } else if (
+                collectionMemberTarget.isMapShape()
+                    && isSimpleNativeAttributeValueMap(collectionMemberTarget)
+            ) {
+                // Simple case: Record<string, NativeAttributeValue>[]
+                registerNativeAttributeValueImport();
+                writeTypeLeaf("Record<string, NativeAttributeValue>[]" + suffix, terminator);
+            } else {
+                String closeArray = ")[]" + suffix;
+                writer.openBlock("(", closeArray, () -> {
+                    writeMemberOmitType(collectionMember, false);
+                });
+            }
         }
     }
 
-    private void writeNativeAttributeValue() {
+    /**
+     * Writes a leaf type with a trailing newline.
+     */
+    private void writeTypeLeaf(String text, String terminator) {
+        writer.write(text);
+    }
+
+    private void registerNativeAttributeValueImport() {
         String nativeAttributeValue = "NativeAttributeValue";
         registerTypeImport(
             nativeAttributeValue,
             nativeAttributeValue,
             AwsDependency.UTIL_DYNAMODB.getPackageName()
         );
-        writer.write(nativeAttributeValue);
+    }
+
+    private boolean isSimpleNativeAttributeValueMap(Shape mapShape) {
+        if (!mapShape.isMapShape()) {
+            return false;
+        }
+        MemberShape mapValue = ((MapShape) mapShape).getValue();
+        Shape mapValueTarget = model.expectShape(mapValue.getTarget());
+        return mapValueTarget.isUnionShape()
+            && symbolProvider.toSymbol(mapValueTarget).getName().equals("AttributeValue");
     }
 
     /**

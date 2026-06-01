@@ -11,4 +11,11 @@ clients/**/test/snapshots.integ.spec.ts
 private/**
 !private/aws-client-api-test/src/**/*
 packages/nested-clients/src/submodules/**/*.ts
+packages-internal/nested-clients/src/
+lib/lib-dynamodb/src/DynamoDBDocument.ts
+lib/lib-dynamodb/src/DynamoDBDocumentClient.ts
+lib/lib-dynamodb/src/index.ts
+lib/lib-dynamodb/src/commands/*Command.ts
+lib/lib-dynamodb/src/commands/index.ts
+lib/lib-dynamodb/src/pagination/
 **/*.java

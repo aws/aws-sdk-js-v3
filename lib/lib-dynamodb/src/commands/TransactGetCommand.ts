@@ -1,10 +1,14 @@
 // smithy-typescript generated code
 import { Command as $Command } from "@smithy/core/client";
-import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
+import type { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_VALUES } from "../commands/utils";
-import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import type {
+  DynamoDBDocumentClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../DynamoDBDocumentClient";
 import { TransactGetItemsCommand as __TransactGetItemsCommand } from "@aws-sdk/client-dynamodb";
 
 /**
@@ -16,26 +20,24 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "TransactItems"> & {
-  TransactItems:
-    | (Omit<TransactGetItem, "Get"> & {
-        Get:
-          | (Omit<Get, "Key"> & {
-              Key: Record<string, NativeAttributeValue> | undefined;
-            })
-          | undefined;
-      })[]
-    | undefined;
+  TransactItems: (
+    Omit<TransactGetItem, "Get"> & {
+      Get: Omit<Get, "Key"> & {
+        Key: Record<string, NativeAttributeValue> | undefined;
+      } | undefined;
+    }
+  )[] | undefined;
 };
 
 /**
  * @public
  */
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
-  Responses?:
-    | (Omit<ItemResponse, "Item"> & {
-        Item?: Record<string, NativeAttributeValue> | undefined;
-      })[]
-    | undefined;
+  Responses?: (
+    Omit<ItemResponse, "Item"> & {
+      Item?: Record<string, NativeAttributeValue> | undefined;
+    }
+  )[] | undefined;
 };
 
 /**
@@ -72,10 +74,8 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __TransactGetItemsCommand;
-  public readonly middlewareStack: MiddlewareStack<
-    TransactGetCommandInput | __TransactGetItemsCommandInput,
-    TransactGetCommandOutput | __TransactGetItemsCommandOutput
-  >;
+  public readonly middlewareStack: MiddlewareStack<TransactGetCommandInput | __TransactGetItemsCommandInput,
+  TransactGetCommandOutput | __TransactGetItemsCommandOutput>;
 
   constructor(readonly input: TransactGetCommandInput) {
     super();
@@ -106,5 +106,6 @@ import type {
   TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
-
-import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import type {
+  NativeAttributeValue,
+} from "@aws-sdk/util-dynamodb";
