@@ -1,16 +1,11 @@
 // smithy-typescript generated code
-import { ExecuteTransactionCommand as __ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/core/client";
-import type { Handler, MiddlewareStack } from "@smithy/types";
-import { type HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
-import type {
-  DynamoDBDocumentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import { ExecuteTransactionCommand as __ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb";
 
 /**
  * @public
@@ -104,4 +99,5 @@ import type {
   ItemResponse,
   ParameterizedStatement,
 } from "@aws-sdk/client-dynamodb";
+
 import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

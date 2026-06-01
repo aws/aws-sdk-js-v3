@@ -89,11 +89,11 @@
     "@aws-sdk/core": "workspace:^3.974.15",
     "@aws-sdk/credential-providers": "workspace:3.1058.0",
     "@aws-sdk/types": "workspace:^3.973.9",
-    "@smithy/core": "^3.24.5",
-    "@smithy/fetch-http-handler": "^5.4.5",
-    "@smithy/node-http-handler": "^4.7.5",
-    "@smithy/typecheck": "^1.1.5",
-    "@smithy/types": "^4.14.2",
+    "@smithy/core": "^3.24.6",
+    "@smithy/fetch-http-handler": "^5.4.6",
+    "@smithy/node-http-handler": "^4.7.6",
+    "@smithy/typecheck": "^1.1.6",
+    "@smithy/types": "^4.14.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
