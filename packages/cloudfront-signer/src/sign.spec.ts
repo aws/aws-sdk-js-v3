@@ -973,3 +973,131 @@ describe("url component encoding", () => {
     expect(signedUrl.slice(0, target.length)).toBe(target);
   });
 });
+
+describe("SHA-256 algorithm support", () => {
+  describe("getSignedUrl with algorithm SHA256", () => {
+    it("should include Hash-Algorithm=SHA256 query parameter", () => {
+      const signedUrl = getSignedUrl({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        algorithm: "SHA256",
+      });
+      const parsed = parseUrl(signedUrl);
+      expect(parsed.query?.["Hash-Algorithm"]).toBe("SHA256");
+    });
+
+    it("should produce a valid RSA-SHA256 signature", () => {
+      const signedUrl = getSignedUrl({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        algorithm: "SHA256",
+      });
+      const parsed = parseUrl(signedUrl);
+      const signature = denormalizeBase64(parsed.query!["Signature"] as string);
+
+      // Build the expected canned policy
+      const expectedPolicy = JSON.stringify({
+        Statement: [
+          {
+            Resource: "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg",
+            Condition: { DateLessThan: { "AWS:EpochTime": epochDateLessThan } },
+          },
+        ],
+      });
+
+      const verifier = createVerify("RSA-SHA256");
+      verifier.update(expectedPolicy);
+      expect(verifier.verify(privateKey, signature, "base64")).toBe(true);
+    });
+
+    it("should produce a different signature than SHA1 for the same input", () => {
+      const sha1Url = getSignedUrl({ url, keyPairId, dateLessThan, privateKey, algorithm: "SHA1" });
+      const sha256Url = getSignedUrl({ url, keyPairId, dateLessThan, privateKey, algorithm: "SHA256" });
+
+      const sha1Sig = parseUrl(sha1Url).query!["Signature"];
+      const sha256Sig = parseUrl(sha256Url).query!["Signature"];
+      expect(sha1Sig).not.toBe(sha256Sig);
+    });
+
+    it("should not include Hash-Algorithm param when algorithm is SHA1 (default)", () => {
+      const signedUrl = getSignedUrl({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+      });
+      const parsed = parseUrl(signedUrl);
+      expect(parsed.query?.["Hash-Algorithm"]).toBeUndefined();
+    });
+
+    it("should work with custom policy and SHA256", () => {
+      const customPolicy = JSON.stringify({
+        Statement: [
+          {
+            Resource: url,
+            Condition: {
+              DateLessThan: { "AWS:EpochTime": epochDateLessThan },
+              DateGreaterThan: { "AWS:EpochTime": epochDateGreaterThan },
+            },
+          },
+        ],
+      });
+      const signedUrl = getSignedUrl({
+        url,
+        keyPairId,
+        privateKey,
+        policy: customPolicy,
+        algorithm: "SHA256",
+      });
+      const parsed = parseUrl(signedUrl);
+      expect(parsed.query?.["Hash-Algorithm"]).toBe("SHA256");
+      expect(parsed.query?.["Policy"]).toBeDefined();
+
+      const signature = denormalizeBase64(parsed.query!["Signature"] as string);
+      const verifier = createVerify("RSA-SHA256");
+      verifier.update(customPolicy);
+      expect(verifier.verify(privateKey, signature, "base64")).toBe(true);
+    });
+  });
+
+  describe("getSignedCookies with algorithm SHA256", () => {
+    it("should produce a valid RSA-SHA256 signature in cookies", () => {
+      const cookies = getSignedCookies({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+        algorithm: "SHA256",
+      });
+
+      const signature = denormalizeBase64(cookies["CloudFront-Signature"]);
+      const expectedPolicy = JSON.stringify({
+        Statement: [
+          {
+            Resource: "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg",
+            Condition: { DateLessThan: { "AWS:EpochTime": epochDateLessThan } },
+          },
+        ],
+      });
+
+      const verifier = createVerify("RSA-SHA256");
+      verifier.update(expectedPolicy);
+      expect(verifier.verify(privateKey, signature, "base64")).toBe(true);
+      expect(cookies["CloudFront-Hash-Algorithm"]).toBe("SHA256");
+    });
+
+    it("should not include CloudFront-Hash-Algorithm when using default SHA1", () => {
+      const cookies = getSignedCookies({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey,
+      });
+      expect(cookies["CloudFront-Hash-Algorithm"]).toBeUndefined();
+    });
+  });
+});

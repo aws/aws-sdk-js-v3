@@ -8,6 +8,13 @@ import { createSign } from "node:crypto";
 export type CloudfrontSignInput = CloudfrontSignInputWithParameters | CloudfrontSignInputWithPolicy;
 
 /**
+ * The hash algorithm used for signing.
+ * @see https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-cloudfront-sha-256-signed-urls/
+ * @public
+ */
+export type CloudfrontSignerAlgorithm = "SHA1" | "SHA256";
+
+/**
  * @public
  */
 export type CloudfrontSignerCredentials = {
@@ -17,8 +24,17 @@ export type CloudfrontSignerCredentials = {
   /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
 
-  /** The passphrase of RSA-SHA1 key*/
+  /** The passphrase of the RSA key. */
   passphrase?: string;
+
+  /**
+   * The hash algorithm to use for signing.
+   * When set to "SHA256", the signed URL will include a Hash-Algorithm=SHA256 query parameter
+   * as required by CloudFront for FIPS 140-3 compliance.
+   *
+   * Default "SHA1".
+   */
+  algorithm?: CloudfrontSignerAlgorithm;
 };
 
 /**
@@ -86,6 +102,9 @@ export interface CloudfrontSignedCookiesOutput {
 
   /** Base64-encoded version of the JSON policy. */
   "CloudFront-Policy"?: string;
+
+  /** The hash algorithm used for signing. Present when algorithm is SHA256. */
+  "CloudFront-Hash-Algorithm"?: string;
 }
 
 /**
@@ -102,11 +121,13 @@ export function getSignedUrl({
   ipAddress,
   policy,
   passphrase,
+  algorithm,
 }: CloudfrontSignInput): string {
   const cloudfrontSignBuilder = new CloudfrontSignBuilder({
     keyPairId,
     privateKey,
     passphrase,
+    algorithm,
   });
 
   if (!url && !policy) {
@@ -142,7 +163,11 @@ export function getSignedUrl({
   }
 
   const startFlag = baseUrl!.includes("?") ? "&" : "?";
-  const params = Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute())
+  const attributes = cloudfrontSignBuilder.createCloudfrontAttribute();
+  if (algorithm === "SHA256") {
+    attributes["Hash-Algorithm"] = "SHA256";
+  }
+  const params = Object.entries(attributes)
     .filter(([, value]) => value !== undefined)
     .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
     .join("&");
@@ -166,11 +191,13 @@ export function getSignedCookies({
   dateGreaterThan,
   policy,
   passphrase,
+  algorithm,
 }: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
   const cloudfrontSignBuilder = new CloudfrontSignBuilder({
     keyPairId,
     privateKey,
     passphrase,
+    algorithm,
   });
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
@@ -192,6 +219,9 @@ export function getSignedCookies({
   }
   if (cloudfrontCookieAttributes["Policy"]) {
     cookies["CloudFront-Policy"] = cloudfrontCookieAttributes["Policy"];
+  }
+  if (algorithm === "SHA256") {
+    cookies["CloudFront-Hash-Algorithm"] = "SHA256";
   }
   return cookies;
 }
@@ -239,6 +269,7 @@ interface CloudfrontAttributes {
   Policy?: string;
   "Key-Pair-Id": string;
   Signature: string;
+  "Hash-Algorithm"?: string;
 }
 
 /**
@@ -325,15 +356,17 @@ class CloudfrontSignBuilder {
   private keyPairId: string;
   private privateKey: string | Buffer;
   private passphrase?: string;
+  private algorithm: CloudfrontSignerAlgorithm;
   private policy: string;
   private customPolicy = false;
   private dateLessThan?: number | undefined;
 
-  constructor({ privateKey, keyPairId, passphrase }: CloudfrontSignerCredentials) {
+  constructor({ privateKey, keyPairId, passphrase, algorithm }: CloudfrontSignerCredentials) {
     this.keyPairId = keyPairId;
     this.privateKey = privateKey;
     this.policy = "";
     this.passphrase = passphrase;
+    this.algorithm = algorithm ?? "SHA1";
   }
 
   private buildPolicy(args: BuildPolicyInput): Policy {
@@ -447,7 +480,7 @@ class CloudfrontSignBuilder {
   }
 
   private signData(data: string, privateKey: string | Buffer, passphrase?: string): string {
-    const sign = createSign("RSA-SHA1");
+    const sign = createSign(this.algorithm === "SHA256" ? "RSA-SHA256" : "RSA-SHA1");
     sign.update(data);
     return sign.sign({ key: privateKey, passphrase }, "base64");
   }
