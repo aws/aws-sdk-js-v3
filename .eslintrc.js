@@ -34,11 +34,11 @@ module.exports = {
   ignorePatterns: [
     "packages/nested-clients/src/submodules/**/protocols/*.ts",
     "packages/nested-clients/src/submodules/**/models/*.ts",
-    "lib/lib-dynamodb/commands/*.ts",
-    "lib/lib-dynamodb/pagination/*.ts",
-    "lib/lib-dynamodb/DynamoDBDocument.ts",
-    "lib/lib-dynamodb/DynamoDBDocumentClient.ts",
-    "lib/lib-dynamodb/index.ts",
+    "lib/lib-dynamodb/src/commands/*.ts",
+    "lib/lib-dynamodb/src/pagination/*.ts",
+    "lib/lib-dynamodb/src/DynamoDBDocument.ts",
+    "lib/lib-dynamodb/src/DynamoDBDocumentClient.ts",
+    "lib/lib-dynamodb/src/index.ts",
   ],
   overrides: [
     {
