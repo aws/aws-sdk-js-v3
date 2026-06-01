@@ -12310,6 +12310,42 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Sends an email message. You can use the Amazon SES API v2 to send the following types of\n            messages:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Simple</b> – A standard email message. When\n                    you create this type of message, you specify the sender, the recipient, and the\n                    message body, and Amazon SES assembles the message for you.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Raw</b> – A raw, MIME-formatted email\n                    message. When you send this type of email, you have to specify all of the\n                    message headers, as well as the message body. You can use this message type to\n                    send messages that contain attachments. The message that you specify has to be a\n                    valid MIME message.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Templated</b> – A message that contains\n                    personalization tags. When you send this type of email, Amazon SES API v2 automatically\n                    replaces the tags with values that you specify.</p>\n            </li>\n         </ul>",
+        "smithy.api#examples": [
+          {
+            "title": "SendEmail",
+            "documentation": "The following example sends a formatted email using Amazon SES API v2:",
+            "input": {
+              "FromEmailAddress": "sender@example.com",
+              "Destination": {
+                "ToAddresses": ["recipient1@example.com", "recipient2@example.com"],
+                "CcAddresses": ["recipient3@example.com"],
+                "BccAddresses": []
+              },
+              "Content": {
+                "Simple": {
+                  "Subject": {
+                    "Data": "Test email",
+                    "Charset": "UTF-8"
+                  },
+                  "Body": {
+                    "Text": {
+                      "Data": "This is the message body in text format.",
+                      "Charset": "UTF-8"
+                    },
+                    "Html": {
+                      "Data": "This message body contains HTML formatting. It can, for example, contain links like this one: <a href=\"https://docs.aws.amazon.com/ses/latest/dg/Welcome.html\">Amazon SES Developer Guide</a>.",
+                      "Charset": "UTF-8"
+                    }
+                  }
+                }
+              },
+              "ReplyToAddresses": []
+            },
+            "output": {
+              "MessageId": "EXAMPLE7-90ab-cdef-fedc-ba987EXAMPLE"
+            }
+          }
+        ],
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v2/email/outbound-emails",

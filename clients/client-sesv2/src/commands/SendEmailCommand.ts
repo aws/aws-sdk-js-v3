@@ -201,6 +201,50 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  *
+ * @example SendEmail
+ * ```javascript
+ * // The following example sends a formatted email using Amazon SES API v2:
+ * const input = {
+ *   FromEmailAddress: "sender@example.com",
+ *   Destination: {
+ *     BccAddresses:     [],
+ *     CcAddresses: [
+ *       "recipient3@example.com"
+ *     ],
+ *     ToAddresses: [
+ *       "recipient1@example.com",
+ *       "recipient2@example.com"
+ *     ]
+ *   },
+ *   Content: {
+ *     Simple: {
+ *       Body: {
+ *         Html: {
+ *           Charset: "UTF-8",
+ *           Data: `This message body contains HTML formatting. It can, for example, contain links like this one: <a href="https://docs.aws.amazon.com/ses/latest/dg/Welcome.html">Amazon SES Developer Guide</a>.`
+ *         },
+ *         Text: {
+ *           Charset: "UTF-8",
+ *           Data: "This is the message body in text format."
+ *         }
+ *       },
+ *       Subject: {
+ *         Charset: "UTF-8",
+ *         Data: "Test email"
+ *       }
+ *     }
+ *   },
+ *   ReplyToAddresses:   []
+ * };
+ * const command = new SendEmailCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   MessageId: "EXAMPLE7-90ab-cdef-fedc-ba987EXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class SendEmailCommand extends $Command
